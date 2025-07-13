@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+    # api:
+    #     build: ./api
+    #     restart: always
+    #     ports:
+    #         - "3000:3000"
+    #     env_file:
+    #         - ./api/.env
+    #     volumes:
+    #         - ./api:/app
+    #     command: npm run start
+
+    frontend:
+        build: ./frontend
+        restart: always
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./frontend:/app
+        command: http-server build -p 8080
