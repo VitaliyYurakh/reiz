@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "start": "npx gulp && start Soinproduction project",
-    "build": "gulp build --build",
+    "build": "npx gulp build --build",
     "cache": "gulp cache",
     "backend": "gulp backend",
     "zip": "gulp zip --build"
