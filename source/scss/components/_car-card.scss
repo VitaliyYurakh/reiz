@@ -1,0 +1,374 @@
+@use "../mixins/breakpoint" as *;
+@use "../mixins/disable-mob-hover" as *;
+
+.car-card {
+  border: 1px solid var(--cl-k);
+  border-radius: 16px;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: clamp(300px, 31.25vw, 450px) 1fr;
+  max-height: 250px;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    max-height: 250px;
+    img,
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include laptop {
+      order: -2;
+      height: 194px;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    @media (max-width: 785px) {
+      height: clamp(194px, 38.22vw, 300px);
+    }
+
+    @include hover {
+      & + .car-card__box {
+        .main-button {
+          color: var(--cl-b);
+          background: var(--cl-l);
+
+          &::before {
+            left: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &__text {
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--cl-o);
+  }
+
+  &__labels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--cl-p);
+      border-radius: 8px;
+      width: 100%;
+      height: 38px;
+      font-family: var(--second-family);
+      font-weight: 500;
+      font-size: 13px;
+      text-align: center;
+      color: var(--cl-a);
+
+      &.active {
+        font-family: var(--second-family);
+        font-weight: 500;
+        font-size: 13px;
+        text-align: center;
+        color: var(--cl-b);
+        background: var(--cl-e);
+        border-color: var(--cl-e);
+      }
+
+      @media (max-width: 405px) {
+        height: 34px;
+      }
+    }
+
+    @include for-laptop {
+      display: none;
+    }
+
+    @media (max-width: 405px) {
+      grid-template-columns: 100%;
+      gap: 5px;
+    }
+  }
+
+  &__value {
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--cl-a);
+
+    @include for-laptop {
+      b {
+        font-weight: 400;
+      }
+
+      i {
+        font-weight: 400;
+        font-style: normal;
+      }
+    }
+
+    &.desktop {
+      @include laptop {
+        display: none;
+      }
+    }
+
+    &.mob {
+      @include for-laptop {
+        display: none;
+      }
+    }
+  }
+
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    @include for-laptop {
+      border-top: 1px solid var(--cl-k);
+      padding: 10px 20px;
+      height: 44px;
+    }
+
+    @include laptop {
+      height: 50px;
+      margin-top: -20px;
+
+      .car-card {
+        &__text {
+          font-family: var(--second-family);
+          color: var(--cl-a);
+        }
+
+        &__value {
+          font-family: var(--second-family);
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--cl-k);
+    padding: 10px clamp(12px, 1.4706vw, 20px);
+    height: 45px;
+    grid-column: 1/-1;
+
+    @include laptop {
+      order: -3;
+      height: fit-content;
+      padding: 5px 0 0;
+      margin-bottom: -6px;
+      border-bottom: none;
+    }
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-left: 1px solid var(--cl-k);
+
+    .car-card {
+      &__value {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        text-align: center;
+
+        @include laptop {
+          font-size: 12px;
+          text-align: start;
+        }
+      }
+      &__item {
+        @include for-laptop {
+          gap: initial;
+          flex-direction: column;
+          padding: 5px;
+
+          &:nth-child(1),
+          &:nth-child(2) {
+            border-bottom: 1px solid var(--cl-k);
+          }
+          &:nth-child(even) {
+            border-left: 1px solid var(--cl-k);
+          }
+        }
+
+        .sprite {
+          width: 26px;
+          height: 26px;
+          display: flex;
+
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+
+          @include laptop {
+            width: 21px;
+            height: 21px;
+          }
+        }
+
+        @include laptop {
+          justify-content: flex-start;
+          gap: 6px;
+
+          &:last-of-type {
+            display: none;
+          }
+        }
+      }
+      &__text {
+        font-family: var(--font-family);
+        font-size: 13px;
+        text-align: center;
+        color: #838383;
+
+        @include laptop {
+          display: none;
+        }
+      }
+    }
+
+    @include laptop {
+      order: -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding: 18px 20px;
+
+    @include laptop {
+      padding: 0;
+      margin-top: 11px;
+      gap: initial;
+
+      .car-card {
+        &__text {
+          font-family: var(--second-family);
+          color: var(--cl-a);
+        }
+
+        &__value {
+          font-family: var(--second-family);
+
+          b {
+            font-weight: 500;
+          }
+          i {
+            font-style: normal;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .car-card__item {
+        border-bottom: 1px dashed var(--cl-r);
+        height: 35px;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .main-button {
+    width: 100%;
+    min-width: initial;
+
+    @include for-laptop {
+      border-left: 1px solid var(--cl-k);
+      border-top: 1px solid var(--cl-k);
+      padding: 11px 86px;
+      border-radius: 0;
+      height: 45px;
+    }
+
+    @include laptop {
+      margin-top: -20px;
+      height: 50px;
+      border: 1px solid var(--cl-q);
+      border-radius: 12px;
+    }
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: 1fr 205px;
+    grid-template-rows: repeat(3, auto);
+
+    @include laptop {
+      display: contents;
+    }
+  }
+
+  &__label {
+    font-family: var(--font8);
+    font-weight: 500;
+    font-size: 14px;
+    color: #f25c05;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    &::before {
+      width: 6px;
+      height: 6px;
+      border-radius: 100%;
+      margin-top: -1px;
+      background: #f25c05;
+      display: block;
+      content: "";
+    }
+
+    @include tablet {
+      font-family: var(--font5);
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+
+  &__name {
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--cl-a);
+
+    @include mobile {
+      font-family: var(--second-family);
+    }
+  }
+
+  @include laptop {
+    grid-template-columns: 100%;
+    max-height: 100%;
+    padding: 10px;
+    gap: 20px;
+  }
+}

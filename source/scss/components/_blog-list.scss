@@ -1,0 +1,14 @@
+@use "../mixins/breakpoint" as *;
+.blog-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__item{
+        @include mobile {
+    &:nth-child(n+5) {
+      display: none;
+    }
+  }
+    }
+}

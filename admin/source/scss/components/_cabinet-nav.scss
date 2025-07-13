@@ -1,0 +1,17 @@
+.cabinet-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.0417vw, 20px);
+  padding: clamp(16px, 1.0417vw, 20px);
+  background: var(--cl-t);
+  border-radius: 16px;
+  width: 100%;
+  height: fit-content;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(10px, 1.0417vw, 20px);
+  }
+}

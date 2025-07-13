@@ -1,0 +1,22 @@
+// ------------------------------- first level
+// @use "general/normalize";
+// ------------------------------- second level
+@use "general/icomoon";
+@use "general/fonts";
+@use "general/mixins";
+@use "general/vars";
+@use "general/plugins";
+@use "general/typography";
+@use "general/modals";
+
+// ------------------------------- third level
+@use "general/global";
+@use "general/loader";
+@use "general/custom-icon";
+@use "general/buttons";
+@use "general/components";
+@use "general/blocks";
+
+
+
+

@@ -1,0 +1,72 @@
+@use "../../mixins/breakpoint" as *;
+
+.additionally-service {
+  padding: clamp(50px, 7.82vw, 75px) 0 clamp(50px, 11.73vw, 130px);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(40px, 6.52vw, 60px);
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.3vw, 20px);
+
+  }
+
+  &__img {
+    @include tablet {
+      margin-left: -10%;
+
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(50px, 6.52vw, 78px);
+  }
+
+
+}
+
+.additionally-article {
+  display: grid;
+  grid-template-columns: minmax( 300px, 52%) minmax(30%, 500px);
+  gap: clamp(15px, 2.61vw, 30px);
+  align-items: flex-start;
+
+  &__img {
+    width: 100%;
+    display: flex;
+
+    picture,img {
+      width: 100%;
+      display: flex;
+    }
+  }
+
+  &__coll {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3.91vw, 40px);
+  }
+
+  @include small-tablet {
+    grid-template-columns: minmax(310px, Min(90%, 576px));
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .cta-box {
+    p {
+      color: var(--cl-a);
+
+      @include tablet {
+        grid-column: 1/-1;
+      }
+    }
+  }
+}

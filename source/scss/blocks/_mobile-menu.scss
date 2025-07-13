@@ -1,0 +1,86 @@
+@use "../mixins/breakpoint" as *;
+
+.mobile {
+  &__box {
+    @include for-tablet {
+      display: contents;
+    }
+
+    @include tablet {
+      overflow-y: auto;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+  @include for-tablet {
+    grid-column: 1/2;
+    grid-row: 1;
+  }
+  @include tablet {
+    position: fixed;
+    top: var(--header-height);
+    height: calc(100dvh - var(--header-height));
+    left: 0;
+    width: 100%;
+    background: var(--body-bg);
+    z-index: 60;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform: translateX(-110%);
+    flex-shrink: 0;
+    max-width: 320px;
+
+    .main-button {
+      flex-shrink: 0;
+    }
+
+    .main-nav {
+      padding: 0 8px;
+    }
+
+    .header {
+      &__choice {
+        justify-content: space-between;
+      }
+    }
+
+    .custom-select {
+      height: 20px;
+      min-width: 90px;
+
+      .select-text {
+        color: var(--cl-a);
+      }
+      .select-field {
+        * {
+          color: var(--cl-a) !important;
+        }
+      }
+      .arrow-down {
+        color: var(--cl-a);
+      }
+    }
+  }
+
+  .main-button {
+    @include for-tablet {
+      display: none;
+    }
+  }
+
+  .main-nav {
+    @include for-tablet {
+      display: none;
+    }
+  }
+
+  &.active {
+    display: flex;
+    transform: translateX(0);
+  }
+}

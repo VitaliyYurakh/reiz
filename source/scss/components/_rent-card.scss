@@ -1,0 +1,126 @@
+@use "../mixins/breakpoint" as *;
+@use "../mixins/disable-mob-hover" as *;
+
+.rent-card {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 16px;
+  height: 100%;
+  min-height: clamp(224px, 25.7353vw, 350px);
+  padding: 20px;
+  gap: 41px;
+  display: flex;
+  flex-direction: column;
+
+  .main-button {
+    margin-top: auto;
+    align-self: flex-end;
+    font-size: 16px;
+    height: clamp(40px, 3.6765vw, 50px);
+    min-width: clamp(113px, 11.7647vw, 160px);
+    padding: 12px clamp(12px, 2.2059vw, 30px);
+  }
+
+  &__image {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    inset: 0;
+    transition: all .4s;
+    img,
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(20px, 3.0147vw, 41px) 12px;
+
+    @include laptop{
+        grid-template-columns: 100%;
+    }
+
+    @include small-tablet{
+        display: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+    gap: 23px;
+
+    &:last-of-type {
+      grid-column: 1/-1;
+    }
+
+    i {
+      width: auto;
+      max-width: 43px;
+      height: auto;
+      max-height: 41px;
+      display: flex;
+
+      svg {
+        width: auto;
+        height: auto;
+      }
+
+      &.mode {
+        margin-top: -5px;
+        max-height: 53px;
+        max-width: 53px;
+        margin-right: -5px;
+      }
+    }
+
+    p {
+      font-family: var(--third-family);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 125%;
+      color: #fff;
+    }
+  }
+
+  &__title {
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: clamp(18px, 1.4706vw, 20px);
+    color: var(--cl-b);
+    @include mobile {
+      font-family: var(--font-family);
+    }
+  }
+
+  @include hover{
+    .main-button{
+            border-color: var(--cl-b);
+            background: var(--cl-b);
+            color: var(--cl-a);
+    
+            &::before{
+                content: none;
+            }
+
+            @include hover{
+                            color: var(--cl-b);
+                background: transparent;
+                border-color: var(--cl-m);
+            }
+    }
+    .rent-card{
+        &__image{
+            transform: scale(1.1);
+        }
+    }
+
+  }
+
+  @include small-tablet{
+      min-height: clamp(224px, 39.06vw, 300px);
+  }
+}

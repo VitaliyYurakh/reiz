@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+    @include('partials/header.html')
+    <main class="main">
+
+        <section class="hero-section">
+            <div class="hero-section__bg">
+                <picture>
+                    <source type='image/webp' srcset='img/car/mercedescle.webp'>
+                    <img width='1440' height='902' src='img/car/mercedescle.png' alt='image'>
+                </picture>
+            </div>
+            <div class="container">
+                <div class="hero-section__box">
+                    <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
+                        <div class="aside__top">
+                             <a href="index.html" class="aside__title">REIZ</a>
+                            <p>CAR RENTAL IN UKRAINE</p>
+                        </div>
+
+                        <nav class="main-nav">
+                            <ul>
+                                <li>
+                                    <a href="index.html" class="active">ГЛАВНАЯ</a>
+                                </li>
+                                <li>
+                                    <ul class="main-nav__acc" data-accordion>
+                                        <li class="main-nav__acc-item">
+                                            <button class="main-nav__acc-btn" data-id="1">
+                                                АВТОМОБИЛИ
+                                                <i class="sprite">
+                                                    <svg width='11' height='8'>
+                                                        <use href='img/sprite/sprite.svg#arrow-d'></use>
+                                                    </svg>
+                                                </i>
+                                            </button>
+                                            <div class="main-nav__acc-content" data-content="1">
+                                                <a href="#">Прокат авто в Киеве</a>
+                                                <a href="#">Прокат авто во Львове</a>
+                                                <a href="#">Прокат авто в Тернополе</a>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">СТРАХОВКА</a>
+                                </li>
+                                <li>
+                                    <a href="#">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                </li>
+                                <li>
+                                    <a href="#">СЕРТИФИКАТЫ </a>
+                                </li>
+                                <li>
+                                    <a href="#">УСЛОВИЯ АРЕНДЫ</a>
+                                </li>
+                                <li>
+                                    <a href="#">ВОПРОС-ОТВЕТ</a>
+                                </li>
+                                <li>
+                                    <a href="#">СДАТЬ АВТО В АРЕНДУ</a>
+                                </li>
+                                <li>
+                                    <a href="#">БЛОГ</a>
+                                </li>
+                                <li>
+                                    <a href="#">О НАС</a>
+                                </li>
+                                <li>
+                                    <a href="#">КОНТАКТЫ</a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
+                    </aside>
+
+                    <div class="hero-section__inner">
+                        <div class="hero-section__top" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">
+                            <h3 class="pretitle">ДОБРО ПОЖАЛОВАТЬ В REIZ</h3>
+
+                            <span class="hero-section__date">
+                                <i class="sprite">
+                                    <svg width='24' height='24'>
+                                        <use href='img/sprite/sprite.svg#time'></use>
+                                    </svg>
+                                </i>
+                                ОТВЕТИМ С 09:00 ДО 21:00
+                            </span>
+                        </div>
+                        <div class="editor" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                            <h1 class="title">Аренда авто в Украине</h1>
+
+                            <p>Аренда авто в Киеве, Львове и других городах Украины — выгодные цены на прокат эконом и
+                                премиум автомобилей.</p>
+
+                            <ul>
+                                <li>
+                                    <p>Аренда авто эконом-класса</p>
+                                </li>
+                                <li>
+                                    <p>Аренда авто бизнес-класса</p>
+                                </li>
+                                <li>
+                                    <p>Прокат премиум-авто</p>
+                                </li>
+                                <li>
+                                    <p>Аренда внедорожников</p>
+                                </li>
+                                <li>
+                                    <p>Прокат минивэнов</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="hero-section__links" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1100">
+                            <a href="#" class="adress-link">
+                                <i class="sprite mode">
+                                    <svg width='20' height='26'>
+                                        <use href='img/sprite/sprite.svg#geo'></use>
+                                    </svg>
+                                </i>
+                                <span>Danylo Halytskyi International Airport Lviv</span>
+                                <i class="sprite">
+                                    <svg width='12' height='7'>
+                                        <use href='img/sprite/sprite.svg#Arrow-d2'></use>
+                                    </svg>
+                                </i>
+                            </a>
+
+                            <a href="#catalog" class="down-btn">
+                                <i class="sprite">
+                                    <svg width='16' height='22'>
+                                        <use href='img/sprite/sprite.svg#Arrow'></use>
+                                    </svg>
+                                </i>
+
+                                ПЕРЕЙТИ К ВЫБОРУ АВТОМОБИЛЯ
+                            </a>
+                        </div>
+
+                        <form class="order-form">
+                            <div class="custom-select order">
+                                <span class="select-icon">
+                                    <svg width='25' height='25'>
+                                        <use href='img/sprite/sprite.svg#geo'></use>
+                                    </svg>
+                                </span>
+                                <div class="select-field">
+                                    <div class="selected-options">
+
+                                    </div>
+                                    <div class="arrow-down">
+                                        <svg width='6' height='3'>
+                                            <use href='img/sprite/sprite.svg#arrow-d'></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <ul class="options-container">
+                                    <li class="option active" data-value="Киев, Аэропорт “Борисполь”, терминал 3б">
+                                        <span class="option-text">Киев, Аэропорт “Борисполь”, терминал 3б</span>
+                                    </li>
+                                    <li class="option" data-value="Киев, Аэропорт “Жуляны”, терминал 2а">
+                                        <span class="option-text">Киев, Аэропорт “Жуляны”, терминал 2а</span>
+                                    </li>
+                                    <li class="option" data-value="Львов, Аэропорт “Центральный”, терминал 1">
+                                        <span class="option-text">Львов, Аэропорт “Центральный”, терминал 1</span>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <div class="custom-select order">
+                                <span class="select-icon">
+                                    <svg width='25' height='25'>
+                                        <use href='img/sprite/sprite.svg#geo'></use>
+                                    </svg>
+                                </span>
+                                <div class="select-field">
+                                    <div class="selected-options">
+
+                                    </div>
+                                    <div class="arrow-down">
+                                        <svg width='6' height='3'>
+                                            <use href='img/sprite/sprite.svg#arrow-d'></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <ul class="options-container">
+                                    <li class="option active" data-value="Киев, Аэропорт “Борисполь”, терминал 3б">
+                                        <span class="option-text">Киев, Аэропорт “Борисполь”, терминал 3б</span>
+                                    </li>
+                                    <li class="option" data-value="Киев, Аэропорт “Жуляны”, терминал 2а">
+                                        <span class="option-text">Киев, Аэропорт “Жуляны”, терминал 2а</span>
+                                    </li>
+                                    <li class="option" data-value="Львов, Аэропорт “Центральный”, терминал 1">
+                                        <span class="option-text">Львов, Аэропорт “Центральный”, терминал 1</span>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <label class="order-form__label">
+                                <span class="order-form__icon">
+                                    <svg width='21' height='21'>
+                                        <use href='img/sprite/sprite.svg#car'></use>
+                                    </svg>
+                                </span>
+                                <input type="text" name="date" id="date" data-calendar="short"
+                                    value="26 апр. 10:00 - 26 апр. 10:00">
+
+                                <div class="arrow-down">
+                                    <svg width='6' height='3'>
+                                        <use href='img/sprite/sprite.svg#arrow-d'></use>
+                                    </svg>
+                                </div>
+                            </label>
+
+
+                            <button class="main-button" type="submit">НАЙТИ</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalog" class="catalog-section">
+            <div class="container">
+                <div class="catalog-section__box">
+                    <aside class="catalog-aside"  data-aos="fade-right" data-aos-duration="900">
+                        <div class="catalog-aside__top">
+                            <h2 class="catalog-aside__title">REIZ RENTAL</h2>
+                            <p>ВЫБЕРИТЕ СВОЙ АВТОМОБИЛЬ</p>
+                        </div>
+
+                        <form class="catalog-aside__form">
+                            <div class="catalog-aside__content">
+                                <div class="catalog-aside__inner">
+                                    <label class="radio-checkbox">
+                                        <input type="radio" name="car-type" value="Economy" class="radio-checkbox__field">
+                                        <span class="radio-checkbox__content">
+                                            <i class="sprite">
+                                                <svg width='88' height='27'>
+                                                    <use href='img/sprite/sprite.svg#car1'></use>
+                                                </svg>
+                                            </i>
+                                            Economy
+                                        </span>
+                                    </label>
+                                    <label class="radio-checkbox">
+                                        <input type="radio" checked name="car-type" value="Business"
+                                            class="radio-checkbox__field">
+                                        <span class="radio-checkbox__content">
+                                            <i class="sprite">
+                                                <svg width='88' height='27'>
+                                                    <use href='img/sprite/sprite.svg#car2'></use>
+                                                </svg>
+                                            </i>
+                                            Business
+                                        </span>
+                                    </label>
+                                    <label class="radio-checkbox">
+                                        <input type="radio" name="car-type" value="Suv" class="radio-checkbox__field">
+                                        <span class="radio-checkbox__content">
+                                            <i class="sprite">
+                                                <svg width='88' height='27'>
+                                                    <use href='img/sprite/sprite.svg#car3'></use>
+                                                </svg>
+                                            </i>
+                                            Suv
+                                        </span>
+                                    </label>
+                                    <label class="radio-checkbox">
+                                        <input type="radio" name="car-type" value="Luxury" class="radio-checkbox__field">
+                                        <span class="radio-checkbox__content">
+                                            <i class="sprite">
+                                                <svg width='88' height='27'>
+                                                    <use href='img/sprite/sprite.svg#car4'></use>
+                                                </svg>
+                                            </i>
+                                            Luxury
+                                        </span>
+                                    </label>
+                                    <label class="radio-checkbox">
+                                        <input type="radio" name="car-type" value="Van" class="radio-checkbox__field">
+                                        <span class="radio-checkbox__content">
+                                            <i class="sprite">
+                                                <svg width='88' height='27'>
+                                                    <use href='img/sprite/sprite.svg#car5'></use>
+                                                </svg>
+                                            </i>
+                                            Van
+                                        </span>
+                                    </label>
+                                </div>
+
+                                <div class="catalog-aside__open">
+                                    <button class="catalog-aside__filter">
+                                        Фильтры
+                                        <i class="sprite">
+                                            <svg width='21' height='21'>
+                                                <use href='img/sprite/sprite.svg#filter'></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                </div>
+
+                                <div class="catalog-aside__filters">
+                                    <span class="catalog-aside__subtitle">Фильтры</span>
+                                    <button class="catalog-aside__close">
+                                        <i class="sprite">
+                                            <svg width='24' height='24'>
+                                            <use href='img/sprite/sprite.svg#close'></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="custom-select">
+                                        <div class="select-field">
+                                            <div class="selected-options">
+                                                <span class="placeholder">Марка</span>
+                                            </div>
+                                            <div class="arrow-down">
+                                                <svg width='6' height='3'>
+                                                    <use href='img/sprite/sprite.svg#arrow-d'></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <ul class="options-container">
+                                            <li class="option" data-value="Audi">
+                                                <span class="option-text">Audi</span>
+                                            </li>
+                                            <li class="option" data-value="BMW">
+                                                <span class="option-text">BMW</span>
+                                            </li>
+                                            <li class="option" data-value="Mercedes">
+                                                <span class="option-text">Mercedes</span>
+                                            </li>
+                                            <li class="option" data-value="Toyota">
+                                                <span class="option-text">Toyota</span>
+                                            </li>
+                                            <li class="option" data-value="Porsche">
+                                                <span class="option-text">Porsche</span>
+                                            </li>
+                                            <li class="option" data-value="KIA">
+                                                <span class="option-text">KIA</span>
+                                            </li>
+                                            <li class="option" data-value="Mazda">
+                                                <span class="option-text">Mazda</span>
+                                            </li>
+                                            <li class="option" data-value="Bentley">
+                                                <span class="option-text">Bentley</span>
+                                            </li>
+                                            <li class="option" data-value="Ferrari">
+                                                <span class="option-text">Ferrari</span>
+                                            </li>
+                                            <li class="option" data-value="Zeekr">
+                                                <span class="option-text">Zeekr</span>
+                                            </li>
+                                            <li class="option" data-value="Lamborghini">
+                                                <span class="option-text">Lamborghini</span>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="custom-select">
+                                        <div class="select-field">
+                                            <div class="selected-options">
+                                                <span class="placeholder">Модель</span>
+                                            </div>
+                                            <div class="arrow-down">
+                                                <svg width='6' height='3'>
+                                                    <use href='img/sprite/sprite.svg#arrow-d'></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <ul class="options-container">
+                                            <li class="option" data-value="Series_1">
+                                                <span class="option-text">Series-1</span>
+                                            </li>
+                                            <li class="option" data-value="Series_2">
+                                                <span class="option-text">Series-2</span>
+                                            </li>
+                                            <li class="option" data-value="Series_3">
+                                                <span class="option-text">Series-3</span>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="custom-select">
+                                        <div class="select-field">
+                                            <div class="selected-options">
+                                                <span class="placeholder">Тип топлива</span>
+                                            </div>
+                                            <div class="arrow-down">
+                                                <svg width='6' height='3'>
+                                                    <use href='img/sprite/sprite.svg#arrow-d'></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <ul class="options-container">
+                                            <li class="option" data-value="Бензин">
+                                                <span class="option-text">Бензин</span>
+                                            </li>
+                                            <li class="option" data-value="Дизель">
+                                                <span class="option-text">Дизель</span>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+                                    <label class="catalog-aside__label">
+                                        <input type="number" name="value_min" id="value_min" class="catalog-aside__input"
+                                            placeholder="от 40">
+                                        <span>$</span>
+                                    </label>
+                                    <label class="catalog-aside__label">
+                                        <input type="number" name="value_max" id="value_max" class="catalog-aside__input"
+                                            placeholder="до 550">
+                                        <span>$</span>
+                                    </label>
+
+                                    <button class="reset-btn">Сбросить фильтр</button>
+                                </div>
+                            </div>
+
+                            <button class="main-button" type="submit">ЗАКАЗАТЬ ЗВОНОК</button>
+                        </form>
+                    </aside>
+
+                    <div class="catalog-section__content">
+                        <div class="catalog-section__top" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
+                            <h2 class="pretitle">АВТОМОБИЛИ REIZ</h2>
+
+                            <div class="custom-select mode">
+                                <div class="select-field">
+                                    <div class="selected-options">
+                                        <span class="select-icon">
+                                            <i class="sprite">
+                                                <svg width='14' height='12'>
+                                                    <use href='img/sprite/sprite.svg#filter2'></use>
+                                                </svg>
+                                            </i>
+                                        </span>
+                                        <span class="placeholder">По умолчанию</span>
+                                    </div>
+                                    <div class="arrow-down">
+                                        <svg width='6' height='3'>
+                                            <use href='img/sprite/sprite.svg#arrow-d'></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <ul class="options-container">
+                                    <li class="option" data-value="По_возрастанию">
+                                        <span class="option-text">По возрастанию</span>
+                                    </li>
+                                    <li class="option" data-value="По_убыванию">
+                                        <span class="option-text">По убыванию</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <ul class="catalog-section__list" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                            <li class="car-card">
+                                <a href="single.html" class="car-card__image">
+                                    <picture>
+                                        <source type='image/webp' srcset='img/car/img.webp'>
+                                        <img width='450' height='252' src='img/car/img.png' alt='image'>
+                                    </picture>
+                                </a>
+
+                                <div class="car-card__box">
+                                    <div class="car-card__top">
+                                        <a href="single.html" class="car-card__name">Mercedes-Benz SL 2024</a>
+                                        <span class="car-card__label">NEW</span>
+                                    </div>
+
+                                    <div class="car-card__labels">
+                                        <span class="active">С залогом</span>
+                                        <span>Покрытие 50%</span>
+                                        <span>Покрытие 100%</span>
+                                    </div>
+
+                                    <ul class="car-card__list">
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">1 - 2 дней</span>
+                                            <span class="car-card__value"><b>675 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">3 - 7 дней</span>
+                                            <span class="car-card__value"><b>645 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">8 - 29 дней</span>
+                                            <span class="car-card__value"><b>607 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">Более 29 дней</span>
+                                            <span class="car-card__value"><b>513 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="car-card__info">
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon1'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Двигатель</span>
+                                            <span class="car-card__value desktop">4.0L</span>
+                                            <span class="car-card__value mob">4.0L Бензин</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon2'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Трансмисия</span>
+
+                                            <span class="car-card__value desktop">Automatic</span>
+                                            <span class="car-card__value mob">Автомат</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon3'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Привод</span>
+                                            <span class="car-card__value desktop">AWD</span>
+                                            <span class="car-card__value mob">Полный привод</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon4'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Число мест</span>
+                                            <span class="car-card__value">2 Seats</span>
+                                        </li>
+                                    </ul>
+
+                                    <div class="car-card__total">
+                                        <span class="car-card__text">Залог:</span>
+                                        <span class="car-card__value">5000 USD</span>
+                                    </div>
+                                    <a href="single.html" class="main-button">ПОДРОБНЕЕ</a>
+                                </div>
+                            </li>
+                            <li class="car-card">
+                                <a href="single.html" class="car-card__image">
+                                    <picture>
+                                        <source type='image/webp' srcset='img/car/img2.webp'>
+                                        <img width='450' height='252' src='img/car/img2.png' alt='image'>
+                                    </picture>
+                                </a>
+
+                                <div class="car-card__box">
+                                    <div class="car-card__top">
+                                        <a href="single.html" class="car-card__name">Mercedes-Benz S Class 2024</a>
+                                        <span class="car-card__label">NEW</span>
+                                    </div>
+
+                                    <div class="car-card__labels">
+                                        <span class="active">С залогом</span>
+                                        <span class="active">Покрытие 50%</span>
+                                        <span>Покрытие 100%</span>
+                                    </div>
+
+                                    <ul class="car-card__list">
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">1 - 2 дней</span>
+                                            <span class="car-card__value"><b>675 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">3 - 7 дней</span>
+                                            <span class="car-card__value"><b>645 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">8 - 29 дней</span>
+                                            <span class="car-card__value"><b>607 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">Более 29 дней</span>
+                                            <span class="car-card__value"><b>513 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="car-card__info">
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon1'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Двигатель</span>
+                                            <span class="car-card__value desktop">4.0L</span>
+                                            <span class="car-card__value mob">4.0L Бензин</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon2'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Трансмисия</span>
+
+                                            <span class="car-card__value desktop">Automatic</span>
+                                            <span class="car-card__value mob">Автомат</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon3'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Привод</span>
+                                            <span class="car-card__value desktop">AWD</span>
+                                            <span class="car-card__value mob">Полный привод</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon4'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Число мест</span>
+                                            <span class="car-card__value">2 Seats</span>
+                                        </li>
+                                    </ul>
+
+
+                                    <div class="car-card__total">
+                                        <span class="car-card__text">Залог:</span>
+                                        <span class="car-card__value">5000 USD</span>
+                                    </div>
+                                    <a href="single.html" class="main-button">ПОДРОБНЕЕ</a>
+                                </div>
+                            </li>
+                            <li class="car-card">
+                                <a href="single.html" class="car-card__image">
+                                    <picture>
+                                        <source type='image/webp' srcset='img/car/img3.webp'>
+                                        <img width='450' height='252' src='img/car/img3.png' alt='image'>
+                                    </picture>
+                                </a>
+
+                                <div class="car-card__box">
+                                    <div class="car-card__top">
+                                        <a href="single.html" class="car-card__name">BMW M2 2024</a>
+
+                                    </div>
+
+                                    <div class="car-card__labels">
+                                        <span class="active">С залогом</span>
+                                        <span>Покрытие 50%</span>
+                                        <span>Покрытие 100%</span>
+                                    </div>
+
+                                    <ul class="car-card__list">
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">1 - 2 дней</span>
+                                            <span class="car-card__value"><b>675 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">3 - 7 дней</span>
+                                            <span class="car-card__value"><b>645 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">8 - 29 дней</span>
+                                            <span class="car-card__value"><b>607 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">Более 29 дней</span>
+                                            <span class="car-card__value"><b>513 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="car-card__info">
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon1'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Двигатель</span>
+                                            <span class="car-card__value desktop">4.0L</span>
+                                            <span class="car-card__value mob">4.0L Бензин</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon2'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Трансмисия</span>
+
+                                            <span class="car-card__value desktop">Automatic</span>
+                                            <span class="car-card__value mob">Автомат</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon3'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Привод</span>
+                                            <span class="car-card__value desktop">AWD</span>
+                                            <span class="car-card__value mob">Полный привод</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon4'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Число мест</span>
+                                            <span class="car-card__value">2 Seats</span>
+                                        </li>
+                                    </ul>
+
+
+                                    <div class="car-card__total">
+                                        <span class="car-card__text">Залог:</span>
+                                        <span class="car-card__value">5000 USD</span>
+                                    </div>
+                                    <a href="single.html" class="main-button">ПОДРОБНЕЕ</a>
+                                </div>
+                            </li>
+                            <li class="car-card">
+                                <a href="single.html" class="car-card__image">
+                                    <picture>
+                                        <source type='image/webp' srcset='img/car/gar4.webp'>
+                                        <img width='450' height='252' src='img/car/gar4.png' alt='image'>
+                                    </picture>
+                                </a>
+
+                                <div class="car-card__box">
+                                    <div class="car-card__top">
+                                        <a href="single.html" class="car-card__name">Porche Cayenne 2023</a>
+                                    </div>
+
+                                    <div class="car-card__labels">
+                                        <span class="active">С залогом</span>
+                                        <span>Покрытие 50%</span>
+                                        <span>Покрытие 100%</span>
+                                    </div>
+
+                                    <ul class="car-card__list">
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">1 - 2 дней</span>
+                                            <span class="car-card__value"><b>675 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">3 - 7 дней</span>
+                                            <span class="car-card__value"><b>645 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">8 - 29 дней</span>
+                                            <span class="car-card__value"><b>607 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <span class="car-card__text">Более 29 дней</span>
+                                            <span class="car-card__value"><b>513 USD</b><i>/</i>сутки</span>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="car-card__info">
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon1'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Двигатель</span>
+                                            <span class="car-card__value desktop">4.0L</span>
+                                            <span class="car-card__value mob">4.0L Бензин</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon2'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Трансмисия</span>
+
+                                            <span class="car-card__value desktop">Automatic</span>
+                                            <span class="car-card__value mob">Автомат</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon3'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Привод</span>
+                                            <span class="car-card__value desktop">AWD</span>
+                                            <span class="car-card__value mob">Полный привод</span>
+                                        </li>
+                                        <li class="car-card__item">
+                                            <i class="sprite">
+                                                <svg width='26' height='26'>
+                                                    <use href='img/sprite/sprite.svg#icon4'></use>
+                                                </svg>
+                                            </i>
+                                            <span class="car-card__text">Число мест</span>
+                                            <span class="car-card__value">2 Seats</span>
+                                        </li>
+                                    </ul>
+
+
+                                    <div class="car-card__total">
+                                        <span class="car-card__text">Залог:</span>
+                                        <span class="car-card__value">5000 USD</span>
+                                    </div>
+                                    <a href="single.html" class="main-button">ПОДРОБНЕЕ</a>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <button class="main-button" data-aos="fade-up" data-aos-duration="500">ПОКАЗАТЬ ЕЩЕ АВТО</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages-section">
+            <div class="container">
+                <div class="advantages-section__box">
+                    <ul class="advantages-section__list" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0">
+                        <li class="advantages-section__item">
+                            <span class="advantages-section__title">Подача авто 24/7 </span>
+                            <p>Бесплатная доставка машины в любую точку города - в любое время </p>
+                        </li>
+                        <li class="advantages-section__item">
+                            <span class="advantages-section__title">Без скрытых платежей </span>
+                            <p>Честные цены без доплат, сюрпризов. Всё прозрачно.</p>
+                        </li>
+                        <li class="advantages-section__item">
+                            <span class="advantages-section__title">Аренда с водителем</span>
+                            <p>Услуга аренды авто с водителем комфортно и безопасно.</p>
+                        </li>
+                        <li class="advantages-section__item">
+                            <span class="advantages-section__title">Карта клиента и скидки</span>
+                            <p>Персональные предложения для постоянных клиентов. </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="rent-section">
+            <div class="container">
+                <div class="rent-section__box">
+                    <ul class="rent-list">
+                        <!-- <li class="rent-list__item"  data-aos="fade-up" data-aos-duration="400"> -->
+                        <li class="rent-list__item">
+                            <a href="#" class="rent-card">
+                                <div class="rent-card__image">
+                                    <picture>
+                                        <source type='image/webp' srcset='img/car1.webp'>
+                                        <img width='670' height='350' src='img/car1.png' alt='image'>
+                                    </picture>
+                                </div>
+                                <span class="rent-card__title">СДАЙ СВОЕ АВТО В АРЕНДУ</span>
+
+                                <ul class="rent-card__list">
+                                    <li class="rent-card__item">
+                                        <i class="sprite">
+                                            <svg width='45' height='43'>
+                                                <use href='img/sprite/sprite.svg#axes'></use>
+                                            </svg>
+                                        </i>
+                                        <p>Распределение дохода:<br>
+                                            70/30 — владелец/автопрокат</p>
+                                    </li>
+                                    <li class="rent-card__item">
+                                        <i class="sprite mode">
+                                            <svg width='53' height='53'>
+                                                <use href='img/sprite/sprite.svg#money'></use>
+                                            </svg>
+                                        </i>
+                                        <p>Доход: от 350 до 5000 USD Зависит от модели.</p>
+                                    </li>
+                                    <li class="rent-card__item">
+                                        <i class="sprite">
+                                            <svg width='41' height='41'>
+                                                <use href='img/sprite/sprite.svg#icon'></use>
+                                            </svg>
+                                        </i>
+                                        <p>Контроль в реальном времени<br>Отслеживайте машину 24/7 через GPS и
+                                            приложение —
+                                            полная прозрачность.</p>
+                                    </li>
+                                </ul>
+
+                                <div class="main-button main-button--transparent">ПОДРОБНЕЕ</div>
+                            </a>
+                        </li>
+                        <!-- <li class="rent-list__item"  data-aos="fade-up" data-aos-duration="400"> -->
+                             <li class="rent-list__item">
+                            <a href="#" class="rent-card">
+                                <div class="rent-card__image">
+                                    <picture>
+                                        <source type='image/webp' srcset='img/car2.webp'>
+                                        <img width='670' height='350' src='img/car2.png' alt='image'>
+                                    </picture>
+                                </div>
+                                <span class="rent-card__title">УСЛОВИЯ АРЕНДЫ</span>
+
+                                <div class="main-button main-button--transparent">ПОДРОБНЕЕ</div>
+                            </a>
+                        </li>
+                        <!-- <li class="rent-list__item"  data-aos="fade-up" data-aos-duration="400"> -->
+                        <li class="rent-list__item">
+                            <a href="#" class="rent-card">
+                                <div class="rent-card__image">
+                                    <picture>
+                                        <source type='image/webp' srcset='img/car3.webp'>
+                                        <img width='670' height='350' src='img/car3.png' alt='image'>
+                                    </picture>
+                                </div>
+                                <span class="rent-card__title">FAQ</span>
+
+                                <div class="main-button main-button--transparent">ПОДРОБНЕЕ</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages-section">
+            <div class="container">
+                <!-- <div class="advantages-section__content" data-aos="fade-up" data-aos-duration="400"> -->
+                <div class="advantages-section__content">
+                    <div class="advantages-section__inner">
+                        <span class="advantages-section__title">Почему вам стоит арендовать автомобиль у нас?</span>
+                        <p>Высокий рейтинг и доверие клиентов по всему миру</p>
+                    </div>
+
+                    <div class="advantages-section__links">
+                        <a href="#" class="advantages-section__review">
+                            <span>Tripadvisor</span>
+                            <img width="184" height="68" src="img/icons/trip.png" alt="image">
+                        </a>
+                        <a href="#" class="advantages-section__review">
+                            <span>Google Reviews</span>
+                            <img width="194" height="70" src="img/icons/google.png" alt="image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="editor-section" data-aos="fade-up" data-aos-duration="400">
+            <div class="container">
+                <div class="editor-section__box" data-clip>
+                    <h2 class="h2">Аренда авто в Украине с REIZ: новый подход к комфорту</h2>
+                    <div class="editor" data-clip-item>
+                        <p>Компания REIZ – новый игрок на рынке проката автомобилей в Киеве и Львове. Мы не гонимся за
+                            количеством, а тщательно подбираем каждый автомобиль, гарантируя исключительный комфорт и
+                            безопасность наших клиентов.<br>
+                            Почему стоит выбрать прокат авто от REIZ?</p>
+                        <ul>
+                            <li>
+                                <p> Персонализированный подход. Мы только начинаем, поэтому каждый клиент для нас –
+                                    особенный. Мы
+                                    всегда
+                                    готовы уделить вам максимум внимания, предложить индивидуальные условия и поддержку
+                                    на каждом
+                                    этапе
+                                    аренды.</p>
+                            </li>
+                            <li>
+                                <p> Премиальный сервис по доступной цене. Наша небольшая база автомобилей позволяет
+                                    внимательно
+                                    следить
+                                    за техническим состоянием и чистотой каждого авто. Вы получите машину с полным баком
+                                    топлива,
+                                    чистую
+                                    и полностью готовую к вашим поездкам.</p>
+                            </li>
+                            <li>
+                                <p> Без скрытых платежей и залогов. Мы предлагаем максимально прозрачные условия:
+                                    никаких скрытых
+                                    комиссий, сложных договоров или высоких депозитов.</p>
+                            </li>
+                            <li>
+                                <p>Гибкие условия аренды. У нас вы можете арендовать авто на сутки, неделю или месяц по
+                                    выгодной
+                                    цене.</p>
+                            </li>
+                            <li>
+                                <p>Чем дольше аренда, тем выгоднее условия.</p>
+                            </li>
+                        </ul>
+                        <p>
+                            Автопарк REIZ: качество вместо количества<br>
+                            Мы собрали небольшой, но тщательно подобранный автопарк:
+                        </p>
+                        <ul>
+                            <li>
+                                <p> Премиум-класс: идеальный выбор для деловых встреч, важных мероприятий и особых
+                                    случаев.
+                                    Почувствуйте
+                                    престиж и комфорт на автомобилях высокого класса.</p>
+                            </li>
+                            <li>
+                                <p>Средний класс: комфортные и надежные авто для ежедневных поездок по городу или между
+                                    Киевом и
+                                    Львовом. Отличный баланс цены и качества.</p>
+                            </li>
+                            <li>
+                                <p>Эконом-класс: доступные автомобили для тех, кто ценит практичность и бюджетность, не
+                                    теряя в
+                                    комфорте.</p>
+                            </li>
+                        </ul>
+                        <p> Каждый автомобиль регулярно проходит технический осмотр, чтобы вы чувствовали себя уверенно
+                            и
+                            безопасно за рулем.<br>
+                            Как арендовать автомобиль в Киеве или Львове с REIZ?<br>
+                            Процесс аренды авто максимально прост и удобен:</p>
+                        <ol>
+                            <li>
+                                <p>Зайдите на наш сайт и выберите город аренды – Киев или Львов.</p>
+                            </li>
+                            <li>
+                                <p>Укажите даты аренды и выберите подходящий вам автомобиль.</p>
+                            </li>
+                            <li>
+                                <p>Заполните простую форму с вашими контактными данными и документами (паспорт,
+                                    водительское
+                                    удостоверение).</p>
+                            </li>
+                            <li>
+                                <p> Подтвердите бронирование, и наш менеджер свяжется с вами для уточнения всех деталей.
+                                </p>
+                            </li>
+                        </ol>
+                        <p>
+                            SEO: прокат авто в Киеве и Львове<br>
+                            Мы активно развиваемся и предлагаем вам присоединиться к числу первых клиентов REIZ. Если
+                            вам
+                            нужна
+                            аренда автомобиля в Киеве или Львове без лишних хлопот, обращайтесь к нам. Наша задача –
+                            обеспечить
+                            вам не только комфорт в дороге, но и комфорт при оформлении аренды.<br>
+                            Ключевые запросы для поиска:
+                        </p>
+
+                        <ul>
+                            <li>
+                                <p> аренда авто Киев</p>
+                            </li>
+                            <li>
+                                <p> прокат авто Львов</p>
+                            </li>
+                            <li>
+                                <p>аренда автомобилей без залога</p>
+                            </li>
+                            <li>
+                                <p> авто напрокат недорого</p>
+                            </li>
+                            <li>
+                                <p>аренда премиум авто Киев Львов</p>
+                            </li>
+                        </ul>
+                        <p>Выбирая REIZ, вы выбираете качество, внимание и надежность. Добро пожаловать в будущее
+                            комфортных
+                            поездок вместе с REIZ!</p>
+                    </div>
+                    <button class="more-btn" data-clip-btn="ПОКАЗАТЬ МЕНЬШЕ">ПОКАЗАТЬ БОЛЬШЕ</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    @include('partials/footer.html')
+
+</body>
+
+</html>

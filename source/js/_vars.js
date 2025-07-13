@@ -1,0 +1,28 @@
+export default {
+  windowEl: window,
+  documentEl: document,
+  htmlEl: document.documentElement,
+  bodyEl: document.body,
+  activeClass: 'active',
+  activeClassMode: 'mode',
+  header: document.querySelector('header'),
+  footer: document.querySelector('footer'),
+
+  teamSliders: document.querySelectorAll('.team-slider'),
+  infoSliders: document.querySelectorAll('.info-slider'),
+  giftSliders: document.querySelectorAll('.gift-slider'),
+  gallerySliders: document.querySelectorAll('.gallery-slider'),
+  filterAside: document.querySelector('.catalog-aside__filters'),
+  filterBtn: document.querySelector('.catalog-aside__filter'),
+  filterClose: document.querySelector('.catalog-aside__close'),
+
+
+  burger: document.querySelectorAll('.burger'),
+  mobileMenu: document.querySelector('.mobile'),
+  overlay: document.querySelector('[data-overlay]'),
+  modals: [...document.querySelectorAll('[data-popup]')],
+  modalsMode: [...document.querySelectorAll('[data-mode-modal]')],
+  modalsButton: [...document.querySelectorAll("[data-btn-modal]")],
+  innerButtonModal: [...document.querySelectorAll("[data-btn-modal-inner]")],
+  forms: document.querySelectorAll('.main-form'),
+}

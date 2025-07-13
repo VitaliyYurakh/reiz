@@ -1,0 +1,106 @@
+@use "../../mixins/breakpoint" as *;
+
+.included-section {
+  overflow: hidden;
+  padding: clamp(25px, 4.56vw, 60px) 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(50px, 10.43vw, 120px);
+    position: relative;
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 0px;
+    left: Max(45%, 440px);
+    min-width: 500px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: clamp(20px, 3.91vw, 40px) clamp(20px, 3.91vw, 50px);
+
+    @include tablet {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    @include ios {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @include ios {
+      display: grid;
+      grid-template-columns: 12vw 1fr;
+      gap: 21px;
+      align-items: center;
+    }
+
+    img, picture {
+      width: 100%;
+      aspect-ratio: 1;
+    }
+
+    p {
+      font-size: clamp(14px, 2.09vw, 15px);
+      line-height: 120%;
+      color: var(--cl-a);
+      text-align: center;
+      font-weight: 400;
+
+      b,strong {
+        font-weight: 900;
+      }
+
+      @include ios {
+        text-align: left;
+
+        br {
+          font-size: 50%;
+          height: 8px;
+        }
+      }
+    }
+  }
+
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    max-height: 150px;
+    width: 100%;
+
+    picture,img {
+      object-fit: contain;
+      max-height: 150px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include for-tablet {
+    .cta-box {
+      position: relative;
+      z-index: 2;
+      margin-left: 10%;
+    }
+  }
+}

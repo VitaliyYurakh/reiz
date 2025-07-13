@@ -1,0 +1,219 @@
+@use "../../mixins/breakpoint" as *;
+.advantages-section {
+  padding-bottom: var(--default-padding);
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  
+    min-height: 160px;
+    border: 1px solid var(--cl-k);
+    border-radius: 16px;
+    width: 100%;
+    padding: 20px 20px 20px clamp(20px, 2.9412vw, 40px);
+
+   
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    border: 1px solid var(--cl-k);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    &::before{
+        position: absolute;
+        content: '';
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--cl-k);
+        z-index: -1;
+        pointer-events: none;
+    }
+  }
+
+  &__review {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    max-width: 183px;
+    width: 100%;
+    max-height: 68px;
+    height: 100%;
+
+    img {
+    object-fit: contain;
+        width: 100%;
+      height: 100%;
+    }
+
+    span {
+      font-family: var(--third-family);
+      font-weight: 590;
+      font-size: clamp(18px, 1.6176vw, 22px);
+      line-height: 114%;
+      color: var(--cl-a);
+      position: absolute;
+      top: 13px;
+      left: 60px;
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    &:last-of-type{
+        span{
+            left: 50px;
+        }
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  justify-content: center;
+    p {
+      font-family: var(--third-family);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 156%;
+      color: var(--cl-j);
+    }
+
+    .advantages-section__title {
+      font-family: var(--third-family);
+      font-size: clamp(20px, 1.9118vw, 26px);
+      line-height: 96%;
+      text-align: start;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--cl-k);
+    border-radius: 16px;
+    width: 100%;
+
+    @include tablet {
+      @include for-mobile {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @include mobile {
+      margin-bottom: 5px;
+      border: none;
+      gap: 24px;
+      grid-template-columns: 100%;
+      border-radius: 12px;
+      background: var(--cl-b);
+      padding: 35px 20px 35px 38px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 45px 21px 20px;
+    border-right: 1px solid var(--cl-k);
+
+    @include laptop {
+      padding: clamp(30px, 3.3088vw, 45px) 21px 20px;
+    }
+
+    @include for-tablet {
+      min-height: 160px;
+    }
+
+    @include tablet {
+      height: 100%;
+      padding: 40px 21px;
+    }
+
+    @include mobile {
+      gap: 5px;
+      align-items: start;
+      border: none !important;
+      padding: 0;
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 100%;
+        background: var(--cl-a);
+        position: absolute;
+        top: 7px;
+        left: -12px;
+        transform: translateX(-100%);
+      }
+    }
+
+    &:last-of-type {
+      border: none;
+    }
+
+    &:first-of-type {
+      @include tablet {
+        border-bottom: 1px solid var(--cl-k);
+      }
+    }
+
+    &:nth-of-type(2) {
+      @include tablet {
+        border-bottom: 1px solid var(--cl-k);
+        border-right: none;
+      }
+    }
+
+    p {
+      font-family: var(--third-family);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 125%;
+      text-align: center;
+      color: var(--cl-j);
+
+      @include mobile {
+        font-family: var(--second-family);
+        font-weight: 500;
+        font-size: 14px;
+        text-align: start;
+      }
+    }
+  }
+
+  &__title {
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    color: var(--cl-a);
+
+    @include mobile {
+      font-family: var(--second-family);
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+
+  & + .editor-section{
+    @include tablet{
+      display: none;
+    }
+  }
+}

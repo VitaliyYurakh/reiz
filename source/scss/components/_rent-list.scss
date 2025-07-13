@@ -1,0 +1,21 @@
+@use "../mixins/breakpoint" as *;
+
+.rent-list {
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__item {
+    &:first-of-type {
+      grid-row: 1/3;
+
+      @include small-tablet{
+        grid-row: 3/4;
+      }
+    }
+  }
+
+  @include small-tablet {
+    grid-template-columns: 100%;
+  }
+}

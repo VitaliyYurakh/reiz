@@ -1,0 +1,34 @@
+[data-btn-modal] {
+  svg {
+    pointer-events: none;
+  }
+}
+
+.modal {
+  display: none;
+  margin: auto;
+  transform: scale(.8);
+
+  &.active {
+    display: flex;
+    transform: scale(1);
+  }
+
+  &__box .close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(var(--cl-d),1.0);
+
+    svg {
+      width: clamp(15px, 3.26vw, 20px);
+      height: auto;
+      pointer-events: none;
+    }
+
+  }
+
+}

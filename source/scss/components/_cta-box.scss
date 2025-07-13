@@ -1,0 +1,19 @@
+.cta-box {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px 15px;
+  max-width: 500px;
+  width: 100%;
+
+  p {
+    grid-column: 1;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: condensed;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--cl-b);
+  }
+}

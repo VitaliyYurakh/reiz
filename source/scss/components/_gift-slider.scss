@@ -1,0 +1,122 @@
+@use "../mixins/breakpoint" as *;
+
+.gift-slider {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #636262;
+  border-radius: 16px;
+
+  &__wrapper {
+    display: flex;
+  }
+
+  .slider-controls {
+    right: 0;
+    bottom: 0;
+    border-radius: 0 0 16px 0;
+    border-color: var(--col-f);
+    height: 50px;
+    width: clamp(100px, 8.8235vw, 120px);
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+
+    button {
+      border-color: var(--col-f);
+
+      &:not(:hover) {
+        background: var(--body-bg);
+        .sprite {
+          color: var(--cl-b);
+        }
+      }
+    }
+  }
+
+  &__slide {
+    height: clamp(280px, 23.5294vw, 320px);
+    display: grid;
+    grid-template-columns: 1.01fr 1fr;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    p {
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 153%;
+      color: var(--cl-b);
+
+      @include small-tablet {
+        font-size: 16px;
+        text-align: center;
+        line-height: 144%;
+      }
+    }
+
+    &::before {
+      width: 100%;
+      bottom: 50px;
+      background: var(--col-f);
+      height: 1px;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+    }
+
+    @include tablet {
+      height: clamp(280px, 31.25vw, 320px);
+    }
+
+    @include small-tablet {
+      height: 100%;
+      grid-template-columns: 100%;
+    }
+  }
+
+  &__content {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 23px clamp(10px, 1.9853vw, 27px) 55px clamp(15px, 2.1324vw, 29px);
+
+    @include small-tablet {
+      height: 203px;
+      padding: 5px 10px 55px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    img,
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include small-tablet {
+      height: clamp(251px, 41.67vw, 320px);
+    }
+  }
+
+  &__title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--cl-b);
+
+    @include small-tablet {
+      display: none;
+    }
+  }
+}

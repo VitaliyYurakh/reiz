@@ -1,0 +1,47 @@
+.editor-section {
+  padding-bottom: var(--default-padding);
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(26px, 2.8676vw, 39px);
+
+    .more-btn{
+        margin-top: calc((clamp(26px, 2.8676vw, 39px) - 5px) * -1);
+    }
+
+    .editor {
+      &[data-clip-item] {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+
+        max-height: 164px;
+
+        &::before {
+          content: "";
+          transition: all .3s;
+          background: linear-gradient(
+            0deg,
+            #f1f0eb 0%,
+            rgba(241, 240, 235, 0.8) 54.58%,
+            rgba(241, 240, 235, 0.38) 100%
+          );
+          width: 100%;
+          height: 71px;
+          z-index: 2;
+          pointer-events: none;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      &[data-clip-item="true"]{
+        &::before{
+            opacity: 0;
+            visibility: hidden;
+        }
+      }
+    }
+  }
+}

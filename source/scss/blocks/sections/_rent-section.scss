@@ -1,0 +1,14 @@
+@use "../../mixins/breakpoint" as *;
+
+
+.rent-section {
+  padding-bottom: var(--default-padding);
+
+
+    
+  & + .advantages-section{
+    @include tablet{
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,152 @@
+@use "../mixins/breakpoint" as *;
+@use "../mixins/disable-mob-hover" as *;
+
+.grey-btn {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: clamp(12px, .7292vw, 14px);
+  text-align: center;
+  color: var(--cl-b);
+  padding: clamp(7px, .5729vw, 11px) clamp(10px, 1.0417vw, 20px) clamp(8px, .625vw, 12px);
+  border-radius: 14px;
+  height: clamp(34px, 2.0833vw, 40px);
+  background: var(--col-a);
+
+  .sprite{
+    width: 20px;
+    height: 20px;
+    display: flex;
+
+    svg{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &.hidden{
+    display: none;
+  }
+
+  &.transparent{
+    border: 1px solid var(--col-a);
+    background: transparent;
+    color: var(--cl-a);
+
+    @include hover{
+       color: var(--cl-b);
+        background: var(--col-a);
+    }
+  }
+
+  &.green{
+    background: var(--cl-e);
+
+     @include hover {
+    background: var(--cl-l);
+  }
+  }
+
+  @include hover {
+    background: var(--cl-l);
+  }
+}
+
+.main-button {
+  font-family: var(--third-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 179%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: var(--cl-b);
+  padding: 13px 30px;
+  background: var(--cl-e);
+  border-radius: 26px;
+  min-width: 260px;
+  height: 55px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gr-a);
+    transition: all 0.5s ease;
+    pointer-events: none;
+  }
+
+  &--transparent {
+    border: 1px solid var(--cl-m);
+    border-radius: 14px;
+    background-color: transparent;
+
+    @include hover {
+      border-color: var(--cl-l);
+    }
+  }
+
+  &--black {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 140%;
+    height: 50px;
+    border: 1px solid var(--cl-a);
+    border-radius: 16px;
+    width: 100%;
+    background-color: var(--cl-a);
+
+    @include hover {
+      border-color: var(--cl-l);
+    }
+  }
+
+  &--white {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 140%;
+    height: 50px;
+    border: 1px solid var(--cl-b);
+    border-radius: 16px;
+    width: 100%;
+    color: var(--cl-a);
+    background-color: var(--cl-b);
+
+    @include hover {
+      border-color: var(--cl-l);
+    }
+  }
+
+  @include hover {
+    color: var(--cl-b);
+    background: var(--cl-l);
+    // box-shadow: 0 0 10px rgba(33, 66, 48, 0.6);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &.hovered {
+    color: var(--cl-b);
+    background: var(--cl-l);
+
+    &::before {
+      left: 100%;
+    }
+  }
+}

@@ -1,0 +1,107 @@
+.custom-radio {
+  position: relative;
+
+  input:not([type="date"]) {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 100%;
+    color: rgba(var(--cl-f),1.0);
+    cursor: pointer;
+    user-select: none;
+    gap: 10px;
+
+    a {
+      color: rgba(var(--cl-f),1.0);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+
+
+    &::before {
+      content: '';
+      display: inline-block;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      //border-radius: 4px;
+      border: 2px solid #C1C2C7;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      background-position: center center;
+      background-size: 10px 10px;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+  }
+
+  input {
+    &:not(:disabled) {
+      &:not(:checked) + span:hover::before {
+        border-color: #2458D3;
+      }
+
+      &:active + span::before {
+        border-color: #2458D3;
+        background-color: transparent;
+      }
+    }
+
+
+    &:checked + span::before {
+      border-color: #2458D3;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='none'%3E%3Ccircle cx='5' cy='5' r='5' fill='%23DB574D'/%3E%3C/svg%3E");
+      background-color: transparent;
+    }
+
+    &:disabled + span::before {
+      background-color: #e9ecef;
+    }
+  }
+
+  &--content {
+    span {
+      border: 1px solid rgba(133, 135, 145, 0.25);
+      border-radius: 100px;
+      padding: 2px clamp(20px, 2.08vw, 32px);
+      height: 42px;
+      background: rgba(var(--bg-a),1.0);
+
+      &::before,
+      &::after {
+        content: none;
+      }
+
+      svg {
+        color: rgba(var(--cl-o),1.0);
+      }
+    }
+
+    input:checked + span {
+      border-color: rgba(var(--bg-c),1.0);
+      color: rgba(var(--cl-a),1.0);
+      background: rgba(var(--bg-c),1.0);
+
+      svg {
+        color: rgba(var(--cl-a),1.0);
+      }
+    }
+  }
+}
+
