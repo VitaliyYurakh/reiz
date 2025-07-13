@@ -13,10 +13,10 @@ services:
     #     command: npm run start
 
     frontend:
-        build: ./frontend
+        build: ./front
         restart: always
         ports:
             - "8080:8080"
         volumes:
-            - ./frontend:/app
+            - ./front:/app
         command: http-server build -p 8080
