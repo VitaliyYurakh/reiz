@@ -1,201 +1,284 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
+    @include('partials/head.html')
 
-@include('partials/head.html')
+    <body class="page__body">
+        @include('partials/header-mode.html')
+        <main class="main">
+            <section class="blog-section">
+                <div class="container">
+                    <div class="blog-section__box">
+                        <aside
+                            class="aside"
+                            data-aos="fade-right"
+                            data-aos-duration="900"
+                            data-aos-delay="400"
+                        >
+                            <div class="aside__top">
+                                <a href="/" class="aside__title">REIZ</a>
+                                <p>CAR RENTAL IN UKRAINE</p>
+                            </div>
 
-<body class="page__body">
-    @include('partials/header-mode.html')
-    <main class="main">
+                            <nav class="main-nav">
+                                <ul>
+                                    <li>
+                                        <a href="/">ГЛАВНАЯ</a>
+                                    </li>
+                                    <li>
+                                        <ul class="main-nav__acc" data-accordion>
+                                            <li class="main-nav__acc-item">
+                                                <button class="main-nav__acc-btn" data-id="1">
+                                                    АВТОМОБИЛИ
+                                                    <i class="sprite">
+                                                        <svg width="11" height="8">
+                                                            <use
+                                                                href="img/sprite/sprite.svg#arrow-d"
+                                                            ></use>
+                                                        </svg>
+                                                    </i>
+                                                </button>
+                                                <div class="main-nav__acc-content" data-content="1">
+                                                    <a href="#catalog">Прокат авто в Киеве</a>
+                                                    <a href="#catalog">Прокат авто во Львове</a>
+                                                    <a href="#catalog">Прокат авто в Тернополе</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="insurance">СТРАХОВКА</a>
+                                    </li>
+                                    <li>
+                                        <a href="busines">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                    </li>
+                                    <li>
+                                        <a href="certificate">СЕРТИФИКАТЫ </a>
+                                    </li>
+                                    <li>
+                                        <a href="terms">УСЛОВИЯ АРЕНДЫ</a>
+                                    </li>
+                                    <li>
+                                        <a href="faq">ВОПРОС-ОТВЕТ</a>
+                                    </li>
+                                    <li>
+                                        <a href="invest">СДАТЬ АВТО В АРЕНДУ</a>
+                                    </li>
+                                    <li>
+                                        <a href="blog" class="active">БЛОГ</a>
+                                    </li>
+                                    <li>
+                                        <a href="about">О НАС</a>
+                                    </li>
+                                    <li>
+                                        <a href="contacts">КОНТАКТЫ</a>
+                                    </li>
+                                </ul>
+                            </nav>
 
-        <section class="blog-section">
-            <div class="container">
-                <div class="blog-section__box">
-                    <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
-                        <div class="aside__top">
-                             <a href="index.html" class="aside__title">REIZ</a>
-                            <p>CAR RENTAL IN UKRAINE</p>
-                        </div>
+                            <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
+                        </aside>
 
-                        <nav class="main-nav">
-                            <ul>
-                                <li>
-                                    <a href="index.html">ГЛАВНАЯ</a>
-                                </li>
-                                <li>
-                                    <ul class="main-nav__acc" data-accordion>
-                                        <li class="main-nav__acc-item">
-                                            <button class="main-nav__acc-btn" data-id="1">
-                                                АВТОМОБИЛИ
-                                                <i class="sprite">
-                                                    <svg width='11' height='8'>
-                                                        <use href='img/sprite/sprite.svg#arrow-d'></use>
-                                                    </svg>
-                                                </i>
-                                            </button>
-                                            <div class="main-nav__acc-content" data-content="1">
-                                                <a href="#catalog">Прокат авто в Киеве</a>
-                                                <a href="#catalog">Прокат авто во Львове</a>
-                                                <a href="#catalog">Прокат авто в Тернополе</a>
+                        <div
+                            class="blog-section__inner"
+                            data-aos="fade-left"
+                            data-aos-duration="900"
+                            data-aos-delay="600"
+                        >
+                            <h2 class="pretitle">БЛОГ</h2>
+                            <ul class="breadcrumbs">
+                                <li><a href="/">Главная</a></li>
+                                <li>БЛОГ</li>
+                            </ul>
+                            <h1 class="main-title">БЛОГ</h1>
+
+                            <ul class="blog-list">
+                                <li class="blog-list__item">
+                                    <div class="blog-card">
+                                        <div class="blog-card__image">
+                                            <picture>
+                                                <source
+                                                    type="image/webp"
+                                                    srcset="img/blog/img1.webp"
+                                                />
+                                                <img
+                                                    width="474"
+                                                    height="251"
+                                                    src="img/blog/img1.png"
+                                                    alt="image"
+                                                />
+                                            </picture>
+                                        </div>
+                                        <div class="blog-card__box">
+                                            <h2 class="blog-card__title">
+                                                <span
+                                                    >Что делать при ДТП в Украине: пошаговая
+                                                    инструкция от REIZ</span
+                                                >
+                                            </h2>
+                                            <p>
+                                                В данной статье представлена простая инструкция о
+                                                том, что делать при аварии в Украине. Узнайте, как
+                                                правильно оформить происшествие, куда сообщить о ДТП
+                                                и какие документы потребуются для страховой
+                                                компании.
+                                            </p>
+                                            <div class="blog-card__bottom">
+                                                <span class="blog-card__date">17.04.2025</span>
+
+                                                <a href="#" class="main-button">ПОДРОБНЕЕ</a>
                                             </div>
-                                        </li>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="blog-list__item">
+                                    <div class="blog-card">
+                                        <div class="blog-card__image">
+                                            <picture>
+                                                <source
+                                                    type="image/webp"
+                                                    srcset="img/blog/img2.webp"
+                                                />
+                                                <img
+                                                    width="474"
+                                                    height="251"
+                                                    src="img/blog/img2.png"
+                                                    alt="image"
+                                                />
+                                            </picture>
+                                        </div>
+                                        <div class="blog-card__box">
+                                            <h2 class="blog-card__title">
+                                                <span
+                                                    >Маршрут для путешевствия по Украине на
+                                                    автомобиле</span
+                                                >
+                                            </h2>
+                                            <p>
+                                                Ознакомьтесь с маршрутом, который предлагает
+                                                захватывающее приключение и возможность открыть для
+                                                себя красоту и культуру этого удивительного региона.
+                                            </p>
+                                            <div class="blog-card__bottom">
+                                                <span class="blog-card__date">17.04.2025</span>
 
-                                    </ul>
+                                                <a href="#" class="main-button">ПОДРОБНЕЕ</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
-                                <li>
-                                    <a href="insurance.html">СТРАХОВКА</a>
+                                <li class="blog-list__item">
+                                    <div class="blog-card">
+                                        <div class="blog-card__image">
+                                            <picture>
+                                                <source
+                                                    type="image/webp"
+                                                    srcset="img/blog/img3.webp"
+                                                />
+                                                <img
+                                                    width="474"
+                                                    height="251"
+                                                    src="img/blog/img3.png"
+                                                    alt="image"
+                                                />
+                                            </picture>
+                                        </div>
+                                        <div class="blog-card__box">
+                                            <h2 class="blog-card__title">
+                                                <span>Топ популярных навигаторов в Украине</span>
+                                            </h2>
+                                            <p>
+                                                Украина — место, где технологии и инновации стали
+                                                неотъемлемой частью повседневной жизни, как для
+                                                местных, так и для туристов. В этой статье мы
+                                                рассмотрим самые популярные приложения, которые
+                                                помогут вам без труда ориентироваться в городе и за
+                                                его пределами.
+                                            </p>
+                                            <div class="blog-card__bottom">
+                                                <span class="blog-card__date">17.04.2025</span>
+
+                                                <a href="#" class="main-button">ПОДРОБНЕЕ</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
-                                <li>
-                                    <a href="busines.html">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                <li class="blog-list__item">
+                                    <div class="blog-card">
+                                        <div class="blog-card__image">
+                                            <picture>
+                                                <source
+                                                    type="image/webp"
+                                                    srcset="img/blog/img4.webp"
+                                                />
+                                                <img
+                                                    width="474"
+                                                    height="251"
+                                                    src="img/blog/img4.png"
+                                                    alt="image"
+                                                />
+                                            </picture>
+                                        </div>
+                                        <div class="blog-card__box">
+                                            <h2 class="blog-card__title">
+                                                <span
+                                                    >Путешествие на авто по Львову и Львовской
+                                                    области</span
+                                                >
+                                            </h2>
+                                            <p>
+                                                Откройте Львов и его область на автомобиле — от
+                                                уютных улочек Старого города до замков, озёр и
+                                                Карпат. Удобный маршрут поможет увидеть всё важное
+                                                без спешки.
+                                            </p>
+                                            <div class="blog-card__bottom">
+                                                <span class="blog-card__date">17.04.2025</span>
+
+                                                <a href="#" class="main-button">ПОДРОБНЕЕ</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
-                                <li>
-                                    <a href="certificate.html">СЕРТИФИКАТЫ </a>
-                                </li>
-                                <li>
-                                    <a href="terms.html">УСЛОВИЯ АРЕНДЫ</a>
-                                </li>
-                                <li>
-                                    <a href="faq.html">ВОПРОС-ОТВЕТ</a>
-                                </li>
-                                <li>
-                                    <a href="rent.html">СДАТЬ АВТО В АРЕНДУ</a>
-                                </li>
-                                <li>
-                                    <a href="blog.html" class="active">БЛОГ</a>
-                                </li>
-                                <li>
-                                    <a href="about.html" >О НАС</a>
-                                </li>
-                                <li>
-                                    <a href="contacts.html">КОНТАКТЫ</a>
+                                <li class="blog-list__item">
+                                    <div class="blog-card">
+                                        <div class="blog-card__image">
+                                            <picture>
+                                                <source
+                                                    type="image/webp"
+                                                    srcset="img/blog/img5.webp"
+                                                />
+                                                <img
+                                                    width="474"
+                                                    height="251"
+                                                    src="img/blog/img5.png"
+                                                    alt="image"
+                                                />
+                                            </picture>
+                                        </div>
+                                        <div class="blog-card__box">
+                                            <h2 class="blog-card__title">
+                                                <span
+                                                    >Как туристу оплатить парковку в Украине?</span
+                                                >
+                                            </h2>
+                                            <p>
+                                                Узнайте сразу несколько способов, как осуществить
+                                                данную процедуру максимально просто и быстро.
+                                            </p>
+                                            <div class="blog-card__bottom">
+                                                <span class="blog-card__date">17.04.2025</span>
+
+                                                <a href="#" class="main-button">ПОДРОБНЕЕ</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
-                        </nav>
-
-                        <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
-                    </aside>
-
-                    <div class="blog-section__inner" data-aos="fade-left" data-aos-duration="900" data-aos-delay="600">
-                        <h2 class="pretitle">БЛОГ</h2>
-                        <ul class="breadcrumbs">
-                            <li><a href="index.html">Главная</a></li>
-                            <li>БЛОГ</li>
-                        </ul>
-                        <h1 class="main-title">БЛОГ</h1>
-
-                        <ul class="blog-list">
-                            <li class="blog-list__item">
-                                <div class="blog-card">
-                                    <div class="blog-card__image">
-                                        <picture>
-                                          <source type='image/webp' srcset='img/blog/img1.webp'>
-                                          <img width='474' height='251' src='img/blog/img1.png' alt='image'>
-                                        </picture>
-                                    </div>
-                                    <div class="blog-card__box">
-                                        <h2 class="blog-card__title">
-                                            <span>Что делать при ДТП в Украине: пошаговая инструкция от REIZ</span>
-                                        </h2>
-                                        <p>В данной статье представлена простая инструкция о том, что делать при аварии в Украине. Узнайте, как правильно оформить происшествие, куда сообщить о ДТП и какие документы потребуются для страховой компании.</p>
-                                        <div class="blog-card__bottom">
-                                            <span class="blog-card__date">17.04.2025</span>
-
-                                            <a href="#" class="main-button">ПОДРОБНЕЕ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                             <li class="blog-list__item">
-                                <div class="blog-card">
-                                    <div class="blog-card__image">
-                                        <picture>
-                                        <source type='image/webp' srcset='img/blog/img2.webp'>
-                                          <img width='474' height='251' src='img/blog/img2.png' alt='image'>
-                                        </picture>
-                                    </div>
-                                    <div class="blog-card__box">
-                                        <h2 class="blog-card__title">
-                                            <span>Маршрут для путешевствия по Украине на автомобиле</span>
-                                        </h2>
-                                        <p>Ознакомьтесь с маршрутом, который предлагает захватывающее приключение и возможность открыть для себя красоту и культуру этого удивительного региона.</p>
-                                        <div class="blog-card__bottom">
-                                            <span class="blog-card__date">17.04.2025</span>
-
-                                            <a href="#" class="main-button">ПОДРОБНЕЕ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                             <li class="blog-list__item">
-                                <div class="blog-card">
-                                    <div class="blog-card__image">
-                                        <picture>
-                                          <source type='image/webp' srcset='img/blog/img3.webp'>
-                                          <img width='474' height='251' src='img/blog/img3.png' alt='image'>
-                                        </picture>
-                                    </div>
-                                    <div class="blog-card__box">
-                                        <h2 class="blog-card__title">
-                                            <span>Топ популярных навигаторов в Украине</span>
-                                        </h2>
-                                        <p>Украина — место, где технологии и инновации стали неотъемлемой частью повседневной жизни, как для местных, так и для туристов. В этой статье мы рассмотрим самые популярные приложения, которые помогут вам без труда ориентироваться в городе и за его пределами.</p>
-                                        <div class="blog-card__bottom">
-                                            <span class="blog-card__date">17.04.2025</span>
-
-                                            <a href="#" class="main-button">ПОДРОБНЕЕ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                             <li class="blog-list__item">
-                                <div class="blog-card">
-                                    <div class="blog-card__image">
-                                        <picture>
-                                          <source type='image/webp' srcset='img/blog/img4.webp'>
-                                          <img width='474' height='251' src='img/blog/img4.png' alt='image'>
-                                        </picture>
-                                    </div>
-                                    <div class="blog-card__box">
-                                        <h2 class="blog-card__title">
-                                            <span>Путешествие на авто по Львову и Львовской области</span>
-                                        </h2>
-                                        <p>Откройте Львов и его область на автомобиле — от уютных улочек Старого города до замков, озёр и Карпат. Удобный маршрут поможет увидеть всё важное без спешки.</p>
-                                        <div class="blog-card__bottom">
-                                            <span class="blog-card__date">17.04.2025</span>
-
-                                            <a href="#" class="main-button">ПОДРОБНЕЕ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                             <li class="blog-list__item">
-                                <div class="blog-card">
-                                    <div class="blog-card__image">
-                                        <picture>
-                                          <source type='image/webp' srcset='img/blog/img5.webp'>
-                                          <img width='474' height='251' src='img/blog/img5.png' alt='image'>
-                                        </picture>
-                                    </div>
-                                    <div class="blog-card__box">
-                                        <h2 class="blog-card__title">
-                                            <span>Как туристу оплатить парковку в Украине?</span>
-                                        </h2>
-                                        <p>Узнайте сразу несколько способов, как осуществить данную процедуру максимально просто и быстро.</p>
-                                        <div class="blog-card__bottom">
-                                            <span class="blog-card__date">17.04.2025</span>
-
-                                            <a href="#" class="main-button">ПОДРОБНЕЕ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
-    @include('partials/footer-mode.html')
-
-</body>
-
+            </section>
+        </main>
+        @include('partials/footer-mode.html')
+    </body>
 </html>
