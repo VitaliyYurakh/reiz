@@ -4,23 +4,28 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="theme-color" content="#111111" />
-    <meta name="description" content="REIZ" />
+  
+    <!-- description -->
+    <meta name="description" content="Аренда автомобилей во Львове. Современные авто, премиум-сервис, подача по адресу, поддержка 24/7. Быстро, надёжно, без скрытых условий." />
+  
     <!-- Open Graph -->
     <meta property="og:type" content="business.business" />
-    <meta property="og:title" content="Оренда авто по всій Україні — швидко та надійно" />
-    <meta
-        property="og:description"
-        content="Надійна оренда авто для бізнесу та подорожей. Преміум-сервіс, гнучкі тарифи, повна підтримка — все, що потрібно для успішної поїздки."
-    />
+    <meta property="og:title" content="Аренда авто во Львове — REIZ RENTAL CARS" />
+    <meta property="og:description" content="Прокат автомобилей во Львове. Новые авто, премиальный сервис, адресная доставка, поддержка 24/7 — всё, чтобы вы чувствовали уверенность на дороге." />
     <meta property="og:url" content="https://reiz.com.ua/" />
-    <meta property="og:image" content="https://reiz.com.ua/img/car/mercedescle1.webp" />
-    <meta property="og:site_name" content="Reiz" />
-    <meta property="og:locale" content="ru_ru" />
+    <meta property="og:image" content="https://www.reiz.com.ua/img/icons/reizmage.webp" />
+    <meta property="og:site_name" content="REIZ RENTAL CARS" />
+    <meta property="og:locale" content="ru_RU" />
+  
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:image:src" content="https://reiz.com.ua/img/car/mercedescle1.webp" />
-    <title>REIZ</title>
-
+    <meta property="twitter:title" content="Аренда авто во Львове — REIZ RENTAL CARS" />
+    <meta property="twitter:description" content="Надёжный прокат авто во Львове. Новые машины, премиум-сервис, подача по адресу, 24/7." />
+    <meta property="twitter:image:src" content="https://www.reiz.com.ua/img/icons/reizmage.webp" />
+  
+    <!-- Title -->
+    <title>Аренда авто во Львове — REIZ RENTAL CARS</title>
+  
     <link rel="preload" href="fonts/Arial-BoldMT.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/Arial-ItalicMT.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/ArialMT.woff2" as="font" type="font/woff2" crossorigin />
@@ -116,16 +121,53 @@
     <!--/ Cookiebot -->
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9GQGH18S6M"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9GQGH18S6M"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-        gtag('config', 'G-9GQGH18S6M');
+    gtag('config', 'G-9GQGH18S6M');
+</script>
+<!--/ Google tag (gtag.js) -->
+
+<!-- Structured Data for Google -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CarRental",
+      "name": "REIZ",
+      "url": "https://www.reiz.com.ua",
+      "logo": "https://www.reiz.com.ua/ico/Reiz.png",
+      "image": "https://www.reiz.com.ua/img/icons/reizmage.webp",
+      "priceRange": "$$$",
+      "description": "REIZ — аренда авто во Львове для тех, кто ценит точность, комфорт и надёжность. Новые автомобили, подача по адресу и поддержка 24/7.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Львов",
+        "addressCountry": "UA"
+      },
+      "sameAs": [
+        "https://www.instagram.com/reiz.rental"
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:00",
+          "closes": "22:00"
+        }
+      ]
+    }
     </script>
-    <!--/ Google tag (gtag.js) -->
-    <script defer src="js/main.js"></script>
-</head>
+    
