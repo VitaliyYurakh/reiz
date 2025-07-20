@@ -6,10 +6,87 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  pass  String
+  role  String @default("admin")
+}
+
+model Car {
+  id                Int     @id @default(autoincrement())
+  brand             String
+  model             String
+  plateNumber       String  @map("plate_number")
+  VIN               String
+  yearOfManufacture Int     @map("year_of_manufacture")
+  color             String
+  description       String?
+  previewUrl        String? @map("preview_url")
+  engineVolume      String? @map("engine_volume")
+  engineType        String? @map("engine_type")
+  transmission      String?
+  fuelConsumption   String? @map("fuel_consumption")
+  driveType         String? @map("drive_type")
+  seats             Int?
+  discount          Int?
+  configuration     Json?
+  segmentId         Int     @map("segment_id")
+
+  rentalTariff    RentalTariff[]
+  carPhoto        CarPhoto[]
+  carCountingRule CarCountingRule[]
+  segment         Segment           @relation(fields: [segmentId], references: [id], onDelete: Restrict)
+}
+
+model Segment {
+  id               Int    @id @default(autoincrement())
+  name             String
+  description      String
+  overmileagePrice Float  @map("overmileage_price")
+
+  car Car[]
+}
+
+model RentalTariff {
+  id         Int @id @default(autoincrement())
+  deposit    Int
+  minDays    Int @map("min_days")
+  maxDays    Int @map("max_days")
+  dailyPrice Int @map("daily_price")
+  carId      Int @map("car_id")
+
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@unique([minDays, maxDays])
+}
+
+model CarCountingRule {
+  id             Int @id @default(autoincrement())
+  pricePercent   Int @map("price_percent")
+  depositPercent Int @map("deposit_percent")
+  carId          Int @map("car_id")
+
+  Car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+}
+
+model CarPhoto {
+  id    Int          @id @default(autoincrement())
+  type  CarPhotoType
+  url   String
+  carId Int          @map("car_id")
+
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+}
+
+enum CarPhotoType {
+  MOBILE
+  PC
 }

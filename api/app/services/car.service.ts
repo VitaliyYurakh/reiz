@@ -1,0 +1,111 @@
+import {Car, CarCountingRule, RentalTariff, User} from '@prisma/client';
+import {CarNotFoundError, prisma} from '../utils';
+import {CreateCarDto, UpdateCarDto, CarPhotoDto, CountingRuleDto, TariffDto} from '../types';
+
+class CarService {
+    async getAll() {
+        return await prisma.car.findMany({
+            include: {carPhoto: true, carCountingRule: true, rentalTariff: true, segment: true},
+        });
+    }
+
+    async getOne(id: number) {
+        return await prisma.car.findUnique({
+            where: {id},
+            include: {carPhoto: true, carCountingRule: true, rentalTariff: true, segment: true},
+        });
+    }
+
+    async createOne(car: CreateCarDto) {
+        const {segmentId, ...rest} = car;
+        return await prisma.car.create({
+            data: {
+                ...rest,
+                segment: {
+                    connect: {id: segmentId},
+                },
+            },
+        });
+    }
+
+    async updateOne(id: number, carDto: UpdateCarDto) {
+        const car = await prisma.car.findUnique({where: {id}});
+
+        if (!car) {
+            throw new CarNotFoundError();
+        }
+
+        return await prisma.car.update({where: {id}, data: carDto});
+    }
+
+    async updateRentalTariff(carId: number, tariffs: TariffDto[]) {
+        const car = await prisma.car.findUnique({where: {id: carId}});
+
+        if (!car) {
+            throw new CarNotFoundError();
+        }
+
+        for await (const tariff of tariffs) {
+            const oldTariff = await prisma.rentalTariff.findFirst({
+                where: {minDays: tariff.minDays, maxDays: tariff.maxDays},
+            });
+
+            if (!oldTariff) {
+                await prisma.rentalTariff.create({
+                    data: {
+                        ...tariff,
+                        carId: car.id,
+                    },
+                });
+                continue;
+            }
+
+            await prisma.rentalTariff.update({
+                where: {id: oldTariff.id},
+                data: tariff,
+            });
+        }
+    }
+
+    async addCarPhoto(carId: number, carPhoto: CarPhotoDto) {
+        const car = await prisma.car.findUnique({where: {id: carId}});
+
+        if (!car) {
+            throw new CarNotFoundError();
+        }
+
+        await prisma.carPhoto.create({
+            data: {
+                ...carPhoto,
+                carId: car.id,
+            },
+        });
+
+        return carPhoto.url;
+    }
+
+    async deleteCarPhoto(id: number) {
+        await prisma.carPhoto.delete({where: {id}});
+    }
+
+    async updateCountingRule(carId: number, countingRuleDto: CountingRuleDto) {
+        const car = await prisma.car.findUnique({where: {id: carId}});
+
+        if (!car) {
+            throw new CarNotFoundError();
+        }
+
+        await prisma.carCountingRule.create({
+            data: {
+                ...countingRuleDto,
+                carId: car.id,
+            },
+        });
+    }
+
+    async deleteOne(id: number) {
+        await prisma.car.delete({where: {id}});
+    }
+}
+
+export default new CarService();

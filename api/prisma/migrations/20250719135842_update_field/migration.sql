@@ -1,0 +1,11 @@
+-- AlterTable
+ALTER TABLE "Car" ALTER COLUMN "description" DROP NOT NULL,
+ALTER COLUMN "preview_url" DROP NOT NULL,
+ALTER COLUMN "engine_volume" DROP NOT NULL,
+ALTER COLUMN "engine_type" DROP NOT NULL,
+ALTER COLUMN "transmission" DROP NOT NULL,
+ALTER COLUMN "fuel_consumption" DROP NOT NULL,
+ALTER COLUMN "drive_type" DROP NOT NULL,
+ALTER COLUMN "seats" DROP NOT NULL,
+ALTER COLUMN "discount" DROP NOT NULL,
+ALTER COLUMN "configuration" DROP NOT NULL;
