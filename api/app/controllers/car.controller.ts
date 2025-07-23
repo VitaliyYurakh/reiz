@@ -94,7 +94,7 @@ class CarController {
     async addCarPhoto(req: Request, res: Response) {
         try {
             const {type}: {type: CarPhotoDto['type']} = req.body;
-            const file = req.file.path;
+            const file = req.file.filename;
             const {id} = req.params;
 
             const url = await carService.addCarPhoto(parseInt(id), {
@@ -120,9 +120,9 @@ class CarController {
 
     async deleteCarPhoto(req: Request, res: Response) {
         try {
-            const {id} = req.query;
+            const {photoId} = req.params;
 
-            await carService.deleteCarPhoto(parseInt(id as string));
+            await carService.deleteCarPhoto(parseInt(photoId as string));
 
             return res.status(StatusCodes.OK).json();
         } catch (error) {

@@ -1,8 +1,10 @@
-import multer from 'multer';
+import multer, {FileFilterCallback} from 'multer';
 import fs from 'fs';
 import path from 'path';
+import {Request} from 'express';
 
-const uploadDir = path.join(__dirname, '../../uploads');
+const uploadDir = path.resolve('./uploads');
+console.log({uploadDir});
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, {recursive: true});
 }
@@ -17,13 +19,13 @@ const storage = multer.diskStorage({
     },
 });
 
-const fileFilter = (req, file, cb) => {
+const fileFilter = (req: Request, file: Express.Multer.File, cb: FileFilterCallback) => {
     const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
 
     if (allowedTypes.includes(file.mimetype)) {
         cb(null, true);
     } else {
-        cb(new Error('Only image files are allowed'), false);
+        cb(new Error('Only image files are allowed'));
     }
 };
 

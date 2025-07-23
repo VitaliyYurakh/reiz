@@ -12,7 +12,7 @@ router.post('/:id/photo', auth, multer, carController.addCarPhoto);
 router.patch('/:id/tariff', auth, carController.updateRentalTariff);
 router.patch('/:id/rule', auth, carController.updateCountingRule);
 router.patch('/:id', auth, carController.updateOne);
-router.delete('/:id/photo', auth, carController.deleteCarPhoto); // видаляти і файл і добавити :photoId
+router.delete('/:id/photo/:photoId', auth, carController.deleteCarPhoto);
 router.delete('/:id', auth, carController.deleteOne);
 
 export default router;
