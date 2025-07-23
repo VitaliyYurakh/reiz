@@ -13,7 +13,7 @@ class Accordion {
             btnAttribute: 'data-id',
             contentAttribute: 'data-content',
             activeClass: 'active',
-            ...options
+            ...options,
         };
 
         this.openStates = new Map();
@@ -29,19 +29,25 @@ class Accordion {
         const elements = document.querySelectorAll(this.selector);
         if (!elements.length) return;
 
-        this.accordions = Array.from(elements).map(element => {
+        this.accordions = Array.from(elements).map((element) => {
             const accordion = {
                 element,
                 buttons: element.querySelectorAll(`[${this.options.btnAttribute}]`),
                 isSingle: element.dataset.single === 'true',
-                breakpoint: element.dataset.breakpoint ? parseInt(element.dataset.breakpoint) : null
+                breakpoint: element.dataset.breakpoint
+                    ? parseInt(element.dataset.breakpoint)
+                    : null,
             };
 
             const savedStates = this.openStates.get(element);
             if (savedStates && savedStates.size > 0) {
-                savedStates.forEach(contentId => {
-                    const content = element.querySelector(`[${this.options.contentAttribute}="${contentId}"]`);
-                    const button = element.querySelector(`[${this.options.btnAttribute}="${contentId}"]`);
+                savedStates.forEach((contentId) => {
+                    const content = element.querySelector(
+                        `[${this.options.contentAttribute}="${contentId}"]`
+                    );
+                    const button = element.querySelector(
+                        `[${this.options.btnAttribute}="${contentId}"]`
+                    );
                     if (content && button) {
                         this.openSection(content, button);
                     }
@@ -57,8 +63,8 @@ class Accordion {
     }
 
     setupEventListeners() {
-        this.accordions.forEach(accordion => {
-            accordion.buttons.forEach(button => {
+        this.accordions.forEach((accordion) => {
+            accordion.buttons.forEach((button) => {
                 const oldHandler = this.handlers.get(button);
                 if (oldHandler) {
                     button.removeEventListener('click', oldHandler);
@@ -94,11 +100,18 @@ class Accordion {
             this.closeSection(content, button);
             openSections.delete(contentId);
         } else {
-            if (accordion.isSingle && (!accordion.breakpoint || window.innerWidth <= accordion.breakpoint)) {
-                const openContent = accordion.element.querySelector(`.${this.options.activeClass}[${this.options.contentAttribute}]`);
+            if (
+                accordion.isSingle &&
+                (!accordion.breakpoint || window.innerWidth <= accordion.breakpoint)
+            ) {
+                const openContent = accordion.element.querySelector(
+                    `.${this.options.activeClass}[${this.options.contentAttribute}]`
+                );
                 if (openContent) {
                     const openButton = accordion.element.querySelector(
-                        `[${this.options.btnAttribute}="${openContent.getAttribute(this.options.contentAttribute)}"]`
+                        `[${this.options.btnAttribute}="${openContent.getAttribute(
+                            this.options.contentAttribute
+                        )}"]`
                     );
                     this.closeSection(openContent, openButton);
                     openSections.clear();
@@ -151,8 +164,8 @@ class Accordion {
     reinit() {
         const currentStates = new Map(this.openStates);
 
-        this.accordions.forEach(accordion => {
-            accordion.buttons.forEach(button => {
+        this.accordions.forEach((accordion) => {
+            accordion.buttons.forEach((button) => {
                 const handler = this.handlers.get(button);
                 if (handler) {
                     button.removeEventListener('click', handler);
@@ -165,9 +178,13 @@ class Accordion {
         this.init();
 
         currentStates.forEach((openSections, element) => {
-            openSections.forEach(contentId => {
-                const content = element.querySelector(`[${this.options.contentAttribute}="${contentId}"]`);
-                const button = element.querySelector(`[${this.options.btnAttribute}="${contentId}"]`);
+            openSections.forEach((contentId) => {
+                const content = element.querySelector(
+                    `[${this.options.contentAttribute}="${contentId}"]`
+                );
+                const button = element.querySelector(
+                    `[${this.options.btnAttribute}="${contentId}"]`
+                );
                 if (content && button) {
                     this.openSection(content, button);
                 }
@@ -176,8 +193,8 @@ class Accordion {
     }
 
     destroy() {
-        this.accordions.forEach(accordion => {
-            accordion.buttons.forEach(button => {
+        this.accordions.forEach((accordion) => {
+            accordion.buttons.forEach((button) => {
                 const handler = this.handlers.get(button);
                 if (handler) {
                     button.removeEventListener('click', handler);

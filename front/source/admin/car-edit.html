@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
 
-@include('partials/head.html')
+@include('../partials/head-admin.html')
 
-<body class="page">
+<body class="page" data-page="car-edit">
     <main class="main">
 
         <section class="cabinet-section">
@@ -147,7 +147,7 @@
                                 <button type="button" class="main-info__edit" id="editBtn">
                                     <i class="sprite">
                                         <svg width='22' height='22'>
-                                            <use href='img/sprite/sprite.svg#edit'></use>
+                                            <use href='../img/sprite/sprite.svg#edit'></use>
                                         </svg>
                                     </i>
                                 </button>
@@ -169,7 +169,7 @@
                                 <button type="button" class="main-info__edit" id="editBtn">
                                     <i class="sprite">
                                         <svg width='22' height='22'>
-                                            <use href='img/sprite/sprite.svg#edit'></use>
+                                            <use href='../img/sprite/sprite.svg#edit'></use>
                                         </svg>
                                     </i>
                                 </button>
@@ -217,7 +217,7 @@
                                 <button type="button" class="main-info__edit" id="editBtn">
                                     <i class="sprite">
                                         <svg width='22' height='22'>
-                                            <use href='img/sprite/sprite.svg#edit'></use>
+                                            <use href='../img/sprite/sprite.svg#edit'></use>
                                         </svg>
                                     </i>
                                 </button>
@@ -362,7 +362,7 @@
             </div>
         </section>
     </main>
-    @include('partials/footer.html')
+    @include('../partials/overlay-admin.html')
 </body>
 
 </html>

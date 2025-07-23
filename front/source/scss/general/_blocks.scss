@@ -1,24 +1,25 @@
+@use '../blocks/header';
+@use '../blocks/sections/hero-section'; //
+@use '../blocks/sections/advantages-section'; //
+@use '../blocks/sections/rent-section'; //
+@use '../blocks/sections/terms-section'; //
 
-@use "../blocks/header"; 
-@use "../blocks/sections/hero-section"; //
-@use "../blocks/sections/advantages-section"; //
-@use "../blocks/sections/rent-section"; //
-@use "../blocks/sections/terms-section"; //
+@use '../blocks/sections/cabinet-section';
 
-@use "../blocks/sections/additionally-service";
-@use "../blocks/sections/included-section";
-@use "../blocks/sections/map-section";
-@use "../blocks/sections/section-catalog"; //
-@use "../blocks/sections/editor-section"; //
-@use "../blocks/sections/faq-section"; //
-@use "../blocks/sections/rental-section"; //
-@use "../blocks/sections/blog-section"; //
-@use "../blocks/footer"; //
-@use "../blocks/aside"; //
-@use "../blocks/sections/about-section"; //
-@use "../blocks/sections/single-section"; //
-@use "../blocks/sections/gift-section"; //
-@use "../blocks/sections/contacts-section"; //
-@use "../blocks/mobile-menu"; 
-@use "../blocks/dark"; 
-@use "../blocks/modals";
+@use '../blocks/sections/additionally-service';
+@use '../blocks/sections/included-section';
+@use '../blocks/sections/map-section';
+@use '../blocks/sections/section-catalog'; //
+@use '../blocks/sections/editor-section'; //
+@use '../blocks/sections/faq-section'; //
+@use '../blocks/sections/rental-section'; //
+@use '../blocks/sections/blog-section'; //
+@use '../blocks/footer'; //
+@use '../blocks/aside'; //
+@use '../blocks/sections/about-section'; //
+@use '../blocks/sections/single-section'; //
+@use '../blocks/sections/gift-section'; //
+@use '../blocks/sections/contacts-section'; //
+@use '../blocks/mobile-menu';
+@use '../blocks/dark';
+@use '../blocks/modals';

@@ -1,257 +1,313 @@
-@use "../mixins/breakpoint" as *;
-@use "../mixins/disable-mob-hover" as *;
+@use '../mixins/breakpoint' as *;
+@use '../mixins/disable-mob-hover' as *;
 
-.main-button {
-  font-family: var(--third-family);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 179%;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  color: var(--cl-b);
-  padding: 13px 30px;
-  background: var(--cl-e);
-  border-radius: 26px;
-  min-width: 260px;
-  height: 55px;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--gr-a);
-    transition: all 0.5s ease;
-    pointer-events: none;
-  }
-
-  &--transparent {
-    border: 1px solid var(--cl-m);
-    border-radius: 14px;
-    background-color: transparent;
-
-    @include hover {
-      border-color: var(--cl-l);
-    }
-  }
-
-  &--black {
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 140%;
-    height: 50px;
-    border: 1px solid var(--cl-a);
-    border-radius: 16px;
-    width: 100%;
-    background-color: var(--cl-a);
-
-    @include hover {
-      border-color: var(--cl-l);
-    }
-  }
-
-  &--white {
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 140%;
-    height: 50px;
-    border: 1px solid var(--cl-b);
-    border-radius: 16px;
-    width: 100%;
-    color: var(--cl-a);
-    background-color: var(--cl-b);
-
-    @include hover {
-      border-color: var(--cl-l);
-    }
-  }
-
-  @include hover {
-    color: var(--cl-b);
-    background: var(--cl-l);
-    // box-shadow: 0 0 10px rgba(33, 66, 48, 0.6);
-
-    &::before {
-      left: 100%;
-    }
-  }
-
-  &.hovered {
-    color: var(--cl-b);
-    background: var(--cl-l);
-
-    &::before {
-      left: 100%;
-    }
-  }
-}
-
-.reset-btn {
-  border: 0.5px solid var(--cl-m);
-  border-radius: 8px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 39px;
-  background: transparent;
-  font-family: var(--third-family);
-  font-weight: 400;
-  font-size: 14px;
-  text-align: center;
-  color: var(--cl-n);
-  transition: all 0.3s ease;
-
-  @include hover {
-    color: var(--cl-b);
-    background: var(--cl-e);
-  }
-}
-
-.more-btn {
-  font-family: var(--third-family);
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 179%;
-  color: var(--cl-a);
-  transition: all 0.3s;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-
-  &.active {
-    text-decoration-color: inherit;
-  }
-
-  @include hover {
-    color: var(--cl-e);
-  }
-}
-
-.down-btn {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  gap: 69px;
-  font-family: var(--third-family);
-  font-weight: 400;
-  font-size: 12px;
-  text-align: center;
-  color: var(--cl-b);
-  position: relative;
-  z-index: 1;
-
-  &:after {
-    position: absolute;
-    content: "";
-    border: 1px solid var(--cl-m);
-    width: 52px;
-    left: calc(56px + 9px);
-    top: 50%;
-    pointer-events: none;
-    transform: translateY(-50%);
-  }
-
-  .sprite {
-    border-radius: 100%;
-    border: solid 1px var(--cl-m);
+.grey-btn {
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    width: 56px;
-    height: 56px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: clamp(12px, 0.7292vw, 14px);
+    text-align: center;
     color: var(--cl-b);
-    transition: all 0.3s;
+    padding: clamp(7px, 0.5729vw, 11px) clamp(10px, 1.0417vw, 20px) clamp(8px, 0.625vw, 12px);
+    border-radius: 14px;
+    height: clamp(34px, 2.0833vw, 40px);
+    background: var(--col-a);
 
-    svg {
-      width: 16px;
-      height: 20px;
-    }
-  }
-
-  &:hover {
     .sprite {
-      background-color: var(--cl-b);
-      color: var(--cl-a);
+        width: 20px;
+        height: 20px;
+        display: flex;
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
     }
-  }
+
+    &.hidden {
+        display: none;
+    }
+
+    &.transparent {
+        border: 1px solid var(--col-a);
+        background: transparent;
+        color: var(--cl-a);
+
+        @include hover {
+            color: var(--cl-b);
+            background: var(--col-a);
+        }
+    }
+
+    &.green {
+        background: var(--cl-e);
+
+        @include hover {
+            background: var(--cl-l);
+        }
+    }
+
+    @include hover {
+        background: var(--cl-l);
+    }
 }
 
-.adress-link {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  width: fit-content;
-  span {
-    margin-right: 7px;
-    font-family: var(--font6);
+.main-button {
+    font-family: var(--third-family);
     font-weight: 400;
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 179%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: var(--cl-b);
+    padding: 13px 30px;
+    background: var(--cl-e);
+    border-radius: 26px;
+    min-width: 260px;
+    height: 55px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--gr-a);
+        transition: all 0.5s ease;
+        pointer-events: none;
+    }
+
+    &--transparent {
+        border: 1px solid var(--cl-m);
+        border-radius: 14px;
+        background-color: transparent;
+
+        @include hover {
+            border-color: var(--cl-l);
+        }
+    }
+
+    &--black {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 140%;
+        height: 50px;
+        border: 1px solid var(--cl-a);
+        border-radius: 16px;
+        width: 100%;
+        background-color: var(--cl-a);
+
+        @include hover {
+            border-color: var(--cl-l);
+        }
+    }
+
+    &--white {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 140%;
+        height: 50px;
+        border: 1px solid var(--cl-b);
+        border-radius: 16px;
+        width: 100%;
+        color: var(--cl-a);
+        background-color: var(--cl-b);
+
+        @include hover {
+            border-color: var(--cl-l);
+        }
+    }
+
+    @include hover {
+        color: var(--cl-b);
+        background: var(--cl-l);
+        // box-shadow: 0 0 10px rgba(33, 66, 48, 0.6);
+
+        &::before {
+            left: 100%;
+        }
+    }
+
+    &.hovered {
+        color: var(--cl-b);
+        background: var(--cl-l);
+
+        &::before {
+            left: 100%;
+        }
+    }
+}
+
+.reset-btn {
+    border: 0.5px solid var(--cl-m);
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 39px;
+    background: transparent;
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    color: var(--cl-n);
+    transition: all 0.3s ease;
+
+    @include hover {
+        color: var(--cl-b);
+        background: var(--cl-e);
+    }
+}
+
+.more-btn {
+    font-family: var(--third-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 179%;
+    color: var(--cl-a);
+    transition: all 0.3s;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+
+    &.active {
+        text-decoration-color: inherit;
+    }
+
+    @include hover {
+        color: var(--cl-e);
+    }
+}
+
+.down-btn {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 69px;
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: 12px;
     text-align: center;
     color: var(--cl-b);
     position: relative;
     z-index: 1;
 
-    &::before {
-      position: absolute;
-      content: "";
-      left: 2px;
-      right: 2px;
-      bottom: -8px;
-      height: 1px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='356' height='1' fill='none'%3E%3Cpath stroke='%23fff' stroke-dasharray='5 5' d='M0 .5h356'/%3E%3C/svg%3E");
-      background-position: top left;
-      background-repeat: repeat-x;
-      background-size: cover;
-      z-index: -1;
-      pointer-events: none;
+    &:after {
+        position: absolute;
+        content: '';
+        border: 1px solid var(--cl-m);
+        width: 52px;
+        left: calc(56px + 9px);
+        top: 50%;
+        pointer-events: none;
+        transform: translateY(-50%);
     }
-  }
 
-  .sprite {
-    transition: all 0.3s;
-    width: 14px;
-    display: flex;
-    color: var(--cl-b);
-
-    svg {
-      width: 100%;
-      height: auto;
-    }
-    &.mode {
-      border-radius: 100%;
-      border: solid 1px var(--cl-m);
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      width: 56px;
-      height: 56px;
-
-      opacity: 1 !important;
-
-      svg {
-        width: 20px;
-        height: 24px;
-      }
-    }
-  }
-
-  &:hover {
     .sprite {
-      opacity: 0;
+        border-radius: 100%;
+        border: solid 1px var(--cl-m);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+        color: var(--cl-b);
+        transition: all 0.3s;
+
+        svg {
+            width: 16px;
+            height: 20px;
+        }
     }
-    .sprite.mode {
-      background-color: var(--cl-b);
-      color: var(--cl-a);
+
+    &:hover {
+        .sprite {
+            background-color: var(--cl-b);
+            color: var(--cl-a);
+        }
     }
-  }
+}
+
+.adress-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: fit-content;
+    span {
+        margin-right: 7px;
+        font-family: var(--font6);
+        font-weight: 400;
+        font-size: 20px;
+        text-align: center;
+        color: var(--cl-b);
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            position: absolute;
+            content: '';
+            left: 2px;
+            right: 2px;
+            bottom: -8px;
+            height: 1px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='356' height='1' fill='none'%3E%3Cpath stroke='%23fff' stroke-dasharray='5 5' d='M0 .5h356'/%3E%3C/svg%3E");
+            background-position: top left;
+            background-repeat: repeat-x;
+            background-size: cover;
+            z-index: -1;
+            pointer-events: none;
+        }
+    }
+
+    .sprite {
+        transition: all 0.3s;
+        width: 14px;
+        display: flex;
+        color: var(--cl-b);
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+        &.mode {
+            border-radius: 100%;
+            border: solid 1px var(--cl-m);
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+
+            opacity: 1 !important;
+
+            svg {
+                width: 20px;
+                height: 24px;
+            }
+        }
+    }
+
+    &:hover {
+        .sprite {
+            opacity: 0;
+        }
+        .sprite.mode {
+            background-color: var(--cl-b);
+            color: var(--cl-a);
+        }
+    }
 }
