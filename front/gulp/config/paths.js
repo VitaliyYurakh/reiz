@@ -2,32 +2,29 @@ const srcFolder = './source';
 const buildFolder = './build';
 
 export const paths = {
-  base: {
-    src: srcFolder,
-    build: buildFolder,
-  },
-  ico: `${srcFolder}/ico/*.png`,
-  srcImgFolder: `${srcFolder}/img`,
-  srcSvg: `${srcFolder}/img/sprite/**.svg`,
+    base: {
+        src: srcFolder,
+        build: buildFolder,
+    },
+    ico: `${srcFolder}/ico/**/*.png`,
+    srcImgFolder: `${srcFolder}/img`,
+    srcSvg: `${srcFolder}/img/sprite/**.svg`,
 
-  srcFolderIcon: `${srcFolder}/img/icons`,
+    srcFolderIcon: `${srcFolder}/img/icons`,
 
-  buildImgSprite: `${buildFolder}/img/sprite`,
+    buildImgSprite: `${buildFolder}/img/sprite`,
 
-  buildImgFolder: `${buildFolder}/img`,
-  srcScss: `${srcFolder}/scss/**/*.scss`,
-  buildCssFolder: `${buildFolder}/css`,
+    buildImgFolder: `${buildFolder}/img`,
+    srcScss: `${srcFolder}/scss/**/*.scss`,
+    buildCssFolder: `${buildFolder}/css`,
 
-  srcFontsFolder: `${srcFolder}/resources/fonts`,
-  srcBuildFolder: `${buildFolder}/fonts`,
+    srcFontsFolder: `${srcFolder}/resources/fonts`,
+    srcBuildFolder: `${buildFolder}/fonts`,
 
+    srcFullJs: `${srcFolder}/js/**/*.js`,
+    srcMainJs: `${srcFolder}/js/main.js`,
+    buildJsFolder: `${buildFolder}/js`,
 
-  srcFullJs: `${srcFolder}/js/**/*.js`,
-  srcMainJs: `${srcFolder}/js/main.js`,
-  buildJsFolder: `${buildFolder}/js`,
-
-
-
-  srcPartialsFolder: `${srcFolder}/partials`,
-  resourcesFolder: `${srcFolder}/resources`,
+    srcPartialsFolder: `${srcFolder}/partials`,
+    resourcesFolder: `${srcFolder}/resources`,
 };

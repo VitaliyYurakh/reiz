@@ -101,13 +101,13 @@
         <div class="container_admin" onclick="">
             <div class="top"></div>
             <div class="bottom"></div>
-            <div class="center">
+            <form name="login" class="center">
                 <h2>Please Sign In</h2>
-                <input type="email" placeholder="email" />
-                <input type="password" placeholder="password" />
+                <input name="email" type="email" placeholder="email" />
+                <input name="password" type="password" placeholder="password" />
                 <h2>&nbsp;</h2>
-            </div>
+                <button>login</button>
+            </form>
         </div>
-        @include('../partials/overlay-admin.html')
     </body>
 </html>

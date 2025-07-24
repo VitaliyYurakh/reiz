@@ -1,5 +1,17 @@
+import {authCheck} from '../api/auth.api.js';
+import {FormLogin} from '../component/form-login.component.js';
+
 class LoginPage {
-    init() {}
+    async init() {
+        await this.authCheck();
+        new FormLogin();
+    }
+
+    async authCheck() {
+        const isAuth = await authCheck();
+
+        if (isAuth) location.replace('/admin/car-list.html');
+    }
 }
 
 export default new LoginPage();

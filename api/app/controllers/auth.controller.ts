@@ -15,8 +15,26 @@ class AuthController {
             logger.error(error);
 
             if (error instanceof UserNotFoundError) {
-                return res.status(StatusCodes.NOT_FOUND).json({msg: error.message});
+                return res.status(StatusCodes.FORBIDDEN).json({msg: error.message});
             }
+
+            if (error instanceof AccessDenied) {
+                return res.status(StatusCodes.UNAUTHORIZED).json({msg: error.message});
+            }
+
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error.message});
+        }
+    }
+
+    async checkAuth(req: Request, res: Response) {
+        try {
+            const token = req.header('Authorization');
+
+            await authServices.authenticateUser(token);
+
+            return res.status(StatusCodes.OK).json();
+        } catch (error) {
+            logger.error(error);
 
             if (error instanceof AccessDenied) {
                 return res.status(StatusCodes.UNAUTHORIZED).json({msg: error.message});
