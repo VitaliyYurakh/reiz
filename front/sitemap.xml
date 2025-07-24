@@ -1,62 +1,58 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    <!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- sitemap for https://reiz.com.ua/  -->
     <url>
         <loc>https://reiz.com.ua/</loc>
         <lastmod>2025-07-15T18:08:56+00:00</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://reiz.com.ua/index.html</loc>
-        <lastmod>2025-07-15T18:08:56+00:00</lastmod>
-        <priority>0.80</priority>
-    </url>
-    <url>
-        <loc>https://reiz.com.ua/insurance.html</loc>
+        <loc>https://reiz.com.ua/insurance</loc>
         <lastmod>2025-07-13T13:43:28+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://reiz.com.ua/business.html</loc>
+        <loc>https://reiz.com.ua/business</loc>
         <lastmod>2025-07-13T13:43:28+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://reiz.com.ua/certificate.html</loc>
+        <loc>https://reiz.com.ua/certificate</loc>
         <lastmod>2025-07-13T13:43:28+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://reiz.com.ua/terms.html</loc>
+        <loc>https://reiz.com.ua/terms</loc>
         <lastmod>2025-07-16T18:50:13+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://reiz.com.ua/faq.html</loc>
+        <loc>https://reiz.com.ua/faq</loc>
         <lastmod>2025-07-13T13:43:28+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://reiz.com.ua/rent.html</loc>
+        <loc>https://reiz.com.ua/rent</loc>
         <lastmod>2025-07-13T13:43:28+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://reiz.com.ua/blog.html</loc>
+        <loc>https://reiz.com.ua/blog</loc>
         <lastmod>2025-07-13T13:43:28+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://reiz.com.ua/about.html</loc>
+        <loc>https://reiz.com.ua/about</loc>
         <lastmod>2025-07-13T13:43:28+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://reiz.com.ua/contacts.html</loc>
+        <loc>https://reiz.com.ua/contacts</loc>
         <lastmod>2025-07-13T13:43:28+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://reiz.com.ua/single.html</loc>
+        <loc>https://reiz.com.ua/single</loc>
         <lastmod>2025-07-13T13:43:28+00:00</lastmod>
         <priority>0.80</priority>
     </url>
