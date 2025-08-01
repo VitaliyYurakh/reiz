@@ -84,7 +84,7 @@
                             </ul>
                         </div>
 
-                        <div class="main-info single mode" data-upload-group="main-info">
+                        <div class="main-info single mode" data-upload-group="PREVIEW">
                             <div class="main-info__top">
                                 <span class="main-info__title">ФОТО НА ПРЕВЬЮ 1000x560</span>
                             </div>
@@ -95,11 +95,12 @@
                                         <div id="preview" class="main-info__item"></div>
                                     </div>
                                 </div>
+                                <input type="file" hidden>
                                 <button class="main-info__add">+</button>
                             </div>
                         </div>
 
-                        <div class="main-info mode" data-upload-group="main-info">
+                        <div class="main-info mode" data-upload-group="PC">
                             <div class="main-info__top">
                                 <span class="main-info__title">ФОТО НА ПК ВЕРСИЮ ФОРМАТ: 16/9</span>
                             </div>
@@ -107,13 +108,15 @@
                             <div class="main-info__content">
                                 <div class="main-info__wrapp">
                                     <ul id="photo" class="main-info__list">
+                                        <li class="main-info__item"></li>
                                     </ul>
                                 </div>
+                                <input type="file" hidden>
                                 <button class="main-info__add">+</button>
                             </div>
                         </div>
 
-                        <div class="main-info mode" data-upload-group="main-info">
+                        <div class="main-info mode" data-upload-group="MOBILE">
                             <div class="main-info__top">
                                 <span class="main-info__title">ФОТО НА МОБ ВЕРСИЮ ФОРМАТ: 1/1</span>
                             </div>
@@ -122,14 +125,9 @@
                                 <div class="main-info__wrapp">
                                     <ul id="mobile" class="main-info__list mob">
                                         <li class="main-info__item"></li>
-                                        <li class="main-info__item"></li>
-                                        <li class="main-info__item"></li>
-                                        <li class="main-info__item"></li>
-                                        <li class="main-info__item"></li>
-                                        <li class="main-info__item"></li>
-                                        <li class="main-info__item"></li>
                                     </ul>
                                 </div>
+                                <input type="file" hidden>
                                 <button class="main-info__add">+</button>
                             </div>
                         </div>
@@ -152,7 +150,7 @@
                                         <textarea name="mess" id="mess" disabled></textarea>
                                     </label>
                                 </div>
-                                <button type="submit" class="grey-btn hidden" id="saveBtn">Сохранить</button>
+                                <button type="submit" class="grey-btn hidden" id="edit-description">Сохранить</button>
                             </div>
                         </div>
 
@@ -172,31 +170,31 @@
                                 <div class="main-info__box">
                                     <label class="main-info__label">
                                         <span>ДВИГАТЕЛЬ: </span>
-                                        <input data-attr="engineVolume" type="text" name="engine" value="4L" disabled>
+                                        <input data-attr="engineVolume" type="text" name="engine" disabled>
                                     </label>
                                     <label class="main-info__label">
                                         <span>ТИП ДВИГАТЕЛЯ: </span>
-                                        <input data-attr="engineType" type="text" name="engine_type" value="БЕНЗИН" disabled>
+                                        <input data-attr="engineType" type="text" name="engine_type" disabled>
                                     </label>
                                     <label class="main-info__label">
                                         <span>ТРАНСМИССИЯ: </span>
-                                        <input data-attr="transmission" type="text" name="transmission" value="АВТОМАТ" disabled>
+                                        <input data-attr="transmission" type="text" name="transmission" disabled>
                                     </label>
                                     <label class="main-info__label">
                                         <span>РАСХОД ТОПЛИВА: </span>
-                                        <input data-attr="fuelConsumption" type="text" name="consumption" value="12" disabled>
+                                        <input data-attr="fuelConsumption" type="text" name="consumption" disabled>
                                     </label>
                                     <label class="main-info__label">
                                         <span>ПРИВОД: </span>
-                                        <input data-attr="driveType" type="text" name="drive" value="ПОЛНЫЙ" disabled>
+                                        <input data-attr="driveType" type="text" name="drive" disabled>
                                     </label>
                                     <label class="main-info__label">
                                         <span>ЧИСЛО МЕСТ: </span>
-                                        <input data-attr="seats" type="text" name="seats" value="5" disabled>
+                                        <input data-attr="seats" type="text" name="seats" disabled>
                                     </label>
                                 </div>
 
-                                <button type="submit" class="grey-btn hidden" id="saveBtn">Сохранить</button>
+                                <button type="submit" class="grey-btn hidden" id="edit-attr">Сохранить</button>
                             </div>
                         </div>
 
@@ -216,36 +214,36 @@
                                 <div class="main-info__box">
                                     <label data-tariff="1_2" class="main-info__label">
                                         <span>1—2 дня: </span>
-                                        <input type="number" name="price_day_1_2" id="price_day_1_2" value="675"
+                                        <input type="number" name="price_day_1_2" id="price_day_1_2"
                                             disabled>
                                     </label>
                                     <label data-tariff="3_7"  class="main-info__label">
                                         <span>3—7 дня: </span>
-                                        <input type="number" name="price_day_3_7" id="price_day_3_7" value="645"
+                                        <input type="number" name="price_day_3_7" id="price_day_3_7"
                                             disabled>
                                     </label>
                                     <label data-tariff="8_29"   class="main-info__label">
                                         <span>8—29 дня: </span>
-                                        <input type="number" name="price_day_8_29" id="price_day_8_29" value="607"
+                                        <input type="number" name="price_day_8_29" id="price_day_8_29" 
                                             disabled>
                                     </label>
                                     <label data-tariff="30_0"   class="main-info__label">
                                         <span>БОЛЕЕ 29 дней: </span>
-                                        <input type="number" name="price_day_30_plus" id="price_day_30_plus" value="513"
+                                        <input type="number" name="price_day_30_plus" id="price_day_30_plus" 
                                             disabled>
                                     </label>
                                     <label class="main-info__label">
                                         <span>ЗАЛОГ: </span>
-                                        <input id="deposit" type="number" name="deposit" id="deposit" value="5000" disabled>
+                                        <input id="deposit" type="number" name="deposit" id="deposit" disabled>
                                     </label>
                                     <label class="main-info__label">
                                         <span>СТОИМОСТЬ ПЕРЕПРОБЕГА ЗА 1КМ: </span>
-                                        <input id="over" type="text" name="extra_km_cost" id="extra_km_cost" value="0.45" disabled>
+                                        <input id="over" type="text" name="extra_km_cost" id="extra_km_cost" disabled>
                                     </label>
                                 </div>
 
 
-                                <button type="submit" class="grey-btn hidden" id="saveBtn">Сохранить</button>
+                                <button type="submit" class="grey-btn hidden" id="edit-tariff">Сохранить</button>
                             </div>
                         </div>
 
@@ -291,11 +289,11 @@
                                             class="radio-checkbox__field">
                                         <span class="radio-checkbox__content">-35%</span>
                                     </label>
-                                    <label class="radio-checkbox mode">
-                                        <input type="radio" name="discount" id="discount_new" value="NEW"
+                                    <!-- <label class="radio-checkbox mode">
+                                        <input type="radio" name="discount" id="discount_new" value="new"
                                             class="radio-checkbox__field">
                                         <span class="radio-checkbox__content">NEW</span>
-                                    </label>
+                                    </label> -->
                                 </div>
                             </div>
                         </div>
@@ -307,8 +305,9 @@
 
                             <div class="main-info__inner">
                                 <div id="configuration" class="main-info__box">
-                                    <button class="grey-btn">Добавить</button>
+                                    
                                 </div>
+                                <button id="add-configuration" class="grey-btn">Добавить</button>
                             </div>
                         </div>
                     </div>

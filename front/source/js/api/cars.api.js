@@ -11,6 +11,17 @@ export const getAll = async () => {
     }
 };
 
+export const getSegments = async () => {
+    try {
+        const res = await api.get('/segment/');
+
+        return res.data.segments;
+    } catch (err) {
+        console.log(err);
+        return [];
+    }
+};
+
 export const getOne = async (id) => {
     try {
         const res = await api.get(`/car/${id}`);
@@ -36,6 +47,21 @@ export const createOne = async (data) => {
 export const addPhoto = async (id, formData) => {
     try {
         const res = await api.post(`/car/${id}/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+
+        return res.data.url;
+    } catch (err) {
+        console.log(err);
+        throw new Error(err.message);
+    }
+};
+
+export const addPreview = async (id, formData) => {
+    try {
+        const res = await api.patch(`/car/${id}/preview`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

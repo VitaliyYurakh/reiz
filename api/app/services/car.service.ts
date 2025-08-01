@@ -75,6 +75,25 @@ class CarService {
         }
     }
 
+    async addCarPreviewPhoto(carId: number, url: string) {
+        const car = await prisma.car.findUnique({where: {id: carId}});
+
+        if (!car) {
+            throw new CarNotFoundError();
+        }
+
+        await prisma.car.update({
+            where: {
+                id: carId,
+            },
+            data: {
+                previewUrl: url,
+            },
+        });
+
+        return url;
+    }
+
     async addCarPhoto(carId: number, carPhoto: CarPhotoDto) {
         const car = await prisma.car.findUnique({where: {id: carId}});
 

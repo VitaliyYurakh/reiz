@@ -73,9 +73,33 @@ class CarController {
         try {
             const {data}: {data: TariffDto[]} = req.body;
             const {id} = req.params;
+
             await carService.updateRentalTariff(parseInt(id), data);
 
             return res.status(StatusCodes.OK).json();
+        } catch (error) {
+            logger.error(error);
+
+            if (error instanceof CarNotFoundError) {
+                return res.status(StatusCodes.NOT_FOUND).json({msg: error.message});
+            }
+
+            if (error instanceof AccessDenied) {
+                return res.status(StatusCodes.UNAUTHORIZED).json({msg: error.message});
+            }
+
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error.message});
+        }
+    }
+
+    async addCarPreviewPhoto(req: Request, res: Response) {
+        try {
+            const file = req.file.filename;
+            const {id} = req.params;
+
+            const url = await carService.addCarPreviewPhoto(parseInt(id), file);
+
+            return res.status(StatusCodes.OK).json({url});
         } catch (error) {
             logger.error(error);
 

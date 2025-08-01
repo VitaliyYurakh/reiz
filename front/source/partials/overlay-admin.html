@@ -48,7 +48,7 @@
         </div>
     </form>
 
-    <form class="cabinet-modal modal mode" data-popup="settings">
+    <form name="edit" class="cabinet-modal modal mode" data-popup="settings">
         <div class="modal__top">
             <span class="modal__title">Название:</span>
 
@@ -62,27 +62,32 @@
             <div class="modal__form">
                 <label class="modal__label">
                     <span>Марка: </span>
-                    <input type="text" name="auto" id="auto" />
+                    <input data-edit="brand" type="text" name="brand" id="auto" />
                 </label>
                 <label class="modal__label">
                     <span>Модель: </span>
-                    <input type="text" name="model" id="model" />
+                    <input data-edit="model" type="text" name="model" id="model" />
                 </label>
                 <label class="modal__label">
                     <span>Номер: </span>
-                    <input type="text" name="number" id="number" />
+                    <input data-edit="plateNumber" type="text" name="plateNumber" id="number" />
                 </label>
                 <label class="modal__label">
                     <span>VIN: </span>
-                    <input type="text" name="vin" id="vin" />
+                    <input data-edit="VIN" type="text" name="VIN" id="vin" />
                 </label>
                 <label class="modal__label">
                     <span>Год: </span>
-                    <input type="text" name="year" id="year" />
+                    <input
+                        data-edit="yearOfManufacture"
+                        type="text"
+                        name="yearOfManufacture"
+                        id="year"
+                    />
                 </label>
                 <label class="modal__label">
                     <span>Цвет: </span>
-                    <input type="text" name="color" id="color" />
+                    <input data-edit="color" type="text" name="color" id="color" />
                 </label>
                 <div class="custom-select cabinet">
                     <div class="select-field">
@@ -96,17 +101,20 @@
                         </div>
                     </div>
                     <ul class="options-container">
-                        <li class="option" data-value="Бензин">
-                            <span class="option-text">Бензин</span>
+                        <li class="option" data-value="1">
+                            <span class="option-text">Economy</span>
                         </li>
-                        <li class="option" data-value="Дизель">
-                            <span class="option-text">Дизель</span>
+                        <li class="option" data-value="2">
+                            <span class="option-text">Business</span>
                         </li>
-                        <li class="option" data-value="Бензин2">
-                            <span class="option-text">Бензин2</span>
+                        <li class="option" data-value="3">
+                            <span class="option-text">Luxury</span>
                         </li>
-                        <li class="option" data-value="Дизель2">
-                            <span class="option-text">Дизель2</span>
+                        <li class="option" data-value="4">
+                            <span class="option-text">SUV</span>
+                        </li>
+                        <li class="option" data-value="5">
+                            <span class="option-text">VAN</span>
                         </li>
                     </ul>
                 </div>
