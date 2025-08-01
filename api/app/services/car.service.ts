@@ -18,14 +18,22 @@ class CarService {
 
     async createOne(car: CreateCarDto) {
         const {segmentId, ...rest} = car;
-        return await prisma.car.create({
+        const newCar = await prisma.car.create({
             data: {
                 ...rest,
                 segment: {
-                    connect: {id: segmentId},
+                    connect: {id: segmentId || 1},
                 },
             },
         });
+
+        this.updateRentalTariff(newCar.id, [
+            {dailyPrice: 0, deposit: 0, minDays: 1, maxDays: 2},
+            {dailyPrice: 0, deposit: 0, minDays: 3, maxDays: 7},
+            {dailyPrice: 0, deposit: 0, minDays: 8, maxDays: 29},
+            {dailyPrice: 0, deposit: 0, minDays: 30, maxDays: 0},
+        ]);
+        return newCar;
     }
 
     async updateOne(id: number, carDto: UpdateCarDto) {
@@ -47,7 +55,7 @@ class CarService {
 
         for await (const tariff of tariffs) {
             const oldTariff = await prisma.rentalTariff.findFirst({
-                where: {minDays: tariff.minDays, maxDays: tariff.maxDays},
+                where: {minDays: tariff.minDays, maxDays: tariff.maxDays, carId},
             });
 
             if (!oldTariff) {

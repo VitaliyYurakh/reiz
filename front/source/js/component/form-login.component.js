@@ -16,7 +16,7 @@ export class FormLogin {
             try {
                 const token = await login(data.email, data.password);
                 localStorage.setItem('token', token);
-                location.replace('/admin/car-list.html');
+                location.ркуа = '/admin/car-list.html';
             } catch (err) {
                 alert(err);
             }

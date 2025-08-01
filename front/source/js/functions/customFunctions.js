@@ -21,6 +21,7 @@ export const fadeOut = (el, timeout) => {
 export const removeCustomClass = (item, customClass = 'active') => {
     const classes = customClass.split(',').map((cls) => cls.trim());
     classes.forEach((className) => {
+        if (!item) return;
         item.classList.remove(className);
     });
 };
@@ -37,6 +38,7 @@ export const toggleCustomClass = (item, customClasses = 'active') => {
 export const addCustomClass = (item, customClass = 'active') => {
     const classes = customClass.split(',').map((cls) => cls.trim());
     classes.forEach((className) => {
+        if (!item) return;
         item.classList.add(className);
     });
 };

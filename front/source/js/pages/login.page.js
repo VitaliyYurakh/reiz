@@ -10,7 +10,7 @@ class LoginPage {
     async authCheck() {
         const isAuth = await authCheck();
 
-        if (isAuth) location.replace('/admin/car-list.html');
+        if (isAuth) location.href = '/admin/car-list.html';
     }
 }
 

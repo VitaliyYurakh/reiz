@@ -42,6 +42,10 @@ body {
 
     // disable scroll
   }
+
+  &.page{
+    padding-top: clamp(30px, 3.6806vw, 53px);
+  }
 }
 
 main {

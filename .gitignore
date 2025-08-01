@@ -6,6 +6,8 @@
 /out-tsc
 build
 
+/Reiz-main
+
 # Runtime data
 pids
 *.pid

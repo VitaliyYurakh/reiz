@@ -22,12 +22,12 @@ model User {
 
 model Car {
   id                Int     @id @default(autoincrement())
-  brand             String
-  model             String
-  plateNumber       String  @map("plate_number")
-  VIN               String
-  yearOfManufacture Int     @map("year_of_manufacture")
-  color             String
+  brand             String?
+  model             String?
+  plateNumber       String? @map("plate_number")
+  VIN               String?
+  yearOfManufacture Int?    @map("year_of_manufacture")
+  color             String?
   description       String?
   previewUrl        String? @map("preview_url")
   engineVolume      String? @map("engine_volume")
@@ -38,12 +38,12 @@ model Car {
   seats             Int?
   discount          Int?
   configuration     Json?
-  segmentId         Int     @map("segment_id")
+  segmentId         Int?    @map("segment_id")
 
   rentalTariff    RentalTariff[]
   carPhoto        CarPhoto[]
   carCountingRule CarCountingRule[]
-  segment         Segment           @relation(fields: [segmentId], references: [id], onDelete: Restrict)
+  segment         Segment?          @relation(fields: [segmentId], references: [id], onDelete: Restrict)
 }
 
 model Segment {
@@ -65,7 +65,7 @@ model RentalTariff {
 
   car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
 
-  @@unique([minDays, maxDays])
+  @@unique([minDays, maxDays, carId])
 }
 
 model CarCountingRule {
