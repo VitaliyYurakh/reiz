@@ -29,6 +29,10 @@ export class CarList {
             const carItem = target.closest('.cabinet-table__row');
 
             if (isDeleteBtn) {
+                const isConfirm = confirm('Підтвердити видалення');
+
+                if (!isConfirm) return;
+
                 const id = carItem.dataset.carId;
                 try {
                     await deleteOne(id);
