@@ -13,36 +13,40 @@ async function main() {
         },
     });
 
-    await prisma.segment.createMany({
-        data: [
-            {
-                name: 'Economy',
-                description: 'Affordable and fuel-efficient vehicles',
-                overmileagePrice: 0.2,
-            },
-            {
-                name: 'Business',
-                description: 'Comfortable cars for business travel',
-                overmileagePrice: 0.35,
-            },
-            {
-                name: 'Luxury',
-                description: 'Premium vehicles for VIP experience',
-                overmileagePrice: 0.4,
-            },
-            {
-                name: 'SUV',
-                description: 'SUV',
-                overmileagePrice: 0.45,
-            },
-            {
-                name: 'VAN',
-                description: 'VAN',
-                overmileagePrice: 0.5,
-            },
-        ],
-        skipDuplicates: true,
-    });
+    const segments = await prisma.segment.findMany();
+
+    if (!segments.length) {
+        await prisma.segment.createMany({
+            data: [
+                {
+                    name: 'Economy',
+                    description: 'Affordable and fuel-efficient vehicles',
+                    overmileagePrice: 0.2,
+                },
+                {
+                    name: 'Business',
+                    description: 'Comfortable cars for business travel',
+                    overmileagePrice: 0.35,
+                },
+                {
+                    name: 'Luxury',
+                    description: 'Premium vehicles for VIP experience',
+                    overmileagePrice: 0.4,
+                },
+                {
+                    name: 'SUV',
+                    description: 'SUV',
+                    overmileagePrice: 0.45,
+                },
+                {
+                    name: 'VAN',
+                    description: 'VAN',
+                    overmileagePrice: 0.5,
+                },
+            ],
+            skipDuplicates: true,
+        });
+    }
 
     console.log('Seed completed');
 }

@@ -1,22 +1,44 @@
-version: "3.8"
+version: '3.8'
 
 services:
-    # api:
-    #     build: ./api
-    #     restart: always
-    #     ports:
-    #         - "3000:3000"
-    #     env_file:
-    #         - ./api/.env
-    #     volumes:
-    #         - ./api:/app
-    #     command: npm run start
+    api:
+        build: ./api
+        restart: always
+        ports:
+            - '3000:3000'
+        env_file:
+            - ./api/.env
+        volumes:
+            - ./api/uploads:/usr/src/app/uploads
+        depends_on:
+            - postgres
+        networks:
+            - reiz
 
     frontend:
         build: ./front
         restart: always
         ports:
-            - "8080:8080"
+            - '8080:8080'
+        networks:
+            - reiz
+
+    postgres:
+        image: postgres:16
+        restart: always
+        ports:
+            - '5432:5432'
         volumes:
-            - ./front:/app
-        command: http-server build -p 8080
+            - pgdata:/var/lib/postgresql/data
+        environment:
+            POSTGRES_DB: reiz
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: 1
+        networks:
+            - reiz
+
+volumes:
+    pgdata:
+
+networks:
+    reiz:

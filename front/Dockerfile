@@ -1,11 +1,9 @@
-FROM node:20-alpine
+FROM nginx:alpine
 
-WORKDIR /app
+# Копіюємо білд (статичні файли) у стандартну nginx папку
+COPY build /usr/share/nginx/html
 
-RUN npm install -g http-server
-
-COPY build/ ./build
+# (опційно) Можна скопіювати свою конфігурацію
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 8080
-
-CMD ["http-server", "build", "-p", "8080"]

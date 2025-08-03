@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+export const PROD = 'https://reiz.com.ua/';
+export const DEV = 'http://localhost:3000/';
+
 const api = axios.create({
-    baseURL: 'http://localhost:3002/api',
+    baseURL: PROD + 'api',
     headers: {
         'Content-Type': 'application/json',
     },
