@@ -31,7 +31,7 @@ const watcher = () => {
             baseDir: `${app.paths.base.build}`,
         },
         notify: false,
-        port: 3000,
+        port: 3001,
     });
 
     gulp.watch(app.paths.srcScss, styles);

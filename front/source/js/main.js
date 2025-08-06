@@ -1,11 +1,13 @@
 import './_components.js';
 import carListPage from './pages/car-list.page.js';
 import {carEditPage, loginPage} from './pages/index.js';
+import mainPage from './pages/main.page.js';
 
 const pages = {
     login: loginPage,
     'car-edit': carEditPage,
     'car-list': carListPage,
+    main: mainPage,
 };
 
 window.addEventListener('DOMContentLoaded', async () => {

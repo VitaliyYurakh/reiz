@@ -6,7 +6,7 @@ import {
     updateOne,
     updateRentalTariffs,
 } from '../api/cars.api.js';
-import {PROD} from '../api/config.js';
+import {BASE_URL} from '../api/config.js';
 
 export class CarEdit {
     car = null;
@@ -298,7 +298,7 @@ export class CarEdit {
 
         this.preview.innerHTML = previewUrl
             ? `
-                <img src="${PROD}static/${previewUrl}" alt="Загруженное фото" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
+                <img src="${BASE_URL}static/${previewUrl}" alt="Загруженное фото" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
             `
             : '';
 
@@ -307,7 +307,7 @@ export class CarEdit {
                 if (type !== 'PC') return acc;
 
                 acc += `<li class="main-info__item">
-                            <img src="${PROD}static/${url}" alt="Загруженное фото" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
+                            <img src="${BASE_URL}static/${url}" alt="Загруженное фото" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
                         </li>`;
 
                 return acc;
@@ -318,7 +318,7 @@ export class CarEdit {
                 if (type !== 'MOBILE') return acc;
 
                 acc += `<li class="main-info__item">
-                            <img src="${PROD}static/${url}" alt="Загруженное фото" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
+                            <img src="${BASE_URL}static/${url}" alt="Загруженное фото" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
                         </li>`;
 
                 return acc;
