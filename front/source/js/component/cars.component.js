@@ -147,7 +147,7 @@ export class Cars {
                                     </svg>
                                 </i>
                                 <span class="car-card__text">Число мест</span>
-                                <span class="car-card__value">${seats}</span>
+                                <span class="car-card__value">${seats} Seats</span>
                             </li>
                         </ul>
 
