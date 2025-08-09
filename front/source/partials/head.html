@@ -1,42 +1,52 @@
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <link rel="canonical" href="https://reiz.com.ua/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <!-- Канонический -->
+    @@if (context.canonical) {<link rel="canonical" href="@@canonical" />}
+    @@if (!context.canonical) {<link rel="canonical" href="https://reiz.com.ua/" />}
+  
     <meta name="robots" content="index,follow" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
     <meta name="theme-color" content="#111111" />
-
+  
     <!-- description -->
-    <meta
-        name="description"
-        content="Аренда автомобилей во Львове. Современные авто, премиум-сервис, подача по адресу, поддержка 24/7. Быстро, надёжно, без скрытых условий."
-    />
+    <meta name="description" content="@@description" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Reiz Rental Cars" />
-    <meta property="og:title" content="Аренда авто во Львове — REIZ RENTAL CARS" />
-    <meta
-        property="og:description"
-        content="Прокат автомобилей во Львове. Новые авто, премиальный сервис, адресная доставка, поддержка 24/7 — всё, чтобы вы чувствовали уверенность на дороге."
-    />
-    <meta property="og:url" content="https://reiz.com.ua/" />
-    <meta property="og:image" content="https://reiz.com.ua/img/icons/reizmage.webp" />
-    <meta property="og:site_name" content="REIZ RENTAL CARS" />
-    <meta property="og:locale" content="ru_RU" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="REIZ RENTAL CARS" />
+  @@if (context.og_type) {<meta property="og:type" content="@@og_type" />}
+  @@if (!context.og_type) {<meta property="og:type" content="website" />}
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Аренда авто во Львове — REIZ RENTAL CARS" />
-    <meta
-        property="twitter:description"
-        content="Надёжный прокат авто во Львове. Новые машины, премиум-сервис, подача по адресу, 24/7."
-    />
-    <meta property="twitter:image:src" content="https://www.reiz.com.ua/img/icons/reizmage.webp" />
+  @@if (context.og_description) {<meta property="og:description" content="@@og_description" />}
+  @@if (!context.og_description) {<meta property="og:description" content="@@description" />}
+
+  @@if (context.og_url) {<meta property="og:url" content="@@og_url" />}
+  @@if (!context.og_url) {<meta property="og:url" content="@@canonical" />}
+
+  @@if (context.og_image) {<meta property="og:image" content="@@og_image" />}
+  @@if (!context.og_image) {<meta property="og:image" content="https://reiz.com.ua/img/icons/reizmage.webp" />}
+
+  <meta property="og:locale" content="ru_RU" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  @@if (context.twitter_title) {<meta name="twitter:title" content="@@twitter_title" />}
+  @@if (!context.twitter_title) {<meta name="twitter:title" content="@@og_title" />}
+
+  @@if (context.twitter_description) {<meta name="twitter:description" content="@@twitter_description" />}
+  @@if (!context.twitter_description) {<meta name="twitter:description" content="@@og_description" />}
+
+  @@if (context.twitter_image) {<meta name="twitter:image" content="@@twitter_image" />}
+  @@if (!context.twitter_image && context.og_image) {<meta name="twitter:image" content="@@og_image" />}
+  @@if (!context.twitter_image && !context.og_image) {<meta name="twitter:image" content="https://reiz.com.ua/img/icons/reizmage.webp" />}
+
+
 
     <!-- Title -->
-    <title>Аренда авто во Львове — REIZ RENTAL CARS</title>
+  <title>@@title</title>
 
     <link rel="preload" href="fonts/Arial-BoldMT.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/Arial-ItalicMT.woff2" as="font" type="font/woff2" crossorigin />
@@ -186,37 +196,33 @@
     <!-- Structured Data for LocalBusiness -->
     <script type="application/ld+json">
         {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "REIZ RENTAL CARS",
-            "url": "https://reiz.com.ua",
-            "logo": "https://reiz.com.ua/ico/Reiz.png",
-            "image": "https://reiz.com.ua/img/icons/mercedes_e2025.webp",
-            "priceRange": "$$$",
-            "description": "Аренда автомобилей во Львове от REIZ. Современные авто, премиум-сервис, адресная подача, поддержка 24/7.",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Львов",
-                "addressCountry": "UA"
-            },
-            "sameAs": ["https://www.instagram.com/reiz.rental"],
-            "openingHoursSpecification": [
-                {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday",
-                        "Saturday",
-                        "Sunday"
-                    ],
-                    "opens": "08:00",
-                    "closes": "22:00"
-                }
-            ]
+          "@context": "https://schema.org",
+          "@type": "AutoRental",
+          "@id": "https://reiz.com.ua/#company",
+          "name": "REIZ RENTAL CARS",
+          "url": "https://reiz.com.ua",
+          "logo": "https://reiz.com.ua/ico/Reiz.png",
+          "image": "https://reiz.com.ua/img/icons/reiz.webp",
+          "priceRange": "$$",
+          "description": "REIZ — аренда авто во Львове: современные автомобили, подача по адресу и поддержка 24/7.",
+          "telephone": "+380635471186",
+        
+          "areaServed": [
+            { "@type": "City", "name": "Львов" },
+            { "@type": "AdministrativeArea", "name": "Львовская область" },
+            { "@type": "Country", "name": "Украина" }
+          ],
+        
+          "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "08:00",
+            "closes": "22:00"
+          }],
+        
+          "sameAs": ["https://www.instagram.com/reiz.rental"]
         }
-    </script>
+        </script>
+        
     <script defer src="js/main.js"></script>
 </head>

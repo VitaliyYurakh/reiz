@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-    @include('partials/head.html')
+    @@include('partials/head.html', {
+        "title": "Аренда авто во Львове — REIZ RENTAL CARS",
+        "description": "Аренда автомобилей во Львове. Современные авто, премиум-сервис, подача по адресу, 24/7.",
+        "canonical": "https://reiz.com.ua/",
+        "og_title": "Аренда авто во Львове — REIZ RENTAL CARS",
+        "og_description": "Прокат автомобилей во Львове. Новые авто, премиальный сервис, адресная доставка, поддержка 24/7.",
+        "og_url": "https://reiz.com.ua/",
+        "og_image": "https://reiz.com.ua/img/og/home.webp"
+      })
+      
 
-    <body class="page__body" data-page="main">
-        @include('partials/noscript.html') @include('partials/header.html')
+      <body class="page__body" data-page="main">
+        @@include('partials/noscript.html')
+        @@include('partials/header.html')
+      
         <main class="main">
             <section class="hero-section">
                 <div class="hero-section__bg">
@@ -57,31 +68,31 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="insurance">СТРАХОВКА</a>
+                                        <a href="/insurance">СТРАХОВКА</a>
                                     </li>
                                     <li>
-                                        <a href="business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
                                     </li>
                                     <li>
-                                        <a href="certificate">СЕРТИФИКАТЫ </a>
+                                        <a href="/certificate">СЕРТИФИКАТЫ </a>
                                     </li>
                                     <li>
-                                        <a href="terms">УСЛОВИЯ АРЕНДЫ</a>
+                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
                                     </li>
                                     <li>
-                                        <a href="faq">ВОПРОС-ОТВЕТ</a>
+                                        <a href="/faq">ВОПРОС-ОТВЕТ</a>
                                     </li>
                                     <li>
-                                        <a href="invest">СДАТЬ АВТО В АРЕНДУ</a>
+                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
                                     </li>
                                     <li>
-                                        <a href="blog">БЛОГ</a>
+                                        <a href="/blog">БЛОГ</a>
                                     </li>
                                     <li>
-                                        <a href="about">О НАС</a>
+                                        <a href="/about">О НАС</a>
                                     </li>
                                     <li>
-                                        <a href="contacts">КОНТАКТЫ</a>
+                                        <a href="/contacts">КОНТАКТЫ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -1223,7 +1234,7 @@
                         <ul class="rent-list">
                             <!-- <li class="rent-list__item"  data-aos="fade-up" data-aos-duration="400"> -->
                             <li class="rent-list__item">
-                                <a href="invest" class="rent-card">
+                                <a href="/invest" class="rent-card">
                                     <div class="rent-card__image">
                                         <picture>
                                             <source type="image/webp" srcset="img/rental.webp" />
@@ -1277,7 +1288,7 @@
                             </li>
                             <!-- <li class="rent-list__item"  data-aos="fade-up" data-aos-duration="400"> -->
                             <li class="rent-list__item">
-                                <a href="terms" class="rent-card">
+                                <a href="/terms" class="rent-card">
                                     <div class="rent-card__image">
                                         <picture>
                                             <source type="image/webp" srcset="img/carterms.webp" />
@@ -1298,7 +1309,7 @@
                             </li>
                             <!-- <li class="rent-list__item"  data-aos="fade-up" data-aos-duration="400"> -->
                             <li class="rent-list__item">
-                                <a href="faq" class="rent-card">
+                                <a href="/faq" class="rent-card">
                                     <div class="rent-card__image">
                                         <picture>
                                             <source type="image/webp" srcset="img/faq.webp" />
@@ -1483,6 +1494,6 @@
                 </div>
             </section>
         </main>
-        @include('partials/footer.html')
+        @@include('partials/footer.html')
     </body>
 </html>

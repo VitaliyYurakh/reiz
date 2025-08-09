@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-    @include('partials/head.html')
+  @@include('partials/head.html', {
+    "title": "Блог REIZ — советы по аренде авто, маршруты и лайфхаки",
+    "description": "Статьи REIZ: правила и советы по аренде автомобиля в Украине, маршруты по Львову и стране, навигаторы, парковка, страхование.",
+    "canonical": "https://reiz.com.ua/blog/",
+    "og_title": "Блог REIZ — аренда авто, маршруты и советы",
+    "og_description": "Полезные материалы для водителей и путешественников: ДТП, парковка, лучшие маршруты и приложения.",
+    "og_url": "https://reiz.com.ua/blog/",
+    "og_image": "https://reiz.com.ua/img/og/blog.webp"
+  })
 
-    <body class="page__body" data-page="blog">
-        @include('partials/noscript.html') @include('partials/header-mode.html')
+  <body class="page__body" data-page="blog">
+    @@include('partials/noscript.html')
+    @@include('partials/header-mode.html')
+
         <main class="main">
             <section class="blog-section">
                 <div class="container">
@@ -46,31 +56,31 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="insurance">СТРАХОВКА</a>
+                                        <a href="/insurance">СТРАХОВКА</a>
                                     </li>
                                     <li>
-                                        <a href="business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
                                     </li>
                                     <li>
-                                        <a href="certificate">СЕРТИФИКАТЫ </a>
+                                        <a href="/certificate">СЕРТИФИКАТЫ </a>
                                     </li>
                                     <li>
-                                        <a href="terms">УСЛОВИЯ АРЕНДЫ</a>
+                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
                                     </li>
                                     <li>
-                                        <a href="faq">ВОПРОС-ОТВЕТ</a>
+                                        <a href="/faq">ВОПРОС-ОТВЕТ</a>
                                     </li>
                                     <li>
-                                        <a href="invest">СДАТЬ АВТО В АРЕНДУ</a>
+                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
                                     </li>
                                     <li>
-                                        <a href="blog" class="active">БЛОГ</a>
+                                        <a href="/blog" class="active">БЛОГ</a>
                                     </li>
                                     <li>
-                                        <a href="about">О НАС</a>
+                                        <a href="/about">О НАС</a>
                                     </li>
                                     <li>
-                                        <a href="contacts">КОНТАКТЫ</a>
+                                        <a href="/contacts">КОНТАКТЫ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -279,6 +289,6 @@
                 </div>
             </section>
         </main>
-        @include('partials/footer-mode.html')
+        @@include('partials/footer-mode.html')
     </body>
 </html>

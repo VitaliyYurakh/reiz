@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-    @include('partials/head.html')
+  @@include('partials/head.html', {
+    "title": "О компании REIZ — аренда авто во Львове и Киеве",
+    "description": "Кто мы и как работаем: REIZ — аренда автомобилей с прозрачными условиями, новым автопарком и поддержкой 24/7. Работаем во Львове и Киеве.",
+    "canonical": "https://reiz.com.ua/about/",
+    "og_title": "О компании REIZ — аренда авто во Львове и Киеве",
+    "og_description": "Наша миссия, команда и подход к сервису. Прокат авто с честными условиями и поддержкой 24/7.",
+    "og_url": "https://reiz.com.ua/about/",
+    "og_image": "https://reiz.com.ua/img/og/about.webp"
+  })
+
+  <body class="page__body" data-page="about">
+    @@include('partials/noscript.html')
+    @@include('partials/header-mode.html')
+
 
     <body class="page__body" data-page="about">
         @include('partials/noscript.html') @include('partials/header-mode.html')
@@ -46,31 +59,31 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="insurance">СТРАХОВКА</a>
+                                        <a href="/insurance">СТРАХОВКА</a>
                                     </li>
                                     <li>
-                                        <a href="business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
                                     </li>
                                     <li>
-                                        <a href="certificate">СЕРТИФИКАТЫ </a>
+                                        <a href="/certificate">СЕРТИФИКАТЫ </a>
                                     </li>
                                     <li>
-                                        <a href="terms">УСЛОВИЯ АРЕНДЫ</a>
+                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
                                     </li>
                                     <li>
-                                        <a href="faq">ВОПРОС-ОТВЕТ</a>
+                                        <a href="/faq">ВОПРОС-ОТВЕТ</a>
                                     </li>
                                     <li>
-                                        <a href="invest">СДАТЬ АВТО В АРЕНДУ</a>
+                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
                                     </li>
                                     <li>
-                                        <a href="blog">БЛОГ</a>
+                                        <a href="/blog">БЛОГ</a>
                                     </li>
                                     <li>
-                                        <a href="about" class="active">О НАС</a>
+                                        <a href="/about" class="active">О НАС</a>
                                     </li>
                                     <li>
-                                        <a href="contacts">КОНТАКТЫ</a>
+                                        <a href="/contacts">КОНТАКТЫ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -269,6 +282,6 @@
                 </div>
             </section>
         </main>
-        @include('partials/footer-mode.html')
+        @@include('partials/footer-mode.html')
     </body>
 </html>

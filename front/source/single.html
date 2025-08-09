@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-    @include('partials/head.html')
+    @@include('partials/head.html', {
+        "title": "Аренда Mercedes-Benz G63 2025 во Львове — REIZ",
+        "description": "Mercedes-AMG G63 2025 в аренду во Львове: полный привод, премиальный салон, подача по адресу. Тарифы и условия — REIZ.",
+        "canonical": "https://reiz.com.ua/cars/mercedes-g63-2025",
+        "og_title": "Mercedes-Benz G63 2025 — аренда во Львове | REIZ",
+        "og_description": "Премиальный внедорожник для особых случаев. Бронирование онлайн 24/7.",
+        "og_url": "https://reiz.com.ua/cars/mercedes-g63-2025",
+        "og_image": "https://reiz.com.ua/img/og/cars/mercedes-g63-2025.webp"
+      })      
 
     <body class="page__body" data-page="single">
         @include('partials/noscript.html') @include('partials/header-mode.html')
@@ -438,6 +446,6 @@
                 </div>
             </section>
         </main>
-        @include('partials/footer-mode.html')
+        "@@include('partials/footer-mode.html')
     </body>
 </html>
