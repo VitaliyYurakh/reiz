@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-  @@include('partials/head.html', {
+  @include('partials/head.html', {
     "title": "Вопрос-ответ — аренда авто во Львове | REIZ",
     "description": "Частые вопросы об аренде авто во Львове: возраст и стаж водителя, документы, залог, способы оплаты, заправка, ДТП, дополнительный водитель и возврат в другом городе.",
     "canonical": "https://reiz.com.ua/faq",
@@ -11,8 +11,8 @@
   })
 
   <body class="page__body" data-page="faq">
-    @@include('partials/noscript.html')
-    @@include('partials/header-mode.html')
+    @include('partials/noscript.html')
+    @include('partials/header-mode.html')
     <main class="main">
 
             <section class="faq-section">
@@ -325,6 +325,6 @@
                 </div>
             </section>
         </main>
-        @@include('partials/footer-mode.html')
+        @include('partials/footer-mode.html')
     </body>
 </html>

@@ -3,8 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
     <!-- Канонический -->
-    @@if (context.canonical) {<link rel="canonical" href="@@canonical" />}
-    @@if (!context.canonical) {<link rel="canonical" href="https://reiz.com.ua/" />}
+    @if (context.canonical) {<link rel="canonical" href="@canonical" />}
+    @if (!context.canonical) {<link rel="canonical" href="https://reiz.com.ua/" />}
   
     <meta name="robots" content="index,follow" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -12,41 +12,41 @@
     <meta name="theme-color" content="#111111" />
   
     <!-- description -->
-    <meta name="description" content="@@description" />
+    <meta name="description" content="@description" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="REIZ RENTAL CARS" />
-  @@if (context.og_type) {<meta property="og:type" content="@@og_type" />}
-  @@if (!context.og_type) {<meta property="og:type" content="website" />}
+  @if (context.og_type) {<meta property="og:type" content="@og_type" />}
+  @if (!context.og_type) {<meta property="og:type" content="website" />}
 
-  @@if (context.og_description) {<meta property="og:description" content="@@og_description" />}
-  @@if (!context.og_description) {<meta property="og:description" content="@@description" />}
+  @if (context.og_description) {<meta property="og:description" content="@og_description" />}
+  @if (!context.og_description) {<meta property="og:description" content="@description" />}
 
-  @@if (context.og_url) {<meta property="og:url" content="@@og_url" />}
-  @@if (!context.og_url) {<meta property="og:url" content="@@canonical" />}
+  @if (context.og_url) {<meta property="og:url" content="@og_url" />}
+  @if (!context.og_url) {<meta property="og:url" content="@canonical" />}
 
-  @@if (context.og_image) {<meta property="og:image" content="@@og_image" />}
-  @@if (!context.og_image) {<meta property="og:image" content="https://reiz.com.ua/img/icons/reizmage.webp" />}
+  @if (context.og_image) {<meta property="og:image" content="@og_image" />}
+  @if (!context.og_image) {<meta property="og:image" content="https://reiz.com.ua/img/icons/reizmage.webp" />}
 
   <meta property="og:locale" content="ru_RU" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  @@if (context.twitter_title) {<meta name="twitter:title" content="@@twitter_title" />}
-  @@if (!context.twitter_title) {<meta name="twitter:title" content="@@og_title" />}
+  @if (context.twitter_title) {<meta name="twitter:title" content="@twitter_title" />}
+  @if (!context.twitter_title) {<meta name="twitter:title" content="@og_title" />}
 
-  @@if (context.twitter_description) {<meta name="twitter:description" content="@@twitter_description" />}
-  @@if (!context.twitter_description) {<meta name="twitter:description" content="@@og_description" />}
+  @if (context.twitter_description) {<meta name="twitter:description" content="@twitter_description" />}
+  @if (!context.twitter_description) {<meta name="twitter:description" content="@og_description" />}
 
-  @@if (context.twitter_image) {<meta name="twitter:image" content="@@twitter_image" />}
-  @@if (!context.twitter_image && context.og_image) {<meta name="twitter:image" content="@@og_image" />}
-  @@if (!context.twitter_image && !context.og_image) {<meta name="twitter:image" content="https://reiz.com.ua/img/icons/reizmage.webp" />}
+  @if (context.twitter_image) {<meta name="twitter:image" content="@twitter_image" />}
+  @if (!context.twitter_image && context.og_image) {<meta name="twitter:image" content="@og_image" />}
+  @if (!context.twitter_image && !context.og_image) {<meta name="twitter:image" content="https://reiz.com.ua/img/icons/reizmage.webp" />}
 
 
 
     <!-- Title -->
-  <title>@@title</title>
+  <title>@title</title>
 
     <link rel="preload" href="fonts/Arial-BoldMT.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/Arial-ItalicMT.woff2" as="font" type="font/woff2" crossorigin />

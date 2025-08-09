@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-  @@include('partials/head.html', {
+  @include('partials/head.html', {
     "title": "Блог REIZ — советы по аренде авто, маршруты и лайфхаки",
     "description": "Статьи REIZ: правила и советы по аренде автомобиля в Украине, маршруты по Львову и стране, навигаторы, парковка, страхование.",
     "canonical": "https://reiz.com.ua/blog/",
@@ -11,8 +11,8 @@
   })
 
   <body class="page__body" data-page="blog">
-    @@include('partials/noscript.html')
-    @@include('partials/header-mode.html')
+    @include('partials/noscript.html')
+    @include('partials/header-mode.html')
 
         <main class="main">
             <section class="blog-section">
@@ -289,6 +289,6 @@
                 </div>
             </section>
         </main>
-        @@include('partials/footer-mode.html')
+        @include('partials/footer-mode.html')
     </body>
 </html>
