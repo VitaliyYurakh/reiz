@@ -18,6 +18,8 @@ import {rewrite} from './gulp/tasks/rewrite.js';
 import {htmlMinify} from './gulp/tasks/html-minify.js';
 import {zipFiles} from './gulp/tasks/zip.js';
 import {svgIcons} from './gulp/tasks/iconmoon.js';
+import { root } from './gulp/tasks/root.js';
+
 
 global.app = {
     gulp,
@@ -44,6 +46,10 @@ const watcher = () => {
     gulp.watch(`${app.paths.srcImgFolder}/**/**.{jpg,jpeg,png,webp}`, webpImages);
     gulp.watch(app.paths.srcSvg, svgSprites);
     gulp.watch(app.paths.srcSvg, svgIcons);
+    gulp.watch([`${app.paths.base.src}/robots.txt`, `${app.paths.base.src}/sitemap.xml`],
+    root
+  );
+  
 };
 
 const start = gulp.series(
@@ -57,6 +63,7 @@ const start = gulp.series(
     ico,
     webpImages,
     svgSprites,
+    root,
     watcher
 );
 // const start = gulp.series(clean, resources, images ,, watcher);
@@ -69,7 +76,8 @@ const backend = gulp.series(
     images,
     ico,
     webpImages,
-    svgSprites
+    svgSprites,
+    root
 );
 const build = gulp.series(
     clean,
@@ -81,6 +89,7 @@ const build = gulp.series(
     webpImages,
     ico,
     svgSprites,
+    root,
     htmlMinify
 );
 const cache = gulp.series(cacheTask, rewrite);
@@ -91,5 +100,6 @@ export {build};
 export {backend};
 export {cache};
 export {zip};
+export { root }; 
 
 gulp.task('default', start);

@@ -1493,6 +1493,23 @@
                     </div>
                 </div>
             </section>
+         <!-- FAQ Schema (для расширенных сниппетов) -->
+         <script type="application/ld+json">
+            {
+              "@context":"https://schema.org",
+              "@type":"FAQPage",
+              "mainEntity":[
+                {"@type":"Question","name":"Скільки коштує оренда авто у Львові?",
+                 "acceptedAnswer":{"@type":"Answer","text":"Залежить від класу і строку. На довгий термін — дешевше. Дивіться секцію «Цены на аренду авто» на цій сторінці."}},
+                {"@type":"Question","name":"Чи можна орендувати авто без депозиту?",
+                 "acceptedAnswer":{"@type":"Answer","text":"Так. Доступна опція без депозиту або зі зменшеною франшизою в розширеному страховому пакеті."}},
+                {"@type":"Question","name":"Чи подаєте авто в аеропорт Львова (LWO)?",
+                 "acceptedAnswer":{"@type":"Answer","text":"Так, зустрічаємо у терміналі за попереднім бронюванням. Підтримка 24/7."}},
+                {"@type":"Question","name":"Які документи потрібні для оренди?",
+                 "acceptedAnswer":{"@type":"Answer","text":"Паспорт/ID та водійське посвідчення. Мінімум 22 роки та 2 роки стажу."}}
+              ]
+            }
+            </script>
         </main>
         @include('partials/footer.html')
     </body>
