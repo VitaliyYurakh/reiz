@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!isFilterActive) {
                 addCustomClass(overlay, activeClass);
-                addCustomClass(overlay, activeClassMode);
                 disableScroll();
                 addCustomClass(header, 'open-menu');
                 addCustomClass(header, 'sticky');
@@ -148,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', toggleFixedBlock);
         window.addEventListener('resize', toggleFixedBlock);
     }
-
+   
     if (filterWrapper) {
         let addTimeout = null;
         let removeTimeout = null;
@@ -170,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     if (!addTimeout) {
                         addTimeout = setTimeout(() => {
-                            filterBtn.classList.add('fixed');
+                            filterBtn.parentNode.classList.add('fixed');
                             addTimeout = null;
                         }, addDelayMs);
                     }
@@ -182,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                         if (!removeTimeout) {
                             removeTimeout = setTimeout(() => {
-                                filterBtn.classList.remove('fixed');
+                                filterBtn.parentNode.classList.remove('fixed');
                                 removeTimeout = null;
                             }, removeAdvanceMs);
                         }

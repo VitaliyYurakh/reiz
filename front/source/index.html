@@ -6,16 +6,33 @@
         @include('partials/noscript.html') @include('partials/header.html')
         <main class="main">
             <section class="hero-section">
-                <div class="hero-section__bg">
-                    <picture>
-                        <source type="image/webp" srcset="img/car/mercedescle1.webp" />
-                        <img
-                            width="1440"
-                            height="902"
-                            src="img/car/mercedescle.png"
-                            alt="Премиум авто на фоне гор"
-                        />
-                    </picture>
+                <div class="hero-section__slider">
+                    <div class="swiper-container">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <picture>
+                                    <source type="image/webp" srcset="img/car/mercedescle1.webp" />
+                                    <img
+                                        width="1440"
+                                        height="902"
+                                        src="img/car/mercedescle.png"
+                                        alt="Премиум авто на фоне гор"
+                                    />
+                                </picture>
+                            </li>
+                            <li class="swiper-slide">
+                                <picture>
+                                    <source type="image/webp" srcset="img/mobreiz1.webp" />
+                                    <img
+                                        width="1440"
+                                        height="902"
+                                        src="img/mobreiz1.png"
+                                        alt="Премиум авто на фоне гор"
+                                    />
+                                </picture>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="container">
                     <div class="hero-section__box">
@@ -171,6 +188,12 @@
                                 </a>
                             </div>
 
+                            <div class="hero-section__content">
+                                <h2 class="h2">СДАЙ СВОЕ АВТО В АРЕНДУ</h2>
+                                
+                                <a href="#" class="main-button main-button--transparent">Подробней</a>
+                            </div>
+
                             <form class="order-form">
                                 <div class="custom-select order">
                                     <span class="select-icon">
@@ -258,7 +281,7 @@
                                 <label class="order-form__label">
                                     <span class="order-form__icon">
                                         <svg width="21" height="21">
-                                            <use href="img/sprite/sprite.svg#car"></use>
+                                            <use href="img/sprite/sprite.svg#pickup"></use>
                                         </svg>
                                     </span>
                                     <input
@@ -389,25 +412,110 @@
                                     </div>
 
                                     <div class="catalog-aside__open">
+                                        <div class="catalog-aside__open-box">
                                         <button class="catalog-aside__filter">
-                                            Фильтры
                                             <i class="sprite">
                                                 <svg width="21" height="21">
                                                     <use href="img/sprite/sprite.svg#filter"></use>
                                                 </svg>
                                             </i>
+                                            Фильтры
+                                            <b>1</b>
                                         </button>
+                                        <div class="custom-select mode">
+                                            <div class="select-field">
+                                                <div class="selected-options">
+                                                    <span class="placeholder">
+                                                        <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="img/sprite/sprite.svg#filter3"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <ul class="options-container">
+                                                <li class="option" data-value="По_возрастанию">
+                                                    <span class="option-text">
+                                                         <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="img/sprite/sprite.svg#filter5"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                        По возрастанию</span>
+                                                </li>
+                                                <li class="option" data-value="По_убыванию">
+                                                    <span class="option-text">
+                                                         <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="img/sprite/sprite.svg#filter4"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                        По убыванию</span>
+                                                </li>
+                                                 <li class="option" data-value="По_умолчанию">
+                                                    <span class="option-text">
+                                                         <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="img/sprite/sprite.svg#filter3"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                        По умолчанию</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        </div>
                                     </div>
 
                                     <div class="catalog-aside__filters">
-                                        <span class="catalog-aside__subtitle">Фильтры</span>
+                                        <span class="catalog-aside__subtitle">Фильтры <i>1</i></span>
                                         <button class="catalog-aside__close">
                                             <i class="sprite">
-                                                <svg width="24" height="24">
-                                                    <use href="img/sprite/sprite.svg#close"></use>
+                                                <svg width="36" height="36">
+                                                    <use href="img/sprite/sprite.svg#close2"></use>
                                                 </svg>
                                             </i>
                                         </button>
+                                        <div class="custom-select car">
+                                            <div class="select-field">
+                                                <div class="selected-options">
+                                                    <span class="placeholder">Класс авто</span>
+                                                </div>
+                                                <div class="arrow-down">
+                                                    <svg width="6" height="3">
+                                                        <use
+                                                            href="img/sprite/sprite.svg#arrow-d"
+                                                        ></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <ul class="options-container">
+                                                <li class="option" data-value="Luxury">
+                                                    <span class="option-text">Luxury</span>
+                                                </li>
+                                                <li class="option" data-value="Business">
+                                                    <span class="option-text">Business</span>
+                                                </li>
+                                                <li class="option" data-value="Suv">
+                                                    <span class="option-text">Suv</span>
+                                                </li>
+                                                   <li class="option" data-value="Van">
+                                                    <span class="option-text">Van</span>
+                                                </li>
+                                                   <li class="option" data-value="Economy">
+                                                    <span class="option-text">Economy</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
                                         <div class="custom-select">
                                             <div class="select-field">
                                                 <div class="selected-options">
@@ -507,28 +615,33 @@
                                             </ul>
                                         </div>
 
-                                        <label class="catalog-aside__label">
-                                            <input
-                                                type="number"
-                                                name="value_min"
-                                                id="value_min"
-                                                class="catalog-aside__input"
-                                                placeholder="от 40"
-                                            />
-                                            <span>$</span>
-                                        </label>
-                                        <label class="catalog-aside__label">
-                                            <input
-                                                type="number"
-                                                name="value_max"
-                                                id="value_max"
-                                                class="catalog-aside__input"
-                                                placeholder="до 550"
-                                            />
-                                            <span>$</span>
-                                        </label>
+                                        <div class="catalog-aside__price">
+                                            <label class="catalog-aside__label mode">
+                                                <span>Цена</span>
+                                                <input
+                                                    type="number"
+                                                    name="value_min"
+                                                    id="value_min"
+                                                    class="catalog-aside__input"
+                                                    placeholder="от 40"
+                                                />
+                                                <span>$</span>
+                                            </label>
+                                            <label class="catalog-aside__label mode">
+                                                <span>Цена</span>
+                                                <input
+                                                    type="number"
+                                                    name="value_max"
+                                                    id="value_max"
+                                                    class="catalog-aside__input"
+                                                    placeholder="до 550"
+                                                />
+                                                <span>$</span>
+                                            </label>
+                                        </div>
 
                                         <button class="reset-btn">Сбросить фильтр</button>
+                                        <button class="main-button">Показать 2 авто</button>
                                     </div>
                                 </div>
 
@@ -1322,7 +1435,7 @@
                 </div>
             </section>
 
-            <section class="advantages-section">
+            <section class="advantages-section advantages-section--reviews">
                 <div class="container">
                     <!-- <div class="advantages-section__content" data-aos="fade-up" data-aos-duration="400"> -->
                     <div class="advantages-section__content">
@@ -1335,15 +1448,15 @@
 
                         <div class="advantages-section__links">
                             <a href="#" class="advantages-section__review">
-                                <span>Tripadvisor</span>
+                                <span>TrustPilot</span>
                                 <img
                                     width="184"
                                     height="68"
                                     src="img/icons/trip.png"
-                                    alt="Логотип Tripadvisor"
+                                    alt="Логотип TrustPilot"
                                 />
                             </a>
-                            <a href="#" class="advantages-section__review">
+                            <!-- <a href="#" class="advantages-section__review">
                                 <span>Google Reviews</span>
                                 <img
                                     width="194"
@@ -1351,7 +1464,9 @@
                                     src="img/icons/google.png"
                                     alt="Логотип Google Reviews"
                                 />
-                            </a>
+                            </a> -->
+
+                            <div class="review-widget_net" data-uuid="9f9a5893-0345-48a8-99e3-6c0e8fbfcaba" data-template="10" data-lang="en" data-theme="light"></div><script src="https://grwapi.net/widget.min.js"></script>
                         </div>
                     </div>
                 </div>

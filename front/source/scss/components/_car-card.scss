@@ -28,7 +28,12 @@
     }
 
     @media (max-width: 785px) {
-      height: clamp(194px, 38.22vw, 300px);
+      height: clamp(218px, 38.22vw, 300px);
+    }
+
+    @include mobile{
+      border-radius: 20px;
+      margin-bottom: -5px;
     }
 
     @include hover {
@@ -79,6 +84,10 @@
         color: var(--cl-b);
         background: var(--cl-e);
         border-color: var(--cl-e);
+      }
+
+      @include mobile{
+        border-radius: 20px;
       }
 
       @media (max-width: 405px) {
@@ -191,6 +200,10 @@
           font-size: 12px;
           text-align: start;
         }
+
+        @include mobile{
+          font-size: 14px;
+        }
       }
       &__item {
         @include for-laptop {
@@ -218,8 +231,15 @@
           }
 
           @include laptop {
+            @include for-mobile{
             width: 21px;
             height: 21px;
+            }
+          }
+
+          @include mobile{
+            height: 24px;
+            width: 24px;
           }
         }
 
@@ -251,6 +271,10 @@
       justify-content: space-between;
       gap: 10px;
       border: none;
+    }
+
+    @include mobile{
+      margin-bottom: -5px;
     }
   }
 
@@ -289,6 +313,10 @@
         height: 35px;
       }
     }
+
+    @include mobile{
+      margin-top: -5px;
+    }
   }
 
   &__item {
@@ -315,6 +343,10 @@
       height: 50px;
       border: 1px solid var(--cl-q);
       border-radius: 12px;
+    }
+
+    @include mobile{
+      border-radius: 20px;
     }
   }
 
@@ -370,5 +402,10 @@
     max-height: 100%;
     padding: 10px;
     gap: 20px;
+    border-radius: 12px;
+  }
+
+  @include mobile{
+    border-radius: 20px;
   }
 }

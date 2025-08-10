@@ -1,4 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const labels = document.querySelectorAll('.catalog-aside__label.mode');
+
+    if(labels){
+        labels.forEach((label) => {
+            const input = label.querySelector('input');
+            if (input) {
+                input.dataset.originalPlaceholder = input.getAttribute('placeholder') || '';
+            }
+        });
+
+        function updatePlaceholders() {
+            const isMobile = window.innerWidth < 1024;
+
+            labels.forEach((label) => {
+                const titleSpan = label.querySelector('span:first-child');
+                const input = label.querySelector('input');
+                if (!titleSpan || !input) return;
+
+                const original = input.dataset.originalPlaceholder || '';
+                if (isMobile) {
+                    input.setAttribute('placeholder', `${titleSpan.textContent.trim()} ${original}`);
+                } else {
+                    input.setAttribute('placeholder', original);
+                }
+            });
+        }
+
+        updatePlaceholders();
+        window.addEventListener('resize', updatePlaceholders);
+    }
+
     document.querySelectorAll('.main-info').forEach((form) => {
         if (form.classList.contains('mode')) return;
 
