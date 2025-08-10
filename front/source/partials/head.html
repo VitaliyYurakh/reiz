@@ -27,7 +27,7 @@
   @if (!context.og_url) {<meta property="og:url" content="@canonical" />}
 
   @if (context.og_image) {<meta property="og:image" content="@og_image" />}
-  @if (!context.og_image) {<meta property="og:image" content="https://reiz.com.ua/img/icons/reizmage.webp" />}
+  @if (!context.og_image) {<meta property="og:image" content="https://reiz.com.ua/img/icons/reizimage.webp" />}
 
   <meta property="og:locale" content="ru_RU" />
 
@@ -41,7 +41,7 @@
 
   @if (context.twitter_image) {<meta name="twitter:image" content="@twitter_image" />}
   @if (!context.twitter_image && context.og_image) {<meta name="twitter:image" content="@og_image" />}
-  @if (!context.twitter_image && !context.og_image) {<meta name="twitter:image" content="https://reiz.com.ua/img/icons/reizmage.webp" />}
+  @if (!context.twitter_image && !context.og_image) {<meta name="twitter:image" content="https://reiz.com.ua/img/icons/reizimage.webp" />}
 
 
 
