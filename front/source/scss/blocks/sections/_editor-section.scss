@@ -1,7 +1,25 @@
-@use "../../mixins/breakpoint" as *;
+@use '../../mixins/breakpoint' as *;
 
 .editor-section {
-    padding-bottom: var(--default-padding);
+    padding-bottom: 20px;
+    margin-bottom: clamp(40px, 4.9751vw, 60px);
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        position: absolute;
+        width: 100vw;
+        left: 50%;
+        height: 1px;
+        transform: translateX(-50%);
+        bottom: 0;
+        z-index: -1;
+        pointer-events: none;
+        content: '';
+        background: var(--col-q);
+        z-index: 0;
+    }
+
     &__box {
         display: flex;
         flex-direction: column;
@@ -10,8 +28,8 @@
         .more-btn {
             margin-top: calc((clamp(26px, 2.8676vw, 39px) - 5px) * -1);
 
-            @include mobile{
-              margin-top: -10px;
+            @include mobile {
+                margin-top: -10px;
             }
         }
 
@@ -50,28 +68,12 @@
             }
         }
 
-        @include mobile{
-          gap: 15px;
+        @include mobile {
+            gap: 15px;
         }
     }
 
     @include mobile {
-      position: relative;
-      z-index: 1;
-      padding-bottom: 25px;
-      margin-bottom: 12px;
-        &::before {
-            position: absolute;
-            width: 100vw;
-            left: 50%;
-            height: 1px;
-            transform: translateX(-50%);
-            bottom: 0;
-            z-index: -1;
-            pointer-events: none;
-            content: '';
-            background: var(--col-q);
-            z-index: 0;
-        }
+        padding-bottom: 25px;
     }
 }
