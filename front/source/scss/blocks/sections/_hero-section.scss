@@ -20,7 +20,6 @@
     }
 
     &::before {
-        @include tablet {
             height: 24px;
             border-radius: 24px 24px 0 0;
             background: var(--body-bg);
@@ -35,7 +34,6 @@
             @include mobile {
                 border-radius: 30px 30px 0 0;
             }
-        }
     }
 
     .aside {
@@ -277,8 +275,7 @@
         display: grid;
         grid-template-columns: clamp(280px, 22.7941vw, 310px) 1fr;
         gap: clamp(20px, 3.6765vw, 50px);
-
-        padding-bottom: clamp(34px, 2.8676vw, 39px);
+        padding-bottom: calc(clamp(34px, 2.8676vw, 39px) + 24px);
 
         @include tablet {
             gap: 20px;
@@ -305,7 +302,6 @@
     }
 
     @include mobile {
-        // padding-top: calc(var(--header-height) + 65px);
         padding-top: calc(var(--header-height) + 37px);
 
         .order-form {

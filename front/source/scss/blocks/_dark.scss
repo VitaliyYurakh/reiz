@@ -362,19 +362,18 @@ body.dark {
   .mobile {
     @include tablet {
       .custom-select {
-        height: 20px;
         min-width: 90px;
 
         .select-text {
-          color: var(--cl-b);
+          color: var(--cl-a) !important;
         }
         .select-field {
           * {
-            color: var(--cl-b) !important;
+            color: var(--cl-a) !important;
           }
         }
         .arrow-down {
-          color: var(--cl-b);
+          color: var(--cl-a);
         }
       }
 

@@ -42,7 +42,7 @@
         }
 
         .main-nav {
-            padding: 0 8px 86px;
+            padding: 0 35px 86px;
 
             &__acc {
                 &-btn {
@@ -62,7 +62,22 @@
                         font-size: 16px;
 
                         &::after {
-                            top: 5.5px;
+                            width: 7px;
+                            height: 7px;
+                            background-color: var(--col-r);
+                            left: -13px;
+                            top: 4.5px;
+                        }
+                    }
+
+                    .main-nav__acc-content {
+                        a {
+                            &::after {
+                                width: 5px;
+                                height: 5px;
+                                top: 5.5px;
+                                left: 3px;
+                            }
                         }
                     }
                 }
@@ -129,10 +144,10 @@
                     }
 
                     &.lang {
-                      .select-text{
-                        width: 53%;
-                        text-align: end;
-                      }
+                        .select-text {
+                            width: 53%;
+                            text-align: end;
+                        }
                         .select-field {
                             width: 47%;
                             justify-content: flex-start;
@@ -180,8 +195,8 @@
             }
         }
 
-        &.active{
-             transition: transform 0.3s ease;
+        &.active {
+            transition: transform 0.3s ease;
         }
     }
 
