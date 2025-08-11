@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-    @include('partials/head.html')
+  @include('partials/head.html', {
+    "title": "Вопрос-ответ — аренда авто во Львове | REIZ",
+    "description": "Частые вопросы об аренде авто во Львове: возраст и стаж водителя, документы, залог, способы оплаты, заправка, ДТП, дополнительный водитель и возврат в другом городе.",
+    "canonical": "https://reiz.com.ua/faq",
+    "og_title": "FAQ REIZ — ответы на вопросы об аренде авто во Львове",
+    "og_description": "Узнайте условия аренды, оплату, залог, документы и что делать при ДТП. Поддержка 24/7.",
+    "og_url": "https://reiz.com.ua/faq",
+    "og_image": "https://reiz.com.ua/img/og/faq.webp"
+  })
 
-    <body class="page__body" data-page="faq">
-        @include('partials/noscript.html') @include('partials/header-mode.html')
-        <main class="main">
+  <body class="page__body" data-page="faq">
+    @include('partials/noscript.html')
+    @include('partials/header-mode.html')
+    <main class="main">
+
             <section class="faq-section">
                 <div class="container">
                     <div class="faq-section__box">
@@ -46,31 +56,31 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="insurance">СТРАХОВКА</a>
+                                        <a href="/insurance">СТРАХОВКА</a>
                                     </li>
                                     <li>
-                                        <a href="business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
                                     </li>
                                     <li>
-                                        <a href="certificate">СЕРТИФИКАТЫ </a>
+                                        <a href="/certificate">СЕРТИФИКАТЫ </a>
                                     </li>
                                     <li>
-                                        <a href="terms">УСЛОВИЯ АРЕНДЫ</a>
+                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
                                     </li>
                                     <li>
-                                        <a href="faq" class="active">ВОПРОС-ОТВЕТ</a>
+                                        <a href="/faq" class="active">ВОПРОС-ОТВЕТ</a>
                                     </li>
                                     <li>
-                                        <a href="invest">СДАТЬ АВТО В АРЕНДУ</a>
+                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
                                     </li>
                                     <li>
-                                        <a href="blog">БЛОГ</a>
+                                        <a href="/blog">БЛОГ</a>
                                     </li>
                                     <li>
-                                        <a href="about">О НАС</a>
+                                        <a href="/about">О НАС</a>
                                     </li>
                                     <li>
-                                        <a href="contacts">КОНТАКТЫ</a>
+                                        <a href="/contacts">КОНТАКТЫ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -89,6 +99,7 @@
                                 <li><a href="/">Главная</a></li>
                                 <li>Вопрос ответ</li>
                             </ul>
+                            <h1 class="main-title">Частые вопросы об аренде авто во Львове</h1>
 
                             <ul
                                 class="acc"

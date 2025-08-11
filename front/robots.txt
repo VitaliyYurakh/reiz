@@ -1,0 +1,11 @@
+# robots.txt — REIZ
+User-agent: *
+Allow: /
+
+Disallow: /resources/
+Disallow: /scss/
+Disallow: /partials/
+Disallow: /*.map$
+
+Sitemap: https://reiz.com.ua/sitemap.xml
+Host: reiz.com.ua

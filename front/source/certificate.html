@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-    @include('partials/head.html')
+    @include('partials/head.html', {
+        "title": "Подарочные сертификаты на аренду авто — REIZ Львов",
+        "description": "Подарочные сертификаты REIZ на аренду автомобиля во Львове: номинал от 100 до 5000 $, электронный или физический формат, быстрая доставка, поддержка 24/7. Требования к водителю и условия использования.",
+        "canonical": "https://reiz.com.ua/certificate",
+        "og_title": "Подарочные сертификаты REIZ — аренда авто во Львове",
+        "og_description": "Подарите аренду авто: выберите сумму сертификата, электронный или физический вариант. Оформление за 5 минут.",
+        "og_url": "https://reiz.com.ua/certificate",
+        "og_image": "https://reiz.com.ua/img/og/certificate.webp"
+      })      
 
-    <body class="page__body dark" data-page="certificate">
-        @include('partials/noscript.html') @include('partials/header-mode.html')
+      <body class="page__body dark" data-page="certificate">
+        @include('partials/noscript.html')
+        @include('partials/header-mode.html')
         <main class="main">
             <section class="gift-section">
                 <div class="container">
@@ -46,31 +55,31 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="insurance">СТРАХОВКА</a>
+                                        <a href="/insurance">СТРАХОВКА</a>
                                     </li>
                                     <li>
-                                        <a href="business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
                                     </li>
                                     <li>
-                                        <a href="certificate" class="active">СЕРТИФИКАТЫ </a>
+                                        <a href="/certificate" class="active">СЕРТИФИКАТЫ </a>
                                     </li>
                                     <li>
-                                        <a href="terms">УСЛОВИЯ АРЕНДЫ</a>
+                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
                                     </li>
                                     <li>
-                                        <a href="faq">ВОПРОС-ОТВЕТ</a>
+                                        <a href="/faq">ВОПРОС-ОТВЕТ</a>
                                     </li>
                                     <li>
-                                        <a href="invest">СДАТЬ АВТО В АРЕНДУ</a>
+                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
                                     </li>
                                     <li>
-                                        <a href="blog">БЛОГ</a>
+                                        <a href="/blog">БЛОГ</a>
                                     </li>
                                     <li>
-                                        <a href="about">О НАС</a>
+                                        <a href="/about">О НАС</a>
                                     </li>
                                     <li>
-                                        <a href="contacts">КОНТАКТЫ</a>
+                                        <a href="/contacts">КОНТАКТЫ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -95,18 +104,13 @@
                                     data-aos-duration="900"
                                     data-aos-delay="650"
                                 >
-                                    <div class="editor">
-                                        <h2 class="main-title desktop">
-                                            Подарочные Сертификаты на аренду автомобиля от Reiz
-                                        </h2>
-                                        <h2 class="main-title mob">
-                                            Подарите аренду автомобиля самым важным людям
-                                        </h2>
-                                        <p>
-                                            Новый опыт — лучший подарок, а c Reiz запомнится
-                                            надолго.
-                                        </p>
-                                    </div>
+                                <div class="editor">
+                                    <h1 class="main-title">
+                                      <span class="desktop">Подарочные сертификаты на аренду автомобиля от REIZ</span>
+                                      <span class="mob">Подарите аренду автомобиля самым важным людям</span>
+                                    </h1>
+                                    <p>Новый опыт — лучший подарок, а с REIZ запомнится надолго.</p>
+                                  </div>                                  
 
                                     <div class="gift-section__image">
                                         <picture>

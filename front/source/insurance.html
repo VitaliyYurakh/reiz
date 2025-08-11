@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
+  @include('partials/head.html', {
+    "title": "Страховка при аренде авто во Львове — пакеты защиты REIZ",
+    "description": "Страхование при аренде автомобиля во Львове от REIZ: пакеты Стандарт, Комфорт и Премиум. Условия покрытия, размер залога, штрафы при ДТП/угоне, защита шин и стекол, мойка. Кому доступна расширенная страховка и что не покрывается.",
+    "canonical": "https://reiz.com.ua/insurance",
+    "og_title": "Страховка при аренде авто — REIZ Львов",
+    "og_description": "Выберите пакет защиты: Стандарт, Комфорт или Премиум. Прозрачные условия и поддержка 24/7.",
+    "og_url": "https://reiz.com.ua/insurance",
+    "og_image": "https://reiz.com.ua/img/og/insurance.webp"
+  })
 
-@include('partials/head.html')
-
-<body class="page__body" data-page="insurance">
-    @include('partials/noscript.html') @include('partials/header-rental.html')
+  <body class="page__body" data-page="insurance">
+    @include('partials/noscript.html')
+    @include('partials/header-rental.html')
     <main class="main">
 
         <section class="rental-section insurance">
@@ -48,31 +56,31 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="insurance" class="active">СТРАХОВКА</a>
+                                    <a href="/insurance" class="active">СТРАХОВКА</a>
                                 </li>
                                 <li>
-                                    <a href="business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                    <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
                                 </li>
                                 <li>
-                                    <a href="certificate">СЕРТИФИКАТЫ </a>
+                                    <a href="/certificate">СЕРТИФИКАТЫ </a>
                                 </li>
                                 <li>
-                                    <a href="terms">УСЛОВИЯ АРЕНДЫ</a>
+                                    <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
                                 </li>
                                 <li>
-                                    <a href="faq">ВОПРОС-ОТВЕТ</a>
+                                    <a href="/faq">ВОПРОС-ОТВЕТ</a>
                                 </li>
                                 <li>
-                                    <a href="invest">СДАТЬ АВТО В АРЕНДУ</a>
+                                    <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
                                 </li>
                                 <li>
-                                    <a href="blog">БЛОГ</a>
+                                    <a href="/blog">БЛОГ</a>
                                 </li>
                                 <li>
-                                    <a href="about" >О НАС</a>
+                                    <a href="/about" >О НАС</a>
                                 </li>
                                 <li>
-                                    <a href="contacts">КОНТАКТЫ</a>
+                                    <a href="/contacts">КОНТАКТЫ</a>
                                 </li>
                             </ul>
                         </nav>
@@ -91,7 +99,7 @@
                         <div class="rental-section__content">
                             <div class="rental-section__top">
                             <div class="editor">
-                                <h2 class="main-title">Защитите себя от лишних расходов во время поездки</h2>
+                                <h1 class="main-title">Защитите себя от лишних расходов во время поездки</h1>
                                 <p>Выбирая автомобиль в аренду, важно предусмотреть возможные неприятности на дороге.
                                     Наши пакеты страхования помогут вам снизить риски и защититься от дополнительных
                                     затрат.</p>

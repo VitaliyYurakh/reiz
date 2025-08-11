@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-    @include('partials/head.html')
+  @include('partials/head.html', {
+    "title": "Контакты REIZ — аренда авто во Львове: телефон, адрес, график",
+    "description": "Свяжитесь с REIZ во Львове: телефон +380 63 547 11 86, email info@reiz.com.ua, адрес вул. Любінська, 168. Ежедневно 08:30–20:30. Подача авто по адресу, поддержка 24/7.",
+    "canonical": "https://reiz.com.ua/contacts",
+    "og_title": "Контакты REIZ Львов — аренда авто",
+    "og_description": "Телефон, адрес, время работы, email. Быстрая подача авто и помощь 24/7.",
+    "og_url": "https://reiz.com.ua/contacts",
+    "og_image": "https://reiz.com.ua/img/og/contacts.webp"
+  })
 
-    <body class="page__body" data-page="contacts">
-        @include('partials/noscript.html') @include('partials/header-mode.html')
-        <main class="main">
+  <body class="page__body" data-page="contacts">
+    @include('partials/noscript.html')
+    @include('partials/header-mode.html')
+    <main class="main">
             <section class="contacts-section">
                 <div class="container">
                     <div class="contacts-section__box">
@@ -46,31 +55,31 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="insurance">СТРАХОВКА</a>
+                                        <a href="/insurance">СТРАХОВКА</a>
                                     </li>
                                     <li>
-                                        <a href="business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
                                     </li>
                                     <li>
-                                        <a href="certificate">СЕРТИФИКАТЫ </a>
+                                        <a href="/certificate">СЕРТИФИКАТЫ </a>
                                     </li>
                                     <li>
-                                        <a href="terms">УСЛОВИЯ АРЕНДЫ</a>
+                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
                                     </li>
                                     <li>
-                                        <a href="faq">ВОПРОС-ОТВЕТ</a>
+                                        <a href="/faq">ВОПРОС-ОТВЕТ</a>
                                     </li>
                                     <li>
-                                        <a href="invest">СДАТЬ АВТО В АРЕНДУ</a>
+                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
                                     </li>
                                     <li>
-                                        <a href="blog">БЛОГ</a>
+                                        <a href="/blog">БЛОГ</a>
                                     </li>
                                     <li>
-                                        <a href="about">О НАС</a>
+                                        <a href="/about">О НАС</a>
                                     </li>
                                     <li>
-                                        <a href="contacts" class="active">КОНТАКТЫ</a>
+                                        <a href="/contacts" class="active">КОНТАКТЫ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -94,7 +103,7 @@
                             <div class="contacts-section__content">
                                 <div class="contacts-section__map">
                                     <picture>
-                                        <source type="image/webp" srcset="img//icons/map.webp" />
+                                        <source type="image/webp" srcset="img/icons/map.webp" />
                                         <img
                                             width="673"
                                             height="539"
@@ -257,7 +266,7 @@
                                         </label>
                                         <label class="main-form__label">
                                             <input
-                                                type="number"
+                                                type="tel"
                                                 name="phone"
                                                 id="phone"
                                                 placeholder="Телефон"

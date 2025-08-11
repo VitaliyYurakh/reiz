@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-    @include('partials/head.html')
+    @include('partials/head.html', {
+        "title": "Сдать авто в аренду во Львове — REIZ",
+        "description": "Сдайте свой автомобиль в аренду во Львове с REIZ: прозрачный договор, ежемесячные выплаты, обслуживание и контроль, поддержка 24/7. Требования к авто и форма заявки.",
+        "canonical": "https://reiz.com.ua/invest",
+        "og_title": "Сдать авто в аренду во Львове — REIZ",
+        "og_description": "Передайте авто в управление REIZ и получайте пассивный доход. Договор, выплаты, сервис и полный контроль.",
+        "og_url": "https://reiz.com.ua/invest",
+        "og_image": "https://reiz.com.ua/img/og/invest.webp"
+      })      
 
     <body class="page__body" data-page="invest">
         @include('partials/noscript.html') @include('partials/header-mode.html')
@@ -46,31 +54,31 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="insurance">СТРАХОВКА</a>
+                                        <a href="/insurance">СТРАХОВКА</a>
                                     </li>
                                     <li>
-                                        <a href="business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
                                     </li>
                                     <li>
-                                        <a href="certificate">СЕРТИФИКАТЫ </a>
+                                        <a href="/certificate">СЕРТИФИКАТЫ </a>
                                     </li>
                                     <li>
-                                        <a href="terms">УСЛОВИЯ АРЕНДЫ</a>
+                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
                                     </li>
                                     <li>
-                                        <a href="faq">ВОПРОС-ОТВЕТ</a>
+                                        <a href="/faq">ВОПРОС-ОТВЕТ</a>
                                     </li>
                                     <li>
-                                        <a href="invest" class="active">СДАТЬ АВТО В АРЕНДУ</a>
+                                        <a href="/invest" class="active">СДАТЬ АВТО В АРЕНДУ</a>
                                     </li>
                                     <li>
-                                        <a href="blog">БЛОГ</a>
+                                        <a href="/blog">БЛОГ</a>
                                     </li>
                                     <li>
-                                        <a href="about">О НАС</a>
+                                        <a href="/about">О НАС</a>
                                     </li>
                                     <li>
-                                        <a href="contacts">КОНТАКТЫ</a>
+                                        <a href="/contacts">КОНТАКТЫ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -84,11 +92,15 @@
                             data-aos-duration="900"
                             data-aos-delay="600"
                         >
-                            <h2 class="pretitle">СДАТЬ АВТО В АРЕНДУ</h2>
-                            <ul class="breadcrumbs">
-                                <li><a href="/">Главная</a></li>
-                                <li>Сдать авто в Аренду</li>
-                            </ul>
+                        <h2 class="pretitle">СДАТЬ АВТО В АРЕНДУ</h2>
+
+                        <ul class="breadcrumbs">
+                          <li><a href="/">Главная</a></li>
+                          <li>Сдать авто в аренду</li>
+                        </ul>
+                        
+                        <h1 class="main-title">Сдать авто в аренду</h1>
+                        
 
                             <div class="rental-section__content">
                                 <div class="editor">
@@ -283,7 +295,7 @@
                                             <div class="custom-select">
                                                 <div class="select-field">
                                                     <div class="selected-options">
-                                                        <span class="placeholder">Трансмисия</span>
+                                                        <span class="placeholder">Трансмиссия</span>
                                                     </div>
                                                     <div class="arrow-down">
                                                         <svg width="6" height="3">
