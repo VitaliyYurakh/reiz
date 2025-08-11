@@ -17,16 +17,24 @@
       
         <main class="main">
             <section class="hero-section">
-                <div class="hero-section__bg">
-                    <picture>
-                        <source type="image/webp" srcset="img/car/mercedescle1.webp" />
-                        <img
-                            width="1440"
-                            height="902"
-                            src="img/car/mercedescle.png"
-                            alt="Премиум авто на фоне гор"
-                        />
-                    </picture>
+                <div class="hero-section__slider">
+                    <div class="swiper-container">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <picture>
+                                  <source type='image/webp' media='(max-width: 575px)' srcset='img/mobreiz1.webp'>
+                                  <source media='(max-width: 575px)' srcset='img/mobreiz1.png'>
+                                  <source type="image/webp" srcset="img/car/mercedescle1.webp" />
+                                    <img
+                                        width="1440"
+                                        height="902"
+                                        src="img/car/mercedescle.png"
+                                        alt="Премиум авто на фоне гор"
+                                    />
+                                </picture>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="container">
                     <div class="hero-section__box">
@@ -182,6 +190,12 @@
                                 </a>
                             </div>
 
+                            <div class="hero-section__content">
+                                <h2 class="h2">СДАЙ СВОЕ АВТО В АРЕНДУ</h2>
+                                
+                                <a href="#" class="main-button main-button--transparent">Подробней</a>
+                            </div>
+
                             <form class="order-form">
                                 <div class="custom-select order">
                                     <span class="select-icon">
@@ -269,7 +283,7 @@
                                 <label class="order-form__label">
                                     <span class="order-form__icon">
                                         <svg width="21" height="21">
-                                            <use href="img/sprite/sprite.svg#car"></use>
+                                            <use href="img/sprite/sprite.svg#pickup"></use>
                                         </svg>
                                     </span>
                                     <input
@@ -400,25 +414,110 @@
                                     </div>
 
                                     <div class="catalog-aside__open">
+                                        <div class="catalog-aside__open-box">
                                         <button class="catalog-aside__filter">
-                                            Фильтры
                                             <i class="sprite">
                                                 <svg width="21" height="21">
                                                     <use href="img/sprite/sprite.svg#filter"></use>
                                                 </svg>
                                             </i>
+                                            Фильтры
+                                            <b>1</b>
                                         </button>
+                                        <div class="custom-select mode">
+                                            <div class="select-field">
+                                                <div class="selected-options">
+                                                    <span class="placeholder">
+                                                        <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="img/sprite/sprite.svg#filter3"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <ul class="options-container">
+                                                <li class="option" data-value="По_возрастанию">
+                                                    <span class="option-text">
+                                                         <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="img/sprite/sprite.svg#filter5"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                        По возрастанию</span>
+                                                </li>
+                                                <li class="option" data-value="По_убыванию">
+                                                    <span class="option-text">
+                                                         <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="img/sprite/sprite.svg#filter4"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                        По убыванию</span>
+                                                </li>
+                                                 <li class="option" data-value="По_умолчанию">
+                                                    <span class="option-text">
+                                                         <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="img/sprite/sprite.svg#filter3"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                        По умолчанию</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        </div>
                                     </div>
 
                                     <div class="catalog-aside__filters">
-                                        <span class="catalog-aside__subtitle">Фильтры</span>
+                                        <span class="catalog-aside__subtitle">Фильтры <i>1</i></span>
                                         <button class="catalog-aside__close">
                                             <i class="sprite">
-                                                <svg width="24" height="24">
-                                                    <use href="img/sprite/sprite.svg#close"></use>
+                                                <svg width="36" height="36">
+                                                    <use href="img/sprite/sprite.svg#close2"></use>
                                                 </svg>
                                             </i>
                                         </button>
+                                        <div class="custom-select car">
+                                            <div class="select-field">
+                                                <div class="selected-options">
+                                                    <span class="placeholder">Класс авто</span>
+                                                </div>
+                                                <div class="arrow-down">
+                                                    <svg width="6" height="3">
+                                                        <use
+                                                            href="img/sprite/sprite.svg#arrow-d"
+                                                        ></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <ul class="options-container">
+                                                <li class="option" data-value="Luxury">
+                                                    <span class="option-text">Luxury</span>
+                                                </li>
+                                                <li class="option" data-value="Business">
+                                                    <span class="option-text">Business</span>
+                                                </li>
+                                                <li class="option" data-value="Suv">
+                                                    <span class="option-text">Suv</span>
+                                                </li>
+                                                   <li class="option" data-value="Van">
+                                                    <span class="option-text">Van</span>
+                                                </li>
+                                                   <li class="option" data-value="Economy">
+                                                    <span class="option-text">Economy</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
                                         <div class="custom-select">
                                             <div class="select-field">
                                                 <div class="selected-options">
@@ -518,28 +617,33 @@
                                             </ul>
                                         </div>
 
-                                        <label class="catalog-aside__label">
-                                            <input
-                                                type="number"
-                                                name="value_min"
-                                                id="value_min"
-                                                class="catalog-aside__input"
-                                                placeholder="от 40"
-                                            />
-                                            <span>$</span>
-                                        </label>
-                                        <label class="catalog-aside__label">
-                                            <input
-                                                type="number"
-                                                name="value_max"
-                                                id="value_max"
-                                                class="catalog-aside__input"
-                                                placeholder="до 550"
-                                            />
-                                            <span>$</span>
-                                        </label>
+                                        <div class="catalog-aside__price">
+                                            <label class="catalog-aside__label mode">
+                                                <span>Цена</span>
+                                                <input
+                                                    type="number"
+                                                    name="value_min"
+                                                    id="value_min"
+                                                    class="catalog-aside__input"
+                                                    placeholder="от 40"
+                                                />
+                                                <span>$</span>
+                                            </label>
+                                            <label class="catalog-aside__label mode">
+                                                <span>Цена</span>
+                                                <input
+                                                    type="number"
+                                                    name="value_max"
+                                                    id="value_max"
+                                                    class="catalog-aside__input"
+                                                    placeholder="до 550"
+                                                />
+                                                <span>$</span>
+                                            </label>
+                                        </div>
 
                                         <button class="reset-btn">Сбросить фильтр</button>
+                                        <button class="main-button">Показать 2 авто</button>
                                     </div>
                                 </div>
 
@@ -1333,7 +1437,7 @@
                 </div>
             </section>
 
-            <section class="advantages-section">
+            <section class="advantages-section advantages-section--reviews">
                 <div class="container">
                     <!-- <div class="advantages-section__content" data-aos="fade-up" data-aos-duration="400"> -->
                     <div class="advantages-section__content">
@@ -1346,15 +1450,15 @@
 
                         <div class="advantages-section__links">
                             <a href="#" class="advantages-section__review">
-                                <span>Tripadvisor</span>
+                                <span>TrustPilot</span>
                                 <img
                                     width="184"
                                     height="68"
                                     src="img/icons/trip.png"
-                                    alt="Логотип Tripadvisor"
+                                    alt="Логотип TrustPilot"
                                 />
                             </a>
-                            <a href="#" class="advantages-section__review">
+                            <!-- <a href="#" class="advantages-section__review">
                                 <span>Google Reviews</span>
                                 <img
                                     width="194"
@@ -1362,7 +1466,9 @@
                                     src="img/icons/google.png"
                                     alt="Логотип Google Reviews"
                                 />
-                            </a>
+                            </a> -->
+
+                            <div class="review-widget_net" data-uuid="9f9a5893-0345-48a8-99e3-6c0e8fbfcaba" data-template="10" data-lang="en" data-theme="light"></div><script src="https://grwapi.net/widget.min.js"></script>
                         </div>
                     </div>
                 </div>
@@ -1490,6 +1596,270 @@
                         <button class="more-btn" data-clip-btn="ПОКАЗАТЬ МЕНЬШЕ">
                             ПОКАЗАТЬ БОЛЬШЕ
                         </button>
+                    </div>
+                </div>
+            </section>
+            <section class="faq-section mode">
+                <div class="container">
+                    <div class="faq-section__content">
+                        <h2 class="h2">Часто задаваемые вопросы</h2>
+
+                        <div class="faq-section__accordion" 
+                                data-accordion
+                                data-single="true"
+                                data-breakpoint="9999">
+                            <ul
+                                class="acc"
+                                data-pretitle="Практическая информация"
+                            >
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="1">
+                                        А как насчёт парковки?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="1">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="2">
+                                      Можно ли подачу/возврат по адресу и в аэропорту Львова (LWO)?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="2">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="3">
+                                       Есть ли лимит пробега?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="3">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <ul
+                                class="acc"
+                                data-pretitle="Страхование и депозит"
+                            >
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="4">
+                                        Что включает страховка?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="4">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="5">
+                                      Что такое франшиза?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="5">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="6">
+                                      Можно ли арендовать без залога?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="6">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <ul
+                                class="acc"
+                                data-pretitle="Ограничения и запреты"
+                            >
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="7">
+                                     Каков минимальный возраст и стаж?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="7">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="8">
+                                      Можно ли выезжать за пределы Украины?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="8">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="9">
+                                       Можно ли передавать авто третьим лицам или использовать в такси?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="9">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <ul
+                                class="acc"
+                                data-pretitle="Оплата и документация"
+                            >
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="10">
+                                       Какие способы оплаты доступны?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="10">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="11">
+                                      Какие документы нужны?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="11">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="acc__item">
+                                    <button class="acc__btn" data-id="12">
+                                       Как работает политика топлива?
+                                        <i class="sprite">
+                                            <svg width="20" height="12">
+                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <div class="acc__content" data-content="12">
+                                        <div class="acc__box editor">
+                                            <p>
+                                                Мы предоставляем машину с полным баком топлива. В
+                                                день возврата вы должны вернуть машину так же с
+                                                полным баком или доплатить за топливо.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>

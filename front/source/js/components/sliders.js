@@ -1,10 +1,10 @@
 import Swiper from "swiper";
 
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 import vars from "../_vars.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const { teamSliders, infoSliders, gallerySliders, giftSliders } = vars;
+  const { teamSliders, infoSliders, gallerySliders, giftSliders, heroSliders } = vars;
 
   gallerySliders.forEach(function (slider) {
     const container = slider.querySelector(".swiper-container");
@@ -121,4 +121,30 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     });
   });
+
+  if (heroSliders) {
+    heroSliders.forEach(function (slider) {
+      const container = slider.querySelector(".swiper-container");
+      const slides = container.querySelectorAll(".swiper-slide");
+
+      if (slides.length <= 1) {
+        return;
+      }
+
+      const mainSwiper = new Swiper(container, {
+        modules: [EffectFade, Autoplay],
+        spaceBetween: 0,
+        slidesPerView: 1,
+        effect: "fade",
+        loop: true,
+        speed: 1000,
+        autoplay: {
+          delay: 5000,
+        },
+        pagination: {
+          clickable: true,
+        },
+      });
+    });
+  }
 });

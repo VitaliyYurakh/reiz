@@ -7,7 +7,7 @@ export default {
   activeClassMode: 'mode',
   header: document.querySelector('header'),
   footer: document.querySelector('footer'),
-
+  heroSliders: document.querySelectorAll(".hero-section__slider"),
   teamSliders: document.querySelectorAll('.team-slider'),
   infoSliders: document.querySelectorAll('.info-slider'),
   giftSliders: document.querySelectorAll('.gift-slider'),

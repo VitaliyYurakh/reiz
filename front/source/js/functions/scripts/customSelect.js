@@ -106,11 +106,13 @@ class CustomSelect {
     }
 
     toggleDropdown() {
+        this.container.classList.toggle('active');
         this.selectField.classList.toggle('active');
         this.optionsContainer.classList.toggle('active');
     }
 
     closeDropdown() {
+        this.container.classList.remove('active');
         this.selectField.classList.remove('active');
         this.optionsContainer.classList.remove('active');
     }

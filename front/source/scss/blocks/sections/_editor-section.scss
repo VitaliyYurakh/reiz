@@ -1,47 +1,103 @@
+@use '../../mixins/breakpoint' as *;
+
 .editor-section {
-  padding-bottom: var(--default-padding);
-  &__box {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(26px, 2.8676vw, 39px);
+    padding-bottom: 20px;
+    margin-bottom: clamp(40px, 4.9751vw, 60px);
+    position: relative;
+    z-index: 1;
 
-    .more-btn{
-        margin-top: calc((clamp(26px, 2.8676vw, 39px) - 5px) * -1);
+    &::before {
+        position: absolute;
+        width: 100vw;
+        left: 50%;
+        height: 1px;
+        transform: translateX(-50%);
+        bottom: 0;
+        z-index: -1;
+        pointer-events: none;
+        content: '';
+        background: var(--col-q);
+        z-index: 0;
     }
 
-    .editor {
-      &[data-clip-item] {
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
+    &__box {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(26px, 2.8676vw, 39px);
 
-        max-height: 164px;
+        .more-btn {
+            margin-top: calc((clamp(26px, 2.8676vw, 39px) - 5px) * -1);
 
-        &::before {
-          content: "";
-          transition: all .3s;
-          background: linear-gradient(
-            0deg,
-            #f1f0eb 0%,
-            rgba(241, 240, 235, 0.8) 54.58%,
-            rgba(241, 240, 235, 0.38) 100%
-          );
-          width: 100%;
-          height: 71px;
-          z-index: 2;
-          pointer-events: none;
-          position: absolute;
-          bottom: 0;
-          left: 0;
+            @include mobile {
+                margin-top: -5px;
+                position: relative;
+                z-index: 2;
+
+                &::before{
+                    position: absolute;
+                    content: '';
+                    width: 100%;
+                    height: 10px;
+                    pointer-events: none;
+                    background: #f1f0eb;
+                    top: -11px;
+                    left: 0;
+                }
+
+                &.active{
+                    &::before{
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+            }
         }
-      }
 
-      &[data-clip-item="true"]{
-        &::before{
-            opacity: 0;
-            visibility: hidden;
+        .editor {
+            &[data-clip-item] {
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+
+                max-height: 164px;
+
+                &::before {
+                    content: '';
+                    transition: all 0.3s;
+                    background: linear-gradient(
+                        0deg,
+                        #f1f0eb 0%,
+                        rgba(241, 240, 235, 0.8) 54.58%,
+                        rgba(241, 240, 235, 0.38) 100%
+                    );
+                    width: 100%;
+                    height: 71px;
+                    z-index: 2;
+                    pointer-events: none;
+                    position: absolute;
+                    bottom: -2px;
+                    left: 0;
+                }
+            }
+
+            &[data-clip-item='true'] {
+                &::before {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
         }
-      }
+
+        @include mobile {
+            gap: 15px;
+
+            .h2{
+                line-height: 135%;
+            }
+        }
     }
-  }
+
+    @include mobile {
+        padding-bottom: 25px;
+    }
 }

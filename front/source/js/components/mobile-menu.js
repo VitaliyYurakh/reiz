@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!isFilterActive) {
                 addCustomClass(overlay, activeClass);
-                addCustomClass(overlay, activeClassMode);
                 disableScroll();
                 addCustomClass(header, 'open-menu');
                 addCustomClass(header, 'sticky');
@@ -148,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', toggleFixedBlock);
         window.addEventListener('resize', toggleFixedBlock);
     }
-
+   
     if (filterWrapper) {
         let addTimeout = null;
         let removeTimeout = null;
@@ -170,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     if (!addTimeout) {
                         addTimeout = setTimeout(() => {
-                            filterBtn.classList.add('fixed');
+                            filterBtn.parentNode.classList.add('fixed');
                             addTimeout = null;
                         }, addDelayMs);
                     }
@@ -182,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                         if (!removeTimeout) {
                             removeTimeout = setTimeout(() => {
-                                filterBtn.classList.remove('fixed');
+                                filterBtn.parentNode.classList.remove('fixed');
                                 removeTimeout = null;
                             }, removeAdvanceMs);
                         }
@@ -197,4 +196,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
         observer.observe(filterWrapper);
     }
+
+   
+    
+    const normalizePath = path => {
+        return ("/" + path
+            .replace(/^\/+/, "")       
+            .replace(/\/$/, "")         
+            .replace(/\.html$/, "")     
+            .replace(/^index$/, "")     
+        ) || "/";                       
+    };
+
+    const currentPath = normalizePath(window.location.pathname);
+    const links = document.querySelectorAll(".mobile .main-nav > ul > li > a");
+
+    links.forEach(link => link.classList.remove("active"));
+   
+     links.forEach(link => {
+        const linkPath = normalizePath(link.getAttribute("href"));
+
+        if (currentPath === "/single") {
+            document.querySelector(".mobile .main-nav__acc")?.classList.add("active");
+        } else if (linkPath === currentPath) {
+            link.classList.add("active");
+        }
+    });
+
+
 });

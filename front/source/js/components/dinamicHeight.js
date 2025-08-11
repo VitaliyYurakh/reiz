@@ -9,7 +9,7 @@ const { header } = vars;
 
 let lastScroll = 0;
 let defaultOffset = 40;
-const filterWrapper = document.querySelector(".catalog-aside__filter");
+const filterWrapper = document.querySelector(".catalog-aside__open-box");
 
 function stickyHeaderFunction(breakpoint) {
   const containerWidth = document.documentElement.clientWidth;
