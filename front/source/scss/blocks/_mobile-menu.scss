@@ -51,6 +51,22 @@
                 &-item {
                     flex-direction: column;
                 }
+
+                &.active {
+                    position: relative;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        pointer-events: none;
+                        transform: translateX(-100%);
+                        border-radius: 50%;
+                        width: 7px;
+                        height: 7px;
+                        background-color: var(--col-r);
+                        left: -13px;
+                        top: 4.5px;
+                    }
+                }
             }
 
             ul {

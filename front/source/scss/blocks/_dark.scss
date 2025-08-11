@@ -1,460 +1,478 @@
-@use "../mixins/breakpoint" as *;
-@use "../mixins/disable-mob-hover" as *;
-@use "../mixins/burger" as *;
+@use '../mixins/breakpoint' as *;
+@use '../mixins/disable-mob-hover' as *;
+@use '../mixins/burger' as *;
 
 body.dark {
-  --body-bg: #2b2b2b;
+    --body-bg: #2b2b2b;
 
-  .aside {
-    background: var(--select-inner-bg);
+    .aside {
+        background: var(--select-inner-bg);
 
-    &__top {
-      p {
-        color: var(--cl-b);
-      }
-    }
-
-    .main-nav {
-      &::before {
-        border-color: #636262;
-      }
-    }
-
-    &__title {
-      color: var(--cl-b);
-    }
-
-    .main-nav {
-      &__acc {
-        &-content {
-          a {
-            &:after {
-              background: var(--cl-b);
+        &__top {
+            p {
+                color: var(--cl-b);
             }
-          }
         }
 
-        &-btn {
-          color: var(--cl-b);
+        .main-nav {
+            &::before {
+                border-color: #636262;
+            }
+        }
 
-          .sprite {
+        &__title {
             color: var(--cl-b);
-          }
-
-          @include hover {
-            color: var(--cl-f);
-          }
         }
-      }
-      ul {
-        & > li {
-          a {
+
+        .main-nav {
+            &__acc {
+                &-content {
+                    a {
+                        &:after {
+                            background: var(--cl-b);
+                        }
+                    }
+                }
+
+                &-btn {
+                    color: var(--cl-b);
+
+                    .sprite {
+                        color: var(--cl-b);
+                    }
+
+                    @include hover {
+                        color: var(--cl-f);
+                    }
+                }
+            }
+            ul {
+                & > li {
+                    a {
+                        color: var(--cl-b);
+
+                        &.active {
+                            &:after {
+                                background: var(--cl-b);
+                            }
+
+                            @include for-tablet {
+                                &::before {
+                                    background: var(--cl-m);
+                                }
+                            }
+                        }
+
+                        @include hover {
+                            color: var(--cl-f);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        .logo {
+            color: var(--cl-b);
+        }
+
+        &__info {
+            p {
+                color: var(--cl-b);
+
+                @include mobile {
+                    color: var(--col-c);
+                }
+            }
+
+            &::before {
+                color: var(--cl-b);
+
+                @include mobile {
+                    color: var(--col-c);
+                }
+            }
+        }
+
+        &__adress {
+            color: var(--cl-b);
+
+            &::before {
+                color: var(--cl-b);
+
+                @include mobile {
+                    color: var(--col-c);
+                }
+            }
+
+            span {
+                color: var(--cl-b);
+            }
+
+            &:hover {
+                span {
+                    color: var(--cl-f);
+                }
+            }
+            @include mobile {
+                span {
+                    color: var(--col-c);
+                }
+            }
+        }
+
+        &-nav {
+            &__list {
+                li {
+                    a {
+                        color: var(--cl-b);
+                        &:hover {
+                            color: var(--cl-f);
+                        }
+                    }
+                }
+            }
+        }
+
+        &__name {
+            color: var(--cl-b);
+        }
+
+        &__social {
+            a {
+                color: var(--cl-b);
+
+                &:hover {
+                    color: var(--cl-f);
+                }
+            }
+        }
+
+        &__col {
+            p {
+                color: var(--cl-b);
+
+                @include mobile {
+                    color: var(--col-c);
+                }
+            }
+        }
+
+        &::before {
+            background: var(--cl-k);
+        }
+
+        &__bottom {
+            &::before {
+                background: var(--cl-k);
+            }
+
+            span {
+                color: var(--col-d);
+            }
+
+            a {
+                color: var(--col-d);
+
+                &:hover {
+                    color: var(--cl-f);
+                }
+            }
+        }
+
+        &__middle {
+            &::after {
+                background: var(--cl-k);
+            }
+
+            &::before {
+                background: var(--cl-k);
+            }
+        }
+
+        &__link {
+            border: 1px solid var(--col-e);
+
+            .sprite {
+                color: #8e8e8e;
+            }
+
+            span {
+                color: var(--cl-b);
+            }
+
+            &:hover {
+                .sprite {
+                    color: var(--cl-b);
+                }
+            }
+        }
+
+        &__list {
+            &::before {
+                color: var(--cl-b);
+            }
+
+            &.mode {
+                .footer__link {
+                    .sprite {
+                        color: #8e8e8e;
+                    }
+
+                    &:hover {
+                        .sprite {
+                            color: var(--cl-b);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .header {
+        &.mode {
+            .logo {
+                color: var(--cl-b);
+            }
+
+            .burger {
+                color: var(--cl-b);
+            }
+
+            .phone-link {
+                .sprite {
+                    color: var(--cl-b);
+                }
+            }
+
+            .custom-select {
+                .select-text {
+                    color: var(--cl-b);
+                }
+                .select-field {
+                    * {
+                        color: var(--cl-b);
+                    }
+                }
+                .arrow-down {
+                    color: var(--cl-b);
+                }
+            }
+        }
+
+        &.open-menu {
+            background: var(--body-bg);
+
+            .logo {
+                color: var(--cl-b);
+            }
+
+            .burger {
+                color: var(--cl-b);
+            }
+
+            .phone-link {
+                .sprite {
+                    color: var(--cl-b);
+                }
+            }
+        }
+
+        &.sticky {
+            background: var(--body-bg);
+
+            .logo {
+                color: var(--cl-b);
+            }
+
+            .burger {
+                color: var(--cl-b);
+            }
+
+            .phone-link {
+                .sprite {
+                    color: var(--cl-b);
+                }
+            }
+
+            .custom-select {
+                .select-text {
+                    color: var(--cl-b);
+                }
+                .select-field {
+                    * {
+                        color: var(--cl-b);
+                    }
+                }
+                .arrow-down {
+                    color: var(--cl-b);
+                }
+            }
+        }
+
+        .phone-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-left: solid 1px var(--cl-m);
+            color: var(--cl-b);
+
+            .sprite {
+                width: 30px;
+                height: 30px;
+
+                svg {
+                    width: 100%;
+                    height: auto;
+                    transition: all 0.3s;
+                }
+            }
+
+            &:hover {
+                svg {
+                    transform: scale(1.1);
+                }
+            }
+            @include for-tablet {
+                display: none;
+            }
+        }
+
+        .burger {
             color: var(--cl-b);
 
             &.active {
-              &:after {
-                background: var(--cl-b);
-              }
+                color: var(--cl-b);
+            }
 
-              @include for-tablet {
-                &::before {
-                  background: var(--cl-m);
+            @include for-tablet {
+                display: none;
+            }
+
+            @include tablet {
+                justify-self: center;
+                @include burger;
+            }
+        }
+    }
+
+    .mobile {
+        @include tablet {
+            .header__links {
+                background: var(--col-s);
+
+                .tel-link {
+                    color: var(--cl-b);
                 }
-              }
+            }
+            .custom-select {
+                min-width: 90px;
+                background: var(--col-s);
+
+                .select-text,
+                .option-text {
+                    color: var(--cl-b) !important;
+                }
+                .select-field {
+                    * {
+                        color: var(--cl-b) !important;
+                    }
+                }
+                .arrow-down {
+                    color: var(--cl-b);
+                }
+
+                .option.active {
+                    .option-text {
+                        background: rgba(241, 240, 235, 0.25);
+                    }
+                }
+
+                .options-container {
+                    background: var(--col-s);
+                }
             }
 
-            @include hover {
-              color: var(--cl-f);
+            .main-nav {
+                &__acc {
+                    &-content {
+                        a {
+                            &:after {
+                                background: var(--cl-b);
+                            }
+                        }
+                    }
+
+                    &-btn {
+                        color: var(--cl-b);
+
+                        .sprite {
+                            color: var(--cl-b);
+                            filter: invert(1);
+                        }
+
+                        @include hover {
+                            color: var(--cl-f);
+                        }
+                    }
+                }
+                ul {
+                    & > li {
+                        a {
+                            color: var(--cl-b);
+
+                            &.active {
+                                &:after {
+                                    background: var(--col-r);
+                                }
+
+                                @include for-tablet {
+                                    &::before {
+                                        background: var(--cl-m);
+                                    }
+                                }
+                            }
+
+                            @include hover {
+                                color: var(--cl-f);
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  }
-
-  .footer {
-    .logo {
-      color: var(--cl-b);
     }
 
-    &__info {
-      p {
-        color: var(--cl-b);
+    .acc {
+        background: #404040;
 
-        @include mobile {
-          color: var(--col-c);
+        &__item {
+            border-bottom: 1px solid var(--cl-b);
+
+            &:first-of-type {
+                border-top: 1px solid var(--cl-b);
+            }
         }
-      }
 
-      &::before {
-        color: var(--cl-b);
-
-        @include mobile {
-          color: var(--col-c);
+        .editor {
+            p {
+                color: var(--cl-b);
+            }
         }
-      }
-    }
 
-    &__adress {
-      color: var(--cl-b);
-
-      &::before {
-        color: var(--cl-b);
-
-        @include mobile {
-          color: var(--col-c);
-        }
-      }
-
-      span {
-        color: var(--cl-b);
-      }
-
-      &:hover {
-        span {
-          color: var(--cl-f);
-        }
-      }
-      @include mobile {
-        span {
-          color: var(--col-c);
-        }
-      }
-    }
-
-    &-nav {
-      &__list {
-        li {
-          a {
+        &__btn {
             color: var(--cl-b);
+
+            .sprite {
+                color: var(--cl-b);
+            }
+
             &:hover {
-              color: var(--cl-f);
+                color: var(--cl-b);
             }
-          }
         }
-      }
     }
-
-    &__name {
-      color: var(--cl-b);
-    }
-
-    &__social {
-      a {
-        color: var(--cl-b);
-
-        &:hover {
-          color: var(--cl-f);
-        }
-      }
-    }
-
-    &__col {
-      p {
-        color: var(--cl-b);
-
-        @include mobile {
-          color: var(--col-c);
-        }
-      }
-    }
-
-    &::before {
-      background: var(--cl-k);
-    }
-
-    &__bottom {
-      &::before {
-        background: var(--cl-k);
-      }
-
-      span {
-        color: var(--col-d);
-      }
-
-      a {
-        color: var(--col-d);
-
-        &:hover {
-          color: var(--cl-f);
-        }
-      }
-    }
-
-    &__middle {
-      &::after {
-        background: var(--cl-k);
-      }
-
-      &::before {
-        background: var(--cl-k);
-      }
-    }
-
-    &__link {
-      border: 1px solid var(--col-e);
-
-      .sprite {
-        color: #8e8e8e;
-      }
-
-      span {
-        color: var(--cl-b);
-      }
-
-      &:hover {
-        .sprite {
-          color: var(--cl-b);
-        }
-      }
-    }
-
-    &__list {
-      &::before {
-        color: var(--cl-b);
-      }
-
-      &.mode {
-        .footer__link {
-          .sprite {
-            color: #8e8e8e;
-          }
-
-          &:hover {
-            .sprite {
-              color: var(--cl-b);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .header {
-    &.mode {
-      .logo {
-        color: var(--cl-b);
-      }
-
-      .burger {
-        color: var(--cl-b);
-      }
-
-      .phone-link {
-        .sprite {
-          color: var(--cl-b);
-        }
-      }
-
-      .custom-select {
-        .select-text {
-          color: var(--cl-b);
-        }
-        .select-field {
-          * {
-            color: var(--cl-b);
-          }
-        }
-        .arrow-down {
-          color: var(--cl-b);
-        }
-      }
-    }
-
-    &.open-menu {
-      background: var(--body-bg);
-
-      .logo {
-        color: var(--cl-b);
-      }
-
-      .burger {
-        color: var(--cl-b);
-      }
-
-      .phone-link {
-        .sprite {
-          color: var(--cl-b);
-        }
-      }
-    }
-
-    &.sticky {
-      background: var(--body-bg);
-
-      .logo {
-        color: var(--cl-b);
-      }
-
-      .burger {
-        color: var(--cl-b);
-      }
-
-      .phone-link {
-        .sprite {
-          color: var(--cl-b);
-        }
-      }
-
-      .custom-select {
-        .select-text {
-          color: var(--cl-b);
-        }
-        .select-field {
-          * {
-            color: var(--cl-b);
-          }
-        }
-        .arrow-down {
-          color: var(--cl-b);
-        }
-      }
-    }
-
-    .phone-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 55px;
-      height: 55px;
-      border-left: solid 1px var(--cl-m);
-      color: var(--cl-b);
-
-      .sprite {
-        width: 30px;
-        height: 30px;
-
-        svg {
-          width: 100%;
-          height: auto;
-          transition: all 0.3s;
-        }
-      }
-
-      &:hover {
-        svg {
-          transform: scale(1.1);
-        }
-      }
-      @include for-tablet {
-        display: none;
-      }
-    }
-
-    .burger {
-      color: var(--cl-b);
-
-      &.active {
-        color: var(--cl-b);
-      }
-
-      @include for-tablet {
-        display: none;
-      }
-
-      @include tablet {
-        justify-self: center;
-        @include burger;
-      }
-    }
-  }
-
-  .mobile {
-    @include tablet {
-      .custom-select {
-        min-width: 90px;
-
-        .select-text {
-          color: var(--cl-a) !important;
-        }
-        .select-field {
-          * {
-            color: var(--cl-a) !important;
-          }
-        }
-        .arrow-down {
-          color: var(--cl-a);
-        }
-      }
-
-      .main-nav {
-        &__acc {
-          &-content {
-            a {
-              &:after {
-                background: var(--cl-b);
-              }
-            }
-          }
-
-          &-btn {
-            color: var(--cl-b);
-
-            .sprite {
-              color: var(--cl-b);
-              filter: invert(1);
-            }
-
-            @include hover {
-              color: var(--cl-f);
-            }
-          }
-        }
-        ul {
-          & > li {
-            a {
-              color: var(--cl-b);
-
-              &.active {
-                &:after {
-                  background: var(--cl-b);
-                }
-
-                @include for-tablet {
-                  &::before {
-                    background: var(--cl-m);
-                  }
-                }
-              }
-
-              @include hover {
-                color: var(--cl-f);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .acc {
-    background: #404040;
-
-    &__item {
-      border-bottom: 1px solid var(--cl-b);
-
-      &:first-of-type {
-        border-top: 1px solid var(--cl-b);
-      }
-    }
-
-    .editor {
-
-      p {
-        color: var(--cl-b);
-      }
-    }
-
-    &__btn {
-      color: var(--cl-b);
-
-      .sprite {
-        color: var(--cl-b);
-      }
-
-      &:hover {
-         color: var(--cl-b);
-      }
-    }
-  }
 }
