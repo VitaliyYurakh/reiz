@@ -850,81 +850,50 @@
                 </div>
             </section>
 
-           <section class="advantages-section advantages-section--reviews">
-  <div class="container">
-    <div class="advantages-section__content">
-      <div class="advantages-section__inner">
-        <span class="advantages-section__title">Почему вам стоит арендовать автомобиль у нас?</span>
-        <p>Высокий рейтинг и доверие клиентов по всему миру</p>
-      </div>
-
-      <div class="advantages-section__links">
-        <a href="#" class="advantages-section__review">
-          <span>TrustPilot</span>
-          <img
-            width="184"
-            height="68"
-            src="img/icons/trip.png"
-            alt="Логотип TrustPilot"
-            loading="lazy" decoding="async"
-          />
-        </a>
-
-        <div
-          class="review-widget_net"
-          data-uuid="9f9a5893-0345-48a8-99e3-6c0e8fbfcaba"
-          data-template="10"
-          data-lang="en"
-          data-theme="light">
-        </div>
-        <script src="https://grwapi.net/widget.min.js" defer></script>
-
-        <script>
-          (function () {
-            function hasBadAggregateRating(node) {
-              const visit = (x) => {
-                if (!x) return false;
-                if (Array.isArray(x)) return x.some(visit);
-                if (typeof x === 'object') {
-                  if (x['@type'] === 'AggregateRating') {
-                    const rv = Number(x.ratingValue);
-                    const rc = Number(x.ratingCount);
-                    const worst = x.worstRating !== undefined ? Number(x.worstRating) : 1;
-                    const best  = x.bestRating  !== undefined ? Number(x.bestRating)  : 5;
-                    if (!Number.isFinite(rv) || rv < worst || rv > best) return true;
-                    if (!Number.isFinite(rc) || rc <= 0) return true;
-                  }
-                  return Object.values(x).some(visit);
-                }
-                return false;
-              };
-              return visit(node);
-            }
-
-            function clean() {
-              document.querySelectorAll('script[type="application/ld+json"]').forEach(s => {
-                try {
-                  const txt = s.textContent && s.textContent.trim();
-                  if (!txt) return;
-                  const data = JSON.parse(txt);
-                  if (hasBadAggregateRating(data)) s.remove();
-                } catch (_) {}
-              });
-            }
-
-            if (document.readyState === 'loading') {
-              document.addEventListener('DOMContentLoaded', clean);
-            } else {
-              clean();
-            }
-            new MutationObserver(clean).observe(document.documentElement, { childList: true, subtree: true });
-          })();
-        </script>
-        <!-- /Cleaner -->
-      </div>
-    </div>
-  </div>
-</section>
+            <section class="advantages-section advantages-section--reviews">
+                <div class="container">
+                  <div class="advantages-section__content">
+                    <div class="advantages-section__inner">
+                      <span class="advantages-section__title">Почему вам стоит арендовать автомобиль у нас?</span>
+                      <p>Высокий рейтинг и доверие клиентов по всему миру</p>
+                    </div>
+              
+                    <div class="advantages-section__links">
+                      <!-- Trustpilot (статический, без Schema.org) -->
+                      <a class="advantages-section__review"
+                         href="https://www.trustpilot.com/review/reiz.com.ua"
+                         target="_blank" rel="noopener noreferrer nofollow"
+                         aria-label="Отзывы Trustpilot">
+                        <span>TrustPilot</span>
+                        <img
+                          width="184" height="68"
+                          src="img/icons/trip.png"
+                          alt="Логотип Trustpilot"
+                          loading="lazy" decoding="async"
+                        />
+                      </a>
+              
+                      <!-- Google Reviews (статический, без Schema.org) -->
+                      <a class="advantages-section__review"
+                         href="https://www.google.com/search?q=REIZ+Rental+Cars+Lviv+reviews"
+                         target="_blank" rel="noopener noreferrer nofollow"
+                         aria-label="Отзывы Google">
+                        <span>Google Reviews</span>
+                        <img
+                          width="194" height="70"
+                          src="img/icons/google.png"
+                          alt="Логотип Google Reviews"
+                          loading="lazy" decoding="async"
+                        />
+                      </a>
+              
+                      <!-- ВАЖНО: никаких виджетов/скриптов агрегаторов, пока нет реальных данных -->
+                    </div>
+                  </div>
+                </div>
+              </section>
+              
+              
 
             <section class="editor-section" data-aos="fade-up" data-aos-duration="400">
                 <div class="container">
