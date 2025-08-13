@@ -1,585 +1,513 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-    @include('partials/head.html', {
-        "title": "Подарочные сертификаты на аренду авто — REIZ Львов",
-        "description": "Подарочные сертификаты REIZ на аренду автомобиля во Львове: номинал от 100 до 5000 $, электронный или физический формат, быстрая доставка, поддержка 24/7. Требования к водителю и условия использования.",
-        "canonical": "https://reiz.com.ua/certificate",
-        "og_title": "Подарочные сертификаты REIZ — аренда авто во Львове",
-        "og_description": "Подарите аренду авто: выберите сумму сертификата, электронный или физический вариант. Оформление за 5 минут.",
-        "og_url": "https://reiz.com.ua/certificate",
-        "og_image": "https://reiz.com.ua/img/og/certificate.webp"
-      })      
+  @include('partials/head.html', {
+    "page": "certificate",
+    "title": "Подарочный сертификат на аренду авто — оригинальный подарок | REIZ Львов",
+    "description": "Подарите опыт: сертификат REIZ 100–5000$, e-mail за 5 минут или физический. Львов.",
+    "canonical": "https://reiz.com.ua/certificate",
+    "og_title": "Подарочные сертификаты REIZ — аренда авто во Львове",
+    "og_description": "Подарите аренду авто: выберите сумму сертификата, электронный или физический вариант. Оформление за 5 минут.",
+    "og_url": "https://reiz.com.ua/certificate",
+    "og_image": "https://reiz.com.ua/img/og/certificate.webp",
+    "breadcrumbs": [
+      { "name": "Главная", "item": "https://reiz.com.ua/" },
+      { "name": "Подарочные сертификаты", "item": "https://reiz.com.ua/certificate" }
+    ]
+  })
 
-      <body class="page__body dark" data-page="certificate">
-        @include('partials/noscript.html')
-        @include('partials/header-mode.html')
-        <main class="main">
-            <section class="gift-section">
-                <div class="container">
-                    <div class="gift-section__box">
-                        <aside
-                            class="aside"
-                            data-aos="fade-right"
-                            data-aos-duration="900"
-                            data-aos-delay="400"
-                        >
-                            <div class="aside__top">
-                                <a href="/" class="aside__title">REIZ</a>
-                                <p>CAR RENTAL IN UKRAINE</p>
-                            </div>
+  <body class="page__body dark" data-page="certificate">
+    @include('partials/noscript.html')
+    @include('partials/header-mode.html')
 
-                            <nav class="main-nav">
-                                <ul>
-                                    <li>
-                                        <a href="/">ГЛАВНАЯ</a>
-                                    </li>
-                                    <li>
-                                        <ul class="main-nav__acc" data-accordion>
-                                            <li class="main-nav__acc-item">
-                                                <button class="main-nav__acc-btn" data-id="1">
-                                                    АВТОМОБИЛИ
-                                                    <i class="sprite">
-                                                        <svg width="11" height="8">
-                                                            <use
-                                                                href="img/sprite/sprite.svg#arrow-d"
-                                                            ></use>
-                                                        </svg>
-                                                    </i>
-                                                </button>
-                                                <div class="main-nav__acc-content" data-content="1">
-                                                    <a href="#catalog">Прокат авто в Киеве</a>
-                                                    <a href="#catalog">Прокат авто во Львове</a>
-                                                    <a href="#catalog">Прокат авто в Тернополе</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="/insurance">СТРАХОВКА</a>
-                                    </li>
-                                    <li>
-                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/certificate" class="active">СЕРТИФИКАТЫ </a>
-                                    </li>
-                                    <li>
-                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/faq">ВОПРОС-ОТВЕТ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/blog">БЛОГ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/about">О НАС</a>
-                                    </li>
-                                    <li>
-                                        <a href="/contacts">КОНТАКТЫ</a>
-                                    </li>
-                                </ul>
-                            </nav>
+    <main class="main">
+      <section class="gift-section">
+        <div class="container">
+          <div class="gift-section__box">
+            <aside
+              class="aside"
+              data-aos="fade-right"
+              data-aos-duration="900"
+              data-aos-delay="400"
+            >
+              <div class="aside__top">
+                <a href="/" class="aside__title">REIZ</a>
+                <p>CAR RENTAL IN UKRAINE</p>
+              </div>
 
-                            <a href="#" class="main-button main-button--black">ЗАКАЗАТЬ ЗВОНОК</a>
-                        </aside>
-
-                        <div class="gift-section__inner">
-                            <h2
-                                class="pretitle"
-                                data-aos="fade-up"
-                                data-aos-duration="900"
-                                data-aos-delay="500"
-                            >
-                                СЕРТИФИКАТЫ И КАРТА КЛИЕНТА
-                            </h2>
-
-                            <div class="gift-section__content">
-                                <div
-                                    class="gift-section__top"
-                                    data-aos="fade-up"
-                                    data-aos-duration="900"
-                                    data-aos-delay="650"
-                                >
-                                <div class="editor">
-                                    <h1 class="main-title">
-                                      <span class="desktop">Подарочные сертификаты на аренду автомобиля от REIZ</span>
-                                      <span class="mob">Подарите аренду автомобиля самым важным людям</span>
-                                    </h1>
-                                    <p>Новый опыт — лучший подарок, а с REIZ запомнится надолго.</p>
-                                  </div>                                  
-
-                                    <div class="gift-section__image">
-                                        <picture>
-                                            <source
-                                                type="image/webp"
-                                                srcset="img/icons/certificatess.webp"
-                                            />
-                                            <img
-                                                width="599"
-                                                height="522"
-                                                src="img/icons/certificatess.png"
-                                                alt="Подарочные сертификаты REIZ на аренду автомобиля"
-                                            />
-                                        </picture>
-                                    </div>
-
-                                    <div class="gift-section__info">
-                                        <h2 class="pretitle">ТРЕБОВАНИЯ К ВОДИТЕЛЮ</h2>
-                                        <div class="gift-section__info-box">
-                                            <span class="gift-section__info-text"
-                                                >ВОЗРАСТ: ОТ 21 ГОДА
-                                            </span>
-                                            <span class="gift-section__info-text"
-                                                >СТАЖ ВОЖДЕНИЯ ОТ 3 ЛЕТ
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <div class="gift-section__info">
-                                        <h2 class="pretitle">ДЛЯ АРЕНДЫ ПОТРЕБУЕТСЯ</h2>
-                                        <div class="gift-section__info-wrapp">
-                                            <span class="gift-section__info-icon">
-                                                <i class="sprite">
-                                                    <svg width="45" height="35">
-                                                        <use
-                                                            href="img/sprite/sprite.svg#driver"
-                                                        ></use>
-                                                    </svg>
-                                                </i>
-                                                ПАСПОРТ
-                                            </span>
-                                            <span class="gift-section__info-icon">
-                                                <i class="sprite">
-                                                    <svg width="45" height="35">
-                                                        <use
-                                                            href="img/sprite/sprite.svg#driver2"
-                                                        ></use>
-                                                    </svg>
-                                                </i>
-                                                ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="gift-slider swiper"
-                                    data-aos="fade-up"
-                                    data-aos-duration="900"
-                                    data-aos-delay="700"
-                                >
-                                    <div class="gift-slider__wrapper swiper-wrapper">
-                                        <div class="gift-slider__slide swiper-slide">
-                                            <div class="gift-slider__image">
-                                                <picture>
-                                                    <source
-                                                        type="image/webp"
-                                                        srcset="img/car/car6.webp"
-                                                    />
-                                                    <img
-                                                        width="512"
-                                                        height="320"
-                                                        src="img/car/car6.png"
-                                                        alt="Mercedes на заснеженной дороге — идеальный подарок на зимние праздники"
-                                                    />
-                                                </picture>
-                                            </div>
-                                            <div class="gift-slider__content">
-                                                <h2 class="gift-slider__title">Зимние праздники</h2>
-                                                <p>
-                                                    Оформите подарочный сертификат на аренду авто
-                                                    идеальный подарок для новогодних поездок,
-                                                    свиданий и путешествий по зимней Украине.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="gift-slider__slide swiper-slide">
-                                            <div class="gift-slider__image">
-                                                <picture>
-                                                    <source
-                                                        type="image/webp"
-                                                        srcset="img/car/gar4.webp"
-                                                    />
-                                                    <img
-                                                        width="512"
-                                                        height="320"
-                                                        src="img/car/gar4.png"
-                                                        alt="image"
-                                                    />
-                                                </picture>
-                                            </div>
-                                            <div class="gift-slider__content">
-                                                <h2 class="gift-slider__title">Зимние праздники</h2>
-                                                <p>
-                                                    Оформите подарочный сертификат на аренду авто
-                                                    идеальный подарок для новогодних поездок,
-                                                    свиданий и путешествий по зимней Украине.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="gift-slider__slide swiper-slide">
-                                            <div class="gift-slider__image">
-                                                <picture>
-                                                    <source
-                                                        type="image/webp"
-                                                        srcset="img/car/car5.webp"
-                                                    />
-                                                    <img
-                                                        width="512"
-                                                        height="320"
-                                                        src="img/car/car5.png"
-                                                        alt="image"
-                                                    />
-                                                </picture>
-                                            </div>
-                                            <div class="gift-slider__content">
-                                                <h2 class="gift-slider__title">Зимние праздники</h2>
-                                                <p>
-                                                    Оформите подарочный сертификат на аренду авто
-                                                    идеальный подарок для новогодних поездок,
-                                                    свиданий и путешествий по зимней Украине.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="slider-controls">
-                                        <button class="slider-btn prev">
-                                            <i class="sprite">
-                                                <svg width="12" height="7">
-                                                    <use
-                                                        href="img/sprite/sprite.svg#Arrow-d2"
-                                                    ></use>
-                                                </svg>
-                                            </i>
-                                        </button>
-                                        <button class="slider-btn next">
-                                            <i class="sprite">
-                                                <svg width="12" height="7">
-                                                    <use
-                                                        href="img/sprite/sprite.svg#Arrow-d2"
-                                                    ></use>
-                                                </svg>
-                                            </i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <form
-                                    class="gift-form"
-                                    data-aos="fade-up"
-                                    data-aos-duration="900"
-                                    data-aos-delay="200"
-                                >
-                                    <h2 class="gift-form__title">
-                                        Подарите эмоции с Reiz самым важным людям
-                                    </h2>
-                                    <div class="gift-form__inner">
-                                        <div class="gift-form__image">
-                                            <picture>
-                                                <source
-                                                    type="image/webp"
-                                                    srcset="img/icons/gift.webp"
-                                                />
-                                                <img
-                                                    width="413"
-                                                    height="413"
-                                                    src="img/icons/gift.png"
-                                                    alt="Конверт с логотипом REIZ — подарочный сертификат на аренду авто"
-                                                />
-                                            </picture>
-                                        </div>
-
-                                        <div class="gift-form__box">
-                                            <h2 class="pretitle">ВЫБЕРИТЕ СУМУ СЕРТИФИКАТА!</h2>
-
-                                            <label class="radio-checkbox dark">
-                                                <input
-                                                    type="radio"
-                                                    name="type"
-                                                    checked
-                                                    value="100$"
-                                                    class="radio-checkbox__field"
-                                                />
-                                                <span class="radio-checkbox__content"> 100$ </span>
-                                            </label>
-                                            <label class="radio-checkbox dark">
-                                                <input
-                                                    type="radio"
-                                                    name="type"
-                                                    value="250$"
-                                                    class="radio-checkbox__field"
-                                                />
-                                                <span class="radio-checkbox__content"> 250$ </span>
-                                            </label>
-
-                                            <label class="radio-checkbox dark">
-                                                <input
-                                                    type="radio"
-                                                    name="type"
-                                                    value="500$"
-                                                    class="radio-checkbox__field"
-                                                />
-                                                <span class="radio-checkbox__content"> 500$ </span>
-                                            </label>
-                                            <label class="radio-checkbox dark">
-                                                <input
-                                                    type="radio"
-                                                    name="type"
-                                                    value="750$"
-                                                    class="radio-checkbox__field"
-                                                />
-                                                <span class="radio-checkbox__content"> 750$ </span>
-                                            </label>
-                                            <label class="radio-checkbox dark">
-                                                <input
-                                                    type="radio"
-                                                    name="type"
-                                                    value="1000$"
-                                                    class="radio-checkbox__field"
-                                                />
-                                                <span class="radio-checkbox__content"> 1000$ </span>
-                                            </label>
-                                            <label class="radio-checkbox dark">
-                                                <input
-                                                    type="radio"
-                                                    name="type"
-                                                    value="1500$"
-                                                    class="radio-checkbox__field"
-                                                />
-                                                <span class="radio-checkbox__content"> 1500$ </span>
-                                            </label>
-                                            <label class="radio-checkbox dark">
-                                                <input
-                                                    type="radio"
-                                                    name="type"
-                                                    value="2500$"
-                                                    class="radio-checkbox__field"
-                                                />
-                                                <span class="radio-checkbox__content"> 2500$ </span>
-                                            </label>
-                                            <label class="radio-checkbox dark">
-                                                <input
-                                                    type="radio"
-                                                    name="type"
-                                                    value="5000$"
-                                                    class="radio-checkbox__field"
-                                                />
-                                                <span class="radio-checkbox__content"> 5000$ </span>
-                                            </label>
-                                            <label class="radio-checkbox dark">
-                                                <input
-                                                    type="radio"
-                                                    name="type"
-                                                    value="my_currency"
-                                                    class="radio-checkbox__field"
-                                                />
-                                                <span class="radio-checkbox__content">
-                                                    Cвоя сумма
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="gift-form__fields">
-                                        <h2 class="pretitle">ЗАПОЛНИТЕ ФОРМУ</h2>
-
-                                        <label class="gift-form__label">
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                id="name"
-                                                required
-                                                placeholder="Ваше имя"
-                                            />
-                                            <span></span>
-                                        </label>
-                                        <label class="gift-form__label">
-                                            <input
-                                                type="text"
-                                                name="phone"
-                                                id="phone"
-                                                required
-                                                placeholder="Телефон"
-                                            />
-                                            <span></span>
-                                        </label>
-                                        <label class="gift-form__label">
-                                            <input
-                                                type="text"
-                                                name="mail"
-                                                id="mail"
-                                                required
-                                                placeholder="Email"
-                                            />
-                                            <span></span>
-                                        </label>
-                                    </div>
-
-                                    <label class="toggle-wrapper">
-                                        <input type="checkbox" checked class="toggle-checkbox" />
-                                        <span class="toggle-slider">
-                                            <span class="checkmark"></span>
-                                        </span>
-                                        <span class="toggle-label">Хочу физический сертификат</span>
-                                    </label>
-
-                                    <div class="gift-form__wrapp">
-                                        <div class="editors">
-                                            <div class="editor">
-                                                <h4 class="pretitle">ПРЕДПРОСМОТР</h4>
-                                            </div>
-                                            <div class="editor">
-                                                <a href="#" class="main-button main-button--white"
-                                                    >ПОСМОТРЕТЬ СЕРТИФИКАТ</a
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gift-form__wrapp">
-                                        <div class="editor">
-                                            <h4 class="pretitle">УСЛОВИЯ ПОЛЬЗОВАНИЯ</h4>
-                                            <p>
-                                                После оплаты мы пришлем сертификат на ваш email либо
-                                                свяжемся и доставим сертификат в удобное для вас
-                                                время и место – просто выберите опцию
-                                                "Хочу физический сертификат"
-                                            </p>
-                                        </div>
-
-                                        <div class="editors mode">
-                                            <div class="editor">
-                                                <span class="price">1500 $</span>
-                                            </div>
-
-                                            <div class="editor">
-                                                <button class="main-button main-button--black">
-                                                    ПЕРЕЙТИ К ОПЛАТЕ
-                                                </button>
-                                                <small
-                                                    >Нажимая кнопку «Перейти к оплате», вы
-                                                    принимаете<br />условия обработки персональных
-                                                    данных</small
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <div
-                                    class="gift-section__wrapp"
-                                    data-aos="fade-up"
-                                    data-aos-duration="900"
-                                    data-aos-delay="100"
-                                >
-                                    <h4 class="pretitle">УСЛОВИЯ ПОЛЬЗОВАНИЯ</h4>
-                                    <ul
-                                        class="acc mode"
-                                        data-accordion
-                                        data-default="3"
-                                        data-single="true"
-                                        data-breakpoint="576"
-                                    >
-                                        <li class="acc__item">
-                                            <button class="acc__btn" data-id="1">
-                                                СРОК ДЕЙСТВИЯ СЕРТИФИКАТА?
-                                                <i class="sprite">
-                                                    <svg width="20" height="12">
-                                                        <use
-                                                            href="img/sprite/sprite.svg#Arrow-d2"
-                                                        ></use>
-                                                    </svg>
-                                                </i>
-                                            </button>
-                                            <div class="acc__content" data-content="1">
-                                                <div class="acc__box editor">
-                                                    <p>
-                                                        Мы предоставляем машину с полным баком
-                                                        топлива. В день возврата вы должны вернуть
-                                                        машину так же с полным баком или доплатить
-                                                        за топливо.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="acc__item">
-                                            <button class="acc__btn" data-id="2">
-                                                КТО МОЖЕТ ПРИОБРЕСТИ СЕРТИФИКАТ?
-                                                <i class="sprite">
-                                                    <svg width="20" height="12">
-                                                        <use
-                                                            href="img/sprite/sprite.svg#Arrow-d2"
-                                                        ></use>
-                                                    </svg>
-                                                </i>
-                                            </button>
-                                            <div class="acc__content" data-content="2">
-                                                <div class="acc__box editor">
-                                                    <p>
-                                                        Мы предоставляем машину с полным баком
-                                                        топлива. В день возврата вы должны вернуть
-                                                        машину так же с полным баком или доплатить
-                                                        за топливо.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="acc__item">
-                                            <button class="acc__btn" data-id="3">
-                                                ЕСЛИ У ПОЛУЧАТЕЛЯ НЕТ ВОДИТЕЛЬСКИХ ПРАВ?
-                                                <i class="sprite">
-                                                    <svg width="20" height="12">
-                                                        <use
-                                                            href="img/sprite/sprite.svg#Arrow-d2"
-                                                        ></use>
-                                                    </svg>
-                                                </i>
-                                            </button>
-                                            <div class="acc__content" data-content="3">
-                                                <div class="acc__box editor">
-                                                    <p>
-                                                        Не страшно! В таком случае мы можем
-                                                        предложить услуги личного водителя за
-                                                        дополнительную плату.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="acc__item">
-                                            <button class="acc__btn" data-id="4">
-                                                МОЖНО ЛИ ВЕРНУТЬ ДЕНЬГИ ЗА СЕРТИФИКАТ?
-                                                <i class="sprite">
-                                                    <svg width="20" height="12">
-                                                        <use
-                                                            href="img/sprite/sprite.svg#Arrow-d2"
-                                                        ></use>
-                                                    </svg>
-                                                </i>
-                                            </button>
-                                            <div class="acc__content" data-content="4">
-                                                <div class="acc__box editor">
-                                                    <p>
-                                                        Мы предоставляем машину с полным баком
-                                                        топлива. В день возврата вы должны вернуть
-                                                        машину так же с полным баком или доплатить
-                                                        за топливо.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+              <nav class="main-nav">
+                <ul>
+                  <li><a href="/">ГЛАВНАЯ</a></li>
+                  <li>
+                    <ul class="main-nav__acc" data-accordion>
+                      <li class="main-nav__acc-item">
+                        <button class="main-nav__acc-btn" data-id="1">
+                          АВТОМОБИЛИ
+                          <i class="sprite">
+                            <svg width="11" height="8">
+                              <use href="img/sprite/sprite.svg#arrow-d"></use>
+                            </svg>
+                          </i>
+                        </button>
+                        <div class="main-nav__acc-content" data-content="1">
+                          <a href="#catalog">Прокат авто в Киеве</a>
+                          <a href="#catalog">Прокат авто во Львове</a>
+                          <a href="#catalog">Прокат авто в Тернополе</a>
                         </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="/insurance">СТРАХОВКА</a></li>
+                  <li><a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a></li>
+                  <li><a href="/certificate" class="active">СЕРТИФИКАТЫ</a></li>
+                  <li><a href="/terms">УСЛОВИЯ АРЕНДЫ</a></li>
+                  <li><a href="/faq">ВОПРОС-ОТВЕТ</a></li>
+                  <li><a href="/invest">СДАТЬ АВТО В АРЕНДУ</a></li>
+                  <li><a href="/blog">БЛОГ</a></li>
+                  <li><a href="/about">О НАС</a></li>
+                  <li><a href="/contacts">КОНТАКТЫ</a></li>
+                </ul>
+              </nav>
+
+              <a href="#" class="main-button main-button--black">ЗАКАЗАТЬ ЗВОНОК</a>
+            </aside>
+
+            <div class="gift-section__inner">
+              <h2
+                class="pretitle"
+                data-aos="fade-up"
+                data-aos-duration="900"
+                data-aos-delay="500"
+              >
+                ПОДАРОЧНЫЕ СЕРТИФИКАТЫ
+              </h2>
+
+              <div class="gift-section__content">
+                <div
+                  class="gift-section__top"
+                  data-aos="fade-up"
+                  data-aos-duration="900"
+                  data-aos-delay="650"
+                >
+                  <div class="editor">
+                    <h1 class="main-title">
+                      <span class="desktop">Подарочные сертификаты на аренду автомобиля от REIZ</span>
+                      <span class="mob">Подарите аренду автомобиля самым важным людям</span>
+                    </h1>
+                    <p>Новый опыт — лучший подарок, а с REIZ запомнится надолго.</p>
+                  </div>
+
+                  <div class="gift-section__image">
+                    <picture>
+                      <source type="image/webp" srcset="img/icons/certificatess.webp" />
+                      <img
+                        width="599"
+                        height="522"
+                        src="img/icons/certificatess.png"
+                        alt="Подарочные сертификаты REIZ на аренду автомобиля"
+                        decoding="async"
+                        fetchpriority="high"
+                      />
+                    </picture>
+                  </div>
+
+                  <div class="gift-section__info">
+                    <h2 class="pretitle">ТРЕБОВАНИЯ К ВОДИТЕЛЮ</h2>
+                    <div class="gift-section__info-box">
+                      <span class="gift-section__info-text">ВОЗРАСТ: ОТ 21 ГОДА</span>
+                      <span class="gift-section__info-text">СТАЖ ВОЖДЕНИЯ ОТ 3 ЛЕТ</span>
                     </div>
+                  </div>
+
+                  <div class="gift-section__info">
+                    <h2 class="pretitle">ДЛЯ АРЕНДЫ ПОТРЕБУЕТСЯ</h2>
+                    <div class="gift-section__info-wrapp">
+                      <span class="gift-section__info-icon">
+                        <i class="sprite">
+                          <svg width="45" height="35"><use href="img/sprite/sprite.svg#driver"></use></svg>
+                        </i>
+                        ПАСПОРТ
+                      </span>
+                      <span class="gift-section__info-icon">
+                        <i class="sprite">
+                          <svg width="45" height="35"><use href="img/sprite/sprite.svg#driver2"></use></svg>
+                        </i>
+                        ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ
+                      </span>
+                    </div>
+                  </div>
                 </div>
-            </section>
-        </main>
-        @include('partials/footer-mode.html')
-    </body>
+
+                <!-- Слайдер -->
+                <div
+                  class="gift-slider swiper"
+                  data-aos="fade-up"
+                  data-aos-duration="900"
+                  data-aos-delay="700"
+                >
+                  <div class="gift-slider__wrapper swiper-wrapper">
+                    <!-- 1 -->
+                    <div class="gift-slider__slide swiper-slide">
+                      <div class="gift-slider__image">
+                        <picture>
+                          <source type="image/webp" srcset="img/car/car6.webp" />
+                          <img
+                            width="512"
+                            height="320"
+                            src="img/car/car6.png"
+                            alt="Mercedes на зимней дороге — подарочный сертификат на аренду авто во Львове"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
+                      </div>
+                      <div class="gift-slider__content">
+                        <h2 class="gift-slider__title">Зимние праздники</h2>
+                        <p>Подарочный сертификат на аренду авто — идеальный подарок на Новый год: поездки в горы, семейные путешествия и тёплые зимние выходные.</p>
+                      </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="gift-slider__slide swiper-slide">
+                      <div class="gift-slider__image">
+                        <picture>
+                          <source type="image/webp" srcset="img/car/gar4.webp" />
+                          <img
+                            width="512"
+                            height="320"
+                            src="img/car/gar4.png"
+                            alt="Подарочный сертификат на аренду автомобиля — оригинальный подарок на день рождения во Львове"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
+                      </div>
+                      <div class="gift-slider__content">
+                        <h2 class="gift-slider__title">День рождения</h2>
+                        <p>Оригинальный подарок автолюбителю: выберите класс авто, даты и формат сертификата — электронный или физический.</p>
+                      </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="gift-slider__slide swiper-slide">
+                      <div class="gift-slider__image">
+                        <picture>
+                          <source type="image/webp" srcset="img/car/car5.webp" />
+                          <img
+                            width="512"
+                            height="320"
+                            src="img/car/car5.png"
+                            alt="Прокат авто по подарочному сертификату — романтический уикенд во Львове"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
+                      </div>
+                      <div class="gift-slider__content">
+                        <h2 class="gift-slider__title">Романтический уикенд</h2>
+                        <p>Подарите эмоции: сертификат на аренду автомобиля для свиданий и небольших путешествий по Львову и окрестностям.</p>
+                      </div>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="gift-slider__slide swiper-slide">
+                      <div class="gift-slider__image">
+                        <picture>
+                          <source type="image/webp" srcset="img/car/car7.webp" />
+                          <img
+                            width="512"
+                            height="320"
+                            src="img/car/car7.png"
+                            alt="Кроссовер на горной дороге — подарочный сертификат на аренду авто для поездки в Карпаты из Львова"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
+                      </div>
+                      <div class="gift-slider__content">
+                        <h2 class="gift-slider__title">Выходные в Карпатах</h2>
+                        <p>Подарочный сертификат на аренду автомобиля — <em>оригинальный подарок</em> для уикенда в Карпатах: стартуйте из Львова и выбирайте подходящий класс авто.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="slider-controls">
+                    <button class="slider-btn prev" aria-label="Предыдущий слайд">
+                      <i class="sprite">
+                        <svg width="12" height="7"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg>
+                      </i>
+                    </button>
+                    <button class="slider-btn next" aria-label="Следующий слайд">
+                      <i class="sprite">
+                        <svg width="12" height="7"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg>
+                      </i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /Слайдер -->
+
+                <form
+                  class="gift-form"
+                  data-aos="fade-up"
+                  data-aos-duration="900"
+                  data-aos-delay="200"
+                >
+                  <h2 class="gift-form__title">Подарите эмоции с REIZ самым важным людям</h2>
+
+                  <div class="gift-form__inner">
+                    <div class="gift-form__image">
+                      <picture>
+                        <source type="image/webp" srcset="img/icons/gift.webp" />
+                        <img
+                          width="413"
+                          height="413"
+                          src="img/icons/gift.png"
+                          alt="Конверт с логотипом REIZ — подарочный сертификат на аренду авто"
+                        />
+                      </picture>
+                    </div>
+
+                    <div class="gift-form__box">
+                      <h2 class="pretitle">ВЫБЕРИТЕ СУММУ СЕРТИФИКАТА!</h2>
+
+                      <label class="radio-checkbox dark">
+                        <input type="radio" name="type" checked value="100$" class="radio-checkbox__field" />
+                        <span class="radio-checkbox__content">100$</span>
+                      </label>
+                      <label class="radio-checkbox dark">
+                        <input type="radio" name="type" value="250$" class="radio-checkbox__field" />
+                        <span class="radio-checkbox__content">250$</span>
+                      </label>
+                      <label class="radio-checkbox dark">
+                        <input type="radio" name="type" value="500$" class="radio-checkbox__field" />
+                        <span class="radio-checkbox__content">500$</span>
+                      </label>
+                      <label class="radio-checkbox dark">
+                        <input type="radio" name="type" value="750$" class="radio-checkbox__field" />
+                        <span class="radio-checkbox__content">750$</span>
+                      </label>
+                      <label class="radio-checkbox dark">
+                        <input type="radio" name="type" value="1000$" class="radio-checkbox__field" />
+                        <span class="radio-checkbox__content">1000$</span>
+                      </label>
+                      <label class="radio-checkbox dark">
+                        <input type="radio" name="type" value="1500$" class="radio-checkbox__field" />
+                        <span class="radio-checkbox__content">1500$</span>
+                      </label>
+                      <label class="radio-checkbox dark">
+                        <input type="radio" name="type" value="2500$" class="radio-checkbox__field" />
+                        <span class="radio-checkbox__content">2500$</span>
+                      </label>
+                      <label class="radio-checkbox dark">
+                        <input type="radio" name="type" value="5000$" class="radio-checkbox__field" />
+                        <span class="radio-checkbox__content">5000$</span>
+                      </label>
+                      <label class="radio-checkbox dark">
+                        <input type="radio" name="type" value="my_currency" class="radio-checkbox__field" />
+                        <span class="radio-checkbox__content">Своя сумма</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="gift-form__fields">
+                    <h2 class="pretitle">ЗАПОЛНИТЕ ФОРМУ</h2>
+
+                    <label class="gift-form__label">
+                      <input type="text" name="name" id="name" required placeholder="Ваше имя" />
+                      <span></span>
+                    </label>
+                    <label class="gift-form__label">
+                      <input type="tel" name="phone" id="phone" required placeholder="Телефон" inputmode="tel" />
+                      <span></span>
+                    </label>
+                    <label class="gift-form__label">
+                      <input type="email" name="mail" id="mail" required placeholder="Email" />
+                      <span></span>
+                    </label>
+                  </div>
+
+                  <label class="toggle-wrapper">
+                    <input type="checkbox" checked class="toggle-checkbox" />
+                    <span class="toggle-slider"><span class="checkmark"></span></span>
+                    <span class="toggle-label">Хочу физический сертификат</span>
+                  </label>
+
+                  <div class="gift-form__wrapp">
+                    <div class="editors">
+                      <div class="editor"><h4 class="pretitle">ПРЕДПРОСМОТР</h4></div>
+                      <div class="editor">
+                        <a href="#" class="main-button main-button--white">ПОСМОТРЕТЬ СЕРТИФИКАТ</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="gift-form__wrapp">
+                    <div class="editor">
+                      <h4 class="pretitle">УСЛОВИЯ ПОЛЬЗОВАНИЯ</h4>
+                      <p>
+                        После оплаты мы пришлем сертификат на ваш email либо свяжемся и доставим сертификат в удобное для вас
+                        время и место — просто выберите опцию «Хочу физический сертификат».
+                      </p>
+                    </div>
+
+                    <div class="editors mode">
+                      <div class="editor"><span class="price">1500 $</span></div>
+                      <div class="editor">
+                        <button class="main-button main-button--black">ПЕРЕЙТИ К ОПЛАТЕ</button>
+                        <small>Нажимая кнопку «Перейти к оплате», вы принимаете<br />условия обработки персональных данных</small>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <!-- FAQ -->
+                <div
+                  class="gift-section__wrapp"
+                  data-aos="fade-up"
+                  data-aos-duration="900"
+                  data-aos-delay="100"
+                >
+                  <h4 class="pretitle">КАК ЭТО РАБОТАЕТ</h4>
+
+                  <ul class="acc mode" data-accordion data-default="3" data-single="true" data-breakpoint="576">
+                    <!-- 1 -->
+                    <li class="acc__item">
+                      <button class="acc__btn" id="q1" data-id="1" aria-expanded="false" aria-controls="a1">
+                        Какой срок действия подарочного сертификата на аренду авто?
+                        <i class="sprite"><svg width="20" height="12"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                      </button>
+                      <div class="acc__content" id="a1" data-content="1" role="region" aria-labelledby="q1">
+                        <div class="acc__box editor">
+                          <p><strong>Сертификат действует 12 месяцев с даты покупки.</strong> Сертификат на прокат автомобиля можно один раз продлить по согласованию с менеджером. Действует во Львове и в локациях, где работает REIZ.</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- 2 -->
+                    <li class="acc__item">
+                      <button class="acc__btn" id="q2" data-id="2" aria-expanded="false" aria-controls="a2">
+                        Как воспользоваться сертификатом и забронировать машину?
+                        <i class="sprite"><svg width="20" height="12"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                      </button>
+                      <div class="acc__content" id="a2" data-content="2" role="region" aria-labelledby="q2">
+                        <div class="acc__box editor">
+                          <p>Выберите авто и даты аренды на сайте или по телефону. <strong>Сообщите код подарочного сертификата на аренду авто</strong> менеджеру — номинал будет учтён при расчёте. Бронирование доступно онлайн, по телефону и в мессенджерах.</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- 3 -->
+                    <li class="acc__item">
+                      <button class="acc__btn" id="q3" data-id="3" aria-expanded="false" aria-controls="a3">
+                        Что если стоимость аренды выше номинала сертификата?
+                        <i class="sprite"><svg width="20" height="12"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                      </button>
+                      <div class="acc__content" id="a3" data-content="3" role="region" aria-labelledby="q3">
+                        <div class="acc__box editor">
+                          <p><strong>Можно доплатить разницу любой удобной оплатой</strong> (карта/безнал/наличный расчёт). Разрешено объединять несколько сертификатов для одной аренды автомобиля.</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- 4 -->
+                    <li class="acc__item">
+                      <button class="acc__btn" id="q4" data-id="4" aria-expanded="false" aria-controls="a4">
+                        Можно ли использовать сертификат частями на несколько поездок?
+                        <i class="sprite"><svg width="20" height="12"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                      </button>
+                      <div class="acc__content" id="a4" data-content="4" role="region" aria-labelledby="q4">
+                        <div class="acc__box editor">
+                          <p><strong>Да, допускается частичная оплата аренд</strong> до полного использования номинала сертификата на прокат автомобиля. Сообщите менеджеру, что хотите расходовать сумму поэтапно.</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- 5 -->
+                    <li class="acc__item">
+                      <button class="acc__btn" id="q5" data-id="5" aria-expanded="false" aria-controls="a5">
+                        Можно ли воспользоваться сертификатом, если нет водительских прав?
+                        <i class="sprite"><svg width="20" height="12"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                      </button>
+                      <div class="acc__content" id="a5" data-content="5" role="region" aria-labelledby="q5">
+                        <div class="acc__box editor">
+                          <p><strong>Да, доступна аренда авто с личным водителем</strong> (услуга за доплату). Это удобный вариант подарка во Львове для тех, кто не водит — <em>оригинальный подарок</em> на событие или поездку.</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- 6 -->
+                    <li class="acc__item">
+                      <button class="acc__btn" id="q6" data-id="6" aria-expanded="false" aria-controls="a6">
+                        Нужен ли депозит и страховка при аренде по сертификату?
+                        <i class="sprite"><svg width="20" height="12"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                      </button>
+                      <div class="acc__content" id="a6" data-content="6" role="region" aria-labelledby="q6">
+                        <div class="acc__box editor">
+                          <p><strong>Действуют стандартные условия аренды:</strong> страховой депозит/франшиза зависит от класса авто. Сертификат на аренду машины покрывает стоимость проката, но не заменяет депозит и дополнительные услуги. Доступны опции снижения ответственности (CDW/SCDW).</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- 7 -->
+                    <li class="acc__item">
+                      <button class="acc__btn" id="q7" data-id="7" aria-expanded="false" aria-controls="a7">
+                        Можно ли вернуть деньги за подарочный сертификат?
+                        <i class="sprite"><svg width="20" height="12"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                      </button>
+                      <div class="acc__content" id="a7" data-content="7" role="region" aria-labelledby="q7">
+                        <div class="acc__box editor">
+                          <p><strong>Возврат денежных средств не предусмотрен</strong> условиями использования сертификата. При необходимости можем продлить срок действия или <strong>переоформить сертификат на другое лицо</strong>.</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- 8 -->
+                    <li class="acc__item">
+                      <button class="acc__btn" id="q8" data-id="8" aria-expanded="false" aria-controls="a8">
+                        Для каких случаев подходит сертификат — это действительно оригинальный подарок?
+                        <i class="sprite"><svg width="20" height="12"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                      </button>
+                      <div class="acc__content" id="a8" data-content="8" role="region" aria-labelledby="q8">
+                        <div class="acc__box editor">
+                          <p><strong>Да, это универсальный и оригинальный подарок во Львове</strong>: день рождения, годовщина, свадьба, корпоратив, Новый год. Отлично подходит как <em>подарок автолюбителю</em> и тем, кто ценит новые впечатления.</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- 9 -->
+                    <li class="acc__item">
+                      <button class="acc__btn" id="q9" data-id="9" aria-expanded="false" aria-controls="a9">
+                        В каком формате доступен сертификат и как быстро его получить?
+                        <i class="sprite"><svg width="20" height="12"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                      </button>
+                      <div class="acc__content" id="a9" data-content="9" role="region" aria-labelledby="q9">
+                        <div class="acc__box editor">
+                          <p><strong>Электронный сертификат</strong> приходит на e-mail за 5 минут после оплаты. <strong>Физический сертификат</strong> доставим курьером по Львову и по Украине. Оба формата одинаково действительны.</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- 10 -->
+                    <li class="acc__item">
+                      <button class="acc__btn" id="q10" data-id="10" aria-expanded="false" aria-controls="a10">
+                        Кто может купить и кто может использовать сертификат? (требования к водителю)
+                        <i class="sprite"><svg width="20" height="12"><use href="img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                      </button>
+                      <div class="acc__content" id="a10" data-content="10" role="region" aria-labelledby="q10">
+                        <div class="acc__box editor">
+                          <p>Купить может любой совершеннолетний. Использовать сертификат может водитель, который соответствует условиям REIZ: <strong>возраст от 21 года, стаж от 3 лет, паспорт и водительское удостоверение</strong> (для иностранцев — международные права при необходимости).</p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /FAQ -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @include('partials/footer-mode.html')
+  </body>
 </html>

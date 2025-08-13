@@ -2,13 +2,13 @@
 <html lang="ru" class="page">
     @include('partials/head.html', {
         "title": "Сдать авто в аренду во Львове — REIZ",
-        "description": "Сдайте свой автомобиль в аренду во Львове с REIZ: прозрачный договор, ежемесячные выплаты, обслуживание и контроль, поддержка 24/7. Требования к авто и форма заявки.",
+        "description": "Сдайте автомобиль во Львове с REIZ: официальный договор, ежемесячные выплаты, обслуживание и контроль 24/7. Узнайте требования и оставьте заявку.",
         "canonical": "https://reiz.com.ua/invest",
         "og_title": "Сдать авто в аренду во Львове — REIZ",
         "og_description": "Передайте авто в управление REIZ и получайте пассивный доход. Договор, выплаты, сервис и полный контроль.",
         "og_url": "https://reiz.com.ua/invest",
         "og_image": "https://reiz.com.ua/img/og/invest.webp"
-      })      
+      })
 
     <body class="page__body" data-page="invest">
         @include('partials/noscript.html') @include('partials/header-mode.html')
@@ -39,9 +39,7 @@
                                                     АВТОМОБИЛИ
                                                     <i class="sprite">
                                                         <svg width="11" height="8">
-                                                            <use
-                                                                href="img/sprite/sprite.svg#arrow-d"
-                                                            ></use>
+                                                            <use href="img/sprite/sprite.svg#arrow-d"></use>
                                                         </svg>
                                                     </i>
                                                 </button>
@@ -83,35 +81,33 @@
                                 </ul>
                             </nav>
 
-                            <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
+                            <!-- Было <a href="#" ...> -->
+                            <button type="button" class="main-button" aria-controls="callback-modal">ЗАКАЗАТЬ ЗВОНОК</button>
                         </aside>
 
                         <div
-                            class="rental-section__inner"
-                            data-aos="fade-left"
-                            data-aos-duration="900"
-                            data-aos-delay="600"
-                        >
-                        <h2 class="pretitle">СДАТЬ АВТО В АРЕНДУ</h2>
+  class="rental-section__inner"
+  data-aos="fade-left"
+  data-aos-duration="900"
+  data-aos-delay="600"
+>
+  <p class="pretitle">СДАТЬ АВТО В АРЕНДУ</p>
 
-                        <ul class="breadcrumbs">
-                          <li><a href="/">Главная</a></li>
-                          <li>Сдать авто в аренду</li>
-                        </ul>
-                        
-                        <h1 class="main-title">Сдать авто в аренду</h1>
-                        
+  <nav class="breadcrumbs" aria-label="Хлебные крошки">
+    <ol>
+      <li><a href="/">Главная</a></li>
+      <li aria-current="page">Сдать авто в аренду</li>
+    </ol>
+  </nav>
 
-                            <div class="rental-section__content">
-                                <div class="editor">
-                                    <h2 class="main-title">
-                                        Автомобиль как инвестиция: ваш актив — наш менеджмент
-                                    </h2>
-                                    <p>
-                                        Откройте возможность получать доход от автомобиля, не
-                                        участвуя в операционных процессах. Всё под управлением
-                                        команды с опытом.
-                                    </p>
+  <h1 class="main-title">Сдать авто в аренду во Львове</h1>
+
+  <div class="rental-section__content">
+    <div class="editor">
+      <p>
+        Откройте возможность получать доход от автомобиля, не участвуя в операционных процессах.
+        Всё под управлением команды с опытом.
+      </p>
                                 </div>
                                 <div class="rental-section__wrapp">
                                     <h4 class="pretitle">ПОЧЕМУ ЭТО ВЫГОДНО</h4>

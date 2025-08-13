@@ -1,148 +1,149 @@
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-    <!-- Канонический -->
-    @if (context.canonical) {<link rel="canonical" href="@canonical" />}
-    @if (!context.canonical) {<link rel="canonical" href="https://reiz.com.ua/" />}
-  
-    <!-- Robots -->
-    <meta name="robots" content="index,follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  
-    <!-- Favicons -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
-    <meta name="theme-color" content="#111111" />
-  
-    <!-- description -->
-    <meta name="description" content="@description" />
-  
-    <!-- Open Graph -->
-    <meta property="og:site_name" content="REIZ RENTAL CARS" />
-    @if (context.og_title) {<meta property="og:title" content="@og_title" />}
-    @if (!context.og_title) {<meta property="og:title" content="@title" />}
-  
-    @if (context.og_type) {<meta property="og:type" content="@og_type" />}
-    @if (!context.og_type) {<meta property="og:type" content="website" />}
-  
-    @if (context.og_description) {<meta property="og:description" content="@og_description" />}
-    @if (!context.og_description) {<meta property="og:description" content="@description" />}
-  
-    @if (context.og_url) {<meta property="og:url" content="@og_url" />}
-    @if (!context.og_url) {<meta property="og:url" content="@canonical" />}
-  
-    @if (context.og_image) {<meta property="og:image" content="@og_image" />}
-    @if (!context.og_image) {<meta property="og:image" content="https://reiz.com.ua/img/icons/reizimage.webp" />}
-  
-    @if (context.og_locale) {<meta property="og:locale" content="@og_locale" />}
-    @if (!context.og_locale) {<meta property="og:locale" content="ru_RU" />}
-  
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    @if (context.twitter_title) {<meta name="twitter:title" content="@twitter_title" />}
-    @if (!context.twitter_title) {<meta name="twitter:title" content="@og_title" />}
-  
-    @if (context.twitter_description) {<meta name="twitter:description" content="@twitter_description" />}
-    @if (!context.twitter_description) {<meta name="twitter:description" content="@og_description" />}
-  
-    @if (context.twitter_image) {<meta name="twitter:image" content="@twitter_image" />}
-    @if (!context.twitter_image && context.og_image) {<meta name="twitter:image" content="@og_image" />}
-    @if (!context.twitter_image && !context.og_image) {<meta name="twitter:image" content="https://reiz.com.ua/img/icons/reizimage.webp" />}
-  
-    <!-- Title -->
-    <title>@title</title>
-  
-    <!-- Perf: preconnect/dns-prefetch для внешних скриптов/виджетов -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="preconnect" href="https://consent.cookiebot.com" crossorigin>
-    <link rel="dns-prefetch" href="//consent.cookiebot.com">
-    <link rel="preconnect" href="https://grwapi.net" crossorigin>
-    <link rel="dns-prefetch" href="//grwapi.net">
-  
-    <!-- Fonts preload -->
-    <link rel="preload" href="fonts/Arial-BoldMT.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/Arial-ItalicMT.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/ArialMT.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/Inter-Black.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/inter-light.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/SFProDisplay-Light.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/SFProDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/SFProDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/SFProDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/SFProDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/arial-hebrew-scholar.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/apple-braille-pinpoint-6-dot.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/MonteCarlo-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/HalvarBreit-Md.woff2" as="font" type="font/woff2" crossorigin />
-  
-    <link rel="stylesheet" href="css/style.css" />
-  
-    <!-- Cookiebot -->
-    <script
-      id="Cookiebot"
-      src="https://consent.cookiebot.com/uc.js"
-      data-cbid="e288779f-c5ea-447c-a7ce-3197f6f9f4a8"
-      type="text/javascript"
-      async
-    ></script>
-    <!--/ Cookiebot -->
-  
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-WGHWDS62');
-    </script>
-    <!-- End Google Tag Manager -->
-  
-    <!-- Structured Data: AutoRental (LocalBusiness) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AutoRental",
-      "@id": "https://reiz.com.ua/#company",
-      "name": "REIZ Rental Cars",
-      "url": "https://reiz.com.ua/",
-      "logo": "https://reiz.com.ua/ico/Reiz.png",
-      "image": "https://reiz.com.ua/img/icons/reiz.webp",
-      "description": "REIZ — аренда авто во Львове: современные автомобили, подача по адресу и поддержка 24/7.",
-      "telephone": "+380635471186",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Львов",
-        "addressCountry": "UA"
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Львов" },
-        { "@type": "AdministrativeArea", "name": "Львовская область" },
-        { "@type": "Country", "name": "Украина" }
-      ],
-      "openingHoursSpecification": [{
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "08:00",
-        "closes": "22:00"
-      }],
-      "sameAs": ["https://www.instagram.com/reiz.rental"]
-    }
-    </script>
-  
-    <!-- Structured Data: FAQPage (RU) — совпадает с видимым FAQ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Канонический -->
+  @if (context.canonical) {<link rel="canonical" href="@canonical" />}
+  @if (!context.canonical) {<link rel="canonical" href="https://reiz.com.ua/" />}
+
+  <!-- Robots -->
+  <meta name="robots" content="index,follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <!-- description -->
+  <meta name="description" content="@description" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="REIZ RENTAL CARS" />
+  @if (context.og_title) {<meta property="og:title" content="@og_title" />}
+  @if (!context.og_title) {<meta property="og:title" content="@title" />}
+
+  @if (context.og_type) {<meta property="og:type" content="@og_type" />}
+  @if (!context.og_type) {<meta property="og:type" content="website" />}
+
+  @if (context.og_description) {<meta property="og:description" content="@og_description" />}
+  @if (!context.og_description) {<meta property="og:description" content="@description" />}
+
+  @if (context.og_url) {<meta property="og:url" content="@og_url" />}
+  @if (!context.og_url) {<meta property="og:url" content="@canonical" />}
+
+  @if (context.og_image) {<meta property="og:image" content="@og_image" />}
+  @if (!context.og_image) {<meta property="og:image" content="https://reiz.com.ua/img/icons/reizimage.webp" />}
+
+  @if (context.og_locale) {<meta property="og:locale" content="@og_locale" />}
+  @if (!context.og_locale) {<meta property="og:locale" content="ru_RU" />}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  @if (context.twitter_title) {<meta name="twitter:title" content="@twitter_title" />}
+  @if (!context.twitter_title) {<meta name="twitter:title" content="@og_title" />}
+
+  @if (context.twitter_description) {<meta name="twitter:description" content="@twitter_description" />}
+  @if (!context.twitter_description) {<meta name="twitter:description" content="@og_description" />}
+
+  @if (context.twitter_image) {<meta name="twitter:image" content="@twitter_image" />}
+  @if (!context.twitter_image && context.og_image) {<meta name="twitter:image" content="@og_image" />}
+  @if (!context.twitter_image && !context.og_image) {<meta name="twitter:image" content="https://reiz.com.ua/img/icons/reizimage.webp" />}
+
+  <!-- Title -->
+  <title>@title</title>
+
+  <!-- Perf: preconnect/dns-prefetch для внешних скриптов/виджетов -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="preconnect" href="https://consent.cookiebot.com" crossorigin>
+  <link rel="dns-prefetch" href="//consent.cookiebot.com">
+  <link rel="preconnect" href="https://grwapi.net" crossorigin>
+  <link rel="dns-prefetch" href="//grwapi.net">
+
+  <!-- Fonts preload -->
+  <link rel="preload" href="fonts/Arial-BoldMT.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Arial-ItalicMT.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/ArialMT.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Inter-Black.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/inter-light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/SFProDisplay-Light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/SFProDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/SFProDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/SFProDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/SFProDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/arial-hebrew-scholar.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/apple-braille-pinpoint-6-dot.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/MonteCarlo-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/HalvarBreit-Md.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Cookiebot -->
+  <script
+    id="Cookiebot"
+    src="https://consent.cookiebot.com/uc.js"
+    data-cbid="e288779f-c5ea-447c-a7ce-3197f6f9f4a8"
+    type="text/javascript"
+    async
+  ></script>
+  <!--/ Cookiebot -->
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+      var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WGHWDS62');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Structured Data: AutoRental (LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRental",
+    "@id": "https://reiz.com.ua/#company",
+    "name": "REIZ Rental Cars",
+    "url": "https://reiz.com.ua/",
+    "logo": "https://reiz.com.ua/ico/Reiz.png",
+    "image": "https://reiz.com.ua/img/icons/reiz.webp",
+    "description": "REIZ — аренда авто во Львове: современные автомобили, подача по адресу и поддержка 24/7.",
+    "telephone": "+380635471186",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Львов",
+      "addressCountry": "UA"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Львов" },
+      { "@type": "AdministrativeArea", "name": "Львовская область" },
+      { "@type": "Country", "name": "Украина" }
+    ],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "22:00"
+    }],
+    "sameAs": ["https://www.instagram.com/reiz.rental"]
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage (RU) — только для главной -->
+  @if (context.page === 'home') {
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
@@ -163,7 +164,74 @@
       ]
     }
     </script>
-  
-    <script defer src="js/main.js"></script>
-  </head>
-  
+  }
+
+  <!-- Только для страницы сертификатов -->
+  @if (context.page === 'certificate') {
+    <!-- Preload LCP-изображения -->
+    <link rel="preload" as="image"
+          href="/img/icons/certificatess.webp"
+          type="image/webp"
+          fetchpriority="high" />
+
+    <!-- JSON-LD: Product/Offer -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Подарочный сертификат на аренду авто REIZ",
+      "image": "https://reiz.com.ua/img/og/certificate.webp",
+      "description": "Подарочный сертификат REIZ на аренду автомобиля во Львове: номинал 100–5000 USD, электронный или физический формат, доставка за 5 минут.",
+      "brand": { "@type": "Brand", "name": "REIZ" },
+      "sku": "reiz-gift-certificate",
+      "url": "https://reiz.com.ua/certificate",
+      "areaServed": "UA",
+      "audience": { "@type": "Audience", "audienceType": "Adults with valid driving license" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "100",
+        "highPrice": "5000",
+        "availability": "https://schema.org/InStock",
+        "url": "https://reiz.com.ua/certificate"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage (должен совпадать с видимым FAQ на странице) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Какой срок действия подарочного сертификата на аренду авто?","acceptedAnswer":{"@type":"Answer","text":"Сертификат действует 12 месяцев с даты покупки. Сертификат на прокат автомобиля можно один раз продлить по согласованию с менеджером. Действует во Львове и в локациях, где работает REIZ."}},
+        {"@type":"Question","name":"Как воспользоваться сертификатом и забронировать машину?","acceptedAnswer":{"@type":"Answer","text":"Выберите авто и даты аренды на сайте или по телефону. Сообщите код подарочного сертификата на аренду авто менеджеру — номинал будет учтён при расчёте. Бронирование доступно онлайн, по телефону и в мессенджерах."}},
+        {"@type":"Question","name":"Что если стоимость аренды выше номинала сертификата?","acceptedAnswer":{"@type":"Answer","text":"Можно доплатить разницу любой удобной оплатой (карта/безнал/наличный расчёт). Разрешено объединять несколько сертификатов для одной аренды автомобиля."}},
+        {"@type":"Question","name":"Можно ли использовать сертификат частями на несколько поездок?","acceptedAnswer":{"@type":"Answer","text":"Да, допускается частичная оплата аренд до полного использования номинала сертификата на прокат автомобиля. Сообщите менеджеру, что хотите расходовать сумму поэтапно."}},
+        {"@type":"Question","name":"Можно ли воспользоваться сертификатом, если нет водительских прав?","acceptedAnswer":{"@type":"Answer","text":"Да, доступна аренда авто с личным водителем (услуга за доплату). Это удобный вариант подарка во Львове для тех, кто не водит — оригинальный подарок на событие или поездку."}},
+        {"@type":"Question","name":"Нужен ли депозит и страховка при аренде по сертификату?","acceptedAnswer":{"@type":"Answer","text":"Действуют стандартные условия аренды: страховой депозит/франшиза зависит от класса авто. Сертификат на аренду машины покрывает стоимость проката, но не заменяет депозит и дополнительные услуги. Доступны опции снижения ответственности (CDW/SCDW)."}},
+        {"@type":"Question","name":"Можно ли вернуть деньги за подарочный сертификат?","acceptedAnswer":{"@type":"Answer","text":"Возврат денежных средств не предусмотрен условиями использования сертификата. При необходимости можем продлить срок действия или переоформить сертификат на другое лицо."}},
+        {"@type":"Question","name":"Для каких случаев подходит сертификат — это действительно оригинальный подарок?","acceptedAnswer":{"@type":"Answer","text":"Да, это универсальный и оригинальный подарок во Львове: день рождения, годовщина, свадьба, корпоратив, Новый год. Отлично подходит как подарок автолюбителю и тем, кто ценит новые впечатления."}},
+        {"@type":"Question","name":"В каком формате доступен сертификат и как быстро его получить?","acceptedAnswer":{"@type":"Answer","text":"Электронный сертификат приходит на e-mail за 5 минут после оплаты. Физический сертификат доставим курьером по Львову и по Украине. Оба формата одинаково действительны."}},
+        {"@type":"Question","name":"Кто может купить и кто может использовать сертификат? (требования к водителю)","acceptedAnswer":{"@type":"Answer","text":"Купить может любой совершеннолетний. Использовать сертификат может водитель, который соответствует условиям REIZ: возраст от 21 года, стаж от 3 лет, паспорт и водительское удостоверение (для иностранцев — международные права при необходимости)."}}
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList (если передали breadcrumbs) -->
+    @if (context.breadcrumbs) {
+      <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"@{breadcrumbs[0].name}","item":"@{breadcrumbs[0].item}"},
+          {"@type":"ListItem","position":2,"name":"@{breadcrumbs[1].name}","item":"@{breadcrumbs[1].item}"}
+        ]
+      }
+      </script>
+    }
+  }
+
+  <script defer src="js/main.js"></script>
+</head>
