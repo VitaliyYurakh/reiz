@@ -1,391 +1,377 @@
 <!DOCTYPE html>
-<html lang="ru" class="page">
+<html lang="en" class="page">
 
 @include('partials/head.html', {
-    "title": "Условия аренды авто во Львове — REIZ",
-    "description": "Требования к водителю, документы для граждан Украины и иностранцев, способы оплаты, страховка, залог, пробег. Условия аренды автомобиля REIZ во Львове.",
-    "canonical": "https://reiz.com.ua/terms",
-    "og_title": "Условия аренды — REIZ Львов",
-    "og_description": "Все правила и требования: документы, оплата, страховка, залог, пробег.",
-    "og_url": "https://reiz.com.ua/terms",
-    "og_image": "https://reiz.com.ua/img/og/terms.webp"
-  })
-  
+  "title": "Car Rental Terms in Lviv — REIZ",
+  "description": "Driver requirements, documents for Ukrainians and foreigners, payment methods, insurance, deposit, mileage. REIZ rental terms in Lviv.",
+  "canonical": "https://reiz.com.ua/en/terms",
+  "og_title": "Rental Terms — REIZ Lviv",
+  "og_description": "All rules and requirements: documents, payment, insurance, deposit, mileage.",
+  "og_url": "https://reiz.com.ua/en/terms",
+  "og_image": "https://reiz.com.ua/img/og/terms.webp",
+  "lang": "en",
+  "href_ru": "https://reiz.com.ua/terms",
+  "href_uk": "https://reiz.com.ua/ua/terms",
+  "href_en": "https://reiz.com.ua/en/terms"
+})
 
 <body class="page__body" data-page="terms">
-    @include('partials/noscript.html') @include('partials/header-mode.html')
-    <main class="main">
+  @include('partials/noscript.html')
+  @include('partials/header-mode.html')
+  <main class="main">
 
-        <section class="terms-section">
-            <div class="container">
-                <div class="terms-section__box">
-                    <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
-                        <div class="aside__top">
-                             <a href="/" class="aside__title">REIZ</a>
-                            <p>CAR RENTAL IN UKRAINE</p>
-                        </div>
+    <section class="terms-section">
+      <div class="container">
+        <div class="terms-section__box">
+          <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
+            <div class="aside__top">
+              <a href="/en/" class="aside__title">REIZ</a>
+              <p>CAR RENTAL IN UKRAINE</p>
+            </div>
 
-                        <nav class="main-nav">
-                            <ul>
-                                <li>
-                                    <a href="/">ГЛАВНАЯ</a>
-                                </li>
-                                <li>
-                                    <ul class="main-nav__acc" data-accordion>
-                                        <li class="main-nav__acc-item">
-                                            <button class="main-nav__acc-btn" data-id="1">
-                                                АВТОМОБИЛИ
-                                                <i class="sprite">
-                                                    <svg width='11' height='8'>
-                                                        <use href='img/sprite/sprite.svg#arrow-d'></use>
-                                                    </svg>
-                                                </i>
-                                            </button>
-                                            <div class="main-nav__acc-content" data-content="1">
-                                                <a href="#catalog">Прокат авто в Киеве</a>
-                                                <a href="#catalog">Прокат авто во Львове</a>
-                                                <a href="#catalog">Прокат авто в Тернополе</a>
-                                            </div>
-                                        </li>
+            <nav class="main-nav">
+              <ul>
+                <li>
+                  <a href="/en/">HOME</a>
+                </li>
+                <li>
+                  <ul class="main-nav__acc" data-accordion>
+                    <li class="main-nav__acc-item">
+                      <button class="main-nav__acc-btn" data-id="1">
+                        CARS
+                        <i class="sprite">
+                          <svg width='11' height='8'>
+                            <use href='/img/sprite/sprite.svg#arrow-d'></use>
+                          </svg>
+                        </i>
+                      </button>
+                      <div class="main-nav__acc-content" data-content="1">
+                        <a href="#catalog">Car rental in Kyiv</a>
+                        <a href="#catalog">Car rental in Lviv</a>
+                        <a href="#catalog">Car rental in Ternopil</a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="/en/insurance">INSURANCE</a>
+                </li>
+                <li>
+                  <a href="/en/business">FOR COMPANIES</a>
+                </li>
+                <li>
+                  <a href="/en/certificate">GIFT CERTIFICATES</a>
+                </li>
+                <li>
+                  <a href="/en/terms" class="active">RENTAL TERMS</a>
+                </li>
+                <li>
+                  <a href="/en/faq">FAQ</a>
+                </li>
+                <li>
+                  <a href="/en/invest">LIST YOUR CAR</a>
+                </li>
+                <li>
+                  <a href="/en/blog">BLOG</a>
+                </li>
+                <li>
+                  <a href="/en/about">ABOUT US</a>
+                </li>
+                <li>
+                  <a href="/en/contacts">CONTACTS</a>
+                </li>
+              </ul>
+            </nav>
 
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="/insurance">СТРАХОВКА</a>
-                                </li>
-                                <li>
-                                    <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
-                                </li>
-                                <li>
-                                    <a href="/certificate">СЕРТИФИКАТЫ </a>
-                                </li>
-                                <li>
-                                    <a href="/terms" class="active">УСЛОВИЯ АРЕНДЫ</a>
-                                </li>
-                                <li>
-                                    <a href="/faq">ВОПРОС-ОТВЕТ</a>
-                                </li>
-                                <li>
-                                    <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
-                                </li>
-                                <li>
-                                    <a href="/blog">БЛОГ</a>
-                                </li>
-                                <li>
-                                    <a href="/about" >О НАС</a>
-                                </li>
-                                <li>
-                                    <a href="/contacts">КОНТАКТЫ</a>
-                                </li>
-                            </ul>
-                        </nav>
+            <a href="/en/contacts#callback" class="main-button">REQUEST A CALL</a>
+          </aside>
 
-                        <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
-                    </aside>
+          <div class="terms-section__inner" data-aos="fade-left" data-aos-duration="900" data-aos-delay="600">
+            <h2 class="pretitle">RENTAL TERMS</h2>
+            <ul class="breadcrumbs">
+              <li><a href="/en/">Home</a></li>
+              <li>Rental terms</li>
+            </ul>
 
-                    <div class="terms-section__inner" data-aos="fade-left" data-aos-duration="900" data-aos-delay="600">
-                        <h2 class="pretitle">УСЛОВИЯ АРЕНДЫ</h2>
-                        <ul class="breadcrumbs">
-                            <li><a href="/">Главная</a></li>
-                            <li>Условия аренды</li>
-                          </ul>
-                        
-                          <h1 class="main-title">Условия аренды</h1>
+            <h1 class="main-title">Rental terms</h1>
 
-                        <div class="terms-section__content">
-                            <ul class="terms-list">
-                                <li class="terms-list__item">
-                                    <span class="terms-list__title">ВОЗРАСТ ОТ 21 ГОДА</span>
-                                    <div class="terms-list__bg">
-                                        <picture>
-                                            <source type='image/webp' srcset='img/car/years-2.webp'>
-                                            <img width='480' height='270' src='img/car/card.png' alt='Водитель за рулем — минимальный возраст арендатора от 21 года'>
-                                        </picture>
-                                    </div>
-                                </li>
-                                <li class="terms-list__item">
-                                    <span class="terms-list__title">СТАЖ ВОЖДЕНИЯ ОТ 3 ЛЕТ</span>
-                                    <div class="terms-list__bg">
-                                        <picture>
-                                            <source type='image/webp' srcset='img/car/mers2.webp'>
-                                            <img width='480' height='270' src='img/car/card2.png' alt='Mercedes на парковке — требуемый стаж вождения от 3 лет'>
-                                        </picture>
-                                    </div>
-                                </li>
-                                <li class="terms-list__item mode">
-                                    <p>ТРЕБОВАНИЯ К АРЕНДАТОРУ</p>
-                                </li>
+            <div class="terms-section__content">
+              <ul class="terms-list">
+                <li class="terms-list__item">
+                  <span class="terms-list__title">AGE 21+</span>
+                  <div class="terms-list__bg">
+                    <picture>
+                      <source type='image/webp' srcset='/img/car/years-2.webp'>
+                      <img width='480' height='270' src='/img/car/card.png' alt='Driver behind the wheel — minimum renter age is 21+'>
+                    </picture>
+                  </div>
+                </li>
+                <li class="terms-list__item">
+                  <span class="terms-list__title">DRIVING EXPERIENCE 3+ YEARS</span>
+                  <div class="terms-list__bg">
+                    <picture>
+                      <source type='image/webp' srcset='/img/car/mers2.webp'>
+                      <img width='480' height='270' src='/img/car/card2.png' alt='Mercedes in a parking lot — required driving experience is 3+ years'>
+                    </picture>
+                  </div>
+                </li>
+                <li class="terms-list__item mode">
+                  <p>RENTER REQUIREMENTS</p>
+                </li>
 
-                                <li class="terms-list__item">
-                                    <span class="terms-list__title">ГРАЖДАНАМ УКРАИНЫ</span>
-                                    <div class="terms-list__bg">
-                                        <picture>
-                                            <source type='image/webp' srcset='img/car/ua.webp'>
-                                            <img width='480' height='270' src='img/car/card3.png' alt='Панорама Киева — требования к гражданам Украины для аренды авто'>
-                                        </picture>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <p>ID-карта</p>
-                                        </li>
-                                        <li>
-                                            <p>Идентификационный код</p>
-                                        </li>
-                                        <li>
-                                            <p>Водительское удостоверение</p>
-                                        </li>
-                                          
-                                    </ul>
-                                </li>
-                                <li class="terms-list__item">
-                                    <span class="terms-list__title">ДЛЯ ИНОСТРАННЫХ ГРАЖДАН</span>
-                                    <div class="terms-list__bg">
-                                        <picture>
-                                            <source type='image/webp' srcset='img/car/visa.webp'>
-                                            <img width='480' height='270' src='img/car/card4.png' alt='Заграничный паспорт с визой — документы для иностранных граждан'>
-                                        </picture>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <p>Действующий штамп о въезде в Украину</p>
-                                        </li>
-                                        <li>
-                                            <p>Международное водительское удостоверение (IDP)</p>
-                                        </li>
-                                        <li>
-                                            <p>Заграничный паспорт</p>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                <li class="terms-list__item">
+                  <span class="terms-list__title">FOR CITIZENS OF UKRAINE</span>
+                  <div class="terms-list__bg">
+                    <picture>
+                      <source type='image/webp' srcset='/img/car/ua.webp'>
+                      <img width='480' height='270' src='/img/car/card3.png' alt='Kyiv panorama — documents required for citizens of Ukraine'>
+                    </picture>
+                  </div>
+                  <ul>
+                    <li><p>ID card</p></li>
+                    <li><p>Tax ID number</p></li>
+                    <li><p>Driver’s license</p></li>
+                  </ul>
+                </li>
 
-                            <div class="terms-card">
-                                <div class="terms-card__bg">
-                                    <picture>
-                                        <source type='image/webp' srcset='img/car/macbook2.webp'>
-                                        <img width='1000' height='440' src='img/car/card5.png' alt='Онлайн оформление аренды на сайте REIZ — доступные способы оплаты'>
-                                    </picture>
-                                </div>
-                                <div class="terms-card__title">СПОСОБЫ ОПЛАТЫ</div>
+                <li class="terms-list__item">
+                  <span class="terms-list__title">FOR FOREIGN CITIZENS</span>
+                  <div class="terms-list__bg">
+                    <picture>
+                      <source type='image/webp' srcset='/img/car/visa.webp'>
+                      <img width='480' height='270' src='/img/car/card4.png' alt='Passport with visa — documents for foreign citizens'>
+                    </picture>
+                  </div>
+                  <ul>
+                    <li><p>Valid entry stamp/permit for Ukraine</p></li>
+                    <li><p>International Driving Permit (IDP)</p></li>
+                    <li><p>Passport</p></li>
+                  </ul>
+                </li>
+              </ul>
 
-                                <div class="terms-card__box">
-                                    <div class="terms-card__wrapp">
-                                        <span class="terms-card__name">Наличные</span>
-
-                                        <span class="terms-card__icon sprite">
-                                            <svg width='56' height='56'>
-                                                <use href='img/sprite/sprite.svg#icon18'></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div class="terms-card__wrapp">
-                                        <span class="terms-card__name">UnionPay</span>
-
-                                        <span class="terms-card__icon sprite">
-                                            <svg width='93' height='28'>
-                                                <use href='img/sprite/sprite.svg#icon15'></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div class="terms-card__wrapp">
-                                        <span class="terms-card__name">Банковская карта в офисе</span>
-
-                                        <span class="terms-card__icon sprite">
-                                            <svg width='56' height='56'>
-                                                <use href='img/sprite/sprite.svg#icon16'></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div class="terms-card__wrapp">
-                                        <span class="terms-card__name">Банковская карта на сайте</span>
-
-                                        <span class="terms-card__icon sprite">
-                                            <svg width='56' height='56'>
-                                                <use href='img/sprite/sprite.svg#icon16'></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div class="terms-card__wrapp">
-                                        <span class="terms-card__name">Электронные кошельки</span>
-
-                                        <span class="terms-card__icon sprite">
-                                            <svg width='56' height='56'>
-                                                <use href='img/sprite/sprite.svg#icon17'></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="terms-section__tabs" data-tabs-parrent>
-                                <ul class="terms-nav">
-                                    <li class="terms-nav__item">
-                                        <button class="terms-nav__btn active" type="button" data-tab="1">Страхование</button>
-                                    </li>
-                                    <li class="terms-nav__item">
-                                        <button class="terms-nav__btn" type="button" data-tab="2">Залог</button>
-                                    </li>
-                                    <li class="terms-nav__item">
-                                        <button class="terms-nav__btn" type="button" data-tab="3">Тарифы</button>
-                                    </li>
-                                    <li class="terms-nav__item">
-                                        <button class="terms-nav__btn" type="button" data-tab="4">Пробег</button>
-                                    </li>
-                                </ul>
-                                <ul class="terms-section__tabs-box">
-                                    <li class="terms-section__tabs-item active" data-tab-content="1">
-                                        <div class="editor">
-                                            <p>При аренде на срок от 4 дней — ограничений по пробегу нет. Для коротких
-                                                аренд (до 3 суток) действует лимит 350 км/день. При превышении —
-                                                взымается доплата по тарифу, зависящему от категории автомобиля:</p>
-
-                                            <ul class="terms-table">
-                                                <li class="terms-table__row head">
-                                                    <span class="terms-table__value">Категория авто</span>
-                                                    <span class="terms-table__value">Стоимость за 1 км (USD)</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Эконом</span>
-                                                    <span class="terms-table__value">0.12</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Бизнес</span>
-                                                    <span class="terms-table__value">0.30</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Внедорожники</span>
-                                                    <span class="terms-table__value">0.30</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Премиум</span>
-                                                    <span class="terms-table__value">0.70</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Минивэны</span>
-                                                    <span class="terms-table__value">0.50</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                     <li class="terms-section__tabs-item" data-tab-content="2">
-                                        <div class="editor">
-                                            <p>При превышении —
-                                                взымается доплата по тарифу, зависящему от категории автомобиля:</p>
-
-                                            <ul class="terms-table">
-                                                <li class="terms-table__row head">
-                                                    <span class="terms-table__value">Категория авто</span>
-                                                    <span class="terms-table__value">Стоимость за 1 км (USD)</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Эконом</span>
-                                                    <span class="terms-table__value">0.12</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Внедорожники</span>
-                                                    <span class="terms-table__value">0.30</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Премиум</span>
-                                                    <span class="terms-table__value">0.70</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Минивэны</span>
-                                                    <span class="terms-table__value">0.50</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                     <li class="terms-section__tabs-item" data-tab-content="3">
-                                        <div class="editor">
-                                            <p>При аренде на срок от 4 дней — ограничений по пробегу нет. Для коротких
-                                                аренд (до 3 суток) действует лимит 350 км/день. При превышении —
-                                                взымается доплата по тарифу, зависящему от категории автомобиля:</p>
-
-                                            <ul class="terms-table">
-                                                <li class="terms-table__row head">
-                                                    <span class="terms-table__value">Категория авто</span>
-                                                    <span class="terms-table__value">Стоимость за 1 км (USD)</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Эконом</span>
-                                                    <span class="terms-table__value">0.12</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Бизнес</span>
-                                                    <span class="terms-table__value">0.30</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Внедорожники</span>
-                                                    <span class="terms-table__value">0.30</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Премиум</span>
-                                                    <span class="terms-table__value">0.70</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Минивэны</span>
-                                                    <span class="terms-table__value">0.50</span>
-                                                </li>
-                                            </ul>
-                                            <p>При аренде на срок от 4 дней — ограничений по пробегу нет. Для коротких
-                                                аренд (до 3 суток) действует лимит 350 км/день. При превышении —
-                                                взымается доплата по тарифу, зависящему от категории автомобиля:</p>
-                                        </div>
-                                    </li>
-                                     <li class="terms-section__tabs-item" data-tab-content="4">
-                                        <div class="editor">
-                                            <p>При аренде на срок от 4 дней — ограничений по пробегу нет. Для коротких
-                                                аренд (до 3 суток) действует лимит 350 км/день. При превышении —
-                                                взымается доплата по тарифу, зависящему от категории автомобиля:</p>
-
-                                            <ul class="terms-table">
-                                                <li class="terms-table__row head">
-                                                    <span class="terms-table__value">Категория авто</span>
-                                                    <span class="terms-table__value">Стоимость за 1 км (USD)</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Эконом</span>
-                                                    <span class="terms-table__value">0.12</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Бизнес</span>
-                                                    <span class="terms-table__value">0.30</span>
-                                                </li>
-                                                 <li class="terms-table__row">
-                                                    <span class="terms-table__value">Эконом</span>
-                                                    <span class="terms-table__value">0.12</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Бизнес</span>
-                                                    <span class="terms-table__value">0.30</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Внедорожники</span>
-                                                    <span class="terms-table__value">0.30</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Премиум</span>
-                                                    <span class="terms-table__value">0.70</span>
-                                                </li>
-                                                <li class="terms-table__row">
-                                                    <span class="terms-table__value">Минивэны</span>
-                                                    <span class="terms-table__value">0.50</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
+              <div class="terms-card">
+                <div class="terms-card__bg">
+                  <picture>
+                    <source type='image/webp' srcset='/img/car/macbook2.webp'>
+                    <img width='1000' height='440' src='/img/car/card5.png' alt='Online booking on the REIZ website — available payment methods'>
+                  </picture>
                 </div>
+                <div class="terms-card__title">PAYMENT METHODS</div>
+
+                <div class="terms-card__box">
+                  <div class="terms-card__wrapp">
+                    <span class="terms-card__name">Cash</span>
+                    <span class="terms-card__icon sprite">
+                      <svg width='56' height='56'>
+                        <use href='/img/sprite/sprite.svg#icon18'></use>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="terms-card__wrapp">
+                    <span class="terms-card__name">UnionPay</span>
+                    <span class="terms-card__icon sprite">
+                      <svg width='93' height='28'>
+                        <use href='/img/sprite/sprite.svg#icon15'></use>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="terms-card__wrapp">
+                    <span class="terms-card__name">Bank card at the office</span>
+                    <span class="terms-card__icon sprite">
+                      <svg width='56' height='56'>
+                        <use href='/img/sprite/sprite.svg#icon16'></use>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="terms-card__wrapp">
+                    <span class="terms-card__name">Bank card on the website</span>
+                    <span class="terms-card__icon sprite">
+                      <svg width='56' height='56'>
+                        <use href='/img/sprite/sprite.svg#icon16'></use>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="terms-card__wrapp">
+                    <span class="terms-card__name">E-wallets</span>
+                    <span class="terms-card__icon sprite">
+                      <svg width='56' height='56'>
+                        <use href='/img/sprite/sprite.svg#icon17'></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="terms-section__tabs" data-tabs-parrent>
+                <ul class="terms-nav">
+                  <li class="terms-nav__item">
+                    <button class="terms-nav__btn active" type="button" data-tab="1">Insurance</button>
+                  </li>
+                  <li class="terms-nav__item">
+                    <button class="terms-nav__btn" type="button" data-tab="2">Deposit</button>
+                  </li>
+                  <li class="terms-nav__item">
+                    <button class="terms-nav__btn" type="button" data-tab="3">Rates</button>
+                  </li>
+                  <li class="terms-nav__item">
+                    <button class="terms-nav__btn" type="button" data-tab="4">Mileage</button>
+                  </li>
+                </ul>
+
+                <ul class="terms-section__tabs-box">
+                  <!-- Tab 1 -->
+                  <li class="terms-section__tabs-item active" data-tab-content="1">
+                    <div class="editor">
+                      <p>For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:</p>
+
+                      <ul class="terms-table">
+                        <li class="terms-table__row head">
+                          <span class="terms-table__value">Vehicle category</span>
+                          <span class="terms-table__value">Price per 1 km (USD)</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Economy</span>
+                          <span class="terms-table__value">0.12</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Business</span>
+                          <span class="terms-table__value">0.30</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">SUVs</span>
+                          <span class="terms-table__value">0.30</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Premium</span>
+                          <span class="terms-table__value">0.70</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Minivans</span>
+                          <span class="terms-table__value">0.50</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <!-- Tab 2 -->
+                  <li class="terms-section__tabs-item" data-tab-content="2">
+                    <div class="editor">
+                      <p>If the limit is exceeded, an extra charge is applied per km depending on the vehicle category:</p>
+
+                      <ul class="terms-table">
+                        <li class="terms-table__row head">
+                          <span class="terms-table__value">Vehicle category</span>
+                          <span class="terms-table__value">Price per 1 km (USD)</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Economy</span>
+                          <span class="terms-table__value">0.12</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">SUVs</span>
+                          <span class="terms-table__value">0.30</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Premium</span>
+                          <span class="terms-table__value">0.70</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Minivans</span>
+                          <span class="terms-table__value">0.50</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <!-- Tab 3 -->
+                  <li class="terms-section__tabs-item" data-tab-content="3">
+                    <div class="editor">
+                      <p>For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:</p>
+
+                      <ul class="terms-table">
+                        <li class="terms-table__row head">
+                          <span class="terms-table__value">Vehicle category</span>
+                          <span class="terms-table__value">Price per 1 km (USD)</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Economy</span>
+                          <span class="terms-table__value">0.12</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Business</span>
+                          <span class="terms-table__value">0.30</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">SUVs</span>
+                          <span class="terms-table__value">0.30</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Premium</span>
+                          <span class="terms-table__value">0.70</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Minivans</span>
+                          <span class="terms-table__value">0.50</span>
+                        </li>
+                      </ul>
+
+                      <p>For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:</p>
+                    </div>
+                  </li>
+
+                  <!-- Tab 4 -->
+                  <li class="terms-section__tabs-item" data-tab-content="4">
+                    <div class="editor">
+                      <p>For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:</p>
+
+                      <ul class="terms-table">
+                        <li class="terms-table__row head">
+                          <span class="terms-table__value">Vehicle category</span>
+                          <span class="terms-table__value">Price per 1 km (USD)</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Economy</span>
+                          <span class="terms-table__value">0.12</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Business</span>
+                          <span class="terms-table__value">0.30</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Economy</span>
+                          <span class="terms-table__value">0.12</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Business</span>
+                          <span class="terms-table__value">0.30</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">SUVs</span>
+                          <span class="terms-table__value">0.30</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Premium</span>
+                          <span class="terms-table__value">0.70</span>
+                        </li>
+                        <li class="terms-table__row">
+                          <span class="terms-table__value">Minivans</span>
+                          <span class="terms-table__value">0.50</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
             </div>
-            </div>
-        </section>
-    </main>
-    @include('partials/footer-mode.html')
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+  @include('partials/footer-mode.html')
 
 </body>
 

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-  @include('partials/head.html', {
-    "title": "Блог REIZ — советы по аренде авто, маршруты и лайфхаки",
-    "description": "Статьи REIZ: правила и советы по аренде автомобиля в Украине, маршруты по Львову и стране, навигаторы, парковка, страхование.",
-    "canonical": "https://reiz.com.ua/blog/",
-    "og_title": "Блог REIZ — аренда авто, маршруты и советы",
-    "og_description": "Полезные материалы для водителей и путешественников: ДТП, парковка, лучшие маршруты и приложения.",
-    "og_url": "https://reiz.com.ua/blog/",
-    "og_image": "https://reiz.com.ua/img/og/blog.webp"
-  })
+    @include('partials/head.html', {
+        "title": "Блог REIZ — советы по аренде авто, маршруты и лайфхаки",
+        "description": "Статьи REIZ: правила и советы по аренде автомобиля в Украине, маршруты по Львову и стране, навигаторы, парковка, страхование.",
+        "canonical": "https://reiz.com.ua/blog/",
+        "og_title": "Блог REIZ — аренда авто, маршруты и советы",
+        "og_description": "Полезные материалы для водителей и путешественников: ДТП, парковка, лучшие маршруты и приложения.",
+        "og_image": "https://reiz.com.ua/img/og/blog.webp",
+        "og_locale": "ru_RU",
+        "lang": "ru",
+        "href_ru": "https://reiz.com.ua/blog/",
+        "href_uk": "https://reiz.com.ua/ua/blog/",
+        "href_en": "https://reiz.com.ua/en/blog/",
+        "href_default": "https://reiz.com.ua/blog/"
+      })
+      
 
   <body class="page__body" data-page="blog">
     @include('partials/noscript.html')

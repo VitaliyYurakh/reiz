@@ -1,326 +1,307 @@
 <!DOCTYPE html>
-<html lang="ru" class="page">
-  @include('partials/head.html', {
-    "title": "Аренда авто для бизнеса — корпоративный прокат | REIZ",
-    "description": "Корпоративная аренда авто в Украине: легковые, кроссоверы и минивэны. Оплата с НДС, страховка, договор, поддержка 24/7. Индивидуальные условия для юрлиц.",
-    "canonical": "https://reiz.com.ua/business/",
-    "og_title": "REIZ для бизнеса — корпоративная аренда авто с НДС",
-    "og_description": "Гибкие тарифы для компаний, полное страховое покрытие и круглосуточная поддержка. Один договор — всё включено.",
-    "og_url": "https://reiz.com.ua/business/",
-    "og_image": "https://reiz.com.ua/img/og/business.webp"
-  })
-
+<html lang="uk" class="page">
+    @include('partials/head.html', {
+        "title": "Оренда авто для бізнесу — корпоративний прокат | REIZ",
+        "description": "Корпоративна оренда авто в Україні: легкові, кросовери та мінівени. Оплата з ПДВ, страхування, договір, підтримка 24/7. Індивідуальні умови для юросіб.",
+        "canonical": "https://reiz.com.ua/ua/business/",
+      
+        "og_title": "REIZ для бізнесу — корпоративна оренда авто з ПДВ",
+        "og_description": "Гнучкі тарифи для компаній, повне страхове покриття та цілодобова підтримка. Один договір — усе включено.",
+        "og_url": "https://reiz.com.ua/ua/business/",
+        "og_image": "https://reiz.com.ua/img/og/business.webp",
+        "og_locale": "uk_UA",
+      
+        "lang": "uk",
+        "href_uk": "https://reiz.com.ua/ua/business/",
+        "href_ru": "https://reiz.com.ua/business/",
+        "href_en": "https://reiz.com.ua/en/business/",
+        "href_default": "https://reiz.com.ua/business/"
+      })
+      
   <body class="page__body" data-page="business">
     @include('partials/noscript.html')
     @include('partials/header-mode.html')
 
     <main class="main">
+      <section class="rental-section busines">
+        <div class="container">
+          <div class="rental-section__box">
+            <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
+              <div class="aside__top">
+                <a href="/ua/" class="aside__title">REIZ</a>
+                <p>ОРЕНДА АВТО В УКРАЇНІ</p>
+              </div>
 
-        <section class="rental-section busines">
-            <div class="container">
-                <div class="rental-section__box">
-                    <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
-                        <div class="aside__top">
-                              <a href="/" class="aside__title">REIZ</a>
-                            <p>CAR RENTAL IN UKRAINE</p>
+              <nav class="main-nav">
+                <ul>
+                  <li><a href="/ua/">ГОЛОВНА</a></li>
+                  <li>
+                    <ul class="main-nav__acc" data-accordion>
+                      <li class="main-nav__acc-item">
+                        <button class="main-nav__acc-btn" data-id="1">
+                          АВТОМОБІЛІ
+                          <i class="sprite">
+                            <svg width="11" height="8">
+                              <use href="/img/sprite/sprite.svg#arrow-d"></use>
+                            </svg>
+                          </i>
+                        </button>
+                        <div class="main-nav__acc-content" data-content="1">
+                          <a href="#catalog">Прокат авто у Києві</a>
+                          <a href="#catalog">Прокат авто у Львові</a>
+                          <a href="#catalog">Прокат авто у Тернополі</a>
                         </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="/ua/insurance">СТРАХУВАННЯ</a></li>
+                  <li><a href="/ua/business" class="active">ОРЕНДА ДЛЯ ЮР. ОСІБ</a></li>
+                  <li><a href="/ua/certificate">СЕРТИФІКАТИ</a></li>
+                  <li><a href="/ua/terms">УМОВИ ОРЕНДИ</a></li>
+                  <li><a href="/ua/faq">ПИТАННЯ-ВІДПОВІДЬ</a></li>
+                  <li><a href="/ua/invest">ЗДАТИ АВТО В ОРЕНДУ</a></li>
+                  <li><a href="/ua/blog">БЛОГ</a></li>
+                  <li><a href="/ua/about">ПРО НАС</a></li>
+                  <li><a href="/ua/contacts">КОНТАКТИ</a></li>
+                </ul>
+              </nav>
 
-                        <nav class="main-nav">
-                            <ul>
-                                <li>
-                                    <a href="/">ГЛАВНАЯ</a>
-                                </li>
-                                <li>
-                                    <ul class="main-nav__acc" data-accordion>
-                                        <li class="main-nav__acc-item">
-                                            <button class="main-nav__acc-btn" data-id="1">
-                                                АВТОМОБИЛИ
-                                                <i class="sprite">
-                                                    <svg width='11' height='8'>
-                                                        <use href='img/sprite/sprite.svg#arrow-d'></use>
-                                                    </svg>
-                                                </i>
-                                            </button>
-                                            <div class="main-nav__acc-content" data-content="1">
-                                                <a href="#catalog">Прокат авто в Киеве</a>
-                                                <a href="#catalog">Прокат авто во Львове</a>
-                                                <a href="#catalog">Прокат авто в Тернополе</a>
-                                            </div>
-                                        </li>
+              <a href="#" class="main-button">ЗАМОВИТИ ДЗВІНОК</a>
+            </aside>
 
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="/insurance">СТРАХОВКА</a>
-                                </li>
-                                <li>
-                                    <a href="/business" class="active">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
-                                </li>
-                                <li>
-                                    <a href="/certificate">СЕРТИФИКАТЫ </a>
-                                </li>
-                                <li>
-                                    <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
-                                </li>
-                                <li>
-                                    <a href="/faq">ВОПРОС-ОТВЕТ</a>
-                                </li>
-                                <li>
-                                    <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
-                                </li>
-                                <li>
-                                    <a href="/blog">БЛОГ</a>
-                                </li>
-                                <li>
-                                    <a href="/about" >О НАС</a>
-                                </li>
-                                <li>
-                                    <a href="/contacts">КОНТАКТЫ</a>
-                                </li>
-                            </ul>
-                        </nav>
+            <div class="rental-section__inner" data-aos="fade-left" data-aos-duration="900" data-aos-delay="600">
+              <h2 class="pretitle">ОРЕНДА АВТО ДЛЯ ЮРИДИЧНИХ ОСІБ В УКРАЇНІ</h2>
+              <ul class="breadcrumbs">
+                <li><a href="/ua/">Головна</a></li>
+                <li>Оренда для юр. осіб</li>
+              </ul>
 
-                        <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
-                    </aside>
+              <div class="rental-section__content">
+                <div class="editor">
+                  <h2 class="main-title">Оренда авто для бізнесу</h2>
+                  <p>
+                    Комплексне рішення оренди авто для бізнесу.<br>
+                    Легкові, кросовери та мінівени — з ПДВ, страхуванням і техпідтримкою.
+                    Усе включено в один договір.
+                  </p>
 
-                    <div class="rental-section__inner"  data-aos="fade-left" data-aos-duration="900" data-aos-delay="600">
-                        <h2 class="pretitle">АРЕНДА АВТО ДЛЯ ЮРИДИЧЕСКИХ ЛИЦ В УКРАИНЕ</h2>
-                        <ul class="breadcrumbs">
-                            <li><a href="/">Главная</a></li>
-                            <li>Аренда для юр. лиц</li>
-                        </ul>
-
-
-                        <div class="rental-section__content">
-                            <div class="editor">
-                                <h2 class="main-title">Аренда авто для бизнеса</h2>
-                                <p>Комплексное решение аренды авто для бизнеса.<br>Легковые, кроссоверы и минивены — с
-                                    НДС, страховкой и техподдержкой.
-                                    Всё включено в один договор.</p>
-
-                                <a href="#" data-btn-modal="offer" class="main-button">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</a>
-
-                            </div>
-
-                            <div class="info-slider swiper">
-                                <div class="info-slider__wrapper swiper-wrapper">
-                                    <div class="info-slider__slide swiper-slide">
-                                        <div class="info-slider__content">
-                                            <h2 class="info-slider__title">
-                                                <i class="sprite">
-                                                    <svg width='27' height='27'>
-                                                        <use href='img/sprite/sprite.svg#icon10'></use>
-                                                    </svg>
-                                                </i>
-                                                Специальная цена
-                                            </h2>
-                                            <p>Индивидуальные условия аренды для корпоративных клиентов.</p>
-                                        </div>
-                                        <span class="info-slider__pagination">1–8</span>
-
-                                    </div>
-                                    <div class="info-slider__slide swiper-slide">
-                                        <div class="info-slider__content">
-                                            <h2 class="info-slider__title">
-                                                <i class="sprite">
-                                                    <svg width='27' height='27'>
-                                                        <use href='img/sprite/sprite.svg#icon11'></use>
-                                                    </svg>
-                                                </i>
-                                              Оплата с НДС
-                                            </h2>
-                                            <p>Безналичный расчёт с возможностью получения всех закрывающих документов.</p>
-                                        </div>
-                                        <span class="info-slider__pagination">2–8</span>
-
-                                    </div>
-                                    <div class="info-slider__slide swiper-slide">
-                                        <div class="info-slider__content">
-                                            <h2 class="info-slider__title">
-                                                <i class="sprite">
-                                                    <svg width='27' height='27'>
-                                                        <use href='img/sprite/sprite.svg#icon12'></use>
-                                                    </svg>
-                                                </i>
-                                                Поддержка 24/7
-                                            </h2>
-                                            <p>Круглосуточная помощь в дороге и по всем вопросам аренды.</p>
-                                        </div>
-                                        <span class="info-slider__pagination">3–8</span>
-
-                                    </div>
-                                    <div class="info-slider__slide swiper-slide">
-                                        <div class="info-slider__content">
-                                            <h2 class="info-slider__title">
-                                                <i class="sprite">
-                                                    <svg width='27' height='27'>
-                                                        <use href='img/sprite/sprite.svg#icon14'></use>
-                                                    </svg>
-                                                </i>
-                                                Страховка
-                                            </h2>
-                                            <p>Полное страховое покрытие на весь срок аренды.</p>
-                                        </div>
-                                        <span class="info-slider__pagination">4–8</span>
-
-                                    </div>
-                                    <div class="info-slider__slide swiper-slide">
-                                        <div class="info-slider__content">
-                                            <h2 class="info-slider__title">
-                                                <i class="sprite">
-                                                    <svg width='27' height='27'>
-                                                        <use href='img/sprite/sprite.svg#icon10'></use>
-                                                    </svg>
-                                                </i>
-                                                Специальная цена
-                                            </h2>
-                                            <p>Индивидуальные условия аренды для корпоративных клиентов.</p>
-                                        </div>
-                                        <span class="info-slider__pagination">5–8</span>
-
-                                    </div>
-                                    <div class="info-slider__slide swiper-slide">
-                                        <div class="info-slider__content">
-                                            <h2 class="info-slider__title">
-                                                <i class="sprite">
-                                                    <svg width='27' height='27'>
-                                                        <use href='img/sprite/sprite.svg#icon11'></use>
-                                                    </svg>
-                                                </i>
-                                              Оплата с НДС
-                                            </h2>
-                                            <p>Безналичный расчёт с возможностью получения всех закрывающих документов.</p>
-                                        </div>
-                                        <span class="info-slider__pagination">6–8</span>
-
-                                    </div>
-                                    <div class="info-slider__slide swiper-slide">
-                                        <div class="info-slider__content">
-                                            <h2 class="info-slider__title">
-                                                <i class="sprite">
-                                                    <svg width='27' height='27'>
-                                                        <use href='img/sprite/sprite.svg#icon12'></use>
-                                                    </svg>
-                                                </i>
-                                                Поддержка 24/7
-                                            </h2>
-                                            <p>Круглосуточная помощь в дороге и по всем вопросам аренды.</p>
-                                        </div>
-                                        <span class="info-slider__pagination">7–8</span>
-
-                                    </div>
-                                    <div class="info-slider__slide swiper-slide">
-                                        <div class="info-slider__content">
-                                            <h2 class="info-slider__title">
-                                                <i class="sprite">
-                                                    <svg width='27' height='27'>
-                                                        <use href='img/sprite/sprite.svg#icon14'></use>
-                                                    </svg>
-                                                </i>
-                                                Страховка
-                                            </h2>
-                                            <p>Полное страховое покрытие на весь срок аренды.</p>
-                                        </div>
-                                        <span class="info-slider__pagination">8–8</span>
-
-                                    </div>
-                                </div>
-
-                                <div class="slider-controls">
-                                    <button class="slider-btn prev">
-                                        <i class="sprite">
-                                            <svg width='12' height='7'>
-                                                <use href='img/sprite/sprite.svg#Arrow-d2'></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <button class="slider-btn next">
-                                        <i class="sprite">
-                                            <svg width='12' height='7'>
-                                                <use href='img/sprite/sprite.svg#Arrow-d2'></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="rental-section__wrapp mode">
-                                <div class="editor">
-                                    <h4 class="pretitle">ПОЧЕМУ БИЗНЕСУ УДОБНО С НАМИ </h4>
-                                </div>
-                                <div class="editor">
-                                    <p>Вы можете выбрать как краткосрочную, так и долгосрочную аренду автомобилей,
-                                        полностью адаптированную под потребности вашего бизнеса.
-                                        Мы предлагаем удобные условия сотрудничества, возможность оплаты по безналичному
-                                        расчёту с НДС, оперативную поддержку клиентов и индивидуальный подход к каждому
-                                        партнёру.</p>
-                                </div>
-                            </div>
-
-                            <div class="rental-section__wrapp mode">
-                                <div class="editor">
-                                    <h4 class="pretitle">ФАЙЛЫ ДЛЯ СКАЧИВАНИЯ</h4>
-                                </div>
-
-                                <div class="rental-section__download">
-                                    <p>ДОКУМЕНТЫ КОТОРЫЕ МОГУТ ВАМ ПОНДОБИТЬСЯ</p>
-
-                                    <a href="insurance" class="download" download>
-                                        <span class="download__icon">
-                                            <i class="sprite">
-                                                <svg width='14' height='26'>
-                                                    <use href='img/sprite/sprite.svg#load'></use>
-                                                </svg>
-                                            </i>
-                                        </span>
-                                        <div class="download__info">
-                                            <div class="download__title">ПРИМЕР ДОГОВОРА</div>
-                                            <div class="download__meta">pdf, 19 мб</div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-
-                            <div class="rental-section__wrapp order">
-                                <div class="editor">
-                                    <h4 class="pretitle">ЗАЯВКА НА ЗВОНОК</h4>
-
-                                    <p>ОСТАВЬТЕ СВОИ КОНТАКТЫ И НАШ МЕНЕДЖЕР СВЯЖЕТСЯ С ВАМИ</p>
-
-                                    <form class="main-form mode">
-                                        <label class="main-form__label">
-                                            <input type="text" name="name" id="name" placeholder="Ваше имя"
-                                                class="main-form__input" required>
-                                            <i></i>
-                                        </label>
-                                        <label class="main-form__label">
-                                            <input type="number" name="phone" id="phone" placeholder="Телефон"
-                                                class="main-form__input" required>
-                                            <i></i>
-                                        </label>
-                                        <label class="main-form__label">
-                                            <input type="email" name="mail" id="mail" placeholder="E-mail"
-                                                class="main-form__input" required>
-                                            <i></i>
-                                        </label>
-
-                                        <button class="main-button main-button--black" type="submit" data-btn-modal="order">ОСТАВИТЬ
-                                            ЗАЯВКУ</button>
-                                    </form>
-
-                                    <button class="main-button main-button--black" data-btn-modal="order">ОСТАВИТЬ ЗАЯВКУ</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  <a href="#" data-btn-modal="offer" class="main-button">ОТРИМАТИ КОНСУЛЬТАЦІЮ</a>
                 </div>
+
+                <div class="info-slider swiper">
+                  <div class="info-slider__wrapper swiper-wrapper">
+                    <div class="info-slider__slide swiper-slide">
+                      <div class="info-slider__content">
+                        <h2 class="info-slider__title">
+                          <i class="sprite">
+                            <svg width="27" height="27">
+                              <use href="/img/sprite/sprite.svg#icon10"></use>
+                            </svg>
+                          </i>
+                          Спеціальна ціна
+                        </h2>
+                        <p>Індивідуальні умови оренди для корпоративних клієнтів.</p>
+                      </div>
+                      <span class="info-slider__pagination">1–8</span>
+                    </div>
+
+                    <div class="info-slider__slide swiper-slide">
+                      <div class="info-slider__content">
+                        <h2 class="info-slider__title">
+                          <i class="sprite">
+                            <svg width="27" height="27">
+                              <use href="/img/sprite/sprite.svg#icon11"></use>
+                            </svg>
+                          </i>
+                          Оплата з ПДВ
+                        </h2>
+                        <p>Безготівковий розрахунок із можливістю отримання всіх закривальних документів.</p>
+                      </div>
+                      <span class="info-slider__pagination">2–8</span>
+                    </div>
+
+                    <div class="info-slider__slide swiper-slide">
+                      <div class="info-slider__content">
+                        <h2 class="info-slider__title">
+                          <i class="sprite">
+                            <svg width="27" height="27">
+                              <use href="/img/sprite/sprite.svg#icon12"></use>
+                            </svg>
+                          </i>
+                          Підтримка 24/7
+                        </h2>
+                        <p>Цілодобова допомога в дорозі та з будь-яких питань оренди.</p>
+                      </div>
+                      <span class="info-slider__pagination">3–8</span>
+                    </div>
+
+                    <div class="info-slider__slide swiper-slide">
+                      <div class="info-slider__content">
+                        <h2 class="info-slider__title">
+                          <i class="sprite">
+                            <svg width="27" height="27">
+                              <use href="/img/sprite/sprite.svg#icon14"></use>
+                            </svg>
+                          </i>
+                          Страхування
+                        </h2>
+                        <p>Повне страхове покриття на весь строк оренди.</p>
+                      </div>
+                      <span class="info-slider__pagination">4–8</span>
+                    </div>
+
+                    <div class="info-slider__slide swiper-slide">
+                      <div class="info-slider__content">
+                        <h2 class="info-slider__title">
+                          <i class="sprite">
+                            <svg width="27" height="27">
+                              <use href="/img/sprite/sprite.svg#icon10"></use>
+                            </svg>
+                          </i>
+                          Спеціальна ціна
+                        </h2>
+                        <p>Індивідуальні умови оренди для корпоративних клієнтів.</p>
+                      </div>
+                      <span class="info-slider__pagination">5–8</span>
+                    </div>
+
+                    <div class="info-slider__slide swiper-slide">
+                      <div class="info-slider__content">
+                        <h2 class="info-slider__title">
+                          <i class="sprite">
+                            <svg width="27" height="27">
+                              <use href="/img/sprite/sprite.svg#icon11"></use>
+                            </svg>
+                          </i>
+                          Оплата з ПДВ
+                        </h2>
+                        <p>Безготівковий розрахунок із можливістю отримання всіх закривальних документів.</p>
+                      </div>
+                      <span class="info-slider__pagination">6–8</span>
+                    </div>
+
+                    <div class="info-slider__slide swiper-slide">
+                      <div class="info-slider__content">
+                        <h2 class="info-slider__title">
+                          <i class="sprite">
+                            <svg width="27" height="27">
+                              <use href="/img/sprite/sprite.svg#icon12"></use>
+                            </svg>
+                          </i>
+                          Підтримка 24/7
+                        </h2>
+                        <p>Цілодобова допомога в дорозі та з будь-яких питань оренди.</p>
+                      </div>
+                      <span class="info-slider__pagination">7–8</span>
+                    </div>
+
+                    <div class="info-slider__slide swiper-slide">
+                      <div class="info-slider__content">
+                        <h2 class="info-slider__title">
+                          <i class="sprite">
+                            <svg width="27" height="27">
+                              <use href="/img/sprite/sprite.svg#icon14"></use>
+                            </svg>
+                          </i>
+                          Страхування
+                        </h2>
+                        <p>Повне страхове покриття на весь строк оренди.</p>
+                      </div>
+                      <span class="info-slider__pagination">8–8</span>
+                    </div>
+                  </div>
+
+                  <div class="slider-controls">
+                    <button class="slider-btn prev">
+                      <i class="sprite">
+                        <svg width="12" height="7">
+                          <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                        </svg>
+                      </i>
+                    </button>
+                    <button class="slider-btn next">
+                      <i class="sprite">
+                        <svg width="12" height="7">
+                          <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                        </svg>
+                      </i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="rental-section__wrapp mode">
+                  <div class="editor">
+                    <h4 class="pretitle">ЧОМУ БІЗНЕСУ ЗРУЧНО З НАМИ</h4>
+                  </div>
+                  <div class="editor">
+                    <p>
+                      Ви можете обрати як короткострокову, так і довгострокову оренду автомобілів,
+                      повністю адаптовану під потреби вашого бізнесу.
+                      Ми пропонуємо зручні умови співпраці, можливість безготівкової оплати з ПДВ,
+                      оперативну підтримку клієнтів та індивідуальний підхід до кожного партнера.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="rental-section__wrapp mode">
+                  <div class="editor">
+                    <h4 class="pretitle">ФАЙЛИ ДЛЯ ЗАВАНТАЖЕННЯ</h4>
+                  </div>
+
+                  <div class="rental-section__download">
+                    <p>ДОКУМЕНТИ, ЯКІ МОЖУТЬ ЗНАДОБИТИСЯ</p>
+
+                    <a href="/ua/insurance" class="download" download>
+                      <span class="download__icon">
+                        <i class="sprite">
+                          <svg width="14" height="26">
+                            <use href="/img/sprite/sprite.svg#load"></use>
+                          </svg>
+                        </i>
+                      </span>
+                      <div class="download__info">
+                        <div class="download__title">ПРИКЛАД ДОГОВОРУ</div>
+                        <div class="download__meta">PDF, 19 МБ</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="rental-section__wrapp order">
+                  <div class="editor">
+                    <h4 class="pretitle">ЗАЯВКА НА ДЗВІНОК</h4>
+                    <p>ЗАЛИШТЕ СВОЇ КОНТАКТИ — НАШ МЕНЕДЖЕР ЗВ’ЯЖЕТЬСЯ З ВАМИ</p>
+
+                    <form class="main-form mode">
+                      <label class="main-form__label">
+                        <input type="text" name="name" id="name" placeholder="Ваше ім’я" class="main-form__input" required>
+                        <i></i>
+                      </label>
+                      <label class="main-form__label">
+                        <input type="tel" name="phone" id="phone" placeholder="Телефон" class="main-form__input" required>
+                        <i></i>
+                      </label>
+                      <label class="main-form__label">
+                        <input type="email" name="mail" id="mail" placeholder="E-mail" class="main-form__input" required>
+                        <i></i>
+                      </label>
+
+                      <button class="main-button main-button--black" type="submit" data-btn-modal="order">
+                        ЗАЛИШИТИ ЗАЯВКУ
+                      </button>
+                    </form>
+
+                    <button class="main-button main-button--black" data-btn-modal="order">ЗАЛИШИТИ ЗАЯВКУ</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            </div>
-        </section>
+
+          </div>
+        </div>
+      </section>
     </main>
+
     @include('partials/footer-mode.html')
-
-</body>
-
+  </body>
 </html>

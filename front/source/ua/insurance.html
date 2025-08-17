@@ -1,287 +1,240 @@
 <!DOCTYPE html>
-<html lang="ru" class="page">
-  @include('partials/head.html', {
-    "title": "Страховка при аренде авто во Львове — пакеты защиты REIZ",
-    "description": "Страхование при аренде автомобиля во Львове от REIZ: пакеты Стандарт, Комфорт и Премиум. Условия покрытия, размер залога, штрафы при ДТП/угоне, защита шин и стекол, мойка. Кому доступна расширенная страховка и что не покрывается.",
-    "canonical": "https://reiz.com.ua/insurance",
-    "og_title": "Страховка при аренде авто — REIZ Львов",
-    "og_description": "Выберите пакет защиты: Стандарт, Комфорт или Премиум. Прозрачные условия и поддержка 24/7.",
-    "og_url": "https://reiz.com.ua/insurance",
-    "og_image": "https://reiz.com.ua/img/og/insurance.webp"
-  })
+<html lang="uk" class="page">
+    @include('partials/head.html', {
+        "title": "Страхування при оренді авто у Львові — пакети захисту REIZ",
+        "description": "Страхування при оренді автомобіля у Львові від REIZ: пакети Стандарт, Комфорт і Преміум. Умови покриття, розмір застави, відповідальність у разі ДТП/угону, захист шин і скла, мийка. Кому доступне розширене страхування та що не покривається.",
+        "canonical": "https://reiz.com.ua/ua/insurance",
+      
+        "og_title": "Страхування при оренді авто — REIZ Львів",
+        "og_description": "Оберіть пакет захисту: Стандарт, Комфорт або Преміум. Прозорі умови та підтримка 24/7.",
+        "og_url": "https://reiz.com.ua/ua/insurance",
+        "og_image": "https://reiz.com.ua/img/og/insurance.webp",
+        "og_locale": "uk_UA",
+      
+        "lang": "uk",
+        "href_uk": "https://reiz.com.ua/ua/insurance",
+        "href_ru": "https://reiz.com.ua/insurance",
+        "href_en": "https://reiz.com.ua/en/insurance",
+        "href_default": "https://reiz.com.ua/insurance"
+      })
+      
 
   <body class="page__body" data-page="insurance">
     @include('partials/noscript.html')
     @include('partials/header-rental.html')
     <main class="main">
 
-        <section class="rental-section insurance">
-            <div class="rental-section__bg">
-                <picture>
-                  <source type='image/webp' srcset='img/icons/bg.webp'>
-                  <img width='445' height='610' src='img/icons/bg.png' alt='Предупреждающий знак позади автомобиля на дороге — страховка при аренде авто'>
-                </picture>
-            </div>
-            <div class="container">
-                <div class="rental-section__box">
-                    <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
-                        <div class="aside__top">
-                             <a href="/" class="aside__title">REIZ</a>
-                            <p>CAR RENTAL IN UKRAINE</p>
+      <section class="rental-section insurance">
+        <div class="rental-section__bg">
+          <picture>
+            <source type="image/webp" srcset="/img/icons/bg.webp">
+            <img width="445" height="610" src="/img/icons/bg.png" alt="Попереджувальний знак позаду автомобіля на дорозі — страхування при оренді авто">
+          </picture>
+        </div>
+        <div class="container">
+          <div class="rental-section__box">
+            <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
+              <div class="aside__top">
+                <a href="/ua/" class="aside__title">REIZ</a>
+                <p>ОРЕНДА АВТО В УКРАЇНІ</p>
+              </div>
+
+              <nav class="main-nav">
+                <ul>
+                  <li><a href="/ua/">ГОЛОВНА</a></li>
+                  <li>
+                    <ul class="main-nav__acc" data-accordion>
+                      <li class="main-nav__acc-item">
+                        <button class="main-nav__acc-btn" data-id="1">
+                          АВТОМОБІЛІ
+                          <i class="sprite">
+                            <svg width="11" height="8">
+                              <use href="/img/sprite/sprite.svg#arrow-d"></use>
+                            </svg>
+                          </i>
+                        </button>
+                        <div class="main-nav__acc-content" data-content="1">
+                          <a href="#catalog">Прокат авто у Києві</a>
+                          <a href="#catalog">Прокат авто у Львові</a>
+                          <a href="#catalog">Прокат авто у Тернополі</a>
                         </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="/ua/insurance" class="active">СТРАХУВАННЯ</a></li>
+                  <li><a href="/ua/business">ОРЕНДА ДЛЯ ЮР. ОСІБ</a></li>
+                  <li><a href="/ua/certificate">СЕРТИФІКАТИ</a></li>
+                  <li><a href="/ua/terms">УМОВИ ОРЕНДИ</a></li>
+                  <li><a href="/ua/faq">ПИТАННЯ-ВІДПОВІДЬ</a></li>
+                  <li><a href="/ua/invest">ЗДАТИ АВТО В ОРЕНДУ</a></li>
+                  <li><a href="/ua/blog">БЛОГ</a></li>
+                  <li><a href="/ua/about">ПРО НАС</a></li>
+                  <li><a href="/ua/contacts">КОНТАКТИ</a></li>
+                </ul>
+              </nav>
 
-                         <nav class="main-nav">
-                            <ul>
-                                <li>
-                                    <a href="/">ГЛАВНАЯ</a>
-                                </li>
-                                <li>
-                                    <ul class="main-nav__acc" data-accordion>
-                                        <li class="main-nav__acc-item">
-                                            <button class="main-nav__acc-btn" data-id="1">
-                                                АВТОМОБИЛИ
-                                                <i class="sprite">
-                                                    <svg width='11' height='8'>
-                                                        <use href='img/sprite/sprite.svg#arrow-d'></use>
-                                                    </svg>
-                                                </i>
-                                            </button>
-                                            <div class="main-nav__acc-content" data-content="1">
-                                                <a href="#catalog">Прокат авто в Киеве</a>
-                                                <a href="#catalog">Прокат авто во Львове</a>
-                                                <a href="#catalog">Прокат авто в Тернополе</a>
-                                            </div>
-                                        </li>
+              <a href="/ua/contacts#callback" class="main-button">ЗАМОВИТИ ДЗВІНОК</a>
+            </aside>
 
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="/insurance" class="active">СТРАХОВКА</a>
-                                </li>
-                                <li>
-                                    <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
-                                </li>
-                                <li>
-                                    <a href="/certificate">СЕРТИФИКАТЫ </a>
-                                </li>
-                                <li>
-                                    <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
-                                </li>
-                                <li>
-                                    <a href="/faq">ВОПРОС-ОТВЕТ</a>
-                                </li>
-                                <li>
-                                    <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
-                                </li>
-                                <li>
-                                    <a href="/blog">БЛОГ</a>
-                                </li>
-                                <li>
-                                    <a href="/about" >О НАС</a>
-                                </li>
-                                <li>
-                                    <a href="/contacts">КОНТАКТЫ</a>
-                                </li>
-                            </ul>
-                        </nav>
+            <div class="rental-section__inner" data-aos="fade-left" data-aos-duration="900" data-aos-delay="600">
+              <h2 class="pretitle">СТРАХУВАННЯ</h2>
+              <ul class="breadcrumbs">
+                <li><a href="/ua/">Головна</a></li>
+                <li>Страхування</li>
+              </ul>
 
-                        <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
-                    </aside>
+              <div class="rental-section__content">
+                <div class="rental-section__top">
+                  <div class="editor">
+                    <h1 class="main-title">Захистіть себе від зайвих витрат у поїздці</h1>
+                    <p>Обираючи автомобіль в оренду, важливо передбачити можливі неприємності на дорозі.
+                      Наші пакети страхування допоможуть знизити ризики та захиститися від додаткових
+                      витрат.</p>
 
-                    <div class="rental-section__inner" data-aos="fade-left" data-aos-duration="900" data-aos-delay="600">
-                        <h2 class="pretitle">СТРАХОВКА</h2>
-                        <ul class="breadcrumbs">
-                            <li><a href="/">Главная</a></li>
-                            <li>Страховка</li>
-                        </ul>
-
-
-                        <div class="rental-section__content">
-                            <div class="rental-section__top">
-                            <div class="editor">
-                                <h1 class="main-title">Защитите себя от лишних расходов во время поездки</h1>
-                                <p>Выбирая автомобиль в аренду, важно предусмотреть возможные неприятности на дороге.
-                                    Наши пакеты страхования помогут вам снизить риски и защититься от дополнительных
-                                    затрат.</p>
-
-                                <a href="#" class="main-button">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</a>
-                            </div>
-                            </div>
-                            <div class="rental-section__wrapp">
-                                <h4 class="pretitle">СРАВНЕНИЕ ПАКЕТОВ ЗАЩИТЫ</h4>
-
-                                <ul class="rental-table">
-                                    <li class="rental-table__col mode">
-                                        <span class="rental-table__value head">Уровень покрытия</span>
-                                        <span class="rental-table__value">Залог</span>
-                                        <span class="rental-table__value">Штраф в случае ДТП</span>
-                                        <span class="rental-table__value">Штраф при угоне / тотале</span>
-                                        <span class="rental-table__value">Повреждение шин / стекол</span>
-                                        <span class="rental-table__value">Мойка включена</span>
-                                    </li>
-                                    <li class="rental-table__col">
-                                        <span class="rental-table__value head">Стандарт</span>
-                                        <span class="rental-table__value" data-title="Залог">Полный залог</span>
-                                        <span class="rental-table__value" data-title="Штраф в случае ДТП">В рамках
-                                            залога</span>
-                                        <span class="rental-table__value" data-title="Штраф при угоне / тотале">10% от
-                                            стоимости автомобиля</span>
-                                        <span class="rental-table__value" data-title="Повреждение шин / стекол">✘</span>
-                                        <span class="rental-table__value" data-title="Мойка включена">✘</span>
-                                    </li>
-                                    <li class="rental-table__col">
-                                        <span class="rental-table__value head">Комфорт</span>
-                                        <span class="rental-table__value" data-title="Залог">50% от стандартного</span>
-                                        <span class="rental-table__value" data-title="Штраф в случае ДТП">50% от
-                                            стандартного</span>
-                                        <span class="rental-table__value" data-title="Штраф при угоне / тотале">5% от
-                                            стоимости автомобиля</span>
-                                        <span class="rental-table__value" data-title="Повреждение шин / стекол">✘</span>
-                                        <span class="rental-table__value" data-title="Мойка включена">✔</span>
-                                    </li>
-                                    <li class="rental-table__col">
-                                        <span class="rental-table__value head">Премиум</span>
-                                        <span class="rental-table__value" data-title="Залог">200-300$</span>
-                                        <span class="rental-table__value" data-title="Штраф в случае ДТП">Без
-                                            штрафов</span>
-                                        <span class="rental-table__value" data-title="Штраф при угоне / тотале">Без
-                                            штрафов</span>
-                                        <span class="rental-table__value" data-title="Повреждение шин / стекол">✔</span>
-                                        <span class="rental-table__value" data-title="Мойка включена">✔</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="rental-section__wrapp">
-                                <h4 class="pretitle">УСЛОВИЯ ПРЕДОСТАВЛЕНИЯ РАСШИРЕНОЙ СТРАХОВКИ</h4>
-                                <ul class="info-list">
-                                    <li class="info-list__item">
-                                        <span class="info-list__icon sprite">
-                                            <i class="sprite">
-                                                <svg width='40' height='40'>
-                                                    <use href='img/sprite/sprite.svg#icon5'></use>
-                                                </svg>
-                                            </i>
-                                        </span>
-                                        <p>Водителям от 25 лет со стажем от 4 лет.</p>
-                                    </li>
-                                    <li class="info-list__item">
-                                        <span class="info-list__icon sprite">
-                                            <i class="sprite">
-                                                <svg width='38' height='37'>
-                                                    <use href='img/sprite/sprite.svg#icon6'></use>
-                                                </svg>
-                                            </i>
-                                        </span>
-                                        <p>Аренда должна быть от 3 суток и дольше</p>
-                                    </li>
-                                    <li class="info-list__item">
-                                        <span class="info-list__icon sprite">
-                                            <i class="sprite">
-                                                 <svg width='37' height='31'>
-                                                    <use href='img/sprite/sprite.svg#icon7'></use>
-                                                </svg>
-                                            </i>
-                                        </span>
-                                        <p>За рулем должно быть лицо, на которое оформлена аренда</p>
-                                    </li>
-                                    <li class="info-list__item">
-                                        <span class="info-list__icon sprite">
-                                            <i class="sprite">
-                                                <svg width='37' height='40'>
-                                                    <use href='img/sprite/sprite.svg#icon8'></use>
-                                                </svg>
-                                            </i>
-                                        </span>
-                                        <p>При ДТП клиенту необходимо в течение часа сообщить о случившемся в компанию и
-                                            вызвать полицейских.</p>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="rental-section__wrapp">
-                                <h4 class="pretitle">В ПЕРЕЧЕНЬ СТРАХОВЫХ СЛУЧАЕВ НЕ ВХОДИТ И ЗАПРЕЩЕНО</h4>
-
-                                <div class="info-list warn">
-                                    <div class="info-list__item">
-                                        <span class="info-list__icon yellow">
-                                            <i class="sprite">
-                                                <svg width='43' height='43'>
-                                                    <use href='img/sprite/sprite.svg#icon9'></use>
-                                                </svg>
-                                            </i>
-                                        </span>
-                                        <ul>
-                                            <li>
-                                                <p>Вождение в состоянии опьянения или под наркотиками.</p>
-                                            </li>
-                                            <li>
-                                                <p>Передача авто неуполномоченному водителю. Третьи лица за рулём</p>
-                                            </li>
-                                            <li>
-                                                <p>Кража внешних элементов вроде зеркал или дворников</p>
-                                            </li>
-                                            <li>
-                                                <p>Скрытие с места ДТП.</p>
-                                            </li>
-                                            <li>
-                                                <p>Использование авто в коммерческих целях (такси, аренда).
-                                                    Категорически запрещено</p>
-                                            </li>
-                                            <li>
-                                                <p>Ущерб салону автомобиля</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="rental-section__wrapp mode">
-                                <div class="editor">
-                                    <h4 class="pretitle">ФАЙЛЫ ДЛЯ СКАЧИВАНИЯ</h4>
-                                </div>
-
-                                <div class="rental-section__download">
-                                    <p>ПОЛНЫЙ ПЕРЕЧЕНЬ ОГРАНИЧЕНИЯ И НЕ СТРАХОВЫХ СЛУЧАЕВ ВЫ МОЖЕТЕ ПОСМОТРЕТЬ В
-                                        ДОКУМЕНТЕ</p>
-
-                                    <a href="insurance" class="download" download>
-                                        <span class="download__icon">
-                                            <i class="sprite">
-                                                <svg width='14' height='26'>
-                                                    <use href='img/sprite/sprite.svg#load'></use>
-                                                </svg>
-                                            </i>
-                                        </span>
-                                        <div class="download__info">
-                                            <div class="download__title">СТРАХОВАНИЕ И ОГРАНИЧЕНИЯ</div>
-                                            <div class="download__meta">pdf, 19 мб</div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-
-                            <div class="rental-section__wrapp mode">
-                                <div class="editor">
-                                    <h4 class="pretitle">НАРУШЕНИЕ УСЛОВИЙ АРЕНДЫ</h4>
-                                </div>
-                                <div class="editor">
-                                    <p>Многие ситуации, связанные с несоблюдением договора аренды, приводят к тому,
-                                        что
-                                        расширенная страховка не распространяется на ущерб. Даже при оплате полного
-                                        покрытия арендатор должен соблюдать правила прокатной компании.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    <a href="#" class="main-button">ОТРИМАТИ КОНСУЛЬТАЦІЮ</a>
+                  </div>
                 </div>
+
+                <div class="rental-section__wrapp">
+                  <h4 class="pretitle">ПОРІВНЯННЯ ПАКЕТІВ ЗАХИСТУ</h4>
+
+                  <ul class="rental-table">
+                    <li class="rental-table__col mode">
+                      <span class="rental-table__value head">Рівень покриття</span>
+                      <span class="rental-table__value">Застава</span>
+                      <span class="rental-table__value">Відповідальність у разі ДТП</span>
+                      <span class="rental-table__value">Відповідальність при угоні / тоталі</span>
+                      <span class="rental-table__value">Пошкодження шин / скла</span>
+                      <span class="rental-table__value">Мийка включена</span>
+                    </li>
+                    <li class="rental-table__col">
+                      <span class="rental-table__value head">Стандарт</span>
+                      <span class="rental-table__value" data-title="Застава">Повна застава</span>
+                      <span class="rental-table__value" data-title="Відповідальність у разі ДТП">У межах застави</span>
+                      <span class="rental-table__value" data-title="Відповідальність при угоні / тоталі">10% від вартості автомобіля</span>
+                      <span class="rental-table__value" data-title="Пошкодження шин / скла">✘</span>
+                      <span class="rental-table__value" data-title="Мийка включена">✘</span>
+                    </li>
+                    <li class="rental-table__col">
+                      <span class="rental-table__value head">Комфорт</span>
+                      <span class="rental-table__value" data-title="Застава">50% від стандартної</span>
+                      <span class="rental-table__value" data-title="Відповідальність у разі ДТП">50% від стандартної</span>
+                      <span class="rental-table__value" data-title="Відповідальність при угоні / тоталі">5% від вартості автомобіля</span>
+                      <span class="rental-table__value" data-title="Пошкодження шин / скла">✘</span>
+                      <span class="rental-table__value" data-title="Мийка включена">✔</span>
+                    </li>
+                    <li class="rental-table__col">
+                      <span class="rental-table__value head">Преміум</span>
+                      <span class="rental-table__value" data-title="Застава">200–300 $</span>
+                      <span class="rental-table__value" data-title="Відповідальність у разі ДТП">Без штрафів</span>
+                      <span class="rental-table__value" data-title="Відповідальність при угоні / тоталі">Без штрафів</span>
+                      <span class="rental-table__value" data-title="Пошкодження шин / скла">✔</span>
+                      <span class="rental-table__value" data-title="Мийка включена">✔</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="rental-section__wrapp">
+                  <h4 class="pretitle">УМОВИ НАДАННЯ РОЗШИРЕНОГО СТРАХУВАННЯ</h4>
+                  <ul class="info-list">
+                    <li class="info-list__item">
+                      <span class="info-list__icon sprite">
+                        <i class="sprite">
+                          <svg width="40" height="40"><use href="/img/sprite/sprite.svg#icon5"></use></svg>
+                        </i>
+                      </span>
+                      <p>Водіям від 25 років зі стажем від 4 років.</p>
+                    </li>
+                    <li class="info-list__item">
+                      <span class="info-list__icon sprite">
+                        <i class="sprite">
+                          <svg width="38" height="37"><use href="/img/sprite/sprite.svg#icon6"></use></svg>
+                        </i>
+                      </span>
+                      <p>Оренда має бути від 3 діб і довше.</p>
+                    </li>
+                    <li class="info-list__item">
+                      <span class="info-list__icon sprite">
+                        <i class="sprite">
+                          <svg width="37" height="31"><use href="/img/sprite/sprite.svg#icon7"></use></svg>
+                        </i>
+                      </span>
+                      <p>За кермом має бути особа, на яку оформлено договір оренди.</p>
+                    </li>
+                    <li class="info-list__item">
+                      <span class="info-list__icon sprite">
+                        <i class="sprite">
+                          <svg width="37" height="40"><use href="/img/sprite/sprite.svg#icon8"></use></svg>
+                        </i>
+                      </span>
+                      <p>У разі ДТП клієнт повинен протягом години повідомити компанію та викликати поліцію.</p>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="rental-section__wrapp">
+                  <h4 class="pretitle">ДО ПЕРЕЛІКУ СТРАХОВИХ ВИПАДКІВ НЕ ВХОДИТЬ ТА ЗАБОРОНЕНО</h4>
+
+                  <div class="info-list warn">
+                    <div class="info-list__item">
+                      <span class="info-list__icon yellow">
+                        <i class="sprite">
+                          <svg width="43" height="43"><use href="/img/sprite/sprite.svg#icon9"></use></svg>
+                        </i>
+                      </span>
+                      <ul>
+                        <li><p>Керування в стані алкогольного чи наркотичного сп’яніння.</p></li>
+                        <li><p>Передача авто неуповноваженому водієві (треті особи за кермом).</p></li>
+                        <li><p>Крадіжка зовнішніх елементів (дзеркала, двірники тощо).</p></li>
+                        <li><p>Залишення місця ДТП.</p></li>
+                        <li><p>Використання авто в комерційних цілях (таксі, суборенда) — категорично заборонено.</p></li>
+                        <li><p>Пошкодження салону автомобіля.</p></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rental-section__wrapp mode">
+                  <div class="editor">
+                    <h4 class="pretitle">ФАЙЛИ ДЛЯ ЗАВАНТАЖЕННЯ</h4>
+                  </div>
+
+                  <div class="rental-section__download">
+                    <p>ПОВНИЙ ПЕРЕЛІК ОБМЕЖЕНЬ ТА НЕСТРАХОВИХ ВИПАДКІВ ВИ МОЖЕТЕ ПЕРЕГЛЯНУТИ У ДОКУМЕНТІ</p>
+
+                    <a href="insurance" class="download" download>
+                      <span class="download__icon">
+                        <i class="sprite">
+                          <svg width="14" height="26"><use href="/img/sprite/sprite.svg#load"></use></svg>
+                        </i>
+                      </span>
+                      <div class="download__info">
+                        <div class="download__title">СТРАХУВАННЯ ТА ОБМЕЖЕННЯ</div>
+                        <div class="download__meta">pdf, 19 МБ</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="rental-section__wrapp mode">
+                  <div class="editor">
+                    <h4 class="pretitle">ПОРУШЕННЯ УМОВ ОРЕНДИ</h4>
+                  </div>
+                  <div class="editor">
+                    <p>Багато ситуацій, пов’язаних із недотриманням договору оренди, призводять до того,
+                      що розширене страхування не поширюється на завдані збитки. Навіть за повного
+                      пакета покриття орендар повинен дотримуватися правил прокатної компанії.</p>
+                  </div>
+                </div>
+
+              </div>
             </div>
-            </div>
-        </section>
+          </div>
+        </div>
+        </div>
+      </section>
     </main>
     @include('partials/footer-mode.html')
 
-</body>
-
+  </body>
 </html>

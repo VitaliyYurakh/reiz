@@ -1,330 +1,411 @@
 <!DOCTYPE html>
-<html lang="ru" class="page">
-  @include('partials/head.html', {
-    "title": "Вопрос-ответ — аренда авто во Львове | REIZ",
-    "description": "Частые вопросы об аренде авто во Львове: возраст и стаж водителя, документы, залог, способы оплаты, заправка, ДТП, дополнительный водитель и возврат в другом городе.",
-    "canonical": "https://reiz.com.ua/faq",
-    "og_title": "FAQ REIZ — ответы на вопросы об аренде авто во Львове",
-    "og_description": "Узнайте условия аренды, оплату, залог, документы и что делать при ДТП. Поддержка 24/7.",
-    "og_url": "https://reiz.com.ua/faq",
-    "og_image": "https://reiz.com.ua/img/og/faq.webp"
-  })
+<html lang="uk" class="page">
+    @include('partials/head.html', {
+        "page": "faq",
+        "title": "FAQ — часті запитання про оренду авто | REIZ Львів",
+        "description": "Відповіді на часті запитання про оренду авто у Львові: депозит, страхування, вік і стаж, оплата, доставка, пробіг.",
+        "canonical": "https://reiz.com.ua/ua/faq",
+      
+        "og_title": "FAQ — оренда авто у Львові | REIZ",
+        "og_description": "Депозит, страхування, доставка авто, оплата — зібрали відповіді на популярні запитання.",
+        "og_url": "https://reiz.com.ua/ua/faq",
+        "og_image": "https://reiz.com.ua/img/og/faq.webp",
+        "og_locale": "uk_UA",
+      
+        "lang": "uk",
+        "href_uk": "https://reiz.com.ua/ua/faq",
+        "href_ru": "https://reiz.com.ua/faq",
+        "href_en": "https://reiz.com.ua/en/faq",
+        "href_default": "https://reiz.com.ua/faq"
+      })      
 
   <body class="page__body" data-page="faq">
     @include('partials/noscript.html')
     @include('partials/header-mode.html')
+
     <main class="main">
+      <section class="faq-section">
+        <div class="container">
+          <div class="faq-section__box">
+            <aside
+              class="aside"
+              data-aos="fade-right"
+              data-aos-duration="900"
+              data-aos-delay="400"
+            >
+              <div class="aside__top">
+                <a href="/ua/" class="aside__title">REIZ</a>
+                <p>ОРЕНДА АВТО В УКРАЇНІ</p>
+              </div>
 
-            <section class="faq-section">
-                <div class="container">
-                    <div class="faq-section__box">
-                        <aside
-                            class="aside"
-                            data-aos="fade-right"
-                            data-aos-duration="900"
-                            data-aos-delay="400"
-                        >
-                            <div class="aside__top">
-                                <a href="/" class="aside__title">REIZ</a>
-                                <p>CAR RENTAL IN UKRAINE</p>
-                            </div>
-
-                            <nav class="main-nav">
-                                <ul>
-                                    <li>
-                                        <a href="/">ГЛАВНАЯ</a>
-                                    </li>
-                                    <li>
-                                        <ul class="main-nav__acc" data-accordion>
-                                            <li class="main-nav__acc-item">
-                                                <button class="main-nav__acc-btn" data-id="1">
-                                                    АВТОМОБИЛИ
-                                                    <i class="sprite">
-                                                        <svg width="11" height="8">
-                                                            <use
-                                                                href="img/sprite/sprite.svg#arrow-d"
-                                                            ></use>
-                                                        </svg>
-                                                    </i>
-                                                </button>
-                                                <div class="main-nav__acc-content" data-content="1">
-                                                    <a href="#catalog">Прокат авто в Киеве</a>
-                                                    <a href="#catalog">Прокат авто во Львове</a>
-                                                    <a href="#catalog">Прокат авто в Тернополе</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="/insurance">СТРАХОВКА</a>
-                                    </li>
-                                    <li>
-                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/certificate">СЕРТИФИКАТЫ </a>
-                                    </li>
-                                    <li>
-                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/faq" class="active">ВОПРОС-ОТВЕТ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/blog">БЛОГ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/about">О НАС</a>
-                                    </li>
-                                    <li>
-                                        <a href="/contacts">КОНТАКТЫ</a>
-                                    </li>
-                                </ul>
-                            </nav>
-
-                            <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
-                        </aside>
-
-                        <div
-                            class="faq-section__inner"
-                            data-aos="fade-left"
-                            data-aos-duration="900"
-                            data-aos-delay="600"
-                        >
-                            <h2 class="pretitle">ВОПРОС ОТВЕТ</h2>
-                            <ul class="breadcrumbs">
-                                <li><a href="/">Главная</a></li>
-                                <li>Вопрос ответ</li>
-                            </ul>
-                            <h1 class="main-title">Частые вопросы об аренде авто во Львове</h1>
-
-                            <ul
-                                class="acc"
-                                data-accordion
-                                data-default="5"
-                                data-single="true"
-                                data-breakpoint="576"
-                                data-title="FAQ"
-                                data-pretitle="Описание FAQ"
-                            >
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="1">
-                                        МОГУ ЛИ Я ОРЕНДОВАТЬ АВТОМОБИЛЬ НА НОЧЬ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="1">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="2">
-                                        МОГУ ЛИ Я АРЕНДОВАТЬ АВТОМОБИЛЬ БОЛЕЕ ЧЕМ НА МЕСЯЦ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="2">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="3">
-                                        КАКОВ МИНИМАЛЬНЫЙ ВОЗРАСТ ДЛЯ АРЕНДЫ АВТОМОБЛИЛЯ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="3">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="4">
-                                        НУЖНО ЛИ МНЕ САМОМУ ЗАПРАВЛЯТЬ АВТОМОБИЛЬ В ПЕРВЫЙ ДЕНЬ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="4">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="5">
-                                        Я ПОПАЛ В АВАРИЮ ЧТО ДЕЛАТЬ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="5">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="6">
-                                        ЧТО ВАМ НУЖНО ДЛЯ АРЕНДЫ АВТОМОБИЛЯ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="6">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="7">
-                                        КАК МНЕ ОПЛАТИТЬ АРЕНДУ АВТОМОБИЛЯ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="7">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="8">
-                                        МОГУ ЛИ Я ПЕРЕДАТЬ УПРАВЛЕНИЕ ДРУГОМУ ВОДИТЕЛЮ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="8">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="9">
-                                        РАЗРЕШЕНО ЛИ КУРЕНИЕ В АВТОМОБИЛЕ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="9">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="10">
-                                        КАКИМИ СПОСОБАМИ МОЖНО ВНЕСТИ ЗАЛОГ ЗА АВТОМОБИЛЬ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="10">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="11">
-                                        МОГУ ЛИ Я ВЗЯТЬ АВТО В КИЕВЕ И ВЕРНУТЬ ЕГО В ДРУГОМ ГОРОДЕ?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="11">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+              <nav class="main-nav">
+                <ul>
+                  <li><a href="/ua/">ГОЛОВНА</a></li>
+                  <li>
+                    <ul class="main-nav__acc" data-accordion>
+                      <li class="main-nav__acc-item">
+                        <button class="main-nav__acc-btn" id="nav-acc-btn-1" data-id="1" aria-expanded="false" aria-controls="nav-acc-1">
+                          АВТОМОБІЛІ
+                          <i class="sprite">
+                            <svg width="11" height="8"><use href="/img/sprite/sprite.svg#arrow-d"></use></svg>
+                          </i>
+                        </button>
+                        <div class="main-nav__acc-content" id="nav-acc-1" data-content="1" role="region" aria-labelledby="nav-acc-btn-1">
+                          <a href="#catalog">Прокат авто у Києві</a>
+                          <a href="#catalog">Прокат авто у Львові</a>
+                          <a href="#catalog">Прокат авто у Тернополі</a>
                         </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="/ua/insurance">СТРАХУВАННЯ</a></li>
+                  <li><a href="/ua/business">ОРЕНДА ДЛЯ ЮР. ОСІБ</a></li>
+                  <li><a href="/ua/certificate">СЕРТИФІКАТИ</a></li>
+                  <li><a href="/ua/terms">УМОВИ ОРЕНДИ</a></li>
+                  <li><a href="/ua/faq" class="active" aria-current="page">ПИТАННЯ-ВІДПОВІДЬ</a></li>
+                  <li><a href="/ua/invest">ЗДАТИ АВТО В ОРЕНДУ</a></li>
+                  <li><a href="/ua/blog">БЛОГ</a></li>
+                  <li><a href="/ua/about">ПРО НАС</a></li>
+                  <li><a href="/ua/contacts">КОНТАКТИ</a></li>
+                </ul>
+              </nav>
+
+              <a href="/ua/contacts#callback" class="main-button">ЗАМОВИТИ ДЗВІНОК</a>
+            </aside>
+
+            <div
+              class="faq-section__inner"
+              data-aos="fade-left"
+              data-aos-duration="900"
+              data-aos-delay="600"
+            >
+              <h2 class="pretitle">Питання-відповідь (FAQ)</h2>
+
+              <ul class="breadcrumbs" aria-label="Хлібні крихти">
+                <li><a href="/ua/">Головна</a></li>
+                <li>Питання-відповідь</li>
+              </ul>
+
+              <h1 class="main-title">Часті запитання про оренду авто у Львові</h1>
+
+              <ul
+                class="acc"
+                data-accordion
+                data-default="1"
+                data-single="true"
+                data-breakpoint="576"
+                data-title="FAQ"
+                data-pretitle="Опис FAQ"
+              >
+                <!-- 1 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q1" data-id="1" aria-expanded="true" aria-controls="a1">
+                    ЧИ МОЖУ Я ОРЕНДУВАТИ АВТО НА НІЧ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a1" data-content="1" role="region" aria-labelledby="q1">
+                    <div class="acc__box editor">
+                      <p>Так, можлива нічна подача та повернення авто у режимі 24/7. Важливо заздалегідь погодити точний час із менеджером. Нічна доставка чи повернення можуть супроводжуватися доплатою за обслуговування поза стандартними годинами.</p>
                     </div>
-                </div>
-            </section>
-        </main>
-        @include('partials/footer-mode.html')
-    </body>
+                  </div>
+                </li>
+
+                <!-- 2 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q2" data-id="2" aria-expanded="false" aria-controls="a2">
+                    ЧИ МОЖНА ОРЕНДУВАТИ АВТО БІЛЬШЕ НІЖ НА МІСЯЦЬ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a2" data-content="2" role="region" aria-labelledby="q2">
+                    <div class="acc__box editor">
+                      <p>Так, доступна довгострокова оренда зі зниженим тарифом. При строку понад 30 днів діють спеціальні умови та знижки. Оплата зазвичай помісячна, планове ТО — на нас. Індивідуальний тариф уточнюйте у менеджера.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 3 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q3" data-id="3" aria-expanded="false" aria-controls="a3">
+                    ЯКИЙ МІНІМАЛЬНИЙ ВІК ТА СТАЖ ДЛЯ ОРЕНДИ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a3" data-content="3" role="region" aria-labelledby="q3">
+                    <div class="acc__box editor">
+                      <p>Зазвичай від 21 року та стаж від 2 років. Для кросоверів і преміум-класу вимоги вищі — від 25 років. За недостатнього стажу/віку може діяти доплата за молодого водія. Подробиці — в умовах оренди.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 4 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q4" data-id="4" aria-expanded="false" aria-controls="a4">
+                    ЧИ ПОТРІБНО ЗАПРАВЛЯТИ АВТО В ПЕРШИЙ ДЕНЬ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a4" data-content="4" role="region" aria-labelledby="q4">
+                    <div class="acc__box editor">
+                      <p>Ми видаємо авто з повним баком і просимо повернути також із повним баком (політика Full-to-Full). Якщо немає можливості заправитися, доступна опція передплаченого пального.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 5 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q5" data-id="5" aria-expanded="false" aria-controls="a5">
+                    Я ПОТРАПИВ У ДТП — ЩО РОБИТИ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a5" data-content="5" role="region" aria-labelledby="q5">
+                    <div class="acc__box editor">
+                      <p>Забезпечте безпеку, зателефонуйте нам (24/7) та 102 у поліцію, не залишайте місце ДТП. Зробіть фото/відео та, за потреби, заповніть європротокол. Розмір відповідальності залежить від обраного страхового покриття (CDW/SCDW). Детальніше — у розділі «Страхування».</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 6 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q6" data-id="6" aria-expanded="false" aria-controls="a6">
+                    ЩО ПОТРІБНО ДЛЯ ОРЕНДИ АВТО?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a6" data-content="6" role="region" aria-labelledby="q6">
+                    <div class="acc__box editor">
+                      <p>Паспорт, водійське посвідчення та банківська картка. Іноземцям може знадобитися міжнародне водійське посвідчення на додачу до національних прав.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 7 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q7" data-id="7" aria-expanded="false" aria-controls="a7">
+                    ЯК СПЛАТИТИ ОРЕНДУ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a7" data-content="7" role="region" aria-labelledby="q7">
+                    <div class="acc__box editor">
+                      <p>Карткою Visa/Mastercard (включно з Apple Pay/Google Pay) або готівкою. Депозит блокується через передавторизацію на картці або вноситься готівкою та повертається після закриття всіх нарахувань.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 8 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q8" data-id="8" aria-expanded="false" aria-controls="a8">
+                    ЧИ МОЖНА ДОДАТИ ДОДАТКОВОГО ВОДІЯ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a8" data-content="8" role="region" aria-labelledby="q8">
+                    <div class="acc__box editor">
+                      <p>Так, за умови внесення його даних у договір і надання документів. Вимоги щодо віку та стажу такі ж, як і для основного водія.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 9 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q9" data-id="9" aria-expanded="false" aria-controls="a9">
+                    ЧИ ДОЗВОЛЕНО КУРИТИ В АВТОМОБІЛІ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a9" data-content="9" role="region" aria-labelledby="q9">
+                    <div class="acc__box editor">
+                      <p>Ні, куріння заборонено. У разі порушення стягується штраф і вартість хімчистки згідно з умовами оренди.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 10 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q10" data-id="10" aria-expanded="false" aria-controls="a10">
+                    ЯК ВНЕСТИ ДЕПОЗИТ (ЗАСТАВУ)?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a10" data-content="10" role="region" aria-labelledby="q10">
+                    <div class="acc__box editor">
+                      <p>Стандартно — блокування суми на картці (передавторизація) або внесення готівкою за домовленістю. Розмір залежить від класу авто та обраного страхового покриття.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 11 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q11" data-id="11" aria-expanded="false" aria-controls="a11">
+                    ЧИ МОЖНА ВЗЯТИ АВТО В КИЄВІ ТА ПОВЕРНУТИ В ІНШОМУ МІСТІ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a11" data-content="11" role="region" aria-labelledby="q11">
+                    <div class="acc__box editor">
+                      <p>Так, доступне повернення в іншому місті за міжміським тарифом за перегін. Потрібне попереднє погодження маршруту та часу.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 12 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q12" data-id="12" aria-expanded="false" aria-controls="a12">
+                    ЧИ Є ОБМЕЖЕННЯ ПРОБІГУ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a12" data-content="12" role="region" aria-labelledby="q12">
+                    <div class="acc__box editor">
+                      <p>У добовий тариф зазвичай входить ліміт (наприклад, 250–300 км/добу). Понад ліміт — доплата за кілометр. Доступні опції підвищеного або безлімітного пробігу.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 13 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q13" data-id="13" aria-expanded="false" aria-controls="a13">
+                    ЧИ Є ДОСТАВКА ЗА АДРЕСОЮ ТА В АЕРОПОРТ ЛЬВОВА (LWO)?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a13" data-content="13" role="region" aria-labelledby="q13">
+                    <div class="acc__box editor">
+                      <p>Так, доставимо за адресою в місті та зустрінемо в аеропорту. Вартість залежить від зони та часу доби. Міжміська подача — за домовленістю.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 14 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q14" data-id="14" aria-expanded="false" aria-controls="a14">
+                    ЧИ ДОСТУПНІ ДИТЯЧІ КРІСЛА/БУСТЕРИ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a14" data-content="14" role="region" aria-labelledby="q14">
+                    <div class="acc__box editor">
+                      <p>Так, надаємо за попереднім запитом. Доступні варіанти для різного віку. Можлива невелика доплата — уточнюйте під час бронювання.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 15 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q15" data-id="15" aria-expanded="false" aria-controls="a15">
+                    ЧИ МОЖНА ПЕРЕВОЗИТИ ТВАРИН?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a15" data-content="15" role="region" aria-labelledby="q15">
+                    <div class="acc__box editor">
+                      <p>Можна за умови дотримання чистоти (переноска, покривало). За сильні забруднення або запах можлива доплата за хімчистку салону.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 16 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q16" data-id="16" aria-expanded="false" aria-controls="a16">
+                    ЯКІ ПРАВИЛА СКАСУВАННЯ ТА ПЕРЕНОСУ БРОНЮВАННЯ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a16" data-content="16" role="region" aria-labelledby="q16">
+                    <div class="acc__box editor">
+                      <p>Безкоштовне скасування — завчасно, у встановлені строки (зазвичай за 24–48 годин). За пізнє скасування або неявку утримується компенсація. Перенесення дат можливе за погодження та наявності авто.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 17 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q17" data-id="17" aria-expanded="false" aria-controls="a17">
+                    У ЯКОМУ СТАНІ ПОТРІБНО ПОВЕРТАТИ АВТО?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a17" data-content="17" role="region" aria-labelledby="q17">
+                    <div class="acc__box editor">
+                      <p>Як отримали: справне, чисте та з повним баком. За сильні забруднення — платна мийка/хімчистка за прайсом. Перевірте особисті речі при здачі.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 18 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q18" data-id="18" aria-expanded="false" aria-controls="a18">
+                    ШТРАФИ, ПЛАТНІ ДОРОГИ ТА ПАРКУВАННЯ — ЯК СПИСУЮТЬСЯ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a18" data-content="18" role="region" aria-labelledby="q18">
+                    <div class="acc__box editor">
+                      <p>Нарахування, що надійшли в період оренди, закриваються після поїздки. За потреби суми утримуються з депозиту. Строк остаточного розрахунку залежить від надходження даних від служб і банку.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 19 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q19" data-id="19" aria-expanded="false" aria-controls="a19">
+                    ЧИ ПОТРІБНІ МІЖНАРОДНІ ПРАВА?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a19" data-content="19" role="region" aria-labelledby="q19">
+                    <div class="acc__box editor">
+                      <p>Іноземцям може знадобитися міжнародне водійське посвідчення на додачу до національних прав (особливо якщо права не латиницею). Резидентам України достатньо національних прав встановленого зразка.</p>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- 20 -->
+                <li class="acc__item">
+                  <button class="acc__btn" id="q20" data-id="20" aria-expanded="false" aria-controls="a20">
+                    ЯКІ КЛАСИ АВТО ТА ОРІЄНТОВНІ ЦІНИ?
+                    <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                  </button>
+                  <div class="acc__content" id="a20" data-content="20" role="region" aria-labelledby="q20">
+                    <div class="acc__box editor">
+                      <p>Є економ, стандарт, кросовери та преміум. Ціна залежить від класу, строку оренди та сезону. Чим довший термін, тим нижча добова ставка. Актуальні тарифи — в автопарку або у менеджера.</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @include('partials/footer-mode.html')
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Головна", "item": "https://reiz.com.ua/ua/" },
+        { "@type": "ListItem", "position": 2, "name": "Питання-відповідь", "item": "https://reiz.com.ua/ua/faq" }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage (20 запитань; без HTML-тегів у text) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Чи можу я орендувати авто на ніч?", "acceptedAnswer": { "@type": "Answer", "text": "Так, можлива нічна подача та повернення авто у режимі 24/7. Необхідно завчасно узгодити час із менеджером. Нічна доставка чи повернення можуть супроводжуватися доплатою за обслуговування поза стандартними годинами." } },
+        { "@type": "Question", "name": "Чи можна орендувати авто більше ніж на місяць?", "acceptedAnswer": { "@type": "Answer", "text": "Так, доступна довгострокова оренда (понад 30 днів) зі зниженим тарифом і помісячною оплатою. Планове обслуговування здійснює компанія. Індивідуальні умови уточнюйте у менеджера." } },
+        { "@type": "Question", "name": "Який мінімальний вік та стаж для оренди?", "acceptedAnswer": { "@type": "Answer", "text": "Зазвичай від 21 року та стаж від 2 років. Для кросоверів і авто преміум-класу вимоги вищі — від 25 років. За недостатнього стажу або віку може діяти доплата за молодого водія." } },
+        { "@type": "Question", "name": "Чи потрібно заправляти авто в перший день?", "acceptedAnswer": { "@type": "Answer", "text": "Ми видаємо авто з повним баком і просимо повернути його також із повним баком (політика Full-to-Full). Доступна опція передплаченого пального, якщо немає можливості заправитися перед поверненням." } },
+        { "@type": "Question", "name": "Я потрапив у ДТП — що робити?", "acceptedAnswer": { "@type": "Answer", "text": "Забезпечте безпеку, зв’яжіться з компанією підтримки 24/7 і викличте поліцію за номером 102. Не залишайте місце ДТП, зробіть фото та відео, за потреби заповніть європротокол. Розмір фінансової відповідальності залежить від обраного страхового покриття CDW/SCDW." } },
+        { "@type": "Question", "name": "Що потрібно для оренди авто?", "acceptedAnswer": { "@type": "Answer", "text": "Паспорт, водійське посвідчення та банківська картка. Іноземним громадянам може знадобитися міжнародне водійське посвідчення на додачу до національних прав." } },
+        { "@type": "Question", "name": "Як сплатити оренду?", "acceptedAnswer": { "@type": "Answer", "text": "Оплата можлива банківською карткою Visa/Mastercard (включно з Apple Pay/Google Pay) або готівкою. Депозит блокується на картці через передавторизацію або вноситься готівкою та повертається після закриття всіх нарахувань." } },
+        { "@type": "Question", "name": "Чи можна додати додаткового водія?", "acceptedAnswer": { "@type": "Answer", "text": "Так, можна додати додаткового водія за умови внесення його даних у договір і надання паспорта та водійського посвідчення. Вимоги щодо віку та стажу такі ж, як для основного водія." } },
+        { "@type": "Question", "name": "Чи дозволено куріння в автомобілі?", "acceptedAnswer": { "@type": "Answer", "text": "Ні, куріння в салоні автомобіля заборонено. У разі порушення стягується штраф і вартість хімчистки салону згідно з умовами оренди." } },
+        { "@type": "Question", "name": "Як внести депозит (заставу)?", "acceptedAnswer": { "@type": "Answer", "text": "Стандартно — блокування суми на банківській картці через передавторизацію або внесення готівкою за домовленістю. Розмір застави залежить від класу автомобіля та обраного страхового покриття." } },
+        { "@type": "Question", "name": "Чи можна взяти авто у Львові й повернути в іншому місті?", "acceptedAnswer": { "@type": "Answer", "text": "Так, доступне повернення автомобіля в іншому місті за міжміським тарифом за перегін. Потрібне попереднє погодження маршруту та часу." } },
+        { "@type": "Question", "name": "Чи є обмеження по пробігу?", "acceptedAnswer": { "@type": "Answer", "text": "У добовий тариф зазвичай включено ліміт пробігу (наприклад, 250–300 км на добу). Понад ліміт діє доплата за кілометр. Доступні опції збільшеного або безлімітного пробігу." } },
+        { "@type": "Question", "name": "Чи є доставка за адресою та в аеропорт Львова (LWO)?", "acceptedAnswer": { "@type": "Answer", "text": "Так, доступна доставка за адресою в місті та зустріч в аеропорту Львова. Вартість залежить від зони та часу доби. За домовленістю можлива міжміська подача." } },
+        { "@type": "Question", "name": "Чи доступні дитячі крісла та бустери?", "acceptedAnswer": { "@type": "Answer", "text": "Так, надаються за попереднім запитом. Є варіанти для різних вікових груп. Можлива невелика доплата, умови залежать від тривалості оренди." } },
+        { "@type": "Question", "name": "Чи можна перевозити тварин в орендованому авто?", "acceptedAnswer": { "@type": "Answer", "text": "Можна за умови дотримання чистоти в салоні, бажано використовувати переноску або покривало. За сильні забруднення або запах може стягуватися плата за хімчистку салону." } },
+        { "@type": "Question", "name": "Які правила скасування або перенесення бронювання?", "acceptedAnswer": { "@type": "Answer", "text": "Безкоштовне скасування можливе завчасно у встановлені строки (зазвичай 24–48 годин до подачі). За пізнє скасування або неявку утримується компенсація. Перенесення дат можливе за погодженням і наявності автомобіля." } },
+        { "@type": "Question", "name": "У якому стані потрібно повертати автомобіль?", "acceptedAnswer": { "@type": "Answer", "text": "Автомобіль повертається справним, чистим і з повним баком. За сильні забруднення стягується вартість мийки або хімчистки. Перевірте, щоб не залишити особисті речі." } },
+        { "@type": "Question", "name": "Штрафи, платні дороги та паркування — як відбувається оплата?", "acceptedAnswer": { "@type": "Answer", "text": "Нарахування за період оренди закриваються після поїздки. За потреби суми утримуються з депозиту. Строк остаточного розрахунку залежить від отримання даних від служб і банку." } },
+        { "@type": "Question", "name": "Чи потрібні іноземцям міжнародні права?", "acceptedAnswer": { "@type": "Answer", "text": "Іноземним громадянам може знадобитися міжнародне водійське посвідчення на додачу до національних прав, особливо якщо національні права не латиницею. Резидентам України достатньо національного посвідчення." } },
+        { "@type": "Question", "name": "Які класи автомобілів доступні та які орієнтовні ціни?", "acceptedAnswer": { "@type": "Answer", "text": "Доступні економ, стандарт, кросовери та преміум. Вартість залежить від класу, строку оренди та сезону. Чим довша оренда, тим нижча добова ставка. Актуальні тарифи уточнюйте в автопарку або у менеджера." } }
+      ]
+    }
+    </script>
+  </body>
 </html>

@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="ru" class="page">
-  @include('partials/head.html', {
-    "title": "О компании REIZ — аренда авто во Львове и Киеве",
-    "description": "Кто мы и как работаем: REIZ — аренда автомобилей с прозрачными условиями, новым автопарком и поддержкой 24/7. Работаем во Львове и Киеве.",
-    "canonical": "https://reiz.com.ua/about/",
-    "og_title": "О компании REIZ — аренда авто во Львове и Киеве",
-    "og_description": "Наша миссия, команда и подход к сервису. Прокат авто с честными условиями и поддержкой 24/7.",
-    "og_url": "https://reiz.com.ua/about/",
-    "og_image": "https://reiz.com.ua/img/og/about.webp"
+@include('partials/head.html', {
+    "title": "Про компанію REIZ — оренда авто у Львові та Києві",
+    "description": "Хто ми і як працюємо: REIZ — оренда автомобілів із прозорими умовами, новим автопарком і підтримкою 24/7. Працюємо у Львові та Києві.",
+    "canonical": "https://reiz.com.ua/ua/about/",
+  
+    "og_title": "Про компанію REIZ — оренда авто у Львові та Києві",
+    "og_description": "Наша місія, команда і підхід до сервісу. Прокат авто з чесними умовами та підтримкою 24/7.",
+    "og_image": "https://reiz.com.ua/img/og/about.webp",
+    "og_locale": "uk_UA",          // ← додано
+  
+    "lang": "uk",
+    "href_uk": "https://reiz.com.ua/ua/about/",
+    "href_ru": "https://reiz.com.ua/about/",
+    "href_en": "https://reiz.com.ua/en/about/",
+    "href_default": "https://reiz.com.ua/about/"  // x-default -> RU
   })
-
-  <body class="page__body" data-page="about">
-    @include('partials/noscript.html')
-    @include('partials/header-mode.html')
-
-    <body class="page__body" data-page="about">
-        @include('partials/noscript.html') @include('partials/header-mode.html')
+  
+  
         <main class="main">
             <section class="about-section">
                 <div class="container">
@@ -58,58 +58,79 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="/insurance">СТРАХОВКА</a>
-                                    </li>
-                                    <li>
-                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/certificate">СЕРТИФИКАТЫ </a>
-                                    </li>
-                                    <li>
-                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/faq">ВОПРОС-ОТВЕТ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/blog">БЛОГ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/about" class="active">О НАС</a>
-                                    </li>
-                                    <li>
-                                        <a href="/contacts">КОНТАКТЫ</a>
-                                    </li>
-                                </ul>
-                            </nav>
+                                        <a href="/ua/">ГОЛОВНА</a>
+                  </li>
+                  <li>
+                    <ul class="main-nav__acc" data-accordion>
+                      <li class="main-nav__acc-item">
+                        <button class="main-nav__acc-btn" data-id="1">
+                          АВТОМОБІЛІ
+                          <i class="sprite">
+                            <svg width="11" height="8">
+                              <use href="img/sprite/sprite.svg#arrow-d"></use>
+                            </svg>
+                          </i>
+                        </button>
+                        <div class="main-nav__acc-content" data-content="1">
+                          <a href="#catalog">Прокат авто у Києві</a>
+                          <a href="#catalog">Прокат авто у Львові</a>
+                          <a href="#catalog">Прокат авто у Тернополі</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/ua/insurance">СТРАХУВАННЯ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/business">ОРЕНДА ДЛЯ ЮР. ОСІБ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/certificate">СЕРТИФІКАТИ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/terms">УМОВИ ОРЕНДИ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/faq">ПИТАННЯ-ВІДПОВІДЬ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/invest">ЗДАТИ АВТО В ОРЕНДУ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/blog">БЛОГ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/about" class="active">ПРО НАС</a>
+                  </li>
+                  <li>
+                    <a href="/ua/contacts">КОНТАКТИ</a>
+                  </li>
+                </ul>
+              </nav>
 
-                            <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
-                        </aside>
-
+              <a href="#" class="main-button">ЗАМОВИТИ ДЗВІНОК</a>
+            </aside>
                         <div
                             class="about-section__inner"
                             data-aos="fade-left"
                             data-aos-duration="900"
                             data-aos-delay="600"
                         >
-                            <h2 class="pretitle">О НАС</h2>
+                            <h2 class="pretitle">ПРО НАС</h2>
                             <ul class="breadcrumbs">
-                                <li><a href="/">Главная</a></li>
-                                <li>О нас</li>
+                                <li><a href="/ua/">Головна</a></li>
+                                <li>Про нас</li>
                             </ul>
-                            <h1 class="main-title">О КОМПАНИИ</h1>
+                            <h1 class="main-title">ПРО КОМПАНІЮ</h1>
 
                             <div class="about-section__content">
                                 <div class="about-section__wrapp">
                                     <div class="about-section__card">
-                                        <span class="about-section__title">НАША МИССИЯ</span>
+                                        <span class="about-section__title">НАША МІСІЯ</span>
                                         <p>
-                                            МЫ ДЕЛАЕМ АВТОПРОКАТ, ТАКИМ КАКИМ ОН ДОЛЖЕН БЫТЬ:
-                                            ЧЕСТНЫМ, СТИЛЬНЫМ, ЖИВЫМ
+                                            МИ РОБИМО АВТОПРОКАТ ТАКИМ, ЯКИМ ВІН МАЄ БУТИ:
+                                            ЧЕСНИМ, СТИЛЬНИМ, ЖИВИМ
                                         </p>
                                     </div>
 
@@ -118,13 +139,13 @@
                                             <picture>
                                                 <source
                                                     type="image/webp"
-                                                    srcset="img/icons/reiz.webp"
+                                                    srcset="/img/icons/reiz.webp"
                                                 />
                                                 <img
                                                     width="490"
                                                     height="300"
-                                                    src="img/icons/reiz.png"
-                                                    alt="Логотип REIZ на фасаде здания — бренд проката автомобилей"
+                                                    src="/img/icons/reiz.png"
+                                                    alt="Логотип REIZ на фасаді будівлі — бренд прокату автомобілів"
                                                 />
                                             </picture>
                                         </div>
@@ -140,20 +161,19 @@
                                                     <picture>
                                                         <source
                                                             type="image/webp"
-                                                            srcset="img/icons/user.webp"
+                                                            srcset="/img/icons/user.webp"
                                                         />
                                                         <img
                                                             width="490"
                                                             height="479"
-                                                            src="img/icons/user.png"
+                                                            src="/img/icons/user.png"
                                                             alt="Мар’ян Єдинак — основатель компании REIZ"
                                                         />
                                                     </picture>
                                                 </div>
                                                 <div class="team-card__info">
                                                     <h3 class="team-card__name">Мар’ян Єдинак</h3>
-                                                    <p class="team-card__position">
-                                                        Основатель компании
+                                                    <p class="team-card__position">Засновник компанії</p>
                                                     </p>
                                                 </div>
                                             </div>
@@ -164,44 +184,19 @@
                                                     <picture>
                                                         <source
                                                             type="image/webp"
-                                                            srcset="img/icons/user.webp"
+                                                            srcset="/img/icons/user.webp"
                                                         />
                                                         <img
                                                             width="490"
                                                             height="479"
-                                                            src="img/icons/user.png"
-                                                            alt="image"
-                                                        />
-                                                    </picture>
-                                                </div>
-                                                <div class="team-card__info">
-                                                    <h3 class="team-card__name">Мар’ян Єдинак</h3>
-                                                    <p class="team-card__position">
-                                                        Основатель компании
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="team-slider__slide swiper-slide">
-                                            <div class="team-card">
-                                                <div class="team-card__image">
-                                                    <picture>
-                                                        <source
-                                                            type="image/webp"
-                                                            srcset="img/icons/user.webp"
-                                                        />
-                                                        <img
-                                                            width="490"
-                                                            height="479"
-                                                            src="img/icons/user.png"
-                                                            alt="image"
+                                                            src="/img/icons/user.png"
+                                                            alt="Засновник компанії Мар’ян Єдинак"
                                                         />
                                                     </picture>
                                                 </div>
                                                 <div class="team-card__info">
                                                     <h3 class="team-card__name">Мар’ян Єдинак2</h3>
-                                                    <p class="team-card__position">
-                                                        Основатель компании2
+                                                    <p class="team-card__position">Засновник компанії2</p>
                                                     </p>
                                                 </div>
                                             </div>
@@ -212,13 +207,36 @@
                                                     <picture>
                                                         <source
                                                             type="image/webp"
-                                                            srcset="img/icons/user.webp"
+                                                            srcset="/img/icons/user.webp"
                                                         />
                                                         <img
                                                             width="490"
                                                             height="479"
-                                                            src="img/icons/user.png"
-                                                            alt="Мар’ян Єдинак — основатель компании REIZ"
+                                                            src="/img/icons/user.png"
+                                                            alt="image"
+                                                        />
+                                                    </picture>
+                                                </div>
+                                                <div class="team-card__info">
+                                                    <h3 class="team-card__name">Мар’ян Єдинак3</h3>
+                                                    <p class="team-card__position">Засновник компанії3</p>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="team-slider__slide swiper-slide">
+                                            <div class="team-card">
+                                                <div class="team-card__image">
+                                                    <picture>
+                                                        <source
+                                                            type="image/webp"
+                                                            srcset="/img/icons/user.webp"
+                                                        />
+                                                        <img
+                                                            width="490"
+                                                            height="479"
+                                                            src="/img/icons/user.png"
+                                                            alt="Мар’ян Єдинак — Засновник компанії REIZ"
                                                         />
                                                     </picture>
                                                 </div>
@@ -237,7 +255,7 @@
                                             <i class="sprite">
                                                 <svg width="12" height="7">
                                                     <use
-                                                        href="img/sprite/sprite.svg#Arrow-d2"
+                                                        href="/img/sprite/sprite.svg#Arrow-d2"
                                                     ></use>
                                                 </svg>
                                             </i>
@@ -246,7 +264,7 @@
                                             <i class="sprite">
                                                 <svg width="12" height="7">
                                                     <use
-                                                        href="img/sprite/sprite.svg#Arrow-d2"
+                                                        href="/img/sprite/sprite.svg#Arrow-d2"
                                                     ></use>
                                                 </svg>
                                             </i>
@@ -256,23 +274,23 @@
 
                                 <ul class="about-section__list">
                                     <li class="about-section__item">
-                                        <span class="about-section__title">10</span>
-                                        <p>
-                                            Автомобилей<br />
-                                            сдается в аренду
-                                        </p>
+                                      <span class="about-section__title">10</span>
+                                      <p>
+                                        Автомобілів<br />
+                                        здається в оренду
+                                      </p>
                                     </li>
                                     <li class="about-section__item">
-                                        <span class="about-section__title">230000</span>
-                                        <p>Километров проехано нашими клиентами</p>
+                                      <span class="about-section__title">230000</span>
+                                      <p>Кілометрів проїхали наші клієнти</p>
                                     </li>
                                     <li class="about-section__item">
-                                        <span class="about-section__title">4</span>
-                                        <p>Человек в команде DEIZ</p>
+                                      <span class="about-section__title">4</span>
+                                      <p>Осіб у команді REIZ</p>
                                     </li>
                                     <li class="about-section__item">
-                                        <span class="about-section__title">54</span>
-                                        <p>Новых клиентов за месяц</p>
+                                      <span class="about-section__title">54</span>
+                                      <p>Нових клієнтів за місяць</p>
                                     </li>
                                 </ul>
                             </div>

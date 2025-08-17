@@ -1,446 +1,343 @@
 <div class="overlay fixed-block" data-overlay>
-    <div class="modal" data-popup="order">
-        <button class="close modal__close">
-            <svg width='24' height='24'>
-                <use href='img/sprite/sprite.svg#close'></use>
-            </svg>
-        </button>
-
-        <div class="editor">
-            <h2>Оставить заявку</h2>
-            <p>Нажимая кнопку «Оставить заявку», вы принимаете<br> условия обработки персональных данных</p>
-
-            <form class="modal-form">
-                <label class="custom-checkbox">
-                    <input type="checkbox" class="custom-checkbox__field">
-                    <span class="custom-checkbox__content">Я ознакомился с условиями обработки персональных даных</span>
-                </label>
-                <button class="main-button" type="submit">Оставить заявку</button>
-            </form>
-        </div>
+    <!-- Submit Request -->
+    <div class="modal" data-popup="order" role="dialog" aria-modal="true" aria-labelledby="order-title">
+      <button class="close modal__close" aria-label="Close">
+        <svg width="24" height="24"><use href="/img/sprite/sprite.svg#close"></use></svg>
+      </button>
+  
+      <div class="editor">
+        <h2 id="order-title">Submit Request</h2>
+        <p>By clicking “Submit Request”, you agree to the processing of personal data.</p>
+  
+        <form class="modal-form">
+          <label class="custom-checkbox">
+            <input type="checkbox" class="custom-checkbox__field" required>
+            <span class="custom-checkbox__content">I have read and agree to the personal data processing terms</span>
+          </label>
+          <button class="main-button" type="submit">Submit Request</button>
+        </form>
+      </div>
     </div>
-
-    <div class="modal" data-popup="offer">
-        <button class="close modal__close">
-            <svg width='24' height='24'>
-                <use href='img/sprite/sprite.svg#close'></use>
-            </svg>
-        </button>
-
-        <div class="editor">
-            <h2>Получить предложение</h2>
-
-            <form class="modal-form">
-                <label class="modal-form__label">
-                    <input type="text" name="name_offer" id="name_offer" placeholder="Имя" class="modal-form__input">
-                </label>
-                <label class="modal-form__label">
-                    <input type="tel" name="phone_offer" id="phone_offer" placeholder="Телефон"
-                        class="modal-form__input">
-                </label>
-                <label class="modal-form__label">
-                    <input type="tel" name="mail_offer" id="main_offer" placeholder="E-mail" class="modal-form__input">
-                </label>
-
-                <p>Нажимая кнопку «Оставить заявку», вы принимаете условия обработки персональных данных</p>
-                <label class="custom-checkbox">
-                    <input type="checkbox" class="custom-checkbox__field">
-                    <span class="custom-checkbox__content">Я ознакомился с условиями обработки персональных
-                        даных</span>
-                </label>
-                <button class="main-button" type="submit">Оставить заявку</button>
-            </form>
-        </div>
-
-
-
+  
+    <!-- Get an Offer -->
+    <div class="modal" data-popup="offer" role="dialog" aria-modal="true" aria-labelledby="offer-title">
+      <button class="close modal__close" aria-label="Close">
+        <svg width="24" height="24"><use href="/img/sprite/sprite.svg#close"></use></svg>
+      </button>
+  
+      <div class="editor">
+        <h2 id="offer-title">Get an Offer</h2>
+  
+        <form class="modal-form">
+          <label class="modal-form__label">
+            <input type="text" name="name_offer" id="name_offer" placeholder="Name" class="modal-form__input">
+          </label>
+          <label class="modal-form__label">
+            <input type="tel" name="phone_offer" id="phone_offer" placeholder="Phone" class="modal-form__input">
+          </label>
+          <label class="modal-form__label">
+            <input type="email" name="mail_offer" id="main_offer" placeholder="E-mail" class="modal-form__input">
+          </label>
+  
+          <p>By clicking “Submit Request”, you agree to the processing of personal data.</p>
+          <label class="custom-checkbox">
+            <input type="checkbox" class="custom-checkbox__field" required>
+            <span class="custom-checkbox__content">I have read and agree to the personal data processing terms</span>
+          </label>
+          <button class="main-button" type="submit">Submit Request</button>
+        </form>
+      </div>
     </div>
-
-    <div class="rent-modal modal" data-popup="rent">
-        <button class="close modal__close">
-            <svg width='24' height='24'>
-                <use href='img/sprite/sprite.svg#close'></use>
-            </svg>
-        </button>
-
-        <div class="modal__box">
-            <span class="modal-step__title">ЗАПРОС БРОНИРОВАНИЯ </span>
-            <form class="modal__content">
-                <div class="order-form">
-                            <div class="custom-select order">
-                                <span class="select-icon">
-                                    <svg width='25' height='25'>
-                                        <use href='img/sprite/sprite.svg#geo'></use>
-                                    </svg>
-                                </span>
-                                <div class="select-field">
-                                    <div class="selected-options">
-
-                                    </div>
-                                    <div class="arrow-down">
-                                        <svg width='6' height='3'>
-                                            <use href='img/sprite/sprite.svg#arrow-d'></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <ul class="options-container">
-                                    <li class="option active" data-value="Киев, Аэропорт “Борисполь”, терминал 3б">
-                                        <span class="option-text">Киев, Аэропорт “Борисполь”, терминал 3б</span>
-                                    </li>
-                                    <li class="option" data-value="Киев, Аэропорт “Жуляны”, терминал 2а">
-                                        <span class="option-text">Киев, Аэропорт “Жуляны”, терминал 2а</span>
-                                    </li>
-                                    <li class="option" data-value="Львов, Аэропорт “Центральный”, терминал 1">
-                                        <span class="option-text">Львов, Аэропорт “Центральный”, терминал 1</span>
-                                    </li>
-                                </ul>
-
-                            </div>
-
-                            <div class="custom-select order">
-                                <span class="select-icon">
-                                    <svg width='25' height='25'>
-                                        <use href='img/sprite/sprite.svg#geo'></use>
-                                    </svg>
-                                </span>
-                                <div class="select-field">
-                                    <div class="selected-options">
-
-                                    </div>
-                                    <div class="arrow-down">
-                                        <svg width='6' height='3'>
-                                            <use href='img/sprite/sprite.svg#arrow-d'></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <ul class="options-container">
-                                    <li class="option active" data-value="Киев, Аэропорт “Борисполь”, терминал 3б">
-                                        <span class="option-text">Киев, Аэропорт “Борисполь”, терминал 3б</span>
-                                    </li>
-                                    <li class="option" data-value="Киев, Аэропорт “Жуляны”, терминал 2а">
-                                        <span class="option-text">Киев, Аэропорт “Жуляны”, терминал 2а</span>
-                                    </li>
-                                    <li class="option" data-value="Львов, Аэропорт “Центральный”, терминал 1">
-                                        <span class="option-text">Львов, Аэропорт “Центральный”, терминал 1</span>
-                                    </li>
-                                </ul>
-
-                            </div>
-                            <label class="order-form__label">
-                                <span class="order-form__icon">
-                                    <svg width='21' height='21'>
-                                        <use href='img/sprite/sprite.svg#car'></use>
-                                    </svg>
-                                </span>
-                                <input type="text" name="date" id="date" data-calendar="short"
-                                    value="26 апр. 10:00 - 26 апр. 10:00">
-
-                                <div class="arrow-down">
-                                    <svg width='6' height='3'>
-                                        <use href='img/sprite/sprite.svg#arrow-d'></use>
-                                    </svg>
-                                </div>
-                            </label>
-
-
-                            <button class="main-button" type="submit">НАЙТИ</button>
+  
+    <!-- Booking (Rent) -->
+    <div class="rent-modal modal" data-popup="rent" role="dialog" aria-modal="true" aria-labelledby="rent-title">
+      <button class="close modal__close" aria-label="Close">
+        <svg width="24" height="24"><use href="/img/sprite/sprite.svg#close"></use></svg>
+      </button>
+  
+      <div class="modal__box">
+        <span class="modal-step__title" id="rent-title">BOOKING REQUEST</span>
+        <form class="modal__content">
+          <div class="order-form">
+            <div class="custom-select order">
+              <span class="select-icon">
+                <svg width="25" height="25"><use href="/img/sprite/sprite.svg#geo"></use></svg>
+              </span>
+              <div class="select-field">
+                <div class="selected-options"></div>
+                <div class="arrow-down">
+                  <svg width="6" height="3"><use href="/img/sprite/sprite.svg#arrow-d"></use></svg>
                 </div>
-
-                <div class="modal__steps">
-                    <div class="modal__step" data-step="1">
-                        <div class="modal-step">
-                            <div class="modal-step__top">
-                                <span class="modal-step__title">ЗАПРОС БРОНИРОВАНИЯ </span>
-                                <span class="modal-step__info">Шаг 1/<b>1</b></span>
-                            </div>
-
-                            <div class="main-form">
-                                <div class="main-form__wrapp mode">
-                                    <span class="main-form__text">Личные данные</span>
-
-                                    <label class="main-form__label">
-                                        <input type="text" name="first_name" id="first_name" placeholder="Имя"
-                                            class="main-form__input" required>
-                                        <i></i>
-                                    </label>
-                                    <label class="main-form__label">
-                                        <input type="text" name="last_name" id="last_name" placeholder="Фамилия"
-                                            class="main-form__input" required>
-                                        <i></i>
-                                    </label>
-                                    <label class="main-form__label tel">
-                                        <input name="step_phone" id="step_phone" placeholder="Телефон"
-                                            class="main-form__input" required type="tel">
-                                        <i></i>
-                                    </label>
-                                    <label class="main-form__label">
-                                        <input type="email" name="step_mail" id="step_mail" placeholder="E-mail"
-                                            class="main-form__input" required>
-                                        <i></i>
-                                    </label>
-                                </div>
-
-                                <div class="main-form__wrapp">
-                                    <span class="main-form__text">Личные данные</span>
-                                    <label class="main-form__label calendar">
-                                        <input type="text" name="step_date" id="step_date" data-calendar="short"
-                                            placeholder="Дата и время подачи и возврата">
-
-                                        <div class="arrow-down">
-                                            <svg width='6' height='3'>
-                                                <use href='img/sprite/sprite.svg#arrow-d'></use>
-                                            </svg>
-                                        </div>
-                                    </label>
-                                    <div class="custom-select rent">
-                                        <div class="select-field">
-                                            <div class="selected-options">
-                                                <span class="placeholder">Место подачи</span>
-                                            </div>
-                                            <div class="arrow-down">
-                                                <svg width='6' height='3'>
-                                                    <use href='img/sprite/sprite.svg#arrow-d'></use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <ul class="options-container">
-                                            <li class="option active"
-                                                data-value="Киев, Аэропорт “Борисполь”, терминал 3б">
-                                                <span class="option-text">Киев, Аэропорт “Борисполь”, терминал 3б</span>
-                                            </li>
-                                            <li class="option" data-value="Киев, Аэропорт “Жуляны”, терминал 2а">
-                                                <span class="option-text">Киев, Аэропорт “Жуляны”, терминал 2а</span>
-                                            </li>
-                                            <li class="option" data-value="Львов, Аэропорт “Центральный”, терминал 1">
-                                                <span class="option-text">Львов, Аэропорт “Центральный”, терминал
-                                                    1</span>
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                    <div class="custom-select rent">
-                                        <div class="select-field">
-                                            <div class="selected-options">
-                                                <span class="placeholder">Место возврата</span>
-                                            </div>
-                                            <div class="arrow-down">
-                                                <svg width='6' height='3'>
-                                                    <use href='img/sprite/sprite.svg#arrow-d'></use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <ul class="options-container">
-                                            <li class="option active"
-                                                data-value="Киев, Аэропорт “Борисполь”, терминал 3б">
-                                                <span class="option-text">Киев, Аэропорт “Борисполь”, терминал 3б</span>
-                                            </li>
-                                            <li class="option" data-value="Киев, Аэропорт “Жуляны”, терминал 2а">
-                                                <span class="option-text">Киев, Аэропорт “Жуляны”, терминал 2а</span>
-                                            </li>
-                                            <li class="option" data-value="Львов, Аэропорт “Центральный”, терминал 1">
-                                                <span class="option-text">Львов, Аэропорт “Центральный”, терминал
-                                                    1</span>
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                    <label class="main-form__label number">
-                                        <input type="number" name="number" id="number" placeholder="Номер авиарейса"
-                                            class="main-form__input">
-                                        <span>Необязательно</span>
-                                    </label>
-                                    <button class="main-button main-button--black" data-next-step>ДАЛЕЕ</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal__step" data-step="2">
-                        <div class="modal-step">
-                            <div class="modal-step__top">
-                                <span class="modal-step__title">ЗАПРОС БРОНИРОВАНИЯ </span>
-                                <span class="modal-step__info">Шаг 2/<b>2</b></span>
-                            </div>
-
-                            <div class="main-form">
-                                   <div class="main-form__wrapp fields inchurance mob">
-                                               <span class="main-form__text">Страховка
-                                        </span>
-                                        
-                                        <label class="custom-checkbox inchurance">
-                                            <input type="checkbox" checked class="custom-checkbox__field">
-                                            <span class="custom-checkbox__content">С залогом
-
-                                                <span>
-                                                Цена
-                                                <i>включено в стоимость</i>
-                                            </span>
-                                            </span>
-
-                                            
-                                        </label>
-                                         <label class="custom-checkbox inchurance">
-                                            <input type="checkbox" class="custom-checkbox__field">
-                                            <span class="custom-checkbox__content">Покрытие 50%
-
-                                                <span>
-                                                Цена
-                                                <i><b>54 USD</b> / сутки</i>
-                                            </span>
-                                            </span>
-
-                                            
-                                        </label>
-                                         <label class="custom-checkbox inchurance">
-                                            <input type="checkbox" class="custom-checkbox__field">
-                                            <span class="custom-checkbox__content">Покрытие 100%
-
-                                                <span>
-                                                Цена
-                                                <i><b>78 USD</b> / сутки</i>
-                                            </span>
-                                            </span>
-                                        </label>
-                                    </div>
-
-
-                                    <div class="main-form__wrapp check">
-                                        <span class="main-form__text">Страховка
-                                            <button class="main-form__btn">i</button>
-                                        </span>
-
-                                        <label class="radio-checkbox mode">
-                                            <input type="radio" name="insurance" checked value="step_Залог"
-                                                class="radio-checkbox__field">
-                                            <span class="radio-checkbox__content">
-                                                С залогом
-                                            </span>
-                                        </label>
-                                        <label class="radio-checkbox mode">
-                                            <input type="radio" name="insurance" value="step_Покрытие_50%"
-                                                class="radio-checkbox__field">
-                                            <span class="radio-checkbox__content">
-                                                Покрытие 50%
-                                            </span>
-                                        </label>
-                                        <label class="radio-checkbox mode">
-                                            <input type="radio" name="insurance" value="step_Покрытие_100%"
-                                                class="radio-checkbox__field">
-                                            <span class="radio-checkbox__content">
-                                                Покрытие 100%
-                                            </span>
-                                        </label>
-                                    </div>
-
-                                  
-
-                                    <div class="main-form__wrapp fields mob">
-                                        <span class="main-form__text">Дополнения</span>
-                                        
-                                        <label class="custom-checkbox offer">
-                                            <input type="checkbox" checked class="custom-checkbox__field">
-                                            <span class="custom-checkbox__content">Дополнителный водитель
-                                                <b>6 USD / сутки</b>
-                                            </span>
-                                        </label>
-                                         <label class="custom-checkbox offer">
-                                            <input type="checkbox" class="custom-checkbox__field">
-                                            <span class="custom-checkbox__content">
-                                                <span>Детское автокресло <i>i</i></span>
-                                                <b>3 USD / сутки</b>
-                                            </span>
-                                        </label>
-                                         <label class="custom-checkbox offer">
-                                            <input type="checkbox" class="custom-checkbox__field">
-                                            <span class="custom-checkbox__content">
-                                                <span>Выезд за границу <i>i</i></span>
-                                                <b>150 USD</b>
-                                            </span>
-                                        </label>
-                                         <label class="custom-checkbox offer">
-                                            <input type="checkbox" class="custom-checkbox__field">
-                                            <span class="custom-checkbox__content">
-
-                                            <span>Услуги водителя <i>i</i></span>
-                                            <b>80 USD / Рабочий день</b>
-                                            </span>
-                                        </label>
-                                    </div>
-
-                                    <div class="main-form__wrapp fields">
-                                        <span class="main-form__text">Коментарий</span>
-
-                                        <label class="main-form__label">
-                                            <input type="text" name="step_mess" id="step_mess"
-                                                placeholder="Сообщение для менеджера" class="main-form__input">
-                                        </label>
-                                    </div>
-
-                                    <label class="custom-checkbox">
-                                        <input type="checkbox" class="custom-checkbox__field">
-                                        <span class="custom-checkbox__content">Я ознакомился с условиями обработки
-                                            персональных
-                                            даных</span>
-                                    </label>
-
-                                    <button class="main-button main-button--black">ОСТАВИТЬ ЗАЯВКУ</button>
-                                
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-               
-            </form>
-
-            <div class="modal__right">
-                <div class="modal__image">
-                    <picture>
-                        <source type='image/webp' srcset='img/car/car5.webp'>
-                        <img width='570' height='319' src='img/car/car5.png' alt='image'>
-                    </picture>
-                </div>
-
-                <h2 class="modal__title">Аренда Mercedes-Benz G63 Black 2025 в Киеве</h2>
-
-                <ul class="modal__list">
-                    <li class="modal__item mode">
-                        <div class="modal__item-info">
-                            <span class="modal__name">Запрос подачи</span>
-                            <span class="modal__info">
-                                <b>19.04.2025 (13:30)</b>
-                                Киев, Аэропорт "Борисполь", терминал "D"
-                            </span>
-                        </div>
-                        <div class="modal__item-info">
-                            <span class="modal__name">Запрос возврата</span>
-                            <span class="modal__info">
-                                <b>19.04.2025 (13:30)</b>
-                                Киев, Аэропорт "Борисполь", терминал "D"
-                            </span>
-                        </div>
-                    </li>
-
-                    <li class="modal__item mode">
-                        <div class="modal__item-wrapp">
-                            <span class="modal__name">Продолжительность аренды</span>
-                            <span class="modal__value">3 Days</span>
-                        </div>
-                        <div class="modal__item-wrapp">
-                            <span class="modal__name">Стоимость аренды</span>
-                            <span class="modal__value">429 USD/day</span>
-                        </div>
-                    </li>
-                    <li class="modal__item">
-                        <span class="modal__name">Залог</span>
-                        <span class="modal__value"><b>2000 USD</b></span>
-                    </li>
-                    <li class="modal__item">
-                        <span class="modal__name">Общая стоимость</span>
-                        <span class="modal__value big">2035 USD</span>
-                    </li>
-                </ul>
+              </div>
+              <ul class="options-container">
+                <li class="option active" data-value="Kyiv, Boryspil Airport, Terminal 3B">
+                  <span class="option-text">Kyiv, Boryspil Airport, Terminal 3B</span>
+                </li>
+                <li class="option" data-value="Kyiv, Zhulyany Airport, Terminal 2A">
+                  <span class="option-text">Kyiv, Zhulyany Airport, Terminal 2A</span>
+                </li>
+                <li class="option" data-value="Lviv, Central Airport, Terminal 1">
+                  <span class="option-text">Lviv, Central Airport, Terminal 1</span>
+                </li>
+              </ul>
             </div>
+  
+            <div class="custom-select order">
+              <span class="select-icon">
+                <svg width="25" height="25"><use href="/img/sprite/sprite.svg#geo"></use></svg>
+              </span>
+              <div class="select-field">
+                <div class="selected-options"></div>
+                <div class="arrow-down">
+                  <svg width="6" height="3"><use href="/img/sprite/sprite.svg#arrow-d"></use></svg>
+                </div>
+              </div>
+              <ul class="options-container">
+                <li class="option active" data-value="Kyiv, Boryspil Airport, Terminal 3B">
+                  <span class="option-text">Kyiv, Boryspil Airport, Terminal 3B</span>
+                </li>
+                <li class="option" data-value="Kyiv, Zhulyany Airport, Terminal 2A">
+                  <span class="option-text">Kyiv, Zhulyany Airport, Terminal 2A</span>
+                </li>
+                <li class="option" data-value="Lviv, Central Airport, Terminal 1">
+                  <span class="option-text">Lviv, Central Airport, Terminal 1</span>
+                </li>
+              </ul>
+            </div>
+  
+            <label class="order-form__label">
+              <span class="order-form__icon">
+                <svg width="21" height="21"><use href="/img/sprite/sprite.svg#car"></use></svg>
+              </span>
+              <input type="text" name="date" id="date" data-calendar="short" value="26 Apr 10:00 – 26 Apr 10:00">
+              <div class="arrow-down">
+                <svg width="6" height="3"><use href="/img/sprite/sprite.svg#arrow-d"></use></svg>
+              </div>
+            </label>
+  
+            <button class="main-button" type="submit">SEARCH</button>
+          </div>
+  
+          <div class="modal__steps">
+            <div class="modal__step" data-step="1">
+              <div class="modal-step">
+                <div class="modal-step__top">
+                  <span class="modal-step__title">BOOKING REQUEST</span>
+                  <span class="modal-step__info">Step 1/<b>1</b></span>
+                </div>
+  
+                <div class="main-form">
+                  <div class="main-form__wrapp mode">
+                    <span class="main-form__text">Personal details</span>
+  
+                    <label class="main-form__label">
+                      <input type="text" name="first_name" id="first_name" placeholder="First name" class="main-form__input" required>
+                      <i></i>
+                    </label>
+                    <label class="main-form__label">
+                      <input type="text" name="last_name" id="last_name" placeholder="Last name" class="main-form__input" required>
+                      <i></i>
+                    </label>
+                    <label class="main-form__label tel">
+                      <input name="step_phone" id="step_phone" placeholder="Phone" class="main-form__input" required type="tel">
+                      <i></i>
+                    </label>
+                    <label class="main-form__label">
+                      <input type="email" name="step_mail" id="step_mail" placeholder="E-mail" class="main-form__input" required>
+                      <i></i>
+                    </label>
+                  </div>
+  
+                  <div class="main-form__wrapp">
+                    <span class="main-form__text">Rental details</span>
+  
+                    <label class="main-form__label calendar">
+                      <input type="text" name="step_date" id="step_date" data-calendar="short" placeholder="Pick-up & return date/time">
+                      <div class="arrow-down">
+                        <svg width="6" height="3"><use href="/img/sprite/sprite.svg#arrow-d"></use></svg>
+                      </div>
+                    </label>
+  
+                    <div class="custom-select rent">
+                      <div class="select-field">
+                        <div class="selected-options"><span class="placeholder">Pick-up location</span></div>
+                        <div class="arrow-down"><svg width="6" height="3"><use href="/img/sprite/sprite.svg#arrow-d"></use></svg></div>
+                      </div>
+                      <ul class="options-container">
+                        <li class="option active" data-value="Kyiv, Boryspil Airport, Terminal 3B">
+                          <span class="option-text">Kyiv, Boryspil Airport, Terminal 3B</span>
+                        </li>
+                        <li class="option" data-value="Kyiv, Zhulyany Airport, Terminal 2A">
+                          <span class="option-text">Kyiv, Zhulyany Airport, Terminal 2A</span>
+                        </li>
+                        <li class="option" data-value="Lviv, Central Airport, Terminal 1">
+                          <span class="option-text">Lviv, Central Airport, Terminal 1</span>
+                        </li>
+                      </ul>
+                    </div>
+  
+                    <div class="custom-select rent">
+                      <div class="select-field">
+                        <div class="selected-options"><span class="placeholder">Return location</span></div>
+                        <div class="arrow-down"><svg width="6" height="3"><use href="/img/sprite/sprite.svg#arrow-d"></use></svg></div>
+                      </div>
+                      <ul class="options-container">
+                        <li class="option active" data-value="Kyiv, Boryspil Airport, Terminal 3B">
+                          <span class="option-text">Kyiv, Boryspil Airport, Terminal 3B</span>
+                        </li>
+                        <li class="option" data-value="Kyiv, Zhulyany Airport, Terminal 2A">
+                          <span class="option-text">Kyiv, Zhulyany Airport, Terminal 2A</span>
+                        </li>
+                        <li class="option" data-value="Lviv, Central Airport, Terminal 1">
+                          <span class="option-text">Lviv, Central Airport, Terminal 1</span>
+                        </li>
+                      </ul>
+                    </div>
+  
+                    <label class="main-form__label number">
+                      <input type="text" name="number" id="number" placeholder="Flight number" class="main-form__input">
+                      <span>Optional</span>
+                    </label>
+  
+                    <button class="main-button main-button--black" data-next-step type="button">NEXT</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="modal__step" data-step="2">
+              <div class="modal-step">
+                <div class="modal-step__top">
+                  <span class="modal-step__title">BOOKING REQUEST</span>
+                  <span class="modal-step__info">Step 2/<b>2</b></span>
+                </div>
+  
+                <div class="main-form">
+                  <div class="main-form__wrapp fields inchurance mob">
+                    <span class="main-form__text">Insurance</span>
+  
+                    <label class="custom-checkbox inchurance">
+                      <input type="checkbox" checked class="custom-checkbox__field">
+                      <span class="custom-checkbox__content">With deposit
+                        <span>Price <i>included</i></span>
+                      </span>
+                    </label>
+                    <label class="custom-checkbox inchurance">
+                      <input type="checkbox" class="custom-checkbox__field">
+                      <span class="custom-checkbox__content">Coverage 50%
+                        <span>Price <i><b>54 USD</b> / day</i></span>
+                      </span>
+                    </label>
+                    <label class="custom-checkbox inchurance">
+                      <input type="checkbox" class="custom-checkbox__field">
+                      <span class="custom-checkbox__content">Coverage 100%
+                        <span>Price <i><b>78 USD</b> / day</i></span>
+                      </span>
+                    </label>
+                  </div>
+  
+                  <div class="main-form__wrapp check">
+                    <span class="main-form__text">Insurance
+                      <button class="main-form__btn" type="button" aria-label="Insurance info">i</button>
+                    </span>
+  
+                    <label class="radio-checkbox mode">
+                      <input type="radio" name="insurance" checked value="step_Залог" class="radio-checkbox__field">
+                      <span class="radio-checkbox__content">With deposit</span>
+                    </label>
+                    <label class="radio-checkbox mode">
+                      <input type="radio" name="insurance" value="step_Покрытие_50%" class="radio-checkbox__field">
+                      <span class="radio-checkbox__content">Coverage 50%</span>
+                    </label>
+                    <label class="radio-checkbox mode">
+                      <input type="radio" name="insurance" value="step_Покрытие_100%" class="radio-checkbox__field">
+                      <span class="radio-checkbox__content">Coverage 100%</span>
+                    </label>
+                  </div>
+  
+                  <div class="main-form__wrapp fields mob">
+                    <span class="main-form__text">Add-ons</span>
+  
+                    <label class="custom-checkbox offer">
+                      <input type="checkbox" checked class="custom-checkbox__field">
+                      <span class="custom-checkbox__content">Additional driver <b>6 USD / day</b></span>
+                    </label>
+                    <label class="custom-checkbox offer">
+                      <input type="checkbox" class="custom-checkbox__field">
+                      <span class="custom-checkbox__content"><span>Child seat <i>i</i></span> <b>3 USD / day</b></span>
+                    </label>
+                    <label class="custom-checkbox offer">
+                      <input type="checkbox" class="custom-checkbox__field">
+                      <span class="custom-checkbox__content"><span>Cross-border travel <i>i</i></span> <b>150 USD</b></span>
+                    </label>
+                    <label class="custom-checkbox offer">
+                      <input type="checkbox" class="custom-checkbox__field">
+                      <span class="custom-checkbox__content"><span>Chauffeur service <i>i</i></span> <b>80 USD / working day</b></span>
+                    </label>
+                  </div>
+  
+                  <div class="main-form__wrapp fields">
+                    <span class="main-form__text">Comment</span>
+                    <label class="main-form__label">
+                      <input type="text" name="step_mess" id="step_mess" placeholder="Message for the manager" class="main-form__input">
+                    </label>
+                  </div>
+  
+                  <label class="custom-checkbox">
+                    <input type="checkbox" class="custom-checkbox__field" required>
+                    <span class="custom-checkbox__content">I have read and agree to the personal data processing terms</span>
+                  </label>
+  
+                  <button class="main-button main-button--black" type="submit">SUBMIT REQUEST</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+  
+        <div class="modal__right">
+          <div class="modal__image">
+            <picture>
+              <source type="image/webp" srcset="/img/car/car5.webp">
+              <img width="570" height="319" src="/img/car/car5.png" alt="Mercedes-Benz G63 Black 2025">
+            </picture>
+          </div>
+  
+          <h2 class="modal__title">Mercedes-Benz G63 Black 2025 rental in Kyiv</h2>
+  
+          <ul class="modal__list">
+            <li class="modal__item mode">
+              <div class="modal__item-info">
+                <span class="modal__name">Pick-up request</span>
+                <span class="modal__info"><b>19.04.2025 (13:30)</b> Kyiv, Boryspil Airport, Terminal “D”</span>
+              </div>
+              <div class="modal__item-info">
+                <span class="modal__name">Return request</span>
+                <span class="modal__info"><b>19.04.2025 (13:30)</b> Kyiv, Boryspil Airport, Terminal “D”</span>
+              </div>
+            </li>
+  
+            <li class="modal__item mode">
+              <div class="modal__item-wrapp">
+                <span class="modal__name">Rental duration</span>
+                <span class="modal__value">3 Days</span>
+              </div>
+              <div class="modal__item-wrapp">
+                <span class="modal__name">Rental price</span>
+                <span class="modal__value">429 USD/day</span>
+              </div>
+            </li>
+            <li class="modal__item">
+              <span class="modal__name">Deposit</span>
+              <span class="modal__value"><b>2000 USD</b></span>
+            </li>
+            <li class="modal__item">
+              <span class="modal__name">Total price</span>
+              <span class="modal__value big">2035 USD</span>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+  

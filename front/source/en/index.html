@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" class="page">
-    @include('partials/head.html', { 
-        "title": "Аренда авто во Львове — REIZ RENTAL CARS",
-        "description": "Аренда автомобилей во Львове. Современные авто, премиум-сервис, подача по адресу, 24/7.", 
-        "canonical": "https://reiz.com.ua/", "og_title": "Аренда авто во Львове — REIZ RENTAL CARS", 
-        "og_description": "Прокат автомобилей во Львове. Новые авто, премиальный сервис, адресная доставка, поддержка 24/7.", 
-        "og_url": "https://reiz.com.ua/", 
-        "og_image": "https://reiz.com.ua/img/og/home.webp" 
-    })
+  @include('partials/head.html', {
+    "title": "Car rental in Lviv — REIZ RENTAL CARS",
+    "description": "Car rental in Lviv. New cars, premium service, delivery to your address, support 24/7.",
+    "canonical": "https://reiz.com.ua/en/",
+    "og_title": "Car rental in Lviv — REIZ RENTAL CARS",
+    "og_description": "Car hire in Lviv. Modern fleet, premium service, doorstep delivery, 24/7 support.",
+    "og_image": "https://reiz.com.ua/img/og/home.webp",
+    "og_locale": "en_US",
+    "lang": "en",
+    "href_ru": "https://reiz.com.ua/",
+    "href_uk": "https://reiz.com.ua/ua/",
+    "href_en": "https://reiz.com.ua/en/",
+    "href_default": "https://reiz.com.ua/en/",
+    "page": "home"
+  })
+      
 
-    <body class="page__body" data-page="main">
-        @include('partials/noscript.html') @include('partials/header.html')
-
+  <body class="page__body" data-page="main">
+    @include('partials/noscript.html')
+    @include('partials/header.html')
+      
         <main class="main">
             <section class="hero-section">
                 <div class="hero-section__slider">
@@ -19,18 +28,15 @@
                         <ul class="swiper-wrapper">
                             <li class="swiper-slide">
                                 <picture>
-                                    <source
-                                        type="image/webp"
-                                        media="(max-width: 575px)"
-                                        srcset="img/mobreiz1.webp"
-                                    />
-                                    <source media="(max-width: 575px)" srcset="img/mobreiz1.png" />
-                                    <source type="image/webp" srcset="img/car/mercedescle1.webp" />
+                                  <source type='image/webp' media='(max-width: 575px)' srcset='/img/mercedesmobile.webp'>
+                                  <source media='(max-width: 575px)' srcset='/img/mobreiz1.png'>
+                                  <source type="image/webp" srcset="/img/car/mercedescle1.webp" />
                                     <img
                                         width="1440"
                                         height="902"
-                                        src="img/car/mercedescle.png"
-                                        alt="Премиум авто на фоне гор"
+                                        src="/img/car/mercedescle.png"
+                                        alt="Car rental in Lviv — Mercedes CLE | REIZ Rental Cars" 
+                                        fetchpriority="high" decoding="async" 
                                     />
                                 </picture>
                             </li>
@@ -53,60 +59,43 @@
                             <nav class="main-nav">
                                 <ul>
                                     <li>
-                                        <a href="/" class="active">MAIN</a>
+                                        <a href="/" class="active">HOME</a>
                                     </li>
                                     <li>
                                         <ul class="main-nav__acc" data-accordion>
                                             <li class="main-nav__acc-item">
                                                 <button class="main-nav__acc-btn" data-id="1">
-                                                    АВТОМОБИЛИ
+                                                    CARS
                                                     <i class="sprite">
                                                         <svg width="11" height="8">
                                                             <use
-                                                                href="img/sprite/sprite.svg#arrow-d"
+                                                                href="/img/sprite/sprite.svg#arrow-d"
                                                             ></use>
                                                         </svg>
                                                     </i>
                                                 </button>
-                                                <div class="main-nav__acc-content" data-content="1">
-                                                    <a href="#catalog">Прокат авто в Киеве</a>
-                                                    <a href="#catalog">Прокат авто во Львове</a>
-                                                    <a href="#catalog">Прокат авто в Тернополе</a>
-                                                </div>
+                                                <div class="main-nav__acc-content" id="nav-cars" data-content="1" role="region" aria-labelledby="nav-cars">
+                                                    <a href="#catalog">Car rental in Kyiv</a>
+                                                    <a href="#catalog">Car rental in Lviv</a>
+                                                    <a href="#catalog">Car rental in Ternopil</a>
+                                                  </div>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a href="/insurance">СТРАХОВКА</a>
-                                    </li>
-                                    <li>
-                                        <a href="/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/certificate">СЕРТИФИКАТЫ </a>
-                                    </li>
-                                    <li>
-                                        <a href="/terms">УСЛОВИЯ АРЕНДЫ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/faq">ВОПРОС-ОТВЕТ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/blog">БЛОГ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/about">О НАС</a>
-                                    </li>
-                                    <li>
-                                        <a href="/contacts">КОНТАКТЫ</a>
-                                    </li>
-                                </ul>
+                                </li>
+                                <li><a href="/en/insurance">INSURANCE</a></li>
+                                <li><a href="/en/business">BUSINESS RENTALS</a></li>
+                                <li><a href="/en/certificate">GIFT CERTIFICATES</a></li>
+                                <li><a href="/en/terms">RENTAL TERMS</a></li>
+                                <li><a href="/en/faq">FAQ</a></li>
+                                <li><a href="/en/invest">LIST YOUR CAR</a></li>
+                                <li><a href="/en/blog">BLOG</a></li>
+                                <li><a href="/en/about">ABOUT US</a></li>
+                                <li><a href="/en/contacts">CONTACTS</a></li>
+                              </ul>
                             </nav>
 
-                            <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
+                            <a href="tel:+380635471186" class="main-button"> REQUEST A CALLBACK</a> 
                         </aside>
 
                         <div class="hero-section__inner">
@@ -116,15 +105,15 @@
                                 data-aos-duration="1000"
                                 data-aos-delay="700"
                             >
-                                <h3 class="pretitle">ДОБРО ПОЖАЛОВАТЬ В REIZ</h3>
+                                <h3 class="pretitle">WELCOME TO REIZ</h3>
 
                                 <span class="hero-section__date">
                                     <i class="sprite">
                                         <svg width="24" height="24">
-                                            <use href="img/sprite/sprite.svg#time"></use>
+                                            <use href="/img/sprite/sprite.svg#time"></use>
                                         </svg>
                                     </i>
-                                    ОТВЕТИМ С 09:00 ДО 22:00
+                                    WE REPLY 08:00–22:00
                                 </span>
                             </div>
                             <div
@@ -133,32 +122,19 @@
                                 data-aos-duration="1000"
                                 data-aos-delay="800"
                             >
-                                <h1 class="title">Аренда авто во Львове</h1>
-
-                                <p>
-                                    Аренда авто во Львове от REIZ — новые автомобили,
-                                    премиум-сервис, выгодные тарифы и подача по адресу в удобное
-                                    время.
-                                </p>
-
-                                <ul>
-                                    <li>
-                                        <p>Аренда авто эконом-класса</p>
-                                    </li>
-                                    <li>
-                                        <p>Аренда авто бизнес-класса</p>
-                                    </li>
-                                    <li>
-                                        <p>Прокат премиум-авто</p>
-                                    </li>
-                                    <li>
-                                        <p>Аренда внедорожников</p>
-                                    </li>
-                                    <li>
-                                        <p>Прокат минивэнов</p>
-                                    </li>
-                                </ul>
-                            </div>
+                            <h1 class="title">Car rental in Lviv</h1>
+                            <p>
+                              REIZ offers car rental in Lviv with new vehicles, premium service, fair rates and delivery to your
+                              address at a convenient time.
+                            </p>
+                            <ul>
+                              <li><p>Economy car rental</p></li>
+                              <li><p>Business class car rental</p></li>
+                              <li><p>Premium car hire</p></li>
+                              <li><p>SUV rental</p></li>
+                              <li><p>Minivan rental</p></li>
+                            </ul>
+                          </div>
 
                             <div
                                 class="hero-section__links"
@@ -166,16 +142,16 @@
                                 data-aos-duration="1000"
                                 data-aos-delay="1100"
                             >
-                                <a href="#" class="adress-link">
+                                <a href="/terms#delivery" class="adress-link address-link"> <!-- UPDATED -->
                                     <i class="sprite mode">
                                         <svg width="20" height="26">
-                                            <use href="img/sprite/sprite.svg#geo"></use>
+                                            <use href="/img/sprite/sprite.svg#geo"></use>
                                         </svg>
                                     </i>
                                     <span>Danylo Halytskyi International Airport Lviv</span>
                                     <i class="sprite">
                                         <svg width="12" height="7">
-                                            <use href="img/sprite/sprite.svg#Arrow-d2"></use>
+                                            <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
                                         </svg>
                                     </i>
                                 </a>
@@ -183,110 +159,66 @@
                                 <a href="#catalog" class="down-btn">
                                     <i class="sprite">
                                         <svg width="16" height="22">
-                                            <use href="img/sprite/sprite.svg#Arrow"></use>
+                                            <use href="/img/sprite/sprite.svg#Arrow"></use>
                                         </svg>
                                     </i>
 
-                                    ПЕРЕЙТИ К ВЫБОРУ АВТОМОБИЛЯ
+                                    GO TO CAR CATALOG
                                 </a>
                             </div>
 
                             <div class="hero-section__content">
-                                <h2 class="h2">СДАЙ СВОЕ АВТО В АРЕНДУ</h2>
-
-                                <a href="#" class="main-button main-button--transparent"
-                                    >Подробней</a
-                                >
+                                <h2 class="h2">LIST YOUR CAR</h2>
+                                
+                                <a href="/invest" class="main-button main-button--transparent">Learn more</a> <!-- UPDATED -->
                             </div>
 
                             <form class="order-form">
                                 <div class="custom-select order">
                                     <span class="select-icon">
                                         <svg width="25" height="25">
-                                            <use href="img/sprite/sprite.svg#geo"></use>
+                                            <use href="/img/sprite/sprite.svg#geo"></use>
                                         </svg>
                                     </span>
                                     <div class="select-field">
                                         <div class="selected-options"></div>
                                         <div class="arrow-down">
                                             <svg width="6" height="3">
-                                                <use href="img/sprite/sprite.svg#arrow-d"></use>
+                                                <use href="/img/sprite/sprite.svg#arrow-d"></use>
                                             </svg>
                                         </div>
                                     </div>
-                                    <ul class="options-container">
-                                        <li
-                                            class="option active"
-                                            data-value="Киев, Аэропорт “Борисполь”, терминал 3б"
-                                        >
-                                            <span class="option-text"
-                                                >Киев, Аэропорт “Борисполь”, терминал 3б</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="option"
-                                            data-value="Киев, Аэропорт “Жуляны”, терминал 2а"
-                                        >
-                                            <span class="option-text"
-                                                >Киев, Аэропорт “Жуляны”, терминал 2а</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="option"
-                                            data-value="Львов, Аэропорт “Центральный”, терминал 1"
-                                        >
-                                            <span class="option-text"
-                                                >Львов, Аэропорт “Центральный”, терминал 1</span
-                                            >
-                                        </li>
-                                    </ul>
+                                    <ul class="options-container" role="listbox" aria-label="Pick-up options">
+                                        <li class="option active" data-value="Kyiv, Boryspil Airport, Terminal 3B"><span class="option-text">Kyiv, Boryspil Airport, Terminal 3B</span></li>
+                                        <li class="option" data-value="Kyiv, Zhuliany Airport, Terminal 2A"><span class="option-text">Kyiv, Zhuliany Airport, Terminal 2A</span></li>
+                                        <li class="option" data-value="Lviv, Danylo Halytskyi Int’l Airport, T1"><span class="option-text">Lviv, Danylo Halytskyi Int’l Airport, T1</span></li>
+                                      </ul>
                                 </div>
 
                                 <div class="custom-select order">
                                     <span class="select-icon">
                                         <svg width="25" height="25">
-                                            <use href="img/sprite/sprite.svg#geo"></use>
+                                            <use href="/img/sprite/sprite.svg#geo"></use>
                                         </svg>
                                     </span>
                                     <div class="select-field">
                                         <div class="selected-options"></div>
                                         <div class="arrow-down">
                                             <svg width="6" height="3">
-                                                <use href="img/sprite/sprite.svg#arrow-d"></use>
+                                                <use href="/img/sprite/sprite.svg#arrow-d"></use>
                                             </svg>
                                         </div>
                                     </div>
-                                    <ul class="options-container">
-                                        <li
-                                            class="option active"
-                                            data-value="Киев, Аэропорт “Борисполь”, терминал 3б"
-                                        >
-                                            <span class="option-text"
-                                                >Киев, Аэропорт “Борисполь”, терминал 3б</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="option"
-                                            data-value="Киев, Аэропорт “Жуляны”, терминал 2а"
-                                        >
-                                            <span class="option-text"
-                                                >Киев, Аэропорт “Жуляны”, терминал 2а</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="option"
-                                            data-value="Львов, Аэропорт “Центральный”, терминал 1"
-                                        >
-                                            <span class="option-text"
-                                                >Львов, Аэропорт “Центральный”, терминал 1</span
-                                            >
-                                        </li>
-                                    </ul>
+                                    <ul class="options-container" role="listbox" aria-label="Return options">
+                    <li class="option active" data-value="Kyiv, Boryspil Airport, Terminal 3B"><span class="option-text">Kyiv, Boryspil Airport, Terminal 3B</span></li>
+                    <li class="option" data-value="Kyiv, Zhuliany Airport, Terminal 2A"><span class="option-text">Kyiv, Zhuliany Airport, Terminal 2A</span></li>
+                    <li class="option" data-value="Lviv, Danylo Halytskyi Int’l Airport, T1"><span class="option-text">Lviv, Danylo Halytskyi Int’l Airport, T1</span></li>
+                  </ul>
                                 </div>
                                 <label class="order-form__label">
                                     <span class="order-form__icon">
                                         <svg width="21" height="21">
-                                            <use href="img/sprite/sprite.svg#pickup"></use>
+                                            <use href="/img/sprite/sprite.svg#pickup"></use>
                                         </svg>
                                     </span>
                                     <input
@@ -294,17 +226,17 @@
                                         name="date"
                                         id="date"
                                         data-calendar="short"
-                                        value="26 апр. 10:00 - 26 апр. 10:00"
-                                    />
+                                        placeholder="Select dates"
+                                        />
 
                                     <div class="arrow-down">
                                         <svg width="6" height="3">
-                                            <use href="img/sprite/sprite.svg#arrow-d"></use>
+                                            <use href="/img/sprite/sprite.svg#arrow-d"></use>
                                         </svg>
                                     </div>
                                 </label>
 
-                                <button class="main-button" type="submit">НАЙТИ</button>
+                                <button class="main-button" type="submit">FIND</button>
                             </form>
                         </div>
                     </div>
@@ -317,7 +249,7 @@
                         <aside class="catalog-aside" data-aos="fade-right" data-aos-duration="900">
                             <div class="catalog-aside__top">
                                 <h2 class="catalog-aside__title">REIZ RENTAL</h2>
-                                <p>ВЫБЕРИТЕ СВОЙ АВТОМОБИЛЬ</p>
+                                <p>CHOOSE YOUR CAR</p>
                             </div>
 
                             <form class="catalog-aside__form">
@@ -334,7 +266,7 @@
                                                 <i class="sprite">
                                                     <svg width="88" height="27">
                                                         <use
-                                                            href="img/sprite/sprite.svg#car1"
+                                                            href="/img/sprite/sprite.svg#car1"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -353,7 +285,7 @@
                                                 <i class="sprite">
                                                     <svg width="88" height="27">
                                                         <use
-                                                            href="img/sprite/sprite.svg#car2"
+                                                            href="/img/sprite/sprite.svg#car2"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -371,7 +303,7 @@
                                                 <i class="sprite">
                                                     <svg width="88" height="27">
                                                         <use
-                                                            href="img/sprite/sprite.svg#car3"
+                                                            href="/img/sprite/sprite.svg#car3"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -389,7 +321,7 @@
                                                 <i class="sprite">
                                                     <svg width="88" height="27">
                                                         <use
-                                                            href="img/sprite/sprite.svg#car4"
+                                                            href="/img/sprite/sprite.svg#car4"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -407,7 +339,7 @@
                                                 <i class="sprite">
                                                     <svg width="88" height="27">
                                                         <use
-                                                            href="img/sprite/sprite.svg#car5"
+                                                            href="/img/sprite/sprite.svg#car5"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -418,93 +350,86 @@
 
                                     <div class="catalog-aside__open">
                                         <div class="catalog-aside__open-box">
-                                            <button class="catalog-aside__filter">
-                                                <i class="sprite">
-                                                    <svg width="21" height="21">
-                                                        <use
-                                                            href="img/sprite/sprite.svg#filter"
-                                                        ></use>
-                                                    </svg>
-                                                </i>
-                                                Фильтры
-                                                <b>1</b>
-                                            </button>
-                                            <div class="custom-select mode">
-                                                <div class="select-field">
-                                                    <div class="selected-options">
-                                                        <span class="placeholder">
-                                                            <i class="sprite">
-                                                                <svg width="14" height="12">
-                                                                    <use
-                                                                        href="img/sprite/sprite.svg#filter3"
-                                                                    ></use>
-                                                                </svg>
-                                                            </i>
-                                                        </span>
-                                                    </div>
+                                        <button class="catalog-aside__filter">
+                                            <i class="sprite">
+                                                <svg width="21" height="21">
+                                                    <use href="/img/sprite/sprite.svg#filter"></use>
+                                                </svg>
+                                            </i>
+                                            Filters
+                                            <b>1</b>
+                                        </button>
+                                        <div class="custom-select mode">
+                                            <div class="select-field">
+                                                <div class="selected-options">
+                                                    <span class="placeholder">
+                                                        <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="/img/sprite/sprite.svg#filter3"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                    </span>
                                                 </div>
-                                                <ul class="options-container">
-                                                    <li class="option" data-value="По_возрастанию">
-                                                        <span class="option-text">
-                                                            <i class="sprite">
-                                                                <svg width="14" height="12">
-                                                                    <use
-                                                                        href="img/sprite/sprite.svg#filter5"
-                                                                    ></use>
-                                                                </svg>
-                                                            </i>
-                                                            По возрастанию</span
-                                                        >
-                                                    </li>
-                                                    <li class="option" data-value="По_убыванию">
-                                                        <span class="option-text">
-                                                            <i class="sprite">
-                                                                <svg width="14" height="12">
-                                                                    <use
-                                                                        href="img/sprite/sprite.svg#filter4"
-                                                                    ></use>
-                                                                </svg>
-                                                            </i>
-                                                            По убыванию</span
-                                                        >
-                                                    </li>
-                                                    <li class="option" data-value="По_умолчанию">
-                                                        <span class="option-text">
-                                                            <i class="sprite">
-                                                                <svg width="14" height="12">
-                                                                    <use
-                                                                        href="img/sprite/sprite.svg#filter3"
-                                                                    ></use>
-                                                                </svg>
-                                                            </i>
-                                                            По умолчанию</span
-                                                        >
-                                                    </li>
-                                                </ul>
                                             </div>
+                                            <ul class="options-container">
+                                                <li class="option" data-value="По_возрастанию">
+                                                    <span class="option-text">
+                                                         <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="/img/sprite/sprite.svg#filter5"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                        Price: Low to High</span>
+                                                </li>
+                                                <li class="option" data-value="По_убыванию">
+                                                    <span class="option-text">
+                                                         <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="/img/sprite/sprite.svg#filter4"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                        Price: High to Low</span>
+                                                </li>
+                                                 <li class="option" data-value="По_умолчанию">
+                                                    <span class="option-text">
+                                                         <i class="sprite">
+                                                            <svg width="14" height="12">
+                                                                <use
+                                                                    href="/img/sprite/sprite.svg#filter3"
+                                                                ></use>
+                                                            </svg>
+                                                        </i>
+                                                        Default</span>
+                                                </li>
+                                            </ul>
+                                        </div>
                                         </div>
                                     </div>
 
                                     <div class="catalog-aside__filters">
-                                        <span class="catalog-aside__subtitle"
-                                            >Фильтры <i>1</i></span
-                                        >
+                                        <span class="catalog-aside__subtitle">Filters <i>1</i></span>
                                         <button class="catalog-aside__close">
                                             <i class="sprite">
                                                 <svg width="36" height="36">
-                                                    <use href="img/sprite/sprite.svg#close2"></use>
+                                                    <use href="/img/sprite/sprite.svg#close2"></use>
                                                 </svg>
                                             </i>
                                         </button>
                                         <div class="custom-select car">
                                             <div class="select-field">
                                                 <div class="selected-options">
-                                                    <span class="placeholder">Класс авто</span>
+                                                    <span class="placeholder">Car class</span>
                                                 </div>
                                                 <div class="arrow-down">
                                                     <svg width="6" height="3">
                                                         <use
-                                                            href="img/sprite/sprite.svg#arrow-d"
+                                                            href="/img/sprite/sprite.svg#arrow-d"
                                                         ></use>
                                                     </svg>
                                                 </div>
@@ -519,10 +444,10 @@
                                                 <li class="option" data-value="Suv">
                                                     <span class="option-text">Suv</span>
                                                 </li>
-                                                <li class="option" data-value="Van">
+                                                   <li class="option" data-value="Van">
                                                     <span class="option-text">Van</span>
                                                 </li>
-                                                <li class="option" data-value="Economy">
+                                                   <li class="option" data-value="Economy">
                                                     <span class="option-text">Economy</span>
                                                 </li>
                                             </ul>
@@ -531,12 +456,12 @@
                                         <div class="custom-select">
                                             <div class="select-field">
                                                 <div class="selected-options">
-                                                    <span class="placeholder">Марка</span>
+                                                    <span class="placeholder">Brand</span>
                                                 </div>
                                                 <div class="arrow-down">
                                                     <svg width="6" height="3">
                                                         <use
-                                                            href="img/sprite/sprite.svg#arrow-d"
+                                                            href="/img/sprite/sprite.svg#arrow-d"
                                                         ></use>
                                                     </svg>
                                                 </div>
@@ -581,12 +506,12 @@
                                         <div class="custom-select">
                                             <div class="select-field">
                                                 <div class="selected-options">
-                                                    <span class="placeholder">Модель</span>
+                                                    <span class="placeholder">Model</span>
                                                 </div>
                                                 <div class="arrow-down">
                                                     <svg width="6" height="3">
                                                         <use
-                                                            href="img/sprite/sprite.svg#arrow-d"
+                                                            href="/img/sprite/sprite.svg#arrow-d"
                                                         ></use>
                                                     </svg>
                                                 </div>
@@ -607,57 +532,57 @@
                                         <div class="custom-select">
                                             <div class="select-field">
                                                 <div class="selected-options">
-                                                    <span class="placeholder">Тип топлива</span>
+                                                    <span class="placeholder">Fuel type</span>
                                                 </div>
                                                 <div class="arrow-down">
                                                     <svg width="6" height="3">
                                                         <use
-                                                            href="img/sprite/sprite.svg#arrow-d"
+                                                            href="/img/sprite/sprite.svg#arrow-d"
                                                         ></use>
                                                     </svg>
                                                 </div>
                                             </div>
                                             <ul class="options-container">
-                                                <li class="option" data-value="Бензин">
-                                                    <span class="option-text">Бензин</span>
+                                                <li class="option" data-value="Petrol">
+                                                    <span class="option-text">Petrol</span>
                                                 </li>
-                                                <li class="option" data-value="Дизель">
-                                                    <span class="option-text">Дизель</span>
+                                                <li class="option" data-value="Diesel">
+                                                    <span class="option-text">Diesel</span>
                                                 </li>
                                             </ul>
                                         </div>
 
                                         <div class="catalog-aside__price">
                                             <label class="catalog-aside__label mode">
-                                                <span>Цена</span>
+                                                <span>Price</span>
                                                 <input
                                                     type="number"
                                                     name="value_min"
                                                     id="value_min"
                                                     class="catalog-aside__input"
-                                                    placeholder="от 40"
+                                                    placeholder="from 40"
                                                 />
                                                 <span>$</span>
                                             </label>
                                             <label class="catalog-aside__label mode">
-                                                <span>Цена</span>
+                                                <span>Price</span>
                                                 <input
                                                     type="number"
                                                     name="value_max"
                                                     id="value_max"
                                                     class="catalog-aside__input"
-                                                    placeholder="до 550"
+                                                    placeholder="to 550"
                                                 />
                                                 <span>$</span>
                                             </label>
                                         </div>
 
-                                        <button class="reset-btn">Сбросить фильтр</button>
-                                        <button class="main-button">Показать 2 авто</button>
-                                    </div>
+                                        <button class="reset-btn">Reset Filter</button>
+                                        <button class="main-button">Show 2 Cars</button>
+                                        </div>
                                 </div>
 
-                                <button class="main-button" type="submit">ЗАКАЗАТЬ ЗВОНОК</button>
+                                <button class="main-button" type="submit">REQUEST A CALLBACK</button>
                             </form>
                         </aside>
 
@@ -668,7 +593,7 @@
                                 data-aos-duration="500"
                                 data-aos-delay="200"
                             >
-                                <h2 class="pretitle">АВТОМОБИЛИ REIZ</h2>
+                                <h2 class="pretitle">CARS REIZ</h2>
 
                                 <div class="custom-select mode">
                                     <div class="select-field">
@@ -677,25 +602,25 @@
                                                 <i class="sprite">
                                                     <svg width="14" height="12">
                                                         <use
-                                                            href="img/sprite/sprite.svg#filter2"
+                                                            href="/img/sprite/sprite.svg#filter2"
                                                         ></use>
                                                     </svg>
                                                 </i>
                                             </span>
-                                            <span class="placeholder">По умолчанию</span>
+                                            <span class="placeholder">By default</span>
                                         </div>
                                         <div class="arrow-down">
                                             <svg width="6" height="3">
-                                                <use href="img/sprite/sprite.svg#arrow-d"></use>
+                                                <use href="/img/sprite/sprite.svg#arrow-d"></use>
                                             </svg>
                                         </div>
                                     </div>
                                     <ul class="options-container">
                                         <li class="option" data-value="По_возрастанию">
-                                            <span class="option-text">По возрастанию</span>
+                                            <span class="option-text">Price: Low to High</span>
                                         </li>
                                         <li class="option" data-value="По_убыванию">
-                                            <span class="option-text">По убыванию</span>
+                                            <span class="option-text">Rrice: High to Low</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -713,12 +638,12 @@
                                         <picture>
                                             <source
                                                 type="image/webp"
-                                                srcset="img/car/mercedes-sl.webp"
+                                                srcset="/img/car/mercedes-sl.webp"
                                             />
                                             <img
                                                 width="450"
                                                 height="252"
-                                                src="img/car/img.png"
+                                                src="/img/car/img.png"
                                                 alt="Аренда Mercedes-Benz SL — 4.0L, AWD, 2 места"
                                             />
                                         </picture>
@@ -770,7 +695,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon1"
+                                                            href="/img/sprite/sprite.svg#icon1"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -782,8 +707,29 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon2"
-                                                        ></use>
+                                                            href="/img/sprite/sprite.svg#icon2"
+                                                     <button class="reset-btn">Reset filters</button>
+                                        <button class="main-button">Show 2 cars</button>
+                                    </div>
+                                
+                                </div>
+                                REQUEST A CALL</button>
+                            </form>
+                        </aside>
+
+                        <div class="catalog-section__content">
+                            <div
+                                class="catalog-section__top"
+                                data-aos="fade-up"
+                                data-aos-duration="500"
+                                data-aos-delay="200"
+                            >
+                                <h2 class="pretitle">REIZ CARS</h2>
+
+                                <div class="custom-select mode">
+                                    <div class="select-field">
+                                        <div class="selected-options">
+                                            <span class="s   ></use>
                                                     </svg>
                                                 </i>
                                                 <span class="car-card__text">Трансмисия</span>
@@ -797,7 +743,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon3"
+                                                            href="/img/sprite/sprite.svg#icon3"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -811,7 +757,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon4"
+                                                            href="/img/sprite/sprite.svg#icon4"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -832,12 +778,12 @@
                                         <picture>
                                             <source
                                                 type="image/webp"
-                                                srcset="img/car/mercedes-s580.webp"
+                                                srcset="/img/car/mercedes-s580.webp"
                                             />
                                             <img
                                                 width="450"
                                                 height="252"
-                                                src="img/car/mercedes-s580.png"
+                                                src="/img/car/mercedes-s580.png"
                                                 alt="Аренда Mercedes-Benz S Class — 4.0L, AWD, 4 места"
                                             />
                                         </picture>
@@ -889,7 +835,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon1"
+                                                            href="/img/sprite/sprite.svg#icon1"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -901,7 +847,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon2"
+                                                            href="/img/sprite/sprite.svg#icon2"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -916,7 +862,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon3"
+                                                            href="/img/sprite/sprite.svg#icon3"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -930,7 +876,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon4"
+                                                            href="/img/sprite/sprite.svg#icon4"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -951,12 +897,12 @@
                                         <picture>
                                             <source
                                                 type="image/webp"
-                                                srcset="img/car/BMW2series.webp"
+                                                srcset="/img/car/BMW2series.webp"
                                             />
                                             <img
                                                 width="450"
                                                 height="252"
-                                                src="img/car/BMW2series.png"
+                                                src="/img/car/BMW2series.png"
                                                 alt="Аренда BMW M2 — 3.0L, AWD, 2 места"
                                             />
                                         </picture>
@@ -1005,7 +951,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon1"
+                                                            href="/img/sprite/sprite.svg#icon1"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1017,7 +963,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon2"
+                                                            href="/img/sprite/sprite.svg#icon2"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1032,7 +978,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon3"
+                                                            href="/img/sprite/sprite.svg#icon3"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1046,7 +992,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon4"
+                                                            href="/img/sprite/sprite.svg#icon4"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1067,12 +1013,12 @@
                                         <picture>
                                             <source
                                                 type="image/webp"
-                                                srcset="img/car/mercedes-g.webp"
+                                                srcset="/img/car/mercedes-g.webp"
                                             />
                                             <img
                                                 width="450"
                                                 height="252"
-                                                src="img/car/Porshe.png"
+                                                src="/img/car/Porshe.png"
                                                 alt="Аренда Mercedes-Benz G63 — 4.0L, AWD, 5 мест"
                                             />
                                         </picture>
@@ -1123,7 +1069,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon1"
+                                                            href="/img/sprite/sprite.svg#icon1"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1135,7 +1081,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon2"
+                                                            href="/img/sprite/sprite.svg#icon2"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1150,7 +1096,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon3"
+                                                            href="/img/sprite/sprite.svg#icon3"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1164,7 +1110,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon4"
+                                                            href="/img/sprite/sprite.svg#icon4"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1185,12 +1131,12 @@
                                         <picture>
                                             <source
                                                 type="image/webp"
-                                                srcset="img/car/porshe.webp"
+                                                srcset="/img/car/porshe.webp"
                                             />
                                             <img
                                                 width="450"
                                                 height="252"
-                                                src="img/car/Porshe.png"
+                                                src="/img/car/Porshe.png"
                                                 alt="Аренда Porsche Cayenne — 4.0L, AWD, 5 мест"
                                             />
                                         </picture>
@@ -1241,7 +1187,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon1"
+                                                            href="/img/sprite/sprite.svg#icon1"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1253,7 +1199,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon2"
+                                                            href="/img/sprite/sprite.svg#icon2"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1268,7 +1214,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon3"
+                                                            href="/img/sprite/sprite.svg#icon3"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1282,7 +1228,7 @@
                                                 <i class="sprite">
                                                     <svg width="26" height="26">
                                                         <use
-                                                            href="img/sprite/sprite.svg#icon4"
+                                                            href="/img/sprite/sprite.svg#icon4"
                                                         ></use>
                                                     </svg>
                                                 </i>
@@ -1301,7 +1247,7 @@
                             </ul>
 
                             <button class="main-button" data-aos="fade-up" data-aos-duration="500">
-                                ПОКАЗАТЬ ЕЩЕ АВТО
+                                SHOW MORE CARS
                             </button>
                         </div>
                     </div>
@@ -1318,24 +1264,24 @@
                             data-aos-delay="0"
                         >
                             <li class="advantages-section__item">
-                                <span class="advantages-section__title">Подача авто 24/7 </span>
+                                <span class="advantages-section__title">Delivery 24/7 </span>
                                 <p>
-                                    Бесплатная доставка машины в любую точку города - в любое время
+                                    Free delivery anywhere in the city — at any time.
                                 </p>
                             </li>
                             <li class="advantages-section__item">
-                                <span class="advantages-section__title">Без скрытых платежей </span>
-                                <p>Честные цены без доплат, сюрпризов. Всё прозрачно.</p>
+                                <span class="advantages-section__title">No hidden fees</span>
+                                <p>Honest pricing with zero surprises. Transparent terms.</p>
                             </li>
                             <li class="advantages-section__item">
-                                <span class="advantages-section__title">Аренда с водителем</span>
-                                <p>Услуга аренды авто с водителем комфортно и безопасно.</p>
+                                <span class="advantages-section__title">Chauffeur service</span>
+                                <p>Hire with a professional driver — convenient and safe.</p>
                             </li>
                             <li class="advantages-section__item">
                                 <span class="advantages-section__title"
-                                    >Карта клиента и скидки</span
+                                    >Loyalty & discounts</span
                                 >
-                                <p>Персональные предложения для постоянных клиентов.</p>
+                                <p>Personal offers for returning customers.</p>
                             </li>
                         </ul>
                     </div>
@@ -1346,99 +1292,97 @@
                 <div class="container">
                     <div class="rent-section__box">
                         <ul class="rent-list">
-                            <!-- <li class="rent-list__item"  data-aos="fade-up" data-aos-duration="400"> -->
                             <li class="rent-list__item">
                                 <a href="/invest" class="rent-card">
                                     <div class="rent-card__image">
                                         <picture>
-                                            <source type="image/webp" srcset="img/rental.webp" />
+                                            <source type="image/webp" srcset="/img/rental.webp" />
                                             <img
                                                 width="670"
                                                 height="350"
-                                                src="img/rental.png"
-                                                alt="Сдай своё авто в аренду — контроль 24/7, доход до 5000 USD, условия 70/30"
+                                                src="/img/rental.png"
+                                                alt="List your car in Lviv — 24/7 control, up to 5000 USD monthly, 70/30 split" 
+                                                loading="lazy" decoding="async" 
                                             />
                                         </picture>
                                     </div>
-                                    <span class="rent-card__title">СДАЙ СВОЕ АВТО В АРЕНДУ</span>
+                                    <span class="rent-card__title">LIST YOUR CAR</span>
 
                                     <ul class="rent-card__list">
                                         <li class="rent-card__item">
                                             <i class="sprite">
                                                 <svg width="45" height="43">
-                                                    <use href="img/sprite/sprite.svg#axes"></use>
+                                                    <use href="/img/sprite/sprite.svg#axes"></use>
                                                 </svg>
                                             </i>
                                             <p>
-                                                Распределение дохода:<br />
-                                                70/30 — владелец/автопрокат
+                                                Revenue split:<br />70/30 — owner/rental
                                             </p>
                                         </li>
                                         <li class="rent-card__item">
                                             <i class="sprite mode">
                                                 <svg width="53" height="53">
-                                                    <use href="img/sprite/sprite.svg#money"></use>
+                                                    <use href="/img/sprite/sprite.svg#money"></use>
                                                 </svg>
                                             </i>
-                                            <p>Доход: от 350 до 5000 USD Зависит от модели.</p>
+                                            <p>Income: from 350 to 5000 USD — depends on the model.</p>
                                         </li>
                                         <li class="rent-card__item">
                                             <i class="sprite">
                                                 <svg width="41" height="41">
-                                                    <use href="img/sprite/sprite.svg#icon"></use>
+                                                    <use href="/img/sprite/sprite.svg#icon"></use>
                                                 </svg>
                                             </i>
                                             <p>
-                                                Контроль в реальном времени<br />Отслеживайте машину
-                                                24/7 через GPS и приложение — полная прозрачность.
+                                                Real-time control<br />Track your car 24/7 via GPS and the app — full transparency.
                                             </p>
                                         </li>
                                     </ul>
 
                                     <div class="main-button main-button--transparent">
-                                        ПОДРОБНЕЕ
+                                        LEARN MORE
                                     </div>
                                 </a>
                             </li>
-                            <!-- <li class="rent-list__item"  data-aos="fade-up" data-aos-duration="400"> -->
                             <li class="rent-list__item">
                                 <a href="/terms" class="rent-card">
                                     <div class="rent-card__image">
                                         <picture>
-                                            <source type="image/webp" srcset="img/carterms.webp" />
+                                            <source type="image/webp" srcset="/img/carterms.webp" />
                                             <img
                                                 width="670"
                                                 height="350"
-                                                src="img/carterms.png"
-                                                alt="Блок Условия аренды — декоративный фон с задней фарой автомобиля"
+                                                src="/img/carterms.png"
+                                                alt="Car rental terms in Lviv — REIZ" 
+                                                loading="lazy" decoding="async" 
                                             />
                                         </picture>
                                     </div>
-                                    <span class="rent-card__title">УСЛОВИЯ АРЕНДЫ</span>
+                                    <span class="rent-card__title">RENTAL TERMS</span>
 
                                     <div class="main-button main-button--transparent">
-                                        ПОДРОБНЕЕ
+                                        DETAILS
                                     </div>
                                 </a>
                             </li>
-                            <!-- <li class="rent-list__item"  data-aos="fade-up" data-aos-duration="400"> -->
                             <li class="rent-list__item">
                                 <a href="/faq" class="rent-card">
                                     <div class="rent-card__image">
                                         <picture>
-                                            <source type="image/webp" srcset="img/faq.webp" />
+                                            <source type="image/webp" srcset="/img/faq.webp" />
                                             <img
                                                 width="670"
                                                 height="350"
-                                                src="img/faq.png"
-                                                alt="FAQ — фон с интерьером автомобиля и рулём Mercedes"
+                                                src="/img/faq.png"
+                                                alt="FAQ about car rental in Lviv — REIZ" 
+                                                loading="lazy" decoding="async" 
                                             />
                                         </picture>
                                     </div>
                                     <span class="rent-card__title">FAQ</span>
 
                                     <div class="main-button main-button--transparent">
-                                        ПОДРОБНЕЕ
+                                        DETAILS
                                     </div>
                                 </a>
                             </li>
@@ -1449,471 +1393,402 @@
 
             <section class="advantages-section advantages-section--reviews">
                 <div class="container">
-                    <!-- <div class="advantages-section__content" data-aos="fade-up" data-aos-duration="400"> -->
-                    <div class="advantages-section__content">
-                        <div class="advantages-section__inner">
-                            <span class="advantages-section__title"
-                                >Почему вам стоит арендовать автомобиль у нас?</span
-                            >
-                            <p>Высокий рейтинг и доверие клиентов по всему миру</p>
-                        </div>
-
-                        <div class="advantages-section__links">
-                            <a href="#" class="advantages-section__review">
-                                <span>TrustPilot</span>
-                                <img
-                                    width="184"
-                                    height="68"
-                                    src="img/icons/trip.png"
-                                    alt="Логотип TrustPilot"
-                                />
-                            </a>
-                            <!-- <a href="#" class="advantages-section__review">
-                                <span>Google Reviews</span>
-                                <img
-                                    width="194"
-                                    height="70"
-                                    src="img/icons/google.png"
-                                    alt="Логотип Google Reviews"
-                                />
-                            </a> -->
-
-                            <div
-                                class="review-widget_net"
-                                data-uuid="9f9a5893-0345-48a8-99e3-6c0e8fbfcaba"
-                                data-template="10"
-                                data-lang="en"
-                                data-theme="light"
-                            ></div>
-                            <script src="https://grwapi.net/widget.min.js"></script>
-                        </div>
+                  <div class="advantages-section__content">
+                    <div class="advantages-section__inner">
+                      <span class="advantages-section__title">Why you should rent a car with us?</span>
+                      <p>High rating and customer trust worldwide</p>
                     </div>
+              
+                    <div class="advantages-section__links">
+                      <!-- Trustpilot (статический, без Schema.org) -->
+                      <a class="advantages-section__review"
+                         href="https://www.trustpilot.com/review/reiz.com.ua"
+                         target="_blank" rel="noopener noreferrer nofollow"
+                         aria-label="Отзывы Trustpilot">
+                        <span>TrustPilot</span>
+                        <img
+                          width="184" height="68"
+                          src="/img/icons/trip.png"
+                          alt="Логотип Trustpilot"
+                          loading="lazy" decoding="async"
+                        />
+                      </a>
+              
+                      <!-- Google Reviews (статический, без Schema.org) -->
+                      <a class="advantages-section__review"
+                         href="https://www.google.com/search?q=REIZ+Rental+Cars+Lviv+reviews"
+                         target="_blank" rel="noopener noreferrer nofollow"
+                         aria-label="Отзывы Google">
+                        <span>Google Reviews</span>
+                        <img
+                          width="194" height="70"
+                          src="/img/icons/google.png"
+                          alt="Логотип Google Reviews"
+                          loading="lazy" decoding="async"
+                        />
+                      </a>
+              
+                      <!-- ВАЖНО: никаких виджетов/скриптов агрегаторов, пока нет реальных данных -->
+                    </div>
+                  </div>
                 </div>
-            </section>
+              </section>
+              
+              
 
             <section class="editor-section" data-aos="fade-up" data-aos-duration="400">
                 <div class="container">
                     <div class="editor-section__box" data-clip>
                         <h2 class="h2">
-                            Аренда авто в Киеве и Львове с REIZ — новый уровень комфорта
+                            Car rental in Lviv with REIZ — a new level of comfort
                         </h2>
                         <div class="editor" data-clip-item>
                             <p>
-                                Мы - компания Reiz Car Rental, предоставляем услуги по аренде
-                                автомобилей во Львове и Киеве, а также по вашему запросу можем
-                                доставить авто в любой город Украины.
+                                We are REIZ Car Rental. We provide car hire in Lviv and, on request, can deliver a car to any city in
+                Ukraine. 
+              </p>
                                 <br />
-                                Reiz – это не про количество машин, а про качество и комфорт каждой
-                                из них.
+                                REIZ is not about quantity — it’s about the quality and comfort of every car.
                                 <br />
-                                Почему стоит выбрать прокат авто в нашей компании?
+                                Why choose us
                             </p>
                             <ul>
                                 <li>
                                     <p>
-                                        Персонализированный подход. Мы только начинаем, поэтому
-                                        каждый клиент для нас – особенный. Мы всегда готовы уделить
-                                        вам максимум внимания, предложить индивидуальные условия и
-                                        поддержку на каждом этапе аренды.
-                                    </p>
+                                        Personal approach. We’re growing, so every client matters. Expect individual terms and support at
+                                        every step.
+                                      </p>
                                 </li>
                                 <li>
                                     <p>
-                                        Премиальный сервис по доступной цене. Наша небольшая база
-                                        автомобилей позволяет внимательно следить за техническим
-                                        состоянием и чистотой каждого авто. Вы получите машину с
-                                        полным баком топлива, чистую и полностью готовую к вашим
-                                        поездкам.
-                                    </p>
+                                        Premium service at a fair price. A compact fleet means every car is clean, maintained and delivered
+                                        with a full tank.
+                                      </p>
                                 </li>
                                 <li>
                                     <p>
-                                        Без скрытых платежей и залогов. Мы предлагаем максимально
-                                        прозрачные условия: никаких скрытых комиссий, сложных
-                                        договоров или высоких депозитов.
-                                    </p>
+                                        No hidden fees. Transparent conditions without tricky contracts or unexpected extras.
+                                      </p>
                                 </li>
                                 <li>
-                                    <p>
-                                        Гибкие условия аренды. У нас вы можете арендовать авто на
-                                        сутки, неделю или месяц по выгодной цене.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>Чем дольше аренда - тем выгоднее условия.</p>
-                                </li>
-                            </ul>
-                            <p>
-                                Автопарк REIZ: качество вместо количества.<br />
-                                Мы собрали небольшой, но тщательно подобранный автопарк для вас
-                            </p>
+                                    <p>Flexible terms — rent for a day, a week or a month at a better daily rate.</p>
+                                  </li>
+                                  <li><p>The longer you rent, the better the price.</p></li>
+                                </ul>
+                                <p>Our fleet: quality over quantity.</p>
                             <ul>
                                 <li>
                                     <p>
-                                        Премиум-класс — это автомобили, которые подчеркнут ваш
-                                        статус на деловых встречах, важных мероприятиях и в особые
-                                        дни. Максимум комфорта и эмоций от каждой поездки.
-                                    </p>
+                                        Premium — cars that stand out at business meetings and special events, delivering maximum comfort.
+                                      </p>
                                 </li>
                                 <li>
                                     <p>
-                                        Средний класс — это идеальный баланс для ежедневных поездок
-                                        по городу или между Киевом и Львовом. Надёжность, комфорт и
-                                        приятное впечатление от вождения.
-                                    </p>
+                                        Standard — the perfect balance for daily trips around the city or between Kyiv and Lviv.
+                                      </p>
                                 </li>
                                 <li>
                                     <p>
-                                        Эконом-класс — это автомобили для тех, кто ценит
-                                        практичность, простоту и выгоду без лишних затрат. Доступно,
-                                        удобно и надёжно для любых целей.
-                                    </p>
+                                        Economy — practical, simple and cost-effective for any purpose.
+                                      </p>
                                 </li>
                             </ul>
                             <p>
-                                Каждый автомобиль регулярно проходит технический осмотр, чтобы вы
-                                чувствовали себя уверенно и безопасно за рулем.<br />
-                                Как арендовать автомобиль в Киеве или Львове с REIZ?<br />
-                                Процесс аренды авто максимально прост и удобен:
+                                Each car undergoes regular maintenance to ensure you feel confident and safe behind the wheel.<br />
+                                How to rent a car in Kyiv or Lviv with REIZ?<br />
+                                The rental process is as simple and convenient as possible:
                             </p>
                             <ol>
                                 <li>
-                                    <p>Выберите подходящий вам автомобиль.</p>
+                                    <p>Choose the car that suits you.</p>
+                                </li>
+                                <li>
+                                    Here’s the English translation of your text:
+
+                                 <p>
+                                   Select the rental dates and city — Kyiv or Lviv. (If you need car delivery to a specific address or another city in Ukraine, please indicate this when booking).
+                                 </p>
+                                </li>
+                                <li>
+                                    <p>Fill in your contact details.</p>
                                 </li>
                                 <li>
                                     <p>
-                                        Выбирите даты и город аренды — Киев или Львов. (Если вам
-                                        нужна подача автомобиля по адресу или в другой город Украины
-                                        укажите это при бронировании).
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>Заполните простую форму с вашими контактными данными.</p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Подтвердите бронирование, и наш менеджер свяжется с вами для
-                                        уточнения всех деталей.
+                                        Confirm the booking — we’ll get in touch to finalise everything.
                                     </p>
                                 </li>
                             </ol>
-                            <p>
-                                Стандартные условия предусматривают залог, но у нас вы можете взять
-                                машину и без залога, либо уменьшить его вдвое — всё максимально
-                                гибко и понятно.
-                                <br />
-                                Reiz — это про комфорт и спокойствие в каждой поездке. Просто
-                                выбирайте автомобиль, а обо всём остальном позаботимся мы.
-                            </p>
-                            <p>
-                                Выбирая REIZ, вы выбираете качество, внимание и надежность. Добро
-                                пожаловать в будущее комфортных поездок вместе с Reiz car rental!
-                            </p>
+                            Here’s the English translation of your text:
+
+<p>
+    Standard conditions require a deposit, but with us you can rent a car without a deposit, or reduce it by half — everything is as flexible and transparent as possible.
+    <br />
+    Reiz is all about comfort and peace of mind on every trip. Just choose a car, and we’ll take care of the rest.
+</p>
+<p>
+    By choosing REIZ, you choose quality, attention, and reliability. Welcome to the future of comfortable travel with Reiz car rental!
+</p>
                         </div>
-                        <button class="more-btn" data-clip-btn="ПОКАЗАТЬ МЕНЬШЕ">
-                            ПОКАЗАТЬ БОЛЬШЕ
+                        <button class="more-btn" data-clip-btn="SHOW LESS">
+                            SHOW MORE
                         </button>
                     </div>
                 </div>
             </section>
-            <!-- <section class="faq-section mode">
+            <section class="faq-section mode">
                 <div class="container">
-                    <div class="faq-section__content">
-                        <h2 class="h2">Часто задаваемые вопросы</h2>
-
-                        <div
-                            class="faq-section__accordion"
-                            data-accordion
-                            data-single="true"
-                            data-breakpoint="9999"
-                        >
-                            <ul class="acc" data-pretitle="Практическая информация">
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="1">
-                                        А как насчёт парковки?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="1">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="2">
-                                        Можно ли подачу/возврат по адресу и в аэропорту Львова
-                                        (LWO)?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="2">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="3">
-                                        Есть ли лимит пробега?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="3">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <ul class="acc" data-pretitle="Страхование и депозит">
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="4">
-                                        Что включает страховка?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="4">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="5">
-                                        Что такое франшиза?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="5">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="6">
-                                        Можно ли арендовать без залога?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="6">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <ul class="acc" data-pretitle="Ограничения и запреты">
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="7">
-                                        Каков минимальный возраст и стаж?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="7">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="8">
-                                        Можно ли выезжать за пределы Украины?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="8">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="9">
-                                        Можно ли передавать авто третьим лицам или использовать в
-                                        такси?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="9">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <ul class="acc" data-pretitle="Оплата и документация">
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="10">
-                                        Какие способы оплаты доступны?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="10">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="11">
-                                        Какие документы нужны?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="11">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="12">
-                                        Как работает политика топлива?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="12">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                  <div class="faq-section__content">
+                    <h2 class="h2">Frequently Asked Questions</h2>
+              
+                    <div class="faq-section__accordion" 
+                         data-accordion
+                         data-single="true"
+                         data-breakpoint="9999">
+              
+                      <ul class="acc" data-pretitle="Practical Information">
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="1">
+                            Where to park a rental car in Lviv and how to avoid fines?
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="1">
+                            <div class="acc__box editor">
+                              <p>
+                                Lviv has many paid zones and municipal parking lots. 
+                                Always park within marked lines or in guarded parking areas, 
+                                check road signs and parking meters, and keep receipts. 
+                                Improper parking results in fines paid by the renter. 
+                                In areas with limited parking, use shopping mall or hotel parking. 
+                                It is useful to install city apps for parking payment and zone navigation. 
+                                Before leaving the car overnight, check local courtyard/street rules to avoid towing.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="2">
+                            Car delivery to an address and Lviv Airport (LWO): conditions and prices
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="2">
+                            <div class="acc__box editor">
+                              <p>
+                                We provide delivery/return to any address in Lviv and meet you at the LWO terminal at the agreed time. 
+                                Extra charges may apply for early/late hours and waiting time, final price depends on distance. 
+                                Intercity delivery across Ukraine is also available on request. 
+                                To ensure timely service, book in advance and provide your flight/hotel details. 
+                                Want to speed up the process? Book online at REIZ Rental Cars — it’s more convenient and locks in your rate.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="3">
+                            Is there a mileage limit and how to book a trip across Ukraine without restrictions?
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="3">
+                            <div class="acc__box editor">
+                              <p>
+                                A daily mileage limit applies (usually 250–300 km/day), 
+                                which is enough for business and tourist routes around Lviv and the region. 
+                                For longer trips (e.g., Lviv–Kyiv or Lviv–Odesa), 
+                                add the extended or unlimited mileage option when booking. 
+                                Exceeding the limit is charged at a fixed rate per kilometer according to tariffs. 
+                                Inform us about your route in advance — we’ll suggest the best option and where to refuel along the way.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+              
+                      <ul class="acc" data-pretitle="Insurance and Deposit">
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="4">
+                            What does insurance cover and how does it help on the road? (Liability/Casco)
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="4">
+                            <div class="acc__box editor">
+                              <p>
+                                Rental includes mandatory liability insurance and standard Casco with a deductible. 
+                                Liability covers third-party damages, Casco covers damage to the rental car above the deductible. 
+                                Certain cases (e.g., glass/tires) may have special conditions — clarify during booking in the “Insurance” section. 
+                                In case of an accident, record the incident and call the authorities immediately. 
+                                Extended coverage reduces your risks and helps close cases faster.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="5">
+                            Deductible vs. deposit: what’s the difference and how much do you risk?
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="5">
+                            <div class="acc__box editor">
+                              <p>
+                                The deductible is the maximum amount you pay in case of damage; 
+                                insurance covers the rest. The deposit is the amount blocked on your card during the rental, 
+                                usually equal to the deductible. Example: damage = 50,000 UAH, deductible/deposit = 20,000 UAH — 
+                                your responsibility is 20,000 UAH, the rest is covered by insurance. 
+                                The deposit is released after returning the car undamaged; 
+                                release time depends on the bank and usually takes a few days.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="6">
+                            Can I rent without a deposit and how does “zero liability” work?
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="6">
+                            <div class="acc__box editor">
+                              <p>Renting without a deposit is not possible.</p>
+                              <p>
+                                By default, a deposit equal to the deductible is blocked (depends on car class). 
+                                You may reduce your responsibility by choosing:
+                              </p>
+                              <ul>
+                                <li>−50% deposit/deductible (CDW);</li>
+                                <li>−100% deposit/“zero liability” (SCDW) for damage/theft.</li>
+                              </ul>
+                              <p><strong>Important:</strong> even with “zero liability” there is a mandatory hold of <strong>$200–300</strong> (depending on model) for:</p>
+                              <ul>
+                                <li>fines and tolls,</li>
+                                <li>missing fuel,</li>
+                                <li>car wash/interior cleaning,</li>
+                                <li>lost keys.</li>
+                              </ul>
+                              <p>
+                                This hold is not for damages and is refunded after clearing possible charges. 
+                                Choose the right package when booking — we’ll suggest the best option for rentals in Lviv and trips across Ukraine.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+              
+                      <ul class="acc" data-pretitle="Restrictions and Prohibitions">
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="7">
+                            Minimum age and driving experience for renting in Lviv and Ukraine
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="7">
+                            <div class="acc__box editor">
+                              <p>
+                                Basic requirements: from 21 years old with at least 2 years of driving experience. 
+                                For business/premium cars: 23–25 years old and at least 5 years of experience. 
+                                If you don’t fully meet the requirements, a “young driver” program is available for an extra fee. 
+                                All drivers must be listed in the rental agreement: 
+                                prepare documents and provide additional driver details in advance to avoid refusal at pickup.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="8">
+                            Can I drive outside Ukraine with a rental car?
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="8">
+                            <div class="acc__box editor">
+                              <p>
+                                Driving within Ukraine is unrestricted, but leaving the country is possible only with company’s written permission 
+                                and a “Green Card” insurance. 
+                                Time is needed for processing and checking the route/borders. 
+                                Crossing borders without approval is prohibited, voids insurance, and leads to penalties. 
+                                Planning a foreign trip? Inform us in advance — 
+                                we’ll check requirements, prepare documents, and advise on timing.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="9">
+                            Giving the car to third parties and using it for taxi/carsharing: what is prohibited
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="9">
+                            <div class="acc__box editor">
+                              <p>
+                                Only drivers listed in the contract are allowed to drive the car. 
+                                Passing the car to third parties, using it for taxi, 
+                                carsharing, or courier services is prohibited and voids insurance. 
+                                Need a second driver? Add them to the contract — it’s legal and safe. 
+                                Violations result in contractual fines and full financial liability in case of an incident.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+              
+                      <ul class="acc" data-pretitle="Payment and Documentation">
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="10">
+                            What payment methods are available and how is the deposit taken?
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="10">
+                            <div class="acc__box editor">
+                              <p>
+                                We accept payments in cash (UAH, USD, EUR), 
+                                Visa/Mastercard cards, bank transfer, and — upon prior agreement — cryptocurrency (USDT/USDC). 
+                                Currency/crypto payments follow the company’s rate at the time of transaction; 
+                                bank and network fees may apply. Payments are available in Lviv and for delivery across Ukraine. 
+                                The deposit is blocked on the renter’s card at pickup and released after returning the car undamaged. 
+                                Release time depends on the bank (usually a few business days). 
+                                For companies — invoices and closing documents are provided.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="11">
+                            What documents are required for renting in Lviv: locals and foreigners?
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="11">
+                            <div class="acc__box editor">
+                              <p>
+                                Required: passport/ID card, driver’s license category B (at least 2 years), 
+                                and a bank card in the renter’s name. 
+                                Foreign citizens are advised to have an International Driving Permit (IDP) along with their national license — 
+                                this makes verification easier. 
+                                If planning a rental in Lviv during weekends or holidays, book in advance — 
+                                document checks are faster and car selection is wider (see “Restrictions and Prohibitions”).
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="acc__item">
+                          <button class="acc__btn" data-id="12">
+                            “Full-to-full” fuel policy: how to return a car without extra charges
+                            <i class="sprite"><svg width="20" height="12"><use href="/img/sprite/sprite.svg#Arrow-d2"></use></svg></i>
+                          </button>
+                          <div class="acc__content" data-content="12">
+                            <div class="acc__box editor">
+                              <p>
+                                Cars are provided with a full tank and must be returned refueled to full. 
+                                If not, missing fuel and a refueling service fee are charged at company rates. 
+                                Refuel before return, keep the receipt — this avoids questions at handover. 
+                                For those planning active trips around Lviv with early departures/late returns, 
+                                plan your refueling and timing in advance.
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+              
                     </div>
+                  </div>
                 </div>
-            </section> -->
-            <!-- FAQ Schema (для расширенных сниппетов) -->
-            <!-- <script type="application/ld+json">
-                {
-                    "@context": "https://schema.org",
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "Скільки коштує оренда авто у Львові?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Залежить від класу і строку. На довгий термін — дешевше. Дивіться секцію «Цены на аренду авто» на цій сторінці."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Чи можна орендувати авто без депозиту?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Так. Доступна опція без депозиту або зі зменшеною франшизою в розширеному страховому пакеті."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Чи подаєте авто в аеропорт Львова (LWO)?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Так, зустрічаємо у терміналі за попереднім бронюванням. Підтримка 24/7."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Які документи потрібні для оренди?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Паспорт/ID та водійське посвідчення. Мінімум 22 роки та 2 роки стажу."
-                            }
-                        }
-                    ]
-                }
-            </script> -->
-        </main>
-        @include('partials/footer.html')
-    </body>
-</html>
+              </section>
+              
+              </main>
+              @include('partials/footer.html')
+              </body>
+              </html>
+              

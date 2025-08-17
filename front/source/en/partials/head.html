@@ -2,19 +2,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Канонический -->
+  <!-- IMPORTANT: make all relative URLs work under /en/, /ua/, etc. -->
+  <base href="/" />
+
+  <!-- Canonical -->
   @if (context.canonical) {<link rel="canonical" href="@canonical" />}
-  @if (!context.canonical) {<link rel="canonical" href="https://reiz.com.ua/" />}
+  @if (!context.canonical && context.current_url) {<link rel="canonical" href="@current_url" />}
+  @if (!context.canonical && !context.current_url) {<link rel="canonical" href="https://reiz.com.ua/" />}
+
+  <!-- Hreflang -->
+  @if (context.href_ru) {<link rel="alternate" hreflang="ru" href="@href_ru" />}
+  @if (context.href_uk) {<link rel="alternate" hreflang="uk" href="@href_uk" />}
+  @if (context.href_en) {<link rel="alternate" hreflang="en" href="@href_en" />}
+  @if (context.href_default) {<link rel="alternate" hreflang="x-default" href="@href_default" />}
+  @if (!context.href_default && (context.canonical || context.current_url)) {
+    <link rel="alternate" hreflang="x-default" href="@{context.canonical || context.current_url}" />
+  }
 
   <!-- Robots -->
   <meta name="robots" content="index,follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
   <!-- Favicons -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
   <meta name="theme-color" content="#111111" />
 
-  <!-- description -->
+  <!-- Meta -->
   <meta name="description" content="@description" />
 
   <!-- Open Graph -->
@@ -29,13 +42,19 @@
   @if (!context.og_description) {<meta property="og:description" content="@description" />}
 
   @if (context.og_url) {<meta property="og:url" content="@og_url" />}
-  @if (!context.og_url) {<meta property="og:url" content="@canonical" />}
+  @if (!context.og_url && context.canonical) {<meta property="og:url" content="@canonical" />}
+  @if (!context.og_url && !context.canonical && context.current_url) {<meta property="og:url" content="@current_url" />}
 
   @if (context.og_image) {<meta property="og:image" content="@og_image" />}
   @if (!context.og_image) {<meta property="og:image" content="https://reiz.com.ua/img/icons/reizimage.webp" />}
 
+  <!-- OG locale (EN defaults) -->
   @if (context.og_locale) {<meta property="og:locale" content="@og_locale" />}
-  @if (!context.og_locale) {<meta property="og:locale" content="ru_RU" />}
+  @if (!context.og_locale) {<meta property="og:locale" content="en_US" />}
+
+  @if (context.href_ru) {<meta property="og:locale:alternate" content="ru_RU" />}
+  @if (context.href_uk) {<meta property="og:locale:alternate" content="uk_UA" />}
+  @if (context.href_en) {<meta property="og:locale:alternate" content="en_US" />}
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -52,7 +71,7 @@
   <!-- Title -->
   <title>@title</title>
 
-  <!-- Perf: preconnect/dns-prefetch для внешних скриптов/виджетов -->
+  <!-- Perf hints -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
   <link rel="preconnect" href="https://consent.cookiebot.com" crossorigin>
@@ -61,28 +80,28 @@
   <link rel="dns-prefetch" href="//grwapi.net">
 
   <!-- Fonts preload -->
-  <link rel="preload" href="fonts/Arial-BoldMT.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/Arial-ItalicMT.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/ArialMT.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/Inter-Black.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/inter-light.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/SFProDisplay-Light.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/SFProDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/SFProDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/SFProDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/SFProDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/arial-hebrew-scholar.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/apple-braille-pinpoint-6-dot.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/MonteCarlo-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/HalvarBreit-Md.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/Arial-BoldMT.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/Arial-ItalicMT.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/ArialMT.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/Inter-Black.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/inter-light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/SFProDisplay-Light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/SFProDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/SFProDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/SFProDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/SFProDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/arial-hebrew-scholar.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/apple-braille-pinpoint-6-dot.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/MonteCarlo-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/HalvarBreit-Md.woff2" as="font" type="font/woff2" crossorigin />
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 
   <!-- Cookiebot -->
   <script
@@ -92,7 +111,6 @@
     type="text/javascript"
     async
   ></script>
-  <!--/ Cookiebot -->
 
   <!-- Google Tag Manager -->
   <script>
@@ -102,14 +120,13 @@
       var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-WGHWDS62');
   </script>
-  <!-- End Google Tag Manager -->
 
-  <!-- Structured Data: AutoRental (LocalBusiness) -->
+  <!-- Structured Data: AutoRental (EN) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -119,18 +136,18 @@
     "url": "https://reiz.com.ua/",
     "logo": "https://reiz.com.ua/ico/Reiz.png",
     "image": "https://reiz.com.ua/img/icons/reiz.webp",
-    "description": "REIZ — аренда авто во Львове: современные автомобили, подача по адресу и поддержка 24/7.",
+    "description": "REIZ — car rental in Lviv: modern cars, doorstep delivery, and 24/7 support.",
     "telephone": "+380635471186",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Львов",
+      "addressLocality": "Lviv",
       "addressCountry": "UA"
     },
     "areaServed": [
-      { "@type": "City", "name": "Львов" },
-      { "@type": "AdministrativeArea", "name": "Львовская область" },
-      { "@type": "Country", "name": "Украина" }
+      { "@type": "City", "name": "Lviv" },
+      { "@type": "AdministrativeArea", "name": "Lviv Oblast" },
+      { "@type": "Country", "name": "Ukraine" }
     ],
     "openingHoursSpecification": [{
       "@type": "OpeningHoursSpecification",
@@ -142,83 +159,83 @@
   }
   </script>
 
-  <!-- Structured Data: FAQPage (RU) — только для главной -->
+  <!-- Structured Data: FAQPage (EN) — home only -->
   @if (context.page === 'home') {
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
       "@type":"FAQPage",
       "mainEntity":[
-        {"@type":"Question","name":"Где парковать арендованный автомобиль во Львове и как избежать штрафов?","acceptedAnswer":{"@type":"Answer","text":"Во Львове много платных зон и муниципальных парковок. Старайтесь оставлять авто на разметке или охраняемых стоянках, проверяйте знаки и паркоматы, сохраняйте чеки. Неправильная стоянка влечёт штраф, который оплачивает арендатор. Для районов с дефицитом мест используйте паркинги ТРЦ и отелей. Полезно установить городские приложения для оплаты парковки и навигации по зонам. Перед ночной стоянкой уточняйте локальные правила двора/улицы — так вы избежите эвакуации и простоев."}},
-        {"@type":"Question","name":"Доставка авто по адресу и в аэропорт Львова (LWO): условия и цены","acceptedAnswer":{"@type":"Answer","text":"Мы организуем подачу/возврат по любому адресу во Львове и встречу у терминала LWO по согласованному времени. Возможна доплата за ранние/поздние часы и ожидание, финальная стоимость зависит от удалённости. По запросу доступна междугородняя доставка по Украине. Чтобы гарантировать точную подачу, бронируйте заранее и указывайте номер рейса/отеля. Хотите ускорить оформление? Можно забронировать онлайн на сайте REIZ Rental Cars — это удобнее и помогает закрепить тариф."}},
-        {"@type":"Question","name":"Есть ли лимит пробега и как оформить поездку по Украине без ограничений?","acceptedAnswer":{"@type":"Answer","text":"Стандартно действует суточный лимит (обычно около 250–300 км/день), чего достаточно для деловых и туристических маршрутов по Львову и области. Если планируется дальняя дорога (например, Львов–Киев или Львов–Одесса), подключайте опцию увеличенного или неограниченного пробега при бронировании. Превышение лимита оплачивается по фиксированной цене за километр согласно тарифам. Сообщите о маршруте заранее — мы подберём оптимальные условия и подскажем, где выгоднее заправляться по пути."}},
-        {"@type":"Question","name":"Что покрывает страховка и чем она помогает в дороге? (ОСАГО/КАСКО)","acceptedAnswer":{"@type":"Answer","text":"В аренду включено обязательное ОСАГО и стандартное КАСКО с франшизой. ОСАГО защищает вашу ответственность перед третьими лицами, КАСКО — ущерб арендованному авто сверх франшизы. Отдельные случаи (например, повреждения стекла/шин) могут иметь особые условия покрытия — уточняйте при оформлении в разделе «Страхование». При ДТП важно сразу зафиксировать происшествие и вызвать компетентные службы. Расширенное покрытие снижает личные риски и помогает быстрее закрыть страховой случай."}},
-        {"@type":"Question","name":"Франшиза и страховой депозит: в чём разница и сколько вы рискуете?","acceptedAnswer":{"@type":"Answer","text":"Франшиза — максимальная сумма, которую вы оплачиваете при ущербе; остальное покрывает страховка. Страховой депозит — сумма, которая блокируется на карте на время аренды и обычно равна франшизе. Пример: ущерб 50 000 грн, франшиза/депозит 20 000 грн — ваша ответственность составит 20 000 грн, остальное компенсирует страховая. Депозит автоматически разблокируется после возврата авто без повреждений; срок разблокировки зависит от банка и обычно занимает несколько дней."}},
-        {"@type":"Question","name":"Можно ли арендовать без залога и как работает «нулевая ответственность»?","acceptedAnswer":{"@type":"Answer","text":"Аренда без залога невозможна. По умолчанию блокируется страховой депозит, равный франшизе (зависит от класса авто). По желанию можно снизить личную ответственность: −50% депозит/франшиза (CDW); −100% депозит/«нулевая ответственность» (SCDW) по ущербу/угону. Важно: даже при «нулевой ответственности» остаётся обязательное гарантийное удержание $200–300 (в зависимости от модели) на случай: штрафов и платных дорог, недолива топлива, мойки/салона, утери ключей. Это удержание не про повреждения и возвращается после закрытия возможных начислений. Уточните пакет при бронировании — подберём оптимальный вариант для аренды авто во Львове и поездок по Украине."}},
-        {"@type":"Question","name":"Минимальный возраст и стаж водителя для аренды во Львове и по Украине","acceptedAnswer":{"@type":"Answer","text":"Базовые требования: от 21 года и стаж от 2 лет. Для авто бизнес/премиум-класса могут потребоваться 23–25 лет и стаж от 5 лет. Если немного не дотягиваете, возможна программа «молодой водитель» с доплатой за повышенный риск. Все допущенные к управлению лица должны быть внесены в договор заранее: подготовьте документы и сообщите данные дополнительного водителя при оформлении, чтобы избежать отказа при выдаче."}},
-        {"@type":"Question","name":"Можно ли выезжать за пределы Украины на арендованном авто?","acceptedAnswer":{"@type":"Answer","text":"Передвижение по Украине свободное, но выезд за границу возможен только по письменному разрешению компании и при наличии «Зелёной карты». Нужны время на оформление и проверка маршрута/границ. Без согласования пересечение границы запрещено и влечёт потерю страхового покрытия и санкции по договору. Планируете зарубежную поездку? Сообщите об этом заранее — мы проверим требования, подготовим документы и подскажем запас по срокам."}},
-        {"@type":"Question","name":"Передача авто третьим лицам и работа в такси/каршеринге: что запрещено","acceptedAnswer":{"@type":"Answer","text":"Управлять автомобилем имеют право только водители, указанные в договоре. Передача машины третьим лицам, использование в такси, каршеринге или курьерской доставке запрещены условиями аренды и могут аннулировать страховое покрытие. Если требуется второй водитель, добавьте его при оформлении — это законно и безопасно. Нарушение правил ведёт к штрафам по договору и полной материальной ответственности в случае инцидента."}},
-        {"@type":"Question","name":"Какие способы оплаты доступны и как вносится страховой депозит?","acceptedAnswer":{"@type":"Answer","text":"Мы принимаем оплату наличными (UAH, а также USD/EUR), банковскими картами Visa/Mastercard, безналичным переводом по счёту и — по предварительному согласованию — криптовалютой (USDT/USDC). Для оплаты в валюте/крипте действует курс компании на момент расчёта; возможны банковские и сетевые комиссии. Оплата доступна во Львове и при доставке по Украине. Страховой депозит блокируется на карте арендатора при выдаче и разблокируется после возврата авто без повреждений, срок зависит от банка (обычно несколько рабочих дней). Для юрлиц — счёт и закрывающие документы."}},
-        {"@type":"Question","name":"Какие документы нужны для аренды во Львове: местным и иностранцам?","acceptedAnswer":{"@type":"Answer","text":"Понадобятся: паспорт/ID-карта, водительское удостоверение категории B (стаж от 2 лет) и банковская карта на имя арендатора. Иностранным гражданам желательно иметь международное ВУ (IDP) в дополнение к национальным правам — так проще верифицировать данные. Если планируете «аренда авто во Львове» на выходные или праздники, бронируйте заранее: проверка документов быстрее, а выбор моделей шире (см. раздел «Ограничения и запреты»)."}},
-        {"@type":"Question","name":"Политика топлива «полный-полный»: как вернуть авто без доплат","acceptedAnswer":{"@type":"Answer","text":"Мы выдаём автомобиль с полным баком и просим вернуть его заправленным до полного. Если бак неполный, недостающее топливо и услуга дозаправки оплачиваются по тарифу компании. Перед сдачей заезжайте на ближайшую АЗС, сохраните чек — так вы избежите вопросов при приёмке. Для тех, кто планирует активный «прокат автомобилей Львов» с ранним выездом/поздним возвратом, заранее спланируйте заправку и время на дорогу к точке возврата."}}
+        {"@type":"Question","name":"Where can I park a rental car in Lviv and avoid fines?","acceptedAnswer":{"@type":"Answer","text":"Lviv has many paid zones and municipal car parks. Park within marked areas or on guarded lots, check signs and pay stations, and keep receipts. Wrong parking leads to fines paid by the renter. In busy districts use mall and hotel parking. City apps help pay for parking and see zones. Before overnight parking, check local rules to avoid towing and delays."}},
+        {"@type":"Question","name":"Airport and address delivery (LWO): terms and fees","acceptedAnswer":{"@type":"Answer","text":"We can deliver/collect at any Lviv address and meet you at LWO terminal at the agreed time. Early/late hours and waiting time may incur a fee; final cost depends on distance. Intercity delivery within Ukraine is available on request. Book in advance and provide flight/hotel details to guarantee timing; online booking secures the rate."}},
+        {"@type":"Question","name":"Is there a mileage limit and how to drive across Ukraine without restrictions?","acceptedAnswer":{"@type":"Answer","text":"A daily limit (typically 250–300 km/day) applies by default—enough for Lviv and nearby trips. For longer routes (e.g., Lviv–Kyiv/Odesa) add extended or unlimited mileage when booking. Excess mileage is charged per km according to the tariff. Share your route in advance and we’ll advise the best terms and fuel stops."}},
+        {"@type":"Question","name":"What does insurance cover? (TPL/CASCO)","acceptedAnswer":{"@type":"Answer","text":"Mandatory third-party liability (TPL) and standard CASCO with a deductible are included. TPL covers third parties, CASCO covers damage to the rental car above the deductible. Some cases (e.g., glass/tyres) may have special terms—see the Insurance section. In case of an accident, report it immediately and call the authorities. Extended coverage lowers your out-of-pocket risk and speeds up claims."}},
+        {"@type":"Question","name":"Deductible vs security deposit: how much do I risk?","acceptedAnswer":{"@type":"Answer","text":"The deductible is your maximum liability per incident; the insurer covers the rest. The deposit is blocked on your card for the rental period and usually equals the deductible. Example: damage UAH 50,000, deductible/deposit UAH 20,000—your liability is UAH 20,000, the insurer covers the remainder. The bank releases the block after a clean return (usually a few business days)."}},
+        {"@type":"Question","name":"Can I rent with no deposit or with zero excess?","acceptedAnswer":{"@type":"Answer","text":"No full no-deposit option. By default a deposit equal to the deductible is blocked. You may reduce liability: −50% deposit/deductible (CDW) or −100% (SCDW) for damage/theft. Note: even with “zero excess” a refundable hold of $200–300 remains for fines, refuelling, cleaning, or lost keys. It’s returned after closing possible charges."}},
+        {"@type":"Question","name":"Minimum driver age and experience","acceptedAnswer":{"@type":"Answer","text":"Standard: 21+ years and 2+ years of driving. Business/premium cars may require 23–25 years and 5+ years’ experience. A “young driver” option may be available with an extra fee. All drivers must be listed in the contract in advance."}},
+        {"@type":"Question","name":"Can I cross the border in a rental car?","acceptedAnswer":{"@type":"Answer","text":"Driving within Ukraine is free; international travel is only by written permission and with a Green Card. Time is needed to prepare documents and verify the route. Crossing the border without consent voids insurance and breaches the contract. Tell us in advance— we’ll confirm requirements and timing."}},
+        {"@type":"Question","name":"Third-party driving and commercial use (taxi/courier)","acceptedAnswer":{"@type":"Answer","text":"Only drivers listed in the agreement may drive. Using the car for taxi, car-sharing or deliveries is prohibited and may void insurance. Add a second driver during booking if needed; otherwise penalties and full liability may apply."}},
+        {"@type":"Question","name":"Payment methods and deposit blocking","acceptedAnswer":{"@type":"Answer","text":"We accept cash (UAH, also USD/EUR), Visa/Mastercard, bank transfer, and—by prior approval—crypto (USDT/USDC). FX/crypto payments use the company rate at settlement; bank/network fees may apply. The security deposit is blocked on the renter’s card and released after return; release time depends on your bank. Invoices and closing docs available for companies."}},
+        {"@type":"Question","name":"Documents required for Ukrainians and foreigners","acceptedAnswer":{"@type":"Answer","text":"Required: passport/ID, category B driving licence (2+ years), and a bank card in renter’s name. Foreigners should have an International Driving Permit (IDP) alongside their national licence. For weekends/holidays, book early for faster checks and a wider car choice."}},
+        {"@type":"Question","name":"Fuel policy “full-to-full”","acceptedAnswer":{"@type":"Answer","text":"Cars are handed over full and should be returned full. If not, missing fuel and a refuelling service fee are charged. Keep your receipt to speed up return. Plan refuelling in advance for early/late returns."}}
       ]
     }
     </script>
   }
 
-  <!-- Только для страницы сертификатов -->
+  <!-- Certificates page only -->
   @if (context.page === 'certificate') {
-    <!-- Preload LCP-изображения -->
+    <!-- Preload LCP image -->
     <link rel="preload" as="image"
           href="/img/icons/certificatess.webp"
           type="image/webp"
           fetchpriority="high" />
 
-    <!-- JSON-LD: Product/Offer -->
+    <!-- JSON-LD: Product/Offer (EN) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      "name": "Подарочный сертификат на аренду авто REIZ",
+      "name": "REIZ car rental gift certificate",
       "image": "https://reiz.com.ua/img/og/certificate.webp",
-      "description": "Подарочный сертификат REIZ на аренду автомобиля во Львове: номинал 100–5000 USD, электронный или физический формат, доставка за 5 минут.",
+      "description": "REIZ gift certificate for car rental in Lviv: face value $100–$5000, digital or physical format, delivery in 5 minutes.",
       "brand": { "@type": "Brand", "name": "REIZ" },
       "sku": "reiz-gift-certificate",
-      "url": "https://reiz.com.ua/certificate",
+      "url": "https://reiz.com.ua/en/certificate",
       "areaServed": "UA",
-      "audience": { "@type": "Audience", "audienceType": "Adults with valid driving license" },
+      "audience": { "@type": "Audience", "audienceType": "Adults with valid driving licence" },
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "USD",
         "lowPrice": "100",
         "highPrice": "5000",
         "availability": "https://schema.org/InStock",
-        "url": "https://reiz.com.ua/certificate"
+        "url": "https://reiz.com.ua/en/certificate"
       }
     }
     </script>
 
-    <!-- JSON-LD: FAQPage (должен совпадать с видимым FAQ на странице) -->
+    <!-- JSON-LD: FAQPage (EN, must match visible FAQ) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"Какой срок действия подарочного сертификата на аренду авто?","acceptedAnswer":{"@type":"Answer","text":"Сертификат действует 12 месяцев с даты покупки. Сертификат на прокат автомобиля можно один раз продлить по согласованию с менеджером. Действует во Львове и в локациях, где работает REIZ."}},
-        {"@type":"Question","name":"Как воспользоваться сертификатом и забронировать машину?","acceptedAnswer":{"@type":"Answer","text":"Выберите авто и даты аренды на сайте или по телефону. Сообщите код подарочного сертификата на аренду авто менеджеру — номинал будет учтён при расчёте. Бронирование доступно онлайн, по телефону и в мессенджерах."}},
-        {"@type":"Question","name":"Что если стоимость аренды выше номинала сертификата?","acceptedAnswer":{"@type":"Answer","text":"Можно доплатить разницу любой удобной оплатой (карта/безнал/наличный расчёт). Разрешено объединять несколько сертификатов для одной аренды автомобиля."}},
-        {"@type":"Question","name":"Можно ли использовать сертификат частями на несколько поездок?","acceptedAnswer":{"@type":"Answer","text":"Да, допускается частичная оплата аренд до полного использования номинала сертификата на прокат автомобиля. Сообщите менеджеру, что хотите расходовать сумму поэтапно."}},
-        {"@type":"Question","name":"Можно ли воспользоваться сертификатом, если нет водительских прав?","acceptedAnswer":{"@type":"Answer","text":"Да, доступна аренда авто с личным водителем (услуга за доплату). Это удобный вариант подарка во Львове для тех, кто не водит — оригинальный подарок на событие или поездку."}},
-        {"@type":"Question","name":"Нужен ли депозит и страховка при аренде по сертификату?","acceptedAnswer":{"@type":"Answer","text":"Действуют стандартные условия аренды: страховой депозит/франшиза зависит от класса авто. Сертификат на аренду машины покрывает стоимость проката, но не заменяет депозит и дополнительные услуги. Доступны опции снижения ответственности (CDW/SCDW)."}},
-        {"@type":"Question","name":"Можно ли вернуть деньги за подарочный сертификат?","acceptedAnswer":{"@type":"Answer","text":"Возврат денежных средств не предусмотрен условиями использования сертификата. При необходимости можем продлить срок действия или переоформить сертификат на другое лицо."}},
-        {"@type":"Question","name":"Для каких случаев подходит сертификат — это действительно оригинальный подарок?","acceptedAnswer":{"@type":"Answer","text":"Да, это универсальный и оригинальный подарок во Львове: день рождения, годовщина, свадьба, корпоратив, Новый год. Отлично подходит как подарок автолюбителю и тем, кто ценит новые впечатления."}},
-        {"@type":"Question","name":"В каком формате доступен сертификат и как быстро его получить?","acceptedAnswer":{"@type":"Answer","text":"Электронный сертификат приходит на e-mail за 5 минут после оплаты. Физический сертификат доставим курьером по Львову и по Украине. Оба формата одинаково действительны."}},
-        {"@type":"Question","name":"Кто может купить и кто может использовать сертификат? (требования к водителю)","acceptedAnswer":{"@type":"Answer","text":"Купить может любой совершеннолетний. Использовать сертификат может водитель, который соответствует условиям REIZ: возраст от 21 года, стаж от 3 лет, паспорт и водительское удостоверение (для иностранцев — международные права при необходимости)."}}
+        {"@type":"Question","name":"What is the validity period of the gift certificate?","acceptedAnswer":{"@type":"Answer","text":"It is valid for 12 months from purchase. It can be extended once by agreement with a manager. Valid in Lviv and other REIZ locations."}},
+        {"@type":"Question","name":"How do I use the certificate and book a car?","acceptedAnswer":{"@type":"Answer","text":"Choose a car and dates on the website or by phone. Provide the certificate code and its value will be applied. Booking is available online, by phone and via messengers."}},
+        {"@type":"Question","name":"What if the rental price exceeds the certificate value?","acceptedAnswer":{"@type":"Answer","text":"You can pay the difference by any method (card/cash/bank transfer). Multiple certificates can be combined for one rental."}},
+        {"@type":"Question","name":"Can I spend the certificate in parts across several rentals?","acceptedAnswer":{"@type":"Answer","text":"Yes, partial redemption is allowed until the total value is used. Tell the manager you want to use it gradually."}},
+        {"@type":"Question","name":"Can I use a certificate without a driving licence?","acceptedAnswer":{"@type":"Answer","text":"Yes, renting with a professional driver is available for an extra fee—great for gifts to non-drivers."}},
+        {"@type":"Question","name":"Is a deposit/insurance required when paying with a certificate?","acceptedAnswer":{"@type":"Answer","text":"Standard terms apply: the security deposit/deductible depends on car class. The certificate covers rental price only; deposit and extras are separate. CDW/SCDW liability reduction is available."}},
+        {"@type":"Question","name":"Can I get a refund for the gift certificate?","acceptedAnswer":{"@type":"Answer","text":"Refunds are not provided. If needed, we can extend validity or re-issue to another person."}},
+        {"@type":"Question","name":"For which occasions is the certificate suitable?","acceptedAnswer":{"@type":"Answer","text":"A universal gift: birthday, anniversary, wedding, corporate, New Year—perfect for car lovers and experience seekers."}},
+        {"@type":"Question","name":"Formats and delivery time","acceptedAnswer":{"@type":"Answer","text":"Digital certificate arrives by email within 5 minutes after payment. A physical card can be couriered across Lviv and Ukraine. Both are equally valid."}},
+        {"@type":"Question","name":"Who can buy and who can use the certificate?","acceptedAnswer":{"@type":"Answer","text":"Anyone 18+ can buy. The user must meet REIZ rental requirements: age 21+, 3+ years driving experience, passport and driving licence (foreigners may need an IDP)."}}
       ]
     }
     </script>
 
-    <!-- JSON-LD: BreadcrumbList (если передали breadcrumbs) -->
+    <!-- JSON-LD: BreadcrumbList (optional) -->
     @if (context.breadcrumbs) {
       <script type="application/ld+json">
       {
@@ -233,5 +250,5 @@
     }
   }
 
-  <script defer src="js/main.js"></script>
+  <script defer src="/js/main.js"></script>
 </head>

@@ -1,112 +1,60 @@
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#111111" />
-    <meta name="description" content="REIZ" />
-
-    <title>REIZ</title>
-    <script defer src="/js/main.js"></script>
-    <link rel="preload" href="/fonts/Arial-BoldMT.woff2" as="font" type="font/woff2" crossorigin />
-    <link
-        rel="preload"
-        href="/fonts/Arial-ItalicMT.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link rel="preload" href="/fonts/ArialMT.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/Inter-Black.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/inter-light.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link
-        rel="preload"
-        href="/fonts/Inter-SemiBold.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link
-        rel="preload"
-        href="/fonts/SFProDisplay-Light.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link
-        rel="preload"
-        href="/fonts/SFProDisplay-Medium.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link
-        rel="preload"
-        href="/fonts/SFProDisplay-Regular.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link
-        rel="preload"
-        href="/fonts/SFProDisplay-Semibold.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link
-        rel="preload"
-        href="/fonts/SFProDisplay-Bold.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-
-    <link
-        rel="preload"
-        href="/fonts/arial-hebrew-scholar.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link
-        rel="preload"
-        href="/fonts/apple-braille-pinpoint-6-dot.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link
-        rel="preload"
-        href="/fonts/Montserrat-SemiBold.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link
-        rel="preload"
-        href="/fonts/GowunDodum-Regular.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link
-        rel="preload"
-        href="/fonts/MonteCarlo-Regular.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <link
-        rel="preload"
-        href="/fonts/HalvarBreit-Md.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-
+  
+    <title>Аренда авто в Украине — REIZ | Львов и Киев 24/7</title>
+    <meta name="description" content="Аренда авто во Львове, Киеве и по всей Украине. Прозрачные тарифы, доставка в аэропорт, поддержка 24/7. Эконом, Комфорт и SUV. REIZ." />
+  
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href="https://reiz.com.ua/" />
+    <link rel="alternate" hreflang="ru" href="https://reiz.com.ua/" />
+    <link rel="alternate" hreflang="uk" href="https://reiz.com.ua/uk/" />
+    <link rel="alternate" hreflang="en" href="https://reiz.com.ua/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://reiz.com.ua/" />
+  
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="REIZ Rental Cars" />
+    <meta property="og:title" content="Аренда авто в Украине — REIZ" />
+    <meta property="og:description" content="Аренда авто во Львове, Киеве и по Украине. Прозрачные тарифы и поддержка 24/7." />
+    <meta property="og:url" content="https://reiz.com.ua/" />
+    <meta property="og:image" content="https://reiz.com.ua/img/og/cover-ru.webp" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="uk_UA" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+  
+    <!-- CSS first -->
     <link rel="stylesheet" href="/css/style.css" />
-</head>
+  
+    <!-- Критичные шрифты (остальные прелоады убрать) -->
+    <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+  
+    <!-- (Опционально) прелоад hero-изображения -->
+    <!-- <link rel="preload" as="image" href="/img/hero-ru.webp" /> -->
+  
+    <!-- JS -->
+    <script defer src="/js/main.js"></script>
+  
+    <!-- JSON-LD (минимально) -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"CarRental",
+      "name":"REIZ",
+      "url":"https://reiz.com.ua/",
+      "telephone":"+380635471186",
+      "areaServed":"UA",
+      "openingHours":"Mo-Su 09:00-21:00",
+      "sameAs":[
+        "https://www.facebook.com/","https://www.instagram.com/","https://www.youtube.com/"
+      ]
+    }
+    </script>
+  </head>
+  

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="ua" class="page">
-    @include('partials/head.html', { 
-        "title": "Аренда авто во Львове — REIZ RENTAL CARS",
-        "description": "Аренда автомобилей во Львове. Современные авто, премиум-сервис, подача по адресу, 24/7.", 
-        "canonical": "https://reiz.com.ua/", "og_title": "Аренда авто во Львове — REIZ RENTAL CARS", 
-        "og_description": "Прокат автомобилей во Львове. Новые авто, премиальный сервис, адресная доставка, поддержка 24/7.", 
-        "og_url": "https://reiz.com.ua/", 
-        "og_image": "https://reiz.com.ua/img/og/home.webp" 
-    })
+<html lang="uk" class="page">
 
+@include('partials/head.html', {
+    "title": "Оренда авто у Львові — REIZ RENTAL CARS",
+    "description": "Оренда автомобілів у Львові. Сучасні авто, преміум-сервіс, подача за адресою, 24/7.",
+    "canonical": "https://reiz.com.ua/ua/",
+  
+    "og_title": "Оренда авто у Львові — REIZ RENTAL CARS",
+    "og_description": "Прокат автомобілів у Львові. Нові авто, преміальний сервіс, адресна доставка, підтримка 24/7.",
+    "og_image": "https://reiz.com.ua/img/og/home.webp",
+    "og_url": "https://reiz.com.ua/ua/",
+    "og_locale": "uk_UA",
+  
+    "lang": "uk",
+    "href_uk": "https://reiz.com.ua/ua/",
+    "href_ru": "https://reiz.com.ua/",
+    "href_en": "https://reiz.com.ua/en/",
+    "href_default": "https://reiz.com.ua/"
+  })
+  
     <body class="page__body" data-page="main">
         @include('partials/noscript.html') @include('partials/header.html')
 
@@ -59,7 +69,7 @@
                                         <ul class="main-nav__acc" data-accordion>
                                             <li class="main-nav__acc-item">
                                                 <button class="main-nav__acc-btn" data-id="1">
-                                                    АВТОМОБИЛИ
+                                                    АВТОМОБІЛІ
                                                     <i class="sprite">
                                                         <svg width="11" height="8">
                                                             <use
@@ -69,9 +79,9 @@
                                                     </i>
                                                 </button>
                                                 <div class="main-nav__acc-content" data-content="1">
-                                                    <a href="#catalog">Прокат авто в Киеве</a>
-                                                    <a href="#catalog">Прокат авто во Львове</a>
-                                                    <a href="#catalog">Прокат авто в Тернополе</a>
+                                                    <a href="#catalog">Прокат авто в Києві</a>
+                                                    <a href="#catalog">Прокат авто у Львові</a>
+                                                    <a href="#catalog">Прокат авто в Тернополі</a>
                                                 </div>
                                             </li>
                                         </ul>
@@ -80,33 +90,33 @@
                                         <a href="/ua/insurance">СТРАХОВКА</a>
                                     </li>
                                     <li>
-                                        <a href="/ua/business">АРЕНДА ДЛЯ ЮР.ЛИЦ</a>
+                                        <a href="/ua/business">ОРЕНДА ДЛЯ ЮР.ЛИЦЬ</a>
                                     </li>
                                     <li>
-                                        <a href="/ua/certificate">СЕРТИФИКАТЫ </a>
+                                        <a href="/ua/certificate">СЕРТИФІКАТИ </a>
                                     </li>
                                     <li>
-                                        <a href="/ua/terms">УСЛОВИЯ АРЕНДЫ</a>
+                                        <a href="/ua/terms">УМОВИ ОРЕНДИ</a>
                                     </li>
                                     <li>
-                                        <a href="/faq">ВОПРОС-ОТВЕТ</a>
+                                        <a href="/faq">ПИТАННЯ-ВІДПОВІДЬ</a>
                                     </li>
                                     <li>
-                                        <a href="/invest">СДАТЬ АВТО В АРЕНДУ</a>
+                                        <a href="/invest">ЗДАТИ АВТО В ОРЕНДУ</a>
                                     </li>
                                     <li>
                                         <a href="/blog">БЛОГ</a>
                                     </li>
                                     <li>
-                                        <a href="/about">О НАС</a>
+                                        <a href="/about">ПРО НАС</a>
                                     </li>
                                     <li>
-                                        <a href="/contacts">КОНТАКТЫ</a>
+                                        <a href="/contacts">КОНТАКТИ</a>
                                     </li>
                                 </ul>
                             </nav>
 
-                            <a href="#" class="main-button">ЗАКАЗАТЬ ЗВОНОК</a>
+                            <a href="#" class="main-button">ЗАМОВИТИ ДЗВІНОК</a>
                         </aside>
 
                         <div class="hero-section__inner">
@@ -116,7 +126,7 @@
                                 data-aos-duration="1000"
                                 data-aos-delay="700"
                             >
-                                <h3 class="pretitle">ДОБРО ПОЖАЛОВАТЬ В REIZ</h3>
+                                <h3 class="pretitle">ЛАСКАВО ПРОСИМО В REIZ</h3>
 
                                 <span class="hero-section__date">
                                     <i class="sprite">
@@ -124,7 +134,7 @@
                                             <use href="/img/sprite/sprite.svg#time"></use>
                                         </svg>
                                     </i>
-                                    ОТВЕТИМ С 09:00 ДО 22:00
+                                    ВІДПОВІМО С 09:00 ДО 22:00
                                 </span>
                             </div>
                             <div
@@ -133,29 +143,29 @@
                                 data-aos-duration="1000"
                                 data-aos-delay="800"
                             >
-                                <h1 class="title">Аренда авто во Львове</h1>
+                                <h1 class="title">Оренда авто у Львові</h1>
 
                                 <p>
-                                    Аренда авто во Львове от REIZ — новые автомобили,
-                                    премиум-сервис, выгодные тарифы и подача по адресу в удобное
-                                    время.
+                                    Оренда авто у Львові від REIZ — нові автомобілі.
+                                    преміум-сервіс, вигідні тарифи та подання за адресою у зручни
+                                    час.
                                 </p>
 
                                 <ul>
                                     <li>
-                                        <p>Аренда авто эконом-класса</p>
+                                        <p>Оренда авто економ-класу</p>
                                     </li>
                                     <li>
-                                        <p>Аренда авто бизнес-класса</p>
+                                        <p>Оренда авто економ-класу</p>
                                     </li>
                                     <li>
-                                        <p>Прокат премиум-авто</p>
+                                        <p>Прокат преміум-авто</p>
                                     </li>
                                     <li>
-                                        <p>Аренда внедорожников</p>
+                                        <p>Оренда позашляховиків</p>
                                     </li>
                                     <li>
-                                        <p>Прокат минивэнов</p>
+                                        <p>Прокат мінівенів</p>
                                     </li>
                                 </ul>
                             </div>
@@ -187,15 +197,15 @@
                                         </svg>
                                     </i>
 
-                                    ПЕРЕЙТИ К ВЫБОРУ АВТОМОБИЛЯ
+                                    ПЕРЕЙТИ ДО ВИБОРУ АВТОМОБІЛЯ
                                 </a>
                             </div>
 
                             <div class="hero-section__content">
-                                <h2 class="h2">СДАЙ СВОЕ АВТО В АРЕНДУ</h2>
+                                <h2 class="h2">ЗДАЙ СВОЄ АВТО В ОРЕНДУ</h2>
 
                                 <a href="#" class="main-button main-button--transparent"
-                                    >Подробней</a
+                                    >Детальніше</a
                                 >
                             </div>
 
@@ -215,31 +225,21 @@
                                         </div>
                                     </div>
                                     <ul class="options-container">
-                                        <li
-                                            class="option active"
-                                            data-value="Киев, Аэропорт “Борисполь”, терминал 3б"
-                                        >
-                                            <span class="option-text"
-                                                >Киев, Аэропорт “Борисполь”, терминал 3б</span
-                                            >
+                                        <li class="option active"
+                                            data-value="Київ, Аеропорт &laquo;Бориспіль&raquo;, термінал 3Б">
+                                          <span class="option-text">Київ, Аеропорт «Бориспіль», термінал 3Б</span>
                                         </li>
-                                        <li
-                                            class="option"
-                                            data-value="Киев, Аэропорт “Жуляны”, терминал 2а"
-                                        >
-                                            <span class="option-text"
-                                                >Киев, Аэропорт “Жуляны”, терминал 2а</span
-                                            >
+                                      
+                                        <li class="option"
+                                            data-value="Київ, Аеропорт &laquo;Жуляни&raquo;, термінал 2А">
+                                          <span class="option-text">Київ, Аеропорт «Жуляни», термінал 2А</span>
                                         </li>
-                                        <li
-                                            class="option"
-                                            data-value="Львов, Аэропорт “Центральный”, терминал 1"
-                                        >
-                                            <span class="option-text"
-                                                >Львов, Аэропорт “Центральный”, терминал 1</span
-                                            >
+                                      
+                                        <li class="option"
+                                            data-value="Львів, Аеропорт &laquo;Центральний&raquo;, термінал 1">
+                                          <span class="option-text">Львів, Аеропорт «Центральний», термінал 1</span>
                                         </li>
-                                    </ul>
+                                      </ul>                                      
                                 </div>
 
                                 <div class="custom-select order">
@@ -257,31 +257,21 @@
                                         </div>
                                     </div>
                                     <ul class="options-container">
-                                        <li
-                                            class="option active"
-                                            data-value="Киев, Аэропорт “Борисполь”, терминал 3б"
-                                        >
-                                            <span class="option-text"
-                                                >Киев, Аэропорт “Борисполь”, терминал 3б</span
-                                            >
+                                        <li class="option active"
+                                            data-value="Київ, Аеропорт &laquo;Бориспіль&raquo;, термінал 3Б">
+                                          <span class="option-text">Київ, Аеропорт «Бориспіль», термінал 3Б</span>
                                         </li>
-                                        <li
-                                            class="option"
-                                            data-value="Киев, Аэропорт “Жуляны”, терминал 2а"
-                                        >
-                                            <span class="option-text"
-                                                >Киев, Аэропорт “Жуляны”, терминал 2а</span
-                                            >
+                                      
+                                        <li class="option"
+                                            data-value="Київ, Аеропорт &laquo;Жуляни&raquo;, термінал 2А">
+                                          <span class="option-text">Київ, Аеропорт «Жуляни», термінал 2А</span>
                                         </li>
-                                        <li
-                                            class="option"
-                                            data-value="Львов, Аэропорт “Центральный”, терминал 1"
-                                        >
-                                            <span class="option-text"
-                                                >Львов, Аэропорт “Центральный”, терминал 1</span
-                                            >
+                                      
+                                        <li class="option"
+                                            data-value="Львів, Аеропорт &laquo;Центральний&raquo;, термінал 1">
+                                          <span class="option-text">Львів, Аеропорт «Центральний», термінал 1</span>
                                         </li>
-                                    </ul>
+                                      </ul>                                      
                                 </div>
                                 <label class="order-form__label">
                                     <span class="order-form__icon">
@@ -304,7 +294,7 @@
                                     </div>
                                 </label>
 
-                                <button class="main-button" type="submit">НАЙТИ</button>
+                                <button class="main-button" type="submit">ЗНАЙТИ</button>
                             </form>
                         </div>
                     </div>
@@ -317,7 +307,7 @@
                         <aside class="catalog-aside" data-aos="fade-right" data-aos-duration="900">
                             <div class="catalog-aside__top">
                                 <h2 class="catalog-aside__title">REIZ RENTAL</h2>
-                                <p>ВЫБЕРИТЕ СВОЙ АВТОМОБИЛЬ</p>
+                                <p>ОБЕРІТЬ СВІЙ АВТОМОБІЛЬ</p>
                             </div>
 
                             <form class="catalog-aside__form">
@@ -426,7 +416,7 @@
                                                         ></use>
                                                     </svg>
                                                 </i>
-                                                Фильтры
+                                                Фільтри
                                                 <b>1</b>
                                             </button>
                                             <div class="custom-select mode">
@@ -453,7 +443,7 @@
                                                                     ></use>
                                                                 </svg>
                                                             </i>
-                                                            По возрастанию</span
+                                                            За зростанням</span
                                                         >
                                                     </li>
                                                     <li class="option" data-value="По_убыванию">
@@ -465,7 +455,7 @@
                                                                     ></use>
                                                                 </svg>
                                                             </i>
-                                                            По убыванию</span
+                                                            За спаданням</span
                                                         >
                                                     </li>
                                                     <li class="option" data-value="По_умолчанию">
@@ -477,7 +467,7 @@
                                                                     ></use>
                                                                 </svg>
                                                             </i>
-                                                            По умолчанию</span
+                                                            За замовчуванням</span
                                                         >
                                                     </li>
                                                 </ul>
@@ -487,7 +477,7 @@
 
                                     <div class="catalog-aside__filters">
                                         <span class="catalog-aside__subtitle"
-                                            >Фильтры <i>1</i></span
+                                            >Фільтри <i>1</i></span
                                         >
                                         <button class="catalog-aside__close">
                                             <i class="sprite">
@@ -581,7 +571,7 @@
                                         <div class="custom-select">
                                             <div class="select-field">
                                                 <div class="selected-options">
-                                                    <span class="placeholder">Модель</span>
+                                                    <span class="placeholder">Моделі</span>
                                                 </div>
                                                 <div class="arrow-down">
                                                     <svg width="6" height="3">
@@ -607,7 +597,7 @@
                                         <div class="custom-select">
                                             <div class="select-field">
                                                 <div class="selected-options">
-                                                    <span class="placeholder">Тип топлива</span>
+                                                    <span class="placeholder">Тип палива</span>
                                                 </div>
                                                 <div class="arrow-down">
                                                     <svg width="6" height="3">
@@ -629,7 +619,7 @@
 
                                         <div class="catalog-aside__price">
                                             <label class="catalog-aside__label mode">
-                                                <span>Цена</span>
+                                                <span>Ціна</span>
                                                 <input
                                                     type="number"
                                                     name="value_min"
@@ -640,7 +630,7 @@
                                                 <span>$</span>
                                             </label>
                                             <label class="catalog-aside__label mode">
-                                                <span>Цена</span>
+                                                <span>Ціна</span>
                                                 <input
                                                     type="number"
                                                     name="value_max"
@@ -652,12 +642,12 @@
                                             </label>
                                         </div>
 
-                                        <button class="reset-btn">Сбросить фильтр</button>
-                                        <button class="main-button">Показать 2 авто</button>
+                                        <button class="reset-btn">Скинути фільтр</button>
+                                        <button class="main-button">Показати 2 авто</button>
                                     </div>
                                 </div>
 
-                                <button class="main-button" type="submit">ЗАКАЗАТЬ ЗВОНОК</button>
+                                <button class="main-button" type="submit">ЗАМОВИТИ ДЗВІНОК</button>
                             </form>
                         </aside>
 
@@ -668,7 +658,7 @@
                                 data-aos-duration="500"
                                 data-aos-delay="200"
                             >
-                                <h2 class="pretitle">АВТОМОБИЛИ REIZ</h2>
+                                <h2 class="pretitle">АВТОМОБІЛІ REIZ</h2>
 
                                 <div class="custom-select mode">
                                     <div class="select-field">
@@ -682,7 +672,7 @@
                                                     </svg>
                                                 </i>
                                             </span>
-                                            <span class="placeholder">По умолчанию</span>
+                                            <span class="placeholder">За замовчуванням</span>
                                         </div>
                                         <div class="arrow-down">
                                             <svg width="6" height="3">
@@ -692,10 +682,10 @@
                                     </div>
                                     <ul class="options-container">
                                         <li class="option" data-value="По_возрастанию">
-                                            <span class="option-text">По возрастанию</span>
+                                            <span class="option-text">За зростанням</span>
                                         </li>
                                         <li class="option" data-value="По_убыванию">
-                                            <span class="option-text">По убыванию</span>
+                                            <span class="option-text">За спаданням</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -1320,22 +1310,22 @@
                             <li class="advantages-section__item">
                                 <span class="advantages-section__title">Подача авто 24/7 </span>
                                 <p>
-                                    Бесплатная доставка машины в любую точку города - в любое время
+                                    Безкоштовна доставка машини в будь-яку точку міста - у будь-який час
                                 </p>
                             </li>
                             <li class="advantages-section__item">
-                                <span class="advantages-section__title">Без скрытых платежей </span>
-                                <p>Честные цены без доплат, сюрпризов. Всё прозрачно.</p>
+                                <span class="advantages-section__title">Без прихованих платежів </span>
+                                <p>Чесні ціни без доплат, сюрпризів. Все прозоро.</p>
                             </li>
                             <li class="advantages-section__item">
-                                <span class="advantages-section__title">Аренда с водителем</span>
-                                <p>Услуга аренды авто с водителем комфортно и безопасно.</p>
+                                <span class="advantages-section__title">Оренда з водієм</span>
+                                <p>Послуга оренди авто з водієм комфортно та безпечно</p>
                             </li>
                             <li class="advantages-section__item">
                                 <span class="advantages-section__title"
-                                    >Карта клиента и скидки</span
+                                    >Карта клієнта та знижки</span
                                 >
-                                <p>Персональные предложения для постоянных клиентов.</p>
+                                <p>Персональні пропозиції для клієнтів.</p>
                             </li>
                         </ul>
                     </div>
@@ -1360,7 +1350,7 @@
                                             />
                                         </picture>
                                     </div>
-                                    <span class="rent-card__title">СДАЙ СВОЕ АВТО В АРЕНДУ</span>
+                                    <span class="rent-card__title">ЗДАЙ СВОЄ АВТО В ОРЕНДУ</span>
 
                                     <ul class="rent-card__list">
                                         <li class="rent-card__item">
@@ -1370,8 +1360,8 @@
                                                 </svg>
                                             </i>
                                             <p>
-                                                Распределение дохода:<br />
-                                                70/30 — владелец/автопрокат
+                                                Розподіл доходу:<br />
+                                                70/30 - власник/автопрокат
                                             </p>
                                         </li>
                                         <li class="rent-card__item">
@@ -1380,7 +1370,7 @@
                                                     <use href="/img/sprite/sprite.svg#money"></use>
                                                 </svg>
                                             </i>
-                                            <p>Доход: от 350 до 5000 USD Зависит от модели.</p>
+                                            <p>Дохід: від 350 до 5000 USD Залежить від моделі.</p>
                                         </li>
                                         <li class="rent-card__item">
                                             <i class="sprite">
@@ -1389,14 +1379,14 @@
                                                 </svg>
                                             </i>
                                             <p>
-                                                Контроль в реальном времени<br />Отслеживайте машину
-                                                24/7 через GPS и приложение — полная прозрачность.
+                                                Контроль у реальному часі<br />Відслідковуйте машину
+                                                24/7 через GPS і програма - повна прозорість.
                                             </p>
                                         </li>
                                     </ul>
 
                                     <div class="main-button main-button--transparent">
-                                        ПОДРОБНЕЕ
+                                        ДЕТАЛЬНІШЕ
                                     </div>
                                 </a>
                             </li>
@@ -1410,14 +1400,14 @@
                                                 width="670"
                                                 height="350"
                                                 src="/img/carterms.png"
-                                                alt="Блок Условия аренды — декоративный фон с задней фарой автомобиля"
+                                                alt="Блок Умови оренди — декоративне тло із задньою фарою автомобіля"
                                             />
                                         </picture>
                                     </div>
-                                    <span class="rent-card__title">УСЛОВИЯ АРЕНДЫ</span>
+                                    <span class="rent-card__title">УМОВИ ОРЕНДИ</span>
 
                                     <div class="main-button main-button--transparent">
-                                        ПОДРОБНЕЕ
+                                        ДЕТАЛЬНІШЕ
                                     </div>
                                 </a>
                             </li>
@@ -1438,7 +1428,7 @@
                                     <span class="rent-card__title">FAQ</span>
 
                                     <div class="main-button main-button--transparent">
-                                        ПОДРОБНЕЕ
+                                        ДЕТАЛЬНІШЕ
                                     </div>
                                 </a>
                             </li>
@@ -1453,466 +1443,485 @@
                     <div class="advantages-section__content">
                         <div class="advantages-section__inner">
                             <span class="advantages-section__title"
-                                >Почему вам стоит арендовать автомобиль у нас?</span
+                                >Чому вам варто орендувати автомобіль у нас?</span
                             >
-                            <p>Высокий рейтинг и доверие клиентов по всему миру</p>
+                            <p>Високий рейтинг та довіра клієнтів по всьому світу</p>
                         </div>
 
                         <div class="advantages-section__links">
-                            <a href="#" class="advantages-section__review">
-                                <span>TrustPilot</span>
-                                <img
-                                    width="184"
-                                    height="68"
-                                    src="/img/icons/trip.png"
-                                    alt="Логотип TrustPilot"
-                                />
+                            <!-- Trustpilot (статический, без Schema.org) -->
+                            <a class="advantages-section__review"
+                               href="https://www.trustpilot.com/review/reiz.com.ua"
+                               target="_blank" rel="noopener noreferrer nofollow"
+                               aria-label="Отзывы Trustpilot">
+                              <span>TrustPilot</span>
+                              <img
+                                width="184" height="68"
+                                src="/img/icons/trip.png"
+                                alt="Логотип Trustpilot"
+                                loading="lazy" decoding="async"
+                              />
                             </a>
-                            <!-- <a href="#" class="advantages-section__review">
-                                <span>Google Reviews</span>
-                                <img
-                                    width="194"
-                                    height="70"
-                                    src="/img/icons/google.png"
-                                    alt="Логотип Google Reviews"
-                                />
-                            </a> -->
-
-                            <div
-                                class="review-widget_net"
-                                data-uuid="9f9a5893-0345-48a8-99e3-6c0e8fbfcaba"
-                                data-template="10"
-                                data-lang="en"
-                                data-theme="light"
-                            ></div>
-                            <script src="https://grwapi.net/widget.min.js"></script>
+                    
+                            <!-- Google Reviews (статический, без Schema.org) -->
+                            <a class="advantages-section__review"
+                               href="https://www.google.com/search?q=REIZ+Rental+Cars+Lviv+reviews"
+                               target="_blank" rel="noopener noreferrer nofollow"
+                               aria-label="Отзывы Google">
+                              <span>Google Reviews</span>
+                              <img
+                                width="194" height="70"
+                                src="/img/icons/google.png"
+                                alt="Логотип Google Reviews"
+                                loading="lazy" decoding="async"
+                              />
+                            </a>
+                    
+                            <!-- ВАЖНО: никаких виджетов/скриптов агрегаторов, пока нет реальных данных -->
+                          </div>
                         </div>
-                    </div>
+                      </div>
+                    </section>
+
+<section class="editor-section" data-aos="fade-up" data-aos-duration="400">
+  <div class="container">
+    <div class="editor-section__box" data-clip>
+      <h2 class="h2">
+        Оренда авто у Києві та Львові з REIZ — новий рівень комфорту
+      </h2>
+      <div class="editor" data-clip-item>
+        <p>
+          Ми — компанія Reiz Car Rental, надаємо послуги з оренди
+          автомобілів у Львові та Києві, а також за вашим запитом можемо
+          доставити авто у будь-яке місто України.
+          <br />
+          Reiz — це не про кількість машин, а про якість та комфорт кожної
+          з них.
+          <br />
+          Чому варто вибрати прокат авто в нашій компанії?
+        </p>
+        <ul>
+          <li>
+            <p>
+              Персоналізований підхід. Ми тільки починаємо, тому
+              кожен клієнт для нас — особливий. Ми завжди готові приділити
+              вам максимум уваги, запропонувати індивідуальні умови та
+              підтримку на кожному етапі оренди.
+            </p>
+          </li>
+          <li>
+            <p>
+              Преміальний сервіс за доступною ціною. Наша невелика база
+              автомобілів дозволяє уважно стежити за технічним
+              станом та чистотою кожного авто. Ви отримаєте машину з
+              повним баком палива, чисту та повністю готову до ваших
+              поїздок.
+            </p>
+          </li>
+          <li>
+            <p>
+              Без прихованих платежів та застав. Ми пропонуємо максимально
+              прозорі умови: жодних прихованих комісій, складних
+              договорів чи високих депозитів.
+            </p>
+          </li>
+          <li>
+            <p>
+              Гнучкі умови оренди. У нас ви можете орендувати авто на
+              добу, тиждень чи місяць за вигідною ціною.
+            </p>
+          </li>
+          <li>
+            <p>Чим довша оренда — тим вигідніші умови.</p>
+          </li>
+        </ul>
+        <p>
+          Автопарк REIZ: якість замість кількості.<br />
+          Ми зібрали невеликий, але ретельно підібраний автопарк для вас.
+        </p>
+        <ul>
+          <li>
+            <p>
+              Преміум-клас — це автомобілі, які підкреслять ваш
+              статус на ділових зустрічах, важливих заходах та особливі
+              дні. Максимум комфорту та емоцій від кожної поїздки.
+            </p>
+          </li>
+          <li>
+            <p>
+              Середній клас — це ідеальний баланс для щоденних поїздок
+              по місту або між Києвом та Львовом. Надійність, комфорт та
+              приємне враження від водіння.
+            </p>
+          </li>
+          <li>
+            <p>
+              Економ-клас — це автомобілі для тих, хто цінує
+              практичність, простоту та вигоду без зайвих витрат. Доступно,
+              зручно та надійно для будь-яких цілей.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Кожен автомобіль регулярно проходить технічний огляд, щоб ви
+          почувалися впевнено та безпечно за кермом.<br />
+          Як орендувати автомобіль у Києві чи Львові з REIZ?<br />
+          Процес оренди авто максимально простий та зручний:
+        </p>
+        <ol>
+          <li>
+            <p>Виберіть відповідний автомобіль.</p>
+          </li>
+          <li>
+            <p>
+              Виберіть дати та місто оренди — Київ чи Львів. (Якщо вам
+              потрібна подача автомобіля за адресою або в інше місто України,
+              вкажіть це під час бронювання).
+            </p>
+          </li>
+          <li>
+            <p>Заповніть просту форму з контактними даними.</p>
+          </li>
+          <li>
+            <p>
+              Підтвердіть бронювання — і наш менеджер зв’яжеться з вами для
+              уточнення всіх деталей.
+            </p>
+          </li>
+        </ol>
+        <p>
+          Стандартні умови передбачають заставу, але у нас ви можете взяти
+          машину без застави або зменшити її вдвічі — усе максимально
+          гнучко та зрозуміло.
+          <br />
+          Reiz — це про комфорт та спокій у кожній поїздці. Просто
+          вибирайте автомобіль, а про все інше подбаємо ми.
+        </p>
+        <p>
+          Вибираючи REIZ, ви обираєте якість, увагу та надійність. Ласкаво
+          просимо у майбутнє комфортних поїздок разом із Reiz Car Rental!
+        </p>
+      </div>
+      <button class="more-btn" data-clip-btn="ПОКАЗАТИ БІЛЬШЕ">
+        ПОКАЗАТИ БІЛЬШЕ
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section mode">
+    <div class="container">
+      <div class="faq-section__content">
+        <h2 class="h2">Часті запитання</h2>
+  
+        <div class="faq-section__accordion"
+             data-accordion
+             data-single="true"
+             data-breakpoint="9999">
+  
+          <ul class="acc" data-pretitle="Практична інформація">
+            <li class="acc__item">
+              <button class="acc__btn" data-id="1">
+                Де паркувати орендований автомобіль у Львові й як уникнути штрафів?
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="1">
+                <div class="acc__box editor">
+                  <p>
+                    У Львові багато платних зон і муніципальних парковок.
+                    Намагайтесь залишати авто на розмітці або на охоронюваних стоянках,
+                    перевіряйте знаки й паркомати, зберігайте чеки. Неправильне
+                    паркування тягне за собою штраф, який оплачує орендар. Для районів
+                    із дефіцитом місць користуйтеся паркінгами ТРЦ та готелів.
+                    Корисно встановити міські застосунки для оплати паркування та
+                    навігації по зонах. Перед нічною стоянкою уточнюйте локальні
+                    правила двору/вулиці — так ви уникнете евакуації та простоїв.
+                  </p>
                 </div>
-            </section>
-
-            <section class="editor-section" data-aos="fade-up" data-aos-duration="400">
-                <div class="container">
-                    <div class="editor-section__box" data-clip>
-                        <h2 class="h2">
-                            Аренда авто в Киеве и Львове с REIZ — новый уровень комфорта
-                        </h2>
-                        <div class="editor" data-clip-item>
-                            <p>
-                                Мы - компания Reiz Car Rental, предоставляем услуги по аренде
-                                автомобилей во Львове и Киеве, а также по вашему запросу можем
-                                доставить авто в любой город Украины.
-                                <br />
-                                Reiz – это не про количество машин, а про качество и комфорт каждой
-                                из них.
-                                <br />
-                                Почему стоит выбрать прокат авто в нашей компании?
-                            </p>
-                            <ul>
-                                <li>
-                                    <p>
-                                        Персонализированный подход. Мы только начинаем, поэтому
-                                        каждый клиент для нас – особенный. Мы всегда готовы уделить
-                                        вам максимум внимания, предложить индивидуальные условия и
-                                        поддержку на каждом этапе аренды.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Премиальный сервис по доступной цене. Наша небольшая база
-                                        автомобилей позволяет внимательно следить за техническим
-                                        состоянием и чистотой каждого авто. Вы получите машину с
-                                        полным баком топлива, чистую и полностью готовую к вашим
-                                        поездкам.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Без скрытых платежей и залогов. Мы предлагаем максимально
-                                        прозрачные условия: никаких скрытых комиссий, сложных
-                                        договоров или высоких депозитов.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Гибкие условия аренды. У нас вы можете арендовать авто на
-                                        сутки, неделю или месяц по выгодной цене.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>Чем дольше аренда - тем выгоднее условия.</p>
-                                </li>
-                            </ul>
-                            <p>
-                                Автопарк REIZ: качество вместо количества.<br />
-                                Мы собрали небольшой, но тщательно подобранный автопарк для вас
-                            </p>
-                            <ul>
-                                <li>
-                                    <p>
-                                        Премиум-класс — это автомобили, которые подчеркнут ваш
-                                        статус на деловых встречах, важных мероприятиях и в особые
-                                        дни. Максимум комфорта и эмоций от каждой поездки.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Средний класс — это идеальный баланс для ежедневных поездок
-                                        по городу или между Киевом и Львовом. Надёжность, комфорт и
-                                        приятное впечатление от вождения.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Эконом-класс — это автомобили для тех, кто ценит
-                                        практичность, простоту и выгоду без лишних затрат. Доступно,
-                                        удобно и надёжно для любых целей.
-                                    </p>
-                                </li>
-                            </ul>
-                            <p>
-                                Каждый автомобиль регулярно проходит технический осмотр, чтобы вы
-                                чувствовали себя уверенно и безопасно за рулем.<br />
-                                Как арендовать автомобиль в Киеве или Львове с REIZ?<br />
-                                Процесс аренды авто максимально прост и удобен:
-                            </p>
-                            <ol>
-                                <li>
-                                    <p>Выберите подходящий вам автомобиль.</p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Выбирите даты и город аренды — Киев или Львов. (Если вам
-                                        нужна подача автомобиля по адресу или в другой город Украины
-                                        укажите это при бронировании).
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>Заполните простую форму с вашими контактными данными.</p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Подтвердите бронирование, и наш менеджер свяжется с вами для
-                                        уточнения всех деталей.
-                                    </p>
-                                </li>
-                            </ol>
-                            <p>
-                                Стандартные условия предусматривают залог, но у нас вы можете взять
-                                машину и без залога, либо уменьшить его вдвое — всё максимально
-                                гибко и понятно.
-                                <br />
-                                Reiz — это про комфорт и спокойствие в каждой поездке. Просто
-                                выбирайте автомобиль, а обо всём остальном позаботимся мы.
-                            </p>
-                            <p>
-                                Выбирая REIZ, вы выбираете качество, внимание и надежность. Добро
-                                пожаловать в будущее комфортных поездок вместе с Reiz car rental!
-                            </p>
-                        </div>
-                        <button class="more-btn" data-clip-btn="ПОКАЗАТЬ МЕНЬШЕ">
-                            ПОКАЗАТЬ БОЛЬШЕ
-                        </button>
-                    </div>
+              </div>
+            </li>
+  
+            <li class="acc__item">
+              <button class="acc__btn" data-id="2">
+                Доставка авто за адресою та в аеропорт Львова (LWO): умови й ціни
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="2">
+                <div class="acc__box editor">
+                  <p>
+                    Ми організуємо подачу/повернення за будь-якою адресою у Львові
+                    та зустріч біля терміналу LWO у погоджений час. Можлива доплата за
+                    ранні/пізні години та очікування; фінальна вартість залежить від
+                    віддаленості. За запитом доступна міжміська доставка по Україні.
+                    Щоб гарантувати точну подачу, бронюйте заздалегідь і вказуйте
+                    номер рейсу/готелю. Хочете пришвидшити оформлення? Можна забронювати
+                    онлайн на сайті REIZ Rental Cars — це зручніше й допомагає зафіксувати тариф.
+                  </p>
                 </div>
-            </section>
-            <!-- <section class="faq-section mode">
-                <div class="container">
-                    <div class="faq-section__content">
-                        <h2 class="h2">Часто задаваемые вопросы</h2>
-
-                        <div
-                            class="faq-section__accordion"
-                            data-accordion
-                            data-single="true"
-                            data-breakpoint="9999"
-                        >
-                            <ul class="acc" data-pretitle="Практическая информация">
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="1">
-                                        А как насчёт парковки?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="1">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="2">
-                                        Можно ли подачу/возврат по адресу и в аэропорту Львова
-                                        (LWO)?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="2">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="3">
-                                        Есть ли лимит пробега?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="3">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <ul class="acc" data-pretitle="Страхование и депозит">
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="4">
-                                        Что включает страховка?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="4">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="5">
-                                        Что такое франшиза?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="5">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="6">
-                                        Можно ли арендовать без залога?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="6">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <ul class="acc" data-pretitle="Ограничения и запреты">
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="7">
-                                        Каков минимальный возраст и стаж?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="7">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="8">
-                                        Можно ли выезжать за пределы Украины?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="8">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="9">
-                                        Можно ли передавать авто третьим лицам или использовать в
-                                        такси?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="9">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <ul class="acc" data-pretitle="Оплата и документация">
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="10">
-                                        Какие способы оплаты доступны?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="10">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="11">
-                                        Какие документы нужны?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="11">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="acc__item">
-                                    <button class="acc__btn" data-id="12">
-                                        Как работает политика топлива?
-                                        <i class="sprite">
-                                            <svg width="20" height="12">
-                                                <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                    <div class="acc__content" data-content="12">
-                                        <div class="acc__box editor">
-                                            <p>
-                                                Мы предоставляем машину с полным баком топлива. В
-                                                день возврата вы должны вернуть машину так же с
-                                                полным баком или доплатить за топливо.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+              </div>
+            </li>
+  
+            <li class="acc__item">
+              <button class="acc__btn" data-id="3">
+                Чи є ліміт пробігу й як поїхати Україною без обмежень?
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="3">
+                <div class="acc__box editor">
+                  <p>
+                    Стандартно діє добовий ліміт (зазвичай близько 250–300 км/день),
+                    чого достатньо для ділових і туристичних маршрутів по Львову та області.
+                    Якщо планується далека подорож (наприклад, Львів–Київ або Львів–Одеса),
+                    підключайте опцію збільшеного або необмеженого пробігу під час бронювання.
+                    Перевищення ліміту оплачується за фіксованою ціною за кілометр згідно з тарифами.
+                    Повідомте про маршрут заздалегідь — ми підберемо оптимальні умови й
+                    підкажемо, де вигідніше заправлятися в дорозі.
+                  </p>
                 </div>
-            </section> -->
-            <!-- FAQ Schema (для расширенных сниппетов) -->
-            <!-- <script type="application/ld+json">
-                {
-                    "@context": "https://schema.org",
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "Скільки коштує оренда авто у Львові?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Залежить від класу і строку. На довгий термін — дешевше. Дивіться секцію «Цены на аренду авто» на цій сторінці."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Чи можна орендувати авто без депозиту?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Так. Доступна опція без депозиту або зі зменшеною франшизою в розширеному страховому пакеті."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Чи подаєте авто в аеропорт Львова (LWO)?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Так, зустрічаємо у терміналі за попереднім бронюванням. Підтримка 24/7."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Які документи потрібні для оренди?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Паспорт/ID та водійське посвідчення. Мінімум 22 роки та 2 роки стажу."
-                            }
-                        }
-                    ]
-                }
-            </script> -->
+              </div>
+            </li>
+          </ul>
+  
+          <ul class="acc" data-pretitle="Страхування та депозит">
+            <li class="acc__item">
+              <button class="acc__btn" data-id="4">
+                Що покриває страховка й чим вона допомагає в дорозі? (ОСЦПВ/КАСКО)
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="4">
+                <div class="acc__box editor">
+                  <p>
+                    В оренду включено обов’язкове ОСЦПВ і стандартне КАСКО з франшизою.
+                    ОСЦПВ захищає вашу відповідальність перед третіми особами,
+                    КАСКО — збитки орендованому авто понад франшизу.
+                    Окремі випадки (наприклад, пошкодження скла/шин) можуть мати особливі умови покриття —
+                    уточнюйте під час оформлення в розділі «Страхування».
+                    У разі ДТП важливо відразу зафіксувати подію й викликати компетентні служби.
+                    Розширене покриття зменшує особисті ризики й допомагає швидше закрити страховий випадок.
+                  </p>
+                </div>
+              </div>
+            </li>
+  
+            <li class="acc__item">
+              <button class="acc__btn" data-id="5">
+                Франшиза та страховий депозит: у чому різниця й скільки ви ризикуєте?
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="5">
+                <div class="acc__box editor">
+                  <p>
+                    Франшиза — максимальна сума, яку ви сплачуєте у разі збитків; решту покриває страховка.
+                    Страховий депозит — сума, що блокується на картці на час оренди й зазвичай дорівнює франшизі.
+                    Приклад: збиток 50 000 грн, франшиза/депозит 20 000 грн — ваша відповідальність становитиме 20 000 грн,
+                    решту компенсує страхова. Депозит автоматично розблокується після повернення авто без пошкоджень;
+                    строк розблокування залежить від банку й зазвичай займає кілька днів.
+                  </p>
+                </div>
+              </div>
+            </li>
+  
+            <li class="acc__item">
+              <button class="acc__btn" data-id="6">
+                Чи можна орендувати без застави й як працює «нульова відповідальність»?
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="6">
+                <div class="acc__box editor">
+                  <p>Оренда без застави неможлива.</p>
+  
+                  <p>За замовчуванням блокується страховий депозит, рівний франшизі (залежить від класу авто). За бажання можна зменшити особисту відповідальність:</p>
+                  <ul>
+                    <li>−50% депозит/франшиза (CDW);</li>
+                    <li>−100% депозит/«нульова відповідальність» (SCDW) за збитки/угон.</li>
+                  </ul>
+  
+                  <p><strong>Важливо:</strong> навіть за «нульової відповідальності» лишається обов’язкове гарантійне утримання <strong>$200–300</strong> (залежно від моделі) на випадок:</p>
+                  <ul>
+                    <li>штрафів і платних доріг,</li>
+                    <li>недоливу пального,</li>
+                    <li>мийки/салону,</li>
+                    <li>втрати ключів.</li>
+                  </ul>
+  
+                  <p>Це утримання не про пошкодження й повертається після закриття можливих нарахувань.
+                     Уточніть пакет під час бронювання — підберемо оптимальний варіант для оренди авто у Львові та поїздок Україною.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+  
+          <ul class="acc" data-pretitle="Обмеження та заборони">
+            <li class="acc__item">
+              <button class="acc__btn" data-id="7">
+                Мінімальний вік і стаж водія для оренди у Львові та по Україні
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="7">
+                <div class="acc__box editor">
+                  <p>
+                    Базові вимоги: від 21 року та стаж від 2 років.
+                    Для авто бізнес/преміум-класу можуть знадобитися 23–25 років і стаж від 5 років.
+                    Якщо трохи не дотягуєте — можлива програма «молодий водій» із доплатою за підвищений ризик.
+                    Усі допущені до керування особи мають бути внесені до договору заздалегідь:
+                    підготуйте документи й повідомте дані додаткового водія під час оформлення, щоб уникнути відмови при видачі.
+                  </p>
+                </div>
+              </div>
+            </li>
+  
+            <li class="acc__item">
+              <button class="acc__btn" data-id="8">
+                Чи можна виїжджати за межі України на орендованому авто?
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="8">
+                <div class="acc__box editor">
+                  <p>
+                    Пересування Україною вільне, але виїзд за кордон можливий лише за письмовим дозволом
+                    компанії та за наявності «Зеленої карти».
+                    Потрібен час на оформлення й перевірку маршруту/кордонів.
+                    Без погодження перетин кордону заборонений і тягне за собою втрату страхового покриття
+                    та санкції за договором. Плануєте закордонну поїздку? Повідомте про це заздалегідь —
+                    ми перевіримо вимоги, підготуємо документи й підкажемо запас за строками.
+                  </p>
+                </div>
+              </div>
+            </li>
+  
+            <li class="acc__item">
+              <button class="acc__btn" data-id="9">
+                Передача авто третім особам і робота в таксі/каршеринг: що заборонено
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="9">
+                <div class="acc__box editor">
+                  <p>
+                    Керувати автомобілем мають право лише водії, вказані в договорі.
+                    Передача авто третім особам, використання в таксі,
+                    каршерингу або кур’єрській доставці заборонені умовами оренди
+                    та можуть анулювати страхове покриття. Якщо потрібен другий водій —
+                    додайте його під час оформлення — це законно й безпечно.
+                    Порушення правил веде до штрафів за договором і повної матеріальної
+                    відповідальності у разі інциденту.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+  
+          <ul class="acc" data-pretitle="Оплата та документи">
+            <li class="acc__item">
+              <button class="acc__btn" data-id="10">
+                Які способи оплати доступні й як вноситься страховий депозит?
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="10">
+                <div class="acc__box editor">
+                  <p>
+                    Ми приймаємо оплату готівкою (UAH, а також USD/EUR),
+                    банківськими картками Visa/Mastercard, безготівковим переказом за рахунком і —
+                    за попередньою домовленістю — криптовалютою (USDT/USDC).
+                    Для оплати у валюті/крипті діє курс компанії на момент розрахунку;
+                    можливі банківські та мережеві комісії. Оплата доступна у Львові та при доставці по Україні.
+                    Страховий депозит блокується на картці орендаря під час видачі й розблоковується після повернення авто без пошкоджень,
+                    строк залежить від банку (зазвичай кілька робочих днів).
+                    Для юросіб — рахунок і закривальні документи.
+                  </p>
+                </div>
+              </div>
+            </li>
+  
+            <li class="acc__item">
+              <button class="acc__btn" data-id="11">
+                Які документи потрібні для оренди у Львові: місцевим та іноземцям?
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="11">
+                <div class="acc__box editor">
+                  <p>
+                    Знадобляться: паспорт/ID-картка, посвідчення водія категорії B (стаж від 2 років)
+                    і банківська картка на ім’я орендаря. Іноземним громадянам бажано мати міжнародне ВУ (IDP)
+                    на додачу до національних прав — так простіше верифікувати дані.
+                    Якщо плануєте «оренда авто у Львові» на вихідні чи свята, бронюйте заздалегідь:
+                    перевірка документів швидша, а вибір моделей ширший (див. розділ «Обмеження та заборони»).
+                  </p>
+                </div>
+              </div>
+            </li>
+  
+            <li class="acc__item">
+              <button class="acc__btn" data-id="12">
+                Політика пального «повний-повний»: як повернути авто без доплат
+                <i class="sprite">
+                  <svg width="20" height="12">
+                    <use href="/img/sprite/sprite.svg#Arrow-d2"></use>
+                  </svg>
+                </i>
+              </button>
+              <div class="acc__content" data-content="12">
+                <div class="acc__box editor">
+                  <p>
+                    Ми видаємо автомобіль із повним баком і просимо повернути його заправленим до повного.
+                    Якщо бак неповний, нестачу пального та послугу дозаправки слід оплатити за тарифом компанії.
+                    Перед здачею заїдьте на найближчу АЗС, збережіть чек — так ви уникнете питань під час приймання.
+                    Для тих, хто планує активний «прокат автомобілів Львів» із раннім виїздом/пізнім поверненням,
+                    заздалегідь сплануйте заправку й час на дорогу до точки повернення.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
         </main>
         @include('partials/footer.html')
     </body>
