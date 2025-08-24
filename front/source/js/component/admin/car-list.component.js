@@ -1,4 +1,4 @@
-import {createOne, deleteOne, getAll} from '../api/cars.api.js';
+import {createOne, deleteOne, getAll} from '../../api/cars.api.js';
 
 export class CarList {
     constructor() {

@@ -1,262 +1,401 @@
 <!DOCTYPE html>
 <html lang="uk" class="page">
+    @include('partials/head.html', { "title": "Умови оренди авто у Львові — REIZ", "description":
+    "Вимоги до водія, документи для громадян України та іноземців, способи оплати, страхування,
+    застава, пробіг. Умови оренди автомобіля REIZ у Львові.", "canonical":
+    "https://reiz.com.ua/ua/terms", "og_title": "Умови оренди — REIZ Львів", "og_description": "Усі
+    правила та вимоги: документи, оплата, страхування, застава, пробіг.", "og_image":
+    "https://reiz.com.ua/img/og/terms.webp", "og_locale": "uk_UA", "lang": "uk", "href_uk":
+    "https://reiz.com.ua/ua/terms", "href_ru": "https://reiz.com.ua/terms", "href_en":
+    "https://reiz.com.ua/en/terms", "href_default": "https://reiz.com.ua/terms" })
 
-@include('partials/head.html', {
-    "title": "Умови оренди авто у Львові — REIZ",
-    "description": "Вимоги до водія, документи для громадян України та іноземців, способи оплати, страхування, застава, пробіг. Умови оренди автомобіля REIZ у Львові.",
-    "canonical": "https://reiz.com.ua/ua/terms",
-  
-    "og_title": "Умови оренди — REIZ Львів",
-    "og_description": "Усі правила та вимоги: документи, оплата, страхування, застава, пробіг.",
-    "og_image": "https://reiz.com.ua/img/og/terms.webp",
-    "og_locale": "uk_UA",
-  
-    "lang": "uk",
-    "href_uk": "https://reiz.com.ua/ua/terms",
-    "href_ru": "https://reiz.com.ua/terms",
-    "href_en": "https://reiz.com.ua/en/terms",
-    "href_default": "https://reiz.com.ua/terms"
-  })
-  
-<body class="page__body" data-page="terms">
-  @include('partials/noscript.html')
-  @include('partials/header-mode.html')
+    <body class="page__body" data-page="terms">
+        @include('partials/noscript.html') @include('partials/header-mode.html')
 
-  <main class="main">
-    <section class="terms-section">
-      <div class="container">
-        <div class="terms-section__box">
-          <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
-            <div class="aside__top">
-              <a href="/ua/" class="aside__title">REIZ</a>
-              <p>CAR RENTAL IN UKRAINE</p>
-            </div>
+        <main class="main">
+            <section class="terms-section">
+                <div class="container">
+                    <div class="terms-section__box">
+                        <aside
+                            class="aside"
+                            data-aos="fade-right"
+                            data-aos-duration="900"
+                            data-aos-delay="400"
+                        >
+                            <div class="aside__top">
+                                <a href="/ua/" class="aside__title">REIZ</a>
+                                <p>CAR RENTAL IN UKRAINE</p>
+                            </div>
 
-            <nav class="main-nav">
-              <ul>
-                <li><a href="/ua/">ГОЛОВНА</a></li>
-                <li>
-                  <ul class="main-nav__acc" data-accordion>
-                    <li class="main-nav__acc-item">
-                      <button class="main-nav__acc-btn" data-id="1">
-                        АВТОМОБІЛІ
-                        <i class="sprite">
-                          <svg width="11" height="8"><use href="/img/sprite/sprite.svg#arrow-d"></use></svg>
-                        </i>
-                      </button>
-                      <div class="main-nav__acc-content" data-content="1">
-                        <a href="#catalog">Оренда авто в Києві</a>
-                        <a href="#catalog">Оренда авто у Львові</a>
-                        <a href="#catalog">Оренда авто в Тернополі</a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="/ua/insurance">СТРАХУВАННЯ</a></li>
-                <li><a href="/ua/business">ОРЕНДА ДЛЯ ЮР. ОСІБ</a></li>
-                <li><a href="/ua/certificate">СЕРТИФІКАТИ</a></li>
-                <li><a href="/ua/terms" class="active" aria-current="page">УМОВИ ОРЕНДИ</a></li>
-                <li><a href="/ua/faq">ПИТАННЯ-ВІДПОВІДЬ</a></li>
-                <li><a href="/ua/invest">ЗДАТИ АВТО В ОРЕНДУ</a></li>
-                <li><a href="/ua/blog">БЛОГ</a></li>
-                <li><a href="/ua/about">ПРО НАС</a></li>
-                <li><a href="/ua/contacts">КОНТАКТИ</a></li>
-              </ul>
-            </nav>
+                            <nav class="main-nav">
+                                <ul>
+                                    <li><a href="/ua/">ГОЛОВНА</a></li>
+                                    <li>
+                                        <ul class="main-nav__acc" data-accordion>
+                                            <li class="main-nav__acc-item">
+                                                <button class="main-nav__acc-btn" data-id="1">
+                                                    АВТОМОБІЛІ
+                                                    <i class="sprite">
+                                                        <svg width="11" height="8">
+                                                            <use
+                                                                href="/img/sprite/sprite.svg#arrow-d"
+                                                            ></use>
+                                                        </svg>
+                                                    </i>
+                                                </button>
+                                                <div class="main-nav__acc-content" data-content="1">
+                                                    <a href="#catalog">Оренда авто в Києві</a>
+                                                    <a href="#catalog">Оренда авто у Львові</a>
+                                                    <a href="#catalog">Оренда авто в Тернополі</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/ua/insurance.html">СТРАХУВАННЯ</a></li>
+                                    <li><a href="/ua/business.html">ОРЕНДА ДЛЯ ЮР. ОСІБ</a></li>
+                                    <li><a href="/ua/certificate.html">СЕРТИФІКАТИ</a></li>
+                                    <li>
+                                        <a href="/ua/terms.html" class="active" aria-current="page"
+                                            >УМОВИ ОРЕНДИ</a
+                                        >
+                                    </li>
+                                    <li><a href="/ua/faq.html">ПИТАННЯ-ВІДПОВІДЬ</a></li>
+                                    <li><a href="/ua/invest.html">ЗДАТИ АВТО В ОРЕНДУ</a></li>
+                                    <li><a href="/ua/blog.html">БЛОГ</a></li>
+                                    <li><a href="/ua/about.html">ПРО НАС</a></li>
+                                    <li><a href="/ua/contacts.html">КОНТАКТИ</a></li>
+                                </ul>
+                            </nav>
 
-            <a href="/ua/contacts#callback" class="main-button">ЗАМОВИТИ ДЗВІНОК</a>
-          </aside>
+                            <a href="/ua/contacts.html#callback" class="main-button"
+                                >ЗАМОВИТИ ДЗВІНОК</a
+                            >
+                        </aside>
 
-          <div class="terms-section__inner" data-aos="fade-left" data-aos-duration="900" data-aos-delay="600">
-            <h2 class="pretitle">УМОВИ ОРЕНДИ</h2>
+                        <div
+                            class="terms-section__inner"
+                            data-aos="fade-left"
+                            data-aos-duration="900"
+                            data-aos-delay="600"
+                        >
+                            <h2 class="pretitle">УМОВИ ОРЕНДИ</h2>
 
-            <ul class="breadcrumbs">
-              <li><a href="/ua/">Головна</a></li>
-              <li>Умови оренди</li>
-            </ul>
+                            <ul class="breadcrumbs">
+                                <li><a href="/ua/">Головна</a></li>
+                                <li>Умови оренди</li>
+                            </ul>
 
-            <h1 class="main-title">Умови оренди</h1>
+                            <h1 class="main-title">Умови оренди</h1>
 
-            <div class="terms-section__content">
-              <ul class="terms-list">
-                <li class="terms-list__item">
-                  <span class="terms-list__title">ВІК ВІД 21 РОКУ</span>
-                  <div class="terms-list__bg">
-                    <picture>
-                      <source type="image/webp" srcset="/img/car/years-2.webp">
-                      <img width="480" height="270" src="/img/car/card.png" alt="Водій за кермом — мінімальний вік орендаря від 21 року">
-                    </picture>
-                  </div>
-                </li>
+                            <div class="terms-section__content">
+                                <ul class="terms-list">
+                                    <li class="terms-list__item">
+                                        <span class="terms-list__title">ВІК ВІД 21 РОКУ</span>
+                                        <div class="terms-list__bg">
+                                            <picture>
+                                                <source
+                                                    type="image/webp"
+                                                    srcset="/img/car/years-2.webp"
+                                                />
+                                                <img
+                                                    width="480"
+                                                    height="270"
+                                                    src="/img/car/card.png"
+                                                    alt="Водій за кермом — мінімальний вік орендаря від 21 року"
+                                                />
+                                            </picture>
+                                        </div>
+                                    </li>
 
-                <li class="terms-list__item">
-                  <span class="terms-list__title">СТАЖ ВОДІННЯ ВІД 3 РОКІВ</span>
-                  <div class="terms-list__bg">
-                    <picture>
-                      <source type="image/webp" srcset="/img/car/mers2.webp">
-                      <img width="480" height="270" src="/img/car/card2.png" alt="Mercedes на парковці — потрібний стаж водіння від 3 років">
-                    </picture>
-                  </div>
-                </li>
+                                    <li class="terms-list__item">
+                                        <span class="terms-list__title"
+                                            >СТАЖ ВОДІННЯ ВІД 3 РОКІВ</span
+                                        >
+                                        <div class="terms-list__bg">
+                                            <picture>
+                                                <source
+                                                    type="image/webp"
+                                                    srcset="/img/car/mers2.webp"
+                                                />
+                                                <img
+                                                    width="480"
+                                                    height="270"
+                                                    src="/img/car/card2.png"
+                                                    alt="Mercedes на парковці — потрібний стаж водіння від 3 років"
+                                                />
+                                            </picture>
+                                        </div>
+                                    </li>
 
-                <li class="terms-list__item mode">
-                  <p>ВИМОГИ ДО ОРЕНДАРЯ</p>
-                </li>
+                                    <li class="terms-list__item mode">
+                                        <p>ВИМОГИ ДО ОРЕНДАРЯ</p>
+                                    </li>
 
-                <li class="terms-list__item">
-                  <span class="terms-list__title">ГРОМАДЯНАМ УКРАЇНИ</span>
-                  <div class="terms-list__bg">
-                    <picture>
-                      <source type="image/webp" srcset="/img/car/ua.webp">
-                      <img width="480" height="270" src="/img/car/card3.png" alt="Панорама Києва — документи для громадян України">
-                    </picture>
-                  </div>
-                  <ul>
-                    <li><p>ID-картка (паспорт громадянина України)</p></li>
-                    <li><p>РНОКПП (ідентифікаційний код)</p></li>
-                    <li><p>Посвідчення водія</p></li>
-                  </ul>
-                </li>
+                                    <li class="terms-list__item">
+                                        <span class="terms-list__title">ГРОМАДЯНАМ УКРАЇНИ</span>
+                                        <div class="terms-list__bg">
+                                            <picture>
+                                                <source
+                                                    type="image/webp"
+                                                    srcset="/img/car/ua.webp"
+                                                />
+                                                <img
+                                                    width="480"
+                                                    height="270"
+                                                    src="/img/car/card3.png"
+                                                    alt="Панорама Києва — документи для громадян України"
+                                                />
+                                            </picture>
+                                        </div>
+                                        <ul>
+                                            <li><p>ID-картка (паспорт громадянина України)</p></li>
+                                            <li><p>РНОКПП (ідентифікаційний код)</p></li>
+                                            <li><p>Посвідчення водія</p></li>
+                                        </ul>
+                                    </li>
 
-                <li class="terms-list__item">
-                  <span class="terms-list__title">ІНОЗЕМНИМ ГРОМАДЯНАМ</span>
-                  <div class="terms-list__bg">
-                    <picture>
-                      <source type="image/webp" srcset="/img/car/visa.webp">
-                      <img width="480" height="270" src="/img/car/card4.png" alt="Закордонний паспорт з візою — документи для іноземців">
-                    </picture>
-                  </div>
-                  <ul>
-                    <li><p>Дійсний штамп/міграційна відмітка про в’їзд в Україну</p></li>
-                    <li><p>Міжнародне посвідчення водія (за потреби)</p></li>
-                    <li><p>Закордонний паспорт</p></li>
-                  </ul>
-                </li>
-              </ul>
+                                    <li class="terms-list__item">
+                                        <span class="terms-list__title">ІНОЗЕМНИМ ГРОМАДЯНАМ</span>
+                                        <div class="terms-list__bg">
+                                            <picture>
+                                                <source
+                                                    type="image/webp"
+                                                    srcset="/img/car/visa.webp"
+                                                />
+                                                <img
+                                                    width="480"
+                                                    height="270"
+                                                    src="/img/car/card4.png"
+                                                    alt="Закордонний паспорт з візою — документи для іноземців"
+                                                />
+                                            </picture>
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <p>
+                                                    Дійсний штамп/міграційна відмітка про в’їзд в
+                                                    Україну
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p>Міжнародне посвідчення водія (за потреби)</p>
+                                            </li>
+                                            <li><p>Закордонний паспорт</p></li>
+                                        </ul>
+                                    </li>
+                                </ul>
 
-              <div class="terms-card">
-                <div class="terms-card__bg">
-                  <picture>
-                    <source type="image/webp" srcset="/img/car/macbook2.webp">
-                    <img width="1000" height="440" src="/img/car/card5.png" alt="Оформлення оренди онлайн на сайті REIZ — способи оплати">
-                  </picture>
+                                <div class="terms-card">
+                                    <div class="terms-card__bg">
+                                        <picture>
+                                            <source
+                                                type="image/webp"
+                                                srcset="/img/car/macbook2.webp"
+                                            />
+                                            <img
+                                                width="1000"
+                                                height="440"
+                                                src="/img/car/card5.png"
+                                                alt="Оформлення оренди онлайн на сайті REIZ — способи оплати"
+                                            />
+                                        </picture>
+                                    </div>
+                                    <div class="terms-card__title">СПОСОБИ ОПЛАТИ</div>
+
+                                    <div class="terms-card__box">
+                                        <div class="terms-card__wrapp">
+                                            <span class="terms-card__name">Готівка</span>
+                                            <span class="terms-card__icon sprite">
+                                                <svg width="56" height="56">
+                                                    <use href="/img/sprite/sprite.svg#icon18"></use>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="terms-card__wrapp">
+                                            <span class="terms-card__name"
+                                                >Банківська картка в офісі</span
+                                            >
+                                            <span class="terms-card__icon sprite">
+                                                <svg width="56" height="56">
+                                                    <use href="/img/sprite/sprite.svg#icon16"></use>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="terms-card__wrapp">
+                                            <span class="terms-card__name"
+                                                >Банківська картка на сайті</span
+                                            >
+                                            <span class="terms-card__icon sprite">
+                                                <svg width="56" height="56">
+                                                    <use href="/img/sprite/sprite.svg#icon16"></use>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="terms-card__wrapp">
+                                            <span class="terms-card__name">Електронні гаманці</span>
+                                            <span class="terms-card__icon sprite">
+                                                <svg width="56" height="56">
+                                                    <use href="/img/sprite/sprite.svg#icon17"></use>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="terms-card__wrapp">
+                                            <span class="terms-card__name">UnionPay</span>
+                                            <span class="terms-card__icon sprite">
+                                                <svg width="93" height="28">
+                                                    <use href="/img/sprite/sprite.svg#icon15"></use>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="terms-section__tabs" data-tabs-parrent>
+                                    <ul class="terms-nav">
+                                        <li class="terms-nav__item">
+                                            <button
+                                                class="terms-nav__btn active"
+                                                type="button"
+                                                data-tab="1"
+                                            >
+                                                Страхування
+                                            </button>
+                                        </li>
+                                        <li class="terms-nav__item">
+                                            <button
+                                                class="terms-nav__btn"
+                                                type="button"
+                                                data-tab="2"
+                                            >
+                                                Застава
+                                            </button>
+                                        </li>
+                                        <li class="terms-nav__item">
+                                            <button
+                                                class="terms-nav__btn"
+                                                type="button"
+                                                data-tab="3"
+                                            >
+                                                Тарифи
+                                            </button>
+                                        </li>
+                                        <li class="terms-nav__item">
+                                            <button
+                                                class="terms-nav__btn"
+                                                type="button"
+                                                data-tab="4"
+                                            >
+                                                Пробіг
+                                            </button>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="terms-section__tabs-box">
+                                        <!-- Страхування -->
+                                        <li
+                                            class="terms-section__tabs-item active"
+                                            data-tab-content="1"
+                                        >
+                                            <div class="editor">
+                                                <p>
+                                                    Усі автомобілі застраховані за обов’язковим
+                                                    полісом. Доступні додаткові пакети захисту
+                                                    (CDW/SCDW), які зменшують фінансову
+                                                    відповідальність орендаря у разі пошкодження чи
+                                                    викрадення. Деталі — на сторінці
+                                                    <a href="/ua/insurance">«Страхування»</a>.
+                                                </p>
+                                            </div>
+                                        </li>
+
+                                        <!-- Застава -->
+                                        <li class="terms-section__tabs-item" data-tab-content="2">
+                                            <div class="editor">
+                                                <p>
+                                                    Розмір застави залежить від класу автомобіля та
+                                                    обраного пакета страхування. Блокується на
+                                                    картці або вноситься готівкою і повертається
+                                                    після закриття всіх нарахувань.
+                                                </p>
+                                            </div>
+                                        </li>
+
+                                        <!-- Тарифи -->
+                                        <li class="terms-section__tabs-item" data-tab-content="3">
+                                            <div class="editor">
+                                                <p>
+                                                    Вартість оренди залежить від класу авто, строку
+                                                    оренди та сезону. Чим довша оренда — тим нижча
+                                                    добова ставка. Актуальні ціни дивіться у картці
+                                                    авто або уточнюйте у менеджера.
+                                                </p>
+                                            </div>
+                                        </li>
+
+                                        <!-- Пробіг -->
+                                        <li class="terms-section__tabs-item" data-tab-content="4">
+                                            <div class="editor">
+                                                <p>
+                                                    За оренди від 4 днів — обмежень по пробігу
+                                                    немає. Для коротких оренд (до 3 діб) діє ліміт
+                                                    350 км/доба. При перевищенні ліміту стягується
+                                                    доплата за тарифом, що залежить від категорії
+                                                    автомобіля:
+                                                </p>
+
+                                                <ul class="terms-table">
+                                                    <li class="terms-table__row head">
+                                                        <span class="terms-table__value"
+                                                            >Категорія авто</span
+                                                        >
+                                                        <span class="terms-table__value"
+                                                            >Вартість за 1 км (USD)</span
+                                                        >
+                                                    </li>
+                                                    <li class="terms-table__row">
+                                                        <span class="terms-table__value"
+                                                            >Економ</span
+                                                        >
+                                                        <span class="terms-table__value">0.12</span>
+                                                    </li>
+                                                    <li class="terms-table__row">
+                                                        <span class="terms-table__value"
+                                                            >Бізнес</span
+                                                        >
+                                                        <span class="terms-table__value">0.30</span>
+                                                    </li>
+                                                    <li class="terms-table__row">
+                                                        <span class="terms-table__value"
+                                                            >Позашляховики</span
+                                                        >
+                                                        <span class="terms-table__value">0.30</span>
+                                                    </li>
+                                                    <li class="terms-table__row">
+                                                        <span class="terms-table__value"
+                                                            >Преміум</span
+                                                        >
+                                                        <span class="terms-table__value">0.70</span>
+                                                    </li>
+                                                    <li class="terms-table__row">
+                                                        <span class="terms-table__value"
+                                                            >Мінівени</span
+                                                        >
+                                                        <span class="terms-table__value">0.50</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.terms-section__content -->
+                        </div>
+                        <!-- /.terms-section__inner -->
+                    </div>
                 </div>
-                <div class="terms-card__title">СПОСОБИ ОПЛАТИ</div>
+            </section>
+        </main>
 
-                <div class="terms-card__box">
-                  <div class="terms-card__wrapp">
-                    <span class="terms-card__name">Готівка</span>
-                    <span class="terms-card__icon sprite">
-                      <svg width="56" height="56"><use href="/img/sprite/sprite.svg#icon18"></use></svg>
-                    </span>
-                  </div>
-                  <div class="terms-card__wrapp">
-                    <span class="terms-card__name">Банківська картка в офісі</span>
-                    <span class="terms-card__icon sprite">
-                      <svg width="56" height="56"><use href="/img/sprite/sprite.svg#icon16"></use></svg>
-                    </span>
-                  </div>
-                  <div class="terms-card__wrapp">
-                    <span class="terms-card__name">Банківська картка на сайті</span>
-                    <span class="terms-card__icon sprite">
-                      <svg width="56" height="56"><use href="/img/sprite/sprite.svg#icon16"></use></svg>
-                    </span>
-                  </div>
-                  <div class="terms-card__wrapp">
-                    <span class="terms-card__name">Електронні гаманці</span>
-                    <span class="terms-card__icon sprite">
-                      <svg width="56" height="56"><use href="/img/sprite/sprite.svg#icon17"></use></svg>
-                    </span>
-                  </div>
-                  <div class="terms-card__wrapp">
-                    <span class="terms-card__name">UnionPay</span>
-                    <span class="terms-card__icon sprite">
-                      <svg width="93" height="28"><use href="/img/sprite/sprite.svg#icon15"></use></svg>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="terms-section__tabs" data-tabs-parrent>
-                <ul class="terms-nav">
-                  <li class="terms-nav__item">
-                    <button class="terms-nav__btn active" type="button" data-tab="1">Страхування</button>
-                  </li>
-                  <li class="terms-nav__item">
-                    <button class="terms-nav__btn" type="button" data-tab="2">Застава</button>
-                  </li>
-                  <li class="terms-nav__item">
-                    <button class="terms-nav__btn" type="button" data-tab="3">Тарифи</button>
-                  </li>
-                  <li class="terms-nav__item">
-                    <button class="terms-nav__btn" type="button" data-tab="4">Пробіг</button>
-                  </li>
-                </ul>
-
-                <ul class="terms-section__tabs-box">
-                  <!-- Страхування -->
-                  <li class="terms-section__tabs-item active" data-tab-content="1">
-                    <div class="editor">
-                      <p>Усі автомобілі застраховані за обов’язковим полісом. Доступні додаткові пакети захисту (CDW/SCDW), які зменшують фінансову відповідальність орендаря у разі пошкодження чи викрадення. Деталі — на сторінці <a href="/ua/insurance">«Страхування»</a>.</p>
-                    </div>
-                  </li>
-
-                  <!-- Застава -->
-                  <li class="terms-section__tabs-item" data-tab-content="2">
-                    <div class="editor">
-                      <p>Розмір застави залежить від класу автомобіля та обраного пакета страхування. Блокується на картці або вноситься готівкою і повертається після закриття всіх нарахувань.</p>
-                    </div>
-                  </li>
-
-                  <!-- Тарифи -->
-                  <li class="terms-section__tabs-item" data-tab-content="3">
-                    <div class="editor">
-                      <p>Вартість оренди залежить від класу авто, строку оренди та сезону. Чим довша оренда — тим нижча добова ставка. Актуальні ціни дивіться у картці авто або уточнюйте у менеджера.</p>
-                    </div>
-                  </li>
-
-                  <!-- Пробіг -->
-                  <li class="terms-section__tabs-item" data-tab-content="4">
-                    <div class="editor">
-                      <p>За оренди від 4 днів — обмежень по пробігу немає. Для коротких оренд (до 3 діб) діє ліміт 350 км/доба. При перевищенні ліміту стягується доплата за тарифом, що залежить від категорії автомобіля:</p>
-
-                      <ul class="terms-table">
-                        <li class="terms-table__row head">
-                          <span class="terms-table__value">Категорія авто</span>
-                          <span class="terms-table__value">Вартість за 1 км (USD)</span>
-                        </li>
-                        <li class="terms-table__row">
-                          <span class="terms-table__value">Економ</span>
-                          <span class="terms-table__value">0.12</span>
-                        </li>
-                        <li class="terms-table__row">
-                          <span class="terms-table__value">Бізнес</span>
-                          <span class="terms-table__value">0.30</span>
-                        </li>
-                        <li class="terms-table__row">
-                          <span class="terms-table__value">Позашляховики</span>
-                          <span class="terms-table__value">0.30</span>
-                        </li>
-                        <li class="terms-table__row">
-                          <span class="terms-table__value">Преміум</span>
-                          <span class="terms-table__value">0.70</span>
-                        </li>
-                        <li class="terms-table__row">
-                          <span class="terms-table__value">Мінівени</span>
-                          <span class="terms-table__value">0.50</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div><!-- /.terms-section__content -->
-          </div><!-- /.terms-section__inner -->
-        </div>
-      </div>
-    </section>
-  </main>
-
-  @include('partials/footer-mode.html')
-</body>
+        @include('partials/footer-mode.html')
+    </body>
 </html>

@@ -1,378 +1,407 @@
 <!DOCTYPE html>
 <html lang="en" class="page">
-  @include('partials/head.html', {
-    "title": "List your car for rent in Lviv — REIZ",
-    "description": "List your car in Lviv with REIZ: official agreement, monthly payouts, maintenance and 24/7 monitoring. Check the requirements and submit a request.",
-    "canonical": "https://reiz.com.ua/en/invest",
-    "og_title": "List your car for rent in Lviv — REIZ",
-    "og_description": "Hand over your car to REIZ and earn passive income. Agreement, payouts, service and full control.",
-    "og_image": "https://reiz.com.ua/img/og/invest.webp",
-    "lang": "en",
-    "href_ru": "https://reiz.com.ua/invest",
-    "href_uk": "https://reiz.com.ua/ua/invest",
-    "href_en": "https://reiz.com.ua/en/invest"
-  })
-      
+    @include('partials/head.html', { "title": "List your car for rent in Lviv — REIZ",
+    "description": "List your car in Lviv with REIZ: official agreement, monthly payouts,
+    maintenance and 24/7 monitoring. Check the requirements and submit a request.", "canonical":
+    "https://reiz.com.ua/en/invest", "og_title": "List your car for rent in Lviv — REIZ",
+    "og_description": "Hand over your car to REIZ and earn passive income. Agreement, payouts,
+    service and full control.", "og_image": "https://reiz.com.ua/img/og/invest.webp", "lang": "en",
+    "href_ru": "https://reiz.com.ua/invest", "href_uk": "https://reiz.com.ua/ua/invest", "href_en":
+    "https://reiz.com.ua/en/invest" })
 
-  <body class="page__body" data-page="invest">
-    @include('partials/noscript.html')
-    @include('partials/header-mode.html')
-    <main class="main">
-      <section class="rental-section">
-        <div class="container">
-          <div class="rental-section__box">
-            <aside
-              class="aside"
-              data-aos="fade-right"
-              data-aos-duration="900"
-              data-aos-delay="400"
-            >
-              <div class="aside__top">
-                <a href="/en/" class="aside__title">REIZ</a>
-                <p>CAR RENTAL IN UKRAINE</p>
-              </div>
+    <body class="page__body" data-page="invest">
+        @include('partials/noscript.html') @include('partials/header-mode.html')
+        <main class="main">
+            <section class="rental-section">
+                <div class="container">
+                    <div class="rental-section__box">
+                        <aside
+                            class="aside"
+                            data-aos="fade-right"
+                            data-aos-duration="900"
+                            data-aos-delay="400"
+                        >
+                            <div class="aside__top">
+                                <a href="/en/" class="aside__title">REIZ</a>
+                                <p>CAR RENTAL IN UKRAINE</p>
+                            </div>
 
-              <nav class="main-nav">
-                <ul>
-                  <li>
-                    <a href="/en/">HOME</a>
-                  </li>
-                  <li>
-                    <ul class="main-nav__acc" data-accordion>
-                      <li class="main-nav__acc-item">
-                        <button class="main-nav__acc-btn" data-id="1">
-                          CARS
-                          <i class="sprite">
-                            <svg width="11" height="8">
-                              <use href="/img/sprite/sprite.svg#arrow-d"></use>
-                            </svg>
-                          </i>
-                        </button>
-                        <div class="main-nav__acc-content" data-content="1">
-                          <a href="#catalog">Car rental in Kyiv</a>
-                          <a href="#catalog">Car rental in Lviv</a>
-                          <a href="#catalog">Car rental in Ternopil</a>
+                            <nav class="main-nav">
+                                <ul>
+                                    <li>
+                                        <a href="/en/">HOME</a>
+                                    </li>
+                                    <li>
+                                        <ul class="main-nav__acc" data-accordion>
+                                            <li class="main-nav__acc-item">
+                                                <button class="main-nav__acc-btn" data-id="1">
+                                                    CARS
+                                                    <i class="sprite">
+                                                        <svg width="11" height="8">
+                                                            <use
+                                                                href="/img/sprite/sprite.svg#arrow-d"
+                                                            ></use>
+                                                        </svg>
+                                                    </i>
+                                                </button>
+                                                <div class="main-nav__acc-content" data-content="1">
+                                                    <a href="#catalog">Car rental in Kyiv</a>
+                                                    <a href="#catalog">Car rental in Lviv</a>
+                                                    <a href="#catalog">Car rental in Ternopil</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/en/insurance.html">INSURANCE</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/business.html">BUSINESS RENTALS</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/certificate.html">GIFT CERTIFICATES</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/terms.html">RENTAL TERMS</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/faq.html">FAQ</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/invest.html" class="active">LIST YOUR CAR</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/blog.html">BLOG</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/about.html">ABOUT US</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/contacts.html">CONTACTS</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <button
+                                type="button"
+                                class="main-button"
+                                aria-controls="callback-modal"
+                            >
+                                REQUEST A CALL
+                            </button>
+                        </aside>
+
+                        <div
+                            class="rental-section__inner"
+                            data-aos="fade-left"
+                            data-aos-duration="900"
+                            data-aos-delay="600"
+                        >
+                            <p class="pretitle">LIST YOUR CAR</p>
+
+                            <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                                <ol>
+                                    <li><a href="/en/">Home</a></li>
+                                    <li aria-current="page">List your car</li>
+                                </ol>
+                            </nav>
+
+                            <h1 class="main-title">List your car for rent in Lviv</h1>
+
+                            <div class="rental-section__content">
+                                <div class="editor">
+                                    <p>
+                                        Turn your car into a source of income without handling
+                                        day-to-day operations. Our experienced team manages
+                                        everything for you.
+                                    </p>
+                                </div>
+
+                                <div class="rental-section__wrapp">
+                                    <h4 class="pretitle">WHY IT’S BENEFICIAL</h4>
+
+                                    <ul class="info-list mode">
+                                        <li class="info-list__item">
+                                            <span class="info-list__icon sprite">
+                                                <i class="sprite">
+                                                    <svg width="32" height="32">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#invest"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                            </span>
+                                            <p>
+                                                Invest in a growing car-rental market without extra
+                                                hassle. We handle the full cycle — from listing to
+                                                vehicle return.
+                                            </p>
+                                        </li>
+                                        <li class="info-list__item">
+                                            <span class="info-list__icon sprite">
+                                                <i class="sprite">
+                                                    <svg width="47" height="47">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#money"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                            </span>
+                                            <p>
+                                                Your car generates income — payouts are transferred
+                                                to your account monthly according to the agreement.
+                                            </p>
+                                        </li>
+                                        <li class="info-list__item">
+                                            <span class="info-list__icon sprite">
+                                                <i class="sprite">
+                                                    <img
+                                                        width="40"
+                                                        height="40"
+                                                        src="/img/sprite/setting.svg"
+                                                        alt="icon"
+                                                    />
+                                                </i>
+                                            </span>
+                                            <p>
+                                                Regular maintenance, inspections and monitoring — to
+                                                keep your car earning without downtime or unexpected
+                                                failures.
+                                            </p>
+                                        </li>
+                                        <li class="info-list__item">
+                                            <span class="info-list__icon sprite">
+                                                <i class="sprite">
+                                                    <svg width="37" height="37">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#Group"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                            </span>
+                                            <p>
+                                                Full control: track the vehicle status via your
+                                                personal account. All processes are transparent and
+                                                automated.
+                                            </p>
+                                        </li>
+                                        <li class="info-list__item">
+                                            <span class="info-list__icon sprite">
+                                                <i class="sprite">
+                                                    <svg width="29" height="36">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#shield"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                            </span>
+                                            <p>
+                                                Rentals are covered by an official agreement. All
+                                                legal aspects and paperwork meet established
+                                                standards.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="rental-section__wrapp">
+                                    <h4 class="pretitle">VEHICLE REQUIREMENTS FOR LISTING</h4>
+
+                                    <ul class="info-list">
+                                        <li class="info-list__item">
+                                            <span class="info-list__icon sprite">
+                                                <i class="sprite">
+                                                    <svg width="35" height="35">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#clock"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                            </span>
+                                            <p>Vehicle no older than 3 years</p>
+                                        </li>
+                                        <li class="info-list__item">
+                                            <span class="info-list__icon sprite">
+                                                <i class="sprite">
+                                                    <svg width="40" height="40">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#Group2"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                            </span>
+                                            <p>Technically sound and fully serviced</p>
+                                        </li>
+                                        <li class="info-list__item">
+                                            <span class="info-list__icon sprite">
+                                                <i class="sprite">
+                                                    <svg width="40" height="40">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#Artboard"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                            </span>
+                                            <p>
+                                                Valid third-party liability insurance (CASCO
+                                                comprehensive optional)
+                                            </p>
+                                        </li>
+                                        <li class="info-list__item">
+                                            <span class="info-list__icon sprite">
+                                                <i class="sprite">
+                                                    <svg width="48" height="48">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#icong"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                            </span>
+                                            <p>
+                                                The car must be legally clean — no
+                                                liens/restrictions and not reported stolen
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="rental-section__wrapp">
+                                    <div class="editor">
+                                        <h4 class="pretitle">SUBMIT A LISTING REQUEST</h4>
+                                        <p>
+                                            Fill out the form so we can estimate the potential yield
+                                            of your vehicle and contact you to clarify the details.
+                                        </p>
+                                    </div>
+
+                                    <form class="main-form">
+                                        <label class="main-form__label">
+                                            <input
+                                                type="text"
+                                                name="car"
+                                                id="car"
+                                                placeholder="Make:"
+                                                class="main-form__input"
+                                            />
+                                        </label>
+                                        <label class="main-form__label">
+                                            <input
+                                                type="text"
+                                                name="model"
+                                                id="model"
+                                                placeholder="Model:"
+                                                class="main-form__input"
+                                            />
+                                        </label>
+
+                                        <div class="main-form__fields">
+                                            <div class="custom-select">
+                                                <div class="select-field">
+                                                    <div class="selected-options">
+                                                        <span class="placeholder"
+                                                            >Transmission</span
+                                                        >
+                                                    </div>
+                                                    <div class="arrow-down">
+                                                        <svg width="6" height="3">
+                                                            <use
+                                                                href="/img/sprite/sprite.svg#arrow-d"
+                                                            ></use>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <ul class="options-container">
+                                                    <li class="option" data-value="Automatic">
+                                                        <span class="option-text">Automatic</span>
+                                                    </li>
+                                                    <li class="option" data-value="Manual">
+                                                        <span class="option-text">Manual</span>
+                                                    </li>
+                                                    <li class="option" data-value="Automated">
+                                                        <span class="option-text">Automated</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <label class="main-form__label">
+                                                <input
+                                                    type="text"
+                                                    name="milliage"
+                                                    id="milliage"
+                                                    placeholder="Mileage:"
+                                                    class="main-form__input"
+                                                />
+                                            </label>
+                                            <label class="main-form__label">
+                                                <input
+                                                    type="text"
+                                                    name="year"
+                                                    id="year"
+                                                    placeholder="Year:"
+                                                    class="main-form__input"
+                                                />
+                                            </label>
+                                            <label class="main-form__label">
+                                                <input
+                                                    type="text"
+                                                    name="color"
+                                                    id="color"
+                                                    placeholder="Color:"
+                                                    class="main-form__input"
+                                                />
+                                            </label>
+                                        </div>
+                                        <label class="main-form__label">
+                                            <input
+                                                type="text"
+                                                name="complect"
+                                                id="complect"
+                                                placeholder="Trim/Package:"
+                                                class="main-form__input"
+                                            />
+                                        </label>
+                                        <label class="main-form__label">
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                id="name"
+                                                placeholder="Full name:"
+                                                class="main-form__input"
+                                            />
+                                        </label>
+                                        <label class="main-form__label">
+                                            <input
+                                                type="tel"
+                                                name="phone"
+                                                id="phone"
+                                                placeholder="Phone:"
+                                                class="main-form__input"
+                                            />
+                                        </label>
+                                        <label class="main-form__label">
+                                            <input
+                                                type="email"
+                                                name="mail"
+                                                id="mail"
+                                                placeholder="E-mail:"
+                                                class="main-form__input"
+                                            />
+                                        </label>
+                                        <button
+                                            class="main-button main-button--black"
+                                            data-btn-modal="order"
+                                            type="submit"
+                                        >
+                                            SUBMIT REQUEST
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="/en/insurance">INSURANCE</a>
-                  </li>
-                  <li>
-                    <a href="/en/business">BUSINESS RENTALS</a>
-                  </li>
-                  <li>
-                    <a href="/en/certificate">GIFT CERTIFICATES</a>
-                  </li>
-                  <li>
-                    <a href="/en/terms">RENTAL TERMS</a>
-                  </li>
-                  <li>
-                    <a href="/en/faq">FAQ</a>
-                  </li>
-                  <li>
-                    <a href="/en/invest" class="active">LIST YOUR CAR</a>
-                  </li>
-                  <li>
-                    <a href="/en/blog">BLOG</a>
-                  </li>
-                  <li>
-                    <a href="/en/about">ABOUT US</a>
-                  </li>
-                  <li>
-                    <a href="/en/contacts">CONTACTS</a>
-                  </li>
-                </ul>
-              </nav>
-
-              <button type="button" class="main-button" aria-controls="callback-modal">REQUEST A CALL</button>
-            </aside>
-
-            <div
-              class="rental-section__inner"
-              data-aos="fade-left"
-              data-aos-duration="900"
-              data-aos-delay="600"
-            >
-              <p class="pretitle">LIST YOUR CAR</p>
-
-              <nav class="breadcrumbs" aria-label="Breadcrumbs">
-                <ol>
-                  <li><a href="/en/">Home</a></li>
-                  <li aria-current="page">List your car</li>
-                </ol>
-              </nav>
-
-              <h1 class="main-title">List your car for rent in Lviv</h1>
-
-              <div class="rental-section__content">
-                <div class="editor">
-                  <p>
-                    Turn your car into a source of income without handling day-to-day operations.
-                    Our experienced team manages everything for you.
-                  </p>
-                </div>
-
-                <div class="rental-section__wrapp">
-                  <h4 class="pretitle">WHY IT’S BENEFICIAL</h4>
-
-                  <ul class="info-list mode">
-                    <li class="info-list__item">
-                      <span class="info-list__icon sprite">
-                        <i class="sprite">
-                          <svg width="32" height="32">
-                            <use href="/img/sprite/sprite.svg#invest"></use>
-                          </svg>
-                        </i>
-                      </span>
-                      <p>
-                        Invest in a growing car-rental market without extra hassle.
-                        We handle the full cycle — from listing to vehicle return.
-                      </p>
-                    </li>
-                    <li class="info-list__item">
-                      <span class="info-list__icon sprite">
-                        <i class="sprite">
-                          <svg width="47" height="47">
-                            <use href="/img/sprite/sprite.svg#money"></use>
-                          </svg>
-                        </i>
-                      </span>
-                      <p>
-                        Your car generates income — payouts are transferred to your
-                        account monthly according to the agreement.
-                      </p>
-                    </li>
-                    <li class="info-list__item">
-                      <span class="info-list__icon sprite">
-                        <i class="sprite">
-                          <img
-                            width="40"
-                            height="40"
-                            src="/img/sprite/setting.svg"
-                            alt="icon"
-                          />
-                        </i>
-                      </span>
-                      <p>
-                        Regular maintenance, inspections and monitoring — to keep
-                        your car earning without downtime or unexpected failures.
-                      </p>
-                    </li>
-                    <li class="info-list__item">
-                      <span class="info-list__icon sprite">
-                        <i class="sprite">
-                          <svg width="37" height="37">
-                            <use href="/img/sprite/sprite.svg#Group"></use>
-                          </svg>
-                        </i>
-                      </span>
-                      <p>
-                        Full control: track the vehicle status via your personal
-                        account. All processes are transparent and automated.
-                      </p>
-                    </li>
-                    <li class="info-list__item">
-                      <span class="info-list__icon sprite">
-                        <i class="sprite">
-                          <svg width="29" height="36">
-                            <use href="/img/sprite/sprite.svg#shield"></use>
-                          </svg>
-                        </i>
-                      </span>
-                      <p>
-                        Rentals are covered by an official agreement. All legal
-                        aspects and paperwork meet established standards.
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="rental-section__wrapp">
-                  <h4 class="pretitle">VEHICLE REQUIREMENTS FOR LISTING</h4>
-
-                  <ul class="info-list">
-                    <li class="info-list__item">
-                      <span class="info-list__icon sprite">
-                        <i class="sprite">
-                          <svg width="35" height="35">
-                            <use href="/img/sprite/sprite.svg#clock"></use>
-                          </svg>
-                        </i>
-                      </span>
-                      <p>Vehicle no older than 3 years</p>
-                    </li>
-                    <li class="info-list__item">
-                      <span class="info-list__icon sprite">
-                        <i class="sprite">
-                          <svg width="40" height="40">
-                            <use href="/img/sprite/sprite.svg#Group2"></use>
-                          </svg>
-                        </i>
-                      </span>
-                      <p>Technically sound and fully serviced</p>
-                    </li>
-                    <li class="info-list__item">
-                      <span class="info-list__icon sprite">
-                        <i class="sprite">
-                          <svg width="40" height="40">
-                            <use href="/img/sprite/sprite.svg#Artboard"></use>
-                          </svg>
-                        </i>
-                      </span>
-                      <p>
-                        Valid third-party liability insurance (CASCO comprehensive optional)
-                      </p>
-                    </li>
-                    <li class="info-list__item">
-                      <span class="info-list__icon sprite">
-                        <i class="sprite">
-                          <svg width="48" height="48">
-                            <use href="/img/sprite/sprite.svg#icong"></use>
-                          </svg>
-                        </i>
-                      </span>
-                      <p>
-                        The car must be legally clean — no liens/restrictions and not reported stolen
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="rental-section__wrapp">
-                  <div class="editor">
-                    <h4 class="pretitle">SUBMIT A LISTING REQUEST</h4>
-                    <p>
-                      Fill out the form so we can estimate the potential yield of your
-                      vehicle and contact you to clarify the details.
-                    </p>
-                  </div>
-
-                  <form class="main-form">
-                    <label class="main-form__label">
-                      <input
-                        type="text"
-                        name="car"
-                        id="car"
-                        placeholder="Make:"
-                        class="main-form__input"
-                      />
-                    </label>
-                    <label class="main-form__label">
-                      <input
-                        type="text"
-                        name="model"
-                        id="model"
-                        placeholder="Model:"
-                        class="main-form__input"
-                      />
-                    </label>
-
-                    <div class="main-form__fields">
-                      <div class="custom-select">
-                        <div class="select-field">
-                          <div class="selected-options">
-                            <span class="placeholder">Transmission</span>
-                          </div>
-                          <div class="arrow-down">
-                            <svg width="6" height="3">
-                              <use href="/img/sprite/sprite.svg#arrow-d"></use>
-                            </svg>
-                          </div>
-                        </div>
-                        <ul class="options-container">
-                          <li class="option" data-value="Automatic">
-                            <span class="option-text">Automatic</span>
-                          </li>
-                          <li class="option" data-value="Manual">
-                            <span class="option-text">Manual</span>
-                          </li>
-                          <li class="option" data-value="Automated">
-                            <span class="option-text">Automated</span>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <label class="main-form__label">
-                        <input
-                          type="text"
-                          name="milliage"
-                          id="milliage"
-                          placeholder="Mileage:"
-                          class="main-form__input"
-                        />
-                      </label>
-                      <label class="main-form__label">
-                        <input
-                          type="text"
-                          name="year"
-                          id="year"
-                          placeholder="Year:"
-                          class="main-form__input"
-                        />
-                      </label>
-                      <label class="main-form__label">
-                        <input
-                          type="text"
-                          name="color"
-                          id="color"
-                          placeholder="Color:"
-                          class="main-form__input"
-                        />
-                      </label>
                     </div>
-                    <label class="main-form__label">
-                      <input
-                        type="text"
-                        name="complect"
-                        id="complect"
-                        placeholder="Trim/Package:"
-                        class="main-form__input"
-                      />
-                    </label>
-                    <label class="main-form__label">
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        placeholder="Full name:"
-                        class="main-form__input"
-                      />
-                    </label>
-                    <label class="main-form__label">
-                      <input
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        placeholder="Phone:"
-                        class="main-form__input"
-                      />
-                    </label>
-                    <label class="main-form__label">
-                      <input
-                        type="email"
-                        name="mail"
-                        id="mail"
-                        placeholder="E-mail:"
-                        class="main-form__input"
-                      />
-                    </label>
-                    <button
-                      class="main-button main-button--black"
-                      data-btn-modal="order"
-                      type="submit"
-                    >
-                      SUBMIT REQUEST
-                    </button>
-                  </form>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    @include('partials/footer-mode.html')
-  </body>
+            </section>
+        </main>
+        @include('partials/footer-mode.html')
+    </body>
 </html>

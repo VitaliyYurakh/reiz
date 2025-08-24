@@ -1,5 +1,5 @@
-import {authCheck} from '../api/auth.api.js';
-import {FormLogin} from '../component/admin/form-login.component.js';
+import {authCheck} from '../../api/auth.api.js';
+import {FormLogin} from '../../component/admin/form-login.component.js';
 
 class LoginPage {
     async init() {

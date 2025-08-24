@@ -1,5 +1,5 @@
 import {authCheck} from '../../api/auth.api.js';
-import {CarList} from '../component/admin/car-list.component.js';
+import {CarList} from '../../component/admin/car-list.component.js';
 
 class CarListPage {
     async init() {

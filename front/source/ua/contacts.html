@@ -1,224 +1,286 @@
 <!DOCTYPE html>
 <html lang="uk" class="page">
-    @include('partials/head.html', {
-        "title": "Контакти REIZ — оренда авто у Львові: телефон, адреса, графік",
-        "description": "Зв’яжіться з REIZ у Львові: телефон +380 63 547 11 86, email info@reiz.com.ua, адреса вул. Любінська, 168. Щодня 08:30–20:30. Подача авто за адресою, підтримка 24/7.",
-        "canonical": "https://reiz.com.ua/ua/contacts/",
-      
-        "og_title": "Контакти REIZ Львів — оренда авто",
-        "og_description": "Телефон, адреса, час роботи, email. Швидка подача авто та допомога 24/7.",
-        "og_url": "https://reiz.com.ua/ua/contacts/",
-        "og_image": "https://reiz.com.ua/img/og/contacts.webp",
-        "og_locale": "uk_UA",
-      
-        "lang": "uk",
-        "href_uk": "https://reiz.com.ua/ua/contacts/",
-        "href_ru": "https://reiz.com.ua/contacts/",
-        "href_en": "https://reiz.com.ua/en/contacts/",
-        "href_default": "https://reiz.com.ua/contacts/"
-      })
+    @include('partials/head.html', { "title": "Контакти REIZ — оренда авто у Львові: телефон,
+    адреса, графік", "description": "Зв’яжіться з REIZ у Львові: телефон +380 63 547 11 86, email
+    info@reiz.com.ua, адреса вул. Любінська, 168. Щодня 08:30–20:30. Подача авто за адресою,
+    підтримка 24/7.", "canonical": "https://reiz.com.ua/ua/contacts/", "og_title": "Контакти REIZ
+    Львів — оренда авто", "og_description": "Телефон, адреса, час роботи, email. Швидка подача авто
+    та допомога 24/7.", "og_url": "https://reiz.com.ua/ua/contacts/", "og_image":
+    "https://reiz.com.ua/img/og/contacts.webp", "og_locale": "uk_UA", "lang": "uk", "href_uk":
+    "https://reiz.com.ua/ua/contacts/", "href_ru": "https://reiz.com.ua/contacts/", "href_en":
+    "https://reiz.com.ua/en/contacts/", "href_default": "https://reiz.com.ua/contacts/" })
 
-  <body class="page__body" data-page="contacts">
-    @include('partials/noscript.html')
-    @include('partials/header-mode.html')
+    <body class="page__body" data-page="contacts">
+        @include('partials/noscript.html') @include('partials/header-mode.html')
 
-    <main class="main">
-      <section class="contacts-section">
-        <div class="container">
-          <div class="contacts-section__box">
-            <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
-              <div class="aside__top">
-                <a href="/ua/" class="aside__title">REIZ</a>
-                <p>ОРЕНДА АВТО В УКРАЇНІ</p>
-              </div>
+        <main class="main">
+            <section class="contacts-section">
+                <div class="container">
+                    <div class="contacts-section__box">
+                        <aside
+                            class="aside"
+                            data-aos="fade-right"
+                            data-aos-duration="900"
+                            data-aos-delay="400"
+                        >
+                            <div class="aside__top">
+                                <a href="/ua/" class="aside__title">REIZ</a>
+                                <p>ОРЕНДА АВТО В УКРАЇНІ</p>
+                            </div>
 
-              <nav class="main-nav">
-                <ul>
-                  <li><a href="/ua/">ГОЛОВНА</a></li>
-                  <li>
-                    <ul class="main-nav__acc" data-accordion>
-                      <li class="main-nav__acc-item">
-                        <button class="main-nav__acc-btn" data-id="1">
-                          АВТОМОБІЛІ
-                          <i class="sprite">
-                            <svg width="11" height="8"><use href="/img/sprite/sprite.svg#arrow-d"></use></svg>
-                          </i>
-                        </button>
-                        <div class="main-nav__acc-content" data-content="1">
-                          <a href="#catalog">Прокат авто у Києві</a>
-                          <a href="#catalog">Прокат авто у Львові</a>
-                          <a href="#catalog">Прокат авто у Тернополі</a>
+                            <nav class="main-nav">
+                                <ul>
+                                    <li><a href="/ua/">ГОЛОВНА</a></li>
+                                    <li>
+                                        <ul class="main-nav__acc" data-accordion>
+                                            <li class="main-nav__acc-item">
+                                                <button class="main-nav__acc-btn" data-id="1">
+                                                    АВТОМОБІЛІ
+                                                    <i class="sprite">
+                                                        <svg width="11" height="8">
+                                                            <use
+                                                                href="/img/sprite/sprite.svg#arrow-d"
+                                                            ></use>
+                                                        </svg>
+                                                    </i>
+                                                </button>
+                                                <div class="main-nav__acc-content" data-content="1">
+                                                    <a href="#catalog">Прокат авто у Києві</a>
+                                                    <a href="#catalog">Прокат авто у Львові</a>
+                                                    <a href="#catalog">Прокат авто у Тернополі</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/ua/insurance.html">СТРАХУВАННЯ</a></li>
+                                    <li><a href="/ua/business.html">ОРЕНДА ДЛЯ ЮР. ОСІБ</a></li>
+                                    <li><a href="/ua/certificate.html">СЕРТИФІКАТИ</a></li>
+                                    <li><a href="/ua/terms.html">УМОВИ ОРЕНДИ</a></li>
+                                    <li><a href="/ua/faq.html">ПИТАННЯ-ВІДПОВІДЬ</a></li>
+                                    <li><a href="/ua/invest.html">ЗДАТИ АВТО В ОРЕНДУ</a></li>
+                                    <li><a href="/ua/blog.html">БЛОГ</a></li>
+                                    <li><a href="/ua/about.html">ПРО НАС</a></li>
+                                    <li><a href="/ua/contacts.html" class="active">КОНТАКТИ</a></li>
+                                </ul>
+                            </nav>
+
+                            <a href="#" class="main-button">ЗАМОВИТИ ДЗВІНОК</a>
+                        </aside>
+
+                        <div
+                            class="contacts-section__inner"
+                            data-aos="fade-left"
+                            data-aos-duration="900"
+                            data-aos-delay="600"
+                        >
+                            <h2 class="pretitle">КОНТАКТИ</h2>
+                            <ul class="breadcrumbs">
+                                <li><a href="/ua/">Головна</a></li>
+                                <li>Контакти</li>
+                            </ul>
+                            <h1 class="main-title">КОНТАКТИ</h1>
+
+                            <div class="contacts-section__content">
+                                <div class="contacts-section__map">
+                                    <picture>
+                                        <source type="image/webp" srcset="/img/icons/map.webp" />
+                                        <img
+                                            width="673"
+                                            height="539"
+                                            src="/img/icons/map.png"
+                                            alt="Карта України з відміченими офісами REIZ у Києві та Львові"
+                                        />
+                                    </picture>
+                                </div>
+
+                                <div class="contacts-section__wrapp">
+                                    <h3 class="pretitle">НАШІ ОФІСИ</h3>
+
+                                    <div class="contacts-section__editors">
+                                        <div class="editor">
+                                            <p>Київ</p>
+                                            <a href="#">
+                                                <i class="sprite">
+                                                    <svg width="17" height="17">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#geo2"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                                вул. Велика Житомирська, 6/11
+                                            </a>
+                                            <div class="row">
+                                                <a href="tel:+380635471186">
+                                                    <i class="sprite">
+                                                        <svg width="17" height="17">
+                                                            <use
+                                                                href="/img/sprite/sprite.svg#tel"
+                                                            ></use>
+                                                        </svg>
+                                                    </i>
+                                                    +380 63 547 11 86
+                                                </a>
+                                                <a href="#">
+                                                    <img
+                                                        width="26"
+                                                        height="26"
+                                                        src="/img/sprite/WATHSAP.svg"
+                                                        alt="Написати у WhatsApp"
+                                                    />
+                                                </a>
+                                                <a href="#">
+                                                    <img
+                                                        width="26"
+                                                        height="26"
+                                                        src="/img/sprite/Telegram_logo.svg"
+                                                        alt="Зв’язатися через Telegram"
+                                                    />
+                                                </a>
+                                            </div>
+                                            <a href="#">
+                                                <i class="sprite">
+                                                    <svg width="17" height="17">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#clock2"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                                Пн–Нд 08:30–20:30
+                                            </a>
+                                            <a href="mailto:info@reiz.com.ua">
+                                                <i class="sprite">
+                                                    <svg width="17" height="17">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#mail"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                                info@reiz.com.ua
+                                            </a>
+                                        </div>
+
+                                        <div class="editor">
+                                            <p>Львів</p>
+                                            <a href="#">
+                                                <i class="sprite">
+                                                    <svg width="17" height="17">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#geo2"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                                вул. Любінська, 168, Львів
+                                            </a>
+                                            <div class="row">
+                                                <a href="tel:+380635471186">
+                                                    <i class="sprite">
+                                                        <svg width="17" height="17">
+                                                            <use
+                                                                href="/img/sprite/sprite.svg#tel"
+                                                            ></use>
+                                                        </svg>
+                                                    </i>
+                                                    +380 63 547 11 86
+                                                </a>
+                                                <a href="#">
+                                                    <img
+                                                        width="26"
+                                                        height="26"
+                                                        src="/img/sprite/WATHSAP.svg"
+                                                        alt="Написати у WhatsApp"
+                                                    />
+                                                </a>
+                                                <a href="#">
+                                                    <img
+                                                        width="26"
+                                                        height="26"
+                                                        src="/img/sprite/Telegram_logo.svg"
+                                                        alt="Зв’язатися через Telegram"
+                                                    />
+                                                </a>
+                                            </div>
+                                            <a href="#">
+                                                <i class="sprite">
+                                                    <svg width="17" height="17">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#clock2"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                                Пн–Нд 08:30–20:30
+                                            </a>
+                                            <a href="mailto:info@reiz.com.ua">
+                                                <i class="sprite">
+                                                    <svg width="17" height="17">
+                                                        <use
+                                                            href="/img/sprite/sprite.svg#mail"
+                                                        ></use>
+                                                    </svg>
+                                                </i>
+                                                info@reiz.com.ua
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contacts-section__wrapp">
+                                    <h4 class="pretitle">
+                                        ГОТОВІ ВІДПОВІСТИ НА ВСІ ВАШІ ЗАПИТАННЯ
+                                    </h4>
+
+                                    <form class="main-form mode">
+                                        <label class="main-form__label">
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                id="name"
+                                                placeholder="Ваше ім’я"
+                                                class="main-form__input"
+                                            />
+                                        </label>
+                                        <label class="main-form__label">
+                                            <input
+                                                type="email"
+                                                name="mail"
+                                                id="mail"
+                                                placeholder="E-mail"
+                                                class="main-form__input"
+                                            />
+                                        </label>
+                                        <label class="main-form__label">
+                                            <input
+                                                type="tel"
+                                                name="phone"
+                                                id="phone"
+                                                placeholder="Телефон"
+                                                class="main-form__input"
+                                            />
+                                        </label>
+                                        <label class="main-form__label">
+                                            <textarea
+                                                name="mess"
+                                                id="mess"
+                                                class="main-form__area"
+                                                placeholder="Повідомлення"
+                                            ></textarea>
+                                        </label>
+
+                                        <button
+                                            class="main-button main-button--black"
+                                            data-btn-modal="order"
+                                            type="submit"
+                                        >
+                                            НАДІСЛАТИ ЗАЯВКУ
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="/ua/insurance">СТРАХУВАННЯ</a></li>
-                  <li><a href="/ua/business">ОРЕНДА ДЛЯ ЮР. ОСІБ</a></li>
-                  <li><a href="/ua/certificate">СЕРТИФІКАТИ</a></li>
-                  <li><a href="/ua/terms">УМОВИ ОРЕНДИ</a></li>
-                  <li><a href="/ua/faq">ПИТАННЯ-ВІДПОВІДЬ</a></li>
-                  <li><a href="/ua/invest">ЗДАТИ АВТО В ОРЕНДУ</a></li>
-                  <li><a href="/ua/blog">БЛОГ</a></li>
-                  <li><a href="/ua/about">ПРО НАС</a></li>
-                  <li><a href="/ua/contacts" class="active">КОНТАКТИ</a></li>
-                </ul>
-              </nav>
-
-              <a href="#" class="main-button">ЗАМОВИТИ ДЗВІНОК</a>
-            </aside>
-
-            <div class="contacts-section__inner" data-aos="fade-left" data-aos-duration="900" data-aos-delay="600">
-              <h2 class="pretitle">КОНТАКТИ</h2>
-              <ul class="breadcrumbs">
-                <li><a href="/ua/">Головна</a></li>
-                <li>Контакти</li>
-              </ul>
-              <h1 class="main-title">КОНТАКТИ</h1>
-
-              <div class="contacts-section__content">
-                <div class="contacts-section__map">
-                  <picture>
-                    <source type="image/webp" srcset="/img/icons/map.webp" />
-                    <img
-                      width="673"
-                      height="539"
-                      src="/img/icons/map.png"
-                      alt="Карта України з відміченими офісами REIZ у Києві та Львові"
-                    />
-                  </picture>
-                </div>
-
-                <div class="contacts-section__wrapp">
-                  <h3 class="pretitle">НАШІ ОФІСИ</h3>
-
-                  <div class="contacts-section__editors">
-                    <div class="editor">
-                      <p>Київ</p>
-                      <a href="#">
-                        <i class="sprite">
-                          <svg width="17" height="17"><use href="/img/sprite/sprite.svg#geo2"></use></svg>
-                        </i>
-                        вул. Велика Житомирська, 6/11
-                      </a>
-                      <div class="row">
-                        <a href="tel:+380635471186">
-                          <i class="sprite">
-                            <svg width="17" height="17"><use href="/img/sprite/sprite.svg#tel"></use></svg>
-                          </i>
-                          +380 63 547 11 86
-                        </a>
-                        <a href="#">
-                          <img width="26" height="26" src="/img/sprite/WATHSAP.svg" alt="Написати у WhatsApp" />
-                        </a>
-                        <a href="#">
-                          <img width="26" height="26" src="/img/sprite/Telegram_logo.svg" alt="Зв’язатися через Telegram" />
-                        </a>
-                      </div>
-                      <a href="#">
-                        <i class="sprite">
-                          <svg width="17" height="17"><use href="/img/sprite/sprite.svg#clock2"></use></svg>
-                        </i>
-                        Пн–Нд 08:30–20:30
-                      </a>
-                      <a href="mailto:info@reiz.com.ua">
-                        <i class="sprite">
-                          <svg width="17" height="17"><use href="/img/sprite/sprite.svg#mail"></use></svg>
-                        </i>
-                        info@reiz.com.ua
-                      </a>
                     </div>
-
-                    <div class="editor">
-                      <p>Львів</p>
-                      <a href="#">
-                        <i class="sprite">
-                          <svg width="17" height="17"><use href="/img/sprite/sprite.svg#geo2"></use></svg>
-                        </i>
-                        вул. Любінська, 168, Львів
-                      </a>
-                      <div class="row">
-                        <a href="tel:+380635471186">
-                          <i class="sprite">
-                            <svg width="17" height="17"><use href="/img/sprite/sprite.svg#tel"></use></svg>
-                          </i>
-                          +380 63 547 11 86
-                        </a>
-                        <a href="#">
-                          <img width="26" height="26" src="/img/sprite/WATHSAP.svg" alt="Написати у WhatsApp" />
-                        </a>
-                        <a href="#">
-                          <img width="26" height="26" src="/img/sprite/Telegram_logo.svg" alt="Зв’язатися через Telegram" />
-                        </a>
-                      </div>
-                      <a href="#">
-                        <i class="sprite">
-                          <svg width="17" height="17"><use href="/img/sprite/sprite.svg#clock2"></use></svg>
-                        </i>
-                        Пн–Нд 08:30–20:30
-                      </a>
-                      <a href="mailto:info@reiz.com.ua">
-                        <i class="sprite">
-                          <svg width="17" height="17"><use href="/img/sprite/sprite.svg#mail"></use></svg>
-                        </i>
-                        info@reiz.com.ua
-                      </a>
-                    </div>
-                  </div>
                 </div>
+            </section>
+        </main>
 
-                <div class="contacts-section__wrapp">
-                  <h4 class="pretitle">ГОТОВІ ВІДПОВІСТИ НА ВСІ ВАШІ ЗАПИТАННЯ</h4>
-
-                  <form class="main-form mode">
-                    <label class="main-form__label">
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        placeholder="Ваше ім’я"
-                        class="main-form__input"
-                      />
-                    </label>
-                    <label class="main-form__label">
-                      <input
-                        type="email"
-                        name="mail"
-                        id="mail"
-                        placeholder="E-mail"
-                        class="main-form__input"
-                      />
-                    </label>
-                    <label class="main-form__label">
-                      <input
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        placeholder="Телефон"
-                        class="main-form__input"
-                      />
-                    </label>
-                    <label class="main-form__label">
-                      <textarea
-                        name="mess"
-                        id="mess"
-                        class="main-form__area"
-                        placeholder="Повідомлення"
-                      ></textarea>
-                    </label>
-
-                    <button class="main-button main-button--black" data-btn-modal="order" type="submit">
-                      НАДІСЛАТИ ЗАЯВКУ
-                    </button>
-                  </form>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    @include('partials/footer-mode.html')
-  </body>
+        @include('partials/footer-mode.html')
+    </body>
 </html>

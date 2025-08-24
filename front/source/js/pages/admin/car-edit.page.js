@@ -1,5 +1,5 @@
-import {authCheck} from '../api/auth.api.js';
-import {CarEdit} from '../component/admin/car-edit.component.js';
+import {authCheck} from '../../api/auth.api.js';
+import {CarEdit} from '../../component/admin/car-edit.component.js';
 
 class CarEditPage {
     async init() {
