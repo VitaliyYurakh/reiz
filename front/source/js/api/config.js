@@ -3,7 +3,7 @@ import axios from 'axios';
 const PROD = 'https://reiz.com.ua/';
 const DEV = 'http://localhost:3000/';
 
-export const BASE_URL = PROD;
+export const BASE_URL = DEV;
 
 const api = axios.create({
     baseURL: BASE_URL + 'api',

@@ -1,4 +1,4 @@
-import {login} from '../api/auth.api.js';
+import {login} from '../../api/auth.api.js';
 
 export class FormLogin {
     constructor() {

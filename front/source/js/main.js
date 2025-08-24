@@ -1,7 +1,6 @@
 import './_components.js';
 import {SelectLanguage} from './component/select-language.component.js';
-import carListPage from './pages/car-list.page.js';
-import {carEditPage, loginPage} from './pages/index.js';
+import {carEditPage, loginPage, carListPage} from './pages/admin/index.js';
 import mainPage from './pages/main.page.js';
 
 const pages = {
@@ -13,9 +12,9 @@ const pages = {
 
 window.addEventListener('DOMContentLoaded', async () => {
     const pageKey = document.body.dataset.page;
+
     const selectLanguage = new SelectLanguage();
     selectLanguage.init();
-    console.log(pageKey);
 
     if (pages[pageKey]) {
         const page = pages[pageKey];

@@ -5,8 +5,8 @@ import {
     getSegments,
     updateOne,
     updateRentalTariffs,
-} from '../api/cars.api.js';
-import {BASE_URL} from '../api/config.js';
+} from '../../api/cars.api.js';
+import {BASE_URL} from '../../api/config.js';
 
 export class CarEdit {
     car = null;

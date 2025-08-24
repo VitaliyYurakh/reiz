@@ -1,10 +1,10 @@
 import {authCheck} from '../api/auth.api.js';
-import {CarList} from '../component/car-list.component.js';
+import {CarEdit} from '../component/admin/car-edit.component.js';
 
-class CarListPage {
+class CarEditPage {
     async init() {
         await this.authCheck();
-        await new CarList().init();
+        await new CarEdit().init();
     }
 
     async authCheck() {
@@ -14,4 +14,4 @@ class CarListPage {
     }
 }
 
-export default new CarListPage();
+export default new CarEditPage();
