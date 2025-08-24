@@ -1,289 +1,250 @@
 <!DOCTYPE html>
 <html lang="uk" class="page">
-    @include('partials/head.html', { "title": "Блог REIZ — поради з оренди авто, маршрути та
-    лайфхаки", "description": "Статті REIZ: правила та поради з оренди автомобіля в Україні,
-    маршрути по Львову й країні, навігатори, паркування, страхування.", "canonical":
-    "https://reiz.com.ua/ua/blog/", "og_title": "Блог REIZ — оренда авто, маршрути та поради",
-    "og_description": "Корисні матеріали для водіїв і мандрівників: ДТП, паркування, найкращі
-    маршрути та застосунки.", "og_url": "https://reiz.com.ua/ua/blog/", "og_image":
-    "https://reiz.com.ua/img/og/blog.webp", "og_locale": "uk_UA", "lang": "uk", "href_uk":
-    "https://reiz.com.ua/ua/blog/", "href_ru": "https://reiz.com.ua/blog/", "href_en":
-    "https://reiz.com.ua/en/blog/", "href_default": "https://reiz.com.ua/blog/" // x-default -> RU
-    })
+    @include('partials/head.html', {
+        "title": "Блог REIZ — поради з оренди авто, маршрути та лайфхаки",
+        "description": "Статті REIZ: правила та поради з оренди автомобіля в Україні, маршрути по Львову й країні, навігатори, паркування, страхування.",
+        "canonical": "https://reiz.com.ua/ua/blog/",
+        "og_title": "Блог REIZ — оренда авто, маршрути та поради",
+        "og_description": "Корисні матеріали для водіїв і мандрівників: ДТП, паркування, найкращі маршрути та застосунки.",
+        "og_url": "https://reiz.com.ua/ua/blog/",
+        "og_image": "https://reiz.com.ua/img/og/blog.webp",
+        "og_locale": "uk_UA",
+      
+        "lang": "uk",
+        "href_uk": "https://reiz.com.ua/ua/blog/",
+        "href_ru": "https://reiz.com.ua/blog/",
+        "href_en": "https://reiz.com.ua/en/blog/",
+        "href_default": "https://reiz.com.ua/blog/"  // x-default -> RU
+      })
+      
+      
+  <body class="page__body" data-page="blog">
+    @include('partials/noscript.html')
+    @include('partials/header-mode.html')
 
-    <body class="page__body" data-page="blog">
-        @include('partials/noscript.html') @include('partials/header-mode.html')
+    <main class="main">
+      <section class="blog-section">
+        <div class="container">
+          <div class="blog-section__box">
+            <aside class="aside" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
+              <div class="aside__top">
+                <a href="/ua/" class="aside__title">REIZ</a>
+                <p>ОРЕНДА АВТО В УКРАЇНІ</p>
+              </div>
 
-        <main class="main">
-            <section class="blog-section">
-                <div class="container">
-                    <div class="blog-section__box">
-                        <aside
-                            class="aside"
-                            data-aos="fade-right"
-                            data-aos-duration="900"
-                            data-aos-delay="400"
-                        >
-                            <div class="aside__top">
-                                <a href="/ua/" class="aside__title">REIZ</a>
-                                <p>ОРЕНДА АВТО В УКРАЇНІ</p>
-                            </div>
-
-                            <nav class="main-nav">
-                                <ul>
-                                    <li>
-                                        <a href="/ua/">ГОЛОВНА</a>
-                                    </li>
-                                    <li>
-                                        <ul class="main-nav__acc" data-accordion>
-                                            <li class="main-nav__acc-item">
-                                                <button class="main-nav__acc-btn" data-id="1">
-                                                    АВТОМОБІЛІ
-                                                    <i class="sprite">
-                                                        <svg width="11" height="8">
-                                                            <use
-                                                                href="/img/sprite/sprite.svg#arrow-d"
-                                                            ></use>
-                                                        </svg>
-                                                    </i>
-                                                </button>
-                                                <div class="main-nav__acc-content" data-content="1">
-                                                    <a href="#catalog">Прокат авто у Києві</a>
-                                                    <a href="#catalog">Прокат авто у Львові</a>
-                                                    <a href="#catalog">Прокат авто у Тернополі</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="/ua/insurance.html">СТРАХУВАННЯ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/ua/business.html">ОРЕНДА ДЛЯ ЮР. ОСІБ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/ua/certificate.html">СЕРТИФІКАТИ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/ua/terms.html">УМОВИ ОРЕНДИ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/ua/faq.html">ПИТАННЯ-ВІДПОВІДЬ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/ua/invest.html">ЗДАТИ АВТО В ОРЕНДУ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/ua/blog.html" class="active">БЛОГ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/ua/about.html">ПРО НАС</a>
-                                    </li>
-                                    <li>
-                                        <a href="/ua/contacts.html">КОНТАКТИ</a>
-                                    </li>
-                                </ul>
-                            </nav>
-
-                            <a href="#" class="main-button">ЗАМОВИТИ ДЗВІНОК</a>
-                        </aside>
-
-                        <div
-                            class="blog-section__inner"
-                            data-aos="fade-left"
-                            data-aos-duration="900"
-                            data-aos-delay="600"
-                        >
-                            <h2 class="pretitle">БЛОГ</h2>
-                            <ul class="breadcrumbs">
-                                <li><a href="/ua/">Головна</a></li>
-                                <li>Блог</li>
-                            </ul>
-                            <h1 class="main-title">БЛОГ</h1>
-
-                            <ul class="blog-list">
-                                <li class="blog-list__item">
-                                    <div class="blog-card">
-                                        <div class="blog-card__image">
-                                            <picture>
-                                                <source
-                                                    type="image/webp"
-                                                    srcset="/img/blog/img1.webp"
-                                                />
-                                                <img
-                                                    width="474"
-                                                    height="251"
-                                                    src="/img/blog/img1.png"
-                                                    alt="Автомобіль із аварійним знаком на дорозі — інструкція щодо дій під час ДТП в Україні"
-                                                />
-                                            </picture>
-                                        </div>
-                                        <div class="blog-card__box">
-                                            <h2 class="blog-card__title">
-                                                <span
-                                                    >Що робити у разі ДТП в Україні: покрокова
-                                                    інструкція REIZ.</span
-                                                >
-                                            </h2>
-                                            <p>
-                                                У статті подано просту інструкцію, як діяти під час
-                                                аварії в Україні: як правильно оформити подію, куди
-                                                повідомити про ДТП і які документи потрібні для
-                                                страхової компанії.
-                                            </p>
-                                            <div class="blog-card__bottom">
-                                                <span class="blog-card__date">17.04.2025</span>
-                                                <a href="#" class="main-button">ДЕТАЛЬНІШЕ</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="blog-list__item">
-                                    <div class="blog-card">
-                                        <div class="blog-card__image">
-                                            <picture>
-                                                <source
-                                                    type="image/webp"
-                                                    srcset="/img/blog/img2.webp"
-                                                />
-                                                <img
-                                                    width="474"
-                                                    height="251"
-                                                    src="/img/blog/img2.png"
-                                                    alt="Панорама визначних місць України на заході сонця — маршрут для автоподорожі"
-                                                />
-                                            </picture>
-                                        </div>
-                                        <div class="blog-card__box">
-                                            <h2 class="blog-card__title">
-                                                <span
-                                                    >Маршрут для подорожі Україною автомобілем</span
-                                                >
-                                            </h2>
-                                            <p>
-                                                Ознайомтеся з маршрутом, що дарує захопливу пригоду
-                                                та можливість відкрити для себе красу і культуру
-                                                цього дивовижного регіону.
-                                            </p>
-                                            <div class="blog-card__bottom">
-                                                <span class="blog-card__date">17.04.2025</span>
-                                                <a href="#" class="main-button">ДЕТАЛЬНІШЕ</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="blog-list__item">
-                                    <div class="blog-card">
-                                        <div class="blog-card__image">
-                                            <picture>
-                                                <source
-                                                    type="image/webp"
-                                                    srcset="/img/blog/img3.webp"
-                                                />
-                                                <img
-                                                    width="474"
-                                                    height="251"
-                                                    src="/img/blog/img3.png"
-                                                    alt="Іконка GPS-навігатора — огляд популярних навігаційних застосунків в Україні"
-                                                />
-                                            </picture>
-                                        </div>
-                                        <div class="blog-card__box">
-                                            <h2 class="blog-card__title">
-                                                <span>Топ популярних навігаторів в Україні</span>
-                                            </h2>
-                                            <p>
-                                                Україна — місце, де технології стали частиною
-                                                щоденного життя. Розглядаємо найпопулярніші
-                                                застосунки, що допоможуть впевнено орієнтуватися у
-                                                місті й за його межами.
-                                            </p>
-                                            <div class="blog-card__bottom">
-                                                <span class="blog-card__date">17.04.2025</span>
-                                                <a href="#" class="main-button">ДЕТАЛЬНІШЕ</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="blog-list__item">
-                                    <div class="blog-card">
-                                        <div class="blog-card__image">
-                                            <picture>
-                                                <source
-                                                    type="image/webp"
-                                                    srcset="/img/blog/img4.webp"
-                                                />
-                                                <img
-                                                    width="474"
-                                                    height="251"
-                                                    src="/img/blog/img4.png"
-                                                    alt="Панорама Львова та визначних місць — маршрут Львівщиною"
-                                                />
-                                            </picture>
-                                        </div>
-                                        <div class="blog-card__box">
-                                            <h2 class="blog-card__title">
-                                                <span
-                                                    >Подорож авто Львовом і Львівською областю</span
-                                                >
-                                            </h2>
-                                            <p>
-                                                Відкрийте Львів і область на автомобілі — від
-                                                затишних вуличок Старого міста до замків, озер і
-                                                Карпат. Зручний маршрут допоможе побачити головне
-                                                без поспіху.
-                                            </p>
-                                            <div class="blog-card__bottom">
-                                                <span class="blog-card__date">17.04.2025</span>
-                                                <a href="#" class="main-button">ДЕТАЛЬНІШЕ</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="blog-list__item">
-                                    <div class="blog-card">
-                                        <div class="blog-card__image">
-                                            <picture>
-                                                <source
-                                                    type="image/webp"
-                                                    srcset="/img/blog/img5.webp"
-                                                />
-                                                <img
-                                                    width="474"
-                                                    height="251"
-                                                    src="/img/blog/img5.png"
-                                                    alt="Знак паркування на тлі міської будівлі — як оплатити паркування в Україні"
-                                                />
-                                            </picture>
-                                        </div>
-                                        <div class="blog-card__box">
-                                            <h2 class="blog-card__title">
-                                                <span
-                                                    >Як туристу оплатити паркування в Україні?</span
-                                                >
-                                            </h2>
-                                            <p>
-                                                Декілька простих способів, як здійснити оплату
-                                                максимально швидко та зручно.
-                                            </p>
-                                            <div class="blog-card__bottom">
-                                                <span class="blog-card__date">17.04.2025</span>
-                                                <a href="#" class="main-button">ДЕТАЛЬНІШЕ</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+              <nav class="main-nav">
+                <ul>
+                  <li>
+                    <a href="/ua/">ГОЛОВНА</a>
+                  </li>
+                  <li>
+                    <ul class="main-nav__acc" data-accordion>
+                      <li class="main-nav__acc-item">
+                        <button class="main-nav__acc-btn" data-id="1">
+                          АВТОМОБІЛІ
+                          <i class="sprite">
+                            <svg width="11" height="8">
+                              <use href="/img/sprite/sprite.svg#arrow-d"></use>
+                            </svg>
+                          </i>
+                        </button>
+                        <div class="main-nav__acc-content" data-content="1">
+                          <a href="#catalog">Прокат авто у Києві</a>
+                          <a href="#catalog">Прокат авто у Львові</a>
+                          <a href="#catalog">Прокат авто у Тернополі</a>
                         </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/ua/insurance.html">СТРАХУВАННЯ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/business.html">ОРЕНДА ДЛЯ ЮР. ОСІБ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/certificate.html">СЕРТИФІКАТИ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/terms.html">УМОВИ ОРЕНДИ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/faq.html">ПИТАННЯ-ВІДПОВІДЬ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/invest.html">ЗДАТИ АВТО В ОРЕНДУ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/blog.html" class="active">БЛОГ</a>
+                  </li>
+                  <li>
+                    <a href="/ua/about.html">ПРО НАС</a>
+                  </li>
+                  <li>
+                    <a href="/ua/contacts.html">КОНТАКТИ</a>
+                  </li>
+                </ul>
+              </nav>
 
-        @include('partials/footer-mode.html')
-    </body>
+              <a href="#" class="main-button">ЗАМОВИТИ ДЗВІНОК</a>
+            </aside>
+
+            <div class="blog-section__inner" data-aos="fade-left" data-aos-duration="900" data-aos-delay="600">
+              <h2 class="pretitle">БЛОГ</h2>
+              <ul class="breadcrumbs">
+                <li><a href="/ua/">Головна</a></li>
+                <li>Блог</li>
+              </ul>
+              <h1 class="main-title">БЛОГ</h1>
+
+              <ul class="blog-list">
+                <li class="blog-list__item">
+                  <div class="blog-card">
+                    <div class="blog-card__image">
+                      <picture>
+                        <source type="image/webp" srcset="/img/blog/img1.webp" />
+                        <img
+                          width="474"
+                          height="251"
+                          src="/img/blog/img1.png"
+                          alt="Автомобіль із аварійним знаком на дорозі — інструкція щодо дій під час ДТП в Україні"
+                        />
+                      </picture>
+                    </div>
+                    <div class="blog-card__box">
+                      <h2 class="blog-card__title">
+                        <span>Що робити у разі ДТП в Україні: покрокова інструкція REIZ.</span>
+                      </h2>
+                      <p>
+                        У статті подано просту інструкцію, як діяти під час аварії в Україні: як правильно оформити подію, куди повідомити про ДТП і які документи потрібні для страхової компанії.
+                      </p>
+                      <div class="blog-card__bottom">
+                        <span class="blog-card__date">17.04.2025</span>
+                        <a href="#" class="main-button">ДЕТАЛЬНІШЕ</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="blog-list__item">
+                  <div class="blog-card">
+                    <div class="blog-card__image">
+                      <picture>
+                        <source type="image/webp" srcset="/img/blog/img2.webp" />
+                        <img
+                          width="474"
+                          height="251"
+                          src="/img/blog/img2.png"
+                          alt="Панорама визначних місць України на заході сонця — маршрут для автоподорожі"
+                        />
+                      </picture>
+                    </div>
+                    <div class="blog-card__box">
+                      <h2 class="blog-card__title">
+                        <span>Маршрут для подорожі Україною автомобілем</span>
+                      </h2>
+                      <p>
+                        Ознайомтеся з маршрутом, що дарує захопливу пригоду та можливість відкрити для себе красу і культуру цього дивовижного регіону.
+                      </p>
+                      <div class="blog-card__bottom">
+                        <span class="blog-card__date">17.04.2025</span>
+                        <a href="#" class="main-button">ДЕТАЛЬНІШЕ</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="blog-list__item">
+                  <div class="blog-card">
+                    <div class="blog-card__image">
+                      <picture>
+                        <source type="image/webp" srcset="/img/blog/img3.webp" />
+                        <img
+                          width="474"
+                          height="251"
+                          src="/img/blog/img3.png"
+                          alt="Іконка GPS-навігатора — огляд популярних навігаційних застосунків в Україні"
+                        />
+                      </picture>
+                    </div>
+                    <div class="blog-card__box">
+                      <h2 class="blog-card__title">
+                        <span>Топ популярних навігаторів в Україні</span>
+                      </h2>
+                      <p>
+                        Україна — місце, де технології стали частиною щоденного життя. Розглядаємо найпопулярніші застосунки, що допоможуть впевнено орієнтуватися у місті й за його межами.
+                      </p>
+                      <div class="blog-card__bottom">
+                        <span class="blog-card__date">17.04.2025</span>
+                        <a href="#" class="main-button">ДЕТАЛЬНІШЕ</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="blog-list__item">
+                  <div class="blog-card">
+                    <div class="blog-card__image">
+                      <picture>
+                        <source type="image/webp" srcset="/img/blog/img4.webp" />
+                        <img
+                          width="474"
+                          height="251"
+                          src="/img/blog/img4.png"
+                          alt="Панорама Львова та визначних місць — маршрут Львівщиною"
+                        />
+                      </picture>
+                    </div>
+                    <div class="blog-card__box">
+                      <h2 class="blog-card__title">
+                        <span>Подорож авто Львовом і Львівською областю</span>
+                      </h2>
+                      <p>
+                        Відкрийте Львів і область на автомобілі — від затишних вуличок Старого міста до замків, озер і Карпат. Зручний маршрут допоможе побачити головне без поспіху.
+                      </p>
+                      <div class="blog-card__bottom">
+                        <span class="blog-card__date">17.04.2025</span>
+                        <a href="#" class="main-button">ДЕТАЛЬНІШЕ</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="blog-list__item">
+                  <div class="blog-card">
+                    <div class="blog-card__image">
+                      <picture>
+                        <source type="image/webp" srcset="/img/blog/img5.webp" />
+                        <img
+                          width="474"
+                          height="251"
+                          src="/img/blog/img5.png"
+                          alt="Знак паркування на тлі міської будівлі — як оплатити паркування в Україні"
+                        />
+                      </picture>
+                    </div>
+                    <div class="blog-card__box">
+                      <h2 class="blog-card__title">
+                        <span>Як туристу оплатити паркування в Україні?</span>
+                      </h2>
+                      <p>
+                        Декілька простих способів, як здійснити оплату максимально швидко та зручно.
+                      </p>
+                      <div class="blog-card__bottom">
+                        <span class="blog-card__date">17.04.2025</span>
+                        <a href="#" class="main-button">ДЕТАЛЬНІШЕ</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @include('partials/footer-mode.html')
+  </body>
 </html>

@@ -1,21 +1,24 @@
-@include('partials/head.html', {
-    "title": "Про компанію REIZ — оренда авто у Львові та Києві",
-    "description": "Хто ми і як працюємо: REIZ — оренда автомобілів із прозорими умовами, новим автопарком і підтримкою 24/7. Працюємо у Львові та Києві.",
-    "canonical": "https://reiz.com.ua/ua/about/",
+<!DOCTYPE html>
+<html lang="ru" class="page">
+        @include('partials/head.html', {
+            "title": "Про компанію REIZ — оренда авто у Львові та Києві",
+            "description": "Хто ми і як працюємо: REIZ — оренда автомобілів із прозорими умовами, новим автопарком і підтримкою 24/7. Працюємо у Львові та Києві.",
+            "canonical": "https://reiz.com.ua/ua/about/",
+        
+            "og_title": "Про компанію REIZ — оренда авто у Львові та Києві",
+            "og_description": "Наша місія, команда і підхід до сервісу. Прокат авто з чесними умовами та підтримкою 24/7.",
+            "og_image": "https://reiz.com.ua/img/og/about.webp",
+            "og_locale": "uk_UA",          // ← додано
+        
+            "lang": "uk",
+            "href_uk": "https://reiz.com.ua/ua/about/",
+            "href_ru": "https://reiz.com.ua/about/",
+            "href_en": "https://reiz.com.ua/en/about/",
+            "href_default": "https://reiz.com.ua/about/"  // x-default -> RU
+        })
   
-    "og_title": "Про компанію REIZ — оренда авто у Львові та Києві",
-    "og_description": "Наша місія, команда і підхід до сервісу. Прокат авто з чесними умовами та підтримкою 24/7.",
-    "og_image": "https://reiz.com.ua/img/og/about.webp",
-    "og_locale": "uk_UA",          // ← додано
-  
-    "lang": "uk",
-    "href_uk": "https://reiz.com.ua/ua/about/",
-    "href_ru": "https://reiz.com.ua/about/",
-    "href_en": "https://reiz.com.ua/en/about/",
-    "href_default": "https://reiz.com.ua/about/"  // x-default -> RU
-  })
-  
-  
+   <body class="page__body" data-page="about">
+        @include('partials/noscript.html') @include('partials/header-mode.html')
         <main class="main">
             <section class="about-section">
                 <div class="container">
