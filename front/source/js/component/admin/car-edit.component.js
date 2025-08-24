@@ -1,9 +1,11 @@
 import {
     addPhoto,
     addPreview,
+    deletePhoto,
     getOne,
     getSegments,
     updateOne,
+    updatePhoto,
     updateRentalTariffs,
 } from '../../api/cars.api.js';
 import {BASE_URL} from '../../api/config.js';
@@ -60,6 +62,62 @@ export class CarEdit {
         this.addConfigurationHandler();
         this.editTariffHandler();
         this.addPhotoHandler();
+        this.deletePhotoHandler();
+    }
+
+    deletePhotoHandler() {
+        const photoContainers = [
+            document.querySelector('#photo'),
+            document.querySelector('#mobile'),
+        ];
+
+        photoContainers.forEach((el) =>
+            el.addEventListener('click', async (e) => {
+                const deleteBtn = e.target.closest('.delete-btn');
+                const editBtn = e.target.closest('.edit-btn');
+
+                if (deleteBtn) {
+                    const parent = deleteBtn.closest('[data-photo]');
+                    if (!parent) return;
+
+                    const photoId = parent.dataset.photo;
+                    if (!photoId) return;
+
+                    try {
+                        await deletePhoto(this.car.id, photoId);
+                        await this.getCar();
+                        this.render();
+                    } catch (err) {
+                        alert(err);
+                    }
+                }
+
+                if (editBtn) {
+                    const parent = editBtn.closest('[data-photo]');
+                    if (!parent) return;
+
+                    const photoId = parent.dataset.photo;
+                    if (!photoId) return;
+
+                    const photo = this.car.carPhoto.find((item) => item.id == photoId);
+
+                    const alt = prompt(`Текущий alt: ${photo.alt}`);
+
+                    if (!alt) return;
+
+                    try {
+                        await updatePhoto(this.car.id, {
+                            photoId,
+                            alt,
+                        });
+                        await this.getCar();
+                        this.render();
+                    } catch (err) {
+                        alert(err);
+                    }
+                }
+            })
+        );
     }
 
     addPhotoHandler() {
@@ -93,6 +151,7 @@ export class CarEdit {
                     }
 
                     formData.append('type', type);
+                    formData.append('alt', 'test');
                     try {
                         await addPhoto(this.car.id, formData);
                         await this.getCar();
@@ -231,12 +290,17 @@ export class CarEdit {
             const segmentId = data['custom-select-value'];
             delete data['custom-select-value'];
 
+            const reqData = {
+                ...data,
+                yearOfManufacture: +data.yearOfManufacture,
+            };
+
+            if (segmentId) {
+                reqData.segmentIds = [+segmentId];
+            }
+
             try {
-                await updateOne(this.car.id, {
-                    ...data,
-                    yearOfManufacture: +data.yearOfManufacture,
-                    segmentId: segmentId ? +segmentId : this.car.segment.id,
-                });
+                await updateOne(this.car.id, reqData);
                 await this.getCar();
                 this.render();
                 close.click();
@@ -269,7 +333,7 @@ export class CarEdit {
             if (prop === 'title') {
                 span.innerHTML = `${brand || ''} ${model || ''} ${yearOfManufacture || ''}`;
             } else if (prop === 'segment') {
-                span.innerHTML = segment.name;
+                span.innerHTML = segment[0].name;
             } else {
                 span.innerHTML = this.car[prop];
             }
@@ -303,10 +367,22 @@ export class CarEdit {
             : '';
 
         this.carPhotoEl.innerHTML =
-            carPhoto.reduce((acc, {url, type}) => {
+            carPhoto.reduce((acc, {id, url, type}) => {
                 if (type !== 'PC') return acc;
 
-                acc += `<li class="main-info__item">
+                acc += `<li data-photo="${id}" class="main-info__item">
+                            <button class="edit-btn" title="Редагувати">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+                                </svg>
+                            </button>
+
+                            <!-- Кнопка видалення -->
+                            <button class="delete-btn" title="Видалити">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                </svg>
+                            </button>
                             <img src="${BASE_URL}static/${url}" alt="Загруженное фото" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
                         </li>`;
 
@@ -314,10 +390,22 @@ export class CarEdit {
             }, '') || '';
 
         this.carMobilePhotoEl.innerHTML =
-            carPhoto.reduce((acc, {url, type}) => {
+            carPhoto.reduce((acc, {id, url, type}) => {
                 if (type !== 'MOBILE') return acc;
 
-                acc += `<li class="main-info__item">
+                acc += `<li data-photo="${id}" class="main-info__item">
+                            <button class="edit-btn" title="Редагувати">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+                                </svg>
+                            </button>
+
+                            <!-- Кнопка видалення -->
+                            <button class="delete-btn" title="Видалити">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                </svg>
+                            </button>
                             <img src="${BASE_URL}static/${url}" alt="Загруженное фото" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
                         </li>`;
 

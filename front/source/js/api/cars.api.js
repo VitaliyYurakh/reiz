@@ -103,6 +103,17 @@ export const updateOne = async (id, data) => {
     }
 };
 
+export const updatePhoto = async (id, data) => {
+    try {
+        const res = await api.patch(`/car/${id}/photo`, data);
+
+        return res.data.car;
+    } catch (err) {
+        console.log(err);
+        throw new Error(err.message);
+    }
+};
+
 export const deletePhoto = async (id, photoId) => {
     try {
         await api.delete(`/car/${id}/photo/${photoId}`);

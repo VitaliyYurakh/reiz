@@ -47,8 +47,6 @@ async function main() {
             skipDuplicates: true,
         });
     }
-
-    console.log('Seed completed');
 }
 
 main()

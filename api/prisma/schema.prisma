@@ -38,12 +38,13 @@ model Car {
   seats             Int?
   discount          Int?
   configuration     Json?
-  segmentId         Int?    @map("segment_id")
+  isNew             Boolean @default(false) @map("is_new")
+  alt               String  @default("image")
 
   rentalTariff    RentalTariff[]
   carPhoto        CarPhoto[]
   carCountingRule CarCountingRule[]
-  segment         Segment?          @relation(fields: [segmentId], references: [id], onDelete: Restrict)
+  segment         Segment[]
 }
 
 model Segment {
@@ -51,6 +52,8 @@ model Segment {
   name             String
   description      String
   overmileagePrice Float  @map("overmileage_price")
+  driverAge        Int    @default(25) @map("driver_age")
+  experience       Int    @default(3)
 
   car Car[]
 }
@@ -82,6 +85,7 @@ model CarPhoto {
   type  CarPhotoType
   url   String
   carId Int          @map("car_id")
+  alt   String
 
   car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
 }

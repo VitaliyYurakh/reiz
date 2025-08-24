@@ -7,7 +7,7 @@ type CreateCarDto = {
     VIN: string;
     yearOfManufacture: number;
     color: string;
-    segmentId: number;
+    segmentIds: number[];
 };
 
 type UpdateCarDto = {
@@ -17,7 +17,7 @@ type UpdateCarDto = {
     VIN?: string;
     yearOfManufacture?: number;
     color?: string;
-    segmentId?: number;
+    segmentIds?: number[];
     description?: string;
     engineVolume?: string;
     engineType?: string;
@@ -27,6 +27,8 @@ type UpdateCarDto = {
     seats?: number;
     discount?: number;
     configuration?: string;
+    alt?: string;
+    isNew?: boolean;
 };
 
 type TariffDto = {
@@ -44,6 +46,7 @@ type CountingRuleDto = {
 type CarPhotoDto = {
     type: 'MOBILE' | 'PC';
     url: string;
+    alt: string;
 };
 
 export {CreateCarDto, UpdateCarDto, TariffDto, CountingRuleDto, CarPhotoDto};

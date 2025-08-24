@@ -32,11 +32,13 @@ class CarController {
 
     async create(req: Request, res: Response) {
         try {
+            console.log('test');
             const {data}: {data: CreateCarDto} = req.body;
             const car = await carService.createOne(data);
 
             return res.status(StatusCodes.OK).json({car});
         } catch (error) {
+            console.log(error);
             logger.error(error);
 
             if (error instanceof AccessDenied) {
@@ -117,38 +119,17 @@ class CarController {
 
     async addCarPhoto(req: Request, res: Response) {
         try {
-            const {type}: {type: CarPhotoDto['type']} = req.body;
+            const {type, alt}: Omit<CarPhotoDto, 'url'> = req.body;
             const file = req.file.filename;
             const {id} = req.params;
 
             const url = await carService.addCarPhoto(parseInt(id), {
                 type,
                 url: file,
+                alt,
             });
 
             return res.status(StatusCodes.OK).json({url});
-        } catch (error) {
-            logger.error(error);
-
-            if (error instanceof CarNotFoundError) {
-                return res.status(StatusCodes.NOT_FOUND).json({msg: error.message});
-            }
-
-            if (error instanceof AccessDenied) {
-                return res.status(StatusCodes.UNAUTHORIZED).json({msg: error.message});
-            }
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error.message});
-        }
-    }
-
-    async deleteCarPhoto(req: Request, res: Response) {
-        try {
-            const {photoId} = req.params;
-
-            await carService.deleteCarPhoto(parseInt(photoId as string));
-
-            return res.status(StatusCodes.OK).json();
         } catch (error) {
             logger.error(error);
 
@@ -169,6 +150,52 @@ class CarController {
             const {data}: {data: CountingRuleDto} = req.body;
             const {id} = req.params;
             await carService.updateCountingRule(parseInt(id), data);
+
+            return res.status(StatusCodes.OK).json();
+        } catch (error) {
+            logger.error(error);
+
+            if (error instanceof CarNotFoundError) {
+                return res.status(StatusCodes.NOT_FOUND).json({msg: error.message});
+            }
+
+            if (error instanceof AccessDenied) {
+                return res.status(StatusCodes.UNAUTHORIZED).json({msg: error.message});
+            }
+
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error.message});
+        }
+    }
+
+    async updatePhotoCar(req: Request, res: Response) {
+        try {
+            const {alt, photoId}: {alt: string; photoId: string} = req.body;
+
+            console.log(req.body);
+
+            await carService.updatePhotoCar(parseInt(photoId), alt);
+
+            return res.status(StatusCodes.OK).json();
+        } catch (error) {
+            logger.error(error);
+
+            if (error instanceof CarNotFoundError) {
+                return res.status(StatusCodes.NOT_FOUND).json({msg: error.message});
+            }
+
+            if (error instanceof AccessDenied) {
+                return res.status(StatusCodes.UNAUTHORIZED).json({msg: error.message});
+            }
+
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error.message});
+        }
+    }
+
+    async deleteCarPhoto(req: Request, res: Response) {
+        try {
+            const {photoId} = req.params;
+
+            await carService.deleteCarPhoto(parseInt(photoId as string));
 
             return res.status(StatusCodes.OK).json();
         } catch (error) {

@@ -4,6 +4,46 @@
 @include('../partials/head-admin.html')
 
 <body class="page" data-page="car-edit">
+    
+        <style>
+        .main-info__item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* кнопки приховані за замовчуванням */
+        .main-info__item .edit-btn,
+        .main-info__item .delete-btn {
+            position: absolute;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            color: #fff;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        /* показуємо кнопки при наведенні на li */
+        .main-info__item:hover .edit-btn,
+        .main-info__item:hover .delete-btn {
+            opacity: 1;
+        }
+
+        /* верхній правий кут */
+        .main-info__item .edit-btn {
+            top: 5px;
+            right: 5px;
+        }
+
+        /* нижній правий кут */
+        .main-info__item .delete-btn {
+            bottom: 5px;
+            right: 5px;
+        }
+        </style>
+
     <main class="main">
 
         <section class="cabinet-section">

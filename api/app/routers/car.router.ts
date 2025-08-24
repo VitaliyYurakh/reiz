@@ -10,6 +10,7 @@ router.get('/:id', carController.getOne);
 router.post('/', auth, carController.create);
 router.post('/:id/photo', auth, multer, carController.addCarPhoto);
 router.patch('/:id/preview', auth, multer, carController.addCarPreviewPhoto);
+router.patch('/:id/photo', auth, multer, carController.updatePhotoCar);
 router.patch('/:id/tariff', auth, carController.updateRentalTariff);
 router.patch('/:id/rule', auth, carController.updateCountingRule);
 router.patch('/:id', auth, carController.updateOne);

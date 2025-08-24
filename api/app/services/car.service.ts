@@ -17,12 +17,13 @@ class CarService {
     }
 
     async createOne(car: CreateCarDto) {
-        const {segmentId, ...rest} = car;
+        const {segmentIds, ...rest} = car;
+
         const newCar = await prisma.car.create({
             data: {
                 ...rest,
                 segment: {
-                    connect: {id: segmentId || 1},
+                    connect: segmentIds ? segmentIds.map((sid) => ({id: sid})) : [{id: 1}],
                 },
             },
         });
@@ -43,7 +44,21 @@ class CarService {
             throw new CarNotFoundError();
         }
 
-        return await prisma.car.update({where: {id}, data: carDto});
+        const {segmentIds, ...rest} = carDto;
+
+        return await prisma.car.update({
+            where: {id},
+            data: {
+                ...rest,
+                ...(segmentIds
+                    ? {
+                          segment: {
+                              set: segmentIds.map((sid) => ({id: sid})),
+                          },
+                      }
+                    : {}),
+            },
+        });
     }
 
     async updateRentalTariff(carId: number, tariffs: TariffDto[]) {
@@ -111,10 +126,6 @@ class CarService {
         return carPhoto.url;
     }
 
-    async deleteCarPhoto(id: number) {
-        await prisma.carPhoto.delete({where: {id}});
-    }
-
     async updateCountingRule(carId: number, countingRuleDto: CountingRuleDto) {
         const car = await prisma.car.findUnique({where: {id: carId}});
 
@@ -128,6 +139,19 @@ class CarService {
                 carId: car.id,
             },
         });
+    }
+
+    async updatePhotoCar(carPhotoId: number, alt: string) {
+        await prisma.carPhoto.update({
+            where: {id: carPhotoId},
+            data: {
+                alt,
+            },
+        });
+    }
+
+    async deleteCarPhoto(id: number) {
+        await prisma.carPhoto.delete({where: {id}});
     }
 
     async deleteOne(id: number) {
