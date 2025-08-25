@@ -189,7 +189,6 @@
         @include for-tablet {
             transition: all 0.4s ease;
             max-height: calc(100dvh - 20px - 30px - 20px - 50px - 132px);
-            overflow-y: auto;
             padding: 25px 20px 20px;
         }
 
