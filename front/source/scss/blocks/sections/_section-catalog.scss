@@ -680,7 +680,6 @@
     }
 
     @include for-tablet {
-        height: fit-content;
         position: sticky;
         top: 20px;
         transition: all 0.4s ease;
