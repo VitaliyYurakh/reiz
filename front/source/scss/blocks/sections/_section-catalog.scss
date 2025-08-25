@@ -21,7 +21,7 @@
         pointer-events: none;
         content: '';
 
-        @include mobile{
+        @include mobile {
             background: var(--col-q);
             z-index: 0;
         }
@@ -121,6 +121,7 @@
 }
 
 .catalog-aside {
+    padding-top: 30px;
     border: 1px solid var(--cl-t);
     border-radius: 16px;
     width: 100%;
@@ -473,29 +474,29 @@
                 width: 22px;
                 height: 22px;
                 margin-top: -1px;
-            
+
                 svg {
                     width: 100%;
                     height: auto;
                 }
             }
 
-            .selected-option{
-                 .sprite{
-                        width: 22px;
-                        height: 22px;
-                        flex-shrink: 0;
-                        display: flex;
-                        margin-right: 6px;
-                    }
+            .selected-option {
+                .sprite {
+                    width: 22px;
+                    height: 22px;
+                    flex-shrink: 0;
+                    display: flex;
+                    margin-right: 6px;
+                }
             }
-            .options-container{
+            .options-container {
                 border-radius: 16px;
 
-                .option-text{
+                .option-text {
                     justify-content: flex-start;
                     padding: 4px 16px;
-                    .sprite{
+                    .sprite {
                         width: 22px;
                         height: 22px;
                         flex-shrink: 0;

@@ -8,6 +8,7 @@ build
 
 /Reiz-main
 
+uploads/
 # Runtime data
 pids
 *.pid
