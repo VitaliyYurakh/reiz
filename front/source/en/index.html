@@ -15,12 +15,12 @@
     "href_default": "https://reiz.com.ua/en/",
     "page": "home"
   })
-      
+
 
   <body class="page__body" data-page="main">
     @include('partials/noscript.html')
     @include('partials/header.html')
-      
+
         <main class="main">
             <section class="hero-section">
                 <div class="hero-section__slider">
@@ -35,8 +35,8 @@
                                         width="1440"
                                         height="902"
                                         src="/img/car/mercedescle.png"
-                                        alt="Car rental in Lviv — Mercedes CLE | REIZ Rental Cars" 
-                                        fetchpriority="high" decoding="async" 
+                                        alt="Car rental in Lviv — Mercedes CLE | REIZ Rental Cars"
+                                        fetchpriority="high" decoding="async"
                                     />
                                 </picture>
                             </li>
@@ -95,7 +95,7 @@
                               </ul>
                             </nav>
 
-                            <a href="tel:+380635471186" class="main-button"> REQUEST A CALLBACK</a> 
+                            <a href="tel:+380635471186" class="main-button"> REQUEST A CALLBACK</a>
                         </aside>
 
                         <div class="hero-section__inner">
@@ -169,7 +169,7 @@
 
                             <div class="hero-section__content">
                                 <h2 class="h2">LIST YOUR CAR</h2>
-                                
+
                                 <a href="/invest.html" class="main-button main-button--transparent">Learn more</a> <!-- UPDATED -->
                             </div>
 
@@ -465,41 +465,7 @@
                                                     </svg>
                                                 </div>
                                             </div>
-                                            <ul class="options-container">
-                                                <li class="option" data-value="Audi">
-                                                    <span class="option-text">Audi</span>
-                                                </li>
-                                                <li class="option" data-value="BMW">
-                                                    <span class="option-text">BMW</span>
-                                                </li>
-                                                <li class="option" data-value="Mercedes">
-                                                    <span class="option-text">Mercedes</span>
-                                                </li>
-                                                <li class="option" data-value="Toyota">
-                                                    <span class="option-text">Toyota</span>
-                                                </li>
-                                                <li class="option" data-value="Porsche">
-                                                    <span class="option-text">Porsche</span>
-                                                </li>
-                                                <li class="option" data-value="KIA">
-                                                    <span class="option-text">KIA</span>
-                                                </li>
-                                                <li class="option" data-value="Mazda">
-                                                    <span class="option-text">Mazda</span>
-                                                </li>
-                                                <li class="option" data-value="Bentley">
-                                                    <span class="option-text">Bentley</span>
-                                                </li>
-                                                <li class="option" data-value="Ferrari">
-                                                    <span class="option-text">Ferrari</span>
-                                                </li>
-                                                <li class="option" data-value="Zeekr">
-                                                    <span class="option-text">Zeekr</span>
-                                                </li>
-                                                <li class="option" data-value="Lamborghini">
-                                                    <span class="option-text">Lamborghini</span>
-                                                </li>
-                                            </ul>
+                                            <ul class="options-container"></ul>
                                         </div>
 
                                         <div class="custom-select">
@@ -515,17 +481,7 @@
                                                     </svg>
                                                 </div>
                                             </div>
-                                            <ul class="options-container">
-                                                <li class="option" data-value="Series_1">
-                                                    <span class="option-text">Series-1</span>
-                                                </li>
-                                                <li class="option" data-value="Series_2">
-                                                    <span class="option-text">Series-2</span>
-                                                </li>
-                                                <li class="option" data-value="Series_3">
-                                                    <span class="option-text">Series-3</span>
-                                                </li>
-                                            </ul>
+                                            <ul class="options-container"></ul>
                                         </div>
 
                                         <div class="custom-select">
@@ -542,11 +498,14 @@
                                                 </div>
                                             </div>
                                             <ul class="options-container">
-                                                <li class="option" data-value="Petrol">
+                                                <li class="option" data-value="petrol">
                                                     <span class="option-text">Petrol</span>
                                                 </li>
-                                                <li class="option" data-value="Diesel">
+                                                <li class="option" data-value="diesel">
                                                     <span class="option-text">Diesel</span>
+                                                </li>
+                                                <li class="option" data-value="electric">
+                                                    <span class="option-text">Electro</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -577,8 +536,8 @@
                                         </div>
 
                                         <button class="reset-btn">Reset Filter</button>
-                                        <button class="main-button">Show 2 Cars</button>
-                                        </div>
+                                        <button class="main-button" id="showCarsBtn">Show <span>0</span> Cars</button>
+                                    </div>
                                 </div>
 
                                 <button class="main-button" type="submit">REQUEST A CALLBACK</button>
@@ -615,11 +574,11 @@
                                         </div>
                                     </div>
                                     <ul class="options-container">
-                                        <li class="option" data-value="По_возрастанию">
+                                        <li class="option" data-value="asc">
                                             <span class="option-text">Price: Low to High</span>
                                         </li>
-                                        <li class="option" data-value="По_убыванию">
-                                            <span class="option-text">Rrice: High to Low</span>
+                                        <li class="option" data-value="desc">
+                                            <span class="option-text">Price: High to Low</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -710,7 +669,7 @@
                                                      <button class="reset-btn">Reset filters</button>
                                         <button class="main-button">Show 2 cars</button>
                                     </div>
-                                
+
                                 </div>
                                 REQUEST A CALL</button>
                             </form>
@@ -1300,8 +1259,8 @@
                                                 width="670"
                                                 height="350"
                                                 src="/img/rental.png"
-                                                alt="List your car in Lviv — 24/7 control, up to 5000 USD monthly, 70/30 split" 
-                                                loading="lazy" decoding="async" 
+                                                alt="List your car in Lviv — 24/7 control, up to 5000 USD monthly, 70/30 split"
+                                                loading="lazy" decoding="async"
                                             />
                                         </picture>
                                     </div>
@@ -1352,8 +1311,8 @@
                                                 width="670"
                                                 height="350"
                                                 src="/img/carterms.png"
-                                                alt="Car rental terms in Lviv — REIZ" 
-                                                loading="lazy" decoding="async" 
+                                                alt="Car rental terms in Lviv — REIZ"
+                                                loading="lazy" decoding="async"
                                             />
                                         </picture>
                                     </div>
@@ -1373,8 +1332,8 @@
                                                 width="670"
                                                 height="350"
                                                 src="/img/faq.png"
-                                                alt="FAQ about car rental in Lviv — REIZ" 
-                                                loading="lazy" decoding="async" 
+                                                alt="FAQ about car rental in Lviv — REIZ"
+                                                loading="lazy" decoding="async"
                                             />
                                         </picture>
                                     </div>
@@ -1397,7 +1356,7 @@
                       <span class="advantages-section__title">Why you should rent a car with us?</span>
                       <p>High rating and customer trust worldwide</p>
                     </div>
-              
+
                     <div class="advantages-section__links">
                       <!-- Trustpilot (статический, без Schema.org) -->
                       <a class="advantages-section__review"
@@ -1412,7 +1371,7 @@
                           loading="lazy" decoding="async"
                         />
                       </a>
-              
+
                       <!-- Google Reviews (статический, без Schema.org) -->
                       <a class="advantages-section__review"
                          href="https://www.google.com/search?q=REIZ+Rental+Cars+Lviv+reviews"
@@ -1426,14 +1385,14 @@
                           loading="lazy" decoding="async"
                         />
                       </a>
-              
+
                       <!-- ВАЖНО: никаких виджетов/скриптов агрегаторов, пока нет реальных данных -->
                     </div>
                   </div>
                 </div>
               </section>
-              
-              
+
+
 
             <section class="editor-section" data-aos="fade-up" data-aos-duration="400">
                 <div class="container">
@@ -1444,7 +1403,7 @@
                         <div class="editor" data-clip-item>
                             <p>
                                 We are REIZ Car Rental. We provide car hire in Lviv and, on request, can deliver a car to any city in
-                Ukraine. 
+                Ukraine.
               </p>
                                 <br />
                                 REIZ is not about quantity — it’s about the quality and comfort of every car.
@@ -1538,12 +1497,12 @@
                 <div class="container">
                   <div class="faq-section__content">
                     <h2 class="h2">Frequently Asked Questions</h2>
-              
-                    <div class="faq-section__accordion" 
+
+                    <div class="faq-section__accordion"
                          data-accordion
                          data-single="true"
                          data-breakpoint="9999">
-              
+
                       <ul class="acc" data-pretitle="Practical Information">
                         <li class="acc__item">
                           <button class="acc__btn" data-id="1">
@@ -1553,12 +1512,12 @@
                           <div class="acc__content" data-content="1">
                             <div class="acc__box editor">
                               <p>
-                                Lviv has many paid zones and municipal parking lots. 
-                                Always park within marked lines or in guarded parking areas, 
-                                check road signs and parking meters, and keep receipts. 
-                                Improper parking results in fines paid by the renter. 
-                                In areas with limited parking, use shopping mall or hotel parking. 
-                                It is useful to install city apps for parking payment and zone navigation. 
+                                Lviv has many paid zones and municipal parking lots.
+                                Always park within marked lines or in guarded parking areas,
+                                check road signs and parking meters, and keep receipts.
+                                Improper parking results in fines paid by the renter.
+                                In areas with limited parking, use shopping mall or hotel parking.
+                                It is useful to install city apps for parking payment and zone navigation.
                                 Before leaving the car overnight, check local courtyard/street rules to avoid towing.
                               </p>
                             </div>
@@ -1572,10 +1531,10 @@
                           <div class="acc__content" data-content="2">
                             <div class="acc__box editor">
                               <p>
-                                We provide delivery/return to any address in Lviv and meet you at the LWO terminal at the agreed time. 
-                                Extra charges may apply for early/late hours and waiting time, final price depends on distance. 
-                                Intercity delivery across Ukraine is also available on request. 
-                                To ensure timely service, book in advance and provide your flight/hotel details. 
+                                We provide delivery/return to any address in Lviv and meet you at the LWO terminal at the agreed time.
+                                Extra charges may apply for early/late hours and waiting time, final price depends on distance.
+                                Intercity delivery across Ukraine is also available on request.
+                                To ensure timely service, book in advance and provide your flight/hotel details.
                                 Want to speed up the process? Book online at REIZ Rental Cars — it’s more convenient and locks in your rate.
                               </p>
                             </div>
@@ -1589,18 +1548,18 @@
                           <div class="acc__content" data-content="3">
                             <div class="acc__box editor">
                               <p>
-                                A daily mileage limit applies (usually 250–300 km/day), 
-                                which is enough for business and tourist routes around Lviv and the region. 
-                                For longer trips (e.g., Lviv–Kyiv or Lviv–Odesa), 
-                                add the extended or unlimited mileage option when booking. 
-                                Exceeding the limit is charged at a fixed rate per kilometer according to tariffs. 
+                                A daily mileage limit applies (usually 250–300 km/day),
+                                which is enough for business and tourist routes around Lviv and the region.
+                                For longer trips (e.g., Lviv–Kyiv or Lviv–Odesa),
+                                add the extended or unlimited mileage option when booking.
+                                Exceeding the limit is charged at a fixed rate per kilometer according to tariffs.
                                 Inform us about your route in advance — we’ll suggest the best option and where to refuel along the way.
                               </p>
                             </div>
                           </div>
                         </li>
                       </ul>
-              
+
                       <ul class="acc" data-pretitle="Insurance and Deposit">
                         <li class="acc__item">
                           <button class="acc__btn" data-id="4">
@@ -1610,10 +1569,10 @@
                           <div class="acc__content" data-content="4">
                             <div class="acc__box editor">
                               <p>
-                                Rental includes mandatory liability insurance and standard Casco with a deductible. 
-                                Liability covers third-party damages, Casco covers damage to the rental car above the deductible. 
-                                Certain cases (e.g., glass/tires) may have special conditions — clarify during booking in the “Insurance” section. 
-                                In case of an accident, record the incident and call the authorities immediately. 
+                                Rental includes mandatory liability insurance and standard Casco with a deductible.
+                                Liability covers third-party damages, Casco covers damage to the rental car above the deductible.
+                                Certain cases (e.g., glass/tires) may have special conditions — clarify during booking in the “Insurance” section.
+                                In case of an accident, record the incident and call the authorities immediately.
                                 Extended coverage reduces your risks and helps close cases faster.
                               </p>
                             </div>
@@ -1627,11 +1586,11 @@
                           <div class="acc__content" data-content="5">
                             <div class="acc__box editor">
                               <p>
-                                The deductible is the maximum amount you pay in case of damage; 
-                                insurance covers the rest. The deposit is the amount blocked on your card during the rental, 
-                                usually equal to the deductible. Example: damage = 50,000 UAH, deductible/deposit = 20,000 UAH — 
-                                your responsibility is 20,000 UAH, the rest is covered by insurance. 
-                                The deposit is released after returning the car undamaged; 
+                                The deductible is the maximum amount you pay in case of damage;
+                                insurance covers the rest. The deposit is the amount blocked on your card during the rental,
+                                usually equal to the deductible. Example: damage = 50,000 UAH, deductible/deposit = 20,000 UAH —
+                                your responsibility is 20,000 UAH, the rest is covered by insurance.
+                                The deposit is released after returning the car undamaged;
                                 release time depends on the bank and usually takes a few days.
                               </p>
                             </div>
@@ -1646,7 +1605,7 @@
                             <div class="acc__box editor">
                               <p>Renting without a deposit is not possible.</p>
                               <p>
-                                By default, a deposit equal to the deductible is blocked (depends on car class). 
+                                By default, a deposit equal to the deductible is blocked (depends on car class).
                                 You may reduce your responsibility by choosing:
                               </p>
                               <ul>
@@ -1661,14 +1620,14 @@
                                 <li>lost keys.</li>
                               </ul>
                               <p>
-                                This hold is not for damages and is refunded after clearing possible charges. 
+                                This hold is not for damages and is refunded after clearing possible charges.
                                 Choose the right package when booking — we’ll suggest the best option for rentals in Lviv and trips across Ukraine.
                               </p>
                             </div>
                           </div>
                         </li>
                       </ul>
-              
+
                       <ul class="acc" data-pretitle="Restrictions and Prohibitions">
                         <li class="acc__item">
                           <button class="acc__btn" data-id="7">
@@ -1678,10 +1637,10 @@
                           <div class="acc__content" data-content="7">
                             <div class="acc__box editor">
                               <p>
-                                Basic requirements: from 21 years old with at least 2 years of driving experience. 
-                                For business/premium cars: 23–25 years old and at least 5 years of experience. 
-                                If you don’t fully meet the requirements, a “young driver” program is available for an extra fee. 
-                                All drivers must be listed in the rental agreement: 
+                                Basic requirements: from 21 years old with at least 2 years of driving experience.
+                                For business/premium cars: 23–25 years old and at least 5 years of experience.
+                                If you don’t fully meet the requirements, a “young driver” program is available for an extra fee.
+                                All drivers must be listed in the rental agreement:
                                 prepare documents and provide additional driver details in advance to avoid refusal at pickup.
                               </p>
                             </div>
@@ -1695,11 +1654,11 @@
                           <div class="acc__content" data-content="8">
                             <div class="acc__box editor">
                               <p>
-                                Driving within Ukraine is unrestricted, but leaving the country is possible only with company’s written permission 
-                                and a “Green Card” insurance. 
-                                Time is needed for processing and checking the route/borders. 
-                                Crossing borders without approval is prohibited, voids insurance, and leads to penalties. 
-                                Planning a foreign trip? Inform us in advance — 
+                                Driving within Ukraine is unrestricted, but leaving the country is possible only with company’s written permission
+                                and a “Green Card” insurance.
+                                Time is needed for processing and checking the route/borders.
+                                Crossing borders without approval is prohibited, voids insurance, and leads to penalties.
+                                Planning a foreign trip? Inform us in advance —
                                 we’ll check requirements, prepare documents, and advise on timing.
                               </p>
                             </div>
@@ -1713,17 +1672,17 @@
                           <div class="acc__content" data-content="9">
                             <div class="acc__box editor">
                               <p>
-                                Only drivers listed in the contract are allowed to drive the car. 
-                                Passing the car to third parties, using it for taxi, 
-                                carsharing, or courier services is prohibited and voids insurance. 
-                                Need a second driver? Add them to the contract — it’s legal and safe. 
+                                Only drivers listed in the contract are allowed to drive the car.
+                                Passing the car to third parties, using it for taxi,
+                                carsharing, or courier services is prohibited and voids insurance.
+                                Need a second driver? Add them to the contract — it’s legal and safe.
                                 Violations result in contractual fines and full financial liability in case of an incident.
                               </p>
                             </div>
                           </div>
                         </li>
                       </ul>
-              
+
                       <ul class="acc" data-pretitle="Payment and Documentation">
                         <li class="acc__item">
                           <button class="acc__btn" data-id="10">
@@ -1733,12 +1692,12 @@
                           <div class="acc__content" data-content="10">
                             <div class="acc__box editor">
                               <p>
-                                We accept payments in cash (UAH, USD, EUR), 
-                                Visa/Mastercard cards, bank transfer, and — upon prior agreement — cryptocurrency (USDT/USDC). 
-                                Currency/crypto payments follow the company’s rate at the time of transaction; 
-                                bank and network fees may apply. Payments are available in Lviv and for delivery across Ukraine. 
-                                The deposit is blocked on the renter’s card at pickup and released after returning the car undamaged. 
-                                Release time depends on the bank (usually a few business days). 
+                                We accept payments in cash (UAH, USD, EUR),
+                                Visa/Mastercard cards, bank transfer, and — upon prior agreement — cryptocurrency (USDT/USDC).
+                                Currency/crypto payments follow the company’s rate at the time of transaction;
+                                bank and network fees may apply. Payments are available in Lviv and for delivery across Ukraine.
+                                The deposit is blocked on the renter’s card at pickup and released after returning the car undamaged.
+                                Release time depends on the bank (usually a few business days).
                                 For companies — invoices and closing documents are provided.
                               </p>
                             </div>
@@ -1752,11 +1711,11 @@
                           <div class="acc__content" data-content="11">
                             <div class="acc__box editor">
                               <p>
-                                Required: passport/ID card, driver’s license category B (at least 2 years), 
-                                and a bank card in the renter’s name. 
-                                Foreign citizens are advised to have an International Driving Permit (IDP) along with their national license — 
-                                this makes verification easier. 
-                                If planning a rental in Lviv during weekends or holidays, book in advance — 
+                                Required: passport/ID card, driver’s license category B (at least 2 years),
+                                and a bank card in the renter’s name.
+                                Foreign citizens are advised to have an International Driving Permit (IDP) along with their national license —
+                                this makes verification easier.
+                                If planning a rental in Lviv during weekends or holidays, book in advance —
                                 document checks are faster and car selection is wider (see “Restrictions and Prohibitions”).
                               </p>
                             </div>
@@ -1770,24 +1729,23 @@
                           <div class="acc__content" data-content="12">
                             <div class="acc__box editor">
                               <p>
-                                Cars are provided with a full tank and must be returned refueled to full. 
-                                If not, missing fuel and a refueling service fee are charged at company rates. 
-                                Refuel before return, keep the receipt — this avoids questions at handover. 
-                                For those planning active trips around Lviv with early departures/late returns, 
+                                Cars are provided with a full tank and must be returned refueled to full.
+                                If not, missing fuel and a refueling service fee are charged at company rates.
+                                Refuel before return, keep the receipt — this avoids questions at handover.
+                                For those planning active trips around Lviv with early departures/late returns,
                                 plan your refueling and timing in advance.
                               </p>
                             </div>
                           </div>
                         </li>
                       </ul>
-              
+
                     </div>
                   </div>
                 </div>
               </section>
-              
+
               </main>
               @include('partials/footer.html')
               </body>
               </html>
-              

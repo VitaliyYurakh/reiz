@@ -266,6 +266,36 @@ class CustomSelect {
     getValues() {
         return Array.from(this.selectedValues);
     }
+
+    setOptions(options) {
+        if (!Array.isArray(options)) return;
+        this.optionsContainer.innerHTML = '';
+        options.forEach((opt) => {
+            const option = document.createElement('div');
+            option.className = 'option';
+            option.dataset.value = opt.value;
+            if (opt.disabled) option.classList.add('disabled');
+
+            if (opt.icon) {
+                const icon = document.createElement('i');
+                icon.className = 'sprite';
+                icon.innerHTML = opt.icon;
+                option.appendChild(icon);
+            }
+
+            const text = document.createElement('span');
+            text.className = 'option-text';
+            text.textContent = opt.label || opt.value;
+            option.appendChild(text);
+
+            this.optionsContainer.appendChild(option);
+        });
+        this.initOptions();
+    }
+
+    getValue() {
+        return this.config.mode === 'single' ? Array.from(this.selectedValues)[0] || null : null;
+    }
 }
 
 export default CustomSelect;

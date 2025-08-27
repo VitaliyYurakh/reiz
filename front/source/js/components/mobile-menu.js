@@ -20,6 +20,7 @@ const {
     filterAside,
     filterBtn,
     filterClose,
+    filterShowCarsBtn,
 } = vars;
 const orderBlock = document.querySelector('.main-order');
 const filterWrapper = document.querySelector('.catalog-aside__open');
@@ -130,6 +131,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    if(filterShowCarsBtn) {
+        filterShowCarsBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+            hideFilterHandler();
+        })
+    }
+
     if (orderBlock) {
         const wrapper = document.querySelector('.main-order-wrapper');
 
@@ -147,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', toggleFixedBlock);
         window.addEventListener('resize', toggleFixedBlock);
     }
-   
+
     if (filterWrapper) {
         let addTimeout = null;
         let removeTimeout = null;
@@ -197,22 +205,22 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(filterWrapper);
     }
 
-   
-    
+
+
     const normalizePath = path => {
         return ("/" + path
-            .replace(/^\/+/, "")       
-            .replace(/\/$/, "")         
-            .replace(/\.html$/, "")     
-            .replace(/^index$/, "")     
-        ) || "/";                       
+            .replace(/^\/+/, "")
+            .replace(/\/$/, "")
+            .replace(/\.html$/, "")
+            .replace(/^index$/, "")
+        ) || "/";
     };
 
     const currentPath = normalizePath(window.location.pathname);
     const links = document.querySelectorAll(".mobile .main-nav > ul > li > a");
 
     links.forEach(link => link.classList.remove("active"));
-   
+
      links.forEach(link => {
         const linkPath = normalizePath(link.getAttribute("href"));
 

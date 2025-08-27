@@ -670,6 +670,7 @@
     .catalog-aside__filters .main-button {
         @include mobile {
             display: flex;
+            gap: 4px;
             flex-shrink: 0;
             width: 100%;
             border-radius: 20px;
