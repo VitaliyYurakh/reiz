@@ -74,7 +74,7 @@ export class Cars {
 
     matchCar(car, f) {
         if (f.class) {
-            if (car.segment.name.trim().toLowerCase() !== f.class.toLowerCase()) return false;
+            if (!car.segment.some(segment => segment.name.trim().toLowerCase() !== f.class.toLowerCase())) return false;
         }
         if (f.brand) {
             if (car.brand.trim().toLowerCase() !== f.brand.toLowerCase()) return false;
