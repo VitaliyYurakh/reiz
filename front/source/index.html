@@ -355,7 +355,6 @@
                                         <label class="radio-checkbox">
                                             <input
                                                 type="radio"
-                                                checked
                                                 name="car-type"
                                                 value="Business"
                                                 class="radio-checkbox__field"
@@ -455,7 +454,7 @@
                                                     </div>
                                                 </div>
                                                 <ul class="options-container">
-                                                    <li class="option" data-value="По_возрастанию">
+                                                    <li class="option" data-value="asc">
                                                         <span class="option-text">
                                                             <i class="sprite">
                                                                 <svg width="14" height="12">
@@ -467,7 +466,7 @@
                                                             По возрастанию</span
                                                         >
                                                     </li>
-                                                    <li class="option" data-value="По_убыванию">
+                                                    <li class="option" data-value="desc">
                                                         <span class="option-text">
                                                             <i class="sprite">
                                                                 <svg width="14" height="12">
@@ -552,41 +551,7 @@
                                                     </svg>
                                                 </div>
                                             </div>
-                                            <ul class="options-container">
-                                                <li class="option" data-value="Audi">
-                                                    <span class="option-text">Audi</span>
-                                                </li>
-                                                <li class="option" data-value="BMW">
-                                                    <span class="option-text">BMW</span>
-                                                </li>
-                                                <li class="option" data-value="Mercedes">
-                                                    <span class="option-text">Mercedes</span>
-                                                </li>
-                                                <li class="option" data-value="Toyota">
-                                                    <span class="option-text">Toyota</span>
-                                                </li>
-                                                <li class="option" data-value="Porsche">
-                                                    <span class="option-text">Porsche</span>
-                                                </li>
-                                                <li class="option" data-value="KIA">
-                                                    <span class="option-text">KIA</span>
-                                                </li>
-                                                <li class="option" data-value="Mazda">
-                                                    <span class="option-text">Mazda</span>
-                                                </li>
-                                                <li class="option" data-value="Bentley">
-                                                    <span class="option-text">Bentley</span>
-                                                </li>
-                                                <li class="option" data-value="Ferrari">
-                                                    <span class="option-text">Ferrari</span>
-                                                </li>
-                                                <li class="option" data-value="Zeekr">
-                                                    <span class="option-text">Zeekr</span>
-                                                </li>
-                                                <li class="option" data-value="Lamborghini">
-                                                    <span class="option-text">Lamborghini</span>
-                                                </li>
-                                            </ul>
+                                            <ul class="options-container"></ul>
                                         </div>
 
                                         <div class="custom-select">
@@ -602,17 +567,7 @@
                                                     </svg>
                                                 </div>
                                             </div>
-                                            <ul class="options-container">
-                                                <li class="option" data-value="Series_1">
-                                                    <span class="option-text">Series-1</span>
-                                                </li>
-                                                <li class="option" data-value="Series_2">
-                                                    <span class="option-text">Series-2</span>
-                                                </li>
-                                                <li class="option" data-value="Series_3">
-                                                    <span class="option-text">Series-3</span>
-                                                </li>
-                                            </ul>
+                                            <ul class="options-container"></ul>
                                         </div>
 
                                         <div class="custom-select">
@@ -629,11 +584,14 @@
                                                 </div>
                                             </div>
                                             <ul class="options-container">
-                                                <li class="option" data-value="Бензин">
+                                                <li class="option" data-value="petrol">
                                                     <span class="option-text">Бензин</span>
                                                 </li>
-                                                <li class="option" data-value="Дизель">
+                                                <li class="option" data-value="diesel">
                                                     <span class="option-text">Дизель</span>
+                                                </li>
+                                                <li class="option" data-value="electric">
+                                                    <span class="option-text">Электро</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -664,7 +622,7 @@
                                         </div>
 
                                         <button class="reset-btn">Сбросить фильтр</button>
-                                        <button class="main-button">Показать 2 авто</button>
+                                        <button class="main-button" id="showCarsBtn">Показать <span>0</span> авто</button>
                                     </div>
                                 </div>
 
@@ -702,10 +660,10 @@
                                         </div>
                                     </div>
                                     <ul class="options-container">
-                                        <li class="option" data-value="По_возрастанию">
+                                        <li class="option" data-value="asc">
                                             <span class="option-text">По возрастанию</span>
                                         </li>
-                                        <li class="option" data-value="По_убыванию">
+                                        <li class="option" data-value="desc">
                                             <span class="option-text">По убыванию</span>
                                         </li>
                                     </ul>
@@ -722,9 +680,9 @@
                                 <!-- список карточек пока закомментирован -->
                             </ul>
 
-                            <button class="main-button" data-aos="fade-up" data-aos-duration="500">
-                                ПОКАЗАТЬ ЕЩЕ АВТО
-                            </button>
+<!--                            <button class="main-button" data-aos="fade-up" data-aos-duration="500">-->
+<!--                                ПОКАЗАТЬ ЕЩЕ АВТО-->
+<!--                            </button>-->
                         </div>
                     </div>
                 </div>

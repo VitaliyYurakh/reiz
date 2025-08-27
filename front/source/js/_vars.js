@@ -15,6 +15,7 @@ export default {
   filterAside: document.querySelector('.catalog-aside__filters'),
   filterBtn: document.querySelector('.catalog-aside__filter'),
   filterClose: document.querySelector('.catalog-aside__close'),
+  filterShowCarsBtn: document.querySelector('#showCarsBtn'),
 
 
   burger: document.querySelectorAll('.burger'),
