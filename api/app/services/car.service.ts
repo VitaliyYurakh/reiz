@@ -1,6 +1,7 @@
 import {Car, CarCountingRule, RentalTariff, User} from '@prisma/client';
 import {CarNotFoundError, prisma} from '../utils';
 import {CreateCarDto, UpdateCarDto, CarPhotoDto, CountingRuleDto, TariffDto} from '../types';
+import {Language} from '../types/dto.types';
 
 class CarService {
     async getAll() {
@@ -44,20 +45,17 @@ class CarService {
             throw new CarNotFoundError();
         }
 
-        const {segmentIds, ...rest} = carDto;
+        const {segmentIds, description, ...rest} = carDto;
+        const data: UpdateCarDto & {
+            segment?: Record<string, unknown[]>;
+        } = {...rest}; // TODO: add type
+
+        if (segmentIds) data.segment = {set: segmentIds.map((sid) => ({id: sid}))};
+        if (description) data.description = JSON.stringify(description);
 
         return await prisma.car.update({
             where: {id},
-            data: {
-                ...rest,
-                ...(segmentIds
-                    ? {
-                          segment: {
-                              set: segmentIds.map((sid) => ({id: sid})),
-                          },
-                      }
-                    : {}),
-            },
+            data,
         });
     }
 

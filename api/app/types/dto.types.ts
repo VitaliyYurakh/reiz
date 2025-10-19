@@ -1,5 +1,3 @@
-import {Express} from 'express';
-
 type CreateCarDto = {
     brand: string;
     model: string;
@@ -10,6 +8,8 @@ type CreateCarDto = {
     segmentIds: number[];
 };
 
+type Language = 'uk' | 'ru' | 'en';
+
 type UpdateCarDto = {
     brand?: string;
     model?: string;
@@ -18,7 +18,7 @@ type UpdateCarDto = {
     yearOfManufacture?: number;
     color?: string;
     segmentIds?: number[];
-    description?: string;
+    description?: Record<Language, string>;
     engineVolume?: string;
     engineType?: string;
     transmission?: string;
@@ -49,4 +49,4 @@ type CarPhotoDto = {
     alt: string;
 };
 
-export {CreateCarDto, UpdateCarDto, TariffDto, CountingRuleDto, CarPhotoDto};
+export {CreateCarDto, UpdateCarDto, TariffDto, CountingRuleDto, CarPhotoDto, Language};

@@ -28,7 +28,7 @@ model Car {
   VIN               String?
   yearOfManufacture Int?    @map("year_of_manufacture")
   color             String?
-  description       String?
+  description       Json?
   previewUrl        String? @map("preview_url")
   engineVolume      String? @map("engine_volume")
   engineType        String? @map("engine_type")
