@@ -31,10 +31,10 @@ model Car {
   description       Json?
   previewUrl        String? @map("preview_url")
   engineVolume      String? @map("engine_volume")
-  engineType        String? @map("engine_type")
-  transmission      String?
+  engineType        Json?   @map("engine_type")
+  transmission      Json?
   fuelConsumption   String? @map("fuel_consumption")
-  driveType         String? @map("drive_type")
+  driveType         Json?   @map("drive_type")
   seats             Int?
   discount          Int?
   configuration     Json?
