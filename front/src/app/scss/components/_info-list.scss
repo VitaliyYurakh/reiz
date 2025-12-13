@@ -1,0 +1,113 @@
+@use "../mixins/breakpoint" as *;
+
+.info-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  grid-gap: 20px clamp(20px, 3.4559vw, 47px);
+
+  &.mode {
+    grid-template-columns: 100%;
+    max-width: 636px;
+
+    .info-list__item {
+      max-width: 100%;
+    }
+
+    @include tablet {
+      max-width: 100%;
+    }
+  }
+
+  &.warn{
+     grid-template-columns: 100%;
+
+    .info-list__item {
+      max-width: 100%;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background: var(--cl-e);
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    margin-left: -35px;
+    svg,
+    img {
+      max-width: 47px;
+      max-height: 47px;
+      display: flex;
+      height: auto;
+      width: auto;
+    }
+
+    &.yellow {
+      background: #fcbb45;
+    }
+  }
+
+  &__item {
+    max-width: 601px;
+    width: calc(100% - 35px);
+    margin-left: 35px;
+    border-radius: 16px;
+    min-height: 100px;
+    height: fit-content;
+    background: var(--cl-b);
+    gap: clamp(22px, 2.2059vw, 30px);
+    display: flex;
+    align-items: center;
+    padding: clamp(11px, 1.1029vw, 15px) clamp(21px, 2.0588vw, 28px)
+      clamp(11px, 1.1029vw, 15px) 0;
+
+    p {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 140%;
+    }
+
+    ul:not([class]) {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      gap: 12px;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding-left: 14px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 8.5px;
+          left: 0;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: var(--cl-a);
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 156%;
+          color: var(--cl-a);
+        }
+      }
+    }
+
+    @include tablet {
+      max-width: 100%;
+    }
+  }
+
+  @include mobile {
+    grid-template-columns: 100%;
+  }
+}

@@ -1,0 +1,406 @@
+@use "../../mixins/breakpoint" as *;
+
+.rental-section {
+  padding-bottom: var(--default-gap);
+
+  .pretitle {
+    width: fit-content;
+    padding-left: 67px;
+    text-align: start;
+    ;
+    font-weight: 400;
+    &:after {
+      width: 40px;
+      left: 17px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(49px, 5vw, 66px);
+
+    .breadcrumbs {
+      @include for-tablet {
+        display: none;
+      }
+    }
+
+    & > .pretitle {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    @include for-tablet {
+      padding-top: 77px;
+    }
+  }
+
+  &__download {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(30px, 2.4265vw, 33px);
+    max-width: 627px;
+    width: 100%;
+    justify-self: end;
+
+    p {
+      color: #000;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 208%;
+
+      @include small-tablet {
+        line-height: 167%;
+      }
+    }
+
+    @include small-tablet {
+      padding-left: 67px;
+    }
+  }
+
+  &__wrapp {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(30px, 2.7206vw, 37px);
+
+    .editor {
+      gap: clamp(20px, 2.8676vw, 39px);
+
+      p {
+        ;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 140%;
+
+        @include small-tablet {
+          font-size: 16px;
+          line-height: 131%;
+        }
+      }
+    }
+
+    &.mode {
+      gap: 20px;
+
+      .pretitle {
+        @include for-small-tablet {
+          margin-top: 6px;
+        }
+      }
+
+      .editor {
+        max-width: 627px;
+        width: 100%;
+        justify-self: end;
+        p {
+          font-size: 16px;
+          line-height: 156%;
+
+          @include small-tablet {
+            line-height: 125%;
+          }
+        }
+
+        &:not(:first-of-type) {
+          @include small-tablet {
+            padding-left: 67px;
+          }
+        }
+      }
+
+      @include for-small-tablet {
+        display: grid;
+        grid-template-columns: minmax(270px, auto) 1fr;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    & > .editor {
+      gap: 12px;
+      max-width: 573px;
+      width: 100%;
+
+      p {
+        ;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 160%;
+
+        @include small-tablet {
+          ;
+          font-size: 16px;
+          line-height: 131%;
+        }
+      }
+
+      @include small-tablet {
+        gap: 20px;
+      }
+    }
+
+    @include small-tablet {
+      gap: 75px;
+    }
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: clamp(280px, 22.7941vw, 310px) 1fr;
+    gap: clamp(20px, 3.6765vw, 50px);
+
+    padding-bottom: clamp(34px, 2.8676vw, 39px);
+
+    @include tablet {
+      gap: 20px;
+      grid-template-columns: 100%;
+    }
+
+    @include mobile {
+      padding-bottom: 20px;
+      gap: 65px;
+    }
+  }
+
+   .aside {
+    height: fit-content;
+    transition: all .4s ease;
+
+    @include for-tablet{
+      height: calc(100dvh - (var(--header-height) + 15px +  clamp(34px, 2.8676vw, 39px)));
+      position: sticky;
+      z-index: 10;
+      top: 20px;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    height: 610px;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    img,
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include for-small-tablet {
+      display: none;
+    }
+  }
+
+  &.insurance {
+    position: relative;
+    z-index: 1;
+
+    .rental-section {
+      &__inner {
+        @include small-tablet {
+          gap: 44px;
+        }
+      }
+      &__top {
+        & > .editor {
+          gap: 26px;
+          max-width: 774px;
+          margin-bottom: calc(
+            (clamp(70px, 7.3529vw, 100px) - clamp(53px, 4.5588vw, 62px)) * -1
+          );
+
+          p {
+            max-width: 650px;
+
+            @include small-tablet {
+              text-align: center;
+            }
+          }
+
+          @include small-tablet {
+            display: contents;
+
+            .main-title {
+              ;
+              font-weight: 600;
+              line-height: 132%;
+              text-align: center;
+              color: var(--cl-b);
+              margin-bottom: 307px;
+              order: -2;
+              max-width: 400px;
+            }
+
+            .main-button {
+              order: -1;
+            }
+          }
+        }
+
+        @include for-small-tablet {
+          display: contents;
+        }
+
+        @include small-tablet {
+          gap: 46px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: -16px;
+
+          & + .rental-section__wrapp {
+            .pretitle {
+              display: none;
+            }
+          }
+        }
+      }
+      &__content {
+        gap: clamp(70px, 7.3529vw, 100px);
+      }
+    }
+
+    @include small-tablet {
+      margin-top: calc((var(--header-height) + 20px) * -1);
+      padding-top: calc(var(--header-height) + 40px);
+
+      .breadcrumbs {
+        * {
+          color: var(--cl-b);
+        }
+
+        li {
+          &::before {
+            color: var(--cl-b);
+          }
+        }
+      }
+    }
+  }
+
+  &.busines {
+    .info-slider {
+      @include for-small-tablet {
+        margin-top: calc(
+          (clamp(70px, 8.4559vw, 115px) - clamp(26px, 4.1176vw, 56px)) * -1
+        );
+        margin-bottom: 13px;
+      }
+
+      @include small-tablet{
+        margin-top: -44px;
+      }
+    }
+    .rental-section {
+      &__inner {
+        gap: clamp(40px, 5vw, 68px);
+      }
+      &__content {
+        gap: clamp(70px, 8.4559vw, 115px);
+
+        & > .editor {
+          gap: 23px;
+
+          .main-button {
+            margin-top: 24px;
+
+            @include small-tablet {
+              margin-top: 7px;
+            }
+          }
+
+          @include small-tablet {
+            align-self: center;
+            gap: 66px;
+            align-items: center;
+
+            & * {
+              text-align: center;
+            }
+
+            p {
+              ;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 156%;
+              text-align: center;
+            }
+
+            .main-title {
+              font-weight: 700;
+              font-size: 37px;
+              line-height: 122%;
+            }
+          }
+        }
+      }
+
+      &__wrapp {
+        &.mode {
+          @include for-small-tablet {
+            grid-template-columns: 285px 1fr;
+          }
+        }
+
+        &.order {
+          display: flex;
+          flex-direction: column;
+          gap: clamp(30px, 3.0147vw, 41px);
+
+          p {
+            font-weight: 400;
+            font-size: 12px;
+
+            @include for-tablet {
+              margin-top: 4px;
+            }
+          }
+
+          .main-form {
+            &__label {
+              &:last-of-type {
+                grid-column: initial;
+              }
+            }
+
+            & + .main-button {
+              @include for-mobile {
+                display: none;
+              }
+            }
+
+            @include mobile{
+              display: none;
+            }
+          }
+        }
+      }
+      &__box {
+        @include for-tablet {
+          grid-template-columns: clamp(280px, 22.7941vw, 310px) calc(
+              100% - clamp(280px, 22.7941vw, 310px) -
+                clamp(20px, 3.6765vw, 50px)
+            );
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    padding-top: 25px;
+  }
+}

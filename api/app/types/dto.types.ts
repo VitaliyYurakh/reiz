@@ -18,7 +18,7 @@ type UpdateCarDto = {
     yearOfManufacture?: number;
     color?: string;
     segmentIds?: number[];
-    description?: Record<Language, string>;
+    description?: string;
     engineVolume?: string;
     engineType?: string;
     transmission?: string;

@@ -1,0 +1,232 @@
+@use "../../mixins/breakpoint" as *;
+
+.about-section {
+  padding-bottom: var(--default-gap);
+
+  .pretitle {
+    width: fit-content;
+    padding-left: 67px;
+    text-align: start;
+    ;
+    font-weight: 400;
+
+    &:after {
+      width: 40px;
+      left: 17px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(48px, 4.6324vw, 63px);
+
+    .breadcrumbs {
+      @include for-tablet {
+        display: none;
+      }
+    }
+    .main-title {
+      ;
+      font-size: 37px;
+
+      @include tablet {
+        margin-top: 12px;
+      }
+    }
+
+    .pretitle {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    @include for-tablet {
+      padding-top: 67px;
+    }
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: clamp(280px, 22.7941vw, 310px) calc(100% - clamp(280px, 22.7941vw, 310px) - clamp(20px, 3.6765vw, 50px));
+    gap: clamp(20px, 3.6765vw, 50px);
+
+    padding-bottom: clamp(34px, 2.8676vw, 39px);
+
+    @include tablet {
+      gap: 20px;
+      grid-template-columns: 100%;
+    }
+
+    @include mobile {
+      padding-bottom: 20px;
+      gap: 65px;
+    }
+  }
+
+  &__wrapp {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include small-tablet{
+      grid-template-columns: 100%;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background: var(--cl-b);
+    border-radius: 16px;
+    padding: 19px 24px 18px;
+    height: clamp(230px, 22.0588vw, 300px);
+
+    p {
+      ;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 157%;
+      color: var(--cl-a);
+
+      @include small-tablet {
+        ;
+        font-weight: 500;
+      }
+    }
+
+    &.mode {
+      padding-top: 21px;
+      padding-left: 29px;
+      .about-section__title {
+        font-weight: 700;
+        font-size: 20px;
+        color: var(--cl-b);
+      }
+      p {
+        color: var(--cl-b);
+      }
+
+      @include small-tablet {
+        height: clamp(270px, 22.0588vw, 300px);
+      }
+    }
+
+    @include small-tablet{
+      padding: 20px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: clamp(20px, 2.9412vw, 40px);
+
+    @include laptop {
+      @include for-tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @include small-tablet{
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background: var(--cl-b);
+    border-radius: 16px;
+    padding: 21px 18px 22px;
+    height: clamp(160px, 16.1765vw, 220px);
+
+    .about-section__title {
+      ;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 83%;
+      color: var(--cl-a);
+    }
+
+    p {
+      ;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 129%;
+      color: var(--cl-a);
+
+      @include small-tablet {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 112%;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    @include small-tablet {
+      padding: 20;
+    }
+  }
+
+  &__title {
+    ;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--cl-a);
+
+    @include small-tablet {
+      ;
+      font-weight: 500;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    img,
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 2.9412vw, 40px);
+  }
+
+   .aside {
+    height: fit-content;
+    transition: all .4s ease;
+
+    @include for-tablet{
+      height: calc(100dvh - (var(--header-height) + 15px +  clamp(34px, 2.8676vw, 39px)));
+      position: sticky;
+      z-index: 10;
+      top: 20px;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  @include tablet {
+    padding-top: 25px;
+  }
+}

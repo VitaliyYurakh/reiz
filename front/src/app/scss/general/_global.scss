@@ -1,0 +1,341 @@
+@use '../mixins/breakpoint' as *;
+@use '../mixins/overlay' as *;
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    max-width: 100dvw;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-style: normal;
+
+    //scroll-behavior: smooth;
+    font-size: var(--rem-function);
+    line-height: 130%;
+    -webkit-text-size-adjust: 100%;
+    color: rgba(var(--bg-b), 1);
+}
+
+body {
+    padding-top: calc(var(--header-height) + 20px);
+    font-family: var(--font-inter), sans-serif;
+
+    margin: 0;
+    background-color: var(--body-bg);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100%;
+
+    @include tablet {
+        overflow-x: hidden;
+        grid-template-rows: 1fr auto;
+    }
+
+    &.fixed-body {
+        position: fixed;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        width: 100%;
+
+        // disable scroll
+    }
+
+    &.page {
+        padding-top: clamp(30px, 3.6806vw, 53px);
+    }
+}
+
+main {
+    width: 100%;
+    min-width: 0 !important;
+
+    &.no-padding {
+        padding: 0;
+    }
+}
+
+.overflow {
+    overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+    display: inline-flex;
+    margin: 0;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+button {
+    display: inline-flex;
+    margin: 0;
+    outline: none;
+    border: none;
+    padding: 0;
+    line-height: initial;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button,
+p {
+    margin: 0;
+    padding: 0;
+    color: var(--cl-c);
+    font-style: normal;
+    line-height: 110%;
+}
+
+p {
+    font-size: clamp(16px, 1.314vw, 18px);
+    font-weight: 400;
+    line-height: 150%;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+picture {
+    display: inline-flex;
+}
+
+label {
+    display: inline-flex;
+}
+
+input {
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: transparent;
+
+    &::placeholder {
+        font-family: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    &[type='number'] {
+        appearance: textfield;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+}
+
+textarea {
+    outline: none;
+    border: none;
+    resize: none;
+}
+
+fieldset {
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    clip-path: inset(100%);
+    overflow: hidden;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+    clip: rect(0 0 0 0);
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 var(--container-offset);
+    width: 100%;
+    max-width: var(--container-width);
+
+    &--mode {
+        max-width: var(--container-width-mode);
+    }
+}
+
+.bg-image {
+    position: absolute;
+    inset: -5px;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    iframe,
+    picture,
+    img {
+        display: inherit;
+        width: 100%;
+        height: 100%;
+    }
+
+    video {
+        height: 120%;
+    }
+}
+
+.swiper-container {
+    overflow: hidden;
+}
+
+.panel,
+[data-content] {
+    z-index: 20;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s;
+}
+
+[data-tab-content] {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.dis-scroll {
+    position: fixed !important;
+    left: 0;
+    //top: 0;
+    width: 100%;
+    //height: 100svh;
+    scroll-behavior: none !important;
+
+    overscroll-behavior: none !important;
+}
+
+.overlay {
+    @include overlay;
+}
+
+[data-fancybox] {
+    outline: initial !important;
+}
+
+.hidden-for-tablet {
+    @include for-tablet {
+        display: none !important;
+    }
+}
+
+.hidden-tablet {
+    @include tablet {
+        display: none !important;
+    }
+}
+
+.sticky.sticky-hidden {
+    & + main {
+        .terms-section .aside,
+        .rental-section .aside,
+        .faq-section .aside,
+        .contacts-section .aside,
+        .gift-section .aside,
+        .blog-section .aside,
+        .about-section .aside {
+            .main-nav {
+                & > ul {
+                    @include for-tablet {
+                        max-height: calc(
+                            100dvh - (62px + 90px + 50px + 20px + clamp(34px, 2.8676vw, 39px))
+                        );
+                    }
+
+                    @include for-tablet {
+                        @media (max-height: 850px) {
+                            max-height: calc(
+                                100dvh -
+                                    (
+                                        9dvh - 2dvh - 4px + 90px + 50px + 25px +
+                                            clamp(34px, 2.8676vw, 39px)
+                                    )
+                            );
+                        }
+                    }
+
+                    @include for-tablet {
+                        @media (max-height: 690px) {
+                            max-height: calc(
+                                100dvh -
+                                    (8dvh - 2dvh + 93px + 50px + 25px + clamp(34px, 2.8676vw, 39px))
+                            );
+                        }
+                    }
+                }
+            }
+
+            @include for-tablet {
+                height: calc(100dvh - (20px + clamp(34px, 2.8676vw, 39px)));
+            }
+        }
+    }
+}
+
+.sticky-visible {
+    & + main {
+        .catalog-aside {
+            top: 76px;
+            // max-height: calc(100dvh - 20px  - 76px);
+
+            &__content {
+                // max-height: calc(100dvh - 76px - 30px - 20px - 50px - 132px);
+            }
+        }
+
+        .terms-section .aside,
+        .rental-section .aside,
+        .faq-section .aside,
+        .contacts-section .aside,
+        .gift-section .aside,
+        .blog-section .aside,
+        .about-section .aside {
+            top: 76px;
+        }
+    }
+}

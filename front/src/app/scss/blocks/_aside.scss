@@ -1,0 +1,145 @@
+@use "../mixins/breakpoint" as *;
+@use "../mixins/disable-mob-hover" as *;
+
+.aside {
+  border-radius: 16px;
+  width: 100%;
+  max-width: 310px;
+  height: 100%;
+  background: var(--cl-t);
+  display: flex;
+  flex-direction: column;
+  padding: 34px 20px 0;
+   transition: all .4s ease;
+
+   &.aos-transition-done{
+    @include for-tablet{
+     transition: all .4s ease !important;
+   }
+  }
+
+  &__top {
+    gap: 17px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+
+    p {
+      font-weight: 274;
+      font-size: 18px;
+      text-align: center;
+      color: var(--cl-a);
+    }
+
+    &::before {
+      position: absolute;
+      bottom: -31px;
+      z-index: -1;
+      left: 50%;
+      content: "";
+      border-top: solid 1px var(--cl-m);
+      pointer-events: none;
+      transform: translate(-50%);
+      width: calc(100% + 40px);
+
+      @include for-tablet {
+        @media (max-height: 850px) {
+          bottom: -2.5dvh;
+        }
+      }
+
+      @include for-tablet {
+        @media (max-height: 690px) {
+          bottom: -2dvh;
+        }
+      }
+    }
+  }
+
+  ul.main-nav__acc{
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .main-nav {
+    position: relative;
+    z-index: 1;
+    padding-top: 44px;
+
+    @include for-tablet{
+      flex-grow: 1;
+        transition: all .4s ease;
+    }
+
+
+    & > ul{
+      @include for-tablet{
+         transition: all .4s ease;
+        padding-left: clamp(45px, 4.7794vw, 65px) !important;
+        padding: 31px 0;
+        overflow-y: auto;
+        max-height:  calc(100dvh - (62px + 90px + 50px + var(--header-height) + 20px + clamp(34px, 2.8676vw, 39px)));
+        margin-top: -14px;
+      }
+
+      @include for-tablet {
+        @media (max-height: 850px) {
+          margin-top: calc((2dvh - 3px) * -1);
+          padding: 2.5dvh 0;
+          max-height:  calc(100dvh - (9dvh - 2dvh - 4px + 90px + 50px + var(--header-height) + 20px + clamp(34px, 2.8676vw, 39px)));
+        }
+      }
+
+      @include for-tablet {
+        @media (max-height: 690px) {
+          padding: 2dvh 0;
+          margin-top: -2dvh;
+          max-height:  calc(100dvh - (8dvh - 2dvh + 93px + 50px + var(--header-height) + 20px + clamp(34px, 2.8676vw, 39px)));
+        }
+      }
+    }
+
+    ul {
+      @include for-tablet {
+        @media (max-height: 850px) {
+          gap: 1.8dvh;
+        }
+      }
+
+      @include for-tablet {
+        @media (max-height: 750px) {
+          gap: 1.5dvh;
+        }
+      }
+
+
+    }
+
+    @include for-tablet {
+      @media (max-height: 850px) {
+        padding-top: 4dvh;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 274;
+    font-size: clamp(38px, 3.13vw, 45px);
+    text-align: center;
+    color: var(--cl-a);
+    align-self: center;
+  }
+
+  .main-button {
+    // margin-top: auto;
+    flex-shrink: 0;
+    width: calc(100% + 41px);
+    margin-left: -20.5px;
+    margin-bottom: -0.5px;
+    min-width: initial;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.35);
+    height: 50px;
+    border-radius: 0 0 16px 16px;
+  }
+}

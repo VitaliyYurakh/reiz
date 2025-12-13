@@ -1,0 +1,105 @@
+@use "../mixins/breakpoint" as *;
+.rental-table {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr 0.9fr clamp(120px, 10.2941vw, 140px);
+
+  &__value {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 116%;
+
+    color: var(--cl-a);
+    border-bottom: 1px dashed #a3a3a3;
+    display: flex;
+    align-items: center;
+    height: 50px;
+
+    &.head {
+      font-weight: 500;
+      font-size: 16px;
+
+      @include for-small-tablet {
+        border-bottom: 1px solid #bbb;
+      }
+
+      @include small-tablet {
+        text-align: start;
+        font-weight: 600;
+        color: var(--cl-b);
+        border-radius: 12px 12px 0 0;
+        font-size: 16px;
+        line-height: 156%;
+        background: var(--cl-e);
+        justify-content: flex-start;
+        border-bottom: 0.5px solid var(--cl-m);
+      }
+    }
+
+    @include for-small-tablet {
+      padding: 0 10px;
+    }
+
+    @include small-tablet {
+      padding: 0 15px;
+      justify-content: space-between;
+      gap: 10px;
+      text-align: end;
+
+      &::before {
+        content: attr(data-title);
+        display: block;
+        ;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 116%;
+        color: var(--cl-a);
+        text-align: start;
+      }
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+
+    &:first-of-type {
+      .rental-table {
+        &__value {
+          @include for-small-tablet {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+
+    .rental-table__value {
+      &:last-of-type {
+        @include small-tablet {
+          border: none !important;
+        }
+      }
+    }
+
+    &.mode{
+        @include small-tablet{
+            display: none;
+        }
+    }
+
+    @include small-tablet {
+      background: var(--cl-b);
+      border-radius: 12px;
+    }
+  }
+
+  @include laptop {
+    @include for-tablet {
+      grid-template-columns: 0.8fr 1fr 0.8fr 120px;
+    }
+  }
+
+  @include small-tablet {
+    grid-template-columns: 100%;
+    gap: 30px;
+  }
+}

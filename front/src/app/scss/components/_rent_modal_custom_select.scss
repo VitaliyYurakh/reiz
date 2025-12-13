@@ -1,0 +1,110 @@
+:root{
+  --ps-width: 144px;
+  --ps-height: 50px;
+  --ps-border: #d6d6d6;
+  --ps-bg: #fff;
+  --ps-text: #000;
+  --ps-shadow: 0 8px 24px rgba(0,0,0,.08);
+  --ps-font-size: 14px;
+  --ps-font-weight: 500;
+}
+
+$path-left:  "M20 0C8.95464 0.000389912 0 8.95455 0 20V30C0 41.0454 8.95465 49.9996 20 50H141.813C144.711 50 144.62 46.2165 142.168 44.6721C135.589 40.5274 131.227 33.2659 131.227 25C131.227 16.7339 135.589 9.47187 142.169 5.32686C144.62 3.7825 144.711 0 141.813 0H20Z";
+$path-right: "M123.998 0C135.043 0.000394541 143.998 8.95455 143.998 20V30C143.998 41.0454 135.043 49.9996 123.998 50H2.18457C-0.713018 50 -0.62208 46.2165 1.82961 44.6721C8.40929 40.5274 12.7715 33.2659 12.7715 25C12.7715 16.7339 8.40921 9.47187 1.82937 5.32686C-0.622159 3.7825 -0.712847 0 2.18457 0H123.998Z";
+
+$mask-left:   "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 144 50' preserveAspectRatio='none'><path d='#{$path-left}'  fill='black'/></svg>";
+$mask-right:  "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 144 50' preserveAspectRatio='none'><path d='#{$path-right}' fill='black'/></svg>";
+$stroke-left:  "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 144 50' preserveAspectRatio='none'><path d='#{$path-left}'  fill='none' stroke='%23d6d6d6' stroke-width='2' shape-rendering='geometricPrecision'/></svg>";
+$stroke-right: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 144 50' preserveAspectRatio='none'><path d='#{$path-right}' fill='none' stroke='%23d6d6d6' stroke-width='2' shape-rendering='geometricPrecision'/></svg>";
+
+.pill-select{
+  position: relative;
+  width: var(--ps-width);
+  height: var(--ps-height);
+  font-size: var(--ps-font-size);
+  font-weight: var(--ps-font-weight);
+  color: var(--ps-text);
+
+  @media (max-width: 768px){
+    width: 100%;
+  }
+
+  &__shape{
+    position: relative;
+    width: 100%; height: 100%;
+    background: var(--ps-bg);
+    -webkit-mask: url("data:image/svg+xml;utf8,#{$mask-left}") center/100% 100% no-repeat;
+    mask: url("data:image/svg+xml;utf8,#{$mask-left}") center/100% 100% no-repeat;
+
+    &::before{
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml;utf8,#{$stroke-left}") center/100% 100% no-repeat;
+    }
+  }
+  &.pill-select--right .pill-select__shape{
+    -webkit-mask: url("data:image/svg+xml;utf8,#{$mask-right}") center/100% 100% no-repeat;
+    mask: url("data:image/svg+xml;utf8,#{$mask-right}") center/100% 100% no-repeat;
+  }
+  &.pill-select--right .pill-select__shape::before{
+    background-image: url("data:image/svg+xml;utf8,#{$stroke-right}");
+  }
+
+  &__button{
+    width: 100%; height: 100%;
+    display: grid;
+    grid-template-columns: 24px 1fr 24px;
+    align-items: center;
+    background: transparent;
+    border: 0; outline: 0;
+    cursor: pointer;
+    padding: 0 14px;
+    color: #000;
+  }
+
+  &__label{ grid-column: 2; text-align: center; user-select: none;
+    font-size: 16px; }
+
+  &__chevron{
+    transition: transform .18s ease;
+  }
+  &__chevron--left{  grid-column: 1; justify-self: start; }
+  &__chevron--right{ grid-column: 3; justify-self: end;   }
+
+  &.is-open .pill-select__chevron{ transform: rotate(180deg); }
+
+  &__dropdown{
+    position: absolute;
+    left: 0; right: 0; top: calc(100% + 6px);
+    background: #fff;
+    border: 1px solid var(--ps-border);
+    border-radius: 12px;
+    box-shadow: var(--ps-shadow);
+    z-index: 20;
+    overflow: hidden;
+    animation: ps-fade .12s ease;
+    max-height: 200px;
+    overflow-y: auto;
+
+    &.up {
+        bottom: calc(100% + 6px);
+        top: auto;
+    }
+  }
+  @keyframes ps-fade{ from {opacity:0; transform:translateY(-2px)} to {opacity:1; transform:translateY(0)} }
+
+  &__option{
+    padding: 5px 14px; text-align: center; cursor: pointer; font-weight: 600;
+    &:hover{ background:#f6f7f8; }
+    &.is-active{ background:#eef1f2; }
+
+    @media screen and (max-width: 768px) {
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+  }
+}
+
+.pill-select--left  .pill-select__chevron--left{  display:block; }
+.pill-select--left  .pill-select__chevron--right{ display:none;  }
+.pill-select--right .pill-select__chevron--left{  display:none;  }
+.pill-select--right .pill-select__chevron--right{ display:block; }

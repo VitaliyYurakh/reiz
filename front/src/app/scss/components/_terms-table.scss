@@ -1,0 +1,41 @@
+@use "../mixins/breakpoint" as *;
+
+.terms-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__value {
+    ;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 156%;
+    color: var(--cl-a);
+
+    &:last-of-type{
+        text-align: end;
+    }
+  }
+
+  &__row {
+    border-radius: 16px;
+    width: 100%;
+    background: var(--cl-b);
+    height: 50px;
+    display: flex;
+    padding: 3px 12px 3px 18px;
+    align-items: center;
+    justify-content: space-between;
+
+    &.head {
+        background: transparent;
+        height: fit-content;
+        padding: 0 12px 0 18px;
+
+    }
+
+    @include small-tablet{
+        padding: 3px 15px;
+    }
+  }
+}

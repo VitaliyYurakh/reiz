@@ -1,0 +1,291 @@
+@use "../mixins/breakpoint" as *;
+
+.gift-form {
+  gap: 110px;
+  display: flex;
+  flex-direction: column;
+
+  @include small-tablet {
+    gap: 46px;
+  }
+
+  .radio-checkbox{
+    &:nth-child(3){
+        @include small-tablet{
+            display: none;
+        }
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--cl-b);
+    margin-bottom: -48px;
+
+    @include small-tablet{
+        margin-bottom: -90px;
+    }
+  }
+
+  &__wrapp {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    @include small-tablet {
+      gap: 24px;
+    }
+  }
+
+  .toggle-wrapper {
+    margin: -10px 0;
+
+    @include small-tablet {
+      margin: -10px 0 -3px;
+    }
+  }
+
+  .price {
+    height: 50px;
+    align-items: center;
+  }
+
+  .editor {
+    gap: 16px;
+
+    .pretitle {
+      margin-bottom: clamp(14px, 2.2059vw, 30px);
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--cl-b);
+      max-width: 615px;
+    }
+
+    .main-button {
+      & + p,
+      & + small {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        color: var(--cl-b);
+        max-width: 350px;
+        margin-top: -9px;
+
+        @include mobile {
+          display: none;
+        }
+      }
+    }
+
+    .price {
+      @include mobile {
+        width: fit-content;
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    &s {
+      display: grid;
+      gap: 36px 28px;
+      grid-template-columns: 1fr clamp(320px, 39.58vw, 570px);
+
+      &.mode {
+        @include mobile {
+          gap: 29px;
+          margin-top: 10px;
+          grid-template-columns: auto minmax(250px, 1fr);
+        }
+      }
+
+      @include mobile {
+        grid-template-columns: 100%;
+      }
+    }
+  }
+
+  &__label {
+    position: relative;
+    z-index: 1;
+
+    span {
+      opacity: 0;
+      visibility: hidden;
+      border-radius: 100%;
+      pointer-events: none;
+      background: #a3a3a3;
+      display: flex;
+      position: absolute;
+      z-index: 2;
+      top: 10px;
+      right: 11px;
+      width: 5px;
+      height: 5px;
+    }
+
+    input {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 156%;
+      color: var(--cl-a);
+      background: var(--cl-b);
+      border-radius: 16px;
+      width: 100%;
+      height: 50px;
+      padding: 5px 15px;
+
+      &::placeholder {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 156%;
+        color: var(--cl-a);
+
+        @include mobile {
+          color: var(--col-g);
+        }
+      }
+
+      &:required {
+        & + span {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      @include mobile {
+        padding-left: 20px;
+        color: var(--col-g);
+      }
+    }
+
+    @include small-tablet {
+      @include for-mobile {
+        &:last-of-type {
+          margin-top: -16px;
+          grid-column: 1/-1;
+        }
+      }
+    }
+
+    @include mobile {
+      margin-top: -16px;
+    }
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px 20px;
+
+    .pretitle {
+      grid-column: 1/-1;
+    }
+
+    @include small-tablet {
+      gap: 36px 20px;
+      @include for-mobile {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @include mobile {
+      grid-template-columns: 100%;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    position: relative;
+    padding-left: 375px;
+
+    @include laptop{
+        padding-left: 0;
+    }
+
+    @include tablet{
+        padding-left: clamp(260px, 29.3vw, 300px);
+    }
+
+    @include small-tablet{
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 100%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+    width: 385px;
+    height: auto;
+    transform: translateY(-21%);
+
+    img,
+    picture {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    @include laptop{
+        @include for-tablet{
+        display: none;
+        }
+    }
+
+    @include tablet{
+        width: clamp(260px,27.83vw, 285px);
+    }
+
+    @include small-tablet{
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 440px;
+       justify-self: center;
+    }
+
+    @include small-tablet{
+        transform: translateX(15px);
+    }
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+
+    .pretitle {
+      margin-bottom: 12px;
+      grid-column: 1/-1;
+
+      @include small-tablet {
+        margin-bottom: 16px;
+      }
+    }
+
+    @include small-tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .main-button {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 179%;
+    border-radius: 16px;
+    height: 50px;
+    min-width: initial;
+    width: 100%;
+  }
+}

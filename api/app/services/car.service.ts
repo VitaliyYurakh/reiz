@@ -35,6 +35,22 @@ class CarService {
             {dailyPrice: 0, deposit: 0, minDays: 8, maxDays: 29},
             {dailyPrice: 0, deposit: 0, minDays: 30, maxDays: 0},
         ]);
+
+        this.updateCountingRule(newCar.id, [
+            {
+                "pricePercent": 0,
+                "depositPercent": 0,
+            },
+            {
+                "pricePercent": 12,
+                "depositPercent": 50,
+            },
+            {
+                "pricePercent": 36,
+                "depositPercent": 100,
+            }
+        ])
+
         return newCar;
     }
 
@@ -48,7 +64,7 @@ class CarService {
         const {segmentIds, description, ...rest} = carDto;
         const data: UpdateCarDto & {
             segment?: Record<string, unknown[]>;
-        } = {...rest}; // TODO: add type
+        } = {...rest};
 
         if (segmentIds) data.segment = {set: segmentIds.map((sid) => ({id: sid}))};
         if (description) data.description = JSON.stringify(description);
@@ -124,19 +140,21 @@ class CarService {
         return carPhoto.url;
     }
 
-    async updateCountingRule(carId: number, countingRuleDto: CountingRuleDto) {
+    async updateCountingRule(carId: number, countingRulesDto: CountingRuleDto[]) {
         const car = await prisma.car.findUnique({where: {id: carId}});
 
         if (!car) {
             throw new CarNotFoundError();
         }
 
-        await prisma.carCountingRule.create({
-            data: {
-                ...countingRuleDto,
-                carId: car.id,
-            },
-        });
+        await Promise.all(countingRulesDto.map(async (countingRuleDto) => {
+            await prisma.carCountingRule.create({
+                data: {
+                    ...countingRuleDto,
+                    carId: car.id,
+                },
+            });
+        }))
     }
 
     async updatePhotoCar(carPhotoId: number, alt: string) {

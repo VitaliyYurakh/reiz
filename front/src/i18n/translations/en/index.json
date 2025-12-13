@@ -1,0 +1,1463 @@
+{
+  "aside": {
+    "brand": "REIZ",
+    "cta_button": "REQUEST A CALLBACK",
+    "nav": {
+      "about": "ABOUT US",
+      "blog": "BLOG",
+      "business": "BUSINESS RENTALS",
+      "cars_link1": "Car rental in Kyiv",
+      "cars_link2": "Car rental in Lviv",
+      "cars_link3": "Car rental in Ternopil",
+      "cars_title": "CARS",
+      "certificates": "GIFT CERTIFICATES",
+      "contacts": "CONTACTS",
+      "faq": "FAQ",
+      "home": "HOME",
+      "insurance": "INSURANCE",
+      "invest": "LIST YOUR CAR",
+      "terms": "RENTAL TERMS"
+    },
+    "subtitle": "CAR RENTAL IN UKRAINE"
+  },
+  "header": {
+    "call": "Call",
+    "currency": "Currency"
+  },
+  "homePage": {
+    "advantages": {
+      "item1_text": "Free delivery anywhere in the city — at any time.",
+      "item1_title": "Delivery 24/7",
+      "item2_text": "Honest pricing with zero surprises. Transparent terms.",
+      "item2_title": "No hidden fees",
+      "item3_text": "Hire with a professional driver — convenient and safe.",
+      "item3_title": "Chauffeur service",
+      "item4_text": "Personal offers for returning customers.",
+      "item4_title": "Loyalty & discounts"
+    },
+    "catalog_aside": {
+      "category1": "Economy",
+      "category2": "Business",
+      "category3": "Suv",
+      "category4": "Luxury",
+      "category5": "Van",
+      "filters_panel": {
+        "close_button": "",
+        "price_max_label": "Price",
+        "price_max_placeholder": "to 550",
+        "price_max_suffix": "$",
+        "price_min_label": "Price",
+        "price_min_placeholder": "from 40",
+        "price_min_suffix": "$",
+        "reset_button": "Reset Filter",
+        "select_brand_placeholder": "Brand",
+        "select_car_option1": "Luxury",
+        "select_car_option2": "Business",
+        "select_car_option3": "Suv",
+        "select_car_option4": "Van",
+        "select_car_option5": "Economy",
+        "select_car_placeholder": "Car class",
+        "select_fuel_option1_value": "Petrol",
+        "select_fuel_option2_value": "Diesel",
+        "select_fuel_option3_value": "Electro",
+        "select_fuel_placeholder": "Fuel type",
+        "select_model_placeholder": "Model",
+        "show_button_count": 0,
+        "show_button_suffix": "Cars",
+        "show_button_text": "Show",
+        "subtitle_count": 1,
+        "subtitle_text": "Filters"
+      },
+      "open_box": {
+        "filter_button_count": 1,
+        "filter_button_text": "Filters",
+        "sort_option1": "Price: Low to High",
+        "sort_option2": "Price: High to Low",
+        "sort_option3": "Default",
+        "sort_placeholder_icon": ""
+      },
+      "submit": "REQUEST A CALLBACK",
+      "top_text": "CHOOSE YOUR CAR",
+      "catalog_content": {
+        "pretitle": "CARS REIZ",
+        "sort_option1": "Price: Low to High",
+        "sort_option2": "Price: High to Low",
+        "sort_placeholder": "By default"
+      },
+      "catalog_list": {
+        "badges": {
+          "withDeposit": "With deposit",
+          "coverage50": "50% coverage",
+          "coverage100": "100% coverage"
+        },
+        "rates": {
+          "range1": "1 – 2 days",
+          "range2": "3 – 7 days",
+          "range3": "8 – 29 days",
+          "range4": "More than 29 days",
+          "perDay": "per day"
+        },
+        "features": {
+          "engine": "Engine",
+          "transmission": "Transmission",
+          "drive": "Drive",
+          "seatsLabel": "Seats",
+          "seatsValue": "{count} seats"
+        },
+        "total": {
+          "dailyLabel": "Daily rate",
+          "depositLabel": "Deposit",
+          "totalLabel": "Total"
+        },
+        "actions": {
+          "details": "Details",
+          "book": "Book now"
+        },
+        "empty": "No cars available"
+      }
+    },
+    "editor_block": {
+      "title": "Car rental in Ukraine with REIZ: a new approach to comfort",
+      "text": "<div class='editor_text'>REIZ is a car rental service in Lviv with attention to details and transparent conditions.<br/>We deliver cars around the city and can transport the vehicle to any point in Ukraine upon request.</div><div class='editor_title'>Daily rate</div><div class='editor_text'>The daily rate is the best way to “try on” a car without commitments.<br/>In one day you’ll find out how the selected model behaves on Lviv’s road surface and highway, whether parking is convenient, if there’s enough space for suitcases or sports gear, and if you like the sound, seating and driver aids.<br/>One day is usually enough to decide: extend the rental for a week/month or change class.<br/>Many clients rent a car for a day to test it before a weekend in the Carpathians — the climbs to Slavske or Bukovel, the hairpins and long descents quickly show if this is the right car for your holiday.</div><div class='editor_title'>Weekly rental in Lviv</div><div class='editor_text'>Weekly car rental in Lviv is the best balance of price and freedom: one fixed rate for seven days and your own pace without taxi waits and transfers.<br/>In a week it’s easy to combine city and excursions: Lviv region castles, wine roads and, of course, a trip to the Carpathians — Slavske, Skole, Bukovel.<br/>The “week” format gives more time to test the route and the car than the daily rental, and you can simply extend the term if needed.</div><div class='editor_title'>Monthly rental</div><div class='editor_text'>Monthly rental — for those who stay longer: project, business trip, relocation.<br/>Lower daily cost, a single predictable payment and full freedom of routes — without schedules or city ties.<br/>The “30 days” format is created for regular business trips and intercity routes: Lviv ↔ Kyiv for meetings and negotiations, visits to clients in Ternopil, Ivano-Frankivsk, Rivne.<br/>One car covers all your tasks for the month: office, meetings, moves, welcoming partners and guests.<br/>If necessary you can easily extend the term or change the model class.</div><div class='editor_title'>Long-term rental in Lviv</div><div class='editor_text'>Long-term rental — a solution for those staying longer: city residents, relocation, projects lasting several months, corporate tasks.<br/>For a term from 3 to 12+ months you get a personal vehicle with a fixed monthly payment and a predictable budget — no hassle with buying, selling and loss of value.<br/>It’s convenient and economical: the car is always at hand for daily tasks and intercity trips — office, meetings, branches, regular routes Lviv ↔ Kyiv and around the region.<br/>The format allows planning your workload a month ahead, and when tasks change — you can easily extend the term or replace the model with a more suitable one (city sedan, estate, crossover).<br/>On request we organise delivery and return in other Ukrainian cities.</div><div class='editor_title'>Budget cars rental — from $20/day</div><div class='editor_text'>Budget car rental — from $20/day<br/>Need a practical car without overpaying? REIZ economy-class is comfort in the city and on the road at a reasonable budget.<br/>Compact size for city parking, confident handling, low fuel consumption and enough space for 1–4 passengers and luggage.</div><div class='editor_title'>Our advantages of car rental in Lviv</div><div class='editor_text'><ul><li>User-friendly website — fast filter, up-to-date prices and accurate specifications.</li><li>Instant processing — booking in a couple of minutes.</li><li>Delivery where convenient — airport LWO, train station, city centre or delivery to address.</li><li>Transparent price — the final cost is visible before payment, no hidden fees.</li><li>Flexible terms — day, week, month or long-term; easily extend or change the model.</li><li>Reliable fleet — regular service, clean interior, seasonal tyres on time.</li><li>24/7 support — we respond quickly to any inquiries (UA/RU/EN/HE-IL).</li><li>Intercity on request — delivery and return anywhere in Ukraine.</li><li>Catalogue compliance — you receive exactly the class and equipment you selected.</li><li>Simple rules — fuel, mileage and return described in plain language in the agreement.</li></ul></div><div class='editor_title'>No deposit / reduced deposit</div><div class='editor_text'>You can rent a car without a deposit — this makes the rental more affordable and budget-predictable.<br/>For certain models there is an option to reduce the deposit by 50%.<br/>Availability depends on model, term and rental dates; all details are visible at booking.</div><div class='editor_title'>Driver services in Lviv</div><div class='editor_text'>Want comfort without the wheel? Order a car with a professional driver — we will deliver it to airport LWO, to the hotel or the station.</div><div class='editor_title'>Free car delivery in Lviv</div><div class='editor_text'>Free within Lviv. We deliver the vehicle within the city — centre, districts, airport LWO and railway station — at no extra cost (airport parking paid by client).<br/>Outside the city — paid. Delivery to region and across Ukraine is possible. Cost depends on address and mileage — confirmed by administrator before booking.<br/>Return. Within Lviv — no extra fee; outside the city — under the same conditions as delivery.<br/>How to arrange. During booking select “delivery to address” and specify location/time. Administrator will confirm details and, when leaving Lviv, quote the cost.</div><div class='editor_title'>Additional services</div><div class='editor_text'><ul><li>Navigation — all cars equipped with Apple CarPlay and Android Auto. Connect your smartphone and use your familiar maps.</li><li>Child seat. Provided on request (age groups based on need).</li><li>Exit abroad. Possible after prior agreement — we arrange necessary documents and additional insurance.</li><li>Unlimited mileage. The Unlimited option is available for some models/rates; availability and cost visible at booking or confirm with administrator.</li></ul>Select the needed options when booking — we will prepare the vehicle for the time of delivery.</div><div class='editor_title'>Vehicles in excellent condition</div><div class='editor_text'>We carefully maintain the REIZ fleet — so each trip in Lviv is comfortable and safe.<br/>Before delivery every car undergoes a checklist: brakes, lights, tyres and pressure, fluids, washer. Seasonal tyres are installed on time.<br/>Cleanliness and order: dry/wet cleaning of interior, wiping surfaces, washing body; if necessary — deep cleaning.<br/>Maintenance per schedule: planned service at partner service centres, replacement of consumables without delay.<br/>You receive a pristine, functioning and ready-to-go car — just sit in and drive.</div><div class='editor_title'>Basic safe driving tips</div><div class='editor_text'>You’ve booked a car — next everything depends on your route. To ensure the trip is calm and pleasant, keep in mind these basic safety rules.</div><div class='editor_title'>Keep a safe distance</div><div class='editor_text'>Keep a gap to the vehicle ahead — it’s your time to react.<br/>The basic rule is “three seconds”. Choose a marker (a sign, pole): when the vehicle ahead passes it, count “one-two-three”. If you have crossed the marker earlier — your distance is too small.</div><div class='editor_title'>Change lanes only when it’s safe</div><div class='editor_text'><ul><li>Assess the situation: centre and side mirrors, then a quick shoulder check — verify the “blind spot”.</li><li>Give a signal early, not at the moment of manoeuvre — allow others time to react.</li><li>Synchronise your speed with the flow in the target lane, don’t “dive in” with a large speed gap.</li><li>Maintain distance: don’t cut in — leave a safe interval ahead and behind.</li><li>One manoeuvre — one lane: no “zigzag” or crossing multiple lanes at once.</li><li>Avoid lane-changes at intersections, pedestrian crossings and in turns.</li><li>Special attention to motorcycles/bicycles/scooters — they easily get lost in mirrors.</li><li>In bad weather act more gently: larger interval and more time to manoeuvre.</li><li>Finished — turn off the indicator and restore a safe distance.</li></ul></div><div class='editor_title'>Observe road signs</div><div class='editor_text'>Signs and signals are the “language” of the road: they warn you ahead of restrictions and possible hazards.<br/>Read them in time and act without haste.<br/>If a sign or traffic scheme is unclear — reduce speed, keep distance and follow the right-of-way rules.</div><div class='editor_title'>Alcohol-free driving</div><div class='editor_text'>Driving a vehicle under the influence of alcohol is strictly prohibited.<br/>REIZ adheres to a zero-tolerance policy: the client must abstain from alcohol before the trip and throughout the use of the rented vehicle.</div>",
+      "show_more_button": "SHOW MORE",
+      "show_less_button": "SHOW LESS"
+    },
+    "faq": {
+      "group1_item1_answer": "Lviv has many paid zones and municipal parking lots. Always park within marked lines or in guarded parking areas, check road signs and parking meters, and keep receipts. Improper parking results in fines paid by the renter. In areas with limited parking, use shopping mall or hotel parking. It is useful to install city apps for parking payment and zone navigation. Before leaving the car overnight, check local courtyard/street rules to avoid towing.",
+      "group1_item1_question": "Where to park a rental car in Lviv and how to avoid fines?",
+      "group1_item2_answer": "We provide delivery/return to any address in Lviv and meet you at the LWO terminal at the agreed time. Extra charges may apply for early/late hours and waiting time, final price depends on distance. Intercity delivery across Ukraine is also available on request. To ensure timely service, book in advance and provide your flight/hotel details. Want to speed up the process? Book online at REIZ Rental Cars — it’s more convenient and locks in your rate.",
+      "group1_item2_question": "Car delivery to an address and Lviv Airport (LWO): conditions and prices",
+      "group1_item3_answer": "A daily mileage limit applies (usually 250–300 km/day), which is enough for business and tourist routes around Lviv and the region. For longer trips (e.g., Lviv–Kyiv or Lviv–Odesa), add the extended or unlimited mileage option when booking. Exceeding the limit is charged at a fixed rate per kilometer according to tariffs. Inform us about your route in advance — we’ll suggest the best option and where to refuel along the way.",
+      "group1_item3_question": "Is there a mileage limit and how to book a trip across Ukraine without restrictions?",
+      "group1_pretitle": "Practical Information",
+      "group2_item1_answer": "Rental includes mandatory liability insurance and standard Casco with a deductible. Liability covers third-party damages, Casco covers damage to the rental car above the deductible. Certain cases (e.g., glass/tires) may have special conditions — clarify during booking in the “Insurance” section. In case of an accident, record the incident and call the authorities immediately. Extended coverage reduces your risks and helps close cases faster.",
+      "group2_item1_question": "What does insurance cover and how does it help on the road? (Liability/Casco)",
+      "group2_item2_answer": "The deductible is the maximum amount you pay in case of damage; insurance covers the rest. The deposit is the amount blocked on your card during the rental, usually equal to the deductible. Example: damage = 50,000 UAH, deductible/deposit = 20,000 UAH — your responsibility is 20,000 UAH, the rest is covered by insurance. The deposit is released after returning the car undamaged; release time depends on the bank and usually takes a few days.",
+      "group2_item2_question": "Deductible vs. deposit: what’s the difference and how much do you risk?",
+      "group2_item3_answer": "Renting without a deposit is not possible.<p>By default, a deposit equal to the deductible is blocked (depends on car class). You may reduce your responsibility by choosing:</p><ul><li>−50% deposit/deductible (CDW);</li><li>−100% deposit/“zero liability” (SCDW) for damage/theft.</li></ul><p><strong>Important:</strong> even with “zero liability” there is a mandatory hold of <strong>$200–300</strong> (depending on model) for:</p><ul><li>fines and tolls,</li><li>missing fuel,</li><li>car wash/interior cleaning,</li><li>lost keys.</li></ul><p>This hold is not for damages and is refunded after clearing possible charges. Choose the right package when booking — we’ll suggest the best option for rentals in Lviv and trips across Ukraine.</p>",
+      "group2_item3_question": "Can I rent without a deposit and how does “zero liability” work?",
+      "group2_pretitle": "Insurance and Deposit",
+      "group3_item1_answer": "Basic requirements: from 21 years old with at least 2 years of driving experience. For business/premium cars: 23–25 years old and at least 5 years of experience. If you don’t fully meet the requirements, a “young driver” program is available for an extra fee. All drivers must be listed in the rental agreement: prepare documents and provide additional driver details in advance to avoid refusal at pickup.",
+      "group3_item1_question": "Minimum age and driving experience for renting in Lviv and Ukraine",
+      "group3_item2_answer": "Driving within Ukraine is unrestricted, but leaving the country is possible only with company’s written permission and a “Green Card” insurance. Time is needed for processing and checking the route/borders. Crossing borders without approval is prohibited, voids insurance, and leads to penalties. Planning a foreign trip? Inform us in advance — we’ll check requirements, prepare documents, and advise on timing.",
+      "group3_item2_question": "Can I drive outside Ukraine with a rental car?",
+      "group3_item3_answer": "Only drivers listed in the contract are allowed to drive the car. Passing the car to third parties, using it for taxi, carsharing, or courier services is prohibited and voids insurance. Need a second driver? Add them to the contract — it’s legal and safe. Violations result in contractual fines and full financial liability in case of an incident.",
+      "group3_item3_question": "Giving the car to third parties and using it for taxi/carsharing: what is prohibited",
+      "group3_pretitle": "Restrictions and Prohibitions",
+      "group4_item1_answer": "We accept payments in cash (UAH, USD, EUR), Visa/Mastercard cards, bank transfer, and — upon prior agreement — cryptocurrency (USDT/USDC). Currency/crypto payments follow the company’s rate at the time of transaction; bank and network fees may apply. Payments are available in Lviv and for delivery across Ukraine. The deposit is blocked on the renter’s card at pickup and released after returning the car undamaged. Release time depends on the bank (usually a few business days). For companies — invoices and closing documents are provided.",
+      "group4_item1_question": "What payment methods are available and how is the deposit taken?",
+      "group4_item2_answer": "Required: passport/ID card, driver’s license category B (at least 2 years), and a bank card in the renter’s name. Foreign citizens are advised to have an International Driving Permit (IDP) along with their national license — this makes verification easier. If planning a rental in Lviv during weekends or holidays, book in advance — document checks are faster and car selection is wider (see “Restrictions and Prohibitions”).",
+      "group4_item2_question": "What documents are required for renting in Lviv: locals and foreigners?",
+      "group4_item3_answer": "Cars are provided with a full tank and must be returned refueled to full. If not, missing fuel and a refueling service fee are charged at company rates. Refuel before return, keep the receipt — this avoids questions at handover. For those planning active trips around Lviv with early departures/late returns, plan your refueling and timing in advance.",
+      "group4_item3_question": "“Full-to-full” fuel policy: how to return a car without extra charges",
+      "group4_pretitle": "Payment and Documentation",
+      "title": "Frequently Asked Questions"
+    },
+    "hero": {
+      "address_link": "Danylo Halytskyi International Airport Lviv",
+      "availability": "WE REPLY 08:00–22:00",
+      "bullet1": "Economy car rental",
+      "bullet2": "Business class car rental",
+      "bullet3": "Premium car hire",
+      "bullet4": "SUV rental",
+      "bullet5": "Minivan rental",
+      "down_button": "GO TO CAR CATALOG",
+      "intro": "REIZ offers car rental in Lviv with new vehicles, premium service, fair rates and delivery to your address at a convenient time.",
+      "pretitle": "WELCOME TO REIZ",
+      "secondary_button": "Learn more",
+      "secondary_title": "LIST YOUR CAR",
+      "title": "Car rental in Lviv"
+    },
+    "hero_slider_image_alt": "Car rental in Lviv — Mercedes CLE | REIZ Rental Cars",
+    "meta": {
+      "canonical": "https://reiz.com.ua/en/",
+      "description": "Car rental in Lviv. New cars, premium service, delivery to your address, support 24/7.",
+      "href_default": "https://reiz.com.ua/en/",
+      "href_en": "https://reiz.com.ua/en/",
+      "href_ru": "https://reiz.com.ua/",
+      "href_uk": "https://reiz.com.ua/ua/",
+      "lang": "en",
+      "og_description": "Car hire in Lviv. Modern fleet, premium service, doorstep delivery, 24/7 support.",
+      "og_image": "https://reiz.com.ua/img/og/home.webp",
+      "og_locale": "en_US",
+      "og_title": "Car rental in Lviv — REIZ RENTAL CARS",
+      "page": "home",
+      "title": "Car rental in Lviv — REIZ RENTAL CARS"
+    },
+    "order_form": {
+      "date_placeholder": "Select dates",
+      "pickup_option1": "Kyiv, Boryspil Airport, Terminal 3B",
+      "pickup_option2": "Kyiv, Zhuliany Airport, Terminal 2A",
+      "pickup_option3": "Lviv, Danylo Halytskyi Int’l Airport, T1",
+      "return_option1": "Kyiv, Boryspil Airport, Terminal 3B",
+      "return_option2": "Kyiv, Zhuliany Airport, Terminal 2A",
+      "return_option3": "Lviv, Danylo Halytskyi Int’l Airport, T1",
+      "submit": "FIND"
+    },
+    "rent": {
+      "card1_button": "LEARN MORE",
+      "card1_image_alt": "List your car in Lviv — 24/7 control, up to 5000 USD monthly, 70/30 split",
+      "card1_point1": "Revenue split:<br/>70/30 — owner/rental",
+      "card1_point2": "Income:<br /> from 350 to 5000 USD — depends on the model.",
+      "card1_point3": "Real-time control<br/>Track your car 24/7 via GPS and the app — full transparency.",
+      "card1_title": "LIST YOUR CAR",
+      "card2_button": "DETAILS",
+      "card2_image_alt": "Car rental terms in Lviv — REIZ",
+      "card2_title": "RENTAL TERMS",
+      "card3_button": "DETAILS",
+      "card3_image_alt": "FAQ about car rental in Lviv — REIZ",
+      "card3_title": "FAQ"
+    },
+    "reviews_block": {
+      "google_aria": "Google  Reviews",
+      "google_label": "Google Reviews",
+      "subtitle": "High rating and customer trust worldwide",
+      "title": "Why you should rent a car with us?",
+      "trustpilot_aria": "Trustpilot Reviews",
+      "trustpilot_label": "TrustPilot"
+    }
+  },
+  "faqPage": {
+    "meta": {
+      "title": "FAQ — frequently asked questions about car rental | REIZ Lviv",
+      "description": "Answers to common questions about car rental in Lviv: deposit, insurance, age & driving experience, payment, delivery, mileage.",
+      "canonical": "https://reiz.com.ua/en/faq",
+      "og_title": "FAQ — car rental in Lviv | REIZ",
+      "og_description": "Deposit, insurance, car delivery, payment — we’ve collected answers to common questions.",
+      "og_image": "https://reiz.com.ua/img/og/faq.webp",
+      "lang": "en",
+      "href_en": "https://reiz.com.ua/en/faq",
+      "href_uk": "https://reiz.com.ua/ua/faq",
+      "href_ru": "https://reiz.com.ua/faq"
+    },
+    "pretitle": "FAQ",
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "FAQ"
+    },
+    "main_title": "Frequently asked questions about car rental in Lviv",
+    "faq_title": "FAQ",
+    "faq_pretitle": "FAQ description",
+    "questions": [
+      {
+        "question": "CAN I RENT A CAR OVERNIGHT?",
+        "answer": "Yes, nighttime pick-up and return are available 24/7. You can start or finish the rental late at night or early in the morning — please agree the exact time with a manager in advance. Night delivery/return may include an after-hours service fee."
+      },
+      {
+        "question": "CAN I RENT A CAR FOR MORE THAN A MONTH?",
+        "answer": "Yes. Long-term rentals (30+ days) come with reduced rates and monthly payments. Scheduled maintenance is on us. Ask a manager for a tailored quote."
+      },
+      {
+        "question": "WHAT IS THE MINIMUM AGE AND DRIVING EXPERIENCE?",
+        "answer": "Typically from 21 years old and 2+ years of driving. For crossovers and premium class, requirements are higher — from 25 years old. If you don’t meet age/experience, a Young Driver fee may apply."
+      },
+      {
+        "question": "DO I HAVE TO REFUEL ON THE FIRST DAY?",
+        "answer": "We use a Full-to-Full policy: you receive the car with a full tank and return it full. If refueling before return isn’t possible, a prepaid fuel option is available."
+      },
+      {
+        "question": "I HAD AN ACCIDENT — WHAT SHOULD I DO?",
+        "answer": "Ensure safety, call us 24/7 and the police (102), and do not leave the scene. Take photos/videos and, if applicable, complete the European accident statement. Your liability depends on the chosen coverage (CDW/SCDW). See the Insurance section for details."
+      },
+      {
+        "question": "WHAT DOCUMENTS DO I NEED TO RENT A CAR?",
+        "answer": "Passport, valid driving licence, and a bank card. Foreign drivers may need an International Driving Permit (IDP) in addition to their national licence."
+      },
+      {
+        "question": "HOW CAN I PAY FOR THE RENTAL?",
+        "answer": "By Visa/Mastercard (including Apple Pay/Google Pay) or cash. The deposit is pre-authorised on the card or taken in cash and released after all charges are closed."
+      },
+      {
+        "question": "CAN I ADD AN ADDITIONAL DRIVER?",
+        "answer": "Yes, if their data is added to the contract and documents are provided. Age and driving-experience requirements are the same as for the main driver."
+      },
+      {
+        "question": "IS SMOKING ALLOWED IN THE CAR?",
+        "answer": "No, smoking is prohibited. Violation incurs a fine and interior cleaning charge according to the rental terms."
+      },
+      {
+        "question": "HOW IS THE SECURITY DEPOSIT TAKEN?",
+        "answer": "Typically via card pre-authorisation or cash by agreement. The amount depends on the car class and selected insurance coverage."
+      },
+      {
+        "question": "CAN I PICK UP IN KYIV AND RETURN IN ANOTHER CITY?",
+        "answer": "Yes, one-way returns are available for an intercity transfer fee. Route and timing must be agreed in advance."
+      },
+      {
+        "question": "IS THERE A MILEAGE LIMIT?",
+        "answer": "Daily rates usually include a mileage limit (e.g., 250–300 km/day). Excess mileage is charged per km. Increased or unlimited mileage options are available."
+      },
+      {
+        "question": "DO YOU DELIVER TO ADDRESSES AND TO LVIV AIRPORT (LWO)?",
+        "answer": "Yes. We can deliver to your address in the city and meet you at the airport. Pricing depends on zone and time of day. Intercity delivery is available upon request."
+      },
+      {
+        "question": "ARE CHILD SEATS/BOOSTERS AVAILABLE?",
+        "answer": "Yes, on prior request. Options are available for different age groups. A small extra fee may apply — check when booking."
+      },
+      {
+        "question": "CAN I TRAVEL WITH PETS?",
+        "answer": "Yes, provided cleanliness is maintained (use a carrier or cover). Extra cleaning fees may apply for heavy soiling or odours."
+      },
+      {
+        "question": "WHAT ARE THE CANCELLATION/RESCHEDULING RULES?",
+        "answer": "Free cancellation is available in advance within the stated window (usually 24–48 hours). Late cancellation or no-show may incur a fee. Date changes are possible subject to availability."
+      },
+      {
+        "question": "IN WHAT CONDITION SHOULD I RETURN THE CAR?",
+        "answer": "As received: roadworthy, clean, and with a full tank. Heavy soiling may require paid washing/detailing. Please check you haven’t left personal items."
+      },
+      {
+        "question": "HOW ARE FINES, TOLLS, AND PARKING CHARGES HANDLED?",
+        "answer": "Charges incurred during the rental are settled after the trip. If needed, they may be deducted from the deposit. Final settlement timing depends on data from authorities and the bank."
+      },
+      {
+        "question": "DO I NEED AN INTERNATIONAL DRIVING PERMIT?",
+        "answer": "Foreign drivers may need an IDP in addition to their national licence (especially if it’s not in Latin script). Ukrainian residents need a national licence of the established format."
+      },
+      {
+        "question": "WHAT CAR CLASSES ARE AVAILABLE AND WHAT ARE THE APPROXIMATE PRICES?",
+        "answer": "Economy, standard, crossovers, and premium are available. Price depends on class, rental duration, and season. The longer the rental, the lower the daily rate. Check current rates in the fleet or with a manager."
+      }
+    ]
+  },
+  "insurancePage": {
+    "meta": {
+      "title": "Car rental insurance in Lviv — REIZ protection packages",
+      "description": "REIZ rental car insurance in Lviv: Standard, Comfort and Premium packages. Coverage terms, deposit size, liability in case of accident/theft, tyres & glass protection, car wash. Who is eligible for extended coverage and what is excluded.",
+      "canonical": "https://reiz.com.ua/en/insurance",
+      "og_title": "Car rental insurance — REIZ Lviv",
+      "og_description": "Choose a protection package: Standard, Comfort or Premium. Transparent terms and 24/7 support.",
+      "og_image": "https://reiz.com.ua/img/og/insurance.webp",
+      "lang": "en",
+      "href_ru": "https://reiz.com.ua/insurance",
+      "href_uk": "https://reiz.com.ua/ua/insurance",
+      "href_en": "https://reiz.com.ua/en/insurance"
+    },
+    "images": {
+      "heroAlt": "Warning triangle behind a car on the roadside — rental insurance"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "Insurance"
+    },
+    "pretitle": "INSURANCE",
+    "hero": {
+      "title": "Protect yourself from unexpected costs on the road",
+      "text": "When choosing a rental car, it’s important to plan for possible issues on the road. Our insurance packages help you reduce risks and protect yourself from extra expenses.",
+      "cta": "GET A CONSULTATION"
+    },
+    "table": {
+      "title": "PROTECTION PACKAGES — COMPARISON",
+      "labels": {
+        "coverageLevel": "Coverage level",
+        "deposit": "Deposit",
+        "driverLiabilityAccident": "Driver liability (accident)",
+        "theftTotalLoss": "Liability in theft / total loss",
+        "tyresGlass": "Tyres / glass damage",
+        "carWashIncluded": "Car wash included"
+      },
+      "packages": {
+        "standard": {
+          "name": "Standard",
+          "deposit": "Full deposit",
+          "driverLiabilityAccident": "Up to the deposit amount",
+          "theftTotalLoss": "10% of vehicle value"
+        },
+        "comfort": {
+          "name": "Comfort",
+          "deposit": "50% of Standard",
+          "driverLiabilityAccident": "50% of Standard",
+          "theftTotalLoss": "5% of vehicle value"
+        },
+        "premium": {
+          "name": "Premium",
+          "deposit": "$200–$300",
+          "driverLiabilityAccident": "No liability",
+          "theftTotalLoss": "No liability"
+        }
+      }
+    },
+    "eligibility": {
+      "title": "ELIGIBILITY FOR EXTENDED COVERAGE",
+      "items": [
+        "Drivers aged 25+ with at least 4 years of experience.",
+        "Rental period must be from 3 days and longer.",
+        "The person on the rental agreement must be the one driving.",
+        "In case of an accident, notify the company within one hour and call the police."
+      ]
+    },
+    "exclusions": {
+      "title": "NOT COVERED & PROHIBITED",
+      "items": [
+        "Driving under the influence of alcohol or drugs.",
+        "Allowing an unauthorized driver. Third parties at the wheel.",
+        "Theft of external parts such as mirrors or wipers.",
+        "Leaving the scene of an accident.",
+        "Using the car for commercial purposes (taxi, sub-rental). Strictly prohibited.",
+        "Damage to the vehicle’s interior."
+      ]
+    },
+    "downloads": {
+      "title": "DOWNLOADS",
+      "note": "YOU CAN VIEW THE FULL LIST OF LIMITATIONS AND NON-INSURED CASES IN THE DOCUMENT",
+      "file": {
+        "title": "INSURANCE & LIMITATIONS",
+        "meta": "pdf, 19 MB",
+        "href": "/insurance.html"
+      }
+    },
+    "breach": {
+      "title": "BREACH OF RENTAL TERMS",
+      "text": "Many situations related to non-compliance with the rental agreement mean that extended insurance will not cover the damage. Even with full protection, the renter must follow the company’s rules."
+    },
+    "cta": {
+      "requestCall": "REQUEST A CALL"
+    }
+  },
+  "businessPage": {
+    "meta": {
+      "title": "Car rental for business — corporate rentals | REIZ",
+      "description": "Corporate car rental in Ukraine: sedans, crossovers and minivans. VAT invoicing, insurance, contract, 24/7 support. Tailored terms for companies.",
+      "canonical": "https://reiz.com.ua/en/business/",
+      "og_title": "REIZ for Business — corporate car rental with VAT",
+      "og_description": "Flexible company rates, full insurance coverage and 24/7 support. One contract — everything included.",
+      "og_image": "https://reiz.com.ua/img/og/business.webp",
+      "og_locale": "en_US",
+      "lang": "en",
+      "href_en": "https://reiz.com.ua/en/business/",
+      "href_ru": "https://reiz.com.ua/business/",
+      "href_uk": "https://reiz.com.ua/ua/business/",
+      "href_default": "https://reiz.com.ua/business/",
+      "page": "business"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "Business rentals"
+    },
+    "pretitle": "CAR RENTAL FOR BUSINESSES IN UKRAINE",
+    "hero": {
+      "title": "Car rental for business",
+      "text": "A complete solution for companies: sedans, crossovers and minivans with VAT invoicing, insurance and tech support. All under a single contract.",
+      "cta": "GET A QUOTE"
+    },
+    "slider": {
+      "ariaLabel": "Corporate benefits",
+      "items": [
+        {
+          "title": "Special rates",
+          "text": "Tailored terms and fixed rates for your fleet and mileage.",
+          "pagination": "1–8"
+        },
+        {
+          "title": "VAT invoicing",
+          "text": "Cashless payment and a full set of closing documents.",
+          "pagination": "2–8"
+        },
+        {
+          "title": "24/7 support",
+          "text": "Hotline, advice and on-route coordination every day.",
+          "pagination": "3–8"
+        },
+        {
+          "title": "CDW/SCDW insurance",
+          "text": "Full insurance coverage for the entire rental, support in case of accident.",
+          "pagination": "4–8"
+        },
+        {
+          "title": "Long-term contracts",
+          "text": "Lower rates from 30 days. Flexible 30/60/90+ day terms.",
+          "pagination": "5–8"
+        },
+        {
+          "title": "Delivery & replacement",
+          "text": "Doorstep delivery/return. Replacement car in case of breakdown.",
+          "pagination": "6–8"
+        },
+        {
+          "title": "Mileage to fit your needs",
+          "text": "Limited/unlimited mileage as agreed. We tune it to your routes.",
+          "pagination": "7–8"
+        },
+        {
+          "title": "Personal manager",
+          "text": "Single point of contact: coordination, reporting and service SLAs.",
+          "pagination": "8–8"
+        }
+      ],
+      "controls": {
+        "prev": "Previous slide",
+        "next": "Next slide"
+      }
+    },
+    "whyUs": {
+      "title": "WHY BUSINESSES CHOOSE US",
+      "text": "Choose short- or long-term corporate rentals with cashless payment and VAT invoicing. We handle the contract, paperwork, insurance and fleet maintenance.",
+      "items": [
+        "Corporate rates and tailored terms for legal entities",
+        "Full insurance coverage, scheduled maintenance and seasonal tire change",
+        "Doorstep delivery/return, replacement car if needed",
+        "On-time reporting and acts — without extra bureaucracy"
+      ]
+    },
+    "howItWorks": {
+      "title": "HOW IT WORKS",
+      "steps": [
+        "Request — leave your contacts, number of cars, class and dates.",
+        "Commercial offer — we align the rate, mileage limit and insurance terms.",
+        "Paperwork — we sign the contract, issue an invoice, prepare acts/waybills.",
+        "Car delivery — we deliver to your address, brief drivers and hand over a quick guide."
+      ]
+    },
+    "tariffs": {
+      "title": "RATES & TERMS",
+      "items": [
+        "Lower daily rate from 30-day rentals and for fleets of 3+ cars",
+        "Limited/unlimited mileage — as agreed",
+        "CDW/SCDW insurance, franchise depends on the class of car",
+        "Delivery/return: office, airport or your specified location"
+      ],
+      "note": "Request a tailored quote — we’ll prepare an offer that matches your routes and schedules."
+    },
+    "documents": {
+      "title": "DOCUMENTS",
+      "items": [
+        "Company details and contract",
+        "Employee’s driver’s license and passport/ID",
+        "Power of attorney/service note to pick up the car (if required)"
+      ]
+    },
+    "driverRequirements": {
+      "title": "DRIVER REQUIREMENTS",
+      "items": [
+        "Age 21+",
+        "Driving experience from 2 years (higher for premium class)",
+        "Compliance with the contract terms and traffic rules"
+      ]
+    },
+    "downloads": {
+      "title": "DOWNLOADS",
+      "note": "DOCUMENTS YOU MAY NEED",
+      "file": {
+        "title": "SAMPLE CONTRACT",
+        "meta": "pdf, 19 MB",
+        "href": "/en/insurance"
+      }
+    },
+    "order": {
+      "title": "REQUEST A CALL",
+      "lead": "Leave your contacts and our manager will get back to you.",
+      "form": {
+        "namePlaceholder": "Your name",
+        "phonePlaceholder": "Phone",
+        "emailPlaceholder": "E-mail",
+        "submit": "SUBMIT REQUEST",
+        "submitBlack": "SUBMIT REQUEST"
+      }
+    },
+    "cta": {
+      "requestCall": "REQUEST A CALL"
+    }
+  },
+  "blogPage": {
+    "meta": {
+      "title": "REIZ Blog — car rental tips, routes & guides",
+      "description": "REIZ articles: car rental rules and tips in Ukraine, routes around Lviv and the country, navigation apps, parking, insurance.",
+      "canonical": "https://reiz.com.ua/en/blog/",
+      "og_title": "REIZ Blog — car rental, routes & tips",
+      "og_description": "Useful materials for drivers and travelers: accidents, parking, best routes and apps.",
+      "og_url": "https://reiz.com.ua/en/blog/",
+      "og_image": "https://reiz.com.ua/img/og/blog.webp",
+      "lang": "en",
+      "href_en": "https://reiz.com.ua/en/blog/",
+      "href_ru": "https://reiz.com.ua/blog/",
+      "href_uk": "https://reiz.com.ua/ua/blog/",
+      "href_default": "https://reiz.com.ua/blog/"
+    },
+    "pretitle": "BLOG",
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "Blog"
+    },
+    "mainTitle": "BLOG",
+    "posts": [
+      {
+        "title": "What to do after a road accident in Ukraine: a step-by-step guide from REIZ",
+        "excerpt": "A simple checklist on what to do after an accident in Ukraine: how to record the incident properly, whom to notify, and which documents your insurer will require.",
+        "date": "17.04.2025",
+        "cta": "READ MORE",
+        "imgAlt": "Car with a warning triangle on the road — article about road accidents in Ukraine"
+      },
+      {
+        "title": "Road-trip route across Ukraine by car",
+        "excerpt": "Explore a route that offers a thrilling road adventure and a chance to discover the country’s culture and landscapes.",
+        "date": "17.04.2025",
+        "cta": "READ MORE",
+        "imgAlt": "Panorama of Ukraine’s landmarks at sunset — road-trip route"
+      },
+      {
+        "title": "Top navigation apps in Ukraine",
+        "excerpt": "Ukraine is a place where tech is part of daily life for locals and visitors. We review the most popular apps that help you navigate cities and highways with ease.",
+        "date": "17.04.2025",
+        "cta": "READ MORE",
+        "imgAlt": "GPS navigator icon — review of popular navigation apps in Ukraine"
+      },
+      {
+        "title": "Road trip around Lviv and Lviv Oblast",
+        "excerpt": "Discover Lviv and its region by car — from the cozy Old Town streets to castles, lakes, and the Carpathians. A convenient route to see the essentials without rushing.",
+        "date": "17.04.2025",
+        "cta": "READ MORE",
+        "imgAlt": "Panorama of Lviv and landmarks — route around Lviv Oblast"
+      },
+      {
+        "title": "How to pay for parking in Ukraine as a tourist?",
+        "excerpt": "Learn several quick ways to make the payment with minimal fuss.",
+        "date": "17.04.2025",
+        "cta": "READ MORE",
+        "imgAlt": "Parking sign near a city building — how to pay for parking in Ukraine"
+      }
+    ],
+    "cta": {
+      "requestCall": "REQUEST A CALL"
+    }
+  },
+  "aboutPage": {
+    "meta": {
+      "title": "About REIZ — Car Rental in Lviv & Kyiv",
+      "description": "Who we are and how we work: REIZ offers car rentals with transparent terms, a modern fleet, and 24/7 support. We operate in Lviv and Kyiv.",
+      "canonical": "https://reiz.com.ua/en/about/",
+      "og_title": "About REIZ — Car Rental in Lviv & Kyiv",
+      "og_description": "Our mission, team, and service approach. Honest rental terms and 24/7 support.",
+      "og_url": "https://reiz.com.ua/en/about/",
+      "og_image": "https://reiz.com.ua/img/og/about.webp",
+      "lang": "en",
+      "href_en": "https://reiz.com.ua/en/about/",
+      "href_ru": "https://reiz.com.ua/about/",
+      "href_uk": "https://reiz.com.ua/ua/about/",
+      "href_default": "https://reiz.com.ua/about/"
+    },
+    "pretitle": "ABOUT US",
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "About us"
+    },
+    "mainTitle": "ABOUT REIZ",
+    "mission": {
+      "title": "OUR MISSION",
+      "text": "WE MAKE CAR RENTAL THE WAY IT SHOULD BE: HONEST, STYLISH, ALIVE"
+    },
+    "brand": {
+      "title": "REIZ",
+      "imageAlt": "REIZ logo on the building facade — car rental brand"
+    },
+    "team": {
+      "items": [
+        {
+          "name": "Marian Yedynak",
+          "position": "Founder",
+          "imgAlt": "Marian Yedynak — Founder of REIZ"
+        },
+        {
+          "name": "Team Member",
+          "position": "Position",
+          "imgAlt": "Team member — REIZ"
+        },
+        {
+          "name": "Team Member 2",
+          "position": "Position",
+          "imgAlt": "Team member — REIZ"
+        },
+        {
+          "name": "Team Member 3",
+          "position": "Position",
+          "imgAlt": "Marian Yedynak — Founder of REIZ"
+        }
+      ]
+    },
+    "stats": {
+      "items": [
+        {
+          "value": "10",
+          "label": "Cars available<br />for rent"
+        },
+        {
+          "value": "230000",
+          "label": "Kilometers driven by our customers"
+        },
+        {
+          "value": "4",
+          "label": "People in the REIZ team"
+        },
+        {
+          "value": "54",
+          "label": "New customers per month"
+        }
+      ]
+    }
+  },
+  "certificatePage": {
+    "meta": {
+      "title": "Gift certificate for car rental — original gift | REIZ Lviv",
+      "description": "Give the experience: REIZ certificate $100–$5000, email in 5 minutes or physical card. Lviv.",
+      "canonical": "https://reiz.com.ua/en/certificate",
+      "og_title": "REIZ Gift Certificates — car rental in Lviv",
+      "og_description": "Give car rental: choose the certificate amount, electronic or physical format. Issued in 5 minutes.",
+      "og_image": "https://reiz.com.ua/img/og/certificate.webp",
+      "og_locale": "en_US",
+      "og_url": "https://reiz.com.ua/en/certificate",
+      "lang": "en",
+      "href_en": "https://reiz.com.ua/en/certificate",
+      "href_ru": "https://reiz.com.ua/certificate",
+      "href_uk": "https://reiz.com.ua/ua/certificate",
+      "href_default": "https://reiz.com.ua/certificate"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "Gift Certificates"
+    },
+    "pretitle": "GIFT CERTIFICATES",
+    "hero": {
+      "titleDesktop": "Gift certificates for car rental from REIZ",
+      "titleMobile": "Give a car rental to the people who matter most",
+      "subtitle": "A new experience is the best gift — and with REIZ it will be memorable."
+    },
+    "driverRequirements": {
+      "title": "DRIVER REQUIREMENTS",
+      "items": ["AGE: 21+", "DRIVING EXPERIENCE: 3+ YEARS"]
+    },
+    "rentalNeeds": {
+      "title": "REQUIRED TO RENT",
+      "items": ["PASSPORT", "DRIVER’S LICENSE"]
+    },
+    "slider": {
+      "items": [
+        {
+          "title": "Winter holidays",
+          "text": "A gift certificate for car rental is a perfect New Year present: mountain trips, family journeys and warm winter weekends."
+        },
+        {
+          "title": "Birthday",
+          "text": "An original gift for car lovers: choose the class, dates and format — e-certificate or a physical card."
+        },
+        {
+          "title": "Romantic weekend",
+          "text": "Give emotions: a car rental certificate for dates and short trips in Lviv and around."
+        },
+        {
+          "title": "Weekend in the Carpathians",
+          "text": "A <em>unique gift</em> for a mountain weekend: start in Lviv and pick a suitable car class."
+        }
+      ]
+    },
+    "form": {
+      "title": "Give the gift of driving experiences with REIZ",
+      "chooseAmount": "CHOOSE THE CERTIFICATE AMOUNT",
+      "amountOptions": [
+        "$100",
+        "$250",
+        "$500",
+        "$750",
+        "$1000",
+        "$1500",
+        "$2500",
+        "$5000",
+        "Custom amount"
+      ],
+      "fillForm": "FILL OUT THE FORM",
+      "placeholders": {
+        "name": "Your name",
+        "phone": "Phone",
+        "email": "Email"
+      },
+      "togglePhysical": "I want a physical certificate",
+      "preview": {
+        "title": "PREVIEW",
+        "button": "VIEW CERTIFICATE"
+      },
+      "terms": {
+        "title": "TERMS OF USE",
+        "text": "After payment we’ll email the certificate to you, or arrange courier delivery at a convenient time and place — simply enable “I want a physical certificate”."
+      },
+      "price": "$1500",
+      "payButton": "PROCEED TO PAYMENT",
+      "consent": "By clicking “Proceed to payment”, you accept the personal data processing terms."
+    },
+    "faq": {
+      "title": "HOW IT WORKS",
+      "items": [
+        {
+          "q": "What is the validity period of a gift certificate?",
+          "aHtml": "<strong>The certificate is valid for 12 months from the purchase date.</strong> It can be extended once upon agreement with our manager. Valid in Lviv and other REIZ locations."
+        },
+        {
+          "q": "How do I use the certificate and book a car?",
+          "aHtml": "Select a car and dates on the website or by phone. <strong>Provide the gift certificate code</strong> to the manager — the amount will be applied to the booking. You can book online, by phone or via messengers."
+        },
+        {
+          "q": "What if the rental price exceeds the certificate amount?",
+          "aHtml": "<strong>You can pay the difference using any convenient method</strong> (card/cashless/cash). Combining multiple certificates for one rental is allowed."
+        },
+        {
+          "q": "Can I use the certificate in parts for several trips?",
+          "aHtml": "<strong>Yes, partial payments are possible</strong> until the full amount is used. Tell the manager you’d like to spend it in stages."
+        },
+        {
+          "q": "Can I use a certificate if I don’t have a driver’s license?",
+          "aHtml": "<strong>Yes — a chauffeured rental is available</strong> (extra service). A convenient <em>unique gift</em> in Lviv for those who don’t drive."
+        },
+        {
+          "q": "Do I need a deposit and insurance when renting with a certificate?",
+          "aHtml": "<strong>Standard rental terms apply:</strong> the security deposit/franchise depends on the car class. The certificate covers the rental price but does not replace the deposit or extra services. CDW/SCDW liability reduction is available."
+        },
+        {
+          "q": "Can I get a refund for a gift certificate?",
+          "aHtml": "<strong>Refunds are not provided</strong> by the certificate terms. If needed, we can extend its validity or <strong>reissue it to another person</strong>."
+        },
+        {
+          "q": "For which occasions is the certificate suitable — is it truly a unique gift?",
+          "aHtml": "<strong>Yes — it’s a versatile, unique gift in Lviv:</strong> birthday, anniversary, wedding, corporate events, New Year. Great as a <em>gift for car enthusiasts</em> and for anyone who values new experiences."
+        },
+        {
+          "q": "Which formats are available and how fast can I get it?",
+          "aHtml": "<strong>Electronic certificate</strong> arrives by email within 5 minutes after payment. <strong>Physical certificate</strong> can be delivered by courier in Lviv and across Ukraine. Both formats are equally valid."
+        },
+        {
+          "q": "Who can buy it and who can use it? (driver requirements)",
+          "aHtml": "Any adult can buy a certificate. It can be used by a driver who meets REIZ requirements: <strong>age 21+, 3+ years of experience, passport and driver’s license</strong> (for foreigners — international license if required)."
+        }
+      ]
+    }
+  },
+  "investPage": {
+    "meta": {
+      "title": "List your car for rent in Lviv — REIZ",
+      "description": "List your car in Lviv with REIZ: official agreement, monthly payouts, maintenance and 24/7 monitoring. Check the requirements and submit a request.",
+      "canonical": "https://reiz.com.ua/en/invest",
+      "og_title": "List your car for rent in Lviv — REIZ",
+      "og_description": "Hand over your car to REIZ and earn passive income. Agreement, payouts, service and full control.",
+      "og_image": "https://reiz.com.ua/img/og/invest.webp",
+      "lang": "en",
+      "href_ru": "https://reiz.com.ua/invest",
+      "href_uk": "https://reiz.com.ua/ua/invest",
+      "href_en": "https://reiz.com.ua/en/invest"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "List your car"
+    },
+    "hero": {
+      "pretitle": "LIST YOUR CAR",
+      "title": "List your car for rent in Lviv",
+      "intro": "Turn your car into a source of income without handling day-to-day operations. Our experienced team manages everything for you."
+    },
+    "why": {
+      "title": "WHY IT’S BENEFICIAL",
+      "items": [
+        "Invest in a growing car-rental market without extra hassle. We handle the full cycle — from listing to vehicle return.",
+        "Your car generates income — payouts are transferred to your account monthly according to the agreement.",
+        "Regular maintenance, inspections and monitoring — to keep your car earning without downtime or unexpected failures.",
+        "Full control: track the vehicle status via your personal account. All processes are transparent and automated.",
+        "Rentals are covered by an official agreement. All legal aspects and paperwork meet established standards."
+      ]
+    },
+    "requirements": {
+      "title": "VEHICLE REQUIREMENTS FOR LISTING",
+      "items": [
+        "Vehicle no older than 3 years",
+        "Technically sound and fully serviced",
+        "Valid third-party liability insurance (CASCO comprehensive optional)",
+        "The car must be legally clean — no liens/restrictions and not reported stolen"
+      ]
+    },
+    "form": {
+      "title": "SUBMIT A LISTING REQUEST",
+      "text": "Fill out the form so we can estimate the potential yield of your vehicle and contact you to clarify the details.",
+      "placeholders": {
+        "car": "Make:",
+        "model": "Model:",
+        "transmission": "Transmission",
+        "milliage": "Mileage:",
+        "year": "Year:",
+        "color": "Color:",
+        "complect": "Trim/Package:",
+        "name": "Full name:",
+        "phone": "Phone:",
+        "mail": "E-mail:"
+      },
+      "transmissionOptions": ["Automatic", "Manual", "Automated"],
+      "submit": "SUBMIT REQUEST"
+    }
+  },
+  "termsPage": {
+    "meta": {
+      "title": "Car Rental Terms in Lviv — REIZ",
+      "description": "Driver requirements, documents for Ukrainians and foreigners, payment methods, insurance, deposit, mileage. REIZ rental terms in Lviv.",
+      "canonical": "https://reiz.com.ua/en/terms",
+      "og_title": "Rental Terms — REIZ Lviv",
+      "og_description": "All rules and requirements: documents, payment, insurance, deposit, mileage.",
+      "og_url": "https://reiz.com.ua/en/terms",
+      "og_image": "https://reiz.com.ua/img/og/terms.webp",
+      "lang": "en",
+      "href_ru": "https://reiz.com.ua/terms",
+      "href_uk": "https://reiz.com.ua/ua/terms",
+      "href_en": "https://reiz.com.ua/en/terms"
+    },
+    "hero": {
+      "pretitle": "RENTAL TERMS",
+      "title": "Rental terms"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "Rental terms"
+    },
+    "termsList": {
+      "ageTitle": "AGE 21+",
+      "experienceTitle": "DRIVING EXPERIENCE 3+ YEARS",
+      "requirementsBlockLabel": "RENTER REQUIREMENTS",
+      "citizensUA": {
+        "title": "FOR CITIZENS OF UKRAINE",
+        "items": ["ID card", "Tax ID number", "Driver’s license"]
+      },
+      "foreignCitizens": {
+        "title": "FOR FOREIGN CITIZENS",
+        "items": [
+          "Valid entry stamp/permit for Ukraine",
+          "International Driving Permit (IDP)",
+          "Passport"
+        ]
+      }
+    },
+    "payments": {
+      "title": "PAYMENT METHODS",
+      "methods": [
+        "Cash",
+        "UnionPay",
+        "Bank card at the office",
+        "Bank card on the website",
+        "E-wallets"
+      ]
+    },
+    "tabs": {
+      "nav": ["Insurance", "Deposit", "Rates", "Mileage"],
+      "contents": [
+        {
+          "paragraphs": [
+            "For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:"
+          ],
+          "table": {
+            "head": ["Vehicle category", "Price per 1 km (USD)"],
+            "rows": [
+              ["Economy", "0.12"],
+              ["Business", "0.30"],
+              ["SUVs", "0.30"],
+              ["Premium", "0.70"],
+              ["Minivans", "0.50"]
+            ]
+          }
+        },
+        {
+          "paragraphs": [
+            "If the limit is exceeded, an extra charge is applied per km depending on the vehicle category:"
+          ],
+          "table": {
+            "head": ["Vehicle category", "Price per 1 km (USD)"],
+            "rows": [
+              ["Economy", "0.12"],
+              ["SUVs", "0.30"],
+              ["Premium", "0.70"],
+              ["Minivans", "0.50"]
+            ]
+          }
+        },
+        {
+          "paragraphs": [
+            "For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:",
+            "For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:"
+          ],
+          "table": {
+            "head": ["Vehicle category", "Price per 1 km (USD)"],
+            "rows": [
+              ["Economy", "0.12"],
+              ["Business", "0.30"],
+              ["SUVs", "0.30"],
+              ["Premium", "0.70"],
+              ["Minivans", "0.50"]
+            ]
+          }
+        },
+        {
+          "paragraphs": [
+            "For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:"
+          ],
+          "table": {
+            "head": ["Vehicle category", "Price per 1 km (USD)"],
+            "rows": [
+              ["Economy", "0.12"],
+              ["Business", "0.30"],
+              ["Economy", "0.12"],
+              ["Business", "0.30"],
+              ["SUVs", "0.30"],
+              ["Premium", "0.70"],
+              ["Minivans", "0.50"]
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "contactsPage": {
+    "meta": {
+      "title": "REIZ contacts — car rental in Lviv: phone, address, hours",
+      "description": "Contact REIZ in Lviv: phone +380 63 547 11 86, email info@reiz.com.ua, address Liubinska St., 168. Open daily 08:30–20:30. Door-to-door delivery, 24/7 support.",
+      "canonical": "https://reiz.com.ua/en/contacts",
+      "og_title": "REIZ Lviv contacts — car rental",
+      "og_description": "Phone, address, opening hours, email. Fast car delivery and 24/7 assistance.",
+      "og_image": "https://reiz.com.ua/img/og/contacts.webp",
+      "lang": "en",
+      "href_en": "https://reiz.com.ua/en/contacts",
+      "href_uk": "https://reiz.com.ua/ua/contacts",
+      "href_ru": "https://reiz.com.ua/contacts"
+    },
+    "hero": {
+      "pretitle": "CONTACTS",
+      "title": "CONTACTS"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "Contacts"
+    },
+    "officesSection": {
+      "title": "OUR OFFICES",
+      "offices": [
+        {
+          "city": "Kyiv",
+          "address": "Velyka Zhytomyrska St., 6/11, Kyiv",
+          "phone": "+380 63 547 11 86",
+          "hours": "Mon–Sun 08:30–20:30",
+          "email": "info@reiz.com.ua"
+        },
+        {
+          "city": "Lviv",
+          "address": "Liubinska St., 168, Lviv",
+          "phone": "+380 63 547 11 86",
+          "hours": "Mon–Sun 08:30–20:30",
+          "email": "info@reiz.com.ua"
+        }
+      ]
+    },
+    "form": {
+      "title": "WE’RE READY TO ANSWER ALL YOUR QUESTIONS",
+      "placeholders": {
+        "name": "Your name",
+        "email": "Email",
+        "phone": "Phone",
+        "message": "Message"
+      },
+      "submit": "SEND REQUEST"
+    }
+  },
+  "footer": {
+    "tagline": "CAR RENTAL IN UKRAINE",
+    "description": "A reliable car rental service in Lviv: self-drive car rental in Lviv, car hire (economy/comfort/SUV), delivery to your address, to the railway station, and to LWO airport. 24/7 support and transparent rates.",
+    "nav": {
+      "home": "HOME",
+      "cars": "CARS",
+      "business": "FOR BUSINESS",
+      "invest": "LIST YOUR CAR",
+      "blog": "BLOG",
+      "about": "ABOUT US",
+      "contacts": "CONTACTS"
+    },
+    "contacts": {
+      "phone_title": "Office phone",
+      "phone_number": "+380 63 547 11 86",
+      "working_hours": "Open 09:00–22:00,\nseven days a week"
+    },
+    "address": {
+      "title": "Office address",
+      "text": "DANYLO HALYTSKYI INTERNATIONAL AIRPORT LVIV"
+    },
+    "payments": {
+      "title": "We accept"
+    },
+    "social": {
+      "title": "Follow us"
+    },
+    "bottom": {
+      "copyright": "© 2025 Reiz. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "developed_by": "Developed by Reiz"
+    }
+  },
+  "offerModal": {
+    "title": "Get an offer",
+    "placeholders": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "E-mail"
+    },
+    "consentText": "By clicking the «Submit request» button, you accept the terms of personal data processing",
+    "checkboxLabel": "I have read the personal data processing terms",
+    "submit": "Submit request"
+  },
+  "applyModal": {
+    "title": "Submit a request",
+    "consent": "By clicking the «Submit a request» button, you accept the personal data processing terms",
+    "checkboxLabel": "I have read the personal data processing terms",
+    "submit": "Submit a request",
+    "closeAria": "Close"
+  },
+  "carPage": {
+    "breadcrumbs": {
+      "home": "Home",
+      "cars": "Cars"
+    },
+    "title": "Rent {brand} {model} {year} in Ukraine",
+    "tabs": {
+      "specifications": "Specifications",
+      "equipment": "Equipment"
+    },
+    "specifications": {
+      "descriptionTitle": "DESCRIPTION AND SPECIFICATIONS “{carName}”",
+      "engine": "Engine",
+      "transmission": "Transmission",
+      "fuelConsumption": "Fuel consumption",
+      "driveType": "Drive type",
+      "seatsLabel": "Seats",
+      "seats": "{count, plural, one {{count} seat} other {{count} seats}}",
+      "year": "Year of manufacture"
+    },
+    "equipmentTitle": "Equipment “{carName}”"
+  },
+  "carAside": {
+    "rentalPeriodTitle": "Rental period “{brand} {model} {year}”",
+    "rangeSeparator": "to",
+    "selectedDays": "{count, plural, one {{count} day} other {{count} days}}",
+    "rentalCostTitle": "Rental cost",
+    "plans": {
+      "withDeposit": "With deposit",
+      "coverage": "Coverage {percent}%"
+    },
+    "tariffs": {
+      "exact": "{count, plural, one {{count} day} other {{count} days}}",
+      "more": "{count, plural, one {More than {count} day} other {More than {count} days}}",
+      "range": "{min} — {max} days",
+      "pricePerDay": "{price} USD/day"
+    },
+    "depositLabel": "Deposit",
+    "currency": "{value} USD",
+    "totalPriceLabel": "Total cost “{brand} {model} {year}”",
+    "clubPriceLabel": "Club price",
+    "actions": {
+      "book": "BOOK NOW",
+      "requestCall": "REQUEST A CALL"
+    },
+    "conditionsTitle": "Rental terms “{brand} {model} {year}”",
+    "requirements": {
+      "age": {
+        "title": "Your age",
+        "value": "{age}+ years"
+      },
+      "experience": {
+        "title": "Driving experience",
+        "value": "From {years} years of driving"
+      },
+      "mileage": {
+        "title": "Mileage limit ({count, plural, one {{count} day} other {{count} days}})",
+        "value": "{limit} km"
+      }
+    },
+    "links": {
+      "conditions": "Learn more about terms",
+      "faq": "FAQ"
+    },
+    "tooltips": {
+      "club": "Club price for Reiz loyal customers.<br/>Ask your manager for details.",
+      "deposit": "Want to lower the deposit?<br/>Choose a coverage package:<br/>50% — deposit is halved<br/>100% — no deposit required",
+      "overdrive": "{price} USD for each additional km."
+    }
+  },
+  "rangeDateTimePicker": {
+    "weekDays": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+    "reset": "Reset",
+    "title": "Select pickup and return date & time",
+    "monthsAriaLabel": "Month selection",
+    "startDate": {
+      "label": "Pickup date",
+      "timeLabel": "Pickup time"
+    },
+    "endDate": {
+      "label": "Return date",
+      "timeLabel": "Return time"
+    },
+    "notSelected": "...",
+    "duration": "{count, plural, one {{count} day} other {{count} days}}",
+    "confirm": "Confirm"
+  },
+  "carRentModal": {
+    "breadcrumbs": {
+      "home": "Home",
+      "cars": "Cars"
+    },
+    "title": "Booking request",
+    "orderForm": {
+      "datePlaceholder": "Select dates",
+      "submit": "Find"
+    },
+    "steps": {
+      "title": "Booking request",
+      "indicator": "Step {current}/{total}",
+      "back": "Back",
+      "next": "Next",
+      "submit": "Send request"
+    },
+    "personal": {
+      "title": "Personal details",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "phonePlaceholder": "Phone",
+      "email": "E-mail",
+      "pickupPlaceholder": "Pickup location",
+      "returnPlaceholder": "Return location",
+      "datesLabel": "Rental dates",
+      "selectedDays": "{count, plural, one {{count} day} other {{count} days}}",
+      "flightNumber": "Flight number",
+      "flightOptional": "Optional"
+    },
+    "insurance": {
+      "title": "Insurance",
+      "infoTitle": "Insurance",
+      "packages": {
+        "withDeposit": "With deposit",
+        "coverage": "Coverage {percent}%"
+      },
+      "included": "Included in the price",
+      "depositReduction": "Deposit reduced by {percent}%",
+      "pricePerDay": "{price} USD/day"
+    },
+    "addOns": {
+      "title": "Add-ons",
+      "options": {
+        "additionalDriver": {
+          "label": "Additional driver",
+          "price": "{price} USD/day",
+          "summary": "Additional driver"
+        },
+        "childSeat": {
+          "label": "Child seat",
+          "price": "{price} USD/day",
+          "summary": "Child seat"
+        },
+        "borderCrossing": {
+          "label": "Border crossing",
+          "price": "{price} USD",
+          "summary": "Border crossing"
+        },
+        "driverService": {
+          "label": "Driver service",
+          "price": "{price} USD/day",
+          "summary": "Driver service"
+        }
+      },
+      "noneSelected": "No add-ons selected"
+    },
+    "comment": {
+      "title": "Comment",
+      "placeholder": "Message for the manager"
+    },
+    "agreement": "I have read and agree to the personal data processing terms",
+    "notifications": {
+      "success": "Request sent successfully. We will contact you soon.",
+      "error": "Failed to send the request. Please try again.",
+      "validation": {
+        "fillRequired": "Fill in all required fields and rental dates.",
+        "invalidEmail": "Please enter a valid email address.",
+        "acceptTerms": "Please accept the data processing terms."
+      }
+    },
+    "summary": {
+      "title": "Rent {car}",
+      "pickupLabel": "Pickup request",
+      "returnLabel": "Return request",
+      "durationLabel": "Rental duration",
+      "durationValue": "{count, plural, one {{count} day} other {{count} days}}",
+      "rateLabel": "Rental rate",
+      "pricePerDay": "{price} USD/day",
+      "addOnsLabel": "Add-ons",
+      "depositLabel": "Deposit",
+      "totalLabel": "Total cost",
+      "locationPlaceholder": "Not specified",
+      "imageAlt": "Car {car} rental"
+    },
+    "locations": {
+      "options": [
+        "Kyiv, Boryspil Airport, Terminal 3B",
+        "Kyiv, Zhuliany Airport, Terminal 2A",
+        "Lviv, Danylo Halytskyi Int’l Airport, T1"
+      ]
+    },
+    "totalCostLabel": "Total cost",
+    "bookButton": "Book"
+  },
+  "carRentPage": {
+    "breadcrumbs": {
+      "home": "Home",
+      "cars": "Cars",
+      "booking": "Booking"
+    },
+    "agreement": "I have read and agree to the personal data processing terms",
+    "rangeSeparator": "to",
+    "orderForm": {
+      "datePlaceholder": "Select dates",
+      "submit": "Find"
+    },
+    "personal": {
+      "title": "Personal details",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "phonePlaceholder": "Phone",
+      "email": "E-mail",
+      "pickupPlaceholder": "Pickup location",
+      "returnPlaceholder": "Return location"
+    },
+    "insuranceCoverage": {
+      "title": "Choose coverage type",
+      "options": {
+        "deposit": "With deposit",
+        "50": "50% coverage",
+        "100": "Full coverage (100%)"
+      },
+      "features": {
+        "damage": {
+          "label": "Vehicle damage",
+          "sub": "Within deposit limit"
+        },
+        "theft": {
+          "label": "Theft / total loss fee",
+          "sub": "5% of vehicle value"
+        },
+        "tireDamage": {
+          "label": "Tire / rim damage",
+          "sub": "Within deposit limit"
+        },
+        "wash": {
+          "label": "Car wash",
+          "sub": "Included in package"
+        }
+      },
+      "footer": {
+        "deposit": "Deposit",
+        "pricePerDay": " / day",
+        "total": "Total for days"
+      }
+    },
+    "addOns": {
+      "title": "Add-ons",
+      "options": {
+        "additionalDriver": {
+          "label": "Additional driver",
+          "price": "{price} USD/day",
+          "summary": "Additional driver"
+        },
+        "childSeat": {
+          "label": "Child seat",
+          "price": "{price} USD/day",
+          "summary": "Child seat"
+        },
+        "borderCrossing": {
+          "label": "Border crossing",
+          "price": "{price} USD",
+          "summary": "Border crossing"
+        },
+        "driverService": {
+          "label": "Driver service",
+          "price": "{price} USD/day",
+          "summary": "Driver service"
+        }
+      },
+      "noneSelected": "No add-ons selected"
+    },
+    "comment": {
+      "placeholder": "Message for the manager"
+    },
+    "notifications": {
+      "success": "Request sent successfully. We will contact you soon.",
+      "error": "Failed to send the request. Please try again.",
+      "validation": {
+        "fillRequired": "Fill in all required fields and rental dates.",
+        "invalidEmail": "Please enter a valid email address.",
+        "acceptTerms": "Please accept the data processing terms."
+      }
+    },
+    "summary": {
+      "title": "Rent {car}",
+      "pickupLabel": "Pickup request",
+      "returnLabel": "Return request",
+      "durationLabel": "Rental duration",
+      "durationValue": "{count, plural, one {{count} day} other {{count} days}}",
+      "rateLabel": "Rental rate",
+      "pricePerDay": "{price} USD/day",
+      "addOnsLabel": "Add-ons",
+      "depositLabel": "Deposit",
+      "totalLabel": "Total cost",
+      "locationPlaceholder": "Not specified",
+      "imageAlt": "Car {car} rental"
+    },
+    "locations": {
+      "options": [
+        "Kyiv, Boryspil Airport, Terminal 3B",
+        "Kyiv, Zhuliany Airport, Terminal 2A",
+        "Lviv, Danylo Halytskyi Int’l Airport, T1"
+      ]
+    },
+    "currency": "{value} USD",
+    "totalCostLabel": "Total cost",
+    "bookButton": "Book"
+  },
+  "requestCallModal": {
+    "title": "Get an Offer",
+    "placeholder": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "E-mail"
+    },
+    "text": "By clicking the 'Submit Request' button, you accept the terms of personal data processing",
+    "checkbox": "I have read and agree to the personal data processing terms",
+    "button": "Submit Request",
+    "contactMethods": {
+      "title": "How should we contact you?",
+      "options": {
+        "phone": {
+          "title": "Call by phone",
+          "description": "(Our manager will call you)"
+        },
+        "whatsapp": {
+          "title": "Send a WhatsApp message",
+          "description": "(You will receive a WhatsApp message)"
+        },
+        "telegram": {
+          "title": "Send a Telegram message",
+          "description": "(You will receive a Telegram message)"
+        }
+      }
+    },
+    "errors": {
+      "nameRequired": "Please enter your name",
+      "phoneRequired": "Please enter your phone number",
+      "phoneInvalid": "Enter a valid phone number",
+      "consentRequired": "Please accept the personal data processing terms"
+    }
+  },
+  "managerWillContactYouModal": {
+    "title": "Thank you!",
+    "subtitle": "We have received your request for",
+    "callRequest": "We will contact you at: {phone}",
+    "carInfo": "{brand} {model} {year}",
+    "dateRange": "{startDate}–{endDate}.",
+    "managerContact": "A REIZ manager will contact you shortly to confirm.",
+    "buttons": {
+      "home": "Go to homepage",
+      "close": "Close"
+    }
+  }
+}

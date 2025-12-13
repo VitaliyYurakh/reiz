@@ -4,8 +4,8 @@ services:
     api:
         build: ./api
         restart: always
-        ports:
-            - '3000:3000'
+        expose:
+            - '3000'
         env_file:
             - ./api/.env
         volumes:
@@ -15,30 +15,54 @@ services:
         networks:
             - reiz
 
-    frontend:
-        build: ./front
+    web:
+        build: 
+            context: ./front
+            dockerfile: Dockerfile
+        image: my-next-app:latest
+        env_file:
+            - .env
+        environment:
+            NODE_ENV: production
+            HOSTNAME: 0.0.0.0
+            PORT: 8080
+        expose:
+            - "8080"
         restart: always
-        ports:
-            - '8080:8080'
         networks:
             - reiz
 
     postgres:
         image: postgres:16
         restart: always
-        ports:
-            - '5432:5432'
+        expose:
+            - '5432'
         volumes:
             - pgdata:/var/lib/postgresql/data
         environment:
             POSTGRES_DB: reiz
             POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: 1
+            POSTGRES_PASSWORD: postgres
+        networks:
+            - reiz
+    
+    caddy:
+        image: caddy:2.7
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./Caddyfile:/etc/caddy/Caddyfile
+            - caddy_data:/data
+            - caddy_config:/config
         networks:
             - reiz
 
 volumes:
     pgdata:
+    caddy_data:
+    caddy_config:
 
 networks:
     reiz:

@@ -1,0 +1,111 @@
+@use "../mixins/breakpoint" as *;
+@use "../mixins/disable-mob-hover" as *;
+
+.terms-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 1.4706vw, 20px);
+  padding-bottom: 15px;
+  border-bottom: 1px solid #d2d2d2;
+
+  &__item {
+    width: 100%;
+  }
+
+  &__btn {
+    width: 100%;
+    background: var(--cl-t);
+    border-radius: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--cl-a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+
+    @include hover {
+      background: var(--cl-e);
+      color: var(--cl-b);
+      opacity: 0.8;
+    }
+
+    &.active {
+      pointer-events: none;
+      background: var(--cl-e);
+      color: var(--cl-b);
+
+      &::before {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    @include mobile {
+      min-width: 235px;
+      padding: 5px 10px;
+      position: relative;
+      z-index: 5;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: calc(100% + 15px);
+        height: 3px;
+        left: -10px;
+        right: -10px;
+        background: #d2d2d2;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 5;
+        width: 100%;
+        top: calc(100% + 15px);
+        height: 3px;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        background: var(--cl-e);
+      }
+
+      &:first-of-type {
+        &::after {
+          left: -20px;
+        }
+      }
+
+      &:last-of-type {
+        &::after {
+          right: -20px;
+        }
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include mobile {
+    gap: 20px;
+    overflow-x: auto;
+    width: calc(100% + (var(--container-offset) * 2));
+    margin-left: calc(var(--container-offset) * -1);
+    padding: 0 var(--container-offset) 18px;
+    // border-bottom: 3px solid #d2d2d2;
+    border: none;
+    // position: relative;
+    //    &::before{
+    //     content: '';
+    //     position: absolute;
+    //     width: 100%;
+    //     bottom: 0;
+    //     height: 3px;
+    //     left: 0;
+    //     background: #d2d2d2;
+    //   }
+  }
+}
