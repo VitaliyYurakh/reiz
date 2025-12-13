@@ -43,7 +43,7 @@ export default function DashboardLayout({
                         <aside className="aside">
                             <div className="aside__top">
                                 <Link href="/admin/cars" className="aside__title">REIZ</Link>
-                                <p>CAR RENTAL IN UKRAINE Test</p>
+                                <p>CAR RENTAL IN UKRAINE</p>
                             </div>
 
                             <nav className="main-nav">
