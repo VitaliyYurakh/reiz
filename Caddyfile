@@ -1,5 +1,5 @@
 dev.reiz.com.ua {
   reverse_proxy /api/* api:3000
   reverse_proxy /static/* api:3000
-  reverse_proxy /* frontend:8080
+  reverse_proxy /* web:8080
 }
