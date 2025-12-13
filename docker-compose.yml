@@ -20,8 +20,6 @@ services:
             context: ./front
             dockerfile: Dockerfile
         image: my-next-app:latest
-        env_file:
-            - .env
         environment:
             NODE_ENV: production
             HOSTNAME: 0.0.0.0
