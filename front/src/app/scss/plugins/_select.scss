@@ -64,7 +64,7 @@
     height: 39px;
     transition: all var(--transition-normal);
     border: 1px solid var(--cl-mm);
-    border-radius: 8px;
+    border-radius: 12px;
 
     &.active {
       border-radius: 8px 8px 0 0;
@@ -211,7 +211,7 @@
     cursor: pointer;
     transition: all 0.3s;
     font-style: normal;
-    border-radius: 8px;
+    border-radius: 88px;
     height: 34px;
     font-weight: 400;
     font-size: 14px;

@@ -267,7 +267,7 @@ export default function Header({
                       </span>
                     </a>
                     <a
-                      href="#"
+                      href="https://www.instagram.com/reiz.rental?igsh=MXY4bmMyMjl0YWNtYg=="
                       className="header__link"
                       aria-label="REIZ в Instagram"
                     >

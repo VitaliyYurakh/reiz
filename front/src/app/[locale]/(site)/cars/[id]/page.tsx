@@ -144,7 +144,7 @@ export default async function CarPage({
                                     alignItems: "center",
                                     backgroundColor: "#f5f5f5",
                                     padding: "6px 12px",
-                                    borderRadius: "4px",
+                                    borderRadius: "12px",
                                     fontSize: "14px",
                                     gap: "3px",
                                 }}

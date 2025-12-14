@@ -164,7 +164,7 @@ export default function Footer() {
               </li>
 
               <li className="footer__item">
-                <a href="#" className="footer__link pink">
+                <a href="https://www.instagram.com/reiz.rental?igsh=MXY4bmMyMjl0YWNtYg==" className="footer__link pink">
                   <i className="sprite">
                     <svg
                       width="28"
