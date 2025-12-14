@@ -63,7 +63,7 @@
     cursor: pointer;
     height: 39px;
     transition: all var(--transition-normal);
-    border: 1px solid var(--cl-m);
+    border: 1px solid var(--cl-mm);
     border-radius: 8px;
 
     &.active {
@@ -139,7 +139,7 @@
     max-height: 0;
     overflow: hidden;
     background: #d8d9d2;
-    border: 1px solid var(--cl-m);
+    border: 1px solid var(--cl-mm);
     border-radius: 0px 0px 16px 16px;
     box-shadow: 0px 4px 8px 0px rgba(142, 141, 208, 0.16);
     z-index: 10;
