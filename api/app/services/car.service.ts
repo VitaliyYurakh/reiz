@@ -67,7 +67,7 @@ class CarService {
         } = {...rest};
 
         if (segmentIds) data.segment = {set: segmentIds.map((sid) => ({id: sid}))};
-        if (description) data.description = JSON.stringify(description);
+        if (description) data.description = description;
 
         return await prisma.car.update({
             where: {id},
