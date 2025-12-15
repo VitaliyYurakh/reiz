@@ -341,7 +341,7 @@ export default function CarAside({ car }: { car: Car }) {
         </div>
 
         <div className="single-form__links">
-          <Link href="#" className="main-button main-button--black">
+        <Link href="/terms" className="main-button main-button--black">
             {t("links.conditions")}
           </Link>
           <Link href="/faq" className="main-button main-button--black">

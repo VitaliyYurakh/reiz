@@ -389,7 +389,6 @@ $rental-success-color: #2f8f5b;
   &__summary-panel {
     background-color: #fff;
     @include small-tablet {
-      border: 1px solid var(--cl-d);
       border-radius: 20px;
       box-shadow: none;
     }
@@ -544,7 +543,6 @@ $rental-success-color: #2f8f5b;
   .insurance {
     //max-width: 420px;
     background: #fff;
-    border: 1px solid #e5e7eb;
     border-radius: 16px;
     padding: 20px 10px 10px;
     font-family: system-ui, sans-serif;

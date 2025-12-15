@@ -138,30 +138,34 @@
     width: 100%;
     max-height: 0;
     overflow: hidden;
+  
     background: #d8d9d2;
     border: 1px solid var(--cl-mm);
-    border-radius: 0px 0px 16px 16px;
-    box-shadow: 0px 4px 8px 0px rgba(142, 141, 208, 0.16);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 8px rgba(142, 141, 208, 0.16);
+  
     z-index: 10;
     opacity: 0;
     transition: all var(--transition-normal);
     list-style: none;
-
+  
     &::-webkit-scrollbar-thumb {
       border-radius: 4px;
       background: var(--cl-e);
     }
-
+  
     &::-webkit-scrollbar-track {
       background-color: transparent;
     }
-
+  
     &::-webkit-scrollbar {
       width: 3px;
       border-radius: 16px;
       display: block;
     }
   }
+  
+  
 
   .options-container.active {
     opacity: 1;
@@ -568,6 +572,22 @@
            color: var(--cl-a);
         }
       }
+    }
+  }
+}
+
+.rent-page {
+  .custom-select {
+    .options-container {
+      background: #ffffff;
+    }
+  }
+}
+
+.catalog-aside {
+  .custom-select {
+    .options-container {
+      background: #d8d9d2;
     }
   }
 }

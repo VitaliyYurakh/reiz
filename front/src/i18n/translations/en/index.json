@@ -942,58 +942,26 @@
       "contents": [
         {
           "paragraphs": [
-            "For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:"
-          ],
-          "table": {
-            "head": ["Vehicle category", "Price per 1 km (USD)"],
-            "rows": [
-              ["Economy", "0.12"],
-              ["Business", "0.30"],
-              ["SUVs", "0.30"],
-              ["Premium", "0.70"],
-              ["Minivans", "0.50"]
-            ]
-          }
+            "All vehicles are covered by mandatory insurance. Additional protection packages (CDW/SCDW) are available and reduce the renter’s financial liability in case of damage or theft. Details are on the “Insurance” page."
+          ]
         },
         {
           "paragraphs": [
-            "If the limit is exceeded, an extra charge is applied per km depending on the vehicle category:"
-          ],
-          "table": {
-            "head": ["Vehicle category", "Price per 1 km (USD)"],
-            "rows": [
-              ["Economy", "0.12"],
-              ["SUVs", "0.30"],
-              ["Premium", "0.70"],
-              ["Minivans", "0.50"]
-            ]
-          }
+            "When a deposit is provided by credit card, the card must be issued exclusively in the renter’s name. The deposit is pre-authorized on the credit card in accordance with the rental agreement. After the vehicle is returned and all obligations under the rental agreement have been duly fulfilled by the renter, the deposit shall be released by the lessor. The actual timeframe for the funds to be credited back is determined by the rules and internal procedures of the renter’s issuing bank and may take several banking days. The lessor shall not be held liable for any delays caused by the renter’s bank."
+          ]
         },
         {
           "paragraphs": [
-            "For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:",
-            "For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:"
-          ],
-          "table": {
-            "head": ["Vehicle category", "Price per 1 km (USD)"],
-            "rows": [
-              ["Economy", "0.12"],
-              ["Business", "0.30"],
-              ["SUVs", "0.30"],
-              ["Premium", "0.70"],
-              ["Minivans", "0.50"]
-            ]
-          }
+            "The rental price depends on the vehicle class, rental duration, and season. The longer the rental, the lower the daily rate. Check current prices in the vehicle listing or contact our manager for details."
+          ]
         },
         {
           "paragraphs": [
-            "For rentals of 4 days or longer — no mileage limit. For short rentals (up to 3 days) a limit of 350 km/day applies. If you exceed the limit, an extra charge is applied per km depending on the vehicle category:"
+            "A daily mileage limit of 300 km applies to each rental. If the установлен limit is exceeded, an additional charge applies according to the rates listed in the table below, depending on the vehicle category. If a higher daily limit or unlimited mileage is required, the renter may contact a manager for an individual cost calculation."
           ],
           "table": {
             "head": ["Vehicle category", "Price per 1 km (USD)"],
             "rows": [
-              ["Economy", "0.12"],
-              ["Business", "0.30"],
               ["Economy", "0.12"],
               ["Business", "0.30"],
               ["SUVs", "0.30"],
