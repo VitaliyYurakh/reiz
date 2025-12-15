@@ -195,7 +195,7 @@ export default function CarCard({ car }: CarCardProps) {
                   )}
                 </span>
                 <span className="car-card__value">
-                  <b>{formatCurrency(adjustedPrice, locale)} USD</b>
+                  <b>{formatCurrency(adjustedPrice, locale)}</b>
                   <i>/</i>
                   {tCatalog("rates.perDay")}
                 </span>

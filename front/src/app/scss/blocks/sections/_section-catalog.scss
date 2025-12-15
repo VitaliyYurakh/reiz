@@ -73,6 +73,7 @@
         }
     
         .custom-select.sort_options {
+            /* кнопка селекта */
             .select-field {
                 gap: 10px;
                 justify-content: flex-end;
@@ -81,12 +82,27 @@
             .arrow-down {
                 margin-left: 0;
             }
+    
+            /* ⬇️ ВИПАДАЮЧИЙ СПИСОК (вирівнювання зліва) */
+            .options-container {
+                .option-text {
+                    justify-content: flex-start;
+                    text-align: left;
+                    gap: 10px;
+                    align-items: center;
+                }
+    
+                .sprite {
+                    flex-shrink: 0;
+                }
+            }
         }
     
         @include tablet {
             display: none;
         }
     }
+    
     
 
     &__list {
