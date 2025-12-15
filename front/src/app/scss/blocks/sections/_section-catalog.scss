@@ -65,17 +65,29 @@
         justify-content: space-between;
         margin-bottom: 11px;
         z-index: 5;
-
+    
         .custom-select {
-            max-width: 200px;
-            width: 170px;
-            min-width: 165px;
+            max-width: 240px;
+            width: 180px;
+            min-width: 200px;
         }
-
+    
+        .custom-select.sort_options {
+            .select-field {
+                gap: 10px;
+                justify-content: flex-end;
+            }
+    
+            .arrow-down {
+                margin-left: 0;
+            }
+        }
+    
         @include tablet {
             display: none;
         }
     }
+    
 
     &__list {
         gap: 20px;

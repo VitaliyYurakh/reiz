@@ -38,7 +38,7 @@
   &__list {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: clamp(20px, 3.0147vw, 41px) 12px;
+    gap: clamp(20px, 3.0147vw, 41px) 6px;
 
     @include laptop{
         grid-template-columns: 100%;
