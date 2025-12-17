@@ -5,7 +5,7 @@ import CarAside from "@/app/[locale]/(site)/cars/[idSlug]/components/CarAside";
 import CarGallerySlider from "@/app/[locale]/(site)/cars/[idSlug]/components/CarSlider";
 import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/modals/CarClientProvider";
 import ThemeColorSetter from "@/app/[locale]/(site)/cars/[idSlug]/components/ThemeColorSetter";
-import AccessibleTabs from "@/components/AccessibleTabs";
+import CarTabs from "@/app/[locale]/(site)/cars/[idSlug]/components/CarTabs";
 import {fetchCar} from "@/lib/api/cars";
 import {getTranslations} from "next-intl/server";
 import {LocalizedText} from "@/types/cars";
@@ -233,14 +233,7 @@ export default async function CarPage({
                                 mobileItems={mobileImages}
                             />
 
-                            <AccessibleTabs
-                                classNameContainer={"single-section__tabs"}
-                                classNameNavUl={"single-section__nav"}
-                                classNameNavLi={"single-section__item"}
-                                classNameItemLi={"single-section__item"}
-                                classNameBoxUl={"single-section__content"}
-                                classNameBtn={"single-section__btn"}
-                                sync={false}
+                            <CarTabs
                                 items={tabsNav.map((nav, i) => ({
                                     label: nav.label,
                                     value: String(i),

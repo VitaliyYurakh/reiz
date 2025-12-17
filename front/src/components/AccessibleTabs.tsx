@@ -21,6 +21,7 @@ type Props = {
   items: TabItem[];
   defaultValue?: string;
   sync?: "hash" | false;
+  onChange?: (value: string) => void;
 
   classNameContainer?: string;
   classNameNavUl?: string;
@@ -39,6 +40,7 @@ export default function AccessibleTabs({
   items,
   defaultValue,
   sync = "hash",
+  onChange,
   classNameContainer = "terms-section__tabs",
   classNameNavUl = "terms-nav",
   classNameNavLi = "terms-nav__item",
@@ -78,13 +80,15 @@ export default function AccessibleTabs({
         }
       }
 
+      onChange?.(next);
+
       if (focus) {
         const idx = items.findIndex((i) => i.value === next);
         const btn = btnRefs.current[idx];
         btn?.focus();
       }
     },
-    [items, sync, pathname],
+    [items, sync, pathname, onChange],
   );
 
   const [isMounted, setIsMounted] = useState(false);
