@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { ROUTE_MAP, type RouteKey } from "@/lib/seo";
 import { defaultLocale, locales } from "@/i18n/request";
-import { fetchCars } from "@/lib/api/cars";
+import { fetchCarsForSitemap } from "@/lib/api/cars";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
@@ -30,9 +30,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   });
 
-  // Dynamic car pages
+  // Dynamic car pages (only valid, published cars)
   try {
-    const cars = await fetchCars();
+    const cars = await fetchCarsForSitemap();
     for (const car of cars) {
       const idSlug = createCarIdSlug(car);
       const languages: Record<string, string> = {};
