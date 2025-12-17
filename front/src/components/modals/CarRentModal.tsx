@@ -13,7 +13,7 @@ import { Tooltip } from "react-tooltip";
 import {
   type CarModalSpec,
   useCarModal,
-} from "@/app/[locale]/(site)/cars/[id]/components/modals";
+} from "@/app/[locale]/(site)/cars/[idSlug]/components/modals";
 import CustomSelect from "@/app/[locale]/components/CustomSelect";
 import TelInput from "@/components/TelInput";
 import type { CarCountingRule } from "@/types/cars";

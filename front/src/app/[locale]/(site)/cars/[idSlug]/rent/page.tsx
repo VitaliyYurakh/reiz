@@ -1,9 +1,12 @@
-import CarClientProvider from "@/app/[locale]/(site)/cars/[id]/components/modals/CarClientProvider";
-import RentPageContent from "@/app/[locale]/(site)/cars/[id]/rent/RentPageContent";
+import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/modals/CarClientProvider";
+import ThemeColorSetter from "@/app/[locale]/(site)/cars/[idSlug]/components/ThemeColorSetter";
+import RentPageContent from "@/app/[locale]/(site)/cars/[idSlug]/rent/RentPageContent";
 import { fetchCar } from "@/lib/api/cars";
 import type { Locale } from "@/i18n/request";
+import { createCarIdSlug, parseCarIdFromSlug } from "@/lib/utils/carSlug";
+import { notFound, redirect } from "next/navigation";
 
-type RentPageParams = { id: number; locale: Locale };
+type RentPageParams = { idSlug: string; locale: Locale };
 
 type RentSearchParams = {
   startDate?: string;
@@ -25,9 +28,20 @@ export default async function CarRentPage({
   params: Promise<RentPageParams>;
   searchParams: Promise<RentSearchParams>;
 }) {
-  const { id: carId } = await params;
+  const { idSlug, locale } = await params;
+  const carId = parseCarIdFromSlug(idSlug);
+  if (carId === null) {
+    notFound();
+  }
   const query = await searchParams;
   const car = await fetchCar(carId);
+
+  // 301 redirect if slug is missing or incorrect
+  const expectedIdSlug = createCarIdSlug(car);
+  if (idSlug !== expectedIdSlug) {
+    const queryString = new URLSearchParams(query as Record<string, string>).toString();
+    redirect(`/${locale}/cars/${expectedIdSlug}/rent${queryString ? `?${queryString}` : ""}`);
+  }
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -55,6 +69,7 @@ export default async function CarRentPage({
 
   return (
     <CarClientProvider>
+      <ThemeColorSetter />
       <RentPageContent
         car={car}
         initialPlanId={initialPlanId}

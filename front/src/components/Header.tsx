@@ -13,6 +13,7 @@ import { lockScroll, unlockScroll } from "@/lib/utils/scroll";
 import { usePathname } from "next/navigation";
 import { stripLocale } from "@/lib/utils/functions";
 import { useCatalogFilters } from "@/context/CatalogFiltersContext";
+import { useThemeColorOnOpen } from "@/hooks/useThemeColorOnOpen";
 
 type HeaderProps = {
   mode?: boolean;
@@ -34,6 +35,8 @@ export default function Header({
   const catalogFilters = useCatalogFilters();
 
   const headerInMode = mode || catalogFilters?.filtersOpen || false;
+
+  useThemeColorOnOpen(mobileMenuOpen);
 
   const isActive = (href: string) =>
     stripLocale(pathname) === stripLocale(href);

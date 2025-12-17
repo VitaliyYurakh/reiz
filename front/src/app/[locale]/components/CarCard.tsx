@@ -10,6 +10,7 @@ import {
 import { BASE_URL } from "@/config/environment";
 import type { Car, CarCountingRule, RentalTariff } from "@/types/cars";
 import { Link } from "@/i18n/request";
+import { createCarIdSlug } from "@/lib/utils/carSlug";
 
 type CarCardProps = {
   car: Car;
@@ -85,9 +86,11 @@ export default function CarCard({ car }: CarCardProps) {
   const depositAmount = baseDeposit * (1 - depositPercent / 100);
   const rentalCost = hasDates ? dailyPrice * totalDays : 0;
 
+  const carIdSlug = useMemo(() => createCarIdSlug(car), [car]);
+
   const rentLink = useMemo(() => {
     if (!hasDates) {
-      return `/cars/${car.id}`;
+      return `/cars/${carIdSlug}`;
     }
 
     const params = new URLSearchParams();
@@ -96,8 +99,8 @@ export default function CarCard({ car }: CarCardProps) {
     if (selectedPlan?.id) params.set("planId", String(selectedPlan.id));
 
     const query = params.toString();
-    return `/cars/${car.id}/rent${query ? `?${query}` : ""}`;
-  }, [car.id, endDate, hasDates, selectedPlan?.id, startDate]);
+    return `/cars/${carIdSlug}/rent${query ? `?${query}` : ""}`;
+  }, [carIdSlug, endDate, hasDates, selectedPlan?.id, startDate]);
 
   const coverageOptions: {
     key: CoverageOption;

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 
 import Icon from "@/components/Icon";
-import CustomSelect2 from "@/app/[locale]/(site)/cars/[id]/components/CustomSelect2";
+import CustomSelect2 from "@/app/[locale]/(site)/cars/[idSlug]/components/CustomSelect2";
 
 import styles from "./DatePicker.module.scss";
 

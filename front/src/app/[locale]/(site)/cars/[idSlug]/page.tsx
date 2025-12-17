@@ -1,20 +1,27 @@
 import Icon from "@/components/Icon";
 import {Link, type Locale} from "@/i18n/request";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import CarAside from "@/app/[locale]/(site)/cars/[id]/components/CarAside";
-import CarGallerySlider from "@/app/[locale]/(site)/cars/[id]/components/CarSlider";
-import CarClientProvider from "@/app/[locale]/(site)/cars/[id]/components/modals/CarClientProvider";
+import CarAside from "@/app/[locale]/(site)/cars/[idSlug]/components/CarAside";
+import CarGallerySlider from "@/app/[locale]/(site)/cars/[idSlug]/components/CarSlider";
+import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/modals/CarClientProvider";
+import ThemeColorSetter from "@/app/[locale]/(site)/cars/[idSlug]/components/ThemeColorSetter";
 import AccessibleTabs from "@/components/AccessibleTabs";
 import {fetchCar} from "@/lib/api/cars";
 import {getTranslations} from "next-intl/server";
 import {LocalizedText} from "@/types/cars";
+import {createCarIdSlug, parseCarIdFromSlug} from "@/lib/utils/carSlug";
+import {notFound, redirect} from "next/navigation";
 
 export default async function CarPage({
                                           params,
                                       }: {
-    params: Promise<{ id: number; locale: Locale }>;
+    params: Promise<{ idSlug: string; locale: Locale }>;
 }) {
-    const {id: carId, locale} = await params;
+    const {idSlug, locale} = await params;
+    const carId = parseCarIdFromSlug(idSlug);
+    if (carId === null) {
+        notFound();
+    }
     const car = await fetchCar(carId);
     if (!car) {
         return (
@@ -32,6 +39,13 @@ export default async function CarPage({
             </div>
         );
     }
+
+    // 301 redirect if slug is missing or incorrect
+    const expectedIdSlug = createCarIdSlug(car);
+    if (idSlug !== expectedIdSlug) {
+        redirect(`/${locale}/cars/${expectedIdSlug}`);
+    }
+
     const t = await getTranslations("carPage");
 
     const carDisplayName =
@@ -178,6 +192,7 @@ export default async function CarPage({
         }));
     return (
         <section className="single-section">
+            <ThemeColorSetter />
             <div className="container">
                 <div className="single-section__box">
                     <ul

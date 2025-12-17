@@ -11,14 +11,15 @@ import {
   useState,
 } from "react";
 
-import { useCarModal } from "@/app/[locale]/(site)/cars/[id]/components/modals";
+import { useCarModal } from "@/app/[locale]/(site)/cars/[idSlug]/components/modals";
 import CustomSelect from "@/app/[locale]/components/CustomSelect";
 import TelInput from "@/components/TelInput";
 import { Link } from "@/i18n/request";
 import type { Car, CarCountingRule } from "@/types/cars";
-import InsuranceCoverage from "@/app/[locale]/(site)/cars/[id]/rent/components/InsuranceCoverage";
+import InsuranceCoverage from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/InsuranceCoverage";
 import { BASE_URL } from "@/config/environment";
 import { useSideBarModal } from "@/components/modals";
+import { createCarIdSlug } from "@/lib/utils/carSlug";
 
 type ExtraDefinition = {
   id: "additionalDriver" | "childSeat" | "borderCrossing" | "driverService";
@@ -409,7 +410,7 @@ export default function RentPageContent({
               <Link href="#">{t("breadcrumbs.cars")}</Link>
             </li>
             <li>
-              <Link href={`/cars/${car.id}`}>
+              <Link href={`/cars/${createCarIdSlug(car)}`}>
                 {car.brand} {car.model} {car.yearOfManufacture}
               </Link>
             </li>

@@ -4,10 +4,11 @@ import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Tooltip } from "react-tooltip";
-import { useCarModal } from "@/app/[locale]/(site)/cars/[id]/components/modals";
+import { useCarModal } from "@/app/[locale]/(site)/cars/[idSlug]/components/modals";
 import { Link } from "@/i18n/request";
 import type { Car, CarCountingRule } from "@/types/cars";
 import { useSideBarModal } from "@/components/modals";
+import { createCarIdSlug } from "@/lib/utils/carSlug";
 
 const formatFull = (d: Date) => {
   const dd = String(d.getDate()).padStart(2, "0");
@@ -61,8 +62,8 @@ export default function CarAside({ car }: { car: Car }) {
         endDate: selectedDate.endDate.toISOString(),
         planId: String(selectedPlanId),
       });
-
-      router.push(`/${locale}/cars/${car.id}/rent?${params.toString()}`);
+      const carIdSlug = createCarIdSlug(car);
+      router.push(`/${locale}/cars/${carIdSlug}/rent?${params.toString()}`);
       return;
     }
 

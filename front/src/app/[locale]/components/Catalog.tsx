@@ -12,6 +12,7 @@ import {useLocale} from "use-intl";
 import {useCatalogFilters} from "@/context/CatalogFiltersContext";
 import {useSideBarModal} from "@/components/modals";
 import CarCard from "@/app/[locale]/components/CarCard";
+import {themeColorLock} from "@/hooks/useThemeColorOnOpen";
 
 type Filters = {
     segment?: string | null;
@@ -116,6 +117,8 @@ export default function Catalog({cars}: CatalogProps) {
     useEffect(() => {
         const handleScroll = () => {
             if (!themeColorMeta.current) return;
+            // Skip if theme-color is locked by mobile menu
+            if (themeColorLock.locked) return;
             if (window.scrollY > 100) {
                 themeColorMeta.current.setAttribute("content", "#F1F0EB");
             } else {
