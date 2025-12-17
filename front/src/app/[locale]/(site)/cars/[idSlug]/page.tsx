@@ -240,9 +240,7 @@ export default async function CarPage({
                                 classNameItemLi={"single-section__item"}
                                 classNameBoxUl={"single-section__content"}
                                 classNameBtn={"single-section__btn"}
-                                // dataAos={"fade-right"}
-                                // dataAosDuration={900}
-                                // dataAosDelay={400}
+                                sync={false}
                                 items={tabsNav.map((nav, i) => ({
                                     label: nav.label,
                                     value: String(i),
