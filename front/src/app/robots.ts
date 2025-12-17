@@ -7,9 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: [],
-    // TODO: UNCOMMENT FOR PROD
-    // sitemap: [`${base}/sitemap.xml`],
+    sitemap: [`${base}/sitemap.xml`],
     host: base,
   };
 }
