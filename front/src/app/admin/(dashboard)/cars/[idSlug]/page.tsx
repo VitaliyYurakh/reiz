@@ -85,7 +85,7 @@ const normalizeMultiLang = (val: any): { uk: string, ru: string, en: string } =>
 export default function CarEditPage() {
     const params = useParams();
     const router = useRouter();
-    const id = Number(params.id);
+    const id = Number(params.idSlug);
 
     // Состояния
     const [car, setCar] = useState<Car | null>(null);
