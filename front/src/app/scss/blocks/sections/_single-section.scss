@@ -186,5 +186,13 @@
       grid-template-columns: 100%;
       gap: 30px;
     }
+
+    @include mobile {
+      gap: 20px;
+
+      .main-title {
+        margin-bottom: 0;
+      }
+    }
   }
 }
