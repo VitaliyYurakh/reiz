@@ -1,5 +1,6 @@
+import type { Metadata } from "next";
 import Icon from "@/components/Icon";
-import {Link, type Locale} from "@/i18n/request";
+import {Link, type Locale, defaultLocale, locales} from "@/i18n/request";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import CarAside from "@/app/[locale]/(site)/cars/[idSlug]/components/CarAside";
 import CarGallerySlider from "@/app/[locale]/(site)/cars/[idSlug]/components/CarSlider";
@@ -11,6 +12,54 @@ import {getTranslations} from "next-intl/server";
 import {LocalizedText} from "@/types/cars";
 import {createCarIdSlug, parseCarIdFromSlug} from "@/lib/utils/carSlug";
 import {notFound, redirect} from "next/navigation";
+import JsonLd from "@/components/JsonLd";
+import { generateVehicleSchema } from "@/lib/schema/vehicle";
+
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ idSlug: string; locale: Locale }>;
+}): Promise<Metadata> {
+    const { idSlug, locale } = await params;
+    const carId = parseCarIdFromSlug(idSlug);
+    if (carId === null) return {};
+
+    const car = await fetchCar(carId);
+    if (!car) return {};
+
+    const carName = `${car.brand} ${car.model} ${car.yearOfManufacture}`.trim();
+    const slug = createCarIdSlug(car);
+    const path = `/cars/${slug}`;
+
+    const title = `Аренда ${carName} во Львове — REIZ RENTAL CARS`;
+    const description = `Арендуйте ${carName} во Львове. ${car.engineVolume || ""} ${car.transmission?.[locale] || ""}, ${car.seats || 5} мест. Премиум-сервис, подача 24/7.`.trim();
+
+    const languages: Record<string, string> = {};
+    locales.forEach((loc) => {
+        const prefix = loc === defaultLocale ? "" : `/${loc}`;
+        languages[loc] = `${BASE}${prefix}${path}`;
+    });
+    languages["x-default"] = `${BASE}${path}`;
+
+    const ogImage = car.carPhoto.find((p) => p.type === "PC")?.url || "/img/og/home.webp";
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`,
+            languages,
+        },
+        openGraph: {
+            title,
+            description,
+            url: `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`,
+            images: [{ url: ogImage, width: 891, height: 499, alt: carName }],
+        },
+    };
+}
 
 export default async function CarPage({
                                           params,
@@ -24,20 +73,7 @@ export default async function CarPage({
     }
     const car = await fetchCar(carId);
     if (!car) {
-        return (
-            <div
-                style={{
-                    fontWeight: 600,
-                    fontSize: "40px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "calc(100dvh - 50px)",
-                }}
-            >
-                Car not found :(
-            </div>
-        );
+        notFound();
     }
 
     // 301 redirect if slug is missing or incorrect
@@ -190,8 +226,21 @@ export default async function CarPage({
             h: 500,
             alt: image.alt || "image",
         }));
+
+    // Generate canonical URL for schema
+    const slug = createCarIdSlug(car);
+    const canonicalUrl = `${BASE}${locale === defaultLocale ? "" : `/${locale}`}/cars/${slug}`;
+
+    // Generate Vehicle schema.org JSON-LD
+    const vehicleSchema = generateVehicleSchema({
+        car,
+        locale,
+        canonicalUrl,
+    });
+
     return (
         <section className="single-section">
+            <JsonLd data={vehicleSchema} />
             <ThemeColorSetter />
             <div className="container">
                 <div className="single-section__box">

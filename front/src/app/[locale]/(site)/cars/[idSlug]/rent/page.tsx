@@ -1,12 +1,59 @@
+import type { Metadata } from "next";
 import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/modals/CarClientProvider";
 import ThemeColorSetter from "@/app/[locale]/(site)/cars/[idSlug]/components/ThemeColorSetter";
 import RentPageContent from "@/app/[locale]/(site)/cars/[idSlug]/rent/RentPageContent";
 import { fetchCar } from "@/lib/api/cars";
-import type { Locale } from "@/i18n/request";
+import { type Locale, defaultLocale, locales } from "@/i18n/request";
 import { createCarIdSlug, parseCarIdFromSlug } from "@/lib/utils/carSlug";
 import { notFound, redirect } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
+import { generateRentalServiceSchema } from "@/lib/schema/rental-service";
+
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 
 type RentPageParams = { idSlug: string; locale: Locale };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<RentPageParams>;
+}): Promise<Metadata> {
+  const { idSlug, locale } = await params;
+  const carId = parseCarIdFromSlug(idSlug);
+  if (carId === null) return {};
+
+  const car = await fetchCar(carId);
+  if (!car) return {};
+
+  const carName = `${car.brand} ${car.model} ${car.yearOfManufacture}`.trim();
+  const slug = createCarIdSlug(car);
+  const path = `/cars/${slug}/rent`;
+
+  const minPrice = car.rentalTariff?.reduce((min, t) => Math.min(min, t.dailyPrice), Infinity) || 0;
+  const title = `Забронировать ${carName} — от $${minPrice}/день | REIZ`;
+  const description = `Оформите аренду ${carName} онлайн. От $${minPrice}/день, страховка включена, подача по адресу 24/7.`;
+
+  const languages: Record<string, string> = {};
+  locales.forEach((loc) => {
+    const prefix = loc === defaultLocale ? "" : `/${loc}`;
+    languages[loc] = `${BASE}${prefix}${path}`;
+  });
+  languages["x-default"] = `${BASE}${path}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`,
+      languages,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`,
+    },
+  };
+}
 
 type RentSearchParams = {
   startDate?: string;
@@ -35,6 +82,9 @@ export default async function CarRentPage({
   }
   const query = await searchParams;
   const car = await fetchCar(carId);
+  if (!car) {
+    notFound();
+  }
 
   // 301 redirect if slug is missing or incorrect
   const expectedIdSlug = createCarIdSlug(car);
@@ -67,8 +117,20 @@ export default async function CarRentPage({
       ? (car.carCountingRule[0]?.id ?? 0)
       : requestedPlanId;
 
+  // Generate canonical URL for schema
+  const slug = createCarIdSlug(car);
+  const canonicalUrl = `${BASE}${locale === defaultLocale ? "" : `/${locale}`}/cars/${slug}/rent`;
+
+  // Generate Rental Service schema.org JSON-LD
+  const rentalServiceSchema = generateRentalServiceSchema({
+    car,
+    locale,
+    canonicalUrl,
+  });
+
   return (
     <CarClientProvider>
+      <JsonLd data={rentalServiceSchema} />
       <ThemeColorSetter />
       <RentPageContent
         car={car}

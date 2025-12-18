@@ -15,18 +15,23 @@ export async function fetchCars(): Promise<Car[]> {
   return data.cars as Car[];
 }
 
-export async function fetchCar(id: number): Promise<Car> {
+export async function fetchCar(id: number): Promise<Car | null> {
   const res = await fetch(`${API_URL}/car/${id}`, {
     next: { revalidate: 10 }, // TODO: update in prod
     headers: { Accept: "application/json" },
   });
 
+  // Return null for 404 - car not found
+  if (res.status === 404) {
+    return null;
+  }
+
   if (!res.ok) {
-    throw new Error(`Fetch cars failed: ${res.status} ${res.statusText}`);
+    throw new Error(`Fetch car failed: ${res.status} ${res.statusText}`);
   }
 
   const data = (await res.json()) as { car: Car };
-  return data.car as Car;
+  return data.car ?? null;
 }
 
 /**

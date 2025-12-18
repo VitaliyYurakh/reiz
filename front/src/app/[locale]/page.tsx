@@ -11,11 +11,21 @@ import Footer from "@/components/Footer";
 import { CatalogFiltersProvider } from "@/context/CatalogFiltersContext";
 import { RentalSearchProvider } from "@/context/RentalSearchContext";
 import { fetchCars } from "@/lib/api/cars";
+import { getPageMetadata } from "@/lib/seo";
+import type { Locale } from "@/i18n/request";
 
-export const metadata: Metadata = {
-  title: "Главная",
-  description: "Описание сайта",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return getPageMetadata({
+    routeKey: "home",
+    ns: "homePage",
+    locale,
+  });
+}
 
 export default async function Home() {
   const cars = await fetchCars();

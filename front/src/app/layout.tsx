@@ -61,13 +61,9 @@ export async function generateMetadata({
       images: ["/img/og/home.webp"],
     },
     robots: {
-      // TODO: UNCOMMENT FOR PROD
-      //       index: true,
-      //       follow: true,
-      //       noarchive: false,
-      index: false,
-      follow: false,
-      noarchive: true,
+      index: true,
+      follow: true,
+      noarchive: false,
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,
