@@ -72,6 +72,18 @@ const getMinPrice = (car: Car): number | null => {
     return Math.min(...car.rentalTariff.map((t) => t.dailyPrice));
 };
 
+/**
+ * Отримує ціну тарифу "Більше 29 днів" (minDays=30, maxDays=0)
+ * Якщо такого тарифу немає - повертає null
+ */
+const getLongTermPrice = (car: Car): number | null => {
+    if (!car.rentalTariff || car.rentalTariff.length === 0) return null;
+    const longTermTariff = car.rentalTariff.find(
+        (t) => t.minDays === 30 && t.maxDays === 0
+    );
+    return longTermTariff?.dailyPrice ?? null;
+};
+
 type CatalogProps = {
     cars: Car[];
 };
@@ -143,6 +155,37 @@ export default function Catalog({cars}: CatalogProps) {
     const [filters, setFilters] = useState<Filters>(parsedFromURL.filters);
     const [sortKey, setSortKey] = useState<SortKey>(parsedFromURL.sortKey);
 
+    // Текстові опції з перекладів
+    const sortLabelDefault = t("open_box.sort_option3"); // "По умолчанию"
+    const sortLabelAsc = t("open_box.sort_option1");     // "По возрастанию"
+    const sortLabelDesc = t("open_box.sort_option2");    // "По убыванию"
+
+    // Масив опцій для селектора: default першим
+    const sortOptions = useMemo(() => [
+        sortLabelDefault,
+        sortLabelAsc,
+        sortLabelDesc,
+    ], [sortLabelDefault, sortLabelAsc, sortLabelDesc]);
+
+    // Маппінг тексту опції → SortKey
+    const sortOptionToKey = useCallback((option: string): SortKey => {
+        if (option === sortLabelAsc) return "asc";
+        if (option === sortLabelDesc) return "desc";
+        return "default";
+    }, [sortLabelAsc, sortLabelDesc]);
+
+    // Маппінг SortKey → тексту опції
+    const sortKeyToOption = useCallback((key: SortKey): string => {
+        if (key === "asc") return sortLabelAsc;
+        if (key === "desc") return sortLabelDesc;
+        return sortLabelDefault;
+    }, [sortLabelAsc, sortLabelDesc, sortLabelDefault]);
+
+    // Обробник зміни селектора сортування
+    const handleSortChange = useCallback((option: string) => {
+        setSortKey(sortOptionToKey(option));
+    }, [sortOptionToKey]);
+
     useEffect(() => {
         if (typeof window === "undefined") return;
         const params = new URLSearchParams();
@@ -213,6 +256,27 @@ export default function Catalog({cars}: CatalogProps) {
     const filtered = useMemo(() => {
         return cars.filter((c) => isCarMatching(c));
     }, [cars, isCarMatching]);
+
+    // Сортування відфільтрованих авто по ціні "Більше 29 днів"
+    const sortedCars = useMemo(() => {
+        if (sortKey === "default") {
+            return filtered;
+        }
+
+        return [...filtered].sort((a, b) => {
+            const priceA = getLongTermPrice(a);
+            const priceB = getLongTermPrice(b);
+
+            // Авто без ціни ставимо в кінець списку
+            if (priceA === null && priceB === null) return 0;
+            if (priceA === null) return 1;
+            if (priceB === null) return -1;
+
+            // asc = за зростанням (менша ціна вище)
+            // desc = за спаданням (більша ціна вище)
+            return sortKey === "asc" ? priceA - priceB : priceB - priceA;
+        });
+    }, [filtered, sortKey]);
 
 
     const carBrands = useMemo(() => {
@@ -379,11 +443,9 @@ export default function Catalog({cars}: CatalogProps) {
 
                                         <CustomSelect
                                             containerClassName={"mode"}
-                                            options={[
-                                                t("open_box.sort_option1"),
-                                                t("open_box.sort_option2"),
-                                                t("open_box.sort_option3"),
-                                            ]}
+                                            options={sortOptions}
+                                            value={sortKeyToOption(sortKey)}
+                                            onChange={handleSortChange}
                                             preSelectIcon={"filter2"}
                                             showArrow={false}
                                         />
@@ -528,13 +590,11 @@ export default function Catalog({cars}: CatalogProps) {
                             <h2 className="pretitle">{t("catalog_content.pretitle")}</h2>
 
                             <CustomSelect
-                                placeholder={t("open_box.sort_option3")}
+                                placeholder={sortOptions[0]}
                                 containerClassName={"sort_options mode"}
-                                options={[
-                                    t("open_box.sort_option1"),
-                                    t("open_box.sort_option2"),
-                                    t("open_box.sort_option3"),
-                                ]}
+                                options={sortOptions}
+                                value={sortKeyToOption(sortKey)}
+                                onChange={handleSortChange}
                                 preSelectIcon={"filter2"}
                             />
                         </div>
@@ -546,8 +606,8 @@ export default function Catalog({cars}: CatalogProps) {
                             data-aos-duration="500"
                             data-aos-delay="300"
                         >
-                            {filtered.length > 0
-                                ? filtered.map((car) => <CarCard key={car.id} car={car}/>)
+                            {sortedCars.length > 0
+                                ? sortedCars.map((car) => <CarCard key={car.id} car={car}/>)
                                 : t("catalog_list.empty")}
                         </ul>
                     </div>
