@@ -47,7 +47,7 @@ export default function CarCard({ car }: CarCardProps) {
   const tCatalog = useTranslations("homePage.catalog_aside.catalog_list");
   const { coverageOption, setCoverageOption, startDate, endDate, totalDays } =
     useRentalSearch();
-  const { formatPrice } = useCurrency();
+  const { formatPrice, formatDeposit } = useCurrency();
 
   const hasDates = Boolean(startDate && endDate && totalDays > 0);
 
@@ -281,7 +281,7 @@ export default function CarCard({ car }: CarCardProps) {
                   {tCatalog("total.depositLabel")}
                 </span>
                 <span className="car-card__value">
-                  <b>{formatPrice(depositAmount)}</b>
+                  <b>{formatDeposit(depositAmount)}</b>
                 </span>
               </li>
               <li className="car-card__item" style={{borderBottom: 'none'}}>
@@ -300,7 +300,7 @@ export default function CarCard({ car }: CarCardProps) {
               {tCatalog("total.depositLabel")}:
             </span>
             <span className="car-card__value">
-              {formatPrice(depositAmount)}
+              {formatDeposit(depositAmount)}
             </span>
           </div>
         )}

@@ -22,7 +22,7 @@ export default function InsuranceCoverage({
   selectedPlanId,
 }: InsuranceCoverageProps) {
   const t = useTranslations("carRentPage.insuranceCoverage");
-  const { formatPrice } = useCurrency();
+  const { formatPrice, formatDeposit } = useCurrency();
 
   const options = [
     {
@@ -120,7 +120,7 @@ export default function InsuranceCoverage({
       <div className="insurance__footer">
         <div className="insurance__deposit">
           <div>
-            {t("footer.deposit")}: <b>{formatPrice(depositAmount)}</b>
+            {t("footer.deposit")}: <b>{formatDeposit(depositAmount)}</b>
           </div>
         </div>
         <div className="insurance__price">

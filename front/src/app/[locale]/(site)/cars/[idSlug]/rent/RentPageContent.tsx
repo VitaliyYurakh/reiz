@@ -116,7 +116,7 @@ export default function RentPageContent({
   const { open: openManagerModal } = useSideBarModal(
     "managerWillContactYouModal",
   );
-  const { formatPrice } = useCurrency();
+  const { formatPrice, formatDeposit } = useCurrency();
 
   const [formState, setFormState] = useState<FormState>(() => ({
     ...DEFAULT_FORM_STATE,
@@ -748,7 +748,7 @@ export default function RentPageContent({
                   {t("summary.depositLabel")}
                 </span>
                 <span className="rent-page__summary-value">
-                  <b>{formatPrice(depositAmount)}</b>
+                  <b>{formatDeposit(depositAmount)}</b>
                 </span>
               </li>
               <li className="rent-page__summary-item">

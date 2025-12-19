@@ -28,7 +28,7 @@ export default function CarAside({ car }: { car: Car }) {
   const t = useTranslations("carAside");
   const router = useRouter();
   const locale = useLocale();
-  const { formatPrice } = useCurrency();
+  const { formatPrice, formatDeposit } = useCurrency();
 
   const [selectedPlanId, setSelectedPlanId] = useState<number>(
     car.carCountingRule[0]?.id || 0,
@@ -245,7 +245,7 @@ export default function CarAside({ car }: { car: Car }) {
           </div>
         </span>
         <span className="single-form__value">
-          {formatPrice(depositAmount)}
+          {formatDeposit(depositAmount)}
         </span>
       </div>
       <div className="single-form__info">

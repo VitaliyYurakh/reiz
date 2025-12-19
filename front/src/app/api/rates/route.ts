@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 
+// ISO 4217 коди валют
+const USD_CODE = 840;
+const EUR_CODE = 978;
+const UAH_CODE = 980;
+
 // Кеш курсів (серверний)
 let cachedRates: {
   USD_UAH: number;
@@ -8,41 +13,71 @@ let cachedRates: {
   timestamp: number;
 } | null = null;
 
-const CACHE_DURATION = 30 * 60 * 1000; // 30 хвилин
-const COMMISSION = 1.01; // +1% комісія
+const CACHE_DURATION = 12 * 60 * 60 * 1000; // 12 годин
 
-// Fallback курси (приблизні)
+// Fallback курси (приблизні, використовуються тільки якщо API недоступний)
 const FALLBACK_RATES = {
-  USD_UAH: 41.5 * COMMISSION,
-  EUR_UAH: 45.0 * COMMISSION,
-  USD_EUR: (41.5 * COMMISSION) / (45.0 * COMMISSION),
+  USD_UAH: 41.5,
+  EUR_UAH: 45.0,
+  USD_EUR: 41.5 / 45.0,
 };
 
-async function fetchRatesFromPrivatBank() {
+type MonobankRate = {
+  currencyCodeA: number;
+  currencyCodeB: number;
+  date: number;
+  rateBuy?: number;
+  rateSell?: number;
+  rateCross?: number;
+};
+
+function getRate(rate: MonobankRate): number | null {
+  // Пріоритет: rateSell → rateCross
+  if (rate.rateSell != null && rate.rateSell > 0) {
+    return rate.rateSell;
+  }
+  if (rate.rateCross != null && rate.rateCross > 0) {
+    return rate.rateCross;
+  }
+  return null;
+}
+
+async function fetchRatesFromMonobank() {
   const response = await fetch(
-    "https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=11",
+    "https://api.monobank.ua/bank/currency",
     {
-      next: { revalidate: 1800 }, // 30 хвилин кеш Next.js
+      next: { revalidate: 43200 }, // 12 годин кеш Next.js
     }
   );
 
   if (!response.ok) {
-    throw new Error(`PrivatBank API error: ${response.status}`);
+    throw new Error(`Monobank API error: ${response.status}`);
   }
 
-  const data = await response.json();
+  const data: MonobankRate[] = await response.json();
 
-  // Знаходимо курси USD і EUR
-  const usdRate = data.find((item: any) => item.ccy === "USD");
-  const eurRate = data.find((item: any) => item.ccy === "EUR");
+  // Знаходимо курси USD/UAH і EUR/UAH
+  const usdUahRate = data.find(
+    (r) => r.currencyCodeA === USD_CODE && r.currencyCodeB === UAH_CODE
+  );
+  const eurUahRate = data.find(
+    (r) => r.currencyCodeA === EUR_CODE && r.currencyCodeB === UAH_CODE
+  );
 
-  if (!usdRate || !eurRate) {
-    throw new Error("Currency rates not found in API response");
+  if (!usdUahRate || !eurUahRate) {
+    throw new Error("Currency rates not found in Monobank API response");
   }
 
-  // Беремо курс продажу (sale) і додаємо +1% комісію
-  const USD_UAH = parseFloat(usdRate.sale) * COMMISSION;
-  const EUR_UAH = parseFloat(eurRate.sale) * COMMISSION;
+  const usdRate = getRate(usdUahRate);
+  const eurRate = getRate(eurUahRate);
+
+  if (usdRate === null || eurRate === null) {
+    throw new Error("Unable to get sell/cross rates from Monobank");
+  }
+
+  // Курси без жодних корекцій/маржі
+  const USD_UAH = usdRate;
+  const EUR_UAH = eurRate;
   // USD → EUR через UAH
   const USD_EUR = USD_UAH / EUR_UAH;
 
@@ -56,7 +91,7 @@ async function fetchRatesFromPrivatBank() {
 
 export async function GET() {
   try {
-    // Перевіряємо кеш
+    // Перевіряємо кеш (12 годин)
     const now = Date.now();
     if (cachedRates && now - cachedRates.timestamp < CACHE_DURATION) {
       return NextResponse.json({
@@ -72,7 +107,7 @@ export async function GET() {
     }
 
     // Отримуємо свіжі курси
-    const rates = await fetchRatesFromPrivatBank();
+    const rates = await fetchRatesFromMonobank();
     cachedRates = rates;
 
     return NextResponse.json({

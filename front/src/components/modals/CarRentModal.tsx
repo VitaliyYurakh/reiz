@@ -101,7 +101,7 @@ export default function CarRentModal({
   const t = useTranslations("carRentModal");
   const tAside = useTranslations("carAside");
   const { open: openDatePicker } = useCarModal("rangeDateTimePicker");
-  const { formatPrice } = useCurrency();
+  const { formatPrice, formatDeposit } = useCurrency();
 
   const [step, setStep] = useState<1 | 2>(1);
   const [formState, setFormState] = useState<FormState>(() => ({
@@ -928,7 +928,7 @@ export default function CarRentModal({
             <li className="modal__item">
               <span className="modal__name">{t("summary.depositLabel")}</span>
               <span className="modal__value">
-                <b>{formatPrice(depositAmount)}</b>
+                <b>{formatDeposit(depositAmount)}</b>
               </span>
             </li>
             <li className="modal__item">
