@@ -2,8 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
+import { useCurrencySafe, type Currency } from "@/context/CurrencyContext";
 
-type Opt = { value: string; label: string; disabled?: boolean };
+type Opt = { value: Currency; label: string; disabled?: boolean };
 const opts: Opt[] = [
   { value: "USD", label: "USD" },
   { value: "EUR", label: "EUR" },
@@ -12,17 +13,15 @@ const opts: Opt[] = [
 
 export default function CurrencySelect({
   name = "currency",
-  defaultValue = "USD",
 }: {
   name?: string;
-  defaultValue?: string;
 }) {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(defaultValue);
+  const { currency, setCurrency } = useCurrencySafe();
   const t = useTranslations("header");
 
   const map = useMemo(() => new Map(opts.map((o) => [o.value, o])), []);
-  const current = map.get(value)!;
+  const current = map.get(currency)!;
 
   useEffect(() => {
     const onDoc = (e: MouseEvent) => {
@@ -37,7 +36,7 @@ export default function CurrencySelect({
 
   return (
     <div className="custom-select choice lang" data-role="client-select">
-      <input type="hidden" name={name} value={value} />
+      <input type="hidden" name={name} value={currency} />
       <span className="select-text">{t("currency")}:</span>
 
       <div
@@ -63,12 +62,12 @@ export default function CurrencySelect({
         {opts.map((o) => (
           <li
             key={o.value}
-            className={`option ${o.value === value ? "active" : ""} ${o.disabled ? "disabled" : ""}`}
+            className={`option ${o.value === currency ? "active" : ""} ${o.disabled ? "disabled" : ""}`}
             data-value={o.value}
-            aria-selected={o.value === value}
+            aria-selected={o.value === currency}
             onClick={() => {
               if (o.disabled) return;
-              setValue(o.value);
+              setCurrency(o.value);
               setOpen(false);
             }}
           >

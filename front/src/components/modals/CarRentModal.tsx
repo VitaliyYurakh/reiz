@@ -18,6 +18,7 @@ import CustomSelect from "@/app/[locale]/components/CustomSelect";
 import TelInput from "@/components/TelInput";
 import type { CarCountingRule } from "@/types/cars";
 import { BASE_URL } from "@/config/environment";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const formatFull = (d: Date) => {
   const dd = String(d.getDate()).padStart(2, "0");
@@ -100,6 +101,7 @@ export default function CarRentModal({
   const t = useTranslations("carRentModal");
   const tAside = useTranslations("carAside");
   const { open: openDatePicker } = useCarModal("rangeDateTimePicker");
+  const { formatPrice } = useCurrency();
 
   const [step, setStep] = useState<1 | 2>(1);
   const [formState, setFormState] = useState<FormState>(() => ({
@@ -896,7 +898,7 @@ export default function CarRentModal({
               <div className="modal__item-wrapp">
                 <span className="modal__name">{t("summary.rateLabel")}</span>
                 <span className="modal__value">
-                  {t("summary.pricePerDay", { price: dailyPrice.toFixed(0) })}
+                  {formatPrice(dailyPrice)}/day
                 </span>
               </div>
               {Array.from(selectedExtras).map((id) => {
@@ -916,7 +918,7 @@ export default function CarRentModal({
                     <span className="modal__value">
                       {priceText}
                       {isPerDay && totalDays > 0
-                        ? ` × ${totalDays} = ${extra.price * totalDays} USD`
+                        ? ` × ${totalDays} = ${formatPrice(extra.price * totalDays)}`
                         : ""}
                     </span>
                   </div>
@@ -926,13 +928,13 @@ export default function CarRentModal({
             <li className="modal__item">
               <span className="modal__name">{t("summary.depositLabel")}</span>
               <span className="modal__value">
-                <b>{tAside("currency", { value: depositAmount.toFixed(0) })}</b>
+                <b>{formatPrice(depositAmount)}</b>
               </span>
             </li>
             <li className="modal__item">
               <span className="modal__name">{t("summary.totalLabel")}</span>
               <span className="modal__value big">
-                {tAside("currency", { value: totalCost.toFixed(0) })}
+                {formatPrice(totalCost)}
               </span>
             </li>
           </ul>

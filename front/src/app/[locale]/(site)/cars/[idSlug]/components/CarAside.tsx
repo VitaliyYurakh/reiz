@@ -9,6 +9,7 @@ import { Link } from "@/i18n/request";
 import type { Car, CarCountingRule } from "@/types/cars";
 import { useSideBarModal } from "@/components/modals";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const formatFull = (d: Date) => {
   const dd = String(d.getDate()).padStart(2, "0");
@@ -27,6 +28,7 @@ export default function CarAside({ car }: { car: Car }) {
   const t = useTranslations("carAside");
   const router = useRouter();
   const locale = useLocale();
+  const { formatPrice } = useCurrency();
 
   const [selectedPlanId, setSelectedPlanId] = useState<number>(
     car.carCountingRule[0]?.id || 0,
@@ -221,12 +223,10 @@ export default function CarAside({ car }: { car: Car }) {
                 {formatTariffRange(el.minDays, el.maxDays)}
               </span>
               <span className="single-form__value mode">
-                {t("tariffs.pricePerDay", {
-                  price: (
-                    el.dailyPrice *
-                    (1 + (selectedPlan?.pricePercent || 0) / 100)
-                  ).toFixed(0),
-                })}
+                {formatPrice(
+                  el.dailyPrice * (1 + (selectedPlan?.pricePercent || 0) / 100)
+                )}
+                /day
               </span>
             </li>
           ))}
@@ -245,7 +245,7 @@ export default function CarAside({ car }: { car: Car }) {
           </div>
         </span>
         <span className="single-form__value">
-          {t("currency", { value: depositAmount.toFixed(0) })}
+          {formatPrice(depositAmount)}
         </span>
       </div>
       <div className="single-form__info">
@@ -257,7 +257,7 @@ export default function CarAside({ car }: { car: Car }) {
           })}
         </span>
         <span className="single-form__value">
-          <b>{t("currency", { value: totalPrice.toFixed(0) })}</b>
+          <b>{formatPrice(totalPrice)}</b>
         </span>
       </div>
       <div className="single-form__info mode">
@@ -272,7 +272,7 @@ export default function CarAside({ car }: { car: Car }) {
           </div>
         </span>
         <span className="single-form__value">
-          <b>{t("currency", { value: clubPrice.toFixed(0) })}</b>
+          <b>{formatPrice(clubPrice)}</b>
         </span>
       </div>
 

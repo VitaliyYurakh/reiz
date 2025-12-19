@@ -13,6 +13,7 @@ import {useCatalogFilters} from "@/context/CatalogFiltersContext";
 import {useSideBarModal} from "@/components/modals";
 import CarCard from "@/app/[locale]/components/CarCard";
 import {themeColorLock} from "@/hooks/useThemeColorOnOpen";
+import {useCurrency} from "@/context/CurrencyContext";
 
 type Filters = {
     segment?: string | null;
@@ -99,6 +100,7 @@ export default function Catalog({cars}: CatalogProps) {
     const {open: openManagerModal} = useSideBarModal(
         "managerWillContactYouModal",
     );
+    const {convert, convertToUSD, getCurrencySymbol} = useCurrency();
 
     const filtersOpen = catalogFilters?.filtersOpen ?? internalFiltersOpen;
 
@@ -214,7 +216,7 @@ export default function Catalog({cars}: CatalogProps) {
 
 
     const isCarMatching = useCallback(
-        (car: Car, excludeKey?: keyof Filters) => {
+        (car: Car, excludeKey?: keyof Filters | "price") => {
             if (excludeKey !== "segment" && filters.segment) {
                 const segNames = car.segment.map((s) => s.name.toUpperCase());
                 if (!segNames.includes(filters.segment.toUpperCase())) return false;
@@ -237,15 +239,18 @@ export default function Catalog({cars}: CatalogProps) {
                 if (car.model?.trim() !== filters.model.trim()) return false;
             }
 
-            const minTariffPrice = getMinPrice(car);
+            // Пропускаємо фільтр ціни якщо excludeKey === "price"
+            if (excludeKey !== "price") {
+                const minTariffPrice = getMinPrice(car);
 
-            if (filters.priceMin != null) {
-                if (minTariffPrice == null || minTariffPrice < filters.priceMin)
-                    return false;
-            }
-            if (filters.priceMax != null) {
-                if (minTariffPrice == null || minTariffPrice > filters.priceMax)
-                    return false;
+                if (filters.priceMin != null) {
+                    if (minTariffPrice == null || minTariffPrice < filters.priceMin)
+                        return false;
+                }
+                if (filters.priceMax != null) {
+                    if (minTariffPrice == null || minTariffPrice > filters.priceMax)
+                        return false;
+                }
             }
 
             return true;
@@ -256,6 +261,27 @@ export default function Catalog({cars}: CatalogProps) {
     const filtered = useMemo(() => {
         return cars.filter((c) => isCarMatching(c));
     }, [cars, isCarMatching]);
+
+    // Авто відфільтровані БЕЗ фільтра ціни (для розрахунку динамічних меж)
+    const filteredWithoutPrice = useMemo(() => {
+        return cars.filter((c) => isCarMatching(c, "price"));
+    }, [cars, isCarMatching]);
+
+    // Динамічні мін/макс ціни ">29 днів" для placeholder
+    const priceRange = useMemo(() => {
+        const prices = filteredWithoutPrice
+            .map(getLongTermPrice)
+            .filter((p): p is number => p !== null);
+
+        if (prices.length === 0) {
+            return { min: 0, max: 0 };
+        }
+
+        return {
+            min: Math.min(...prices),
+            max: Math.max(...prices),
+        };
+    }, [filteredWithoutPrice]);
 
     // Сортування відфільтрованих авто по ціні "Більше 29 днів"
     const sortedCars = useMemo(() => {
@@ -506,16 +532,16 @@ export default function Catalog({cars}: CatalogProps) {
                                                 name="value_min"
                                                 id="value_min"
                                                 className="catalog-aside__input"
-                                                placeholder={t("filters_panel.price_min_placeholder")}
-                                                value={filters.priceMin ?? ""}
+                                                placeholder={priceRange.min > 0 ? `${Math.round(convert(priceRange.min))}` : "0"}
+                                                value={filters.priceMin ? Math.round(convert(filters.priceMin)) : ""}
                                                 onChange={(e) =>
                                                     setFilters((f) => ({
                                                         ...f,
-                                                        priceMin: e.target.valueAsNumber || null,
+                                                        priceMin: e.target.valueAsNumber ? Math.round(convertToUSD(e.target.valueAsNumber)) : null,
                                                     }))
                                                 }
                                             />
-                                            <span>$</span>
+                                            <span>{getCurrencySymbol()}</span>
                                         </label>
                                         <label className="catalog-aside__label mode">
                                             <span>{t("filters_panel.price_max_label")}</span>
@@ -524,16 +550,16 @@ export default function Catalog({cars}: CatalogProps) {
                                                 name="value_max"
                                                 id="value_max"
                                                 className="catalog-aside__input"
-                                                placeholder={t("filters_panel.price_max_placeholder")}
-                                                value={filters.priceMax ?? ""}
+                                                placeholder={priceRange.max > 0 ? `${Math.round(convert(priceRange.max))}` : "0"}
+                                                value={filters.priceMax ? Math.round(convert(filters.priceMax)) : ""}
                                                 onChange={(e) =>
                                                     setFilters((f) => ({
                                                         ...f,
-                                                        priceMax: e.target.valueAsNumber || null,
+                                                        priceMax: e.target.valueAsNumber ? Math.round(convertToUSD(e.target.valueAsNumber)) : null,
                                                     }))
                                                 }
                                             />
-                                            <span>$</span>
+                                            <span>{getCurrencySymbol()}</span>
                                         </label>
                                     </div>
 

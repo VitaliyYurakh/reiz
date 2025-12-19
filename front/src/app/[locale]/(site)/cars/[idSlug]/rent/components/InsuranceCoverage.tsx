@@ -2,6 +2,7 @@
 import { useTranslations } from "next-intl";
 import Icon from "@/components/Icon";
 import type { CarCountingRule } from "@/types/cars";
+import { useCurrency } from "@/context/CurrencyContext";
 
 interface InsuranceCoverageProps {
   dailyPrice: number;
@@ -21,6 +22,7 @@ export default function InsuranceCoverage({
   selectedPlanId,
 }: InsuranceCoverageProps) {
   const t = useTranslations("carRentPage.insuranceCoverage");
+  const { formatPrice } = useCurrency();
 
   const options = [
     {
@@ -60,11 +62,6 @@ export default function InsuranceCoverage({
       icon: "car-wash",
     },
   ];
-
-  const formatCurrency = (value: number) => {
-    const normalized = Number.isFinite(value) ? Math.max(0, value) : 0;
-    return `${Math.round(normalized)} USD`;
-  };
 
   return (
     <div className="insurance">
@@ -123,15 +120,15 @@ export default function InsuranceCoverage({
       <div className="insurance__footer">
         <div className="insurance__deposit">
           <div>
-            {t("footer.deposit")}: <b>{formatCurrency(depositAmount)}</b>
+            {t("footer.deposit")}: <b>{formatPrice(depositAmount)}</b>
           </div>
         </div>
         <div className="insurance__price">
           <div>
-            <b>{formatCurrency(dailyPrice)}</b> {t("footer.pricePerDay")}
+            <b>{formatPrice(dailyPrice)}</b> {t("footer.pricePerDay")}
           </div>
           <div className="insurance__price-sub">
-            {formatCurrency(totalPrice)} {t("footer.total")}
+            {formatPrice(totalPrice)} {t("footer.total")}
           </div>
         </div>
       </div>

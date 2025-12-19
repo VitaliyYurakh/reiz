@@ -7,6 +7,7 @@ import {
   useRentalSearch,
   type CoverageOption,
 } from "@/context/RentalSearchContext";
+import { useCurrency } from "@/context/CurrencyContext";
 import { BASE_URL } from "@/config/environment";
 import type { Car, CarCountingRule, RentalTariff } from "@/types/cars";
 import { Link } from "@/i18n/request";
@@ -20,14 +21,6 @@ const COVERAGE_PLAN_INDEX: Record<CoverageOption, number> = {
   deposit: 0,
   coverage50: 1,
   coverage100: 2,
-};
-
-const formatCurrency = (value: number, locale: string) => {
-  const normalized = Number.isFinite(value) ? Math.max(0, value) : 0;
-  const formatter = new Intl.NumberFormat(locale, {
-    maximumFractionDigits: 0,
-  });
-  return `${formatter.format(Math.round(normalized))} USD`;
 };
 
 const findActiveTariff = (
@@ -54,6 +47,7 @@ export default function CarCard({ car }: CarCardProps) {
   const tCatalog = useTranslations("homePage.catalog_aside.catalog_list");
   const { coverageOption, setCoverageOption, startDate, endDate, totalDays } =
     useRentalSearch();
+  const { formatPrice } = useCurrency();
 
   const hasDates = Boolean(startDate && endDate && totalDays > 0);
 
@@ -198,7 +192,7 @@ export default function CarCard({ car }: CarCardProps) {
                   )}
                 </span>
                 <span className="car-card__value">
-                  <b>{formatCurrency(adjustedPrice, locale)}</b>
+                  <b>{formatPrice(adjustedPrice)}</b>
                   <i>/</i>
                   {tCatalog("rates.perDay")}
                 </span>
@@ -279,7 +273,7 @@ export default function CarCard({ car }: CarCardProps) {
                   {tCatalog("total.dailyLabel")}
                 </span>
                 <span className="car-card__value">
-                  <b>{formatCurrency(dailyPrice, locale)}</b>
+                  <b>{formatPrice(dailyPrice)}</b>
                 </span>
               </li>
               <li className="car-card__item">
@@ -287,7 +281,7 @@ export default function CarCard({ car }: CarCardProps) {
                   {tCatalog("total.depositLabel")}
                 </span>
                 <span className="car-card__value">
-                  <b>{formatCurrency(depositAmount, locale)}</b>
+                  <b>{formatPrice(depositAmount)}</b>
                 </span>
               </li>
               <li className="car-card__item" style={{borderBottom: 'none'}}>
@@ -295,7 +289,7 @@ export default function CarCard({ car }: CarCardProps) {
                   {tCatalog("total.totalLabel")}
                 </span>
                 <span className="car-card__value">
-                  <b>{formatCurrency(rentalCost, locale)}</b>
+                  <b>{formatPrice(rentalCost)}</b>
                 </span>
               </li>
             </ul>
@@ -306,7 +300,7 @@ export default function CarCard({ car }: CarCardProps) {
               {tCatalog("total.depositLabel")}:
             </span>
             <span className="car-card__value">
-              {formatCurrency(depositAmount, locale)}
+              {formatPrice(depositAmount)}
             </span>
           </div>
         )}

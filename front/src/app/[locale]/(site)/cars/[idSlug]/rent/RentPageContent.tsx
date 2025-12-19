@@ -20,6 +20,7 @@ import InsuranceCoverage from "@/app/[locale]/(site)/cars/[idSlug]/rent/componen
 import { BASE_URL } from "@/config/environment";
 import { useSideBarModal } from "@/components/modals";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
+import { useCurrency } from "@/context/CurrencyContext";
 
 type ExtraDefinition = {
   id: "additionalDriver" | "childSeat" | "borderCrossing" | "driverService";
@@ -115,6 +116,7 @@ export default function RentPageContent({
   const { open: openManagerModal } = useSideBarModal(
     "managerWillContactYouModal",
   );
+  const { formatPrice } = useCurrency();
 
   const [formState, setFormState] = useState<FormState>(() => ({
     ...DEFAULT_FORM_STATE,
@@ -712,7 +714,7 @@ export default function RentPageContent({
                     {t("summary.rateLabel")}
                   </span>
                   <span className="rent-page__summary-value">
-                    {t("summary.pricePerDay", { price: dailyPrice.toFixed(0) })}
+                    {formatPrice(dailyPrice)}/day
                   </span>
                 </div>
                 {Array.from(selectedExtras).map((id) => {
@@ -734,7 +736,7 @@ export default function RentPageContent({
                       <span className="rent-page__summary-value">
                         {priceText}
                         {isPerDay && totalDays > 0
-                          ? ` × ${totalDays} = ${extra.price * totalDays} USD`
+                          ? ` × ${totalDays} = ${formatPrice(extra.price * totalDays)}`
                           : ""}
                       </span>
                     </div>
@@ -746,7 +748,7 @@ export default function RentPageContent({
                   {t("summary.depositLabel")}
                 </span>
                 <span className="rent-page__summary-value">
-                  <b>{t("currency", { value: depositAmount.toFixed(0) })}</b>
+                  <b>{formatPrice(depositAmount)}</b>
                 </span>
               </li>
               <li className="rent-page__summary-item">
@@ -754,7 +756,7 @@ export default function RentPageContent({
                   {t("summary.totalLabel")}
                 </span>
                 <span className="rent-page__summary-value rent-page__summary-value--big">
-                  {t("currency", { value: totalCost.toFixed(0) })}
+                  {formatPrice(totalCost)}
                 </span>
               </li>
             </ul>
@@ -764,7 +766,7 @@ export default function RentPageContent({
             <div className="main-order">
               <span className="main-order__text">{t("totalCostLabel")}</span>
               <span className="main-order__value">
-                {t("currency", { value: totalCost.toFixed(0) })}
+                {formatPrice(totalCost)}
               </span>
 
               <button className="main-button" onClick={handleSubmit}>
