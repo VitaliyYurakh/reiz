@@ -1,4 +1,4 @@
-import type { RentalTariff, Car } from "@/types/cars";
+import type { RentalTariff, Car, LocalizedText } from "@/types/cars";
 
 export type SortKey = "default" | "asc" | "desc";
 
@@ -89,4 +89,21 @@ export function buildDerivedLists(cars: Car[]) {
     new Set(cars.map((c) => c.model).filter(Boolean)),
   ) as string[];
   return { segmentNames, carBrands, carModels };
+}
+
+/**
+ * Форматирует информацию о двигателе: объём + тип топлива
+ * @param engineVolume - объём двигателя (например, "2.4")
+ * @param engineType - локализованный тип двигателя
+ * @param locale - текущая локаль (en, ru, uk)
+ * @returns строка вида "2.4 Дизель" или только объём, если тип не указан
+ */
+export function formatEngine(
+  engineVolume: string | null,
+  engineType: LocalizedText | null,
+  locale: string,
+): string {
+  const volume = engineVolume ?? "";
+  const type = engineType?.[locale as keyof LocalizedText] ?? "";
+  return type ? `${volume} ${type}`.trim() : volume;
 }

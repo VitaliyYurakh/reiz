@@ -12,6 +12,7 @@ import { BASE_URL } from "@/config/environment";
 import type { Car, CarCountingRule, RentalTariff } from "@/types/cars";
 import { Link } from "@/i18n/request";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
+import { formatEngine } from "@/lib/utils/catalog-utils";
 
 type CarCardProps = {
   car: Car;
@@ -212,9 +213,8 @@ export default function CarCard({ car }: CarCardProps) {
             <span className="car-card__text">
               {tCatalog("features.engine")}
             </span>
-            <span className="car-card__value desktop">{car.engineVolume}</span>
-            <span className="car-card__value mob">
-              {car.engineVolume} {car.engineType?.[locale]}
+            <span className="car-card__value">
+              {formatEngine(car.engineVolume, car.engineType, locale)}
             </span>
           </li>
           <li className="car-card__item">

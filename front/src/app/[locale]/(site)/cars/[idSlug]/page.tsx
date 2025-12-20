@@ -11,6 +11,7 @@ import {fetchCar} from "@/lib/api/cars";
 import {getTranslations} from "next-intl/server";
 import {LocalizedText} from "@/types/cars";
 import {createCarIdSlug, parseCarIdFromSlug} from "@/lib/utils/carSlug";
+import {formatEngine} from "@/lib/utils/catalog-utils";
 import {notFound, redirect} from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import { generateVehicleSchema } from "@/lib/schema/vehicle";
@@ -122,7 +123,7 @@ export default async function CarPage({
                             <span className="table-info__name">
                 {t("specifications.engine")}
               </span>
-                            <span className="table-info__value">{car.engineVolume}</span>
+                            <span className="table-info__value">{formatEngine(car.engineVolume, car.engineType, locale)}</span>
                         </li>
                         <li className="table-info__item">
               <span className="sprite">
