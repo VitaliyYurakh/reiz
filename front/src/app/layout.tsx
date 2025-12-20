@@ -6,6 +6,7 @@ import type { Locale } from "@/i18n/request";
 import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
 import { gowunDodum, halvar, inter } from "@/fonts";
+import Script from "next/script";
 
 const SITE_ORIGIN = "https://reiz.com.ua";
 const SITE_NAME = "REIZ RENTAL CARS";
@@ -105,32 +106,26 @@ export default async function RootLayout({
         />
         <link rel="dns-prefetch" href="//grwapi.net" />
 
-        {/*  <Script*/}
-        {/*      id="Cookiebot"*/}
-        {/*      src="https://consent.cookiebot.com/uc.js"*/}
-        {/*      data-cbid="e288779f-c5ea-447c-a7ce-3197f6f9f4a8"*/}
-        {/*      async*/}
-        {/*  />*/}
-
-        {/*  <Script id="gtm-loader" strategy="afterInteractive">*/}
-        {/*      {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});*/}
-        {/* var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';*/}
-        {/* j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);*/}
-        {/*})(window,document,'script','dataLayer','GTM-WGHWDS62');`}*/}
-        {/*  </Script>*/}
+        <Script id="gtm-loader" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WGHWDS62');`}
+        </Script>
       </head>
       <body
         className={`${inter.variable} ${halvar.variable} ${gowunDodum.variable}`}
       >
-        {/*<noscript>*/}
-        {/*  <iframe*/}
-        {/*    title="gtm"*/}
-        {/*    src="https://www.googletagmanager.com/ns.html?id=GTM-WGHWDS62"*/}
-        {/*    height="0"*/}
-        {/*    width="0"*/}
-        {/*    style={{ display: "none", visibility: "hidden" }}*/}
-        {/*  />*/}
-        {/*</noscript>*/}
+        <noscript>
+          <iframe
+            title="gtm"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WGHWDS62"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         {children}
         <AOSProvider />
         <PreloadResources />
