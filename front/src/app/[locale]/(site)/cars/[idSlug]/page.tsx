@@ -14,7 +14,7 @@ import {createCarIdSlug, parseCarIdFromSlug} from "@/lib/utils/carSlug";
 import {formatEngine} from "@/lib/utils/catalog-utils";
 import {notFound, redirect} from "next/navigation";
 import JsonLd from "@/components/JsonLd";
-import { generateVehicleSchema } from "@/lib/schema/vehicle";
+import { generateVehicleSchema, generateProductSchema } from "@/lib/schema/vehicle";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 
@@ -34,8 +34,8 @@ export async function generateMetadata({
     const slug = createCarIdSlug(car);
     const path = `/cars/${slug}`;
 
-    const title = `Аренда ${carName} во Львове — REIZ RENTAL CARS`;
-    const description = `Арендуйте ${carName} во Львове. ${car.engineVolume || ""} ${car.transmission?.[locale] || ""}, ${car.seats || 5} мест. Премиум-сервис, подача 24/7.`.trim();
+    const title = `Аренда ${car.brand} ${car.model} во Львове — цена от ${car.rentalTariff?.[0]?.dailyPrice || 50}$ в сутки`;
+    const description = `Арендуйте ${carName} во Львове. ${car.engineVolume || ""} ${car.transmission?.[locale] || ""}, ${car.seats || 5} мест. Подача в аэропорт и по городу 24/7.`.trim();
 
     const languages: Record<string, string> = {};
     locales.forEach((loc) => {
@@ -54,6 +54,8 @@ export async function generateMetadata({
             languages,
         },
         openGraph: {
+            type: "website",
+            siteName: "REIZ RENTAL CARS",
             title,
             description,
             url: `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`,
@@ -210,13 +212,15 @@ export default async function CarPage({
         },
     ];
 
+    const imageAlt = t("imageAlt", { brand: car.brand ?? "", model: car.model ?? "" });
+
     const PCImages = car.carPhoto
         .filter((image) => image.type === "PC")
         .map((image) => ({
             src: image.url,
             w: 891,
             h: 499,
-            alt: image.alt || "image",
+            alt: imageAlt,
         }));
 
     const mobileImages = car.carPhoto
@@ -225,7 +229,7 @@ export default async function CarPage({
             src: image.url,
             w: 500,
             h: 500,
-            alt: image.alt || "image",
+            alt: imageAlt,
         }));
 
     // Generate canonical URL for schema
@@ -239,9 +243,45 @@ export default async function CarPage({
         canonicalUrl,
     });
 
+    // Generate Product schema.org JSON-LD for Google Rich Snippets
+    const productSchema = generateProductSchema({
+        car,
+        locale,
+        canonicalUrl,
+    });
+
+    // Generate BreadcrumbList schema.org JSON-LD
+    const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            {
+                "@type": "ListItem",
+                position: 1,
+                name: t("breadcrumbs.home"),
+                item: `${BASE}${localePrefix || "/"}`,
+            },
+            {
+                "@type": "ListItem",
+                position: 2,
+                name: t("breadcrumbs.cars"),
+                item: `${BASE}${localePrefix}/#catalog`,
+            },
+            {
+                "@type": "ListItem",
+                position: 3,
+                name: `${car.brand} ${car.model}`,
+                item: canonicalUrl,
+            },
+        ],
+    };
+
     return (
         <section className="single-section">
             <JsonLd data={vehicleSchema} />
+            <JsonLd data={productSchema} />
+            <JsonLd data={breadcrumbSchema} />
             <ThemeColorSetter />
             <div className="container">
                 <div className="single-section__box">
@@ -255,7 +295,7 @@ export default async function CarPage({
                             <Link href="/">{t("breadcrumbs.home")}</Link>
                         </li>
                         <li>
-                            <Link href="#">{t("breadcrumbs.cars")}</Link>
+                            <Link href="/#catalog">{t("breadcrumbs.cars")}</Link>
                         </li>
                         <li>
                             {car.brand} {car.model} {car.yearOfManufacture}

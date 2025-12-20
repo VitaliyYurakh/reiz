@@ -135,7 +135,7 @@ export default function CarCard({ car }: CarCardProps) {
             width="450"
             height="252"
             src={`${BASE_URL}static/${car.previewUrl ?? ""}`}
-            alt={`${car.brand ?? ""} ${car.model ?? ""}`.trim()}
+            alt={tCatalog("imageAlt", { brand: car.brand ?? "", model: car.model ?? "" })}
           />
         </picture>
       </Link>

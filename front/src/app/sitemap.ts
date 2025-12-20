@@ -48,20 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.9,
         alternates: { languages },
       });
-
-      // Rent pages for each car
-      locales.forEach((loc) => {
-        const prefix = loc === defaultLocale ? "" : `/${loc}`;
-        languages[loc] = abs(`${prefix}/cars/${idSlug}/rent`);
-      });
-
-      entries.push({
-        url: abs(`/cars/${idSlug}/rent`),
-        lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: 0.7,
-        alternates: { languages },
-      });
+      // Note: /rent pages excluded from sitemap (noindex)
     }
   } catch (error) {
     console.error("Failed to fetch cars for sitemap:", error);

@@ -102,3 +102,66 @@ export function generateVehicleSchema({
 
   return schema;
 }
+
+/**
+ * Generate Product + Offer schema.org JSON-LD for Google Rich Snippets
+ */
+export function generateProductSchema({
+  car,
+  locale,
+  canonicalUrl,
+}: VehicleSchemaParams): Record<string, unknown> {
+  const carName = `${car.brand} ${car.model}`.trim();
+
+  // Get images (PC type preferred, limit to 3)
+  const images = car.carPhoto
+    .filter((p) => p.type === "PC" || p.type === "MOBILE")
+    .slice(0, 3)
+    .map((p) => p.url);
+
+  // Calculate min price from rental tariffs
+  const prices = car.rentalTariff?.map((t) => t.dailyPrice) || [];
+  const minPrice = prices.length > 0 ? Math.min(...prices) : null;
+
+  // Build description from car specs
+  const descParts: string[] = [];
+  if (car.engineVolume) descParts.push(car.engineVolume);
+  if (car.engineType?.[locale]) descParts.push(car.engineType[locale]);
+  if (car.transmission?.[locale]) descParts.push(car.transmission[locale]);
+  if (car.seats) descParts.push(`${car.seats} мест`);
+  const description = descParts.length > 0
+    ? `Аренда ${carName} во Львове. ${descParts.join(", ")}. Подача 24/7.`
+    : `Аренда ${carName} во Львове. Премиум-сервис, подача 24/7.`;
+
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: carName,
+    description,
+    image: images.length > 0 ? images : [`${BASE}/img/og/home.webp`],
+    brand: {
+      "@type": "Brand",
+      name: car.brand,
+    },
+    sku: `car-${car.id}`,
+  };
+
+  // Offer with "from" price
+  if (minPrice !== null) {
+    schema.offers = {
+      "@type": "Offer",
+      url: canonicalUrl,
+      priceCurrency: "USD",
+      price: minPrice,
+      availability: "https://schema.org/InStock",
+      priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+        .toISOString()
+        .split("T")[0],
+      seller: {
+        "@id": `${BASE}/#company`,
+      },
+    };
+  }
+
+  return schema;
+}

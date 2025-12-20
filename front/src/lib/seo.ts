@@ -21,11 +21,7 @@ export const ROUTE_MAP: Record<RouteKey, Record<Locale, string>> = {
   about: { ru: "/about", uk: "/uk/about", en: "/en/about" },
   blog: { ru: "/blog", uk: "/uk/blog", en: "/en/blog" },
   business: { ru: "/business", uk: "/uk/business", en: "/en/business" },
-  certificate: {
-    ru: "/certificate",
-    uk: "/uk/certificate",
-    en: "/en/certificate",
-  },
+  certificate: { ru: "/certificate", uk: "/uk/certificate", en: "/en/certificate" },
   contacts: { ru: "/contacts", uk: "/uk/contacts", en: "/en/contacts" },
   faq: { ru: "/faq", uk: "/uk/faq", en: "/en/faq" },
   insurance: { ru: "/insurance", uk: "/uk/insurance", en: "/en/insurance" },
@@ -87,6 +83,8 @@ export async function getPageMetadata({
       languages,
     },
     openGraph: {
+      type: "website",
+      siteName: "REIZ RENTAL CARS",
       title: t("meta.og_title"),
       description: t("meta.og_description"),
       images: [{ url: t("meta.og_image") }],

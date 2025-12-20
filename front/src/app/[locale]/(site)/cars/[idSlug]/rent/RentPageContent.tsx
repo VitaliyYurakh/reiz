@@ -416,7 +416,7 @@ export default function RentPageContent({
               <Link href="/">{t("breadcrumbs.home")}</Link>
             </li>
             <li>
-              <Link href="#">{t("breadcrumbs.cars")}</Link>
+              <Link href="/#catalog">{t("breadcrumbs.cars")}</Link>
             </li>
             <li>
               <Link href={`/cars/${createCarIdSlug(car)}`}>

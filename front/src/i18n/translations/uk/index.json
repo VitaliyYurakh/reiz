@@ -113,7 +113,8 @@
           "details": "Детальніше",
           "book": "Забронювати"
         },
-        "empty": "Немає автомобілів"
+        "empty": "Немає автомобілів",
+        "imageAlt": "Оренда {brand} {model} у Львові"
       }
     },
     "editor_block": {
@@ -180,9 +181,9 @@
       "og_description": "Прокат автомобілів у Львові. Нові авто, преміальний сервіс, адресна доставка, підтримка 24/7.",
       "og_image": "https://reiz.com.ua/img/og/home.webp",
       "og_locale": "uk_UA",
-      "og_title": "Оренда авто у Львові — REIZ RENTAL CARS",
+      "og_title": "Оренда авто у Львові — подача по місту та в аеропорт",
       "og_url": "https://reiz.com.ua/ua/",
-      "title": "Оренда авто у Львові — REIZ RENTAL CARS"
+      "title": "Оренда авто у Львові — подача по місту та в аеропорт"
     },
     "order_form": {
       "date_value": "26 апр. 10:00 - 26 апр. 10:00",
@@ -1074,7 +1075,8 @@
       "seats": "{count, plural, one {{count} місце} few {{count} місця} many {{count} місць} other {{count} місця}}",
       "year": "Рік випуску"
     },
-    "equipmentTitle": "Комплектація “{carName}”"
+    "equipmentTitle": "Комплектація \"{carName}\"",
+    "imageAlt": "Оренда {brand} {model} у Львові"
   },
   "carAside": {
     "rentalPeriodTitle": "Період оренди “{brand} {model} {year}”",

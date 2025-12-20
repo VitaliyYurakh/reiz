@@ -22,8 +22,8 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE_ORIGIN),
     title: {
-      default: "Аренда авто во Львове — REIZ RENTAL CARS",
-      template: "%s — REIZ RENTAL CARS",
+      default: "Аренда авто во Львове — подача по городу и в аэропорт | REIZ",
+      template: "%s | REIZ",
     },
     description:
       "Аренда автомобилей во Львове. Современные авто, премиум‑сервис, подача по адресу, 24/7.",
@@ -31,14 +31,14 @@ export async function generateMetadata({
       canonical: "/",
       languages: {
         ru: "/",
-        uk: "/ua/",
-        en: "/en/",
+        uk: "/uk",
+        en: "/en",
         "x-default": "/",
       },
     },
     openGraph: {
       type: "website",
-      url: "/",
+      url: SITE_ORIGIN,
       siteName: SITE_NAME,
       locale: "ru_RU",
       alternateLocale: ["uk_UA", "en_US"],
@@ -47,7 +47,7 @@ export async function generateMetadata({
         "Прокат автомобилей во Львове. Новые авто, премиальный сервис, адресная доставка, поддержка 24/7.",
       images: [
         {
-          url: "/img/og/home.webp",
+          url: `${SITE_ORIGIN}/img/og/home.webp`,
           width: 1200,
           height: 630,
           alt: "REIZ Rental Cars — Львов",
@@ -59,7 +59,7 @@ export async function generateMetadata({
       title: "Аренда авто во Львове — REIZ RENTAL CARS",
       description:
         "Прокат авто во Львове: новые авто, подача по адресу, поддержка 24/7.",
-      images: ["/img/og/home.webp"],
+      images: [`${SITE_ORIGIN}/img/og/home.webp`],
     },
     robots: {
       index: true,

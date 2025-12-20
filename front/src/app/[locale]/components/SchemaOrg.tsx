@@ -1,15 +1,16 @@
 const companyJsonLd = {
   "@context": "https://schema.org",
-  "@type": "AutoRental",
+  "@type": ["LocalBusiness", "AutoRental"],
   "@id": "https://reiz.com.ua/#company",
-  name: "REIZ Rental Cars",
-  url: "https://reiz.com.ua/",
-  logo: "https://reiz.com.ua/ico/Reiz.png",
-  image: "https://reiz.com.ua/img/reiz.webp",
+  name: "REIZ RENTAL CARS",
+  url: "https://reiz.com.ua",
+  logo: "https://reiz.com.ua/img/og/home-square.webp",
+  image: "https://reiz.com.ua/img/og/home.webp",
   description:
     "REIZ — аренда авто во Львове: современные автомобили, подача по адресу и поддержка 24/7.",
   telephone: "+380635471186",
-  priceRange: "$$",
+  email: "info@reiz.com.ua",
+  priceRange: "$",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Львов",

@@ -3,11 +3,12 @@ import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/mo
 import ThemeColorSetter from "@/app/[locale]/(site)/cars/[idSlug]/components/ThemeColorSetter";
 import RentPageContent from "@/app/[locale]/(site)/cars/[idSlug]/rent/RentPageContent";
 import { fetchCar } from "@/lib/api/cars";
-import { type Locale, defaultLocale, locales } from "@/i18n/request";
+import { type Locale, defaultLocale } from "@/i18n/request";
 import { createCarIdSlug, parseCarIdFromSlug } from "@/lib/utils/carSlug";
 import { notFound, redirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import { generateRentalServiceSchema } from "@/lib/schema/rental-service";
+import { getTranslations } from "next-intl/server";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 
@@ -27,30 +28,30 @@ export async function generateMetadata({
 
   const carName = `${car.brand} ${car.model} ${car.yearOfManufacture}`.trim();
   const slug = createCarIdSlug(car);
-  const path = `/cars/${slug}/rent`;
+  const carPath = `/cars/${slug}`;
 
   const minPrice = car.rentalTariff?.reduce((min, t) => Math.min(min, t.dailyPrice), Infinity) || 0;
   const title = `Забронировать ${carName} — от $${minPrice}/день | REIZ`;
   const description = `Оформите аренду ${carName} онлайн. От $${minPrice}/день, страховка включена, подача по адресу 24/7.`;
 
-  const languages: Record<string, string> = {};
-  locales.forEach((loc) => {
-    const prefix = loc === defaultLocale ? "" : `/${loc}`;
-    languages[loc] = `${BASE}${prefix}${path}`;
-  });
-  languages["x-default"] = `${BASE}${path}`;
+  // Canonical points to car detail page, not rent page
+  const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
+  const canonicalUrl = `${BASE}${localePrefix}${carPath}`;
 
   return {
     title,
     description,
+    robots: {
+      index: false,
+      follow: true,
+    },
     alternates: {
-      canonical: `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`,
-      languages,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title,
       description,
-      url: `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`,
+      url: canonicalUrl,
     },
   };
 }
@@ -128,9 +129,45 @@ export default async function CarRentPage({
     canonicalUrl,
   });
 
+  // Generate BreadcrumbList schema.org JSON-LD
+  const t = await getTranslations("carRentPage");
+  const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
+  const carDetailUrl = `${BASE}${localePrefix}/cars/${slug}`;
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: t("breadcrumbs.home"),
+        item: `${BASE}${localePrefix || "/"}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("breadcrumbs.cars"),
+        item: `${BASE}${localePrefix}/#catalog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: `${car.brand} ${car.model}`,
+        item: carDetailUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: t("breadcrumbs.booking"),
+        item: canonicalUrl,
+      },
+    ],
+  };
+
   return (
     <CarClientProvider>
       <JsonLd data={rentalServiceSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <ThemeColorSetter />
       <RentPageContent
         car={car}

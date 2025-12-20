@@ -113,7 +113,8 @@
           "details": "Details",
           "book": "Book now"
         },
-        "empty": "No cars available"
+        "empty": "No cars available",
+        "imageAlt": "Rent {brand} {model} in Lviv"
       }
     },
     "editor_block": {
@@ -180,9 +181,9 @@
       "og_description": "Car hire in Lviv. Modern fleet, premium service, doorstep delivery, 24/7 support.",
       "og_image": "https://reiz.com.ua/img/og/home.webp",
       "og_locale": "en_US",
-      "og_title": "Car rental in Lviv — REIZ RENTAL CARS",
+      "og_title": "Car rental in Lviv — city and airport delivery",
       "page": "home",
-      "title": "Car rental in Lviv — REIZ RENTAL CARS"
+      "title": "Car rental in Lviv — city and airport delivery"
     },
     "order_form": {
       "date_placeholder": "Select dates",
@@ -1095,7 +1096,8 @@
       "seats": "{count, plural, one {{count} seat} other {{count} seats}}",
       "year": "Year of manufacture"
     },
-    "equipmentTitle": "Equipment “{carName}”"
+    "equipmentTitle": "Equipment \"{carName}\"",
+    "imageAlt": "Rent {brand} {model} in Lviv"
   },
   "carAside": {
     "rentalPeriodTitle": "Rental period “{brand} {model} {year}”",

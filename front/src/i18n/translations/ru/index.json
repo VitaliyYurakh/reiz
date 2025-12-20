@@ -113,7 +113,8 @@
           "details": "ПОДРОБНЕЕ",
           "book": "ЗАБРОНИРОВАТЬ"
         },
-        "empty": "Нет автомобилей"
+        "empty": "Нет автомобилей",
+        "imageAlt": "Аренда {brand} {model} во Львове"
       }
     },
     "editor_block": {
@@ -180,9 +181,9 @@
       "og_description": "Прокат автомобилей во Львове. Новые авто, премиальный сервис, адресная доставка, поддержка 24/7.",
       "og_image": "https://reiz.com.ua/img/og/home.webp",
       "og_locale": "ru_RU",
-      "og_title": "Аренда авто во Львове — REIZ RENTAL CARS",
+      "og_title": "Аренда авто во Львове — подача по городу и в аэропорт",
       "page": "home",
-      "title": "Аренда авто во Львове — REIZ RENTAL CARS"
+      "title": "Аренда авто во Львове — подача по городу и в аэропорт"
     },
     "order_form": {
       "date_placeholder": "Выберите даты",
@@ -1095,7 +1096,8 @@
       "seats": "{count, plural, one {{count} место} few {{count} места} many {{count} мест} other {{count} мест}}",
       "year": "Год выпуска"
     },
-    "equipmentTitle": "Комплектация “{carName}”"
+    "equipmentTitle": "Комплектация \"{carName}\"",
+    "imageAlt": "Аренда {brand} {model} во Львове"
   },
   "carAside": {
     "rentalPeriodTitle": "Период аренды “{brand} {model} {year}”",
