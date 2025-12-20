@@ -1201,30 +1201,31 @@
       },
       "included": "Included in the price",
       "depositReduction": "Deposit reduced by {percent}%",
-      "pricePerDay": "{price} USD/day"
+      "pricePerDay": "{formattedPrice}/day"
     },
     "addOns": {
       "title": "Add-ons",
       "options": {
         "additionalDriver": {
           "label": "Additional driver",
-          "price": "{price} USD/day",
+          "price": "{formattedPrice}/day",
           "summary": "Additional driver"
         },
         "childSeat": {
           "label": "Child seat",
-          "price": "{price} USD/day",
+          "price": "{formattedPrice}/day",
           "summary": "Child seat"
         },
         "borderCrossing": {
           "label": "Border crossing",
-          "price": "{price} USD",
+          "price": "{formattedPrice}",
           "summary": "Border crossing"
         },
         "driverService": {
           "label": "Driver service",
-          "price": "{price} USD/day",
-          "summary": "Driver service"
+          "price": "{formattedPrice}/working day",
+          "summary": "Driver service",
+          "tooltip": "<b>What does the driver's working day include?</b><br/>Working hours: 9:00–18:00<br/>8 hours of work + 1 hour lunch break (break is not counted as working time)."
         }
       },
       "noneSelected": "No add-ons selected"
@@ -1245,15 +1246,15 @@
     },
     "summary": {
       "title": "Rent {car}",
-      "pickupLabel": "Pickup request",
-      "returnLabel": "Return request",
+      "pickupLabel": "Vehicle pickup",
+      "returnLabel": "Vehicle return",
       "durationLabel": "Rental duration",
       "durationValue": "{count, plural, one {{count} day} other {{count} days}}",
       "rateLabel": "Rental rate",
-      "pricePerDay": "{price} USD/day",
+      "pricePerDay": "{formattedPrice}/day",
       "addOnsLabel": "Add-ons",
-      "depositLabel": "Deposit",
-      "totalLabel": "Total cost",
+      "depositLabel": "Refundable deposit",
+      "totalLabel": "Total to pay",
       "locationPlaceholder": "Not specified",
       "imageAlt": "Car {car} rental"
     },
@@ -1261,10 +1262,10 @@
       "options": [
         "Kyiv, Boryspil Airport, Terminal 3B",
         "Kyiv, Zhuliany Airport, Terminal 2A",
-        "Lviv, Danylo Halytskyi Int’l Airport, T1"
+        "Lviv, Danylo Halytskyi Int'l Airport, T1"
       ]
     },
-    "totalCostLabel": "Total cost",
+    "totalCostLabel": "Total to pay",
     "bookButton": "Book"
   },
   "carRentPage": {
@@ -1324,23 +1325,24 @@
       "options": {
         "additionalDriver": {
           "label": "Additional driver",
-          "price": "{price} USD/day",
+          "price": "{formattedPrice}/day",
           "summary": "Additional driver"
         },
         "childSeat": {
           "label": "Child seat",
-          "price": "{price} USD/day",
+          "price": "{formattedPrice}/day",
           "summary": "Child seat"
         },
         "borderCrossing": {
           "label": "Border crossing",
-          "price": "{price} USD",
+          "price": "{formattedPrice}",
           "summary": "Border crossing"
         },
         "driverService": {
           "label": "Driver service",
-          "price": "{price} USD/day",
-          "summary": "Driver service"
+          "price": "{formattedPrice}/working day",
+          "summary": "Driver service",
+          "tooltip": "<b>What does the driver's working day include?</b><br/>Working hours: 9:00–18:00<br/>8 hours of work + 1 hour lunch break (break is not counted as working time)."
         }
       },
       "noneSelected": "No add-ons selected"
@@ -1359,15 +1361,15 @@
     },
     "summary": {
       "title": "Rent {car}",
-      "pickupLabel": "Pickup request",
-      "returnLabel": "Return request",
+      "pickupLabel": "Vehicle pickup",
+      "returnLabel": "Vehicle return",
       "durationLabel": "Rental duration",
       "durationValue": "{count, plural, one {{count} day} other {{count} days}}",
       "rateLabel": "Rental rate",
-      "pricePerDay": "{price} USD/day",
+      "pricePerDay": "{formattedPrice}/day",
       "addOnsLabel": "Add-ons",
-      "depositLabel": "Deposit",
-      "totalLabel": "Total cost",
+      "depositLabel": "Refundable deposit",
+      "totalLabel": "Total to pay",
       "locationPlaceholder": "Not specified",
       "imageAlt": "Car {car} rental"
     },
@@ -1375,11 +1377,10 @@
       "options": [
         "Kyiv, Boryspil Airport, Terminal 3B",
         "Kyiv, Zhuliany Airport, Terminal 2A",
-        "Lviv, Danylo Halytskyi Int’l Airport, T1"
+        "Lviv, Danylo Halytskyi Int'l Airport, T1"
       ]
     },
-    "currency": "{value} USD",
-    "totalCostLabel": "Total cost",
+    "totalCostLabel": "Total to pay",
     "bookButton": "Book"
   },
   "requestCallModal": {

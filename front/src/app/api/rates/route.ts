@@ -17,9 +17,9 @@ const CACHE_DURATION = 12 * 60 * 60 * 1000; // 12 годин
 
 // Fallback курси (приблизні, використовуються тільки якщо API недоступний)
 const FALLBACK_RATES = {
-  USD_UAH: 41.5,
-  EUR_UAH: 45.0,
-  USD_EUR: 41.5 / 45.0,
+  USD_UAH: 42.7,
+  EUR_UAH: 49.5,
+  USD_EUR: 42.7 / 49.5,
 };
 
 type MonobankRate = {

@@ -1201,30 +1201,31 @@
       },
       "included": "Включено в стоимость",
       "depositReduction": "Залог уменьшен на {percent}%",
-      "pricePerDay": "{price} USD/сутки"
+      "pricePerDay": "{formattedPrice}/сутки"
     },
     "addOns": {
       "title": "Дополнения",
       "options": {
         "additionalDriver": {
           "label": "Дополнительный водитель",
-          "price": "{price} USD/сутки",
+          "price": "{formattedPrice}/сутки",
           "summary": "Дополнительный водитель"
         },
         "childSeat": {
           "label": "Детское автокресло",
-          "price": "{price} USD/сутки",
+          "price": "{formattedPrice}/сутки",
           "summary": "Детское автокресло"
         },
         "borderCrossing": {
           "label": "Выезд за границу",
-          "price": "{price} USD",
+          "price": "{formattedPrice}",
           "summary": "Выезд за границу"
         },
         "driverService": {
           "label": "Услуги водителя",
-          "price": "{price} USD/рабочий день",
-          "summary": "Услуги водителя"
+          "price": "{formattedPrice}/рабочий день",
+          "summary": "Услуги водителя",
+          "tooltip": "<b>Что входит в рабочий день водителя?</b><br/>Рабочий день: 9:00–18:00<br/>8 часов работы + 1 час обеденного перерыва (перерыв не считается рабочим)."
         }
       },
       "noneSelected": "Дополнения не выбраны"
@@ -1245,15 +1246,15 @@
     },
     "summary": {
       "title": "Аренда {car}",
-      "pickupLabel": "Запрос подачи",
-      "returnLabel": "Запрос возврата",
+      "pickupLabel": "Получение автомобиля",
+      "returnLabel": "Возврат автомобиля",
       "durationLabel": "Продолжительность аренды",
       "durationValue": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
       "rateLabel": "Тариф",
-      "pricePerDay": "{price} USD/сутки",
+      "pricePerDay": "{formattedPrice}/сутки",
       "addOnsLabel": "Дополнения",
-      "depositLabel": "Залог",
-      "totalLabel": "Общая стоимость",
+      "depositLabel": "Возвратный залог",
+      "totalLabel": "Итого к оплате",
       "locationPlaceholder": "Не указано",
       "imageAlt": "Аренда автомобиля {car}"
     },
@@ -1264,7 +1265,7 @@
         "Львов, Международный аэропорт имени Даниила Галицкого, Т1"
       ]
     },
-    "totalCostLabel": "Общая стоимость",
+    "totalCostLabel": "Итого к оплате",
     "bookButton": "Бронировать"
   },
   "carRentPage": {
@@ -1324,23 +1325,24 @@
       "options": {
         "additionalDriver": {
           "label": "Дополнительный водитель",
-          "price": "{price} USD/сутки",
+          "price": "{formattedPrice}/сутки",
           "summary": "Дополнительный водитель"
         },
         "childSeat": {
           "label": "Детское автокресло",
-          "price": "{price} USD/сутки",
+          "price": "{formattedPrice}/сутки",
           "summary": "Детское автокресло"
         },
         "borderCrossing": {
           "label": "Выезд за границу",
-          "price": "{price} USD",
+          "price": "{formattedPrice}",
           "summary": "Выезд за границу"
         },
         "driverService": {
           "label": "Услуги водителя",
-          "price": "{price} USD/рабочий день",
-          "summary": "Услуги водителя"
+          "price": "{formattedPrice}/рабочий день",
+          "summary": "Услуги водителя",
+          "tooltip": "<b>Что входит в рабочий день водителя?</b><br/>Рабочий день: 9:00–18:00<br/>8 часов работы + 1 час обеденного перерыва (перерыв не считается рабочим)."
         }
       },
       "noneSelected": "Дополнения не выбраны"
@@ -1359,15 +1361,15 @@
     },
     "summary": {
       "title": "Аренда {car}",
-      "pickupLabel": "Запрос подачи",
-      "returnLabel": "Запрос возврата",
+      "pickupLabel": "Получение автомобиля",
+      "returnLabel": "Возврат автомобиля",
       "durationLabel": "Продолжительность аренды",
       "durationValue": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
       "rateLabel": "Тариф",
-      "pricePerDay": "{price} USD/сутки",
+      "pricePerDay": "{formattedPrice}/сутки",
       "addOnsLabel": "Дополнения",
-      "depositLabel": "Залог",
-      "totalLabel": "Общая стоимость",
+      "depositLabel": "Возвратный залог",
+      "totalLabel": "Итого к оплате",
       "locationPlaceholder": "Не указано",
       "imageAlt": "Аренда автомобиля {car}"
     },
@@ -1378,8 +1380,7 @@
         "Львов, Международный аэропорт имени Даниила Галицкого, Т1"
       ]
     },
-    "currency": "{value} USD",
-    "totalCostLabel": "Общая стоимость",
+    "totalCostLabel": "Итого к оплате",
     "bookButton": "Бронировать"
   },
   "requestCallModal": {

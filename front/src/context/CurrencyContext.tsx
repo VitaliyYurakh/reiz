@@ -42,8 +42,8 @@ const CLIENT_CACHE_DURATION = 12 * 60 * 60 * 1000;
 // Fallback курси
 const FALLBACK_RATES: ExchangeRates = {
   USD_UAH: 41.5,
-  EUR_UAH: 45.0,
-  USD_EUR: 41.5 / 45.0,
+  EUR_UAH: 49.5,
+  USD_EUR: 41.5 / 49.5,
 };
 
 const CURRENCY_SYMBOLS: Record<Currency, string> = {

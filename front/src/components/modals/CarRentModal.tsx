@@ -9,6 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 import { Tooltip } from "react-tooltip";
 import {
   type CarModalSpec,
@@ -125,6 +126,11 @@ export default function CarRentModal({
     startDate: data.startDate,
     endDate: data.endDate,
   });
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     setSelectedDate({
@@ -245,7 +251,7 @@ export default function CarRentModal({
   }, [extrasOneTime, extrasPerDay, totalDays]);
 
   const rentalCost = totalDays > 0 ? dailyPrice * totalDays : 0;
-  const totalCost = rentalCost + depositAmount + extrasTotal;
+  const totalCost = rentalCost + extrasTotal;
 
   const carName = useMemo(() => {
     return `${data.car.brand ?? ""} ${data.car.model ?? ""} ${
@@ -700,7 +706,7 @@ export default function CarRentModal({
                                 {plan.pricePercent === 0
                                   ? t("insurance.included")
                                   : t("insurance.pricePerDay", {
-                                      price: Math.round(planDaily),
+                                      formattedPrice: formatPrice(planDaily),
                                     })}
                               </i>
                             </span>
@@ -771,10 +777,32 @@ export default function CarRentModal({
                           onChange={() => toggleExtra(extra.id)}
                         />
                         <span className="custom-checkbox__content">
-                          <span>{t(`addOns.options.${extra.id}.label`)}</span>
+                          <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                            {t(`addOns.options.${extra.id}.label`)}
+                            {extra.id === "driverService" && (
+                              <span
+                                data-tooltip-id="driver-service-tooltip-modal"
+                                style={{
+                                  cursor: "pointer",
+                                  width: "18px",
+                                  height: "18px",
+                                  fontSize: "11px",
+                                  fontWeight: 600,
+                                  border: "1px solid currentColor",
+                                  borderRadius: "50%",
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                }}
+                                onClick={(e) => e.preventDefault()}
+                              >
+                                i
+                              </span>
+                            )}
+                          </span>
                           <b>
                             {t(`addOns.options.${extra.id}.price`, {
-                              price: Math.round(extra.price),
+                              formattedPrice: formatPrice(extra.price),
                             })}
                           </b>
                         </span>
@@ -907,7 +935,7 @@ export default function CarRentModal({
 
                 const isPerDay = extra.pricing === "perDay";
                 const priceText = t(`addOns.options.${id}.price`, {
-                  price: extra.price,
+                  formattedPrice: formatPrice(extra.price),
                 });
 
                 return (
@@ -926,20 +954,42 @@ export default function CarRentModal({
               })}
             </li>
             <li className="modal__item">
-              <span className="modal__name">{t("summary.depositLabel")}</span>
-              <span className="modal__value">
-                <b>{formatDeposit(depositAmount)}</b>
-              </span>
-            </li>
-            <li className="modal__item">
               <span className="modal__name">{t("summary.totalLabel")}</span>
               <span className="modal__value big">
                 {formatPrice(totalCost)}
               </span>
             </li>
+            <li className="modal__item">
+              <span className="modal__name">{t("summary.depositLabel")}</span>
+              <span className="modal__value">
+                <b>{formatDeposit(depositAmount)}</b>
+              </span>
+            </li>
           </ul>
         </div>
       </div>
+
+      {/* Driver service tooltip rendered via portal */}
+      {isMounted &&
+        createPortal(
+          <Tooltip
+            id="driver-service-tooltip-modal"
+            place="top"
+            positionStrategy="fixed"
+            variant="light"
+            opacity={1}
+            border="1px solid #D6D6D6"
+            style={{ zIndex: 9999, borderRadius: "16px", maxWidth: "300px" }}
+          >
+            <div
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: tooltip content
+              dangerouslySetInnerHTML={{
+                __html: t.raw("addOns.options.driverService.tooltip"),
+              }}
+            />
+          </Tooltip>,
+          document.body
+        )}
     </div>
   );
 }

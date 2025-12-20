@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { Tooltip } from "react-tooltip";
 import { useCarModal } from "@/app/[locale]/(site)/cars/[idSlug]/components/modals";
 import { Link } from "@/i18n/request";
@@ -35,6 +36,7 @@ export default function CarAside({ car }: { car: Car }) {
   );
 
   const [isMobile, setIsMobile] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const now = new Date();
   const [selectedDate, setSelectedDate] = useState<{
@@ -48,6 +50,7 @@ export default function CarAside({ car }: { car: Car }) {
   });
 
   useEffect(() => {
+    setIsMounted(true);
     const update = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -116,12 +119,6 @@ export default function CarAside({ car }: { car: Car }) {
       3600 * 1000; // 1 hour included
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
   }, [selectedDate.startDate, selectedDate.endDate]);
-
-  const tariff = car.rentalTariff.find(
-    (tItem) =>
-      totalDays >= tItem.minDays &&
-      (totalDays <= tItem.maxDays || tItem.maxDays === 0),
-  );
 
   const activeTariff = useMemo(() => {
     if (car.rentalTariff.length === 0) return undefined;
@@ -248,18 +245,6 @@ export default function CarAside({ car }: { car: Car }) {
           {formatDeposit(depositAmount)}
         </span>
       </div>
-      <div className="single-form__info">
-        <span className="single-form__name">
-          {t("totalPriceLabel", {
-            brand: car.brand || "",
-            model: car.model || "",
-            year: car.yearOfManufacture || "",
-          })}
-        </span>
-        <span className="single-form__value">
-          <b>{formatPrice(totalPrice)}</b>
-        </span>
-      </div>
       <div className="single-form__info mode">
         <span className="single-form__name">
           {t("clubPriceLabel")}
@@ -273,6 +258,18 @@ export default function CarAside({ car }: { car: Car }) {
         </span>
         <span className="single-form__value">
           <b>{formatPrice(clubPrice)}</b>
+        </span>
+      </div>
+      <div className="single-form__info">
+        <span className="single-form__name">
+          {t("totalPriceLabel", {
+            brand: car.brand || "",
+            model: car.model || "",
+            year: car.yearOfManufacture || "",
+          })}
+        </span>
+        <span className="single-form__value">
+          <b>{formatPrice(totalPrice)}</b>
         </span>
       </div>
 
@@ -351,43 +348,55 @@ export default function CarAside({ car }: { car: Car }) {
         </div>
       </div>
 
-      <Tooltip
-        id="my-tooltip"
-        variant={"light"}
-        opacity={1}
-        border={"1px solid #D6D6D6"}
-        style={{ zIndex: 999, borderRadius: "16px" }}
-      >
-        {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <1> */}
-        <div dangerouslySetInnerHTML={{ __html: t("tooltips.club") }} />
-      </Tooltip>
-      <Tooltip
-        id="deposit-tooltip"
-        place={"bottom"}
-        variant={"light"}
-        opacity={1}
-        border={"1px solid #D6D6D6"}
-        style={{ zIndex: 999, borderRadius: "16px" }}
-      >
-        {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <2> */}
-        <div dangerouslySetInnerHTML={{ __html: t("tooltips.deposit") }} />
-      </Tooltip>
-      <Tooltip
-        id="overdrive-tooltip"
-        variant={"light"}
-        opacity={1}
-        border={"1px solid #D6D6D6"}
-        style={{ zIndex: 999, borderRadius: "16px" }}
-      >
-        <div
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: <3>
-          dangerouslySetInnerHTML={{
-            __html: t("tooltips.overdrive", {
-              price: car.segment[0].overmileagePrice,
-            }),
-          }}
-        />
-      </Tooltip>
+      {/* Tooltips rendered via portal to document.body to escape stacking context */}
+      {isMounted &&
+        createPortal(
+          <>
+            <Tooltip
+              id="my-tooltip"
+              place="top"
+              positionStrategy="fixed"
+              variant="light"
+              opacity={1}
+              border="1px solid #D6D6D6"
+              style={{ zIndex: 9999, borderRadius: "16px" }}
+            >
+              {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <1> */}
+              <div dangerouslySetInnerHTML={{ __html: t("tooltips.club") }} />
+            </Tooltip>
+            <Tooltip
+              id="deposit-tooltip"
+              place="top"
+              positionStrategy="fixed"
+              variant="light"
+              opacity={1}
+              border="1px solid #D6D6D6"
+              style={{ zIndex: 9999, borderRadius: "16px" }}
+            >
+              {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <2> */}
+              <div dangerouslySetInnerHTML={{ __html: t("tooltips.deposit") }} />
+            </Tooltip>
+            <Tooltip
+              id="overdrive-tooltip"
+              place="top"
+              positionStrategy="fixed"
+              variant="light"
+              opacity={1}
+              border="1px solid #D6D6D6"
+              style={{ zIndex: 9999, borderRadius: "16px" }}
+            >
+              <div
+                // biome-ignore lint/security/noDangerouslySetInnerHtml: <3>
+                dangerouslySetInnerHTML={{
+                  __html: t("tooltips.overdrive", {
+                    price: car.segment[0].overmileagePrice,
+                  }),
+                }}
+              />
+            </Tooltip>
+          </>,
+          document.body
+        )}
     </form>
   );
 }

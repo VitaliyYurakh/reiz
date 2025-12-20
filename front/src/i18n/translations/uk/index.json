@@ -1180,30 +1180,31 @@
       },
       "included": "Включено у вартість",
       "depositReduction": "Застава зменшена на {percent}%",
-      "pricePerDay": "{price} USD/доба"
+      "pricePerDay": "{formattedPrice}/доба"
     },
     "addOns": {
       "title": "Доповнення",
       "options": {
         "additionalDriver": {
           "label": "Додатковий водій",
-          "price": "{price} USD/доба",
+          "price": "{formattedPrice}/доба",
           "summary": "Додатковий водій"
         },
         "childSeat": {
           "label": "Дитяче автокрісло",
-          "price": "{price} USD/доба",
+          "price": "{formattedPrice}/доба",
           "summary": "Дитяче автокрісло"
         },
         "borderCrossing": {
           "label": "Виїзд за кордон",
-          "price": "{price} USD",
+          "price": "{formattedPrice}",
           "summary": "Виїзд за кордон"
         },
         "driverService": {
           "label": "Послуги водія",
-          "price": "{price} USD/робочий день",
-          "summary": "Послуги водія"
+          "price": "{formattedPrice}/робочий день",
+          "summary": "Послуги водія",
+          "tooltip": "<b>Що входить у робочий день водія?</b><br/>Робочий день: 9:00–18:00<br/>8 годин роботи + 1 година обідньої перерви (перерва не рахується робочим часом)."
         }
       },
       "noneSelected": "Без доповнень"
@@ -1224,15 +1225,15 @@
     },
     "summary": {
       "title": "Оренда {car}",
-      "pickupLabel": "Запит подачі",
-      "returnLabel": "Запит повернення",
+      "pickupLabel": "Отримання автомобіля",
+      "returnLabel": "Повернення автомобіля",
       "durationLabel": "Тривалість оренди",
       "durationValue": "{count, plural, one {{count} день} few {{count} дні} many {{count} днів} other {{count} днів}}",
       "rateLabel": "Тариф",
-      "pricePerDay": "{price} USD/доба",
+      "pricePerDay": "{formattedPrice}/доба",
       "addOnsLabel": "Доповнення",
-      "depositLabel": "Застава",
-      "totalLabel": "Загальна вартість",
+      "depositLabel": "Поворотна застава",
+      "totalLabel": "Разом до сплати",
       "locationPlaceholder": "Не вказано",
       "imageAlt": "Оренда авто {car}"
     },
@@ -1243,7 +1244,7 @@
         "Львів, Міжнародний аеропорт імені Данила Галицького, Т1"
       ]
     },
-    "totalCostLabel": "Загальна вартість",
+    "totalCostLabel": "Разом до сплати",
     "bookButton": "Забронювати"
   },
   "carRentPage": {
@@ -1303,23 +1304,24 @@
       "options": {
         "additionalDriver": {
           "label": "Додатковий водій",
-          "price": "{price} USD/доба",
+          "price": "{formattedPrice}/доба",
           "summary": "Додатковий водій"
         },
         "childSeat": {
           "label": "Дитяче автокрісло",
-          "price": "{price} USD/доба",
+          "price": "{formattedPrice}/доба",
           "summary": "Дитяче автокрісло"
         },
         "borderCrossing": {
           "label": "Виїзд за кордон",
-          "price": "{price} USD",
+          "price": "{formattedPrice}",
           "summary": "Виїзд за кордон"
         },
         "driverService": {
           "label": "Послуги водія",
-          "price": "{price} USD/робочий день",
-          "summary": "Послуги водія"
+          "price": "{formattedPrice}/робочий день",
+          "summary": "Послуги водія",
+          "tooltip": "<b>Що входить у робочий день водія?</b><br/>Робочий день: 9:00–18:00<br/>8 годин роботи + 1 година обідньої перерви (перерва не рахується робочим часом)."
         }
       },
       "noneSelected": "Без доповнень"
@@ -1338,15 +1340,15 @@
     },
     "summary": {
       "title": "Оренда {car}",
-      "pickupLabel": "Запит подачі",
-      "returnLabel": "Запит повернення",
+      "pickupLabel": "Отримання автомобіля",
+      "returnLabel": "Повернення автомобіля",
       "durationLabel": "Тривалість оренди",
       "durationValue": "{count, plural, one {{count} день} few {{count} дні} many {{count} днів} other {{count} днів}}",
       "rateLabel": "Тариф",
-      "pricePerDay": "{price} USD/доба",
+      "pricePerDay": "{formattedPrice}/доба",
       "addOnsLabel": "Доповнення",
-      "depositLabel": "Застава",
-      "totalLabel": "Загальна вартість",
+      "depositLabel": "Поворотна застава",
+      "totalLabel": "Разом до сплати",
       "locationPlaceholder": "Не вказано",
       "imageAlt": "Оренда авто {car}"
     },
@@ -1357,8 +1359,7 @@
         "Львів, Міжнародний аеропорт імені Данила Галицького, Т1"
       ]
     },
-    "currency": "{value} USD",
-    "totalCostLabel": "Загальна вартість",
+    "totalCostLabel": "Разом до сплати",
     "bookButton": "Забронювати"
   },
   "requestCallModal": {
