@@ -1012,36 +1012,51 @@
 .map-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  opacity: 1;
-  transition: opacity 0.2s ease;
+  padding: 32px;
+  background: rgba(0, 0, 0, 0);
+  transition: background 600ms cubic-bezier(0.22, 1, 0.36, 1);
 
-  &.closing {
-    opacity: 0;
+  &.is-open {
+    background: rgba(0, 0, 0, 0.5);
   }
 }
 
 .map-modal {
+  --origin-x: 0px;
+  --origin-y: 0px;
+
+  position: relative;
+  z-index: 1001;
   background: var(--body-bg);
   border-radius: 16px;
   border: 1px solid rgba(17, 17, 17, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-  width: min(1100px, 92vw);
-  height: 78vh;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  width: min(1000px, 90vw);
+  height: 70vh;
+  max-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transform: scale(1);
-  opacity: 1;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  will-change: transform, opacity;
 
-  &.closing {
-    transform: scale(0.96);
-    opacity: 0;
+  // Initial state: small, positioned at trigger element
+  opacity: 0;
+  transform: translate(var(--origin-x), var(--origin-y)) scale(0.08);
+  border-radius: 50px;
+  transition:
+    opacity 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 400ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  // Open state: full size, centered
+  &.is-open {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    border-radius: 16px;
   }
 
   &__header {
