@@ -3,6 +3,7 @@ import OrderForm from "./OrderForm";
 import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/request";
+import LocationMapLink from "./LocationMapLink";
 
 export default async function HeroSection() {
   const t = await getTranslations("homePage.hero");
@@ -89,12 +90,7 @@ export default async function HeroSection() {
               data-aos-duration="1000"
               data-aos-delay="1100"
             >
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Lviv+International+Airport+LWO"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="adress-link address-link"
-              >
+              <LocationMapLink className="adress-link address-link">
                 <i className="sprite mode">
                   <svg width="20" height="26">
                     <use href="/img/sprite/sprite.svg#geo" />
@@ -106,7 +102,7 @@ export default async function HeroSection() {
                     <use href="/img/sprite/sprite.svg#arrow-d2" />
                   </svg>
                 </i>
-              </a>
+              </LocationMapLink>
 
               <a href="#catalog" className="down-btn">
                 <i className="sprite">

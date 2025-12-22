@@ -307,7 +307,7 @@ export default function Catalog({cars}: CatalogProps) {
 
     const carBrands = useMemo(() => {
         const matchingCars = cars.filter((c) => isCarMatching(c, "brand"));
-        const brands = new Set(matchingCars.map((c) => c.brand?.trim()).filter(Boolean));
+        const brands = new Set(matchingCars.map((c) => c.brand?.trim()).filter((x): x is string => Boolean(x)));
         return Array.from(brands).sort((a, b) =>
             a.localeCompare(b, locale, { sensitivity: "base" })
         );
@@ -315,7 +315,7 @@ export default function Catalog({cars}: CatalogProps) {
 
     const carModels = useMemo(() => {
         const matchingCars = cars.filter((c) => isCarMatching(c, "model"));
-        const models = new Set(matchingCars.map((c) => c.model?.trim()).filter(Boolean));
+        const models = new Set(matchingCars.map((c) => c.model?.trim()).filter((x): x is string => Boolean(x)));
         return Array.from(models).sort((a, b) =>
             a.localeCompare(b, locale, { sensitivity: "base" })
         );
@@ -324,7 +324,7 @@ export default function Catalog({cars}: CatalogProps) {
     const carFuels = useMemo(() => {
         const matchingCars = cars.filter((c) => isCarMatching(c, "fuel"));
         const fuels = new Set(
-            matchingCars.map((c) => c.engineType?.[locale]).filter(Boolean),
+            matchingCars.map((c) => c.engineType?.[locale]).filter((x): x is string => Boolean(x)),
         );
         return Array.from(fuels).sort((a, b) =>
             a.localeCompare(b, locale, { sensitivity: "base" })
