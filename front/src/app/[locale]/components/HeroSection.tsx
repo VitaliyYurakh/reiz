@@ -89,7 +89,12 @@ export default async function HeroSection() {
               data-aos-duration="1000"
               data-aos-delay="1100"
             >
-              <Link href="/terms#delivery" className="adress-link address-link">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Lviv+International+Airport+LWO"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="adress-link address-link"
+              >
                 <i className="sprite mode">
                   <svg width="20" height="26">
                     <use href="/img/sprite/sprite.svg#geo" />
@@ -101,7 +106,7 @@ export default async function HeroSection() {
                     <use href="/img/sprite/sprite.svg#arrow-d2" />
                   </svg>
                 </i>
-              </Link>
+              </a>
 
               <a href="#catalog" className="down-btn">
                 <i className="sprite">

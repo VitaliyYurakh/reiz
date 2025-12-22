@@ -245,7 +245,7 @@ export default function CarCard({ car }: CarCardProps) {
               {car.driveType?.[locale]}
             </span>
             <span className="car-card__value mob">
-              {car.driveType?.[locale]}
+              {car.driveType?.[locale]}{tCatalog("features.driveMobileSuffix")}
             </span>
           </li>
           <li className="car-card__item">
