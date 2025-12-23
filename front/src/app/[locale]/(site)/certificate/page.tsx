@@ -137,7 +137,7 @@ export default async function CertificatePage() {
                 <Image
                   width={413}
                   height={413}
-                  src="/img/gift.png"
+                  src="/img/gift2.png"
                   alt="Конверт с логотипом REIZ — подарочный сертификат на аренду авто"
                 />
               </picture>
