@@ -9,7 +9,7 @@ const GOOGLE_MAPS_URL =
 const GOOGLE_MAPS_EMBED_URL =
   "https://www.google.com/maps?q=Lviv%20International%20Airport%20LWO&output=embed";
 const DESKTOP_BREAKPOINT = 1025;
-const ANIMATION_DURATION = 550;
+const ANIMATION_DURATION = 600;
 
 type LocationMapLinkProps = {
   children: React.ReactNode;
