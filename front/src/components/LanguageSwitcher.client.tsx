@@ -4,7 +4,9 @@ import React, {
   Children,
   cloneElement,
   isValidElement,
+  useCallback,
   useEffect,
+  useId,
   useMemo,
   useRef,
   useState,
@@ -26,6 +28,7 @@ export default function LanguageSwitcherClient({
 }: Props) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const listboxId = useId();
 
   const pathname = usePathname() || "/";
   const searchParams = useSearchParams();
@@ -57,6 +60,28 @@ export default function LanguageSwitcherClient({
     setHash(typeof window !== "undefined" ? window.location.hash : "");
   }, [pathname, searchParams]);
 
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      switch (e.key) {
+        case "Enter":
+        case " ":
+          e.preventDefault();
+          setOpen((v) => !v);
+          break;
+        case "Escape":
+          e.preventDefault();
+          setOpen(false);
+          break;
+        case "ArrowDown":
+        case "ArrowUp":
+          e.preventDefault();
+          if (!open) setOpen(true);
+          break;
+      }
+    },
+    [open],
+  );
+
   const onListClick: React.MouseEventHandler<HTMLUListElement> = (e) => {
     const a = (e.target as HTMLElement).closest("a");
     if (a) setOpen(false);
@@ -87,26 +112,33 @@ export default function LanguageSwitcherClient({
     <div className="custom-select choice lang2" ref={rootRef}>
       <input type="hidden" name="custom-select-value" value={currentLabel} />
 
-      <div
+      <button
+        type="button"
         className={`select-field ${open ? "active" : ""}`}
         onClick={() => setOpen((v) => !v)}
+        onKeyDown={handleKeyDown}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls={listboxId}
+        aria-label="Language"
       >
         <div className="selected-options">
           <span className="option-label">{currentLabel}</span>
         </div>
-        <div className="arrow-down" aria-hidden>
+        <div className="arrow-down" aria-hidden="true">
           <svg width="6" height="3">
             <use href="/img/sprite/sprite.svg#angle" />
           </svg>
         </div>
-      </div>
+      </button>
 
       <ul
-        id="language"
+        id={listboxId}
         className={`options-container ${open ? "active" : ""}`}
         role="listbox"
-        aria-label="Выбор языка"
+        aria-label="Language"
         onClick={onListClick}
+        tabIndex={-1}
       >
         {enhancedChildren}
       </ul>

@@ -44,12 +44,7 @@ export default async function HeroSection() {
           <SidebarNav />
 
           <div className="hero-section__inner">
-            <div
-              className="hero-section__top"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-delay="700"
-            >
+            <div className="hero-section__top">
               <h3 className="pretitle">{t("pretitle")}</h3>
               <span className="hero-section__date">
                 <i className="sprite">
@@ -61,12 +56,7 @@ export default async function HeroSection() {
               </span>
             </div>
 
-            <div
-              className="editor"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-delay="800"
-            >
+            <div className="editor">
               <h1 className="title">{t("title")}</h1>
               <p>{t("intro")}</p>
               <ul>
