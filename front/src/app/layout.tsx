@@ -22,17 +22,17 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE_ORIGIN),
     title: {
-      default: "Аренда авто во Львове — подача по городу и в аэропорт | REIZ",
+      default: "Оренда авто у Львові — подача по місту та в аеропорт | REIZ",
       template: "%s | REIZ",
     },
     description:
-      "Аренда автомобилей во Львове. Современные авто, премиум‑сервис, подача по адресу, 24/7.",
+      "Оренда автомобілів у Львові. Сучасні авто, преміум‑сервіс, подача за адресою, 24/7.",
     alternates: {
       canonical: "/",
       languages: {
-        ru: "/",
-        uk: "/uk",
-        en: "/en",
+        "uk-UA": "/",
+        "ru-UA": "/ru",
+        "en": "/en",
         "x-default": "/",
       },
     },
@@ -40,25 +40,25 @@ export async function generateMetadata({
       type: "website",
       url: SITE_ORIGIN,
       siteName: SITE_NAME,
-      locale: "ru_RU",
-      alternateLocale: ["uk_UA", "en_US"],
-      title: "Аренда авто во Львове — REIZ RENTAL CARS",
+      locale: "uk_UA",
+      alternateLocale: ["ru_UA", "en_US"],
+      title: "Оренда авто у Львові — REIZ RENTAL CARS",
       description:
-        "Прокат автомобилей во Львове. Новые авто, премиальный сервис, адресная доставка, поддержка 24/7.",
+        "Прокат автомобілів у Львові. Нові авто, преміальний сервіс, адресна доставка, підтримка 24/7.",
       images: [
         {
           url: `${SITE_ORIGIN}/img/og/home.webp`,
           width: 1200,
           height: 630,
-          alt: "REIZ Rental Cars — Львов",
+          alt: "REIZ Rental Cars — Львів",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Аренда авто во Львове — REIZ RENTAL CARS",
+      title: "Оренда авто у Львові — REIZ RENTAL CARS",
       description:
-        "Прокат авто во Львове: новые авто, подача по адресу, поддержка 24/7.",
+        "Прокат авто у Львові: нові авто, подача за адресою, підтримка 24/7.",
       images: [`${SITE_ORIGIN}/img/og/home.webp`],
     },
     robots: {

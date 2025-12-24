@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
-import {Link, type Locale, defaultLocale, locales} from "@/i18n/request";
+import {Link, type Locale, defaultLocale} from "@/i18n/request";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import CarAside from "@/app/[locale]/(site)/cars/[idSlug]/components/CarAside";
 import CarGallerySlider from "@/app/[locale]/(site)/cars/[idSlug]/components/CarSlider";
@@ -34,15 +34,16 @@ export async function generateMetadata({
     const slug = createCarIdSlug(car);
     const path = `/cars/${slug}`;
 
-    const title = `Аренда ${car.brand} ${car.model} во Львове — цена от ${car.rentalTariff?.[0]?.dailyPrice || 50}$ в сутки`;
-    const description = `Арендуйте ${carName} во Львове. ${car.engineVolume || ""} ${car.transmission?.[locale] || ""}, ${car.seats || 5} мест. Подача в аэропорт и по городу 24/7.`.trim();
+    const title = `Оренда ${car.brand} ${car.model} у Львові — ціна від ${car.rentalTariff?.[0]?.dailyPrice || 50}$ на добу`;
+    const description = `Орендуйте ${carName} у Львові. ${car.engineVolume || ""} ${car.transmission?.[locale] || ""}, ${car.seats || 5} місць. Подача в аеропорт та по місту 24/7.`.trim();
 
-    const languages: Record<string, string> = {};
-    locales.forEach((loc) => {
-        const prefix = loc === defaultLocale ? "" : `/${loc}`;
-        languages[loc] = `${BASE}${prefix}${path}`;
-    });
-    languages["x-default"] = `${BASE}${path}`;
+    // hreflang з правильними кодами для України
+    const languages: Record<string, string> = {
+        "uk-UA": `${BASE}${path}`,
+        "ru-UA": `${BASE}/ru${path}`,
+        "en": `${BASE}/en${path}`,
+        "x-default": `${BASE}${path}`,
+    };
 
     const ogImage = car.carPhoto.find((p) => p.type === "PC")?.url || "/img/og/home.webp";
 
@@ -60,6 +61,12 @@ export async function generateMetadata({
             description,
             url: `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`,
             images: [{ url: ogImage, width: 891, height: 499, alt: carName }],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [ogImage],
         },
     };
 }
@@ -139,7 +146,7 @@ export default async function CarPage({
               </span>
                         </li>
                         <li className="table-info__item">
-                            <img src="/img/fuel-icon.png" width={23} height={23} alt=""/>
+                            <img src="/img/fuel-icon.png" width={23} height={23} alt={t("specifications.fuelIcon")}/>
                             <span className="table-info__name">
                 {t("specifications.fuelConsumption")}
               </span>

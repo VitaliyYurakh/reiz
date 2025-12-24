@@ -2,9 +2,9 @@ import { getRequestConfig } from "next-intl/server";
 import { createNavigation } from "next-intl/navigation";
 import { defineRouting } from "next-intl/routing";
 
-export const locales = ["ru", "uk", "en"] as const;
+export const locales = ["uk", "ru", "en"] as const;
 export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = "ru";
+export const defaultLocale: Locale = "uk";
 
 export const isLocale = (x: string): x is Locale =>
   (locales as readonly string[]).includes(x);

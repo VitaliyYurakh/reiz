@@ -38,6 +38,8 @@ export async function generateMetadata({
   const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
   const canonicalUrl = `${BASE}${localePrefix}${carPath}`;
 
+  const ogImage = car.carPhoto.find((p) => p.type === "PC")?.url || "/img/og/home.webp";
+
   return {
     title,
     description,
@@ -52,6 +54,13 @@ export async function generateMetadata({
       title,
       description,
       url: canonicalUrl,
+      images: [{ url: ogImage, alt: carName }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
     },
   };
 }

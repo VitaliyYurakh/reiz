@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { ROUTE_MAP, type RouteKey } from "@/lib/seo";
-import { defaultLocale, locales } from "@/i18n/request";
+import { defaultLocale } from "@/i18n/request";
 import { fetchCarsForSitemap } from "@/lib/api/cars";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 
@@ -14,9 +14,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages
   (Object.keys(ROUTE_MAP) as RouteKey[]).forEach((key) => {
     const languages: Record<string, string> = {};
-    locales.forEach((loc) => {
-      languages[loc] = abs(ROUTE_MAP[key][loc]);
-    });
+
+    // Добавляем все языковые версии с правильными hreflang кодами
+    languages["uk-UA"] = abs(ROUTE_MAP[key]["uk"]);
+    languages["ru-UA"] = abs(ROUTE_MAP[key]["ru"]);
+    languages["en"] = abs(ROUTE_MAP[key]["en"]);
+    languages["x-default"] = abs(ROUTE_MAP[key]["uk"]); // украинская как default
 
     const url = abs(ROUTE_MAP[key][defaultLocale]);
     const isHome = key === "home";
@@ -36,10 +39,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const car of cars) {
       const idSlug = createCarIdSlug(car);
       const languages: Record<string, string> = {};
-      locales.forEach((loc) => {
-        const prefix = loc === defaultLocale ? "" : `/${loc}`;
-        languages[loc] = abs(`${prefix}/cars/${idSlug}`);
-      });
+
+      // uk на корне, ru и en с префиксами
+      languages["uk-UA"] = abs(`/cars/${idSlug}`);
+      languages["ru-UA"] = abs(`/ru/cars/${idSlug}`);
+      languages["en"] = abs(`/en/cars/${idSlug}`);
+      languages["x-default"] = abs(`/cars/${idSlug}`);
 
       entries.push({
         url: abs(`/cars/${idSlug}`),

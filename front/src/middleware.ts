@@ -1,10 +1,20 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/request";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 const intl = createMiddleware(routing);
 
 export default function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+
+  // 301 редирект /uk/* → /* (украинский теперь на корне)
+  if (pathname === "/uk" || pathname.startsWith("/uk/")) {
+    const newPathname = pathname === "/uk" ? "/" : pathname.slice(3);
+    const url = req.nextUrl.clone();
+    url.pathname = newPathname || "/";
+    return NextResponse.redirect(url, 301);
+  }
+
   const res = intl(req);
 
   const url = req.nextUrl;

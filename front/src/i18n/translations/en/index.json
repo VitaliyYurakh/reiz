@@ -1077,10 +1077,11 @@
       "equipment": "Equipment"
     },
     "specifications": {
-      "descriptionTitle": "DESCRIPTION AND SPECIFICATIONS “{carName}”",
+      "descriptionTitle": "DESCRIPTION AND SPECIFICATIONS \"{carName}\"",
       "engine": "Engine",
       "transmission": "Transmission",
       "fuelConsumption": "Fuel consumption",
+      "fuelIcon": "Fuel consumption icon",
       "driveType": "Drive type",
       "seatsLabel": "Seats",
       "seats": "{count, plural, one {{count} seat} other {{count} seats}}",

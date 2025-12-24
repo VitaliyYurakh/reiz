@@ -1056,10 +1056,11 @@
       "equipment": "Комплектація"
     },
     "specifications": {
-      "descriptionTitle": "ОПИС ТА ХАРАКТЕРИСТИКИ “{carName}”",
+      "descriptionTitle": "ОПИС ТА ХАРАКТЕРИСТИКИ \"{carName}\"",
       "engine": "Двигун",
       "transmission": "Трансмісія",
       "fuelConsumption": "Витрата пального",
+      "fuelIcon": "Іконка витрати пального",
       "driveType": "Привід",
       "seatsLabel": "Кількість місць",
       "seats": "{count, plural, one {{count} місце} few {{count} місця} many {{count} місць} other {{count} місця}}",

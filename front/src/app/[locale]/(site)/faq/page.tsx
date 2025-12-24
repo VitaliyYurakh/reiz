@@ -4,6 +4,7 @@ import type { Locale } from "@/i18n/request";
 import { getDefaultPath, getPageMetadata } from "@/lib/seo";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import AccordionGroup from "@/components/AccordionGroup";
+import JsonLd from "@/components/JsonLd";
 
 export async function generateMetadata({
   params,
@@ -66,11 +67,7 @@ export default async function FaqPage() {
         />
       </div>
 
-      <script
-        type="application/ld+json"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: true
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-      />
+      <JsonLd data={faqLd} />
     </>
   );
 }

@@ -1077,10 +1077,11 @@
       "equipment": "Комплектация"
     },
     "specifications": {
-      "descriptionTitle": "ОПИСАНИЕ И ХАРАКТЕРИСТИКИ “{carName}”",
+      "descriptionTitle": "ОПИСАНИЕ И ХАРАКТЕРИСТИКИ \"{carName}\"",
       "engine": "Двигатель",
       "transmission": "Трансмиссия",
       "fuelConsumption": "Расход топлива",
+      "fuelIcon": "Иконка расхода топлива",
       "driveType": "Привод",
       "seatsLabel": "Число мест",
       "seats": "{count, plural, one {{count} место} few {{count} места} many {{count} мест} other {{count} мест}}",

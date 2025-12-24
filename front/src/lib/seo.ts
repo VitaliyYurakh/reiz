@@ -17,16 +17,16 @@ export type RouteKey =
   | "terms";
 
 export const ROUTE_MAP: Record<RouteKey, Record<Locale, string>> = {
-  home: { ru: "/", uk: "/uk", en: "/en" },
-  about: { ru: "/about", uk: "/uk/about", en: "/en/about" },
-  blog: { ru: "/blog", uk: "/uk/blog", en: "/en/blog" },
-  business: { ru: "/business", uk: "/uk/business", en: "/en/business" },
-  certificate: { ru: "/certificate", uk: "/uk/certificate", en: "/en/certificate" },
-  contacts: { ru: "/contacts", uk: "/uk/contacts", en: "/en/contacts" },
-  faq: { ru: "/faq", uk: "/uk/faq", en: "/en/faq" },
-  insurance: { ru: "/insurance", uk: "/uk/insurance", en: "/en/insurance" },
-  invest: { ru: "/invest", uk: "/uk/invest", en: "/en/invest" },
-  terms: { ru: "/terms", uk: "/uk/terms", en: "/en/terms" },
+  home: { uk: "/", ru: "/ru", en: "/en" },
+  about: { uk: "/about", ru: "/ru/about", en: "/en/about" },
+  blog: { uk: "/blog", ru: "/ru/blog", en: "/en/blog" },
+  business: { uk: "/business", ru: "/ru/business", en: "/en/business" },
+  certificate: { uk: "/certificate", ru: "/ru/certificate", en: "/en/certificate" },
+  contacts: { uk: "/contacts", ru: "/ru/contacts", en: "/en/contacts" },
+  faq: { uk: "/faq", ru: "/ru/faq", en: "/en/faq" },
+  insurance: { uk: "/insurance", ru: "/ru/insurance", en: "/en/insurance" },
+  invest: { uk: "/invest", ru: "/ru/invest", en: "/en/invest" },
+  terms: { uk: "/terms", ru: "/ru/terms", en: "/en/terms" },
 };
 
 export function localizedPath(routeKey: RouteKey, locale: Locale) {
@@ -45,17 +45,16 @@ async function inferPathnameFromHeader(routeKey: RouteKey, locale: Locale) {
 
 function buildAlternates(routeKey: RouteKey, locale: Locale) {
   const pathname = localizedPath(routeKey, locale);
-  const isDefault = locale === defaultLocale;
 
-  const canonical = isDefault
-    ? localizedPath(routeKey, defaultLocale)
-    : localizedPath(routeKey, locale);
+  // Canonical всегда указывает на текущий URL страницы (self)
+  const canonical = localizedPath(routeKey, locale);
 
+  // hreflang с правильными кодами для Украины
   const languages: Record<string, string> = {
-    ru: localizedPath(routeKey, "ru"),
-    uk: localizedPath(routeKey, "uk"),
-    en: localizedPath(routeKey, "en"),
-    "x-default": localizedPath(routeKey, defaultLocale),
+    "uk-UA": localizedPath(routeKey, "uk"),
+    "ru-UA": localizedPath(routeKey, "ru"),
+    "en": localizedPath(routeKey, "en"),
+    "x-default": localizedPath(routeKey, "uk"), // украинская версия как default
   };
 
   return { canonical, languages, pathname };
@@ -75,6 +74,8 @@ export async function getPageMetadata({
   const rawPathname = await inferPathnameFromHeader(routeKey, locale);
   const { canonical, languages } = buildAlternates(routeKey, locale);
 
+  const ogImage = t("meta.og_image");
+
   return {
     title: t("meta.title"),
     description: t("meta.description"),
@@ -87,8 +88,14 @@ export async function getPageMetadata({
       siteName: "REIZ RENTAL CARS",
       title: t("meta.og_title"),
       description: t("meta.og_description"),
-      images: [{ url: t("meta.og_image") }],
+      images: [{ url: ogImage }],
       url: rawPathname,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("meta.og_title"),
+      description: t("meta.og_description"),
+      images: [ogImage],
     },
   };
 }
