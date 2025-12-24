@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback, useState } from "react";
+import { useEffect, useCallback, useState, useRef } from "react";
 import Image from "next/image";
 import { lockScroll, unlockScroll } from "@/lib/utils/scroll";
 
@@ -13,6 +13,7 @@ export default function CertificatePreviewModal({ isOpen, onClose }: Props) {
   // Track visibility separately for animation
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const isScrollLocked = useRef(false);
 
   // Handle Escape key
   const handleKeyDown = useCallback(
@@ -24,12 +25,22 @@ export default function CertificatePreviewModal({ isOpen, onClose }: Props) {
     [onClose]
   );
 
-  // Handle open/close with animation
+  // Handle scroll lock/unlock separately
+  useEffect(() => {
+    if (isOpen && !isScrollLocked.current) {
+      lockScroll();
+      isScrollLocked.current = true;
+    } else if (!isOpen && isScrollLocked.current) {
+      unlockScroll();
+      isScrollLocked.current = false;
+    }
+  }, [isOpen]);
+
+  // Handle open/close animation
   useEffect(() => {
     if (isOpen) {
       // Opening: mount first, then animate
       setIsVisible(true);
-      lockScroll();
       window.addEventListener("keydown", handleKeyDown);
       // Trigger animation on next frame
       requestAnimationFrame(() => {
@@ -40,7 +51,6 @@ export default function CertificatePreviewModal({ isOpen, onClose }: Props) {
     } else if (isVisible) {
       // Closing: animate first, then unmount
       setIsAnimating(false);
-      unlockScroll();
       window.removeEventListener("keydown", handleKeyDown);
       // Wait for animation to complete before unmounting
       const timer = setTimeout(() => {
