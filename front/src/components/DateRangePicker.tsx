@@ -11,6 +11,7 @@ export interface DateRangePickerProps {
   defaultValue?: string;
   onChange?: (value: string, start?: Date, end?: Date) => void;
   className?: string;
+  ariaLabel?: string;
 }
 
 export default function DateRangePicker({
@@ -19,6 +20,7 @@ export default function DateRangePicker({
   defaultValue,
   onChange,
   className,
+  ariaLabel,
 }: DateRangePickerProps) {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -127,6 +129,7 @@ export default function DateRangePicker({
       placeholder={placeholder}
       defaultValue={defaultValue}
       className={className}
+      aria-label={ariaLabel || placeholder || "Select date range"}
     />
   );
 }

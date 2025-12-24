@@ -94,8 +94,8 @@ export default function OrderForm() {
         containerClassName="order"
         placeholder={tPersonal("returnPlaceholder")}
       />
-      <label className="order-form__label">
-        <span className="order-form__icon">
+      <label className="order-form__label" htmlFor="date">
+        <span className="order-form__icon" aria-hidden="true">
           <svg width="21" height="21">
             <use href="/img/sprite/sprite.svg#pickup" />
           </svg>
@@ -107,6 +107,7 @@ export default function OrderForm() {
           placeholder={tOrder("datePlaceholder")}
           value={dateValue}
           readOnly
+          aria-label={tOrder("datePlaceholder")}
           onClick={handleOpenDatePicker}
           onFocus={handleOpenDatePicker}
           onKeyDown={(event) => {
@@ -116,7 +117,7 @@ export default function OrderForm() {
             }
           }}
         />
-        <div className="arrow-down" aria-hidden>
+        <div className="arrow-down" aria-hidden="true">
           <svg width="6" height="3">
             <use href="/img/sprite/sprite.svg#arrow-d" />
           </svg>

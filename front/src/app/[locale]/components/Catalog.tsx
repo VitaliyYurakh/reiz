@@ -415,7 +415,6 @@ export default function Catalog({cars}: CatalogProps) {
                 <div className="catalog-section__box">
                     <aside
                         className={cn("catalog-aside", {active: filtersOpen})}
-                        aria-hidden={!filtersOpen}
                     >
                         <div className="catalog-aside__top">
                             <p>{t("top_text")}</p>
@@ -532,7 +531,7 @@ export default function Catalog({cars}: CatalogProps) {
                                     />
                                     <div className="catalog-aside__price">
                                         <label className="catalog-aside__label mode">
-                                            <span>{t("filters_panel.price_min_label")}</span>
+                                            <span id="price-min-label">{t("filters_panel.price_min_label")}</span>
                                             <input
                                                 type="number"
                                                 name="value_min"
@@ -540,6 +539,7 @@ export default function Catalog({cars}: CatalogProps) {
                                                 className="catalog-aside__input"
                                                 placeholder={priceRange.min > 0 ? `${Math.round(convert(priceRange.min))}` : "0"}
                                                 value={filters.priceMin ? Math.round(convert(filters.priceMin)) : ""}
+                                                aria-labelledby="price-min-label"
                                                 onChange={(e) =>
                                                     setFilters((f) => ({
                                                         ...f,
@@ -547,10 +547,10 @@ export default function Catalog({cars}: CatalogProps) {
                                                     }))
                                                 }
                                             />
-                                            <span>{getCurrencySymbol()}</span>
+                                            <span aria-hidden="true">{getCurrencySymbol()}</span>
                                         </label>
                                         <label className="catalog-aside__label mode">
-                                            <span>{t("filters_panel.price_max_label")}</span>
+                                            <span id="price-max-label">{t("filters_panel.price_max_label")}</span>
                                             <input
                                                 type="number"
                                                 name="value_max"
@@ -558,6 +558,7 @@ export default function Catalog({cars}: CatalogProps) {
                                                 className="catalog-aside__input"
                                                 placeholder={priceRange.max > 0 ? `${Math.round(convert(priceRange.max))}` : "0"}
                                                 value={filters.priceMax ? Math.round(convert(filters.priceMax)) : ""}
+                                                aria-labelledby="price-max-label"
                                                 onChange={(e) =>
                                                     setFilters((f) => ({
                                                         ...f,
@@ -565,7 +566,7 @@ export default function Catalog({cars}: CatalogProps) {
                                                     }))
                                                 }
                                             />
-                                            <span>{getCurrencySymbol()}</span>
+                                            <span aria-hidden="true">{getCurrencySymbol()}</span>
                                         </label>
                                     </div>
 
@@ -607,7 +608,7 @@ export default function Catalog({cars}: CatalogProps) {
                     {filtersOpen && (
                         <div
                             className="overlay fixed-block active"
-                            aria-hidden
+                            role="presentation"
                             onClick={() => setFiltersOpen(false)}
                         />
                     )}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 export type PillSelectOption = { label: string; value: string };
 
@@ -12,6 +12,7 @@ type Props = {
   disabled?: boolean;
   width?: number;
   height?: number;
+  ariaLabel?: string;
 };
 
 export default function PillSelect({
@@ -22,9 +23,11 @@ export default function PillSelect({
   variant = "left",
   width = 144,
   height = 50,
+  ariaLabel,
 }: Props) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const listboxId = useId();
 
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
@@ -58,6 +61,8 @@ export default function PillSelect({
           className="pill-select__button"
           aria-haspopup="listbox"
           aria-expanded={open}
+          aria-controls={listboxId}
+          aria-label={ariaLabel || `Select time: ${current}`}
           onClick={() => !disabled && setOpen((s) => !s)}
           onKeyDown={(e) => {
             if (disabled) return;
@@ -80,8 +85,11 @@ export default function PillSelect({
 
       {open && (
         <div
+          id={listboxId}
           className={`pill-select__dropdown ${isMobile ? "up" : ""}`}
           role="listbox"
+          aria-label={ariaLabel || "Select time"}
+          tabIndex={-1}
         >
           {options.map((opt) => (
             <div

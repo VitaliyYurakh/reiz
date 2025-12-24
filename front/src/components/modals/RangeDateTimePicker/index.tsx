@@ -231,15 +231,22 @@ const DatePicker: React.FC<DatePickerProps> = ({
     <div className={styles.datePickerOverlay}>
       <div className={styles.datePickerContainer}>
         <div className={styles.header}>
-          <button onClick={handleReset} className={styles.resetButton}>
+          <button
+            type="button"
+            onClick={handleReset}
+            className={styles.resetButton}
+            aria-label={t("reset")}
+          >
             {t("reset")}
           </button>
           <h3>{t("title")}</h3>
           <button
+            type="button"
             onClick={() => {
               close();
             }}
             className={styles.closeButton}
+            aria-label={t("close") || "Close"}
           >
             <Icon id="cross" width={14} height={14} />
           </button>
@@ -264,8 +271,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
           ) : (
             <>
               <button
+                type="button"
                 onClick={handlePrevMonth}
                 className={`${styles.navButton} ${styles.prev}`}
+                aria-label={t("prevMonth") || "Previous month"}
               >
                 <Icon
                   id="arrow-d2"
@@ -279,8 +288,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
               {renderMonth(secondMonthDate)}
 
               <button
+                type="button"
                 onClick={handleNextMonth}
                 className={`${styles.navButton} ${styles.next}`}
+                aria-label={t("nextMonth") || "Next month"}
               >
                 <Icon
                   id="arrow-d2"
