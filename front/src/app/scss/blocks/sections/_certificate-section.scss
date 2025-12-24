@@ -500,18 +500,17 @@
   height: clamp(64px, 5.2941vw, 72px);
   padding: 16px 20px;
   background: var(--cl-b);
-  border: 1px solid var(--cl-y);
+  border: none;
   border-radius: clamp(16px, 1.4706vw, 20px);
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover:not(&--active) {
-    border-color: var(--cl-m);
+    // No border on hover
   }
 
   &:focus-visible {
     outline: none;
-    border-color: var(--cl-a);
   }
 
   // Text
@@ -609,7 +608,6 @@
   // Active state - ring + checkmark
   &--active {
     background: var(--cl-e);
-    border-color: var(--cl-e);
     padding: 16px 20px;
 
     .cert-tile__text {
@@ -677,7 +675,7 @@
     height: clamp(54px, 4.4118vw, 60px);
     padding: 0 clamp(18px, 1.7647vw, 24px);
     background: var(--cl-b);
-    border: 1px solid var(--cl-y);
+    border: none;
     border-radius: clamp(14px, 1.1765vw, 16px);
     font-weight: 400;
     font-size: 15px;
@@ -689,17 +687,15 @@
     }
 
     &:hover {
-      border-color: var(--cl-m);
+      // No border on hover
     }
 
     &:focus {
       outline: none;
-      border-color: var(--cl-c);
     }
 
     &:focus-visible {
       outline: none;
-      border-color: var(--cl-a);
     }
   }
 }
