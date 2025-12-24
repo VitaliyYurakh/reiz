@@ -21,33 +21,37 @@ const SIZE_THRESHOLDS = {
  */
 const QUALITY_PRESETS = {
   /** Hero/LCP images - highest quality */
-  hero: 85,
+  hero: 90,
   /** Large images */
-  large: 80,
+  large: 85,
   /** Medium images - balanced */
-  medium: 75,
+  medium: 82,
   /** Small images */
-  small: 70,
-  /** Icons and thumbnails - most aggressive compression */
-  icon: 60,
+  small: 75,
+  /** Icons and thumbnails - more aggressive compression */
+  icon: 65,
 } as const;
 
 /**
  * Default responsive sizes for different image types
+ * Using vw-based values to ensure crisp images on large/retina/4K displays
+ *
+ * Note: For 2x retina displays, browser requests 2x the calculated size.
+ * On 2560px 27" monitor: 75vw = 1920px, with 2x DPR = 3840px request
  */
 const DEFAULT_SIZES = {
   /** Full-width hero images */
   hero: "100vw",
   /** Full-width responsive images */
   fullWidth: "100vw",
-  /** Images in containers (most common case) */
-  contained: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
-  /** Card images in grids */
-  card: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px",
+  /** Images in containers (most common case) - generous for retina */
+  contained: "(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 75vw",
+  /** Card images in grids - generous for retina/4K displays */
+  card: "(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 75vw",
   /** Small images like icons */
-  icon: "64px",
+  icon: "96px",
   /** Thumbnail images */
-  thumbnail: "(max-width: 640px) 50vw, 200px",
+  thumbnail: "(max-width: 640px) 50vw, 384px",
 } as const;
 
 type SizePreset = keyof typeof DEFAULT_SIZES;

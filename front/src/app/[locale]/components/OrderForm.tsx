@@ -69,7 +69,30 @@ export default function OrderForm() {
   const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const section = document.querySelector('.catalog-section__box');
-    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!section) return;
+
+    const targetPosition = section.getBoundingClientRect().top + window.scrollY - 100;
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    const duration = 1200;
+    let startTime: number | null = null;
+
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const animation = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+
+      if (elapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
   }, []);
 
   const handleOpenDatePicker = useCallback(() => {

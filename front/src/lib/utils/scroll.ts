@@ -7,7 +7,7 @@ export function lockScroll() {
   const pagePosition = window.scrollY;
   const paddingOffset = `${window.innerWidth - body.offsetWidth}px`;
 
-  document.documentElement.style.scrollBehavior = "none";
+  document.documentElement.style.scrollBehavior = "auto";
   fixBlocks.forEach((el) => {
     el.style.paddingRight = paddingOffset;
   });
@@ -32,9 +32,15 @@ export function unlockScroll() {
   body.classList.remove("dis-scroll");
 
   if (pagePosition) {
+    // Temporarily disable smooth scroll for instant position restore
+    document.documentElement.style.scrollBehavior = "auto";
     window.scroll({
       top: pagePosition,
       left: 0,
+    });
+    // Re-enable smooth scroll after restore
+    requestAnimationFrame(() => {
+      document.documentElement.style.scrollBehavior = "";
     });
   }
 
