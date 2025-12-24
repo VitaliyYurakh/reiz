@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useState } from "react";
 import Image from "next/image";
 import { lockScroll, unlockScroll } from "@/lib/utils/scroll";
 
@@ -10,6 +10,10 @@ type Props = {
 };
 
 export default function CertificatePreviewModal({ isOpen, onClose }: Props) {
+  // Track visibility separately for animation
+  const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
   // Handle Escape key
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -20,20 +24,35 @@ export default function CertificatePreviewModal({ isOpen, onClose }: Props) {
     [onClose]
   );
 
-  // Lock/unlock scroll and add keyboard listener
+  // Handle open/close with animation
   useEffect(() => {
     if (isOpen) {
+      // Opening: mount first, then animate
+      setIsVisible(true);
       lockScroll();
       window.addEventListener("keydown", handleKeyDown);
+      // Trigger animation on next frame
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsAnimating(true);
+        });
+      });
+    } else if (isVisible) {
+      // Closing: animate first, then unmount
+      setIsAnimating(false);
+      unlockScroll();
+      window.removeEventListener("keydown", handleKeyDown);
+      // Wait for animation to complete before unmounting
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 400); // Match CSS transition duration
+      return () => clearTimeout(timer);
     }
 
     return () => {
-      if (isOpen) {
-        unlockScroll();
-        window.removeEventListener("keydown", handleKeyDown);
-      }
+      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen, handleKeyDown]);
+  }, [isOpen, isVisible, handleKeyDown]);
 
   // Handle overlay click
   const handleOverlayClick = (e: React.MouseEvent) => {
@@ -42,16 +61,16 @@ export default function CertificatePreviewModal({ isOpen, onClose }: Props) {
     }
   };
 
-  if (!isOpen) return null;
+  if (!isVisible) return null;
 
   return (
     <div
-      className={`cert-preview-modal-overlay ${isOpen ? "is-open" : ""}`}
+      className={`cert-preview-modal-overlay ${isAnimating ? "is-open" : ""}`}
       onClick={handleOverlayClick}
       aria-modal="true"
       role="dialog"
     >
-      <div className={`cert-preview-modal ${isOpen ? "is-open" : ""}`}>
+      <div className={`cert-preview-modal ${isAnimating ? "is-open" : ""}`}>
         {/* Close button */}
         <button
           type="button"
