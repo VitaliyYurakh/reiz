@@ -719,6 +719,8 @@
     },
     "pretitle": "GIFT CERTIFICATES",
     "hero": {
+      "titleAccent": "Gift certificates",
+      "titleRest": "for car rental from REIZ",
       "titleDesktop": "Gift certificates for car rental from REIZ",
       "titleMobile": "Give a car rental to the people who matter most",
       "subtitle": "A new experience is the best gift — and with REIZ it will be memorable."
@@ -778,11 +780,16 @@
       },
       "terms": {
         "title": "TERMS OF USE",
-        "text": "After payment we’ll email the certificate to you, or arrange courier delivery at a convenient time and place — simply enable “I want a physical certificate”."
+        "text": "After payment we'll email the certificate to you, or arrange courier delivery at a convenient time and place — simply enable «I want a physical certificate»."
+      },
+      "checkout": {
+        "title": "PAYMENT",
+        "description": "After payment we'll email the certificate to you, or contact you to arrange delivery at a convenient time and place – simply enable «I want a physical certificate»",
+        "highlight": "I want a physical certificate"
       },
       "price": "$1500",
       "payButton": "PROCEED TO PAYMENT",
-      "consent": "By clicking “Proceed to payment”, you accept the personal data processing terms."
+      "consent": "By clicking «Proceed to payment», you accept the personal data processing terms."
     },
     "faq": {
       "title": "HOW IT WORKS",

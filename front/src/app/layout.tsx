@@ -5,7 +5,7 @@ import { getLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/request";
 import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
-import { gowunDodum, halvar, inter } from "@/fonts";
+import { gowunDodum, halvar, inter, merriweather } from "@/fonts";
 import Script from "next/script";
 
 const SITE_ORIGIN = "https://reiz.com.ua";
@@ -115,7 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </Script>
       </head>
       <body
-        className={`${inter.variable} ${halvar.variable} ${gowunDodum.variable}`}
+        className={`${inter.variable} ${halvar.variable} ${gowunDodum.variable} ${merriweather.variable}`}
       >
         <noscript>
           <iframe

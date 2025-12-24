@@ -8,8 +8,8 @@ export default function CertificateLayout({
 }) {
   return (
     <SiteShell
-      sectionBoxClass={"gift-section__box"}
-      sectionClass={"gift-section"}
+      sectionBoxClass={"cert-page__box"}
+      sectionClass={"cert-page"}
     >
       {children}
     </SiteShell>

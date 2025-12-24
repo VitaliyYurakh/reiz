@@ -1,0 +1,817 @@
+@use "../../mixins/breakpoint" as *;
+
+// =============================================================================
+// CERTIFICATE PAGE - Premium SPA Style
+// =============================================================================
+
+// Page wrapper
+.cert-page {
+  padding-bottom: clamp(80px, 8.8235vw, 120px);
+
+  // Override container padding on mobile to achieve exactly 20px
+  @include mobile {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: clamp(280px, 22.7941vw, 310px) calc(
+        100% - clamp(280px, 22.7941vw, 310px) - clamp(20px, 3.6765vw, 50px)
+      );
+    gap: clamp(20px, 3.6765vw, 50px);
+    padding-bottom: clamp(34px, 2.8676vw, 39px);
+
+    @include tablet {
+      gap: 20px;
+      grid-template-columns: 100%;
+    }
+
+    @include mobile {
+      padding-bottom: 20px;
+      gap: 40px;
+    }
+  }
+
+  .aside {
+    height: fit-content;
+    transition: all 0.4s ease;
+
+    @include for-tablet {
+      height: calc(
+        100dvh - (var(--header-height) + 15px + clamp(34px, 2.8676vw, 39px))
+      );
+      position: sticky;
+      z-index: 10;
+      top: 20px;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  @include tablet {
+    padding-top: 25px;
+  }
+}
+
+// =============================================================================
+// MAIN CONTENT CONTAINER - GRID LAYOUT
+// =============================================================================
+
+.cert {
+  // Grid layout: 2 columns for image+amounts, full width for other sections
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(24px, 2.9412vw, 40px) clamp(24px, 2.9412vw, 40px);
+  row-gap: clamp(60px, 6.6176vw, 90px);
+
+  @include for-tablet {
+    padding-top: clamp(20px, 2.2059vw, 30px);
+  }
+
+  @include laptop {
+    grid-template-columns: minmax(260px, 360px) 1fr;
+  }
+
+  @include tablet {
+    padding-top: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    row-gap: clamp(48px, 8vw, 60px);
+  }
+
+  @include small-tablet {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  @include mobile {
+    gap: 40px;
+  }
+
+  // ---------------------------------------------------------------------------
+  // BREADCRUMB LINE - full width
+  // ---------------------------------------------------------------------------
+  &__breadcrumb {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__marker {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cl-c);
+    }
+
+    &::after {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: var(--cl-d);
+    }
+  }
+
+  &__breadcrumb-text {
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cl-c);
+  }
+
+  // ---------------------------------------------------------------------------
+  // HERO SECTION - full width
+  // ---------------------------------------------------------------------------
+  &__hero {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 1.4706vw, 20px);
+    max-width: 700px;
+  }
+
+  &__hero-title {
+    font-family: var(--font-merriweather), Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(32px, 3.5294vw, 48px);
+    line-height: 1.15;
+    color: var(--cl-a);
+    letter-spacing: -0.01em;
+
+    @include small-tablet {
+      font-size: clamp(26px, 7vw, 36px);
+    }
+  }
+
+  &__hero-title-accent {
+    color: var(--cl-aa);
+    // Font styles inherited from parent
+  }
+
+  &__hero-title-nowrap {
+    @include for-tablet {
+      white-space: nowrap;
+    }
+  }
+
+  &__hero-subtitle {
+    font-weight: 400;
+    font-size: clamp(15px, 1.1765vw, 16px);
+    line-height: 1.6;
+    color: var(--cl-c);
+    margin-top: clamp(8px, 0.8824vw, 12px);
+  }
+
+  // ---------------------------------------------------------------------------
+  // MAIN TWO-COLUMN BLOCK (Image + Amounts only)
+  // ---------------------------------------------------------------------------
+  &__main {
+    grid-column: 1 / -1;
+    display: contents; // Children become direct grid items of .cert
+  }
+
+  // Left: Certificate Image Card
+  &__image {
+    grid-column: 1;
+    width: clamp(320px, 26.4706vw, 450px);
+    aspect-ratio: 1 / 1;
+    border-radius: clamp(24px, 2.6471vw, 36px);
+    overflow: hidden;
+    background: var(--cl-b);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.06);
+    align-self: start;
+    flex-shrink: 0;
+
+    picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include small-tablet {
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      grid-column: 1 / -1;
+    }
+
+    @include mobile {
+      width: 100%;
+      max-width: 100%;
+      border-radius: clamp(20px, 5vw, 24px);
+    }
+  }
+
+  // Right: Amounts wrapper
+  &__amounts {
+    grid-column: 2;
+    display: contents; // Make children direct grid items
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__amounts-inner {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 2.2059vw, 30px);
+    align-self: start;
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // FULL-WIDTH SECTIONS (Form, Preview, Terms, Checkout)
+  // ---------------------------------------------------------------------------
+  &__section {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 2.2059vw, 30px);
+
+    &--form {
+      // Form section styles
+    }
+
+    &--preview {
+      .cert-preview-btn {
+        max-width: 400px;
+
+        @include small-tablet {
+          max-width: 100%;
+        }
+      }
+    }
+
+    &--terms {
+      // Info-only section, no actions
+    }
+
+    &--checkout {
+      // Final payment block - reduced gap from terms
+      margin-top: 0;
+      gap: clamp(16px, 1.4706vw, 20px);
+    }
+  }
+}
+
+// =============================================================================
+// FINAL CHECKOUT BLOCK - Premium Payment Section
+// =============================================================================
+
+// Main row: price — line — button
+.cert-checkout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+
+  @include small-tablet {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(12px, 3vw, 16px);
+  }
+
+  // Price on the left
+  &__price {
+    font-weight: 500;
+    font-size: clamp(36px, 3.5294vw, 48px);
+    color: var(--cl-a);
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+    line-height: 1;
+    // Align price baseline with button center (~27-30px)
+    padding-top: clamp(8px, 0.7353vw, 10px);
+
+    @include small-tablet {
+      font-size: clamp(24px, 7vw, 32px);
+      text-align: left;
+      padding-top: 0;
+      margin-top: calc((54px - 1em) / 2);
+    }
+  }
+
+  // Connecting line pointing to button center
+  &__line {
+    flex: 1;
+    height: 1px;
+    background: var(--cl-d);
+    margin: 0 clamp(24px, 2.9412vw, 40px);
+    min-width: 60px;
+    // Position at button vertical center (~27-30px from top)
+    margin-top: clamp(27px, 2.2059vw, 30px);
+
+    @include small-tablet {
+      flex: 0 0 clamp(30px, 8vw, 50px);
+      min-width: clamp(30px, 8vw, 50px);
+      margin: 0 clamp(8px, 2vw, 12px);
+      margin-top: 27px;
+    }
+  }
+
+  // Action wrapper: button + consent
+  &__action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 400px;
+
+    @include small-tablet {
+      max-width: none;
+      flex: 1;
+      align-items: stretch;
+    }
+  }
+
+  // CTA Button - same size as preview button
+  &__btn {
+    width: 100%;
+    height: clamp(54px, 4.4118vw, 60px);
+    padding: 0 clamp(40px, 4.4118vw, 60px);
+    background: var(--cl-e);
+    color: var(--cl-b);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: var(--cl-l);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(33, 66, 48, 0.25);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--cl-e);
+      outline-offset: 3px;
+    }
+
+    @include small-tablet {
+      height: 54px;
+      padding: 0 clamp(24px, 6vw, 36px);
+    }
+  }
+
+  // Consent text - directly under button
+  &__consent {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--cl-g);
+    margin-top: 12px;
+    padding-left: 2px;
+    max-width: 340px;
+
+    @include small-tablet {
+      max-width: 100%;
+    }
+  }
+}
+
+// =============================================================================
+// FORM ELEMENTS
+// =============================================================================
+
+.cert-form {
+  // Section label with marker
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__marker {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cl-c);
+    }
+
+    &::after {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--cl-d);
+    }
+  }
+
+  &__label-text {
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cl-c);
+  }
+
+  // Tiles grid
+  &__tiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: clamp(12px, 1.1765vw, 16px);
+
+    @include mobile {
+      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // Form fields grid - 3 columns on desktop
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(14px, 1.4706vw, 20px);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include small-tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Terms text
+  &__terms {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--cl-c);
+    max-width: 500px;
+    white-space: pre-line;
+  }
+}
+
+// =============================================================================
+// AMOUNT TILES
+// =============================================================================
+
+.cert-tile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(64px, 5.2941vw, 72px);
+  padding: 16px 20px;
+  background: var(--cl-b);
+  border: 1px solid var(--cl-y);
+  border-radius: clamp(16px, 1.4706vw, 20px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(&--active) {
+    border-color: var(--cl-m);
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: var(--cl-a);
+  }
+
+  // Text
+  &__text {
+    font-weight: 500;
+    font-size: clamp(17px, 1.4706vw, 20px);
+    color: var(--cl-a);
+    text-align: center;
+
+    &--muted {
+      font-weight: 400;
+      font-size: clamp(14px, 1.1765vw, 16px);
+      color: var(--cl-c);
+    }
+  }
+
+  // Input for custom amount
+  &__input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    font-weight: 500;
+    font-size: clamp(17px, 1.4706vw, 20px);
+    color: var(--cl-b);
+    text-align: center;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  // Indicator container (fixed size, no layout shift)
+  &__indicator {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+
+    // Dot / Ring element
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cl-d);
+      border: 2px solid transparent;
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.2s ease-out,
+        height 0.2s ease-out,
+        background 0.2s ease-out,
+        border-color 0.2s ease-out;
+    }
+
+    // Checkmark (hidden by default)
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 7px;
+      border-left: 2px solid var(--cl-e);
+      border-bottom: 2px solid var(--cl-e);
+      transform: translate(-50%, -65%) rotate(-45deg) scale(0);
+      opacity: 0;
+      transition:
+        opacity 0.18s ease-out,
+        transform 0.18s ease-out;
+    }
+  }
+
+  // Hover state (desktop) - dot expands to ring
+  &:hover:not(&--active) {
+    .cert-tile__indicator::before {
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border-color: var(--cl-d);
+    }
+  }
+
+  // Active state - ring + checkmark
+  &--active {
+    background: var(--cl-e);
+    border-color: var(--cl-e);
+    padding: 16px 20px;
+
+    .cert-tile__text {
+      color: var(--cl-b);
+    }
+
+    .cert-tile__indicator {
+      // Ring expanded
+      &::before {
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      // Checkmark visible
+      &::after {
+        border-left-color: var(--cl-b);
+        border-bottom-color: var(--cl-b);
+        opacity: 1;
+        transform: translate(-50%, -65%) rotate(-45deg) scale(1);
+      }
+    }
+  }
+
+  @include mobile {
+    height: 60px;
+    padding: 14px 16px;
+
+    &--active {
+      padding: 14px 16px;
+    }
+
+    .cert-tile__indicator {
+      width: 36px;
+      height: 36px;
+      right: 12px;
+
+      &::before {
+        width: 6px;
+        height: 6px;
+      }
+    }
+
+    &:hover:not(&--active),
+    &--active {
+      .cert-tile__indicator::before {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+}
+
+
+// =============================================================================
+// INPUT FIELDS
+// =============================================================================
+
+.cert-input {
+  display: block;
+
+  &__field {
+    width: 100%;
+    height: clamp(54px, 4.4118vw, 60px);
+    padding: 0 clamp(18px, 1.7647vw, 24px);
+    background: var(--cl-b);
+    border: 1px solid var(--cl-y);
+    border-radius: clamp(14px, 1.1765vw, 16px);
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--cl-a);
+    transition: all 0.2s ease;
+
+    &::placeholder {
+      color: var(--cl-m);
+    }
+
+    &:hover {
+      border-color: var(--cl-m);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--cl-c);
+    }
+
+    &:focus-visible {
+      outline: none;
+      border-color: var(--cl-a);
+    }
+  }
+}
+
+// =============================================================================
+// TOGGLE SWITCH
+// =============================================================================
+
+.cert-toggle {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.4706vw, 20px);
+  cursor: pointer;
+  margin-top: 8px;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__switch {
+    position: relative;
+    width: 56px;
+    height: 30px;
+    background: var(--cl-d);
+    border-radius: 100px;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  &__knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: var(--cl-b);
+    border-radius: 50%;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    // Checkmark in active state
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 6px;
+      border-left: 2px solid var(--cl-e);
+      border-bottom: 2px solid var(--cl-e);
+      transform: translate(-50%, -60%) rotate(-45deg);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  &__label {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--cl-c);
+  }
+
+  // Checked state
+  &__input:checked + &__switch {
+    background: var(--cl-e);
+
+    .cert-toggle__knob {
+      left: calc(100% - 27px);
+
+      // Show checkmark in active state
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__input:focus-visible + &__switch {
+    outline: 2px solid var(--cl-a);
+    outline-offset: 2px;
+  }
+}
+
+// =============================================================================
+// PREVIEW BUTTON
+// =============================================================================
+
+.cert-preview-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: clamp(54px, 4.4118vw, 60px);
+  background: transparent;
+  border: 1px solid var(--cl-d);
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cl-a);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--cl-c);
+    background: var(--cl-b);
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: var(--cl-a);
+  }
+}
