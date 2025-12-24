@@ -1,4 +1,4 @@
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import Icon from "@/components/Icon";
 import React from "react";
 import { getDefaultPath, getPageMetadata } from "@/lib/seo";
@@ -86,7 +86,7 @@ export default async function InvestPage() {
             <li className="info-list__item">
               <span className="info-list__icon sprite">
                 <i className="sprite">
-                  <Image
+                  <UiImage
                     width={40}
                     height={40}
                     src="/img/icons/setting.svg"

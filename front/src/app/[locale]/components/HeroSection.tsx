@@ -1,4 +1,4 @@
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import OrderForm from "./OrderForm";
 import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
 import { getTranslations } from "next-intl/server";
@@ -14,22 +14,26 @@ export default async function HeroSection() {
         <div className="swiper-container">
           <ul className="swiper-wrapper">
             <li className="swiper-slide">
-              <picture>
-                <source
-                  media="(max-width: 575px)"
-                  srcSet="/img/mercedesmobile.webp"
-                  type="image/webp"
-                />
-                <source media="(max-width: 575px)" srcSet="/img/mobreiz1.png" />
-                <source srcSet="/img/car/mercedescle1.webp" type="image/webp" />
-                <Image
-                  width={1440}
-                  height={902}
-                  src="/img/car/mercedescle.png"
-                  alt="Аренда авто во Львове — Mercedes CLE | REIZ Rental Cars"
-                  priority
-                />
-              </picture>
+              {/* Mobile hero image */}
+              <UiImage
+                src="/img/mercedesmobile.webp"
+                alt="Аренда авто во Львове — Mercedes CLE | REIZ Rental Cars"
+                width={575}
+                height={720}
+                hero
+                sizes="100vw"
+                className="hero-image-mobile"
+              />
+              {/* Desktop hero image */}
+              <UiImage
+                src="/img/car/mercedescle1.webp"
+                alt="Аренда авто во Львове — Mercedes CLE | REIZ Rental Cars"
+                width={1440}
+                height={902}
+                hero
+                sizes="100vw"
+                className="hero-image-desktop"
+              />
             </li>
           </ul>
         </div>

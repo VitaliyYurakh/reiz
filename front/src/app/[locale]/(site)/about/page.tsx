@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import TeamSlider from "@/app/[locale]/(site)/about/components/TeamSlider";
 import { getTranslations } from "next-intl/server";
 import { type Locale } from "@/i18n/request";
@@ -54,14 +54,13 @@ export default async function AboutPage() {
 
           <div className="about-section__card mode">
             <div className="about-section__bg">
-              <picture>
-                <Image
-                  width={490}
-                  height={300}
-                  src="/img/reiz.png"
-                  alt={t("brand.imageAlt")}
-                />
-              </picture>
+              <UiImage
+                width={490}
+                height={300}
+                src="/img/reiz.png"
+                alt={t("brand.imageAlt")}
+                sizePreset="card"
+              />
             </div>
             <span className="about-section__title">{t("brand.title")}</span>
           </div>

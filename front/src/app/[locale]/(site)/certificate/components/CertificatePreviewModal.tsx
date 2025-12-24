@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useCallback, useState, useRef } from "react";
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import { lockScroll, unlockScroll } from "@/lib/utils/scroll";
 
 type Props = {
@@ -100,7 +100,7 @@ export default function CertificatePreviewModal({ isOpen, onClose }: Props) {
 
         {/* Certificate image */}
         <div className="cert-preview-modal__image">
-          <Image
+          <UiImage
             src="/img/certificate.png"
             alt="Certificate preview"
             width={800}

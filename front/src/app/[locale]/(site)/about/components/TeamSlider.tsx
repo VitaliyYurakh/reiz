@@ -7,7 +7,7 @@ import Icon from "@/components/Icon";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import type { Swiper as SwiperClass } from "swiper/types";
 
 type Slide = {
@@ -35,11 +35,12 @@ export default function TeamSlider({ slides }: { slides: Slide[] }) {
           <SwiperSlide key={s.id} className="team-slider__slide swiper-slide">
             <div className="team-card">
               <div className="team-card__image">
-                <Image
+                <UiImage
                   width={490}
                   height={479}
                   src="/img/user.png"
-                  alt="Мар’ян Єдинак — основатель компании REIZ"
+                  alt="Мар'ян Єдинак — основатель компании REIZ"
+                  sizePreset="card"
                 />
               </div>
               <div className="team-card__info">

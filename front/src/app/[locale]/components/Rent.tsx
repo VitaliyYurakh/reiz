@@ -1,4 +1,4 @@
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/request";
 
@@ -13,12 +13,12 @@ export default function Rent() {
               <li className="rent-list__item">
                 <Link href="/invest" className="rent-card">
                   <div className="rent-card__image">
-                    <Image
+                    <UiImage
                       width={670}
                       height={350}
                       src="/img/rental.png"
                       alt={t("rent.card1_image_alt")}
-                      loading="lazy"
+                      sizePreset="card"
                     />
                   </div>
                   <span className="rent-card__title">
@@ -74,12 +74,12 @@ export default function Rent() {
               <li className="rent-list__item">
                 <Link href="/terms" className="rent-card">
                   <div className="rent-card__image">
-                    <Image
+                    <UiImage
                       width={670}
                       height={350}
                       src="/img/carterms.png"
                       alt={t("rent.card1_image_alt")}
-                      loading="lazy"
+                      sizePreset="card"
                     />
                   </div>
                   <span className="rent-card__title">
@@ -94,12 +94,12 @@ export default function Rent() {
               <li className="rent-list__item">
                 <Link href="/faq" className="rent-card">
                   <div className="rent-card__image">
-                    <Image
+                    <UiImage
                       width={670}
                       height={350}
                       src="/img/faq.png"
                       alt={t("rent.card3_image_alt")}
-                      loading="lazy"
+                      sizePreset="card"
                     />
                   </div>
                   <span className="rent-card__title">
@@ -133,13 +133,11 @@ export default function Rent() {
                 aria-label={t("reviews_block.trustpilot_aria")}
               >
                 <span>{t("reviews_block.trustpilot_label")}</span>
-                <Image
+                <UiImage
                   width={184}
                   height={68}
                   src="/img/trip.png"
                   alt={t("reviews_block.trustpilot_aria")}
-                  loading="lazy"
-                  decoding="async"
                 />
               </a>
 
@@ -151,13 +149,11 @@ export default function Rent() {
                 aria-label={t("reviews_block.google_aria")}
               >
                 <span>{t("reviews_block.google_label")}</span>
-                <Image
-                  width="195"
-                  height="70"
+                <UiImage
+                  width={195}
+                  height={70}
                   src="/img/google.png"
                   alt={t("reviews_block.google_aria")}
-                  loading="lazy"
-                  decoding="async"
                 />
               </a>
             </div>

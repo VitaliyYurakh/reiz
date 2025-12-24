@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import Icon from "@/components/Icon";
 import type { Locale } from "@/i18n/request";
 import type { Metadata } from "next";
@@ -51,15 +51,12 @@ export default async function ContactsPage() {
 
       <div className="contacts-section__content">
         <div className="contacts-section__map">
-          <picture>
-            {/*<source type="image/webp" srcSet="/img/map.webp" />*/}
-            <Image
-              width="673"
-              height="539"
-              src="/img/map.png"
-              alt="Map of Ukraine with REIZ offices marked in Kyiv and Lviv"
-            />
-          </picture>
+          <UiImage
+            width={673}
+            height={539}
+            src="/img/map.png"
+            alt="Map of Ukraine with REIZ offices marked in Kyiv and Lviv"
+          />
         </div>
 
         <div className="contacts-section__wrapp">
@@ -82,17 +79,17 @@ export default async function ContactsPage() {
                   {offices?.[0]?.phone}
                 </a>
                 <a href="#">
-                  <Image
-                    width="26"
-                    height="26"
+                  <UiImage
+                    width={26}
+                    height={26}
                     src="/img/icons/whatsapp.svg"
                     alt="Contact via WhatsApp"
                   />
                 </a>
                 <a href="#">
-                  <Image
-                    width="26"
-                    height="26"
+                  <UiImage
+                    width={26}
+                    height={26}
                     src="/img/icons/Telegram_logo.svg"
                     alt="Contact via Telegram"
                   />
@@ -128,17 +125,17 @@ export default async function ContactsPage() {
                   {offices?.[1]?.phone}
                 </a>
                 <a href="#">
-                  <Image
-                    width="26"
-                    height="26"
+                  <UiImage
+                    width={26}
+                    height={26}
                     src="/img/icons/whatsapp.svg"
                     alt="WhatsApp — message us"
                   />
                 </a>
                 <a href="#">
-                  <Image
-                    width="26"
-                    height="26"
+                  <UiImage
+                    width={26}
+                    height={26}
                     src="/img/icons/Telegram_logo.svg"
                     alt="Telegram — message us"
                   />

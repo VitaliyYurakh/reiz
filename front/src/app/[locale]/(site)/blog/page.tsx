@@ -1,4 +1,4 @@
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import { getTranslations } from "next-intl/server";
 import { Locale } from "@/i18n/request";
 import type { Metadata } from "next";
@@ -53,11 +53,12 @@ export default async function BlogPage() {
           <li className="blog-list__item" key={post.title}>
             <div className="blog-card">
               <div className="blog-card__image">
-                <Image
+                <UiImage
                   width={474}
                   height={251}
                   src={`/img/blog/img${idx + 1}.png`}
                   alt={post.imgAlt}
+                  sizePreset="card"
                 />
               </div>
 

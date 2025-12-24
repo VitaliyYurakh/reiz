@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation /*, Autoplay*/ } from "swiper/modules";
 
@@ -62,15 +62,13 @@ export default function GiftSlider({
             className="gift-slider__slide swiper-slide"
           >
             <div className="gift-slider__image">
-              <picture>
-                <Image
-                  width={512}
-                  height={320}
-                  src={s.png}
-                  alt={s.alt}
-                  loading="lazy"
-                />
-              </picture>
+              <UiImage
+                width={512}
+                height={320}
+                src={s.png}
+                alt={s.alt}
+                sizePreset="card"
+              />
             </div>
 
             <div className="gift-slider__content">

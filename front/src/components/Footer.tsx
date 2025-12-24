@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import { Link } from "@/i18n/request";
 
 export default function Footer() {
@@ -52,17 +52,17 @@ export default function Footer() {
                   <a href="tel:+380635471186"> +380 63 547 11 86 </a>
                   <a href="#">
                     <span className="default">
-                      <Image
-                        width="26"
-                        height="26"
+                      <UiImage
+                        width={26}
+                        height={26}
                         src="/img/icons/whatsapp.svg"
                         alt="icon"
                       />
                     </span>
                     <span className="hover">
-                      <Image
-                        width="26"
-                        height="26"
+                      <UiImage
+                        width={26}
+                        height={26}
                         src="/img/icons/whatsapp_hover.svg"
                         alt="icon"
                       />
@@ -71,17 +71,17 @@ export default function Footer() {
 
                   <a href="#">
                     <span className="default">
-                      <Image
-                        width="26"
-                        height="26"
+                      <UiImage
+                        width={26}
+                        height={26}
                         src="/img/icons/Telegram_logo.svg"
                         alt="icon"
                       />
                     </span>
                     <span className="hover">
-                      <Image
-                        width="26"
-                        height="26"
+                      <UiImage
+                        width={26}
+                        height={26}
                         src="/img/icons/tg_hover.svg"
                         alt="icon"
                       />
@@ -100,9 +100,9 @@ export default function Footer() {
               </a>
 
               <span className="footer__rate">
-                <Image
-                  width="164"
-                  height="59"
+                <UiImage
+                  width={164}
+                  height={59}
                   src="/img/rate-rental.png"
                   alt="image"
                 />

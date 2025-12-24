@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import CurrencySelect from "@/components/CurrencySelect";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import { Link } from "@/i18n/request";
 import Icon from "@/components/Icon";
 import AccordionItem from "@/components/AccordionItem";
@@ -231,7 +231,7 @@ export default function Header({
                       aria-label="REIZ в WhatsApp"
                     >
                       <span className="default">
-                        <Image
+                        <UiImage
                           width={26}
                           height={26}
                           src="/img/icons/whatsapp.svg"
@@ -239,7 +239,7 @@ export default function Header({
                         />
                       </span>
                       <span className="hover">
-                        <Image
+                        <UiImage
                           width={26}
                           height={26}
                           src="/img/icons/whatsapp_hover.svg"
@@ -253,7 +253,7 @@ export default function Header({
                       aria-label="REIZ в Telegram"
                     >
                       <span className="default">
-                        <Image
+                        <UiImage
                           width={26}
                           height={26}
                           src="/img/icons/Telegram_logo.svg"
@@ -261,7 +261,7 @@ export default function Header({
                         />
                       </span>
                       <span className="hover">
-                        <Image
+                        <UiImage
                           width={26}
                           height={26}
                           src="/img/icons/tg_hover.svg"
@@ -275,7 +275,7 @@ export default function Header({
                       aria-label="REIZ в Instagram"
                     >
                       <span className="default">
-                        <Image
+                        <UiImage
                           width={26}
                           height={26}
                           src="/img/icons/ingsta.svg"
@@ -283,7 +283,7 @@ export default function Header({
                         />
                       </span>
                       <span className="hover">
-                        <Image
+                        <UiImage
                           width={26}
                           height={26}
                           src="/img/icons/INST_hover.svg"

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import Icon from "@/components/Icon";
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/request";
@@ -55,15 +55,13 @@ export default async function TermsPage() {
           <li className="terms-list__item">
             <span className="terms-list__title">{t("termsList.ageTitle")}</span>
             <div className="terms-list__bg">
-              <picture>
-                <source srcSet="/img/car/years-2.webp" type="image/webp" />
-                <Image
-                  width={480}
-                  height={270}
-                  src="/img/car/card.png"
-                  alt="Водитель за рулем — минимальный возраст арендатора от 21 года"
-                />
-              </picture>
+              <UiImage
+                width={480}
+                height={270}
+                src="/img/car/years-2.webp"
+                alt="Водитель за рулем — минимальный возраст арендатора от 21 года"
+                sizePreset="card"
+              />
             </div>
           </li>
 
@@ -72,15 +70,13 @@ export default async function TermsPage() {
               {t("termsList.experienceTitle")}
             </span>
             <div className="terms-list__bg">
-              <picture>
-                <source srcSet="/img/car/mers2.webp" type="image/webp" />
-                <Image
-                  width={480}
-                  height={270}
-                  src="/img/car/card2.png"
-                  alt="Mercedes на парковке — требуемый стаж вождения от 3 лет"
-                />
-              </picture>
+              <UiImage
+                width={480}
+                height={270}
+                src="/img/car/mers2.webp"
+                alt="Mercedes на парковке — требуемый стаж вождения от 3 лет"
+                sizePreset="card"
+              />
             </div>
           </li>
 
@@ -93,15 +89,13 @@ export default async function TermsPage() {
               {t("termsList.citizensUA.title")}
             </span>
             <div className="terms-list__bg">
-              <picture>
-                <source srcSet="/img/car/ua.webp" type="image/webp" />
-                <Image
-                  width={480}
-                  height={270}
-                  src="/img/car/card3.png"
-                  alt="Панорама Киева — требования к гражданам Украины для аренды авто"
-                />
-              </picture>
+              <UiImage
+                width={480}
+                height={270}
+                src="/img/car/ua.webp"
+                alt="Панорама Киева — требования к гражданам Украины для аренды авто"
+                sizePreset="card"
+              />
             </div>
             <ul>
               <li>
@@ -121,15 +115,13 @@ export default async function TermsPage() {
               {t("termsList.foreignCitizens.title")}
             </span>
             <div className="terms-list__bg">
-              <picture>
-                <source srcSet="/img/car/visa.webp" type="image/webp" />
-                <Image
-                  width={480}
-                  height={270}
-                  src="/img/car/card4.png"
-                  alt="Заграничный паспорт с визой — документы для иностранных граждан"
-                />
-              </picture>
+              <UiImage
+                width={480}
+                height={270}
+                src="/img/car/visa.webp"
+                alt="Заграничный паспорт с визой — документы для иностранных граждан"
+                sizePreset="card"
+              />
             </div>
             <ul>
               <li>
@@ -147,15 +139,12 @@ export default async function TermsPage() {
 
         <div className="terms-card">
           <div className="terms-card__bg">
-            <picture>
-              <source srcSet="/img/car/macbook2.webp" type="image/webp" />
-              <Image
-                width={1000}
-                height={440}
-                src="/img/car/card5.png"
-                alt="Онлайн оформление аренды на сайте REIZ — доступные способы оплаты"
-              />
-            </picture>
+            <UiImage
+              width={1000}
+              height={440}
+              src="/img/car/macbook2.webp"
+              alt="Онлайн оформление аренды на сайте REIZ — доступные способы оплаты"
+            />
           </div>
           <div className="terms-card__title">{t("payments.title")}</div>
 

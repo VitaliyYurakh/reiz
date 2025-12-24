@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import UiImage from "@/components/ui/UiImage";
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/request";
 import { getDefaultPath, getPageMetadata } from "@/lib/seo";
@@ -76,15 +76,13 @@ export default async function CertificatePage() {
       >
         {/* Left: Certificate Image */}
         <div className="cert__image">
-          <picture>
-            <Image
-              width={480}
-              height={600}
-              src="/img/gift2.png"
-              alt={t("hero.titleDesktop")}
-              priority
-            />
-          </picture>
+          <UiImage
+            width={480}
+            height={600}
+            src="/img/gift2.png"
+            alt={t("hero.titleDesktop")}
+            hero
+          />
         </div>
 
         {/* Right: Amount Selection ONLY */}
