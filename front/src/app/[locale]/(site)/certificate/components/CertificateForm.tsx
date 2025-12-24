@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import CertificatePreviewModal from "./CertificatePreviewModal";
 
 type Props = {
   amountOptions: string[];
@@ -14,6 +15,8 @@ type Props = {
     previewTitle: string;
     previewButton: string;
     termsTitle: string;
+    termsDriverRequirementsAge: string;
+    termsDriverRequirementsNote: string;
     termsText: string;
     checkoutTitle: string;
     payButton: string;
@@ -25,6 +28,7 @@ export default function CertificateForm({ amountOptions, labels }: Props) {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [customAmount, setCustomAmount] = useState<string>("");
   const [wantPhysical, setWantPhysical] = useState<boolean>(false);
+  const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
 
   // Last 2 items: $5000 removed, "Custom amount" shown instead
   const regularOptions = amountOptions.slice(0, -2);
@@ -165,10 +169,20 @@ export default function CertificateForm({ amountOptions, labels }: Props) {
           <span className="cert-form__label-text">{labels.previewTitle}</span>
         </div>
 
-        <button type="button" className="cert-preview-btn">
+        <button
+          type="button"
+          className="cert-preview-btn"
+          onClick={() => setIsPreviewOpen(true)}
+        >
           {labels.previewButton}
         </button>
       </section>
+
+      {/* Certificate Preview Modal */}
+      <CertificatePreviewModal
+        isOpen={isPreviewOpen}
+        onClose={() => setIsPreviewOpen(false)}
+      />
 
       {/* ============================================================= */}
       {/* SECTION 4: Terms (info only, no actions) */}
@@ -179,6 +193,10 @@ export default function CertificateForm({ amountOptions, labels }: Props) {
           <span className="cert-form__label-text">{labels.termsTitle}</span>
         </div>
 
+        <div className="cert-form__terms-driver">
+          <p className="cert-form__terms">{labels.termsDriverRequirementsAge}</p>
+          <p className="cert-form__terms">{labels.termsDriverRequirementsNote}</p>
+        </div>
         <p className="cert-form__terms">{labels.termsText}</p>
       </section>
 

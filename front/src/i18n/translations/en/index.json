@@ -780,6 +780,8 @@
       },
       "terms": {
         "title": "TERMS OF USE",
+        "driverRequirementsAge": "Minimum driver age is 21 years, minimum driving experience is 2 years.",
+        "driverRequirementsNote": "For some vehicles, the minimum driver age is 24 years.",
         "text": "After payment we'll email the certificate to you, or arrange courier delivery at a convenient time and place — simply enable «I want a physical certificate»."
       },
       "checkout": {
@@ -792,47 +794,27 @@
       "consent": "By clicking «Proceed to payment», you accept the personal data processing terms."
     },
     "faq": {
-      "title": "HOW IT WORKS",
+      "title": "FAQ",
       "items": [
         {
-          "q": "What is the validity period of a gift certificate?",
-          "aHtml": "<strong>The certificate is valid for 12 months from the purchase date.</strong> It can be extended once upon agreement with our manager. Valid in Lviv and other REIZ locations."
+          "q": "Do I need to book a car in advance when using a certificate?",
+          "aHtml": "Yes, we recommend booking a car in advance. The certificate confirms the amount or rental rights but does not automatically reserve a specific vehicle. Popular models may be unavailable, especially on weekends and holidays."
         },
         {
-          "q": "How do I use the certificate and book a car?",
-          "aHtml": "Select a car and dates on the website or by phone. <strong>Provide the gift certificate code</strong> to the manager — the amount will be applied to the booking. You can book online, by phone or via messengers."
+          "q": "What if the desired car is unavailable on the requested dates?",
+          "aHtml": "In that case, we will offer an alternative vehicle of a similar class or help you find other convenient dates. The certificate retains its value and can be used later."
         },
         {
-          "q": "What if the rental price exceeds the certificate amount?",
-          "aHtml": "<strong>You can pay the difference using any convenient method</strong> (card/cashless/cash). Combining multiple certificates for one rental is allowed."
+          "q": "Can I use the certificate in parts or only for one rental?",
+          "aHtml": "The certificate can be used for one or several rentals depending on its value. If the rental cost is less than the certificate amount, the remaining balance is preserved and can be used later."
         },
         {
-          "q": "Can I use the certificate in parts for several trips?",
-          "aHtml": "<strong>Yes, partial payments are possible</strong> until the full amount is used. Tell the manager you’d like to spend it in stages."
+          "q": "Can I exchange the certificate for cash?",
+          "aHtml": "The certificate cannot be exchanged for cash. It can only be used for car rental within the available fleet."
         },
         {
-          "q": "Can I use a certificate if I don’t have a driver’s license?",
-          "aHtml": "<strong>Yes — a chauffeured rental is available</strong> (extra service). A convenient <em>unique gift</em> in Lviv for those who don’t drive."
-        },
-        {
-          "q": "Do I need a deposit and insurance when renting with a certificate?",
-          "aHtml": "<strong>Standard rental terms apply:</strong> the security deposit/franchise depends on the car class. The certificate covers the rental price but does not replace the deposit or extra services. CDW/SCDW liability reduction is available."
-        },
-        {
-          "q": "Can I get a refund for a gift certificate?",
-          "aHtml": "<strong>Refunds are not provided</strong> by the certificate terms. If needed, we can extend its validity or <strong>reissue it to another person</strong>."
-        },
-        {
-          "q": "For which occasions is the certificate suitable — is it truly a unique gift?",
-          "aHtml": "<strong>Yes — it’s a versatile, unique gift in Lviv:</strong> birthday, anniversary, wedding, corporate events, New Year. Great as a <em>gift for car enthusiasts</em> and for anyone who values new experiences."
-        },
-        {
-          "q": "Which formats are available and how fast can I get it?",
-          "aHtml": "<strong>Electronic certificate</strong> arrives by email within 5 minutes after payment. <strong>Physical certificate</strong> can be delivered by courier in Lviv and across Ukraine. Both formats are equally valid."
-        },
-        {
-          "q": "Who can buy it and who can use it? (driver requirements)",
-          "aHtml": "Any adult can buy a certificate. It can be used by a driver who meets REIZ requirements: <strong>age 21+, 3+ years of experience, passport and driver’s license</strong> (for foreigners — international license if required)."
+          "q": "Who can use the gift certificate?",
+          "aHtml": "The certificate can be used by the person whose name it was issued to. If you want to transfer the certificate to another person, please contact us in advance — we will reissue the certificate and update the driver's name in the system. The certificate can be used by a driver who meets the age requirements and minimum driving experience specified in the rental terms."
         }
       ]
     }

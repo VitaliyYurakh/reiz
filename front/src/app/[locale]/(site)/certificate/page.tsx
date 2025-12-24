@@ -5,6 +5,7 @@ import type { Locale } from "@/i18n/request";
 import { getDefaultPath, getPageMetadata } from "@/lib/seo";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import CertificateForm from "./components/CertificateForm";
+import CertificateFAQ from "./components/CertificateFAQ";
 import CertificateThemeColorSetter from "./components/ThemeColorSetter";
 
 export async function generateMetadata({
@@ -24,7 +25,7 @@ export default async function CertificatePage() {
   const t = await getTranslations("certificatePage");
 
   return (
-    <>
+    <div className="cert-content">
       <CertificateThemeColorSetter />
       <form className="cert">
         {/* JSON-LD Breadcrumbs */}
@@ -100,6 +101,8 @@ export default async function CertificatePage() {
               previewTitle: t("form.preview.title"),
               previewButton: t("form.preview.button"),
               termsTitle: t("form.terms.title"),
+              termsDriverRequirementsAge: t("form.terms.driverRequirementsAge"),
+              termsDriverRequirementsNote: t("form.terms.driverRequirementsNote"),
               termsText: t("form.terms.text"),
               checkoutTitle: t("form.checkout.title"),
               payButton: t("form.payButton"),
@@ -109,6 +112,12 @@ export default async function CertificatePage() {
         </div>
       </div>
       </form>
-    </>
+
+      {/* 4. FAQ Section - outside form to prevent submit behavior */}
+      <CertificateFAQ
+        title={t("faq.title")}
+        items={t.raw("faq.items")}
+      />
+    </div>
   );
 }
