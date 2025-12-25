@@ -173,18 +173,18 @@
     "hero_slider_image_alt": "Car rental in Lviv — Mercedes CLE | REIZ Rental Cars",
     "meta": {
       "canonical": "https://reiz.com.ua/en/",
-      "description": "Car rental in Lviv. New cars, premium service, delivery to your address, support 24/7.",
+      "description": "Car rental in Lviv ✓ No deposit ✓ City & airport delivery ✓ Modern fleet from economy to premium ✓ Online booking 24/7",
       "href_default": "https://reiz.com.ua/en/",
       "href_en": "https://reiz.com.ua/en/",
       "href_ru": "https://reiz.com.ua/",
       "href_uk": "https://reiz.com.ua/ua/",
       "lang": "en",
-      "og_description": "Car hire in Lviv. Modern fleet, premium service, doorstep delivery, 24/7 support.",
+      "og_description": "Car rental in Lviv ✓ No deposit ✓ City & airport delivery ✓ Modern fleet from economy to premium ✓ Online booking 24/7",
       "og_image": "https://reiz.com.ua/img/og/home.webp",
       "og_locale": "en_US",
-      "og_title": "Car rental in Lviv — city and airport delivery",
+      "og_title": "Car Rental Lviv Without Driver — REIZ | From 800 UAH/day",
       "page": "home",
-      "title": "Car rental in Lviv — city and airport delivery"
+      "title": "Car Rental Lviv Without Driver — REIZ | From 800 UAH/day"
     },
     "order_form": {
       "date_placeholder": "Select dates",
@@ -221,11 +221,11 @@
   },
   "faqPage": {
     "meta": {
-      "title": "FAQ — frequently asked questions about car rental | REIZ Lviv",
-      "description": "Answers to common questions about car rental in Lviv: deposit, insurance, age & driving experience, payment, delivery, mileage.",
+      "title": "Car Rental FAQ Lviv — Answers from REIZ",
+      "description": "Answers to popular questions: how to rent a car, what documents are needed, how much does it cost, can you travel abroad ✓ Detailed information from experts",
       "canonical": "https://reiz.com.ua/en/faq",
-      "og_title": "FAQ — car rental in Lviv | REIZ",
-      "og_description": "Deposit, insurance, car delivery, payment — we’ve collected answers to common questions.",
+      "og_title": "Car Rental FAQ Lviv — Answers from REIZ",
+      "og_description": "Answers to popular questions: how to rent a car, what documents are needed, how much does it cost, can you travel abroad ✓ Detailed information from experts",
       "og_image": "https://reiz.com.ua/img/og/faq.webp",
       "lang": "en",
       "href_en": "https://reiz.com.ua/en/faq",
@@ -237,7 +237,7 @@
       "home": "Home",
       "current": "FAQ"
     },
-    "main_title": "Frequently asked questions about car rental in Lviv",
+    "main_title": "Frequently Asked Questions About Car Rental",
     "faq_title": "FAQ",
     "faq_pretitle": "FAQ description",
     "questions": [
@@ -325,11 +325,11 @@
   },
   "insurancePage": {
     "meta": {
-      "title": "Car rental insurance in Lviv — REIZ protection packages",
-      "description": "REIZ rental car insurance in Lviv: Standard, Comfort and Premium packages. Coverage terms, deposit size, liability in case of accident/theft, tyres & glass protection, car wash. Who is eligible for extended coverage and what is excluded.",
+      "title": "Car Rental Insurance Lviv — Protection & Safety | REIZ",
+      "description": "Full insurance coverage for car rental: comprehensive & liability ✓ 24/7 roadside assistance ✓ Replacement car if breakdown ✓ Transparent terms ✓ No hidden fees",
       "canonical": "https://reiz.com.ua/en/insurance",
-      "og_title": "Car rental insurance — REIZ Lviv",
-      "og_description": "Choose a protection package: Standard, Comfort or Premium. Transparent terms and 24/7 support.",
+      "og_title": "Car Rental Insurance Lviv — Protection & Safety | REIZ",
+      "og_description": "Full insurance coverage for car rental: comprehensive & liability ✓ 24/7 roadside assistance ✓ Replacement car if breakdown ✓ Transparent terms ✓ No hidden fees",
       "og_image": "https://reiz.com.ua/img/og/insurance.webp",
       "lang": "en",
       "href_ru": "https://reiz.com.ua/insurance",
@@ -345,8 +345,8 @@
     },
     "pretitle": "INSURANCE",
     "hero": {
-      "title": "Protect yourself from unexpected costs on the road",
-      "text": "When choosing a rental car, it’s important to plan for possible issues on the road. Our insurance packages help you reduce risks and protect yourself from extra expenses.",
+      "title": "Rental Car Insurance",
+      "text": "When choosing a rental car, it's important to plan for possible issues on the road. Our insurance packages help you reduce risks and protect yourself from extra expenses.",
       "cta": "GET A CONSULTATION"
     },
     "table": {
@@ -563,11 +563,11 @@
   },
   "blogPage": {
     "meta": {
-      "title": "REIZ Blog — car rental tips, routes & guides",
-      "description": "REIZ articles: car rental rules and tips in Ukraine, routes around Lviv and the country, navigation apps, parking, insurance.",
+      "title": "Car Rental Blog — Useful Tips & Guides | REIZ",
+      "description": "Helpful articles about car rental: how to rent a car, documents, routes in Western Ukraine, tips for beginners ✓ Expert recommendations from REIZ",
       "canonical": "https://reiz.com.ua/en/blog/",
-      "og_title": "REIZ Blog — car rental, routes & tips",
-      "og_description": "Useful materials for drivers and travelers: accidents, parking, best routes and apps.",
+      "og_title": "Car Rental Blog — Useful Tips & Guides | REIZ",
+      "og_description": "Helpful articles about car rental: how to rent a car, documents, routes in Western Ukraine, tips for beginners ✓ Expert recommendations from REIZ",
       "og_url": "https://reiz.com.ua/en/blog/",
       "og_image": "https://reiz.com.ua/img/og/blog.webp",
       "lang": "en",
@@ -581,7 +581,7 @@
       "home": "Home",
       "current": "Blog"
     },
-    "mainTitle": "BLOG",
+    "mainTitle": "REIZ Blog",
     "posts": [
       {
         "title": "What to do after a road accident in Ukraine: a step-by-step guide from REIZ",
@@ -625,11 +625,11 @@
   },
   "aboutPage": {
     "meta": {
-      "title": "About REIZ — Car Rental in Lviv & Kyiv",
-      "description": "Who we are and how we work: REIZ offers car rentals with transparent terms, a modern fleet, and 24/7 support. We operate in Lviv and Kyiv.",
+      "title": "About REIZ — Reliable Car Rental in Lviv Since 2023",
+      "description": "REIZ — modern car rental service in Lviv ✓ New fleet ✓ Professional team ✓ Transparent terms ✓ 50+ satisfied customers ✓ 24/7 support",
       "canonical": "https://reiz.com.ua/en/about/",
-      "og_title": "About REIZ — Car Rental in Lviv & Kyiv",
-      "og_description": "Our mission, team, and service approach. Honest rental terms and 24/7 support.",
+      "og_title": "About REIZ — Reliable Car Rental in Lviv Since 2023",
+      "og_description": "REIZ — modern car rental service in Lviv ✓ New fleet ✓ Professional team ✓ Transparent terms ✓ 50+ satisfied customers ✓ 24/7 support",
       "og_url": "https://reiz.com.ua/en/about/",
       "og_image": "https://reiz.com.ua/img/og/about.webp",
       "lang": "en",
@@ -643,7 +643,7 @@
       "home": "Home",
       "current": "About us"
     },
-    "mainTitle": "ABOUT REIZ",
+    "mainTitle": "About REIZ",
     "mission": {
       "title": "OUR MISSION",
       "text": "WE MAKE CAR RENTAL THE WAY IT SHOULD BE: HONEST, STYLISH, ALIVE"
@@ -881,11 +881,11 @@
   },
   "termsPage": {
     "meta": {
-      "title": "Car Rental Terms in Lviv — REIZ",
-      "description": "Driver requirements, documents for Ukrainians and foreigners, payment methods, insurance, deposit, mileage. REIZ rental terms in Lviv.",
+      "title": "Car Rental Terms Lviv — Requirements & Documents | REIZ",
+      "description": "Transparent car rental conditions in Lviv: age 21+, 2+ years experience ✓ No deposit ✓ Required documents list ✓ Free delivery",
       "canonical": "https://reiz.com.ua/en/terms",
-      "og_title": "Rental Terms — REIZ Lviv",
-      "og_description": "All rules and requirements: documents, payment, insurance, deposit, mileage.",
+      "og_title": "Car Rental Terms Lviv — Requirements & Documents | REIZ",
+      "og_description": "Transparent car rental conditions in Lviv: age 21+, 2+ years experience ✓ No deposit ✓ Required documents list ✓ Free delivery",
       "og_url": "https://reiz.com.ua/en/terms",
       "og_image": "https://reiz.com.ua/img/og/terms.webp",
       "lang": "en",
@@ -895,7 +895,7 @@
     },
     "hero": {
       "pretitle": "RENTAL TERMS",
-      "title": "Rental terms"
+      "title": "Car Rental Terms"
     },
     "breadcrumbs": {
       "home": "Home",
@@ -966,11 +966,11 @@
   },
   "contactsPage": {
     "meta": {
-      "title": "REIZ contacts — car rental in Lviv: phone, address, hours",
-      "description": "Contact REIZ in Lviv: phone +380 63 547 11 86, email info@reiz.com.ua, address Liubinska St., 168. Open daily 08:30–20:30. Door-to-door delivery, 24/7 support.",
+      "title": "REIZ Lviv Contacts — Office Address, Phone, Car Delivery",
+      "description": "Office in Lviv, booking phone, opening hours ✓ Car delivery to address or airport ✓ Open 24/7 ✓ We answer all questions",
       "canonical": "https://reiz.com.ua/en/contacts",
-      "og_title": "REIZ Lviv contacts — car rental",
-      "og_description": "Phone, address, opening hours, email. Fast car delivery and 24/7 assistance.",
+      "og_title": "REIZ Lviv Contacts — Office Address, Phone, Car Delivery",
+      "og_description": "Office in Lviv, booking phone, opening hours ✓ Car delivery to address or airport ✓ Open 24/7 ✓ We answer all questions",
       "og_image": "https://reiz.com.ua/img/og/contacts.webp",
       "lang": "en",
       "href_en": "https://reiz.com.ua/en/contacts",
