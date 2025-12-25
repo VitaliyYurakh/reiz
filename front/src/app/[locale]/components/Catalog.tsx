@@ -479,6 +479,7 @@ export default function Catalog({cars}: CatalogProps) {
                                             onChange={handleSortChange}
                                             preSelectIcon={"filter2"}
                                             showArrow={false}
+                                            defaultOption={sortLabelDefault}
                                         />
                                     </div>
                                 </div>

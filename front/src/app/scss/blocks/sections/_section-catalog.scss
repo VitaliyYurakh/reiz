@@ -500,6 +500,51 @@
 
         .custom-select {
             min-width: 180px !important;
+
+            // Mobile: compact sort button + proper dropdown
+            @include small-tablet {
+                min-width: 0 !important;
+                width: fit-content;
+
+                .select-field {
+                    width: fit-content;
+                }
+
+                .selected-options {
+                    width: fit-content;
+                    justify-content: flex-start;
+                }
+
+                // Hide text in default state
+                &.default-selected {
+                    .select-field {
+                        padding: 0;
+                        gap: 0;
+                    }
+
+                    .selected-options {
+                        .selected-option,
+                        .option-label {
+                            display: none;
+                        }
+                    }
+                }
+
+                // Dropdown: wide enough for longest option
+                .options-container {
+                    width: auto;
+                    min-width: 100%;
+                    right: 0;
+                    left: auto;
+                    border-radius: 16px;
+                    margin-top: 5px;
+                }
+
+                .option-text {
+                    white-space: nowrap;
+                }
+            }
+
             .select-icon {
                 width: 22px;
                 height: 22px;

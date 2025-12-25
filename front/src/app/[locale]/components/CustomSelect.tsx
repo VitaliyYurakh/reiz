@@ -14,6 +14,7 @@ export default function CustomSelect({
   showArrow = true,
   containerRef,
   ariaLabel,
+  defaultOption,
 }: {
   options: string[];
   value?: string | null;
@@ -25,6 +26,8 @@ export default function CustomSelect({
   showArrow?: boolean;
   containerRef?: (node: HTMLDivElement | null) => void;
   ariaLabel?: string;
+  /** When this option is selected, adds 'default-selected' class (hides text on mobile) */
+  defaultOption?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [uncontrolled, setUncontrolled] = useState<string | null>(null);
@@ -97,10 +100,14 @@ export default function CustomSelect({
   }, [open, list, value]);
 
   const displayLabel = ariaLabel || placeholder || "Select option";
+  const isDefaultSelected = defaultOption != null && value === defaultOption;
 
   return (
     <div
-      className={cn("custom-select", containerClassName, { open })}
+      className={cn("custom-select", containerClassName, {
+        open,
+        "default-selected": isDefaultSelected,
+      })}
       ref={(node) => {
         ref.current = node;
         containerRef?.(node);
