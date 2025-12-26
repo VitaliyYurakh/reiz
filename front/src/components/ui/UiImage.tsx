@@ -79,6 +79,11 @@ export interface UiImageProps extends Omit<ImageProps, "quality"> {
    * - thumbnail: small responsive
    */
   sizePreset?: SizePreset;
+
+  /**
+   * Fetch priority for the image (high for LCP images)
+   */
+  fetchPriority?: "high" | "low" | "auto";
 }
 
 /**
@@ -189,6 +194,7 @@ export default function UiImage({
   width,
   height,
   fill,
+  fetchPriority,
   ...props
 }: UiImageProps) {
   // Calculate quality if not explicitly provided
@@ -203,6 +209,9 @@ export default function UiImage({
   const computedPriority = priority ?? hero;
   const computedLoading = hero ? undefined : loading;
 
+  // Hero images get high fetch priority
+  const computedFetchPriority = fetchPriority ?? (hero ? "high" : undefined);
+
   return (
     <Image
       {...props}
@@ -213,6 +222,7 @@ export default function UiImage({
       sizes={computedSizes}
       priority={computedPriority}
       loading={computedLoading}
+      fetchPriority={computedFetchPriority}
     />
   );
 }

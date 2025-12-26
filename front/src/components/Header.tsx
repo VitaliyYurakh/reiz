@@ -273,6 +273,8 @@ export default function Header({
                       href="https://www.instagram.com/reiz.rental?igsh=MXY4bmMyMjl0YWNtYg=="
                       className="header__link"
                       aria-label="REIZ в Instagram"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <span className="default">
                         <UiImage

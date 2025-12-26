@@ -50,13 +50,13 @@ export default function Footer() {
               >
                 <div className="footer__social">
                   <a href="tel:+380635471186"> +380 63 547 11 86 </a>
-                  <a href="#">
+                  <a href="#" aria-label="REIZ WhatsApp">
                     <span className="default">
                       <UiImage
                         width={26}
                         height={26}
                         src="/img/icons/whatsapp.svg"
-                        alt="icon"
+                        alt="WhatsApp"
                       />
                     </span>
                     <span className="hover">
@@ -64,18 +64,18 @@ export default function Footer() {
                         width={26}
                         height={26}
                         src="/img/icons/whatsapp_hover.svg"
-                        alt="icon"
+                        alt="WhatsApp"
                       />
                     </span>
                   </a>
 
-                  <a href="#">
+                  <a href="#" aria-label="REIZ Telegram">
                     <span className="default">
                       <UiImage
                         width={26}
                         height={26}
                         src="/img/icons/Telegram_logo.svg"
-                        alt="icon"
+                        alt="Telegram"
                       />
                     </span>
                     <span className="hover">
@@ -83,7 +83,7 @@ export default function Footer() {
                         width={26}
                         height={26}
                         src="/img/icons/tg_hover.svg"
-                        alt="icon"
+                        alt="Telegram"
                       />
                     </span>
                   </a>
@@ -95,6 +95,7 @@ export default function Footer() {
                 href="#"
                 className="footer__adress"
                 data-title={t("address.title")}
+                aria-label={t("address.title")}
               >
                 <span>{t("address.text")}</span>
               </a>
@@ -104,7 +105,7 @@ export default function Footer() {
                   width={164}
                   height={59}
                   src="/img/rate-rental.png"
-                  alt="image"
+                  alt="REIZ Rental Cars rating"
                 />
               </span>
             </div>
@@ -113,40 +114,40 @@ export default function Footer() {
           <div className="footer__middle">
             <ul className="footer__list" data-title={t("payments.title")}>
               <li className="footer__item">
-                <a href="#" className="footer__link ms">
-                  <i className="sprite">
+                <span className="footer__link ms">
+                  <i className="sprite" aria-hidden="true">
                     <svg width="42" height="26">
                       <use href="/img/sprite/sprite.svg?ver=15#ms"></use>
                     </svg>
                   </i>
                   <span>MASTERCARD</span>
-                </a>
+                </span>
               </li>
               <li className="footer__item">
-                <a href="#" className="footer__link visa">
-                  <i className="sprite">
+                <span className="footer__link visa">
+                  <i className="sprite" aria-hidden="true">
                     <svg width="60" height="19">
                       <use href="/img/sprite/sprite.svg?ver=14#visa"></use>
                     </svg>
                   </i>
                   <span>VISA</span>
-                </a>
+                </span>
               </li>
               <li className="footer__item">
-                <a href="#" className="footer__link pay">
-                  <i className="sprite">
+                <span className="footer__link pay">
+                  <i className="sprite" aria-hidden="true">
                     <svg width="70" height="22">
                       <use href="/img/sprite/sprite.svg?ver=14#pay"></use>
                     </svg>
                   </i>
                   <span>UNIONPAY</span>
-                </a>
+                </span>
               </li>
             </ul>
             <ul className="footer__list mode" data-title={t("social.title")}>
               <li className="footer__item">
-                <a href="#" className="footer__link">
-                  <i className="sprite">
+                <a href="#" className="footer__link" aria-label="REIZ Facebook">
+                  <i className="sprite" aria-hidden="true">
                     <svg
                       width="28"
                       height="28"
@@ -164,8 +165,8 @@ export default function Footer() {
               </li>
 
               <li className="footer__item">
-                <a href="https://www.instagram.com/reiz.rental?igsh=MXY4bmMyMjl0YWNtYg==" className="footer__link pink">
-                  <i className="sprite">
+                <a href="https://www.instagram.com/reiz.rental?igsh=MXY4bmMyMjl0YWNtYg==" className="footer__link pink" aria-label="REIZ Instagram" target="_blank" rel="noopener noreferrer">
+                  <i className="sprite" aria-hidden="true">
                     <svg
                       width="28"
                       height="28"
@@ -183,8 +184,8 @@ export default function Footer() {
               </li>
 
               <li className="footer__item">
-                <a href="#" className="footer__link red">
-                  <i className="sprite">
+                <a href="#" className="footer__link red" aria-label="REIZ YouTube">
+                  <i className="sprite" aria-hidden="true">
                     <svg
                       width="28"
                       height="28"
@@ -205,7 +206,7 @@ export default function Footer() {
 
           <div className="footer__bottom">
             <span>{t("bottom.copyright")}</span>
-            <a href="#">{t("bottom.privacy")}</a>
+            <a href="#" aria-label={t("bottom.privacy")}>{t("bottom.privacy")}</a>
             <span>{t("bottom.developed_by")}</span>
           </div>
         </div>
