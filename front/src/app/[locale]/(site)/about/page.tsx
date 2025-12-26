@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import UiImage from "@/components/ui/UiImage";
-import TeamSlider from "@/app/[locale]/(site)/about/components/TeamSlider";
+// import TeamSlider from "@/app/[locale]/(site)/about/components/TeamSlider"; // тимчасово закоментовано
 import { getTranslations } from "next-intl/server";
 import { type Locale } from "@/i18n/request";
 import { getDefaultPath, getPageMetadata } from "@/lib/seo";
@@ -24,7 +24,7 @@ export async function generateMetadata({
 
 export default async function AboutPage() {
   const t = await getTranslations("aboutPage");
-  const team = t.raw("team.items") as TeamItem[];
+  // const team = t.raw("team.items") as TeamItem[]; // тимчасово закоментовано
   const stats = t.raw("stats.items") as StatItem[];
 
   return (
@@ -66,6 +66,7 @@ export default async function AboutPage() {
           </div>
         </div>
 
+{/* TeamSlider з фото та карткою Мар'яна - тимчасово закоментовано
         <TeamSlider
           slides={team.map((member, idx) => ({
             id: String(idx + 1),
@@ -73,6 +74,7 @@ export default async function AboutPage() {
             text: member.position,
           }))}
         />
+*/}
 
         <ul className="about-section__list">
           {stats.map((s) => (
