@@ -89,6 +89,23 @@ export default async function RootLayout({
       <head>
         {/*<base href="/"/>*/}
 
+        {/* Preload LCP hero images - CRITICAL for performance */}
+        <link
+          rel="preload"
+          as="image"
+          href="/img/car/mercedescle1.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/img/mercedesmobile.webp"
+          type="image/webp"
+          media="(max-width: 1024px)"
+          fetchPriority="high"
+        />
+
         {/* Google Fonts preconnect */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

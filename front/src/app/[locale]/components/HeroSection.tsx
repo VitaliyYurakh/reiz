@@ -14,25 +14,29 @@ export default async function HeroSection() {
         <div className="swiper-container">
           <ul className="swiper-wrapper">
             <li className="swiper-slide">
-              {/* Mobile hero image */}
+              {/* Mobile hero image - LCP critical */}
               <UiImage
                 src="/img/mercedesmobile.webp"
                 alt="Аренда авто во Львове — Mercedes CLE | REIZ Rental Cars"
                 width={575}
                 height={720}
                 hero
+                quality={70}
                 sizes="100vw"
                 className="hero-image-mobile"
+                fetchPriority="high"
               />
-              {/* Desktop hero image */}
+              {/* Desktop hero image - LCP critical */}
               <UiImage
                 src="/img/car/mercedescle1.webp"
                 alt="Аренда авто во Львове — Mercedes CLE | REIZ Rental Cars"
                 width={1440}
                 height={902}
                 hero
+                quality={70}
                 sizes="100vw"
                 className="hero-image-desktop"
+                fetchPriority="high"
               />
             </li>
           </ul>
