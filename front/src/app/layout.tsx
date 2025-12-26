@@ -9,7 +9,7 @@ import { gowunDodum, halvar, inter, merriweather } from "@/fonts";
 import Script from "next/script";
 
 const SITE_ORIGIN = "https://reiz.com.ua";
-const SITE_NAME = "REIZ RENTAL CARS";
+const SITE_NAME = "REIZ";
 
 export async function generateMetadata({
   params,

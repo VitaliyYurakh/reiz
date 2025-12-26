@@ -3,10 +3,25 @@ const websiteJsonLd = {
   "@type": "WebSite",
   "@id": "https://reiz.com.ua/#website",
   name: "REIZ",
+  alternateName: [
+    "REIZ - Оренда авто Львів",
+    "REIZ - Аренда авто Львов",
+    "REIZ - Car Rental Lviv",
+    "REIZ RENTAL CARS",
+  ],
   url: "https://reiz.com.ua",
-  inLanguage: ["uk-UA", "ru-UA", "en"],
+  description: "Сервіс оренди автомобілів у Львові — від економ до преміум класу, доставка 24/7",
+  inLanguage: ["uk", "ru", "en"],
   publisher: {
     "@id": "https://reiz.com.ua/#company",
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://reiz.com.ua/?search={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
   },
 };
 
