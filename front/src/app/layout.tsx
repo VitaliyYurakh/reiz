@@ -89,6 +89,15 @@ export default async function RootLayout({
       <head>
         {/*<base href="/"/>*/}
 
+        {/* Google Fonts preconnect */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
+        {/* Third-party services preconnect */}
         <link
           rel="preconnect"
           href="https://www.googletagmanager.com"
@@ -105,6 +114,7 @@ export default async function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="//grwapi.net" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
 
         <Script id="gtm-loader" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

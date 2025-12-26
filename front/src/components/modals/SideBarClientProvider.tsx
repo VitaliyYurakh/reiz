@@ -1,8 +1,18 @@
 "use client";
 
-import RequestCallModal from "@/components/modals/RequestCallModal";
+import dynamic from "next/dynamic";
 import { SideBarModalProvider } from "@/components/modals/index";
-import ManagerWillContactYouModal from "@/components/modals/ManagerWillContactYouModal";
+
+// Dynamic imports for code splitting - modals are not needed on initial load
+const RequestCallModal = dynamic(
+  () => import("@/components/modals/RequestCallModal"),
+  { ssr: false }
+);
+
+const ManagerWillContactYouModal = dynamic(
+  () => import("@/components/modals/ManagerWillContactYouModal"),
+  { ssr: false }
+);
 
 export default function SideBarClientProvider({
   children,

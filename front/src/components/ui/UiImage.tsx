@@ -18,40 +18,38 @@ const SIZE_THRESHOLDS = {
 
 /**
  * Quality presets based on image type and size
+ * Optimized for Performance (Lighthouse 85+)
  */
 const QUALITY_PRESETS = {
-  /** Hero/LCP images - highest quality */
-  hero: 90,
+  /** Hero/LCP images - high quality but optimized */
+  hero: 80,
   /** Large images */
-  large: 85,
+  large: 75,
   /** Medium images - balanced */
-  medium: 82,
+  medium: 72,
   /** Small images */
-  small: 75,
-  /** Icons and thumbnails - more aggressive compression */
-  icon: 65,
+  small: 68,
+  /** Icons and thumbnails - aggressive compression */
+  icon: 60,
 } as const;
 
 /**
  * Default responsive sizes for different image types
- * Using vw-based values to ensure crisp images on large/retina/4K displays
- *
- * Note: For 2x retina displays, browser requests 2x the calculated size.
- * On 2560px 27" monitor: 75vw = 1920px, with 2x DPR = 3840px request
+ * Optimized for Performance - smaller srcset requests
  */
 const DEFAULT_SIZES = {
   /** Full-width hero images */
   hero: "100vw",
   /** Full-width responsive images */
   fullWidth: "100vw",
-  /** Images in containers (most common case) - generous for retina */
-  contained: "(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 75vw",
-  /** Card images in grids - generous for retina/4K displays */
-  card: "(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 75vw",
+  /** Images in containers - optimized for performance */
+  contained: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
+  /** Card images in grids - optimized for car catalog */
+  card: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   /** Small images like icons */
-  icon: "96px",
+  icon: "64px",
   /** Thumbnail images */
-  thumbnail: "(max-width: 640px) 50vw, 384px",
+  thumbnail: "(max-width: 640px) 50vw, 256px",
 } as const;
 
 type SizePreset = keyof typeof DEFAULT_SIZES;
