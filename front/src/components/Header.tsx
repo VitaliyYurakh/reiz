@@ -151,6 +151,8 @@ export default function Header({
             <button
               className={cn("burger", mobileMenuOpen && "active")}
               onClick={toggleMobileMenu}
+              aria-label={mobileMenuOpen ? headerT("close_menu") : headerT("open_menu")}
+              aria-expanded={mobileMenuOpen}
             >
               <span className="burger__line" />
             </button>

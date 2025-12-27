@@ -22,7 +22,9 @@
   },
   "header": {
     "call": "Call",
-    "currency": "Currency"
+    "currency": "Currency",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu"
   },
   "homePage": {
     "advantages": {

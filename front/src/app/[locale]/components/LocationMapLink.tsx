@@ -15,12 +15,14 @@ type LocationMapLinkProps = {
   children: React.ReactNode;
   className?: string;
   title?: string;
+  "aria-label"?: string;
 };
 
 export default function LocationMapLink({
   children,
   className,
   title = "Lviv International Airport",
+  "aria-label": ariaLabel,
 }: LocationMapLinkProps) {
   const triggerRef = useRef<HTMLAnchorElement>(null);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -175,6 +177,7 @@ export default function LocationMapLink({
         rel="noopener noreferrer"
         className={className}
         onClick={handleClick}
+        aria-label={ariaLabel || title}
       >
         {children}
       </a>
