@@ -6,7 +6,7 @@ import type { Locale } from "@/i18n/request";
 import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
 import { gowunDodum, halvar, inter, merriweather } from "@/fonts";
-import Script from "next/script";
+import { Partytown } from "@qwik.dev/partytown/react";
 
 const SITE_ORIGIN = "https://reiz.com.ua";
 const SITE_NAME = "REIZ";
@@ -89,6 +89,16 @@ export default async function RootLayout({
       <head>
         {/*<base href="/"/>*/}
 
+        {/* Partytown - moves third-party scripts to Web Worker */}
+        <Partytown
+          debug={process.env.NODE_ENV === "development"}
+          forward={[
+            "dataLayer.push",
+            "gtag",
+            "fbq",
+          ]}
+        />
+
         {/* Preload LCP hero images - CRITICAL for performance */}
         <link
           rel="preload"
@@ -133,13 +143,17 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="//grwapi.net" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
 
-        <Script id="gtm-loader" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        {/* GTM - runs in Partytown Web Worker for better performance */}
+        <script
+          type="text/partytown"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WGHWDS62');`}
-        </Script>
+})(window,document,'script','dataLayer','GTM-WGHWDS62');`,
+          }}
+        />
       </head>
       <body
         className={`${inter.variable} ${halvar.variable} ${gowunDodum.variable} ${merriweather.variable}`}

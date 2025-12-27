@@ -19,6 +19,20 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Partytown service worker - needs special headers
+        source: "/~partytown/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+          {
+            key: "Cross-Origin-Embedder-Policy",
+            value: "credentialless",
+          },
+        ],
+      },
+      {
         // Images - cache for 1 year
         source: "/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico)",
         headers: [
