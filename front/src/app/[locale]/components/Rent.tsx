@@ -16,7 +16,7 @@ export default function Rent() {
                     <UiImage
                       width={670}
                       height={350}
-                      src="/img/rental.png"
+                      src="/img/invest-car.webp"
                       alt={t("rent.card1_image_alt")}
                       sizePreset="card"
                     />
