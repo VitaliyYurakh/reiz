@@ -173,8 +173,7 @@ export default function CustomSelect({
               active: opt === value,
               focused: idx === activeIndex,
             })}
-            onMouseDown={(e) => {
-              e.preventDefault();
+            onClick={() => {
               setValue(opt);
             }}
             onMouseEnter={() => setActiveIndex(idx)}

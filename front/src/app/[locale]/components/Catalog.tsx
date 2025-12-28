@@ -12,7 +12,7 @@ import {useLocale} from "use-intl";
 import {useCatalogFilters} from "@/context/CatalogFiltersContext";
 import {useSideBarModal} from "@/components/modals";
 import CarCard from "@/app/[locale]/components/CarCard";
-import {themeColorLock} from "@/hooks/useThemeColorOnOpen";
+import {themeColorLock, useThemeColorOnOpen} from "@/hooks/useThemeColorOnOpen";
 import {useCurrency} from "@/context/CurrencyContext";
 
 type Filters = {
@@ -102,6 +102,8 @@ export default function Catalog({cars}: CatalogProps) {
     const {convert, convertToUSD, getCurrencySymbol} = useCurrency();
 
     const filtersOpen = catalogFilters?.filtersOpen ?? internalFiltersOpen;
+
+    useThemeColorOnOpen(filtersOpen);
 
     const setFiltersOpen = useCallback(
         (open: boolean) => {
@@ -454,8 +456,12 @@ export default function Catalog({cars}: CatalogProps) {
                                                     value={seg}
                                                     className="radio-checkbox__field"
                                                     checked={filters.segment === seg}
-                                                    onChange={() =>
-                                                        setFilters((f) => ({...f, segment: seg}))
+                                                    onChange={() => {}}
+                                                    onClick={() =>
+                                                        setFilters((f) => ({
+                                                            ...f,
+                                                            segment: f.segment === seg ? null : seg
+                                                        }))
                                                     }
                                                 />
                                                 <span className="radio-checkbox__content">
