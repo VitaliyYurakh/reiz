@@ -136,9 +136,15 @@ export default function Header({
     {
       label: asideT("cars_title"),
       subLinks: [
-        { href: "/#catalog", label: asideT("cars_link1") },
-        { href: "/#catalog", label: asideT("cars_link2") },
-        { href: "/#catalog", label: asideT("cars_link3") },
+        { href: "/rental/kyiv", label: asideT("cars_link1") },
+        { href: "/rental/lviv", label: asideT("cars_link2") },
+        { href: "/rental/ternopil", label: asideT("cars_link3") },
+        { href: "/rental/odesa", label: asideT("cars_link4") },
+        { href: "/rental/dnipro", label: asideT("cars_link5") },
+        { href: "/rental/kharkiv", label: asideT("cars_link6") },
+        { href: "/rental/bukovel", label: asideT("cars_link7") },
+        { href: "/rental/truskavets", label: asideT("cars_link8") },
+        { href: "/rental/ivano-frankivsk", label: asideT("cars_link9") },
       ],
     },
     { href: "/insurance", label: asideT("insurance") },

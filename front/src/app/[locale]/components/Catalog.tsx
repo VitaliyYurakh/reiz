@@ -87,9 +87,11 @@ const getLongTermPrice = (car: Car): number | null => {
 
 type CatalogProps = {
     cars: Car[];
+    // Опціональний заголовок секції для міських сторінок
+    sectionTitle?: string;
 };
 
-export default function Catalog({cars}: CatalogProps) {
+export default function Catalog({cars, sectionTitle}: CatalogProps) {
     const locale = useLocale();
     const t = useTranslations("homePage.catalog_aside");
     const [toggleFixed, setToggleFixed] = useState(false);
@@ -648,7 +650,7 @@ export default function Catalog({cars}: CatalogProps) {
                             data-aos-duration="500"
                             data-aos-delay="200"
                         >
-                            <h2 className="pretitle">{t("catalog_content.pretitle")}</h2>
+                            <h2 className="pretitle">{sectionTitle ?? t("catalog_content.pretitle")}</h2>
 
                             <CustomSelect
                                 placeholder={sortOptions[0]}

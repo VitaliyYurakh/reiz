@@ -26,9 +26,15 @@ export default function SidebarNav() {
     {
       label: t("nav.cars_title"),
       subLinks: [
-        { href: "#catalog", label: t("nav.cars_link1") },
-        { href: "#catalog", label: t("nav.cars_link2") },
-        { href: "#catalog", label: t("nav.cars_link3") },
+        { href: "/rental/kyiv", label: t("nav.cars_link1") },
+        { href: "/rental/lviv", label: t("nav.cars_link2") },
+        { href: "/rental/ternopil", label: t("nav.cars_link3") },
+        { href: "/rental/odesa", label: t("nav.cars_link4") },
+        { href: "/rental/dnipro", label: t("nav.cars_link5") },
+        { href: "/rental/kharkiv", label: t("nav.cars_link6") },
+        { href: "/rental/bukovel", label: t("nav.cars_link7") },
+        { href: "/rental/truskavets", label: t("nav.cars_link8") },
+        { href: "/rental/ivano-frankivsk", label: t("nav.cars_link9") },
       ],
     },
     { href: "/insurance", label: t("nav.insurance") },
