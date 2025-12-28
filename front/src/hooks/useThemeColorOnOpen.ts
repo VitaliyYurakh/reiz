@@ -1,33 +1,26 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import {
+    themeColorLock,
+    getThemeColorForPath,
+    getMenuThemeColor,
+    updateThemeColorMeta,
+} from "@/lib/theme-color";
 
-const MENU_THEME_COLOR = "#F1F0EB";
-
-// Global lock flag - when true, other components should not change theme-color
-export const themeColorLock = { locked: false };
+// Re-export for backward compatibility
+export { themeColorLock };
 
 export function useThemeColorOnOpen(isOpen: boolean) {
-    const previousColor = useRef<string | null>(null);
+    const pathname = usePathname();
 
     useEffect(() => {
-        let meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-
-        if (!meta) {
-            meta = document.createElement("meta");
-            meta.setAttribute("name", "theme-color");
-            meta.setAttribute("content", "#000");
-            document.head.appendChild(meta);
-        }
-
         if (isOpen) {
-            previousColor.current = meta.getAttribute("content");
-            meta.setAttribute("content", MENU_THEME_COLOR);
+            updateThemeColorMeta(getMenuThemeColor());
             themeColorLock.locked = true;
         } else {
             themeColorLock.locked = false;
-            if (previousColor.current !== null) {
-                meta.setAttribute("content", previousColor.current);
-                previousColor.current = null;
-            }
+            // Restore color based on current path
+            updateThemeColorMeta(getThemeColorForPath(pathname));
         }
-    }, [isOpen]);
+    }, [isOpen, pathname]);
 }

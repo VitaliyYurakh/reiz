@@ -7,6 +7,7 @@ import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
 import { gowunDodum, halvar, inter, merriweather } from "@/fonts";
 import { Partytown } from "@qwik.dev/partytown/react";
+import ThemeColorProvider from "@/components/ThemeColorProvider";
 
 const SITE_ORIGIN = "https://reiz.com.ua";
 const SITE_NAME = "REIZ";
@@ -168,6 +169,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {children}
+        <ThemeColorProvider />
         <AOSProvider />
         <PreloadResources />
       </body>
