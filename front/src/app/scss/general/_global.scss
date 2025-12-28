@@ -81,9 +81,7 @@ a {
     cursor: pointer;
 
     &:focus-visible {
-        outline: 2px solid var(--cl-e);
-        outline-offset: 2px;
-        border-radius: 4px;
+        outline: none;
     }
 }
 
@@ -99,20 +97,18 @@ button {
     cursor: pointer;
 
     &:focus-visible {
-        outline: 2px solid var(--cl-e);
-        outline-offset: 2px;
-        border-radius: 4px;
+        outline: none;
     }
 }
 
-// Global focus-visible for interactive elements
-input,
-select,
-textarea {
-    &:focus-visible {
-        outline: 2px solid var(--cl-e);
-        outline-offset: 2px;
-    }
+// Global focus styles - removed for cleaner UI
+*:focus,
+*:focus-visible,
+*:focus-within {
+    outline: none !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
+    -webkit-tap-highlight-color: transparent;
 }
 
 ul,
