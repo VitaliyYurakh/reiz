@@ -87,7 +87,11 @@ export default function CurrencySelect({
   return (
     <div className="custom-select choice lang" data-role="client-select" ref={rootRef}>
       <input type="hidden" name={name} value={currency} />
-      <span className="select-text" id={`${listboxId}-label`}>
+      <span
+        className="select-text"
+        id={`${listboxId}-label`}
+        onClick={() => setOpen((v) => !v)}
+      >
         {t("currency")}:
       </span>
 

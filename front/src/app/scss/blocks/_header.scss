@@ -233,6 +233,130 @@
     display: flex;
     align-items: center;
     gap: 23px;
+
+    // Mobile: premium dropdown style like location selects
+    @include mobile {
+      flex-direction: row;
+      gap: 10px;
+
+      .custom-select.choice {
+        height: 40px;
+        width: auto;
+        min-width: auto;
+        flex: 1;
+        padding: 0;
+        position: relative;
+        background: transparent;
+        border: none;
+        border-radius: 20px;
+        transition: border-radius 0.2s ease, background 0.2s ease;
+
+        &.open,
+        &:has(.select-field.active) {
+          background: #fff;
+          border-radius: 20px 20px 0 0;
+          z-index: 100;
+        }
+
+        .select-field {
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          border: none;
+          border-radius: inherit;
+          background: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+
+          &.active {
+            border-radius: 20px 20px 0 0;
+          }
+        }
+
+        .select-text {
+          font-weight: 400;
+          font-size: 14px;
+          color: var(--cl-a);
+          cursor: pointer;
+        }
+
+        .selected-options {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .option-label {
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--cl-a);
+          }
+        }
+
+        .arrow-down {
+          flex: 0 0 auto;
+          width: 10px;
+          height: 10px;
+          color: var(--cl-a);
+          transition: transform 0.2s ease;
+        }
+
+        &:has(.select-field.active) .arrow-down,
+        &.open .arrow-down {
+          transform: scaleY(-1);
+        }
+
+        .options-container {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          width: 100%;
+          max-height: 0;
+          opacity: 0;
+          overflow: hidden;
+          background: #fff;
+          border: none;
+          border-radius: 0 0 20px 20px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+          z-index: 99;
+          transform: translateY(-4px);
+          transition: max-height 0.25s ease, opacity 0.2s ease, transform 0.2s ease;
+
+          &.active {
+            max-height: 180px;
+            opacity: 1;
+            overflow-y: auto;
+            transform: translateY(0);
+            padding: 4px 0 8px;
+          }
+        }
+
+        .option {
+          padding: 0 8px;
+        }
+
+        .option-text {
+          display: flex;
+          align-items: center;
+          padding: 10px 14px;
+          border-radius: 12px;
+          font-size: 15px;
+          color: var(--cl-n);
+          transition: background 0.15s ease;
+          text-decoration: none;
+        }
+
+        .option:hover .option-text {
+          background: rgba(255, 255, 255, 0.5);
+        }
+
+        .option.active .option-text {
+          background: rgba(0, 0, 0, 0.14);
+        }
+      }
+    }
   }
 
   &__links {
@@ -356,7 +480,7 @@
     color: var(--cl-b);
 
     &.active {
-      color: var(--cl-l);
+      color: var(--cl-a);
     }
 
     @include for-tablet {
