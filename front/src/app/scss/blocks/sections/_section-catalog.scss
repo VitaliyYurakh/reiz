@@ -481,15 +481,14 @@
                 z-index: 9;
                 height: 45px;
                 left: var(--container-offset);
-                transition: box-shadow 0.3s ease, transform 0.3s ease, top 0.3s ease;
+                // Use transform (same as header) for perfect sync
+                transform: translateY(var(--header-offset, 0px));
+                // Must match header's transition exactly
+                transition: box-shadow 0.3s ease, transform 0.5s ease;
+                will-change: transform;
 
                 &:after {
                     opacity: 1;
-                }
-
-                &.with-sticky {
-                    top: calc(var(--header-height) + 5px);
-                    z-index: 9;
                 }
             }
 

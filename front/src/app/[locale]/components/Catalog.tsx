@@ -93,7 +93,6 @@ export default function Catalog({cars}: CatalogProps) {
     const locale = useLocale();
     const t = useTranslations("homePage.catalog_aside");
     const [toggleFixed, setToggleFixed] = useState(false);
-    const [scrollingUp, setScrollingUp] = useState(false);
     const [internalFiltersOpen, setInternalFiltersOpen] = useState(false);
     const catalogFilters = useCatalogFilters();
     const {open} = useSideBarModal("requestCall");
@@ -358,6 +357,27 @@ export default function Catalog({cars}: CatalogProps) {
 
     useEffect(() => {
         if (!anchorRef.current) return;
+
+        let rafId: number | null = null;
+        let isScrolling = false;
+
+        const checkFixed = () => {
+            if (!anchorRef.current) return;
+            const rect = anchorRef.current.getBoundingClientRect();
+            const isAbove = rect.bottom < 0;
+            const isBelow = rect.top > window.innerHeight;
+            setToggleFixed(isAbove && !isBelow);
+        };
+
+        // Continuous check using rAF while scrolling
+        const rafCheck = () => {
+            checkFixed();
+            if (isScrolling) {
+                rafId = requestAnimationFrame(rafCheck);
+            }
+        };
+
+        // IntersectionObserver for normal detection
         const obs = new IntersectionObserver(
             ([entry]) => {
                 const rectTop = entry.boundingClientRect.top;
@@ -369,37 +389,39 @@ export default function Catalog({cars}: CatalogProps) {
             {threshold: 0},
         );
         obs.observe(anchorRef.current);
-        return () => obs.disconnect();
-    }, []);
 
-    useEffect(() => {
-        let prevScrollY = window.scrollY;
-        let ticking = false;
-
+        // Scroll listener starts rAF loop for smooth fast scroll handling
+        let scrollTimeout: ReturnType<typeof setTimeout>;
         const handleScroll = () => {
-            if (ticking) return;
-            ticking = true;
-
-            window.requestAnimationFrame(() => {
-                const currentScrollY = window.scrollY;
-                setScrollingUp(currentScrollY < prevScrollY);
-                prevScrollY = currentScrollY;
-                ticking = false;
-            });
+            if (!isScrolling) {
+                isScrolling = true;
+                rafCheck();
+            }
+            // Reset timeout on each scroll
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                    rafId = null;
+                }
+                // Final check after scroll ends
+                checkFixed();
+            }, 150);
         };
 
-        window.addEventListener("scroll", handleScroll, {passive: true});
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => {
+            obs.disconnect();
             window.removeEventListener("scroll", handleScroll);
+            clearTimeout(scrollTimeout);
+            if (rafId) {
+                cancelAnimationFrame(rafId);
+            }
         };
     }, []);
 
-    useEffect(() => {
-        if (!toggleFixed) {
-            setScrollingUp(false);
-        }
-    }, [toggleFixed]);
 
     useEffect(() => {
         if (filtersOpen) {
@@ -455,7 +477,6 @@ export default function Catalog({cars}: CatalogProps) {
                                     <div
                                         className={cn("catalog-aside__open-box", {
                                             fixed: toggleFixed,
-                                            "with-sticky": toggleFixed && scrollingUp,
                                         })}
                                     >
                                         <button

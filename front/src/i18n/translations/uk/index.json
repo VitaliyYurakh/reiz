@@ -1175,7 +1175,10 @@
     },
     "notSelected": "...",
     "duration": "{count, plural, one {{count} день} few {{count} дні} many {{count} днів} other {{count} днів}}",
-    "confirm": "Підтвердити"
+    "confirm": "Підтвердити",
+    "close": "Закрити",
+    "prevMonth": "Попередній місяць",
+    "nextMonth": "Наступний місяць"
   },
   "carRentModal": {
     "breadcrumbs": {

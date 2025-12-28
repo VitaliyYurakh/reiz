@@ -1195,7 +1195,10 @@
     },
     "notSelected": "...",
     "duration": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
-    "confirm": "Подтвердить"
+    "confirm": "Подтвердить",
+    "close": "Закрыть",
+    "prevMonth": "Предыдущий месяц",
+    "nextMonth": "Следующий месяц"
   },
   "carRentModal": {
     "breadcrumbs": {

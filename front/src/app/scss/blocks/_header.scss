@@ -8,7 +8,8 @@
   top: 0;
   position: fixed;
   z-index: 20;
-  transition: background 0.5s, transform 0.5s;
+  transition: background 0.5s ease, transform 0.5s ease;
+  will-change: transform;
 
   .container{
     &::before{

@@ -1155,7 +1155,10 @@
     },
     "notSelected": "...",
     "duration": "{count, plural, one {{count} day} other {{count} days}}",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "close": "Close",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month"
   },
   "carRentModal": {
     "breadcrumbs": {

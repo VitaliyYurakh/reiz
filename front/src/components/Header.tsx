@@ -59,29 +59,51 @@ export default function Header({
   };
 
   useEffect(() => {
+    const SCROLL_THRESHOLD = 5; // Minimum scroll delta to trigger state change
+    let isHeaderVisible = true; // Start as visible
+
     const handleScroll = () => {
       const scrollTop = document.documentElement.scrollTop;
+      const root = document.documentElement;
+      const scrollDelta = scrollTop - lastScrollTop.current;
+
       if (scrollTop > 40) {
         headerRef.current?.classList.add("sticky");
 
-        if (scrollTop > lastScrollTop.current) {
-          headerRef.current?.classList.add("sticky-hidden");
-          headerRef.current?.classList.remove("sticky-visible");
-        } else {
-          headerRef.current?.classList.add("sticky-visible");
-          headerRef.current?.classList.remove("sticky-hidden");
+        // Only change state if scroll delta exceeds threshold
+        if (Math.abs(scrollDelta) > SCROLL_THRESHOLD) {
+          if (scrollDelta > 0) {
+            // Scrolling down - hide header
+            if (isHeaderVisible) {
+              headerRef.current?.classList.add("sticky-hidden");
+              headerRef.current?.classList.remove("sticky-visible");
+              root.style.setProperty('--header-offset', '0px');
+              isHeaderVisible = false;
+            }
+          } else {
+            // Scrolling up - show header
+            if (!isHeaderVisible) {
+              headerRef.current?.classList.add("sticky-visible");
+              headerRef.current?.classList.remove("sticky-hidden");
+              root.style.setProperty('--header-offset', '56px');
+              isHeaderVisible = true;
+            }
+          }
         }
       } else {
         headerRef.current?.classList.remove("sticky");
         headerRef.current?.classList.remove("sticky-visible");
         headerRef.current?.classList.remove("sticky-hidden");
+        // At top of page, header is visible in normal position
+        root.style.setProperty('--header-offset', '56px');
+        isHeaderVisible = true; // Reset to visible at top
       }
 
       lastScrollTop.current = scrollTop;
     };
 
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
