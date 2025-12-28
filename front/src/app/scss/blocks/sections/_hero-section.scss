@@ -346,25 +346,44 @@
                 1px
             );
 
-            .custom-select {
+            .custom-select.order {
+                // Solid background container - overlay dropdown
                 background: var(--body-bg);
                 border-radius: 20px;
-                padding: 0 11px;
-                height: 45px;
-                border: 0.5px solid transparent;
+                border: none;
+                box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.15);
 
                 .select-icon {
                     color: var(--cl-e);
                 }
 
-                .options-container {
-                    left: -0.5px;
-                    width: calc(100% + 1px);
+                // Open state - unified look with dropdown
+                &.open {
+                    background: var(--body-bg);
+                    border-radius: 20px 20px 0 0;
+                    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.15);
                 }
 
-                &.active {
-                    border-radius: 20px 20px 0 0;
-                    border-color: var(--cl-m);
+                // Dropdown matches the field perfectly
+                .options-container {
+                    background: var(--body-bg);
+                    border: none;
+                    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                }
+
+                .option-text {
+                    color: var(--cl-a);
+                }
+
+                .option.active .option-text {
+                    background: rgba(0, 0, 0, 0.06);
+                }
+
+                .option:hover .option-text {
+                    background: rgba(0, 0, 0, 0.08);
                 }
             }
 

@@ -267,6 +267,9 @@
     transition: all 0.3s;
     position: relative;
     display: flex;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 
     img {
       transition: all 0.3s;
@@ -278,27 +281,43 @@
       display: flex;
     }
 
-    .hover {
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .default {
-      transition: opacity 0.3s ease;
-    }
-
-    &:hover {
-      color: var(--cl-f);
-
-      .default {
-        opacity: 0;
+    // On touch devices - hide hover element, add tap feedback
+    @media (hover: none) {
+      .hover {
+        display: none !important;
       }
 
+      &:active {
+        opacity: 0.5;
+        transform: scale(0.92);
+      }
+    }
+
+    // On desktop - show hover effect
+    @media (hover: hover) {
       .hover {
-        opacity: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      .default {
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover {
+        color: var(--cl-f);
+
+        .default {
+          opacity: 0;
+        }
+
+        .hover {
+          opacity: 1;
+        }
       }
     }
   }

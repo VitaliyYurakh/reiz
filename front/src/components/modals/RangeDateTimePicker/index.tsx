@@ -80,6 +80,21 @@ const DatePicker: React.FC<DatePickerProps> = ({
 }) => {
   const locale = useLocale();
   const t = useTranslations("rangeDateTimePicker");
+
+  // Set white status bar when calendar is open
+  useEffect(() => {
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    const prevColor = meta?.getAttribute("content") || "#000";
+    if (meta) {
+      meta.setAttribute("content", "#FFFFFF");
+    }
+    return () => {
+      if (meta) {
+        meta.setAttribute("content", prevColor);
+      }
+    };
+  }, []);
+
   const [startDate, setStartDate] = useState<Date | null>(
     data.startDate ?? null,
   );
