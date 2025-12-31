@@ -85,7 +85,7 @@ export async function getPageMetadata({
     },
     openGraph: {
       type: "website",
-      siteName: "REIZ RENTAL CARS",
+      siteName: "REIZ",
       title: t("meta.og_title"),
       description: t("meta.og_description"),
       images: [{ url: ogImage }],

@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import cn from "classnames";
 import Icon from "@/components/Icon";
 
@@ -27,6 +27,7 @@ export default function AccordionItem({
   onToggle,
 }: Props) {
   const [localOpen, setLocalOpen] = useState(false);
+  const [maxHeight, setMaxHeight] = useState("0px");
 
   const isControlled =
     typeof openProp === "boolean" && typeof onToggle === "function";
@@ -41,6 +42,15 @@ export default function AccordionItem({
   };
 
   const ref = useRef<HTMLDivElement | null>(null);
+
+  // Update maxHeight only on client after mount
+  useEffect(() => {
+    if (open && ref.current) {
+      setMaxHeight(`${ref.current.scrollHeight}px`);
+    } else {
+      setMaxHeight("0px");
+    }
+  }, [open]);
 
   const qId = `accordion${i}-header`;
   const aId = `accordion${i}-content`;
@@ -69,7 +79,7 @@ export default function AccordionItem({
         id={aId}
         data-content={String(i)}
         style={{
-          maxHeight: open ? `${ref.current?.scrollHeight}px` : "0px",
+          maxHeight,
           overflow: "hidden",
         }}
         aria-labelledby={qId}

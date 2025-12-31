@@ -301,6 +301,190 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
       en: "city center, town hall, railway station, airport",
     },
   },
+  skhidnytsia: {
+    routeExample: {
+      uk: "як модель забезпечує комфорт для оздоровчого відпочинку",
+      ru: "как модель обеспечивает комфорт для оздоровительного отдыха",
+      en: "how the model provides comfort for wellness vacation",
+    },
+    routes: {
+      uk: "Східниця ↔ Львів, Трускавець, Дрогобич",
+      ru: "Сходница ↔ Львов, Трускавец, Дрогобыч",
+      en: "Skhidnytsia ↔ Lviv, Truskavets, Drohobych",
+    },
+    weekendTrip: {
+      uk: "оздоровчі курорти Карпат — Трускавець, Моршин, Сколе",
+      ru: "оздоровительные курорты Карпат — Трускавец, Моршин, Сколе",
+      en: "wellness resorts of the Carpathians — Truskavets, Morshyn, Skole",
+    },
+    localAttractions: {
+      uk: "курортна зона, бювети мінеральних вод, санаторії",
+      ru: "курортная зона, бюветы минеральных вод, санатории",
+      en: "resort area, mineral water pump rooms, sanatoriums",
+    },
+  },
+  uzhhorod: {
+    routeExample: {
+      uk: "як модель поводиться на прикордонних маршрутах та міських вулицях",
+      ru: "как модель ведёт себя на приграничных маршрутах и городских улицах",
+      en: "how the model handles border routes and city streets",
+    },
+    routes: {
+      uk: "Ужгород ↔ Київ, Львів, Мукачево, кордони ЄС",
+      ru: "Ужгород ↔ Киев, Львов, Мукачево, границы ЕС",
+      en: "Uzhhorod ↔ Kyiv, Lviv, Mukachevo, EU borders",
+    },
+    weekendTrip: {
+      uk: "замки Закарпаття — Невицький, Паланок, Середнянський",
+      ru: "замки Закарпатья — Невицкий, Паланок, Середнянский",
+      en: "Transcarpathian castles — Nevytske, Palanok, Serednie",
+    },
+    localAttractions: {
+      uk: "набережна Ужа, кордон з ЄС, центр міста, Боздоський парк",
+      ru: "набережная Ужа, граница с ЕС, центр города, Боздошский парк",
+      en: "Uzh Embankment, EU border, city center, Bozdosh Park",
+    },
+  },
+  vinnytsia: {
+    routeExample: {
+      uk: "як модель забезпечує комфорт для бізнес-поїздок центральною Україною",
+      ru: "как модель обеспечивает комфорт для бизнес-поездок по центральной Украине",
+      en: "how the model provides comfort for business trips in central Ukraine",
+    },
+    routes: {
+      uk: "Вінниця ↔ Київ, Одеса, Житомир, Хмельницький",
+      ru: "Винница ↔ Киев, Одесса, Житомир, Хмельницкий",
+      en: "Vinnytsia ↔ Kyiv, Odesa, Zhytomyr, Khmelnytskyi",
+    },
+    weekendTrip: {
+      uk: "Подільські Товтри, Немирів, Брацлавський каньйон",
+      ru: "Подольские Товтры, Немиров, Брацлавский каньон",
+      en: "Podilski Tovtry, Nemyriv, Bratslav Canyon",
+    },
+    localAttractions: {
+      uk: "центр, фонтан Roshen, Єзуїтський монастир, вокзал",
+      ru: "центр, фонтан Roshen, Иезуитский монастырь, вокзал",
+      en: "city center, Roshen Fountain, Jesuit Monastery, station",
+    },
+  },
+  zaporizhzhia: {
+    routeExample: {
+      uk: "як модель поводиться на автомагістралях та промислових маршрутах",
+      ru: "как модель ведёт себя на автомагистралях и промышленных маршрутах",
+      en: "how the model handles highways and industrial routes",
+    },
+    routes: {
+      uk: "Запоріжжя ↔ Дніпро, Київ, Херсон, Маріуполь",
+      ru: "Запорожье ↔ Днепр, Киев, Херсон, Мариуполь",
+      en: "Zaporizhzhia ↔ Dnipro, Kyiv, Kherson, Mariupol",
+    },
+    weekendTrip: {
+      uk: "острів Хортиця, Каменська Січ, Велике Будування",
+      ru: "остров Хортица, Каменская Сечь, Великое Строительство",
+      en: "Khortytsia Island, Kamyanska Sich, Great Construction",
+    },
+    localAttractions: {
+      uk: "ДніпроГЕС, острів Хортиця, проспект Соборний, вокзал",
+      ru: "ДнепроГЭС, остров Хортица, проспект Соборный, вокзал",
+      en: "DniproHES, Khortytsia Island, Sobornyi Avenue, station",
+    },
+  },
+  mukachevo: {
+    routeExample: {
+      uk: "як модель поводиться на закарпатських серпантинах і гірських дорогах",
+      ru: "как модель ведёт себя на закарпатских серпантинах и горных дорогах",
+      en: "how the model handles Transcarpathian serpentines and mountain roads",
+    },
+    routes: {
+      uk: "Мукачево ↔ Ужгород, Рахів, Хуст, кордон з ЄС",
+      ru: "Мукачево ↔ Ужгород, Рахов, Хуст, граница с ЕС",
+      en: "Mukachevo ↔ Uzhhorod, Rakhiv, Khust, EU border",
+    },
+    weekendTrip: {
+      uk: "замок Паланок, Синяк, озеро Синевир, Колочава",
+      ru: "замок Паланок, Синяк, озеро Синевир, Колочава",
+      en: "Palanok Castle, Synyak, Synevyr Lake, Kolochava",
+    },
+    localAttractions: {
+      uk: "замок Паланок, центр міста, Ратуша, винні підвали",
+      ru: "замок Паланок, центр города, Ратуша, винные подвалы",
+      en: "Palanok Castle, city center, Town Hall, wine cellars",
+    },
+  },
+  poltava: {
+    routeExample: {
+      uk: "як модель забезпечує комфорт на транзитних маршрутах",
+      ru: "как модель обеспечивает комфорт на транзитных маршрутах",
+      en: "how the model provides comfort on transit routes",
+    },
+    routes: {
+      uk: "Полтава ↔ Київ, Харків, Дніпро, Кременчук",
+      ru: "Полтава ↔ Киев, Харьков, Днепр, Кременчуг",
+      en: "Poltava ↔ Kyiv, Kharkiv, Dnipro, Kremenchuk",
+    },
+    weekendTrip: {
+      uk: "Диканька, Сорочинці, Опішня, Великі Сорочинці",
+      ru: "Диканька, Сорочинцы, Опошня, Великие Сорочинцы",
+      en: "Dykanka, Sorochyntsi, Opishnia, Velyki Sorochyntsi",
+    },
+    localAttractions: {
+      uk: "Корпусний парк, Круглу площа, вокзал, центр міста",
+      ru: "Корпусный парк, Круглая площадь, вокзал, центр города",
+      en: "Korpusnyi Park, Round Square, station, city center",
+    },
+  },
+  chernivtsi: {
+    routeExample: {
+      uk: "як модель підкорює карпатські серпантини та маршрути до кордону",
+      ru: "как модель покоряет карпатские серпантины и маршруты к границе",
+      en: "how the model handles Carpathian serpentines and border routes",
+    },
+    routes: {
+      uk: "Чернівці ↔ Львів, Івано-Франківськ, Кам'янець-Подільський, кордон з Румунією",
+      ru: "Черновцы ↔ Львов, Ивано-Франковск, Каменец-Подольский, граница с Румынией",
+      en: "Chernivtsi ↔ Lviv, Ivano-Frankivsk, Kamianets-Podilskyi, Romania border",
+    },
+    weekendTrip: {
+      uk: "Хотин, Кам'янець-Подільський, Вижниця, Буковинські Карпати",
+      ru: "Хотин, Каменец-Подольский, Выжница, Буковинские Карпаты",
+      en: "Khotyn, Kamianets-Podilskyi, Vyzhnytsia, Bukovinian Carpathians",
+    },
+    localAttractions: {
+      uk: "Чернівецький університет, Театральна площа, вокзал, центр міста",
+      ru: "Черновицкий университет, Театральная площадь, вокзал, центр города",
+      en: "Chernivtsi University, Theater Square, station, city center",
+    },
+  },
+  boryspil: {
+    routeExample: {
+      uk: "як модель забезпечує комфортний трансфер з аеропорту",
+      ru: "как модель обеспечивает комфортный трансфер из аэропорта",
+      en: "how the model provides comfortable airport transfer",
+    },
+    routes: {
+      uk: "Бориспіль ↔ Київ, Львів, Одеса, Дніпро, Харків",
+      ru: "Борисполь ↔ Киев, Львов, Одесса, Днепр, Харьков",
+      en: "Boryspil ↔ Kyiv, Lviv, Odesa, Dnipro, Kharkiv",
+    },
+    weekendTrip: {
+      uk: "Київ, Переяслав, Канів, Умань (Софіївка)",
+      ru: "Киев, Переяслав, Канев, Умань (Софиевка)",
+      en: "Kyiv, Pereiaslav, Kaniv, Uman (Sofiyivka)",
+    },
+    airport: {
+      code: "KBP",
+      name: {
+        uk: "Міжнародний аеропорт Бориспіль",
+        ru: "Международный аэропорт Борисполь",
+        en: "Boryspil International Airport",
+      },
+    },
+    localAttractions: {
+      uk: "термінал D, термінал F, готелі біля аеропорту, центр Борисполя",
+      ru: "терминал D, терминал F, отели возле аэропорта, центр Борисполя",
+      en: "Terminal D, Terminal F, airport hotels, Boryspil center",
+    },
+  },
 };
 
 // ============================================
@@ -1976,6 +2160,1246 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             uk: "АЗС OKKO, WOG є по всьому місту, біля аеропорту та на виїздах на Буковель і Львів. Правило «повний-повний». Їдете з Буковеля — заправтесь у Яремче або Надвірній.",
             ru: "АЗС OKKO, WOG есть по всему городу, возле аэропорта и на выездах на Буковель и Львов. Правило «полный-полный». Едете с Буковеля — заправьтесь в Яремче или Надворной.",
             en: "OKKO, WOG stations throughout the city, near airport and at exits to Bukovel and Lviv. Full-to-full rule. Coming from Bukovel — refuel in Yaremche or Nadvirna.",
+          },
+        },
+      ],
+    },
+  ],
+  skhidnytsia: [
+    // Категорія 1: Практична інформація
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Де паркувати орендований автомобіль у Східниці?",
+            ru: "Где парковать арендованный автомобиль в Сходнице?",
+            en: "Where to park a rental car in Skhidnytsia?",
+          },
+          answer: {
+            uk: "Біля санаторіїв та пансіонатів є парковки для гостей (часто безкоштовні). У центральній курортній зоні біля бюветів — платне паркування. Уникайте паркування на пішохідних алеях курорту та приватних територіях.",
+            ru: "Возле санаториев и пансионатов есть парковки для гостей (часто бесплатные). В центральной курортной зоне возле бюветов — платная парковка. Избегайте парковки на пешеходных аллеях курорта и частных территориях.",
+            en: "Sanatoriums and guesthouses have parking for guests (often free). In the central resort area near pump rooms — paid parking. Avoid parking on pedestrian alleys and private property.",
+          },
+        },
+        {
+          question: {
+            uk: "Де забрати авто для поїздки у Східницю?",
+            ru: "Где забрать авто для поездки в Сходницу?",
+            en: "Where to pick up a car for a trip to Skhidnytsia?",
+          },
+          answer: {
+            uk: "Авто можна забрати у Львові (аеропорт LWO, вокзал — 110 км) або замовити доставку безпосередньо у Східницю, до вашого санаторію чи готелю. Час у дорозі від Львова — близько 2 годин.",
+            ru: "Авто можно забрать во Львове (аэропорт LWO, вокзал — 110 км) или заказать доставку непосредственно в Сходницу, к вашему санаторию или отелю. Время в пути от Львова — около 2 часов.",
+            en: "Pick up in Lviv (LWO airport, station — 110 km) or order delivery directly to Skhidnytsia, to your sanatorium or hotel. Travel time from Lviv — about 2 hours.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи зручно пересуватися на авто під час оздоровчого відпочинку у Східниці?",
+            ru: "Удобно ли передвигаться на авто во время оздоровительного отдыха в Сходнице?",
+            en: "Is it convenient to travel by car during wellness vacation in Skhidnytsia?",
+          },
+          answer: {
+            uk: "Так, авто дає свободу відвідувати різні бювети та курортні зони. Зручно відвідати: Трускавець (15 км), Дрогобич (25 км), Борислав (10 км), Моршин (70 км), Скелі Довбуша (40 км). Пробігу 250 км/добу цілком достатньо.",
+            ru: "Да, авто даёт свободу посещать разные бюветы и курортные зоны. Удобно посетить: Трускавец (15 км), Дрогобыч (25 км), Борислав (10 км), Моршин (70 км), Скалы Довбуша (40 км). Пробега 250 км/сутки вполне достаточно.",
+            en: "Yes, a car gives freedom to visit different pump rooms and resort areas. Easy to visit: Truskavets (15 km), Drohobych (25 km), Boryslav (10 km), Morshyn (70 km), Dovbush Rocks (40 km). 250 km/day is enough.",
+          },
+        },
+      ],
+    },
+    // Категорія 2: Страхування та депозит
+    {
+      title: {
+        uk: "Страхування та депозит",
+        ru: "Страхование и депозит",
+        en: "Insurance and Deposit",
+      },
+      items: [
+        {
+          question: {
+            uk: "Яка страховка при оренді авто у Східниці?",
+            ru: "Какая страховка при аренде авто в Сходнице?",
+            en: "What insurance for car rental in Skhidnytsia?",
+          },
+          answer: {
+            uk: "Базова ОСЦПВ включена. Пакети CDW/SCDW зменшують вашу відповідальність. Для спокійного оздоровчого відпочинку достатньо базової страховки, для поїздок у гори — рекомендуємо пакет «Комфорт».",
+            ru: "Базовое ОСАГО включено. Пакеты CDW/SCDW уменьшают вашу ответственность. Для спокойного оздоровительного отдыха достаточно базовой страховки, для поездок в горы — рекомендуем пакет «Комфорт».",
+            en: "Basic MTPL included. CDW/SCDW packages reduce your liability. For relaxing wellness vacation, basic insurance is enough; for mountain trips — we recommend 'Comfort' package.",
+          },
+        },
+        {
+          question: {
+            uk: "Який депозит при оренді авто у Східниці?",
+            ru: "Какой депозит при аренде авто в Сходнице?",
+            en: "What is the deposit for car rental in Skhidnytsia?",
+          },
+          answer: {
+            uk: "Депозит: економ — від $150, бізнес — від $300, SUV — від $400. Для тривалого оздоровчого відпочинку (від 2 тижнів) можливі знижки та зменшений депозит.",
+            ru: "Депозит: эконом — от $150, бизнес — от $300, SUV — от $400. Для длительного оздоровительного отдыха (от 2 недель) возможны скидки и уменьшенный депозит.",
+            en: "Deposit: economy — from $150, business — from $300, SUV — from $400. For long wellness stays (from 2 weeks), discounts and reduced deposit available.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є оренда без застави для відпочиваючих у Східниці?",
+            ru: "Есть ли аренда без залога для отдыхающих в Сходнице?",
+            en: "Is no-deposit rental available for Skhidnytsia guests?",
+          },
+          answer: {
+            uk: "При оренді від 2 тижнів (типовий термін санаторного відпочинку) доступні варіанти зі зменшеним депозитом або без застави. Пакет «Преміум» зменшує депозит до мінімуму для всіх класів.",
+            ru: "При аренде от 2 недель (типичный срок санаторного отдыха) доступны варианты с уменьшенным депозитом или без залога. Пакет «Премиум» уменьшает депозит до минимума для всех классов.",
+            en: "For rentals from 2 weeks (typical spa stay), options with reduced or no deposit are available. 'Premium' package reduces deposit to minimum for all classes.",
+          },
+        },
+      ],
+    },
+    // Категорія 3: Обмеження та заборони
+    {
+      title: {
+        uk: "Обмеження та заборони",
+        ru: "Ограничения и запреты",
+        en: "Restrictions and Prohibitions",
+      },
+      items: [
+        {
+          question: {
+            uk: "Мінімальний вік для оренди авто у Східниці",
+            ru: "Минимальный возраст для аренды авто в Сходнице",
+            en: "Minimum age for car rental in Skhidnytsia",
+          },
+          answer: {
+            uk: "Для економ-класу: від 21 року, стаж 2 роки. Для бізнес та SUV: від 23 років, стаж 3 роки. Для преміум-класу: від 25 років, стаж 4 роки. Молодшим водіям доступні економ-авто зі збільшеним депозитом.",
+            ru: "Для эконом-класса: от 21 года, стаж 2 года. Для бизнес и SUV: от 23 лет, стаж 3 года. Для премиум-класса: от 25 лет, стаж 4 года. Младшим водителям доступны эконом-авто с увеличенным депозитом.",
+            en: "For economy: from 21 years, 2 years experience. For business and SUV: from 23 years, 3 years experience. For premium: from 25 years, 4 years experience. Younger drivers can rent economy cars with increased deposit.",
+          },
+        },
+        {
+          question: {
+            uk: "Куди ще можна поїхати зі Східниці на орендованому авто?",
+            ru: "Куда ещё можно поехать из Сходницы на арендованном авто?",
+            en: "Where else can I go from Skhidnytsia by rental car?",
+          },
+          answer: {
+            uk: "Популярні напрямки: Трускавець (15 км), Дрогобич (25 км), Моршин (70 км), Скелі Довбуша (40 км), Львів (110 км), замки Галичини (80-100 км). Подорожі по Україні без обмежень.",
+            ru: "Популярные направления: Трускавец (15 км), Дрогобыч (25 км), Моршин (70 км), Скалы Довбуша (40 км), Львов (110 км), замки Галичины (80-100 км). Путешествия по Украине без ограничений.",
+            en: "Popular destinations: Truskavets (15 km), Drohobych (25 km), Morshyn (70 km), Dovbush Rocks (40 km), Lviv (110 km), Galician castles (80-100 km). Travel within Ukraine without restrictions.",
+          },
+        },
+        {
+          question: {
+            uk: "Які особливі правила для оренди авто у Східниці?",
+            ru: "Какие особые правила для аренды авто в Сходнице?",
+            en: "What special rules apply for car rental in Skhidnytsia?",
+          },
+          answer: {
+            uk: "Заборонено: куріння в авто, офф-роуд, передача керування третім особам без узгодження. Для поїздок у гори взимку рекомендуємо SUV або авто з добрим кліренсом. Дороги в курортній зоні вузькі — паркуйтесь акуратно.",
+            ru: "Запрещено: курение в авто, офф-роуд, передача управления третьим лицам без согласования. Для поездок в горы зимой рекомендуем SUV или авто с хорошим клиренсом. Дороги в курортной зоне узкие — паркуйтесь аккуратно.",
+            en: "Prohibited: smoking in car, off-road driving, giving control to third parties without agreement. For mountain trips in winter, we recommend SUV or cars with good clearance. Roads in resort area are narrow — park carefully.",
+          },
+        },
+      ],
+    },
+    // Категорія 4: Оплата та документи
+    {
+      title: {
+        uk: "Оплата та документи",
+        ru: "Оплата и документы",
+        en: "Payment and Documents",
+      },
+      items: [
+        {
+          question: {
+            uk: "Як оплатити оренду авто у Східниці?",
+            ru: "Как оплатить аренду авто в Сходнице?",
+            en: "How to pay for car rental in Skhidnytsia?",
+          },
+          answer: {
+            uk: "Приймаємо: Visa/Mastercard (Apple Pay, Google Pay), готівку UAH/USD/EUR. Рекомендуємо бронювати та оплачувати заздалегідь, особливо у високий сезон (літо). Депозит блокується на картці.",
+            ru: "Принимаем: Visa/Mastercard (Apple Pay, Google Pay), наличные UAH/USD/EUR. Рекомендуем бронировать и оплачивать заранее, особенно в высокий сезон (лето). Депозит блокируется на карте.",
+            en: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR. We recommend booking and paying in advance, especially during high season (summer). Deposit blocked on card.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні для оренди авто у Східниці?",
+            ru: "Какие документы нужны для аренды авто в Сходнице?",
+            en: "What documents are required for car rental in Skhidnytsia?",
+          },
+          answer: {
+            uk: "Українцям: паспорт/ID, посвідчення водія кат. B, ІПН. Іноземцям: закордонний паспорт, права (міжнародні — якщо не латиницею). Вік від 21 року для економ-класу, від 23 років для бізнес та SUV.",
+            ru: "Украинцам: паспорт/ID, водительское удостоверение кат. B, ИНН. Иностранцам: загранпаспорт, права (международные — если не на латинице). Возраст от 21 года для эконом-класса, от 23 лет для бизнес и SUV.",
+            en: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). Age from 21 for economy, from 23 for business and SUV.",
+          },
+        },
+        {
+          question: {
+            uk: "Де заправити авто біля Східниці?",
+            ru: "Где заправить авто возле Сходницы?",
+            en: "Where to refuel near Skhidnytsia?",
+          },
+          answer: {
+            uk: "У самій Східниці АЗС немає. Найближчі заправки — в Трускавці (15 км), Дрогобичі (25 км) та Бориславі (10 км). Є АЗС OKKO, WOG. Правило «повний-повний» — поверніть авто з повним баком.",
+            ru: "В самой Сходнице АЗС нет. Ближайшие заправки — в Трускавце (15 км), Дрогобыче (25 км) и Бориславе (10 км). Есть АЗС OKKO, WOG. Правило «полный-полный» — верните авто с полным баком.",
+            en: "No gas stations in Skhidnytsia itself. Nearest stations in Truskavets (15 km), Drohobych (25 km) and Boryslav (10 km). OKKO, WOG stations available. Full-to-full rule — return car with full tank.",
+          },
+        },
+      ],
+    },
+  ],
+  uzhhorod: [
+    // Категорія 1: Практична інформація
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Де паркувати орендований автомобіль в Ужгороді біля кордону?",
+            ru: "Где парковать арендованный автомобиль в Ужгороде возле границы?",
+            en: "Where to park a rental car in Uzhhorod near the border?",
+          },
+          answer: {
+            uk: "Біля КПП «Малі Селменці» (Словаччина) та «Ужгород» (Словаччина) є платні паркінги. У центрі Ужгорода паркування платне на Корзо та Площі Петефі — оплата через термінали або додаток. Біля замку Ужгород безкоштовні місця обмежені.",
+            ru: "Возле КПП «Малые Селменцы» (Словакия) и «Ужгород» (Словакия) есть платные парковки. В центре Ужгорода парковка платная на Корзо и Площади Петефи — оплата через терминалы или приложение. Возле замка Ужгород бесплатные места ограничены.",
+            en: "Near border crossing points 'Mali Selmenci' (Slovakia) and 'Uzhhorod' (Slovakia) there are paid parking lots. In Uzhhorod center, parking is paid on Korzo and Petofi Square — pay via terminals or app. Free spots near Uzhhorod Castle are limited.",
+          },
+        },
+        {
+          question: {
+            uk: "Доставка авто в Ужгород до кордону та вокзалу: умови",
+            ru: "Доставка авто в Ужгород к границе и вокзалу: условия",
+            en: "Car delivery in Uzhhorod to border and station: terms",
+          },
+          answer: {
+            uk: "Подача авто в центр Ужгорода, на вокзал, до готелів біля кордону — безкоштовна. Доставка до КПП «Малі Селменці» та «Ужгород» (Словаччина) узгоджується окремо. Час подачі від 30-40 хвилин.",
+            ru: "Подача авто в центр Ужгорода, на вокзал, к гостиницам возле границы — бесплатная. Доставка к КПП «Малые Селменцы» и «Ужгород» (Словакия) согласовывается отдельно. Время подачи от 30-40 минут.",
+            en: "Car delivery to Uzhhorod center, station, hotels near border — free. Delivery to 'Mali Selmenci' and 'Uzhhorod' (Slovakia) border crossings is arranged separately. Delivery time from 30-40 minutes.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є ліміт пробігу при оренді в Ужгороді для поїздок у ЄС?",
+            ru: "Есть ли лимит пробега при аренде в Ужгороде для поездок в ЕС?",
+            en: "Is there a mileage limit for Uzhhorod rentals for EU trips?",
+          },
+          answer: {
+            uk: "Стандартний ліміт 250-300 км/добу. Для поїздок у Словаччину (Кошице — 90 км, Братислава — 270 км), Угорщину (Ніредьгаза — 80 км) чи Польщу рекомендуємо тариф Unlimited. Виїзд за кордон — за попереднім погодженням (48 годин).",
+            ru: "Стандартный лимит 250-300 км/сутки. Для поездок в Словакию (Кошице — 90 км, Братислава — 270 км), Венгрию (Ниредьгаза — 80 км) или Польшу рекомендуем тариф Unlimited. Выезд за границу — по предварительному согласованию (48 часов).",
+            en: "Standard limit is 250-300 km/day. For trips to Slovakia (Košice — 90 km, Bratislava — 270 km), Hungary (Nyíregyháza — 80 km) or Poland, we recommend Unlimited rate. Cross-border travel — with prior arrangement (48 hours).",
+          },
+        },
+      ],
+    },
+    // Категорія 2: Страхування та депозит
+    {
+      title: {
+        uk: "Страхування та депозит",
+        ru: "Страхование и депозит",
+        en: "Insurance and Deposit",
+      },
+      items: [
+        {
+          question: {
+            uk: "Що покриває страховка при оренді авто в Ужгороді для поїздок у ЄС?",
+            ru: "Что покрывает страховка при аренде авто в Ужгороде для поездок в ЕС?",
+            en: "What does insurance cover when renting a car in Uzhhorod for EU trips?",
+          },
+          answer: {
+            uk: "Базова ОСЦПВ діє в Україні. Для виїзду в ЄС оформляємо Green Card (міжнародна страховка) — покриває шкоду третім особам у Європі. Пакети CDW/SCDW діють у межах дозволених країн. Для транзитних поїздок рекомендуємо «Преміум».",
+            ru: "Базовое ОСАГО действует в Украине. Для выезда в ЕС оформляем Green Card (международная страховка) — покрывает ущерб третьим лицам в Европе. Пакеты CDW/SCDW действуют в пределах разрешённых стран. Для транзитных поездок рекомендуем «Премиум».",
+            en: "Basic MTPL is valid in Ukraine. For EU travel, we arrange Green Card (international insurance) — covers third-party damage in Europe. CDW/SCDW packages are valid in permitted countries. We recommend 'Premium' for transit trips.",
+          },
+        },
+        {
+          question: {
+            uk: "Який депозит при оренді авто в Ужгороді з виїздом за кордон?",
+            ru: "Какой депозит при аренде авто в Ужгороде с выездом за границу?",
+            en: "What is the deposit for car rental in Uzhhorod with cross-border travel?",
+          },
+          answer: {
+            uk: "Депозит: економ — від $300, бізнес — від $500, SUV — від $600 (підвищений для виїзду за кордон). Пакет «Преміум» зменшує депозит до $300-400. Green Card оплачується окремо — від €50 на 15 днів.",
+            ru: "Депозит: эконом — от $300, бизнес — от $500, SUV — от $600 (повышенный для выезда за границу). Пакет «Премиум» уменьшает депозит до $300-400. Green Card оплачивается отдельно — от €50 на 15 дней.",
+            en: "Deposit: economy — from $300, business — from $500, SUV — from $600 (increased for cross-border). 'Premium' package reduces deposit to $300-400. Green Card paid separately — from €50 for 15 days.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна орендувати авто в Ужгороді без застави для поїздок по Закарпаттю?",
+            ru: "Можно ли арендовать авто в Ужгороде без залога для поездок по Закарпатью?",
+            en: "Can I rent a car in Uzhhorod without a deposit for Transcarpathian trips?",
+          },
+          answer: {
+            uk: "Так, для поїздок по Закарпаттю (без виїзду за кордон) з пакетом «Преміум» депозит мінімальний ($200-250) або відсутній для окремих економ-моделей. Для виїзду в ЄС застава обов'язкова.",
+            ru: "Да, для поездок по Закарпатью (без выезда за границу) с пакетом «Премиум» депозит минимальный ($200-250) или отсутствует для отдельных эконом-моделей. Для выезда в ЕС залог обязателен.",
+            en: "Yes, for Transcarpathian trips (without cross-border) with 'Premium' package, deposit is minimal ($200-250) or waived for selected economy models. For EU travel, deposit is mandatory.",
+          },
+        },
+      ],
+    },
+    // Категорія 3: Обмеження та заборони
+    {
+      title: {
+        uk: "Обмеження та заборони",
+        ru: "Ограничения и запреты",
+        en: "Restrictions and Prohibitions",
+      },
+      items: [
+        {
+          question: {
+            uk: "Мінімальний вік і стаж для оренди авто в Ужгороді з виїздом у ЄС",
+            ru: "Минимальный возраст и стаж для аренды авто в Ужгороде с выездом в ЕС",
+            en: "Minimum age and experience for Uzhhorod car rental with EU travel",
+          },
+          answer: {
+            uk: "Для поїздок по Україні: 21 рік, стаж 2 роки. Для виїзду в ЄС: від 23 років, стаж від 3 років (для преміум-авто — 25 років і стаж 4+ роки). Молодим водіям може діяти додатковий збір.",
+            ru: "Для поездок по Украине: 21 год, стаж 2 года. Для выезда в ЕС: от 23 лет, стаж от 3 лет (для премиум-авто — 25 лет и стаж 4+ года). Молодым водителям может действовать дополнительный сбор.",
+            en: "For Ukraine trips: 21 years, 2 years experience. For EU travel: from 23 years, 3+ years experience (premium cars — 25 years and 4+ years experience). Young driver surcharge may apply.",
+          },
+        },
+        {
+          question: {
+            uk: "У які країни можна виїжджати на орендованому авто з Ужгорода?",
+            ru: "В какие страны можно выезжать на арендованном авто из Ужгорода?",
+            en: "Which countries can I visit by rental car from Uzhhorod?",
+          },
+          answer: {
+            uk: "Дозволені країни (за попереднім погодженням): Словаччина, Польща, Угорщина, Чехія, Австрія, Німеччина (із Green Card). Заборонені: країни СНД (крім України), Балкани. Повідомляйте про виїзд мінімум за 48 годин — оформимо документи.",
+            ru: "Разрешённые страны (по предварительному согласованию): Словакия, Польша, Венгрия, Чехия, Австрия, Германия (с Green Card). Запрещены: страны СНГ (кроме Украины), Балканы. Сообщайте о выезде минимум за 48 часов — оформим документы.",
+            en: "Permitted countries (with prior arrangement): Slovakia, Poland, Hungary, Czech Republic, Austria, Germany (with Green Card). Prohibited: CIS countries (except Ukraine), Balkans. Notify at least 48 hours in advance — we'll arrange documents.",
+          },
+        },
+        {
+          question: {
+            uk: "Що заборонено при оренді авто в Ужгороді?",
+            ru: "Что запрещено при аренде авто в Ужгороде?",
+            en: "What is prohibited when renting a car in Uzhhorod?",
+          },
+          answer: {
+            uk: "Категорично заборонено: таксі/Uber/Bolt, суборенда, передача третім особам, використання для контрабанди, участь у змаганнях. Виїзд за кордон — тільки з Green Card. Куріння в авто — штраф €100.",
+            ru: "Категорически запрещено: такси/Uber/Bolt, субаренда, передача третьим лицам, использование для контрабанды, участие в соревнованиях. Выезд за границу — только с Green Card. Курение в авто — штраф €100.",
+            en: "Strictly prohibited: taxi/Uber/Bolt, subletting, transfer to third parties, use for smuggling, racing participation. Cross-border travel — only with Green Card. Smoking in car — €100 fine.",
+          },
+        },
+      ],
+    },
+    // Категорія 4: Оплата та документи
+    {
+      title: {
+        uk: "Оплата та документи",
+        ru: "Оплата и документы",
+        en: "Payment and Documents",
+      },
+      items: [
+        {
+          question: {
+            uk: "Як оплатити оренду авто в Ужгороді іноземцю?",
+            ru: "Как оплатить аренду авто в Ужгороде иностранцу?",
+            en: "How can a foreigner pay for car rental in Uzhhorod?",
+          },
+          answer: {
+            uk: "Приймаємо: міжнародні картки Visa/Mastercard (у т.ч. європейські), готівку EUR/USD/UAH, Apple Pay/Google Pay. Green Card оплачується окремо (готівкою або карткою). Депозит блокується на картці.",
+            ru: "Принимаем: международные карты Visa/Mastercard (в т.ч. европейские), наличные EUR/USD/UAH, Apple Pay/Google Pay. Green Card оплачивается отдельно (наличными или картой). Депозит блокируется на карте.",
+            en: "We accept: international Visa/Mastercard (including European), cash EUR/USD/UAH, Apple Pay/Google Pay. Green Card paid separately (cash or card). Deposit blocked on card.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні для оренди в Ужгороді з виїздом у ЄС?",
+            ru: "Какие документы нужны для аренды в Ужгороде с выездом в ЕС?",
+            en: "What documents are required for Uzhhorod rental with EU travel?",
+          },
+          answer: {
+            uk: "Базові: паспорт (закордонний для іноземців), права категорії B (міжнародні — для не-латиниці), ІПН. Для ЄС додатково: Green Card (оформимо), маршрут поїздки, контактні дані за кордоном. Бронюйте заздалегідь.",
+            ru: "Базовые: паспорт (загранпаспорт для иностранцев), права категории B (международные — для не-латиницы), ИНН. Для ЕС дополнительно: Green Card (оформим), маршрут поездки, контактные данные за границей. Бронируйте заранее.",
+            en: "Basic: passport (international for foreigners), category B license (international for non-Latin), tax ID. For EU additionally: Green Card (we'll arrange), trip itinerary, contact details abroad. Book in advance.",
+          },
+        },
+        {
+          question: {
+            uk: "Де заправити авто перед поверненням в Ужгороді?",
+            ru: "Где заправить авто перед возвратом в Ужгороде?",
+            en: "Where to refuel before returning the car in Uzhhorod?",
+          },
+          answer: {
+            uk: "Політика «повний-повний». У центрі Ужгорода є OKKO (вул. Собранецька), WOG (Київська набережна), Shell (вул. Загорська). Біля кордону — АЗС SOCAR (траса Чоп). Передплачене пальне — за запитом + сервісний збір.",
+            ru: "Политика «полный-полный». В центре Ужгорода есть OKKO (ул. Собранецкая), WOG (Киевская набережная), Shell (ул. Загорская). Возле границы — АЗС SOCAR (трасса Чоп). Предоплаченное топливо — по запросу + сервисный сбор.",
+            en: "Full-to-full policy. In Uzhhorod center: OKKO (Sobranetska St), WOG (Kyivska embankment), Shell (Zahorska St). Near border — SOCAR station (Chop highway). Prepaid fuel — on request + service fee.",
+          },
+        },
+      ],
+    },
+  ],
+  vinnytsia: [
+    // Категорія 1: Практична інформація
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Де паркувати орендований автомобіль у Вінниці біля фонтану Roshen?",
+            ru: "Где парковать арендованный автомобиль в Виннице возле фонтана Roshen?",
+            en: "Where to park a rental car in Vinnytsia near Roshen fountain?",
+          },
+          answer: {
+            uk: "Біля фонтану Roshen на острові Фестивальному є платний паркінг. У центрі Вінниці (вул. Соборна, Театральна площа) паркування платне — оплата через термінали або додаток Vinnytsia Parking. Біля ТРЦ Megamall є безкоштовний паркінг для відвідувачів.",
+            ru: "Возле фонтана Roshen на острове Фестивальном есть платная парковка. В центре Винницы (ул. Соборная, Театральная площадь) парковка платная — оплата через терминалы или приложение Vinnytsia Parking. Возле ТРЦ Megamall есть бесплатная парковка для посетителей.",
+            en: "Near Roshen fountain on Festyvalnyi Island there is paid parking. In Vinnytsia center (Soborna St, Theatre Square), parking is paid — pay via terminals or Vinnytsia Parking app. Near Megamall shopping center, free parking for visitors.",
+          },
+        },
+        {
+          question: {
+            uk: "Доставка авто у Вінниці на вокзал та в аеропорт: умови",
+            ru: "Доставка авто в Виннице на вокзал и в аэропорт: условия",
+            en: "Car delivery in Vinnytsia to station and airport: terms",
+          },
+          answer: {
+            uk: "Подача авто на залізничний вокзал Вінниці, автовокзал, у центр міста та до готелів — безкоштовна. Доставка в аеропорт Гавришівка (30 км від міста) узгоджується окремо. Час подачі в місті — від 20-30 хвилин.",
+            ru: "Подача авто на ж/д вокзал Винницы, автовокзал, в центр города и к гостиницам — бесплатная. Доставка в аэропорт Гавришовка (30 км от города) согласовывается отдельно. Время подачи в городе — от 20-30 минут.",
+            en: "Car delivery to Vinnytsia railway station, bus station, city center and hotels — free. Delivery to Havryshivka Airport (30 km from city) arranged separately. Delivery time in city — from 20-30 minutes.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є ліміт пробігу при оренді у Вінниці для транзиту Київ-Одеса?",
+            ru: "Есть ли лимит пробега при аренде в Виннице для транзита Киев-Одесса?",
+            en: "Is there a mileage limit for Vinnytsia rentals for Kyiv-Odesa transit?",
+          },
+          answer: {
+            uk: "Стандартний ліміт 250-300 км/добу. Вінниця — зручна точка для транзиту: Київ — 270 км, Одеса — 400 км, Львів — 360 км. Для міжміських поїздок рекомендуємо тариф Unlimited — без обмежень за пробігом.",
+            ru: "Стандартный лимит 250-300 км/сутки. Винница — удобная точка для транзита: Киев — 270 км, Одесса — 400 км, Львов — 360 км. Для междугородних поездок рекомендуем тариф Unlimited — без ограничений по пробегу.",
+            en: "Standard limit is 250-300 km/day. Vinnytsia is a convenient transit point: Kyiv — 270 km, Odesa — 400 km, Lviv — 360 km. For intercity trips, we recommend Unlimited rate — no mileage restrictions.",
+          },
+        },
+      ],
+    },
+    // Категорія 2: Страхування та депозит
+    {
+      title: {
+        uk: "Страхування та депозит",
+        ru: "Страхование и депозит",
+        en: "Insurance and Deposit",
+      },
+      items: [
+        {
+          question: {
+            uk: "Що покриває страховка при оренді авто у Вінниці?",
+            ru: "Что покрывает страховка при аренде авто в Виннице?",
+            en: "What does insurance cover when renting a car in Vinnytsia?",
+          },
+          answer: {
+            uk: "Базова ОСЦПВ покриває шкоду третім особам. Пакети CDW/SCDW зменшують вашу відповідальність при пошкодженні авто. Для бізнес-поїздок і корпоративних клієнтів рекомендуємо пакет «Преміум» — мінімальна франшиза та повне покриття.",
+            ru: "Базовое ОСАГО покрывает ущерб третьим лицам. Пакеты CDW/SCDW уменьшают вашу ответственность при повреждении авто. Для бизнес-поездок и корпоративных клиентов рекомендуем пакет «Премиум» — минимальная франшиза и полное покрытие.",
+            en: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce your liability for car damage. For business trips and corporate clients, we recommend 'Premium' package — minimal deductible and full coverage.",
+          },
+        },
+        {
+          question: {
+            uk: "Який депозит при оренді авто у Вінниці для бізнес-класу?",
+            ru: "Какой депозит при аренде авто в Виннице для бизнес-класса?",
+            en: "What is the deposit for business class car rental in Vinnytsia?",
+          },
+          answer: {
+            uk: "Депозит: економ — від $200, бізнес — від $400, преміум — від $600. Для корпоративних клієнтів з договором депозит знижується. Пакет «Преміум» зменшує депозит до $250-350. Повернення коштів — протягом 1-3 робочих днів.",
+            ru: "Депозит: эконом — от $200, бизнес — от $400, премиум — от $600. Для корпоративных клиентов с договором депозит снижается. Пакет «Премиум» уменьшает депозит до $250-350. Возврат средств — в течение 1-3 рабочих дней.",
+            en: "Deposit: economy — from $200, business — from $400, premium — from $600. For corporate clients with contract, deposit is reduced. 'Premium' package reduces deposit to $250-350. Refund within 1-3 business days.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна орендувати авто у Вінниці без застави для місцевих поїздок?",
+            ru: "Можно ли арендовать авто в Виннице без залога для местных поездок?",
+            en: "Can I rent a car in Vinnytsia without a deposit for local trips?",
+          },
+          answer: {
+            uk: "Так, для довгострокової оренді (від 2 тижнів) та корпоративних клієнтів доступна опція мінімального депозиту ($150-200) або без застави. Для короткострокової оренді — пакет «Преміум» зменшує депозит до $200.",
+            ru: "Да, для долгосрочной аренды (от 2 недель) и корпоративных клиентов доступна опция минимального депозита ($150-200) или без залога. Для краткосрочной аренды — пакет «Премиум» уменьшает депозит до $200.",
+            en: "Yes, for long-term rentals (from 2 weeks) and corporate clients, minimal deposit option ($150-200) or no-deposit is available. For short-term rentals — 'Premium' package reduces deposit to $200.",
+          },
+        },
+      ],
+    },
+    // Категорія 3: Обмеження та заборони
+    {
+      title: {
+        uk: "Обмеження та заборони",
+        ru: "Ограничения и запреты",
+        en: "Restrictions and Prohibitions",
+      },
+      items: [
+        {
+          question: {
+            uk: "Мінімальний вік і стаж водія для оренди авто у Вінниці",
+            ru: "Минимальный возраст и стаж водителя для аренды авто в Виннице",
+            en: "Minimum age and driving experience for car rental in Vinnytsia",
+          },
+          answer: {
+            uk: "Мінімальний вік — 21 рік, стаж водіння — від 2 років. Для бізнес-класу та преміум авто: від 23 років, стаж від 3 років. Для корпоративних клієнтів вимоги до стажу можуть бути знижені за згодою.",
+            ru: "Минимальный возраст — 21 год, стаж вождения — от 2 лет. Для бизнес-класса и премиум авто: от 23 лет, стаж от 3 лет. Для корпоративных клиентов требования к стажу могут быть снижены по согласованию.",
+            en: "Minimum age is 21, driving experience from 2 years. For business and premium cars: from 23 years, 3+ years experience. For corporate clients, experience requirements may be reduced by arrangement.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна виїжджати на орендованому авто з Вінниці в інші регіони?",
+            ru: "Можно ли выезжать на арендованном авто из Винницы в другие регионы?",
+            en: "Can I travel from Vinnytsia to other regions by rental car?",
+          },
+          answer: {
+            uk: "Так, виїзд по всій Україні дозволений. Вінниця — зручна точка для поїздок: Київ, Одеса, Львів, Чернівці. Для виїзду за кордон потрібне попереднє погодження (48 годин) та оформлення Green Card.",
+            ru: "Да, выезд по всей Украине разрешён. Винница — удобная точка для поездок: Киев, Одесса, Львов, Черновцы. Для выезда за границу нужно предварительное согласование (48 часов) и оформление Green Card.",
+            en: "Yes, travel throughout Ukraine is permitted. Vinnytsia is a convenient hub for trips: Kyiv, Odesa, Lviv, Chernivtsi. For cross-border travel, prior arrangement required (48 hours) and Green Card registration.",
+          },
+        },
+        {
+          question: {
+            uk: "Що заборонено при оренді авто у Вінниці?",
+            ru: "Что запрещено при аренде авто в Виннице?",
+            en: "What is prohibited when renting a car in Vinnytsia?",
+          },
+          answer: {
+            uk: "Категорично заборонено: використання для таксі (Uber, Bolt, Uklon), передача третім особам, суборенда, куріння в авто, участь у змаганнях, буксирування. Порушення — розірвання договору та штраф до $500.",
+            ru: "Категорически запрещено: использование для такси (Uber, Bolt, Uklon), передача третьим лицам, субаренда, курение в авто, участие в соревнованиях, буксировка. Нарушение — расторжение договора и штраф до $500.",
+            en: "Strictly prohibited: using for taxi (Uber, Bolt, Uklon), transfer to third parties, subletting, smoking in car, racing participation, towing. Violation — contract termination and penalty up to $500.",
+          },
+        },
+      ],
+    },
+    // Категорія 4: Оплата та документи
+    {
+      title: {
+        uk: "Оплата та документи",
+        ru: "Оплата и документы",
+        en: "Payment and Documents",
+      },
+      items: [
+        {
+          question: {
+            uk: "Які способи оплати доступні при оренді авто у Вінниці?",
+            ru: "Какие способы оплаты доступны при аренде авто в Виннице?",
+            en: "What payment methods are available for car rental in Vinnytsia?",
+          },
+          answer: {
+            uk: "Приймаємо: банківські картки Visa/Mastercard, Apple Pay/Google Pay, готівку UAH/USD/EUR, безготівковий розрахунок для юридичних осіб. Для корпоративних клієнтів — оплата за рахунком з відстрочкою платежу.",
+            ru: "Принимаем: банковские карты Visa/Mastercard, Apple Pay/Google Pay, наличные UAH/USD/EUR, безналичный расчёт для юридических лиц. Для корпоративных клиентов — оплата по счёту с отсрочкой платежа.",
+            en: "We accept: Visa/Mastercard bank cards, Apple Pay/Google Pay, cash UAH/USD/EUR, bank transfer for legal entities. For corporate clients — invoice payment with deferred payment.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні для оренди авто у Вінниці?",
+            ru: "Какие документы нужны для аренды авто в Виннице?",
+            en: "What documents are required to rent a car in Vinnytsia?",
+          },
+          answer: {
+            uk: "Фізичним особам: паспорт/ID-картка, права категорії B, ІПН. Іноземцям: закордонний паспорт, національні права (міжнародні — якщо не латиницею). Юридичним особам додатково: витяг з ЄДРПОУ, довіреність (якщо необхідно).",
+            ru: "Физическим лицам: паспорт/ID-карта, права категории B, ИНН. Иностранцам: загранпаспорт, национальные права (международные — если не на латинице). Юридическим лицам дополнительно: выписка из ЕГРПОУ, доверенность (если необходимо).",
+            en: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national license (international if not in Latin). Legal entities additionally: company registration extract, power of attorney (if needed).",
+          },
+        },
+        {
+          question: {
+            uk: "Де заправити авто перед поверненням у Вінниці?",
+            ru: "Где заправить авто перед возвратом в Виннице?",
+            en: "Where to refuel before returning the car in Vinnytsia?",
+          },
+          answer: {
+            uk: "Політика «повний-повний». АЗС у Вінниці: OKKO (вул. Київська, 600-річчя), WOG (Хмельницьке шосе), Shell (вул. Стрілецька). Біля вокзалу — SOCAR (вул. Келецька). Передплачене пальне — за запитом + сервісний збір 5%.",
+            ru: "Политика «полный-полный». АЗС в Виннице: OKKO (ул. Киевская, 600-летия), WOG (Хмельницкое шоссе), Shell (ул. Стрелецкая). Возле вокзала — SOCAR (ул. Келецкая). Предоплаченное топливо — по запросу + сервисный сбор 5%.",
+            en: "Full-to-full policy. Gas stations in Vinnytsia: OKKO (Kyivska St, 600-richchia), WOG (Khmelnytske highway), Shell (Striletska St). Near station — SOCAR (Keletska St). Prepaid fuel — on request + 5% service fee.",
+          },
+        },
+      ],
+    },
+  ],
+  zaporizhzhia: [
+    // Категорія 1: Практична інформація
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Де паркувати орендований автомобіль у Запоріжжі біля ДніпроГЕС?",
+            ru: "Где парковать арендованный автомобиль в Запорожье возле ДнепроГЭС?",
+            en: "Where to park a rental car in Zaporizhzhia near Dnipro Hydroelectric Station?",
+          },
+          answer: {
+            uk: "Біля ДніпроГЕС є безкоштовні паркінги для туристів (обмежений час). На проспекті Соборному та біля ТРЦ Dnipro Plaza паркування платне. На острові Хортиця є парковки біля музею та входу до заповідника. Оплата через додаток або термінали.",
+            ru: "Возле ДнепроГЭС есть бесплатные парковки для туристов (ограниченное время). На проспекте Соборном и возле ТРЦ Dnipro Plaza парковка платная. На острове Хортица есть парковки возле музея и входа в заповедник. Оплата через приложение или терминалы.",
+            en: "Near Dnipro Hydroelectric Station there are free tourist parking lots (limited time). On Sobornyi Avenue and near Dnipro Plaza mall, parking is paid. On Khortytsia Island, parking near museum and reserve entrance. Pay via app or terminals.",
+          },
+        },
+        {
+          question: {
+            uk: "Доставка авто у Запоріжжі на вокзал та в аеропорт: умови",
+            ru: "Доставка авто в Запорожье на вокзал и в аэропорт: условия",
+            en: "Car delivery in Zaporizhzhia to station and airport: terms",
+          },
+          answer: {
+            uk: "Подача авто на залізничний вокзал Запоріжжя-1, автовокзал, у центр міста — безкоштовна. Доставка на Хортицю, до промислових об'єктів та готелів — безкоштовна по місту. Час подачі від 30 хвилин.",
+            ru: "Подача авто на ж/д вокзал Запорожье-1, автовокзал, в центр города — бесплатная. Доставка на Хортицу, к промышленным объектам и гостиницам — бесплатная по городу. Время подачи от 30 минут.",
+            en: "Car delivery to Zaporizhzhia-1 railway station, bus station, city center — free. Delivery to Khortytsia, industrial facilities and hotels — free within city. Delivery time from 30 minutes.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є ліміт пробігу при оренді у Запоріжжі для поїздок по регіону?",
+            ru: "Есть ли лимит пробега при аренде в Запорожье для поездок по региону?",
+            en: "Is there a mileage limit for Zaporizhzhia rentals for regional trips?",
+          },
+          answer: {
+            uk: "Стандартний ліміт 250-300 км/добу. Для поїздок по області (Мелітополь — 105 км, Бердянськ — 200 км, Токмак — 70 км) і далеких маршрутів (Київ — 520 км, Дніпро — 90 км) рекомендуємо тариф Unlimited.",
+            ru: "Стандартный лимит 250-300 км/сутки. Для поездок по области (Мелитополь — 105 км, Бердянск — 200 км, Токмак — 70 км) и дальних маршрутов (Киев — 520 км, Днепр — 90 км) рекомендуем тариф Unlimited.",
+            en: "Standard limit is 250-300 km/day. For regional trips (Melitopol — 105 km, Berdiansk — 200 km, Tokmak — 70 km) and long routes (Kyiv — 520 km, Dnipro — 90 km), we recommend Unlimited rate.",
+          },
+        },
+      ],
+    },
+    // Категорія 2: Страхування та депозит
+    {
+      title: {
+        uk: "Страхування та депозит",
+        ru: "Страхование и депозит",
+        en: "Insurance and Deposit",
+      },
+      items: [
+        {
+          question: {
+            uk: "Що покриває страховка при оренді авто у Запоріжжі?",
+            ru: "Что покрывает страховка при аренде авто в Запорожье?",
+            en: "What does insurance cover when renting a car in Zaporizhzhia?",
+          },
+          answer: {
+            uk: "Базова ОСЦПВ покриває шкоду третім особам. Пакети CDW/SCDW зменшують відповідальність при пошкодженні авто. Для промислового регіону (складні дороги, інтенсивний трафік) рекомендуємо пакет «Комфорт» або «Преміум».",
+            ru: "Базовое ОСАГО покрывает ущерб третьим лицам. Пакеты CDW/SCDW уменьшают ответственность при повреждении авто. Для промышленного региона (сложные дороги, интенсивный трафик) рекомендуем пакет «Комфорт» или «Премиум».",
+            en: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce liability for car damage. For industrial region (challenging roads, heavy traffic), we recommend 'Comfort' or 'Premium' package.",
+          },
+        },
+        {
+          question: {
+            uk: "Який депозит при оренді авто у Запоріжжі для SUV?",
+            ru: "Какой депозит при аренде авто в Запорожье для SUV?",
+            en: "What is the deposit for SUV rental in Zaporizhzhia?",
+          },
+          answer: {
+            uk: "Депозит: економ — від $200, бізнес — від $400, SUV/кросовер — від $500. SUV популярні для поїздок на Хортицю та по області. Пакет «Преміум» зменшує депозит до $300-400 для всіх класів.",
+            ru: "Депозит: эконом — от $200, бизнес — от $400, SUV/кроссовер — от $500. SUV популярны для поездок на Хортицу и по области. Пакет «Премиум» уменьшает депозит до $300-400 для всех классов.",
+            en: "Deposit: economy — from $200, business — from $400, SUV/crossover — from $500. SUVs are popular for Khortytsia trips and regional travel. 'Premium' package reduces deposit to $300-400 for all classes.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна орендувати авто у Запоріжжі без застави?",
+            ru: "Можно ли арендовать авто в Запорожье без залога?",
+            en: "Can I rent a car in Zaporizhzhia without a deposit?",
+          },
+          answer: {
+            uk: "Так, для довгострокової оренді (від 2 тижнів) та корпоративних клієнтів з промислових підприємств міста доступна опція зменшеного депозиту ($150-200) або без застави. Для короткострокової оренді — пакет «Преміум».",
+            ru: "Да, для долгосрочной аренды (от 2 недель) и корпоративных клиентов с промышленных предприятий города доступна опция уменьшенного депозита ($150-200) или без залога. Для краткосрочной аренды — пакет «Премиум».",
+            en: "Yes, for long-term rentals (from 2 weeks) and corporate clients from city's industrial enterprises, reduced deposit option ($150-200) or no-deposit is available. For short-term rentals — 'Premium' package.",
+          },
+        },
+      ],
+    },
+    // Категорія 3: Обмеження та заборони
+    {
+      title: {
+        uk: "Обмеження та заборони",
+        ru: "Ограничения и запреты",
+        en: "Restrictions and Prohibitions",
+      },
+      items: [
+        {
+          question: {
+            uk: "Мінімальний вік і стаж водія для оренди авто у Запоріжжі",
+            ru: "Минимальный возраст и стаж водителя для аренды авто в Запорожье",
+            en: "Minimum age and driving experience for car rental in Zaporizhzhia",
+          },
+          answer: {
+            uk: "Мінімальний вік — 21 рік, стаж водіння — від 2 років. Для SUV та кросоверів: від 23 років, стаж 3+ роки. Для преміум-класу: від 25 років, стаж 4+ роки. Для молодих водіїв може діяти додатковий збір.",
+            ru: "Минимальный возраст — 21 год, стаж вождения — от 2 лет. Для SUV и кроссоверов: от 23 лет, стаж 3+ года. Для премиум-класса: от 25 лет, стаж 4+ года. Для молодых водителей может действовать дополнительный сбор.",
+            en: "Minimum age is 21, driving experience from 2 years. For SUVs and crossovers: from 23 years, 3+ years experience. For premium class: from 25 years, 4+ years experience. Young driver surcharge may apply.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна виїжджати на орендованому авто з Запоріжжя в інші регіони?",
+            ru: "Можно ли выезжать на арендованном авто из Запорожья в другие регионы?",
+            en: "Can I travel from Zaporizhzhia to other regions by rental car?",
+          },
+          answer: {
+            uk: "Так, виїзд по всій Україні дозволений: Київ, Дніпро, Харків, Одеса, Херсон. Враховуйте обмеження для певних зон (уточнюйте актуальні). Для виїзду за кордон — попереднє погодження (48 годин) та Green Card.",
+            ru: "Да, выезд по всей Украине разрешён: Киев, Днепр, Харьков, Одесса, Херсон. Учитывайте ограничения для определённых зон (уточняйте актуальные). Для выезда за границу — предварительное согласование (48 часов) и Green Card.",
+            en: "Yes, travel throughout Ukraine is permitted: Kyiv, Dnipro, Kharkiv, Odesa, Kherson. Consider restrictions for certain zones (check current). For cross-border travel — prior arrangement (48 hours) and Green Card.",
+          },
+        },
+        {
+          question: {
+            uk: "Що заборонено при оренді авто у Запоріжжі?",
+            ru: "Что запрещено при аренде авто в Запорожье?",
+            en: "What is prohibited when renting a car in Zaporizhzhia?",
+          },
+          answer: {
+            uk: "Категорично заборонено: таксі (Uber, Bolt, Uklon), передача третім особам, суборенда, куріння, використання для комерційних перевезень, буксирування. Виїзд на бездоріжжя без погодження. Порушення — штраф до $500.",
+            ru: "Категорически запрещено: такси (Uber, Bolt, Uklon), передача третьим лицам, субаренда, курение, использование для коммерческих перевозок, буксировка. Выезд на бездорожье без согласования. Нарушение — штраф до $500.",
+            en: "Strictly prohibited: taxi (Uber, Bolt, Uklon), transfer to third parties, subletting, smoking, use for commercial transport, towing. Off-road driving without approval. Violation — penalty up to $500.",
+          },
+        },
+      ],
+    },
+    // Категорія 4: Оплата та документи
+    {
+      title: {
+        uk: "Оплата та документи",
+        ru: "Оплата и документы",
+        en: "Payment and Documents",
+      },
+      items: [
+        {
+          question: {
+            uk: "Які способи оплати доступні при оренді авто у Запоріжжі?",
+            ru: "Какие способы оплаты доступны при аренде авто в Запорожье?",
+            en: "What payment methods are available for car rental in Zaporizhzhia?",
+          },
+          answer: {
+            uk: "Приймаємо: банківські картки Visa/Mastercard, Apple Pay/Google Pay, готівку UAH/USD/EUR, безготівковий розрахунок для юридичних осіб. Для корпоративних клієнтів промислових підприємств — оплата за рахунком.",
+            ru: "Принимаем: банковские карты Visa/Mastercard, Apple Pay/Google Pay, наличные UAH/USD/EUR, безналичный расчёт для юридических лиц. Для корпоративных клиентов промышленных предприятий — оплата по счёту.",
+            en: "We accept: Visa/Mastercard bank cards, Apple Pay/Google Pay, cash UAH/USD/EUR, bank transfer for legal entities. For corporate clients from industrial enterprises — invoice payment.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні для оренди авто у Запоріжжі?",
+            ru: "Какие документы нужны для аренды авто в Запорожье?",
+            en: "What documents are required to rent a car in Zaporizhzhia?",
+          },
+          answer: {
+            uk: "Фізичним особам: паспорт/ID-картка, права категорії B, ІПН. Іноземцям: закордонний паспорт, національні/міжнародні права. Юридичним особам: витяг з ЄДРПОУ, довіреність на водія (для корпоративних авто).",
+            ru: "Физическим лицам: паспорт/ID-карта, права категории B, ИНН. Иностранцам: загранпаспорт, национальные/международные права. Юридическим лицам: выписка из ЕГРПОУ, доверенность на водителя (для корпоративных авто).",
+            en: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national/international license. Legal entities: company registration extract, power of attorney for driver (for corporate cars).",
+          },
+        },
+        {
+          question: {
+            uk: "Де заправити авто перед поверненням у Запоріжжі?",
+            ru: "Где заправить авто перед возвратом в Запорожье?",
+            en: "Where to refuel before returning the car in Zaporizhzhia?",
+          },
+          answer: {
+            uk: "Політика «повний-повний». АЗС у Запоріжжі: OKKO (просп. Соборний, Перемоги), WOG (вул. Незалежної України), Shell (просп. Моторобудівників). Біля вокзалу — SOCAR. Передплачене пальне — за запитом + 5% сервісний збір.",
+            ru: "Политика «полный-полный». АЗС в Запорожье: OKKO (просп. Соборный, Победы), WOG (ул. Независимой Украины), Shell (просп. Моторостроителей). Возле вокзала — SOCAR. Предоплаченное топливо — по запросу + 5% сервисный сбор.",
+            en: "Full-to-full policy. Gas stations in Zaporizhzhia: OKKO (Sobornyi Ave, Peremogy), WOG (Nezalezhnoi Ukrainy St), Shell (Motorobudivnykiv Ave). Near station — SOCAR. Prepaid fuel — on request + 5% service fee.",
+          },
+        },
+      ],
+    },
+  ],
+  mukachevo: [
+    // Категорія 1: Практична інформація
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Де паркувати орендований автомобіль у Мукачеві біля замку Паланок?",
+            ru: "Где парковать арендованный автомобиль в Мукачево возле замка Паланок?",
+            en: "Where to park a rental car in Mukachevo near Palanok Castle?",
+          },
+          answer: {
+            uk: "Біля замку Паланок є платний паркінг для відвідувачів. У центрі Мукачева (площа Миру, вул. Духновича) паркування обмежене — оплата через термінали. Біля залізничного вокзалу безкоштовні місця обмежені, є платна стоянка.",
+            ru: "Возле замка Паланок есть платная парковка для посетителей. В центре Мукачево (площадь Мира, ул. Духновича) парковка ограниченная — оплата через терминалы. Возле ж/д вокзала бесплатные места ограничены, есть платная стоянка.",
+            en: "Near Palanok Castle there is paid parking for visitors. In Mukachevo center (Peace Square, Dukhnovycha St), parking is limited — pay via terminals. Near railway station, free spots are limited, paid parking available.",
+          },
+        },
+        {
+          question: {
+            uk: "Доставка авто у Мукачеві на вокзал та до замку: умови",
+            ru: "Доставка авто в Мукачево на вокзал и к замку: условия",
+            en: "Car delivery in Mukachevo to station and castle: terms",
+          },
+          answer: {
+            uk: "Подача авто на залізничний вокзал, у центр міста, до готелів та замку Паланок — безкоштовна по Мукачеву. Доставка в Ужгород (40 км) та гірські курорти узгоджується окремо. Час подачі від 20-30 хвилин.",
+            ru: "Подача авто на ж/д вокзал, в центр города, к гостиницам и замку Паланок — бесплатная по Мукачево. Доставка в Ужгород (40 км) и горные курорты согласовывается отдельно. Время подачи от 20-30 минут.",
+            en: "Car delivery to railway station, city center, hotels and Palanok Castle — free within Mukachevo. Delivery to Uzhhorod (40 km) and mountain resorts arranged separately. Delivery time from 20-30 minutes.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є ліміт пробігу при оренді у Мукачеві для поїздок у гори?",
+            ru: "Есть ли лимит пробега при аренде в Мукачево для поездок в горы?",
+            en: "Is there a mileage limit for Mukachevo rentals for mountain trips?",
+          },
+          answer: {
+            uk: "Стандартний ліміт 250-300 км/добу. Для поїздок до Синевиру (60 км), Колочави (80 км), Рахова (120 км), Буковелю (180 км) і гірських маршрутів рекомендуємо тариф Unlimited. Для гір краще брати SUV або кросовер.",
+            ru: "Стандартный лимит 250-300 км/сутки. Для поездок к Синевиру (60 км), Колочаве (80 км), Рахову (120 км), Буковелю (180 км) и горных маршрутов рекомендуем тариф Unlimited. Для гор лучше брать SUV или кроссовер.",
+            en: "Standard limit is 250-300 km/day. For trips to Synevyr (60 km), Kolochava (80 km), Rakhiv (120 km), Bukovel (180 km) and mountain routes, we recommend Unlimited rate. SUV or crossover better for mountains.",
+          },
+        },
+      ],
+    },
+    // Категорія 2: Страхування та депозит
+    {
+      title: {
+        uk: "Страхування та депозит",
+        ru: "Страхование и депозит",
+        en: "Insurance and Deposit",
+      },
+      items: [
+        {
+          question: {
+            uk: "Що покриває страховка при оренді авто у Мукачеві для гірських доріг?",
+            ru: "Что покрывает страховка при аренде авто в Мукачево для горных дорог?",
+            en: "What does insurance cover when renting a car in Mukachevo for mountain roads?",
+          },
+          answer: {
+            uk: "Базова ОСЦПВ покриває шкоду третім особам. Для гірських доріг Закарпаття (серпантини, складні умови) настійно рекомендуємо пакет «Преміум» — повне покриття шин, скла, дзеркал, днища авто та підвіски.",
+            ru: "Базовое ОСАГО покрывает ущерб третьим лицам. Для горных дорог Закарпатья (серпантины, сложные условия) настоятельно рекомендуем пакет «Премиум» — полное покрытие шин, стекла, зеркал, днища авто и подвески.",
+            en: "Basic MTPL covers third-party damage. For Transcarpathian mountain roads (serpentines, challenging conditions), we strongly recommend 'Premium' package — full coverage for tires, glass, mirrors, car underbody and suspension.",
+          },
+        },
+        {
+          question: {
+            uk: "Який депозит при оренді SUV у Мукачеві для Карпат?",
+            ru: "Какой депозит при аренде SUV в Мукачево для Карпат?",
+            en: "What is the deposit for SUV rental in Mukachevo for Carpathians?",
+          },
+          answer: {
+            uk: "Депозит для SUV/кросоверів — від $500-600 (підвищений через гірські умови). Економ-клас — від $200, бізнес — від $400. Пакет «Преміум» зменшує депозит до $300-400. SUV найпопулярніші для гірських маршрутів.",
+            ru: "Депозит для SUV/кроссоверов — от $500-600 (повышенный из-за горных условий). Эконом-класс — от $200, бизнес — от $400. Пакет «Премиум» уменьшает депозит до $300-400. SUV самые популярные для горных маршрутов.",
+            en: "Deposit for SUV/crossovers — from $500-600 (increased due to mountain conditions). Economy class — from $200, business — from $400. 'Premium' package reduces deposit to $300-400. SUVs are most popular for mountain routes.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна орендувати авто у Мукачеві без застави для місцевих поїздок?",
+            ru: "Можно ли арендовать авто в Мукачево без залога для местных поездок?",
+            en: "Can I rent a car in Mukachevo without a deposit for local trips?",
+          },
+          answer: {
+            uk: "Так, для місцевих поїздок по Мукачеву (без гір) з пакетом «Преміум» депозит мінімальний ($200-250) або відсутній для економ-класу. Для гірських маршрутів депозит обов'язковий через підвищені ризики.",
+            ru: "Да, для местных поездок по Мукачево (без гор) с пакетом «Премиум» депозит минимальный ($200-250) или отсутствует для эконом-класса. Для горных маршрутов депозит обязателен из-за повышенных рисков.",
+            en: "Yes, for local Mukachevo trips (no mountains) with 'Premium' package, deposit is minimal ($200-250) or waived for economy class. For mountain routes, deposit is mandatory due to increased risks.",
+          },
+        },
+      ],
+    },
+    // Категорія 3: Обмеження та заборони
+    {
+      title: {
+        uk: "Обмеження та заборони",
+        ru: "Ограничения и запреты",
+        en: "Restrictions and Prohibitions",
+      },
+      items: [
+        {
+          question: {
+            uk: "Мінімальний вік і стаж водія для оренди SUV у Мукачеві",
+            ru: "Минимальный возраст и стаж водителя для аренды SUV в Мукачево",
+            en: "Minimum age and driving experience for SUV rental in Mukachevo",
+          },
+          answer: {
+            uk: "Мінімальний вік — 21 рік, стаж 2 роки (економ). Для SUV та гірських поїздок: від 23 років, стаж 3+ роки. Для преміум-класу: від 25 років, стаж 4+ роки. Досвід водіння в горах — перевага.",
+            ru: "Минимальный возраст — 21 год, стаж 2 года (эконом). Для SUV и горных поездок: от 23 лет, стаж 3+ года. Для премиум-класса: от 25 лет, стаж 4+ года. Опыт вождения в горах — преимущество.",
+            en: "Minimum age is 21, 2 years experience (economy). For SUVs and mountain trips: from 23 years, 3+ years experience. For premium class: from 25 years, 4+ years experience. Mountain driving experience is an advantage.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна виїжджати з Мукачева в Румунію та Словаччину?",
+            ru: "Можно ли выезжать из Мукачево в Румынию и Словакию?",
+            en: "Can I travel from Mukachevo to Romania and Slovakia?",
+          },
+          answer: {
+            uk: "Так, виїзд до Румунії (КПП Дякове — 60 км), Словаччини (Малі Селменці — 50 км) і Угорщини можливий за попереднім погодженням (48 годин). Потрібно: Green Card, додаткова страховка. Для гірських маршрутів у Румунію рекомендуємо SUV.",
+            ru: "Да, выезд в Румынию (КПП Дяково — 60 км), Словакию (Малые Селменцы — 50 км) и Венгрию возможен по предварительному согласованию (48 часов). Нужно: Green Card, дополнительная страховка. Для горных маршрутов в Румынию рекомендуем SUV.",
+            en: "Yes, travel to Romania (Diakove border — 60 km), Slovakia (Mali Selmenci — 50 km) and Hungary possible with prior arrangement (48 hours). Required: Green Card, additional insurance. SUV recommended for mountain routes to Romania.",
+          },
+        },
+        {
+          question: {
+            uk: "Що заборонено при оренді авто у Мукачеві для гір?",
+            ru: "Что запрещено при аренде авто в Мукачево для гор?",
+            en: "What is prohibited when renting a car in Mukachevo for mountains?",
+          },
+          answer: {
+            uk: "Заборонено: таксі/Uber, суборенда, виїзд на бездоріжжя без погодження, користування економ-класом для важких гірських доріг (лише SUV/кросовери), куріння. Перевищення швидкості на серпантинах — розірвання договору.",
+            ru: "Запрещено: такси/Uber, субаренда, выезд на бездорожье без согласования, использование эконом-класса для сложных горных дорог (только SUV/кроссоверы), курение. Превышение скорости на серпантинах — расторжение договора.",
+            en: "Prohibited: taxi/Uber, subletting, off-road driving without approval, using economy class for difficult mountain roads (only SUV/crossovers), smoking. Speeding on serpentines — contract termination.",
+          },
+        },
+      ],
+    },
+    // Категорія 4: Оплата та документи
+    {
+      title: {
+        uk: "Оплата та документи",
+        ru: "Оплата и документы",
+        en: "Payment and Documents",
+      },
+      items: [
+        {
+          question: {
+            uk: "Які способи оплати доступні при оренді авто у Мукачеві?",
+            ru: "Какие способы оплаты доступны при аренде авто в Мукачево?",
+            en: "What payment methods are available for car rental in Mukachevo?",
+          },
+          answer: {
+            uk: "Приймаємо: банківські картки Visa/Mastercard (включно з європейськими), Apple Pay/Google Pay, готівку EUR/USD/UAH. Green Card для виїзду в ЄС оплачується окремо (від €50). Депозит — блокування на картці.",
+            ru: "Принимаем: банковские карты Visa/Mastercard (включая европейские), Apple Pay/Google Pay, наличные EUR/USD/UAH. Green Card для выезда в ЕС оплачивается отдельно (от €50). Депозит — блокировка на карте.",
+            en: "We accept: Visa/Mastercard bank cards (including European), Apple Pay/Google Pay, cash EUR/USD/UAH. Green Card for EU travel paid separately (from €50). Deposit — card block.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні для оренди авто у Мукачеві?",
+            ru: "Какие документы нужны для аренды авто в Мукачево?",
+            en: "What documents are required to rent a car in Mukachevo?",
+          },
+          answer: {
+            uk: "Фізичним особам: паспорт/ID-картка, права категорії B, ІПН. Іноземцям: закордонний паспорт, національні/міжнародні права. Для виїзду в ЄС: Green Card (оформимо), маршрут подорожі, контакти за кордоном.",
+            ru: "Физическим лицам: паспорт/ID-карта, права категории B, ИНН. Иностранцам: загранпаспорт, национальные/международные права. Для выезда в ЕС: Green Card (оформим), маршрут путешествия, контакты за границей.",
+            en: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national/international license. For EU travel: Green Card (we'll arrange), trip itinerary, contacts abroad.",
+          },
+        },
+        {
+          question: {
+            uk: "Де заправити авто перед поверненням у Мукачеві?",
+            ru: "Где заправить авто перед возвратом в Мукачево?",
+            en: "Where to refuel before returning the car in Mukachevo?",
+          },
+          answer: {
+            uk: "Політика «повний-повний». У Мукачеві є OKKO (вул. Пряшівська), WOG (вул. Берегівська), Shell (вул. Духновича). Перед поїздками в гори заправляйтесь у місті — АЗС у горах рідкісні. Передплачене пальне — за запитом.",
+            ru: "Политика «полный-полный». В Мукачево есть OKKO (ул. Пряшевская), WOG (ул. Береговская), Shell (ул. Духновича). Перед поездками в горы заправляйтесь в городе — АЗС в горах редкие. Предоплаченное топливо — по запросу.",
+            en: "Full-to-full policy. In Mukachevo: OKKO (Priashivska St), WOG (Berehivska St), Shell (Dukhnovycha St). Before mountain trips, refuel in city — gas stations are rare in mountains. Prepaid fuel — on request.",
+          },
+        },
+      ],
+    },
+  ],
+  poltava: [
+    // Категорія 1: Практична інформація
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Де паркувати орендований автомобіль у Полтаві біля Корпусного парку?",
+            ru: "Где парковать арендованный автомобиль в Полтаве возле Корпусного парка?",
+            en: "Where to park a rental car in Poltava near Korpusnyi Park?",
+          },
+          answer: {
+            uk: "Біля Корпусного парку та Круглої площі паркування обмежене — платні паркінги через термінали. У центрі Полтави (вул. Соборності, Жовтнева) паркування платне. Біля ТРЦ Lavina Mall та вокзалу є безкоштовні паркінги.",
+            ru: "Возле Корпусного парка и Круглой площади парковка ограниченная — платные парковки через терминалы. В центре Полтавы (ул. Соборности, Жовтнева) парковка платная. Возле ТРЦ Lavina Mall и вокзала есть бесплатные парковки.",
+            en: "Near Korpusnyi Park and Round Square, parking is limited — paid parking via terminals. In Poltava center (Sobornosti St, Zhovtneva), parking is paid. Near Lavina Mall and station, free parking available.",
+          },
+        },
+        {
+          question: {
+            uk: "Доставка авто у Полтаві на вокзал і в центр: умови",
+            ru: "Доставка авто в Полтаве на вокзал и в центр: условия",
+            en: "Car delivery in Poltava to station and center: terms",
+          },
+          answer: {
+            uk: "Подача авто на залізничний вокзал, у центр міста (Корпусний парк, Кругла площа), до готелів та бізнес-центрів — безкоштовна по Полтаві. Час подачі від 20-30 хвилин. Полтава — зручна точка для транзиту між Києвом і Харковом.",
+            ru: "Подача авто на ж/д вокзал, в центр города (Корпусный парк, Круглая площадь), к гостиницам и бизнес-центрам — бесплатная по Полтаве. Время подачи от 20-30 минут. Полтава — удобная точка для транзита между Киевом и Харьковом.",
+            en: "Car delivery to railway station, city center (Korpusnyi Park, Round Square), hotels and business centers — free within Poltava. Delivery time from 20-30 minutes. Poltava is a convenient transit point between Kyiv and Kharkiv.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є ліміт пробігу при оренді у Полтаві для транзиту Київ-Харків?",
+            ru: "Есть ли лимит пробега при аренде в Полтаве для транзита Киев-Харьков?",
+            en: "Is there a mileage limit for Poltava rentals for Kyiv-Kharkiv transit?",
+          },
+          answer: {
+            uk: "Стандартний ліміт 250-300 км/добу. Полтава — оптимальна транзитна точка: Київ — 340 км, Харків — 140 км, Дніпро — 180 км, Кременчук — 95 км. Для міжміських поїздок рекомендуємо тариф Unlimited.",
+            ru: "Стандартный лимит 250-300 км/сутки. Полтава — оптимальная транзитная точка: Киев — 340 км, Харьков — 140 км, Днепр — 180 км, Кременчуг — 95 км. Для междугородних поездок рекомендуем тариф Unlimited.",
+            en: "Standard limit is 250-300 km/day. Poltava is an optimal transit point: Kyiv — 340 km, Kharkiv — 140 km, Dnipro — 180 km, Kremenchuk — 95 km. For intercity trips, we recommend Unlimited rate.",
+          },
+        },
+      ],
+    },
+    // Категорія 2: Страхування та депозит
+    {
+      title: {
+        uk: "Страхування та депозит",
+        ru: "Страхование и депозит",
+        en: "Insurance and Deposit",
+      },
+      items: [
+        {
+          question: {
+            uk: "Що покриває страховка при оренді авто у Полтаві?",
+            ru: "Что покрывает страховка при аренде авто в Полтаве?",
+            en: "What does insurance cover when renting a car in Poltava?",
+          },
+          answer: {
+            uk: "Базова ОСЦПВ покриває шкоду третім особам. Пакети CDW/SCDW зменшують вашу відповідальність при ДТП. Для транзитних поїздок і довгих маршрутів (Київ-Харків) рекомендуємо пакет «Комфорт» або «Преміум» — розширене покриття.",
+            ru: "Базовое ОСАГО покрывает ущерб третьим лицам. Пакеты CDW/SCDW уменьшают вашу ответственность при ДТП. Для транзитных поездок и дальних маршрутов (Киев-Харьков) рекомендуем пакет «Комфорт» или «Премиум» — расширенное покрытие.",
+            en: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce your liability in accidents. For transit trips and long routes (Kyiv-Kharkiv), we recommend 'Comfort' or 'Premium' package — extended coverage.",
+          },
+        },
+        {
+          question: {
+            uk: "Який депозит при оренді авто у Полтаві для бізнес-поїздок?",
+            ru: "Какой депозит при аренде авто в Полтаве для бизнес-поездок?",
+            en: "What is the deposit for car rental in Poltava for business trips?",
+          },
+          answer: {
+            uk: "Депозит: економ — від $200, бізнес — від $400, преміум — від $600. Для корпоративних клієнтів та довгострокової оренді депозит знижується. Пакет «Преміум» зменшує депозит до $250-350 для всіх класів.",
+            ru: "Депозит: эконом — от $200, бизнес — от $400, премиум — от $600. Для корпоративных клиентов и долгосрочной аренды депозит снижается. Пакет «Премиум» уменьшает депозит до $250-350 для всех классов.",
+            en: "Deposit: economy — from $200, business — from $400, premium — from $600. For corporate clients and long-term rentals, deposit is reduced. 'Premium' package reduces deposit to $250-350 for all classes.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна орендувати авто у Полтаві без застави?",
+            ru: "Можно ли арендовать авто в Полтаве без залога?",
+            en: "Can I rent a car in Poltava without a deposit?",
+          },
+          answer: {
+            uk: "Так, для довгострокової оренді (від 2 тижнів) та постійних клієнтів доступна опція мінімального депозиту ($150-200) або без застави. Для транзитних поїздок — пакет «Преміум» зменшує депозит.",
+            ru: "Да, для долгосрочной аренды (от 2 недель) и постоянных клиентов доступна опция минимального депозита ($150-200) или без залога. Для транзитных поездок — пакет «Премиум» уменьшает депозит.",
+            en: "Yes, for long-term rentals (from 2 weeks) and regular clients, minimal deposit option ($150-200) or no-deposit is available. For transit trips — 'Premium' package reduces deposit.",
+          },
+        },
+      ],
+    },
+    // Категорія 3: Обмеження та заборони
+    {
+      title: {
+        uk: "Обмеження та заборони",
+        ru: "Ограничения и запреты",
+        en: "Restrictions and Prohibitions",
+      },
+      items: [
+        {
+          question: {
+            uk: "Мінімальний вік і стаж водія для оренди авто у Полтаві",
+            ru: "Минимальный возраст и стаж водителя для аренды авто в Полтаве",
+            en: "Minimum age and driving experience for car rental in Poltava",
+          },
+          answer: {
+            uk: "Мінімальний вік — 21 рік, стаж водіння — від 2 років. Для бізнес-класу: від 23 років, стаж 3+ роки. Для преміум-авто: від 25 років, стаж 4+ роки. Молодим водіям може діяти додатковий збір.",
+            ru: "Минимальный возраст — 21 год, стаж вождения — от 2 лет. Для бизнес-класса: от 23 лет, стаж 3+ года. Для премиум-авто: от 25 лет, стаж 4+ года. Молодым водителям может действовать дополнительный сбор.",
+            en: "Minimum age is 21, driving experience from 2 years. For business class: from 23 years, 3+ years experience. For premium cars: from 25 years, 4+ years experience. Young driver surcharge may apply.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна виїжджати на орендованому авто з Полтави в інші регіони?",
+            ru: "Можно ли выезжать на арендованном авто из Полтавы в другие регионы?",
+            en: "Can I travel from Poltava to other regions by rental car?",
+          },
+          answer: {
+            uk: "Так, виїзд по всій Україні дозволений: Київ, Харків, Дніпро, Суми, Черкаси. Полтава — ідеальна точка для транзиту. Для виїзду за кордон потрібне попереднє погодження (48 годин) та оформлення Green Card.",
+            ru: "Да, выезд по всей Украине разрешён: Киев, Харьков, Днепр, Сумы, Черкассы. Полтава — идеальная точка для транзита. Для выезда за границу нужно предварительное согласование (48 часов) и оформление Green Card.",
+            en: "Yes, travel throughout Ukraine is permitted: Kyiv, Kharkiv, Dnipro, Sumy, Cherkasy. Poltava is an ideal transit point. For cross-border travel, prior arrangement required (48 hours) and Green Card registration.",
+          },
+        },
+        {
+          question: {
+            uk: "Що заборонено при оренді авто у Полтаві?",
+            ru: "Что запрещено при аренде авто в Полтаве?",
+            en: "What is prohibited when renting a car in Poltava?",
+          },
+          answer: {
+            uk: "Категорично заборонено: таксі (Uber, Bolt, Uklon), передача третім особам не вказаним у договорі, суборенда, куріння в авто, використання для комерційних перевезень. Порушення — штраф і розірвання договору.",
+            ru: "Категорически запрещено: такси (Uber, Bolt, Uklon), передача третьим лицам не указанным в договоре, субаренда, курение в авто, использование для коммерческих перевозок. Нарушение — штраф и расторжение договора.",
+            en: "Strictly prohibited: taxi (Uber, Bolt, Uklon), transfer to persons not listed in contract, subletting, smoking in car, use for commercial transport. Violation — penalty and contract termination.",
+          },
+        },
+      ],
+    },
+    // Категорія 4: Оплата та документи
+    {
+      title: {
+        uk: "Оплата та документи",
+        ru: "Оплата и документы",
+        en: "Payment and Documents",
+      },
+      items: [
+        {
+          question: {
+            uk: "Які способи оплати доступні при оренді авто у Полтаві?",
+            ru: "Какие способы оплаты доступны при аренде авто в Полтаве?",
+            en: "What payment methods are available for car rental in Poltava?",
+          },
+          answer: {
+            uk: "Приймаємо: банківські картки Visa/Mastercard, Apple Pay/Google Pay, готівку UAH/USD/EUR, безготівковий розрахунок для юридичних осіб. Для корпоративних клієнтів — оплата за рахунком. Депозит блокується на картці.",
+            ru: "Принимаем: банковские карты Visa/Mastercard, Apple Pay/Google Pay, наличные UAH/USD/EUR, безналичный расчёт для юридических лиц. Для корпоративных клиентов — оплата по счёту. Депозит блокируется на карте.",
+            en: "We accept: Visa/Mastercard bank cards, Apple Pay/Google Pay, cash UAH/USD/EUR, bank transfer for legal entities. For corporate clients — invoice payment. Deposit blocked on card.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні для оренди авто у Полтаві?",
+            ru: "Какие документы нужны для аренды авто в Полтаве?",
+            en: "What documents are required to rent a car in Poltava?",
+          },
+          answer: {
+            uk: "Фізичним особам: паспорт/ID-картка, права категорії B, ІПН. Іноземцям: закордонний паспорт, національні права (міжнародні — для не-латиниці). Юридичним особам: витяг з ЄДРПОУ, довіреність на водія.",
+            ru: "Физическим лицам: паспорт/ID-карта, права категории B, ИНН. Иностранцам: загранпаспорт, национальные права (международные — для не-латиницы). Юридическим лицам: выписка из ЕГРПОУ, доверенность на водителя.",
+            en: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national license (international for non-Latin). Legal entities: company registration extract, power of attorney for driver.",
+          },
+        },
+        {
+          question: {
+            uk: "Де заправити авто перед поверненням у Полтаві?",
+            ru: "Где заправить авто перед возвратом в Полтаве?",
+            en: "Where to refuel before returning the car in Poltava?",
+          },
+          answer: {
+            uk: "Політика «повний-повний». АЗС у Полтаві: OKKO (просп. Першотравневий, вул. Європейська), WOG (вул. Небесної Сотні), Shell (вул. Київська). Біля вокзалу — SOCAR. Передплачене пальне — за запитом + 5% збір.",
+            ru: "Политика «полный-полный». АЗС в Полтаве: OKKO (просп. Первомайский, ул. Европейская), WOG (ул. Небесной Сотни), Shell (ул. Киевская). Возле вокзала — SOCAR. Предоплаченное топливо — по запросу + 5% сбор.",
+            en: "Full-to-full policy. Gas stations in Poltava: OKKO (Pershotravnevyi Ave, Yevropeiska St), WOG (Nebesnoi Sotni St), Shell (Kyivska St). Near station — SOCAR. Prepaid fuel — on request + 5% fee.",
+          },
+        },
+      ],
+    },
+  ],
+  chernivtsi: [
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Де паркувати орендований автомобіль у Чернівцях біля університету?",
+            ru: "Где парковать арендованный автомобиль в Черновцах возле университета?",
+            en: "Where to park a rental car in Chernivtsi near the university?",
+          },
+          answer: {
+            uk: "Біля Чернівецького університету та Театральної площі паркування обмежене. У центрі (вул. Кобилянської, Головна) — платне паркування. Безкоштовні паркінги є біля ТРЦ Depot Center та залізничного вокзалу.",
+            ru: "Возле Черновицкого университета и Театральной площади парковка ограничена. В центре (ул. Кобылянской, Главная) — платная парковка. Бесплатные парковки есть возле ТРЦ Depot Center и ж/д вокзала.",
+            en: "Near Chernivtsi University and Theater Square, parking is limited. In center (Kobylianska St, Holovna) — paid parking. Free parking available near Depot Center mall and railway station.",
+          },
+        },
+        {
+          question: {
+            uk: "Доставка авто до кордону з Румунією: умови та вартість",
+            ru: "Доставка авто к границе с Румынией: условия и стоимость",
+            en: "Car delivery to Romania border: terms and cost",
+          },
+          answer: {
+            uk: "Подача авто до КПП Порубне (15 км) — безкоштовна. До КПП Вадул-Сірет (Молдова, 40 км) — за домовленістю. Виїзд за кордон можливий з пакетом «Європа» — додаткова страховка Green Card обов'язкова.",
+            ru: "Подача авто к КПП Порубное (15 км) — бесплатная. К КПП Вадул-Сирет (Молдова, 40 км) — по договоренности. Выезд за границу возможен с пакетом «Европа» — дополнительная страховка Green Card обязательна.",
+            en: "Car delivery to Porubne checkpoint (15 km) — free. To Vadul-Siret checkpoint (Moldova, 40 km) — by arrangement. Border crossing available with 'Europe' package — Green Card insurance required.",
+          },
+        },
+      ],
+    },
+    {
+      title: {
+        uk: "Страхування та депозит",
+        ru: "Страхование и депозит",
+        en: "Insurance and Deposit",
+      },
+      items: [
+        {
+          question: {
+            uk: "Яка страховка потрібна для виїзду в Румунію з Чернівців?",
+            ru: "Какая страховка нужна для выезда в Румынию из Черновцов?",
+            en: "What insurance is needed for Romania trips from Chernivtsi?",
+          },
+          answer: {
+            uk: "Для виїзду в ЄС обов'язкова Green Card. Пакет «Європа» включає розширене КАСКО та асистанс на території ЄС. Додатково рекомендуємо захист від крадіжки для подорожей по Румунії та Молдові.",
+            ru: "Для выезда в ЕС обязательна Green Card. Пакет «Европа» включает расширенное КАСКО и ассистанс на территории ЕС. Дополнительно рекомендуем защиту от угона для поездок по Румынии и Молдове.",
+            en: "Green Card is required for EU travel. 'Europe' package includes extended CASCO and EU assistance. We also recommend theft protection for Romania and Moldova trips.",
+          },
+        },
+      ],
+    },
+  ],
+  boryspil: [
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Як отримати авто в аеропорту Бориспіль після прильоту?",
+            ru: "Как получить авто в аэропорту Борисполь после прилета?",
+            en: "How to get a car at Boryspil Airport after arrival?",
+          },
+          answer: {
+            uk: "Зустріч біля терміналу D або F — менеджер чекатиме з табличкою. Оформлення займає 10-15 хвилин. Паркінг P1 (термінал D) — найзручніший для передачі авто. Працюємо 24/7, включаючи нічні рейси.",
+            ru: "Встреча возле терминала D или F — менеджер будет ждать с табличкой. Оформление занимает 10-15 минут. Паркинг P1 (терминал D) — самый удобный для передачи авто. Работаем 24/7, включая ночные рейсы.",
+            en: "Meeting near Terminal D or F — manager will wait with a sign. Paperwork takes 10-15 minutes. P1 parking (Terminal D) — most convenient for car handover. We work 24/7, including night flights.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна здати авто в іншому місті України після оренди в Борисполі?",
+            ru: "Можно ли сдать авто в другом городе Украины после аренды в Борисполе?",
+            en: "Can I return the car in another Ukrainian city after Boryspil rental?",
+          },
+          answer: {
+            uk: "Так, one-way оренда доступна. Популярні напрямки: Київ (центр), Львів, Одеса, Дніпро, Харків. Вартість залежить від відстані. Львів — найпопулярніший напрямок, подача туди додатково оплачується.",
+            ru: "Да, one-way аренда доступна. Популярные направления: Киев (центр), Львов, Одесса, Днепр, Харьков. Стоимость зависит от расстояния. Львов — самое популярное направление, подача туда оплачивается дополнительно.",
+            en: "Yes, one-way rental is available. Popular destinations: Kyiv (center), Lviv, Odesa, Dnipro, Kharkiv. Cost depends on distance. Lviv is the most popular — delivery there is charged additionally.",
+          },
+        },
+        {
+          question: {
+            uk: "Доставка авто в аеропорт Бориспіль з Києва: вартість та час",
+            ru: "Доставка авто в аэропорт Борисполь из Киева: стоимость и время",
+            en: "Car delivery to Boryspil Airport from Kyiv: cost and time",
+          },
+          answer: {
+            uk: "Подача з Києва в аеропорт Бориспіль — безкоштовна при оренді від 3 діб. Час у дорозі 35-50 хвилин залежно від трафіку. Рекомендуємо бронювати за 24 години до прильоту.",
+            ru: "Подача из Киева в аэропорт Борисполь — бесплатная при аренде от 3 суток. Время в пути 35-50 минут в зависимости от трафика. Рекомендуем бронировать за 24 часа до прилета.",
+            en: "Delivery from Kyiv to Boryspil Airport — free for rentals from 3 days. Travel time 35-50 minutes depending on traffic. We recommend booking 24 hours before arrival.",
+          },
+        },
+      ],
+    },
+    {
+      title: {
+        uk: "Страхування та депозит",
+        ru: "Страхование и депозит",
+        en: "Insurance and Deposit",
+      },
+      items: [
+        {
+          question: {
+            uk: "Який депозит при оренді в аеропорту Бориспіль?",
+            ru: "Какой депозит при аренде в аэропорту Борисполь?",
+            en: "What is the deposit for Boryspil Airport rentals?",
+          },
+          answer: {
+            uk: "Стандартний депозит: економ — від $200, бізнес — від $400, преміум/SUV — від $600. Оплата готівкою або карткою. При пакеті «Преміум» депозит знижується. Для корпоративних клієнтів — спеціальні умови.",
+            ru: "Стандартный депозит: эконом — от $200, бизнес — от $400, премиум/SUV — от $600. Оплата наличными или картой. При пакете «Премиум» депозит снижается. Для корпоративных клиентов — специальные условия.",
+            en: "Standard deposit: economy — from $200, business — from $400, premium/SUV — from $600. Payment by cash or card. 'Premium' package reduces deposit. Special terms for corporate clients.",
           },
         },
       ],

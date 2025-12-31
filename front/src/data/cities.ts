@@ -164,6 +164,110 @@ export const cities: CityConfig[] = [
     postalCode: "76000",
     region: "Івано-Франківська область",
   },
+  {
+    slug: "skhidnytsia",
+    name: "Східниця",
+    nameLocative: "Східниці",
+    localized: {
+      uk: { name: "Східниця", nameLocative: "Східниці" },
+      ru: { name: "Сходница", nameLocative: "Сходнице" },
+      en: { name: "Skhidnytsia", nameLocative: "Skhidnytsia" },
+    },
+    geo: { latitude: "49.2667", longitude: "23.4667" },
+    postalCode: "82391",
+    region: "Львівська область",
+  },
+  {
+    slug: "uzhhorod",
+    name: "Ужгород",
+    nameLocative: "Ужгороді",
+    localized: {
+      uk: { name: "Ужгород", nameLocative: "Ужгороді" },
+      ru: { name: "Ужгород", nameLocative: "Ужгороде" },
+      en: { name: "Uzhhorod", nameLocative: "Uzhhorod" },
+    },
+    geo: { latitude: "48.6208", longitude: "22.2879" },
+    postalCode: "88000",
+    region: "Закарпатська область",
+  },
+  {
+    slug: "vinnytsia",
+    name: "Вінниця",
+    nameLocative: "Вінниці",
+    localized: {
+      uk: { name: "Вінниця", nameLocative: "Вінниці" },
+      ru: { name: "Винница", nameLocative: "Виннице" },
+      en: { name: "Vinnytsia", nameLocative: "Vinnytsia" },
+    },
+    geo: { latitude: "49.2328", longitude: "28.4681" },
+    postalCode: "21000",
+    region: "Вінницька область",
+  },
+  {
+    slug: "zaporizhzhia",
+    name: "Запоріжжя",
+    nameLocative: "Запоріжжі",
+    localized: {
+      uk: { name: "Запоріжжя", nameLocative: "Запоріжжі" },
+      ru: { name: "Запорожье", nameLocative: "Запорожье" },
+      en: { name: "Zaporizhzhia", nameLocative: "Zaporizhzhia" },
+    },
+    geo: { latitude: "47.8388", longitude: "35.1396" },
+    postalCode: "69000",
+    region: "Запорізька область",
+  },
+  {
+    slug: "mukachevo",
+    name: "Мукачево",
+    nameLocative: "Мукачеві",
+    localized: {
+      uk: { name: "Мукачево", nameLocative: "Мукачеві" },
+      ru: { name: "Мукачево", nameLocative: "Мукачеве" },
+      en: { name: "Mukachevo", nameLocative: "Mukachevo" },
+    },
+    geo: { latitude: "48.4394", longitude: "22.7183" },
+    postalCode: "89600",
+    region: "Закарпатська область",
+  },
+  {
+    slug: "poltava",
+    name: "Полтава",
+    nameLocative: "Полтаві",
+    localized: {
+      uk: { name: "Полтава", nameLocative: "Полтаві" },
+      ru: { name: "Полтава", nameLocative: "Полтаве" },
+      en: { name: "Poltava", nameLocative: "Poltava" },
+    },
+    geo: { latitude: "49.5883", longitude: "34.5514" },
+    postalCode: "36000",
+    region: "Полтавська область",
+  },
+  {
+    slug: "chernivtsi",
+    name: "Чернівці",
+    nameLocative: "Чернівцях",
+    localized: {
+      uk: { name: "Чернівці", nameLocative: "Чернівцях" },
+      ru: { name: "Черновцы", nameLocative: "Черновцах" },
+      en: { name: "Chernivtsi", nameLocative: "Chernivtsi" },
+    },
+    geo: { latitude: "48.2920", longitude: "25.9358" },
+    postalCode: "58000",
+    region: "Чернівецька область",
+  },
+  {
+    slug: "boryspil",
+    name: "Бориспіль",
+    nameLocative: "Борисполі",
+    localized: {
+      uk: { name: "Бориспіль", nameLocative: "Борисполі" },
+      ru: { name: "Борисполь", nameLocative: "Борисполе" },
+      en: { name: "Boryspil", nameLocative: "Boryspil" },
+    },
+    geo: { latitude: "50.3532", longitude: "30.9577" },
+    postalCode: "08300",
+    region: "Київська область",
+  },
 ];
 
 // Локалізовані тексти для кожного міста
@@ -547,6 +651,335 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Ivano-Frankivsk — REIZ | Rent from 800 UAH/day",
       ogDescription:
         "Car rental in Ivano-Frankivsk. No deposit. Delivery throughout the city and to the airport. Modern fleet from economy to premium class.",
+    },
+  },
+  skhidnytsia: {
+    uk: {
+      title: "Оренда авто у Східниці | REIZ - від 800 грн/день",
+      metaDescription:
+        "Оренда авто у Східниці від REIZ. Сучасний автопарк, доставка на курорт. Від економ до преміум класу. Бронювання 24/7.",
+      h1: "Оренда авто у Східниці",
+      sectionCars: "АВТОМОБІЛІ REIZ У СХІДНИЦІ",
+      sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ СХІДНИЦЯ",
+      subtitle:
+        "Оренда авто у Східниці від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
+      ogTitle: "Оренда авто Східниця без водія — REIZ | Прокат від 800 грн/день",
+      ogDescription:
+        "Прокат автомобілів у Східниці. Без застави. Доставка на курорт. Сучасний автопарк від економ до преміум класу.",
+    },
+    ru: {
+      title: "Аренда авто в Сходнице | REIZ - от 800 грн/день",
+      metaDescription:
+        "Аренда авто в Сходнице от REIZ. Современный автопарк, доставка на курорт. От эконом до премиум класса. Бронирование 24/7.",
+      h1: "Аренда авто в Сходнице",
+      sectionCars: "АВТОМОБИЛИ REIZ В СХОДНИЦЕ",
+      sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ СХОДНИЦА",
+      subtitle:
+        "Аренда авто в Сходнице от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
+      ogTitle:
+        "Аренда авто Сходница без водителя — REIZ | Прокат от 800 грн/день",
+      ogDescription:
+        "Прокат автомобилей в Сходнице. Без залога. Доставка на курорт. Современный автопарк от эконом до премиум класса.",
+    },
+    en: {
+      title: "Car Rental in Skhidnytsia | REIZ - from 800 UAH/day",
+      metaDescription:
+        "Car rental in Skhidnytsia from REIZ. Modern fleet, delivery to the resort. From economy to premium class. Booking 24/7.",
+      h1: "Car Rental in Skhidnytsia",
+      sectionCars: "REIZ CARS IN SKHIDNYTSIA",
+      sectionWelcome: "WELCOME TO REIZ SKHIDNYTSIA",
+      subtitle:
+        "Car rental in Skhidnytsia from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
+      ogTitle: "Car Rental Skhidnytsia — REIZ | Rent from 800 UAH/day",
+      ogDescription:
+        "Car rental in Skhidnytsia. No deposit. Delivery to the resort. Modern fleet from economy to premium class.",
+    },
+  },
+  uzhhorod: {
+    uk: {
+      title: "Оренда авто в Ужгороді без застави | REIZ — Нові авто 2024",
+      metaDescription:
+        "Прокат авто в Ужгороді. Зручний виїзд до кордону та в Карпати. Нові машини 2023-2024. Безкоштовна подача по місту 24/7. Бронюйте офіційно!",
+      h1: "Оренда авто в Ужгороді",
+      sectionCars: "АВТОМОБІЛІ REIZ В УЖГОРОДІ",
+      sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ УЖГОРОД",
+      subtitle:
+        "Оренда авто в Ужгороді — нові автомобілі 2024 року, швидке оформлення та зручний виїзд до кордону ЄС.",
+      ogTitle: "Оренда авто Ужгород без водія — REIZ | Без застави",
+      ogDescription:
+        "Прокат авто в Ужгороді. Без застави. Безкоштовна подача. Зручний виїзд до кордону. Нові авто 24/7.",
+    },
+    ru: {
+      title: "Аренда авто в Ужгороде без залога | REIZ — Новые машины 2024",
+      metaDescription:
+        "Прокат авто в Ужгороде. Удобный выезд к границе ЕС и в Карпаты. Новые авто 2023-2024. Бесплатная подача по городу 24/7. Бронируйте!",
+      h1: "Аренда авто в Ужгороде",
+      sectionCars: "АВТОМОБИЛИ REIZ В УЖГОРОДЕ",
+      sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ УЖГОРОД",
+      subtitle:
+        "Аренда авто в Ужгороде — новые автомобили 2024 года, быстрое оформление и удобный выезд к границе.",
+      ogTitle: "Аренда авто Ужгород без водителя — REIZ | Без залога",
+      ogDescription:
+        "Прокат авто в Ужгороде. Без залога. Бесплатная подача по городу. Удобный выезд к границе. 24/7.",
+    },
+    en: {
+      title: "Car Rental Uzhhorod | REIZ — No Deposit, New Fleet 2024",
+      metaDescription:
+        "Rent a car in Uzhhorod. Easy border crossing to EU. New 2023-2024 fleet. Free city delivery 24/7. Book your self-drive now!",
+      h1: "Car Rental in Uzhhorod",
+      sectionCars: "REIZ CARS IN UZHHOROD",
+      sectionWelcome: "WELCOME TO REIZ UZHHOROD",
+      subtitle:
+        "Car rental in Uzhhorod — new 2024 fleet, fast paperwork, and convenient EU border crossing access.",
+      ogTitle: "Car Rental Uzhhorod — REIZ | No Deposit, Free Delivery",
+      ogDescription:
+        "Rent a car in Uzhhorod. No deposit. Free city delivery. Easy border access. New fleet 24/7.",
+    },
+  },
+  vinnytsia: {
+    uk: {
+      title: "Оренда авто у Вінниці без застави | REIZ — Швидка видача",
+      metaDescription:
+        "Прокат авто у Вінниці для ділових поїздок. Нові машини 2023-2024. Без ліміту пробігу. Безкоштовна подача в центр 24/7. Бронюйте офіційно!",
+      h1: "Оренда авто у Вінниці",
+      sectionCars: "АВТОМОБІЛІ REIZ У ВІННИЦІ",
+      sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ВІННИЦЯ",
+      subtitle:
+        "Оренда авто у Вінниці — ідеальний варіант для ділових поїздок та комфортних подорожей по центру України.",
+      ogTitle: "Оренда авто Вінниця без водія — REIZ | Без застави",
+      ogDescription:
+        "Прокат авто у Вінниці. Без застави. Нові авто 2024. Безкоштовна подача. Швидка видача 24/7.",
+    },
+    ru: {
+      title: "Аренда авто в Виннице без залога | REIZ — Быстрое оформление",
+      metaDescription:
+        "Прокат авто в Виннице для деловых поездок. Новые машины 2023-2024. Без лимита пробега. Бесплатная подача в центр 24/7. Бронируйте!",
+      h1: "Аренда авто в Виннице",
+      sectionCars: "АВТОМОБИЛИ REIZ В ВИННИЦЕ",
+      sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ВИННИЦА",
+      subtitle:
+        "Аренда авто в Виннице — идеальный вариант для деловых поездок и комфортных путешествий по центру Украины.",
+      ogTitle: "Аренда авто Винница без водителя — REIZ | Без залога",
+      ogDescription:
+        "Прокат авто в Виннице. Без залога. Новые авто 2024. Бесплатная подача. Быстрое оформление 24/7.",
+    },
+    en: {
+      title: "Car Rental Vinnytsia | REIZ — No Deposit, Unlimited Mileage",
+      metaDescription:
+        "Rent a car in Vinnytsia for business trips. New 2023-2024 fleet. Unlimited mileage. Free city delivery 24/7. Book your self-drive now!",
+      h1: "Car Rental in Vinnytsia",
+      sectionCars: "REIZ CARS IN VINNYTSIA",
+      sectionWelcome: "WELCOME TO REIZ VINNYTSIA",
+      subtitle:
+        "Car rental in Vinnytsia — ideal for business trips and comfortable travel across central Ukraine.",
+      ogTitle: "Car Rental Vinnytsia — REIZ | No Deposit, Self-Drive",
+      ogDescription:
+        "Rent a car in Vinnytsia. No deposit. New 2024 fleet. Free city delivery. Fast pickup 24/7.",
+    },
+  },
+  zaporizhzhia: {
+    uk: {
+      title: "Оренда авто у Запоріжжі без застави | REIZ — Нові авто",
+      metaDescription:
+        "Прокат авто у Запоріжжі офіційно. Нові машини 2023-2024. Без ліміту пробігу. Безкоштовна подача по місту 24/7. Швидка видача. Бронюйте!",
+      h1: "Оренда авто у Запоріжжі",
+      sectionCars: "АВТОМОБІЛІ REIZ У ЗАПОРІЖЖІ",
+      sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЗАПОРІЖЖЯ",
+      subtitle:
+        "Оренда авто у Запоріжжі — надійні нові автомобілі, офіційне оформлення та швидка подача по місту.",
+      ogTitle: "Оренда авто Запоріжжя без водія — REIZ | Без застави",
+      ogDescription:
+        "Прокат авто у Запоріжжі. Без застави. Нові авто 2024. Безкоштовна подача. Швидка видача 24/7.",
+    },
+    ru: {
+      title: "Аренда авто в Запорожье без залога | REIZ — Новые машины",
+      metaDescription:
+        "Прокат авто в Запорожье официально. Новые машины 2023-2024. Без лимита пробега. Бесплатная подача по городу 24/7. Быстрое оформление!",
+      h1: "Аренда авто в Запорожье",
+      sectionCars: "АВТОМОБИЛИ REIZ В ЗАПОРОЖЬЕ",
+      sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЗАПОРОЖЬЕ",
+      subtitle:
+        "Аренда авто в Запорожье — надежные новые автомобили, официальное оформление и быстрая подача по городу.",
+      ogTitle: "Аренда авто Запорожье без водителя — REIZ | Без залога",
+      ogDescription:
+        "Прокат авто в Запорожье. Без залога. Новые авто 2024. Бесплатная подача. Быстрое оформление 24/7.",
+    },
+    en: {
+      title: "Car Rental Zaporizhzhia | REIZ — No Deposit, New Fleet",
+      metaDescription:
+        "Rent a car in Zaporizhzhia officially. New 2023-2024 fleet. Unlimited mileage. Free city delivery 24/7. Fast pickup. Book your self-drive!",
+      h1: "Car Rental in Zaporizhzhia",
+      sectionCars: "REIZ CARS IN ZAPORIZHZHIA",
+      sectionWelcome: "WELCOME TO REIZ ZAPORIZHZHIA",
+      subtitle:
+        "Car rental in Zaporizhzhia — reliable new vehicles, official paperwork, and fast city-wide delivery.",
+      ogTitle: "Car Rental Zaporizhzhia — REIZ | No Deposit, Self-Drive",
+      ogDescription:
+        "Rent a car in Zaporizhzhia. No deposit. New 2024 fleet. Free city delivery. Fast pickup 24/7.",
+    },
+  },
+  mukachevo: {
+    uk: {
+      title: "Оренда авто в Мукачеві без застави | REIZ — Виїзд в Карпати",
+      metaDescription:
+        "Прокат авто в Мукачеві офіційно. Зручний виїзд до кордону та в Карпати. Нові машини 2023-2024. Безкоштовна подача 24/7. Швидка видача!",
+      h1: "Оренда авто в Мукачеві",
+      sectionCars: "АВТОМОБІЛІ REIZ В МУКАЧЕВІ",
+      sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ МУКАЧЕВО",
+      subtitle:
+        "Оренда авто в Мукачеві — нові авто для подорожей Закарпаттям, зручний виїзд до кордону та в Карпати.",
+      ogTitle: "Оренда авто Мукачево без водія — REIZ | Без застави",
+      ogDescription:
+        "Прокат авто в Мукачеві. Без застави. Зручний виїзд в Карпати та до кордону. Безкоштовна подача 24/7.",
+    },
+    ru: {
+      title: "Аренда авто в Мукачеве без залога | REIZ — Выезд в Карпаты",
+      metaDescription:
+        "Прокат авто в Мукачеве официально. Удобный выезд к границе ЕС и в Карпаты. Новые машины 2023-2024. Бесплатная подача 24/7. Бронируйте!",
+      h1: "Аренда авто в Мукачеве",
+      sectionCars: "АВТОМОБИЛИ REIZ В МУКАЧЕВЕ",
+      sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ МУКАЧЕВО",
+      subtitle:
+        "Аренда авто в Мукачеве — новые авто для путешествий по Закарпатью, удобный выезд к границе и в Карпаты.",
+      ogTitle: "Аренда авто Мукачево без водителя — REIZ | Без залога",
+      ogDescription:
+        "Прокат авто в Мукачеве. Без залога. Удобный выезд в Карпаты и к границе. Бесплатная подача 24/7.",
+    },
+    en: {
+      title: "Car Rental Mukachevo | REIZ — No Deposit, Carpathian Trips",
+      metaDescription:
+        "Rent a car in Mukachevo. Easy border crossing and Carpathian mountain access. New 2023-2024 fleet. Free delivery 24/7. Book now!",
+      h1: "Car Rental in Mukachevo",
+      sectionCars: "REIZ CARS IN MUKACHEVO",
+      sectionWelcome: "WELCOME TO REIZ MUKACHEVO",
+      subtitle:
+        "Car rental in Mukachevo — new vehicles for Transcarpathian adventures, easy border crossing and Carpathian access.",
+      ogTitle: "Car Rental Mukachevo — REIZ | No Deposit, Self-Drive",
+      ogDescription:
+        "Rent a car in Mukachevo. No deposit. Easy Carpathian and border access. Free city delivery 24/7.",
+    },
+  },
+  poltava: {
+    uk: {
+      title: "Оренда авто у Полтаві без застави | REIZ — Швидка видача",
+      metaDescription:
+        "Прокат авто у Полтаві для ділових поїздок. Нові машини 2023-2024. Без ліміту пробігу. Безкоштовна подача в центр 24/7. Бронюйте офіційно!",
+      h1: "Оренда авто у Полтаві",
+      sectionCars: "АВТОМОБІЛІ REIZ У ПОЛТАВІ",
+      sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ПОЛТАВА",
+      subtitle:
+        "Оренда авто у Полтаві — комфортні ділові поїздки та подорожі центральною Україною на нових автомобілях.",
+      ogTitle: "Оренда авто Полтава без водія — REIZ | Без застави",
+      ogDescription:
+        "Прокат авто у Полтаві. Без застави. Нові авто 2024. Безкоштовна подача. Швидке оформлення 24/7.",
+    },
+    ru: {
+      title: "Аренда авто в Полтаве без залога | REIZ — Быстрое оформление",
+      metaDescription:
+        "Прокат авто в Полтаве для деловых поездок. Новые машины 2023-2024. Без лимита пробега. Бесплатная подача в центр 24/7. Бронируйте!",
+      h1: "Аренда авто в Полтаве",
+      sectionCars: "АВТОМОБИЛИ REIZ В ПОЛТАВЕ",
+      sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ПОЛТАВА",
+      subtitle:
+        "Аренда авто в Полтаве — комфортные деловые поездки и путешествия по центральной Украине на новых автомобилях.",
+      ogTitle: "Аренда авто Полтава без водителя — REIZ | Без залога",
+      ogDescription:
+        "Прокат авто в Полтаве. Без залога. Новые авто 2024. Бесплатная подача. Быстрое оформление 24/7.",
+    },
+    en: {
+      title: "Car Rental Poltava | REIZ — No Deposit, Unlimited Mileage",
+      metaDescription:
+        "Rent a car in Poltava for business trips. New 2023-2024 fleet. Unlimited mileage. Free city delivery 24/7. Book your self-drive now!",
+      h1: "Car Rental in Poltava",
+      sectionCars: "REIZ CARS IN POLTAVA",
+      sectionWelcome: "WELCOME TO REIZ POLTAVA",
+      subtitle:
+        "Car rental in Poltava — comfortable business trips and travel across central Ukraine in new vehicles.",
+      ogTitle: "Car Rental Poltava — REIZ | No Deposit, Self-Drive",
+      ogDescription:
+        "Rent a car in Poltava. No deposit. New 2024 fleet. Free city delivery. Fast pickup 24/7.",
+    },
+  },
+  chernivtsi: {
+    uk: {
+      title: "Оренда авто у Чернівцях без застави | REIZ — Виїзд до кордону",
+      metaDescription:
+        "Прокат авто у Чернівцях офіційно. Зручний виїзд до кордону з Румунією та Молдовою. Нові машини 2023-2024. Безкоштовна подача 24/7!",
+      h1: "Оренда авто у Чернівцях",
+      sectionCars: "АВТОМОБІЛІ REIZ У ЧЕРНІВЦЯХ",
+      sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЧЕРНІВЦІ",
+      subtitle:
+        "Оренда авто у Чернівцях — нові авто для подорожей Буковиною, зручний виїзд до кордону та в Карпати.",
+      ogTitle: "Оренда авто Чернівці без водія — REIZ | Без застави",
+      ogDescription:
+        "Прокат авто у Чернівцях. Без застави. Зручний виїзд до кордону. Безкоштовна подача по місту 24/7.",
+    },
+    ru: {
+      title: "Аренда авто в Черновцах без залога | REIZ — Выезд к границе",
+      metaDescription:
+        "Прокат авто в Черновцах официально. Удобный выезд к границе с Румынией и Молдовой. Новые машины 2023-2024. Бесплатная подача 24/7!",
+      h1: "Аренда авто в Черновцах",
+      sectionCars: "АВТОМОБИЛИ REIZ В ЧЕРНОВЦАХ",
+      sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЧЕРНОВЦЫ",
+      subtitle:
+        "Аренда авто в Черновцах — новые авто для путешествий по Буковине, удобный выезд к границе и в Карпаты.",
+      ogTitle: "Аренда авто Черновцы без водителя — REIZ | Без залога",
+      ogDescription:
+        "Прокат авто в Черновцах. Без залога. Удобный выезд к границе. Бесплатная подача по городу 24/7.",
+    },
+    en: {
+      title: "Car Rental Chernivtsi | REIZ — No Deposit, Border Access",
+      metaDescription:
+        "Rent a car in Chernivtsi. Easy border crossing to Romania and Moldova. New 2023-2024 fleet. Free city delivery 24/7. Book now!",
+      h1: "Car Rental in Chernivtsi",
+      sectionCars: "REIZ CARS IN CHERNIVTSI",
+      sectionWelcome: "WELCOME TO REIZ CHERNIVTSI",
+      subtitle:
+        "Car rental in Chernivtsi — new vehicles for Bukovyna adventures, easy border crossing and Carpathian access.",
+      ogTitle: "Car Rental Chernivtsi — REIZ | No Deposit, Self-Drive",
+      ogDescription:
+        "Rent a car in Chernivtsi. No deposit. Easy border access to Romania and Moldova. Free delivery 24/7.",
+    },
+  },
+  boryspil: {
+    uk: {
+      title: "Оренда авто в Борисполі без застави | REIZ — Аеропорт 24/7",
+      metaDescription:
+        "Прокат авто в Борисполі з подачею в аеропорт. Зустріч з рейсу 24/7. Нові машини 2023-2024. Швидке оформлення. Без ліміту пробігу!",
+      h1: "Оренда авто в Борисполі",
+      sectionCars: "АВТОМОБІЛІ REIZ В БОРИСПОЛІ",
+      sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ БОРИСПІЛЬ",
+      subtitle:
+        "Оренда авто в Борисполі — зустріч в аеропорту, швидке оформлення та комфортний трансфер на нових автомобілях.",
+      ogTitle: "Оренда авто Бориспіль аеропорт — REIZ | Без застави",
+      ogDescription:
+        "Прокат авто в Борисполі. Без застави. Зустріч з рейсу в аеропорту. Нові авто 24/7. Швидка видача.",
+    },
+    ru: {
+      title: "Аренда авто в Борисполе без залога | REIZ — Аэропорт 24/7",
+      metaDescription:
+        "Прокат авто в Борисполе с подачей в аэропорт. Встреча с рейса 24/7. Новые машины 2023-2024. Быстрое оформление. Без лимита пробега!",
+      h1: "Аренда авто в Борисполе",
+      sectionCars: "АВТОМОБИЛИ REIZ В БОРИСПОЛЕ",
+      sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ БОРИСПОЛЬ",
+      subtitle:
+        "Аренда авто в Борисполе — встреча в аэропорту, быстрое оформление и комфортный трансфер на новых автомобилях.",
+      ogTitle: "Аренда авто Борисполь аэропорт — REIZ | Без залога",
+      ogDescription:
+        "Прокат авто в Борисполе. Без залога. Встреча с рейса в аэропорту. Новые авто 24/7. Быстрая выдача.",
+    },
+    en: {
+      title: "Car Rental Boryspil Airport | REIZ — No Deposit, 24/7 Pickup",
+      metaDescription:
+        "Rent a car at Boryspil Airport. Flight meet and greet 24/7. New 2023-2024 fleet. Fast paperwork. Unlimited mileage. Book your self-drive!",
+      h1: "Car Rental in Boryspil",
+      sectionCars: "REIZ CARS IN BORYSPIL",
+      sectionWelcome: "WELCOME TO REIZ BORYSPIL",
+      subtitle:
+        "Car rental in Boryspil — airport meet and greet, fast paperwork, and comfortable transfers in new vehicles.",
+      ogTitle: "Car Rental Boryspil Airport — REIZ | No Deposit, Self-Drive",
+      ogDescription:
+        "Rent a car at Boryspil Airport. No deposit. Flight meet and greet 24/7. New fleet. Fast pickup.",
     },
   },
 };

@@ -23,11 +23,11 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE_ORIGIN),
     title: {
-      default: "Оренда авто у Львові — подача по місту та в аеропорт | REIZ",
+      default: "Оренда та прокат авто в Україні без застави | REIZ",
       template: "%s | REIZ",
     },
     description:
-      "Оренда автомобілів у Львові. Сучасні авто, преміум‑сервіс, подача за адресою, 24/7.",
+      "Прокат авто по Україні без застави. Нові машини 2023-2024, подача 24/7, безкоштовна доставка по місту. Київ, Львів, Одеса та інші міста.",
     alternates: {
       canonical: "/",
       languages: {
@@ -43,23 +43,23 @@ export async function generateMetadata({
       siteName: SITE_NAME,
       locale: "uk_UA",
       alternateLocale: ["ru_UA", "en_US"],
-      title: "Оренда авто у Львові — REIZ RENTAL CARS",
+      title: "Оренда авто в Україні без застави | REIZ",
       description:
-        "Прокат автомобілів у Львові. Нові авто, преміальний сервіс, адресна доставка, підтримка 24/7.",
+        "Прокат авто по Україні. Нові машини, подача 24/7, безкоштовна доставка. Київ, Львів, Одеса, Дніпро та інші міста.",
       images: [
         {
           url: `${SITE_ORIGIN}/img/og/home.webp`,
           width: 1200,
           height: 630,
-          alt: "REIZ Rental Cars — Львів",
+          alt: "REIZ — Оренда авто в Україні",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Оренда авто у Львові — REIZ RENTAL CARS",
+      title: "Оренда авто в Україні без застави | REIZ",
       description:
-        "Прокат авто у Львові: нові авто, подача за адресою, підтримка 24/7.",
+        "Прокат авто по Україні: нові машини, подача 24/7, безкоштовна доставка по місту.",
       images: [`${SITE_ORIGIN}/img/og/home.webp`],
     },
     robots: {

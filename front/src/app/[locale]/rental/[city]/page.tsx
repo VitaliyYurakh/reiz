@@ -82,7 +82,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "website",
-      siteName: "REIZ RENTAL CARS",
+      siteName: "REIZ",
       title: cityData.ogTitle,
       description: cityData.ogDescription,
       images: [{ url: `${baseUrl}/img/og/home.webp` }],

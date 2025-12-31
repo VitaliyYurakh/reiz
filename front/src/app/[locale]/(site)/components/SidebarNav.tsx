@@ -35,6 +35,13 @@ export default function SidebarNav() {
         { href: "/rental/bukovel", label: t("nav.cars_link7") },
         { href: "/rental/truskavets", label: t("nav.cars_link8") },
         { href: "/rental/ivano-frankivsk", label: t("nav.cars_link9") },
+        { href: "/rental/uzhhorod", label: t("nav.cars_link10") },
+        { href: "/rental/vinnytsia", label: t("nav.cars_link11") },
+        { href: "/rental/mukachevo", label: t("nav.cars_link12") },
+        { href: "/rental/chernivtsi", label: t("nav.cars_link13") },
+        { href: "/rental/poltava", label: t("nav.cars_link14") },
+        { href: "/rental/zaporizhzhia", label: t("nav.cars_link15") },
+        { href: "/rental/boryspil", label: t("nav.cars_link16") },
       ],
     },
     { href: "/insurance", label: t("nav.insurance") },
@@ -98,7 +105,7 @@ export default function SidebarNav() {
                     )}
                     style={{
                       maxHeight: openAcc
-                        ? `${ref.current?.scrollHeight}px`
+                        ? `${ref.current?.scrollHeight ?? 500}px`
                         : "0px",
                       overflow: openAcc ? "visible" : "hidden",
                     }}

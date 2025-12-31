@@ -56,7 +56,7 @@ export async function generateMetadata({
         },
         openGraph: {
             type: "website",
-            siteName: "REIZ RENTAL CARS",
+            siteName: "REIZ",
             title,
             description,
             url: `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`,
