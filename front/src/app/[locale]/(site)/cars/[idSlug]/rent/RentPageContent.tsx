@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "classnames";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   type ChangeEvent,
   useCallback,
@@ -14,7 +14,7 @@ import { createPortal } from "react-dom";
 import { Tooltip } from "react-tooltip";
 
 import { useCarModal } from "@/app/[locale]/(site)/cars/[idSlug]/components/modals";
-import CustomSelect from "@/app/[locale]/components/CustomSelect";
+import LocationSelect from "@/app/[locale]/components/LocationSelect";
 import TelInput from "@/components/TelInput";
 import { Link } from "@/i18n/request";
 import type { Car, CarCountingRule } from "@/types/cars";
@@ -23,6 +23,7 @@ import { BASE_URL } from "@/config/environment";
 import { useSideBarModal } from "@/components/modals";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { useCurrency } from "@/context/CurrencyContext";
+import { useRentalSearchOptional } from "@/context/RentalSearchContext";
 
 type ExtraDefinition = {
   id: "additionalDriver" | "childSeat" | "borderCrossing" | "driverService";
@@ -119,6 +120,10 @@ export default function RentPageContent({
     "managerWillContactYouModal",
   );
   const { formatPrice, formatDeposit } = useCurrency();
+  const locale = useLocale() as "uk" | "ru" | "en";
+  const rentalSearchContext = useRentalSearchOptional();
+  const contextPickupLocation = rentalSearchContext?.pickupLocation ?? "";
+  const contextReturnLocation = rentalSearchContext?.returnLocation ?? "";
 
   const [formState, setFormState] = useState<FormState>(() => ({
     ...DEFAULT_FORM_STATE,
@@ -184,10 +189,16 @@ export default function RentPageContent({
     [],
   );
 
-  const locationOptions = useMemo(
-    () => (t.raw("locations.options") as string[]) ?? [],
-    [t],
-  );
+  // Initialize form with context locations if available
+  useEffect(() => {
+    if (contextPickupLocation || contextReturnLocation) {
+      setFormState((prev) => ({
+        ...prev,
+        pickupLocation: contextPickupLocation || prev.pickupLocation,
+        returnLocation: contextReturnLocation || prev.returnLocation,
+      }));
+    }
+  }, [contextPickupLocation, contextReturnLocation]);
 
   const clearFieldError = useCallback((field: keyof FormState) => {
     setInvalidFields((prev) => {
@@ -428,9 +439,8 @@ export default function RentPageContent({
           <div className="rent-page__main">
             <form className="rent-page__form-card" onSubmit={handleSubmit}>
               <div className="rent-page__search">
-                <CustomSelect
+                <LocationSelect
                   placeholder={t("personal.pickupPlaceholder")}
-                  options={locationOptions}
                   containerClassName={clsx("rent-page__select", {
                     "custom-select--error": invalidFields.has("pickupLocation"),
                   })}
@@ -438,10 +448,11 @@ export default function RentPageContent({
                   value={formState.pickupLocation}
                   onChange={handleSelectChange("pickupLocation")}
                   containerRef={setFieldRef("pickupLocation")}
+                  locale={locale}
+                  locationType="pickup"
                 />
-                <CustomSelect
+                <LocationSelect
                   placeholder={t("personal.returnPlaceholder")}
-                  options={locationOptions}
                   containerClassName={clsx("rent-page__select", {
                     "custom-select--error": invalidFields.has("returnLocation"),
                   })}
@@ -449,6 +460,8 @@ export default function RentPageContent({
                   value={formState.returnLocation}
                   onChange={handleSelectChange("returnLocation")}
                   containerRef={setFieldRef("returnLocation")}
+                  locale={locale}
+                  locationType="return"
                 />
                 <label
                   className="rent-page__date-field"

@@ -984,6 +984,730 @@ export const cityLocalizations: Record<
   },
 };
 
+// Інтерфейс для місць подачі авто
+export interface PickupLocation {
+  id: string;
+  name: {
+    uk: string;
+    ru: string;
+    en: string;
+  };
+  type: "railway" | "bus" | "airport" | "mall" | "center" | "other";
+}
+
+// Популярні місця подачі для кожного міста
+export const cityPickupLocations: Record<string, PickupLocation[]> = {
+  kyiv: [
+    {
+      id: "kyiv-railway",
+      name: {
+        uk: "Центральний залізничний вокзал",
+        ru: "Центральный ж/д вокзал",
+        en: "Central Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "kyiv-bus",
+      name: {
+        uk: "Автовокзал «Центральний»",
+        ru: "Автовокзал «Центральный»",
+        en: "Central Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "kyiv-boryspil",
+      name: {
+        uk: "Аеропорт «Бориспіль» (KBP)",
+        ru: "Аэропорт «Борисполь» (KBP)",
+        en: "Boryspil Airport (KBP)",
+      },
+      type: "airport",
+    },
+    {
+      id: "kyiv-ocean-plaza",
+      name: {
+        uk: "ТРЦ Ocean Plaza",
+        ru: "ТРЦ Ocean Plaza",
+        en: "Ocean Plaza Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "kyiv-maidan",
+      name: {
+        uk: "Майдан Незалежності",
+        ru: "Майдан Независимости",
+        en: "Maidan Nezalezhnosti",
+      },
+      type: "center",
+    },
+  ],
+  lviv: [
+    {
+      id: "lviv-railway",
+      name: {
+        uk: "Головний залізничний вокзал",
+        ru: "Главный ж/д вокзал",
+        en: "Main Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "lviv-bus",
+      name: {
+        uk: "Автостанція №8 (Стрийська)",
+        ru: "Автостанция №8 (Стрыйская)",
+        en: "Bus Station №8 (Stryiska)",
+      },
+      type: "bus",
+    },
+    {
+      id: "lviv-airport",
+      name: {
+        uk: "Аеропорт «Львів» (LWO)",
+        ru: "Аэропорт «Львов» (LWO)",
+        en: "Lviv Airport (LWO)",
+      },
+      type: "airport",
+    },
+    {
+      id: "lviv-forum",
+      name: {
+        uk: "ТРЦ Forum Lviv",
+        ru: "ТРЦ Forum Lviv",
+        en: "Forum Lviv Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "lviv-rynok",
+      name: {
+        uk: "Площа Ринок",
+        ru: "Площадь Рынок",
+        en: "Rynok Square",
+      },
+      type: "center",
+    },
+  ],
+  odesa: [
+    {
+      id: "odesa-railway",
+      name: {
+        uk: "Залізничний вокзал «Одеса-Головна»",
+        ru: "Ж/д вокзал «Одесса-Главная»",
+        en: "Odesa Main Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "odesa-bus",
+      name: {
+        uk: "Автовокзал «Привоз»",
+        ru: "Автовокзал «Привоз»",
+        en: "Pryvoz Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "odesa-airport",
+      name: {
+        uk: "Аеропорт «Одеса» (ODS)",
+        ru: "Аэропорт «Одесса» (ODS)",
+        en: "Odesa Airport (ODS)",
+      },
+      type: "airport",
+    },
+    {
+      id: "odesa-fontan",
+      name: {
+        uk: "ТРЦ Fontan Sky Center",
+        ru: "ТРЦ Fontan Sky Center",
+        en: "Fontan Sky Center Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "odesa-derybasivska",
+      name: {
+        uk: "Дерибасівська вулиця",
+        ru: "Дерибасовская улица",
+        en: "Derybasivska Street",
+      },
+      type: "center",
+    },
+  ],
+  dnipro: [
+    {
+      id: "dnipro-railway",
+      name: {
+        uk: "Залізничний вокзал «Дніпро-Головний»",
+        ru: "Ж/д вокзал «Днепр-Главный»",
+        en: "Dnipro Main Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "dnipro-bus",
+      name: {
+        uk: "Центральний автовокзал",
+        ru: "Центральный автовокзал",
+        en: "Central Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "dnipro-airport",
+      name: {
+        uk: "Аеропорт «Дніпро» (DNK)",
+        ru: "Аэропорт «Днепр» (DNK)",
+        en: "Dnipro Airport (DNK)",
+      },
+      type: "airport",
+    },
+    {
+      id: "dnipro-most-city",
+      name: {
+        uk: "ТРЦ MOST-city",
+        ru: "ТРЦ MOST-city",
+        en: "MOST-city Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "dnipro-european",
+      name: {
+        uk: "Європейська площа",
+        ru: "Европейская площадь",
+        en: "European Square",
+      },
+      type: "center",
+    },
+  ],
+  kharkiv: [
+    {
+      id: "kharkiv-railway",
+      name: {
+        uk: "Залізничний вокзал «Харків-Пасажирський»",
+        ru: "Ж/д вокзал «Харьков-Пассажирский»",
+        en: "Kharkiv Passenger Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "kharkiv-bus",
+      name: {
+        uk: "Центральний автовокзал",
+        ru: "Центральный автовокзал",
+        en: "Central Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "kharkiv-nikolsky",
+      name: {
+        uk: "ТРЦ Нікольський",
+        ru: "ТРЦ Никольский",
+        en: "Nikolsky Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "kharkiv-svobody",
+      name: {
+        uk: "Площа Свободи",
+        ru: "Площадь Свободы",
+        en: "Freedom Square",
+      },
+      type: "center",
+    },
+  ],
+  ternopil: [
+    {
+      id: "ternopil-railway",
+      name: {
+        uk: "Залізничний вокзал «Тернопіль»",
+        ru: "Ж/д вокзал «Тернополь»",
+        en: "Ternopil Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "ternopil-bus",
+      name: {
+        uk: "Центральний автовокзал",
+        ru: "Центральный автовокзал",
+        en: "Central Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "ternopil-podillia",
+      name: {
+        uk: "ТРЦ «Поділля City»",
+        ru: "ТРЦ «Подолье City»",
+        en: "Podillia City Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "ternopil-teatralna",
+      name: {
+        uk: "Театральна площа",
+        ru: "Театральная площадь",
+        en: "Theatre Square",
+      },
+      type: "center",
+    },
+  ],
+  uzhhorod: [
+    {
+      id: "uzhhorod-railway",
+      name: {
+        uk: "Залізничний вокзал «Ужгород»",
+        ru: "Ж/д вокзал «Ужгород»",
+        en: "Uzhhorod Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "uzhhorod-bus",
+      name: {
+        uk: "Автовокзал «Ужгород»",
+        ru: "Автовокзал «Ужгород»",
+        en: "Uzhhorod Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "uzhhorod-dastор",
+      name: {
+        uk: "ТРЦ «Дастор»",
+        ru: "ТРЦ «Дастор»",
+        en: "Dastor Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "uzhhorod-narodna",
+      name: {
+        uk: "Площа Народна",
+        ru: "Народная площадь",
+        en: "Narodna Square",
+      },
+      type: "center",
+    },
+  ],
+  vinnytsia: [
+    {
+      id: "vinnytsia-railway",
+      name: {
+        uk: "Залізничний вокзал «Вінниця»",
+        ru: "Ж/д вокзал «Винница»",
+        en: "Vinnytsia Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "vinnytsia-bus",
+      name: {
+        uk: "Центральний автовокзал",
+        ru: "Центральный автовокзал",
+        en: "Central Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "vinnytsia-airport",
+      name: {
+        uk: "Аеропорт «Вінниця» (VIN)",
+        ru: "Аэропорт «Винница» (VIN)",
+        en: "Vinnytsia Airport (VIN)",
+      },
+      type: "airport",
+    },
+    {
+      id: "vinnytsia-skypark",
+      name: {
+        uk: "ТРЦ Sky Park",
+        ru: "ТРЦ Sky Park",
+        en: "Sky Park Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "vinnytsia-european",
+      name: {
+        uk: "Європейська площа",
+        ru: "Европейская площадь",
+        en: "European Square",
+      },
+      type: "center",
+    },
+  ],
+  mukachevo: [
+    {
+      id: "mukachevo-railway",
+      name: {
+        uk: "Залізничний вокзал «Мукачево»",
+        ru: "Ж/д вокзал «Мукачево»",
+        en: "Mukachevo Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "mukachevo-bus",
+      name: {
+        uk: "Автовокзал «Мукачево»",
+        ru: "Автовокзал «Мукачево»",
+        en: "Mukachevo Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "mukachevo-karpaty",
+      name: {
+        uk: "ТЦ «Карпати»",
+        ru: "ТЦ «Карпаты»",
+        en: "Karpaty Shopping Center",
+      },
+      type: "mall",
+    },
+    {
+      id: "mukachevo-kyryla",
+      name: {
+        uk: "Площа Кирила і Мефодія",
+        ru: "Площадь Кирилла и Мефодия",
+        en: "Cyril and Methodius Square",
+      },
+      type: "center",
+    },
+  ],
+  chernivtsi: [
+    {
+      id: "chernivtsi-railway",
+      name: {
+        uk: "Залізничний вокзал «Чернівці»",
+        ru: "Ж/д вокзал «Черновцы»",
+        en: "Chernivtsi Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "chernivtsi-bus",
+      name: {
+        uk: "Автовокзал «Чернівці»",
+        ru: "Автовокзал «Черновцы»",
+        en: "Chernivtsi Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "chernivtsi-depot",
+      name: {
+        uk: "ТРЦ «Депот»",
+        ru: "ТРЦ «Депот»",
+        en: "Depot Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "chernivtsi-centralna",
+      name: {
+        uk: "Центральна площа",
+        ru: "Центральная площадь",
+        en: "Central Square",
+      },
+      type: "center",
+    },
+  ],
+  poltava: [
+    {
+      id: "poltava-railway",
+      name: {
+        uk: "Залізничний вокзал «Полтава-Київська»",
+        ru: "Ж/д вокзал «Полтава-Киевская»",
+        en: "Poltava-Kyivska Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "poltava-bus",
+      name: {
+        uk: "Центральний автовокзал",
+        ru: "Центральный автовокзал",
+        en: "Central Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "poltava-kyiv-mall",
+      name: {
+        uk: "ТРЦ «Київ»",
+        ru: "ТРЦ «Киев»",
+        en: "Kyiv Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "poltava-kruhly",
+      name: {
+        uk: "Круглий сквер",
+        ru: "Круглый сквер",
+        en: "Round Square",
+      },
+      type: "center",
+    },
+  ],
+  zaporizhzhia: [
+    {
+      id: "zaporizhzhia-railway",
+      name: {
+        uk: "Залізничний вокзал «Запоріжжя-1»",
+        ru: "Ж/д вокзал «Запорожье-1»",
+        en: "Zaporizhzhia-1 Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "zaporizhzhia-bus",
+      name: {
+        uk: "Центральний автовокзал",
+        ru: "Центральный автовокзал",
+        en: "Central Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "zaporizhzhia-airport",
+      name: {
+        uk: "Аеропорт «Запоріжжя» (OZH)",
+        ru: "Аэропорт «Запорожье» (OZH)",
+        en: "Zaporizhzhia Airport (OZH)",
+      },
+      type: "airport",
+    },
+    {
+      id: "zaporizhzhia-city-mall",
+      name: {
+        uk: "ТРЦ City Mall",
+        ru: "ТРЦ City Mall",
+        en: "City Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "zaporizhzhia-festyvalna",
+      name: {
+        uk: "Площа Фестивальна",
+        ru: "Фестивальная площадь",
+        en: "Festival Square",
+      },
+      type: "center",
+    },
+  ],
+  boryspil: [
+    {
+      id: "boryspil-terminal-d",
+      name: {
+        uk: "Аеропорт «Бориспіль» — Термінал D",
+        ru: "Аэропорт «Борисполь» — Терминал D",
+        en: "Boryspil Airport — Terminal D",
+      },
+      type: "airport",
+    },
+    {
+      id: "boryspil-terminal-f",
+      name: {
+        uk: "Аеропорт «Бориспіль» — Термінал F",
+        ru: "Аэропорт «Борисполь» — Терминал F",
+        en: "Boryspil Airport — Terminal F",
+      },
+      type: "airport",
+    },
+    {
+      id: "boryspil-railway",
+      name: {
+        uk: "Залізничний вокзал «Бориспіль»",
+        ru: "Ж/д вокзал «Борисполь»",
+        en: "Boryspil Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "boryspil-center",
+      name: {
+        uk: "Центр міста Бориспіль",
+        ru: "Центр города Борисполь",
+        en: "Boryspil City Center",
+      },
+      type: "center",
+    },
+  ],
+  "ivano-frankivsk": [
+    {
+      id: "ivano-frankivsk-railway",
+      name: {
+        uk: "Залізничний вокзал «Івано-Франківськ»",
+        ru: "Ж/д вокзал «Ивано-Франковск»",
+        en: "Ivano-Frankivsk Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "ivano-frankivsk-bus",
+      name: {
+        uk: "Центральний автовокзал",
+        ru: "Центральный автовокзал",
+        en: "Central Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "ivano-frankivsk-airport",
+      name: {
+        uk: "Аеропорт «Івано-Франківськ» (IFO)",
+        ru: "Аэропорт «Ивано-Франковск» (IFO)",
+        en: "Ivano-Frankivsk Airport (IFO)",
+      },
+      type: "airport",
+    },
+    {
+      id: "ivano-frankivsk-arsen",
+      name: {
+        uk: "ТРЦ «Арсен»",
+        ru: "ТРЦ «Арсен»",
+        en: "Arsen Mall",
+      },
+      type: "mall",
+    },
+    {
+      id: "ivano-frankivsk-viche",
+      name: {
+        uk: "Площа Вічевий Майдан",
+        ru: "Площадь Вечевой Майдан",
+        en: "Viche Maidan Square",
+      },
+      type: "center",
+    },
+  ],
+  bukovel: [
+    {
+      id: "bukovel-resort",
+      name: {
+        uk: "Курорт Буковель — головний вхід",
+        ru: "Курорт Буковель — главный вход",
+        en: "Bukovel Resort — Main Entrance",
+      },
+      type: "center",
+    },
+    {
+      id: "bukovel-lift-8",
+      name: {
+        uk: "Підйомник №8 (Буковель)",
+        ru: "Подъемник №8 (Буковель)",
+        en: "Lift №8 (Bukovel)",
+      },
+      type: "other",
+    },
+    {
+      id: "bukovel-yaremche",
+      name: {
+        uk: "Яремче — залізничний вокзал",
+        ru: "Яремче — ж/д вокзал",
+        en: "Yaremche Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "bukovel-ivano-frankivsk-airport",
+      name: {
+        uk: "Аеропорт «Івано-Франківськ» (IFO)",
+        ru: "Аэропорт «Ивано-Франковск» (IFO)",
+        en: "Ivano-Frankivsk Airport (IFO)",
+      },
+      type: "airport",
+    },
+  ],
+  truskavets: [
+    {
+      id: "truskavets-railway",
+      name: {
+        uk: "Залізничний вокзал «Трускавець»",
+        ru: "Ж/д вокзал «Трускавец»",
+        en: "Truskavets Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "truskavets-bus",
+      name: {
+        uk: "Автовокзал «Трускавець»",
+        ru: "Автовокзал «Трускавец»",
+        en: "Truskavets Bus Station",
+      },
+      type: "bus",
+    },
+    {
+      id: "truskavets-naftusya",
+      name: {
+        uk: "Бювет «Нафтуся»",
+        ru: "Бювет «Нафтуся»",
+        en: "Naftusya Pump Room",
+      },
+      type: "center",
+    },
+    {
+      id: "truskavets-lviv-airport",
+      name: {
+        uk: "Аеропорт «Львів» (LWO)",
+        ru: "Аэропорт «Львов» (LWO)",
+        en: "Lviv Airport (LWO)",
+      },
+      type: "airport",
+    },
+  ],
+  skhidnytsia: [
+    {
+      id: "skhidnytsia-center",
+      name: {
+        uk: "Центр Східниці",
+        ru: "Центр Сходницы",
+        en: "Skhidnytsia Center",
+      },
+      type: "center",
+    },
+    {
+      id: "skhidnytsia-naftusya",
+      name: {
+        uk: "Бювет мінеральних вод",
+        ru: "Бювет минеральных вод",
+        en: "Mineral Water Pump Room",
+      },
+      type: "other",
+    },
+    {
+      id: "skhidnytsia-drohobych",
+      name: {
+        uk: "Дрогобич — залізничний вокзал",
+        ru: "Дрогобыч — ж/д вокзал",
+        en: "Drohobych Railway Station",
+      },
+      type: "railway",
+    },
+    {
+      id: "skhidnytsia-lviv-airport",
+      name: {
+        uk: "Аеропорт «Львів» (LWO)",
+        ru: "Аэропорт «Львов» (LWO)",
+        en: "Lviv Airport (LWO)",
+      },
+      type: "airport",
+    },
+  ],
+};
+
 // Допоміжні функції
 export function getCityBySlug(slug: string): CityConfig | undefined {
   return cities.find((city) => city.slug === slug);
@@ -998,4 +1722,17 @@ export function getCityLocalizedData(
 
 export function getAllCitySlugs(): string[] {
   return cities.map((city) => city.slug);
+}
+
+export function getCityPickupLocations(
+  slug: string,
+  locale: "uk" | "ru" | "en"
+): { id: string; name: string; type: string }[] {
+  const locations = cityPickupLocations[slug];
+  if (!locations) return [];
+  return locations.map((loc) => ({
+    id: loc.id,
+    name: loc.name[locale],
+    type: loc.type,
+  }));
 }

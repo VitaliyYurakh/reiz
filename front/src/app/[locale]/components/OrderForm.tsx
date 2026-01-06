@@ -1,24 +1,22 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, type FormEvent } from "react";
+import { useCallback, useMemo, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { useRentalSearch } from "@/context/RentalSearchContext";
 
-import CustomSelect from "./CustomSelect";
+import LocationSelect from "./LocationSelect";
 
-const formatDate = (date: Date, locale: string) => {
-  const formatted = new Intl.DateTimeFormat(locale, {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  }).format(date);
-  return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+const formatDateWithTime = (date: Date, locale: string) => {
+  const day = date.getDate();
+  const month = new Intl.DateTimeFormat(locale, { month: "short" }).format(date);
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  return `${day} ${month} ${hours}:${minutes}`;
 };
 
 export default function OrderForm() {
-  const locale = useLocale();
-  const tForm = useTranslations("homePage.order_form");
+  const locale = useLocale() as "uk" | "ru" | "en";
   const tPersonal = useTranslations("carRentModal.personal");
   const tOrder = useTranslations("carRentModal.orderForm");
   const {
@@ -31,39 +29,23 @@ export default function OrderForm() {
     openDatePicker,
   } = useRentalSearch();
 
-  const pickupOptions = useMemo(
-    () => [
-      tForm("pickup_option1"),
-      tForm("pickup_option2"),
-      tForm("pickup_option3"),
-    ],
-    [tForm],
+  const handlePickupChange = useCallback(
+    (location: string) => {
+      setPickupLocation(location);
+    },
+    [setPickupLocation]
   );
 
-  const returnOptions = useMemo(
-    () => [
-      tForm("return_option1"),
-      tForm("return_option2"),
-      tForm("return_option3"),
-    ],
-    [tForm],
+  const handleReturnChange = useCallback(
+    (location: string) => {
+      setReturnLocation(location);
+    },
+    [setReturnLocation]
   );
-
-  useEffect(() => {
-    if (!pickupLocation && pickupOptions.length > 0) {
-      setPickupLocation(pickupOptions[0]);
-    }
-  }, [pickupLocation, pickupOptions, setPickupLocation]);
-
-  useEffect(() => {
-    if (!returnLocation && returnOptions.length > 0) {
-      setReturnLocation(returnOptions[0]);
-    }
-  }, [returnLocation, returnOptions, setReturnLocation]);
 
   const dateValue = useMemo(() => {
     if (!startDate || !endDate) return "";
-    return `${formatDate(startDate, locale)} — ${formatDate(endDate, locale)}`;
+    return `${formatDateWithTime(startDate, locale)} — ${formatDateWithTime(endDate, locale)}`;
   }, [endDate, locale, startDate]);
 
   const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
@@ -101,21 +83,23 @@ export default function OrderForm() {
 
   return (
     <form className="order-form" onSubmit={handleSubmit}>
-      <CustomSelect
+      <LocationSelect
         icon="geo"
-        options={pickupOptions}
         value={pickupLocation}
-        onChange={setPickupLocation}
+        onChange={handlePickupChange}
         containerClassName="order"
         placeholder={tPersonal("pickupPlaceholder")}
+        locale={locale}
+        locationType="pickup"
       />
-      <CustomSelect
+      <LocationSelect
         icon="geo"
-        options={returnOptions}
         value={returnLocation}
-        onChange={setReturnLocation}
+        onChange={handleReturnChange}
         containerClassName="order"
         placeholder={tPersonal("returnPlaceholder")}
+        locale={locale}
+        locationType="return"
       />
       <label className="order-form__label" htmlFor="date">
         <span className="order-form__icon" aria-hidden="true">

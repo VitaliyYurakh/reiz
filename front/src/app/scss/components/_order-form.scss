@@ -27,6 +27,12 @@
       white-space: nowrap;
       display: block;
       text-align: start;
+      color: var(--cl-a);
+
+      &::placeholder {
+        color: var(--cl-a);
+        opacity: 1;
+      }
     }
 
     .arrow-down {

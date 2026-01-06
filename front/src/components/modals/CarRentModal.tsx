@@ -1,5 +1,5 @@
 import clsx from "classnames";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   type ChangeEvent,
   type FormEvent,
@@ -15,7 +15,7 @@ import {
   type CarModalSpec,
   useCarModal,
 } from "@/app/[locale]/(site)/cars/[idSlug]/components/modals";
-import CustomSelect from "@/app/[locale]/components/CustomSelect";
+import LocationSelect from "@/app/[locale]/components/LocationSelect";
 import TelInput from "@/components/TelInput";
 import type { CarCountingRule } from "@/types/cars";
 import { BASE_URL } from "@/config/environment";
@@ -103,6 +103,7 @@ export default function CarRentModal({
   const tAside = useTranslations("carAside");
   const { open: openDatePicker } = useCarModal("rangeDateTimePicker");
   const { formatPrice, formatDeposit } = useCurrency();
+  const locale = useLocale() as "uk" | "ru" | "en";
 
   const [step, setStep] = useState<1 | 2>(1);
   const [formState, setFormState] = useState<FormState>(() => ({
@@ -153,11 +154,6 @@ export default function CarRentModal({
     setFormResetKey((value) => value + 1);
     setInvalidFields(new Set());
   }, [data.car.id]);
-
-  const locationOptions = useMemo(
-    () => (t.raw("locations.options") as string[]) ?? [],
-    [t],
-  );
 
   const setFieldRef = useCallback(
     (field: keyof FormState) => (node: HTMLElement | null) => {
@@ -432,25 +428,27 @@ export default function CarRentModal({
         <span className="modal-step__title">{t("title")}</span>
         <form className="modal__content" onSubmit={handleSubmit}>
           <div className="order-form">
-            <CustomSelect
+            <LocationSelect
               placeholder={t("personal.pickupPlaceholder")}
-              options={locationOptions}
               containerClassName={clsx("order", {
                 "custom-select--error": invalidFields.has("pickupLocation"),
               })}
               value={formState.pickupLocation}
               onChange={handleSelectChange("pickupLocation")}
               containerRef={setFieldRef("pickupLocation")}
+              locale={locale}
+              locationType="pickup"
             />
-            <CustomSelect
+            <LocationSelect
               placeholder={t("personal.returnPlaceholder")}
-              options={locationOptions}
               containerClassName={clsx("order", {
                 "custom-select--error": invalidFields.has("returnLocation"),
               })}
               value={formState.returnLocation}
               onChange={handleSelectChange("returnLocation")}
               containerRef={setFieldRef("returnLocation")}
+              locale={locale}
+              locationType="return"
             />
             <label className="order-form__label" onClick={handleSelectDates}>
               <span className="order-form__icon">
@@ -600,9 +598,8 @@ export default function CarRentModal({
                       </span>
                     </label>
 
-                    <CustomSelect
+                    <LocationSelect
                       placeholder={t("personal.pickupPlaceholder")}
-                      options={locationOptions}
                       containerClassName={clsx("rent", {
                         "custom-select--error":
                           invalidFields.has("pickupLocation"),
@@ -610,11 +607,12 @@ export default function CarRentModal({
                       value={formState.pickupLocation}
                       onChange={handleSelectChange("pickupLocation")}
                       containerRef={setFieldRef("pickupLocation")}
+                      locale={locale}
+                      locationType="pickup"
                     />
 
-                    <CustomSelect
+                    <LocationSelect
                       placeholder={t("personal.returnPlaceholder")}
-                      options={locationOptions}
                       containerClassName={clsx("rent", {
                         "custom-select--error":
                           invalidFields.has("returnLocation"),
@@ -622,6 +620,8 @@ export default function CarRentModal({
                       value={formState.returnLocation}
                       onChange={handleSelectChange("returnLocation")}
                       containerRef={setFieldRef("returnLocation")}
+                      locale={locale}
+                      locationType="return"
                     />
 
                     <label className="main-form__label number">

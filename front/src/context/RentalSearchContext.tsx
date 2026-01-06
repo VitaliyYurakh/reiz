@@ -148,3 +148,7 @@ export function useRentalSearch() {
     );
   return ctx;
 }
+
+export function useRentalSearchOptional() {
+  return useContext(RentalSearchContext);
+}
