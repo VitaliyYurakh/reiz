@@ -4,24 +4,32 @@
   padding-bottom: var(--default-gap);
 
   &__inner {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: clamp(24px, 2.9412vw, 40px);
+    row-gap: clamp(60px, 6.6176vw, 90px);
     min-width: 0;
     overflow: visible;
-    padding-top: clamp(20px, 2.2059vw, 30px);
+
+    @include for-tablet {
+      padding-top: clamp(20px, 2.2059vw, 30px);
+    }
 
     @include tablet {
       padding-top: 0;
+      row-gap: clamp(48px, 8vw, 60px);
     }
 
-    // Hero elements spacing
+    @include mobile {
+      row-gap: 40px;
+    }
+
+    // Hero elements spacing (same row, smaller gap)
     .cert__breadcrumb {
-      margin-bottom: 0;
+      margin-bottom: calc(-1 * clamp(36px, 4.4118vw, 60px));
     }
 
     .cert__hero {
-      margin-bottom: clamp(36px, 4.4118vw, 60px);
       max-width: 100%;
     }
 
