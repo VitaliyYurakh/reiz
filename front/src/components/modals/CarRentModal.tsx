@@ -954,15 +954,15 @@ export default function CarRentModal({
               })}
             </li>
             <li className="modal__item">
-              <span className="modal__name">{t("summary.totalLabel")}</span>
-              <span className="modal__value big">
-                {formatPrice(totalCost)}
-              </span>
-            </li>
-            <li className="modal__item">
               <span className="modal__name">{t("summary.depositLabel")}</span>
               <span className="modal__value">
                 <b>{formatDeposit(depositAmount)}</b>
+              </span>
+            </li>
+            <li className="modal__item">
+              <span className="modal__name">{t("summary.totalLabel")}</span>
+              <span className="modal__value big">
+                {formatPrice(totalCost)}
               </span>
             </li>
           </ul>

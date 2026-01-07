@@ -11,6 +11,13 @@ import type { Car, CarCountingRule } from "@/types/cars";
 import { useSideBarModal } from "@/components/modals";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { useCurrency } from "@/context/CurrencyContext";
+import { useRentalSearch, type CoverageOption } from "@/context/RentalSearchContext";
+
+const COVERAGE_TO_PLAN_INDEX: Record<CoverageOption, number> = {
+  deposit: 0,
+  coverage50: 1,
+  coverage100: 2,
+};
 
 const formatFull = (d: Date) => {
   const dd = String(d.getDate()).padStart(2, "0");
@@ -31,23 +38,43 @@ export default function CarAside({ car }: { car: Car }) {
   const locale = useLocale();
   const { formatPrice, formatDeposit } = useCurrency();
 
-  const [selectedPlanId, setSelectedPlanId] = useState<number>(
-    car.carCountingRule[0]?.id || 0,
-  );
+  // Get context values
+  const {
+    startDate: contextStartDate,
+    endDate: contextEndDate,
+    coverageOption,
+  } = useRentalSearch();
+
+  // Initialize plan from context coverage option
+  const getInitialPlanId = () => {
+    const planIndex = COVERAGE_TO_PLAN_INDEX[coverageOption] ?? 0;
+    return car.carCountingRule[planIndex]?.id || car.carCountingRule[0]?.id || 0;
+  };
+
+  const [selectedPlanId, setSelectedPlanId] = useState<number>(getInitialPlanId);
 
   const [isMobile, setIsMobile] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  const now = new Date();
+  // Initialize dates from context or use defaults
+  const getInitialDates = () => {
+    if (contextStartDate && contextEndDate) {
+      return {
+        startDate: contextStartDate,
+        endDate: contextEndDate,
+      };
+    }
+    const now = new Date();
+    return {
+      startDate: new Date(now.setHours(0, 0, 0, 0)),
+      endDate: new Date(new Date(now.setDate(now.getDate() + 7)).setHours(0, 0, 0, 0)),
+    };
+  };
+
   const [selectedDate, setSelectedDate] = useState<{
     startDate: Date;
     endDate: Date;
-  }>({
-    startDate: new Date(now.setHours(0, 0, 0, 0)),
-    endDate: new Date(
-      new Date(now.setDate(now.getDate() + 7)).setHours(0, 0, 0, 0),
-    ),
-  });
+  }>(getInitialDates);
 
   useEffect(() => {
     setIsMounted(true);
@@ -59,6 +86,23 @@ export default function CarAside({ car }: { car: Car }) {
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
+
+  // Update dates when context changes
+  useEffect(() => {
+    if (contextStartDate && contextEndDate) {
+      setSelectedDate({
+        startDate: contextStartDate,
+        endDate: contextEndDate,
+      });
+    }
+  }, [contextStartDate, contextEndDate]);
+
+  // Update plan when coverage option changes
+  useEffect(() => {
+    const planIndex = COVERAGE_TO_PLAN_INDEX[coverageOption] ?? 0;
+    const newPlanId = car.carCountingRule[planIndex]?.id || car.carCountingRule[0]?.id || 0;
+    setSelectedPlanId(newPlanId);
+  }, [coverageOption, car.carCountingRule]);
 
   const handleBook = useCallback(() => {
     if (isMobile) {

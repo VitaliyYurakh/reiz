@@ -83,11 +83,11 @@ export default function CarCard({ car }: CarCardProps) {
 
   const carIdSlug = useMemo(() => createCarIdSlug(car), [car]);
 
-  const rentLink = useMemo(() => {
-    if (!hasDates) {
-      return `/cars/${carIdSlug}`;
-    }
+  // Link to car details page (for image and name)
+  const carDetailsLink = `/cars/${carIdSlug}`;
 
+  // Link to booking page with dates (for button when dates are selected)
+  const bookingLink = useMemo(() => {
     const params = new URLSearchParams();
     if (startDate) params.set("startDate", startDate.toISOString());
     if (endDate) params.set("endDate", endDate.toISOString());
@@ -95,7 +95,7 @@ export default function CarCard({ car }: CarCardProps) {
 
     const query = params.toString();
     return `/cars/${carIdSlug}/rent${query ? `?${query}` : ""}`;
-  }, [carIdSlug, endDate, hasDates, selectedPlan?.id, startDate]);
+  }, [carIdSlug, endDate, selectedPlan?.id, startDate]);
 
   const coverageOptions: {
     key: CoverageOption;
@@ -128,7 +128,7 @@ export default function CarCard({ car }: CarCardProps) {
 
   return (
     <li className="car-card">
-      <Link href={rentLink} className="car-card__image">
+      <Link href={carDetailsLink} className="car-card__image">
         <picture>
           <source type="image/webp" />
           <img
@@ -142,7 +142,7 @@ export default function CarCard({ car }: CarCardProps) {
 
       <div className="car-card__box">
         <div className="car-card__top">
-          <Link href={rentLink} className="car-card__name">
+          <Link href={carDetailsLink} className="car-card__name">
             {car.brand} {car.model}
           </Link>
           {car.isNew && <span className="car-card__label">NEW</span>}
@@ -304,7 +304,7 @@ export default function CarCard({ car }: CarCardProps) {
             </span>
           </div>
         )}
-        <Link href={rentLink} className="main-button">
+        <Link href={hasDates ? bookingLink : carDetailsLink} className="main-button">
           {hasDates ? tCatalog("actions.book") : tCatalog("actions.details")}
         </Link>
       </div>

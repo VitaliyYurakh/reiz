@@ -9,7 +9,6 @@ import SchemaOrg from "@/app/[locale]/components/SchemaOrg";
 import EditorSection from "@/app/[locale]/components/EditorSection";
 import Footer from "@/components/Footer";
 import { CatalogFiltersProvider } from "@/context/CatalogFiltersContext";
-import { RentalSearchProvider } from "@/context/RentalSearchContext";
 import { fetchCars } from "@/lib/api/cars";
 import { getPageMetadata } from "@/lib/seo";
 import type { Locale } from "@/i18n/request";
@@ -32,19 +31,17 @@ export default async function Home() {
 
   return (
     <CatalogFiltersProvider>
-      <RentalSearchProvider>
-        <Header />
-        <main className="main">
-          <SchemaOrg />
-          <HeroSection />
-          <Catalog cars={cars} />
-          <Advantages />
-          <Rent />
-          <EditorSection />
-          <FAQ />
-        </main>
-        <Footer />
-      </RentalSearchProvider>
+      <Header />
+      <main className="main">
+        <SchemaOrg />
+        <HeroSection />
+        <Catalog cars={cars} />
+        <Advantages />
+        <Rent />
+        <EditorSection />
+        <FAQ />
+      </main>
+      <Footer />
     </CatalogFiltersProvider>
   );
 }

@@ -58,7 +58,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     description: descriptions[locale],
     telephone: "+380635471186",
     email: "info@reiz.com.ua",
-    priceRange: "800-3000 UAH",
+    priceRange: "$$",
     currenciesAccepted: "UAH, USD, EUR",
     paymentAccepted: "Cash, Credit Card, Bank Transfer",
     address: {

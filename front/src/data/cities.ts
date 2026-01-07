@@ -278,426 +278,417 @@ export const cityLocalizations: Record<
 > = {
   kyiv: {
     uk: {
-      title: "Оренда авто у Києві | REIZ - від 800 грн/день",
+      title: "Оренда авто у Києві без застави — Аеропорт Бориспіль 24/7",
       metaDescription:
-        "Оренда авто у Києві від REIZ. Сучасний автопарк, доставка в аеропорт Бориспіль та по місту. Від економ до преміум класу. Бронювання 24/7.",
+        "Прокат авто у Києві офіційно. Подача в аеропорт Бориспіль та по місту 24/7. Нові машини 2023-2024. Швидке оформлення. Бронюйте онлайн!",
       h1: "Оренда авто у Києві",
       sectionCars: "АВТОМОБІЛІ REIZ У КИЄВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ КИЇВ",
       subtitle:
         "Оренда авто у Києві від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Київ без водія — REIZ | Прокат від 800 грн/день",
+      ogTitle: "Оренда авто Київ без водія — REIZ | Подача в аеропорт 24/7",
       ogDescription:
-        "Прокат автомобілів у Києві. Без застави. Доставка по місту та в аеропорт Бориспіль. Сучасний автопарк від економ до преміум класу.",
+        "Прокат авто у Києві. Без застави. Подача в аеропорт Бориспіль та по місту. Нові авто 2024. Швидке оформлення.",
     },
     ru: {
-      title: "Аренда авто в Киеве | REIZ - от 800 грн/день",
+      title: "Аренда авто в Киеве без залога — Аэропорт Борисполь 24/7",
       metaDescription:
-        "Аренда авто в Киеве от REIZ. Современный автопарк, доставка в аэропорт Борисполь и по городу. От эконом до премиум класса. Бронирование 24/7.",
+        "Прокат авто в Киеве официально. Подача в аэропорт Борисполь и по городу 24/7. Новые машины 2023-2024. Быстрое оформление. Бронируйте онлайн!",
       h1: "Аренда авто в Киеве",
       sectionCars: "АВТОМОБИЛИ REIZ В КИЕВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ КИЕВ",
       subtitle:
         "Аренда авто в Киеве от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle: "Аренда авто Киев без водителя — REIZ | Прокат от 800 грн/день",
+      ogTitle: "Аренда авто Киев без водителя — REIZ | Подача в аэропорт 24/7",
       ogDescription:
-        "Прокат автомобилей в Киеве. Без залога. Доставка по городу и в аэропорт Борисполь. Современный автопарк от эконом до премиум класса.",
+        "Прокат авто в Киеве. Без залога. Подача в аэропорт Борисполь и по городу. Новые авто 2024. Быстрое оформление.",
     },
     en: {
-      title: "Car Rental in Kyiv | REIZ - from 800 UAH/day",
+      title: "Car Rental Kyiv — No Deposit, Boryspil Airport 24/7",
       metaDescription:
-        "Car rental in Kyiv from REIZ. Modern fleet, delivery to Boryspil Airport and city-wide. From economy to premium class. Booking 24/7.",
+        "Rent a car in Kyiv officially. Delivery to Boryspil Airport and city-wide 24/7. New 2023-2024 fleet. Fast paperwork. Book online now!",
       h1: "Car Rental in Kyiv",
       sectionCars: "REIZ CARS IN KYIV",
       sectionWelcome: "WELCOME TO REIZ KYIV",
       subtitle:
         "Car rental in Kyiv from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Kyiv — REIZ | Rent from 800 UAH/day",
+      ogTitle: "Car Rental Kyiv — REIZ | No Deposit, Airport Delivery 24/7",
       ogDescription:
-        "Car rental in Kyiv. No deposit. Delivery throughout the city and to Boryspil Airport. Modern fleet from economy to premium class.",
+        "Rent a car in Kyiv. No deposit. Delivery to Boryspil Airport and city-wide. New 2024 fleet. Fast paperwork.",
     },
   },
   lviv: {
     uk: {
-      title: "Оренда авто у Львові | REIZ - від 800 грн/день",
+      title: "Прокат авто Львів: Без ліміту пробігу. Нові моделі",
       metaDescription:
-        "Оренда авто у Львові від REIZ. Сучасний автопарк, доставка в аеропорт та по місту. Від економ до преміум класу. Бронювання 24/7.",
+        "Оренда машин для поїздок по місту та Карпатах. Оформлення за 15 хв. Стандартні тарифи або опція «Без застави». Підтримка в дорозі 24/7.",
       h1: "Оренда авто у Львові",
       sectionCars: "АВТОМОБІЛІ REIZ У ЛЬВОВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЛЬВІВ",
       subtitle:
         "Оренда авто у Львові від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Львів без водія — REIZ | Прокат від 800 грн/день",
+      ogTitle: "Оренда авто Львів без водія — REIZ | Подача 24/7 в аеропорт",
       ogDescription:
-        "Прокат автомобілів у Львові. Без застави. Доставка по місту та в аеропорт. Сучасний автопарк від економ до преміум класу.",
+        "Прокат авто у Львові. Без застави. Великий автопарк. Подача в аеропорт та по місту. Нові авто 2024.",
     },
     ru: {
-      title: "Аренда авто во Львове | REIZ - от 800 грн/день",
+      title: "Прокат авто Львов: Без лимита пробега. Новые модели",
       metaDescription:
-        "Аренда авто во Львове от REIZ. Современный автопарк, доставка в аэропорт и по городу. От эконом до премиум класса. Бронирование 24/7.",
+        "Аренда машин во Львове для поездок по городу и Карпатам. Оформление за 15 мин. Стандартные тарифы или опция «Без залога». Поддержка в дороге 24/7.",
       h1: "Аренда авто во Львове",
       sectionCars: "АВТОМОБИЛИ REIZ ВО ЛЬВОВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЛЬВОВ",
       subtitle:
         "Аренда авто во Львове от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle: "Аренда авто Львов без водителя — REIZ | Прокат от 800 грн/день",
+      ogTitle: "Аренда авто Львов без водителя — REIZ | Подача 24/7 в аэропорт",
       ogDescription:
-        "Прокат автомобилей во Львове. Без залога. Доставка по городу и в аэропорт. Современный автопарк от эконом до премиум класса.",
+        "Прокат авто во Львове. Без залога. Большой автопарк. Подача в аэропорт и по городу. Новые авто 2024.",
     },
     en: {
-      title: "Car Rental in Lviv | REIZ - from 800 UAH/day",
+      title: "Car Rental in Lviv: Unlimited Mileage & New Fleet",
       metaDescription:
-        "Car rental in Lviv from REIZ. Modern fleet, delivery to airport and city-wide. From economy to premium class. Booking 24/7.",
+        "Rent a car in Lviv for city trips or the Carpathians. 15-min booking. Standard rates or No Deposit option. 24/7 Roadside Assistance. Book your car online!",
       h1: "Car Rental in Lviv",
       sectionCars: "REIZ CARS IN LVIV",
       sectionWelcome: "WELCOME TO REIZ LVIV",
       subtitle:
         "Car rental in Lviv from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Lviv — REIZ | Rent from 800 UAH/day",
+      ogTitle: "Car Rental Lviv — REIZ | No Deposit, Airport Delivery 24/7",
       ogDescription:
-        "Car rental in Lviv. No deposit. Delivery throughout the city and to the airport. Modern fleet from economy to premium class.",
+        "Rent a car in Lviv. No deposit. Large fleet. Airport and city delivery. New 2024 vehicles.",
     },
   },
   ternopil: {
     uk: {
-      title: "Оренда авто у Тернополі | REIZ - від 800 грн/день",
+      title: "Оренда авто у Тернополі без застави — Швидка видача",
       metaDescription:
-        "Оренда авто у Тернополі від REIZ. Сучасний автопарк, доставка по місту. Від економ до преміум класу. Бронювання 24/7.",
+        "Прокат авто у Тернополі офіційно. Нові машини 2023-2024. Безкоштовна подача по місту та на вокзал 24/7. Швидке оформлення. Бронюйте!",
       h1: "Оренда авто у Тернополі",
       sectionCars: "АВТОМОБІЛІ REIZ У ТЕРНОПОЛІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ТЕРНОПІЛЬ",
       subtitle:
         "Оренда авто у Тернополі від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle:
-        "Оренда авто Тернопіль без водія — REIZ | Прокат від 800 грн/день",
+      ogTitle: "Оренда авто Тернопіль без водія — REIZ | Швидка видача",
       ogDescription:
-        "Прокат автомобілів у Тернополі. Без застави. Доставка по місту. Сучасний автопарк від економ до преміум класу.",
+        "Прокат авто у Тернополі. Без застави. Нові авто 2024. Безкоштовна подача по місту. Швидке оформлення 24/7.",
     },
     ru: {
-      title: "Аренда авто в Тернополе | REIZ - от 800 грн/день",
+      title: "Аренда авто в Тернополе без залога — Быстрая выдача",
       metaDescription:
-        "Аренда авто в Тернополе от REIZ. Современный автопарк, доставка по городу. От эконом до премиум класса. Бронирование 24/7.",
+        "Прокат авто в Тернополе официально. Новые машины 2023-2024. Бесплатная подача по городу и на вокзал 24/7. Быстрое оформление. Бронируйте!",
       h1: "Аренда авто в Тернополе",
       sectionCars: "АВТОМОБИЛИ REIZ В ТЕРНОПОЛЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ТЕРНОПОЛЬ",
       subtitle:
         "Аренда авто в Тернополе от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle:
-        "Аренда авто Тернополь без водителя — REIZ | Прокат от 800 грн/день",
+      ogTitle: "Аренда авто Тернополь без водителя — REIZ | Быстрая выдача",
       ogDescription:
-        "Прокат автомобилей в Тернополе. Без залога. Доставка по городу. Современный автопарк от эконом до премиум класса.",
+        "Прокат авто в Тернополе. Без залога. Новые авто 2024. Бесплатная подача по городу. Быстрое оформление 24/7.",
     },
     en: {
-      title: "Car Rental in Ternopil | REIZ - from 800 UAH/day",
+      title: "Car Rental Ternopil — No Deposit, Fast Pickup",
       metaDescription:
-        "Car rental in Ternopil from REIZ. Modern fleet, city-wide delivery. From economy to premium class. Booking 24/7.",
+        "Rent a car in Ternopil officially. New 2023-2024 fleet. Free city and station delivery 24/7. Fast paperwork. Book now!",
       h1: "Car Rental in Ternopil",
       sectionCars: "REIZ CARS IN TERNOPIL",
       sectionWelcome: "WELCOME TO REIZ TERNOPIL",
       subtitle:
         "Car rental in Ternopil from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Ternopil — REIZ | Rent from 800 UAH/day",
+      ogTitle: "Car Rental Ternopil — REIZ | No Deposit, Fast Pickup",
       ogDescription:
-        "Car rental in Ternopil. No deposit. Delivery throughout the city. Modern fleet from economy to premium class.",
+        "Rent a car in Ternopil. No deposit. New 2024 fleet. Free city delivery. Fast paperwork 24/7.",
     },
   },
   odesa: {
     uk: {
-      title: "Оренда авто в Одесі | REIZ - від 800 грн/день",
+      title: "Оренда авто в Одесі без застави — Подача на пляж 24/7",
       metaDescription:
-        "Оренда авто в Одесі від REIZ. Сучасний автопарк, доставка в аеропорт та по місту. Від економ до преміум класу. Бронювання 24/7.",
+        "Прокат авто в Одесі офіційно. Подача на Аркадію, в порт та аеропорт 24/7. Нові машини 2023-2024. Кабріолети та позашляховики. Бронюйте!",
       h1: "Оренда авто в Одесі",
       sectionCars: "АВТОМОБІЛІ REIZ В ОДЕСІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ОДЕСА",
       subtitle:
         "Оренда авто в Одесі від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Одеса без водія — REIZ | Прокат від 800 грн/день",
+      ogTitle: "Оренда авто Одеса без водія — REIZ | Подача на пляж 24/7",
       ogDescription:
-        "Прокат автомобілів в Одесі. Без застави. Доставка по місту та в аеропорт. Сучасний автопарк від економ до преміум класу.",
+        "Прокат авто в Одесі. Без застави. Подача на Аркадію, в порт та аеропорт. Кабріолети та нові авто 2024.",
     },
     ru: {
-      title: "Аренда авто в Одессе | REIZ - от 800 грн/день",
+      title: "Аренда авто в Одессе без залога — Подача на пляж 24/7",
       metaDescription:
-        "Аренда авто в Одессе от REIZ. Современный автопарк, доставка в аэропорт и по городу. От эконом до премиум класса. Бронирование 24/7.",
+        "Прокат авто в Одессе официально. Подача на Аркадию, в порт и аэропорт 24/7. Новые машины 2023-2024. Кабриолеты и внедорожники. Бронируйте!",
       h1: "Аренда авто в Одессе",
       sectionCars: "АВТОМОБИЛИ REIZ В ОДЕССЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ОДЕССА",
       subtitle:
         "Аренда авто в Одессе от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle: "Аренда авто Одесса без водителя — REIZ | Прокат от 800 грн/день",
+      ogTitle: "Аренда авто Одесса без водителя — REIZ | Подача на пляж 24/7",
       ogDescription:
-        "Прокат автомобилей в Одессе. Без залога. Доставка по городу и в аэропорт. Современный автопарк от эконом до премиум класса.",
+        "Прокат авто в Одессе. Без залога. Подача на Аркадию, в порт и аэропорт. Кабриолеты и новые авто 2024.",
     },
     en: {
-      title: "Car Rental in Odesa | REIZ - from 800 UAH/day",
+      title: "Car Rental Odesa — No Deposit, Beach Delivery 24/7",
       metaDescription:
-        "Car rental in Odesa from REIZ. Modern fleet, delivery to airport and city-wide. From economy to premium class. Booking 24/7.",
+        "Rent a car in Odesa officially. Delivery to Arcadia beach, port and airport 24/7. New 2023-2024 fleet. Convertibles and SUVs. Book now!",
       h1: "Car Rental in Odesa",
       sectionCars: "REIZ CARS IN ODESA",
       sectionWelcome: "WELCOME TO REIZ ODESA",
       subtitle:
         "Car rental in Odesa from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Odesa — REIZ | Rent from 800 UAH/day",
+      ogTitle: "Car Rental Odesa — REIZ | No Deposit, Beach Delivery 24/7",
       ogDescription:
-        "Car rental in Odesa. No deposit. Delivery throughout the city and to the airport. Modern fleet from economy to premium class.",
+        "Rent a car in Odesa. No deposit. Delivery to Arcadia beach, port and airport. Convertibles and new 2024 fleet.",
     },
   },
   dnipro: {
     uk: {
-      title: "Оренда авто у Дніпрі | REIZ - від 800 грн/день",
+      title: "Оренда авто у Дніпрі без застави — Ділові поїздки",
       metaDescription:
-        "Оренда авто у Дніпрі від REIZ. Сучасний автопарк, доставка в аеропорт та по місту. Від економ до преміум класу. Бронювання 24/7.",
+        "Прокат авто у Дніпрі офіційно. Ідеально для ділових поїздок. Нові автомобілі. Подача в аеропорт та по місту 24/7. Бронюйте онлайн!",
       h1: "Оренда авто у Дніпрі",
       sectionCars: "АВТОМОБІЛІ REIZ У ДНІПРІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ДНІПРО",
       subtitle:
         "Оренда авто у Дніпрі від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Дніпро без водія — REIZ | Прокат від 800 грн/день",
+      ogTitle: "Оренда авто Дніпро без водія — REIZ | Ділові поїздки 24/7",
       ogDescription:
-        "Прокат автомобілів у Дніпрі. Без застави. Доставка по місту та в аеропорт. Сучасний автопарк від економ до преміум класу.",
+        "Прокат авто у Дніпрі. Без застави. Для бізнесу та подорожей. Подача в аеропорт та по місту. Нові авто.",
     },
     ru: {
-      title: "Аренда авто в Днепре | REIZ - от 800 грн/день",
+      title: "Аренда авто в Днепре без залога — Деловые поездки",
       metaDescription:
-        "Аренда авто в Днепре от REIZ. Современный автопарк, доставка в аэропорт и по городу. От эконом до премиум класса. Бронирование 24/7.",
+        "Прокат авто в Днепре официально. Идеально для деловых поездок. Новые автомобили. Подача в аэропорт и по городу 24/7. Бронируйте онлайн!",
       h1: "Аренда авто в Днепре",
       sectionCars: "АВТОМОБИЛИ REIZ В ДНЕПРЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ДНЕПР",
       subtitle:
         "Аренда авто в Днепре от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle: "Аренда авто Днепр без водителя — REIZ | Прокат от 800 грн/день",
+      ogTitle: "Аренда авто Днепр без водителя — REIZ | Деловые поездки 24/7",
       ogDescription:
-        "Прокат автомобилей в Днепре. Без залога. Доставка по городу и в аэропорт. Современный автопарк от эконом до премиум класса.",
+        "Прокат авто в Днепре. Без залога. Для бизнеса и путешествий. Подача в аэропорт и по городу. Новые авто 2024.",
     },
     en: {
-      title: "Car Rental in Dnipro | REIZ - from 800 UAH/day",
+      title: "Car Rental in Dnipro: Business Class & New Fleet",
       metaDescription:
-        "Car rental in Dnipro from REIZ. Modern fleet, delivery to airport and city-wide. From economy to premium class. Booking 24/7.",
+        "Rent a car in Dnipro officially. Perfect for business trips. New fleet. Airport and city delivery 24/7. Book online now!",
       h1: "Car Rental in Dnipro",
       sectionCars: "REIZ CARS IN DNIPRO",
       sectionWelcome: "WELCOME TO REIZ DNIPRO",
       subtitle:
         "Car rental in Dnipro from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Dnipro — REIZ | Rent from 800 UAH/day",
+      ogTitle: "Car Rental Dnipro — REIZ | No Deposit, Business Travel 24/7",
       ogDescription:
-        "Car rental in Dnipro. No deposit. Delivery throughout the city and to the airport. Modern fleet from economy to premium class.",
+        "Rent a car in Dnipro. No deposit. For business and travel. Airport and city delivery. New 2024 fleet.",
     },
   },
   kharkiv: {
     uk: {
-      title: "Оренда авто у Харкові | REIZ - від 800 грн/день",
+      title: "Оренда авто у Харкові без застави — Трансфер по місту",
       metaDescription:
-        "Оренда авто у Харкові від REIZ. Сучасний автопарк, доставка по місту. Від економ до преміум класу. Бронювання 24/7.",
+        "Прокат авто у Харкові офіційно. Подача на вокзал та по місту 24/7. Нові машини 2023-2024. Без ліміту пробігу. Швидке оформлення. Бронюйте!",
       h1: "Оренда авто у Харкові",
       sectionCars: "АВТОМОБІЛІ REIZ У ХАРКОВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ХАРКІВ",
       subtitle:
         "Оренда авто у Харкові від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Харків без водія — REIZ | Прокат від 800 грн/день",
+      ogTitle: "Оренда авто Харків без водія — REIZ | Трансфер 24/7",
       ogDescription:
-        "Прокат автомобілів у Харкові. Без застави. Доставка по місту. Сучасний автопарк від економ до преміум класу.",
+        "Прокат авто у Харкові. Без застави. Без ліміту пробігу. Подача на вокзал та по місту. Нові авто 2024.",
     },
     ru: {
-      title: "Аренда авто в Харькове | REIZ - от 800 грн/день",
+      title: "Аренда авто в Харькове без залога — Трансфер по городу",
       metaDescription:
-        "Аренда авто в Харькове от REIZ. Современный автопарк, доставка по городу. От эконом до премиум класса. Бронирование 24/7.",
+        "Прокат авто в Харькове официально. Подача на вокзал и по городу 24/7. Новые машины 2023-2024. Без лимита пробега. Быстрое оформление. Бронируйте!",
       h1: "Аренда авто в Харькове",
       sectionCars: "АВТОМОБИЛИ REIZ В ХАРЬКОВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ХАРЬКОВ",
       subtitle:
         "Аренда авто в Харькове от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle:
-        "Аренда авто Харьков без водителя — REIZ | Прокат от 800 грн/день",
+      ogTitle: "Аренда авто Харьков без водителя — REIZ | Трансфер 24/7",
       ogDescription:
-        "Прокат автомобилей в Харькове. Без залога. Доставка по городу. Современный автопарк от эконом до премиум класса.",
+        "Прокат авто в Харькове. Без залога. Без лимита пробега. Подача на вокзал и по городу. Новые авто 2024.",
     },
     en: {
-      title: "Car Rental in Kharkiv | REIZ - from 800 UAH/day",
+      title: "Car Rental Kharkiv — No Deposit, City Transfer",
       metaDescription:
-        "Car rental in Kharkiv from REIZ. Modern fleet, city-wide delivery. From economy to premium class. Booking 24/7.",
+        "Rent a car in Kharkiv officially. Station and city delivery 24/7. New 2023-2024 fleet. Unlimited mileage. Fast paperwork. Book now!",
       h1: "Car Rental in Kharkiv",
       sectionCars: "REIZ CARS IN KHARKIV",
       sectionWelcome: "WELCOME TO REIZ KHARKIV",
       subtitle:
         "Car rental in Kharkiv from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Kharkiv — REIZ | Rent from 800 UAH/day",
+      ogTitle: "Car Rental Kharkiv — REIZ | No Deposit, City Transfer 24/7",
       ogDescription:
-        "Car rental in Kharkiv. No deposit. Delivery throughout the city. Modern fleet from economy to premium class.",
+        "Rent a car in Kharkiv. No deposit. Unlimited mileage. Station and city delivery. New 2024 fleet.",
     },
   },
   bukovel: {
     uk: {
-      title: "Оренда авто в Буковелі | REIZ - від 800 грн/день",
+      title: "Оренда авто в Буковелі без застави — Позашляховики 24/7",
       metaDescription:
-        "Оренда авто в Буковелі від REIZ. Сучасний автопарк, доставка на курорт. Від економ до преміум класу. Бронювання 24/7.",
+        "Прокат авто в Буковелі офіційно. Позашляховики та повнопривідні авто для гір. Доставка на курорт 24/7. Нові машини 2023-2024. Бронюйте!",
       h1: "Оренда авто в Буковелі",
       sectionCars: "АВТОМОБІЛІ REIZ У БУКОВЕЛІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ БУКОВЕЛЬ",
       subtitle:
         "Оренда авто в Буковелі від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Буковель без водія — REIZ | Прокат від 800 грн/день",
+      ogTitle: "Оренда авто Буковель без водія — REIZ | Позашляховики 24/7",
       ogDescription:
-        "Прокат автомобілів у Буковелі. Без застави. Доставка на курорт. Сучасний автопарк від економ до преміум класу.",
+        "Прокат авто в Буковелі. Без застави. Позашляховики та повнопривідні авто. Доставка на курорт. Нові авто 2024.",
     },
     ru: {
-      title: "Аренда авто в Буковеле | REIZ - от 800 грн/день",
+      title: "Аренда авто в Буковеле без залога — Внедорожники 24/7",
       metaDescription:
-        "Аренда авто в Буковеле от REIZ. Современный автопарк, доставка на курорт. От эконом до премиум класса. Бронирование 24/7.",
+        "Прокат авто в Буковеле официально. Внедорожники и полноприводные авто для гор. Доставка на курорт 24/7. Новые машины 2023-2024. Бронируйте!",
       h1: "Аренда авто в Буковеле",
       sectionCars: "АВТОМОБИЛИ REIZ В БУКОВЕЛЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ БУКОВЕЛЬ",
       subtitle:
         "Аренда авто в Буковеле от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle:
-        "Аренда авто Буковель без водителя — REIZ | Прокат от 800 грн/день",
+      ogTitle: "Аренда авто Буковель без водителя — REIZ | Внедорожники 24/7",
       ogDescription:
-        "Прокат автомобилей в Буковеле. Без залога. Доставка на курорт. Современный автопарк от эконом до премиум класса.",
+        "Прокат авто в Буковеле. Без залога. Внедорожники и полноприводные авто. Доставка на курорт. Новые авто 2024.",
     },
     en: {
-      title: "Car Rental in Bukovel | REIZ - from 800 UAH/day",
+      title: "Car Rental Bukovel — No Deposit, SUVs for Mountains",
       metaDescription:
-        "Car rental in Bukovel from REIZ. Modern fleet, delivery to the resort. From economy to premium class. Booking 24/7.",
+        "Rent a car in Bukovel officially. SUVs and AWD vehicles for mountain trips. Resort delivery 24/7. New 2023-2024 fleet. Book now!",
       h1: "Car Rental in Bukovel",
       sectionCars: "REIZ CARS IN BUKOVEL",
       sectionWelcome: "WELCOME TO REIZ BUKOVEL",
       subtitle:
         "Car rental in Bukovel from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Bukovel — REIZ | Rent from 800 UAH/day",
+      ogTitle: "Car Rental Bukovel — REIZ | No Deposit, SUVs 24/7",
       ogDescription:
-        "Car rental in Bukovel. No deposit. Delivery to the resort. Modern fleet from economy to premium class.",
+        "Rent a car in Bukovel. No deposit. SUVs and AWD vehicles. Resort delivery. New 2024 fleet.",
     },
   },
   truskavets: {
     uk: {
-      title: "Оренда авто у Трускавці | REIZ - від 800 грн/день",
+      title: "Оренда авто у Трускавці без застави — Курортна подача",
       metaDescription:
-        "Оренда авто у Трускавці від REIZ. Сучасний автопарк, доставка на курорт. Від економ до преміум класу. Бронювання 24/7.",
+        "Прокат авто у Трускавці офіційно. Доставка на курорт та в санаторії 24/7. Нові машини 2023-2024. Комфортні подорожі Прикарпаттям. Бронюйте!",
       h1: "Оренда авто у Трускавці",
       sectionCars: "АВТОМОБІЛІ REIZ У ТРУСКАВЦІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ТРУСКАВЕЦЬ",
       subtitle:
         "Оренда авто у Трускавці від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle:
-        "Оренда авто Трускавець без водія — REIZ | Прокат від 800 грн/день",
+      ogTitle: "Оренда авто Трускавець без водія — REIZ | Курортна подача",
       ogDescription:
-        "Прокат автомобілів у Трускавці. Без застави. Доставка на курорт. Сучасний автопарк від економ до преміум класу.",
+        "Прокат авто у Трускавці. Без застави. Доставка на курорт та в санаторії. Нові авто 2024. Подорожі Прикарпаттям.",
     },
     ru: {
-      title: "Аренда авто в Трускавце | REIZ - от 800 грн/день",
+      title: "Аренда авто в Трускавце без залога — Курортная подача",
       metaDescription:
-        "Аренда авто в Трускавце от REIZ. Современный автопарк, доставка на курорт. От эконом до премиум класса. Бронирование 24/7.",
+        "Прокат авто в Трускавце официально. Доставка на курорт и в санатории 24/7. Новые машины 2023-2024. Комфортные путешествия по Прикарпатью. Бронируйте!",
       h1: "Аренда авто в Трускавце",
       sectionCars: "АВТОМОБИЛИ REIZ В ТРУСКАВЦЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ТРУСКАВЕЦ",
       subtitle:
         "Аренда авто в Трускавце от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle:
-        "Аренда авто Трускавец без водителя — REIZ | Прокат от 800 грн/день",
+      ogTitle: "Аренда авто Трускавец без водителя — REIZ | Курортная подача",
       ogDescription:
-        "Прокат автомобилей в Трускавце. Без залога. Доставка на курорт. Современный автопарк от эконом до премиум класса.",
+        "Прокат авто в Трускавце. Без залога. Доставка на курорт и в санатории. Новые авто 2024. Путешествия по Прикарпатью.",
     },
     en: {
-      title: "Car Rental in Truskavets | REIZ - from 800 UAH/day",
+      title: "Car Rental Truskavets — No Deposit, Resort Delivery",
       metaDescription:
-        "Car rental in Truskavets from REIZ. Modern fleet, delivery to the resort. From economy to premium class. Booking 24/7.",
+        "Rent a car in Truskavets officially. Delivery to resort and sanatoriums 24/7. New 2023-2024 fleet. Comfortable Carpathian trips. Book now!",
       h1: "Car Rental in Truskavets",
       sectionCars: "REIZ CARS IN TRUSKAVETS",
       sectionWelcome: "WELCOME TO REIZ TRUSKAVETS",
       subtitle:
         "Car rental in Truskavets from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Truskavets — REIZ | Rent from 800 UAH/day",
+      ogTitle: "Car Rental Truskavets — REIZ | No Deposit, Resort Delivery",
       ogDescription:
-        "Car rental in Truskavets. No deposit. Delivery to the resort. Modern fleet from economy to premium class.",
+        "Rent a car in Truskavets. No deposit. Delivery to resort and sanatoriums. New 2024 fleet. Carpathian trips.",
     },
   },
   "ivano-frankivsk": {
     uk: {
-      title: "Оренда авто в Івано-Франківську | REIZ - від 800 грн/день",
+      title: "Оренда авто в Івано-Франківську без застави — До Карпат 24/7",
       metaDescription:
-        "Оренда авто в Івано-Франківську від REIZ. Сучасний автопарк, доставка в аеропорт та по місту. Від економ до преміум класу. Бронювання 24/7.",
+        "Прокат авто в Івано-Франківську офіційно. Подача в аеропорт та виїзд до Карпат 24/7. Нові машини 2023-2024. Позашляховики та седани. Бронюйте!",
       h1: "Оренда авто в Івано-Франківську",
       sectionCars: "АВТОМОБІЛІ REIZ В ІВАНО-ФРАНКІВСЬКУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ІВАНО-ФРАНКІВСЬК",
       subtitle:
         "Оренда авто в Івано-Франківську від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle:
-        "Оренда авто Івано-Франківськ без водія — REIZ | Прокат від 800 грн/день",
+      ogTitle: "Оренда авто Івано-Франківськ без водія — REIZ | До Карпат 24/7",
       ogDescription:
-        "Прокат автомобілів в Івано-Франківську. Без застави. Доставка по місту та в аеропорт. Сучасний автопарк від економ до преміум класу.",
+        "Прокат авто в Івано-Франківську. Без застави. Подача в аеропорт та виїзд до Карпат. Нові авто 2024.",
     },
     ru: {
-      title: "Аренда авто в Ивано-Франковске | REIZ - от 800 грн/день",
+      title: "Аренда авто в Ивано-Франковске без залога — В Карпаты 24/7",
       metaDescription:
-        "Аренда авто в Ивано-Франковске от REIZ. Современный автопарк, доставка в аэропорт и по городу. От эконом до премиум класса. Бронирование 24/7.",
+        "Прокат авто в Ивано-Франковске официально. Подача в аэропорт и выезд в Карпаты 24/7. Новые машины 2023-2024. Внедорожники и седаны. Бронируйте!",
       h1: "Аренда авто в Ивано-Франковске",
       sectionCars: "АВТОМОБИЛИ REIZ В ИВАНО-ФРАНКОВСКЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ИВАНО-ФРАНКОВСК",
       subtitle:
         "Аренда авто в Ивано-Франковске от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle:
-        "Аренда авто Ивано-Франковск без водителя — REIZ | Прокат от 800 грн/день",
+      ogTitle: "Аренда авто Ивано-Франковск без водителя — REIZ | В Карпаты 24/7",
       ogDescription:
-        "Прокат автомобилей в Ивано-Франковске. Без залога. Доставка по городу и в аэропорт. Современный автопарк от эконом до премиум класса.",
+        "Прокат авто в Ивано-Франковске. Без залога. Подача в аэропорт и выезд в Карпаты. Новые авто 2024.",
     },
     en: {
-      title: "Car Rental in Ivano-Frankivsk | REIZ - from 800 UAH/day",
+      title: "Car Rental Ivano-Frankivsk — No Deposit, Carpathian Access",
       metaDescription:
-        "Car rental in Ivano-Frankivsk from REIZ. Modern fleet, delivery to airport and city-wide. From economy to premium class. Booking 24/7.",
+        "Rent a car in Ivano-Frankivsk officially. Airport delivery and Carpathian trips 24/7. New 2023-2024 fleet. SUVs and sedans. Book now!",
       h1: "Car Rental in Ivano-Frankivsk",
       sectionCars: "REIZ CARS IN IVANO-FRANKIVSK",
       sectionWelcome: "WELCOME TO REIZ IVANO-FRANKIVSK",
       subtitle:
         "Car rental in Ivano-Frankivsk from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Ivano-Frankivsk — REIZ | Rent from 800 UAH/day",
+      ogTitle: "Car Rental Ivano-Frankivsk — REIZ | No Deposit, Carpathian Access",
       ogDescription:
-        "Car rental in Ivano-Frankivsk. No deposit. Delivery throughout the city and to the airport. Modern fleet from economy to premium class.",
+        "Rent a car in Ivano-Frankivsk. No deposit. Airport delivery and Carpathian trips. New 2024 fleet.",
     },
   },
   skhidnytsia: {
     uk: {
-      title: "Оренда авто у Східниці | REIZ - від 800 грн/день",
+      title: "Оренда авто у Східниці без застави — Нафтусі та Карпати",
       metaDescription:
-        "Оренда авто у Східниці від REIZ. Сучасний автопарк, доставка на курорт. Від економ до преміум класу. Бронювання 24/7.",
+        "Прокат авто у Східниці офіційно. Доставка на курорт та подорожі Карпатами 24/7. Нові машини 2023-2024. Комфортний відпочинок. Бронюйте!",
       h1: "Оренда авто у Східниці",
       sectionCars: "АВТОМОБІЛІ REIZ У СХІДНИЦІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ СХІДНИЦЯ",
       subtitle:
         "Оренда авто у Східниці від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Східниця без водія — REIZ | Прокат від 800 грн/день",
+      ogTitle: "Оренда авто Східниця без водія — REIZ | Курортна подача 24/7",
       ogDescription:
-        "Прокат автомобілів у Східниці. Без застави. Доставка на курорт. Сучасний автопарк від економ до преміум класу.",
+        "Прокат авто у Східниці. Без застави. Доставка на курорт. Подорожі Карпатами. Нові авто 2024.",
     },
     ru: {
-      title: "Аренда авто в Сходнице | REIZ - от 800 грн/день",
+      title: "Аренда авто в Сходнице без залога — Нафтуся и Карпаты",
       metaDescription:
-        "Аренда авто в Сходнице от REIZ. Современный автопарк, доставка на курорт. От эконом до премиум класса. Бронирование 24/7.",
+        "Прокат авто в Сходнице официально. Доставка на курорт и путешествия по Карпатам 24/7. Новые машины 2023-2024. Комфортный отдых. Бронируйте!",
       h1: "Аренда авто в Сходнице",
       sectionCars: "АВТОМОБИЛИ REIZ В СХОДНИЦЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ СХОДНИЦА",
       subtitle:
         "Аренда авто в Сходнице от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle:
-        "Аренда авто Сходница без водителя — REIZ | Прокат от 800 грн/день",
+      ogTitle: "Аренда авто Сходница без водителя — REIZ | Курортная подача 24/7",
       ogDescription:
-        "Прокат автомобилей в Сходнице. Без залога. Доставка на курорт. Современный автопарк от эконом до премиум класса.",
+        "Прокат авто в Сходнице. Без залога. Доставка на курорт. Путешествия по Карпатам. Новые авто 2024.",
     },
     en: {
-      title: "Car Rental in Skhidnytsia | REIZ - from 800 UAH/day",
+      title: "Car Rental Skhidnytsia — No Deposit, Spa Resort",
       metaDescription:
-        "Car rental in Skhidnytsia from REIZ. Modern fleet, delivery to the resort. From economy to premium class. Booking 24/7.",
+        "Rent a car in Skhidnytsia officially. Delivery to spa resort and Carpathian trips 24/7. New 2023-2024 fleet. Comfortable vacation. Book now!",
       h1: "Car Rental in Skhidnytsia",
       sectionCars: "REIZ CARS IN SKHIDNYTSIA",
       sectionWelcome: "WELCOME TO REIZ SKHIDNYTSIA",
       subtitle:
         "Car rental in Skhidnytsia from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Skhidnytsia — REIZ | Rent from 800 UAH/day",
+      ogTitle: "Car Rental Skhidnytsia — REIZ | No Deposit, Resort Delivery 24/7",
       ogDescription:
-        "Car rental in Skhidnytsia. No deposit. Delivery to the resort. Modern fleet from economy to premium class.",
+        "Rent a car in Skhidnytsia. No deposit. Delivery to spa resort. Carpathian trips. New 2024 fleet.",
     },
   },
   uzhhorod: {
     uk: {
-      title: "Оренда авто в Ужгороді без застави | REIZ — Нові авто 2024",
+      title: "Оренда авто в Ужгороді без застави — Нові авто 2024",
       metaDescription:
         "Прокат авто в Ужгороді. Зручний виїзд до кордону та в Карпати. Нові машини 2023-2024. Безкоштовна подача по місту 24/7. Бронюйте офіційно!",
       h1: "Оренда авто в Ужгороді",
@@ -710,7 +701,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Ужгороді. Без застави. Безкоштовна подача. Зручний виїзд до кордону. Нові авто 24/7.",
     },
     ru: {
-      title: "Аренда авто в Ужгороде без залога | REIZ — Новые машины 2024",
+      title: "Аренда авто в Ужгороде без залога — Новые машины 2024",
       metaDescription:
         "Прокат авто в Ужгороде. Удобный выезд к границе ЕС и в Карпаты. Новые авто 2023-2024. Бесплатная подача по городу 24/7. Бронируйте!",
       h1: "Аренда авто в Ужгороде",
@@ -723,7 +714,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Ужгороде. Без залога. Бесплатная подача по городу. Удобный выезд к границе. 24/7.",
     },
     en: {
-      title: "Car Rental Uzhhorod | REIZ — No Deposit, New Fleet 2024",
+      title: "Car Rental Uzhhorod — No Deposit, New Fleet 2024",
       metaDescription:
         "Rent a car in Uzhhorod. Easy border crossing to EU. New 2023-2024 fleet. Free city delivery 24/7. Book your self-drive now!",
       h1: "Car Rental in Uzhhorod",
@@ -738,7 +729,7 @@ export const cityLocalizations: Record<
   },
   vinnytsia: {
     uk: {
-      title: "Оренда авто у Вінниці без застави | REIZ — Швидка видача",
+      title: "Оренда авто у Вінниці без застави — Швидка видача",
       metaDescription:
         "Прокат авто у Вінниці для ділових поїздок. Нові машини 2023-2024. Без ліміту пробігу. Безкоштовна подача в центр 24/7. Бронюйте офіційно!",
       h1: "Оренда авто у Вінниці",
@@ -751,7 +742,7 @@ export const cityLocalizations: Record<
         "Прокат авто у Вінниці. Без застави. Нові авто 2024. Безкоштовна подача. Швидка видача 24/7.",
     },
     ru: {
-      title: "Аренда авто в Виннице без залога | REIZ — Быстрое оформление",
+      title: "Аренда авто в Виннице без залога — Быстрое оформление",
       metaDescription:
         "Прокат авто в Виннице для деловых поездок. Новые машины 2023-2024. Без лимита пробега. Бесплатная подача в центр 24/7. Бронируйте!",
       h1: "Аренда авто в Виннице",
@@ -764,7 +755,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Виннице. Без залога. Новые авто 2024. Бесплатная подача. Быстрое оформление 24/7.",
     },
     en: {
-      title: "Car Rental Vinnytsia | REIZ — No Deposit, Unlimited Mileage",
+      title: "Car Rental Vinnytsia — No Deposit, Unlimited Mileage",
       metaDescription:
         "Rent a car in Vinnytsia for business trips. New 2023-2024 fleet. Unlimited mileage. Free city delivery 24/7. Book your self-drive now!",
       h1: "Car Rental in Vinnytsia",
@@ -779,7 +770,7 @@ export const cityLocalizations: Record<
   },
   zaporizhzhia: {
     uk: {
-      title: "Оренда авто у Запоріжжі без застави | REIZ — Нові авто",
+      title: "Оренда авто у Запоріжжі без застави — Нові авто",
       metaDescription:
         "Прокат авто у Запоріжжі офіційно. Нові машини 2023-2024. Без ліміту пробігу. Безкоштовна подача по місту 24/7. Швидка видача. Бронюйте!",
       h1: "Оренда авто у Запоріжжі",
@@ -792,7 +783,7 @@ export const cityLocalizations: Record<
         "Прокат авто у Запоріжжі. Без застави. Нові авто 2024. Безкоштовна подача. Швидка видача 24/7.",
     },
     ru: {
-      title: "Аренда авто в Запорожье без залога | REIZ — Новые машины",
+      title: "Аренда авто в Запорожье без залога — Новые машины",
       metaDescription:
         "Прокат авто в Запорожье официально. Новые машины 2023-2024. Без лимита пробега. Бесплатная подача по городу 24/7. Быстрое оформление!",
       h1: "Аренда авто в Запорожье",
@@ -805,7 +796,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Запорожье. Без залога. Новые авто 2024. Бесплатная подача. Быстрое оформление 24/7.",
     },
     en: {
-      title: "Car Rental Zaporizhzhia | REIZ — No Deposit, New Fleet",
+      title: "Car Rental Zaporizhzhia — No Deposit, New Fleet",
       metaDescription:
         "Rent a car in Zaporizhzhia officially. New 2023-2024 fleet. Unlimited mileage. Free city delivery 24/7. Fast pickup. Book your self-drive!",
       h1: "Car Rental in Zaporizhzhia",
@@ -820,7 +811,7 @@ export const cityLocalizations: Record<
   },
   mukachevo: {
     uk: {
-      title: "Оренда авто в Мукачеві без застави | REIZ — Виїзд в Карпати",
+      title: "Оренда авто в Мукачеві без застави — Виїзд в Карпати",
       metaDescription:
         "Прокат авто в Мукачеві офіційно. Зручний виїзд до кордону та в Карпати. Нові машини 2023-2024. Безкоштовна подача 24/7. Швидка видача!",
       h1: "Оренда авто в Мукачеві",
@@ -833,7 +824,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Мукачеві. Без застави. Зручний виїзд в Карпати та до кордону. Безкоштовна подача 24/7.",
     },
     ru: {
-      title: "Аренда авто в Мукачеве без залога | REIZ — Выезд в Карпаты",
+      title: "Аренда авто в Мукачеве без залога — Выезд в Карпаты",
       metaDescription:
         "Прокат авто в Мукачеве официально. Удобный выезд к границе ЕС и в Карпаты. Новые машины 2023-2024. Бесплатная подача 24/7. Бронируйте!",
       h1: "Аренда авто в Мукачеве",
@@ -846,7 +837,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Мукачеве. Без залога. Удобный выезд в Карпаты и к границе. Бесплатная подача 24/7.",
     },
     en: {
-      title: "Car Rental Mukachevo | REIZ — No Deposit, Carpathian Trips",
+      title: "Car Rental Mukachevo — No Deposit, Carpathian Trips",
       metaDescription:
         "Rent a car in Mukachevo. Easy border crossing and Carpathian mountain access. New 2023-2024 fleet. Free delivery 24/7. Book now!",
       h1: "Car Rental in Mukachevo",
@@ -861,7 +852,7 @@ export const cityLocalizations: Record<
   },
   poltava: {
     uk: {
-      title: "Оренда авто у Полтаві без застави | REIZ — Швидка видача",
+      title: "Оренда авто у Полтаві без застави — Швидка видача",
       metaDescription:
         "Прокат авто у Полтаві для ділових поїздок. Нові машини 2023-2024. Без ліміту пробігу. Безкоштовна подача в центр 24/7. Бронюйте офіційно!",
       h1: "Оренда авто у Полтаві",
@@ -874,7 +865,7 @@ export const cityLocalizations: Record<
         "Прокат авто у Полтаві. Без застави. Нові авто 2024. Безкоштовна подача. Швидке оформлення 24/7.",
     },
     ru: {
-      title: "Аренда авто в Полтаве без залога | REIZ — Быстрое оформление",
+      title: "Аренда авто в Полтаве без залога — Быстрое оформление",
       metaDescription:
         "Прокат авто в Полтаве для деловых поездок. Новые машины 2023-2024. Без лимита пробега. Бесплатная подача в центр 24/7. Бронируйте!",
       h1: "Аренда авто в Полтаве",
@@ -887,7 +878,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Полтаве. Без залога. Новые авто 2024. Бесплатная подача. Быстрое оформление 24/7.",
     },
     en: {
-      title: "Car Rental Poltava | REIZ — No Deposit, Unlimited Mileage",
+      title: "Car Rental Poltava — No Deposit, Unlimited Mileage",
       metaDescription:
         "Rent a car in Poltava for business trips. New 2023-2024 fleet. Unlimited mileage. Free city delivery 24/7. Book your self-drive now!",
       h1: "Car Rental in Poltava",
@@ -902,7 +893,7 @@ export const cityLocalizations: Record<
   },
   chernivtsi: {
     uk: {
-      title: "Оренда авто у Чернівцях без застави | REIZ — Виїзд до кордону",
+      title: "Оренда авто у Чернівцях без застави — Виїзд до кордону",
       metaDescription:
         "Прокат авто у Чернівцях офіційно. Зручний виїзд до кордону з Румунією та Молдовою. Нові машини 2023-2024. Безкоштовна подача 24/7!",
       h1: "Оренда авто у Чернівцях",
@@ -915,7 +906,7 @@ export const cityLocalizations: Record<
         "Прокат авто у Чернівцях. Без застави. Зручний виїзд до кордону. Безкоштовна подача по місту 24/7.",
     },
     ru: {
-      title: "Аренда авто в Черновцах без залога | REIZ — Выезд к границе",
+      title: "Аренда авто в Черновцах без залога — Выезд к границе",
       metaDescription:
         "Прокат авто в Черновцах официально. Удобный выезд к границе с Румынией и Молдовой. Новые машины 2023-2024. Бесплатная подача 24/7!",
       h1: "Аренда авто в Черновцах",
@@ -928,7 +919,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Черновцах. Без залога. Удобный выезд к границе. Бесплатная подача по городу 24/7.",
     },
     en: {
-      title: "Car Rental Chernivtsi | REIZ — No Deposit, Border Access",
+      title: "Car Rental Chernivtsi — No Deposit, Border Access",
       metaDescription:
         "Rent a car in Chernivtsi. Easy border crossing to Romania and Moldova. New 2023-2024 fleet. Free city delivery 24/7. Book now!",
       h1: "Car Rental in Chernivtsi",
@@ -943,7 +934,7 @@ export const cityLocalizations: Record<
   },
   boryspil: {
     uk: {
-      title: "Оренда авто в Борисполі без застави | REIZ — Аеропорт 24/7",
+      title: "Оренда авто в Борисполі без застави — Аеропорт 24/7",
       metaDescription:
         "Прокат авто в Борисполі з подачею в аеропорт. Зустріч з рейсу 24/7. Нові машини 2023-2024. Швидке оформлення. Без ліміту пробігу!",
       h1: "Оренда авто в Борисполі",
@@ -956,7 +947,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Борисполі. Без застави. Зустріч з рейсу в аеропорту. Нові авто 24/7. Швидка видача.",
     },
     ru: {
-      title: "Аренда авто в Борисполе без залога | REIZ — Аэропорт 24/7",
+      title: "Аренда авто в Борисполе без залога — Аэропорт 24/7",
       metaDescription:
         "Прокат авто в Борисполе с подачей в аэропорт. Встреча с рейса 24/7. Новые машины 2023-2024. Быстрое оформление. Без лимита пробега!",
       h1: "Аренда авто в Борисполе",
@@ -969,7 +960,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Борисполе. Без залога. Встреча с рейса в аэропорту. Новые авто 24/7. Быстрая выдача.",
     },
     en: {
-      title: "Car Rental Boryspil Airport | REIZ — No Deposit, 24/7 Pickup",
+      title: "Car Rental Boryspil Airport — No Deposit, 24/7 Pickup",
       metaDescription:
         "Rent a car at Boryspil Airport. Flight meet and greet 24/7. New 2023-2024 fleet. Fast paperwork. Unlimited mileage. Book your self-drive!",
       h1: "Car Rental in Boryspil",

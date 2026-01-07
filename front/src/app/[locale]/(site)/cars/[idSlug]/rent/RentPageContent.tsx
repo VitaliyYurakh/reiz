@@ -787,18 +787,18 @@ export default function RentPageContent({
               </li>
               <li className="rent-page__summary-item">
                 <span className="rent-page__summary-name">
-                  {t("summary.totalLabel")}
-                </span>
-                <span className="rent-page__summary-value rent-page__summary-value--big">
-                  {formatPrice(totalCost)}
-                </span>
-              </li>
-              <li className="rent-page__summary-item">
-                <span className="rent-page__summary-name">
                   {t("summary.depositLabel")}
                 </span>
                 <span className="rent-page__summary-value">
                   <b>{formatDeposit(depositAmount)}</b>
+                </span>
+              </li>
+              <li className="rent-page__summary-item">
+                <span className="rent-page__summary-name">
+                  {t("summary.totalLabel")}
+                </span>
+                <span className="rent-page__summary-value rent-page__summary-value--big">
+                  {formatPrice(totalCost)}
                 </span>
               </li>
             </ul>

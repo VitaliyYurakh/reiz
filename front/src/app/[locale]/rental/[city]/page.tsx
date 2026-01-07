@@ -6,7 +6,6 @@ import Catalog from "@/app/[locale]/components/Catalog";
 import Advantages from "@/app/[locale]/components/Advantages";
 import Rent from "@/app/[locale]/components/Rent";
 import { CatalogFiltersProvider } from "@/context/CatalogFiltersContext";
-import { RentalSearchProvider } from "@/context/RentalSearchContext";
 import { fetchCars } from "@/lib/api/cars";
 import type { Locale } from "@/i18n/request";
 import { locales, defaultLocale } from "@/i18n/request";
@@ -124,19 +123,17 @@ export default async function CityRentalPage({
 
   return (
     <CatalogFiltersProvider>
-      <RentalSearchProvider>
-        <Header />
-        <main className="main">
-          <CitySchemaOrg city={cityConfig} locale={locale} faqSections={faqSections} />
-          <CityHeroSection city={cityConfig} cityData={cityData} />
-          <Catalog cars={cars} sectionTitle={cityData.sectionCars} />
-          <Advantages />
-          <Rent />
-          <CityEditorSection city={cityConfig} locale={locale} />
-          <CityFAQ faqSections={faqSections} mainTitle={faqMainTitle} />
-        </main>
-        <Footer />
-      </RentalSearchProvider>
+      <Header />
+      <main className="main">
+        <CitySchemaOrg city={cityConfig} locale={locale} faqSections={faqSections} />
+        <CityHeroSection city={cityConfig} cityData={cityData} />
+        <Catalog cars={cars} sectionTitle={cityData.sectionCars} />
+        <Advantages />
+        <Rent />
+        <CityEditorSection city={cityConfig} locale={locale} />
+        <CityFAQ faqSections={faqSections} mainTitle={faqMainTitle} />
+      </main>
+      <Footer />
     </CatalogFiltersProvider>
   );
 }
