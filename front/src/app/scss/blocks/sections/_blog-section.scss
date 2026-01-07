@@ -34,7 +34,11 @@
     }
 
     .cert__hero-title {
-      font-size: 38px;
+      font-family: var(--font-inter), "Arial", sans-serif;
+      font-weight: 300;
+      font-size: 2.375rem;
+      line-height: 1.1578947368;
+      font-style: normal;
       white-space: nowrap !important;
       overflow: visible;
     }
