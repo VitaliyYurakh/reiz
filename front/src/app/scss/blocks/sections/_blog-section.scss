@@ -3,43 +3,36 @@
 .blog-section {
   padding-bottom: var(--default-gap);
 
-  .pretitle {
-    width: fit-content;
-    padding-left: 67px;
-    text-align: start;
-    ;
-    font-weight: 400;
-
-    &:after {
-      width: 40px;
-      left: 17px;
-    }
-  }
-
   &__inner {
     display: flex;
     flex-direction: column;
-    gap: clamp(28px, 3.75vw, 51px);
+    gap: clamp(24px, 2.9412vw, 40px);
+    min-width: 0;
+    overflow: visible;
+    padding-top: clamp(20px, 2.2059vw, 30px);
 
-    .breadcrumbs {
-      @include for-tablet {
-        display: none;
-      }
-    }
-    .main-title {
-      margin-top: calc(clamp(60px, 4.5588vw, 62px) - clamp(28px, 3.75vw, 51px));
-      ;
-      font-size: 37px;
+    @include tablet {
+      padding-top: 0;
     }
 
-    .pretitle {
-      @include tablet {
-        display: none;
-      }
+    // Hero elements spacing
+    .cert__breadcrumb {
+      margin-bottom: 0;
     }
 
-    @include for-tablet {
-      padding-top: 67px;
+    .cert__hero {
+      margin-bottom: clamp(36px, 4.4118vw, 60px);
+      max-width: 100%;
+    }
+
+    .cert__hero-title {
+      font-size: 38px;
+      white-space: nowrap !important;
+      overflow: visible;
+    }
+
+    .cert__hero-subtitle {
+      white-space: pre-line;
     }
   }
 
@@ -61,13 +54,12 @@
     }
   }
 
-
   .aside {
     height: fit-content;
     transition: all .4s ease;
 
-    @include for-tablet{
-      height: calc(100dvh - (var(--header-height) + 15px +  clamp(34px, 2.8676vw, 39px)));
+    @include for-tablet {
+      height: calc(100dvh - (var(--header-height) + 15px + clamp(34px, 2.8676vw, 39px)));
       position: sticky;
       z-index: 10;
       top: 20px;

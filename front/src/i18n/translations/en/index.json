@@ -597,6 +597,10 @@
       "current": "Blog"
     },
     "mainTitle": "REIZ Blog",
+    "hero": {
+      "title": "REIZ Blog — car rental insights",
+      "subtitle": "Helpful tips, guides, and stories about car rentals. Learn more about traveling in Ukraine, rental rules, and our services."
+    },
     "posts": [
       {
         "title": "What to do after a road accident in Ukraine: a step-by-step guide from REIZ",

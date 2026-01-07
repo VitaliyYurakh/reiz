@@ -31,24 +31,48 @@ export default async function BlogPage() {
   const posts = t.raw("posts") as Post[];
 
   return (
-    <div
-      className="blog-section__inner"
-      data-aos="fade-left"
-      data-aos-duration={900}
-      data-aos-delay={600}
-    >
-      <h2 className="pretitle">{t("pretitle")}</h2>
-
+    <div className="blog-section__inner">
+      {/* JSON-LD Breadcrumbs */}
       <Breadcrumbs
+        mode={"JsonLd"}
         items={[
           { href: getDefaultPath("home"), name: t("breadcrumbs.home") },
           { href: getDefaultPath("blog"), name: t("breadcrumbs.current") },
         ]}
       />
 
-      <h1 className="main-title">{t("mainTitle")}</h1>
+      {/* 1. Breadcrumb line */}
+      <div
+        className="cert__breadcrumb"
+        data-aos="fade-up"
+        data-aos-duration={800}
+      >
+        <span className="cert__marker" />
+        <span className="cert__breadcrumb-text">{t("pretitle")}</span>
+      </div>
 
-      <ul className="blog-list">
+      {/* 2. Hero */}
+      <div
+        className="cert__hero"
+        data-aos="fade-up"
+        data-aos-duration={800}
+        data-aos-delay={100}
+      >
+        <h1 className="cert__hero-title">
+          {t("hero.title")}
+        </h1>
+        <p className="cert__hero-subtitle">
+          {t("hero.subtitle")}
+        </p>
+      </div>
+
+      {/* 3. Blog posts list */}
+      <ul
+        className="blog-list"
+        data-aos="fade-up"
+        data-aos-duration={800}
+        data-aos-delay={200}
+      >
         {posts.map((post, idx) => (
           <li className="blog-list__item" key={post.title}>
             <div className="blog-card">
