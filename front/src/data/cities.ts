@@ -401,7 +401,7 @@ export const cityLocalizations: Record<
   },
   odesa: {
     uk: {
-      title: "Оренда авто в Одесі без застави — Подача на пляж 24/7",
+      title: "Оренда авто в Одесі без застави — Доставка по адресу 24/7",
       metaDescription:
         "Прокат авто в Одесі офіційно. Подача на Аркадію, в порт та аеропорт 24/7. Нові машини 2023-2026. Економ та бізнес. Бронюйте!",
       h1: "Оренда авто в Одесі",
@@ -427,7 +427,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Одессе. Без залога. Подача на Аркадию, в порт и аэропорт. Кабриолеты и новые авто.",
     },
     en: {
-      title: "Car Rental Odesa — No Deposit, Beach Delivery 24/7",
+      title: "Car Rental Odesa — No Deposit, Delivery 24/7",
       metaDescription:
         "Rent a car in Odesa officially. Delivery to Arcadia beach, port and airport 24/7. New 2023-2026 fleet. Convertibles and SUVs. Book now!",
       h1: "Car Rental in Odesa",
