@@ -5,7 +5,7 @@ import { getLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/request";
 import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
-import { gowunDodum, halvar, inter, merriweather } from "@/fonts";
+import { gowunDodum, halvar, inter, merriweather, kyivType } from "@/fonts";
 import { Partytown } from "@qwik.dev/partytown/react";
 import ThemeColorProvider from "@/components/ThemeColorProvider";
 
@@ -157,7 +157,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
       </head>
       <body
-        className={`${inter.variable} ${halvar.variable} ${gowunDodum.variable} ${merriweather.variable}`}
+        className={`${inter.variable} ${halvar.variable} ${gowunDodum.variable} ${merriweather.variable} ${kyivType.variable}`}
       >
         <noscript>
           <iframe

@@ -95,11 +95,6 @@ export default async function HeroSection() {
                   </svg>
                 </i>
                 <span>{t("address_link")}</span>
-                <i className="sprite">
-                  <svg width="12" height="7">
-                    <use href="/img/sprite/sprite.svg#arrow-d2" />
-                  </svg>
-                </i>
               </LocationMapLink>
 
               <a href="#catalog" className="down-btn">

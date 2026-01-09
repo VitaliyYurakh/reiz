@@ -9,7 +9,6 @@ type Post = {
   title: string;
   excerpt: string;
   date: string;
-  cta: string;
   imgAlt: string;
 };
 
@@ -41,7 +40,7 @@ export default async function BlogPage() {
         ]}
       />
 
-      {/* 1. Breadcrumb line */}
+      {/* 1. Breadcrumb line - using cert classes from certificate-section.scss */}
       <div
         className="cert__breadcrumb"
         data-aos="fade-up"
@@ -53,17 +52,13 @@ export default async function BlogPage() {
 
       {/* 2. Hero */}
       <div
-        className="cert__hero"
+        className="blog-hero"
         data-aos="fade-up"
         data-aos-duration={800}
         data-aos-delay={100}
       >
-        <h1 className="cert__hero-title">
-          {t("hero.title")}
-        </h1>
-        <p className="cert__hero-subtitle">
-          {t("hero.subtitle")}
-        </p>
+        <h1 className="blog-hero__title">{t("hero.title")}</h1>
+        <p className="blog-hero__subtitle">{t("hero.subtitle")}</p>
       </div>
 
       {/* 3. Blog posts list */}
@@ -96,7 +91,7 @@ export default async function BlogPage() {
                 <div className="blog-card__bottom">
                   <span className="blog-card__date">{post.date}</span>
                   <a href="#" className="main-button">
-                    {post.cta}
+                    {t("cta.readArticle")}
                   </a>
                 </div>
               </div>

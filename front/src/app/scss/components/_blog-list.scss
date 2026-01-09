@@ -1,14 +1,30 @@
 @use "../mixins/breakpoint" as *;
-.blog-list{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 
-    &__item{
-        @include mobile {
-    &:nth-child(n+5) {
-      display: none;
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3vw, 36px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include tablet {
+    gap: 40px;
+  }
+
+  &__item {
+    display: block;
+    padding-top: clamp(24px, 3vw, 36px);
+    border-top: 1px solid var(--cl-k, #e0e0e0);
+
+    &:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    @include tablet {
+      padding-top: 0;
+      border-top: none;
     }
   }
-    }
 }

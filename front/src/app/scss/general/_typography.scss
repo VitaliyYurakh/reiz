@@ -27,8 +27,9 @@
     &:after {
         position: absolute;
         content: '';
-        border: 1px solid var(--cl-m);
         width: clamp(30px, 4.4118vw, 60px);
+        height: 1px;
+        background-color: var(--cl-m);
         left: clamp(15px, 1.25vw, 17px);
         top: 50%;
         pointer-events: none;

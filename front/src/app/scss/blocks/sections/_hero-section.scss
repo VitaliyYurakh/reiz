@@ -150,6 +150,12 @@
         }
     }
 
+    .title {
+        font-family: var(--font-inter), Arial, sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+    }
+
     &__date {
         display: flex;
         align-items: center;
@@ -191,7 +197,8 @@
 
         p {
             ;
-            font-weight: 500;
+            font-family: var(--font-inter), Arial, sans-serif;
+            font-weight: 400;
             font-size: clamp(15px, 1.1765vw, 16px);
             line-height: 131%;
             color: var(--cl-b);
@@ -225,8 +232,9 @@
             }
             p {
                 ;
+                font-family: var(--font-inter), Arial, sans-serif;
                 font-weight: 400;
-                font-size: 20px;
+                font-size: 18px;
                 color: var(--cl-b);
 
                 @include tablet {

@@ -606,40 +606,36 @@
         "title": "What to do after a road accident in Ukraine: a step-by-step guide from REIZ",
         "excerpt": "A simple checklist on what to do after an accident in Ukraine: how to record the incident properly, whom to notify, and which documents your insurer will require.",
         "date": "17.04.2025",
-        "cta": "READ MORE",
         "imgAlt": "Car with a warning triangle on the road — article about road accidents in Ukraine"
       },
       {
         "title": "Road-trip route across Ukraine by car",
         "excerpt": "Explore a route that offers a thrilling road adventure and a chance to discover the country’s culture and landscapes.",
         "date": "17.04.2025",
-        "cta": "READ MORE",
         "imgAlt": "Panorama of Ukraine’s landmarks at sunset — road-trip route"
       },
       {
         "title": "Top navigation apps in Ukraine",
         "excerpt": "Ukraine is a place where tech is part of daily life for locals and visitors. We review the most popular apps that help you navigate cities and highways with ease.",
         "date": "17.04.2025",
-        "cta": "READ MORE",
         "imgAlt": "GPS navigator icon — review of popular navigation apps in Ukraine"
       },
       {
         "title": "Road trip around Lviv and Lviv Oblast",
         "excerpt": "Discover Lviv and its region by car — from the cozy Old Town streets to castles, lakes, and the Carpathians. A convenient route to see the essentials without rushing.",
         "date": "17.04.2025",
-        "cta": "READ MORE",
         "imgAlt": "Panorama of Lviv and landmarks — route around Lviv Oblast"
       },
       {
         "title": "How to pay for parking in Ukraine as a tourist?",
         "excerpt": "Learn several quick ways to make the payment with minimal fuss.",
         "date": "17.04.2025",
-        "cta": "READ MORE",
         "imgAlt": "Parking sign near a city building — how to pay for parking in Ukraine"
       }
     ],
     "cta": {
-      "requestCall": "REQUEST A CALL"
+      "requestCall": "REQUEST A CALL",
+      "readArticle": "READ ARTICLE"
     }
   },
   "aboutPage": {

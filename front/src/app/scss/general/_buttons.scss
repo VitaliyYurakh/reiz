@@ -146,8 +146,9 @@
   &:after {
     position: absolute;
     content: "";
-    border: 1px solid var(--cl-m);
     width: 52px;
+    height: 1px;
+    background-color: var(--cl-m);
     left: calc(56px + 9px);
     top: 50%;
     pointer-events: none;
@@ -188,7 +189,7 @@
   span {
     margin-right: 7px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
     color: var(--cl-b);
     position: relative;
@@ -201,11 +202,11 @@
       left: 2px;
       right: 2px;
       bottom: -8px;
-      height: 1px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='356' height='1' fill='none'%3E%3Cpath stroke='%23fff' stroke-dasharray='5 5' d='M0 .5h356'/%3E%3C/svg%3E");
-      background-position: top left;
+      height: 2px;
+      background-image: radial-gradient(circle, currentColor 0.7px, transparent 0.7px);
+      background-position: left center;
       background-repeat: repeat-x;
-      background-size: cover;
+      background-size: 5px 2px;
       z-index: -1;
       pointer-events: none;
     }
