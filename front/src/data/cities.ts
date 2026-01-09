@@ -280,7 +280,7 @@ export const cityLocalizations: Record<
     uk: {
       title: "Оренда авто у Києві без застави — Аеропорт Бориспіль 24/7",
       metaDescription:
-        "Прокат авто у Києві офіційно. Подача в аеропорт Бориспіль та по місту 24/7. Нові машини 2023-2026. Швидке оформлення. Бронюйте онлайн!",
+        "Прокат авто у Києві офіційно. Подача в аеропорт Бориспіль та по місту 24/7. Нові машини. Швидке оформлення. Бронюйте онлайн!",
       h1: "Оренда авто у Києві",
       sectionCars: "АВТОМОБІЛІ REIZ У КИЄВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ КИЇВ",
@@ -293,7 +293,7 @@ export const cityLocalizations: Record<
     ru: {
       title: "Аренда авто в Киеве без залога — Аэропорт Борисполь 24/7",
       metaDescription:
-        "Прокат авто в Киеве официально. Подача в аэропорт Борисполь и по городу 24/7. Новые машины 2023-2026. Быстрое оформление. Бронируйте онлайн!",
+        "Прокат авто в Киеве официально. Подача в аэропорт Борисполь и по городу 24/7. Новые машины. Быстрое оформление. Бронируйте онлайн!",
       h1: "Аренда авто в Киеве",
       sectionCars: "АВТОМОБИЛИ REIZ В КИЕВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ КИЕВ",
@@ -306,7 +306,7 @@ export const cityLocalizations: Record<
     en: {
       title: "Car Rental Kyiv — No Deposit, Boryspil Airport 24/7",
       metaDescription:
-        "Rent a car in Kyiv officially. Delivery to Boryspil Airport and city-wide 24/7. New 2023-2026 fleet. Fast paperwork. Book online now!",
+        "Rent a car in Kyiv officially. Delivery to Boryspil Airport and city-wide 24/7. New fleet. Fast paperwork. Book online now!",
       h1: "Car Rental in Kyiv",
       sectionCars: "REIZ CARS IN KYIV",
       sectionWelcome: "WELCOME TO REIZ KYIV",
@@ -319,7 +319,7 @@ export const cityLocalizations: Record<
   },
   lviv: {
     uk: {
-      title: "Прокат авто Львів: Без ліміту пробігу. Нові моделі",
+      title: "Прокат авто у Львові: Без ліміту пробігу. Нові моделі",
       metaDescription:
         "Оренда машин для поїздок по місту та Карпатах. Оформлення за 15 хв. Стандартні тарифи або опція «Без застави». Підтримка в дорозі 24/7.",
       h1: "Оренда авто у Львові",
@@ -332,7 +332,7 @@ export const cityLocalizations: Record<
         "Прокат авто у Львові. Без застави. Великий автопарк. Подача в аеропорт та по місту. Нові авто.",
     },
     ru: {
-      title: "Прокат авто Львов: Без лимита пробега. Новые модели",
+      title: "Прокат авто во Львове: Без лимита пробега. Новые модели",
       metaDescription:
         "Аренда машин во Львове для поездок по городу и Карпатам. Оформление за 15 мин. Стандартные тарифы или опция «Без залога». Поддержка в дороге 24/7.",
       h1: "Аренда авто во Львове",
@@ -362,7 +362,7 @@ export const cityLocalizations: Record<
     uk: {
       title: "Оренда авто у Тернополі без застави — Швидка видача",
       metaDescription:
-        "Прокат авто у Тернополі офіційно. Нові машини 2023-2026. Безкоштовна подача по місту та на вокзал 24/7. Швидке оформлення. Бронюйте!",
+        "Прокат авто у Тернополі офіційно. Нові машини. Безкоштовна подача по місту та на вокзал 24/7. Швидке оформлення. Бронюйте!",
       h1: "Оренда авто у Тернополі",
       sectionCars: "АВТОМОБІЛІ REIZ У ТЕРНОПОЛІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ТЕРНОПІЛЬ",
@@ -375,7 +375,7 @@ export const cityLocalizations: Record<
     ru: {
       title: "Аренда авто в Тернополе без залога — Быстрая выдача",
       metaDescription:
-        "Прокат авто в Тернополе официально. Новые машины 2023-2026. Бесплатная подача по городу и на вокзал 24/7. Быстрое оформление. Бронируйте!",
+        "Прокат авто в Тернополе официально. Новые машины. Бесплатная подача по городу и на вокзал 24/7. Быстрое оформление. Бронируйте!",
       h1: "Аренда авто в Тернополе",
       sectionCars: "АВТОМОБИЛИ REIZ В ТЕРНОПОЛЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ТЕРНОПОЛЬ",
@@ -383,12 +383,12 @@ export const cityLocalizations: Record<
         "Аренда авто в Тернополе от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
       ogTitle: "Аренда авто Тернополь без водителя — REIZ | Быстрая выдача",
       ogDescription:
-        "Прокат авто в Тернополе. Без залога. Новые авто 2024. Бесплатная подача по городу. Быстрое оформление 24/7.",
+        "Прокат авто в Тернополе. Без залога. Новые авто. Бесплатная подача по городу. Быстрое оформление 24/7.",
     },
     en: {
       title: "Car Rental Ternopil — No Deposit, Fast Pickup",
       metaDescription:
-        "Rent a car in Ternopil officially. New 2023-2024 fleet. Free city and station delivery 24/7. Fast paperwork. Book now!",
+        "Rent a car in Ternopil officially. New fleet. Free city and station delivery 24/7. Fast paperwork. Book now!",
       h1: "Car Rental in Ternopil",
       sectionCars: "REIZ CARS IN TERNOPIL",
       sectionWelcome: "WELCOME TO REIZ TERNOPIL",
@@ -396,27 +396,27 @@ export const cityLocalizations: Record<
         "Car rental in Ternopil from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
       ogTitle: "Car Rental Ternopil — REIZ | No Deposit, Fast Pickup",
       ogDescription:
-        "Rent a car in Ternopil. No deposit. New 2024 fleet. Free city delivery. Fast paperwork 24/7.",
+        "Rent a car in Ternopil. No deposit. New fleet. Free city delivery. Fast paperwork 24/7.",
     },
   },
   odesa: {
     uk: {
-      title: "Оренда авто в Одесі без застави — Доставка по адресу 24/7",
+      title: "Оренда авто в Одесі без застави — Доставка за адресою 24/7",
       metaDescription:
-        "Прокат авто в Одесі офіційно. Подача на Аркадію, в порт та аеропорт 24/7. Нові машини 2023-2026. Економ та бізнес. Бронюйте!",
+        "Прокат авто в Одесі офіційно. Подача на Аркадію, в порт та аеропорт 24/7. Нові машини. Економ та бізнес. Бронюйте!",
       h1: "Оренда авто в Одесі",
       sectionCars: "АВТОМОБІЛІ REIZ В ОДЕСІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ОДЕСА",
       subtitle:
         "Оренда авто в Одесі від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Одеса без водія — REIZ | Подача по адресу 24/7",
+      ogTitle: "Оренда авто Одеса без водія — REIZ | Подача за адресою 24/7",
       ogDescription:
-        "Прокат авто в Одесі. Без застави. Подача по адресу, в порт та аеропорт. Нові авто.",
+        "Прокат авто в Одесі. Без застави. Подача за адресою, в порт та аеропорт. Нові авто.",
     },
     ru: {
       title: "Аренда авто в Одессе без залога — Подача по адресу 24/7",
       metaDescription:
-        "Прокат авто в Одессе официально. Подача по городу, аэропорт 24/7. Новые машины 2023-2026. Економ и внедорожники. Бронируйте!",
+        "Прокат авто в Одессе официально. Подача по городу, аэропорт 24/7. Новые машины. Эконом и внедорожники. Бронируйте!",
       h1: "Аренда авто в Одессе",
       sectionCars: "АВТОМОБИЛИ REIZ В ОДЕССЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ОДЕССА",
@@ -429,7 +429,7 @@ export const cityLocalizations: Record<
     en: {
       title: "Car Rental Odesa — No Deposit, Delivery 24/7",
       metaDescription:
-        "Rent a car in Odesa officially. Delivery to Arcadia beach, port and airport 24/7. New 2023-2026 fleet. Convertibles and SUVs. Book now!",
+        "Rent a car in Odesa officially. Delivery to Arcadia beach, port and airport 24/7. New fleet. Convertibles and SUVs. Book now!",
       h1: "Car Rental in Odesa",
       sectionCars: "REIZ CARS IN ODESA",
       sectionWelcome: "WELCOME TO REIZ ODESA",
@@ -485,7 +485,7 @@ export const cityLocalizations: Record<
     uk: {
       title: "Оренда авто у Харкові без застави — Трансфер по місту",
       metaDescription:
-        "Прокат авто у Харкові офіційно. Подача на вокзал та по місту 24/7. Нові машини 2023-2026. Без ліміту пробігу. Швидке оформлення. Бронюйте!",
+        "Прокат авто у Харкові офіційно. Подача на вокзал та по місту 24/7. Нові машини. Без ліміту пробігу. Швидке оформлення. Бронюйте!",
       h1: "Оренда авто у Харкові",
       sectionCars: "АВТОМОБІЛІ REIZ У ХАРКОВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ХАРКІВ",
@@ -539,7 +539,7 @@ export const cityLocalizations: Record<
     ru: {
       title: "Аренда авто в Буковеле без залога — Внедорожники 24/7",
       metaDescription:
-        "Прокат авто в Буковеле официально. Внедорожники и полноприводные авто для гор. Доставка на курорт 24/7. Новые машины . Бронируйте!",
+        "Прокат авто в Буковеле официально. Внедорожники и полноприводные авто для гор. Доставка на курорт 24/7. Новые машины. Бронируйте!",
       h1: "Аренда авто в Буковеле",
       sectionCars: "АВТОМОБИЛИ REIZ В БУКОВЕЛЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ БУКОВЕЛЬ",
@@ -565,7 +565,7 @@ export const cityLocalizations: Record<
   },
   truskavets: {
     uk: {
-      title: "Оренда авто у Трускавці без застави — Курортна подача",
+      title: "Оренда авто у Трускавці без застави — Подача за адресою",
       metaDescription:
         "Прокат авто у Трускавці офіційно. Доставка на курорт та в санаторії 24/7. Нові машини. Комфортні подорожі Прикарпаттям. Бронюйте!",
       h1: "Оренда авто у Трускавці",
@@ -573,7 +573,7 @@ export const cityLocalizations: Record<
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ТРУСКАВЕЦЬ",
       subtitle:
         "Оренда авто у Трускавці від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Трускавець без водія — REIZ | Подача по адресу",
+      ogTitle: "Оренда авто Трускавець без водія — REIZ | Подача за адресою",
       ogDescription:
         "Прокат авто у Трускавці. Без застави. Доставка на курорт та в санаторії. Нові авто. Подорожі Прикарпаттям.",
     },
@@ -591,15 +591,15 @@ export const cityLocalizations: Record<
         "Прокат авто в Трускавце. Без залога. Доставка на курорт и в санатории. Новые авто. Путешествия по Прикарпатью.",
     },
     en: {
-      title: "Car Rental Truskavets — No Deposit, Resort Delivery",
+      title: "Car Rental Truskavets — No Deposit, Address Delivery",
       metaDescription:
-        "Rent a car in Truskavets officially. Delivery to resort and sanatoriums 24/7. New 2023-2026 fleet. Comfortable Carpathian trips. Book now!",
+        "Rent a car in Truskavets officially. Delivery to resort and sanatoriums 24/7. New fleet. Comfortable Carpathian trips. Book now!",
       h1: "Car Rental in Truskavets",
       sectionCars: "REIZ CARS IN TRUSKAVETS",
       sectionWelcome: "WELCOME TO REIZ TRUSKAVETS",
       subtitle:
         "Car rental in Truskavets from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Truskavets — REIZ | No Deposit, Resort Delivery",
+      ogTitle: "Car Rental Truskavets — REIZ | No Deposit, Address Delivery",
       ogDescription:
         "Rent a car in Truskavets. No deposit. Delivery to resort and sanatoriums. New fleet. Carpathian trips.",
     },
@@ -608,7 +608,7 @@ export const cityLocalizations: Record<
     uk: {
       title: "Оренда авто в Івано-Франківську без застави — До Карпат 24/7",
       metaDescription:
-        "Прокат авто в Івано-Франківську офіційно. Подача в аеропорт та виїзд до Карпат 24/7. Нові машини 2023-2024. Позашляховики та седани. Бронюйте!",
+        "Прокат авто в Івано-Франківську офіційно. Подача в аеропорт та виїзд до Карпат 24/7. Нові машини. Позашляховики та седани. Бронюйте!",
       h1: "Оренда авто в Івано-Франківську",
       sectionCars: "АВТОМОБІЛІ REIZ В ІВАНО-ФРАНКІВСЬКУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ІВАНО-ФРАНКІВСЬК",
@@ -616,12 +616,12 @@ export const cityLocalizations: Record<
         "Оренда авто в Івано-Франківську від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
       ogTitle: "Оренда авто Івано-Франківськ без водія — REIZ | Доставка авто 24/7",
       ogDescription:
-        "Прокат авто в Івано-Франківську. Без застави. Подача в аеропорт та виїзд до Карпат. Нові авто 2024.",
+        "Прокат авто в Івано-Франківську. Без застави. Подача в аеропорт та виїзд до Карпат. Нові авто.",
     },
     ru: {
       title: "Аренда авто в Ивано-Франковске без залога — Доставка авто 24/7",
       metaDescription:
-        "Прокат авто в Ивано-Франковске официально. Подача в аэропорт и выезд в Карпаты 24/7. Новые машины 2023-2024. Внедорожники и седаны. Бронируйте!",
+        "Прокат авто в Ивано-Франковске официально. Подача в аэропорт и выезд в Карпаты 24/7. Новые машины. Внедорожники и седаны. Бронируйте!",
       h1: "Аренда авто в Ивано-Франковске",
       sectionCars: "АВТОМОБИЛИ REIZ В ИВАНО-ФРАНКОВСКЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ИВАНО-ФРАНКОВСК",
@@ -629,12 +629,12 @@ export const cityLocalizations: Record<
         "Аренда авто в Ивано-Франковске от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
       ogTitle: "Аренда авто Ивано-Франковск без водителя — REIZ | В Карпаты 24/7",
       ogDescription:
-        "Прокат авто в Ивано-Франковске. Без залога. Подача в аэропорт и выезд в Карпаты. Новые авто 2024.",
+        "Прокат авто в Ивано-Франковске. Без залога. Подача в аэропорт и выезд в Карпаты. Новые авто.",
     },
     en: {
       title: "Car Rental Ivano-Frankivsk — No Deposit, Carpathian Access",
       metaDescription:
-        "Rent a car in Ivano-Frankivsk officially. Airport delivery and Carpathian trips 24/7. New 2023-2024 fleet. SUVs and sedans. Book now!",
+        "Rent a car in Ivano-Frankivsk officially. Airport delivery and Carpathian trips 24/7. New fleet. SUVs and sedans. Book now!",
       h1: "Car Rental in Ivano-Frankivsk",
       sectionCars: "REIZ CARS IN IVANO-FRANKIVSK",
       sectionWelcome: "WELCOME TO REIZ IVANO-FRANKIVSK",
@@ -642,12 +642,12 @@ export const cityLocalizations: Record<
         "Car rental in Ivano-Frankivsk from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
       ogTitle: "Car Rental Ivano-Frankivsk — REIZ | No Deposit, Carpathian Access",
       ogDescription:
-        "Rent a car in Ivano-Frankivsk. No deposit. Airport delivery and Carpathian trips. New 2024 fleet.",
+        "Rent a car in Ivano-Frankivsk. No deposit. Airport delivery and Carpathian trips. New fleet.",
     },
   },
   skhidnytsia: {
     uk: {
-      title: "Оренда авто у Східниці без застави — Подача по адресу",
+      title: "Оренда авто у Східниці без застави — Подача за адресою",
       metaDescription:
         "Прокат авто у Східниці офіційно. Доставка на курорт та подорожі Карпатами 24/7. Нові машини. Комфортний відпочинок. Бронюйте!",
       h1: "Оренда авто у Східниці",
@@ -675,7 +675,7 @@ export const cityLocalizations: Record<
     en: {
       title: "Car Rental Skhidnytsia — No Deposit, Spa Resort",
       metaDescription:
-        "Rent a car in Skhidnytsia officially. Delivery to spa resort and Carpathian trips 24/7. New 2023-2024 fleet. Comfortable vacation. Book now!",
+        "Rent a car in Skhidnytsia officially. Delivery to spa resort and Carpathian trips 24/7. New fleet. Comfortable vacation. Book now!",
       h1: "Car Rental in Skhidnytsia",
       sectionCars: "REIZ CARS IN SKHIDNYTSIA",
       sectionWelcome: "WELCOME TO REIZ SKHIDNYTSIA",
@@ -703,7 +703,7 @@ export const cityLocalizations: Record<
     ru: {
       title: "Аренда авто в Ужгороде без залога — Новые машины",
       metaDescription:
-        "Прокат авто в Ужгороде. Удобный выезд к границе ЕС и в Карпаты. Новые авто 2023-2026. Бесплатная подача по городу 24/7. Бронируйте!",
+        "Прокат авто в Ужгороде. Удобный выезд к границе ЕС и в Карпаты. Новые авто. Бесплатная подача по городу 24/7. Бронируйте!",
       h1: "Аренда авто в Ужгороде",
       sectionCars: "АВТОМОБИЛИ REIZ В УЖГОРОДЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ УЖГОРОД",
@@ -716,7 +716,7 @@ export const cityLocalizations: Record<
     en: {
       title: "Car Rental Uzhhorod — No Deposit, New Fleet",
       metaDescription:
-        "Rent a car in Uzhhorod. Easy border crossing to EU. New 2023-2026 fleet. Free city delivery 24/7. Book your self-drive now!",
+        "Rent a car in Uzhhorod. Easy border crossing to EU. New fleet. Free city delivery 24/7. Book your self-drive now!",
       h1: "Car Rental in Uzhhorod",
       sectionCars: "REIZ CARS IN UZHHOROD",
       sectionWelcome: "WELCOME TO REIZ UZHHOROD",
@@ -731,7 +731,7 @@ export const cityLocalizations: Record<
     uk: {
       title: "Оренда авто у Вінниці без застави — Швидка видача",
       metaDescription:
-        "Прокат авто у Вінниці для ділових поїздок. Нові машини 2023-2026. Без ліміту пробігу. Безкоштовна подача в центр 24/7. Бронюйте офіційно!",
+        "Прокат авто у Вінниці для ділових поїздок. Нові машини. Без ліміту пробігу. Безкоштовна подача в центр 24/7. Бронюйте офіційно!",
       h1: "Оренда авто у Вінниці",
       sectionCars: "АВТОМОБІЛІ REIZ У ВІННИЦІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ВІННИЦЯ",
@@ -744,7 +744,7 @@ export const cityLocalizations: Record<
     ru: {
       title: "Аренда авто в Виннице без залога — Быстрое оформление",
       metaDescription:
-        "Прокат авто в Виннице для деловых поездок. Новые машины 2023-2026. Без лимита пробега. Бесплатная подача в центр 24/7. Бронируйте!",
+        "Прокат авто в Виннице для деловых поездок. Новые машины. Без лимита пробега. Бесплатная подача в центр 24/7. Бронируйте!",
       h1: "Аренда авто в Виннице",
       sectionCars: "АВТОМОБИЛИ REIZ В ВИННИЦЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ВИННИЦА",
@@ -757,7 +757,7 @@ export const cityLocalizations: Record<
     en: {
       title: "Car Rental Vinnytsia — No Deposit, Unlimited Mileage",
       metaDescription:
-        "Rent a car in Vinnytsia for business trips. New 2023-2026 fleet. Unlimited mileage. Free city delivery 24/7. Book your self-drive now!",
+        "Rent a car in Vinnytsia for business trips. New fleet. Unlimited mileage. Free city delivery 24/7. Book your self-drive now!",
       h1: "Car Rental in Vinnytsia",
       sectionCars: "REIZ CARS IN VINNYTSIA",
       sectionWelcome: "WELCOME TO REIZ VINNYTSIA",
@@ -772,7 +772,7 @@ export const cityLocalizations: Record<
     uk: {
       title: "Оренда авто у Запоріжжі без застави — Нові авто",
       metaDescription:
-        "Прокат авто у Запоріжжі офіційно. Нові машини 2023-2026. Без ліміту пробігу. Безкоштовна подача по місту 24/7. Швидка видача. Бронюйте!",
+        "Прокат авто у Запоріжжі офіційно. Нові машини. Без ліміту пробігу. Безкоштовна подача по місту 24/7. Швидка видача. Бронюйте!",
       h1: "Оренда авто у Запоріжжі",
       sectionCars: "АВТОМОБІЛІ REIZ У ЗАПОРІЖЖІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЗАПОРІЖЖЯ",
@@ -785,7 +785,7 @@ export const cityLocalizations: Record<
     ru: {
       title: "Аренда авто в Запорожье без залога — Новые машины",
       metaDescription:
-        "Прокат авто в Запорожье официально. Новые машины 2023-2026. Без лимита пробега. Бесплатная подача по городу 24/7. Быстрое оформление!",
+        "Прокат авто в Запорожье официально. Новые машины. Без лимита пробега. Бесплатная подача по городу 24/7. Быстрое оформление!",
       h1: "Аренда авто в Запорожье",
       sectionCars: "АВТОМОБИЛИ REIZ В ЗАПОРОЖЬЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЗАПОРОЖЬЕ",
@@ -798,7 +798,7 @@ export const cityLocalizations: Record<
     en: {
       title: "Car Rental Zaporizhzhia — No Deposit, New Fleet",
       metaDescription:
-        "Rent a car in Zaporizhzhia officially. New 2023-2026 fleet. Unlimited mileage. Free city delivery 24/7. Fast pickup. Book your self-drive!",
+        "Rent a car in Zaporizhzhia officially. New fleet. Unlimited mileage. Free city delivery 24/7. Fast pickup. Book your self-drive!",
       h1: "Car Rental in Zaporizhzhia",
       sectionCars: "REIZ CARS IN ZAPORIZHZHIA",
       sectionWelcome: "WELCOME TO REIZ ZAPORIZHZHIA",
@@ -813,7 +813,7 @@ export const cityLocalizations: Record<
     uk: {
       title: "Оренда авто в Мукачеві без застави — Виїзд в Карпати",
       metaDescription:
-        "Прокат авто в Мукачеві офіційно. Зручний виїзд до кордону та в Карпати. Нові машини 2023-2024. Безкоштовна подача 24/7. Швидка видача!",
+        "Прокат авто в Мукачеві офіційно. Зручний виїзд до кордону та в Карпати. Нові машини. Безкоштовна подача 24/7. Швидка видача!",
       h1: "Оренда авто в Мукачеві",
       sectionCars: "АВТОМОБІЛІ REIZ В МУКАЧЕВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ МУКАЧЕВО",
@@ -826,7 +826,7 @@ export const cityLocalizations: Record<
     ru: {
       title: "Аренда авто в Мукачеве без залога — Выезд в Карпаты",
       metaDescription:
-        "Прокат авто в Мукачеве официально. Удобный выезд к границе ЕС и в Карпаты. Новые машины 2023-2024. Бесплатная подача 24/7. Бронируйте!",
+        "Прокат авто в Мукачеве официально. Удобный выезд к границе ЕС и в Карпаты. Новые машины. Бесплатная подача 24/7. Бронируйте!",
       h1: "Аренда авто в Мукачеве",
       sectionCars: "АВТОМОБИЛИ REIZ В МУКАЧЕВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ МУКАЧЕВО",
@@ -839,7 +839,7 @@ export const cityLocalizations: Record<
     en: {
       title: "Car Rental Mukachevo — No Deposit, Carpathian Trips",
       metaDescription:
-        "Rent a car in Mukachevo. Easy border crossing and Carpathian mountain access. New 2023-2024 fleet. Free delivery 24/7. Book now!",
+        "Rent a car in Mukachevo. Easy border crossing and Carpathian mountain access. New fleet. Free delivery 24/7. Book now!",
       h1: "Car Rental in Mukachevo",
       sectionCars: "REIZ CARS IN MUKACHEVO",
       sectionWelcome: "WELCOME TO REIZ MUKACHEVO",
@@ -854,7 +854,7 @@ export const cityLocalizations: Record<
     uk: {
       title: "Оренда авто у Полтаві без застави — Швидка видача",
       metaDescription:
-        "Прокат авто у Полтаві для ділових поїздок. Нові машини 2023-2026. Без ліміту пробігу. Безкоштовна подача в центр 24/7. Бронюйте офіційно!",
+        "Прокат авто у Полтаві для ділових поїздок. Нові машини. Без ліміту пробігу. Безкоштовна подача в центр 24/7. Бронюйте офіційно!",
       h1: "Оренда авто у Полтаві",
       sectionCars: "АВТОМОБІЛІ REIZ У ПОЛТАВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ПОЛТАВА",
@@ -867,7 +867,7 @@ export const cityLocalizations: Record<
     ru: {
       title: "Аренда авто в Полтаве без залога — Быстрое оформление",
       metaDescription:
-        "Прокат авто в Полтаве для деловых поездок. Новые машины 2023-2026. Без лимита пробега. Бесплатная подача в центр 24/7. Бронируйте!",
+        "Прокат авто в Полтаве для деловых поездок. Новые машины. Без лимита пробега. Бесплатная подача в центр 24/7. Бронируйте!",
       h1: "Аренда авто в Полтаве",
       sectionCars: "АВТОМОБИЛИ REIZ В ПОЛТАВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ПОЛТАВА",
@@ -880,7 +880,7 @@ export const cityLocalizations: Record<
     en: {
       title: "Car Rental Poltava — No Deposit, Unlimited Mileage",
       metaDescription:
-        "Rent a car in Poltava for business trips. New 2023-2026 fleet. Unlimited mileage. Free city delivery 24/7. Book your self-drive now!",
+        "Rent a car in Poltava for business trips. New fleet. Unlimited mileage. Free city delivery 24/7. Book your self-drive now!",
       h1: "Car Rental in Poltava",
       sectionCars: "REIZ CARS IN POLTAVA",
       sectionWelcome: "WELCOME TO REIZ POLTAVA",
@@ -888,14 +888,14 @@ export const cityLocalizations: Record<
         "Car rental in Poltava — comfortable business trips and travel across central Ukraine in new vehicles.",
       ogTitle: "Car Rental Poltava — REIZ | No Deposit, Self-Drive",
       ogDescription:
-        "Rent a car in Poltava. No deposit. New 2024 fleet. Free city delivery. Fast pickup 24/7.",
+        "Rent a car in Poltava. No deposit. New fleet. Free city delivery. Fast pickup 24/7.",
     },
   },
   chernivtsi: {
     uk: {
       title: "Оренда авто у Чернівцях без застави — Виїзд до кордону",
       metaDescription:
-        "Прокат авто у Чернівцях офіційно. Зручний виїзд до кордону з Румунією та Молдовою. Нові машини 2023-2024. Безкоштовна подача 24/7!",
+        "Прокат авто у Чернівцях офіційно. Зручний виїзд до кордону з Румунією та Молдовою. Нові машини. Безкоштовна подача 24/7!",
       h1: "Оренда авто у Чернівцях",
       sectionCars: "АВТОМОБІЛІ REIZ У ЧЕРНІВЦЯХ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЧЕРНІВЦІ",
@@ -908,7 +908,7 @@ export const cityLocalizations: Record<
     ru: {
       title: "Аренда авто в Черновцах без залога — Выезд к границе",
       metaDescription:
-        "Прокат авто в Черновцах официально. Удобный выезд к границе с Румынией и Молдовой. Новые машины 2023-2024. Бесплатная подача 24/7!",
+        "Прокат авто в Черновцах официально. Удобный выезд к границе с Румынией и Молдовой. Новые машины. Бесплатная подача 24/7!",
       h1: "Аренда авто в Черновцах",
       sectionCars: "АВТОМОБИЛИ REIZ В ЧЕРНОВЦАХ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЧЕРНОВЦЫ",
@@ -921,7 +921,7 @@ export const cityLocalizations: Record<
     en: {
       title: "Car Rental Chernivtsi — No Deposit, Border Access",
       metaDescription:
-        "Rent a car in Chernivtsi. Easy border crossing to Romania and Moldova. New 2023-2026 fleet. Free city delivery 24/7. Book now!",
+        "Rent a car in Chernivtsi. Easy border crossing to Romania and Moldova. New fleet. Free city delivery 24/7. Book now!",
       h1: "Car Rental in Chernivtsi",
       sectionCars: "REIZ CARS IN CHERNIVTSI",
       sectionWelcome: "WELCOME TO REIZ CHERNIVTSI",
@@ -936,7 +936,7 @@ export const cityLocalizations: Record<
     uk: {
       title: "Оренда авто в Борисполі без застави — Аеропорт 24/7",
       metaDescription:
-        "Прокат авто в Борисполі з подачею в аеропорт. Зустріч з рейсу 24/7. Нові машини 2023-2026. Швидке оформлення. Без ліміту пробігу!",
+        "Прокат авто в Борисполі з подачею в аеропорт. Зустріч з рейсу 24/7. Нові машини. Швидке оформлення. Без ліміту пробігу!",
       h1: "Оренда авто в Борисполі",
       sectionCars: "АВТОМОБІЛІ REIZ В БОРИСПОЛІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ БОРИСПІЛЬ",
@@ -949,7 +949,7 @@ export const cityLocalizations: Record<
     ru: {
       title: "Аренда авто в Борисполе без залога — Аэропорт 24/7",
       metaDescription:
-        "Прокат авто в Борисполе с подачей в аэропорт. Встреча с рейса 24/7. Новые машины 2023-2026. Быстрое оформление. Без лимита пробега!",
+        "Прокат авто в Борисполе с подачей в аэропорт. Встреча с рейса 24/7. Новые машины. Быстрое оформление. Без лимита пробега!",
       h1: "Аренда авто в Борисполе",
       sectionCars: "АВТОМОБИЛИ REIZ В БОРИСПОЛЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ БОРИСПОЛЬ",
@@ -962,7 +962,7 @@ export const cityLocalizations: Record<
     en: {
       title: "Car Rental Boryspil Airport — No Deposit, 24/7 Pickup",
       metaDescription:
-        "Rent a car at Boryspil Airport. Flight meet and greet 24/7. New 2023-2026 fleet. Fast paperwork. Unlimited mileage. Book your self-drive!",
+        "Rent a car at Boryspil Airport. Flight meet and greet 24/7. New fleet. Fast paperwork. Unlimited mileage. Book your self-drive!",
       h1: "Car Rental in Boryspil",
       sectionCars: "REIZ CARS IN BORYSPIL",
       sectionWelcome: "WELCOME TO REIZ BORYSPIL",
