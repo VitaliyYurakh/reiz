@@ -1445,7 +1445,7 @@
       "nameRequired": "Введіть ім’я",
       "phoneRequired": "Введіть номер телефону",
       "phoneInvalid": "Введіть коректний номер телефону",
-      "consentRequired": "Підтвердіть згоду на обробку персональних даних"
+      "consentRequired": "Підтвердіть згоду на обробку персональних даних."
     }
   },
   "managerWillContactYouModal": {
