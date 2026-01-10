@@ -1,4 +1,4 @@
-import type { CityConfig } from "./cities";
+import { cityPickupLocations, type CityConfig } from "./cities";
 
 export type Locale = "uk" | "ru" | "en";
 
@@ -5576,18 +5576,316 @@ export type CityFAQFormatted = {
   }[];
 };
 
-export function getCityFAQ(
+const FAQ_REQUIRED_SECTIONS = 4;
+const FAQ_REQUIRED_ITEMS = 12;
+
+const DEFAULT_LOCAL_ATTRACTIONS = {
+  uk: "центр міста та вашу адресу",
+  ru: "центр города и ваш адрес",
+  en: "the city center and your address",
+};
+
+const DEFAULT_ROUTES = {
+  uk: "поїздки по області та в сусідні міста",
+  ru: "поездки по области и в соседние города",
+  en: "trips around the region and nearby cities",
+};
+
+const DEFAULT_WEEKEND = {
+  uk: "популярні туристичні локації регіону",
+  ru: "популярные туристические локации региона",
+  en: "popular tourist spots in the region",
+};
+
+const joinWithConjunction = (items: string[], locale: Locale): string => {
+  if (items.length === 0) return "";
+  if (items.length === 1) return items[0];
+
+  const conjunction = {
+    uk: "та",
+    ru: "и",
+    en: "and",
+  }[locale];
+
+  if (items.length === 2) {
+    return `${items[0]} ${conjunction} ${items[1]}`;
+  }
+
+  return `${items.slice(0, -1).join(", ")} ${conjunction} ${items[items.length - 1]}`;
+};
+
+const getPickupLocationsText = (city: CityConfig, locale: Locale): string => {
+  const locations =
+    cityPickupLocations[city.slug]
+      ?.map((location) => location.name[locale])
+      .filter(Boolean) ?? [];
+
+  if (locations.length === 0) {
+    return {
+      uk: "подача по місту",
+      ru: "подача по городу",
+      en: "city center pickup",
+    }[locale];
+  }
+
+  return joinWithConjunction(locations.slice(0, 3), locale);
+};
+
+const getAirportSentence = (
+  cityData: CitySpecificContent | undefined,
+  locale: Locale
+): string => {
+  const airportName = cityData?.airport?.name?.[locale];
+  if (!airportName) return "";
+
+  const templates = {
+    uk: `Подача в ${airportName} можлива за попереднім узгодженням, час та умови підтвердить менеджер.`,
+    ru: `Подача в ${airportName} возможна по предварительному согласованию, время и условия подтвердит менеджер.`,
+    en: `Delivery to ${airportName} is available by request; the manager confirms time and terms.`,
+  };
+
+  return templates[locale];
+};
+
+const generateCityFaqTemplate = (
   city: CityConfig,
   locale: Locale
-): CityFAQFormatted[] {
-  const faqSections = cityFAQData[city.slug];
-  if (!faqSections) return [];
+): CityFAQFormatted[] => {
+  const loc = city.localized[locale];
+  const cityName = locale === "en" ? loc.name : loc.nameLocative;
+  const cityData = citySpecificContent[city.slug];
 
-  return faqSections.map((section) => ({
+  const pickupLocations = getPickupLocationsText(city, locale);
+  const localAttractions =
+    cityData?.localAttractions?.[locale] ?? DEFAULT_LOCAL_ATTRACTIONS[locale];
+  const routes = cityData?.routes?.[locale] ?? DEFAULT_ROUTES[locale];
+  const weekendTrip = cityData?.weekendTrip?.[locale] ?? DEFAULT_WEEKEND[locale];
+  const airportSentence = getAirportSentence(cityData, locale);
+
+  const deliveryAnswer = [
+    {
+      uk: `Найчастіші точки подачі: ${pickupLocations}.`,
+      ru: `Частые точки подачи: ${pickupLocations}.`,
+      en: `Common pickup points: ${pickupLocations}.`,
+    }[locale],
+    {
+      uk: `Також доставляємо авто в ${localAttractions}.`,
+      ru: `Также доставляем авто в ${localAttractions}.`,
+      en: `We can also deliver the car to ${localAttractions}.`,
+    }[locale],
+    airportSentence,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return [
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      }[locale],
+      items: [
+        {
+          question: {
+            uk: `Де паркувати орендований автомобіль у ${cityName} і як уникнути штрафів?`,
+            ru: `Где парковать арендованный автомобиль в ${cityName} и как избежать штрафов?`,
+            en: `Where to park a rental car in ${loc.name} and how to avoid fines?`,
+          }[locale],
+          answer: {
+            uk: "У центральних районах часто діє платне паркування — користуйтеся паркоматами або міськими додатками та перевіряйте знаки. Поза центром паркування зазвичай безкоштовне. Уникайте зупинок на тротуарах і під знаками «Зупинку заборонено».",
+            ru: "В центральных районах часто действует платная парковка — используйте паркоматы или городские приложения и проверяйте знаки. Вне центра парковка обычно бесплатная. Избегайте остановок на тротуарах и под знаками «Остановка запрещена».",
+            en: "Paid parking often applies in central areas — use meters or city apps and check signage. Outside the center, parking is usually free. Avoid sidewalks and No Stopping zones.",
+          }[locale],
+        },
+        {
+          question: {
+            uk: `Де можна отримати авто в ${cityName} і чи є подача на вокзал/аеропорт?`,
+            ru: `Где можно получить авто в ${cityName} и есть ли подача на вокзал/аэропорт?`,
+            en: `Where can I pick up a car in ${loc.name} and is airport/station delivery available?`,
+          }[locale],
+          answer: deliveryAnswer,
+        },
+        {
+          question: {
+            uk: `Які маршрути з ${cityName} найпопулярніші?`,
+            ru: `Какие маршруты из ${cityName} самые популярные?`,
+            en: `Which routes from ${loc.name} are most popular?`,
+          }[locale],
+          answer: {
+            uk: `Популярні маршрути: ${routes}. Для відпочинку радимо ${weekendTrip}.`,
+            ru: `Популярные маршруты: ${routes}. Для отдыха рекомендуем ${weekendTrip}.`,
+            en: `Popular routes: ${routes}. For a weekend trip, consider ${weekendTrip}.`,
+          }[locale],
+        },
+      ],
+    },
+    {
+      title: {
+        uk: "Страхування та депозит",
+        ru: "Страхование и депозит",
+        en: "Insurance and Deposit",
+      }[locale],
+      items: [
+        {
+          question: {
+            uk: `Що покриває страховка при оренді авто у ${cityName}?`,
+            ru: `Что покрывает страховка при аренде авто в ${cityName}?`,
+            en: `What does insurance cover when renting a car in ${loc.name}?`,
+          }[locale],
+          answer: {
+            uk: "Базово авто застраховане ОСЦПВ і покриває шкоду третім особам. Додаткові пакети CDW/SCDW зменшують вашу відповідальність за пошкодження авто. Розширене покриття може включати скло, шини та дзеркала.",
+            ru: "Базово авто застраховано по ОСАГО и покрывает ущерб третьим лицам. Дополнительные пакеты CDW/SCDW уменьшают вашу ответственность за повреждение авто. Расширенное покрытие может включать стекло, шины и зеркала.",
+            en: "Every car has mandatory MTPL covering third-party damage. CDW/SCDW packages reduce your liability for car damage. Extended coverage may include glass, tires, and mirrors.",
+          }[locale],
+        },
+        {
+          question: {
+            uk: `Франшиза та депозит у ${cityName}: у чому різниця?`,
+            ru: `Франшиза и депозит в ${cityName}: в чем разница?`,
+            en: `Deductible and deposit in ${loc.name}: what's the difference?`,
+          }[locale],
+          answer: {
+            uk: "Депозит блокується на картці на час оренди й повертається після приймання авто. Франшиза — максимальна сума вашої відповідальності при страховому випадку. Страхові пакети зменшують обидві суми.",
+            ru: "Депозит блокируется на карте на время аренды и возвращается после приема авто. Франшиза — максимальная сумма вашей ответственности при страховом случае. Страховые пакеты уменьшают обе суммы.",
+            en: "The deposit is blocked on your card during the rental and returned after the car is accepted. The deductible is the maximum amount of your liability in case of an incident. Insurance packages reduce both amounts.",
+          }[locale],
+        },
+        {
+          question: {
+            uk: `Чи можна орендувати авто у ${cityName} без застави?`,
+            ru: `Можно ли арендовать авто в ${cityName} без залога?`,
+            en: `Can I rent a car in ${loc.name} without a deposit?`,
+          }[locale],
+          answer: {
+            uk: "Для окремих моделей доступна мінімальна застава або її відсутність при виборі розширеного страхування. Умови залежать від класу авто та строку оренди — уточнюйте у менеджера.",
+            ru: "Для отдельных моделей доступен минимальный залог или его отсутствие при выборе расширенной страховки. Условия зависят от класса авто и срока аренды — уточняйте у менеджера.",
+            en: "For selected models, a minimal deposit or no deposit is available with extended insurance. Terms depend on the car class and rental period — please check with the manager.",
+          }[locale],
+        },
+      ],
+    },
+    {
+      title: {
+        uk: "Обмеження та заборони",
+        ru: "Ограничения и запреты",
+        en: "Restrictions and Prohibitions",
+      }[locale],
+      items: [
+        {
+          question: {
+            uk: `Мінімальний вік і стаж водія для оренди авто у ${cityName}`,
+            ru: `Минимальный возраст и стаж водителя для аренды авто в ${cityName}`,
+            en: `Minimum age and driving experience for car rental in ${loc.name}`,
+          }[locale],
+          answer: {
+            uk: "Мінімальний вік — 21 рік, стаж водіння — від 2 років. Для преміум-авто та кросоверів вимоги можуть бути вищі: від 25 років і стаж від 3 років.",
+            ru: "Минимальный возраст — 21 год, стаж вождения — от 2 лет. Для премиум-авто и кроссоверов требования могут быть выше: от 25 лет и стаж от 3 лет.",
+            en: "Minimum age is 21 and driving experience from 2 years. For premium cars and crossovers, requirements may be higher: from 25 years and 3+ years of experience.",
+          }[locale],
+        },
+        {
+          question: {
+            uk: `Чи можна виїжджати за межі України на орендованому авто з ${cityName}?`,
+            ru: `Можно ли выезжать за пределы Украины на арендованном авто из ${cityName}?`,
+            en: `Can I travel outside Ukraine with a rental car from ${loc.name}?`,
+          }[locale],
+          answer: {
+            uk: "Так, за попереднім погодженням. Потрібно повідомити менеджера заздалегідь і оформити додаткові документи (Green Card). Список дозволених країн уточнюється індивідуально.",
+            ru: "Да, по предварительному согласованию. Нужно заранее сообщить менеджеру и оформить дополнительные документы (Green Card). Список разрешенных стран уточняется индивидуально.",
+            en: "Yes, with prior approval. Please notify the manager in advance and arrange additional documents (Green Card). The list of permitted countries is confirmed individually.",
+          }[locale],
+        },
+        {
+          question: {
+            uk: "Передача авто третім особам і робота в таксі: що заборонено",
+            ru: "Передача авто третьим лицам и работа в такси: что запрещено",
+            en: "Transferring the car to third parties and taxi use: what's prohibited",
+          }[locale],
+          answer: {
+            uk: "Заборонено передавати авто особам, не вказаним у договорі, використовувати для таксі/доставки, суборенди, участі в перегонах та буксирування інших авто. Порушення призводять до штрафу та розірвання договору.",
+            ru: "Запрещено передавать авто лицам, не указанным в договоре, использовать для такси/доставки, субаренды, участия в гонках и буксировки других авто. Нарушения приводят к штрафу и расторжению договора.",
+            en: "It is prohibited to transfer the car to anyone not listed in the contract, use it for taxi/delivery, sublet it, participate in races, or tow other vehicles. Violations lead to penalties and contract termination.",
+          }[locale],
+        },
+      ],
+    },
+    {
+      title: {
+        uk: "Оплата та документи",
+        ru: "Оплата и документы",
+        en: "Payment and Documents",
+      }[locale],
+      items: [
+        {
+          question: {
+            uk: `Які способи оплати доступні при оренді авто у ${cityName}?`,
+            ru: `Какие способы оплаты доступны при аренде авто в ${cityName}?`,
+            en: `What payment methods are available for car rental in ${loc.name}?`,
+          }[locale],
+          answer: {
+            uk: "Приймаємо Visa/Mastercard (Apple Pay, Google Pay), готівку UAH/USD/EUR та безготівковий розрахунок для юридичних осіб. Депозит блокується на картці або вноситься готівкою.",
+            ru: "Принимаем Visa/Mastercard (Apple Pay, Google Pay), наличные UAH/USD/EUR и безналичный расчет для юридических лиц. Депозит блокируется на карте или вносится наличными.",
+            en: "We accept Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, and bank transfer for legal entities. The deposit is blocked on the card or paid in cash.",
+          }[locale],
+        },
+        {
+          question: {
+            uk: `Які документи потрібні для оренди авто у ${cityName}?`,
+            ru: `Какие документы нужны для аренды авто в ${cityName}?`,
+            en: `What documents are required to rent a car in ${loc.name}?`,
+          }[locale],
+          answer: {
+            uk: "Громадянам України потрібні паспорт/ID-картка, посвідчення водія кат. B та ІПН. Іноземцям — закордонний паспорт, водійське посвідчення (міжнародне, якщо права не латиницею) і віза/штамп в'їзду.",
+            ru: "Гражданам Украины нужны паспорт/ID-карта, водительское удостоверение кат. B и ИНН. Иностранцам — загранпаспорт, водительское удостоверение (международное, если права не на латинице) и виза/штамп въезда.",
+            en: "Ukrainian citizens need a passport/ID, a category B driver's license, and tax ID. Foreigners need a passport, a driver's license (international if not in Latin), and an entry visa/stamp.",
+          }[locale],
+        },
+        {
+          question: {
+            uk: "Політика пального «повний‑повний»: як повернути авто без доплат?",
+            ru: "Политика топлива «полный‑полный»: как вернуть авто без доплат?",
+            en: "Full-to-full fuel policy: how to return a car without extra charges?",
+          }[locale],
+          answer: {
+            uk: "Авто видається з повним баком — поверніть також із повним. Якщо не встигаєте заправитись, можемо заправити за ринковою ціною + сервісний збір.",
+            ru: "Авто выдаётся с полным баком — верните также с полным. Если не успеваете заправиться, можем заправить по рыночной цене + сервисный сбор.",
+            en: "The car is provided with a full tank — return it full as well. If you don't have time to refuel, we can fill it at market price plus a service fee.",
+          }[locale],
+        },
+      ],
+    },
+  ];
+};
+
+const countFaqItems = (sections: CityFAQSection[]): number =>
+  sections.reduce((total, section) => total + section.items.length, 0);
+
+const hasRequiredFaq = (sections: CityFAQSection[]): boolean =>
+  sections.length === FAQ_REQUIRED_SECTIONS &&
+  countFaqItems(sections) === FAQ_REQUIRED_ITEMS &&
+  sections.every((section) => section.items.length === 3);
+
+const formatCityFaqSections = (
+  sections: CityFAQSection[],
+  locale: Locale
+): CityFAQFormatted[] =>
+  sections.map((section) => ({
     title: section.title[locale],
     items: section.items.map((item) => ({
       question: item.question[locale],
       answer: item.answer[locale],
     })),
   }));
+
+export function getCityFAQ(
+  city: CityConfig,
+  locale: Locale
+): CityFAQFormatted[] {
+  const faqSections = cityFAQData[city.slug];
+  if (faqSections && hasRequiredFaq(faqSections)) {
+    return formatCityFaqSections(faqSections, locale);
+  }
+
+  return generateCityFaqTemplate(city, locale);
 }

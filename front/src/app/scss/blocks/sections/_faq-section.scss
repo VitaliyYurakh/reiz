@@ -157,44 +157,6 @@
         }
     }
 
-    &__accordion--city {
-        display: flex;
-        flex-direction: column;
-        gap: 37px;
-
-        .acc {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            column-gap: clamp(20px, 3.3167vw, 40px);
-
-            &::after {
-                display: none;
-            }
-        }
-
-        @include small-tablet {
-            gap: 40px;
-
-            .acc {
-                grid-template-columns: 100%;
-                row-gap: 40px;
-            }
-        }
-    }
-
-    &__group-title {
-        margin-bottom: 10px;
-        font-weight: 500;
-        font-size: 18px;
-        text-align: start;
-        line-height: 139%;
-        color: var(--cl-a);
-
-        @include small-tablet {
-            margin-bottom: 20px;
-        }
-    }
-
     &.mode {
         padding-bottom: var(--default-padding);
 
