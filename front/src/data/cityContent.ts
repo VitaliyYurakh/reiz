@@ -485,6 +485,446 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
       en: "Terminal D, Terminal F, airport hotels, Boryspil center",
     },
   },
+  lutsk: {
+    routeExample: {
+      uk: "як модель поводиться на дорогах Волині та шляху до Шацьких озер",
+      ru: "как модель ведёт себя на дорогах Волыни и пути к Шацким озёрам",
+      en: "how the model handles Volyn roads and the route to Shatsk Lakes",
+    },
+    routes: {
+      uk: "Луцьк ↔ Львів, Рівне, Шацькі озера, кордон з Польщею",
+      ru: "Луцк ↔ Львов, Ровно, Шацкие озёра, граница с Польшей",
+      en: "Lutsk ↔ Lviv, Rivne, Shatsk Lakes, Poland border",
+    },
+    weekendTrip: {
+      uk: "відпочинок на Шацьких озерах, Луцький замок, Володимир-Волинський",
+      ru: "отдых на Шацких озёрах, Луцкий замок, Владимир-Волынский",
+      en: "Shatsk Lakes getaway, Lutsk Castle, Volodymyr-Volynskyi",
+    },
+    localAttractions: {
+      uk: "центр, Луцький замок, вокзал, автовокзал",
+      ru: "центр, Луцкий замок, вокзал, автовокзал",
+      en: "city center, Lutsk Castle, railway station, bus station",
+    },
+  },
+  rivne: {
+    routeExample: {
+      uk: "як модель поводиться на дорогах Рівненщини та Полісся",
+      ru: "как модель ведёт себя на дорогах Ровенщины и Полесья",
+      en: "how the model handles Rivne region and Polissia roads",
+    },
+    routes: {
+      uk: "Рівне ↔ Київ, Львів, Луцьк, Тернопіль",
+      ru: "Ровно ↔ Киев, Львов, Луцк, Тернополь",
+      en: "Rivne ↔ Kyiv, Lviv, Lutsk, Ternopil",
+    },
+    weekendTrip: {
+      uk: "Тунель кохання в Клевані, Тараканівський форт, Корець",
+      ru: "Тоннель любви в Клевани, Тараканивский форт, Корец",
+      en: "Tunnel of Love in Klevan, Tarakaniv Fort, Korets",
+    },
+    localAttractions: {
+      uk: "центр, вокзал, автовокзал, Рівненський замок",
+      ru: "центр, вокзал, автовокзал, Ровенский замок",
+      en: "city center, railway station, bus station, Rivne Castle",
+    },
+  },
+  khmelnytskyi: {
+    routeExample: {
+      uk: "як модель поводиться на дорогах Поділля та шляху до Кам'янця",
+      ru: "как модель ведёт себя на дорогах Подолья и пути в Каменец",
+      en: "how the model handles Podillia roads and the route to Kamianets",
+    },
+    routes: {
+      uk: "Хмельницький ↔ Київ, Львів, Вінниця, Кам'янець-Подільський",
+      ru: "Хмельницкий ↔ Киев, Львов, Винница, Каменец-Подольский",
+      en: "Khmelnytskyi ↔ Kyiv, Lviv, Vinnytsia, Kamianets-Podilskyi",
+    },
+    weekendTrip: {
+      uk: "Кам'янець-Подільська фортеця, Бакота, Хотин",
+      ru: "Каменец-Подольская крепость, Бакота, Хотин",
+      en: "Kamianets-Podilskyi Fortress, Bakota, Khotyn",
+    },
+    localAttractions: {
+      uk: "центр, вокзал, автовокзал, Подільський міст",
+      ru: "центр, вокзал, автовокзал, Подольский мост",
+      en: "city center, railway station, bus station, Podilskyi Bridge",
+    },
+  },
+  "kamianets-podilskyi": {
+    routeExample: {
+      uk: "як модель поводиться на серпантинах каньйону та історичних вулицях",
+      ru: "как модель ведёт себя на серпантинах каньона и исторических улицах",
+      en: "how the model handles canyon serpentines and historic streets",
+    },
+    routes: {
+      uk: "Кам'янець-Подільський ↔ Хотин, Бакота, Хмельницький, Чернівці",
+      ru: "Каменец-Подольский ↔ Хотин, Бакота, Хмельницкий, Черновцы",
+      en: "Kamianets-Podilskyi ↔ Khotyn, Bakota, Khmelnytskyi, Chernivtsi",
+    },
+    weekendTrip: {
+      uk: "Хотинська фортеця, Бакота, водоспад Бурбун",
+      ru: "Хотинская крепость, Бакота, водопад Бурбун",
+      en: "Khotyn Fortress, Bakota, Burbun Waterfall",
+    },
+    localAttractions: {
+      uk: "фортеця, Старе місто, Турецький міст, каньйон",
+      ru: "крепость, Старый город, Турецкий мост, каньон",
+      en: "fortress, Old Town, Turkish Bridge, canyon",
+    },
+  },
+  drohobych: {
+    routeExample: {
+      uk: "як модель поводиться на дорогах Прикарпаття",
+      ru: "как модель ведёт себя на дорогах Прикарпатья",
+      en: "how the model handles Prykarpattia roads",
+    },
+    routes: {
+      uk: "Дрогобич ↔ Львів, Трускавець, Борислав, Стрий",
+      ru: "Дрогобыч ↔ Львов, Трускавец, Борислав, Стрый",
+      en: "Drohobych ↔ Lviv, Truskavets, Boryslav, Stryi",
+    },
+    weekendTrip: {
+      uk: "Трускавець, Східниця, дерев'яні церкви ЮНЕСКО",
+      ru: "Трускавец, Сходница, деревянные церкви ЮНЕСКО",
+      en: "Truskavets, Skhidnytsia, UNESCO wooden churches",
+    },
+    localAttractions: {
+      uk: "центр, вокзал, церква св. Юра",
+      ru: "центр, вокзал, церковь св. Юра",
+      en: "city center, railway station, St. George's Church",
+    },
+  },
+  stryi: {
+    routeExample: {
+      uk: "як модель поводиться на трасі до Карпат",
+      ru: "как модель ведёт себя на трассе в Карпаты",
+      en: "how the model handles the highway to Carpathians",
+    },
+    routes: {
+      uk: "Стрий ↔ Львів, Моршин, Сколе, Буковель",
+      ru: "Стрый ↔ Львов, Моршин, Сколе, Буковель",
+      en: "Stryi ↔ Lviv, Morshyn, Skole, Bukovel",
+    },
+    weekendTrip: {
+      uk: "Моршин, Сколівські Бескиди, озеро Синевир",
+      ru: "Моршин, Сколевские Бескиды, озеро Синевир",
+      en: "Morshyn, Skole Beskids, Lake Synevyr",
+    },
+    localAttractions: {
+      uk: "центр, вокзал, автовокзал",
+      ru: "центр, вокзал, автовокзал",
+      en: "city center, railway station, bus station",
+    },
+  },
+  sambir: {
+    routeExample: {
+      uk: "як модель поводиться на дорогах біля кордону",
+      ru: "как модель ведёт себя на дорогах у границы",
+      en: "how the model handles roads near the border",
+    },
+    routes: {
+      uk: "Самбір ↔ Львів, кордон з Польщею, Дрогобич",
+      ru: "Самбор ↔ Львов, граница с Польшей, Дрогобыч",
+      en: "Sambir ↔ Lviv, Poland border, Drohobych",
+    },
+    weekendTrip: {
+      uk: "поїздка до Львова, Перемишль (Польща)",
+      ru: "поездка во Львов, Перемышль (Польша)",
+      en: "trip to Lviv, Przemysl (Poland)",
+    },
+    localAttractions: {
+      uk: "центр, вокзал, ратуша",
+      ru: "центр, вокзал, ратуша",
+      en: "city center, railway station, town hall",
+    },
+  },
+  chervonohrad: {
+    routeExample: {
+      uk: "як модель поводиться на дорогах Сокальщини",
+      ru: "как модель ведёт себя на дорогах Сокальщины",
+      en: "how the model handles Sokal region roads",
+    },
+    routes: {
+      uk: "Червоноград ↔ Львів, Рава-Руська, кордон",
+      ru: "Червоноград ↔ Львов, Рава-Русская, граница",
+      en: "Chervonohrad ↔ Lviv, Rava-Ruska, border",
+    },
+    weekendTrip: {
+      uk: "Жовква, Львів, Белз",
+      ru: "Жолква, Львов, Белз",
+      en: "Zhovkva, Lviv, Belz",
+    },
+    localAttractions: {
+      uk: "центр міста",
+      ru: "центр города",
+      en: "city center",
+    },
+  },
+  boryslav: {
+    routeExample: {
+      uk: "як модель поводиться в гірській місцевості",
+      ru: "как модель ведёт себя в горной местности",
+      en: "how the model handles mountainous terrain",
+    },
+    routes: {
+      uk: "Борислав ↔ Трускавець, Дрогобич, Східниця",
+      ru: "Борислав ↔ Трускавец, Дрогобыч, Сходница",
+      en: "Boryslav ↔ Truskavets, Drohobych, Skhidnytsia",
+    },
+    weekendTrip: {
+      uk: "Трускавець, Східниця, курорти Прикарпаття",
+      ru: "Трускавец, Сходница, курорты Прикарпатья",
+      en: "Truskavets, Skhidnytsia, Prykarpattia resorts",
+    },
+    localAttractions: {
+      uk: "центр, музей нафтовидобутку",
+      ru: "центр, музей нефтедобычи",
+      en: "city center, oil extraction museum",
+    },
+  },
+  zhovkva: {
+    routeExample: {
+      uk: "як модель поводиться на історичних вулицях",
+      ru: "как модель ведёт себя на исторических улицах",
+      en: "how the model handles historic streets",
+    },
+    routes: {
+      uk: "Жовква ↔ Львів, Рава-Руська, Белз",
+      ru: "Жолква ↔ Львов, Рава-Русская, Белз",
+      en: "Zhovkva ↔ Lviv, Rava-Ruska, Belz",
+    },
+    weekendTrip: {
+      uk: "замки Львівщини, Креховський монастир",
+      ru: "замки Львовщины, Креховский монастырь",
+      en: "Lviv region castles, Krekhiv Monastery",
+    },
+    localAttractions: {
+      uk: "замок, ратуша, Глинська брама",
+      ru: "замок, ратуша, Глинские ворота",
+      en: "castle, town hall, Glynska Gate",
+    },
+  },
+  yaremche: {
+    routeExample: {
+      uk: "як модель поводиться на карпатських серпантинах і підйомах",
+      ru: "как модель ведёт себя на карпатских серпантинах и подъёмах",
+      en: "how the model handles Carpathian serpentines and climbs",
+    },
+    routes: {
+      uk: "Яремче ↔ Буковель, Ворохта, Івано-Франківськ",
+      ru: "Яремче ↔ Буковель, Ворохта, Ивано-Франковск",
+      en: "Yaremche ↔ Bukovel, Vorokhta, Ivano-Frankivsk",
+    },
+    weekendTrip: {
+      uk: "Говерла, Яблуницький перевал, водоспад Пробій",
+      ru: "Говерла, Яблуницкий перевал, водопад Пробий",
+      en: "Hoverla, Yablunytsia Pass, Probiy Waterfall",
+    },
+    localAttractions: {
+      uk: "центр, водоспад Пробій, сувенірний ринок",
+      ru: "центр, водопад Пробий, сувенирный рынок",
+      en: "city center, Probiy Waterfall, souvenir market",
+    },
+  },
+  kolomyia: {
+    routeExample: {
+      uk: "як модель поводиться на трасі до Карпат та Чернівців",
+      ru: "как модель ведёт себя на трассе к Карпатам и Черновцам",
+      en: "how the model handles the highway to the Carpathians and Chernivtsi",
+    },
+    routes: {
+      uk: "Коломия ↔ Косів, Яремче, Чернівці",
+      ru: "Коломыя ↔ Косов, Яремче, Черновцы",
+      en: "Kolomyia ↔ Kosiv, Yaremche, Chernivtsi",
+    },
+    weekendTrip: {
+      uk: "Косів, Шешори, Яремче",
+      ru: "Косов, Шешоры, Яремче",
+      en: "Kosiv, Sheshory, Yaremche",
+    },
+    localAttractions: {
+      uk: "центр, музей писанки, ратуша",
+      ru: "центр, музей писанки, ратуша",
+      en: "city center, Pysanka Museum, town hall",
+    },
+  },
+  kalush: {
+    routeExample: {
+      uk: "як модель поводиться в міському трафіку та на трасі до Долини",
+      ru: "как модель ведёт себя в городском трафике и на трассе до Долины",
+      en: "how the model handles city traffic and the road to Dolyna",
+    },
+    routes: {
+      uk: "Калуш ↔ Івано-Франківськ, Долина, Галич",
+      ru: "Калуш ↔ Ивано-Франковск, Долина, Галич",
+      en: "Kalush ↔ Ivano-Frankivsk, Dolyna, Halych",
+    },
+    weekendTrip: {
+      uk: "Галич, Долина, Скелі Довбуша",
+      ru: "Галич, Долина, Скалы Довбуша",
+      en: "Halych, Dolyna, Dovbush Rocks",
+    },
+    localAttractions: {
+      uk: "центр, парк, соляна криниця",
+      ru: "центр, парк, соляной источник",
+      en: "city center, park, salt spring",
+    },
+  },
+  nadvirna: {
+    routeExample: {
+      uk: "як модель поводиться на гірських підйомах і трасі до Буковеля",
+      ru: "как модель ведёт себя на горных подъёмах и трассе до Буковеля",
+      en: "how the model handles mountain climbs and the road to Bukovel",
+    },
+    routes: {
+      uk: "Надвірна ↔ Буковель, Яремче, Івано-Франківськ",
+      ru: "Надворная ↔ Буковель, Яремче, Ивано-Франковск",
+      en: "Nadvirna ↔ Bukovel, Yaremche, Ivano-Frankivsk",
+    },
+    weekendTrip: {
+      uk: "Ворохта, Яблуницький перевал, Буковель",
+      ru: "Ворохта, Яблуницкий перевал, Буковель",
+      en: "Vorokhta, Yablunytsia Pass, Bukovel",
+    },
+    localAttractions: {
+      uk: "центр, Надвірнянський замок, автовокзал",
+      ru: "центр, Надворнянский замок, автовокзал",
+      en: "city center, Nadvirna Castle, bus station",
+    },
+  },
+  kosiv: {
+    routeExample: {
+      uk: "як модель поводиться на гуцульських дорогах",
+      ru: "как модель ведёт себя на гуцульских дорогах",
+      en: "how the model handles Hutsul roads",
+    },
+    routes: {
+      uk: "Косів ↔ Коломия, Верховина, Яремче",
+      ru: "Косов ↔ Коломыя, Верховина, Яремче",
+      en: "Kosiv ↔ Kolomyia, Verkhovyna, Yaremche",
+    },
+    weekendTrip: {
+      uk: "Шешори, Космач, Яворів",
+      ru: "Шешоры, Космач, Яворов",
+      en: "Sheshory, Kosmach, Yavoriv",
+    },
+    localAttractions: {
+      uk: "центр, Косівський базар, музей народного мистецтва",
+      ru: "центр, Косовский базар, музей народного искусства",
+      en: "city center, Kosiv market, folk art museum",
+    },
+  },
+  chortkiv: {
+    routeExample: {
+      uk: "як модель поводиться на дорогах Поділля",
+      ru: "как модель ведёт себя на дорогах Подолья",
+      en: "how the model handles Podillia roads",
+    },
+    routes: {
+      uk: "Чортків ↔ Тернопіль, Бучач, Заліщики",
+      ru: "Чортков ↔ Тернополь, Бучач, Залещики",
+      en: "Chortkiv ↔ Ternopil, Buchach, Zalishchyky",
+    },
+    weekendTrip: {
+      uk: "Дністровський каньйон, Заліщики, Бучач",
+      ru: "Днестровский каньон, Залещики, Бучач",
+      en: "Dniester Canyon, Zalishchyky, Buchach",
+    },
+    localAttractions: {
+      uk: "центр, замок, автовокзал",
+      ru: "центр, замок, автовокзал",
+      en: "city center, castle, bus station",
+    },
+  },
+  kremenets: {
+    routeExample: {
+      uk: "як модель поводиться на пагорбах Кременецьких гір",
+      ru: "как модель ведёт себя на холмах Кременецких гор",
+      en: "how the model handles Kremenets hills",
+    },
+    routes: {
+      uk: "Кременець ↔ Почаїв, Тернопіль, Дубно",
+      ru: "Кременец ↔ Почаев, Тернополь, Дубно",
+      en: "Kremenets ↔ Pochaiv, Ternopil, Dubno",
+    },
+    weekendTrip: {
+      uk: "Почаївська лавра, Замкова гора",
+      ru: "Почаевская лавра, Замковая гора",
+      en: "Pochaiv Lavra, Castle Hill",
+    },
+    localAttractions: {
+      uk: "центр, Замкова гора, колегіум",
+      ru: "центр, Замковая гора, коллегиум",
+      en: "city center, Castle Hill, collegium",
+    },
+  },
+  berehove: {
+    routeExample: {
+      uk: "як модель поводиться на прикордонних дорогах і трасі до Мукачево",
+      ru: "как модель ведёт себя на приграничных дорогах и трассе до Мукачева",
+      en: "how the model handles border roads and the route to Mukachevo",
+    },
+    routes: {
+      uk: "Берегове ↔ Мукачево, Ужгород, кордон",
+      ru: "Берегово ↔ Мукачево, Ужгород, граница",
+      en: "Berehove ↔ Mukachevo, Uzhhorod, border",
+    },
+    weekendTrip: {
+      uk: "термальні басейни, винні дегустації",
+      ru: "термальные бассейны, винные дегустации",
+      en: "thermal pools, wine tastings",
+    },
+    localAttractions: {
+      uk: "центр, термальні басейни, винні підвали",
+      ru: "центр, термальные бассейны, винные подвалы",
+      en: "city center, thermal pools, wine cellars",
+    },
+  },
+  khust: {
+    routeExample: {
+      uk: "як модель поводиться на гірських дорогах Закарпаття",
+      ru: "как модель ведёт себя на горных дорогах Закарпатья",
+      en: "how the model handles Zakarpattia mountain roads",
+    },
+    routes: {
+      uk: "Хуст ↔ Мукачево, Ужгород, Рахів",
+      ru: "Хуст ↔ Мукачево, Ужгород, Рахов",
+      en: "Khust ↔ Mukachevo, Uzhhorod, Rakhiv",
+    },
+    weekendTrip: {
+      uk: "Долина нарцисів, Синевир",
+      ru: "Долина нарциссов, Синевир",
+      en: "Valley of Daffodils, Synevyr",
+    },
+    localAttractions: {
+      uk: "центр, Хустський замок, автовокзал",
+      ru: "центр, Хустский замок, автовокзал",
+      en: "city center, Khust Castle, bus station",
+    },
+  },
+  rakhiv: {
+    routeExample: {
+      uk: "як модель поводиться на високогірних маршрутах",
+      ru: "как модель ведёт себя на высокогорных маршрутах",
+      en: "how the model handles high-mountain routes",
+    },
+    routes: {
+      uk: "Рахів ↔ Ясіня, Буковель, Івано-Франківськ",
+      ru: "Рахов ↔ Ясиня, Буковель, Ивано-Франковск",
+      en: "Rakhiv ↔ Yasinia, Bukovel, Ivano-Frankivsk",
+    },
+    weekendTrip: {
+      uk: "Драгобрат, Говерла, Ясіня",
+      ru: "Драгобрат, Говерла, Ясиня",
+      en: "Drahobrat, Hoverla, Yasinia",
+    },
+    localAttractions: {
+      uk: "центр, вокзал, музей гуцульської культури",
+      ru: "центр, вокзал, музей гуцульской культуры",
+      en: "city center, railway station, Hutsul culture museum",
+    },
+  },
 };
 
 // ============================================
@@ -3400,6 +3840,726 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             uk: "Стандартний депозит: економ — від $200, бізнес — від $400, преміум/SUV — від $600. Оплата готівкою або карткою. При пакеті «Преміум» депозит знижується. Для корпоративних клієнтів — спеціальні умови.",
             ru: "Стандартный депозит: эконом — от $200, бизнес — от $400, премиум/SUV — от $600. Оплата наличными или картой. При пакете «Премиум» депозит снижается. Для корпоративных клиентов — специальные условия.",
             en: "Standard deposit: economy — from $200, business — from $400, premium/SUV — from $600. Payment by cash or card. 'Premium' package reduces deposit. Special terms for corporate clients.",
+          },
+        },
+      ],
+    },
+  ],
+  lutsk: [
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Як дістатися до Шацьких озер на орендованому авто?",
+            ru: "Как добраться до Шацких озёр на арендованном авто?",
+            en: "How to get to Shatsk Lakes by rental car?",
+          },
+          answer: {
+            uk: "Від Луцька до Шацьких озер близько 60 км (1 година). Дорога у хорошому стані. Рекомендуємо кросовер для лісових доріг біля озер. Ми доставимо авто до вашого готелю або бази відпочинку.",
+            ru: "От Луцка до Шацких озёр около 60 км (1 час). Дорога в хорошем состоянии. Рекомендуем кроссовер для лесных дорог у озёр. Мы доставим авто к вашему отелю или базе отдыха.",
+            en: "From Lutsk to Shatsk Lakes is about 60 km (1 hour). Road is in good condition. We recommend a crossover for forest roads near the lakes. We deliver to your hotel or resort.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна виїхати на орендованому авто до Польщі?",
+            ru: "Можно ли выехать на арендованном авто в Польшу?",
+            en: "Can I take the rental car to Poland?",
+          },
+          answer: {
+            uk: "Так, виїзд до Польщі та країн ЄС можливий за попереднім узгодженням. Потрібна зелена карта (можемо оформити). Найближчі КПП: Ягодин, Устилуг. Додаткова плата від 15€/день.",
+            ru: "Да, выезд в Польшу и страны ЕС возможен по предварительному согласованию. Нужна зелёная карта (можем оформить). Ближайшие КПП: Ягодин, Устилуг. Дополнительная плата от 15€/день.",
+            en: "Yes, travel to Poland and EU countries is possible with prior approval. Green card required (we can arrange). Nearest checkpoints: Yahodyn, Ustyluh. Extra fee from €15/day.",
+          },
+        },
+        {
+          question: {
+            uk: "Де можна припаркувати авто в центрі Луцька?",
+            ru: "Где можно припарковать авто в центре Луцка?",
+            en: "Where can I park in Lutsk city center?",
+          },
+          answer: {
+            uk: "Безкоштовні парковки біля ТЦ «Порт Сіті», «Там Там». Платні парковки в центрі коштують 10-20 грн/год. Біля Луцького замку є велика безкоштовна парковка.",
+            ru: "Бесплатные парковки у ТЦ «Порт Сити», «Там Там». Платные парковки в центре стоят 10-20 грн/час. У Луцкого замка есть большая бесплатная парковка.",
+            en: "Free parking near Port City and Tam Tam malls. Paid parking in center costs 10-20 UAH/hour. Large free parking near Lutsk Castle.",
+          },
+        },
+      ],
+    },
+    {
+      title: {
+        uk: "Оренда та умови",
+        ru: "Аренда и условия",
+        en: "Rental Terms",
+      },
+      items: [
+        {
+          question: {
+            uk: "Чи є доставка авто на Шацькі озера?",
+            ru: "Есть ли доставка авто на Шацкие озёра?",
+            en: "Do you deliver cars to Shatsk Lakes?",
+          },
+          answer: {
+            uk: "Так, доставляємо авто на Шацькі озера, до Світязя та інших баз відпочинку. Вартість доставки від 500 грн в один бік. При оренді від 3 днів — знижка на доставку.",
+            ru: "Да, доставляем авто на Шацкие озёра, к Свитязю и другим базам отдыха. Стоимость доставки от 500 грн в одну сторону. При аренде от 3 дней — скидка на доставку.",
+            en: "Yes, we deliver to Shatsk Lakes, Svityaz and other resorts. Delivery from 500 UAH one way. Discount on delivery for 3+ day rentals.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні для оренди в Луцьку?",
+            ru: "Какие документы нужны для аренды в Луцке?",
+            en: "What documents are needed to rent in Lutsk?",
+          },
+          answer: {
+            uk: "Паспорт громадянина України або закордонний паспорт, водійське посвідчення (стаж від 2 років). Для іноземців — міжнародне посвідчення або національне з перекладом.",
+            ru: "Паспорт гражданина Украины или загранпаспорт, водительское удостоверение (стаж от 2 лет). Для иностранцев — международное удостоверение или национальное с переводом.",
+            en: "Ukrainian passport or international passport, driver's license (2+ years experience). For foreigners — international license or national with translation.",
+          },
+        },
+      ],
+    },
+  ],
+  rivne: [
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Як дістатися до Тунелю кохання на орендованому авто?",
+            ru: "Как добраться до Тоннеля любви на арендованном авто?",
+            en: "How to get to the Tunnel of Love by rental car?",
+          },
+          answer: {
+            uk: "Тунель кохання знаходиться в селі Клевань, 25 км від Рівного (30 хв). Дорога асфальтована. Є безкоштовна парковка біля входу. Краще відвідувати влітку, коли листя найгустіше.",
+            ru: "Тоннель любви находится в селе Клевань, 25 км от Ровно (30 мин). Дорога асфальтирована. Есть бесплатная парковка у входа. Лучше посещать летом, когда листва самая густая.",
+            en: "Tunnel of Love is in Klevan village, 25 km from Rivne (30 min). Road is paved. Free parking at entrance. Best to visit in summer when foliage is thickest.",
+          },
+        },
+        {
+          question: {
+            uk: "Де припаркувати авто в центрі Рівного?",
+            ru: "Где припарковать авто в центре Ровно?",
+            en: "Where to park in Rivne city center?",
+          },
+          answer: {
+            uk: "Безкоштовні парковки біля ТЦ «Злата Плаза», «Екватор». Платні парковки в центрі 10-15 грн/год. Біля театру та набережної є великі парковки.",
+            ru: "Бесплатные парковки у ТЦ «Злата Плаза», «Экватор». Платные парковки в центре 10-15 грн/час. У театра и набережной есть большие парковки.",
+            en: "Free parking at Zlata Plaza and Ekvator malls. Paid parking in center 10-15 UAH/hour. Large parking areas near theater and embankment.",
+          },
+        },
+        {
+          question: {
+            uk: "Який стан доріг у Рівненській області?",
+            ru: "Каково состояние дорог в Ровенской области?",
+            en: "What is the road condition in Rivne region?",
+          },
+          answer: {
+            uk: "Основні траси М-06 (Київ-Львів) та М-07 в хорошому стані. Дороги до туристичних місць (Клевань, Корець, Острог) переважно асфальтовані. До деяких сіл — ґрунтові дороги.",
+            ru: "Основные трассы М-06 (Киев-Львов) и М-07 в хорошем состоянии. Дороги к туристическим местам (Клевань, Корец, Острог) преимущественно асфальтированы. К некоторым сёлам — грунтовые дороги.",
+            en: "Main highways M-06 (Kyiv-Lviv) and M-07 are in good condition. Roads to tourist spots (Klevan, Korets, Ostroh) are mostly paved. Some village roads are unpaved.",
+          },
+        },
+      ],
+    },
+    {
+      title: {
+        uk: "Оренда та умови",
+        ru: "Аренда и условия",
+        en: "Rental Terms",
+      },
+      items: [
+        {
+          question: {
+            uk: "Чи є доставка авто до Острога чи Корця?",
+            ru: "Есть ли доставка авто в Острог или Корец?",
+            en: "Do you deliver cars to Ostroh or Korets?",
+          },
+          answer: {
+            uk: "Так, доставляємо по всій Рівненській області: Острог (40 км), Корець (50 км), Дубно (45 км). Вартість доставки від 400 грн. При оренді від 3 днів — знижка.",
+            ru: "Да, доставляем по всей Ровенской области: Острог (40 км), Корец (50 км), Дубно (45 км). Стоимость доставки от 400 грн. При аренде от 3 дней — скидка.",
+            en: "Yes, we deliver throughout Rivne region: Ostroh (40 km), Korets (50 km), Dubno (45 km). Delivery from 400 UAH. Discount for 3+ day rentals.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна орендувати авто на один день?",
+            ru: "Можно ли арендовать авто на один день?",
+            en: "Can I rent a car for just one day?",
+          },
+          answer: {
+            uk: "Так, мінімальний термін оренди — 1 доба. Вартість від 800 грн/день залежно від класу авто. При оренді від 3 днів діють знижки до 15%.",
+            ru: "Да, минимальный срок аренды — 1 сутки. Стоимость от 800 грн/день в зависимости от класса авто. При аренде от 3 дней действуют скидки до 15%.",
+            en: "Yes, minimum rental is 1 day. Price from 800 UAH/day depending on car class. Discounts up to 15% for 3+ day rentals.",
+          },
+        },
+      ],
+    },
+  ],
+  khmelnytskyi: [
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Як дістатися до Кам'янця-Подільського на орендованому авто?",
+            ru: "Как добраться до Каменца-Подольского на арендованном авто?",
+            en: "How to get to Kamianets-Podilskyi by rental car?",
+          },
+          answer: {
+            uk: "Від Хмельницького до Кам'янця-Подільського 100 км (1,5 години). Дорога в хорошому стані. Є платні парковки біля фортеці (30-50 грн). Рекомендуємо виїжджати вранці, щоб уникнути туристичних черг.",
+            ru: "От Хмельницкого до Каменца-Подольского 100 км (1,5 часа). Дорога в хорошем состоянии. Есть платные парковки у крепости (30-50 грн). Рекомендуем выезжать утром, чтобы избежать туристических очередей.",
+            en: "From Khmelnytskyi to Kamianets-Podilskyi is 100 km (1.5 hours). Road is in good condition. Paid parking near fortress (30-50 UAH). We recommend leaving early to avoid tourist crowds.",
+          },
+        },
+        {
+          question: {
+            uk: "Де припаркувати авто в центрі Хмельницького?",
+            ru: "Где припарковать авто в центре Хмельницкого?",
+            en: "Where to park in Khmelnytskyi city center?",
+          },
+          answer: {
+            uk: "Безкоштовні парковки біля ТЦ «Либідь», «Дастор». Платні парковки в центрі 10-20 грн/год. Біля набережної є велика безкоштовна парковка.",
+            ru: "Бесплатные парковки у ТЦ «Лыбедь», «Дастор». Платные парковки в центре 10-20 грн/час. У набережной есть большая бесплатная парковка.",
+            en: "Free parking at Lybid and Dastor malls. Paid parking in center 10-20 UAH/hour. Large free parking near the embankment.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є доставка авто до Кам'янця-Подільського?",
+            ru: "Есть ли доставка авто в Каменец-Подольский?",
+            en: "Do you deliver cars to Kamianets-Podilskyi?",
+          },
+          answer: {
+            uk: "Так, доставляємо авто до Кам'янця-Подільського (100 км). Вартість доставки від 800 грн. При оренді від 3 днів — знижка на доставку 50%.",
+            ru: "Да, доставляем авто в Каменец-Подольский (100 км). Стоимость доставки от 800 грн. При аренде от 3 дней — скидка на доставку 50%.",
+            en: "Yes, we deliver to Kamianets-Podilskyi (100 km). Delivery from 800 UAH. 50% discount on delivery for 3+ day rentals.",
+          },
+        },
+      ],
+    },
+    {
+      title: {
+        uk: "Оренда та умови",
+        ru: "Аренда и условия",
+        en: "Rental Terms",
+      },
+      items: [
+        {
+          question: {
+            uk: "Які маршрути популярні з Хмельницького?",
+            ru: "Какие маршруты популярны из Хмельницкого?",
+            en: "What routes are popular from Khmelnytskyi?",
+          },
+          answer: {
+            uk: "Популярні маршрути: Кам'янець-Подільський (100 км), Бакота (120 км), Хотин (130 км), Меджибіж (35 км), Вінниця (120 км). Всі дороги асфальтовані та в хорошому стані.",
+            ru: "Популярные маршруты: Каменец-Подольский (100 км), Бакота (120 км), Хотин (130 км), Меджибож (35 км), Винница (120 км). Все дороги асфальтированы и в хорошем состоянии.",
+            en: "Popular routes: Kamianets-Podilskyi (100 km), Bakota (120 km), Khotyn (130 km), Medzhybizh (35 km), Vinnytsia (120 km). All roads are paved and in good condition.",
+          },
+        },
+        {
+          question: {
+            uk: "Який депозит при оренді в Хмельницькому?",
+            ru: "Какой депозит при аренде в Хмельницком?",
+            en: "What is the deposit for rental in Khmelnytskyi?",
+          },
+          answer: {
+            uk: "Стандартний депозит: економ — від $200, бізнес — від $400, преміум/SUV — від $600. При пакеті «Без застави» депозит відсутній. Повертається при здачі авто в належному стані.",
+            ru: "Стандартный депозит: эконом — от $200, бизнес — от $400, премиум/SUV — от $600. При пакете «Без залога» депозит отсутствует. Возвращается при сдаче авто в надлежащем состоянии.",
+            en: "Standard deposit: economy — from $200, business — from $400, premium/SUV — from $600. 'No Deposit' package available. Returned upon car return in proper condition.",
+          },
+        },
+      ],
+    },
+  ],
+  "kamianets-podilskyi": [
+    {
+      title: {
+        uk: "Практична інформація",
+        ru: "Практическая информация",
+        en: "Practical Information",
+      },
+      items: [
+        {
+          question: {
+            uk: "Де припаркувати авто біля Кам'янець-Подільської фортеці?",
+            ru: "Где припарковать авто у Каменец-Подольской крепости?",
+            en: "Where to park near Kamianets-Podilskyi Fortress?",
+          },
+          answer: {
+            uk: "Є платна парковка біля фортеці (30-50 грн). Також безкоштовна парковка за 300м біля мосту. У вихідні краще приїжджати до 10:00, бо місць може не бути.",
+            ru: "Есть платная парковка у крепости (30-50 грн). Также бесплатная парковка в 300м у моста. В выходные лучше приезжать до 10:00, так как мест может не быть.",
+            en: "Paid parking near fortress (30-50 UAH). Also free parking 300m away near the bridge. On weekends, arrive before 10:00 as spots fill up quickly.",
+          },
+        },
+        {
+          question: {
+            uk: "Як дістатися до Хотинської фортеці?",
+            ru: "Как добраться до Хотинской крепости?",
+            en: "How to get to Khotyn Fortress?",
+          },
+          answer: {
+            uk: "Від Кам'янця до Хотина 20 км (25 хв). Дорога асфальтована. Парковка біля фортеці безкоштовна. Рекомендуємо відвідати обидві фортеці за один день.",
+            ru: "От Каменца до Хотина 20 км (25 мин). Дорога асфальтирована. Парковка у крепости бесплатная. Рекомендуем посетить обе крепости за один день.",
+            en: "From Kamianets to Khotyn is 20 km (25 min). Road is paved. Parking at fortress is free. We recommend visiting both fortresses in one day.",
+          },
+        },
+        {
+          question: {
+            uk: "Як дістатися до Бакоти?",
+            ru: "Как добраться до Бакоты?",
+            en: "How to get to Bakota?",
+          },
+          answer: {
+            uk: "Бакота знаходиться в 35 км від Кам'янця (45 хв). Останні 5 км — ґрунтова дорога, рекомендуємо кросовер. Є оглядовий майданчик та скельний монастир.",
+            ru: "Бакота находится в 35 км от Каменца (45 мин). Последние 5 км — грунтовая дорога, рекомендуем кроссовер. Есть смотровая площадка и скальный монастырь.",
+            en: "Bakota is 35 km from Kamianets (45 min). Last 5 km is unpaved road, crossover recommended. There's a viewpoint and rock monastery.",
+          },
+        },
+      ],
+    },
+    {
+      title: {
+        uk: "Оренда та умови",
+        ru: "Аренда и условия",
+        en: "Rental Terms",
+      },
+      items: [
+        {
+          question: {
+            uk: "Чи можна орендувати авто на вихідні для огляду фортець?",
+            ru: "Можно ли арендовать авто на выходные для осмотра крепостей?",
+            en: "Can I rent a car for a weekend fortress tour?",
+          },
+          answer: {
+            uk: "Так, мінімальний термін — 1 день. Для огляду Кам'янця, Хотина та Бакоти рекомендуємо 2 дні. При оренді на вихідні (пт-нд) діє спеціальна ціна.",
+            ru: "Да, минимальный срок — 1 день. Для осмотра Каменца, Хотина и Бакоты рекомендуем 2 дня. При аренде на выходные (пт-вс) действует специальная цена.",
+            en: "Yes, minimum is 1 day. For touring Kamianets, Khotyn and Bakota we recommend 2 days. Weekend (Fri-Sun) special rates available.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є доставка авто до готелю в Кам'янці?",
+            ru: "Есть ли доставка авто в отель в Каменце?",
+            en: "Do you deliver cars to hotels in Kamianets?",
+          },
+          answer: {
+            uk: "Так, доставляємо авто до будь-якого готелю в Кам'янці-Подільському безкоштовно. До Старого міста та фортеці — теж безкоштовно.",
+            ru: "Да, доставляем авто в любой отель Каменца-Подольского бесплатно. К Старому городу и крепости — тоже бесплатно.",
+            en: "Yes, we deliver to any hotel in Kamianets-Podilskyi for free. To Old Town and fortress — also free.",
+          },
+        },
+      ],
+    },
+  ],
+  drohobych: [
+    {
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery" },
+      items: [
+        {
+          question: { uk: "Чи є доставка до Трускавця?", ru: "Есть ли доставка в Трускавец?", en: "Do you deliver to Truskavets?" },
+          answer: { uk: "Так, доставка до Трускавця (10 км) безкоштовна. До Східниці та Борислава — від 200 грн.", ru: "Да, доставка в Трускавец (10 км) бесплатная. В Сходницу и Борислав — от 200 грн.", en: "Yes, delivery to Truskavets (10 km) is free. To Skhidnytsia and Boryslav — from 200 UAH." },
+        },
+        {
+          question: { uk: "Де орендувати авто для поїздки до Карпат?", ru: "Где арендовать авто для поездки в Карпаты?", en: "Where to rent a car for a Carpathian trip?" },
+          answer: { uk: "REIZ у Дрогобичі — ідеальний старт для подорожі до Карпат. До Буковеля 150 км, до Славського 80 км. Рекомендуємо кросовер для гірських доріг.", ru: "REIZ в Дрогобыче — идеальный старт для путешествия в Карпаты. До Буковеля 150 км, до Славского 80 км. Рекомендуем кроссовер для горных дорог.", en: "REIZ in Drohobych is the perfect start for a Carpathian trip. Bukovel is 150 km, Slavske is 80 km. We recommend a crossover for mountain roads." },
+        },
+      ],
+    },
+  ],
+  stryi: [
+    {
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery" },
+      items: [
+        {
+          question: { uk: "Чи є доставка до Моршина?", ru: "Есть ли доставка в Моршин?", en: "Do you deliver to Morshyn?" },
+          answer: { uk: "Так, доставка до Моршина (30 км) — 300 грн. При оренді від 3 днів — безкоштовно.", ru: "Да, доставка в Моршин (30 км) — 300 грн. При аренде от 3 дней — бесплатно.", en: "Yes, delivery to Morshyn (30 km) — 300 UAH. Free for 3+ day rentals." },
+        },
+        {
+          question: { uk: "Який найкращий маршрут до Буковеля?", ru: "Какой лучший маршрут до Буковеля?", en: "What's the best route to Bukovel?" },
+          answer: { uk: "Зі Стрия до Буковеля 130 км через Сколе та Славське. Дорога асфальтована. Взимку можуть бути снігопади на перевалі.", ru: "Из Стрыя до Буковеля 130 км через Сколе и Славское. Дорога асфальтирована. Зимой возможны снегопады на перевале.", en: "From Stryi to Bukovel is 130 km via Skole and Slavske. Road is paved. Winter snowfall possible at the pass." },
+        },
+      ],
+    },
+  ],
+  sambir: [
+    {
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery" },
+      items: [
+        {
+          question: { uk: "Чи можна виїхати до Польщі?", ru: "Можно ли выехать в Польшу?", en: "Can I travel to Poland?" },
+          answer: { uk: "Так, до КПП Шегині 30 км. Потрібна зелена карта (оформляємо). Додаткова плата від 15€/день.", ru: "Да, до КПП Шегини 30 км. Нужна зелёная карта (оформляем). Дополнительная плата от 15€/день.", en: "Yes, Shehyni checkpoint is 30 km. Green card required (we can arrange). Extra fee from €15/day." },
+        },
+        {
+          question: { uk: "Чи є доставка до Львова?", ru: "Есть ли доставка во Львов?", en: "Do you deliver to Lviv?" },
+          answer: { uk: "Так, доставка до Львова (75 км) — 600 грн. При оренді від 5 днів — знижка 50%.", ru: "Да, доставка во Львов (75 км) — 600 грн. При аренде от 5 дней — скидка 50%.", en: "Yes, delivery to Lviv (75 km) — 600 UAH. 50% discount for 5+ day rentals." },
+        },
+      ],
+    },
+  ],
+  chervonohrad: [
+    {
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery" },
+      items: [
+        {
+          question: { uk: "Чи є доставка до Львова?", ru: "Есть ли доставка во Львов?", en: "Do you deliver to Lviv?" },
+          answer: { uk: "Так, доставка до Львова (65 км) — 500 грн. При оренді від 3 днів — безкоштовно.", ru: "Да, доставка во Львов (65 км) — 500 грн. При аренде от 3 дней — бесплатно.", en: "Yes, delivery to Lviv (65 km) — 500 UAH. Free for 3+ day rentals." },
+        },
+        {
+          question: { uk: "Чи можна виїхати до Польщі?", ru: "Можно ли выехать в Польшу?", en: "Can I travel to Poland?" },
+          answer: { uk: "Так, до КПП Рава-Руська 40 км. Потрібна зелена карта. Оформляємо на місці.", ru: "Да, до КПП Рава-Русская 40 км. Нужна зелёная карта. Оформляем на месте.", en: "Yes, Rava-Ruska checkpoint is 40 km. Green card required. We arrange it on site." },
+        },
+      ],
+    },
+  ],
+  boryslav: [
+    {
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery" },
+      items: [
+        {
+          question: { uk: "Чи є доставка до Трускавця?", ru: "Есть ли доставка в Трускавец?", en: "Do you deliver to Truskavets?" },
+          answer: { uk: "Так, доставка до Трускавця (5 км) безкоштовна. До Східниці (15 км) — 150 грн.", ru: "Да, доставка в Трускавец (5 км) бесплатная. В Сходницу (15 км) — 150 грн.", en: "Yes, delivery to Truskavets (5 km) is free. To Skhidnytsia (15 km) — 150 UAH." },
+        },
+        {
+          question: { uk: "Яке авто краще для гір?", ru: "Какое авто лучше для гор?", en: "Which car is better for mountains?" },
+          answer: { uk: "Рекомендуємо кросовер або SUV для гірських доріг Прикарпаття. Для асфальтових трас підійде будь-яке авто.", ru: "Рекомендуем кроссовер или SUV для горных дорог Прикарпатья. Для асфальтовых трасс подойдёт любое авто.", en: "We recommend a crossover or SUV for Prykarpattia mountain roads. Any car works for paved roads." },
+        },
+      ],
+    },
+  ],
+  zhovkva: [
+    {
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery" },
+      items: [
+        {
+          question: { uk: "Чи є доставка до Львова?", ru: "Есть ли доставка во Львов?", en: "Do you deliver to Lviv?" },
+          answer: { uk: "Так, доставка до Львова (30 км) безкоштовна. До аеропорту LWO — теж безкоштовно.", ru: "Да, доставка во Львов (30 км) бесплатная. В аэропорт LWO — тоже бесплатно.", en: "Yes, delivery to Lviv (30 km) is free. To LWO airport — also free." },
+        },
+        {
+          question: { uk: "Які замки можна відвідати?", ru: "Какие замки можно посетить?", en: "Which castles can I visit?" },
+          answer: { uk: "Жовківський замок, Креховський монастир (20 км), Олеський замок (50 км), Підгорецький замок (60 км). Всі дороги асфальтовані.", ru: "Жолковский замок, Креховский монастырь (20 км), Олесский замок (50 км), Подгорецкий замок (60 км). Все дороги асфальтированы.", en: "Zhovkva Castle, Krekhiv Monastery (20 km), Olesko Castle (50 km), Pidhirtsi Castle (60 km). All roads are paved." },
+        },
+      ],
+    },
+  ],
+  yaremche: [
+    {
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information" },
+      items: [
+        {
+          question: {
+            uk: "Яке авто краще для карпатських доріг у Яремчі?",
+            ru: "Какое авто лучше для карпатских дорог в Яремче?",
+            en: "Which car is better for Carpathian roads in Yaremche?",
+          },
+          answer: {
+            uk: "Для серпантинів і підйомів рекомендуємо кросовер або авто з більшим кліренсом. Взимку — обов'язково зимові шини. Під ваш маршрут підберемо оптимальний клас.",
+            ru: "Для серпантинов и подъёмов рекомендуем кроссовер или авто с большим клиренсом. Зимой — обязательно зимние шины. Под ваш маршрут подберём оптимальный класс.",
+            en: "For serpentines and climbs, we recommend a crossover or a car with higher clearance. In winter, winter tires are required. We'll suggest the best class for your route.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є доставка авто до Буковеля або Ворохти?",
+            ru: "Есть ли доставка авто в Буковель или Ворохту?",
+            en: "Do you deliver cars to Bukovel or Vorokhta?",
+          },
+          answer: {
+            uk: "Так, доставка по регіону можлива за попереднім узгодженням. Вартість залежить від відстані, для оренди на кілька днів діють знижки.",
+            ru: "Да, доставка по региону возможна по предварительному согласованию. Стоимость зависит от расстояния, при аренде на несколько дней действуют скидки.",
+            en: "Yes, regional delivery is possible with prior arrangement. Cost depends on distance, and discounts apply for multi-day rentals.",
+          },
+        },
+      ],
+    },
+  ],
+  kolomyia: [
+    {
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information" },
+      items: [
+        {
+          question: {
+            uk: "Як дістатися до Косова або Шешор на орендованому авто?",
+            ru: "Как добраться до Косова или Шешор на арендованном авто?",
+            en: "How to get to Kosiv or Sheshory by rental car?",
+          },
+          answer: {
+            uk: "Від Коломиї до Косова близько 40 км, до Шешор — близько 55 км. Дороги переважно асфальтовані, місцями звивисті. Рекомендуємо виїжджати вдень.",
+            ru: "От Коломые до Косова около 40 км, до Шешор — около 55 км. Дороги преимущественно асфальтированы, местами извилистые. Рекомендуем выезжать днем.",
+            en: "From Kolomyia to Kosiv is about 40 km, to Sheshory about 55 km. Roads are mostly paved, with winding sections. We recommend traveling in daylight.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна отримати авто на вокзалі Коломиї?",
+            ru: "Можно ли получить авто на вокзале Коломыи?",
+            en: "Can I pick up the car at Kolomyia station?",
+          },
+          answer: {
+            uk: "Так, подаємо авто на вокзал або автостанцію, також за адресою в місті. Час подачі узгоджується при бронюванні.",
+            ru: "Да, подаем авто на вокзал или автостанцию, также по адресу в городе. Время подачи согласовывается при бронировании.",
+            en: "Yes, we can deliver to the railway or bus station, or to your address in the city. Delivery time is arranged during booking.",
+          },
+        },
+      ],
+    },
+  ],
+  kalush: [
+    {
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information" },
+      items: [
+        {
+          question: {
+            uk: "Чи є доставка авто до Івано-Франківська або Долини?",
+            ru: "Есть ли доставка авто в Ивано-Франковск или Долину?",
+            en: "Do you deliver cars to Ivano-Frankivsk or Dolyna?",
+          },
+          answer: {
+            uk: "Так, доставляємо по області за попереднім узгодженням. Вартість залежить від відстані, для оренди від 3 днів можливі знижки.",
+            ru: "Да, доставляем по области по предварительному согласованию. Стоимость зависит от расстояния, при аренде от 3 дней возможны скидки.",
+            en: "Yes, we deliver within the region with prior arrangement. The cost depends on distance; discounts are available for 3+ day rentals.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні для оренди в Калуші?",
+            ru: "Какие документы нужны для аренды в Калуше?",
+            en: "What documents are needed to rent in Kalush?",
+          },
+          answer: {
+            uk: "Паспорт або ID-картка та водійське посвідчення (стаж від 2 років). Для іноземців — закордонний паспорт і посвідчення.",
+            ru: "Паспорт или ID-карта и водительское удостоверение (стаж от 2 лет). Для иностранцев — загранпаспорт и удостоверение.",
+            en: "Passport or ID card and a driver's license (2+ years experience). For foreigners — international passport and license.",
+          },
+        },
+      ],
+    },
+  ],
+  nadvirna: [
+    {
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information" },
+      items: [
+        {
+          question: {
+            uk: "Наскільки зручно їхати до Буковеля з Надвірної?",
+            ru: "Насколько удобно ехать в Буковель из Надворной?",
+            en: "How convenient is the drive to Bukovel from Nadvirna?",
+          },
+          answer: {
+            uk: "Маршрут проходить через Яремче та Ворохту, приблизно 60-70 км. Дорога асфальтована, взимку можливі снігові ділянки.",
+            ru: "Маршрут проходит через Яремче и Ворохту, примерно 60-70 км. Дорога асфальтирована, зимой возможны снежные участки.",
+            en: "The route goes via Yaremche and Vorokhta, about 60-70 km. The road is paved, with possible snowy sections in winter.",
+          },
+        },
+        {
+          question: {
+            uk: "Яке авто рекомендуєте для гірських маршрутів?",
+            ru: "Какое авто рекомендуете для горных маршрутов?",
+            en: "Which car do you recommend for mountain routes?",
+          },
+          answer: {
+            uk: "Для Карпат рекомендуємо кросовер або AWD. Улітку підійде й компакт, але з повним багажником краще авто з більшим кліренсом.",
+            ru: "Для Карпат рекомендуем кроссовер или AWD. Летом подойдёт и компакт, но с полным багажником лучше авто с большим клиренсом.",
+            en: "For the Carpathians, we recommend a crossover or AWD. In summer a compact car works too, but with a full trunk it's better to choose higher clearance.",
+          },
+        },
+      ],
+    },
+  ],
+  kosiv: [
+    {
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information" },
+      items: [
+        {
+          question: {
+            uk: "Чи можна на орендованому авто доїхати до Шешор або Верховини?",
+            ru: "Можно ли на арендованном авто доехать до Шешор или Верховины?",
+            en: "Can I drive to Sheshory or Verkhovyna with a rental car?",
+          },
+          answer: {
+            uk: "Так, це популярні маршрути: Косів—Шешори (15-20 км), Косів—Верховина (~60 км). Частина доріг звивиста, тож рекомендуємо кросовер.",
+            ru: "Да, это популярные маршруты: Косов—Шешоры (15-20 км), Косов—Верховина (~60 км). Часть дорог извилистая, поэтому рекомендуем кроссовер.",
+            en: "Yes, these are popular routes: Kosiv–Sheshory (15-20 km), Kosiv–Verkhovyna (~60 km). Some roads are winding, so a crossover is recommended.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є доставка авто до Космача або Яворова?",
+            ru: "Есть ли доставка авто в Космач или Яворов?",
+            en: "Do you deliver cars to Kosmach or Yavoriv?",
+          },
+          answer: {
+            uk: "Так, можливе подання за попереднім узгодженням. Вартість залежить від відстані, деталі підтвердить менеджер.",
+            ru: "Да, подача возможна по предварительному согласованию. Стоимость зависит от расстояния, детали подтвердит менеджер.",
+            en: "Yes, delivery is possible with prior arrangement. Cost depends on distance; details are confirmed by the manager.",
+          },
+        },
+      ],
+    },
+  ],
+  chortkiv: [
+    {
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information" },
+      items: [
+        {
+          question: {
+            uk: "Як дістатися до Дністровського каньйону з Чорткова?",
+            ru: "Как добраться до Днестровского каньона из Чорткова?",
+            en: "How to get to the Dniester Canyon from Chortkiv?",
+          },
+          answer: {
+            uk: "Найпопулярніші напрямки — Заліщики та Устечко (40-60 км). Дороги асфальтовані, місцями серпантини та спуски.",
+            ru: "Самые популярные направления — Залещики и Устечко (40-60 км). Дороги асфальтированы, местами серпантины и спуски.",
+            en: "The most popular directions are Zalishchyky and Ustechko (40-60 km). Roads are paved, with some serpentines and descents.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є подача авто по Тернопільській області?",
+            ru: "Есть ли подача авто по Тернопольской области?",
+            en: "Do you deliver cars across Ternopil region?",
+          },
+          answer: {
+            uk: "Так, доставляємо до Бучача, Тернополя, Заліщиків та інших міст. Умови й час узгоджуються під час бронювання.",
+            ru: "Да, доставляем в Бучач, Тернополь, Залещики и другие города. Условия и время согласовываются при бронировании.",
+            en: "Yes, we deliver to Buchach, Ternopil, Zalishchyky and other towns. Terms and timing are arranged during booking.",
+          },
+        },
+      ],
+    },
+  ],
+  kremenets: [
+    {
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information" },
+      items: [
+        {
+          question: {
+            uk: "Як швидко доїхати до Почаєва з Кременця?",
+            ru: "Как быстро доехать до Почаева из Кременца?",
+            en: "How fast can I get to Pochaiv from Kremenets?",
+          },
+          answer: {
+            uk: "До Почаєва близько 20 км, дорога асфальтована. У святкові дні можливий трафік біля лаври.",
+            ru: "До Почаева около 20 км, дорога асфальтирована. В праздничные дни возможен трафик у лавры.",
+            en: "Pochaiv is about 20 km away, and the road is paved. On holidays, traffic near the Lavra is possible.",
+          },
+        },
+        {
+          question: {
+            uk: "Де зручно залишити авто в центрі Кременця?",
+            ru: "Где удобно оставить авто в центре Кременца?",
+            en: "Where is it convenient to park in Kremenets center?",
+          },
+          answer: {
+            uk: "Паркування є біля Замкової гори, колегіуму та центральної площі. У туристичний сезон краще приїжджати раніше.",
+            ru: "Парковка есть у Замковой горы, коллегиума и центральной площади. В туристический сезон лучше приезжать раньше.",
+            en: "Parking is available near Castle Hill, the collegium, and the central square. In tourist season, it's better to arrive early.",
+          },
+        },
+      ],
+    },
+  ],
+  berehove: [
+    {
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information" },
+      items: [
+        {
+          question: {
+            uk: "Чи можна виїхати до Угорщини на орендованому авто?",
+            ru: "Можно ли выехать в Венгрию на арендованном авто?",
+            en: "Can I drive to Hungary with a rental car?",
+          },
+          answer: {
+            uk: "Так, виїзд можливий за попереднім узгодженням. Потрібна зелена карта; оформимо за запитом. Може діяти додаткова плата.",
+            ru: "Да, выезд возможен по предварительному согласованию. Нужна зелёная карта; оформим по запросу. Может действовать дополнительная плата.",
+            en: "Yes, cross-border travel is possible with prior approval. A green card is required; we can arrange it on request. Additional fees may apply.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є доставка до термальних басейнів у Берегово?",
+            ru: "Есть ли доставка к термальным бассейнам в Берегово?",
+            en: "Do you deliver to thermal pools in Berehove?",
+          },
+          answer: {
+            uk: "Так, подаємо авто до термальних комплексів та готелів Берегового. Час і місце узгоджуються при бронюванні.",
+            ru: "Да, подаем авто к термальным комплексам и отелям Берегово. Время и место согласовываются при бронировании.",
+            en: "Yes, we deliver to thermal complexes and hotels in Berehove. Time and place are arranged during booking.",
+          },
+        },
+      ],
+    },
+  ],
+  khust: [
+    {
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information" },
+      items: [
+        {
+          question: {
+            uk: "Як дістатися до Долини нарцисів або Синевиру?",
+            ru: "Как добраться до Долины нарциссов или Синевира?",
+            en: "How to get to the Valley of Daffodils or Synevyr?",
+          },
+          answer: {
+            uk: "Долина нарцисів — близько 8 км від центру, Синевир — близько 80 км через Міжгір'я. Дороги асфальтовані, місцями гірські.",
+            ru: "Долина нарциссов — около 8 км от центра, Синевир — около 80 км через Межгорье. Дороги асфальтированы, местами горные.",
+            en: "The Valley of Daffodils is about 8 km from the center; Synevyr is around 80 km via Mizhhiria. Roads are paved, with mountain sections.",
+          },
+        },
+        {
+          question: {
+            uk: "Яке авто краще для гірських поїздок з Хуста?",
+            ru: "Какое авто лучше для горных поездок из Хуста?",
+            en: "Which car is better for mountain trips from Khust?",
+          },
+          answer: {
+            uk: "Рекомендуємо кросовер або SUV, особливо взимку. На рівні траси підійде будь-який клас.",
+            ru: "Рекомендуем кроссовер или SUV, особенно зимой. На ровных трассах подойдет любой класс.",
+            en: "We recommend a crossover or SUV, especially in winter. Any class works for flat highways.",
+          },
+        },
+      ],
+    },
+  ],
+  rakhiv: [
+    {
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information" },
+      items: [
+        {
+          question: {
+            uk: "Чи можна доїхати до Драгобрата на орендованому авто?",
+            ru: "Можно ли доехать до Драгобрата на арендованном авто?",
+            en: "Can I drive to Drahobrat with a rental car?",
+          },
+          answer: {
+            uk: "До Ясіні — асфальт, далі підйом до Драгобрата ґрунтовий. Узимку часто потрібен 4x4 або трансфер. Підкажемо оптимальний варіант.",
+            ru: "До Ясини — асфальт, дальше подъём к Драгобрату грунтовый. Зимой часто нужен 4x4 или трансфер. Подскажем оптимальный вариант.",
+            en: "Road to Yasinia is paved; the climb to Drahobrat is unpaved. In winter a 4x4 or transfer is often needed. We'll suggest the best option.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можливий виїзд до Румунії з Рахова?",
+            ru: "Возможен ли выезд в Румынию из Рахова?",
+            en: "Is travel to Romania from Rakhiv possible?",
+          },
+          answer: {
+            uk: "Так, за попереднім узгодженням і з зеленою картою. Умови та тарифи уточнюйте у менеджера.",
+            ru: "Да, по предварительному согласованию и с зелёной картой. Условия и тарифы уточняйте у менеджера.",
+            en: "Yes, with prior approval and a green card. Please check terms and fees with our manager.",
           },
         },
       ],
