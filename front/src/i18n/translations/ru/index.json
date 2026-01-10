@@ -1466,7 +1466,7 @@
       "nameRequired": "Введите имя",
       "phoneRequired": "Введите номер телефона",
       "phoneInvalid": "Введите корректный номер телефона",
-      "consentRequired": "Подтвердите согласие на обработку персональных данных"
+      "consentRequired": "Подтвердите согласие на обработку персональных данных."
     }
   },
   "managerWillContactYouModal": {
