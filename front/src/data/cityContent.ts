@@ -4177,6 +4177,22 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
           question: { uk: "Де орендувати авто для поїздки до Карпат?", ru: "Где арендовать авто для поездки в Карпаты?", en: "Where to rent a car for a Carpathian trip?" },
           answer: { uk: "REIZ у Дрогобичі — ідеальний старт для подорожі до Карпат. До Буковеля 150 км, до Славського 80 км. Рекомендуємо кросовер для гірських доріг.", ru: "REIZ в Дрогобыче — идеальный старт для путешествия в Карпаты. До Буковеля 150 км, до Славского 80 км. Рекомендуем кроссовер для горных дорог.", en: "REIZ in Drohobych is the perfect start for a Carpathian trip. Bukovel is 150 km, Slavske is 80 km. We recommend a crossover for mountain roads." },
         },
+        {
+          question: { uk: "Де припаркувати авто в центрі Дрогобича?", ru: "Где припарковать авто в центре Дрогобыча?", en: "Where can I park in Drohobych city center?" },
+          answer: { uk: "Є парковки біля ратуші та туристичних локацій, також місця вздовж вулиць. У сезон краще приїхати раніше.", ru: "Есть парковки у ратуши и туристических локаций, также места вдоль улиц. В сезон лучше приезжать раньше.", en: "There is parking near the town hall and tourist spots, plus street parking. In high season, arrive earlier." },
+        },
+        {
+          question: { uk: "Чи можна отримати та повернути авто на вокзалі або в готелі?", ru: "Можно ли получить и вернуть авто на вокзале или в отеле?", en: "Can I pick up and return the car at the station or a hotel?" },
+          answer: { uk: "Так, подача й повернення можливі за адресою, у готелі або на вокзалі. Час узгоджується під час бронювання.", ru: "Да, подача и возврат возможны по адресу, в отеле или на вокзале. Время согласовывается при бронировании.", en: "Yes, delivery and return are available to your address, hotel, or the station. Timing is arranged during booking." },
+        },
+        {
+          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?" },
+          answer: { uk: "Зазвичай діє правило «повний‑повний». За потреби доступна опція передоплати.", ru: "Обычно действует правило «полный‑полный». При необходимости доступна опция предоплаты.", en: "We typically use a full-to-full policy. A prepaid option is available if needed." },
+        },
+        {
+          question: { uk: "Які документи потрібні та чи є депозит?", ru: "Какие документы нужны и есть ли депозит?", en: "What documents are required and is there a deposit?" },
+          answer: { uk: "Потрібні паспорт/ID та водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.", ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.", en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available." },
+        },
       ],
     },
   ],
@@ -4191,6 +4207,22 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
         {
           question: { uk: "Який найкращий маршрут до Буковеля?", ru: "Какой лучший маршрут до Буковеля?", en: "What's the best route to Bukovel?" },
           answer: { uk: "Зі Стрия до Буковеля 130 км через Сколе та Славське. Дорога асфальтована. Взимку можуть бути снігопади на перевалі.", ru: "Из Стрыя до Буковеля 130 км через Сколе и Славское. Дорога асфальтирована. Зимой возможны снегопады на перевале.", en: "From Stryi to Bukovel is 130 km via Skole and Slavske. Road is paved. Winter snowfall possible at the pass." },
+        },
+        {
+          question: { uk: "Чи можна отримати авто на вокзалі Стрия або за адресою?", ru: "Можно ли получить авто на вокзале Стрыя или по адресу?", en: "Can I pick up the car at Stryi station or at an address?" },
+          answer: { uk: "Так, подаємо на вокзал, автостанцію або за адресою в місті. Час узгоджується під час бронювання.", ru: "Да, подаем на вокзал, автостанцию или по адресу в городе. Время согласовывается при бронировании.", en: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking." },
+        },
+        {
+          question: { uk: "Де припаркувати авто в центрі Стрия?", ru: "Где припарковать авто в центре Стрыя?", en: "Where can I park in Stryi city center?" },
+          answer: { uk: "Є парковки біля центральних вулиць та торгових зон, також місця вздовж вулиць. Дотримуйтесь знаків.", ru: "Есть парковки у центральных улиц и торговых зон, также места вдоль улиц. Соблюдайте знаки.", en: "There is parking near central streets and shopping areas, plus street parking. Follow signage." },
+        },
+        {
+          question: { uk: "Які маршрути популярні зі Стрия на 1 день?", ru: "Какие маршруты популярны из Стрыя на 1 день?", en: "What day-trip routes are popular from Stryi?" },
+          answer: { uk: "Сколе, Тустань, Славське та Моршин — найпопулярніші напрямки. Для гірських доріг радимо кросовер.", ru: "Сколе, Тустань, Славское и Моршин — самые популярные направления. Для горных дорог советуем кроссовер.", en: "Skole, Tustan, Slavske, and Morshyn are the most popular directions. For mountain roads, we recommend a crossover." },
+        },
+        {
+          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?" },
+          answer: { uk: "Стандартно діє правило «повний‑повний». За потреби доступна опція передоплати.", ru: "Стандартно действует правило «полный‑полный». При необходимости доступна опция предоплаты.", en: "We use a full-to-full policy. A prepaid option is available if needed." },
         },
       ],
     },
@@ -4207,6 +4239,22 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
           question: { uk: "Чи є доставка до Львова?", ru: "Есть ли доставка во Львов?", en: "Do you deliver to Lviv?" },
           answer: { uk: "Так, доставка до Львова (75 км) — 600 грн. При оренді від 5 днів — знижка 50%.", ru: "Да, доставка во Львов (75 км) — 600 грн. При аренде от 5 дней — скидка 50%.", en: "Yes, delivery to Lviv (75 km) — 600 UAH. 50% discount for 5+ day rentals." },
         },
+        {
+          question: { uk: "Чи можна отримати авто на вокзалі Самбора або за адресою?", ru: "Можно ли получить авто на вокзале Самбора или по адресу?", en: "Can I pick up the car at Sambir station or at an address?" },
+          answer: { uk: "Так, подаємо на вокзал, автостанцію або до готелю. Час узгоджується при бронюванні.", ru: "Да, подаем на вокзал, автостанцию или в отель. Время согласовывается при бронировании.", en: "Yes, we can deliver to the railway station, bus station, or a hotel. Timing is arranged during booking." },
+        },
+        {
+          question: { uk: "Де припаркувати авто в центрі Самбора?", ru: "Где припарковать авто в центре Самбора?", en: "Where can I park in Sambir city center?" },
+          answer: { uk: "Є парковки в центрі та місця вздовж основних вулиць. У вихідні місць менше — краще приїхати раніше.", ru: "Есть парковки в центре и места вдоль основных улиц. В выходные мест меньше — лучше приехать раньше.", en: "There is parking in the center and along main streets. On weekends, spots are limited, so arrive earlier." },
+        },
+        {
+          question: { uk: "Які маршрути популярні з Самбора на 1 день?", ru: "Какие маршруты популярны из Самбора на 1 день?", en: "What day-trip routes are popular from Sambir?" },
+          answer: { uk: "Популярні напрямки: Дрогобич, Трускавець, Старий Самбір та Турка. Для гірських доріг радимо кросовер.", ru: "Популярные направления: Дрогобыч, Трускавец, Старый Самбор и Турка. Для горных дорог советуем кроссовер.", en: "Popular directions include Drohobych, Truskavets, Staryi Sambir, and Turka. For mountain roads, we recommend a crossover." },
+        },
+        {
+          question: { uk: "Які документи потрібні та чи є депозит?", ru: "Какие документы нужны и есть ли депозит?", en: "What documents are required and is there a deposit?" },
+          answer: { uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.", ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.", en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available." },
+        },
       ],
     },
   ],
@@ -4221,6 +4269,22 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
         {
           question: { uk: "Чи можна виїхати до Польщі?", ru: "Можно ли выехать в Польшу?", en: "Can I travel to Poland?" },
           answer: { uk: "Так, до КПП Рава-Руська 40 км. Потрібна зелена карта. Оформляємо на місці.", ru: "Да, до КПП Рава-Русская 40 км. Нужна зелёная карта. Оформляем на месте.", en: "Yes, Rava-Ruska checkpoint is 40 km. Green card required. We arrange it on site." },
+        },
+        {
+          question: { uk: "Де припаркувати авто в центрі Червонограда?", ru: "Где припарковать авто в центре Червонограда?", en: "Where can I park in Chervonohrad city center?" },
+          answer: { uk: "Є парковки біля центру та торгових зон, також місця вздовж вулиць. Дотримуйтесь знаків.", ru: "Есть парковки у центра и торговых зон, также места вдоль улиц. Соблюдайте знаки.", en: "There is parking near the center and shopping areas, plus street parking. Follow signage." },
+        },
+        {
+          question: { uk: "Чи можна отримати авто на вокзалі або за адресою?", ru: "Можно ли получить авто на вокзале или по адресу?", en: "Can I pick up the car at the station or at an address?" },
+          answer: { uk: "Так, подаємо на вокзал, автостанцію або за адресою в місті. Час узгоджується при бронюванні.", ru: "Да, подаем на вокзал, автостанцию или по адресу в городе. Время согласовывается при бронировании.", en: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking." },
+        },
+        {
+          question: { uk: "Які маршрути популярні з Червонограда на 1 день?", ru: "Какие маршруты популярны из Червонограда на 1 день?", en: "What day-trip routes are popular from Chervonohrad?" },
+          answer: { uk: "Популярні напрямки: Сокаль, Белз, Рава-Руська та Львів. Дороги переважно асфальтовані.", ru: "Популярные направления: Сокаль, Белз, Рава-Русская и Львов. Дороги преимущественно асфальтированы.", en: "Popular directions include Sokal, Belz, Rava-Ruska, and Lviv. Roads are mostly paved." },
+        },
+        {
+          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?" },
+          answer: { uk: "Зазвичай діє правило «повний‑повний». За потреби доступна передоплата.", ru: "Обычно действует правило «полный‑полный». При необходимости доступна предоплата.", en: "We typically use a full-to-full policy. A prepaid option is available if needed." },
         },
       ],
     },
@@ -4237,6 +4301,22 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
           question: { uk: "Яке авто краще для гір?", ru: "Какое авто лучше для гор?", en: "Which car is better for mountains?" },
           answer: { uk: "Рекомендуємо кросовер або SUV для гірських доріг Прикарпаття. Для асфальтових трас підійде будь-яке авто.", ru: "Рекомендуем кроссовер или SUV для горных дорог Прикарпатья. Для асфальтовых трасс подойдёт любое авто.", en: "We recommend a crossover or SUV for Prykarpattia mountain roads. Any car works for paved roads." },
         },
+        {
+          question: { uk: "Чи можна отримати авто в Бориславі на вокзалі або в готелі?", ru: "Можно ли получить авто в Бориславе на вокзале или в отеле?", en: "Can I pick up the car in Boryslav at the station or a hotel?" },
+          answer: { uk: "Так, подача можлива на вокзал, до готелю або за адресою. Час узгоджується при бронюванні.", ru: "Да, подача возможна на вокзал, в отель или по адресу. Время согласовывается при бронировании.", en: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking." },
+        },
+        {
+          question: { uk: "Де припаркувати авто в центрі Борислава?", ru: "Где припарковать авто в центре Борислава?", en: "Where can I park in Boryslav city center?" },
+          answer: { uk: "Є парковки біля центру та санаторних зон, також місця вздовж вулиць. У сезон краще приїхати раніше.", ru: "Есть парковки у центра и санаторных зон, также места вдоль улиц. В сезон лучше приехать раньше.", en: "There is parking near the center and resort areas, plus street parking. In high season, arrive earlier." },
+        },
+        {
+          question: { uk: "Які маршрути популярні з Борислава?", ru: "Какие маршруты популярны из Борислава?", en: "What routes are popular from Boryslav?" },
+          answer: { uk: "Трускавець, Східниця, Дрогобич і Сколе — часті напрямки на день.", ru: "Трускавец, Сходница, Дрогобыч и Сколе — частые направления на день.", en: "Truskavets, Skhidnytsia, Drohobych, and Skole are popular day-trip directions." },
+        },
+        {
+          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?" },
+          answer: { uk: "Стандартно «повний‑повний». За потреби можна обрати передоплату.", ru: "Стандартно «полный‑полный». При необходимости можно выбрать предоплату.", en: "We use a full-to-full policy. A prepaid option is available if needed." },
+        },
       ],
     },
   ],
@@ -4251,6 +4331,22 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
         {
           question: { uk: "Які замки можна відвідати?", ru: "Какие замки можно посетить?", en: "Which castles can I visit?" },
           answer: { uk: "Жовківський замок, Креховський монастир (20 км), Олеський замок (50 км), Підгорецький замок (60 км). Всі дороги асфальтовані.", ru: "Жолковский замок, Креховский монастырь (20 км), Олесский замок (50 км), Подгорецкий замок (60 км). Все дороги асфальтированы.", en: "Zhovkva Castle, Krekhiv Monastery (20 km), Olesko Castle (50 km), Pidhirtsi Castle (60 km). All roads are paved." },
+        },
+        {
+          question: { uk: "Де припаркувати авто в центрі Жовкви або біля замку?", ru: "Где припарковать авто в центре Жолквы или у замка?", en: "Where can I park in Zhovkva center or near the castle?" },
+          answer: { uk: "Є парковки біля замку та центральної площі, також місця вздовж вулиць. У сезон краще приїхати раніше.", ru: "Есть парковки у замка и центральной площади, также места вдоль улиц. В сезон лучше приехать раньше.", en: "There is parking near the castle and the main square, plus street parking. In high season, arrive earlier." },
+        },
+        {
+          question: { uk: "Чи можна отримати авто в Жовкві на вокзалі або за адресою?", ru: "Можно ли получить авто в Жолкве на вокзале или по адресу?", en: "Can I pick up the car in Zhovkva at the station or at an address?" },
+          answer: { uk: "Так, подача можлива на вокзал, у готель або за адресою в місті. Час узгоджується при бронюванні.", ru: "Да, подача возможна на вокзал, в отель или по адресу в городе. Время согласовывается при бронировании.", en: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking." },
+        },
+        {
+          question: { uk: "Які маршрути популярні з Жовкви на 1 день?", ru: "Какие маршруты популярны из Жолквы на 1 день?", en: "What day-trip routes are popular from Zhovkva?" },
+          answer: { uk: "Львів, Крехівський монастир, Рава-Руська та Белз — зручні напрямки на день.", ru: "Львов, Креховский монастырь, Рава-Русская и Белз — удобные направления на день.", en: "Lviv, Krekhiv Monastery, Rava-Ruska, and Belz are convenient day-trip routes." },
+        },
+        {
+          question: { uk: "Які документи потрібні та чи є депозит?", ru: "Какие документы нужны и есть ли депозит?", en: "What documents are required and is there a deposit?" },
+          answer: { uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.", ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.", en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available." },
         },
       ],
     },
@@ -4281,6 +4377,54 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             uk: "Так, доставка по регіону можлива за попереднім узгодженням. Вартість залежить від відстані, для оренди на кілька днів діють знижки.",
             ru: "Да, доставка по региону возможна по предварительному согласованию. Стоимость зависит от расстояния, при аренде на несколько дней действуют скидки.",
             en: "Yes, regional delivery is possible with prior arrangement. Cost depends on distance, and discounts apply for multi-day rentals.",
+          },
+        },
+        {
+          question: {
+            uk: "Де припаркувати авто в Яремчі та біля водоспаду Пробій?",
+            ru: "Где припарковать авто в Яремче и у водопада Пробий?",
+            en: "Where can I park in Yaremche and near Probiy Waterfall?",
+          },
+          answer: {
+            uk: "Біля водоспаду та сувенірного ринку є паркувальні майданчики, у центрі — місця вздовж вулиць. У сезон приїжджайте раніше та орієнтуйтеся на знаки.",
+            ru: "У водопада и сувенирного рынка есть парковки, в центре — места вдоль улиц. В сезон лучше приезжать раньше и ориентироваться по знакам.",
+            en: "There are parking areas near the waterfall and the souvenir market, and street parking in the center. In high season, arrive early and follow signage.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна отримати та повернути авто біля готелю або вокзалу Яремче?",
+            ru: "Можно ли получить и вернуть авто у отеля или вокзала Яремче?",
+            en: "Can I pick up and return the car at a hotel or Yaremche station?",
+          },
+          answer: {
+            uk: "Так, подача і повернення можливі за адресою, у готелі чи на вокзалі. Час і місце узгоджуються під час бронювання.",
+            ru: "Да, подача и возврат возможны по адресу, в отеле или на вокзале. Время и место согласовываются при бронировании.",
+            en: "Yes, delivery and return are available to your address, hotel, or the station. Time and place are arranged during booking.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є обмеження пробігу для поїздок у Карпати?",
+            ru: "Есть ли ограничение пробега для поездок в Карпаты?",
+            en: "Is there a mileage limit for Carpathian trips?",
+          },
+          answer: {
+            uk: "Ліміт залежить від обраного тарифу. Для далеких маршрутів можна обрати опцію Unlimited — підкажемо при бронюванні.",
+            ru: "Лимит зависит от выбранного тарифа. Для дальних маршрутов можно выбрать Unlimited — подскажем при бронировании.",
+            en: "The limit depends on the selected rate. For longer routes you can choose Unlimited — we'll advise during booking.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні та чи є депозит?",
+            ru: "Какие документы нужны и есть ли депозит?",
+            en: "What documents are required and is there a deposit?",
+          },
+          answer: {
+            uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.",
+            ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.",
+            en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
           },
         },
       ],
@@ -4314,6 +4458,54 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             en: "Yes, we can deliver to the railway or bus station, or to your address in the city. Delivery time is arranged during booking.",
           },
         },
+        {
+          question: {
+            uk: "Де припаркувати авто в центрі Коломиї?",
+            ru: "Где припарковать авто в центре Коломыи?",
+            en: "Where can I park in Kolomyia city center?",
+          },
+          answer: {
+            uk: "Є паркування біля центральних вулиць, ратуші та музеїв. У години пік місць менше — краще приїхати раніше.",
+            ru: "Есть парковки у центральных улиц, ратуши и музеев. В часы пик мест меньше — лучше приехать раньше.",
+            en: "There is parking near central streets, the town hall, and museums. At peak times there are fewer spots, so arrive earlier.",
+          },
+        },
+        {
+          question: {
+            uk: "Які маршрути популярні з Коломиї на 1 день?",
+            ru: "Какие маршруты популярны из Коломыи на 1 день?",
+            en: "What day-trip routes are popular from Kolomyia?",
+          },
+          answer: {
+            uk: "Популярні напрямки: Косів, Яремче, Верховина, Чернівці. Для гірських маршрутів радимо кросовер.",
+            ru: "Популярные направления: Косов, Яремче, Верховина, Черновцы. Для горных маршрутов рекомендуем кроссовер.",
+            en: "Popular directions include Kosiv, Yaremche, Verkhovyna, and Chernivtsi. For mountain routes we recommend a crossover.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна повернути авто в іншому місті (Івано-Франківськ або Чернівці)?",
+            ru: "Можно ли вернуть авто в другом городе (Ивано-Франковск или Черновцы)?",
+            en: "Can I return the car in another city (Ivano-Frankivsk or Chernivtsi)?",
+          },
+          answer: {
+            uk: "Так, повернення в іншому місті можливе за попереднім узгодженням. Умови та вартість підтвердить менеджер.",
+            ru: "Да, возврат в другом городе возможен по предварительному согласованию. Условия и стоимость подтвердит менеджер.",
+            en: "Yes, one-way return is possible with prior arrangement. Terms and cost are confirmed by our manager.",
+          },
+        },
+        {
+          question: {
+            uk: "Яка паливна політика?",
+            ru: "Какая топливная политика?",
+            en: "What is the fuel policy?",
+          },
+          answer: {
+            uk: "Зазвичай діє правило «повний‑повний»: повертаєте авто з таким самим рівнем пального. За потреби доступна опція передоплати.",
+            ru: "Обычно действует правило «полный‑полный»: возвращаете авто с тем же уровнем топлива. При необходимости доступна опция предоплаты.",
+            en: "We typically use a full-to-full policy: return the car with the same fuel level. A prepaid option is available if needed.",
+          },
+        },
       ],
     },
   ],
@@ -4343,6 +4535,54 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             uk: "Паспорт або ID-картка та водійське посвідчення (стаж від 2 років). Для іноземців — закордонний паспорт і посвідчення.",
             ru: "Паспорт или ID-карта и водительское удостоверение (стаж от 2 лет). Для иностранцев — загранпаспорт и удостоверение.",
             en: "Passport or ID card and a driver's license (2+ years experience). For foreigners — international passport and license.",
+          },
+        },
+        {
+          question: {
+            uk: "Де припаркувати авто в центрі Калуша?",
+            ru: "Где припарковать авто в центре Калуша?",
+            en: "Where can I park in Kalush city center?",
+          },
+          answer: {
+            uk: "Є міські парковки біля центру та торгових зон, також місця вздовж вулиць. Дотримуйтесь знаків і розмітки.",
+            ru: "Есть городские парковки у центра и торговых зон, также места вдоль улиц. Соблюдайте знаки и разметку.",
+            en: "There are city parking areas near the center and shopping zones, plus street parking. Follow signage and markings.",
+          },
+        },
+        {
+          question: {
+            uk: "Які напрямки популярні з Калуша?",
+            ru: "Какие направления популярны из Калуша?",
+            en: "What routes are popular from Kalush?",
+          },
+          answer: {
+            uk: "Івано-Франківськ, Долина, Галич і Яремче — часті напрямки на день. Для Карпат краще авто з більшим кліренсом.",
+            ru: "Ивано-Франковск, Долина, Галич и Яремче — популярные направления на день. Для Карпат лучше авто с большим клиренсом.",
+            en: "Ivano-Frankivsk, Dolyna, Halych, and Yaremche are popular day-trip directions. For the Carpathians, a higher-clearance car is better.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна повернути авто в іншому місті?",
+            ru: "Можно ли вернуть авто в другом городе?",
+            en: "Can I return the car in another city?",
+          },
+          answer: {
+            uk: "Так, повернення в іншому місті можливе за попереднім узгодженням. Умови залежать від маршруту.",
+            ru: "Да, возврат в другом городе возможен по предварительному согласованию. Условия зависят от маршрута.",
+            en: "Yes, one-way return is available with prior arrangement. Terms depend on the route.",
+          },
+        },
+        {
+          question: {
+            uk: "Як працює паливна політика?",
+            ru: "Как работает топливная политика?",
+            en: "How does the fuel policy work?",
+          },
+          answer: {
+            uk: "Зазвичай діє правило «повний‑повний». Якщо потрібно — можна обрати опцію передоплати пального.",
+            ru: "Обычно действует правило «полный‑полный». Если нужно — можно выбрать опцию предоплаты топлива.",
+            en: "We typically use a full-to-full policy. If needed, you can choose a prepaid fuel option.",
           },
         },
       ],
@@ -4376,6 +4616,54 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             en: "For the Carpathians, we recommend a crossover or AWD. In summer a compact car works too, but with a full trunk it's better to choose higher clearance.",
           },
         },
+        {
+          question: {
+            uk: "Чи можна отримати авто на вокзалі або автостанції Надвірної?",
+            ru: "Можно ли получить авто на вокзале или автостанции Надворной?",
+            en: "Can I pick up the car at Nadvirna railway or bus station?",
+          },
+          answer: {
+            uk: "Так, подаємо на вокзал, автостанцію чи за адресою в місті. Час подачі узгоджується при бронюванні.",
+            ru: "Да, подаем на вокзал, автостанцию или по адресу в городе. Время подачи согласовывается при бронировании.",
+            en: "Yes, we can deliver to the railway station, bus station, or your address. Delivery time is arranged during booking.",
+          },
+        },
+        {
+          question: {
+            uk: "Де припаркувати авто в центрі Надвірної?",
+            ru: "Где припарковать авто в центре Надворной?",
+            en: "Where can I park in Nadvirna city center?",
+          },
+          answer: {
+            uk: "Є парковки біля центру та місця вздовж основних вулиць. У сезон краще приїхати раніше.",
+            ru: "Есть парковки у центра и места вдоль основных улиц. В сезон лучше приехать раньше.",
+            en: "There is parking near the center and along main streets. In high season, arrive earlier.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можлива доставка авто до Яремча або Ворохти?",
+            ru: "Возможна ли доставка авто в Яремче или Ворохту?",
+            en: "Do you deliver cars to Yaremche or Vorokhta?",
+          },
+          answer: {
+            uk: "Так, доставка по регіону можлива за попереднім узгодженням. Вартість залежить від відстані.",
+            ru: "Да, доставка по региону возможна по предварительному согласованию. Стоимость зависит от расстояния.",
+            en: "Yes, regional delivery is possible with prior arrangement. The cost depends on distance.",
+          },
+        },
+        {
+          question: {
+            uk: "Які умови щодо депозиту та документів?",
+            ru: "Какие условия по депозиту и документам?",
+            en: "What are the deposit and document requirements?",
+          },
+          answer: {
+            uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.",
+            ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.",
+            en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
+          },
+        },
       ],
     },
   ],
@@ -4405,6 +4693,54 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             uk: "Так, можливе подання за попереднім узгодженням. Вартість залежить від відстані, деталі підтвердить менеджер.",
             ru: "Да, подача возможна по предварительному согласованию. Стоимость зависит от расстояния, детали подтвердит менеджер.",
             en: "Yes, delivery is possible with prior arrangement. Cost depends on distance; details are confirmed by the manager.",
+          },
+        },
+        {
+          question: {
+            uk: "Де зручно паркуватися в Косові (центр, базар)?",
+            ru: "Где удобно парковаться в Косове (центр, базар)?",
+            en: "Where is it convenient to park in Kosiv (center, market)?",
+          },
+          answer: {
+            uk: "Є парковки біля базару та в центрі. У ярмаркові дні краще приїхати раніше.",
+            ru: "Есть парковки у базара и в центре. В ярмарочные дни лучше приезжать раньше.",
+            en: "There is parking near the market and in the center. On fair days, it's better to arrive earlier.",
+          },
+        },
+        {
+          question: {
+            uk: "Яке авто краще для місцевих гірських доріг?",
+            ru: "Какое авто лучше для местных горных дорог?",
+            en: "Which car is better for local mountain roads?",
+          },
+          answer: {
+            uk: "Рекомендуємо кросовер або авто з більшим кліренсом; взимку — обов'язково зимові шини.",
+            ru: "Рекомендуем кроссовер или авто с большим клиренсом; зимой — обязательно зимние шины.",
+            en: "We recommend a crossover or a car with higher clearance; in winter, winter tires are required.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна повернути авто в Коломиї або Івано-Франківську?",
+            ru: "Можно ли вернуть авто в Коломые или Ивано-Франковске?",
+            en: "Can I return the car in Kolomyia or Ivano-Frankivsk?",
+          },
+          answer: {
+            uk: "Так, за попереднім узгодженням. Умови та вартість підтвердить менеджер.",
+            ru: "Да, по предварительному согласованию. Условия и стоимость подтвердит менеджер.",
+            en: "Yes, with prior arrangement. Terms and cost are confirmed by our manager.",
+          },
+        },
+        {
+          question: {
+            uk: "Яка паливна політика?",
+            ru: "Какая топливная политика?",
+            en: "What is the fuel policy?",
+          },
+          answer: {
+            uk: "Стандартно «повний‑повний». За потреби доступна опція передоплати.",
+            ru: "Стандартно «полный‑полный». При необходимости доступна опция предоплаты.",
+            en: "We use a full-to-full policy. A prepaid option is available if needed.",
           },
         },
       ],
@@ -4438,6 +4774,54 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             en: "Yes, we deliver to Buchach, Ternopil, Zalishchyky and other towns. Terms and timing are arranged during booking.",
           },
         },
+        {
+          question: {
+            uk: "Де припаркувати авто в центрі Чорткова або біля замку?",
+            ru: "Где припарковать авто в центре Чорткова или у замка?",
+            en: "Where can I park in Chortkiv center or near the castle?",
+          },
+          answer: {
+            uk: "Є парковки біля центру та туристичних локацій. У вихідні краще приїхати раніше.",
+            ru: "Есть парковки у центра и туристических локаций. В выходные лучше приехать раньше.",
+            en: "There is parking near the center and tourist spots. On weekends, arrive earlier.",
+          },
+        },
+        {
+          question: {
+            uk: "Які маршрути популярні на 1 день з Чорткова?",
+            ru: "Какие маршруты популярны на 1 день из Чорткова?",
+            en: "What day-trip routes are popular from Chortkiv?",
+          },
+          answer: {
+            uk: "Бучач, Заліщики, Устечко та Дністровський каньйон — найпопулярніші напрямки.",
+            ru: "Бучач, Залещики, Устечко и Днестровский каньон — самые популярные направления.",
+            en: "Buchach, Zalishchyky, Ustechko, and the Dniester Canyon are the most popular directions.",
+          },
+        },
+        {
+          question: {
+            uk: "Яка паливна політика?",
+            ru: "Какая топливная политика?",
+            en: "What is the fuel policy?",
+          },
+          answer: {
+            uk: "Зазвичай діє правило «повний‑повний». Якщо потрібно — можна обрати передоплату.",
+            ru: "Обычно действует правило «полный‑полный». Если нужно — можно выбрать предоплату.",
+            en: "We typically use a full-to-full policy. A prepaid option is available if needed.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна повернути авто в іншому місті?",
+            ru: "Можно ли вернуть авто в другом городе?",
+            en: "Can I return the car in another city?",
+          },
+          answer: {
+            uk: "Так, повернення в Тернополі чи інших містах можливе за попереднім узгодженням.",
+            ru: "Да, возврат в Тернополе и других городах возможен по предварительному согласованию.",
+            en: "Yes, one-way return in Ternopil or other cities is possible with prior arrangement.",
+          },
+        },
       ],
     },
   ],
@@ -4467,6 +4851,54 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             uk: "Паркування є біля Замкової гори, колегіуму та центральної площі. У туристичний сезон краще приїжджати раніше.",
             ru: "Парковка есть у Замковой горы, коллегиума и центральной площади. В туристический сезон лучше приезжать раньше.",
             en: "Parking is available near Castle Hill, the collegium, and the central square. In tourist season, it's better to arrive early.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна отримати авто на автостанції або в готелі Кременця?",
+            ru: "Можно ли получить авто на автостанции или в отеле Кременца?",
+            en: "Can I pick up the car at the bus station or a hotel in Kremenets?",
+          },
+          answer: {
+            uk: "Так, подаємо на автостанцію, за адресою або до готелю. Час узгоджується при бронюванні.",
+            ru: "Да, подаем на автостанцию, по адресу или в отель. Время согласовывается при бронировании.",
+            en: "Yes, we can deliver to the bus station, your address, or a hotel. Timing is arranged during booking.",
+          },
+        },
+        {
+          question: {
+            uk: "Які напрямки популярні з Кременця?",
+            ru: "Какие направления популярны из Кременца?",
+            en: "What routes are popular from Kremenets?",
+          },
+          answer: {
+            uk: "Почаїв, Дубно та Тернопіль — зручні маршрути на день.",
+            ru: "Почаев, Дубно и Тернополь — удобные маршруты на день.",
+            en: "Pochaiv, Dubno, and Ternopil are convenient day-trip routes.",
+          },
+        },
+        {
+          question: {
+            uk: "Яка паливна політика?",
+            ru: "Какая топливная политика?",
+            en: "What is the fuel policy?",
+          },
+          answer: {
+            uk: "Зазвичай діє правило «повний‑повний». За потреби доступна передоплата.",
+            ru: "Обычно действует правило «полный‑полный». При необходимости доступна предоплата.",
+            en: "We typically use a full-to-full policy. A prepaid option is available if needed.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні та чи є депозит?",
+            ru: "Какие документы нужны и есть ли депозит?",
+            en: "What documents are required and is there a deposit?",
+          },
+          answer: {
+            uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.",
+            ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.",
+            en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
           },
         },
       ],
@@ -4500,6 +4932,54 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             en: "Yes, we deliver to thermal complexes and hotels in Berehove. Time and place are arranged during booking.",
           },
         },
+        {
+          question: {
+            uk: "Де припаркувати авто біля термальних басейнів чи в центрі Берегового?",
+            ru: "Где припарковать авто у термальных бассейнов или в центре Берегово?",
+            en: "Where can I park near the thermal pools or in Berehove center?",
+          },
+          answer: {
+            uk: "Є парковки біля термальних комплексів і в центрі. У сезон місць менше — краще приїхати раніше.",
+            ru: "Есть парковки у термальных комплексов и в центре. В сезон мест меньше — лучше приезжать раньше.",
+            en: "There is parking near the thermal complexes and in the center. In high season, arrive earlier.",
+          },
+        },
+        {
+          question: {
+            uk: "Які маршрути популярні з Берегового?",
+            ru: "Какие маршруты популярны из Берегово?",
+            en: "What routes are popular from Berehove?",
+          },
+          answer: {
+            uk: "Мукачево, Ужгород і винні маршрути Закарпаття — найпопулярніші напрямки.",
+            ru: "Мукачево, Ужгород и винные маршруты Закарпатья — самые популярные направления.",
+            en: "Mukachevo, Uzhhorod, and Zakarpattia wine routes are the most popular directions.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна повернути авто в Мукачеві або Ужгороді?",
+            ru: "Можно ли вернуть авто в Мукачево или Ужгороде?",
+            en: "Can I return the car in Mukachevo or Uzhhorod?",
+          },
+          answer: {
+            uk: "Так, повернення в іншому місті можливе за попереднім узгодженням. Вартість залежить від маршруту.",
+            ru: "Да, возврат в другом городе возможен по предварительному согласованию. Стоимость зависит от маршрута.",
+            en: "Yes, one-way return is possible with prior arrangement. Cost depends on the route.",
+          },
+        },
+        {
+          question: {
+            uk: "Які документи потрібні для оренди в Береговому?",
+            ru: "Какие документы нужны для аренды в Берегово?",
+            en: "What documents are needed to rent in Berehove?",
+          },
+          answer: {
+            uk: "Паспорт/ID та водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.",
+            ru: "Паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.",
+            en: "Passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
+          },
+        },
       ],
     },
   ],
@@ -4531,6 +5011,54 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             en: "We recommend a crossover or SUV, especially in winter. Any class works for flat highways.",
           },
         },
+        {
+          question: {
+            uk: "Чи можна отримати авто на вокзалі або за адресою в Хусті?",
+            ru: "Можно ли получить авто на вокзале или по адресу в Хусте?",
+            en: "Can I pick up the car at the station or at an address in Khust?",
+          },
+          answer: {
+            uk: "Так, подаємо на вокзал, автостанцію чи за адресою. Час узгоджується при бронюванні.",
+            ru: "Да, подаем на вокзал, автостанцию или по адресу. Время согласовывается при бронировании.",
+            en: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking.",
+          },
+        },
+        {
+          question: {
+            uk: "Де припаркувати авто в центрі Хуста або біля замку?",
+            ru: "Где припарковать авто в центре Хуста или у замка?",
+            en: "Where can I park in Khust center or near the castle?",
+          },
+          answer: {
+            uk: "Є парковки біля центру та туристичних локацій; у сезон краще приїхати раніше.",
+            ru: "Есть парковки у центра и туристических локаций; в сезон лучше приехать раньше.",
+            en: "There is parking near the center and tourist spots; in high season, arrive earlier.",
+          },
+        },
+        {
+          question: {
+            uk: "Яка паливна політика?",
+            ru: "Какая топливная политика?",
+            en: "What is the fuel policy?",
+          },
+          answer: {
+            uk: "Зазвичай діє правило «повний‑повний». За потреби доступна передоплата.",
+            ru: "Обычно действует правило «полный‑полный». При необходимости доступна предоплата.",
+            en: "We typically use a full-to-full policy. A prepaid option is available if needed.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна повернути авто в Мукачеві, Ужгороді або Рахові?",
+            ru: "Можно ли вернуть авто в Мукачево, Ужгороде или Рахове?",
+            en: "Can I return the car in Mukachevo, Uzhhorod, or Rakhiv?",
+          },
+          answer: {
+            uk: "Так, повернення в іншому місті можливе за попереднім узгодженням. Умови підтвердить менеджер.",
+            ru: "Да, возврат в другом городе возможен по предварительному согласованию. Условия подтвердит менеджер.",
+            en: "Yes, one-way return is possible with prior arrangement. Terms are confirmed by our manager.",
+          },
+        },
       ],
     },
   ],
@@ -4560,6 +5088,54 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
             uk: "Так, за попереднім узгодженням і з зеленою картою. Умови та тарифи уточнюйте у менеджера.",
             ru: "Да, по предварительному согласованию и с зелёной картой. Условия и тарифы уточняйте у менеджера.",
             en: "Yes, with prior approval and a green card. Please check terms and fees with our manager.",
+          },
+        },
+        {
+          question: {
+            uk: "Яке авто краще для високогірних маршрутів біля Рахова?",
+            ru: "Какое авто лучше для высокогорных маршрутов рядом с Раховом?",
+            en: "Which car is better for high-mountain routes near Rakhiv?",
+          },
+          answer: {
+            uk: "Рекомендуємо кросовер або AWD; взимку — обов'язково зимові шини. Для рівних трас підійде будь-який клас.",
+            ru: "Рекомендуем кроссовер или AWD; зимой — обязательно зимние шины. Для ровных трас подойдет любой класс.",
+            en: "We recommend a crossover or AWD; in winter, winter tires are required. Any class works for flat highways.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи є доставка авто до Ясіні або Буковеля?",
+            ru: "Есть ли доставка авто в Ясиню или Буковель?",
+            en: "Do you deliver cars to Yasinia or Bukovel?",
+          },
+          answer: {
+            uk: "Так, доставка по регіону можлива за попереднім узгодженням. Вартість залежить від відстані.",
+            ru: "Да, доставка по региону возможна по предварительному согласованию. Стоимость зависит от расстояния.",
+            en: "Yes, regional delivery is possible with prior arrangement. Cost depends on distance.",
+          },
+        },
+        {
+          question: {
+            uk: "Де припаркувати авто в центрі Рахова?",
+            ru: "Где припарковать авто в центре Рахова?",
+            en: "Where can I park in Rakhiv city center?",
+          },
+          answer: {
+            uk: "Є парковки біля вокзалу та в центрі; у сезон місць менше — краще приїхати раніше.",
+            ru: "Есть парковки у вокзала и в центре; в сезон мест меньше — лучше приехать раньше.",
+            en: "There is parking near the station and in the center; in high season, arrive earlier.",
+          },
+        },
+        {
+          question: {
+            uk: "Чи можна повернути авто в іншому місті?",
+            ru: "Можно ли вернуть авто в другом городе?",
+            en: "Can I return the car in another city?",
+          },
+          answer: {
+            uk: "Так, повернення в іншому місті можливе за попереднім узгодженням. Умови та вартість підтвердить менеджер.",
+            ru: "Да, возврат в другом городе возможен по предварительному согласованию. Условия и стоимость подтвердит менеджер.",
+            en: "Yes, one-way return is possible with prior arrangement. Terms and cost are confirmed by our manager.",
           },
         },
       ],

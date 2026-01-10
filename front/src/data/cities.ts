@@ -879,7 +879,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Івано-Франківську. Без застави. Подача в аеропорт та виїзд до Карпат. Нові авто.",
     },
     ru: {
-      title: "Аренда авто в Ивано-Франковске без залога — Доставка авто 24/7",
+      title: "Аренда авто в Ивано-Франковске — Доставка 24/7",
       metaDescription:
         "Прокат авто в Ивано-Франковске официально. Подача в аэропорт и выезд в Карпаты 24/7. Новые машины. Внедорожники и седаны. Бронируйте!",
       h1: "Аренда авто в Ивано-Франковске",
@@ -1235,499 +1235,499 @@ export const cityLocalizations: Record<
   },
   lutsk: {
     uk: {
-      title: "Оренда авто у Луцьку без застави — Подача 24/7",
+      title: "Оренда авто у Луцьку — Шацькі озера та замок Любарта",
       metaDescription:
-        "Прокат авто у Луцьку офіційно. Нові машини. Подача по місту та на вокзал 24/7. Поїздки до Шацьких озер та Польщі. Бронюйте онлайн!",
+        "Прокат авто у Луцьку. Подача по місту й на вокзал 24/7. Шацькі озера, Ковель, Ягодин/Устилуг та виїзд до Польщі за узгодженням.",
       h1: "Оренда авто у Луцьку",
       sectionCars: "АВТОМОБІЛІ REIZ У ЛУЦЬКУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЛУЦЬК",
       subtitle:
         "Оренда авто у Луцьку від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Луцьк без водія — REIZ | Подача 24/7",
+      ogTitle: "Оренда авто Луцьк — Шацькі озера та кордон | REIZ",
       ogDescription:
-        "Прокат авто у Луцьку. Без застави. Подача по місту та на вокзал. Нові авто. Поїздки до Шацьких озер.",
+        "Прокат авто у Луцьку. Подача 24/7. Шацькі озера, Ковель, Ягодин.",
     },
     ru: {
-      title: "Аренда авто в Луцке без залога — Подача 24/7",
+      title: "Аренда авто в Луцке — Шацкие озёра и замок Любарта",
       metaDescription:
-        "Прокат авто в Луцке официально. Новые машины. Подача по городу и на вокзал 24/7. Поездки к Шацким озёрам и в Польшу. Бронируйте онлайн!",
+        "Прокат авто в Луцке. Подача по городу и на вокзал 24/7. Шацкие озёра, Ковель, КПП Ягодин/Устилуг, выезд в Польшу по согласованию.",
       h1: "Аренда авто в Луцке",
       sectionCars: "АВТОМОБИЛИ REIZ В ЛУЦКЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЛУЦК",
       subtitle:
         "Аренда авто в Луцке от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle: "Аренда авто Луцк без водителя — REIZ | Подача 24/7",
+      ogTitle: "Аренда авто Луцк — Шацкие озёра и граница | REIZ",
       ogDescription:
-        "Прокат авто в Луцке. Без залога. Подача по городу и на вокзал. Новые авто. Поездки к Шацким озёрам.",
+        "Прокат авто в Луцке. Подача 24/7. Шацкие озёра, Ковель, Ягодин.",
     },
     en: {
-      title: "Car Rental Lutsk — No Deposit, Delivery 24/7",
+      title: "Car Rental Lutsk — Shatsk Lakes & Lubart Castle",
       metaDescription:
-        "Rent a car in Lutsk officially. New fleet. City and station delivery 24/7. Trips to Shatsk Lakes and Poland. Book online!",
+        "Rent a car in Lutsk. City and station delivery 24/7. Trips to Shatsk Lakes, Kovel, and border checkpoints; Poland travel by approval.",
       h1: "Car Rental in Lutsk",
       sectionCars: "REIZ CARS IN LUTSK",
       sectionWelcome: "WELCOME TO REIZ LUTSK",
       subtitle:
         "Car rental in Lutsk from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Lutsk — REIZ | No Deposit, Delivery 24/7",
+      ogTitle: "Car Rental Lutsk — Shatsk Lakes & Border Trips | REIZ",
       ogDescription:
-        "Rent a car in Lutsk. No deposit. City and station delivery. New fleet. Trips to Shatsk Lakes.",
+        "New fleet in Lutsk with 24/7 delivery. Shatsk Lakes, Kovel, border routes.",
     },
   },
   rivne: {
     uk: {
-      title: "Оренда авто у Рівному без застави — Подача 24/7",
+      title: "Оренда авто у Рівному — Тунель кохання, Острог, Полісся",
       metaDescription:
-        "Прокат авто у Рівному офіційно. Нові машини. Подача по місту та на вокзал 24/7. Поїздки на Полісся та до Львова. Бронюйте онлайн!",
+        "Прокат авто у Рівному. Подача 24/7 по місту й на вокзал. Маршрути до Клевані, Острога, Дубна та Полісся.",
       h1: "Оренда авто у Рівному",
       sectionCars: "АВТОМОБІЛІ REIZ У РІВНОМУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ РІВНЕ",
       subtitle:
         "Оренда авто у Рівному від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Рівне без водія — REIZ | Подача 24/7",
+      ogTitle: "Оренда авто Рівне — Тунель кохання | REIZ",
       ogDescription:
-        "Прокат авто у Рівному. Без застави. Подача по місту та на вокзал. Нові авто. Поїздки на Полісся.",
+        "Авто у Рівному з подачею 24/7. Клевань, Острог, Дубно.",
     },
     ru: {
-      title: "Аренда авто в Ровно без залога — Подача 24/7",
+      title: "Аренда авто в Ровно — Тоннель любви, Острог, Полесье",
       metaDescription:
-        "Прокат авто в Ровно официально. Новые машины. Подача по городу и на вокзал 24/7. Поездки на Полесье и во Львов. Бронируйте онлайн!",
+        "Прокат авто в Ровно. Подача 24/7 по городу и на вокзал. Маршруты в Клевань, Острог, Дубно и по Полесью.",
       h1: "Аренда авто в Ровно",
       sectionCars: "АВТОМОБИЛИ REIZ В РОВНО",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ РОВНО",
       subtitle:
         "Аренда авто в Ровно от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle: "Аренда авто Ровно без водителя — REIZ | Подача 24/7",
+      ogTitle: "Аренда авто Ровно — Тоннель любви | REIZ",
       ogDescription:
-        "Прокат авто в Ровно. Без залога. Подача по городу и на вокзал. Новые авто. Поездки на Полесье.",
+        "Авто в Ровно с подачей 24/7. Клевань, Острог, Дубно.",
     },
     en: {
-      title: "Car Rental Rivne — No Deposit, Delivery 24/7",
+      title: "Car Rental Rivne — Tunnel of Love, Ostroh, Polissia",
       metaDescription:
-        "Rent a car in Rivne officially. New fleet. City and station delivery 24/7. Trips to Polissia and Lviv. Book online!",
+        "Rent a car in Rivne. City and station delivery 24/7. Day trips to Klevan, Ostroh, Dubno and Polissia.",
       h1: "Car Rental in Rivne",
       sectionCars: "REIZ CARS IN RIVNE",
       sectionWelcome: "WELCOME TO REIZ RIVNE",
       subtitle:
         "Car rental in Rivne from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Rivne — REIZ | No Deposit, Delivery 24/7",
+      ogTitle: "Car Rental Rivne — Tunnel of Love Trips | REIZ",
       ogDescription:
-        "Rent a car in Rivne. No deposit. City and station delivery. New fleet. Trips to Polissia.",
+        "24/7 delivery in Rivne. Klevan, Ostroh, Dubno routes.",
     },
   },
   khmelnytskyi: {
     uk: {
-      title: "Оренда авто у Хмельницькому без застави — Подача 24/7",
+      title: "Оренда авто у Хмельницькому — Кам'янець, Хотин, Бакота",
       metaDescription:
-        "Прокат авто у Хмельницькому офіційно. Нові машини. Подача по місту 24/7. Поїздки до Кам'янця-Подільського та Вінниці. Бронюйте онлайн!",
+        "Прокат авто у Хмельницькому. Подача 24/7 по місту. Зручні маршрути до Кам'янця-Подільського, Хотина, Бакоти, Меджибожа.",
       h1: "Оренда авто у Хмельницькому",
       sectionCars: "АВТОМОБІЛІ REIZ У ХМЕЛЬНИЦЬКОМУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ХМЕЛЬНИЦЬКИЙ",
       subtitle:
         "Оренда авто у Хмельницькому від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
-      ogTitle: "Оренда авто Хмельницький без водія — REIZ | Подача 24/7",
+      ogTitle: "Оренда авто Хмельницький — Кам'янець і Бакота | REIZ",
       ogDescription:
-        "Прокат авто у Хмельницькому. Без застави. Подача по місту. Нові авто. Поїздки до Кам'янця-Подільського.",
+        "Нові авто у Хмельницькому. Подача 24/7. Кам'янець, Хотин, Бакота.",
     },
     ru: {
-      title: "Аренда авто в Хмельницком без залога — Подача 24/7",
+      title: "Аренда авто в Хмельницком — Каменец, Хотин, Бакота",
       metaDescription:
-        "Прокат авто в Хмельницком официально. Новые машины. Подача по городу 24/7. Поездки в Каменец-Подольский и Винницу. Бронируйте онлайн!",
+        "Прокат авто в Хмельницком. Подача 24/7 по городу. Маршруты в Каменец‑Подольский, Хотин, Бакоту, Меджибож.",
       h1: "Аренда авто в Хмельницком",
       sectionCars: "АВТОМОБИЛИ REIZ В ХМЕЛЬНИЦКОМ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ХМЕЛЬНИЦКИЙ",
       subtitle:
         "Аренда авто в Хмельницком от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
-      ogTitle: "Аренда авто Хмельницкий без водителя — REIZ | Подача 24/7",
+      ogTitle: "Аренда авто Хмельницкий — Каменец и Бакота | REIZ",
       ogDescription:
-        "Прокат авто в Хмельницком. Без залога. Подача по городу. Новые авто. Поездки в Каменец-Подольский.",
+        "Новые авто в Хмельницком. Подача 24/7. Каменец, Хотин, Бакота.",
     },
     en: {
-      title: "Car Rental Khmelnytskyi — No Deposit, Delivery 24/7",
+      title: "Car Rental Khmelnytskyi — Kamianets, Khotyn, Bakota",
       metaDescription:
-        "Rent a car in Khmelnytskyi officially. New fleet. City delivery 24/7. Trips to Kamianets-Podilskyi and Vinnytsia. Book online!",
+        "Rent a car in Khmelnytskyi. City delivery 24/7. Easy trips to Kamianets-Podilskyi, Khotyn, Bakota and Medzhybizh.",
       h1: "Car Rental in Khmelnytskyi",
       sectionCars: "REIZ CARS IN KHMELNYTSKYI",
       sectionWelcome: "WELCOME TO REIZ KHMELNYTSKYI",
       subtitle:
         "Car rental in Khmelnytskyi from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
-      ogTitle: "Car Rental Khmelnytskyi — REIZ | No Deposit, Delivery 24/7",
+      ogTitle: "Car Rental Khmelnytskyi — Fortress Routes | REIZ",
       ogDescription:
-        "Rent a car in Khmelnytskyi. No deposit. City delivery. New fleet. Trips to Kamianets-Podilskyi.",
+        "New fleet in Khmelnytskyi with 24/7 delivery. Kamianets, Khotyn, Bakota.",
     },
   },
   "kamianets-podilskyi": {
     uk: {
-      title: "Оренда авто у Кам'янці-Подільському без застави — Фортеця 24/7",
+      title: "Оренда авто у Кам'янці-Подільському — фортеця, Хотин, Бакота",
       metaDescription:
-        "Прокат авто у Кам'янці-Подільському офіційно. Нові машини. Подача до фортеці та Старого міста. Поїздки до Хотина та Бакоти. Бронюйте!",
+        "Прокат авто у Кам'янці-Подільському. Подача до Старого міста й фортеці. Маршрути до Хотина та Бакоти.",
       h1: "Оренда авто у Кам'янці-Подільському",
       sectionCars: "АВТОМОБІЛІ REIZ У КАМ'ЯНЦІ-ПОДІЛЬСЬКОМУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ КАМ'ЯНЕЦЬ-ПОДІЛЬСЬКИЙ",
       subtitle:
         "Оренда авто у Кам'янці-Подільському від REIZ — нові автомобілі, преміум-сервіс та подання до історичних пам'яток.",
-      ogTitle: "Оренда авто Кам'янець-Подільський — REIZ | Фортеця 24/7",
+      ogTitle: "Оренда авто Кам'янець‑Подільський — фортеця | REIZ",
       ogDescription:
-        "Прокат авто у Кам'янці-Подільському. Без застави. Подача до фортеці. Нові авто. Поїздки до Хотина.",
+        "Авто у Кам'янці‑Подільському. Подача 24/7. Хотин і Бакота.",
     },
     ru: {
-      title: "Аренда авто в Каменце-Подольском без залога — Крепость 24/7",
+      title: "Аренда авто в Каменце‑Подольском — крепость, Хотин, Бакота",
       metaDescription:
-        "Прокат авто в Каменце-Подольском официально. Новые машины. Подача к крепости и Старому городу. Поездки в Хотин и Бакоту. Бронируйте!",
+        "Прокат авто в Каменце‑Подольском. Подача к Старому городу и крепости. Маршруты в Хотин и Бакоту.",
       h1: "Аренда авто в Каменце-Подольском",
       sectionCars: "АВТОМОБИЛИ REIZ В КАМЕНЦЕ-ПОДОЛЬСКОМ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ КАМЕНЕЦ-ПОДОЛЬСКИЙ",
       subtitle:
         "Аренда авто в Каменце-Подольском от REIZ — новые автомобили, премиум-сервис и подача к историческим достопримечательностям.",
-      ogTitle: "Аренда авто Каменец-Подольский — REIZ | Крепость 24/7",
+      ogTitle: "Аренда авто Каменец‑Подольский — крепость | REIZ",
       ogDescription:
-        "Прокат авто в Каменце-Подольском. Без залога. Подача к крепости. Новые авто. Поездки в Хотин.",
+        "Авто в Каменце‑Подольском. Подача 24/7. Хотин и Бакота.",
     },
     en: {
-      title: "Car Rental Kamianets-Podilskyi — No Deposit, Fortress 24/7",
+      title: "Car Rental Kamianets-Podilskyi — Fortress, Khotyn, Bakota",
       metaDescription:
-        "Rent a car in Kamianets-Podilskyi officially. New fleet. Delivery to fortress and Old Town. Trips to Khotyn and Bakota. Book online!",
+        "Rent a car in Kamianets-Podilskyi. Delivery to Old Town and the fortress. Trips to Khotyn and Bakota.",
       h1: "Car Rental in Kamianets-Podilskyi",
       sectionCars: "REIZ CARS IN KAMIANETS-PODILSKYI",
       sectionWelcome: "WELCOME TO REIZ KAMIANETS-PODILSKYI",
       subtitle:
         "Car rental in Kamianets-Podilskyi from REIZ — new vehicles, premium service and delivery to historic landmarks.",
-      ogTitle: "Car Rental Kamianets-Podilskyi — REIZ | Fortress 24/7",
+      ogTitle: "Car Rental Kamianets‑Podilskyi — Fortress Trips | REIZ",
       ogDescription:
-        "Rent a car in Kamianets-Podilskyi. No deposit. Fortress delivery. New fleet. Trips to Khotyn.",
+        "Car rental in Kamianets‑Podilskyi with 24/7 delivery. Khotyn and Bakota.",
     },
   },
   drohobych: {
     uk: {
-      title: "Оренда авто у Дрогобичі без застави — Подача 24/7",
+      title: "Оренда авто у Дрогобичі — Трускавець, Східниця, Карпати",
       metaDescription:
-        "Прокат авто у Дрогобичі офіційно. Нові машини. Подача по місту 24/7. Поїздки до Трускавця та Карпат. Бронюйте онлайн!",
+        "Прокат авто у Дрогобичі. Подача 24/7 по місту. Зручно для поїздок у Трускавець, Східницю та до Карпат.",
       h1: "Оренда авто у Дрогобичі",
       sectionCars: "АВТОМОБІЛІ REIZ У ДРОГОБИЧІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ДРОГОБИЧ",
       subtitle: "Оренда авто у Дрогобичі від REIZ — нові автомобілі, преміум-сервіс та зручна подача.",
-      ogTitle: "Оренда авто Дрогобич — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто у Дрогобичі. Без застави. Нові авто. Поїздки до Трускавця.",
+      ogTitle: "Оренда авто Дрогобич — Трускавець і Східниця | REIZ",
+      ogDescription: "Нові авто у Дрогобичі. Подача 24/7. Трускавець, Східниця, Карпати.",
     },
     ru: {
-      title: "Аренда авто в Дрогобыче без залога — Подача 24/7",
+      title: "Аренда авто в Дрогобыче — Трускавец, Сходница, Карпаты",
       metaDescription:
-        "Прокат авто в Дрогобыче официально. Новые машины. Подача по городу 24/7. Поездки в Трускавец и Карпаты. Бронируйте онлайн!",
+        "Прокат авто в Дрогобыче. Подача 24/7 по городу. Удобно для поездок в Трускавец, Сходницу и Карпаты.",
       h1: "Аренда авто в Дрогобыче",
       sectionCars: "АВТОМОБИЛИ REIZ В ДРОГОБЫЧЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ДРОГОБЫЧ",
       subtitle: "Аренда авто в Дрогобыче от REIZ — новые автомобили, премиум-сервис и удобная подача.",
-      ogTitle: "Аренда авто Дрогобыч — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто в Дрогобыче. Без залога. Новые авто. Поездки в Трускавец.",
+      ogTitle: "Аренда авто Дрогобыч — Трускавец и Сходница | REIZ",
+      ogDescription: "Новые авто в Дрогобыче. Подача 24/7. Трускавец, Сходница, Карпаты.",
     },
     en: {
-      title: "Car Rental Drohobych — No Deposit, Delivery 24/7",
+      title: "Car Rental Drohobych — Truskavets, Skhidnytsia, Carpathians",
       metaDescription:
-        "Rent a car in Drohobych officially. New fleet. City delivery 24/7. Trips to Truskavets and Carpathians. Book online!",
+        "Rent a car in Drohobych. City delivery 24/7. Great for trips to Truskavets, Skhidnytsia and the Carpathians.",
       h1: "Car Rental in Drohobych",
       sectionCars: "REIZ CARS IN DROHOBYCH",
       sectionWelcome: "WELCOME TO REIZ DROHOBYCH",
       subtitle: "Car rental in Drohobych from REIZ — new vehicles, premium service and convenient delivery.",
-      ogTitle: "Car Rental Drohobych — REIZ | Delivery 24/7",
-      ogDescription: "Rent a car in Drohobych. No deposit. New fleet. Trips to Truskavets.",
+      ogTitle: "Car Rental Drohobych — Resort Trips | REIZ",
+      ogDescription: "New fleet in Drohobych with 24/7 delivery. Truskavets and Skhidnytsia.",
     },
   },
   stryi: {
     uk: {
-      title: "Оренда авто у Стрию без застави — Подача 24/7",
+      title: "Оренда авто у Стрию — Славське, Сколе, Карпати",
       metaDescription:
-        "Прокат авто у Стрию офіційно. Нові машини. Подача по місту 24/7. Поїздки до Карпат та Львова. Бронюйте онлайн!",
+        "Прокат авто у Стрию. Подача 24/7 по місту. Маршрути до Сколе, Славського, Моршина та Карпат.",
       h1: "Оренда авто у Стрию",
       sectionCars: "АВТОМОБІЛІ REIZ У СТРИЮ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ СТРИЙ",
       subtitle: "Оренда авто у Стрию від REIZ — нові автомобілі, преміум-сервіс та зручна подача.",
-      ogTitle: "Оренда авто Стрий — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто у Стрию. Без застави. Нові авто. Поїздки до Карпат.",
+      ogTitle: "Оренда авто Стрий — Славське та Сколе | REIZ",
+      ogDescription: "Авто у Стрию з подачею 24/7. Карпатські маршрути.",
     },
     ru: {
-      title: "Аренда авто в Стрые без залога — Подача 24/7",
+      title: "Аренда авто в Стрыю — Славское, Сколе, Карпаты",
       metaDescription:
-        "Прокат авто в Стрые официально. Новые машины. Подача по городу 24/7. Поездки в Карпаты и Львов. Бронируйте онлайн!",
+        "Прокат авто в Стрые. Подача 24/7 по городу. Маршруты в Сколе, Славское, Моршин и Карпаты.",
       h1: "Аренда авто в Стрые",
       sectionCars: "АВТОМОБИЛИ REIZ В СТРЫЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ СТРЫЙ",
       subtitle: "Аренда авто в Стрые от REIZ — новые автомобили, премиум-сервис и удобная подача.",
-      ogTitle: "Аренда авто Стрый — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто в Стрые. Без залога. Новые авто. Поездки в Карпаты.",
+      ogTitle: "Аренда авто Стрый — Славское и Сколе | REIZ",
+      ogDescription: "Авто в Стрые с подачей 24/7. Карпатские маршруты.",
     },
     en: {
-      title: "Car Rental Stryi — No Deposit, Delivery 24/7",
+      title: "Car Rental Stryi — Slavske, Skole, Carpathians",
       metaDescription:
-        "Rent a car in Stryi officially. New fleet. City delivery 24/7. Trips to Carpathians and Lviv. Book online!",
+        "Rent a car in Stryi. City delivery 24/7. Trips to Skole, Slavske, Morshyn and the Carpathians.",
       h1: "Car Rental in Stryi",
       sectionCars: "REIZ CARS IN STRYI",
       sectionWelcome: "WELCOME TO REIZ STRYI",
       subtitle: "Car rental in Stryi from REIZ — new vehicles, premium service and convenient delivery.",
-      ogTitle: "Car Rental Stryi — REIZ | Delivery 24/7",
-      ogDescription: "Rent a car in Stryi. No deposit. New fleet. Trips to Carpathians.",
+      ogTitle: "Car Rental Stryi — Carpathian Routes | REIZ",
+      ogDescription: "24/7 delivery in Stryi. Skole and Slavske trips.",
     },
   },
   sambir: {
     uk: {
-      title: "Оренда авто у Самборі без застави — Подача 24/7",
+      title: "Оренда авто у Самборі — кордон, Дрогобич, Трускавець",
       metaDescription:
-        "Прокат авто у Самборі офіційно. Нові машини. Подача по місту 24/7. Поїздки до Львова та кордону. Бронюйте онлайн!",
+        "Прокат авто у Самборі. Подача 24/7. Зручні маршрути до Дрогобича, Трускавця та КПП Шегині.",
       h1: "Оренда авто у Самборі",
       sectionCars: "АВТОМОБІЛІ REIZ У САМБОРІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ САМБІР",
       subtitle: "Оренда авто у Самборі від REIZ — нові автомобілі, преміум-сервіс та зручна подача.",
-      ogTitle: "Оренда авто Самбір — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто у Самборі. Без застави. Нові авто. Поїздки до Львова.",
+      ogTitle: "Оренда авто Самбір — кордон і курорти | REIZ",
+      ogDescription: "Нові авто у Самборі. Подача 24/7. Дрогобич, Трускавець, Шегині.",
     },
     ru: {
-      title: "Аренда авто в Самборе без залога — Подача 24/7",
+      title: "Аренда авто в Самборе — граница, Дрогобыч, Трускавец",
       metaDescription:
-        "Прокат авто в Самборе официально. Новые машины. Подача по городу 24/7. Поездки во Львов и к границе. Бронируйте онлайн!",
+        "Прокат авто в Самборе. Подача 24/7. Маршруты в Дрогобыч, Трускавец и к КПП Шегини.",
       h1: "Аренда авто в Самборе",
       sectionCars: "АВТОМОБИЛИ REIZ В САМБОРЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ САМБОР",
       subtitle: "Аренда авто в Самборе от REIZ — новые автомобили, премиум-сервис и удобная подача.",
-      ogTitle: "Аренда авто Самбор — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто в Самборе. Без залога. Новые авто. Поездки во Львов.",
+      ogTitle: "Аренда авто Самбор — граница и курорты | REIZ",
+      ogDescription: "Новые авто в Самборе. Подача 24/7. Дрогобыч, Трускавец, Шегини.",
     },
     en: {
-      title: "Car Rental Sambir — No Deposit, Delivery 24/7",
+      title: "Car Rental Sambir — Border Routes, Truskavets",
       metaDescription:
-        "Rent a car in Sambir officially. New fleet. City delivery 24/7. Trips to Lviv and border. Book online!",
+        "Rent a car in Sambir. 24/7 delivery. Easy trips to Drohobych, Truskavets and the Shehyni border.",
       h1: "Car Rental in Sambir",
       sectionCars: "REIZ CARS IN SAMBIR",
       sectionWelcome: "WELCOME TO REIZ SAMBIR",
       subtitle: "Car rental in Sambir from REIZ — new vehicles, premium service and convenient delivery.",
-      ogTitle: "Car Rental Sambir — REIZ | Delivery 24/7",
-      ogDescription: "Rent a car in Sambir. No deposit. New fleet. Trips to Lviv.",
+      ogTitle: "Car Rental Sambir — Border & Resort Trips | REIZ",
+      ogDescription: "24/7 delivery in Sambir. Drohobych, Truskavets, Shehyni.",
     },
   },
   chervonohrad: {
     uk: {
-      title: "Оренда авто у Червонограді без застави — Подача 24/7",
+      title: "Оренда авто у Червонограді — Рава-Руська, Львів, кордон",
       metaDescription:
-        "Прокат авто у Червонограді офіційно. Нові машини. Подача по місту 24/7. Поїздки до Львова та Польщі. Бронюйте онлайн!",
+        "Прокат авто у Червонограді. Подача 24/7. Маршрути до Львова, Рава-Руської та Белза.",
       h1: "Оренда авто у Червонограді",
       sectionCars: "АВТОМОБІЛІ REIZ У ЧЕРВОНОГРАДІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЧЕРВОНОГРАД",
       subtitle: "Оренда авто у Червонограді від REIZ — нові автомобілі, преміум-сервіс та зручна подача.",
-      ogTitle: "Оренда авто Червоноград — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто у Червонограді. Без застави. Нові авто. Поїздки до Львова.",
+      ogTitle: "Оренда авто Червоноград — кордон і Львів | REIZ",
+      ogDescription: "Авто у Червонограді. Подача 24/7. Львів, Рава-Руська.",
     },
     ru: {
-      title: "Аренда авто в Червонограде без залога — Подача 24/7",
+      title: "Аренда авто в Червонограде — Рава-Русская, Львов, граница",
       metaDescription:
-        "Прокат авто в Червонограде официально. Новые машины. Подача по городу 24/7. Поездки во Львов и Польшу. Бронируйте онлайн!",
+        "Прокат авто в Червонограде. Подача 24/7. Маршруты во Львов, Рава-Русскую и Белз.",
       h1: "Аренда авто в Червонограде",
       sectionCars: "АВТОМОБИЛИ REIZ В ЧЕРВОНОГРАДЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЧЕРВОНОГРАД",
       subtitle: "Аренда авто в Червонограде от REIZ — новые автомобили, премиум-сервис и удобная подача.",
-      ogTitle: "Аренда авто Червоноград — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто в Червонограде. Без залога. Новые авто. Поездки во Львов.",
+      ogTitle: "Аренда авто Червоноград — граница и Львов | REIZ",
+      ogDescription: "Авто в Червонограде. Подача 24/7. Львов, Рава-Русская.",
     },
     en: {
-      title: "Car Rental Chervonohrad — No Deposit, Delivery 24/7",
+      title: "Car Rental Chervonohrad — Rava-Ruska, Lviv, Border",
       metaDescription:
-        "Rent a car in Chervonohrad officially. New fleet. City delivery 24/7. Trips to Lviv and Poland. Book online!",
+        "Rent a car in Chervonohrad. 24/7 delivery. Trips to Lviv, Rava-Ruska and Belz.",
       h1: "Car Rental in Chervonohrad",
       sectionCars: "REIZ CARS IN CHERVONOHRAD",
       sectionWelcome: "WELCOME TO REIZ CHERVONOHRAD",
       subtitle: "Car rental in Chervonohrad from REIZ — new vehicles, premium service and convenient delivery.",
-      ogTitle: "Car Rental Chervonohrad — REIZ | Delivery 24/7",
-      ogDescription: "Rent a car in Chervonohrad. No deposit. New fleet. Trips to Lviv.",
+      ogTitle: "Car Rental Chervonohrad — Border Routes | REIZ",
+      ogDescription: "24/7 delivery in Chervonohrad. Lviv and Rava-Ruska.",
     },
   },
   boryslav: {
     uk: {
-      title: "Оренда авто у Бориславі без застави — Подача 24/7",
+      title: "Оренда авто у Бориславі — Трускавець, Східниця, курорти",
       metaDescription:
-        "Прокат авто у Бориславі офіційно. Нові машини. Подача по місту 24/7. Поїздки до Трускавця та Дрогобича. Бронюйте!",
+        "Прокат авто у Бориславі. Подача 24/7. Зручно для поїздок у Трускавець, Східницю та Карпати.",
       h1: "Оренда авто у Бориславі",
       sectionCars: "АВТОМОБІЛІ REIZ У БОРИСЛАВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ БОРИСЛАВ",
       subtitle: "Оренда авто у Бориславі від REIZ — нові автомобілі, преміум-сервіс та зручна подача.",
-      ogTitle: "Оренда авто Борислав — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто у Бориславі. Без застави. Нові авто. Поїздки до Трускавця.",
+      ogTitle: "Оренда авто Борислав — курортні маршрути | REIZ",
+      ogDescription: "Нові авто у Бориславі. Подача 24/7. Трускавець, Східниця.",
     },
     ru: {
-      title: "Аренда авто в Бориславе без залога — Подача 24/7",
+      title: "Аренда авто в Бориславе — Трускавец, Сходница, курорты",
       metaDescription:
-        "Прокат авто в Бориславе официально. Новые машины. Подача по городу 24/7. Поездки в Трускавец и Дрогобыч. Бронируйте!",
+        "Прокат авто в Бориславе. Подача 24/7. Удобно для поездок в Трускавец, Сходницу и Карпаты.",
       h1: "Аренда авто в Бориславе",
       sectionCars: "АВТОМОБИЛИ REIZ В БОРИСЛАВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ БОРИСЛАВ",
       subtitle: "Аренда авто в Бориславе от REIZ — новые автомобили, премиум-сервис и удобная подача.",
-      ogTitle: "Аренда авто Борислав — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто в Бориславе. Без залога. Новые авто. Поездки в Трускавец.",
+      ogTitle: "Аренда авто Борислав — курортные маршруты | REIZ",
+      ogDescription: "Новые авто в Бориславе. Подача 24/7. Трускавец, Сходница.",
     },
     en: {
-      title: "Car Rental Boryslav — No Deposit, Delivery 24/7",
+      title: "Car Rental Boryslav — Truskavets, Skhidnytsia, Resorts",
       metaDescription:
-        "Rent a car in Boryslav officially. New fleet. City delivery 24/7. Trips to Truskavets and Drohobych. Book online!",
+        "Rent a car in Boryslav. 24/7 delivery. Great for trips to Truskavets, Skhidnytsia and the Carpathians.",
       h1: "Car Rental in Boryslav",
       sectionCars: "REIZ CARS IN BORYSLAV",
       sectionWelcome: "WELCOME TO REIZ BORYSLAV",
       subtitle: "Car rental in Boryslav from REIZ — new vehicles, premium service and convenient delivery.",
-      ogTitle: "Car Rental Boryslav — REIZ | Delivery 24/7",
-      ogDescription: "Rent a car in Boryslav. No deposit. New fleet. Trips to Truskavets.",
+      ogTitle: "Car Rental Boryslav — Resort Trips | REIZ",
+      ogDescription: "24/7 delivery in Boryslav. Truskavets and Skhidnytsia.",
     },
   },
   zhovkva: {
     uk: {
-      title: "Оренда авто у Жовкві без застави — Подача 24/7",
+      title: "Оренда авто у Жовкві — замки Львівщини, Крехів",
       metaDescription:
-        "Прокат авто у Жовкві офіційно. Нові машини. Подача по місту 24/7. Поїздки до Львова та замків. Бронюйте онлайн!",
+        "Прокат авто у Жовкві. Подача 24/7. Маршрути до Львова, Крехова, Олеська та Підгірців.",
       h1: "Оренда авто у Жовкві",
       sectionCars: "АВТОМОБІЛІ REIZ У ЖОВКВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЖОВКВА",
       subtitle: "Оренда авто у Жовкві від REIZ — нові автомобілі, преміум-сервіс та зручна подача.",
-      ogTitle: "Оренда авто Жовква — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто у Жовкві. Без застави. Нові авто. Поїздки до Львова.",
+      ogTitle: "Оренда авто Жовква — замки Львівщини | REIZ",
+      ogDescription: "Авто у Жовкві. Подача 24/7. Львів і замки.",
     },
     ru: {
-      title: "Аренда авто в Жолкве без залога — Подача 24/7",
+      title: "Аренда авто в Жолкве — замки Львовщины, Крехов",
       metaDescription:
-        "Прокат авто в Жолкве официально. Новые машины. Подача по городу 24/7. Поездки во Львов и к замкам. Бронируйте онлайн!",
+        "Прокат авто в Жолкве. Подача 24/7. Маршруты во Львов, Крехов, Олеско и Подгорцы.",
       h1: "Аренда авто в Жолкве",
       sectionCars: "АВТОМОБИЛИ REIZ В ЖОЛКВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЖОЛКВА",
       subtitle: "Аренда авто в Жолкве от REIZ — новые автомобили, премиум-сервис и удобная подача.",
-      ogTitle: "Аренда авто Жолква — REIZ | Подача 24/7",
-      ogDescription: "Прокат авто в Жолкве. Без залога. Новые авто. Поездки во Львов.",
+      ogTitle: "Аренда авто Жолква — замки Львовщины | REIZ",
+      ogDescription: "Авто в Жолкве. Подача 24/7. Львов и замки.",
     },
     en: {
-      title: "Car Rental Zhovkva — No Deposit, Delivery 24/7",
+      title: "Car Rental Zhovkva — Lviv Region Castles, Krekhiv",
       metaDescription:
-        "Rent a car in Zhovkva officially. New fleet. City delivery 24/7. Trips to Lviv and castles. Book online!",
+        "Rent a car in Zhovkva. 24/7 delivery. Trips to Lviv, Krekhiv, Olesko and Pidhirtsi.",
       h1: "Car Rental in Zhovkva",
       sectionCars: "REIZ CARS IN ZHOVKVA",
       sectionWelcome: "WELCOME TO REIZ ZHOVKVA",
       subtitle: "Car rental in Zhovkva from REIZ — new vehicles, premium service and convenient delivery.",
-      ogTitle: "Car Rental Zhovkva — REIZ | Delivery 24/7",
-      ogDescription: "Rent a car in Zhovkva. No deposit. New fleet. Trips to Lviv.",
+      ogTitle: "Car Rental Zhovkva — Lviv Castles | REIZ",
+      ogDescription: "24/7 delivery in Zhovkva. Lviv and castle routes.",
     },
   },
   yaremche: {
     uk: {
-      title: "Оренда авто у Яремчі без застави — Карпати 24/7",
+      title: "Оренда авто у Яремчі — Пробій, Буковель, Говерла",
       metaDescription:
-        "Прокат авто у Яремчі офіційно. Нові машини. Подача по місту та до водоспаду Пробій 24/7. Поїздки до Буковеля, Ворохти, Говерли. Бронюйте онлайн!",
+        "Прокат авто у Яремчі. Подача 24/7. Зручно для маршрутів до Буковеля, Ворохти, Говерли та Яблуницького перевалу.",
       h1: "Оренда авто у Яремчі",
       sectionCars: "АВТОМОБІЛІ REIZ У ЯРЕМЧІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЯРЕМЧЕ",
       subtitle:
         "Оренда авто у Яремчі від REIZ — нові автомобілі, преміум-сервіс та зручна подача у Карпатах.",
-      ogTitle: "Оренда авто Яремче — REIZ | Карпати 24/7",
+      ogTitle: "Оренда авто Яремче — Буковель і Говерла | REIZ",
       ogDescription:
-        "Прокат авто у Яремчі. Без застави. Подача по місту. Поїздки до Буковеля та Говерли.",
+        "Авто у Яремчі. Подача 24/7. Пробій, Буковель, Говерла.",
     },
     ru: {
-      title: "Аренда авто в Яремче без залога — Карпаты 24/7",
+      title: "Аренда авто в Яремче — Пробий, Буковель, Говерла",
       metaDescription:
-        "Прокат авто в Яремче официально. Новые машины. Подача по городу и к водопаду Пробий 24/7. Поездки в Буковель, Ворохту, на Говерлу. Бронируйте онлайн!",
+        "Прокат авто в Яремче. Подача 24/7. Удобные маршруты в Буковель, Ворохту, к Говерле и Яблуницкому перевалу.",
       h1: "Аренда авто в Яремче",
       sectionCars: "АВТОМОБИЛИ REIZ В ЯРЕМЧЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЯРЕМЧЕ",
       subtitle:
         "Аренда авто в Яремче от REIZ — новые автомобили, премиум-сервис и удобная подача в Карпатах.",
-      ogTitle: "Аренда авто Яремче — REIZ | Карпаты 24/7",
+      ogTitle: "Аренда авто Яремче — Буковель и Говерла | REIZ",
       ogDescription:
-        "Прокат авто в Яремче. Без залога. Подача по городу. Поездки в Буковель и на Говерлу.",
+        "Авто в Яремче. Подача 24/7. Пробий, Буковель, Говерла.",
     },
     en: {
-      title: "Car Rental Yaremche — No Deposit, Carpathians 24/7",
+      title: "Car Rental Yaremche — Probiy, Bukovel, Hoverla",
       metaDescription:
-        "Rent a car in Yaremche officially. New fleet. City and Probiy Waterfall delivery 24/7. Trips to Bukovel, Vorokhta, Hoverla. Book online!",
+        "Rent a car in Yaremche. 24/7 delivery. Easy trips to Bukovel, Vorokhta, Hoverla and Yablunytsia Pass.",
       h1: "Car Rental in Yaremche",
       sectionCars: "REIZ CARS IN YAREMCHE",
       sectionWelcome: "WELCOME TO REIZ YAREMCHE",
       subtitle:
         "Car rental in Yaremche from REIZ — new vehicles, premium service and convenient delivery in the Carpathians.",
-      ogTitle: "Car Rental Yaremche — REIZ | Carpathians 24/7",
+      ogTitle: "Car Rental Yaremche — Bukovel & Hoverla | REIZ",
       ogDescription:
-        "Rent a car in Yaremche. No deposit. City delivery. Trips to Bukovel and Hoverla.",
+        "24/7 delivery in Yaremche. Probiy, Bukovel, Hoverla.",
     },
   },
   kolomyia: {
     uk: {
-      title: "Оренда авто у Коломиї без застави — Подача 24/7",
+      title: "Оренда авто у Коломиї — музей писанки, Косів, Чернівці",
       metaDescription:
-        "Прокат авто у Коломиї офіційно. Нові машини. Подача по місту та на вокзал 24/7. Поїздки до Косова, Яремча, Чернівців. Бронюйте онлайн!",
+        "Прокат авто у Коломиї. Подача 24/7. Маршрути до Косова, Яремча, Чернівців і Верховини.",
       h1: "Оренда авто у Коломиї",
       sectionCars: "АВТОМОБІЛІ REIZ У КОЛОМИЇ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ КОЛОМИЯ",
       subtitle:
         "Оренда авто у Коломиї від REIZ — нові автомобілі, преміум-сервіс та зручна подача.",
-      ogTitle: "Оренда авто Коломия — REIZ | Подача 24/7",
+      ogTitle: "Оренда авто Коломия — Косів і Чернівці | REIZ",
       ogDescription:
-        "Прокат авто у Коломиї. Без застави. Подача по місту та на вокзал. Поїздки до Косова.",
+        "Авто у Коломиї. Подача 24/7. Косів, Яремче, Чернівці.",
     },
     ru: {
-      title: "Аренда авто в Коломые без залога — Подача 24/7",
+      title: "Аренда авто в Коломые — музей писанки, Косов, Черновцы",
       metaDescription:
-        "Прокат авто в Коломые официально. Новые машины. Подача по городу и на вокзал 24/7. Поездки в Косов, Яремче, Черновцы. Бронируйте онлайн!",
+        "Прокат авто в Коломые. Подача 24/7. Маршруты в Косов, Яремче, Черновцы и Верховину.",
       h1: "Аренда авто в Коломые",
       sectionCars: "АВТОМОБИЛИ REIZ В КОЛОМЫЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ КОЛОМЫЯ",
       subtitle:
         "Аренда авто в Коломые от REIZ — новые автомобили, премиум-сервис и удобная подача.",
-      ogTitle: "Аренда авто Коломыя — REIZ | Подача 24/7",
+      ogTitle: "Аренда авто Коломыя — Косов и Черновцы | REIZ",
       ogDescription:
-        "Прокат авто в Коломые. Без залога. Подача по городу и на вокзал. Поездки в Косов.",
+        "Авто в Коломые. Подача 24/7. Косов, Яремче, Черновцы.",
     },
     en: {
-      title: "Car Rental Kolomyia — No Deposit, Delivery 24/7",
+      title: "Car Rental Kolomyia — Pysanka Museum, Kosiv, Chernivtsi",
       metaDescription:
-        "Rent a car in Kolomyia officially. New fleet. City and station delivery 24/7. Trips to Kosiv, Yaremche, Chernivtsi. Book online!",
+        "Rent a car in Kolomyia. 24/7 delivery. Trips to Kosiv, Yaremche, Chernivtsi and Verkhovyna.",
       h1: "Car Rental in Kolomyia",
       sectionCars: "REIZ CARS IN KOLOMYIA",
       sectionWelcome: "WELCOME TO REIZ KOLOMYIA",
       subtitle:
         "Car rental in Kolomyia from REIZ — new vehicles, premium service and convenient delivery.",
-      ogTitle: "Car Rental Kolomyia — REIZ | Delivery 24/7",
+      ogTitle: "Car Rental Kolomyia — Kosiv & Chernivtsi | REIZ",
       ogDescription:
-        "Rent a car in Kolomyia. No deposit. City and station delivery. Trips to Kosiv.",
+        "24/7 delivery in Kolomyia. Kosiv, Yaremche, Chernivtsi.",
     },
   },
   kalush: {
     uk: {
-      title: "Оренда авто у Калуші без застави — Подача 24/7",
+      title: "Оренда авто у Калуші — Івано-Франківськ, Галич, Долина",
       metaDescription:
-        "Прокат авто у Калуші офіційно. Нові машини. Подача по місту 24/7. Поїздки до Івано-Франківська, Долини та Галича. Бронюйте онлайн!",
+        "Прокат авто у Калуші. Подача 24/7 по місту. Маршрути до Івано-Франківська, Галича та Долини.",
       h1: "Оренда авто у Калуші",
       sectionCars: "АВТОМОБІЛІ REIZ У КАЛУШІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ КАЛУШ",
       subtitle:
         "Оренда авто у Калуші від REIZ — нові автомобілі, преміум-сервіс та зручна подача.",
-      ogTitle: "Оренда авто Калуш — REIZ | Подача 24/7",
+      ogTitle: "Оренда авто Калуш — Івано-Франківськ і Галич | REIZ",
       ogDescription:
-        "Прокат авто у Калуші. Без застави. Подача по місту. Поїздки до Івано-Франківська.",
+        "Авто у Калуші з подачею 24/7. Долина, Галич, Івано-Франківськ.",
     },
     ru: {
-      title: "Аренда авто в Калуше без залога — Подача 24/7",
+      title: "Аренда авто в Калуше — Ивано-Франковск, Галич, Долина",
       metaDescription:
-        "Прокат авто в Калуше официально. Новые машины. Подача по городу 24/7. Поездки в Ивано-Франковск, Долину и Галич. Бронируйте онлайн!",
+        "Прокат авто в Калуше. Подача 24/7 по городу. Маршруты в Ивано-Франковск, Галич и Долину.",
       h1: "Аренда авто в Калуше",
       sectionCars: "АВТОМОБИЛИ REIZ В КАЛУШЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ КАЛУШ",
       subtitle:
         "Аренда авто в Калуше от REIZ — новые автомобили, премиум-сервис и удобная подача.",
-      ogTitle: "Аренда авто Калуш — REIZ | Подача 24/7",
+      ogTitle: "Аренда авто Калуш — Ивано-Франковск и Галич | REIZ",
       ogDescription:
-        "Прокат авто в Калуше. Без залога. Подача по городу. Поездки в Ивано-Франковск.",
+        "Авто в Калуше с подачей 24/7. Долина, Галич, Ивано-Франковск.",
     },
     en: {
-      title: "Car Rental Kalush — No Deposit, Delivery 24/7",
+      title: "Car Rental Kalush — Ivano-Frankivsk, Halych, Dolyna",
       metaDescription:
-        "Rent a car in Kalush officially. New fleet. City delivery 24/7. Trips to Ivano-Frankivsk, Dolyna and Halych. Book online!",
+        "Rent a car in Kalush. 24/7 city delivery. Routes to Ivano-Frankivsk, Halych and Dolyna.",
       h1: "Car Rental in Kalush",
       sectionCars: "REIZ CARS IN KALUSH",
       sectionWelcome: "WELCOME TO REIZ KALUSH",
       subtitle:
         "Car rental in Kalush from REIZ — new vehicles, premium service and convenient delivery.",
-      ogTitle: "Car Rental Kalush — REIZ | Delivery 24/7",
+      ogTitle: "Car Rental Kalush — Ivano-Frankivsk Trips | REIZ",
       ogDescription:
-        "Rent a car in Kalush. No deposit. City delivery. Trips to Ivano-Frankivsk.",
+        "24/7 delivery in Kalush. Halych and Dolyna routes.",
     },
   },
   nadvirna: {

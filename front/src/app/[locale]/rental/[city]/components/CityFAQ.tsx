@@ -17,17 +17,18 @@ export default function CityFAQ({ faqSections, mainTitle }: Props) {
         <div className="faq-section__content">
           <h2 className="h2">{mainTitle}</h2>
 
-          <div className="faq-section__accordion">
+          <div className="faq-section__accordion faq-section__accordion--city">
             {faqSections.map((section) => (
-              <AccordionGroup
-                key={section.title}
-                items={section.items.map((el) => ({
-                  title: el.question,
-                  content: el.answer,
-                }))}
-                dataPretitle={section.title}
-                className="acc"
-              />
+              <div className="faq-section__group" key={section.title}>
+                <div className="faq-section__group-title">{section.title}</div>
+                <AccordionGroup
+                  items={section.items.map((el) => ({
+                    title: el.question,
+                    content: el.answer,
+                  }))}
+                  className="acc"
+                />
+              </div>
             ))}
           </div>
         </div>
