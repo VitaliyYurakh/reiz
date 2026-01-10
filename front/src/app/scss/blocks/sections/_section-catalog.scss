@@ -65,6 +65,10 @@
         justify-content: space-between;
         margin-bottom: 11px;
         z-index: 5;
+
+        .pretitle {
+            font-weight: 400;
+        }
     
         .custom-select {
             max-width: 240px;
@@ -180,6 +184,7 @@
     &__form {
         display: flex;
         flex-direction: column;
+        gap: 20px;
     }
 
     &__price {
@@ -211,14 +216,14 @@
     &__content {
         display: flex;
         flex-direction: column;
-        padding: 30px 0 20px;
+        padding: 30px 0 0;
         gap: 20px;
         min-height: max-content;
 
         @include for-tablet {
             transition: all 0.4s ease;
             max-height: calc(100dvh - 20px - 30px - 20px - 50px - 132px);
-            padding: 25px 20px 20px;
+            padding: 25px 20px 0;
         }
 
         @include tablet {
@@ -721,11 +726,13 @@
     .main-button {
         width: calc(100% + 42px);
         margin-left: -21px;
+        margin-top: 0;
         margin-bottom: -1px;
         min-width: initial;
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.35);
         height: 50px;
         border-radius: 0;
+        font-weight: 300;
 
         @include for-tablet {
             border-radius: 0 0 16px 16px;

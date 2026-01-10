@@ -34,12 +34,12 @@ export default async function CityHeroSection({ city, cityData }: Props) {
               />
               {/* Desktop hero image - LCP critical */}
               <UiImage
-                src="/img/car/mercedescle1.webp"
+                src="/img/car/mercedescle2.webp"
                 alt={`${cityData.h1} — Mercedes CLE | REIZ Rental Cars`}
                 width={1440}
                 height={902}
                 hero
-                quality={70}
+                quality={95}
                 sizes="100vw"
                 className="hero-image-desktop"
                 fetchPriority="high"

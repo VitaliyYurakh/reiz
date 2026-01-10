@@ -48,7 +48,10 @@ export default async function TermsPage() {
         ]}
       />
 
-      <h1 className="main-title">{t("hero.title")}</h1>
+      <div className="terms-hero">
+        <h1 className="main-title">{t("hero.title")}</h1>
+        <p className="terms-hero__subtitle">{t("hero.subtitle")}</p>
+      </div>
 
       <div className="terms-section__content">
         <ul className="terms-list">
@@ -144,6 +147,7 @@ export default async function TermsPage() {
               height={440}
               src="/img/car/macbook2.webp"
               alt="Онлайн оформление аренды на сайте REIZ — доступные способы оплаты"
+              quality={100}
             />
           </div>
           <div className="terms-card__title">{t("payments.title")}</div>

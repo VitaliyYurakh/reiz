@@ -87,6 +87,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 
+    .radio-checkbox.mode span {
+      font-weight: 400;
+    }
+
     @media (max-width: 425px) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -161,11 +165,11 @@
       width: 100%;
       min-width: initial;
       height: 50px;;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 14px;
 
       @include mobile {;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 12px;
       }
     }
@@ -277,8 +281,9 @@
       height: 38px;
       border-radius: 12px;
       padding: 5px 10px;;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 14px;
+      text-transform: none;
     }
   }
 

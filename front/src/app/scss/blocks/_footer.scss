@@ -77,11 +77,11 @@
       font-weight: 400;
       font-size: 14px;
       line-height: 157%;
-      color: var(--cl-c);
+      color: var(--cl-o);
 
       @include mobile {
         line-height: 150%;
-        color: var(--cl-h);
+        color: var(--cl-o);
       }
     }
 
@@ -135,7 +135,7 @@
     font-style: italic;
     font-weight: 400;
     font-size: 12px;
-    color: var(--cl-c);
+    color: var(--cl-o);
 
     &::before {
       font-style: normal;
@@ -156,13 +156,13 @@
       font-style: italic;
       font-weight: 400;
       font-size: 12px;
-      color: var(--cl-c);
+      color: var(--cl-o);
       transition: all 0.3s;
     }
 
     &:hover {
       span {
-        color: var(--cl-f);
+        color: var(--cl-a);
       }
     }
     @include mobile {
@@ -187,14 +187,14 @@
         a {
           font-weight: 400;
           font-size: 12px;
-          color: var(--cl-c);
+          color: var(--cl-o);
           transition: all 0.3s;
           text-decoration: underline;
           text-decoration-color: transparent;
 
           &:hover {
             text-decoration-color: inherit;
-            color: var(--cl-f);
+            color: var(--cl-a);
           }
         }
       }
@@ -212,11 +212,11 @@
   &__name {
     font-weight: 400;
     font-size: clamp(14px, 1.1765vw, 16px);
-    color: var(--cl-c);
+    color: var(--cl-o);
 
     @include mobile {
       margin-top: 1px;
-      color: var(--cl-i);
+      color: var(--cl-o);
     }
   }
 
@@ -247,7 +247,7 @@
       }
 
       &:hover {
-        color: var(--cl-f);
+        color: var(--cl-a);
 
         .default {
           opacity: 0;
@@ -286,12 +286,12 @@
       font-weight: 400;
       font-size: 14px;
       line-height: 179%;
-      color: var(--cl-c);
+      color: var(--cl-o);
       max-width: 600px;
 
       @include mobile {
         line-height: 157%;
-        color: var(--cl-h);
+        color: var(--cl-o);
       }
     }
 
@@ -395,7 +395,7 @@
 
       &:hover {
         text-decoration-color: inherit;
-        color: var(--cl-f);
+        color: var(--cl-a);
       }
     }
   }

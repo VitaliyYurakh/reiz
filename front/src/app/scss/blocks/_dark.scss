@@ -42,7 +42,7 @@ body.dark, body:has([data-body-flag="dark"]) {
                     }
 
                     @include hover {
-                        color: var(--cl-f);
+                        color: var(--cl-a);
                     }
                 }
             }
@@ -64,7 +64,7 @@ body.dark, body:has([data-body-flag="dark"]) {
                         }
 
                         @include hover {
-                            color: var(--cl-f);
+                            color: var(--cl-a);
                         }
                     }
                 }
@@ -112,7 +112,7 @@ body.dark, body:has([data-body-flag="dark"]) {
 
             &:hover {
                 span {
-                    color: var(--cl-f);
+                    color: var(--cl-a);
                 }
             }
             @include mobile {
@@ -128,7 +128,7 @@ body.dark, body:has([data-body-flag="dark"]) {
                     a {
                         color: var(--cl-b);
                         &:hover {
-                            color: var(--cl-f);
+                            color: var(--cl-a);
                         }
                     }
                 }
@@ -144,7 +144,7 @@ body.dark, body:has([data-body-flag="dark"]) {
                 color: var(--cl-b);
 
                 &:hover {
-                    color: var(--cl-f);
+                    color: var(--cl-a);
                 }
             }
         }
@@ -176,7 +176,7 @@ body.dark, body:has([data-body-flag="dark"]) {
                 color: var(--col-d);
 
                 &:hover {
-                    color: var(--cl-f);
+                    color: var(--cl-a);
                 }
             }
         }
@@ -415,7 +415,7 @@ body.dark, body:has([data-body-flag="dark"]) {
                         }
 
                         @include hover {
-                            color: var(--cl-f);
+                            color: var(--cl-a);
                         }
                     }
                 }
@@ -437,7 +437,7 @@ body.dark, body:has([data-body-flag="dark"]) {
                             }
 
                             @include hover {
-                                color: var(--cl-f);
+                                color: var(--cl-a);
                             }
                         }
                     }
