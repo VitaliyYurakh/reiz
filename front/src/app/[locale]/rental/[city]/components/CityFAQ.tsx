@@ -11,7 +11,7 @@ type Props = {
 export default function CityFAQ({ faqSections, mainTitle }: Props) {
   if (faqSections.length === 0) return null;
 
-  const splitIntoColumns = (items: CityFAQFormatted[number]["items"]) => {
+  const splitIntoColumns = (items: CityFAQFormatted["items"]) => {
     if (items.length <= 3) return [items];
     const midpoint = Math.ceil(items.length / 2);
     return [items.slice(0, midpoint), items.slice(midpoint)];
