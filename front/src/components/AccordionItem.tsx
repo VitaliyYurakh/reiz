@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useId } from "react";
 import cn from "classnames";
 import Icon from "@/components/Icon";
 
@@ -28,6 +28,7 @@ export default function AccordionItem({
 }: Props) {
   const [localOpen, setLocalOpen] = useState(false);
   const [maxHeight, setMaxHeight] = useState("0px");
+  const uniqueId = useId();
 
   const isControlled =
     typeof openProp === "boolean" && typeof onToggle === "function";
@@ -52,8 +53,8 @@ export default function AccordionItem({
     }
   }, [open]);
 
-  const qId = `accordion${i}-header`;
-  const aId = `accordion${i}-content`;
+  const qId = `accordion${uniqueId}-header`;
+  const aId = `accordion${uniqueId}-content`;
   return (
     <li
       className={cn(liClassName || "acc__item", open ? "active" : "")}

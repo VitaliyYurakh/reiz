@@ -122,14 +122,14 @@ export default function LanguageSwitcherClient({
         aria-controls={listboxId}
         aria-label="Language"
       >
-        <div className="selected-options">
+        <span className="selected-options">
           <span className="option-label">{currentLabel}</span>
-        </div>
-        <div className="arrow-down" aria-hidden="true">
+        </span>
+        <span className="arrow-down" aria-hidden="true">
           <svg width="6" height="3">
             <use href="/img/sprite/sprite.svg#angle" />
           </svg>
-        </div>
+        </span>
       </button>
 
       <ul

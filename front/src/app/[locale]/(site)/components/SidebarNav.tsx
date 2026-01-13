@@ -75,42 +75,44 @@ export default function SidebarNav() {
                 </Link>
               </li>
             ) : (
-              <ul className="main-nav__acc" key={link.label}>
-                <li
-                  className={cn("main-nav__acc-item", openAcc ? "active" : "")}
-                >
-                  <button
-                    className={cn("main-nav__acc-btn", openAcc ? "active" : "")}
-                    onClick={() => setOpenAcc(!openAcc)}
-                    data-id="1"
+              <li key={link.label}>
+                <ul className="main-nav__acc">
+                  <li
+                    className={cn("main-nav__acc-item", openAcc ? "active" : "")}
                   >
-                    {link.label}
-                    <i className="sprite">
-                      <Icon id="arrow-d" width={11} height={8} />
-                    </i>
-                  </button>
-                  <div
-                    ref={ref}
-                    className={cn(
-                      "main-nav__acc-content",
-                      openAcc ? "active" : "",
-                    )}
-                    style={{
-                      maxHeight: openAcc
-                        ? `${ref.current?.scrollHeight ?? 500}px`
-                        : "0px",
-                      overflow: openAcc ? "visible" : "hidden",
-                    }}
-                    data-content="1"
-                  >
-                    {link.subLinks?.map((sublink) => (
-                      <Link href={sublink.href} key={sublink.label}>
-                        {sublink.label}
-                      </Link>
-                    ))}
-                  </div>
-                </li>
-              </ul>
+                    <button
+                      className={cn("main-nav__acc-btn", openAcc ? "active" : "")}
+                      onClick={() => setOpenAcc(!openAcc)}
+                      data-id="1"
+                    >
+                      {link.label}
+                      <i className="sprite">
+                        <Icon id="arrow-d" width={11} height={8} />
+                      </i>
+                    </button>
+                    <div
+                      ref={ref}
+                      className={cn(
+                        "main-nav__acc-content",
+                        openAcc ? "active" : "",
+                      )}
+                      style={{
+                        maxHeight: openAcc
+                          ? `${ref.current?.scrollHeight ?? 500}px`
+                          : "0px",
+                        overflow: openAcc ? "visible" : "hidden",
+                      }}
+                      data-content="1"
+                    >
+                      {link.subLinks?.map((sublink) => (
+                        <Link href={sublink.href} key={sublink.label}>
+                          {sublink.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </li>
+                </ul>
+              </li>
             ),
           )}
         </ul>

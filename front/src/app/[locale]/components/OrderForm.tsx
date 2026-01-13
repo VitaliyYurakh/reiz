@@ -124,11 +124,11 @@ export default function OrderForm() {
             }
           }}
         />
-        <div className="arrow-down" aria-hidden="true">
+        <span className="arrow-down" aria-hidden="true">
           <svg width="6" height="3">
             <use href="/img/sprite/sprite.svg#arrow-d" />
           </svg>
-        </div>
+        </span>
       </label>
       <button className="main-button" type="submit">
         {tOrder("submit")}

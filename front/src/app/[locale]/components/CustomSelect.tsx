@@ -131,7 +131,7 @@ export default function CustomSelect({
         aria-controls={listboxId}
         aria-label={displayLabel}
       >
-        <div className="selected-options">
+        <span className="selected-options">
           {preSelectIcon && (
             <span className="select-icon" aria-hidden="true">
               <i className="sprite">
@@ -142,19 +142,19 @@ export default function CustomSelect({
             </span>
           )}
           {value ? (
-            <div className="selected-option">
+            <span className="selected-option">
               <span className="option-label">{value}</span>
-            </div>
+            </span>
           ) : (
             <span className="placeholder">{placeholder}</span>
           )}
-        </div>
+        </span>
         {showArrow && (
-          <div className="arrow-down" aria-hidden="true">
+          <span className="arrow-down" aria-hidden="true">
             <svg width="6" height="3">
               <use href="/img/sprite/sprite.svg#arrow-d" />
             </svg>
-          </div>
+          </span>
         )}
       </button>
       <ul

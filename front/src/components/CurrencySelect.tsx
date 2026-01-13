@@ -105,16 +105,16 @@ export default function CurrencySelect({
         aria-controls={listboxId}
         aria-label={ariaLabel}
       >
-        <div className="selected-options">
+        <span className="selected-options">
           <span className="selected-option" data-value={current.value}>
             <span className="option-label">{current.label}</span>
           </span>
-        </div>
-        <div className="arrow-down" aria-hidden="true">
+        </span>
+        <span className="arrow-down" aria-hidden="true">
           <svg width="6" height="3">
             <use href="/img/sprite/sprite.svg#angle" />
           </svg>
-        </div>
+        </span>
       </button>
 
       <ul

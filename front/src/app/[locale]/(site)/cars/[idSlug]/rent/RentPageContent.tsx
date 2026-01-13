@@ -693,16 +693,14 @@ export default function RentPageContent({
 
           <div className="rent-page__summary rent-page__summary-panel">
             <div className="rent-page__summary-image">
-              <picture>
-                <img
-                  width={570}
-                  height={319}
-                  src={`${BASE_URL}static/${car.previewUrl}`}
-                  alt={t("summary.imageAlt", {
-                    car: carName || t("summary.locationPlaceholder"),
-                  })}
-                />
-              </picture>
+              <img
+                width={570}
+                height={319}
+                src={`${BASE_URL}static/${encodeURI(car.previewUrl ?? "")}`}
+                alt={t("summary.imageAlt", {
+                  car: carName || t("summary.locationPlaceholder"),
+                })}
+              />
             </div>
 
             <h2 className="rent-page__summary-title">

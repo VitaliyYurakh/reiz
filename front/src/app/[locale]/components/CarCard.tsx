@@ -129,15 +129,12 @@ export default function CarCard({ car }: CarCardProps) {
   return (
     <li className="car-card">
       <Link href={carDetailsLink} className="car-card__image">
-        <picture>
-          <source type="image/webp" />
-          <img
-            width="450"
-            height="252"
-            src={`${BASE_URL}static/${car.previewUrl ?? ""}`}
-            alt={tCatalog("imageAlt", { brand: car.brand ?? "", model: car.model ?? "" })}
-          />
-        </picture>
+        <img
+          width="450"
+          height="252"
+          src={`${BASE_URL}static/${encodeURI(car.previewUrl ?? "")}`}
+          alt={tCatalog("imageAlt", { brand: car.brand ?? "", model: car.model ?? "" })}
+        />
       </Link>
 
       <div className="car-card__box">

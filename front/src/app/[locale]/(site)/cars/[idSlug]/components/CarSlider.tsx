@@ -74,17 +74,15 @@ export default function CarGallerySlider({
               className="gallery-slider__slide swiper-slide"
             >
               <a href={it.src} className="gallery-slider__card">
-                <picture>
-                  <img
-                    width={w}
-                    height={h}
-                    src={`${BASE_URL}static/${thumb}`}
-                    data-fancybox={group}
-                    alt={it.alt || "image"}
-                    className="block w-full h-auto object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </picture>
+                <img
+                  width={w}
+                  height={h}
+                  src={`${BASE_URL}static/${encodeURI(thumb)}`}
+                  data-fancybox={group}
+                  alt={it.alt || "image"}
+                  className="block w-full h-auto object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </a>
             </SwiperSlide>
           );

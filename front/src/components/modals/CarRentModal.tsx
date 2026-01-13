@@ -874,16 +874,14 @@ export default function CarRentModal({
 
         <div className="modal__right">
           <div className="modal__image">
-            <picture>
-              <img
-                width={570}
-                height={319}
-                src={`${BASE_URL}static/${data.car.previewUrl}`}
-                alt={t("summary.imageAlt", {
-                  car: carName || t("summary.locationPlaceholder"),
-                })}
-              />
-            </picture>
+            <img
+              width={570}
+              height={319}
+              src={`${BASE_URL}static/${encodeURI(data.car.previewUrl ?? "")}`}
+              alt={t("summary.imageAlt", {
+                car: carName || t("summary.locationPlaceholder"),
+              })}
+            />
           </div>
 
           <h2 className="modal__title">

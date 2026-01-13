@@ -212,20 +212,20 @@ export default function LocationSelect({
         aria-controls={listboxId}
         aria-label={displayLabel}
       >
-        <div className="selected-options">
+        <span className="selected-options">
           {value ? (
-            <div className="selected-option">
+            <span className="selected-option">
               <span className="option-label">{value}</span>
-            </div>
+            </span>
           ) : (
             <span className="placeholder">{placeholder}</span>
           )}
-        </div>
-        <div className="arrow-down" aria-hidden="true">
+        </span>
+        <span className="arrow-down" aria-hidden="true">
           <svg width="6" height="3">
             <use href="/img/sprite/sprite.svg#arrow-d" />
           </svg>
-        </div>
+        </span>
       </button>
       <ul
         id={listboxId}
