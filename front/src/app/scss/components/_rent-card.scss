@@ -104,9 +104,9 @@
             }
 
             @include hover{
-                            color: var(--cl-b);
-                background: transparent;
-                border-color: var(--cl-m);
+                color: var(--cl-a);
+                background: rgba(255, 255, 255, 0.6);
+                border-color: var(--cl-b);
             }
     }
     .rent-card{
