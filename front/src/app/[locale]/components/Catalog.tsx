@@ -525,6 +525,7 @@ export default function Catalog({cars, sectionTitle}: CatalogProps) {
                                         type="button"
                                         onClick={() => setFiltersOpen(false)}
                                         className="catalog-aside__close"
+                                        aria-label={t("filters_panel.close_button")}
                                     >
                                         <i className="sprite">
                                             <Icon width={36} height={36} id={"close2"}></Icon>

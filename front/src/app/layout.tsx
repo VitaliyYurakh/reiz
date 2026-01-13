@@ -101,13 +101,16 @@ export default async function RootLayout({
         />
 
         {/* Preload LCP hero images - CRITICAL for performance */}
+        {/* Desktop hero - mercedescle2.webp (not 1!) */}
         <link
           rel="preload"
           as="image"
-          href="/img/car/mercedescle1.webp"
+          href="/img/car/mercedescle2.webp"
           type="image/webp"
+          media="(min-width: 1025px)"
           fetchPriority="high"
         />
+        {/* Mobile hero */}
         <link
           rel="preload"
           as="image"
@@ -117,32 +120,9 @@ export default async function RootLayout({
           fetchPriority="high"
         />
 
-        {/* Google Fonts preconnect */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-
-        {/* Third-party services preconnect */}
-        <link
-          rel="preconnect"
-          href="https://www.googletagmanager.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://consent.cookiebot.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://grwapi.net"
-          crossOrigin="anonymous"
-        />
+        {/* DNS prefetch for third-party services (lighter than preconnect) */}
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//grwapi.net" />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
 
         {/* GTM - runs in Partytown Web Worker for better performance */}
         <script

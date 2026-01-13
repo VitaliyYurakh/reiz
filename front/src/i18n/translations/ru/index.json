@@ -57,7 +57,7 @@
       "category4": "Luxury",
       "category5": "Van",
       "filters_panel": {
-        "close_button": "",
+        "close_button": "Закрыть фильтры",
         "price_max_label": "Цена",
         "price_max_placeholder": "до 550",
         "price_max_suffix": "$",
