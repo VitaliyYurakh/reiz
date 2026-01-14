@@ -15,9 +15,65 @@ const nextConfig: NextConfig = {
     // Minimize layout shift - cache for 1 year
     minimumCacheTTL: 60 * 60 * 24 * 365,
   },
-  // Cache-Control headers for static assets
+  // Cache-Control and security headers
   async headers() {
+    const isProduction = process.env.NODE_ENV === "production";
+
+    // Security headers - only strict CSP in production
+    const securityHeaders = [
+      {
+        key: "X-Content-Type-Options",
+        value: "nosniff",
+      },
+      {
+        key: "X-Frame-Options",
+        value: "SAMEORIGIN",
+      },
+      {
+        key: "X-XSS-Protection",
+        value: "1; mode=block",
+      },
+      {
+        key: "Referrer-Policy",
+        value: "strict-origin-when-cross-origin",
+      },
+    ];
+
+    // Add HSTS and CSP only in production (HTTPS required)
+    if (isProduction) {
+      securityHeaders.push(
+        {
+          key: "Strict-Transport-Security",
+          value: "max-age=31536000; includeSubDomains; preload",
+        },
+        {
+          key: "Content-Security-Policy",
+          value: [
+            "default-src 'self'",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://connect.facebook.net",
+            "style-src 'self' 'unsafe-inline'",
+            "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com https://reiz.com.ua",
+            "font-src 'self' data:",
+            "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://grwapi.net https://*.grwapi.net https://reiz.com.ua https://connect.facebook.net https://www.facebook.com",
+            "frame-src 'self' https://www.googletagmanager.com https://www.facebook.com https://td.doubleclick.net",
+            "worker-src 'self' blob:",
+            "child-src 'self' blob:",
+            "object-src 'none'",
+            "base-uri 'self'",
+            "form-action 'self'",
+            "frame-ancestors 'self'",
+            "upgrade-insecure-requests",
+          ].join("; "),
+        }
+      );
+    }
+
     return [
+      {
+        // Security headers for all routes
+        source: "/:path*",
+        headers: securityHeaders,
+      },
       {
         // Partytown service worker - needs special headers
         source: "/~partytown/:path*",

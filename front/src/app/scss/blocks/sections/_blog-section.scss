@@ -91,7 +91,8 @@
   }
 
   .blog-hero__subtitle {
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 400;
     font-size: clamp(15px, 1.1765vw, 16px);
     line-height: 1.6;

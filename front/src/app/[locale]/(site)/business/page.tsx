@@ -212,7 +212,7 @@ export default async function BusinessPage() {
             </div>
             <div className="rental-section__download">
               <p>{t("downloads.note")}</p>
-              <a href={t("downloads.file.href")} className="download" download>
+              <a href={t("downloads.file.href")} className="download">
                 <span className="download__icon">
                   <Icon id="load" width={14} height={26} />
                 </span>

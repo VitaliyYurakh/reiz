@@ -37,11 +37,11 @@ export async function generateMetadata({
     const title = `Оренда ${car.brand} ${car.model} у Львові — ціна від ${car.rentalTariff?.[0]?.dailyPrice || 50}$ на добу`;
     const description = `Орендуйте ${carName} у Львові. ${car.engineVolume || ""} ${car.transmission?.[locale] || ""}, ${car.seats || 5} місць. Подача в аеропорт та по місту 24/7.`.trim();
 
-    // hreflang з правильними кодами для України
+    // hreflang codes matching HTML lang attribute
     const languages: Record<string, string> = {
-        "uk-UA": `${BASE}${path}`,
-        "ru-UA": `${BASE}/ru${path}`,
-        "en": `${BASE}/en${path}`,
+        uk: `${BASE}${path}`,
+        ru: `${BASE}/ru${path}`,
+        en: `${BASE}/en${path}`,
         "x-default": `${BASE}${path}`,
     };
 

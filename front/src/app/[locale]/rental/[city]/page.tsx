@@ -66,8 +66,8 @@ export async function generateMetadata({
   const canonical = `${baseUrl}${getPath(locale)}`;
 
   const languages: Record<string, string> = {
-    "uk-UA": `${baseUrl}${getPath("uk")}`,
-    "ru-UA": `${baseUrl}${getPath("ru")}`,
+    uk: `${baseUrl}${getPath("uk")}`,
+    ru: `${baseUrl}${getPath("ru")}`,
     en: `${baseUrl}${getPath("en")}`,
     "x-default": `${baseUrl}${getPath("uk")}`,
   };

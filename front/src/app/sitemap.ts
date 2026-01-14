@@ -16,11 +16,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   (Object.keys(ROUTE_MAP) as RouteKey[]).forEach((key) => {
     const languages: Record<string, string> = {};
 
-    // Добавляем все языковые версии с правильными hreflang кодами
-    languages["uk-UA"] = abs(ROUTE_MAP[key]["uk"]);
-    languages["ru-UA"] = abs(ROUTE_MAP[key]["ru"]);
+    // hreflang codes matching HTML lang attribute
+    languages["uk"] = abs(ROUTE_MAP[key]["uk"]);
+    languages["ru"] = abs(ROUTE_MAP[key]["ru"]);
     languages["en"] = abs(ROUTE_MAP[key]["en"]);
-    languages["x-default"] = abs(ROUTE_MAP[key]["uk"]); // украинская как default
+    languages["x-default"] = abs(ROUTE_MAP[key]["uk"]);
 
     const url = abs(ROUTE_MAP[key][defaultLocale]);
     const isHome = key === "home";
@@ -39,9 +39,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const citySlug of citySlugs) {
     const languages: Record<string, string> = {};
 
-    // uk на корне, ru и en с префиксами
-    languages["uk-UA"] = abs(`/rental/${citySlug}`);
-    languages["ru-UA"] = abs(`/ru/rental/${citySlug}`);
+    // uk at root, ru and en with prefixes
+    languages["uk"] = abs(`/rental/${citySlug}`);
+    languages["ru"] = abs(`/ru/rental/${citySlug}`);
     languages["en"] = abs(`/en/rental/${citySlug}`);
     languages["x-default"] = abs(`/rental/${citySlug}`);
 
@@ -61,9 +61,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const idSlug = createCarIdSlug(car);
       const languages: Record<string, string> = {};
 
-      // uk на корне, ru и en с префиксами
-      languages["uk-UA"] = abs(`/cars/${idSlug}`);
-      languages["ru-UA"] = abs(`/ru/cars/${idSlug}`);
+      // uk at root, ru and en with prefixes
+      languages["uk"] = abs(`/cars/${idSlug}`);
+      languages["ru"] = abs(`/ru/cars/${idSlug}`);
       languages["en"] = abs(`/en/cars/${idSlug}`);
       languages["x-default"] = abs(`/cars/${idSlug}`);
 

@@ -78,8 +78,8 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
     alternates: {
       canonical,
       languages: {
-        "uk-UA": paths.uk,
-        "ru-UA": paths.ru,
+        uk: paths.uk,
+        ru: paths.ru,
         en: paths.en,
         "x-default": paths.uk,
       },

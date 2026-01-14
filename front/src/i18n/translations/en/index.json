@@ -419,9 +419,9 @@
       "title": "DOWNLOADS",
       "note": "YOU CAN VIEW THE FULL LIST OF LIMITATIONS AND NON-INSURED CASES IN THE DOCUMENT",
       "file": {
-        "title": "INSURANCE & LIMITATIONS",
-        "meta": "pdf, 19 MB",
-        "href": "/insurance.html"
+        "title": "INSURANCE TERMS",
+        "meta": "Full details",
+        "href": "/insurance"
       }
     },
     "breach": {
@@ -556,9 +556,9 @@
       "title": "DOWNLOADS",
       "note": "DOCUMENTS YOU MAY NEED",
       "file": {
-        "title": "SAMPLE CONTRACT",
-        "meta": "pdf, 19 MB",
-        "href": "/en/insurance"
+        "title": "RENTAL TERMS",
+        "meta": "Full details",
+        "href": "/terms"
       }
     },
     "order": {

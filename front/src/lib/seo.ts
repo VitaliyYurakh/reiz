@@ -49,12 +49,12 @@ function buildAlternates(routeKey: RouteKey, locale: Locale) {
   // Canonical всегда указывает на текущий URL страницы (self)
   const canonical = localizedPath(routeKey, locale);
 
-  // hreflang с правильными кодами для Украины
+  // hreflang codes matching HTML lang attribute
   const languages: Record<string, string> = {
-    "uk-UA": localizedPath(routeKey, "uk"),
-    "ru-UA": localizedPath(routeKey, "ru"),
-    "en": localizedPath(routeKey, "en"),
-    "x-default": localizedPath(routeKey, "uk"), // украинская версия как default
+    uk: localizedPath(routeKey, "uk"),
+    ru: localizedPath(routeKey, "ru"),
+    en: localizedPath(routeKey, "en"),
+    "x-default": localizedPath(routeKey, "uk"),
   };
 
   return { canonical, languages, pathname };

@@ -215,7 +215,10 @@
     color: var(--cl-b);
     position: relative;
     z-index: 1;
-    font-family: var(--font-gowun), sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) {
+      font-family: var(--font-gowun), sans-serif;
+    }
 
     &::before {
       position: absolute;

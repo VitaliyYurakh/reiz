@@ -130,7 +130,8 @@
   }
 
   &__breadcrumb-text {
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 500;
     font-size: 11px;
     letter-spacing: 0.12em;
@@ -175,7 +176,8 @@
   }
 
   &__hero-subtitle {
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 300;
     font-size: clamp(15px, 1.1765vw, 16px);
     line-height: 1.6;
@@ -305,7 +307,8 @@
 
   // Price on the left
   &__price {
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 500;
     font-size: clamp(36px, 3.5294vw, 48px);
     color: var(--cl-a);
@@ -397,7 +400,8 @@
 
   // Consent text - directly under button
   &__consent {
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 300;
     font-size: 12px;
     line-height: 1.5;
@@ -447,7 +451,8 @@
   }
 
   &__label-text {
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 500;
     font-size: 11px;
     letter-spacing: 0.1em;
@@ -484,7 +489,8 @@
 
   // Terms text
   &__terms {
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 300;
     font-size: 14px;
     line-height: 1.6;
@@ -531,7 +537,8 @@
 
   // Text
   &__text {
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 500;
     font-size: clamp(17px, 1.4706vw, 20px);
     color: var(--cl-a);
@@ -694,14 +701,16 @@
     background: var(--cl-b);
     border: none;
     border-radius: clamp(14px, 1.1765vw, 16px);
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 400;
     font-size: 15px;
     color: var(--cl-a);
     transition: all 0.2s ease;
 
     &::placeholder {
-      font-family: var(--font-kyiv), Arial, sans-serif;
+      font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
       color: var(--cl-m);
     }
 
@@ -774,7 +783,8 @@
   }
 
   &__label {
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 400;
     font-size: 14px;
     color: var(--cl-c);
@@ -813,7 +823,8 @@
   background: transparent;
   border: 1px solid var(--cl-d);
   border-radius: 100px;
-  font-family: var(--font-kyiv), Arial, sans-serif;
+  font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
   font-weight: 500;
   font-size: 12px;
   letter-spacing: 0.1em;
@@ -984,7 +995,8 @@
   }
 
   &__label-text {
-    font-family: var(--font-kyiv), Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) { font-family: var(--font-kyiv), Arial, sans-serif; }
     font-weight: 500;
     font-size: 11px;
     letter-spacing: 0.1em;
