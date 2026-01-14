@@ -4,6 +4,22 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // Redirect www to non-www
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.reiz.com.ua",
+          },
+        ],
+        destination: "https://reiz.com.ua/:path*",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     // Device widths for responsive srcset generation
     // Optimized for performance - removed excessive sizes
