@@ -30,7 +30,10 @@ export async function generateMetadata({
     const car = await fetchCar(carId);
     if (!car) return {};
 
-    const carName = `${car.brand} ${car.model} ${car.yearOfManufacture}`.trim();
+    const brand = car.brand ?? "";
+    const model = car.model ?? "";
+    const year = car.yearOfManufacture ?? "";
+    const carName = `${brand} ${model} ${year}`.trim();
     const slug = createCarIdSlug(car);
     const path = `/cars/${slug}`;
 
@@ -45,10 +48,10 @@ export async function generateMetadata({
     const seats = car.seats || 5;
 
     const title = t("meta.title", {
-      brand: car.brand,
-      model: car.model,
+      brand,
+      model,
       price,
-      year: car.yearOfManufacture,
+      year,
     });
     const description = t("meta.description", {
       carName,
