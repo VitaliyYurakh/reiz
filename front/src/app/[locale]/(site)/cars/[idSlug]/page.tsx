@@ -34,8 +34,27 @@ export async function generateMetadata({
     const slug = createCarIdSlug(car);
     const path = `/cars/${slug}`;
 
-    const title = `Оренда ${car.brand} ${car.model} у Львові — ціна від ${car.rentalTariff?.[0]?.dailyPrice || 50}$ на добу`;
-    const description = `Орендуйте ${carName} у Львові. ${car.engineVolume || ""} ${car.transmission?.[locale] || ""}, ${car.seats || 5} місць. Подача в аеропорт та по місту 24/7.`.trim();
+    const t = await getTranslations("carPage");
+
+    const minPrice =
+      car.rentalTariff?.reduce((min, t) => Math.min(min, t.dailyPrice), Infinity) ?? 0;
+    const price = Number.isFinite(minPrice) && minPrice > 0 ? minPrice : 50;
+
+    const specs = [car.engineVolume, car.transmission?.[locale]].filter(Boolean).join(" ");
+    const specsText = specs ? `${specs}, ` : "";
+    const seats = car.seats || 5;
+
+    const title = t("meta.title", {
+      brand: car.brand,
+      model: car.model,
+      price,
+      year: car.yearOfManufacture,
+    });
+    const description = t("meta.description", {
+      carName,
+      specsText,
+      seats,
+    });
 
     // hreflang codes matching HTML lang attribute
     const languages: Record<string, string> = {

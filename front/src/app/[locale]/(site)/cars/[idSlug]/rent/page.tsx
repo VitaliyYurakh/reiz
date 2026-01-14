@@ -31,8 +31,9 @@ export async function generateMetadata({
   const carPath = `/cars/${slug}`;
 
   const minPrice = car.rentalTariff?.reduce((min, t) => Math.min(min, t.dailyPrice), Infinity) || 0;
-  const title = `Забронировать ${carName} — от $${minPrice}/день | REIZ`;
-  const description = `Оформите аренду ${carName} онлайн. От $${minPrice}/день, страховка включена, подача по адресу 24/7.`;
+  const t = await getTranslations("carRentPage");
+  const title = t("meta.title", { carName, price: minPrice });
+  const description = t("meta.description", { carName, price: minPrice });
 
   // Canonical points to car detail page, not rent page
   const localePrefix = locale === defaultLocale ? "" : `/${locale}`;

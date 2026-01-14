@@ -25,6 +25,19 @@ type PageParams = {
   city: string;
 };
 
+const MAX_META_TITLE_LENGTH = 55;
+const DASH_SEPARATOR = " \u2014 ";
+
+const shortenMetaTitle = (value: string) => {
+  const parts = value.split(DASH_SEPARATOR);
+  if (parts.length > 1 && parts[0].trim()) return parts[0].trim();
+  if (value.length <= MAX_META_TITLE_LENGTH) return value;
+
+  const truncated = value.slice(0, MAX_META_TITLE_LENGTH);
+  const lastSpace = truncated.lastIndexOf(" ");
+  return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated).trim();
+};
+
 // Генерація статичних параметрів для SSG
 export async function generateStaticParams(): Promise<PageParams[]> {
   const params: PageParams[] = [];
@@ -72,8 +85,10 @@ export async function generateMetadata({
     "x-default": `${baseUrl}${getPath("uk")}`,
   };
 
+  const metaTitle = shortenMetaTitle(cityData.title);
+
   return {
-    title: cityData.title,
+    title: metaTitle,
     description: cityData.metaDescription,
     alternates: {
       canonical,
@@ -82,14 +97,14 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       siteName: "REIZ",
-      title: cityData.ogTitle,
+      title: metaTitle,
       description: cityData.ogDescription,
       images: [{ url: `${baseUrl}/img/og/home.webp` }],
       url: canonical,
     },
     twitter: {
       card: "summary_large_image",
-      title: cityData.ogTitle,
+      title: metaTitle,
       description: cityData.ogDescription,
       images: [`${baseUrl}/img/og/home.webp`],
     },
