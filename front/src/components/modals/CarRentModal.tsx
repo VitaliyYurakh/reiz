@@ -800,11 +800,11 @@ export default function CarRentModal({
                               </span>
                             )}
                           </span>
-                          <b>
+                          <span className="text-strong">
                             {t(`addOns.options.${extra.id}.price`, {
                               formattedPrice: formatPrice(extra.price),
                             })}
-                          </b>
+                          </span>
                         </span>
                       </label>
                     ))}
@@ -893,20 +893,20 @@ export default function CarRentModal({
               <div className="modal__item-info">
                 <span className="modal__name">{t("summary.pickupLabel")}</span>
                 <span className="modal__info">
-                  <b>
+                  <span className="text-strong">
                     {formatFull(selectedDate.startDate)} (
                     {formatTime(selectedDate.startDate)})
-                  </b>{" "}
+                  </span>{" "}
                   {formState.pickupLocation || t("summary.locationPlaceholder")}
                 </span>
               </div>
               <div className="modal__item-info">
                 <span className="modal__name">{t("summary.returnLabel")}</span>
                 <span className="modal__info">
-                  <b>
+                  <span className="text-strong">
                     {formatFull(selectedDate.endDate)} (
                     {formatTime(selectedDate.endDate)})
-                  </b>{" "}
+                  </span>{" "}
                   {formState.returnLocation || t("summary.locationPlaceholder")}
                 </span>
               </div>
@@ -954,7 +954,7 @@ export default function CarRentModal({
             <li className="modal__item">
               <span className="modal__name">{t("summary.depositLabel")}</span>
               <span className="modal__value">
-                <b>{formatDeposit(depositAmount)}</b>
+                <span className="text-strong">{formatDeposit(depositAmount)}</span>
               </span>
             </li>
             <li className="modal__item">

@@ -336,7 +336,8 @@
     justify-content: flex-end;
     min-height: 36px;
 
-    b {
+    b,
+    .text-strong {
       display: flex;
       align-items: center;
       font-weight: 600;
@@ -361,7 +362,8 @@
     align-items: flex-end;
     line-height: 115%;
 
-    b {
+    b,
+    .text-strong {
       font-weight: 500;
       font-size: 14px;
       color: var(--cl-a);
@@ -662,7 +664,8 @@
       font-size: 18px;
       color: var(--cl-a);
 
-      b {
+      b,
+      .text-strong {
         font-weight: 500;
       }
     }

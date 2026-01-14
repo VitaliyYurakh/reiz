@@ -498,7 +498,7 @@ export default function Catalog({cars, sectionTitle}: CatalogProps) {
                                                 </svg>
                                             </i>
                                             {t("open_box.filter_button_text")}
-                                            <b>{selectedCount}</b>
+                                            <span className="text-strong">{selectedCount}</span>
                                         </button>
 
                                         <CustomSelect

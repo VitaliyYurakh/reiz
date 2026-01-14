@@ -109,7 +109,8 @@
     color: var(--cl-a);
 
     @include for-laptop {
-      b {
+      b,
+      .text-strong {
         font-weight: 400;
       }
 
@@ -289,7 +290,8 @@
 
         &__value {
 
-          b {
+          b,
+          .text-strong {
             font-weight: 500;
           }
           i {

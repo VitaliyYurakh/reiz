@@ -190,7 +190,7 @@ export default function CarCard({ car }: CarCardProps) {
                   )}
                 </span>
                 <span className="car-card__value">
-                  <b>{formatPrice(adjustedPrice)}</b>
+                  <span className="text-strong">{formatPrice(adjustedPrice)}</span>
                   <i>/</i>
                   {tCatalog("rates.perDay")}
                 </span>
@@ -270,7 +270,7 @@ export default function CarCard({ car }: CarCardProps) {
                   {tCatalog("total.dailyLabel")}
                 </span>
                 <span className="car-card__value">
-                  <b>{formatPrice(dailyPrice)}</b>
+                  <span className="text-strong">{formatPrice(dailyPrice)}</span>
                 </span>
               </li>
               <li className="car-card__item">
@@ -278,7 +278,7 @@ export default function CarCard({ car }: CarCardProps) {
                   {tCatalog("total.depositLabel")}
                 </span>
                 <span className="car-card__value">
-                  <b>{formatDeposit(depositAmount)}</b>
+                  <span className="text-strong">{formatDeposit(depositAmount)}</span>
                 </span>
               </li>
               <li className="car-card__item" style={{borderBottom: 'none'}}>
@@ -286,7 +286,7 @@ export default function CarCard({ car }: CarCardProps) {
                   {tCatalog("total.totalLabel")}
                 </span>
                 <span className="car-card__value">
-                  <b>{formatPrice(rentalCost)}</b>
+                  <span className="text-strong">{formatPrice(rentalCost)}</span>
                 </span>
               </li>
             </ul>

@@ -511,7 +511,8 @@ $rental-success-color: #2f8f5b;
     align-items: flex-end;
     line-height: 115%;
 
-    b {
+    b,
+    .text-strong {
       font-weight: 500;
       font-size: 14px;
       color: var(--cl-a);
@@ -524,7 +525,8 @@ $rental-success-color: #2f8f5b;
     text-align: end;
     color: var(--cl-a);
 
-    b {
+    b,
+    .text-strong {
       display: flex;
       align-items: center;
       font-weight: 600;
@@ -685,7 +687,8 @@ $rental-success-color: #2f8f5b;
       flex-direction: column;
       gap: 4px;
 
-      b {
+      b,
+      .text-strong {
         font-weight: 600;
       }
 
@@ -721,4 +724,3 @@ $rental-success-color: #2f8f5b;
     color: $rental-error-color;
   }
 }
-

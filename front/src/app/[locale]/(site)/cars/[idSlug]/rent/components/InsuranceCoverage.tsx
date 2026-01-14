@@ -120,12 +120,12 @@ export default function InsuranceCoverage({
       <div className="insurance__footer">
         <div className="insurance__deposit">
           <div>
-            {t("footer.deposit")}: <b>{formatDeposit(depositAmount)}</b>
+            {t("footer.deposit")}: <span className="text-strong">{formatDeposit(depositAmount)}</span>
           </div>
         </div>
         <div className="insurance__price">
           <div>
-            <b>{formatPrice(dailyPrice)}</b> {t("footer.pricePerDay")}
+            <span className="text-strong">{formatPrice(dailyPrice)}</span> {t("footer.pricePerDay")}
           </div>
           <div className="insurance__price-sub">
             {formatPrice(totalPrice)} {t("footer.total")}

@@ -610,7 +610,8 @@
         gap: 10px;
         width: fit-content;
 
-        b {
+        b,
+        .text-strong {
             margin-left: -1px;
             margin-top: -2px;
             font-style: normal;

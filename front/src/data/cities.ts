@@ -541,7 +541,7 @@ export const cityLocalizations: Record<
       title: "Оренда авто у Києві без застави — Аеропорт Бориспіль 24/7",
       metaDescription:
         "Прокат авто у Києві офіційно. Подача в аеропорт Бориспіль та по місту 24/7. Нові машини. Швидке оформлення. Бронюйте онлайн!",
-      h1: "Оренда авто у Києві",
+      h1: "Оренда авто у Києві — без застави та подача 24/7",
       sectionCars: "АВТОМОБІЛІ REIZ У КИЄВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ КИЇВ",
       subtitle:
@@ -554,7 +554,7 @@ export const cityLocalizations: Record<
       title: "Аренда авто в Киеве без залога — Аэропорт Борисполь 24/7",
       metaDescription:
         "Прокат авто в Киеве официально. Подача в аэропорт Борисполь и по городу 24/7. Новые машины. Быстрое оформление. Бронируйте онлайн!",
-      h1: "Аренда авто в Киеве",
+      h1: "Аренда авто в Киеве — без залога и подача 24/7",
       sectionCars: "АВТОМОБИЛИ REIZ В КИЕВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ КИЕВ",
       subtitle:
@@ -567,7 +567,7 @@ export const cityLocalizations: Record<
       title: "Car Rental Kyiv — No Deposit, Boryspil Airport 24/7",
       metaDescription:
         "Rent a car in Kyiv officially. Delivery to Boryspil Airport and city-wide 24/7. New fleet. Fast paperwork. Book online now!",
-      h1: "Car Rental in Kyiv",
+      h1: "Car Rental in Kyiv — No Deposit & 24/7 Delivery",
       sectionCars: "REIZ CARS IN KYIV",
       sectionWelcome: "WELCOME TO REIZ KYIV",
       subtitle:
@@ -608,7 +608,7 @@ export const cityLocalizations: Record<
       title: "Car Rental in Lviv: No Deposit & New Fleet",
       metaDescription:
         "Rent a car in Lviv for city trips or the Carpathians. 15-min booking. Standard rates or No Deposit option. 24/7 Roadside Assistance. Book your car online!",
-      h1: "Car Rental in Lviv",
+      h1: "Car Rental in Lviv — No Deposit & 24/7 Delivery",
       sectionCars: "REIZ CARS IN LVIV",
       sectionWelcome: "WELCOME TO REIZ LVIV",
       subtitle:
@@ -664,7 +664,7 @@ export const cityLocalizations: Record<
       title: "Оренда авто в Одесі без застави — Доставка за адресою 24/7",
       metaDescription:
         "Прокат авто в Одесі офіційно. Подача на Аркадію, в порт та аеропорт 24/7. Нові машини. Економ та бізнес. Бронюйте!",
-      h1: "Оренда авто в Одесі",
+      h1: "Оренда авто в Одесі — без застави та подача 24/7",
       sectionCars: "АВТОМОБІЛІ REIZ В ОДЕСІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ОДЕСА",
       subtitle:
@@ -690,7 +690,7 @@ export const cityLocalizations: Record<
       title: "Car Rental Odesa — No Deposit, Delivery 24/7",
       metaDescription:
         "Rent a car in Odesa officially. Delivery to Arcadia beach, port and airport 24/7. New fleet. Convertibles and SUVs. Book now!",
-      h1: "Car Rental in Odesa",
+      h1: "Car Rental in Odesa — No Deposit & 24/7 Delivery",
       sectionCars: "REIZ CARS IN ODESA",
       sectionWelcome: "WELCOME TO REIZ ODESA",
       subtitle:
@@ -1251,7 +1251,7 @@ export const cityLocalizations: Record<
       title: "Аренда авто в Луцке — Шацкие озёра и замок Любарта",
       metaDescription:
         "Прокат авто в Луцке. Подача по городу и на вокзал 24/7. Шацкие озёра, Ковель, КПП Ягодин/Устилуг, выезд в Польшу по согласованию.",
-      h1: "Аренда авто в Луцке",
+      h1: "Аренда авто в Луцке — подача 24/7 и выезд к озёрам",
       sectionCars: "АВТОМОБИЛИ REIZ В ЛУЦКЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЛУЦК",
       subtitle:
@@ -1264,7 +1264,7 @@ export const cityLocalizations: Record<
       title: "Car Rental Lutsk — Shatsk Lakes & Lubart Castle",
       metaDescription:
         "Rent a car in Lutsk. City and station delivery 24/7. Trips to Shatsk Lakes, Kovel, and border checkpoints; Poland travel by approval.",
-      h1: "Car Rental in Lutsk",
+      h1: "Car Rental in Lutsk — 24/7 Delivery & Lake Trips",
       sectionCars: "REIZ CARS IN LUTSK",
       sectionWelcome: "WELCOME TO REIZ LUTSK",
       subtitle:
@@ -1292,7 +1292,7 @@ export const cityLocalizations: Record<
       title: "Аренда авто в Ровно — Тоннель любви, Острог, Полесье",
       metaDescription:
         "Прокат авто в Ровно. Подача 24/7 по городу и на вокзал. Маршруты в Клевань, Острог, Дубно и по Полесью.",
-      h1: "Аренда авто в Ровно",
+      h1: "Аренда авто в Ровно — подача 24/7 и маршруты по области",
       sectionCars: "АВТОМОБИЛИ REIZ В РОВНО",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ РОВНО",
       subtitle:
@@ -1305,7 +1305,7 @@ export const cityLocalizations: Record<
       title: "Car Rental Rivne — Tunnel of Love, Ostroh, Polissia",
       metaDescription:
         "Rent a car in Rivne. City and station delivery 24/7. Day trips to Klevan, Ostroh, Dubno and Polissia.",
-      h1: "Car Rental in Rivne",
+      h1: "Car Rental in Rivne — 24/7 Delivery & Regional Trips",
       sectionCars: "REIZ CARS IN RIVNE",
       sectionWelcome: "WELCOME TO REIZ RIVNE",
       subtitle:
@@ -1437,7 +1437,7 @@ export const cityLocalizations: Record<
       title: "Оренда авто у Стрию — Славське, Сколе, Карпати",
       metaDescription:
         "Прокат авто у Стрию. Подача 24/7 по місту. Маршрути до Сколе, Славського, Моршина та Карпат.",
-      h1: "Оренда авто у Стрию",
+      h1: "Оренда авто у Стрию — подача 24/7 і маршрути в Карпати",
       sectionCars: "АВТОМОБІЛІ REIZ У СТРИЮ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ СТРИЙ",
       subtitle: "Прокат авто у Стрию без застави. Подача 24/7 по місту. Маршрути до Сколе, Славського та Моршина.",
@@ -1448,7 +1448,7 @@ export const cityLocalizations: Record<
       title: "Аренда авто в Стрыю — Славское, Сколе, Карпаты",
       metaDescription:
         "Прокат авто в Стрые. Подача 24/7 по городу. Маршруты в Сколе, Славское, Моршин и Карпаты.",
-      h1: "Аренда авто в Стрые",
+      h1: "Аренда авто в Стрые — подача 24/7 и маршруты в Карпаты",
       sectionCars: "АВТОМОБИЛИ REIZ В СТРЫЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ СТРЫЙ",
       subtitle: "Прокат авто в Стрые без залога. Подача 24/7 по городу. Маршруты в Сколе, Славское и Моршин.",
@@ -1459,7 +1459,7 @@ export const cityLocalizations: Record<
       title: "Car Rental Stryi — Slavske, Skole, Carpathians",
       metaDescription:
         "Rent a car in Stryi. City delivery 24/7. Trips to Skole, Slavske, Morshyn and the Carpathians.",
-      h1: "Car Rental in Stryi",
+      h1: "Car Rental in Stryi — 24/7 Delivery & Carpathian Routes",
       sectionCars: "REIZ CARS IN STRYI",
       sectionWelcome: "WELCOME TO REIZ STRYI",
       subtitle: "Car rental in Stryi with no deposit. 24/7 city delivery. Trips to Skole, Slavske and Morshyn.",
@@ -1802,7 +1802,7 @@ export const cityLocalizations: Record<
       title: "Car Rental Kosiv — No Deposit, Hutsul Region 24/7",
       metaDescription:
         "Rent a car in Kosiv officially. New fleet. City delivery 24/7. Trips to Sheshory, Yavoriv and Verkhovyna. Book online!",
-      h1: "Car Rental in Kosiv",
+      h1: "Car Rental in Kosiv — 24/7 Delivery & Hutsul Routes",
       sectionCars: "REIZ CARS IN KOSIV",
       sectionWelcome: "WELCOME TO REIZ KOSIV",
       subtitle:
@@ -1940,7 +1940,7 @@ export const cityLocalizations: Record<
       title: "Оренда авто у Хусті без застави — Закарпаття 24/7",
       metaDescription:
         "Прокат авто у Хусті офіційно. Нові машини. Подача по місту 24/7. Поїздки до Долини нарцисів, Мукачево та Рахова. Бронюйте!",
-      h1: "Оренда авто у Хусті",
+      h1: "Оренда авто у Хусті — Закарпаття та подача 24/7",
       sectionCars: "АВТОМОБІЛІ REIZ У ХУСТІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ХУСТ",
       subtitle:
@@ -1953,7 +1953,7 @@ export const cityLocalizations: Record<
       title: "Аренда авто в Хусте без залога — Закарпатье 24/7",
       metaDescription:
         "Прокат авто в Хусте официально. Новые машины. Подача по городу 24/7. Поездки в Долину нарциссов, Мукачево и Рахов. Бронируйте!",
-      h1: "Аренда авто в Хусте",
+      h1: "Аренда авто в Хусте — Закарпатье и подача 24/7",
       sectionCars: "АВТОМОБИЛИ REIZ В ХУСТЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ХУСТ",
       subtitle:
@@ -1966,7 +1966,7 @@ export const cityLocalizations: Record<
       title: "Car Rental Khust — No Deposit, Zakarpattia 24/7",
       metaDescription:
         "Rent a car in Khust officially. New fleet. City delivery 24/7. Trips to the Valley of Daffodils, Mukachevo and Rakhiv. Book online!",
-      h1: "Car Rental in Khust",
+      h1: "Car Rental in Khust — Zakarpattia & 24/7 Delivery",
       sectionCars: "REIZ CARS IN KHUST",
       sectionWelcome: "WELCOME TO REIZ KHUST",
       subtitle:

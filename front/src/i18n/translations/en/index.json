@@ -151,7 +151,7 @@
       "group2_item1_question": "What does insurance cover and how does it help on the road? (Liability/Casco)",
       "group2_item2_answer": "The deductible is the maximum amount you pay in case of damage; insurance covers the rest. The deposit is the amount blocked on your card during the rental, usually equal to the deductible. Example: damage = 50,000 UAH, deductible/deposit = 20,000 UAH — your responsibility is 20,000 UAH, the rest is covered by insurance. The deposit is released after returning the car undamaged; release time depends on the bank and usually takes a few days.",
       "group2_item2_question": "Deductible vs. deposit: what’s the difference and how much do you risk?",
-      "group2_item3_answer": "Renting without a deposit is not possible.<p>By default, a deposit equal to the deductible is blocked (depends on car class). You may reduce your responsibility by choosing:</p><ul><li>−50% deposit/deductible (CDW);</li><li>−100% deposit/“zero liability” (SCDW) for damage/theft.</li></ul><p><strong>Important:</strong> even with “zero liability” there is a mandatory hold of <strong>$200–300</strong> (depending on model) for:</p><ul><li>fines and tolls,</li><li>missing fuel,</li><li>car wash/interior cleaning,</li><li>lost keys.</li></ul><p>This hold is not for damages and is refunded after clearing possible charges. Choose the right package when booking — we’ll suggest the best option for rentals in Lviv and trips across Ukraine.</p>",
+      "group2_item3_answer": "Renting without a deposit is not possible.<p>By default, a deposit equal to the deductible is blocked (depends on car class). You may reduce your responsibility by choosing:</p><ul><li>−50% deposit/deductible (CDW);</li><li>−100% deposit/“zero liability” (SCDW) for damage/theft.</li></ul><p><span class=\"text-strong\">Important:</span> even with “zero liability” there is a mandatory hold of <span class=\"text-strong\">$200–300</span> (depending on model) for:</p><ul><li>fines and tolls,</li><li>missing fuel,</li><li>car wash/interior cleaning,</li><li>lost keys.</li></ul><p>This hold is not for damages and is refunded after clearing possible charges. Choose the right package when booking — we’ll suggest the best option for rentals in Lviv and trips across Ukraine.</p>",
       "group2_item3_question": "Can I rent without a deposit and how does “zero liability” work?",
       "group2_pretitle": "Insurance and Deposit",
       "group3_item1_answer": "Basic requirements: from 21 years old with at least 2 years of driving experience. For business/premium cars: 23–25 years old and at least 5 years of experience. If you don’t fully meet the requirements, a “young driver” program is available for an extra fee. All drivers must be listed in the rental agreement: prepare documents and provide additional driver details in advance to avoid refusal at pickup.",
@@ -341,10 +341,10 @@
   "insurancePage": {
     "meta": {
       "title": "Car Rental Insurance in Lviv",
-      "description": "Full insurance coverage for car rental: comprehensive & liability ✓ 24/7 roadside assistance ✓ Replacement car if breakdown ✓ Transparent terms ✓ No hidden fees",
+      "description": "Car rental insurance: comprehensive & liability, 24/7 roadside assistance, replacement car if needed. Transparent terms, no hidden fees.",
       "canonical": "https://reiz.com.ua/en/insurance",
       "og_title": "Car Rental Insurance Lviv — Protection & Safety | REIZ",
-      "og_description": "Full insurance coverage for car rental: comprehensive & liability ✓ 24/7 roadside assistance ✓ Replacement car if breakdown ✓ Transparent terms ✓ No hidden fees",
+      "og_description": "Car rental insurance: comprehensive & liability, 24/7 roadside assistance, replacement car if needed. Transparent terms, no hidden fees.",
       "og_image": "https://reiz.com.ua/img/og/insurance.webp",
       "lang": "en",
       "href_ru": "https://reiz.com.ua/insurance",
@@ -658,7 +658,7 @@
       "home": "Home",
       "current": "About us"
     },
-    "mainTitle": "About REIZ",
+    "mainTitle": "About REIZ — Car Rental Service in Lviv",
     "mission": {
       "title": "OUR MISSION",
       "text": "WE MAKE CAR RENTAL THE WAY IT SHOULD BE: HONEST, STYLISH, ALIVE"
@@ -995,7 +995,7 @@
     },
     "hero": {
       "pretitle": "CONTACTS",
-      "title": "Get in Touch"
+      "title": "Contact REIZ — Car Rental in Lviv"
     },
     "breadcrumbs": {
       "home": "Home",
@@ -1241,7 +1241,7 @@
           "label": "Driver service",
           "price": "{formattedPrice}/working day",
           "summary": "Driver service",
-          "tooltip": "<b>What does the driver's working day include?</b><br/>Working hours: 9:00–18:00<br/>8 hours of work + 1 hour lunch break (break is not counted as working time)."
+          "tooltip": "<span class=\"text-strong\">What does the driver's working day include?</span><br/>Working hours: 9:00–18:00<br/>8 hours of work + 1 hour lunch break (break is not counted as working time)."
         }
       },
       "noneSelected": "No add-ons selected"
@@ -1362,7 +1362,7 @@
           "label": "Driver service",
           "price": "{formattedPrice}/working day",
           "summary": "Driver service",
-          "tooltip": "<b>What does the driver's working day include?</b><br/>Working hours: 9:00–18:00<br/>8 hours of work + 1 hour lunch break (break is not counted as working time)."
+          "tooltip": "<span class=\"text-strong\">What does the driver's working day include?</span><br/>Working hours: 9:00–18:00<br/>8 hours of work + 1 hour lunch break (break is not counted as working time)."
         }
       },
       "noneSelected": "No add-ons selected"

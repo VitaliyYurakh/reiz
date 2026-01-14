@@ -301,7 +301,7 @@ export default function CarAside({ car }: { car: Car }) {
           </div>
         </span>
         <span className="single-form__value">
-          <b>{formatPrice(clubPrice)}</b>
+          <span className="text-strong">{formatPrice(clubPrice)}</span>
         </span>
       </div>
       <div className="single-form__info">
@@ -313,7 +313,7 @@ export default function CarAside({ car }: { car: Car }) {
           })}
         </span>
         <span className="single-form__value">
-          <b>{formatPrice(totalPrice)}</b>
+          <span className="text-strong">{formatPrice(totalPrice)}</span>
         </span>
       </div>
 
@@ -356,19 +356,19 @@ export default function CarAside({ car }: { car: Car }) {
 
         <div className="single-form__row">
           <span className="single-form__quest">
-            <b>{t("requirements.age.title")}</b>
+            <span className="text-strong">{t("requirements.age.title")}</span>
             {t("requirements.age.value", {
               age: car.segment[0].driverAge,
             })}
           </span>
           <span className="single-form__quest">
-            <b>{t("requirements.experience.title")}</b>
+            <span className="text-strong">{t("requirements.experience.title")}</span>
             {t("requirements.experience.value", {
               years: car.segment[0].experience,
             })}
           </span>
           <span className="single-form__quest">
-            <b style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+            <span className="text-strong" style={{ display: "flex", alignItems: "center", gap: "5px" }}>
               {t("requirements.mileage.title", { count: totalDays })}
               <span
                 style={{ cursor: "pointer" }}
@@ -377,7 +377,7 @@ export default function CarAside({ car }: { car: Car }) {
               >
                 i
               </span>
-            </b>
+            </span>
             {t("requirements.mileage.value", { limit: totalDays * 300 })}
           </span>
         </div>

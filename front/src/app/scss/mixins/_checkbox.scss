@@ -271,7 +271,8 @@
       line-height: 110%;
       color: #565656;
 
-      b {
+      b,
+      .text-strong {
         font-weight: 500;
         flex-grow: 1;
         display: inline-block;
@@ -400,9 +401,10 @@
           color: #243b4f;
           font-style: normal;
 
-          b{
-          font-weight: 500;
-          font-size: 16px;
+          b,
+          .text-strong {
+            font-weight: 500;
+            font-size: 16px;
           }
         }
 

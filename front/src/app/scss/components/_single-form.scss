@@ -26,7 +26,8 @@
     justify-content: space-between;
     gap: 10px;
 
-    b {
+    b,
+    .text-strong {
       font-weight: 500;
       font-size: 14px;
       text-align: start;
@@ -226,7 +227,8 @@
     text-align: end;
     color: var(--cl-a);
 
-    b {
+    b,
+    .text-strong {
       font-weight: 700;
       font-size: 16px;
 

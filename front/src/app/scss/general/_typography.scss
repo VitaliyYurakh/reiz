@@ -119,6 +119,10 @@
     }
 }
 
+.text-strong {
+    font-weight: 700;
+}
+
 .subtitle {
     font-size: clamp(17px, 2.87vw, 26px);
     color: var(--cl-a);
