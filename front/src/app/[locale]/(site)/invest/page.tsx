@@ -1,24 +1,26 @@
 import UiImage from "@/components/ui/UiImage";
 import Icon from "@/components/Icon";
 import React from "react";
-import { getDefaultPath, getPageMetadata } from "@/lib/seo";
+import { getDefaultPath } from "@/lib/seo";
+import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import InvestForm from "@/app/[locale]/(site)/invest/components/InvestForm";
 import { getTranslations } from "next-intl/server";
-import type { Locale } from "@/i18n/request";
+import { type Locale, locales } from "@/i18n/request";
 import type { Metadata } from "next";
 
-export async function generateMetadata({
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export function generateMetadata({
   params,
 }: {
   params: { locale: Locale };
-}): Promise<Metadata> {
-  const locale = params.locale;
-  return getPageMetadata({
-    routeKey: "invest",
-    ns: "investPage",
-    locale,
-  });
+}): Metadata {
+  return getStaticPageMetadata("investPage", params.locale);
 }
 
 export default async function InvestPage() {

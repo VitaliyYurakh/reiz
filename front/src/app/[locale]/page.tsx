@@ -10,20 +10,23 @@ import EditorSection from "@/app/[locale]/components/EditorSection";
 import Footer from "@/components/Footer";
 import { CatalogFiltersProvider } from "@/context/CatalogFiltersContext";
 import { fetchCars } from "@/lib/api/cars";
-import { getPageMetadata } from "@/lib/seo";
-import type { Locale } from "@/i18n/request";
+import { getStaticPageMetadata } from "@/lib/seo-sync";
+import { type Locale, locales } from "@/i18n/request";
 
-export async function generateMetadata({
+// Force static generation to ensure metadata in initial HTML
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+// SYNC metadata - ensures title in initial HTML shell for SEO crawlers
+export function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  return getPageMetadata({
-    routeKey: "home",
-    ns: "homePage",
-    locale,
-  });
+  params: { locale: Locale };
+}): Metadata {
+  return getStaticPageMetadata("homePage", params.locale);
 }
 
 export default async function Home() {

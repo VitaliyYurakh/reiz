@@ -1,8 +1,9 @@
 import UiImage from "@/components/ui/UiImage";
 import { getTranslations } from "next-intl/server";
-import { Locale } from "@/i18n/request";
+import { type Locale, locales } from "@/i18n/request";
 import type { Metadata } from "next";
-import { getDefaultPath, getPageMetadata } from "@/lib/seo";
+import { getDefaultPath } from "@/lib/seo";
+import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 
 type Post = {
@@ -12,17 +13,18 @@ type Post = {
   imgAlt: string;
 };
 
-export async function generateMetadata({
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export function generateMetadata({
   params,
 }: {
   params: { locale: Locale };
-}): Promise<Metadata> {
-  const locale = (await params).locale;
-  return getPageMetadata({
-    routeKey: "blog",
-    ns: "blogPage",
-    locale,
-  });
+}): Metadata {
+  return getStaticPageMetadata("blogPage", params.locale);
 }
 
 export default async function BlogPage() {

@@ -2,10 +2,25 @@ import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import InfoSlider from "@/app/[locale]/(site)/business/components/InfoSlider";
 import { getTranslations } from "next-intl/server";
-import { Locale } from "@/i18n/request";
-import { getDefaultPath, getPageMetadata } from "@/lib/seo";
+import { type Locale, locales } from "@/i18n/request";
+import { getDefaultPath } from "@/lib/seo";
+import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import BusinessForm from "@/app/[locale]/(site)/business/components/BusinessForm";
+
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export function generateMetadata({
+  params,
+}: {
+  params: { locale: Locale };
+}): Metadata {
+  return getStaticPageMetadata("businessPage", params.locale);
+}
 
 function BusinessJsonLd() {
   const service = {
@@ -43,19 +58,6 @@ function BusinessJsonLd() {
       dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }}
     />
   );
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: Locale };
-}): Promise<Metadata> {
-  const locale = (await params).locale;
-  return getPageMetadata({
-    routeKey: "business",
-    ns: "businessPage",
-    locale,
-  });
 }
 
 type Slide = { id: string; title: string; text: string };

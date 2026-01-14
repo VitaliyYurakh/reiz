@@ -1,23 +1,25 @@
 import { getTranslations } from "next-intl/server";
 import UiImage from "@/components/ui/UiImage";
 import Icon from "@/components/Icon";
-import type { Locale } from "@/i18n/request";
+import { type Locale, locales } from "@/i18n/request";
 import type { Metadata } from "next";
-import { getDefaultPath, getPageMetadata } from "@/lib/seo";
+import { getDefaultPath } from "@/lib/seo";
+import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import ContactsForm from "@/app/[locale]/(site)/contacts/components/ContactsForm";
 
-export async function generateMetadata({
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export function generateMetadata({
   params,
 }: {
   params: { locale: Locale };
-}): Promise<Metadata> {
-  const locale = (await params).locale;
-  return getPageMetadata({
-    routeKey: "contacts",
-    ns: "contactsPage",
-    locale,
-  });
+}): Metadata {
+  return getStaticPageMetadata("contactsPage", params.locale);
 }
 
 export default async function ContactsPage() {

@@ -2,22 +2,24 @@ import type { Metadata } from "next";
 import UiImage from "@/components/ui/UiImage";
 import Icon from "@/components/Icon";
 import { getTranslations } from "next-intl/server";
-import type { Locale } from "@/i18n/request";
-import { getDefaultPath, getPageMetadata } from "@/lib/seo";
+import { type Locale, locales } from "@/i18n/request";
+import { getDefaultPath } from "@/lib/seo";
+import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import AccessibleTabs from "@/components/AccessibleTabs";
 
-export async function generateMetadata({
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export function generateMetadata({
   params,
 }: {
   params: { locale: Locale };
-}): Promise<Metadata> {
-  const locale = params.locale;
-  return getPageMetadata({
-    routeKey: "terms",
-    ns: "termsPage",
-    locale,
-  });
+}): Metadata {
+  return getStaticPageMetadata("termsPage", params.locale);
 }
 
 export default async function TermsPage() {
