@@ -123,15 +123,37 @@ export function generateProductSchema({
   const prices = car.rentalTariff?.map((t) => t.dailyPrice) || [];
   const minPrice = prices.length > 0 ? Math.min(...prices) : null;
 
-  // Build description from car specs
+  // Build description from car specs (localized)
+  const seatsText: Record<Locale, string> = {
+    uk: "місць",
+    ru: "мест",
+    en: "seats",
+  };
+  const descTemplates: Record<Locale, { withSpecs: string; withoutSpecs: string }> = {
+    uk: {
+      withSpecs: `Оренда ${carName} у Львові. {specs}. Подача 24/7.`,
+      withoutSpecs: `Оренда ${carName} у Львові. Преміум-сервіс, подача 24/7.`,
+    },
+    ru: {
+      withSpecs: `Аренда ${carName} во Львове. {specs}. Подача 24/7.`,
+      withoutSpecs: `Аренда ${carName} во Львове. Премиум-сервис, подача 24/7.`,
+    },
+    en: {
+      withSpecs: `Rent ${carName} in Lviv. {specs}. 24/7 delivery.`,
+      withoutSpecs: `Rent ${carName} in Lviv. Premium service, 24/7 delivery.`,
+    },
+  };
+
   const descParts: string[] = [];
   if (car.engineVolume) descParts.push(car.engineVolume);
   if (car.engineType?.[locale]) descParts.push(car.engineType[locale]);
   if (car.transmission?.[locale]) descParts.push(car.transmission[locale]);
-  if (car.seats) descParts.push(`${car.seats} мест`);
+  if (car.seats) descParts.push(`${car.seats} ${seatsText[locale]}`);
+
+  const template = descTemplates[locale] || descTemplates.uk;
   const description = descParts.length > 0
-    ? `Аренда ${carName} во Львове. ${descParts.join(", ")}. Подача 24/7.`
-    : `Аренда ${carName} во Львове. Премиум-сервис, подача 24/7.`;
+    ? template.withSpecs.replace("{specs}", descParts.join(", "))
+    : template.withoutSpecs;
 
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",

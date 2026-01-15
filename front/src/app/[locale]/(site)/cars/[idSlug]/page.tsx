@@ -120,9 +120,13 @@ export default async function CarPage({
         `${car.brand} ${car.model} ${car.yearOfManufacture}`.trim();
     const carUpperDisplayName = carDisplayName.toUpperCase();
 
-    let descriptionJson: LocalizedText | null = null;
+    // Витягуємо ТІЛЬКИ локалізований опис (не весь JSON з усіма мовами)
+    let localizedDescription = "";
     try {
-        descriptionJson = car.description ? JSON.parse(car.description || '{}') : null;
+        const descriptionJson: LocalizedText | null = car.description
+            ? JSON.parse(car.description || '{}')
+            : null;
+        localizedDescription = descriptionJson?.[locale]?.replaceAll("\\n", "<br/>") || "";
     } catch (e) {
         console.error("Error parsing description JSON:", e);
     }
@@ -141,8 +145,7 @@ export default async function CarPage({
                     <p
                         // biome-ignore lint/security/noDangerouslySetInnerHtml: <1>
                         dangerouslySetInnerHTML={{
-                            __html:
-                                descriptionJson?.[locale]?.replaceAll("\\n", "<br/>") || "",
+                            __html: localizedDescription,
                         }}
                     />
 
