@@ -25,8 +25,6 @@ type PageParams = {
   city: string;
 };
 
-export const dynamic = "force-static";
-
 const MAX_META_TITLE_LENGTH = 55;
 const DASH_SEPARATOR = " \u2014 ";
 
@@ -53,13 +51,13 @@ export async function generateStaticParams(): Promise<PageParams[]> {
   return params;
 }
 
-// Генерація метаданих для SEO (синхронна для SSG)
-export function generateMetadata({
+// Генерація метаданих для SEO
+export async function generateMetadata({
   params,
 }: {
-  params: PageParams;
-}): Metadata {
-  const { locale, city: citySlug } = params;
+  params: Promise<PageParams>;
+}): Promise<Metadata> {
+  const { locale, city: citySlug } = await params;
 
   const cityConfig = getCityBySlug(citySlug);
   const cityData = getCityLocalizedData(citySlug, locale);
