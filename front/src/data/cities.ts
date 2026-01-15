@@ -1309,7 +1309,7 @@ export const cityLocalizations: Record<
       sectionCars: "REIZ CARS IN RIVNE",
       sectionWelcome: "WELCOME TO REIZ RIVNE",
       subtitle:
-        "Car rental in Rivne with no deposit. 24/7 city and station delivery. Trips to Klevan, Ostroh and Dubno.",
+        "Car rental in Rivne with no deposit. 24/7 delivery & regional trips to Klevan, Ostroh and Dubno.",
       ogTitle: "Car Rental Rivne — Tunnel of Love Trips | REIZ",
       ogDescription:
         "Car rental in Rivne with no deposit. 24/7 city and station delivery. Trips to Klevan, Ostroh and Dubno.",
@@ -1440,7 +1440,7 @@ export const cityLocalizations: Record<
       h1: "Оренда авто у Стрию — подача 24/7 і маршрути в Карпати",
       sectionCars: "АВТОМОБІЛІ REIZ У СТРИЮ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ СТРИЙ",
-      subtitle: "Прокат авто у Стрию без застави. Подача 24/7 по місту. Маршрути до Сколе, Славського та Моршина.",
+      subtitle: "Оренда авто у Стрию без застави. Подача 24/7 по місту. Маршрути в Карпати — Сколе, Славське та Моршин.",
       ogTitle: "Оренда авто Стрий — Славське та Сколе | REIZ",
       ogDescription: "Прокат авто у Стрию без застави. Подача 24/7 по місту. Маршрути до Сколе, Славського та Моршина.",
     },
@@ -1957,7 +1957,7 @@ export const cityLocalizations: Record<
       sectionCars: "АВТОМОБИЛИ REIZ В ХУСТЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ХУСТ",
       subtitle:
-        "Аренда авто в Хусте от REIZ — новые автомобили, премиум-сервис и удобная подача для горных маршрутов.",
+        "Аренда авто в Хусте — Закарпатье и подача 24/7. Новые автомобили и премиум-сервис для горных маршрутов.",
       ogTitle: "Аренда авто Хуст — REIZ | Закарпатье 24/7",
       ogDescription:
         "Прокат авто в Хусте без залога. Подача 24/7 по городу. Поездки в Долину нарциссов, Мукачево и Рахов.",

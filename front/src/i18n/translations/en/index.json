@@ -254,7 +254,7 @@
     },
     "main_title": "Frequently Asked Questions About Car Rental",
     "faq_title": "FAQ",
-    "faq_pretitle": "FAQ description",
+    "faq_pretitle": "Find answers to frequently asked questions about car rental with REIZ.",
     "questions": [
       {
         "question": "CAN I RENT A CAR OVERNIGHT?",
@@ -599,7 +599,7 @@
     "mainTitle": "REIZ Blog",
     "hero": {
       "title": "REIZ Blog — car rental insights",
-      "subtitle": "Helpful tips, guides, and stories about car rentals. Learn more about traveling in Ukraine, rental rules, and our services."
+      "subtitle": "Discover car rental insights: helpful tips, guides, and stories. Learn more about traveling in Ukraine, rental rules, and our services."
     },
     "posts": [
       {
