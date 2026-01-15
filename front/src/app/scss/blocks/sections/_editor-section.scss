@@ -111,6 +111,15 @@
             line-height: 25px;
             color: #515151;
             margin-top: 20px;
+
+            ol .text-strong {
+                color: #000000;
+            }
+
+            ol li {
+                display: block;
+                gap: 0;
+            }
         }
         .editor_text:first-of-type {
             margin-top: 0;

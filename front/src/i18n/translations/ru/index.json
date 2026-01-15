@@ -1120,7 +1120,7 @@
       "cars": "Автомобили"
     },
     "meta": {
-      "title": "Аренда {brand} {model} во Львове — цена от {price}$ в сутки",
+      "title": "{brand} {model} аренда Львов — от {price}$/сут",
       "description": "Арендуйте {carName} во Львове. {specsText}{seats, plural, one {{seats} место} few {{seats} места} many {{seats} мест} other {{seats} места}}. Подача в аэропорт и по городу 24/7."
     },
     "title": "Аренда {brand} {model} {year} в Украине",
