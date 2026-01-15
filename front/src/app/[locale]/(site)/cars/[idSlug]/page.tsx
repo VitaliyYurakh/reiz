@@ -365,7 +365,7 @@ export default async function CarPage({
                         </div>
 
                         <CarClientProvider>
-                            <CarAside car={{...car, description: undefined}}/>
+                            <CarAside car={{...car, description: null}}/>
                         </CarClientProvider>
 
                         <div className="main-order-wrapper rentPage">
