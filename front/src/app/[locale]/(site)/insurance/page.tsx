@@ -7,7 +7,6 @@ import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 
-export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

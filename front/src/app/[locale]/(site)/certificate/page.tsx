@@ -9,7 +9,6 @@ import CertificateForm from "./components/CertificateForm";
 import CertificateFAQ from "./components/CertificateFAQ";
 import CertificateThemeColorSetter from "./components/ThemeColorSetter";
 
-export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

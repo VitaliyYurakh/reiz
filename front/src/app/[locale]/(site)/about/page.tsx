@@ -10,7 +10,6 @@ import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 type TeamItem = { name: string; position: string; imgAlt: string };
 type StatItem = { value: string; label: string };
 
-export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

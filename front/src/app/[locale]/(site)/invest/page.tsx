@@ -9,7 +9,6 @@ import { getTranslations } from "next-intl/server";
 import { type Locale, locales } from "@/i18n/request";
 import type { Metadata } from "next";
 
-export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

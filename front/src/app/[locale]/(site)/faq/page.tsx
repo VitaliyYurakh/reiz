@@ -7,7 +7,6 @@ import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import AccordionGroup from "@/components/AccordionGroup";
 import JsonLd from "@/components/JsonLd";
 
-export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
