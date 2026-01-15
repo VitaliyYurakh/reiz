@@ -24,20 +24,27 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 const getCachedCar = cache(async (id: number) => fetchCar(id));
 
 // Генерація статичних параметрів для всіх авто
+// При недоступності API (build в Docker) - fallback на динамічну генерацію
 export async function generateStaticParams() {
-  const cars = await fetchCarsForSitemap();
-  const params: { locale: Locale; idSlug: string }[] = [];
+  try {
+    const cars = await fetchCarsForSitemap();
+    const params: { locale: Locale; idSlug: string }[] = [];
 
-  for (const locale of locales) {
-    for (const car of cars) {
-      params.push({
-        locale,
-        idSlug: createCarIdSlug(car),
-      });
+    for (const locale of locales) {
+      for (const car of cars) {
+        params.push({
+          locale,
+          idSlug: createCarIdSlug(car),
+        });
+      }
     }
-  }
 
-  return params;
+    return params;
+  } catch (error) {
+    // API недоступний під час build - сторінки будуть згенеровані динамічно
+    console.warn("generateStaticParams: API unavailable, falling back to dynamic generation");
+    return [];
+  }
 }
 
 export async function generateMetadata({
