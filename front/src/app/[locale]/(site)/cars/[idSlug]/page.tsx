@@ -7,7 +7,7 @@ import CarGallerySlider from "@/app/[locale]/(site)/cars/[idSlug]/components/Car
 import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/modals/CarClientProvider";
 import ThemeColorSetter from "@/app/[locale]/(site)/cars/[idSlug]/components/ThemeColorSetter";
 import CarTabs from "@/app/[locale]/(site)/cars/[idSlug]/components/CarTabs";
-import {fetchCar} from "@/lib/api/cars";
+import {fetchCar, fetchCarsForSitemap} from "@/lib/api/cars";
 import {getTranslations} from "next-intl/server";
 import {LocalizedText} from "@/types/cars";
 import {createCarIdSlug, parseCarIdFromSlug} from "@/lib/utils/carSlug";
@@ -15,8 +15,30 @@ import {formatEngine} from "@/lib/utils/catalog-utils";
 import {notFound, redirect} from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import { generateVehicleSchema, generateProductSchema } from "@/lib/schema/vehicle";
+import { locales } from "@/i18n/request";
+import { cache } from "react";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+
+// Кешована функція для дедуплікації запитів до API
+const getCachedCar = cache(async (id: number) => fetchCar(id));
+
+// Генерація статичних параметрів для всіх авто
+export async function generateStaticParams() {
+  const cars = await fetchCarsForSitemap();
+  const params: { locale: Locale; idSlug: string }[] = [];
+
+  for (const locale of locales) {
+    for (const car of cars) {
+      params.push({
+        locale,
+        idSlug: createCarIdSlug(car),
+      });
+    }
+  }
+
+  return params;
+}
 
 export async function generateMetadata({
     params,
@@ -27,7 +49,7 @@ export async function generateMetadata({
     const carId = parseCarIdFromSlug(idSlug);
     if (carId === null) return {};
 
-    const car = await fetchCar(carId);
+    const car = await getCachedCar(carId);
     if (!car) return {};
 
     const brand = car.brand ?? "";
@@ -103,7 +125,7 @@ export default async function CarPage({
     if (carId === null) {
         notFound();
     }
-    const car = await fetchCar(carId);
+    const car = await getCachedCar(carId);
     if (!car) {
         notFound();
     }
