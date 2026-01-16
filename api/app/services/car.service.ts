@@ -6,14 +6,24 @@ import {Language} from '../types/dto.types';
 class CarService {
     async getAll() {
         return await prisma.car.findMany({
-            include: {carPhoto: true, carCountingRule: true, rentalTariff: true, segment: true},
+            include: {
+                carPhoto: true,
+                carCountingRule: {orderBy: {depositPercent: 'asc'}},
+                rentalTariff: true,
+                segment: true,
+            },
         });
     }
 
     async getOne(id: number) {
         return await prisma.car.findUnique({
             where: {id},
-            include: {carPhoto: true, carCountingRule: true, rentalTariff: true, segment: true},
+            include: {
+                carPhoto: true,
+                carCountingRule: {orderBy: {depositPercent: 'asc'}},
+                rentalTariff: true,
+                segment: true,
+            },
         });
     }
 
