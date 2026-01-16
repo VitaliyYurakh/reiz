@@ -46,7 +46,7 @@ export const gowunDodum = localFont({
 export const kyivType = localFont({
   src: [
     {
-      path: "../public/fonts/KyivTypeSans-Variable.ttf",
+      path: "../public/fonts/KyivTypeSans-Variable.woff2",
       weight: "100 900",
       style: "normal",
     },
