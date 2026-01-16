@@ -27,8 +27,8 @@ export default async function HeroSection() {
                 <img
                   src="/img/mercedesmobile.webp"
                   alt="Оренда авто Львів — Mercedes CLE | REIZ"
-                  width={575}
-                  height={720}
+                  width={824}
+                  height={1462}
                   fetchPriority="high"
                   decoding="async"
                 />
