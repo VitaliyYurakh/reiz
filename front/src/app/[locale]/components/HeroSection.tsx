@@ -1,4 +1,3 @@
-import UiImage from "@/components/ui/UiImage";
 import OrderForm from "./OrderForm";
 import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
 import { getTranslations } from "next-intl/server";
@@ -14,30 +13,26 @@ export default async function HeroSection() {
         <div className="swiper-container">
           <ul className="swiper-wrapper">
             <li className="swiper-slide">
-              {/* Mobile hero image - LCP critical */}
-              <UiImage
-                src="/img/mercedesmobile.webp"
-                alt="Аренда авто во Львове — Mercedes CLE | REIZ Rental Cars"
-                width={575}
-                height={720}
-                hero
-                quality={70}
-                sizes="100vw"
-                className="hero-image-mobile"
-                fetchPriority="high"
-              />
-              {/* Desktop hero image - LCP critical */}
-              <UiImage
-                src="/img/car/mercedescle2.webp"
-                alt="Аренда авто во Львове — Mercedes CLE | REIZ Rental Cars"
-                width={1440}
-                height={902}
-                hero
-                quality={95}
-                sizes="100vw"
-                className="hero-image-desktop"
-                fetchPriority="high"
-              />
+              {/* Single picture element - browser loads only the needed image */}
+              <picture className="hero-image">
+                {/* Desktop: min-width 577px */}
+                <source
+                  media="(min-width: 577px)"
+                  srcSet="/img/car/mercedescle2.webp"
+                  type="image/webp"
+                  width={1440}
+                  height={902}
+                />
+                {/* Mobile: default (max-width 576px) */}
+                <img
+                  src="/img/mercedesmobile.webp"
+                  alt="Оренда авто Львів — Mercedes CLE | REIZ"
+                  width={575}
+                  height={720}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </picture>
             </li>
           </ul>
         </div>

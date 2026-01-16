@@ -84,22 +84,22 @@ export default async function RootLayout({
         />
 
         {/* Preload LCP hero images - CRITICAL for performance */}
-        {/* Desktop hero - mercedescle2.webp (not 1!) */}
+        {/* Desktop hero (min-width: 577px) - matches <picture> source media */}
         <link
           rel="preload"
           as="image"
           href="/img/car/mercedescle2.webp"
           type="image/webp"
-          media="(min-width: 1025px)"
+          media="(min-width: 577px)"
           fetchPriority="high"
         />
-        {/* Mobile hero */}
+        {/* Mobile hero (max-width: 576px) - matches <picture> default img */}
         <link
           rel="preload"
           as="image"
           href="/img/mercedesmobile.webp"
           type="image/webp"
-          media="(max-width: 1024px)"
+          media="(max-width: 576px)"
           fetchPriority="high"
         />
 
