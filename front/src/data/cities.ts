@@ -579,9 +579,9 @@ export const cityLocalizations: Record<
   },
   lviv: {
     uk: {
-      title: "Прокат авто у Львові: Без застави. Нові моделі",
+      title: "Оренда авто Львів | Оформлення за 15 хвилин 24/7 | REIZ",
       metaDescription:
-        "Оренда машин для поїздок по місту та Карпатах. Оформлення за 15 хв. Стандартні тарифи або опція «Без застави». Підтримка в дорозі 24/7.",
+        "Мінімум документів, швидка видача авто. Офіційний договір, можливий безготівковий розрахунок. Авто бізнес та економ-класу в наявності.",
       h1: "Оренда авто у Львові",
       sectionCars: "АВТОМОБІЛІ REIZ У ЛЬВОВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЛЬВІВ",
@@ -592,9 +592,9 @@ export const cityLocalizations: Record<
         "Прокат авто у Львові. Без застави. Великий автопарк. Подача в аеропорт та по місту. Нові авто.",
     },
     ru: {
-      title: "Прокат авто во Львове: Без залога. Новые модели",
+      title: "Аренда авто Львов | Оформление за 15 минут 24/7 | REIZ",
       metaDescription:
-        "Аренда машин во Львове для поездок по городу и Карпатам. Оформление за 15 мин. Стандартные тарифы или опция «Без залога». Поддержка в дороге 24/7.",
+        "Минимум документов, быстрая выдача авто. Официальный договор, возможен безналичный расчет. Авто бизнес и эконом-класса в наличии.",
       h1: "Аренда авто во Львове",
       sectionCars: "АВТОМОБИЛИ REIZ ВО ЛЬВОВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЛЬВОВ",
@@ -605,9 +605,9 @@ export const cityLocalizations: Record<
         "Прокат авто во Львове. Без залога. Большой автопарк. Подача в аэропорт и по городу. Новые авто.",
     },
     en: {
-      title: "Car Rental in Lviv: No Deposit & New Fleet",
+      title: "Car Rental Lviv | 15-Minute Booking 24/7 | REIZ",
       metaDescription:
-        "Rent a car in Lviv for city trips or the Carpathians. 15-min booking. Standard rates or No Deposit option. 24/7 Roadside Assistance. Book your car online!",
+        "Minimal paperwork, fast car delivery. Official contract, cashless payment available. Business and economy class cars in stock.",
       h1: "Car Rental in Lviv — No Deposit & 24/7 Delivery",
       sectionCars: "REIZ CARS IN LVIV",
       sectionWelcome: "WELCOME TO REIZ LVIV",
@@ -784,7 +784,7 @@ export const cityLocalizations: Record<
   },
   bukovel: {
     uk: {
-      title: "Оренда авто в Буковелі без застави — Позашляховики 24/7",
+      title: "Оренда авто Буковель: Швидка подача в будь-яку точку курорту",
       metaDescription:
         "Прокат авто в Буковелі офіційно. Позашляховики та повнопривідні авто для гір. Доставка на курорт 24/7. Нові машини. Бронюйте!",
       h1: "Оренда авто в Буковелі",
@@ -797,7 +797,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Буковелі. Без застави. Позашляховики та повнопривідні авто. Доставка на курорт. Нові авто.",
     },
     ru: {
-      title: "Аренда авто в Буковеле без залога — Внедорожники 24/7",
+      title: "Аренда авто Буковель: Быстрая подача в любую точку курорта",
       metaDescription:
         "Прокат авто в Буковеле официально. Внедорожники и полноприводные авто для гор. Доставка на курорт 24/7. Новые машины. Бронируйте!",
       h1: "Аренда авто в Буковеле",
@@ -810,7 +810,7 @@ export const cityLocalizations: Record<
         "Прокат авто в Буковеле. Без залога. Внедорожники и полноприводные авто. Доставка на курорт. Новые авто.",
     },
     en: {
-      title: "Car Rental Bukovel — No Deposit, SUVs for Mountains",
+      title: "Car Rental Bukovel: Fast Delivery Anywhere on the Resort",
       metaDescription:
         "Rent a car in Bukovel officially. SUVs and AWD vehicles for mountain trips. Resort delivery 24/7. New fleet. Book now!",
       h1: "Car Rental in Bukovel",
