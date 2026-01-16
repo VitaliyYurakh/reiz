@@ -71,7 +71,7 @@ const nextConfig: NextConfig = {
             "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com https://reiz.com.ua",
             "font-src 'self' data:",
             "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://grwapi.net https://*.grwapi.net https://reiz.com.ua https://connect.facebook.net https://www.facebook.com",
-            "frame-src 'self' https://www.googletagmanager.com https://www.facebook.com https://td.doubleclick.net",
+            "frame-src 'self' https://www.googletagmanager.com https://www.facebook.com https://td.doubleclick.net https://www.google.com",
             "worker-src 'self' blob:",
             "child-src 'self' blob:",
             "object-src 'none'",
