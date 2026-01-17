@@ -286,12 +286,29 @@ export default function Catalog({cars, sectionTitle}: CatalogProps) {
         };
     }, [filteredWithoutPrice]);
 
-    // Сортування відфільтрованих авто по ціні "Більше 29 днів"
+    // Функція для визначення пріоритету авто (менше = вище в списку)
+    const getCarPriority = (car: Car): number => {
+        const hasDiscount = car.discount && car.discount > 0;
+        const isAvailable = car.isAvailable;
+
+        if (hasDiscount && isAvailable) return 0; // Акція + доступно
+        if (isAvailable) return 1;                 // Доступно (без акції)
+        if (hasDiscount) return 2;                 // Акція + недоступно
+        return 3;                                   // Недоступно
+    };
+
+    // Сортування відфільтрованих авто
     const sortedCars = useMemo(() => {
+        // Дефолтне сортування: за пріоритетом (акція+доступність)
         if (sortKey === "default") {
-            return filtered;
+            return [...filtered].sort((a, b) => {
+                const priorityA = getCarPriority(a);
+                const priorityB = getCarPriority(b);
+                return priorityA - priorityB;
+            });
         }
 
+        // Сортування по ціні "Більше 29 днів"
         return [...filtered].sort((a, b) => {
             const priceA = getLongTermPrice(a);
             const priceB = getLongTermPrice(b);

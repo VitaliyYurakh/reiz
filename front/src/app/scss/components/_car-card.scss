@@ -371,7 +371,7 @@
     white-space: nowrap;
 
     &--available {
-      color: #214230;
+      color: var(--cl-o);
 
       svg {
         flex-shrink: 0;
@@ -402,11 +402,13 @@
 
     &--discount {
       color: #E63946;
+      padding: 4px 4px 4px 9px;
+      font-weight: 500;
 
       svg {
         flex-shrink: 0;
-        width: 16px;
-        height: 16px;
+        width: 21px;
+        height: 21px;
       }
     }
 
