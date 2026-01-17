@@ -357,3 +357,12 @@ fieldset {
         }
     }
 }
+
+// Strikethrough text for discounted prices
+.text-strikethrough {
+    text-decoration: line-through;
+    opacity: 0.6;
+    font-size: 0.9em;
+    color: var(--cl-o);
+    margin-right: 8px;
+}

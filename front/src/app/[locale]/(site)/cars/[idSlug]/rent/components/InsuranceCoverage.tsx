@@ -6,20 +6,24 @@ import { useCurrency } from "@/context/CurrencyContext";
 
 interface InsuranceCoverageProps {
   dailyPrice: number;
+  dailyPriceBeforeDiscount: number;
   totalPrice: number;
   depositAmount: number;
   setSelectedPlanId: (planId: number) => void;
   carCountingRule: CarCountingRule[];
   selectedPlanId: number;
+  hasDiscount: boolean;
 }
 
 export default function InsuranceCoverage({
   dailyPrice,
+  dailyPriceBeforeDiscount,
   totalPrice,
   depositAmount,
   setSelectedPlanId,
   carCountingRule,
   selectedPlanId,
+  hasDiscount,
 }: InsuranceCoverageProps) {
   const t = useTranslations("carRentPage.insuranceCoverage");
   const { formatPrice, formatDeposit } = useCurrency();
@@ -125,6 +129,11 @@ export default function InsuranceCoverage({
         </div>
         <div className="insurance__price">
           <div>
+            {hasDiscount && (
+              <span className="text-strikethrough">
+                {formatPrice(dailyPriceBeforeDiscount)}
+              </span>
+            )}
             <span className="text-strong">{formatPrice(dailyPrice)}</span> {t("footer.pricePerDay")}
           </div>
           <div className="insurance__price-sub">

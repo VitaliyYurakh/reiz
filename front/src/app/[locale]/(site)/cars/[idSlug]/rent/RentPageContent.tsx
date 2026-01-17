@@ -256,8 +256,12 @@ export default function RentPageContent({
   const pricePercent = selectedPlan?.pricePercent ?? 0;
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
-  const dailyPrice =
+  const dailyPriceBeforeDiscount =
     (activeTariff?.dailyPrice ?? baseDailyPrice) * (1 + pricePercent / 100);
+  const discountPercent = car.discount ?? 0;
+  const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
+  const hasDiscount = discountPercent > 0;
+
   const depositAmount =
     (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100);
 
@@ -493,11 +497,13 @@ export default function RentPageContent({
                   <div className="main-form">
                     <InsuranceCoverage
                       dailyPrice={dailyPrice}
+                      dailyPriceBeforeDiscount={dailyPriceBeforeDiscount}
                       totalPrice={rentalCost}
                       depositAmount={depositAmount}
                       carCountingRule={car.carCountingRule}
                       selectedPlanId={selectedPlanId}
                       setSelectedPlanId={setSelectedPlanId}
+                      hasDiscount={hasDiscount}
                     />
 
                     <div className="main-form__wrapp">

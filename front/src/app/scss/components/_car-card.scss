@@ -108,6 +108,14 @@
     font-size: 14px;
     color: var(--cl-a);
 
+    .text-strikethrough {
+      text-decoration: line-through;
+      opacity: 0.6;
+      font-size: 13px;
+      color: var(--cl-o);
+      margin-right: 8px;
+    }
+
     @include for-laptop {
       b,
       .text-strong {
@@ -117,6 +125,12 @@
       i {
         font-weight: 400;
         font-style: normal;
+      }
+    }
+
+    @include laptop {
+      .text-strikethrough {
+        font-size: 12px;
       }
     }
 
@@ -167,14 +181,14 @@
     gap: 10px;
     justify-content: space-between;
     border-bottom: 1px solid var(--cl-k);
-    padding: 10px clamp(12px, 1.4706vw, 20px);
+    padding: 10px 4px 10px clamp(12px, 1.4706vw, 20px);
     height: 45px;
     grid-column: 1/-1;
 
     @include laptop {
       order: -3;
       height: fit-content;
-      padding: 5px 0 0;
+      padding: 5px 3px 0 0;
       margin-bottom: -6px;
       border-bottom: none;
     }

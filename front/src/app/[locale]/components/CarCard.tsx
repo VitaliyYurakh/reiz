@@ -77,7 +77,11 @@ export default function CarCard({ car }: CarCardProps) {
   const pricePercent = selectedPlan?.pricePercent ?? 0;
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
-  const dailyPrice = baseDailyPrice * (1 + pricePercent / 100);
+  const dailyPriceBeforeDiscount = baseDailyPrice * (1 + pricePercent / 100);
+  const discountPercent = car.discount ?? 0;
+  const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
+  const hasDiscount = discountPercent > 0;
+
   const depositAmount = baseDeposit * (1 - depositPercent / 100);
   const rentalCost = hasDates ? dailyPrice * totalDays : 0;
 
@@ -218,7 +222,8 @@ export default function CarCard({ car }: CarCardProps) {
         {hasDates ? null : (
           <ul className="car-card__list">
             {sortedTariffs.map((tariff, index) => {
-              const adjustedPrice = tariff.dailyPrice * (1 + (selectedPlan?.pricePercent ?? 0) / 100);
+              const priceBeforeDiscount = tariff.dailyPrice * (1 + (selectedPlan?.pricePercent ?? 0) / 100);
+              const finalPrice = Math.round(priceBeforeDiscount * (1 - discountPercent / 100));
 
               return (
               <li key={tariff.id ?? index} className="car-card__item">
@@ -228,7 +233,12 @@ export default function CarCard({ car }: CarCardProps) {
                   )}
                 </span>
                 <span className="car-card__value">
-                  <span className="text-strong">{formatPrice(adjustedPrice)}</span>
+                  {hasDiscount && (
+                    <span className="text-strikethrough">
+                      {formatPrice(priceBeforeDiscount)}
+                    </span>
+                  )}
+                  <span className="text-strong">{formatPrice(finalPrice)}</span>
                   <i>/</i>
                   {tCatalog("rates.perDay")}
                 </span>
@@ -308,6 +318,11 @@ export default function CarCard({ car }: CarCardProps) {
                   {tCatalog("total.dailyLabel")}
                 </span>
                 <span className="car-card__value">
+                  {hasDiscount && (
+                    <span className="text-strikethrough">
+                      {formatPrice(dailyPriceBeforeDiscount)}
+                    </span>
+                  )}
                   <span className="text-strong">{formatPrice(dailyPrice)}</span>
                 </span>
               </li>
