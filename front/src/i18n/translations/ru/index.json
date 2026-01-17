@@ -103,7 +103,9 @@
         "badges": {
           "withDeposit": "С залогом",
           "coverage50": "Покрытие 50%",
-          "coverage100": "Покрытие 100%"
+          "coverage100": "Покрытие 100%",
+          "available": "Доступно сейчас",
+          "contact": "Узнать наличие"
         },
         "rates": {
           "range1": "1 – 2 дня",

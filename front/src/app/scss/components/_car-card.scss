@@ -353,6 +353,65 @@
     }
   }
 
+  &__badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 16px;
+    background: #E8E8E8;
+    font-weight: 400;
+    font-size: 13px;
+    white-space: nowrap;
+
+    &--available {
+      color: #214230;
+
+      svg {
+        flex-shrink: 0;
+      }
+    }
+
+    &--new {
+      color: #F25C05;
+
+      &::before {
+        width: 6px;
+        height: 6px;
+        border-radius: 100%;
+        background: #F25C05;
+        display: block;
+        content: "";
+        flex-shrink: 0;
+      }
+    }
+
+    &--contact {
+      color: #6B6B6B;
+
+      svg {
+        flex-shrink: 0;
+      }
+    }
+
+    @include tablet {
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+
+    @include mobile {
+      font-size: 11px;
+      padding: 3px 6px;
+    }
+  }
+
+  // Legacy support
   &__label {
     font-weight: 500;
     font-size: 14px;

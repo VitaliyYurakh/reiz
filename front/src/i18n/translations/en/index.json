@@ -103,7 +103,9 @@
         "badges": {
           "withDeposit": "With deposit",
           "coverage50": "50% coverage",
-          "coverage100": "100% coverage"
+          "coverage100": "100% coverage",
+          "available": "Available now",
+          "contact": "Check availability"
         },
         "rates": {
           "range1": "1 – 2 days",
