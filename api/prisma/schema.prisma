@@ -39,6 +39,7 @@ model Car {
   discount          Int?
   configuration     Json?
   isNew             Boolean @default(false) @map("is_new")
+  isAvailable       Boolean @default(false) @map("is_available")
   alt               String  @default("image")
 
   rentalTariff    RentalTariff[]

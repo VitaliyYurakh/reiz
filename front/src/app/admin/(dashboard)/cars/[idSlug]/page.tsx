@@ -109,6 +109,8 @@ export default function CarEditPage() {
     const [newConfigItem, setNewConfigItem] = useState({ uk: '', ru: '', en: '' });
 
     const [currentDiscount, setCurrentDiscount] = useState<number | null>(null);
+    const [isNew, setIsNew] = useState<boolean>(false);
+    const [isAvailable, setIsAvailable] = useState<boolean>(false);
 
     const loadData = async () => {
         try {
@@ -151,6 +153,8 @@ export default function CarEditPage() {
         }
 
         setCurrentDiscount(data.discount || null);
+        setIsNew(data.isNew || false);
+        setIsAvailable(data.isAvailable || false);
     };
 
     useEffect(() => {
@@ -273,6 +277,21 @@ export default function CarEditPage() {
         }
         try {
             await updateCar(id, { discount: discountValue });
+            await loadData();
+        } catch (e) { alert(e); }
+    };
+
+    // --- АТРИБУТИ (NEW, AVAILABLE) ---
+    const handleToggleNew = async () => {
+        try {
+            await updateCar(id, { isNew: !isNew });
+            await loadData();
+        } catch (e) { alert(e); }
+    };
+
+    const handleToggleAvailable = async () => {
+        try {
+            await updateCar(id, { isAvailable: !isAvailable });
             await loadData();
         } catch (e) { alert(e); }
     };
@@ -595,8 +614,24 @@ export default function CarEditPage() {
                             )
                         })}
                         <label className="radio-checkbox mode">
-                            <input type="checkbox" name="new" className="radio-checkbox__field" />
+                            <input
+                                type="checkbox"
+                                name="new"
+                                className="radio-checkbox__field"
+                                checked={isNew}
+                                onChange={handleToggleNew}
+                            />
                             <span className="radio-checkbox__content">NEW</span>
+                        </label>
+                        <label className="radio-checkbox mode">
+                            <input
+                                type="checkbox"
+                                name="available"
+                                className="radio-checkbox__field"
+                                checked={isAvailable}
+                                onChange={handleToggleAvailable}
+                            />
+                            <span className="radio-checkbox__content">Доступно</span>
                         </label>
                     </div>
                 </div>

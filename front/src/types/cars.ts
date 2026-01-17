@@ -58,6 +58,7 @@ export interface Car {
   discount: number | null;
   configuration: LocalizedText[] | null;
   isNew: boolean;
+  isAvailable: boolean;
   alt: string | null;
   carPhoto: CarPhoto[];
   carCountingRule: CarCountingRule[];
