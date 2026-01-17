@@ -271,8 +271,8 @@ export default function CarEditPage() {
 
     // --- СКИДКИ ---
     const handleChangeDiscount = async (val: string) => {
-        let discountValue = 0;
-        if (val !== 'new') {
+        let discountValue: number | null = null;
+        if (val !== 'none') {
             discountValue = parseInt(val) * -1;
         }
         try {
@@ -596,6 +596,17 @@ export default function CarEditPage() {
                 </div>
                 <div className="main-info__inner">
                     <div id="discount" className="main-info__box">
+                        <label className="radio-checkbox mode">
+                            <input
+                                type="radio"
+                                name="discount"
+                                value="none"
+                                className="radio-checkbox__field"
+                                checked={currentDiscount === null || currentDiscount === 0}
+                                onChange={() => handleChangeDiscount('none')}
+                            />
+                            <span className="radio-checkbox__content">Без скидки</span>
+                        </label>
                         {['-5%', '-10%', '-15%', '-20%', '-25%', '-30%', '-35%'].map(val => {
                             const numVal = parseInt(val) * -1;
                             const isChecked = currentDiscount === numVal;

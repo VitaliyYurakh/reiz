@@ -400,6 +400,16 @@
       }
     }
 
+    &--discount {
+      color: #E63946;
+
+      svg {
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
     @include tablet {
       font-size: 12px;
       padding: 3px 8px;
