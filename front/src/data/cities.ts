@@ -541,11 +541,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Київ: Прокат машин без водія | Доступні ціни | Подача на Вокзал",
       metaDescription:
         "Шукаєте прокат авто в Києві? ⭐ Без прихованих платежів. ⚡ Подача на Центральний залізничний вокзал та в центр (Печерськ, Поділ). 🚗 Автопарк 2023-2025. 🛡️ Повне КАСКО. Бронюйте онлайн!",
-      h1: "Оренда авто в Києві: Комфорт та мобільність столиці",
+      h1: "Оренда авто у Києві — без застави та подача 24/7",
       sectionCars: "АВТОМОБІЛІ REIZ У КИЄВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ КИЇВ",
       subtitle:
-        "Потрібна оренда авто в Києві для бізнесу чи особистих поїздок? В умовах сучасного трафіку столиці ми пропонуємо маневрені компактні авто та статусні седани бізнес-класу. Швидка подача в будь-який район: Оболонь, Лівий берег, Позняки, а також зустріч на Залізничному вокзалі. Доступна послуга оренди без застави та довгостроковий прокат для юридичних осіб. Наші авто проходять регулярну санітарну обробку та техогляд.",
+        "Оренда авто у Києві від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
       ogTitle: "Оренда авто Київ: Прокат машин без водія | Доступні ціни | Подача на Вокзал",
       ogDescription:
         "Шукаєте прокат авто в Києві? ⭐ Без прихованих платежів. ⚡ Подача на Центральний залізничний вокзал та в центр (Печерськ, Поділ). 🚗 Автопарк 2023-2025. 🛡️ Повне КАСКО. Бронюйте онлайн!",
@@ -567,11 +567,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Kyiv: Rent a Car | Best Prices | Railway Station Pickup",
       metaDescription:
         "Best car rental in Kyiv (Kiev). ⭐ New fleet 2023-2025. ⚡ Delivery to Railway Station and City Center hotels. 🛡️ Full insurance & English support. Book now!",
-      h1: "Car Rental in Kyiv: Your Mobility Partner",
+      h1: "Car Rental in Kyiv — No Deposit & 24/7 Delivery",
       sectionCars: "REIZ CARS IN KYIV",
       sectionWelcome: "WELCOME TO REIZ KYIV",
       subtitle:
-        "Looking for reliable car rental in Kyiv? Whether for diplomatic missions, business meetings, or city exploration, we offer a wide range of vehicles. Enjoy transparent pricing, 24/7 English-speaking support, and flexible rental terms. We specialize in transfers from the Central Railway Station and delivery to all major districts.",
+        "Car rental in Kyiv from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
       ogTitle: "Car Rental Kyiv: Rent a Car | Best Prices | Railway Station Pickup",
       ogDescription:
         "Best car rental in Kyiv (Kiev). ⭐ New fleet 2023-2025. ⚡ Delivery to Railway Station and City Center hotels. 🛡️ Full insurance & English support. Book now!",
@@ -582,11 +582,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Львів: Прокат біля Вокзалу | Виїзд за кордон (Зелена карта)",
       metaDescription:
         "Прокат авто у Львові. 🚗 Подача на залізничний вокзал. 🌍 Авто для виїзду за кордон (Польща, Європа). ⭐ Оренда без застави (опція). 🏔️ Поїздки в Карпати.",
-      h1: "Оренда авто у Львові: Ворота в Європу та Карпати",
+      h1: "Оренда авто у Львові",
       sectionCars: "АВТОМОБІЛІ REIZ У ЛЬВОВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЛЬВІВ",
       subtitle:
-        "Львів — головний логістичний хаб Заходу України. Оренда авто у Львові дозволить вам вільно планувати свій маршрут до Карпат або кордону. Ми пропонуємо спеціальні умови для виїзду за кордон: оформлення 'Зеленої карти' та довіреності. Зручна подача авто на Головний залізничний вокзал Львова (пл. Двірцева) цілодобово. Великий вибір кросоверів для гірських доріг.",
+        "Прокат авто у Львові без застави. Подача в аеропорт LWO, на вокзал або за адресою. Оформлення за 15 хвилин.",
       ogTitle: "Оренда авто Львів: Прокат біля Вокзалу | Виїзд за кордон (Зелена карта)",
       ogDescription:
         "Прокат авто у Львові. 🚗 Подача на залізничний вокзал. 🌍 Авто для виїзду за кордон (Польща, Європа). ⭐ Оренда без застави (опція). 🏔️ Поїздки в Карпати.",
@@ -608,11 +608,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Lviv: Railway Station Pick-up | Cross-Border Rentals",
       metaDescription:
         "Rent a car in Lviv. 🚗 Perfect for trips to Carpathians or Poland. ⚡ 24/7 Railway station delivery. ⭐ SUV and Economy cars. Transparent documents for border crossing.",
-      h1: "Rent a Car in Lviv: Gateway to the West",
+      h1: "Car Rental in Lviv — No Deposit & 24/7 Delivery",
       sectionCars: "REIZ CARS IN LVIV",
       sectionWelcome: "WELCOME TO REIZ LVIV",
       subtitle:
-        "Explore Lviv and the Carpathian region with comfort. Our car rental service in Lviv offers vehicles suitable for mountain roads and long-distance travel. Planning a trip abroad? We provide cross-border rentals with all necessary documentation for EU travel. Pick up your car directly at the Lviv Railway Station immediately upon arrival.",
+        "Car rental in Lviv with no deposit. Delivery to LWO airport, train station or your address. 15-minute paperwork.",
       ogTitle: "Car Rental Lviv: Railway Station Pick-up | Cross-Border Rentals",
       ogDescription:
         "Rent a car in Lviv. 🚗 Perfect for trips to Carpathians or Poland. ⚡ 24/7 Railway station delivery. ⭐ SUV and Economy cars. Transparent documents for border crossing.",
@@ -664,11 +664,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Одеса: Прокат машин Центр, Таїрове, Аркадія | Бізнес клас",
       metaDescription:
         "Прокат авто в Одесі. 🌊 Найкращі ціни на бізнес-клас. 🚗 Подача в Аркадію та Центр. ⚡ Швидке оформлення. 🛡️ Страховка включена. Оренда без водія подобово.",
-      h1: "Прокат авто в Одесі: Мобільність та Статус",
+      h1: "Оренда авто в Одесі — без застави та подача 24/7",
       sectionCars: "АВТОМОБІЛІ REIZ В ОДЕСІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ОДЕСА",
       subtitle:
-        "Одеса вимагає стилю та мобільності. Орендуйте авто для ділових зустрічей в порту або відпочинку біля моря. Ми обслуговуємо всі райони: Центр (Дерибасівська), Аркадія, Таїрове, Фонтан. В наявності преміум-авто (Mercedes, Toyota Camry) для створення іміджу та комфортні економ-варіанти з потужними кондиціонерами для одеського літа.",
+        "Прокат авто в Одесі без застави. Подача в аеропорт ODS, на Аркадію, в порт або за адресою. Кабріолети та позашляховики.",
       ogTitle: "Оренда авто Одеса: Прокат машин Центр, Таїрове, Аркадія | Бізнес клас",
       ogDescription:
         "Прокат авто в Одесі. 🌊 Найкращі ціни на бізнес-клас. 🚗 Подача в Аркадію та Центр. ⚡ Швидке оформлення. 🛡️ Страховка включена. Оренда без водія подобово.",
@@ -690,11 +690,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Odesa: City Center & Arcadia | Business Class",
       metaDescription:
         "Rent a car in Odesa. 🌊 Luxury and Economy cars. ⚡ Fast booking in Arcadia & Center. 🛡️ Insurance included. Flexible terms for long-term rental.",
-      h1: "Car Rental in Odesa: Drive with Comfort",
+      h1: "Car Rental in Odesa — No Deposit & 24/7 Delivery",
       sectionCars: "REIZ CARS IN ODESA",
       sectionWelcome: "WELCOME TO REIZ ODESA",
       subtitle:
-        "Experience Odesa with our premium car rental service. From luxury sedans for business needs to practical city cars, we have the right vehicle for you. We offer flexible pickup locations throughout Odesa, including the historic center and major business districts. Transparent contracts and no hidden fees.",
+        "Car rental in Odesa with no deposit. Delivery to ODS airport, Arcadia beach, port or your address. Convertibles and SUVs available.",
       ogTitle: "Car Rental Odesa: City Center & Arcadia | Business Class",
       ogDescription:
         "Rent a car in Odesa. 🌊 Luxury and Economy cars. ⚡ Fast booking in Arcadia & Center. 🛡️ Insurance included. Flexible terms for long-term rental.",
@@ -705,11 +705,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Дніпро: Прокат без водія | Позашляховики та Пікапи",
       metaDescription:
         "Оренда авто в Дніпрі. 🏭 Авто для бізнесу та волонтерів. 🚙 Позашляховики 4х4. ⚡ Працюємо з ПДВ для юр. осіб. 🛡️ Технічно справні авто.",
-      h1: "Оренда авто у Дніпрі: Надійність та Сила",
+      h1: "Оренда авто у Дніпрі",
       sectionCars: "АВТОМОБІЛІ REIZ У ДНІПРІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ДНІПРО",
       subtitle:
-        "Дніпро — індустріальне серце країни. Наш прокат авто пропонує надійні рішення: від бюджетних авто (Ravon, Ford) до потужних позашляховиків та пікапів для складних завдань. Можливість оренди з ПДВ, довгостроковий прокат для підприємств. Всі авто проходять посилений технічний контроль перед видачею.",
+        "Прокат авто у Дніпрі без застави для ділових поїздок. Подача в аеропорт DNK та по місту. Бізнес-клас та довгострокова оренда.",
       ogTitle: "Оренда авто Дніпро: Прокат без водія | Позашляховики та Пікапи",
       ogDescription:
         "Оренда авто в Дніпрі. 🏭 Авто для бізнесу та волонтерів. 🚙 Позашляховики 4х4. ⚡ Працюємо з ПДВ для юр. осіб. 🛡️ Технічно справні авто.",
@@ -731,11 +731,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Dnipro: SUV & Pickup Rental | Business Services",
       metaDescription:
         "Car rental services in Dnipro. 🏭 Reliable fleet for business and industrial needs. 🚙 4x4 SUVs available. ⚡ VAT invoices for companies.",
-      h1: "Rent a Car in Dnipro: Professional Service",
+      h1: "Car Rental in Dnipro",
       sectionCars: "REIZ CARS IN DNIPRO",
       sectionWelcome: "WELCOME TO REIZ DNIPRO",
       subtitle:
-        "Reliable car rental in Dnipro for professionals. Whether you need a rugged vehicle for regional travel or a fleet for your company, we provide tailored solutions. Our cars undergo strict technical inspections to ensure safety on all road conditions in the region.",
+        "Car rental in Dnipro with no deposit for business trips. Delivery to DNK airport and city-wide. Business class and long-term rental.",
       ogTitle: "Car Rental Dnipro: SUV & Pickup Rental | Business Services",
       ogDescription:
         "Car rental services in Dnipro. 🏭 Reliable fleet for business and industrial needs. 🚙 4x4 SUVs available. ⚡ VAT invoices for companies.",
@@ -746,11 +746,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Харків: Прокат машин Вокзал | Безпечний сервіс",
       metaDescription:
         "Прокат авто у Харкові. ⚡ Подача на Південний вокзал. 🚗 Економ та Середній клас. 🛡️ Гнучкі умови повернення. Ми працюємо!",
-      h1: "Прокат авто в Харкові: Залишайтеся мобільними",
+      h1: "Оренда авто у Харкові",
       sectionCars: "АВТОМОБІЛІ REIZ У ХАРКОВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ХАРКІВ",
       subtitle:
-        "Ми продовжуємо працювати для вас у Харкові. Пропонуємо оренду авто з подачею до Південного вокзалу або за вашою адресою в безпечних районах. Спрощена процедура перевірки документів, лояльні умови щодо застави та підтримка 24/7. Автомобілі готові до будь-яких поїздок.",
+        "Прокат авто у Харкові без застави. Подача на вокзал та по місту 24/7. Трансфери в Київ та Дніпро.",
       ogTitle: "Оренда авто Харків: Прокат машин Вокзал | Безпечний сервіс",
       ogDescription:
         "Прокат авто у Харкові. ⚡ Подача на Південний вокзал. 🚗 Економ та Середній клас. 🛡️ Гнучкі умови повернення. Ми працюємо!",
@@ -772,11 +772,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Kharkiv: Railway Station Pickup | We are Open",
       metaDescription:
         "Rent a car in Kharkiv. ⚡ Delivery to Railway Station. 🚗 Economy and Mid-size cars. 🛡️ 24/7 Support. Safe and reliable booking in 2025.",
-      h1: "Car Rental in Kharkiv: Resilience and Mobility",
+      h1: "Car Rental in Kharkiv",
       sectionCars: "REIZ CARS IN KHARKIV",
       sectionWelcome: "WELCOME TO REIZ KHARKIV",
       subtitle:
-        "Reliable car rental services in Kharkiv. We offer flexible rental terms to adapt to the current situation. Pick up your car at the railway station or any convenient location in the city. Our fleet is maintained to the highest standards of safety.",
+        "Car rental in Kharkiv with no deposit. Delivery to train station and city-wide 24/7. Transfers to Kyiv and Dnipro.",
       ogTitle: "Car Rental Kharkiv: Railway Station Pickup | We are Open",
       ogDescription:
         "Rent a car in Kharkiv. ⚡ Delivery to Railway Station. 🚗 Economy and Mid-size cars. 🛡️ 24/7 Support. Safe and reliable booking in 2025.",
@@ -787,11 +787,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Буковель, Яремче: Джипи 4x4 | Зимова гума гарантовано",
       metaDescription:
         "Прокат авто в Буковелі, Яремче, Ворохті. 🏔️ Позашляховики та кросовери. ❄️ Зимова гума та ланцюги. 🚗 Доставка до готелю. Бронюйте джип в горах!",
-      h1: "Оренда авто в Буковелі та Яремче: Безпека в горах",
+      h1: "Оренда авто в Буковелі",
       sectionCars: "АВТОМОБІЛІ REIZ У БУКОВЕЛІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ БУКОВЕЛЬ",
       subtitle:
-        "Відпочинок в Карпатах вимагає надійного авто. Пропонуємо оренду позашляховиків (Land Cruiser, Toyota RAV4) та кросоверів у Буковелі, Яремче, Татарові. Всі авто обладнані якісною зимовою гумою в сезон. Забудьте про дорогі таксі — подорожуйте до витягів та водоспадів вільно. Доставка авто до рецепції вашого готелю.",
+        "Прокат авто в Буковелі без застави. Позашляховики та повнопривідні авто для гір. Доставка на курорт з Івано-Франківська та Львова.",
       ogTitle: "Оренда авто Буковель, Яремче: Джипи 4x4 | Зимова гума гарантовано",
       ogDescription:
         "Прокат авто в Буковелі, Яремче, Ворохті. 🏔️ Позашляховики та кросовери. ❄️ Зимова гума та ланцюги. 🚗 Доставка до готелю. Бронюйте джип в горах!",
@@ -813,11 +813,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Bukovel & Yaremche: SUV 4x4 Rental | Winter Tires",
       metaDescription:
         "Rent a Jeep/SUV in Bukovel. 🏔️ 4x4 Vehicles for mountain roads. ❄️ Winter tires guaranteed. 🚗 Hotel delivery in Polyanytsya/Yaremche.",
-      h1: "Rent a Car in Bukovel: Mountain Freedom",
+      h1: "Car Rental in Bukovel",
       sectionCars: "REIZ CARS IN BUKOVEL",
       sectionWelcome: "WELCOME TO REIZ BUKOVEL",
       subtitle:
-        "Enjoy the Carpathian mountains with our 4x4 car rental service in Bukovel and Yaremche. We offer SUVs perfect for snowy and mountain roads. All vehicles come equipped with seasonal tires and snow chains if requested. Flexible delivery to your hotel or resort.",
+        "Car rental in Bukovel with no deposit. SUVs and AWD vehicles for mountain trips. Resort delivery from Ivano-Frankivsk and Lviv.",
       ogTitle: "Car Rental Bukovel & Yaremche: SUV 4x4 Rental | Winter Tires",
       ogDescription:
         "Rent a Jeep/SUV in Bukovel. 🏔️ 4x4 Vehicles for mountain roads. ❄️ Winter tires guaranteed. 🚗 Hotel delivery in Polyanytsya/Yaremche.",
@@ -828,11 +828,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Трускавець та Східниця: Знижки на 14+ днів",
       metaDescription:
         "Прокат авто в Трускавці та Східниці. 💧 Для поїздок на джерела та процедури. 🚗 Високий кліренс для Східниці. ⚡ Тарифи для відпочиваючих.",
-      h1: "Оренда авто у Трускавці та Східниці: Комфорт лікування",
+      h1: "Оренда авто у Трускавці",
       sectionCars: "АВТОМОБІЛІ REIZ У ТРУСКАВЦІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ТРУСКАВЕЦЬ",
       subtitle:
-        "Зробіть свій оздоровчий відпочинок цікавішим. Оренда авто в Трускавці та Східниці дозволить вам відвідувати джерела, Тустань та Дрогобич без прив'язки до екскурсійних груп. Ми пропонуємо спеціальні тарифи для довгострокової оренди (на час курсівки). В наявності авто з високим кліренсом для доріг Східниці.",
+        "Прокат авто у Трускавці без застави. Доставка в санаторії та готелі курорту. Комфортні авто для поїздок Прикарпаттям.",
       ogTitle: "Оренда авто Трускавець та Східниця: Знижки на 14+ днів",
       ogDescription:
         "Прокат авто в Трускавці та Східниці. 💧 Для поїздок на джерела та процедури. 🚗 Високий кліренс для Східниці. ⚡ Тарифи для відпочиваючих.",
@@ -854,11 +854,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Truskavets & Skhidnytsia: Holiday Rental | Long-term",
       metaDescription:
         "Rent a car in Truskavets. 💧 Best for visiting mineral springs. 🚗 SUVs available for Skhidnytsia roads. ⚡ Discounts for 2+ weeks rental.",
-      h1: "Car Rental in Truskavets & Skhidnytsia",
+      h1: "Car Rental in Truskavets",
       sectionCars: "REIZ CARS IN TRUSKAVETS",
       sectionWelcome: "WELCOME TO REIZ TRUSKAVETS",
       subtitle:
-        "Make the most of your wellness trip. Renting a car in Truskavets or Skhidnytsia gives you the freedom to explore the Tustan fortress and mineral springs at your own pace. We offer reliable vehicles suitable for local terrain. Long-term rental discounts available for spa guests.",
+        "Car rental in Truskavets with no deposit. Delivery to sanatoriums and resort hotels. Comfortable vehicles for Carpathian trips.",
       ogTitle: "Car Rental Truskavets & Skhidnytsia: Holiday Rental | Long-term",
       ogDescription:
         "Rent a car in Truskavets. 💧 Best for visiting mineral springs. 🚗 SUVs available for Skhidnytsia roads. ⚡ Discounts for 2+ weeks rental.",
@@ -951,11 +951,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Ужгород та Мукачево: Виїзд за кордон | Трансфер",
       metaDescription:
         "Прокат авто в Ужгороді та Мукачево. 🌍 Авто для виїзду в Європу (Словаччина, Угорщина). 🏔️ Старт подорожі в Карпати. ⚡ Документи для кордону.",
-      h1: "Оренда авто в Ужгороді: Ваше вікно в Європу",
+      h1: "Оренда авто в Ужгороді",
       sectionCars: "АВТОМОБІЛІ REIZ В УЖГОРОДІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ УЖГОРОД",
       subtitle:
-        "Ужгород та Мукачево — стратегічні точки для старту подорожі. Орендуйте авто з правом виїзду за кордон. Ми готуємо повний пакет документів (Зелена карта, дозвіл) за 2 години. Також доступна оренда для поїздок по Закарпаттю: термальні води Косино, замки Паланок та Ужгородський. Зручний трансфер з вокзалу.",
+        "Оренда авто в Ужгороді — нові автомобілі, швидке оформлення та зручний виїзд до кордону ЄС.",
       ogTitle: "Оренда авто Ужгород та Мукачево: Виїзд за кордон | Трансфер",
       ogDescription:
         "Прокат авто в Ужгороді та Мукачево. 🌍 Авто для виїзду в Європу (Словаччина, Угорщина). 🏔️ Старт подорожі в Карпати. ⚡ Документи для кордону.",
@@ -977,11 +977,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Uzhhorod & Mukachevo: Cross-Border to EU",
       metaDescription:
         "Rent a car in Uzhhorod. 🌍 Cross-border rentals allowed (EU). 🏔️ Perfect start for Carpathians. ⚡ Green Card included options.",
-      h1: "Car Rental Uzhhorod: Cross-Border Solutions",
+      h1: "Car Rental in Uzhhorod",
       sectionCars: "REIZ CARS IN UZHHOROD",
       sectionWelcome: "WELCOME TO REIZ UZHHOROD",
       subtitle:
-        "Rent a car in Uzhhorod or Mukachevo with the option to travel abroad. We specialize in cross-border rentals to EU countries (Slovakia, Hungary). Our service includes preparing all necessary documentation. Explore Transcarpathia or drive to Europe with ease.",
+        "Car rental in Uzhhorod — new fleet, fast paperwork, and convenient EU border crossing access.",
       ogTitle: "Car Rental Uzhhorod & Mukachevo: Cross-Border to EU",
       ogDescription:
         "Rent a car in Uzhhorod. 🌍 Cross-border rentals allowed (EU). 🏔️ Perfect start for Carpathians. ⚡ Green Card included options.",
@@ -1279,11 +1279,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Рівне: Прокат машин | Маршрут в Тунель Кохання",
       metaDescription:
         "Прокат авто у Рівному. 💚 Авто для поїздки в Тунель Кохання (Клевань). 🚗 Економ та Комфорт. ⚡ Швидка подача. Бронюйте онлайн.",
-      h1: "Оренда авто в Рівному: Відкрийте Волинь",
+      h1: "Оренда авто у Рівному",
       sectionCars: "АВТОМОБІЛІ REIZ У РІВНОМУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ РІВНЕ",
       subtitle:
-        "Потрібне авто в Рівному? Пропонуємо комфортні автомобілі для поїздок містом та областю. Ідеальний варіант для романтичної подорожі в Тунель Кохання, до Базальтових стовпів або Тараканівського форту. Прозорі умови, можливість оренди без водія на добу або вихідні.",
+        "Прокат авто у Рівному без застави. Подача 24/7 по місту та на вокзал. Маршрути до Клевані, Острога та Дубна.",
       ogTitle: "Оренда авто Рівне: Прокат машин | Маршрут в Тунель Кохання",
       ogDescription:
         "Прокат авто у Рівному. 💚 Авто для поїздки в Тунель Кохання (Клевань). 🚗 Економ та Комфорт. ⚡ Швидка подача. Бронюйте онлайн.",
@@ -1305,11 +1305,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Rivne: Visit Tunnel of Love | City Car Hire",
       metaDescription:
         "Rent a car in Rivne. 💚 Trip to Tunnel of Love. 🚗 Economy and Comfort cars. ⚡ Fast delivery. Book online.",
-      h1: "Car Rental in Rivne",
+      h1: "Car Rental in Rivne — 24/7 Delivery & Regional Trips",
       sectionCars: "REIZ CARS IN RIVNE",
       sectionWelcome: "WELCOME TO REIZ RIVNE",
       subtitle:
-        "Explore Rivne region with ease. Rent a car to visit the famous Tunnel of Love or for your business needs in the city. We offer affordable rates and well-maintained vehicles. Quick booking process and friendly local support.",
+        "Car rental in Rivne with no deposit. 24/7 delivery & regional trips to Klevan, Ostroh and Dubno.",
       ogTitle: "Car Rental Rivne: Visit Tunnel of Love | City Car Hire",
       ogDescription:
         "Rent a car in Rivne. 💚 Trip to Tunnel of Love. 🚗 Economy and Comfort cars. ⚡ Fast delivery. Book online.",
@@ -1437,11 +1437,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Стрий, Дрогобич, Самбір: Регіональна доставка",
       metaDescription:
         "Прокат авто в Стрию, Дрогобичі, Самборі. 🚗 Подача за адресою клієнта. ⚡ Доступні ціни. 🛡️ Страховка. Зручніше ніж таксі.",
-      h1: "Оренда авто: Стрий, Дрогобич, Самбір",
+      h1: "Оренда авто у Стрию — подача 24/7 і маршрути в Карпати",
       sectionCars: "АВТОМОБІЛІ REIZ У СТРИЮ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ СТРИЙ",
       subtitle:
-        "Ми робимо оренду авто доступною в регіонах. Замовляйте авто в Стрию, Дрогобичі або Самборі з подачею до дому. Вам не потрібно їхати до Львова — ми доставимо авто до вас. Великий вибір моделей для поїздок до родичів або у справах.",
+        "Оренда авто у Стрию без застави. Подача 24/7 по місту. Маршрути в Карпати — Сколе, Славське та Моршин.",
       ogTitle: "Оренда авто Стрий, Дрогобич, Самбір: Регіональна доставка",
       ogDescription:
         "Прокат авто в Стрию, Дрогобичі, Самборі. 🚗 Подача за адресою клієнта. ⚡ Доступні ціни. 🛡️ Страховка. Зручніше ніж таксі.",
@@ -1462,11 +1462,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Stryi, Drohobych, Sambir: Local Service",
       metaDescription:
         "Rent a car in Stryi, Drohobych, Sambir. 🚗 Delivery to your location. ⚡ Affordable rates. 🛡️ Insurance included.",
-      h1: "Car Rental in Stryi & Region",
+      h1: "Car Rental in Stryi — 24/7 Delivery & Carpathian Routes",
       sectionCars: "REIZ CARS IN STRYI",
       sectionWelcome: "WELCOME TO REIZ STRYI",
       subtitle:
-        "Convenient car rental in Stryi, Drohobych, and Sambir. No need to travel to the regional center – we deliver the car to you. Perfect for visiting relatives or local business trips. Reliable cars and transparent pricing.",
+        "Car rental in Stryi with no deposit. 24/7 city delivery. Trips to Skole, Slavske and Morshyn.",
       ogTitle: "Car Rental Stryi, Drohobych, Sambir: Local Service",
       ogDescription:
         "Rent a car in Stryi, Drohobych, Sambir. 🚗 Delivery to your location. ⚡ Affordable rates. 🛡️ Insurance included.",
@@ -1822,11 +1822,11 @@ export const cityLocalizations: Record<
       title: "Оренда авто Чортків, Кременець, Берегове, Хуст | Туризм",
       metaDescription:
         "Прокат авто в Чорткові, Кременці, Береговому, Хусті. 🏰 Замки та термальні води. 🚗 Зручний сервіс доставки. Бронюйте зараз.",
-      h1: "Оренда авто в історичних містечках",
+      h1: "Оренда авто у Чорткові",
       sectionCars: "АВТОМОБІЛІ REIZ У ЧОРТКОВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЧОРТКІВ",
       subtitle:
-        "Подорожуйте мальовничими куточками України вільно. Оренда авто в Чорткові, Кременці, Береговому чи Хусті — це найкращий спосіб побачити печери Млинки, замки Тернопілля та відвідати термальні курорти Закарпаття. Ми пропонуємо надійні авто для ваших унікальних маршрутів.",
+        "Оренда авто у Чорткові від REIZ — нові автомобілі, преміум-сервіс та зручна подача на подільські маршрути.",
       ogTitle: "Оренда авто Чортків, Кременець, Берегове, Хуст | Туризм",
       ogDescription:
         "Прокат авто в Чорткові, Кременці, Береговому, Хусті. 🏰 Замки та термальні води. 🚗 Зручний сервіс доставки. Бронюйте зараз.",
@@ -1848,11 +1848,11 @@ export const cityLocalizations: Record<
       title: "Car Rental Chortkiv, Kremenets, Berehove, Khust",
       metaDescription:
         "Rent a car in Chortkiv, Kremenets, Berehove, Khust. 🏰 Explore castles and thermal baths. 🚗 Convenient service. Book now.",
-      h1: "Car Rental in Historic Towns",
+      h1: "Car Rental in Chortkiv",
       sectionCars: "REIZ CARS IN CHORTKIV",
       sectionWelcome: "WELCOME TO REIZ CHORTKIV",
       subtitle:
-        "Discover the hidden gems of Western Ukraine. Rent a car in Chortkiv, Kremenets, Berehove, or Khust to explore castles, caves, and thermal springs at your leisure. We provide reliable vehicles and local delivery for your authentic travel experience.",
+        "Car rental in Chortkiv from REIZ — new vehicles, premium service and convenient delivery for Podillia routes.",
       ogTitle: "Car Rental Chortkiv, Kremenets, Berehove, Khust",
       ogDescription:
         "Rent a car in Chortkiv, Kremenets, Berehove, Khust. 🏰 Explore castles and thermal baths. 🚗 Convenient service. Book now.",
