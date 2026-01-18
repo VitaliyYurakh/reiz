@@ -179,7 +179,11 @@ export default function CarAside({ car }: { car: Car }) {
   const pricePercent = selectedPlan?.pricePercent ?? 0;
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
-  const dailyPrice = activeTariff!.dailyPrice * (1 + pricePercent / 100);
+  const dailyPriceBeforeDiscount = activeTariff!.dailyPrice * (1 + pricePercent / 100);
+  const discountPercent = car.discount ?? 0;
+  const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
+  const hasDiscount = discountPercent > 0;
+
   const depositAmount =
     (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100);
   // const totalPrice = dailyPrice * totalDays + depositAmount;
@@ -257,19 +261,27 @@ export default function CarAside({ car }: { car: Car }) {
         </div>
 
         <ul className="single-form__list">
-          {car.rentalTariff.map((el) => (
-            <li className="single-form__item" key={el.id}>
-              <span className="single-form__value">
-                {formatTariffRange(el.minDays, el.maxDays)}
-              </span>
-              <span className="single-form__value mode">
-                {formatPrice(
-                  el.dailyPrice * (1 + (selectedPlan?.pricePercent || 0) / 100)
-                )}
-                /day
-              </span>
-            </li>
-          ))}
+          {car.rentalTariff.map((el) => {
+            const priceBeforeDiscount = el.dailyPrice * (1 + (selectedPlan?.pricePercent || 0) / 100);
+            const finalPrice = Math.round(priceBeforeDiscount * (1 - discountPercent / 100));
+
+            return (
+              <li className="single-form__item" key={el.id}>
+                <span className="single-form__value">
+                  {formatTariffRange(el.minDays, el.maxDays)}
+                </span>
+                <span className="single-form__value mode">
+                  {hasDiscount && (
+                    <span className="text-strikethrough">
+                      {formatPrice(priceBeforeDiscount)}
+                    </span>
+                  )}
+                  {formatPrice(finalPrice)}
+                  /day
+                </span>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -307,7 +319,12 @@ export default function CarAside({ car }: { car: Car }) {
         <span className="single-form__name">
           {t("totalPriceLabel")}
         </span>
-        <span className="single-form__value single-form__value--nowrap">
+        <span className="single-form__value">
+          {hasDiscount && (
+            <span className="text-strikethrough">
+              {formatPrice(dailyPriceBeforeDiscount * totalDays)}
+            </span>
+          )}
           <span className="text-strong">{formatPrice(totalPrice)}</span>
         </span>
       </div>

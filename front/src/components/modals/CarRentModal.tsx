@@ -221,7 +221,10 @@ export default function CarRentModal({
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
   const baseDailyPrice = activeTariff?.dailyPrice ?? 0;
-  const dailyPrice = baseDailyPrice * (1 + pricePercent / 100);
+  const dailyPriceBeforeDiscount = baseDailyPrice * (1 + pricePercent / 100);
+  const discountPercent = data.car.discount ?? 0;
+  const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
+  const hasDiscount = discountPercent > 0;
   const depositAmount =
     (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100);
 
@@ -677,8 +680,9 @@ export default function CarRentModal({
                     </span>
 
                     {data.car.carCountingRule.map((plan) => {
-                      const planDaily =
+                      const planDailyBeforeDiscount =
                         baseDailyPrice * (1 + plan.pricePercent / 100);
+                      const planDaily = Math.round(planDailyBeforeDiscount * (1 - discountPercent / 100));
                       return (
                         <label
                           className="custom-checkbox inchurance"
@@ -924,6 +928,11 @@ export default function CarRentModal({
               <div className="modal__item-wrapp">
                 <span className="modal__name">{t("summary.rateLabel")}</span>
                 <span className="modal__value">
+                  {hasDiscount && (
+                    <span className="text-strikethrough">
+                      {formatPrice(dailyPriceBeforeDiscount)}
+                    </span>
+                  )}
                   {formatPrice(dailyPrice)}/day
                 </span>
               </div>
