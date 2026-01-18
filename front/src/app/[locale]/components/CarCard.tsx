@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 
 import {
@@ -49,6 +49,11 @@ export default function CarCard({ car }: CarCardProps) {
   const { coverageOption, setCoverageOption, startDate, endDate, totalDays } =
     useRentalSearch();
   const { formatPrice, formatDeposit } = useCurrency();
+  const topRef = useRef<HTMLDivElement>(null);
+  const nameRef = useRef<HTMLAnchorElement>(null);
+  const badgesRef = useRef<HTMLDivElement>(null);
+  const badgesFullWidthRef = useRef<number | null>(null);
+  const [compactBadges, setCompactBadges] = useState(false);
 
   const hasDates = Boolean(startDate && endDate && totalDays > 0);
 
@@ -101,6 +106,79 @@ export default function CarCard({ car }: CarCardProps) {
     return `/cars/${carIdSlug}/rent${query ? `?${query}` : ""}`;
   }, [carIdSlug, endDate, selectedPlan?.id, startDate]);
 
+  useLayoutEffect(() => {
+    const topEl = topRef.current;
+    const nameEl = nameRef.current;
+    const badgesEl = badgesRef.current;
+
+    if (!topEl || !nameEl || !badgesEl) return;
+
+    let frameId = 0;
+
+    const measureNameWidth = () => {
+      const prevWhiteSpace = nameEl.style.whiteSpace;
+      nameEl.style.whiteSpace = "nowrap";
+      const width = nameEl.scrollWidth;
+      nameEl.style.whiteSpace = prevWhiteSpace;
+      return width;
+    };
+
+    const update = () => {
+      const styles = getComputedStyle(topEl);
+      const gap =
+        parseFloat(styles.columnGap || styles.gap || "0") || 0;
+      const paddingLeft = parseFloat(styles.paddingLeft || "0") || 0;
+      const paddingRight = parseFloat(styles.paddingRight || "0") || 0;
+      const availableWidth = topEl.clientWidth - paddingLeft - paddingRight;
+
+      const currentBadgesWidth = badgesEl.scrollWidth;
+      if (
+        !badgesFullWidthRef.current ||
+        currentBadgesWidth > badgesFullWidthRef.current
+      ) {
+        badgesFullWidthRef.current = currentBadgesWidth;
+      }
+
+      const badgeItems = Array.from(badgesEl.children) as HTMLElement[];
+      if (badgeItems.length > 0) {
+        const maxBadgeHeight = badgeItems.reduce((maxHeight, badge) => {
+          const height = badge.getBoundingClientRect().height;
+          return height > maxHeight ? height : maxHeight;
+        }, 0);
+        if (maxBadgeHeight > 0) {
+          badgesEl.style.setProperty(
+            "--car-card-badge-height",
+            `${Math.ceil(maxBadgeHeight)}px`,
+          );
+        }
+      }
+
+      const nameWidth = measureNameWidth();
+      const fullBadgesWidth = badgesFullWidthRef.current ?? currentBadgesWidth;
+      const requiredWidth = Math.ceil(nameWidth + fullBadgesWidth + gap);
+      const nextCompact = availableWidth > 0 && requiredWidth > availableWidth;
+
+      setCompactBadges((prev) => (prev === nextCompact ? prev : nextCompact));
+    };
+
+    const scheduleUpdate = () => {
+      if (frameId) cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(update);
+    };
+
+    update();
+
+    const observer = new ResizeObserver(scheduleUpdate);
+    observer.observe(topEl);
+    observer.observe(nameEl);
+    observer.observe(badgesEl);
+
+    return () => {
+      if (frameId) cancelAnimationFrame(frameId);
+      observer.disconnect();
+    };
+  }, []);
+
   const coverageOptions: {
     key: CoverageOption;
     label: string;
@@ -131,7 +209,7 @@ export default function CarCard({ car }: CarCardProps) {
   ] as const;
 
   return (
-    <li className="car-card">
+    <li className={compactBadges ? "car-card car-card--compact-badges" : "car-card"}>
       <Link href={carDetailsLink} className="car-card__image">
         <img
           width="450"
@@ -142,18 +220,20 @@ export default function CarCard({ car }: CarCardProps) {
       </Link>
 
       <div className="car-card__box">
-        <div className="car-card__top">
-          <Link href={carDetailsLink} className="car-card__name">
+        <div className="car-card__top" ref={topRef}>
+          <Link href={carDetailsLink} className="car-card__name" ref={nameRef}>
             {car.brand} {car.model}
           </Link>
-          <div className="car-card__badges">
+          <div className="car-card__badges" ref={badgesRef}>
             {car.isAvailable ? (
               <span className="car-card__badge car-card__badge--available">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4.66682 1.30371C4.66682 0.960067 4.9653 0.681488 5.3335 0.681488C5.70168 0.681488 6.00016 0.960067 6.00016 1.30371V1.92593H10.0002V1.30371C10.0002 0.960067 10.2986 0.681488 10.6668 0.681488C11.035 0.681488 11.3335 0.960067 11.3335 1.30371V1.92593H12.6668C13.7714 1.92593 14.6668 2.76166 14.6668 3.7926V12.5037C14.6668 13.5346 13.7714 14.3704 12.6668 14.3704H3.3335C2.22892 14.3704 1.3335 13.5346 1.3335 12.5037V3.7926C1.3335 2.76166 2.22892 1.92593 3.3335 1.92593H4.66682V1.30371Z" fill="#0EA548"/>
                   <path fillRule="evenodd" clipRule="evenodd" d="M11.3332 5.84124C11.5937 6.08411 11.5938 6.47807 11.3336 6.72119L7.80481 10.2026C7.6798 10.3194 7.5102 10.3851 7.33334 10.3851C7.15647 10.3851 6.98683 10.3196 6.86177 10.2029L4.86177 8.33619C4.60142 8.0932 4.60142 7.69923 4.86177 7.45624C5.12211 7.21325 5.54423 7.21325 5.80458 7.45624L7.33294 8.88271L10.3904 5.84168C10.6506 5.59856 11.0727 5.59836 11.3332 5.84124Z" fill="white"/>
                 </svg>
-                {tCatalog("badges.available")}
+                <span className="car-card__badge-text car-card__badge-text--availability">
+                  {tCatalog("badges.available")}
+                </span>
               </span>
             ) : (
               <span className="car-card__badge car-card__badge--contact">
@@ -161,7 +241,9 @@ export default function CarCard({ car }: CarCardProps) {
                   <path d="M4.66682 1.30371C4.66682 0.960067 4.9653 0.681488 5.3335 0.681488C5.70168 0.681488 6.00016 0.960067 6.00016 1.30371V1.92593H10.0002V1.30371C10.0002 0.960067 10.2986 0.681488 10.6668 0.681488C11.035 0.681488 11.3335 0.960067 11.3335 1.30371V1.92593H12.6668C13.7714 1.92593 14.6668 2.76166 14.6668 3.7926V12.5037C14.6668 13.5346 13.7714 14.3704 12.6668 14.3704H3.3335C2.22892 14.3704 1.3335 13.5346 1.3335 12.5037V3.7926C1.3335 2.76166 2.22892 1.92593 3.3335 1.92593H4.66682V1.30371Z" fill="#6B6B6B"/>
                   <path fillRule="evenodd" clipRule="evenodd" d="M11.3332 5.84124C11.5937 6.08411 11.5938 6.47807 11.3336 6.72119L7.80481 10.2026C7.6798 10.3194 7.5102 10.3851 7.33334 10.3851C7.15647 10.3851 6.98683 10.3196 6.86177 10.2029L4.86177 8.33619C4.60142 8.0932 4.60142 7.69923 4.86177 7.45624C5.12211 7.21325 5.54423 7.21325 5.80458 7.45624L7.33294 8.88271L10.3904 5.84168C10.6506 5.59856 11.0727 5.59836 11.3332 5.84124Z" fill="white"/>
                 </svg>
-                {tCatalog("badges.contact")}
+                <span className="car-card__badge-text car-card__badge-text--contact">
+                  {tCatalog("badges.contact")}
+                </span>
               </span>
             )}
             {car.isNew && (

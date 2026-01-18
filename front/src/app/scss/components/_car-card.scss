@@ -371,6 +371,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    --car-card-badge-height: 22px;
   }
 
   &__badge {
@@ -434,6 +435,41 @@
     @include mobile {
       font-size: 11px;
       padding: 3px 6px;
+    }
+  }
+
+  &__badge-text {
+    display: inline;
+  }
+
+  &--compact-badges {
+    @include mobile {
+      .car-card__badge {
+        min-height: var(--car-card-badge-height);
+      }
+
+      .car-card__badge--available,
+      .car-card__badge--contact {
+        width: var(--car-card-badge-height);
+        height: var(--car-card-badge-height);
+        padding: 0;
+        border-radius: 999px;
+        justify-content: center;
+      }
+
+      .car-card__badge-text--availability,
+      .car-card__badge-text--contact {
+        position: absolute;
+        clip-path: inset(100%);
+        overflow: hidden;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        width: 1px;
+        height: 1px;
+        white-space: nowrap;
+        clip: rect(0 0 0 0);
+      }
     }
   }
 
