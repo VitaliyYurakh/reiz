@@ -1161,7 +1161,7 @@
     },
     "depositLabel": "Залог",
     "currency": "{value} USD",
-    "totalPriceLabel": "Итоговая стоимость “{brand} {model} {year}”",
+    "totalPriceLabel": "Итоговая стоимость",
     "clubPriceLabel": "Клубная цена",
     "actions": {
       "book": "ЗАБРОНИРОВАТЬ",

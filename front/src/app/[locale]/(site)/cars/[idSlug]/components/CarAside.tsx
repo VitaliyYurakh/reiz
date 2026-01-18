@@ -185,7 +185,6 @@ export default function CarAside({ car }: { car: Car }) {
   // const totalPrice = dailyPrice * totalDays + depositAmount;
   const totalPrice = dailyPrice * totalDays;
   const clubPrice = totalPrice * 0.9;
-
   const formatTariffRange = (minDays: number, maxDays: number) => {
     if (minDays === maxDays) {
       return t("tariffs.exact", { count: minDays });
@@ -306,13 +305,9 @@ export default function CarAside({ car }: { car: Car }) {
       </div>
       <div className="single-form__info">
         <span className="single-form__name">
-          {t("totalPriceLabel", {
-            brand: car.brand || "",
-            model: car.model || "",
-            year: car.yearOfManufacture || "",
-          })}
+          {t("totalPriceLabel")}
         </span>
-        <span className="single-form__value">
+        <span className="single-form__value single-form__value--nowrap">
           <span className="text-strong">{formatPrice(totalPrice)}</span>
         </span>
       </div>

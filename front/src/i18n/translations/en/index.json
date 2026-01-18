@@ -1129,7 +1129,7 @@
     },
     "depositLabel": "Deposit",
     "currency": "{value} USD",
-    "totalPriceLabel": "Total cost “{brand} {model} {year}”",
+    "totalPriceLabel": "Total cost",
     "clubPriceLabel": "Club price",
     "actions": {
       "book": "BOOK NOW",

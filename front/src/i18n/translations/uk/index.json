@@ -1141,7 +1141,7 @@
     },
     "depositLabel": "Застава",
     "currency": "{value} USD",
-    "totalPriceLabel": "Підсумкова вартість “{brand} {model} {year}”",
+    "totalPriceLabel": "Підсумкова вартість",
     "clubPriceLabel": "Клубна ціна",
     "actions": {
       "book": "ЗАБРОНЮВАТИ",
