@@ -296,7 +296,7 @@ export default function CarAside({ car }: { car: Car }) {
             i
           </div>
         </span>
-        <span className="single-form__value">
+        <span className="single-form__value single-form__value--nowrap">
           {formatDeposit(depositAmount)}
         </span>
       </div>
