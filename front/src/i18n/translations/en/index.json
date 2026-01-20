@@ -1026,14 +1026,17 @@
       ]
     },
     "form": {
-      "title": "WE’RE READY TO ANSWER ALL YOUR QUESTIONS",
+      "title": "WE'RE READY TO ANSWER ALL YOUR QUESTIONS",
       "placeholders": {
         "name": "Your name",
         "email": "Email",
         "phone": "Phone",
         "message": "Message"
       },
-      "submit": "SEND REQUEST"
+      "submit": "SEND REQUEST",
+      "success": "Your message has been sent successfully!",
+      "error": "Failed to send message. Please try again.",
+      "submitting": "Sending..."
     }
   },
   "footer": {
@@ -1418,6 +1421,7 @@
     "text": "By clicking the 'Submit Request' button, you accept the terms of personal data processing",
     "checkbox": "I have read and agree to the personal data processing terms",
     "button": "Submit Request",
+    "submitting": "Submitting...",
     "contactMethods": {
       "title": "How should we contact you?",
       "options": {
@@ -1439,7 +1443,8 @@
       "nameRequired": "Please enter your name",
       "phoneRequired": "Please enter your phone number",
       "phoneInvalid": "Enter a valid phone number",
-      "consentRequired": "Please accept the personal data processing terms"
+      "consentRequired": "Please accept the personal data processing terms",
+      "submitFailed": "Failed to submit request. Please try again."
     }
   },
   "managerWillContactYouModal": {

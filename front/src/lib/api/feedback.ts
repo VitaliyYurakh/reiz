@@ -13,10 +13,16 @@ interface BookingRequestData {
   comment?: string;
   carId?: number;
   carDetails?: any;
-  selectedPlan?: string;
+  selectedPlan?: any;
   selectedExtras?: any;
-  totalCost?: number;
   totalDays?: number;
+  priceBreakdown?: {
+    baseRentalCost: number;
+    insuranceCost: number;
+    extrasCost: number;
+    totalCost: number;
+    depositAmount: number;
+  };
 }
 
 interface ContactRequestData {
