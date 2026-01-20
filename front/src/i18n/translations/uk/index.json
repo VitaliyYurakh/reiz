@@ -531,6 +531,9 @@
         "namePlaceholder": "Ваше ім’я",
         "phonePlaceholder": "Телефон",
         "emailPlaceholder": "E-mail",
+        "success": "Ваш запит успішно надіслано!",
+        "error": "Не вдалося надіслати запит. Спробуйте ще раз.",
+        "submitting": "Надсилаємо...",
         "submit": "ЗАЛИШИТИ ЗАЯВКУ",
         "submitBlack": "ЗАЛИШИТИ ЗАЯВКУ"
       }

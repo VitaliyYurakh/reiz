@@ -570,6 +570,9 @@
         "namePlaceholder": "Ваше имя",
         "phonePlaceholder": "Телефон",
         "emailPlaceholder": "E-mail",
+        "success": "Ваш запрос успешно отправлен!",
+        "error": "Не удалось отправить запрос. Пожалуйста, попробуйте еще раз.",
+        "submitting": "Отправка...",
         "submit": "ОСТАВИТЬ ЗАЯВКУ",
         "submitBlack": "ОСТАВИТЬ ЗАЯВКУ"
       }

@@ -570,6 +570,9 @@
         "namePlaceholder": "Your name",
         "phonePlaceholder": "Phone",
         "emailPlaceholder": "E-mail",
+        "success": "Your request has been sent successfully!",
+        "error": "Failed to send request. Please try again.",
+        "submitting": "Sending...",
         "submit": "SUBMIT REQUEST",
         "submitBlack": "SUBMIT REQUEST"
       }
