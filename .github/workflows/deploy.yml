@@ -21,6 +21,23 @@ jobs:
                   source: '.'
                   target: '/opt/reiz'
 
+            - name: Create API .env file
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USER }}
+                  key: ${{ secrets.SSH_KEY }}
+                  script: |
+                      cd /opt/reiz/api
+                      cat > .env << 'EOF'
+                      PORT=3000
+                      DATABASE_URL=postgresql://postgres:postgres_dev@postgres:5432/reiz
+                      SECRET=${{ secrets.API_SECRET }}
+                      SALT=${{ secrets.API_SALT }}
+                      TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
+                      TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}
+                      EOF
+
             - name: Deploy via SSH
               uses: appleboy/ssh-action@v1.0.3
               with:
