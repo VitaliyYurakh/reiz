@@ -20,6 +20,7 @@ import TelInput from "@/components/TelInput";
 import type { CarCountingRule } from "@/types/cars";
 import { BASE_URL } from "@/config/environment";
 import { useCurrency } from "@/context/CurrencyContext";
+import { submitBookingRequest } from "@/lib/api/feedback";
 
 const formatFull = (d: Date) => {
   const dd = String(d.getDate()).padStart(2, "0");
@@ -387,14 +388,65 @@ export default function CarRentModal({
       setFormError(null);
       setFeedback("");
       try {
-        await new Promise((resolve) => setTimeout(resolve, 600));
+        // Calculate detailed pricing breakdown
+        const baseRentalCost = baseDailyPrice * totalDays;
+        const insuranceCost = pricePercent > 0 ? (dailyPrice - baseDailyPrice) * totalDays : 0;
+
+        // Calculate extras with details
+        const extrasDetails = Array.from(selectedExtras).map((id) => {
+          const extra = EXTRAS_BY_ID[id];
+          const isPerDay = extra.pricing === "perDay";
+          const quantity = isPerDay ? totalDays : 1;
+          const cost = extra.price * quantity;
+          return {
+            id: id,
+            price: extra.price,
+            quantity: quantity,
+            cost: cost,
+            isPerDay: isPerDay,
+          };
+        });
+
+        await submitBookingRequest({
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+          phone: formState.phone,
+          email: formState.email,
+          pickupLocation: formState.pickupLocation,
+          returnLocation: formState.returnLocation,
+          startDate: selectedDate.startDate,
+          endDate: selectedDate.endDate,
+          flightNumber: formState.flightNumber,
+          comment: formState.comment,
+          carId: data.car.id,
+          carDetails: {
+            brand: data.car.brand,
+            model: data.car.model,
+            year: data.car.yearOfManufacture,
+          },
+          selectedPlan: selectedPlan ? {
+            id: selectedPlan.id,
+            depositPercent: selectedPlan.depositPercent,
+            pricePercent: selectedPlan.pricePercent,
+          } : null,
+          selectedExtras: extrasDetails,
+          totalDays: totalDays,
+          priceBreakdown: {
+            baseRentalCost: baseRentalCost,
+            insuranceCost: insuranceCost,
+            extrasCost: extrasTotal,
+            totalCost: totalCost,
+            depositAmount: depositAmount,
+          },
+        });
+
+        setFeedback("success");
         runCallback?.({
           car: data.car,
           startDate: selectedDate.startDate,
           endDate: selectedDate.endDate,
         });
         close();
-        setFeedback("success");
       } catch (error) {
         console.error(error);
         setFeedback("error");
@@ -402,7 +454,25 @@ export default function CarRentModal({
         setIsSubmitting(false);
       }
     },
-    [ensureStepOneValid, formState.consent, handleNextStep, runCallback, step],
+    [
+      ensureStepOneValid,
+      formState,
+      handleNextStep,
+      runCallback,
+      step,
+      selectedDate,
+      data.car,
+      selectedPlan,
+      selectedExtras,
+      totalDays,
+      baseDailyPrice,
+      dailyPrice,
+      pricePercent,
+      extrasTotal,
+      depositAmount,
+      t,
+      close,
+    ],
   );
 
   const renderRangeLabel = () => {

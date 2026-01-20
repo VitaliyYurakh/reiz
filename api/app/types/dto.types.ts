@@ -49,4 +49,60 @@ type CarPhotoDto = {
     alt: string;
 };
 
-export {CreateCarDto, UpdateCarDto, TariffDto, CountingRuleDto, CarPhotoDto, Language};
+type BookingRequestDto = {
+    firstName: string;
+    lastName: string;
+    phone: string;
+    email: string;
+    pickupLocation: string;
+    returnLocation: string;
+    startDate: Date;
+    endDate: Date;
+    flightNumber?: string;
+    comment?: string;
+    carId?: number;
+    carDetails?: any;
+    selectedPlan?: any;
+    selectedExtras?: any;
+    totalDays?: number;
+    priceBreakdown?: {
+        baseRentalCost: number;
+        insuranceCost: number;
+        extrasCost: number;
+        totalCost: number;
+        depositAmount: number;
+    };
+};
+
+type ContactRequestDto = {
+    name: string;
+    email: string;
+    phone: string;
+    message?: string;
+};
+
+type CallbackRequestDto = {
+    name: string;
+    phone: string;
+    contactMethod?: string;
+};
+
+type BusinessRequestDto = {
+    name: string;
+    phone: string;
+    email: string;
+    message?: string;
+};
+
+export {
+    CreateCarDto,
+    UpdateCarDto,
+    TariffDto,
+    CountingRuleDto,
+    CarPhotoDto,
+    Language,
+    BookingRequestDto,
+    ContactRequestDto,
+    CallbackRequestDto,
+    BusinessRequestDto,
+};

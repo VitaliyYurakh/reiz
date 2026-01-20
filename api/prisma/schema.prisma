@@ -95,3 +95,54 @@ enum CarPhotoType {
   MOBILE
   PC
 }
+
+model BookingRequest {
+  id              Int      @id @default(autoincrement())
+  firstName       String   @map("first_name")
+  lastName        String   @map("last_name")
+  phone           String
+  email           String
+  pickupLocation  String   @map("pickup_location")
+  returnLocation  String   @map("return_location")
+  startDate       DateTime @map("start_date")
+  endDate         DateTime @map("end_date")
+  flightNumber    String?  @map("flight_number")
+  comment         String?
+  carId           Int?     @map("car_id")
+  carDetails      Json?    @map("car_details")
+  selectedPlan    Json?    @map("selected_plan")
+  selectedExtras  Json?    @map("selected_extras")
+  totalDays       Int?     @map("total_days")
+  priceBreakdown  Json?    @map("price_breakdown")
+  telegramSent    Boolean  @default(false) @map("telegram_sent")
+  createdAt       DateTime @default(now()) @map("created_at")
+}
+
+model ContactRequest {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String
+  phone        String
+  message      String?
+  telegramSent Boolean  @default(false) @map("telegram_sent")
+  createdAt    DateTime @default(now()) @map("created_at")
+}
+
+model CallbackRequest {
+  id            Int      @id @default(autoincrement())
+  name          String
+  phone         String
+  contactMethod String?  @map("contact_method")
+  telegramSent  Boolean  @default(false) @map("telegram_sent")
+  createdAt     DateTime @default(now()) @map("created_at")
+}
+
+model BusinessRequest {
+  id           Int      @id @default(autoincrement())
+  name         String
+  phone        String
+  email        String
+  message      String?
+  telegramSent Boolean  @default(false) @map("telegram_sent")
+  createdAt    DateTime @default(now()) @map("created_at")
+}

@@ -6,6 +6,7 @@ import TelInput from "@/components/TelInput";
 import Icon from "@/components/Icon";
 import { SideBarModalSpec } from "@/components/modals/index";
 import { useCallback, useState, type ChangeEvent, type FormEvent } from "react";
+import { submitCallbackRequest } from "@/lib/api/feedback";
 
 export default function RequestCallModal({
   close,
@@ -23,6 +24,8 @@ export default function RequestCallModal({
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [consent, setConsent] = useState(false);
+  const [selectedContactMethod, setSelectedContactMethod] = useState("phone");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{
     name?: string;
     phone?: string;
@@ -55,7 +58,14 @@ export default function RequestCallModal({
     [],
   );
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleContactMethodChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setSelectedContactMethod(event.target.value);
+    },
+    [],
+  );
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const validationErrors: {
@@ -84,8 +94,23 @@ export default function RequestCallModal({
     }
 
     setErrors({});
-    runCallback(phone);
-    close();
+    setIsSubmitting(true);
+
+    try {
+      await submitCallbackRequest({
+        name: name,
+        phone: phone,
+        contactMethod: selectedContactMethod,
+      });
+
+      runCallback(phone);
+      close();
+    } catch (error) {
+      console.error(error);
+      setErrors({ consent: t("errors.submitFailed") || "Failed to submit request" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -141,8 +166,10 @@ export default function RequestCallModal({
               <input
                 type="radio"
                 name="contactMethod"
+                value="phone"
                 className="custom-checkbox__field"
-                defaultChecked
+                checked={selectedContactMethod === "phone"}
+                onChange={handleContactMethodChange}
               />
               <span className="custom-checkbox__content">
                 <div>
@@ -157,7 +184,10 @@ export default function RequestCallModal({
               <input
                 type="radio"
                 name="contactMethod"
+                value="whatsapp"
                 className="custom-checkbox__field"
+                checked={selectedContactMethod === "whatsapp"}
+                onChange={handleContactMethodChange}
               />
               <span className="custom-checkbox__content">
                 <div>
@@ -172,7 +202,10 @@ export default function RequestCallModal({
               <input
                 type="radio"
                 name="contactMethod"
+                value="telegram"
                 className="custom-checkbox__field"
+                checked={selectedContactMethod === "telegram"}
+                onChange={handleContactMethodChange}
               />
               <span className="custom-checkbox__content">
                 <div>
@@ -200,8 +233,8 @@ export default function RequestCallModal({
             </span>
           )}
 
-          <button className="main-button" type="submit">
-            {t("button")}
+          <button className="main-button" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? t("submitting") || "Submitting..." : t("button")}
           </button>
           <div className="terms_and_conditions_subtitle">{t("text")}</div>
         </form>

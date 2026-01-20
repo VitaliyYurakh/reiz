@@ -1,22 +1,40 @@
 "use client";
 
-import type { SyntheticEvent } from "react";
+import { type FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
-import { useContactsModal } from "@/app/[locale]/(site)/contacts/components/modals";
+import { submitContactRequest } from "@/lib/api/feedback";
 
 export default function ContactsForm() {
   const t = useTranslations("contactsPage");
-  const invest = useContactsModal("confirm");
+  const [feedback, setFeedback] = useState<"success" | "error" | "">("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const openInvest = (e: SyntheticEvent<HTMLFormElement, SubmitEvent>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    invest.open({ plan: "pro" }, (result) => {
-      console.log("invest result", result);
-    });
+    const formData = new FormData(e.currentTarget);
+
+    setIsSubmitting(true);
+    setFeedback("");
+
+    try {
+      await submitContactRequest({
+        name: formData.get("name") as string,
+        email: formData.get("mail") as string,
+        phone: formData.get("phone") as string,
+        message: formData.get("mess") as string,
+      });
+      setFeedback("success");
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      console.error(error);
+      setFeedback("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <form className="main-form mode" onSubmit={openInvest}>
+    <form className="main-form mode" onSubmit={handleSubmit}>
       <label className="main-form__label">
         <input
           type="text"
@@ -53,8 +71,19 @@ export default function ContactsForm() {
         ></textarea>
       </label>
 
-      <button className="main-button main-button--black" type="submit">
-        {t("form.submit")}
+      {feedback === "success" && (
+        <div className="form-feedback form-feedback--success" style={{ marginBottom: "1rem", color: "green" }}>
+          {t("form.success") || "Your message has been sent successfully!"}
+        </div>
+      )}
+      {feedback === "error" && (
+        <div className="form-feedback form-feedback--error" style={{ marginBottom: "1rem", color: "red" }}>
+          {t("form.error") || "Failed to send message. Please try again."}
+        </div>
+      )}
+
+      <button className="main-button main-button--black" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? t("form.submitting") || "Sending..." : t("form.submit")}
       </button>
     </form>
   );
