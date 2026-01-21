@@ -6,8 +6,13 @@ services:
         restart: always
         expose:
             - '3000'
-        env_file:
-            - ./api/.env
+        environment:
+            PORT: 3000
+            DATABASE_URL: postgresql://postgres:postgres_dev@postgres:5432/reiz
+            SECRET: ${API_SECRET}
+            SALT: ${API_SALT}
+            TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+            TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
         volumes:
             - ./api/uploads:/usr/src/app/uploads
         depends_on:
