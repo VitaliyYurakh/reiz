@@ -1,5 +1,5 @@
 import {config} from 'dotenv';
-config(); // Must be called before other imports to ensure env vars are available
+config({ override: true }); // Override existing env vars with values from .env
 
 import express from 'express';
 import cors from 'cors';
