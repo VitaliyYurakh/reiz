@@ -373,17 +373,23 @@ export default function CarRentModal({
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+      console.log('[CarRentModal] handleSubmit called', { step, formState, consent: formState.consent });
+
       if (step !== 2) {
+        console.log('[CarRentModal] Not on step 2, moving to next step');
         handleNextStep();
         return;
       }
       if (!ensureStepOneValid()) {
+        console.log('[CarRentModal] Step 1 validation failed');
         return;
       }
       if (!formState.consent) {
+        console.log('[CarRentModal] Consent not checked');
         setFormError(t("notifications.validation.acceptTerms"));
         return;
       }
+      console.log('[CarRentModal] All validations passed, submitting booking request');
       setIsSubmitting(true);
       setFormError(null);
       setFeedback("");
@@ -407,7 +413,7 @@ export default function CarRentModal({
           };
         });
 
-        await submitBookingRequest({
+        const bookingData = {
           firstName: formState.firstName,
           lastName: formState.lastName,
           phone: formState.phone,
@@ -438,7 +444,11 @@ export default function CarRentModal({
             totalCost: totalCost,
             depositAmount: depositAmount,
           },
-        });
+        };
+
+        console.log('[CarRentModal] Sending booking request', bookingData);
+        await submitBookingRequest(bookingData);
+        console.log('[CarRentModal] Booking request successful');
 
         setFeedback("success");
         runCallback?.({
