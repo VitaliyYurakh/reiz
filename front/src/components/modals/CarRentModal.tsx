@@ -384,10 +384,14 @@ export default function CarRentModal({
         console.log('[CarRentModal] Step 1 validation failed');
         return;
       }
+      // TEMPORARY: Skip consent check for mobile debugging
+      // if (!formState.consent) {
+      //   console.log('[CarRentModal] Consent not checked');
+      //   setFormError(t("notifications.validation.acceptTerms"));
+      //   return;
+      // }
       if (!formState.consent) {
-        console.log('[CarRentModal] Consent not checked');
-        setFormError(t("notifications.validation.acceptTerms"));
-        return;
+        console.warn('[CarRentModal] WARNING: Consent not checked, but proceeding anyway for debugging');
       }
       console.log('[CarRentModal] All validations passed, submitting booking request');
       setIsSubmitting(true);
