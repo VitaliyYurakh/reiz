@@ -375,11 +375,14 @@ export default function CarRentModal({
       event.preventDefault();
       console.log('[CarRentModal] handleSubmit called', { step, formState, consent: formState.consent });
 
-      if (step !== 2) {
-        console.log('[CarRentModal] Not on step 2, moving to next step');
-        handleNextStep();
-        return;
-      }
+      // TEMPORARY: Skip step check for mobile debugging
+      // if (step !== 2) {
+      //   console.log('[CarRentModal] Not on step 2, moving to next step');
+      //   handleNextStep();
+      //   return;
+      // }
+      console.log('[CarRentModal] Skipping step check, proceeding to submit');
+
       if (!ensureStepOneValid()) {
         console.log('[CarRentModal] Step 1 validation failed');
         return;
