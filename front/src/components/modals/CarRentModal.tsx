@@ -373,30 +373,18 @@ export default function CarRentModal({
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      console.log('[CarRentModal] handleSubmit called', { step, formState, consent: formState.consent });
 
-      // TEMPORARY: Skip step check for mobile debugging
-      // if (step !== 2) {
-      //   console.log('[CarRentModal] Not on step 2, moving to next step');
-      //   handleNextStep();
-      //   return;
-      // }
-      console.log('[CarRentModal] Skipping step check, proceeding to submit');
-
-      if (!ensureStepOneValid()) {
-        console.log('[CarRentModal] Step 1 validation failed');
+      if (step !== 2) {
+        handleNextStep();
         return;
       }
-      // TEMPORARY: Skip consent check for mobile debugging
-      // if (!formState.consent) {
-      //   console.log('[CarRentModal] Consent not checked');
-      //   setFormError(t("notifications.validation.acceptTerms"));
-      //   return;
-      // }
-      if (!formState.consent) {
-        console.warn('[CarRentModal] WARNING: Consent not checked, but proceeding anyway for debugging');
+      if (!ensureStepOneValid()) {
+        return;
       }
-      console.log('[CarRentModal] All validations passed, submitting booking request');
+      if (!formState.consent) {
+        setFormError(t("notifications.validation.acceptTerms"));
+        return;
+      }
       setIsSubmitting(true);
       setFormError(null);
       setFeedback("");
@@ -420,7 +408,7 @@ export default function CarRentModal({
           };
         });
 
-        const bookingData = {
+        await submitBookingRequest({
           firstName: formState.firstName,
           lastName: formState.lastName,
           phone: formState.phone,
@@ -451,11 +439,7 @@ export default function CarRentModal({
             totalCost: totalCost,
             depositAmount: depositAmount,
           },
-        };
-
-        console.log('[CarRentModal] Sending booking request', bookingData);
-        await submitBookingRequest(bookingData);
-        console.log('[CarRentModal] Booking request successful');
+        });
 
         setFeedback("success");
         runCallback?.({
