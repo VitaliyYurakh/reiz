@@ -24,6 +24,7 @@ import { useSideBarModal } from "@/components/modals";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useRentalSearchOptional } from "@/context/RentalSearchContext";
+import { submitBookingRequest } from "@/lib/api/feedback";
 
 type ExtraDefinition = {
   id: "additionalDriver" | "childSeat" | "borderCrossing" | "driverService";
@@ -391,7 +392,61 @@ export default function RentPageContent({
       setFormError(null);
       setFeedback("");
       try {
-        await new Promise((resolve) => setTimeout(resolve, 600));
+        // Calculate detailed pricing breakdown (same as CarRentModal)
+        const baseDailyPrice = activeTariff?.dailyPrice ?? 0;
+        const pricePercent = selectedPlan?.pricePercent ?? 0;
+        const baseRentalCost = baseDailyPrice * totalDays;
+        const insuranceCost = pricePercent > 0 ? (dailyPrice - baseDailyPrice) * totalDays : 0;
+
+        // Calculate extras with details
+        const extrasDetails = Array.from(selectedExtras).map((id) => {
+          const extra = EXTRAS_BY_ID[id];
+          const isPerDay = extra.pricing === "perDay";
+          const quantity = isPerDay ? totalDays : 1;
+          const cost = extra.price * quantity;
+          return {
+            id: id,
+            price: extra.price,
+            quantity: quantity,
+            cost: cost,
+            isPerDay: isPerDay,
+          };
+        });
+
+        // Submit booking request to API (sends to Telegram)
+        await submitBookingRequest({
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+          phone: formState.phone,
+          email: formState.email,
+          pickupLocation: formState.pickupLocation,
+          returnLocation: formState.returnLocation,
+          startDate: selectedDate.startDate,
+          endDate: selectedDate.endDate,
+          flightNumber: formState.flightNumber,
+          comment: formState.comment,
+          carId: car.id,
+          carDetails: {
+            brand: car.brand,
+            model: car.model,
+            year: car.yearOfManufacture,
+          },
+          selectedPlan: selectedPlan ? {
+            id: selectedPlan.id,
+            depositPercent: selectedPlan.depositPercent,
+            pricePercent: selectedPlan.pricePercent,
+          } : null,
+          selectedExtras: extrasDetails,
+          totalDays: totalDays,
+          priceBreakdown: {
+            baseRentalCost: baseRentalCost,
+            insuranceCost: insuranceCost,
+            extrasCost: extrasTotal,
+            totalCost: totalCost,
+            depositAmount: depositAmount,
+          },
+        });
+
         openManagerModal({
           type: "car_request",
           car: car,
@@ -408,7 +463,21 @@ export default function RentPageContent({
         setInvalidFields(new Set());
       }
     },
-    [formState, t],
+    [
+      formState,
+      t,
+      car,
+      selectedDate,
+      selectedPlan,
+      selectedExtras,
+      totalDays,
+      activeTariff,
+      dailyPrice,
+      extrasTotal,
+      totalCost,
+      depositAmount,
+      openManagerModal,
+    ],
   );
 
   const renderRangeLabel = () => {

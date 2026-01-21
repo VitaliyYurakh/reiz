@@ -110,10 +110,10 @@
 
     .text-strikethrough {
       text-decoration: line-through;
-      opacity: 0.6;
       font-size: 13px;
-      color: var(--cl-o);
+      color: #D32F2F;
       margin-right: 8px;
+      opacity: 1;
     }
 
     @include for-laptop {
