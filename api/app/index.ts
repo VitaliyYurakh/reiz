@@ -1,11 +1,11 @@
 import {config} from 'dotenv';
+config(); // Must be called before other imports to ensure env vars are available
+
 import express from 'express';
 import cors from 'cors';
 import {logger} from './utils';
 import {router} from './routers';
 import path from 'node:path';
-
-config();
 
 const startServer = async () => {
     try {
