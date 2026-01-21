@@ -66,10 +66,16 @@ class TelegramService {
     }
 
     private async formatPrice(eurAmount: number): Promise<string> {
-        const rates = await this.getExchangeRates();
-        const uah = Math.round(eurAmount * rates.uah);
-        const usd = Math.round(eurAmount * rates.usd);
-        return `€${eurAmount} (₴${uah} / $${usd})`;
+        try {
+            const rates = await this.getExchangeRates();
+            const uah = Math.round(eurAmount * rates.uah);
+            const usd = Math.round(eurAmount * rates.usd);
+            return `€${eurAmount} (₴${uah} / $${usd})`;
+        } catch (error) {
+            // If exchange rates fail completely, just show EUR
+            logger.warn(`Failed to format price with exchange rates, showing EUR only: ${error.message}`);
+            return `€${eurAmount}`;
+        }
     }
 
     async sendMessage(text: string): Promise<boolean> {
@@ -118,18 +124,21 @@ class TelegramService {
     }
 
     async formatBookingRequest(data: any): Promise<string> {
-        const formatDate = (date: Date) => {
-            return new Date(date).toLocaleDateString('uk-UA', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-            });
-        };
+        try {
+            logger.info('Formatting booking request for Telegram');
 
-        let message = `🚗 <b>Нова Заявка на Оренду</b>\n\n`;
-        message += `👤 <b>Клієнт:</b> ${data.firstName} ${data.lastName}\n`;
-        message += `📞 <b>Телефон:</b> ${data.phone}\n`;
-        message += `📧 <b>Email:</b> ${data.email}\n\n`;
+            const formatDate = (date: Date) => {
+                return new Date(date).toLocaleDateString('uk-UA', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                });
+            };
+
+            let message = `🚗 <b>Нова Заявка на Оренду</b>\n\n`;
+            message += `👤 <b>Клієнт:</b> ${data.firstName} ${data.lastName}\n`;
+            message += `📞 <b>Телефон:</b> ${data.phone}\n`;
+            message += `📧 <b>Email:</b> ${data.email}\n\n`;
 
         if (data.carDetails) {
             const car = data.carDetails;
@@ -216,7 +225,20 @@ class TelegramService {
             message += `\n💬 <b>Коментар:</b> ${data.comment}`;
         }
 
+        logger.info('Successfully formatted booking request message');
         return message;
+        } catch (error) {
+            logger.error(`Error formatting booking request: ${error.message}`, {
+                stack: error.stack,
+                data: JSON.stringify(data, null, 2)
+            });
+            // Return a simple fallback message
+            return `🚗 Нова Заявка на Оренду\n\n` +
+                   `👤 ${data.firstName} ${data.lastName}\n` +
+                   `📞 ${data.phone}\n` +
+                   `📧 ${data.email}\n\n` +
+                   `❗ Повна інформація не змогла бути відформатована`;
+        }
     }
 
     formatContactRequest(data: any): string {
