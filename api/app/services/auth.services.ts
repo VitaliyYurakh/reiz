@@ -1,7 +1,7 @@
 import {AccessDenied, createHashedPassword, prisma, UserNotFoundError} from '../utils';
 import jwt from 'jsonwebtoken';
 
-const SECRET = process.env.SECRET || '';
+const API_SECRET = process.env.API_SECRET || '';
 
 class AuthService {
     async authenticateUser(token: string) {
@@ -9,7 +9,7 @@ class AuthService {
             throw new AccessDenied();
         }
 
-        const decode = jwt.verify(token.replace('Bearer ', ''), SECRET);
+        const decode = jwt.verify(token.replace('Bearer ', ''), API_SECRET);
 
         return decode;
     }
@@ -27,7 +27,7 @@ class AuthService {
             throw new AccessDenied();
         }
 
-        const token = jwt.sign({id: user.id, role: user.role}, SECRET, {expiresIn: '24h'});
+        const token = jwt.sign({id: user.id, role: user.role}, API_SECRET, {expiresIn: '24h'});
 
         return token;
     }

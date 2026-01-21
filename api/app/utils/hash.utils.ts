@@ -4,9 +4,8 @@ import {promisify} from 'node:util';
 const pbkdf2 = promisify(crypto.pbkdf2);
 
 const hashPassword = async (password: string): Promise<string> => {
-    const salt = process.env.SALT;
+    const salt = process.env.API_SALT;
     if (!salt) {
-        throw new Error('SALT environment variable is not set');
     }
     const derivedKey = await pbkdf2(password, salt, 10000, 64, 'sha512');
 
