@@ -111,10 +111,9 @@
       [data-step="2"] {
         order: -1;
 
-        // FIXED: Don't hide submit button on mobile
-        // .main-button {
-        //   display: none;
-        // }
+        .main-button {
+          display: none;
+        }
 
         .fields {
           display: none;
