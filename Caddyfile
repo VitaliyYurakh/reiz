@@ -1,5 +1,11 @@
 reiz.com.ua {
+  # Next.js API routes (currency rates)
+  reverse_proxy /api/rates web:8080
+
+  # Express backend API
   reverse_proxy /api/* api:3000
   reverse_proxy /static/* api:3000
+
+  # Next.js frontend
   reverse_proxy /* web:8080
 }

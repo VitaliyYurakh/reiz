@@ -25,6 +25,7 @@ export default async function HeroSection() {
                 sizes="100vw"
                 className="hero-image-mobile"
                 fetchPriority="high"
+                unoptimized
               />
               {/* Desktop hero image - LCP critical */}
               <UiImage
@@ -37,6 +38,7 @@ export default async function HeroSection() {
                 sizes="100vw"
                 className="hero-image-desktop"
                 fetchPriority="high"
+                unoptimized
               />
             </li>
           </ul>
