@@ -9,6 +9,11 @@ export type SideBarModalSpec = {
     isClosing: boolean;
     callback?: (phone: string) => void;
   };
+  bookingContact: {
+    data: {};
+    isClosing: boolean;
+    callback?: () => void;
+  };
   managerWillContactYouModal: {
     data:
       | {

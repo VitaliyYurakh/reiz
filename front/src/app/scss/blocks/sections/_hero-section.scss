@@ -211,6 +211,31 @@
             }
         }
 
+        .hero-book-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(280px, 22.7941vw, 310px);
+            height: 60px;
+            padding: 0 32px;
+            margin-top: clamp(31px, 3.0882vw, 42px);
+            background: #D8D9D2;
+            border: none;
+            border-radius: 16px;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 179%;
+            color: var(--cl-a);
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease;
+
+            &:hover {
+                background: #c9cac3;
+            }
+        }
+
         @include mobile {
             display: none;
         }

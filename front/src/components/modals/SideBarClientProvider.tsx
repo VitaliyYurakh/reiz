@@ -14,6 +14,11 @@ const ManagerWillContactYouModal = dynamic(
   { ssr: false }
 );
 
+const BookingContactModal = dynamic(
+  () => import("@/components/modals/BookingContactModal"),
+  { ssr: false }
+);
+
 export default function SideBarClientProvider({
   children,
 }: {
@@ -23,6 +28,7 @@ export default function SideBarClientProvider({
     <SideBarModalProvider
       registry={{
         requestCall: (props: any) => <RequestCallModal {...props} />,
+        bookingContact: (props: any) => <BookingContactModal {...props} />,
         managerWillContactYouModal: (props: any) => (
           <ManagerWillContactYouModal {...props} />
         ),

@@ -4,6 +4,7 @@ import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/request";
 import LocationMapLink from "@/app/[locale]/components/LocationMapLink";
+import HeroBookButton from "@/app/[locale]/components/HeroBookButton";
 import type { CityConfig, CityLocalizedData } from "@/data/cities";
 
 type Props = {
@@ -72,6 +73,9 @@ export default async function CityHeroSection({ city, cityData }: Props) {
               <h1 className="title">{cityData.h1}</h1>
               {/* Динамічний підзаголовок для міста */}
               <p>{cityData.subtitle}</p>
+              <HeroBookButton className="hero-book-btn">
+                {t("book_button")}
+              </HeroBookButton>
             </div>
 
             <div

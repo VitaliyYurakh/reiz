@@ -1107,3 +1107,78 @@
     border: 0;
   }
 }
+
+.booking-contact-modal {
+  max-width: 620px;
+  min-height: auto;
+  padding: 50px 45px 40px;
+
+  .editor {
+    gap: 30px;
+
+    h2 {
+      font-family: var(--font-inter), Arial, sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 145%;
+      letter-spacing: -0.01em;
+      text-align: center;
+      color: var(--cl-brown);
+
+      em {
+        font-family: var(--font-inter), Arial, sans-serif;
+        font-style: normal;
+        font-weight: inherit;
+      }
+    }
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 58px;
+    padding: 0 20px;
+    background: #D8D9D2;
+    border: none;
+    border-radius: 16px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--cl-a);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #c9cac3;
+    }
+  }
+
+  .editor .booking-contact-modal__terms {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 145%;
+    text-align: center;
+    color: var(--cl-o) !important;
+    max-width: 100% !important;
+    margin-bottom: 0;
+  }
+
+  @include mobile {
+    padding: 30px 20px 25px;
+
+    &__buttons {
+      grid-template-columns: 1fr;
+    }
+  }
+}

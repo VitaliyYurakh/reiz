@@ -4,6 +4,7 @@ import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/request";
 import LocationMapLink from "./LocationMapLink";
+import HeroBookButton from "./HeroBookButton";
 
 export default async function HeroSection() {
   const t = await getTranslations("homePage.hero");
@@ -63,6 +64,9 @@ export default async function HeroSection() {
             <div className="editor">
               <h1 className="title">{t("title")}</h1>
               <p>{t("intro")}</p>
+              <HeroBookButton className="hero-book-btn">
+                {t("book_button")}
+              </HeroBookButton>
             </div>
 
             <div

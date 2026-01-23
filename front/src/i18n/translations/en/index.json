@@ -175,6 +175,7 @@
     "hero": {
       "address_link": "Danylo Halytskyi International Airport Lviv",
       "availability": "WE REPLY 09:00–22:00",
+      "book_button": "BOOK A CAR",
       "down_button": "GO TO CAR CATALOG",
       "intro": "REIZ offers car rental in Lviv with new vehicles, premium service, fair rates and delivery to your address at a convenient time.",
       "pretitle": "WELCOME TO REIZ",
@@ -1453,5 +1454,15 @@
       "home": "Go to homepage",
       "close": "Close"
     }
+  },
+  "bookingContactModal": {
+    "title": "Leave a request in a convenient way — our <accent>manager will contact</accent> you and answer all your questions",
+    "buttons": {
+      "telegram": "BOOK VIA TELEGRAM",
+      "whatsapp": "BOOK VIA WHATSAPP",
+      "viber": "BOOK VIA VIBER",
+      "phone": "CALL US"
+    },
+    "terms": "By clicking the button, you accept the terms of personal data processing"
   }
 }

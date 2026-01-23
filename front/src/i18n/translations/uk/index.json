@@ -175,6 +175,7 @@
     "hero": {
       "address_link": "Danylo Halytskyi International Airport Lviv",
       "availability": "ВІДПОВІМО З 09:00 ДО 22:00",
+      "book_button": "ЗАБРОНЮВАТИ АВТО",
       "down_button": "ПЕРЕЙТИ ДО ВИБОРУ АВТОМОБІЛЯ",
       "intro": "Оренда авто у Львові від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
       "pretitle": "ЛАСКАВО ПРОСИМО В REIZ",
@@ -1468,10 +1469,20 @@
     "callRequest": "Зв'язок через номер: {phone}",
     "carInfo": "{brand} {model} {year}",
     "dateRange": "{startDate}–{endDate}.",
-    "managerContact": "Менеджер REIZ зв’яжеться з вами найближчим часом для підтвердження.",
+    "managerContact": "Менеджер REIZ зв'яжеться з вами найближчим часом для підтвердження.",
     "buttons": {
       "home": "На головну",
       "close": "Закрити"
     }
+  },
+  "bookingContactModal": {
+    "title": "Залиште заявку зручним способом — наш <accent>менеджер зв'яжеться</accent> з вами і відповість на всі питання",
+    "buttons": {
+      "telegram": "ЗАБРОНЮВАТИ В TELEGRAM",
+      "whatsapp": "ЗАБРОНЮВАТИ В WHATSAPP",
+      "viber": "ЗАБРОНЮВАТИ В VIBER",
+      "phone": "ПОДЗВОНИТИ"
+    },
+    "terms": "Натискаючи кнопку «Залишити заявку», ви приймаєте умови обробки персональних даних"
   }
 }
