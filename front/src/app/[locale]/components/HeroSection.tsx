@@ -18,10 +18,10 @@ export default async function HeroSection() {
               <UiImage
                 src="/img/mercedesmobile.webp"
                 alt="Оренда авто Львів — Mercedes CLE | REIZ"
-                width={575}
-                height={720}
+                width={750}
+                height={1331}
                 hero
-                quality={70}
+                quality={80}
                 sizes="100vw"
                 className="hero-image-mobile"
                 fetchPriority="high"
@@ -31,10 +31,10 @@ export default async function HeroSection() {
               <UiImage
                 src="/img/car/mercedescle2.webp"
                 alt="Оренда авто Львів — Mercedes CLE | REIZ"
-                width={1440}
-                height={902}
+                width={1920}
+                height={1254}
                 hero
-                quality={95}
+                quality={85}
                 sizes="100vw"
                 className="hero-image-desktop"
                 fetchPriority="high"

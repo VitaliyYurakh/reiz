@@ -27,6 +27,14 @@
     "react-tooltip": "^5.30.0",
     "swiper": "^11.2.10"
   },
+  "browserslist": [
+    "Chrome >= 90",
+    "Firefox >= 90",
+    "Safari >= 15",
+    "Edge >= 90",
+    "iOS >= 15",
+    "not dead"
+  ],
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
     "@next/bundle-analyzer": "^15.5.2",
