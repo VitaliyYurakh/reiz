@@ -216,6 +216,8 @@ export default function CarCard({ car }: CarCardProps) {
           height="252"
           src={`${BASE_URL}static/${encodeURI(car.previewUrl ?? "")}`}
           alt={tCatalog("imageAlt", { brand: car.brand ?? "", model: car.model ?? "" })}
+          loading="lazy"
+          decoding="async"
         />
       </Link>
 
