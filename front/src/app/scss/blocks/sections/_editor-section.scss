@@ -112,6 +112,14 @@
             color: #515151;
             margin-top: 20px;
 
+            h2 {
+                display: inline;
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+                color: inherit;
+            }
+
             ol .text-strong {
                 color: #000000;
             }

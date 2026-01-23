@@ -211,42 +211,6 @@
             }
         }
 
-        ul {
-            margin-top: clamp(16px, 1.3235vw, 18px);
-            padding-left: 0;
-            gap: clamp(8px, 0.6618vw, 9px);
-
-            li {
-                padding-left: 25px;
-
-                &::before {
-                    top: 11px;
-                    width: 6px;
-                    height: 6px;
-                    background: var(--cl-b);
-                }
-
-                @include tablet {
-                    padding-left: 31px;
-                }
-            }
-            p {
-                ;
-                font-family: var(--font-inter), Arial, sans-serif;
-                font-weight: 400;
-                font-size: 18px;
-                color: var(--cl-b);
-
-                @include tablet {
-                    ;
-                }
-            }
-
-            @include mobile {
-                display: none;
-            }
-        }
-
         @include mobile {
             display: none;
         }

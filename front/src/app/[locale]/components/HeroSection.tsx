@@ -63,23 +63,6 @@ export default async function HeroSection() {
             <div className="editor">
               <h1 className="title">{t("title")}</h1>
               <p>{t("intro")}</p>
-              <ul>
-                <li>
-                  <p>{t("bullet1")}</p>
-                </li>
-                <li>
-                  <p>{t("bullet2")}</p>
-                </li>
-                <li>
-                  <p>{t("bullet3")}</p>
-                </li>
-                <li>
-                  <p>{t("bullet4")}</p>
-                </li>
-                <li>
-                  <p>{t("bullet5")}</p>
-                </li>
-              </ul>
             </div>
 
             <div

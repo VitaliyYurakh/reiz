@@ -72,23 +72,6 @@ export default async function CityHeroSection({ city, cityData }: Props) {
               <h1 className="title">{cityData.h1}</h1>
               {/* Динамічний підзаголовок для міста */}
               <p>{cityData.subtitle}</p>
-              <ul data-nosnippet>
-                <li>
-                  <p>{t("bullet1")}</p>
-                </li>
-                <li>
-                  <p>{t("bullet2")}</p>
-                </li>
-                <li>
-                  <p>{t("bullet3")}</p>
-                </li>
-                <li>
-                  <p>{t("bullet4")}</p>
-                </li>
-                <li>
-                  <p>{t("bullet5")}</p>
-                </li>
-              </ul>
             </div>
 
             <div
