@@ -36,10 +36,10 @@ export default async function CityHeroSection({ city, cityData }: Props) {
               <UiImage
                 src="/img/car/mercedesclsbukovel (2).webp"
                 alt={`${cityData.h1} — Mercedes CLE | REIZ Rental Cars`}
-                width={1440}
-                height={902}
+                width={2500}
+                height={1685}
                 hero
-                quality={95}
+                quality={75}
                 sizes="100vw"
                 className="hero-image-desktop"
                 fetchPriority="high"

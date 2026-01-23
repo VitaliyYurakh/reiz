@@ -21,24 +21,22 @@ export default async function HeroSection() {
                 width={750}
                 height={1331}
                 hero
-                quality={80}
+                quality={75}
                 sizes="100vw"
                 className="hero-image-mobile"
                 fetchPriority="high"
-                unoptimized
               />
               {/* Desktop hero image - LCP critical */}
               <UiImage
                 src="/img/car/mercedesclsbukovel (2).webp"
                 alt="Оренда авто Львів — Mercedes CLE | REIZ"
-                width={1920}
-                height={1254}
+                width={2500}
+                height={1685}
                 hero
-                quality={85}
+                quality={75}
                 sizes="100vw"
                 className="hero-image-desktop"
                 fetchPriority="high"
-                unoptimized
               />
             </li>
           </ul>
