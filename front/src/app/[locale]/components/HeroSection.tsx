@@ -29,7 +29,7 @@ export default async function HeroSection() {
               />
               {/* Desktop hero image - LCP critical */}
               <UiImage
-                src="/img/car/mercedescle2.webp"
+                src="/img/car/mercedesclsbukovel (2).webp"
                 alt="Оренда авто Львів — Mercedes CLE | REIZ"
                 width={1920}
                 height={1254}
