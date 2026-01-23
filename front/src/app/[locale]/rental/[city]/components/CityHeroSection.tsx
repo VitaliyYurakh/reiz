@@ -34,7 +34,7 @@ export default async function CityHeroSection({ city, cityData }: Props) {
               />
               {/* Desktop hero image - LCP critical */}
               <UiImage
-                src="/img/car/mercedescle2.webp"
+                src="/img/car/mercedesclsbukovel (2).webp"
                 alt={`${cityData.h1} — Mercedes CLE | REIZ Rental Cars`}
                 width={1440}
                 height={902}
