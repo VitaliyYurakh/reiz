@@ -50,7 +50,7 @@ export default async function HeroSection() {
 
           <div className="hero-section__inner">
             <div className="hero-section__top">
-              <h3 className="pretitle">{t("pretitle")}</h3>
+              <p className="pretitle">{t("pretitle")}</p>
               <span className="hero-section__date">
                 <i className="sprite">
                   <svg width="24" height="24">

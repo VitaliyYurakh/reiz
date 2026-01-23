@@ -93,7 +93,7 @@ export default async function BusinessPage() {
         data-aos-duration={900}
         data-aos-delay={600}
       >
-        <p className="pretitle">{t("pretitle")}</p>
+        <h2 className="pretitle">{t("pretitle")}</h2>
 
         <Breadcrumbs
           items={[
@@ -207,7 +207,7 @@ export default async function BusinessPage() {
           {/* DOWNLOADS */}
           <div className="rental-section__wrapp mode">
             <div className="editor">
-              <h4 className="pretitle">{t("downloads.title")}</h4>
+              <h2 className="pretitle">{t("downloads.title")}</h2>
             </div>
             <div className="rental-section__download">
               <p>{t("downloads.note")}</p>
@@ -230,7 +230,7 @@ export default async function BusinessPage() {
           {/* ORDER */}
           <div className="rental-section__wrapp order" id="order-call">
             <div className="editor">
-              <h4 className="pretitle">{t("order.title")}</h4>
+              <h2 className="pretitle">{t("order.title")}</h2>
               <p>{t("order.lead")}</p>
 
               <BusinessForm />

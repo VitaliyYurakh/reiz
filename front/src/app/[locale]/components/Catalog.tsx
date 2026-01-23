@@ -668,7 +668,9 @@ export default function Catalog({cars, sectionTitle}: CatalogProps) {
                             data-aos-duration="500"
                             data-aos-delay="200"
                         >
-                            <h2 className="pretitle">{sectionTitle ?? t("catalog_content.pretitle")}</h2>
+                            <h2 className="pretitle">
+                                {t("catalog_content.pretitle")}
+                            </h2>
 
                             <CustomSelect
                                 placeholder={sortOptions[0]}

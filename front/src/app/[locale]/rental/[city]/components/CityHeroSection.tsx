@@ -57,7 +57,7 @@ export default async function CityHeroSection({ city, cityData }: Props) {
           <div className="hero-section__inner">
             <div className="hero-section__top">
               {/* Динамічний pretitle для міста */}
-              <h3 className="pretitle">{cityData.sectionWelcome}</h3>
+              <p className="pretitle">{cityData.sectionWelcome}</p>
               <span className="hero-section__date">
                 <i className="sprite">
                   <svg width="24" height="24">

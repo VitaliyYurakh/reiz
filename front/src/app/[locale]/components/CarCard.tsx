@@ -223,9 +223,15 @@ export default function CarCard({ car }: CarCardProps) {
 
       <div className="car-card__box">
         <div className="car-card__top" ref={topRef}>
-          <Link href={carDetailsLink} className="car-card__name" ref={nameRef}>
-            {car.brand} {car.model}
-          </Link>
+          <h3 className="car-card__name">
+            <Link
+              href={carDetailsLink}
+              className="car-card__name"
+              ref={nameRef}
+            >
+              {car.brand} {car.model}
+            </Link>
+          </h3>
           <div className="car-card__badges" ref={badgesRef}>
             {car.isAvailable ? (
               <span className="car-card__badge car-card__badge--available">

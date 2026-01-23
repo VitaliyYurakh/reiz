@@ -61,7 +61,7 @@ export default async function ContactsPage() {
         </div>
 
         <div className="contacts-section__wrapp">
-          <h3 className="pretitle">{officesTitle}</h3>
+          <h2 className="pretitle">{officesTitle}</h2>
 
           <div className="contacts-section__editors">
             <div className="editor">
@@ -159,7 +159,7 @@ export default async function ContactsPage() {
         </div>
 
         <div className="contacts-section__wrapp">
-          <h4 className="pretitle">{t("form.title")}</h4>
+          <h2 className="pretitle">{t("form.title")}</h2>
 
           <ContactsForm />
         </div>

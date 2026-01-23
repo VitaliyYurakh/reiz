@@ -55,7 +55,7 @@ export default async function InsurancePage() {
           </div>
 
           <div className="rental-section__wrapp">
-            <h4 className="pretitle">{t("table.title")}</h4>
+            <h2 className="pretitle">{t("table.title")}</h2>
             <ul className="rental-table">
               <li className="rental-table__col mode">
                 <span className="rental-table__value head">
@@ -192,7 +192,7 @@ export default async function InsurancePage() {
           </div>
 
           <div className="rental-section__wrapp">
-            <h4 className="pretitle">{t("eligibility.title")}</h4>
+            <h2 className="pretitle">{t("eligibility.title")}</h2>
             <ul className="info-list">
               {t.raw("eligibility.items").map((item: string, i: number) => (
                 <li className="info-list__item" key={item}>
@@ -207,7 +207,7 @@ export default async function InsurancePage() {
 
           {/* Exclusions */}
           <div className="rental-section__wrapp">
-            <h4 className="pretitle">{t("exclusions.title")}</h4>
+            <h2 className="pretitle">{t("exclusions.title")}</h2>
             <div className="info-list warn">
               <div className="info-list__item">
                 <span className="info-list__icon yellow">
@@ -227,7 +227,7 @@ export default async function InsurancePage() {
           {/* Downloads */}
           <div className="rental-section__wrapp mode">
             <div className="editor">
-              <h4 className="pretitle">{t("downloads.title")}</h4>
+              <h2 className="pretitle">{t("downloads.title")}</h2>
             </div>
             <div className="rental-section__download">
               <p>{t("downloads.note")}</p>
@@ -250,7 +250,7 @@ export default async function InsurancePage() {
           {/* Breach */}
           <div className="rental-section__wrapp mode">
             <div className="editor">
-              <h4 className="pretitle">{t("breach.title")}</h4>
+              <h2 className="pretitle">{t("breach.title")}</h2>
             </div>
             <div className="editor">
               <p>{t("breach.text")}</p>

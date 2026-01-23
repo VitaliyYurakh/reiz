@@ -46,7 +46,7 @@ export default async function InvestPage() {
       data-aos-duration="900"
       data-aos-delay="600"
     >
-      <p className="pretitle">{t("hero.pretitle")}</p>
+      <h2 className="pretitle">{t("hero.pretitle")}</h2>
 
       <Breadcrumbs
         items={[
@@ -63,7 +63,7 @@ export default async function InvestPage() {
         </div>
 
         <div className="rental-section__wrapp">
-          <h4 className="pretitle">{t("why.title")}</h4>
+          <h2 className="pretitle">{t("why.title")}</h2>
 
           <ul className="info-list mode">
             <li className="info-list__item">
@@ -119,7 +119,7 @@ export default async function InvestPage() {
         </div>
 
         <div className="rental-section__wrapp">
-          <h4 className="pretitle">{t("requirements.title")}</h4>
+          <h2 className="pretitle">{t("requirements.title")}</h2>
 
           <ul className="info-list">
             <li className="info-list__item">
@@ -164,7 +164,7 @@ export default async function InvestPage() {
 
         <div className="rental-section__wrapp">
           <div className="editor">
-            <h4 className="pretitle">{t("form.title")}</h4>
+            <h2 className="pretitle">{t("form.title")}</h2>
             <p>{t("form.text")}</p>
           </div>
 
