@@ -6359,120 +6359,123 @@ export const staticContent = {
 function generateKyivEditorContent(locale: Locale): string {
   const contentByLocale = {
     uk: `
-<div class='editor_text'>REIZ пропонує сервіс прокату автомобілів у Києві, створений для тих, хто цінує час та комфорт.<br/>Ми розуміємо специфіку мегаполіса: від заторів на мостах до потреби бути в аеропорту вчасно. Ми доставимо авто в будь-який район Києва або зустрінемо вас з машиною в будь-якій точці України за попередньою домовленістю.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <h2>прокат преміум-авто</h2> для бізнесу, надійна <h2>оренда позашляховиків</h2> для мандрівок та місткий <h2>прокат мінівенів</h2> для сім'ї. Навіть якщо ви шукаєте <h2>оренду авто економ-класу</h2>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
+<div class='editor_text'>REIZ пропонує сервіс прокату автомобілів у Києві, створений для тих, хто цінує час та комфорт.<br/>Ми розуміємо специфіку мегаполіса: від заторів на мостах до потреби бути в аеропорту вчасно. Ми доставимо авто в будь-який район Києва або зустрінемо вас з машиною в будь-якій точці України за попередньою домовленістю.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <span class='text-strong'>прокат преміум-авто</span> для бізнесу, надійна <span class='text-strong'>оренда позашляховиків</span> для мандрівок та місткий <span class='text-strong'>прокат мінівенів</span> для сім'ї. Навіть якщо ви шукаєте <span class='text-strong'>оренду авто економ-класу</span>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
 
-<div class='editor_title'>Погодинна оренда: Тест-драйв у реальних умовах</div>
+<h2 class='editor_title'>Тарифні плани</h2>
+<h3 class='editor_title'>Погодинна оренда: Тест-драйв у реальних умовах</h3>
 <div class='editor_text'>Погодинний прокат — це ідеальний спосіб відчути автомобіль без довгострокових зобов'язань. Вам вистачить однієї доби, щоб зрозуміти характер машини: як вона маневрує у щільному київському потоці, чи легко знайти місце для паркування на Подолі або Печерську, та наскільки зручно працюють асистенти водія. Це також чудова можливість перевірити авто перед дальніми поїздками. Клієнти часто беруть машину на день, щоб протестувати її перед вікендом у Карпатах чи поїздкою на море.</div>
 
-<div class='editor_title'>Тижневий тариф: Свобода від розкладу</div>
-<div class='editor_text'>Оренда авто на тиждень у Києві — це ваша незалежність. Ви отримуєте фіксовану ціну за 7 днів і повну свободу пересувань, забуваючи про очікування таксі та пікові тарифи. Цей формат ідеальний для насиченого графіка: в будні ви вирішуєте бізнес-питання в сіті, а на вихідні вирушаєте за місто — до заміських комплексів або в подорож до Львова чи Одеси. Тижневий тест-драйв дозволяє повноцінно оцінити комфорт моделі, і якщо все сподобається — договір легко продовжити.</div>
+<h3 class='editor_title'>Тижневий тариф: Свобода від розкладу</h3>
+<div class='editor_text'>Оренда авто на тиждень у Києві — це ваша незалежність. Ви отримуєте фіксовану ціну за 7 днів і повну свободу пересувань, забуваючи про очікування таксі та пікові тарифи. Цей формат ідеальний для насиченого графіка: в будні ви вирішуєте бізнес-питання в сіті, а на вихідні вирушаєте за місто — до заміських комплексів або в подорож до Одеси чи Харкова. Тижневий тест-драйв дозволяє повноцінно оцінити комфорт моделі, і якщо все сподобається — договір легко продовжити.</div>
 
-<div class='editor_title'>Оренда на місяць: Для бізнесу та життя</div>
-<div class='editor_text'>Тариф "Місяць" — вигідне рішення для проєктної роботи, відряджень або релокації до столиці. Чим довший термін, тим нижча добова вартість. Ви робите один платіж і користуєтесь авто без обмежень по маршрутах. Це оптимальний вибір для регулярних поїздок між містами (Київ ↔ Дніпро, Харків, Львів). Один автомобіль закриє всі ваші потреби: від щоденних поїздок в офіс до зустрічі делегацій в аеропорту. За потреби клас авто можна змінити.</div>
+<h3 class='editor_title'>Оренда на місяць: Для бізнесу та життя</h3>
+<div class='editor_text'>Тариф "Місяць" — вигідне рішення для проєктної роботи, відряджень або релокації до столиці. Чим довший термін, тим нижча добова вартість. Ви робите один платіж і користуєтесь авто без обмежень по маршрутах. Це оптимальний вибір для регулярних поїздок між містами (Київ ↔ Дніпро, Харків, Одеса). Один автомобіль закриє всі ваші потреби: від щоденних поїздок в офіс до зустрічі делегацій в аеропорту. За потреби клас авто можна змінити.</div>
 
-<div class='editor_title'>Довгострокова оренда (від 3 місяців)</div>
+<h3 class='editor_title'>Довгострокова оренда (від 3 місяців)</h3>
 <div class='editor_text'>Альтернатива купівлі авто. Ви отримуєте персональний транспортний засіб на термін від 3 місяців до року і більше. Ваші переваги:<ul><li>Фіксований щомісячний бюджет.</li><li>Відсутність турбот про страхування, ТО, сезонну заміну гуми та втрату вартості авто.</li><li>Можливість гнучко змінювати авто залежно від сезону чи завдань (влітку — седан, взимку — кросовер).</li></ul>Подача та повернення можливі не тільки в Києві, а й в інших регіонах України.</div>
 
-<div class='editor_title'>Бюджетний прокат (Економ-клас) — від $20</div>
-<div class='editor_text'>Потрібна надійна "робоча конячка"? Економ-клас від REIZ — це поєднання мобільності та розумної ціни. Компактні габарити дозволяють легко паркуватися в центрі столиці, а низька витрата пального суттєво економить бюджет. У салоні комфортно розмістяться до 4 пасажирів з багажем.</div>
+<h2 class='editor_title'>Незабаром у REIZ Київ: Прокат бюджетних авто (Economy)</h2>
+<div class='editor_text'>Ми готуємо поповнення парку! Скоро для оренди у Києві стануть доступні компактні та економічні авто від $20/добу — ідеальне рішення для насиченого трафіку столиці та зручного паркування в центрі.<br/><br/>Поки ми готуємо ці моделі до запуску, пропонуємо оцінити наші авто класу Комфорт. Це вищий рівень безпеки на швидкісних шосе Києва та максимальна зручність за ціною, близькою до бюджетного сегмента.</div>
 
-<div class='editor_title'>Чому обирають REIZ у Києві</div>
+<h2 class='editor_title'>Чому обирають REIZ у Києві</h2>
 <div class='editor_text'><ul><li>Зручність: Сайт із фільтрами та актуальними цінами.</li><li>Швидкість: Оформлення та видача ключів за лічені хвилини.</li><li>Локації: Зустрічаємо в аеропортах "Бориспіль" (KBP) та "Жуляни" (IEV), на залізничному вокзалі або за вашою адресою.</li><li>Чесність: Жодних прихованих комісій — ви платите ту ціну, яку бачите.</li><li>Гнучкість: Просте продовження оренди або заміна авто.</li><li>Якість: Технічно справні, чисті авто на гумі по сезону.</li><li>Підтримка 24/7: Ми на зв'язку будь-якою зручною мовою.</li><li>Прозорі умови: Правила щодо пального та пробігу чітко прописані в договорі.</li></ul></div>
 
-<div class='editor_title'>Оренда без застави</div>
+<h3 class='editor_title'>Оренда без застави</h3>
 <div class='editor_text'>Ми робимо прокат доступнішим. Для певних моделей та умов оренди доступна опція зменшеного депозиту (до 50%) або оренди без застави. Перевіряйте доступність цієї опції при бронюванні або запитайте у менеджера.</div>
 
-<div class='editor_title'>Послуги водія та трансфер</div>
+<h3 class='editor_title'>Послуги водія та трансфер</h3>
 <div class='editor_text'>Хочете відпочити або попрацювати в дорозі? Замовте авто з професійним драйвером. Ми забезпечимо комфортний трансфер з аеропортів "Бориспіль"/"Жуляни" до готелю або ділового центру.</div>
 
-<div class='editor_title'>Доставка авто по Києву</div>
+<h3 class='editor_title'>Доставка авто по Києву</h3>
 <div class='editor_text'>Безкоштовно: Подаємо авто в центральні райони (Печерськ, Поділ, Шевченківський), на Оболонь та до аеропортів (оплата паркування в аеропорту — за рахунок клієнта).<br/>За межі міста: Подача у передмістя або область розраховується індивідуально залежно від кілометражу.<br/>Як замовити: Просто вкажіть адресу та час при бронюванні, і наш адміністратор узгодить деталі.</div>
 
-<div class='editor_title'>Додаткові опції для комфорту</div>
+<h3 class='editor_title'>Додаткові опції для комфорту</h3>
 <div class='editor_text'><ul><li>Зв'язок: Apple CarPlay / Android Auto у кожному авто.</li><li>Діти: Дитячі крісла будь-якого розміру за запитом.</li><li>Кордон: Оформлюємо документи для виїзду за межі України (за попереднім погодженням).</li><li>Unlimited: Опція безлімітного пробігу доступна для більшості тарифів.</li></ul></div>
 
-<div class='editor_title'>Технічний стан — наш пріоритет</div>
+<h3 class='editor_title'>Технічний стан — наш пріоритет</h3>
 <div class='editor_text'>Ми гарантуємо, що ваша поїздка Києвом буде безпечною. Кожне авто перед видачею проходить перевірку за чек-листом (гальма, рідини, тиск у шинах, світло). Салон проходить хімчистку та мийку. Ви сідаєте в ідеально підготовлений автомобіль.</div>
 
-<div class='editor_title'>Безпека руху в столиці</div>
+<h2 class='editor_title'>Безпека руху в столиці</h2>
 <div class='editor_text'>Київський трафік вимагає уваги. Ось кілька порад для комфортної їзди:<ol><li><span class='text-strong'>Дистанція:</span> У щільному потоці та на мостах тримайте безпечну відстань для реакції.</li><li><span class='text-strong'>Маневрування:</span> Завжди використовуйте "поворотники" і перевіряйте "сліпі зони" перед зміною смуги. Уникайте різких перебудувань ("шашок").</li><li><span class='text-strong'>Знаки та розмітка:</span> Слідкуйте за смугами громадського транспорту — рух ними заборонено.</li><li><span class='text-strong'>Нульова толерантність:</span> REIZ категорично забороняє керування в стані алкогольного або наркотичного сп'яніння. Порушення цього правила тягне за собою штрафи та розірвання договору.</li></ol></div>
 `.trim(),
     ru: `
-<div class='editor_text'>REIZ предлагает сервис проката автомобилей в Киеве, созданный для тех, кто ценит время и комфорт. Мы понимаем специфику мегаполиса: от пробок на мостах до необходимости быть в аэропорту вовремя. Мы доставим авто в любой район Киева или встретим вас с машиной в любой точке Украины по предварительной договоренности.<br/><br/>Наш автопарк покрывает любые потребности: статусный <h2>прокат премиум-авто</h2> для бизнеса, надёжная <h2>аренда внедорожников</h2> для путешествий и вместительный <h2>прокат минивэнов</h2> для семьи. Даже если вы ищете <h2>аренду авто эконом-класса</h2>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
+<div class='editor_text'>REIZ предлагает сервис проката автомобилей в Киеве, созданный для тех, кто ценит время и комфорт. Мы понимаем специфику мегаполиса: от пробок на мостах до необходимости быть в аэропорту вовремя. Мы доставим авто в любой район Киева или встретим вас с машиной в любой точке Украины по предварительной договоренности.<br/><br/>Наш автопарк покрывает любые потребности: статусный <span class='text-strong'>прокат премиум-авто</span> для бизнеса, надёжная <span class='text-strong'>аренда внедорожников</span> для путешествий и вместительный <span class='text-strong'>прокат минивэнов</span> для семьи. Даже если вы ищете <span class='text-strong'>аренду авто эконом-класса</span>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
 
-<div class='editor_title'>Почасовая аренда: Тест-драйв в реальных условиях</div>
+<h2 class='editor_title'>Тарифные планы</h2>
+<h3 class='editor_title'>Почасовая аренда: Тест-драйв в реальных условиях</h3>
 <div class='editor_text'>Почасовой прокат — идеальный способ почувствовать автомобиль без долгосрочных обязательств. Вам хватит одних суток, чтобы понять характер машины: как она маневрирует в плотном киевском потоке, легко ли найти место для парковки на Подоле или Печерске, и насколько удобно работают ассистенты водителя. Это также отличная возможность проверить авто перед дальними поездками. Клиенты часто берут машину на день, чтобы протестировать её перед уик-эндом в Карпатах или поездкой на море.</div>
 
-<div class='editor_title'>Недельный тариф: Свобода от расписания</div>
-<div class='editor_text'>Аренда авто на неделю в Киеве — это ваша независимость. Вы получаете фиксированную цену за 7 дней и полную свободу передвижений, забывая об ожидании такси и пиковых тарифах. Этот формат идеален для насыщенного графика: в будни вы решаете бизнес-вопросы в сити, а на выходные отправляетесь за город — в загородные комплексы или в путешествие во Львов или Одессу. Недельный тест-драйв позволяет полноценно оценить комфорт модели, и если всё понравится — договор легко продлить.</div>
+<h3 class='editor_title'>Недельный тариф: Свобода от расписания</h3>
+<div class='editor_text'>Аренда авто на неделю в Киеве — это ваша независимость. Вы получаете фиксированную цену за 7 дней и полную свободу передвижений, забывая об ожидании такси и пиковых тарифах. Этот формат идеален для насыщенного графика: в будни вы решаете бизнес-вопросы в сити, а на выходные отправляетесь за город — в загородные комплексы или в путешествие в Одессу или Харьков. Недельный тест-драйв позволяет полноценно оценить комфорт модели, и если всё понравится — договор легко продлить.</div>
 
-<div class='editor_title'>Аренда на месяц: Для бизнеса и жизни</div>
-<div class='editor_text'>Тариф "Месяц" — выгодное решение для проектной работы, командировок или релокации в столицу. Чем дольше срок, тем ниже суточная стоимость. Вы делаете один платеж и пользуетесь авто без ограничений по маршрутам. Это оптимальный выбор для регулярных поездок между городами (Киев ↔ Днепр, Харьков, Львов). Один автомобиль закроет все ваши потребности: от ежедневных поездок в офис до встречи делегаций в аэропорту. При необходимости класс авто можно сменить.</div>
+<h3 class='editor_title'>Аренда на месяц: Для бизнеса и жизни</h3>
+<div class='editor_text'>Тариф "Месяц" — выгодное решение для проектной работы, командировок или релокации в столицу. Чем дольше срок, тем ниже суточная стоимость. Вы делаете один платеж и пользуетесь авто без ограничений по маршрутам. Это оптимальный выбор для регулярных поездок между городами (Киев ↔ Днепр, Харьков, Одесса). Один автомобиль закроет все ваши потребности: от ежедневных поездок в офис до встречи делегаций в аэропорту. При необходимости класс авто можно сменить.</div>
 
-<div class='editor_title'>Долгосрочная аренда (от 3 месяцев)</div>
+<h3 class='editor_title'>Долгосрочная аренда (от 3 месяцев)</h3>
 <div class='editor_text'>Альтернатива покупке авто. Вы получаете персональное транспортное средство на срок от 3 месяцев до года и более. Ваши преимущества:<ul><li>Фиксированный ежемесячный бюджет.</li><li>Отсутствие забот о страховке, ТО, сезонной замене резины и потере стоимости авто.</li><li>Возможность гибко менять авто в зависимости от сезона или задач (летом — седан, зимой — кроссовер).</li></ul>Подача и возврат возможны не только в Киеве, но и в других регионах Украины.</div>
 
-<div class='editor_title'>Бюджетный прокат (Эконом-класс) — от $20</div>
-<div class='editor_text'>Нужна надежная "рабочая лошадка"? Эконом-класс от REIZ — это сочетание мобильности и разумной цены. Компактные габариты позволяют легко парковаться в центре столицы, а низкий расход топлива существенно экономит бюджет. В салоне комфортно разместятся до 4 пассажиров с багажом.</div>
+<h2 class='editor_title'>Скоро в REIZ Киев: Прокат бюджетных авто (Economy)</h2>
+<div class='editor_text'>Мы готовим пополнение парка! Скоро для аренды в Киеве станут доступны компактные и экономичные авто от $20/сутки — идеальное решение для насыщенного трафика столицы и удобной парковки в центре.<br/><br/>Пока мы готовим эти модели к запуску, предлагаем оценить наши авто класса Комфорт. Это более высокий уровень безопасности на скоростных шоссе Киева и максимальное удобство по цене, близкой к бюджетному сегменту.</div>
 
-<div class='editor_title'>Почему выбирают REIZ в Киеве</div>
+<h2 class='editor_title'>Почему выбирают REIZ в Киеве</h2>
 <div class='editor_text'><ul><li>Удобство: Сайт с фильтрами и актуальными ценами.</li><li>Скорость: Оформление и выдача ключей за считанные минуты.</li><li>Локации: Встречаем в аэропортах "Борисполь" (KBP) и "Жуляны" (IEV), на железнодорожном вокзале или по вашему адресу.</li><li>Честность: Никаких скрытых комиссий — вы платите ту цену, которую видите.</li><li>Гибкость: Простое продление аренды или замена авто.</li><li>Качество: Технически исправные, чистые авто на резине по сезону.</li><li>Поддержка 24/7: Мы на связи на любом удобном языке.</li><li>Прозрачные условия: Правила касательно топлива и пробега четко прописаны в договоре.</li></ul></div>
 
-<div class='editor_title'>Аренда без залога</div>
+<h3 class='editor_title'>Аренда без залога</h3>
 <div class='editor_text'>Мы делаем прокат доступнее. Для определенных моделей и условий аренды доступна опция уменьшенного депозита (до 50%) или аренды без залога. Проверяйте доступность этой опции при бронировании или спросите у менеджера.</div>
 
-<div class='editor_title'>Услуги водителя и трансфер</div>
+<h3 class='editor_title'>Услуги водителя и трансфер</h3>
 <div class='editor_text'>Хотите отдохнуть или поработать в дороге? Закажите авто с профессиональным драйвером. Мы обеспечим комфортный трансфер из аэропортов "Борисполь"/"Жуляны" в отель или деловой центр.</div>
 
-<div class='editor_title'>Доставка авто по Киеву</div>
+<h3 class='editor_title'>Доставка авто по Киеву</h3>
 <div class='editor_text'>Бесплатно: Подаем авто в центральные районы (Печерск, Подол, Шевченковский), на Оболонь и в аэропорты (оплата парковки в аэропорту — за счет клиента).<br/>За пределы города: Подача в пригород или область рассчитывается индивидуально в зависимости от километража.<br/>Как заказать: Просто укажите адрес и время при бронировании, и наш администратор согласует детали.</div>
 
-<div class='editor_title'>Дополнительные опции для комфорта</div>
+<h3 class='editor_title'>Дополнительные опции для комфорта</h3>
 <div class='editor_text'><ul><li>Связь: Apple CarPlay / Android Auto в каждом авто.</li><li>Дети: Детские кресла любого размера по запросу.</li><li>Граница: Оформляем документы для выезда за пределы Украины (по предварительному согласованию).</li><li>Unlimited: Опция безлимитного пробега доступна для большинства тарифов.</li></ul></div>
 
-<div class='editor_title'>Техническое состояние — наш приоритет</div>
+<h3 class='editor_title'>Техническое состояние — наш приоритет</h3>
 <div class='editor_text'>Мы гарантируем, что ваша поездка по Киеву будет безопасной. Каждое авто перед выдачей проходит проверку по чек-листу (тормоза, жидкости, давление в шинах, свет). Салон проходит химчистку и мойку. Вы садитесь в идеально подготовленный автомобиль.</div>
 
-<div class='editor_title'>Безопасность движения в столице</div>
+<h2 class='editor_title'>Безопасность движения в столице</h2>
 <div class='editor_text'>Киевский трафик требует внимания. Вот несколько советов для комфортной езды:<ol><li><span class='text-strong'>Дистанция:</span> В плотном потоке и на мостах держите безопасное расстояние для реакции.</li><li><span class='text-strong'>Маневрирование:</span> Всегда используйте "поворотники" и проверяйте "слепые зоны" перед сменой полосы. Избегайте резких перестроений ("шашек").</li><li><span class='text-strong'>Знаки и разметка:</span> Следите за полосами общественного транспорта — движение по ним запрещено.</li><li><span class='text-strong'>Нулевая толерантность:</span> REIZ категорически запрещает управление в состоянии алкогольного или наркотического опьянения. Нарушение этого правила влечет за собой штрафы и расторжение договора.</li></ol></div>
 `.trim(),
     en: `
-<div class='editor_text'>REIZ offers a car rental service in Kyiv designed for those who value time and comfort. We understand the specifics of the metropolis: from traffic jams on bridges to the need to be at the airport on time. We deliver cars to any district of Kyiv or meet you with a car anywhere in Ukraine by prior arrangement.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.</div>
+<div class='editor_text'>REIZ offers a car rental service in Kyiv designed for those who value time and comfort. We understand the specifics of the metropolis: from traffic jams on bridges to the need to be at the airport on time. We deliver cars to any district of Kyiv or meet you with a car anywhere in Ukraine by prior arrangement.<br/><br/>Our fleet covers all needs: prestigious <span class='text-strong'>premium car hire</span> for business, reliable <span class='text-strong'>SUV rental</span> for travel, and spacious <span class='text-strong'>minivan rental</span> for families. Even if you're looking for <span class='text-strong'>economy car rental</span>, we'll offer you a significantly higher level of comfort and newer models.</div>
 
-<div class='editor_title'>Hourly Rental: Real-World Test Drive</div>
+<h2 class='editor_title'>Rental Plans</h2>
+<h3 class='editor_title'>Hourly Rental: Real-World Test Drive</h3>
 <div class='editor_text'>Hourly rental is the perfect way to experience a car without long-term commitments. One day is enough to understand the character of the car: how it maneuvers in dense Kyiv traffic, whether it is easy to find a parking spot in Podil or Pechersk, and how convenient the driver assistants are. It is also a great opportunity to check the car before long trips. Clients often rent a car for a day to test it before a weekend in the Carpathians or a trip to the seaside.</div>
 
-<div class='editor_title'>Weekly Rate: Freedom from Schedules</div>
-<div class='editor_text'>Car rental for a week in Kyiv is your independence. You get a fixed price for 7 days and complete freedom of movement, forgetting about waiting for taxis and surge pricing. This format is ideal for a busy schedule: on weekdays you solve business issues in the city, and on weekends you head out of town — to country complexes or on a trip to Lviv or Odesa. A weekly test drive allows you to fully evaluate the comfort of the model, and if you like everything, the contract is easy to extend.</div>
+<h3 class='editor_title'>Weekly Rate: Freedom from Schedules</h3>
+<div class='editor_text'>Car rental for a week in Kyiv is your independence. You get a fixed price for 7 days and complete freedom of movement, forgetting about waiting for taxis and surge pricing. This format is ideal for a busy schedule: on weekdays you solve business issues in the city, and on weekends you head out of town — to country complexes or on a trip to Odesa or Kharkiv. A weekly test drive allows you to fully evaluate the comfort of the model, and if you like everything, the contract is easy to extend.</div>
 
-<div class='editor_title'>Monthly Rental: For Business and Life</div>
-<div class='editor_text'>The "Month" tariff is a profitable solution for project work, business trips, or relocation to the capital. The longer the term, the lower the daily cost. You make one payment and use the car without restrictions on routes. This is the optimal choice for regular trips between cities (Kyiv ↔ Dnipro, Kharkiv, Lviv). One car will cover all your needs: from daily trips to the office to meeting delegations at the airport. If necessary, the car class can be changed.</div>
+<h3 class='editor_title'>Monthly Rental: For Business and Life</h3>
+<div class='editor_text'>The "Month" tariff is a profitable solution for project work, business trips, or relocation to the capital. The longer the term, the lower the daily cost. You make one payment and use the car without restrictions on routes. This is the optimal choice for regular trips between cities (Kyiv ↔ Dnipro, Kharkiv, Odesa). One car will cover all your needs: from daily trips to the office to meeting delegations at the airport. If necessary, the car class can be changed.</div>
 
-<div class='editor_title'>Long-Term Rental (from 3 months)</div>
+<h3 class='editor_title'>Long-Term Rental (from 3 months)</h3>
 <div class='editor_text'>An alternative to buying a car. You get a personal vehicle for a period of 3 months to a year or more. Your advantages:<ul><li>Fixed monthly budget.</li><li>No worries about insurance, maintenance, seasonal tire changes, and car depreciation.</li><li>Flexibility to change cars depending on the season or tasks (sedan in summer, crossover in winter).</li></ul>Delivery and return are possible not only in Kyiv but also in other regions of Ukraine.</div>
 
-<div class='editor_title'>Budget Rental (Economy Class) — from $20</div>
-<div class='editor_text'>Need a reliable "workhorse"? Economy class from REIZ combines mobility and a reasonable price. Compact dimensions allow for easy parking in the center of the capital, and low fuel consumption significantly saves your budget. The cabin comfortably accommodates up to 4 passengers with luggage.</div>
+<h2 class='editor_title'>Coming soon in REIZ Kyiv: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, compact and economical cars from $20/day will be available for rent in Kyiv — an ideal solution for the capital's busy traffic and easy parking in the center.<br/><br/>While we prepare these models for launch, we invite you to consider our Comfort class cars. They offer a higher level of safety on Kyiv's high-speed highways and maximum convenience at a price close to the budget segment.</div>
 
-<div class='editor_title'>Why Choose REIZ in Kyiv</div>
+<h2 class='editor_title'>Why Choose REIZ in Kyiv</h2>
 <div class='editor_text'><ul><li>Convenience: Website with filters and up-to-date prices.</li><li>Speed: Paperwork and key handover in minutes.</li><li>Locations: We meet you at Boryspil (KBP) and Zhuliany (IEV) airports, at the railway station, or at your address.</li><li>Honesty: No hidden fees — you pay the price you see.</li><li>Flexibility: Simple rental extension or car replacement.</li><li>Quality: Technically sound, clean cars with seasonal tires.</li><li>24/7 Support: We are in touch in any convenient language.</li><li>Transparent Conditions: Rules regarding fuel and mileage are clearly stated in the contract.</li></ul></div>
 
-<div class='editor_title'>Rental Without Deposit</div>
+<h3 class='editor_title'>Rental Without Deposit</h3>
 <div class='editor_text'>We make rental more accessible. For certain models and rental conditions, a reduced deposit option (up to 50%) or rental without a deposit is available. Check the availability of this option when booking or ask the manager.</div>
 
-<div class='editor_title'>Chauffeur Services and Transfer</div>
+<h3 class='editor_title'>Chauffeur Services and Transfer</h3>
 <div class='editor_text'>Want to relax or work on the road? Order a car with a professional driver. We will ensure a comfortable transfer from Boryspil/Zhuliany airports to your hotel or business center.</div>
 
-<div class='editor_title'>Car Delivery in Kyiv</div>
+<h3 class='editor_title'>Car Delivery in Kyiv</h3>
 <div class='editor_text'>Free: We deliver cars to central districts (Pechersk, Podil, Shevchenkivskyi), Obolon, and airports (airport parking fees are paid by the client).<br/>Outside the City: Delivery to the suburbs or region is calculated individually depending on the mileage.<br/>How to Order: Just specify the address and time when booking, and our administrator will coordinate the details.</div>
 
-<div class='editor_title'>Additional Options for Comfort</div>
+<h3 class='editor_title'>Additional Options for Comfort</h3>
 <div class='editor_text'><ul><li>Connectivity: Apple CarPlay / Android Auto in every car.</li><li>Kids: Child seats of any size upon request.</li><li>Borders: We prepare documents for traveling outside Ukraine (by prior agreement).</li><li>Unlimited: Unlimited mileage option is available for most tariffs.</li></ul></div>
 
-<div class='editor_title'>Technical Condition is Our Priority</div>
+<h3 class='editor_title'>Technical Condition is Our Priority</h3>
 <div class='editor_text'>We guarantee that your trip around Kyiv will be safe. Before delivery, every car undergoes a check-list inspection (brakes, fluids, tire pressure, lights). The interior undergoes dry cleaning and washing. You get into a perfectly prepared car.</div>
 
-<div class='editor_title'>Traffic Safety in the Capital</div>
+<h2 class='editor_title'>Traffic Safety in the Capital</h2>
 <div class='editor_text'>Kyiv traffic requires attention. Here are some tips for a comfortable drive:<ol><li><span class='text-strong'>Distance:</span> In dense traffic and on bridges, keep a safe distance for reaction.</li><li><span class='text-strong'>Maneuvering:</span> Always use turn signals and check blind spots before changing lanes. Avoid aggressive lane changing.</li><li><span class='text-strong'>Signs and Markings:</span> Watch out for public transport lanes — driving on them is prohibited.</li><li><span class='text-strong'>Zero Tolerance:</span> REIZ strictly prohibits driving under the influence of alcohol or drugs. Violation of this rule entails fines and termination of the contract.</li></ol></div>
 `.trim(),
   };
@@ -6483,102 +6486,102 @@ function generateKyivEditorContent(locale: Locale): string {
 function generateOdesaEditorContent(locale: Locale): string {
   const contentByLocale = {
     uk: `
-<div class='editor_text'>Одеса — це місто, яке живе у власному ритмі: ділові зустрічі в порту вранці, обід на Дерибасівській і вечірній променад в Аркадії. Щоб встигати скрізь і не залежати від таксі, обирайте прокат авто від REIZ. Ми пропонуємо сервіс, що поєднує одеську гостинність з німецькою точністю: ідеально чисті авто, прозорі договори та подача в будь-яку точку міста.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <h2>прокат преміум-авто</h2> для бізнесу, надійна <h2>оренда позашляховиків</h2> для мандрівок та місткий <h2>прокат мінівенів</h2> для сім'ї. Навіть якщо ви шукаєте <h2>оренду авто економ-класу</h2>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
+<div class='editor_text'>Одеса — це місто, яке живе у власному ритмі: ділові зустрічі в порту вранці, обід на Дерибасівській і вечірній променад в Аркадії. Щоб встигати скрізь і не залежати від таксі, обирайте прокат авто від REIZ. Ми пропонуємо сервіс, що поєднує одеську гостинність з німецькою точністю: ідеально чисті авто, прозорі договори та подача в будь-яку точку міста.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <span class='text-strong'>прокат преміум-авто</span> для бізнесу, надійна <span class='text-strong'>оренда позашляховиків</span> для мандрівок та місткий <span class='text-strong'>прокат мінівенів</span> для сім'ї. Навіть якщо ви шукаєте <span class='text-strong'>оренду авто економ-класу</span>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
 
-<div class='editor_title'>Погодинний драйв</div>
+<h2 class='editor_title'>Погодинний драйв</h2>
 <div class='editor_text'>Оренда на кілька годин або добу — це ваш тест-драйв. Спробуйте, як авто поводиться на бруківці Пушкінської або в заторах на проспекті Шевченка. Чи легко вам паркуватися біля «Привозу»? Чи вмістить багажник покупки? Це найкращий спосіб зрозуміти, чи підходить вам машина, перш ніж брати її на довгий термін.</div>
 
-<div class='editor_title'>Тижневий тариф: Відпустка та справи</div>
+<h3 class='editor_title'>Тижневий тариф: Відпустка та справи</h3>
 <div class='editor_text'>Приїхали в Одесу на тиждень? Оренда авто вигідніша за постійні поїздки на таксі. Фіксований тариф на 7 днів дає вам свободу. Ви зможете поєднати роботу в центрі з поїздками на пляжі Фонтану або виїхати за місто: на виноробні Шабо, в Санжійку чи до Аккерманської фортеці. Ви самі будуєте маршрут, не підлаштовуючись під розклад автобусів чи електричок.</div>
 
-<div class='editor_title'>Місяць свободи (Тариф "30+")</div>
+<h3 class='editor_title'>Місяць свободи (Тариф "30+")</h3>
 <div class='editor_text'>Для тих, хто в Одесі надовго — релокація, сезонна робота або затяжне відрядження. Ми пропонуємо спеціальний тариф: платите раз на місяць, а вартість доби виходить значно нижчою. Це ідеально для регулярних поїздок за маршрутами Одеса ↔ Київ або Одеса ↔ Миколаїв. Один автомобіль вирішує всі питання: офіс, дім, закупівлі, зустріч партнерів. Набрид седан? Можна поміняти на кросовер наступного місяця.</div>
 
-<div class='editor_title'>Довгострокова оренда</div>
+<h3 class='editor_title'>Довгострокова оренда</h3>
 <div class='editor_text'>Живіть в Одесі з комфортом, не купуючи авто. Підписка на авто від REIZ (від 3 місяців) звільняє вас від проблем автовласника: ми беремо на себе страховку, ТО, сезонну гуму та ремонти. Ви просто насолоджуєтесь їздою узбережжям. Це вигідно для бізнесу та IT-спеціалістів: передбачувані витрати без сюрпризів.</div>
 
-<div class='editor_title'>Бюджетний клас (від $20/добу)</div>
-<div class='editor_text'>Економія може бути комфортною. Наші бюджетні авто — це сучасні іномарки з кондиціонерами (що критично важливо для одеського літа) та помірною витратою пального. Компактні розміри дозволять знайти паркомісце навіть у завантаженому центрі.</div>
+<h2 class='editor_title'>Незабаром у REIZ Одеса: Прокат бюджетних авто (Economy)</h2>
+<div class='editor_text'>Ми готуємо поповнення парку! Скоро для оренди в Одесі стануть доступні компактні та економічні авто від $20/добу — з потужними кондиціонерами для спекотного літа та зручними габаритами для паркування в центрі та біля пляжів.<br/><br/>Поки ми готуємо ці моделі, пропонуємо оцінити наші авто класу Комфорт. Це ідеальний баланс ціни та якості для поїздок в Аркадію, за місто або ділових зустрічей в порту.</div>
 
-<div class='editor_title'>Чому в Одесі обирають REIZ</div>
+<h2 class='editor_title'>Чому в Одесі обирають REIZ</h2>
 <div class='editor_text'><ul><li>Локація: Зустрінемо вас в Міжнародному аеропорту "Одеса" (ODS), на Ж/Д вокзалі або привезём авто до вашого готелю.</li><li>Швидкість: Мінімум бюрократії. Бронювання та видача займають лічені хвилини.</li><li>Чесність: Ви бачите фінальну ціну. Жодних прихованих доплат "за повітря".</li><li>Стан авто: Ми дбаємо про машини. Салон після хімчистки, технічна частина — ідеальна.</li><li>Підтримка: Ми на зв'язку 24/7 у месенджерах та телефоном.</li></ul></div>
 
-<div class='editor_title'>Оренда без застави</div>
+<h3 class='editor_title'>Оренда без застави</h3>
 <div class='editor_text'>Для вашої зручності ми впровадили опцію оренди зі зниженою заставою (до 50%) або взагалі без неї (за умови придбання повного страхування). Уточнюйте доступність цієї опції для обраного класу авто у менеджера.</div>
 
-<div class='editor_title'>Трансфер та водій</div>
+<h3 class='editor_title'>Трансфер та водій</h3>
 <div class='editor_text'>Хочете розслабитися і не думати про дорогу? Замовте послугу авто з водієм. Ми зустрінемо вас з табличкою в аеропорту та з комфортом доставимо в будь-яку точку Одеси чи області.</div>
 
-<div class='editor_title'>Доставка авто</div>
+<h3 class='editor_title'>Доставка авто</h3>
 <div class='editor_text'>Безкоштовно: Центр, Приморський район, Аркадія, Черемушки, Аеропорт (оплата стоянки — за клієнтом).<br/>Селище Котовського та область: Подача можлива, вартість розраховується індивідуально залежно від відстані.</div>
 
-<div class='editor_title'>Безпека на одеських дорогах</div>
+<h2 class='editor_title'>Безпека на одеських дорогах</h2>
 <div class='editor_text'>Специфіка південного міста вимагає уваги.<ol><li><span class='text-strong'>Трамваї:</span> В центрі багато трамвайних колій. Будьте обережні, особливо під час дощу — рейки слизькі.</li><li><span class='text-strong'>Сезонність:</span> Влітку трафік значно зростає за рахунок туристів, скутерів та самокатів. Частіше дивіться в дзеркала і перевіряйте "сліпі зони".</li><li><span class='text-strong'>Паркування:</span> Не залишайте авто під знаками "Зупинку заборонено" — в Одесі активно працюють евакуатори.</li><li><span class='text-strong'>Алкоголь:</span> Ми маємо нульову толерантність до вживання алкоголю за кермом. Порушення — це миттєве розірвання договору, штраф та внесення в чорний список.</li></ol></div>
 `.trim(),
     ru: `
-<div class='editor_text'>Одесса — город, живущий в своем ритме: деловые встречи в порту утром, обед на Дерибасовской и вечерний променад в Аркадии. Чтобы успевать везде и не зависеть от такси, выбирайте прокат авто от REIZ. Мы предлагаем сервис, сочетающий одесское гостеприимство с немецкой точностью: идеально чистые авто, прозрачные договоры и подача в любую точку города.<br/><br/>Наш автопарк покрывает любые потребности: статусный <h2>прокат премиум-авто</h2> для бизнеса, надёжная <h2>аренда внедорожников</h2> для путешествий и вместительный <h2>прокат минивэнов</h2> для семьи. Даже если вы ищете <h2>аренду авто эконом-класса</h2>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
+<div class='editor_text'>Одесса — город, живущий в своем ритме: деловые встречи в порту утром, обед на Дерибасовской и вечерний променад в Аркадии. Чтобы успевать везде и не зависеть от такси, выбирайте прокат авто от REIZ. Мы предлагаем сервис, сочетающий одесское гостеприимство с немецкой точностью: идеально чистые авто, прозрачные договоры и подача в любую точку города.<br/><br/>Наш автопарк покрывает любые потребности: статусный <span class='text-strong'>прокат премиум-авто</span> для бизнеса, надёжная <span class='text-strong'>аренда внедорожников</span> для путешествий и вместительный <span class='text-strong'>прокат минивэнов</span> для семьи. Даже если вы ищете <span class='text-strong'>аренду авто эконом-класса</span>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
 
-<div class='editor_title'>Почасовой драйв</div>
+<h2 class='editor_title'>Почасовой драйв</h2>
 <div class='editor_text'>Аренда на пару часов или сутки — это ваш тест-драйв. Попробуйте, как авто ведет себя на брусчатке Пушкинской или в пробках на проспекте Шевченко. Легко ли вам парковаться возле «Привоза»? Вместит ли багажник покупки? Это лучший способ понять, подходит ли вам машина, прежде чем брать её на долгий срок.</div>
 
-<div class='editor_title'>Недельный тариф: Отпуск и дела</div>
+<h3 class='editor_title'>Недельный тариф: Отпуск и дела</h3>
 <div class='editor_text'>Приехали в Одессу на неделю? Аренда авто выгоднее постоянных поездок на такси. Фиксированный тариф на 7 дней дает вам свободу. Вы сможете совместить работу в центре с поездками на пляжи Фонтана или выехать за город: на винодельни Шабо, в Санжейку или к Аккерманской крепости. Вы сами строите маршрут, не подстраиваясь под расписание автобусов.</div>
 
-<div class='editor_title'>Месяц свободы (Тариф "30+")</div>
+<h3 class='editor_title'>Месяц свободы (Тариф "30+")</h3>
 <div class='editor_text'>Для тех, кто в Одессе надолго — релокация, сезонная работа или затяжная командировка. Мы предлагаем специальный тариф: платите раз в месяц, а стоимость суток выходит значительно ниже. Это идеально для регулярных поездок по маршрутам Одесса ↔ Киев или Одесса ↔ Николаев. Один автомобиль решает все вопросы: офис, дом, закупки, встреча партнеров. Надоел седан? Можно поменять на кроссовер в следующем месяце.</div>
 
-<div class='editor_title'>Долгосрочная аренда</div>
+<h3 class='editor_title'>Долгосрочная аренда</h3>
 <div class='editor_text'>Живите в Одессе с комфортом, не покупая авто. Подписка на авто от REIZ (от 3 месяцев) освобождает вас от проблем автовладельца: мы берем на себя страховку, ТО, сезонную резину и ремонты. Вы просто наслаждаетесь ездой по побережью. Это выгодно для бизнеса и IT-специалистов: предсказуемые расходы без сюрпризов.</div>
 
-<div class='editor_title'>Бюджетный класс (от $20/сутки)</div>
-<div class='editor_text'>Экономия может быть комфортной. Наши бюджетные авто — это современные иномарки с кондиционерами (что критично для одесского лета) и умеренным расходом топлива. Компактные размеры позволят найти паркоместо даже в загруженном центре.</div>
+<h2 class='editor_title'>Скоро в REIZ Одесса: Прокат бюджетных авто (Economy)</h2>
+<div class='editor_text'>Мы готовим пополнение парка! Скоро для аренды в Одессе станут доступны компактные и экономичные авто от $20/сутки — с мощными кондиционерами для жаркого лета и удобными габаритами для парковки в центре и у пляжей.<br/><br/>Пока мы готовим эти модели, предлагаем оценить наши авто класса Комфорт. Это идеальный баланс цены и качества для поездок в Аркадию, за город или деловых встреч в порту.</div>
 
-<div class='editor_title'>Почему в Одессе выбирают REIZ</div>
+<h2 class='editor_title'>Почему в Одессе выбирают REIZ</h2>
 <div class='editor_text'><ul><li>Локация: Встретим вас в Международном аэропорту "Одесса" (ODS), на Ж/Д вокзале или привезем авто к вашему отелю.</li><li>Скорость: Минимум бюрократии. Бронирование и выдача занимают считанные минуты.</li><li>Честность: Вы видите финальную цену. Никаких скрытых доплат.</li><li>Состояние авто: Мы заботимся о машинах. Салон после химчистки, техническая часть — идеальна.</li><li>Поддержка: Мы на связи 24/7 в мессенджерах и по телефону.</li></ul></div>
 
-<div class='editor_title'>Аренда без залога</div>
+<h3 class='editor_title'>Аренда без залога</h3>
 <div class='editor_text'>Для вашего удобства мы внедрили опцию аренды со сниженным залогом (до 50%) или вообще без него (при условии покупки полного страхования). Уточняйте доступность этой опции для выбранного класса авто у менеджера.</div>
 
-<div class='editor_title'>Трансфер и водитель</div>
+<h3 class='editor_title'>Трансфер и водитель</h3>
 <div class='editor_text'>Хотите расслабиться и не думать о дороге? Закажите услугу авто с водителем. Мы встретим вас с табличкой в аэропорту и с комфортом доставим в любую точку Одессы или области.</div>
 
-<div class='editor_title'>Доставка авто</div>
+<h3 class='editor_title'>Доставка авто</h3>
 <div class='editor_text'>Бесплатно: Центр, Приморский район, Аркадия, Черемушки, Аэропорт (оплата парковки — за счет клиента).<br/>Поселок Котовского и область: Подача возможна, стоимость рассчитывается индивидуально в зависимости от расстояния.</div>
 
-<div class='editor_title'>Безопасность на одесских дорогах</div>
+<h2 class='editor_title'>Безопасность на одесских дорогах</h2>
 <div class='editor_text'>Специфика южного города требует внимания.<ol><li><span class='text-strong'>Трамваи:</span> В центре много трамвайных путей. Будьте осторожны, особенно в дождь — рельсы скользкие.</li><li><span class='text-strong'>Сезонность:</span> Летом трафик значительно возрастает за счет туристов, скутеров и самокатов. Чаще смотрите в зеркала и проверяйте "слепые зоны".</li><li><span class='text-strong'>Парковка:</span> Не оставляйте авто под знаками "Остановка запрещена" — в Одессе активно работают эвакуаторы.</li><li><span class='text-strong'>Алкоголь:</span> У нас нулевая толерантность к употреблению алкоголя за рулем. Нарушение — это мгновенное расторжение договора, штраф и внесение в черный список.</li></ol></div>
 `.trim(),
     en: `
-<div class='editor_text'>Odesa is a city that lives in its own rhythm: business meetings at the port in the morning, lunch on Deribasivska Street, and an evening promenade in Arcadia. To be on time everywhere and not depend on taxis, choose car rental from REIZ. We offer a service that combines Odesa hospitality with German precision: perfectly clean cars, transparent contracts, and delivery anywhere in the city.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.</div>
+<div class='editor_text'>Odesa is a city that lives in its own rhythm: business meetings at the port in the morning, lunch on Deribasivska Street, and an evening promenade in Arcadia. To be on time everywhere and not depend on taxis, choose car rental from REIZ. We offer a service that combines Odesa hospitality with German precision: perfectly clean cars, transparent contracts, and delivery anywhere in the city.<br/><br/>Our fleet covers all needs: prestigious <span class='text-strong'>premium car hire</span> for business, reliable <span class='text-strong'>SUV rental</span> for travel, and spacious <span class='text-strong'>minivan rental</span> for families. Even if you're looking for <span class='text-strong'>economy car rental</span>, we'll offer you a significantly higher level of comfort and newer models.</div>
 
-<div class='editor_title'>Hourly Drive</div>
+<h2 class='editor_title'>Hourly Drive</h2>
 <div class='editor_text'>Renting for a few hours or a day is your test drive. Try how the car behaves on the cobblestones of Pushkinska Street or in traffic on Shevchenko Avenue. Is it easy for you to park near "Privoz"? Will the trunk fit your shopping? This is the best way to understand if the car suits you before renting it for a long term.</div>
 
-<div class='editor_title'>Weekly Rate: Vacation and Business</div>
+<h3 class='editor_title'>Weekly Rate: Vacation and Business</h3>
 <div class='editor_text'>Came to Odesa for a week? Car rental is more profitable than constant taxi rides. A fixed rate for 7 days gives you freedom. You can combine work in the center with trips to the beaches of Fontana or go out of town: to Shabo wineries, Sanzhibka cliffs, or Akkerman Fortress. You build the route yourself, without adjusting to the schedule of buses or trains.</div>
 
-<div class='editor_title'>Month of Freedom (Tariff "30+")</div>
+<h3 class='editor_title'>Month of Freedom (Tariff "30+")</h3>
 <div class='editor_text'>For those who stay in Odesa for a long time — relocation, seasonal work, or a long business trip. We offer a special tariff: pay once a month, and the daily cost is significantly lower. This is ideal for regular trips on routes like Odesa ↔ Kyiv or Odesa ↔ Mykolaiv. One car solves all issues: office, home, shopping, meeting partners. Tired of a sedan? You can swap it for a crossover next month.</div>
 
-<div class='editor_title'>Long-Term Rental</div>
+<h3 class='editor_title'>Long-Term Rental</h3>
 <div class='editor_text'>Live in Odesa comfortably without buying a car. Car subscription from REIZ (from 3 months) frees you from car owner problems: we handle insurance, maintenance, seasonal tires, and repairs. You simply enjoy driving along the coast. This is profitable for businesses and IT specialists: predictable expenses with no surprises.</div>
 
-<div class='editor_title'>Budget Class (from $20/day)</div>
-<div class='editor_text'>Economy can be comfortable. Our budget cars are modern foreign cars with air conditioning (critical for Odesa summer) and moderate fuel consumption. Compact dimensions allow finding a parking spot even in the busy city center.</div>
+<h2 class='editor_title'>Coming soon in REIZ Odesa: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, compact and economical cars from $20/day will be available for rent in Odesa — with powerful air conditioning for the hot summer and convenient dimensions for parking in the center and near the beaches.<br/><br/>While we prepare these models for launch, we invite you to consider our Comfort class cars. They offer the ideal balance of price and quality for trips to Arcadia, out of town, or business meetings at the port.</div>
 
-<div class='editor_title'>Why Choose REIZ in Odesa</div>
+<h2 class='editor_title'>Why Choose REIZ in Odesa</h2>
 <div class='editor_text'><ul><li>Location: We will meet you at Odesa International Airport (ODS), at the Railway Station, or bring the car to your hotel.</li><li>Speed: Minimum bureaucracy. Booking and key handover take just a few minutes.</li><li>Honesty: You see the final price. No hidden fees.</li><li>Car Condition: We care about our cars. The interior is dry-cleaned, the technical part is perfect.</li><li>Support: We are in touch 24/7 via messengers and phone.</li></ul></div>
 
-<div class='editor_title'>Rental Without Deposit</div>
+<h3 class='editor_title'>Rental Without Deposit</h3>
 <div class='editor_text'>For your convenience, we have introduced an option of rental with a reduced deposit (up to 50%) or no deposit at all (subject to purchasing full insurance). Check the availability of this option for the selected car class with the manager.</div>
 
-<div class='editor_title'>Transfer and Chauffeur</div>
+<h3 class='editor_title'>Transfer and Chauffeur</h3>
 <div class='editor_text'>Want to relax and not think about the road? Order a car service with a driver. We will meet you with a sign at the airport and comfortably deliver you to any point in Odesa or the region.</div>
 
-<div class='editor_title'>Car Delivery</div>
+<h3 class='editor_title'>Car Delivery</h3>
 <div class='editor_text'>Free: Center, Prymorskyi district, Arcadia, Cheremushky, Airport (parking fee is paid by the client).<br/>Kotovskyi District and Region: Delivery is possible, the cost is calculated individually depending on the distance.</div>
 
-<div class='editor_title'>Safety on Odesa Roads</div>
+<h2 class='editor_title'>Safety on Odesa Roads</h2>
 <div class='editor_text'>The specifics of the southern city require attention.<ol><li><span class='text-strong'>Trams:</span> There are many tram tracks in the center. Be careful, especially in the rain — the rails are slippery.</li><li><span class='text-strong'>Seasonality:</span> In summer, traffic increases significantly due to tourists, scooters, and electric scooters. Check your mirrors and "blind spots" more often.</li><li><span class='text-strong'>Parking:</span> Do not leave the car under "No Stopping" signs — tow trucks are actively working in Odesa.</li><li><span class='text-strong'>Alcohol:</span> We have zero tolerance for drinking and driving. Violation means immediate termination of the contract, a fine, and blacklisting.</li></ol></div>
 `.trim(),
   };
@@ -6589,102 +6592,102 @@ function generateOdesaEditorContent(locale: Locale): string {
 function generateDniproEditorContent(locale: Locale): string {
   const contentByLocale = {
     uk: `
-<div class='editor_text'>Дніпро — це потужний індустріальний та діловий центр. Тут час коштує дорого, а мобільність вирішує успіх угод. Сервіс REIZ пропонує прокат автомобілів, що відповідає амбіціям міста: від економних седанів для пересування між офісами до преміум-класу для зустрічі важливих партнерів. Ми забезпечуємо подачу авто на правий та лівий берег, а також доставку по всій області.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <h2>прокат преміум-авто</h2> для бізнесу, надійна <h2>оренда позашляховиків</h2> для мандрівок та місткий <h2>прокат мінівенів</h2> для сім'ї. Навіть якщо ви шукаєте <h2>оренду авто економ-класу</h2>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
+<div class='editor_text'>Дніпро — це потужний індустріальний та діловий центр. Тут час коштує дорого, а мобільність вирішує успіх угод. Сервіс REIZ пропонує прокат автомобілів, що відповідає амбіціям міста: від економних седанів для пересування між офісами до преміум-класу для зустрічі важливих партнерів. Ми забезпечуємо подачу авто на правий та лівий берег, а також доставку по всій області.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <span class='text-strong'>прокат преміум-авто</span> для бізнесу, надійна <span class='text-strong'>оренда позашляховиків</span> для мандрівок та місткий <span class='text-strong'>прокат мінівенів</span> для сім'ї. Навіть якщо ви шукаєте <span class='text-strong'>оренду авто економ-класу</span>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
 
-<div class='editor_title'>Погодинний тест-драйв</div>
+<h2 class='editor_title'>Погодинний тест-драйв</h2>
 <div class='editor_text'>Вам не обов'язково брати авто на тиждень, щоб оцінити його переваги. Тариф "Погодинний" дозволяє взяти машину на день. Проїдьтеся найдовшою набережною Європи, перевірте динаміку на підйомі проспекту Яворницького або маневреність у потоці на Центральному мосту. Це найкращий спосіб переконатися, що габарити та комфорт авто вам підходять.</div>
 
-<div class='editor_title'>Тижневий тариф: Робота і відпочинок</div>
+<h3 class='editor_title'>Тижневий тариф: Робота і відпочинок</h3>
 <div class='editor_text'>Приїхали у відрядження на 7 днів? Власний автомобіль значно ефективніший за таксі. Ви зможете вільно пересуватися між промисловими зонами та центром, а на вихідних — гайнути на Блакитні озера або відвідати острів Хортиця у сусідньому Запоріжжі. Фіксована вартість тижневої оренди дозволяє чітко спланувати бюджет поїздки.</div>
 
-<div class='editor_title'>Оренда на місяць (Тариф "Бізнес")</div>
-<div class='editor_text'>Оптимальне рішення для тих, хто в Дніпрі надовго. Замість щоденної оплати — один платіж на 30 днів зі значною знижкою. Це ваш особистий транспорт без прив'язки до розкладів поїздів чи автобусів. Зручно для регулярних поїздок за маршрутами Дніпро ↔ Київ, Полтава, Харків. Якщо ваші плани зміняться (наприклад, знадобиться більше місця для багажу), ми оперативно замінимо авто на інший клас.</div>
+<h3 class='editor_title'>Оренда на місяць (Тариф "Бізнес")</h3>
+<div class='editor_text'>Оптимальне рішення для тих, хто в Дніпрі надовго. Замість щоденної оплати — один платіж на 30 днів зі значною знижкою. Це ваш особистий транспорт без прив'язки до розкладів поїздів чи автобусів. Зручно для регулярних поїздок за маршрутами Дніпро ↔ Полтава, Харків, Запоріжжя. Якщо ваші плани зміняться (наприклад, знадобиться більше місця для багажу), ми оперативно замінимо авто на інший клас.</div>
 
-<div class='editor_title'>Довгострокова оренда</div>
+<h3 class='editor_title'>Довгострокова оренда</h3>
 <div class='editor_text'>Потрібне авто на сезон або рік, але не хочете витрачати кошти на купівлю? Довгострокова оренда від REIZ — це сервіс "під ключ". Ви користуєтесь машиною, а ми займаємось страхуванням, технічним оглядом та сезонною заміною шин. Це ідеальний варіант для корпоративних клієнтів та компаній, що релокували бізнес у Дніпро.</div>
 
-<div class='editor_title'>Економ-клас (від $20)</div>
-<div class='editor_text'>Практичність передусім. Наші автомобілі бюджетного сегмента — це нові, технічно бездоганні машини з низькою витратою пального. Вони ідеально підходять для насиченого міського трафіку та паркування в центрі.</div>
+<h2 class='editor_title'>Незабаром у REIZ Дніпро: Прокат бюджетних авто (Economy)</h2>
+<div class='editor_text'>Ми готуємо поповнення парку! Скоро для оренди у Дніпрі стануть доступні маневрені та економічні авто від $20/добу — раціональний вибір для щоденних поїздок між офісом, складом та домом.<br/><br/>Поки ми готуємо ці моделі, пропонуємо оцінити наші авто класу Комфорт. Це статусний вигляд для ділових зустрічей та максимальна надійність на дорогах області за розумну ціну.</div>
 
-<div class='editor_title'>Переваги сервісу REIZ у Дніпрі</div>
+<h2 class='editor_title'>Переваги сервісу REIZ у Дніпрі</h2>
 <div class='editor_text'><ul><li>Зустріч: Подаємо авто до аеропорту (DNK), на залізничний вокзал "Дніпро-Головний" або за вашою адресою.</li><li>Прозорість: Усі умови прописані в договорі. Жодних прихованих комісій при поверненні.</li><li>Технічний стан: Ми фанати чистоти та справності. Кожне авто проходить перевірку перед видачею.</li><li>Підтримка: Наші менеджери на зв'язку 24/7, готові допомогти українською, англійською чи іншими мовами.</li><li>Міжмісто: Подача і повернення авто можливі в інших містах України за попереднім запитом.</li></ul></div>
 
-<div class='editor_title'>Умови без застави</div>
+<h3 class='editor_title'>Умови без застави</h3>
 <div class='editor_text'>Ми робимо сервіс гнучким. Для багатьох моделей доступна опція оренди зі зменшеною заставою або без неї (при оформленні повного покриття). Дізнайтеся деталі у менеджера при бронюванні.</div>
 
-<div class='editor_title'>Трансфер та водій</div>
+<h3 class='editor_title'>Трансфер та водій</h3>
 <div class='editor_text'>Потрібно підготуватися до зустрічі в дорозі? Замовте авто з водієм. Ми зустрінемо вас або ваших гостей та забезпечимо трансфер преміум-рівня по місту та області.</div>
 
-<div class='editor_title'>Доставка авто</div>
+<h3 class='editor_title'>Доставка авто</h3>
 <div class='editor_text'>Безкоштовно: Центр, Набережна, район Вокзалу та прилеглі зони.<br/>Платна подача: Лівий берег, віддалені житлові масиви, передмістя. Вартість розраховується індивідуально.</div>
 
-<div class='editor_title'>Безпека руху в Дніпрі</div>
+<h2 class='editor_title'>Безпека руху в Дніпрі</h2>
 <div class='editor_text'>Водіння в Дніпрі має свої особливості:<ol><li><span class='text-strong'>Мости:</span> Рух через Дніпро в години пік може бути ускладнений. Плануйте час із запасом.</li><li><span class='text-strong'>Трамвайні колії:</span> У місті розгалужена трамвайна мережа. Будьте обережні при перетині колій, особливо в дощ.</li><li><span class='text-strong'>Швидкість:</span> На набережній спокусливо розігнатися, але камери фіксації швидкості працюють. Дотримуйтесь обмежень.</li><li><span class='text-strong'>Алкоголь:</span> REIZ сповідує політику нульової толерантності. Керування напідпитку суворо заборонено і веде до негайного розірвання договору.</li></ol></div>
 `.trim(),
     ru: `
-<div class='editor_text'>Днепр — мощный индустриальный и деловой центр. Здесь время стоит дорого, а мобильность определяет успех сделок. Сервис REIZ предлагает прокат автомобилей, соответствующий амбициям города: от экономных седанов для перемещения между офисами до премиум-класса для встречи важных партнеров. Мы обеспечиваем подачу авто на правый и левый берег, а также доставку по всей области.<br/><br/>Наш автопарк покрывает любые потребности: статусный <h2>прокат премиум-авто</h2> для бизнеса, надёжная <h2>аренда внедорожников</h2> для путешествий и вместительный <h2>прокат минивэнов</h2> для семьи. Даже если вы ищете <h2>аренду авто эконом-класса</h2>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
+<div class='editor_text'>Днепр — мощный индустриальный и деловой центр. Здесь время стоит дорого, а мобильность определяет успех сделок. Сервис REIZ предлагает прокат автомобилей, соответствующий амбициям города: от экономных седанов для перемещения между офисами до премиум-класса для встречи важных партнеров. Мы обеспечиваем подачу авто на правый и левый берег, а также доставку по всей области.<br/><br/>Наш автопарк покрывает любые потребности: статусный <span class='text-strong'>прокат премиум-авто</span> для бизнеса, надёжная <span class='text-strong'>аренда внедорожников</span> для путешествий и вместительный <span class='text-strong'>прокат минивэнов</span> для семьи. Даже если вы ищете <span class='text-strong'>аренду авто эконом-класса</span>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
 
-<div class='editor_title'>Почасовой тест-драйв</div>
+<h2 class='editor_title'>Почасовой тест-драйв</h2>
 <div class='editor_text'>Вам не обязательно брать авто на неделю, чтобы оценить его преимущества. Тариф "Почасовой" позволяет взять машину на день. Проедьтесь по самой длинной набережной Европы, проверьте динамику на подъеме проспекта Яворницкого или маневренность в потоке на Центральном мосту. Это лучший способ убедиться, что габариты и комфорт авто вам подходят.</div>
 
-<div class='editor_title'>Недельный тариф: Работа и отдых</div>
+<h3 class='editor_title'>Недельный тариф: Работа и отдых</h3>
 <div class='editor_text'>Приехали в командировку на 7 дней? Собственный автомобиль значительно эффективнее такси. Вы сможете свободно перемещаться между промышленными зонами и центром, а на выходных — махнуть на Голубые озера или посетить остров Хортица в соседнем Запорожье. Фиксированная стоимость недельной аренды позволяет четко спланировать бюджет поездки.</div>
 
-<div class='editor_title'>Аренда на месяц (Тариф "Бизнес")</div>
-<div class='editor_text'>Оптимальное решение для тех, кто в Днепре надолго. Вместо ежедневной оплаты — один платеж за 30 дней со значительной скидкой. Это ваш личный транспорт без привязки к расписанию поездов или автобусов. Удобно для регулярных поездок по маршрутам Днепр ↔ Киев, Полтава, Харьков. Если ваши планы изменятся (например, понадобится больше места для багажа), мы оперативно заменим авто на другой класс.</div>
+<h3 class='editor_title'>Аренда на месяц (Тариф "Бизнес")</h3>
+<div class='editor_text'>Оптимальное решение для тех, кто в Днепре надолго. Вместо ежедневной оплаты — один платеж за 30 дней со значительной скидкой. Это ваш личный транспорт без привязки к расписанию поездов или автобусов. Удобно для регулярных поездок по маршрутам Днепр ↔ Полтава, Харьков, Запорожье. Если ваши планы изменятся (например, понадобится больше места для багажа), мы оперативно заменим авто на другой класс.</div>
 
-<div class='editor_title'>Долгосрочная аренда</div>
+<h3 class='editor_title'>Долгосрочная аренда</h3>
 <div class='editor_text'>Нужно авто на сезон или год, но не хотите тратить средства на покупку? Долгосрочная аренда от REIZ — это сервис "под ключ". Вы пользуетесь машиной, а мы занимаемся страхованием, техосмотром и сезонной заменой шин. Это идеальный вариант для корпоративных клиентов и компаний, релоцировавших бизнес в Днепр.</div>
 
-<div class='editor_title'>Эконом-класс (от $20)</div>
-<div class='editor_text'>Практичность прежде всего. Наши автомобили бюджетного сегмента — это новые, технически безупречные машины с низким расходом топлива. Они идеально подходят для насыщенного городского трафика и парковки в центре.</div>
+<h2 class='editor_title'>Скоро в REIZ Днепр: Прокат бюджетных авто (Economy)</h2>
+<div class='editor_text'>Мы готовим пополнение парка! Скоро для аренды в Днепре станут доступны маневренные и экономичные авто от $20/сутки — рациональный выбор для ежедневных поездок между офисом, складом и домом.<br/><br/>Пока мы готовим эти модели, предлагаем оценить наши авто класса Комфорт. Это статусный вид для деловых встреч и максимальная надежность на дорогах области по разумной цене.</div>
 
-<div class='editor_title'>Преимущества сервиса REIZ в Днепре</div>
+<h2 class='editor_title'>Преимущества сервиса REIZ в Днепре</h2>
 <div class='editor_text'><ul><li>Встреча: Подаем авто в аэропорт (DNK), на Ж/Д вокзал "Днепр-Главный" или по вашему адресу.</li><li>Прозрачность: Все условия прописаны в договоре. Никаких скрытых комиссий при возврате.</li><li>Техническое состояние: Мы фанаты чистоты и исправности. Каждое авто проходит проверку перед выдачей.</li><li>Поддержка: Наши менеджеры на связи 24/7, готовы помочь на украинском, английском или других языках.</li><li>Межгород: Подача и возврат авто возможны в других городах Украины по предварительному запросу.</li></ul></div>
 
-<div class='editor_title'>Условия без залога</div>
+<h3 class='editor_title'>Условия без залога</h3>
 <div class='editor_text'>Мы делаем сервис гибким. Для многих моделей доступна опция аренды с уменьшенным залогом или без него (при оформлении полного покрытия). Узнайте детали у менеджера при бронировании.</div>
 
-<div class='editor_title'>Трансфер и водитель</div>
+<h3 class='editor_title'>Трансфер и водитель</h3>
 <div class='editor_text'>Нужно подготовиться к встрече в дороге? Закажите авто с водителем. Мы встретим вас или ваших гостей и обеспечим трансфер премиум-уровня по городу и области.</div>
 
-<div class='editor_title'>Доставка авто</div>
+<h3 class='editor_title'>Доставка авто</h3>
 <div class='editor_text'>Бесплатно: Центр, Набережная, район Вокзала и прилегающие зоны.<br/>Платная подача: Левый берег, отдаленные жилмассивы, пригород. Стоимость рассчитывается индивидуально.</div>
 
-<div class='editor_title'>Безопасность движения в Днепре</div>
+<h2 class='editor_title'>Безопасность движения в Днепре</h2>
 <div class='editor_text'>Вождение в Днепре имеет свои особенности:<ol><li><span class='text-strong'>Мосты:</span> Движение через Днепр в часы пик может быть затруднено. Планируйте время с запасом.</li><li><span class='text-strong'>Трамвайные пути:</span> В городе разветвленная трамвайная сеть. Будьте осторожны при пересечении путей, особенно в дождь.</li><li><span class='text-strong'>Скорость:</span> На набережной заманчиво разогнаться, но камеры фиксации скорости работают. Соблюдайте ограничения.</li><li><span class='text-strong'>Алкоголь:</span> REIZ исповедует политику нулевой толерантности. Управление в нетрезвом виде строго запрещено и ведет к немедленному расторжению договора.</li></ol></div>
 `.trim(),
     en: `
-<div class='editor_text'>Dnipro is a powerful industrial and business hub. Here, time is expensive, and mobility determines the success of deals. REIZ offers a car rental service tailored to the city's ambitions: from economical sedans for moving between offices to premium class vehicles for meeting important partners. We provide car delivery to both the Right and Left banks, as well as delivery throughout the region.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.</div>
+<div class='editor_text'>Dnipro is a powerful industrial and business hub. Here, time is expensive, and mobility determines the success of deals. REIZ offers a car rental service tailored to the city's ambitions: from economical sedans for moving between offices to premium class vehicles for meeting important partners. We provide car delivery to both the Right and Left banks, as well as delivery throughout the region.<br/><br/>Our fleet covers all needs: prestigious <span class='text-strong'>premium car hire</span> for business, reliable <span class='text-strong'>SUV rental</span> for travel, and spacious <span class='text-strong'>minivan rental</span> for families. Even if you're looking for <span class='text-strong'>economy car rental</span>, we'll offer you a significantly higher level of comfort and newer models.</div>
 
-<div class='editor_title'>Hourly Test Drive</div>
+<h2 class='editor_title'>Hourly Test Drive</h2>
 <div class='editor_text'>You don't have to rent a car for a week to appreciate its benefits. The "Hourly" tariff allows you to take a car for a day. Drive along the longest embankment in Europe, check the dynamics on the ascent of Yavornytskyi Avenue, or maneuverability in traffic on the Central Bridge. This is the best way to make sure the dimensions and comfort of the car suit you.</div>
 
-<div class='editor_title'>Weekly Rate: Work and Leisure</div>
+<h3 class='editor_title'>Weekly Rate: Work and Leisure</h3>
 <div class='editor_text'>Came on a business trip for 7 days? A personal car is much more efficient than a taxi. You can freely move between industrial zones and the center, and on weekends — head to the Blue Lakes or visit Khortytsia Island in neighboring Zaporizhzhia. The fixed cost of a weekly rental allows you to clearly plan your trip budget.</div>
 
-<div class='editor_title'>Monthly Rental ("Business" Tariff)</div>
-<div class='editor_text'>The optimal solution for those staying in Dnipro for a long time. Instead of daily payments — one payment for 30 days with a significant discount. This is your personal transport without being tied to train or bus schedules. Convenient for regular trips on routes Dnipro ↔ Kyiv, Poltava, Kharkiv. If your plans change (for example, you need more luggage space), we will promptly replace the car with another class.</div>
+<h3 class='editor_title'>Monthly Rental ("Business" Tariff)</h3>
+<div class='editor_text'>The optimal solution for those staying in Dnipro for a long time. Instead of daily payments — one payment for 30 days with a significant discount. This is your personal transport without being tied to train or bus schedules. Convenient for regular trips on routes Dnipro ↔ Poltava, Kharkiv, Zaporizhzhia. If your plans change (for example, you need more luggage space), we will promptly replace the car with another class.</div>
 
-<div class='editor_title'>Long-Term Rental</div>
+<h3 class='editor_title'>Long-Term Rental</h3>
 <div class='editor_text'>Need a car for a season or a year, but don't want to spend money on buying one? Long-term rental from REIZ is a turnkey service. You use the car, and we handle insurance, technical inspection, and seasonal tire changes. This is an ideal option for corporate clients and companies that have relocated their business to Dnipro.</div>
 
-<div class='editor_title'>Economy Class (from $20)</div>
-<div class='editor_text'>Practicality comes first. Our budget segment cars are new, technically flawless vehicles with low fuel consumption. They are perfect for heavy city traffic and parking in the center.</div>
+<h2 class='editor_title'>Coming soon in REIZ Dnipro: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, agile and economical cars from $20/day will be available for rent in Dnipro — a practical choice for daily trips between the office, warehouse, and home.<br/><br/>While we prepare these models for launch, we invite you to consider our Comfort class cars. They offer a status look for business meetings and maximum reliability on regional roads at a reasonable price.</div>
 
-<div class='editor_title'>Advantages of REIZ Service in Dnipro</div>
+<h2 class='editor_title'>Advantages of REIZ Service in Dnipro</h2>
 <div class='editor_text'><ul><li>Meeting: We deliver the car to the airport (DNK), Dnipro-Main Railway Station, or your address.</li><li>Transparency: All conditions are written in the contract. No hidden fees upon return.</li><li>Technical Condition: We are fanatics of cleanliness and serviceability. Every car undergoes inspection before delivery.</li><li>Support: Our managers are in touch 24/7, ready to help in Ukrainian, English, or other languages.</li><li>Intercity: Delivery and return of the car are possible in other cities of Ukraine upon prior request.</li></ul></div>
 
-<div class='editor_title'>No Deposit Conditions</div>
+<h3 class='editor_title'>No Deposit Conditions</h3>
 <div class='editor_text'>We make the service flexible. For many models, a reduced deposit or no deposit option is available (with full coverage purchase). Ask the manager for details when booking.</div>
 
-<div class='editor_title'>Transfer and Chauffeur</div>
+<h3 class='editor_title'>Transfer and Chauffeur</h3>
 <div class='editor_text'>Need to prepare for a meeting on the road? Order a car with a driver. We will meet you or your guests and provide premium-level transfer around the city and the region.</div>
 
-<div class='editor_title'>Car Delivery</div>
+<h3 class='editor_title'>Car Delivery</h3>
 <div class='editor_text'>Free: Center, Embankment (Naberezhna), Railway Station area, and adjacent zones.<br/>Paid Delivery: Left bank, remote residential areas, suburbs. The cost is calculated individually.</div>
 
-<div class='editor_title'>Traffic Safety in Dnipro</div>
+<h2 class='editor_title'>Traffic Safety in Dnipro</h2>
 <div class='editor_text'>Driving in Dnipro has its specifics:<ol><li><span class='text-strong'>Bridges:</span> Traffic across the Dnipro river during rush hours can be difficult. Plan your time with a margin.</li><li><span class='text-strong'>Tram Tracks:</span> The city has an extensive tram network. Be careful when crossing tracks, especially in the rain.</li><li><span class='text-strong'>Speed:</span> It is tempting to speed up on the embankment, but speed cameras are working. Observe the limits.</li><li><span class='text-strong'>Alcohol:</span> REIZ adheres to a zero-tolerance policy. Drunk driving is strictly prohibited and leads to immediate termination of the contract.</li></ol></div>
 `.trim(),
   };
@@ -6695,102 +6698,102 @@ function generateDniproEditorContent(locale: Locale): string {
 function generateKharkivEditorContent(locale: Locale): string {
   const contentByLocale = {
     uk: `
-<div class='editor_text'>Харків — це місто масштабів, інтелекту та шаленого ритму. Це мегаполіс, де відстані мають значення: від ділового центру біля Держпрому до індустріальних гігантів на околицях можна їхати годину. Сервіс REIZ пропонує не просто прокат автомобілів, а інструмент вашої свободи. Ми розуміємо специфіку Харкова: тут потрібні авто з надійною підвіскою для бруківки на Сумській та динамічні двигуни для широких проспектів. Ми подаємо ідеально чисті, заправлені та технічно бездоганні машини в будь-яку точку міста.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <h2>прокат преміум-авто</h2> для бізнесу, надійна <h2>оренда позашляховиків</h2> для мандрівок та місткий <h2>прокат мінівенів</h2> для сім'ї. Навіть якщо ви шукаєте <h2>оренду авто економ-класу</h2>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
+<div class='editor_text'>Харків — це місто масштабів, інтелекту та шаленого ритму. Це мегаполіс, де відстані мають значення: від ділового центру біля Держпрому до індустріальних гігантів на околицях можна їхати годину. Сервіс REIZ пропонує не просто прокат автомобілів, а інструмент вашої свободи. Ми розуміємо специфіку Харкова: тут потрібні авто з надійною підвіскою для бруківки на Сумській та динамічні двигуни для широких проспектів. Ми подаємо ідеально чисті, заправлені та технічно бездоганні машини в будь-яку точку міста.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <span class='text-strong'>прокат преміум-авто</span> для бізнесу, надійна <span class='text-strong'>оренда позашляховиків</span> для мандрівок та місткий <span class='text-strong'>прокат мінівенів</span> для сім'ї. Навіть якщо ви шукаєте <span class='text-strong'>оренду авто економ-класу</span>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
 
-<div class='editor_title'>Погодинний тариф: Ваш тест-драйв реальності</div>
+<h2 class='editor_title'>Погодинний тариф: Ваш тест-драйв реальності</h2>
 <div class='editor_text'>Не впевнені, чи варто брати авто надовго? Погодинний тариф — це найкращий спосіб "приміряти" автомобіль без зайвих зобов'язань. Однієї доби достатньо, щоб зрозуміти все:<ol><li><span class='text-strong'>Трамвайні колії:</span> Як авто долає трамвайні колії на Героїв Харкова чи бруківку на Пушкінській?</li><li><span class='text-strong'>Паркування:</span> Чи зручно вам паркуватися у тісних дворах центру біля Оперного театру?</li><li><span class='text-strong'>Багажник:</span> Чи вмістить багажник усе спорядження для пікніка в Саржиному Яру?</li></ol>Це ідеальний варіант для коротких справ: зустріти ділових партнерів на вокзалі, влаштувати романтичний вечір або просто протестувати модель перед купівлею.</div>
 
-<div class='editor_title'>Оренда авто на тиждень: Свобода від метро і таксі</div>
+<h3 class='editor_title'>Оренда авто на тиждень: Свобода від метро і таксі</h3>
 <div class='editor_text'>Тижневий тариф у Харкові — це золота середина між ціною та комфортом. Ви отримуєте один фіксований тариф на 7 днів, який значно вигідніший за подобову оренду. За тиждень ви зможете поєднати активну роботу та повноцінний відпочинок:<ol><li><span class='text-strong'>У будні:</span> Встигайте на зустрічі від "Наукової" до "Спортивної" без очікування таксі в годину пік.</li><li><span class='text-strong'>На вікенд:</span> Вирушайте за місто! Відвідайте Фельдман Екопарк, прогуляйтеся по співаючих терасах у Городньому або поїдьте до палацу у Шаровці.</li></ol>Формат "Тиждень" дає час звикнути до габаритів авто та насолодитися поїздкою без поспіху.</div>
 
-<div class='editor_title'>Місячна оренда (Тариф "Бізнес")</div>
-<div class='editor_text'>Спеціальна пропозиція для тих, хто приїхав у Харків надовго: IT-спеціалістів, менеджерів проєктів або тих, хто тимчасово залишився без власного "залізного коня".<ol><li><span class='text-strong'>Економія:</span> Вартість доби оренди знижується до мінімуму.</li><li><span class='text-strong'>Передбачуваність:</span> Один платіж раз на 30 днів.</li><li><span class='text-strong'>Мобільність:</span> Ви не прив'язані до міста. Потрібно поїхати в Київ, Дніпро чи Полтаву? Сідайте і їдьте.</li><li><span class='text-strong'>Гнучкість:</span> Якщо ваші плани зміняться (наприклад, приїде сім'я і знадобиться більше місця), ми замінимо седан на кросовер або мінівен.</li></ol></div>
+<h3 class='editor_title'>Місячна оренда (Тариф "Бізнес")</h3>
+<div class='editor_text'>Спеціальна пропозиція для тих, хто приїхав у Харків надовго: IT-спеціалістів, менеджерів проєктів або тих, хто тимчасово залишився без власного "залізного коня".<ol><li><span class='text-strong'>Економія:</span> Вартість доби оренди знижується до мінімуму.</li><li><span class='text-strong'>Передбачуваність:</span> Один платіж раз на 30 днів.</li><li><span class='text-strong'>Мобільність:</span> Ви не прив'язані до міста. Потрібно поїхати в Полтаву, Суми чи Дніпро? Сідайте і їдьте.</li><li><span class='text-strong'>Гнучкість:</span> Якщо ваші плани зміняться (наприклад, приїде сім'я і знадобиться більше місця), ми замінимо седан на кросовер або мінівен.</li></ol></div>
 
-<div class='editor_title'>Довгострокова оренда (Підписка на авто)</div>
+<h3 class='editor_title'>Довгострокова оренда (Підписка на авто)</h3>
 <div class='editor_text'>Рішення для бізнесу та раціональних людей. Оренда від 3 місяців до року і більше. Ви отримуєте всі переваги власного автомобіля, але позбавляєтесь головного болю власника:<ol><li><span class='text-strong'>Технічний сервіс:</span> Ми самі слідкуємо за заміною масла та фільтрів.</li><li><span class='text-strong'>Шини:</span> Сезонна заміна та зберігання гуми — це наша турбота.</li><li><span class='text-strong'>Страховка:</span> Повне КАСКО та ОСЦПВ вже включені у вартість. Ви просто платите фіксовану суму щомісяця і користуєтесь авто.</li></ol></div>
 
-<div class='editor_title'>Економ-клас: Практичність від $20/добу</div>
-<div class='editor_text'>Потрібна надійна машина без переплат? Наш економ-клас — це бестселери міських доріг. Це сучасні іномарки, які споживають мінімум пального, мають кондиціонери та аудіосистеми. Їх головна перевага в Харкові — компактність. Ви легко знайдете місце для паркування навіть у перевантаженому центрі біля площі Свободи чи ринку Барабашово.</div>
+<h2 class='editor_title'>Незабаром у REIZ Харків: Прокат бюджетних авто (Economy)</h2>
+<div class='editor_text'>Ми готуємо поповнення парку! Скоро для оренди у Харкові стануть доступні маневрені та економічні авто від $20/добу — ідеальний вибір для поїздок містом, зручного паркування біля ринків та бізнес-центрів.<br/><br/>Поки ми готуємо ці моделі, пропонуємо оцінити наші авто класу Комфорт. Це надійність на бруківці вулиці Сумської та комфорт для дальніх поїздок областю.</div>
 
-<div class='editor_title'>Чому харків'яни та гості міста обирають REIZ</div>
+<h2 class='editor_title'>Чому харків'яни та гості міста обирають REIZ</h2>
 <div class='editor_text'><ul><li>Локація: Ми зустрінемо вас в залі прильоту аеропорту (HRK), на пероні Ж/Д вокзалу "Харків-Пасажирський" або підвеземо авто прямо під під'їзд.</li><li>Швидкість: Від дзвінка до отримання ключів — мінімум часу. Документи оформлюємо за 15 хвилин.</li><li>Прозорість: Жодних прихованих "сервісних зборів". Ви платите саме ту ціну, яку бачите на сайті.</li><li>Стан авто: Наші машини проходять мийку та хімчистку перед кожною видачею. Технічний стан перевіряється за чек-листом.</li><li>Підтримка 24/7: Ми завжди на зв'язку — українською, російською, англійською чи івритом.</li></ul></div>
 
-<div class='editor_title'>Оренда без застави</div>
+<h3 class='editor_title'>Оренда без застави</h3>
 <div class='editor_text'>Ми робимо прокат доступним. Для багатьох моделей доступна опція оренди зі зменшеною заставою (50%) або взагалі без депозиту (за умови оформлення додаткового страхування Super CDW). Уточнюйте деталі у менеджера при бронюванні.</div>
 
-<div class='editor_title'>Послуги водія та VIP-трансфер</div>
+<h3 class='editor_title'>Послуги водія та VIP-трансфер</h3>
 <div class='editor_text'>Хочете відпочити в дорозі або справити враження? Замовте авто бізнес або преміум-класу з професійним водієм. Ідеально для весіль, зустрічі важливих делегацій або комфортного трансферу в інше місто. Водій знає місто ідеально і обере маршрут без заторів.</div>
 
-<div class='editor_title'>Доставка автомобіля по Харкову</div>
+<h3 class='editor_title'>Доставка автомобіля по Харкову</h3>
 <div class='editor_text'>Безкоштовно: Центральні райони (Шевченківський, Київський), проспект Науки, район Ботанічного саду, парк Горького.<br/>Платна подача: Спальні райони (Салтівка, Олексіївка, ХТЗ, Рогань), а також передмістя (Пісочин, Дергачі, Високий). Вартість розраховується індивідуально залежно від кілометражу.</div>
 
-<div class='editor_title'>Безпека руху в Харкові: На що звернути увагу</div>
+<h2 class='editor_title'>Безпека руху в Харкові: На що звернути увагу</h2>
 <div class='editor_text'>Харків — місто широких доріг, які провокують на швидкість. Але безпека — понад усе.<ol><li><span class='text-strong'>Камери:</span> На проспекті Гагаріна, проспекті Науки та інших магістралях працюють камери автофіксації швидкості. Дотримуйтесь лімітів.</li><li><span class='text-strong'>Трамвайні колії:</span> Будьте особливо обережні на Моспросі (проспект Героїв Харкова) та в районі Кінного ринку. Рейки можуть бути слизькими, а плитка біля них часто має нерівності.</li><li><span class='text-strong'>Складні перехрестя:</span> Круговий рух на Гагаріна та розв'язки біля центру вимагають уважності. Слідкуйте за знаками пріоритету.</li><li><span class='text-strong'>Алкоголь:</span> Політика REIZ — нульова толерантність. Керування автомобілем у стані сп'яніння суворо заборонено, карається величезним штрафом та негайним розірванням договору без повернення коштів.</li></ol></div>
 `.trim(),
     ru: `
-<div class='editor_text'>Харьков — это город масштабов, интеллекта и бешеного ритма. Это мегаполис, где расстояния имеют значение: от делового центра у Госпрома до индустриальных гигантов на окраинах можно ехать час. Сервис REIZ предлагает не просто прокат автомобилей, а инструмент вашей свободы. Мы понимаем специфику Харькова: здесь нужны авто с надежной подвеской для брусчатки на Сумской и динамичные двигатели для широких проспектов. Мы подаем идеально чистые, заправленные и технически безупречные машины в любую точку города.<br/><br/>Наш автопарк покрывает любые потребности: статусный <h2>прокат премиум-авто</h2> для бизнеса, надёжная <h2>аренда внедорожников</h2> для путешествий и вместительный <h2>прокат минивэнов</h2> для семьи. Даже если вы ищете <h2>аренду авто эконом-класса</h2>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
+<div class='editor_text'>Харьков — это город масштабов, интеллекта и бешеного ритма. Это мегаполис, где расстояния имеют значение: от делового центра у Госпрома до индустриальных гигантов на окраинах можно ехать час. Сервис REIZ предлагает не просто прокат автомобилей, а инструмент вашей свободы. Мы понимаем специфику Харькова: здесь нужны авто с надежной подвеской для брусчатки на Сумской и динамичные двигатели для широких проспектов. Мы подаем идеально чистые, заправленные и технически безупречные машины в любую точку города.<br/><br/>Наш автопарк покрывает любые потребности: статусный <span class='text-strong'>прокат премиум-авто</span> для бизнеса, надёжная <span class='text-strong'>аренда внедорожников</span> для путешествий и вместительный <span class='text-strong'>прокат минивэнов</span> для семьи. Даже если вы ищете <span class='text-strong'>аренду авто эконом-класса</span>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
 
-<div class='editor_title'>Почасовой тариф: Ваш тест-драйв реальности</div>
+<h2 class='editor_title'>Почасовой тариф: Ваш тест-драйв реальности</h2>
 <div class='editor_text'>Не уверены, стоит ли брать авто надолго? Почасовой тариф — это лучший способ "примерить" автомобиль без лишних обязательств. Одних суток достаточно, чтобы понять всё:<ol><li><span class='text-strong'>Трамвайные пути:</span> Как авто преодолевает трамвайные пути на Героев Харькова или брусчатку на Пушкинской?</li><li><span class='text-strong'>Парковка:</span> Удобно ли вам парковаться в тесных дворах центра возле Оперного театра?</li><li><span class='text-strong'>Багажник:</span> Вместит ли багажник всё снаряжение для пикника в Саржином Яру?</li></ol>Это идеальный вариант для коротких дел: встретить деловых партнеров на вокзале, устроить романтический вечер или просто протестировать модель перед покупкой.</div>
 
-<div class='editor_title'>Аренда авто на неделю: Свобода от метро и такси</div>
+<h3 class='editor_title'>Аренда авто на неделю: Свобода от метро и такси</h3>
 <div class='editor_text'>Недельный тариф в Харькове — это золотая середина между ценой и комфортом. Вы получаете один фиксированный тариф на 7 дней, который значительно выгоднее посуточной аренды. За неделю вы сможете совместить активную работу и полноценный отдых:<ol><li><span class='text-strong'>В будни:</span> Успевайте на встречи от "Научной" до "Спортивной" без ожидания такси в час пик.</li><li><span class='text-strong'>На уик-энд:</span> Отправляйтесь за город! Посетите Фельдман Экопарк, прогуляйтесь по поющим террасам в Городнем или поезжайте во дворец в Шаровке.</li></ol>Формат "Неделя" дает время привыкнуть к габаритам авто и насладиться поездкой без спешки.</div>
 
-<div class='editor_title'>Месячная аренда (Тариф "Бизнес")</div>
-<div class='editor_text'>Специальное предложение для тех, кто приехал в Харьков надолго: IT-специалистов, менеджеров проектов или тех, кто временно остался без собственного "железного коня".<ol><li><span class='text-strong'>Экономия:</span> Стоимость суток аренды снижается до минимума.</li><li><span class='text-strong'>Предсказуемость:</span> Один платеж раз в 30 дней.</li><li><span class='text-strong'>Мобильность:</span> Вы не привязаны к городу. Нужно поехать в Киев, Днепр или Полтаву? Садитесь и езжайте.</li><li><span class='text-strong'>Гибкость:</span> Если ваши планы изменятся (например, приедет семья и понадобится больше места), мы заменим седан на кроссовер или минивэн.</li></ol></div>
+<h3 class='editor_title'>Месячная аренда (Тариф "Бизнес")</h3>
+<div class='editor_text'>Специальное предложение для тех, кто приехал в Харьков надолго: IT-специалистов, менеджеров проектов или тех, кто временно остался без собственного "железного коня".<ol><li><span class='text-strong'>Экономия:</span> Стоимость суток аренды снижается до минимума.</li><li><span class='text-strong'>Предсказуемость:</span> Один платеж раз в 30 дней.</li><li><span class='text-strong'>Мобильность:</span> Вы не привязаны к городу. Нужно поехать в Полтаву, Сумы или Днепр? Садитесь и езжайте.</li><li><span class='text-strong'>Гибкость:</span> Если ваши планы изменятся (например, приедет семья и понадобится больше места), мы заменим седан на кроссовер или минивэн.</li></ol></div>
 
-<div class='editor_title'>Долгосрочная аренда (Подписка на авто)</div>
+<h3 class='editor_title'>Долгосрочная аренда (Подписка на авто)</h3>
 <div class='editor_text'>Решение для бизнеса и рациональных людей. Аренда от 3 месяцев до года и более. Вы получаете все преимущества собственного автомобиля, но избавляетесь от головной боли владельца:<ol><li><span class='text-strong'>Технический сервис:</span> Мы сами следим за заменой масла и фильтров.</li><li><span class='text-strong'>Шины:</span> Сезонная замена и хранение резины — это наша забота.</li><li><span class='text-strong'>Страховка:</span> Полное КАСКО и ОСАГО уже включены в стоимость. Вы просто платите фиксированную сумму ежемесячно и пользуетесь авто.</li></ol></div>
 
-<div class='editor_title'>Эконом-класс: Практичность от $20/сутки</div>
-<div class='editor_text'>Нужна надежная машина без переплат? Наш эконом-класс — это бестселлеры городских дорог. Это современные иномарки, которые потребляют минимум топлива, имеют кондиционеры и аудиосистемы. Их главное преимущество в Харькове — компактность. Вы легко найдете место для парковки даже в перегруженном центре у площади Свободы или рынка Барабашово.</div>
+<h2 class='editor_title'>Скоро в REIZ Харьков: Прокат бюджетных авто (Economy)</h2>
+<div class='editor_text'>Мы готовим пополнение парка! Скоро для аренды в Харькове станут доступны маневренные и экономичные авто от $20/сутки — идеальный выбор для поездок по городу, удобной парковки возле рынков и бизнес-центров.<br/><br/>Пока мы готовим эти модели, предлагаем оценить наши авто класса Комфорт. Это надежность на брусчатке улицы Сумской и комфорт для дальних поездок по области.</div>
 
-<div class='editor_title'>Почему харьковчане и гости города выбирают REIZ</div>
+<h2 class='editor_title'>Почему харьковчане и гости города выбирают REIZ</h2>
 <div class='editor_text'><ul><li>Локация: Мы встретим вас в зале прилета аэропорта (HRK), на перроне Ж/Д вокзала "Харьков-Пассажирский" или подвезем авто прямо под подъезд.</li><li>Скорость: От звонка до получения ключей — минимум времени. Документы оформляем за 15 минут.</li><li>Прозрачность: Никаких скрытых "сервисных сборов". Вы платите именно ту цену, которую видите на сайте.</li><li>Состояние авто: Наши машины проходят мойку и химчистку перед каждой выдачей. Техническое состояние проверяется по чек-листу.</li><li>Поддержка 24/7: Мы всегда на связи — на украинском, русском, английском или иврите.</li></ul></div>
 
-<div class='editor_title'>Аренда без залога</div>
+<h3 class='editor_title'>Аренда без залога</h3>
 <div class='editor_text'>Мы делаем прокат доступным. Для многих моделей доступна опция аренды с уменьшенным залогом (50%) или вообще без депозита (при условии оформления дополнительного страхования Super CDW). Уточняйте детали у менеджера при бронировании.</div>
 
-<div class='editor_title'>Услуги водителя и VIP-трансфер</div>
+<h3 class='editor_title'>Услуги водителя и VIP-трансфер</h3>
 <div class='editor_text'>Хотите отдохнуть в дороге или произвести впечатление? Закажите авто бизнес или премиум-класса с профессиональным водителем. Идеально для свадеб, встречи важных делегаций или комфортного трансфера в другой город. Водитель знает город идеально и выберет маршрут без пробок.</div>
 
-<div class='editor_title'>Доставка автомобиля по Харькову</div>
+<h3 class='editor_title'>Доставка автомобиля по Харькову</h3>
 <div class='editor_text'>Бесплатно: Центральные районы (Шевченковский, Киевский), проспект Науки, район Ботанического сада, парк Горького.<br/>Платная подача: Спальные районы (Салтовка, Алексеевка, ХТЗ, Рогань), а также пригород (Песочин, Дергачи, Высокий). Стоимость рассчитывается индивидуально в зависимости от километража.</div>
 
-<div class='editor_title'>Безопасность движения в Харькове: На что обратить внимание</div>
+<h2 class='editor_title'>Безопасность движения в Харькове: На что обратить внимание</h2>
 <div class='editor_text'>Харьков — город широких дорог, которые провоцируют на скорость. Но безопасность — превыше всего.<ol><li><span class='text-strong'>Камеры:</span> На проспекте Гагарина, проспекте Науки и других магистралях работают камеры автофиксации скорости. Соблюдайте лимиты.</li><li><span class='text-strong'>Трамвайные пути:</span> Будьте особенно осторожны на Московском (проспект Героев Харькова) и в районе Конного рынка. Рельсы могут быть скользкими, а плитка возле них часто имеет неровности.</li><li><span class='text-strong'>Сложные перекрестки:</span> Круговое движение на Гагарина и развязки возле центра требуют внимательности. Следите за знаками приоритета.</li><li><span class='text-strong'>Алкоголь:</span> Политика REIZ — нулевая толерантность. Управление автомобилем в состоянии опьянения строго запрещено, карается огромным штрафом и немедленным расторжением договора без возврата средств.</li></ol></div>
 `.trim(),
     en: `
-<div class='editor_text'>Kharkiv is a city of scale, intelligence, and a frantic rhythm. It is a metropolis where distances matter: driving from the business center near Gosprom to the industrial giants on the outskirts can take an hour. REIZ service offers not just car rental, but a tool for your freedom. We understand the specifics of Kharkiv: you need cars with reliable suspension for the cobblestones on Sumska Street and dynamic engines for wide avenues. We deliver perfectly clean, refueled, and technically flawless cars anywhere in the city.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.</div>
+<div class='editor_text'>Kharkiv is a city of scale, intelligence, and a frantic rhythm. It is a metropolis where distances matter: driving from the business center near Gosprom to the industrial giants on the outskirts can take an hour. REIZ service offers not just car rental, but a tool for your freedom. We understand the specifics of Kharkiv: you need cars with reliable suspension for the cobblestones on Sumska Street and dynamic engines for wide avenues. We deliver perfectly clean, refueled, and technically flawless cars anywhere in the city.<br/><br/>Our fleet covers all needs: prestigious <span class='text-strong'>premium car hire</span> for business, reliable <span class='text-strong'>SUV rental</span> for travel, and spacious <span class='text-strong'>minivan rental</span> for families. Even if you're looking for <span class='text-strong'>economy car rental</span>, we'll offer you a significantly higher level of comfort and newer models.</div>
 
-<div class='editor_title'>Hourly Rate: Your Real-World Test Drive</div>
+<h2 class='editor_title'>Hourly Rate: Your Real-World Test Drive</h2>
 <div class='editor_text'>Not sure if you should rent a car for a long time? The hourly rate is the best way to "try on" a car without unnecessary commitments. One day is enough to understand everything:<ol><li><span class='text-strong'>Tram Tracks:</span> How does the car overcome tram tracks on Heroiv Kharkova Avenue or cobblestones on Pushkinska Street?</li><li><span class='text-strong'>Parking:</span> Is it convenient for you to park in the cramped courtyards of the center near the Opera House?</li><li><span class='text-strong'>Trunk:</span> Will the trunk fit all the equipment for a picnic in Sarzhyn Yar?</li></ol>This is an ideal option for short tasks: meeting business partners at the train station, arranging a romantic evening, or simply testing a model before buying.</div>
 
-<div class='editor_title'>Weekly Car Rental: Freedom from Metro and Taxi</div>
+<h3 class='editor_title'>Weekly Car Rental: Freedom from Metro and Taxi</h3>
 <div class='editor_text'>The weekly rate in Kharkiv is the golden mean between price and comfort. You get one fixed rate for 7 days, which is much more profitable than daily rental. In a week, you can combine active work and proper rest:<ol><li><span class='text-strong'>On weekdays:</span> Make it to meetings from "Naukova" to "Sportyvna" metro stations without waiting for a taxi during rush hour.</li><li><span class='text-strong'>On the weekend:</span> Head out of town! Visit Feldman Ecopark, walk along the Singing Terraces in Horodnie, or drive to the palace in Sharivka.</li></ol>The "Week" format gives time to get used to the dimensions of the car and enjoy the trip without haste.</div>
 
-<div class='editor_title'>Monthly Rental ("Business" Tariff)</div>
-<div class='editor_text'>A special offer for those who have come to Kharkiv for a long time: IT specialists, project managers, or those who are temporarily without their own "iron horse".<ol><li><span class='text-strong'>Savings:</span> The cost of a rental day is reduced to a minimum.</li><li><span class='text-strong'>Predictability:</span> One payment once every 30 days.</li><li><span class='text-strong'>Mobility:</span> You are not tied to the city. Need to go to Kyiv, Dnipro, or Poltava? Just get in and drive.</li><li><span class='text-strong'>Flexibility:</span> If your plans change (for example, your family arrives and you need more space), we will replace the sedan with a crossover or minivan.</li></ol></div>
+<h3 class='editor_title'>Monthly Rental ("Business" Tariff)</h3>
+<div class='editor_text'>A special offer for those who have come to Kharkiv for a long time: IT specialists, project managers, or those who are temporarily without their own "iron horse".<ol><li><span class='text-strong'>Savings:</span> The cost of a rental day is reduced to a minimum.</li><li><span class='text-strong'>Predictability:</span> One payment once every 30 days.</li><li><span class='text-strong'>Mobility:</span> You are not tied to the city. Need to go to Poltava, Sumy, or Dnipro? Just get in and drive.</li><li><span class='text-strong'>Flexibility:</span> If your plans change (for example, your family arrives and you need more space), we will replace the sedan with a crossover or minivan.</li></ol></div>
 
-<div class='editor_title'>Long-Term Rental (Car Subscription)</div>
+<h3 class='editor_title'>Long-Term Rental (Car Subscription)</h3>
 <div class='editor_text'>A solution for business and rational people. Rental from 3 months to a year or more. You get all the benefits of your own car but get rid of the owner's headache:<ol><li><span class='text-strong'>Technical Service:</span> We monitor oil and filter changes ourselves.</li><li><span class='text-strong'>Tires:</span> Seasonal replacement and storage of tires is our concern.</li><li><span class='text-strong'>Insurance:</span> Full CASCO and MTPL are already included in the price. You simply pay a fixed amount monthly and use the car.</li></ol></div>
 
-<div class='editor_title'>Economy Class: Practicality from $20/day</div>
-<div class='editor_text'>Need a reliable car without overpaying? Our economy class consists of city road bestsellers. These are modern foreign cars that consume minimum fuel, have air conditioning and audio systems. Their main advantage in Kharkiv is compactness. You will easily find a parking space even in the overloaded center near Freedom Square or Barabashovo market.</div>
+<h2 class='editor_title'>Coming soon in REIZ Kharkiv: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, agile and economical cars from $20/day will be available for rent in Kharkiv — an ideal choice for city trips and easy parking near markets and business centers.<br/><br/>While we prepare these models for launch, we invite you to consider our Comfort class cars. They offer reliability on the cobblestones of Sumska Street and comfort for longer regional trips.</div>
 
-<div class='editor_title'>Why Kharkiv Citizens and Guests Choose REIZ</div>
+<h2 class='editor_title'>Why Kharkiv Citizens and Guests Choose REIZ</h2>
 <div class='editor_text'><ul><li>Location: We will meet you in the arrival hall of the Airport (HRK), on the platform of "Kharkiv-Pasazhyrskyi" Railway Station, or drive the car right to your doorstep.</li><li>Speed: From the call to receiving the keys — minimum time. We process documents in 15 minutes.</li><li>Transparency: No hidden "service fees". You pay exactly the price you see on the website.</li><li>Car Condition: Our cars undergo washing and dry cleaning before every delivery. The technical condition is checked by a checklist.</li><li>24/7 Support: We are always in touch — in Ukrainian, Russian, English, or Hebrew.</li></ul></div>
 
-<div class='editor_title'>Rental Without Deposit</div>
+<h3 class='editor_title'>Rental Without Deposit</h3>
 <div class='editor_text'>We make rental accessible. For many models, a reduced deposit option (50%) or no deposit at all (subject to purchasing additional Super CDW insurance) is available. Check details with the manager when booking.</div>
 
-<div class='editor_title'>Chauffeur Services and VIP Transfer</div>
+<h3 class='editor_title'>Chauffeur Services and VIP Transfer</h3>
 <div class='editor_text'>Want to rest on the road or make an impression? Order a business or premium class car with a professional driver. Ideal for weddings, meeting important delegations, or a comfortable transfer to another city. The driver knows the city perfectly and will choose a route without traffic jams.</div>
 
-<div class='editor_title'>Car Delivery in Kharkiv</div>
+<h3 class='editor_title'>Car Delivery in Kharkiv</h3>
 <div class='editor_text'>Free: Central districts (Shevchenkivskyi, Kyivskyi), Nauky Avenue, Botanical Garden area, Gorky Park.<br/>Paid Delivery: Residential districts (Saltivka, Oleksiivka, KHTZ, Rohan), as well as suburbs (Pisochyn, Derhachi, Vysokyi). The cost is calculated individually depending on the mileage.</div>
 
-<div class='editor_title'>Traffic Safety in Kharkiv: What to Look Out For</div>
+<h2 class='editor_title'>Traffic Safety in Kharkiv: What to Look Out For</h2>
 <div class='editor_text'>Kharkiv is a city of wide roads that provoke speed. But safety is paramount.<ol><li><span class='text-strong'>Cameras:</span> Speed cameras operate on Haharyna Avenue, Nauky Avenue, and other highways. Observe the limits.</li><li><span class='text-strong'>Tram Tracks:</span> Be especially careful on Moskovskyi (Heroiv Kharkova Avenue) and in the Kinnyi Market area. The rails can be slippery, and the tiles near them often have irregularities.</li><li><span class='text-strong'>Complex Intersections:</span> Roundabouts on Haharyna and interchanges near the center require attention. Watch the priority signs.</li><li><span class='text-strong'>Alcohol:</span> REIZ policy is zero tolerance. Driving under the influence is strictly prohibited, punished by a huge fine and immediate termination of the contract without a refund.</li></ol></div>
 `.trim(),
   };
@@ -6801,102 +6804,102 @@ function generateKharkivEditorContent(locale: Locale): string {
 function generateZaporizhzhiaEditorContent(locale: Locale): string {
   const contentByLocale = {
     uk: `
-<div class='editor_text'>Запоріжжя — це місто-гігант, де відстані диктують свої правила. Проїхати від Південного мікрорайону до греблі ДніпроГЕС — це вже маленька подорож. Сервіс REIZ пропонує прокат автомобілів, що дає вам незалежність від громадського транспорту та складного графіку маршруток. Чи ви інженер, що приїхав на завод, чи турист, який хоче побачити колиску козацтва — у нас є ідеальне авто для ваших завдань. Ми гарантуємо: чистий салон, повний бак та технічну справність кожного автомобіля.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <h2>прокат преміум-авто</h2> для бізнесу, надійна <h2>оренда позашляховиків</h2> для мандрівок та місткий <h2>прокат мінівенів</h2> для сім'ї. Навіть якщо ви шукаєте <h2>оренду авто економ-класу</h2>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
+<div class='editor_text'>Запоріжжя — це місто-гігант, де відстані диктують свої правила. Проїхати від Південного мікрорайону до греблі ДніпроГЕС — це вже маленька подорож. Сервіс REIZ пропонує прокат автомобілів, що дає вам незалежність від громадського транспорту та складного графіку маршруток. Чи ви інженер, що приїхав на завод, чи турист, який хоче побачити колиску козацтва — у нас є ідеальне авто для ваших завдань. Ми гарантуємо: чистий салон, повний бак та технічну справність кожного автомобіля.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <span class='text-strong'>прокат преміум-авто</span> для бізнесу, надійна <span class='text-strong'>оренда позашляховиків</span> для мандрівок та місткий <span class='text-strong'>прокат мінівенів</span> для сім'ї. Навіть якщо ви шукаєте <span class='text-strong'>оренду авто економ-класу</span>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
 
-<div class='editor_title'>Погодинний тариф: Тест-драйв легендарних маршрутів</div>
+<h2 class='editor_title'>Погодинний тариф: Тест-драйв легендарних маршрутів</h2>
 <div class='editor_text'>Сумніваєтесь, чи зручно вам буде за кермом конкретної моделі? Візьміть авто на добу. Цього часу вистачить, щоб відчути ритм міста:<ol><li><span class='text-strong'>Проспект:</span> Проїдьтеся проспектом Соборним — однією з найдовших вулиць Європи.</li><li><span class='text-strong'>Мости:</span> Перевірте, як авто поводиться у тягнучці на греблі ДніпроГЕС або на нових мостах.</li><li><span class='text-strong'>Багажник:</span> Оцініть місткість багажника біля супермаркетів у центрі міста.</li></ol>Це найкращий спосіб переконатися, що машина підходить вам за габаритами та комфортом.</div>
 
-<div class='editor_title'>Тижнева оренда: Робота та вікенд на природі</div>
+<h3 class='editor_title'>Тижнева оренда: Робота та вікенд на природі</h3>
 <div class='editor_text'>Тижневий тариф у Запоріжжі — це ваш квиток у світ без обмежень. Один фіксований платіж за 7 днів, і ви забуваєте про виклик таксі.<ol><li><span class='text-strong'>Для справ:</span> Ви легко встигнете на ділові зустрічі в Вознесенівському районі та на виробництво на "Павло-Кічкас".</li><li><span class='text-strong'>Для душі:</span> На вихідних обов'язково поїдьте на острів Хортиця. Власним авто ви зможете заїхати вглиб заповідника, побачити Скіфський стан та кінний театр, куди важко дістатися пішки. Або вирушайте до "Акведукту" чи на узбережжя Дніпра на пікнік.</li></ol></div>
 
-<div class='editor_title'>Оренда на місяць (Тариф "Бізнес")</div>
+<h3 class='editor_title'>Оренда на місяць (Тариф "Бізнес")</h3>
 <div class='editor_text'>Оптимальне рішення для підрядників, відряджених спеціалістів та тих, хто тимчасово без власного авто. Ми пропонуємо спеціальну ціну (значно нижчу за добову) та повну свободу пересування. Запоріжжя розташоване зручно: всього година їзди до Дніпра. Ви можете вільно користуватися авто для міжміських поїздок. Якщо ваші задачі зміняться, ми оперативно замінимо компактне авто на престижний бізнес-клас для зустрічі делегації.</div>
 
-<div class='editor_title'>Довгострокова оренда (від 3 місяців)</div>
+<h3 class='editor_title'>Довгострокова оренда (від 3 місяців)</h3>
 <div class='editor_text'>Навіщо купувати авто для проєкту, який триватиме пів року? Оренда від REIZ — це вигідна альтернатива. Ви отримуєте персональний транспорт, але не маєте клопоту з його обслуговуванням.<ol><li><span class='text-strong'>Страховка:</span> КАСКО/ОСЦПВ — включена.</li><li><span class='text-strong'>ТО:</span> ТО та заміна мастил — наш клопіт.</li><li><span class='text-strong'>Гума:</span> Зимова/літня гума — ми перевзуємо авто вчасно.</li></ol>Це ідеально для корпоративних клієнтів, які цінують прогнозованість витрат.</div>
 
-<div class='editor_title'>Економ-клас: Розумний вибір від $20</div>
-<div class='editor_text'>Практичність — риса запоріжців. Наші авто економ-класу — це надійні "робочі конячки" з кондиціонерами та економними двигунами. Вони ідеальні для міського трафіку, легко паркуються біля ринків та офісних центрів і дозволяють суттєво економити на пальному під час поїздок довгим проспектом.</div>
+<h2 class='editor_title'>Незабаром у REIZ Запоріжжя: Прокат бюджетних авто (Economy)</h2>
+<div class='editor_text'>Ми готуємо поповнення парку! Скоро для оренди у Запоріжжі стануть доступні маневрені та економічні авто від $20/добу — надійний вибір для поїздок між районами, на виробництво або на дачу.<br/><br/>Поки ми готуємо ці моделі, пропонуємо оцінити наші авто класу Комфорт. Це витривала підвіска для наших доріг та максимальна зручність для пересування проспектом Соборним.</div>
 
-<div class='editor_title'>Чому Запоріжжя обирає REIZ</div>
+<h2 class='editor_title'>Чому Запоріжжя обирає REIZ</h2>
 <div class='editor_text'><ul><li>Зручність: Ми зустрінемо вас на пероні залізничного вокзалу "Запоріжжя-1" або доставимо авто за вказаною адресою.</li><li>Швидкість: Від підписання договору до старту двигуна — 15 хвилин.</li><li>Чесність: Жодних прихованих комісій. Паливна політика "повний-повний" (отримали з повним баком — повернули так само).</li><li>Сервіс: Підтримка клієнтів 24/7. Ми допоможемо, якщо проб'єте колесо або у вас виникнуть запитання щодо маршруту.</li></ul></div>
 
-<div class='editor_title'>Оренда без застави</div>
+<h3 class='editor_title'>Оренда без застави</h3>
 <div class='editor_text'>Ми йдемо назустріч клієнтам. Для багатьох моделей доступна послуга оренди зі зниженим депозитом або без застави (за умови оформлення додаткового страхування). Це спрощує процедуру та знижує фінансове навантаження на старті.</div>
 
-<div class='editor_title'>Послуги водія</div>
+<h3 class='editor_title'>Послуги водія</h3>
 <div class='editor_text'>Потрібно зустріти важливих гостей або ви просто хочете відпочити під час поїздки? Замовте авто з професійним водієм. Ми забезпечимо комфортний трансфер у готель, аеропорт (у сусідні міста) або на ділову вечерю.</div>
 
-<div class='editor_title'>Доставка авто по місту</div>
+<h3 class='editor_title'>Доставка авто по місту</h3>
 <div class='editor_text'>Безкоштовно: Проспект Соборний, район площі Фестивальної, бульвар Шевченка, район Вокзалу "Запоріжжя-1".<br/>Платна подача: Хортицький район (Бабурка), Правий берег (Осипенківський, Бородінський), Шевченківський район та передмістя.</div>
 
-<div class='editor_title'>Безпека руху в Запоріжжі</div>
+<h2 class='editor_title'>Безпека руху в Запоріжжі</h2>
 <div class='editor_text'>Запоріжжя має свою дорожню специфіку, яку варто врахувати:<ol><li><span class='text-strong'>Мости та Гребля:</span> Це "пляшкові горлечка" міста. У години пік тут можливі затори. Плануйте час із запасом, якщо їдете з берега на берег.</li><li><span class='text-strong'>Проспект:</span> Широка дорога спокушає на швидкість, але камери автофіксації працюють. Дотримуйтесь правил.</li><li><span class='text-strong'>Кільцеві розв'язки:</span> Будьте уважні на колі біля Дубового Гаю та на острові Хортиця.</li><li><span class='text-strong'>Алкоголь:</span> Політика REIZ незмінна — нульова толерантність. Керування напідпитку суворо заборонено.</li></ol></div>
 `.trim(),
     ru: `
-<div class='editor_text'>Запорожье — это город-гигант, где расстояния диктуют свои правила. Проехать от Южного микрорайона до плотины ДнепроГЭС — это уже маленькое путешествие. Сервис REIZ предлагает прокат автомобилей, который дает вам независимость от общественного транспорта и сложного графика маршруток. Будь вы инженер, приехавший на завод, или турист, желающий увидеть колыбель казачества — у нас есть идеальное авто для ваших задач. Мы гарантируем: чистый салон, полный бак и техническую исправность каждого автомобиля.<br/><br/>Наш автопарк покрывает любые потребности: статусный <h2>прокат премиум-авто</h2> для бизнеса, надёжная <h2>аренда внедорожников</h2> для путешествий и вместительный <h2>прокат минивэнов</h2> для семьи. Даже если вы ищете <h2>аренду авто эконом-класса</h2>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
+<div class='editor_text'>Запорожье — это город-гигант, где расстояния диктуют свои правила. Проехать от Южного микрорайона до плотины ДнепроГЭС — это уже маленькое путешествие. Сервис REIZ предлагает прокат автомобилей, который дает вам независимость от общественного транспорта и сложного графика маршруток. Будь вы инженер, приехавший на завод, или турист, желающий увидеть колыбель казачества — у нас есть идеальное авто для ваших задач. Мы гарантируем: чистый салон, полный бак и техническую исправность каждого автомобиля.<br/><br/>Наш автопарк покрывает любые потребности: статусный <span class='text-strong'>прокат премиум-авто</span> для бизнеса, надёжная <span class='text-strong'>аренда внедорожников</span> для путешествий и вместительный <span class='text-strong'>прокат минивэнов</span> для семьи. Даже если вы ищете <span class='text-strong'>аренду авто эконом-класса</span>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
 
-<div class='editor_title'>Почасовой тариф: Тест-драйв легендарных маршрутов</div>
+<h2 class='editor_title'>Почасовой тариф: Тест-драйв легендарных маршрутов</h2>
 <div class='editor_text'>Сомневаетесь, удобно ли вам будет за рулем конкретной модели? Возьмите авто на сутки. Этого времени хватит, чтобы почувствовать ритм города:<ol><li><span class='text-strong'>Проспект:</span> Проедьтесь по проспекту Соборному — одной из самых длинных улиц Европы.</li><li><span class='text-strong'>Мосты:</span> Проверьте, как авто ведет себя в тянучке на плотине ДнепроГЭС или на новых мостах.</li><li><span class='text-strong'>Багажник:</span> Оцените вместительность багажника возле супермаркетов в центре города.</li></ol>Это лучший способ убедиться, что машина подходит вам по габаритам и комфорту.</div>
 
-<div class='editor_title'>Недельная аренда: Работа и уик-энд на природе</div>
+<h3 class='editor_title'>Недельная аренда: Работа и уик-энд на природе</h3>
 <div class='editor_text'>Недельный тариф в Запорожье — это ваш билет в мир без ограничений. Один фиксированный платеж за 7 дней, и вы забываете о вызове такси.<ol><li><span class='text-strong'>Для дел:</span> Вы легко успеете на деловые встречи в Вознесеновском районе и на производство на "Павло-Кичкас".</li><li><span class='text-strong'>Для души:</span> На выходных обязательно съездите на остров Хортица. На собственном авто вы сможете заехать вглубь заповедника, увидеть Скифский стан и конный театр, куда сложно добраться пешком.</li></ol></div>
 
-<div class='editor_title'>Аренда на месяц (Тариф "Бизнес")</div>
+<h3 class='editor_title'>Аренда на месяц (Тариф "Бизнес")</h3>
 <div class='editor_text'>Оптимальное решение для подрядчиков, командированных специалистов и тех, кто временно без собственного авто. Мы предлагаем специальную цену (значительно ниже суточной) и полную свободу передвижения. Запорожье расположено удобно: всего час езды до Днепра. Вы можете свободно пользоваться авто для междугородних поездок. Если ваши задачи изменятся, мы оперативно заменим компактное авто на престижный бизнес-класс для встречи делегации.</div>
 
-<div class='editor_title'>Долгосрочная аренда (от 3 месяцев)</div>
+<h3 class='editor_title'>Долгосрочная аренда (от 3 месяцев)</h3>
 <div class='editor_text'>Зачем покупать авто для проекта, который продлится полгода? Аренда от REIZ — это выгодная альтернатива. Вы получаете персональный транспорт, но не имеете хлопот с его обслуживанием.<ol><li><span class='text-strong'>Страховка:</span> КАСКО/ОСАГО — включена.</li><li><span class='text-strong'>ТО:</span> ТО и замена масел — наша забота.</li><li><span class='text-strong'>Шины:</span> Зимняя/летняя резина — мы переобуем авто вовремя.</li></ol>Это идеально для корпоративных клиентов, которые ценят прогнозируемость расходов.</div>
 
-<div class='editor_title'>Эконом-класс: Умный выбор от $20</div>
-<div class='editor_text'>Практичность — черта запорожцев. Наши авто эконом-класса — это надежные "рабочие лошадки" с кондиционерами и экономными двигателями. Они идеальны для городского трафика, легко паркуются возле рынков и офисных центров и позволяют существенно экономить на топливе во время поездок по длинному проспекту.</div>
+<h2 class='editor_title'>Скоро в REIZ Запорожье: Прокат бюджетных авто (Economy)</h2>
+<div class='editor_text'>Мы готовим пополнение парка! Скоро для аренды в Запорожье станут доступны маневренные и экономичные авто от $20/сутки — надежный выбор для поездок между районами, на производство или на дачу.<br/><br/>Пока мы готовим эти модели, предлагаем оценить наши авто класса Комфорт. Это выносливая подвеска для наших дорог и максимальное удобство для передвижения по проспекту Соборному.</div>
 
-<div class='editor_title'>Почему Запорожье выбирает REIZ</div>
+<h2 class='editor_title'>Почему Запорожье выбирает REIZ</h2>
 <div class='editor_text'><ul><li>Удобство: Мы встретим вас на перроне ж/д вокзала "Запорожье-1" или доставим авто по указанному адресу.</li><li>Скорость: От подписания договора до старта двигателя — 15 минут.</li><li>Честность: Никаких скрытых комиссий. Топливная политика "полный-полный".</li><li>Сервис: Поддержка клиентов 24/7. Мы поможем в любой дорожной ситуации.</li></ul></div>
 
-<div class='editor_title'>Аренда без залога</div>
+<h3 class='editor_title'>Аренда без залога</h3>
 <div class='editor_text'>Мы идем навстречу клиентам. Для многих моделей доступна услуга аренды со сниженным депозитом или без залога (при условии оформления дополнительного страхования). Это упрощает процедуру и снижает финансовую нагрузку на старте.</div>
 
-<div class='editor_title'>Услуги водителя</div>
+<h3 class='editor_title'>Услуги водителя</h3>
 <div class='editor_text'>Нужно встретить важных гостей или вы просто хотите отдохнуть во время поездки? Закажите авто с профессиональным водителем. Мы обеспечим комфортный трансфер в отель или на деловой ужин.</div>
 
-<div class='editor_title'>Доставка авто по городу</div>
+<h3 class='editor_title'>Доставка авто по городу</h3>
 <div class='editor_text'>Бесплатно: Проспект Соборный, район площади Фестивальной, бульвар Шевченко, район Вокзала "Запорожье-1".<br/>Платная подача: Хортицкий район (Бабурка), Правый берег (Осипенковский, Бородинский), Шевченковский район и пригород.</div>
 
-<div class='editor_title'>Безопасность движения в Запорожье</div>
+<h2 class='editor_title'>Безопасность движения в Запорожье</h2>
 <div class='editor_text'>Запорожье имеет свою дорожную специфику:<ol><li><span class='text-strong'>Мосты и Плотина:</span> Это "бутылочные горлышки" города. В часы пик здесь возможны пробки. Планируйте время с запасом, если едете с берега на берег.</li><li><span class='text-strong'>Проспект:</span> Широкая дорога искушает на скорость, но камеры автофиксации работают. Соблюдайте правила.</li><li><span class='text-strong'>Кольцевые развязки:</span> Будьте внимательны на коле возле "Дубовой Рощи" и на острове Хортица.</li><li><span class='text-strong'>Алкоголь:</span> Политика REIZ неизменна — нулевая толерантность. Управление в нетрезвом виде строго запрещено.</li></ol></div>
 `.trim(),
     en: `
-<div class='editor_text'>Zaporizhzhia is a giant city where distances dictate their own rules. Driving from the Pivdennyi district to the Dnipro HES dam is a small journey in itself. REIZ service offers car rental that gives you independence from public transport and complex bus schedules. Whether you are an engineer visiting a factory or a tourist wanting to see the cradle of the Cossacks, we have the perfect car for your tasks. We guarantee: a clean interior, a full tank, and technical serviceability of every car.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.</div>
+<div class='editor_text'>Zaporizhzhia is a giant city where distances dictate their own rules. Driving from the Pivdennyi district to the Dnipro HES dam is a small journey in itself. REIZ service offers car rental that gives you independence from public transport and complex bus schedules. Whether you are an engineer visiting a factory or a tourist wanting to see the cradle of the Cossacks, we have the perfect car for your tasks. We guarantee: a clean interior, a full tank, and technical serviceability of every car.<br/><br/>Our fleet covers all needs: prestigious <span class='text-strong'>premium car hire</span> for business, reliable <span class='text-strong'>SUV rental</span> for travel, and spacious <span class='text-strong'>minivan rental</span> for families. Even if you're looking for <span class='text-strong'>economy car rental</span>, we'll offer you a significantly higher level of comfort and newer models.</div>
 
-<div class='editor_title'>Hourly Rate: Test Drive of Legendary Routes</div>
+<h2 class='editor_title'>Hourly Rate: Test Drive of Legendary Routes</h2>
 <div class='editor_text'>Doubt if you will be comfortable driving a specific model? Take the car for a day. This time is enough to feel the rhythm of the city:<ol><li><span class='text-strong'>Avenue:</span> Drive along Sobornyi Avenue — one of the longest streets in Europe.</li><li><span class='text-strong'>Bridges:</span> Check how the car behaves in traffic on the Dnipro HES dam or on the new bridges.</li><li><span class='text-strong'>Trunk:</span> Evaluate the trunk capacity near supermarkets in the city center.</li></ol>This is the best way to ensure the car suits your size and comfort needs.</div>
 
-<div class='editor_title'>Weekly Rental: Work and Weekend in Nature</div>
+<h3 class='editor_title'>Weekly Rental: Work and Weekend in Nature</h3>
 <div class='editor_text'>The weekly rate in Zaporizhzhia is your ticket to a world without limits. One fixed payment for 7 days, and you forget about calling a taxi.<ol><li><span class='text-strong'>For Business:</span> You will easily make it to business meetings in the Voznesenivskyi district and production sites in Pavlo-Kichkas.</li><li><span class='text-strong'>For Leisure:</span> On the weekend, be sure to visit Khortytsia Island. With your own car, you can drive deep into the reserve, see the Scythian Camp and the Horse Theater, which are hard to reach on foot. Or head to the "Aqueduct" or to the banks of the Dnipro for a picnic.</li></ol></div>
 
-<div class='editor_title'>Monthly Rental ("Business" Tariff)</div>
+<h3 class='editor_title'>Monthly Rental ("Business" Tariff)</h3>
 <div class='editor_text'>The optimal solution for contractors, seconded specialists, and those temporarily without their own car. We offer a special price (significantly lower than the daily rate) and complete freedom of movement. Zaporizhzhia is conveniently located: just an hour's drive to Dnipro. You can freely use the car for intercity trips. If your tasks change, we will promptly replace a compact car with a prestigious business class for meeting a delegation.</div>
 
-<div class='editor_title'>Long-Term Rental (from 3 months)</div>
+<h3 class='editor_title'>Long-Term Rental (from 3 months)</h3>
 <div class='editor_text'>Why buy a car for a project that will last six months? Rental from REIZ is a profitable alternative. You get personal transport but have no hassle with its maintenance.<ol><li><span class='text-strong'>Insurance:</span> CASCO/MTPL — included.</li><li><span class='text-strong'>Maintenance:</span> Maintenance and oil changes — our concern.</li><li><span class='text-strong'>Tires:</span> Winter/summer tires — we change tires on time.</li></ol>This is ideal for corporate clients who value cost predictability.</div>
 
-<div class='editor_title'>Economy Class: Smart Choice from $20</div>
-<div class='editor_text'>Practicality is a trait of Zaporizhzhia locals. Our economy class cars are reliable "workhorses" with air conditioning and economical engines. They are perfect for city traffic, easily park near markets and office centers, and allow significant savings on fuel during trips along the long avenue.</div>
+<h2 class='editor_title'>Coming soon in REIZ Zaporizhzhia: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, agile and economical cars from $20/day will be available for rent in Zaporizhzhia — a reliable choice for trips between districts, to industrial sites, or out to the dacha.<br/><br/>While we prepare these models for launch, we invite you to consider our Comfort class cars. They offer a resilient suspension for our roads and maximum convenience for moving along Sobornyi Avenue.</div>
 
-<div class='editor_title'>Why Zaporizhzhia Chooses REIZ</div>
+<h2 class='editor_title'>Why Zaporizhzhia Chooses REIZ</h2>
 <div class='editor_text'><ul><li>Convenience: We will meet you on the platform of "Zaporizhzhia-1" Railway Station or deliver the car to the specified address.</li><li>Speed: From signing the contract to starting the engine — 15 minutes.</li><li>Honesty: No hidden fees. "Full-to-full" fuel policy.</li><li>Service: 24/7 customer support. We will help if you get a flat tire or have questions about the route.</li></ul></div>
 
-<div class='editor_title'>Rental Without Deposit</div>
+<h3 class='editor_title'>Rental Without Deposit</h3>
 <div class='editor_text'>We meet clients halfway. For many models, a reduced deposit or no deposit rental service is available (subject to additional insurance). This simplifies the procedure and reduces the financial burden at the start.</div>
 
-<div class='editor_title'>Chauffeur Services</div>
+<h3 class='editor_title'>Chauffeur Services</h3>
 <div class='editor_text'>Need to meet important guests or just want to relax during the trip? Order a car with a professional driver. We will ensure a comfortable transfer to the hotel, airport (in neighboring cities), or a business dinner.</div>
 
-<div class='editor_title'>Car Delivery in the City</div>
+<h3 class='editor_title'>Car Delivery in the City</h3>
 <div class='editor_text'>Free: Sobornyi Avenue, Festivalna Square area, Shevchenka Boulevard, "Zaporizhzhia-1" Station area.<br/>Paid Delivery: Khortytskyi district (Baburka), Right Bank (Osypenkivskyi, Borodinskyi), Shevchenkivskyi district, and suburbs.</div>
 
-<div class='editor_title'>Traffic Safety in Zaporizhzhia</div>
+<h2 class='editor_title'>Traffic Safety in Zaporizhzhia</h2>
 <div class='editor_text'>Zaporizhzhia has its own road specifics worth considering:<ol><li><span class='text-strong'>Bridges and Dam:</span> These are the city's "bottlenecks". Traffic jams are possible here during rush hours. Plan your time with a margin if crossing from bank to bank.</li><li><span class='text-strong'>Avenue:</span> The wide road tempts to speed, but speed cameras are working. Observe the rules.</li><li><span class='text-strong'>Roundabouts:</span> Be careful at the circle near "Dubovyi Hai" and on Khortytsia Island.</li><li><span class='text-strong'>Alcohol:</span> REIZ policy remains unchanged — zero tolerance. Drunk driving is strictly prohibited.</li></ol></div>
 `.trim(),
   };
@@ -6907,102 +6910,102 @@ function generateZaporizhzhiaEditorContent(locale: Locale): string {
 function generateBoryspilEditorContent(locale: Locale): string {
   const contentByLocale = {
     uk: `
-<div class='editor_text'>Бориспіль — це місто, де починається Україна для тисяч мандрівників. Головна артерія тут — це Міжнародний аеропорт та швидкісна магістраль М-03. Сервіс REIZ у Борисполі створений, щоб ви не залежали від розкладу автобусів SkyBus чи високих тарифів таксистів у зоні прильоту. Ми пропонуємо концепцію "Літак – Автомобіль": ви приземляєтесь, отримуєте багаж і вже за 15 хвилин сидите за кермом комфортного авто. Ми подаємо машини до терміналів D та F, а також до готелів біля аеропорту, щоб ваш старт був максимально плавним.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <h2>прокат преміум-авто</h2> для бізнесу, надійна <h2>оренда позашляховиків</h2> для мандрівок та місткий <h2>прокат мінівенів</h2> для сім'ї. Навіть якщо ви шукаєте <h2>оренду авто економ-класу</h2>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
+<div class='editor_text'>Бориспіль — це місто, де починається Україна для тисяч мандрівників. Головна артерія тут — це Міжнародний аеропорт та швидкісна магістраль М-03. Сервіс REIZ у Борисполі створений, щоб ви не залежали від розкладу автобусів SkyBus чи високих тарифів таксистів у зоні прильоту. Ми пропонуємо концепцію "Літак – Автомобіль": ви приземляєтесь, отримуєте багаж і вже за 15 хвилин сидите за кермом комфортного авто. Ми подаємо машини до терміналів D та F, а також до готелів біля аеропорту, щоб ваш старт був максимально плавним.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <span class='text-strong'>прокат преміум-авто</span> для бізнесу, надійна <span class='text-strong'>оренда позашляховиків</span> для мандрівок та місткий <span class='text-strong'>прокат мінівенів</span> для сім'ї. Навіть якщо ви шукаєте <span class='text-strong'>оренду авто економ-класу</span>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
 
-<div class='editor_title'>Погодинний тариф: Ідеально для зустрічі та трансферу</div>
+<h2 class='editor_title'>Погодинний тариф: Ідеально для зустрічі та трансферу</h2>
 <div class='editor_text'>Вам потрібно зустріти бізнес-партнерів чи родичів, але власне авто в ремонті? Або у вас довга пересадка між рейсами? Погодинна оренда — це ваше рішення.<ol><li><span class='text-strong'>Комфорт:</span> Замість очікування на вулиці, ви чекаєте в клімат-контролі власного авто.</li><li><span class='text-strong'>Тест-драйв:</span> Спробуйте авто на ідеальній трасі "Бориспіль – Київ". Це найкращий полігон, щоб перевірити динаміку, шумоізоляцію та роботу круїз-контролю.</li><li><span class='text-strong'>Місткість:</span> Перевірте, чи влізуть усі валізи в багажник, перш ніж бронювати авто на довгу подорож.</li></ol></div>
 
-<div class='editor_title'>Тижневий тариф: Старт великої подорожі</div>
+<h3 class='editor_title'>Тижневий тариф: Старт великої подорожі</h3>
 <div class='editor_text'>Якщо ви прилетіли в Україну у відпустку або у справах на тиждень, оренда авто прямо в Борисполі економить вам купу часу. Вам не треба їхати в Київ, щоб взяти машину. Оформлюйте прокат на місці і вирушайте за власним маршрутом:<ol><li><span class='text-strong'>Переяслав:</span> Відвідайте музеї Переяслава (всього 40 хв їзди).</li><li><span class='text-strong'>Канів:</span> Поїдьте на Тарасову гору в Каневі.</li><li><span class='text-strong'>Далекі маршрути:</span> Або одразу рушайте в дорогу до Одеси, Львова чи Карпат, оминаючи столичні затори.</li></ol>Тижневий тариф дає фіксовану ціну і повну свободу дій.</div>
 
-<div class='editor_title'>Оренда на місяць (Тариф "Довгий візит")</div>
+<h3 class='editor_title'>Оренда на місяць (Тариф "Довгий візит")</h3>
 <div class='editor_text'>Вигідна пропозиція для експатів, які приїхали відвідати родину, або спеціалістів, задіяних у логістичних проєктах (яких у Борисполі багато). Тариф "Місяць" — це:<ol><li><span class='text-strong'>Економія:</span> Вартість доби значно нижча, ніж при короткій оренді.</li><li><span class='text-strong'>Стабільність:</span> Один платіж раз на 30 днів.</li><li><span class='text-strong'>Гнучкість:</span> Потрібно виїхати за кордон? Ми підготуємо документи. Потрібно змінити авто на інший клас? Зробимо це швидко.</li></ol>Це ваш особистий транспорт без необхідності купувати та обслуговувати машину.</div>
 
-<div class='editor_title'>Довгострокова оренда (від 3 місяців)</div>
+<h3 class='editor_title'>Довгострокова оренда (від 3 місяців)</h3>
 <div class='editor_text'>Для бізнесу, що працює в сфері авіації чи логістики, а також для тих, хто будує дім у передмісті Києва. Довгострокова оренда від REIZ знімає з вас усі технічні питання. Ми слідкуємо за страховкою, ТО та гумою. Ваша задача — лише заправляти авто. Це набагато зручніше, ніж таксі, і дешевше, ніж утримання власного автопарку компанії.</div>
 
-<div class='editor_title'>Економ-клас: Трансфер за ціною таксі</div>
-<div class='editor_text'>Якщо ваша мета — просто доїхати з точки А в точку Б або мати під рукою колеса для дрібних справ, обирайте наш економ-клас. Сучасні, компактні авто від $20 на добу. Вони споживають мінімум пального на трасі, легкі в керуванні і вміщують стандартний набір багажу.</div>
+<h2 class='editor_title'>Незабаром у REIZ Бориспіль: Прокат бюджетних авто (Economy)</h2>
+<div class='editor_text'>Ми готуємо поповнення парку! Скоро для оренди в Борисполі стануть доступні компактні та економічні авто від $20/добу — чудове рішення для коротких трансферів або поїздок налегке.<br/><br/>Поки ми готуємо ці моделі, пропонуємо оцінити наші авто класу Комфорт. Це просторі багажники для всіх ваших валіз і максимальний комфорт після тривалого перельоту.</div>
 
-<div class='editor_title'>Переваги REIZ у Борисполі</div>
+<h2 class='editor_title'>Переваги REIZ у Борисполі</h2>
 <div class='editor_text'><ul><li>Flight Tracking: Ми відстежуємо ваш рейс. Якщо літак затримається, наш менеджер дочекається вас, і це не коштуватиме вам додатково.</li><li>Meet &amp; Greet: Зустрічаємо з іменною табличкою в зоні прильоту Терміналу D.</li><li>Цілодобово: Рейси прибувають і вночі. Ми працюємо 24/7 (за попереднім бронюванням).</li><li>Чистота: Ви сідаєте в ідеально чисте авто, готове до дороги.</li><li>Навігація: Допоможемо налаштувати CarPlay/Android Auto, щоб ви одразу проклали маршрут.</li></ul></div>
 
-<div class='editor_title'>Оренда без застави</div>
+<h3 class='editor_title'>Оренда без застави</h3>
 <div class='editor_text'>Ми розуміємо, що після перельоту не хочеться думати про депозити. Для багатьох класів авто доступна опція оренди без застави (при купівлі повного захисту). Це спрощує процес і береже ваші нерви.</div>
 
-<div class='editor_title'>Послуги водія (Трансфер)</div>
+<h3 class='editor_title'>Послуги водія (Трансфер)</h3>
 <div class='editor_text'>Втомлені після довгого перельоту? Не ризикуйте сідати за кермо. Замовте трансфер з професійним водієм від REIZ. Ми зустрінемо вас, допоможемо з багажем і з комфортом бізнес-класу доставимо в будь-який готель Києва або інше місто України.</div>
 
-<div class='editor_title'>Доставка авто</div>
+<h3 class='editor_title'>Доставка авто</h3>
 <div class='editor_text'>Безкоштовно: Територія аеропорту (KBP), готелі в радіусі 5 км, центр міста Бориспіль.<br/>За межі міста: Подача в Бровари, Київ або інші міста області розраховується індивідуально.</div>
 
-<div class='editor_title'>Безпека руху: Специфіка траси</div>
+<h2 class='editor_title'>Безпека руху: Специфіка траси</h2>
 <div class='editor_text'>Бориспільська траса — це найкраща дорога України, але вона вимагає уваги:<ol><li><span class='text-strong'>Швидкість:</span> Дозволена швидкість (у літній період) — 130 км/год. Тримайте дистанцію і не займайте ліву смугу без потреби.</li><li><span class='text-strong'>Втома:</span> Після перельоту реакція може бути сповільненою. Якщо відчуваєте втому, краще зупиніться на каву на одній із численних заправок.</li><li><span class='text-strong'>Туман:</span> Вранці та восени в низинах біля аеропорту часто буває густий туман. Використовуйте протитуманні фари.</li><li><span class='text-strong'>Алкоголь:</span> Нульова толерантність. Святкувати приліт треба без керма. Порушення — це негайне розірвання договору.</li></ol></div>
 `.trim(),
     ru: `
-<div class='editor_text'>Борисполь — это город, где начинается Украина для тысяч путешественников. Главная артерия здесь — это Международный аэропорт и скоростная магистраль М-03. Сервис REIZ в Борисполе создан, чтобы вы не зависели от расписания автобусов SkyBus или высоких тарифов таксистов в зоне прилета. Мы предлагаем концепцию "Самолет – Автомобиль": вы приземляетесь, получаете багаж и уже через 15 минут сидите за рулем комфортного авто. Мы подаем машины к терминалам D и F, а также к отелям возле аэропорта, чтобы ваш старт был максимально плавным.<br/><br/>Наш автопарк покрывает любые потребности: статусный <h2>прокат премиум-авто</h2> для бизнеса, надёжная <h2>аренда внедорожников</h2> для путешествий и вместительный <h2>прокат минивэнов</h2> для семьи. Даже если вы ищете <h2>аренду авто эконом-класса</h2>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
+<div class='editor_text'>Борисполь — это город, где начинается Украина для тысяч путешественников. Главная артерия здесь — это Международный аэропорт и скоростная магистраль М-03. Сервис REIZ в Борисполе создан, чтобы вы не зависели от расписания автобусов SkyBus или высоких тарифов таксистов в зоне прилета. Мы предлагаем концепцию "Самолет – Автомобиль": вы приземляетесь, получаете багаж и уже через 15 минут сидите за рулем комфортного авто. Мы подаем машины к терминалам D и F, а также к отелям возле аэропорта, чтобы ваш старт был максимально плавным.<br/><br/>Наш автопарк покрывает любые потребности: статусный <span class='text-strong'>прокат премиум-авто</span> для бизнеса, надёжная <span class='text-strong'>аренда внедорожников</span> для путешествий и вместительный <span class='text-strong'>прокат минивэнов</span> для семьи. Даже если вы ищете <span class='text-strong'>аренду авто эконом-класса</span>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
 
-<div class='editor_title'>Почасовой тариф: Идеально для встречи и трансфера</div>
+<h2 class='editor_title'>Почасовой тариф: Идеально для встречи и трансфера</h2>
 <div class='editor_text'>Вам нужно встретить бизнес-партнеров или родственников, но свое авто в ремонте? Или у вас долгая пересадка между рейсами? Почасовая аренда — это ваше решение.<ol><li><span class='text-strong'>Комфорт:</span> Вместо ожидания на улице, вы ждете в климат-контроле собственного авто.</li><li><span class='text-strong'>Тест-драйв:</span> Попробуйте авто на идеальной трассе "Борисполь – Киев". Это лучший полигон, чтобы проверить динамику, шумоизоляцию и работу круиз-контроля.</li><li><span class='text-strong'>Вместимость:</span> Проверьте, влезут ли все чемоданы в багажник, прежде чем бронировать авто на долгое путешествие.</li></ol></div>
 
-<div class='editor_title'>Недельный тариф: Старт большого путешествия</div>
+<h3 class='editor_title'>Недельный тариф: Старт большого путешествия</h3>
 <div class='editor_text'>Если вы прилетели в Украину в отпуск или по делам на неделю, аренда авто прямо в Борисполе экономит вам кучу времени. Вам не надо ехать в Киев, чтобы взять машину. Оформляйте прокат на месте и отправляйтесь по собственному маршруту:<ol><li><span class='text-strong'>Переяслав:</span> Посетите музеи Переяслава (всего 40 мин езды).</li><li><span class='text-strong'>Канев:</span> Поезжайте на Тарасову гору в Каневе.</li><li><span class='text-strong'>Дальние маршруты:</span> Или сразу отправляйтесь в дорогу в Одессу, Львов или Карпаты, минуя столичные пробки.</li></ol>Недельный тариф дает фиксированную цену и полную свободу действий.</div>
 
-<div class='editor_title'>Аренда на месяц (Тариф "Долгий визит")</div>
+<h3 class='editor_title'>Аренда на месяц (Тариф "Долгий визит")</h3>
 <div class='editor_text'>Выгодное предложение для экспатов, приехавших навестить семью, или специалистов, задействованных в логистических проектах (которых в Борисполе много). Тариф "Месяц" — это:<ol><li><span class='text-strong'>Экономия:</span> Стоимость суток значительно ниже, чем при короткой аренде.</li><li><span class='text-strong'>Стабильность:</span> Один платеж раз в 30 дней.</li><li><span class='text-strong'>Гибкость:</span> Нужно выехать за границу? Мы подготовим документы. Нужно сменить авто на другой класс? Сделаем это быстро.</li></ol>Это ваш личный транспорт без необходимости покупать и обслуживать машину.</div>
 
-<div class='editor_title'>Долгосрочная аренда (от 3 месяцев)</div>
+<h3 class='editor_title'>Долгосрочная аренда (от 3 месяцев)</h3>
 <div class='editor_text'>Для бизнеса, работающего в сфере авиации или логистики, а также для тех, кто строит дом в пригороде Киева. Долгосрочная аренда от REIZ снимает с вас все технические вопросы. Мы следим за страховкой, ТО и резиной. Ваша задача — только заправлять авто. Это намного удобнее, чем такси, и дешевле, чем содержание собственного автопарка компании.</div>
 
-<div class='editor_title'>Эконом-класс: Трансфер по цене такси</div>
-<div class='editor_text'>Если ваша цель — просто доехать из точки А в точку Б или иметь под рукой колеса для мелких дел, выбирайте наш эконом-класс. Современные, компактные авто от $20 в сутки. Они потребляют минимум топлива на трассе, легки в управлении и вмещают стандартный набор багажа.</div>
+<h2 class='editor_title'>Скоро в REIZ Борисполь: Прокат бюджетных авто (Economy)</h2>
+<div class='editor_text'>Мы готовим пополнение парка! Скоро для аренды в Борисполе станут доступны компактные и экономичные авто от $20/сутки — отличное решение для коротких трансферов или поездок налегке.<br/><br/>Пока мы готовим эти модели, предлагаем оценить наши авто класса Комфорт. Это просторные багажники для всех ваших чемоданов и максимальный комфорт после длительного перелета.</div>
 
-<div class='editor_title'>Преимущества REIZ в Борисполе</div>
+<h2 class='editor_title'>Преимущества REIZ в Борисполе</h2>
 <div class='editor_text'><ul><li>Flight Tracking: Мы отслеживаем ваш рейс. Если самолет задержится, наш менеджер дождется вас, и это не будет стоить дополнительно.</li><li>Meet &amp; Greet: Встречаем с именной табличкой в зоне прилета Терминала D.</li><li>Круглосуточно: Рейсы прибывают и ночью. Мы работаем 24/7 (по предварительному бронированию).</li><li>Чистота: Вы садитесь в идеально чистое авто, готовое к дороге.</li><li>Навигация: Поможем настроить CarPlay/Android Auto, чтобы вы сразу проложили маршрут.</li></ul></div>
 
-<div class='editor_title'>Аренда без залога</div>
+<h3 class='editor_title'>Аренда без залога</h3>
 <div class='editor_text'>Мы понимаем, что после перелета не хочется думать о депозитах. Для многих классов авто доступна опция аренды без залога (при покупке полной защиты). Это упрощает процесс и бережет ваши нервы.</div>
 
-<div class='editor_title'>Услуги водителя (Трансфер)</div>
+<h3 class='editor_title'>Услуги водителя (Трансфер)</h3>
 <div class='editor_text'>Устали после долгого перелета? Не рискуйте садиться за руль. Закажите трансфер с профессиональным водителем от REIZ. Мы встретим вас, поможем с багажом и с комфортом бизнес-класса доставим в любой отель Киева или другой город Украины.</div>
 
-<div class='editor_title'>Доставка авто</div>
+<h3 class='editor_title'>Доставка авто</h3>
 <div class='editor_text'>Бесплатно: Территория аэропорта (KBP), отели в радиусе 5 км, центр города Борисполь.<br/>За пределы города: Подача в Бровары, Киев или другие города области рассчитывается индивидуально.</div>
 
-<div class='editor_title'>Безопасность движения: Специфика трассы</div>
+<h2 class='editor_title'>Безопасность движения: Специфика трассы</h2>
 <div class='editor_text'>Бориспольская трасса — это лучшая дорога Украины, но она требует внимания:<ol><li><span class='text-strong'>Скорость:</span> Разрешенная скорость (в летний период) — 130 км/ч. Держите дистанцию и не занимайте левую полосу без надобности.</li><li><span class='text-strong'>Усталость:</span> После перелета реакция может быть замедленной. Если чувствуете усталость, лучше остановитесь на кофе на одной из многочисленных заправок.</li><li><span class='text-strong'>Туман:</span> Утром и осенью в низинах возле аэропорта часто бывает густой туман. Используйте противотуманные фары.</li><li><span class='text-strong'>Алкоголь:</span> Нулевая толерантность. Праздновать прилет нужно без руля. Нарушение — это немедленное расторжение договора.</li></ol></div>
 `.trim(),
     en: `
-<div class='editor_text'>Boryspil is the city where Ukraine begins for thousands of travelers. The main artery here is the International Airport and the M-03 high-speed highway. The REIZ service in Boryspil is created so that you do not depend on the SkyBus schedule or high taxi rates in the arrival zone. We offer the "Plane – Car" concept: you land, pick up your luggage, and within 15 minutes you are sitting behind the wheel of a comfortable car. We deliver cars to Terminals D and F, as well as to hotels near the airport, to make your start as smooth as possible.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.</div>
+<div class='editor_text'>Boryspil is the city where Ukraine begins for thousands of travelers. The main artery here is the International Airport and the M-03 high-speed highway. The REIZ service in Boryspil is created so that you do not depend on the SkyBus schedule or high taxi rates in the arrival zone. We offer the "Plane – Car" concept: you land, pick up your luggage, and within 15 minutes you are sitting behind the wheel of a comfortable car. We deliver cars to Terminals D and F, as well as to hotels near the airport, to make your start as smooth as possible.<br/><br/>Our fleet covers all needs: prestigious <span class='text-strong'>premium car hire</span> for business, reliable <span class='text-strong'>SUV rental</span> for travel, and spacious <span class='text-strong'>minivan rental</span> for families. Even if you're looking for <span class='text-strong'>economy car rental</span>, we'll offer you a significantly higher level of comfort and newer models.</div>
 
-<div class='editor_title'>Hourly Rate: Ideal for Meeting and Transfer</div>
+<h2 class='editor_title'>Hourly Rate: Ideal for Meeting and Transfer</h2>
 <div class='editor_text'>Do you need to meet business partners or relatives, but your own car is being repaired? Or do you have a long layover between flights? Hourly rental is your solution.<ol><li><span class='text-strong'>Comfort:</span> Instead of waiting outside, you wait in the climate control of your own car.</li><li><span class='text-strong'>Test Drive:</span> Try the car on the perfect "Boryspil – Kyiv" highway. This is the best testing ground to check dynamics, noise insulation, and cruise control operation.</li><li><span class='text-strong'>Capacity:</span> Check if all suitcases fit in the trunk before booking a car for a long trip.</li></ol></div>
 
-<div class='editor_title'>Weekly Rate: Start of a Big Journey</div>
+<h3 class='editor_title'>Weekly Rate: Start of a Big Journey</h3>
 <div class='editor_text'>If you flew to Ukraine for a vacation or business for a week, renting a car directly in Boryspil saves you a lot of time. You don't need to go to Kyiv to pick up a car. Arrange the rental on the spot and set off on your own route:<ol><li><span class='text-strong'>Pereiaslav:</span> Visit the museums of Pereiaslav (only 40 min drive).</li><li><span class='text-strong'>Kaniv:</span> Go to Taras Hill in Kaniv.</li><li><span class='text-strong'>Long routes:</span> Or head straight to Odesa, Lviv, or the Carpathians, bypassing the capital's traffic jams.</li></ol>The weekly rate gives a fixed price and complete freedom of action.</div>
 
-<div class='editor_title'>Monthly Rental ("Long Visit" Tariff)</div>
+<h3 class='editor_title'>Monthly Rental ("Long Visit" Tariff)</h3>
 <div class='editor_text'>A profitable offer for expats who have come to visit family, or specialists involved in logistics projects (of which there are many in Boryspil). The "Month" tariff means:<ol><li><span class='text-strong'>Savings:</span> The daily cost is significantly lower than with short-term rental.</li><li><span class='text-strong'>Stability:</span> One payment once every 30 days.</li><li><span class='text-strong'>Flexibility:</span> Need to go abroad? We will prepare the documents. Need to change the car to another class? We will do it quickly.</li></ol>This is your personal transport without the need to buy and maintain a car.</div>
 
-<div class='editor_title'>Long-Term Rental (from 3 months)</div>
+<h3 class='editor_title'>Long-Term Rental (from 3 months)</h3>
 <div class='editor_text'>For businesses working in aviation or logistics, as well as for those building a house in the suburbs of Kyiv. Long-term rental from REIZ removes all technical issues from you. We monitor insurance, maintenance, and tires. Your task is only to refuel the car. This is much more convenient than a taxi and cheaper than maintaining the company's own fleet.</div>
 
-<div class='editor_title'>Economy Class: Transfer for the Price of a Taxi</div>
-<div class='editor_text'>If your goal is simply to get from point A to point B or have wheels at hand for small errands, choose our economy class. Modern, compact cars from $20 per day. They consume minimum fuel on the highway, are easy to drive, and accommodate a standard set of luggage.</div>
+<h2 class='editor_title'>Coming soon in REIZ Boryspil: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, compact and economical cars from $20/day will be available for rent in Boryspil — a great solution for short transfers or light trips.<br/><br/>While we prepare these models, we invite you to consider our Comfort class cars. They offer spacious trunks for all your luggage and maximum comfort after a long flight.</div>
 
-<div class='editor_title'>Advantages of REIZ in Boryspil</div>
+<h2 class='editor_title'>Advantages of REIZ in Boryspil</h2>
 <div class='editor_text'><ul><li>Flight Tracking: We track your flight. If the plane is delayed, our manager will wait for you, and it will not cost extra.</li><li>Meet &amp; Greet: We meet you with a name sign in the arrival zone of Terminal D.</li><li>24/7: Flights arrive at night too. We work 24/7 (by prior booking).</li><li>Cleanliness: You get into a perfectly clean car, ready for the road.</li><li>Navigation: We will help set up CarPlay/Android Auto so you can plot your route immediately.</li></ul></div>
 
-<div class='editor_title'>Rental Without Deposit</div>
+<h3 class='editor_title'>Rental Without Deposit</h3>
 <div class='editor_text'>We understand that after a flight, you don't want to think about deposits. For many car classes, a no-deposit rental option is available (when purchasing full protection). This simplifies the process and saves your nerves.</div>
 
-<div class='editor_title'>Chauffeur Services (Transfer)</div>
+<h3 class='editor_title'>Chauffeur Services (Transfer)</h3>
 <div class='editor_text'>Tired after a long flight? Don't risk getting behind the wheel. Order a transfer with a professional driver from REIZ. We will meet you, help with luggage, and deliver you with business-class comfort to any hotel in Kyiv or another city in Ukraine.</div>
 
-<div class='editor_title'>Car Delivery</div>
+<h3 class='editor_title'>Car Delivery</h3>
 <div class='editor_text'>Free: Airport territory (KBP), hotels within a 5 km radius, Boryspil city center.<br/>Outside the City: Delivery to Brovary, Kyiv, or other cities in the region is calculated individually.</div>
 
-<div class='editor_title'>Traffic Safety: Highway Specifics</div>
+<h2 class='editor_title'>Traffic Safety: Highway Specifics</h2>
 <div class='editor_text'>The Boryspil highway is the best road in Ukraine, but it requires attention:<ol><li><span class='text-strong'>Speed:</span> The permitted speed (in summer) is 130 km/h. Keep your distance and do not occupy the left lane unnecessarily.</li><li><span class='text-strong'>Fatigue:</span> After a flight, reaction time may be slowed. If you feel tired, it is better to stop for coffee at one of the numerous gas stations.</li><li><span class='text-strong'>Fog:</span> In the morning and in autumn, thick fog often occurs in the lowlands near the airport. Use fog lights.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Celebrating arrival must be done without driving. Violation is immediate termination of the contract.</li></ol></div>
 `.trim(),
   };
@@ -7013,102 +7016,102 @@ function generateBoryspilEditorContent(locale: Locale): string {
 function generateBukovelEditorContent(locale: Locale): string {
   const contentByLocale = {
     uk: `
-<div class='editor_text'>Буковель — це не просто курорт, це центр тяжіння для активних людей. Але Карпати не обмежуються лише підйомниками. Водоспади Яремче, віадуки Ворохти та найвищі вершини — все це стає доступним лише з власним авто. Сервіс REIZ у Буковелі спеціалізується на прокаті автомобілів, готових до гірських викликів. У нашому флоті — надійні кросовери та позашляховики з повним приводом, які впевнено тримають дорогу і на засніженому перевалі, і на крутому підйомі до готелю.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <h2>прокат преміум-авто</h2> для бізнесу, надійна <h2>оренда позашляховиків</h2> для мандрівок та місткий <h2>прокат мінівенів</h2> для сім'ї. Навіть якщо ви шукаєте <h2>оренду авто економ-класу</h2>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
+<div class='editor_text'>Буковель — це не просто курорт, це центр тяжіння для активних людей. Але Карпати не обмежуються лише підйомниками. Водоспади Яремче, віадуки Ворохти та найвищі вершини — все це стає доступним лише з власним авто. Сервіс REIZ у Буковелі спеціалізується на прокаті автомобілів, готових до гірських викликів. У нашому флоті — надійні кросовери та позашляховики з повним приводом, які впевнено тримають дорогу і на засніженому перевалі, і на крутому підйомі до готелю.<br/><br/>Наш автопарк покриває будь-які потреби: статусний <span class='text-strong'>прокат преміум-авто</span> для бізнесу, надійна <span class='text-strong'>оренда позашляховиків</span> для мандрівок та місткий <span class='text-strong'>прокат мінівенів</span> для сім'ї. Навіть якщо ви шукаєте <span class='text-strong'>оренду авто економ-класу</span>, ми запропонуємо вам значно вищий рівень комфорту та новіші моделі.</div>
 
-<div class='editor_title'>Погодинний драйв: Тест гірськими дорогами</div>
+<h2 class='editor_title'>Погодинний драйв: Тест гірськими дорогами</h2>
 <div class='editor_text'>Хочете спробувати, як поводить себе конкретний позашляховик у реальних умовах? Візьміть авто на добу. Це ідеальний тест-драйв:<ol><li><span class='text-strong'>Тяга:</span> Перевірте тягу двигуна на затяжних підйомах Яблуницького перевалу.</li><li><span class='text-strong'>Керованість:</span> Оцініть керованість на серпантині.</li><li><span class='text-strong'>Багажник:</span> Переконайтеся, що в багажник легко входять ваші лижі або сноуборди.</li></ol>Це також зручно, якщо ви хочете на один день з'їздити на екскурсію до Верховини чи Криворівні.</div>
 
-<div class='editor_title'>Тижневий тариф: Ідеальна відпустка</div>
+<h3 class='editor_title'>Тижневий тариф: Ідеальна відпустка</h3>
 <div class='editor_text'>Тижнева оренда в Буковелі — це комфорт і незалежність від шатлів готелю. Ви самі вирішуєте, коли їхати на катання — до відкриття трас чи на вечірній сеанс.<ol><li><span class='text-strong'>Свобода вибору:</span> Сьогодні катаєтесь на Буковелі, завтра — їдете на Драгобрат (на спеціально підготовленому авто), а післязавтра — релаксуєте в чанах у Татарові.</li><li><span class='text-strong'>Економія:</span> Тижневий тариф значно вигідніший за щоденне замовлення таксі між селами Поляниця, Яблуниця та Яремче.</li></ol></div>
 
-<div class='editor_title'>Оренда на місяць (Workation в горах)</div>
+<h3 class='editor_title'>Оренда на місяць (Workation в горах)</h3>
 <div class='editor_text'>Все більше людей приїжджають в Карпати жити і працювати віддалено. Тариф "Місяць" створений саме для них. Це ваш персональний транспорт за ціною, нижчою за ринкову. Ви можете жити в затишному шале подалі від шуму центру, але завжди мати можливість швидко дістатися до супермаркету, коворкінгу чи ресторану. Потрібно поїхати у Львів чи Івано-Франківськ у справах? З авто від REIZ це питання двох годин комфортної їзди.</div>
 
-<div class='editor_title'>Довгострокова оренда</div>
+<h3 class='editor_title'>Довгострокова оренда</h3>
 <div class='editor_text'>Для власників бізнесу в Буковелі, готельєрів або тих, хто будує тут нерухомість. Оренда від 3 місяців — це альтернатива купівлі службового авто. Ми беремо на себе найважливіше в горах — технічний стан.<ol><li><span class='text-strong'>Зимова підготовка:</span> Ми ставимо тільки якісну зимову гуму зі "скандинавським" протектором.</li><li><span class='text-strong'>Обслуговування:</span> Регулярна перевірка гальмівної системи та ходової частини, які в горах працюють під навантаженням.</li></ol>Ви просто користуєтесь надійним авто.</div>
 
-<div class='editor_title'>Економ-клас: Бюджетно, але надійно</div>
-<div class='editor_text'>Влітку або коли дороги ідеально розчищені, не обов'язково брати джип. Наші авто економ-класу — це чудовий спосіб заощадити. Компактні, маневрені, з помірним апетитом до пального. Вони чудово підходять для поїздок асфальтованими дорогами між курортними містечками.</div>
+<h2 class='editor_title'>Незабаром у REIZ Буковель: Прокат бюджетних авто (Economy)</h2>
+<div class='editor_text'>Ми готуємо поповнення парку! Скоро для оренди в Буковелі стануть доступні компактні авто від $20/добу — економний варіант для літніх подорожей асфальтованими дорогами між Яремче та Поляницею.<br/><br/>Поки ми готуємо ці моделі, рекомендуємо для гірських доріг наші повнопривідні кросовери (SUV). Це гарантія безпеки на серпантинах та впевненості за будь-якої погоди.</div>
 
-<div class='editor_title'>Переваги REIZ у Карпатах</div>
+<h2 class='editor_title'>Переваги REIZ у Карпатах</h2>
 <div class='editor_text'><ul><li>Локація: Ми доставимо авто прямо до рецепції вашого готелю в Буковелі, Поляниці, Татарові чи Яремче. Також зустрічаємо в аеропорту/вокзалі Івано-Франківська.</li><li>Підготовка: Усі авто проходять посилений контроль. Ми перевіряємо рідини, світло та роботу обігрівача, щоб ви не мали сюрпризів на морозі.</li><li>Екіпірування: За запитом надаємо кріплення для лиж/бордів (автобокси) та ланцюги протиковзання (для екстремальних умов).</li><li>Прозорість: Жодних доплат за "складність рельєфу". Ціна фіксована.</li></ul></div>
 
-<div class='editor_title'>Оренда без застави</div>
+<h3 class='editor_title'>Оренда без застави</h3>
 <div class='editor_text'>Відпочинок має бути безтурботним. Для більшості моделей ми пропонуємо опцію оренди без застави (при купівлі повного страхування). Насолоджуйтесь горами, а ризики ми беремо на себе.</div>
 
-<div class='editor_title'>Трансфер та водій</div>
+<h3 class='editor_title'>Трансфер та водій</h3>
 <div class='editor_text'>Хочете розслабитися після лиж з келихом глінтвейну? Не сідайте за кермо. Замовте авто з водієм. Ми організуємо трансфер VIP-рівня з Івано-Франківська чи Львова, або просто відвеземо вас з ресторану в готель. Безпечно, комфортно і в теплі.</div>
 
-<div class='editor_title'>Доставка авто</div>
+<h3 class='editor_title'>Доставка авто</h3>
 <div class='editor_text'>Безкоштовно: В межах курорту Буковель (села Поляниця, паркінги біля витягів №1, №2, №7, №14).<br/>Платна подача: Яремче, Микуличин, Татарів, Ворохта, Яблуниця. Вартість залежить від відстані до нашого офісу.</div>
 
-<div class='editor_title'>Безпека в горах: Пам'ятка водія</div>
+<h2 class='editor_title'>Безпека в горах: Пам'ятка водія</h2>
 <div class='editor_text'>Карпатські дороги вимагають поваги та навичок:<ol><li><span class='text-strong'>Гальмування двигуном:</span> На затяжних спусках використовуйте понижені передачі, щоб не перегріти гальма.</li><li><span class='text-strong'>Дистанція:</span> На слизькій дорозі гальмівний шлях збільшується в рази. Тримайте подвійну дистанцію.</li><li><span class='text-strong'>Повороти:</span> Знижуйте швидкість перед поворотом, а не в ньому. Уникайте різких рухів кермом.</li><li><span class='text-strong'>Алкоголь:</span> Гірська дорога не пробачає помилок. Політика REIZ — нульова толерантність до алкоголю.</li></ol></div>
 `.trim(),
     ru: `
-<div class='editor_text'>Буковель — это не просто курорт, это центр притяжения для активных людей. Но Карпаты не ограничиваются только подъемниками. Водопады Яремче, виадуки Ворохты и самые высокие вершины — все это становится доступным только с личным авто. Сервис REIZ в Буковеле специализируется на прокате автомобилей, готовых к горным вызовам. В нашем флоте — надежные кроссоверы и внедорожники с полным приводом, которые уверенно держат дорогу и на заснеженном перевале, и на крутом подъеме к отелю.<br/><br/>Наш автопарк покрывает любые потребности: статусный <h2>прокат премиум-авто</h2> для бизнеса, надёжная <h2>аренда внедорожников</h2> для путешествий и вместительный <h2>прокат минивэнов</h2> для семьи. Даже если вы ищете <h2>аренду авто эконом-класса</h2>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
+<div class='editor_text'>Буковель — это не просто курорт, это центр притяжения для активных людей. Но Карпаты не ограничиваются только подъемниками. Водопады Яремче, виадуки Ворохты и самые высокие вершины — все это становится доступным только с личным авто. Сервис REIZ в Буковеле специализируется на прокате автомобилей, готовых к горным вызовам. В нашем флоте — надежные кроссоверы и внедорожники с полным приводом, которые уверенно держат дорогу и на заснеженном перевале, и на крутом подъеме к отелю.<br/><br/>Наш автопарк покрывает любые потребности: статусный <span class='text-strong'>прокат премиум-авто</span> для бизнеса, надёжная <span class='text-strong'>аренда внедорожников</span> для путешествий и вместительный <span class='text-strong'>прокат минивэнов</span> для семьи. Даже если вы ищете <span class='text-strong'>аренду авто эконом-класса</span>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>
 
-<div class='editor_title'>Почасовой драйв: Тест на горных дорогах</div>
+<h2 class='editor_title'>Почасовой драйв: Тест на горных дорогах</h2>
 <div class='editor_text'>Хотите попробовать, как ведет себя конкретный внедорожник в реальных условиях? Возьмите авто на сутки. Это идеальный тест-драйв:<ol><li><span class='text-strong'>Тяга:</span> Проверьте тягу двигателя на затяжных подъемах Яблуницкого перевала.</li><li><span class='text-strong'>Управляемость:</span> Оцените управляемость на серпантине.</li><li><span class='text-strong'>Багажник:</span> Убедитесь, что в багажник легко входят ваши лыжи или сноуборды.</li></ol>Это также удобно, если вы хотите на один день съездить на экскурсию в Верховину или Криворовню.</div>
 
-<div class='editor_title'>Недельный тариф: Идеальный отпуск</div>
+<h3 class='editor_title'>Недельный тариф: Идеальный отпуск</h3>
 <div class='editor_text'>Недельная аренда в Буковеле — это комфорт и независимость от шаттлов отеля. Вы сами решаете, когда ехать на катание — к открытию трасс или на вечерний сеанс.<ol><li><span class='text-strong'>Свобода выбора:</span> Сегодня катаетесь на Буковеле, завтра — едете на Драгобрат (на специально подготовленном авто), а послезавтра — релаксируете в чанах в Татарове.</li><li><span class='text-strong'>Экономия:</span> Недельный тариф значительно выгоднее ежедневного заказа такси между селами Поляница, Яблуница и Яремче.</li></ol></div>
 
-<div class='editor_title'>Аренда на месяц (Workation в горах)</div>
+<h3 class='editor_title'>Аренда на месяц (Workation в горах)</h3>
 <div class='editor_text'>Все больше людей приезжают в Карпаты жить и работать удаленно. Тариф "Месяц" создан именно для них. Это ваш персональный транспорт по цене ниже рыночной. Вы можете жить в уютном шале вдали от шума центра, но всегда иметь возможность быстро добраться до супермаркета, коворкинга или ресторана. Нужно поехать во Львов или Ивано-Франковск по делам? С авто от REIZ это вопрос двух часов комфортной езды.</div>
 
-<div class='editor_title'>Долгосрочная аренда</div>
+<h3 class='editor_title'>Долгосрочная аренда</h3>
 <div class='editor_text'>Для владельцев бизнеса в Буковеле, отельеров или тех, кто строит здесь недвижимость. Аренда от 3 месяцев — это альтернатива покупке служебного авто. Мы берем на себя самое важное в горах — техническое состояние.<ol><li><span class='text-strong'>Зимняя подготовка:</span> Мы ставим только качественную зимнюю резину со "скандинавским" протектором.</li><li><span class='text-strong'>Обслуживание:</span> Регулярная проверка тормозной системы и ходовой части, которые в горах работают под нагрузкой.</li></ol>Вы просто пользуетесь надежным авто.</div>
 
-<div class='editor_title'>Эконом-класс: Бюджетно, но надежно</div>
-<div class='editor_text'>Летом или когда дороги идеально расчищены, не обязательно брать джип. Наши авто эконом-класса — это отличный способ сэкономить. Компактные, маневренные, с умеренным аппетитом к топливу. Они отлично подходят для поездок по асфальтированным дорогам между курортными городками.</div>
+<h2 class='editor_title'>Скоро в REIZ Буковель: Прокат бюджетных авто (Economy)</h2>
+<div class='editor_text'>Мы готовим пополнение парка! Скоро для аренды в Буковеле станут доступны компактные авто от $20/сутки — экономичный вариант для летних поездок по асфальтированным дорогам между Яремче и Поляницей.<br/><br/>Пока мы готовим эти модели, рекомендуем для горных дорог наши полноприводные кроссоверы (SUV). Это гарантия безопасности на серпантинах и уверенности в любую погоду.</div>
 
-<div class='editor_title'>Преимущества REIZ в Карпатах</div>
+<h2 class='editor_title'>Преимущества REIZ в Карпатах</h2>
 <div class='editor_text'><ul><li>Локация: Мы доставим авто прямо к рецепции вашего отеля в Буковеле, Полянице, Татарове или Яремче. Также встречаем в аэропорту/вокзале Ивано-Франковска.</li><li>Подготовка: Все авто проходят усиленный контроль. Мы проверяем жидкости, свет и работу обогревателя, чтобы у вас не было сюрпризов на морозе.</li><li>Экипировка: По запросу предоставляем крепления для лыж/бордов (автобоксы) и цепи противоскольжения.</li><li>Прозрачность: Никаких доплат за "сложность рельефа". Цена фиксирована.</li></ul></div>
 
-<div class='editor_title'>Аренда без залога</div>
+<h3 class='editor_title'>Аренда без залога</h3>
 <div class='editor_text'>Отдых должен быть беззаботным. Для большинства моделей мы предлагаем опцию аренды без залога (при покупке полного страхования). Наслаждайтесь горами, а риски мы берем на себя.</div>
 
-<div class='editor_title'>Трансфер и водитель</div>
+<h3 class='editor_title'>Трансфер и водитель</h3>
 <div class='editor_text'>Хотите расслабиться после лыж с бокалом глинтвейна? Не садитесь за руль. Закажите авто с водителем. Мы организуем трансфер VIP-уровня из Ивано-Франковска или Львова, или просто отвезем вас из ресторана в отель. Безопасно, комфортно и в тепле.</div>
 
-<div class='editor_title'>Доставка авто</div>
+<h3 class='editor_title'>Доставка авто</h3>
 <div class='editor_text'>Бесплатно: В пределах курорта Буковель (село Поляница, парковки возле подъемников №1, №2, №7, №14).<br/>Платная подача: Яремче, Микуличин, Татаров, Ворохта, Яблуница. Стоимость зависит от расстояния до нашего офиса.</div>
 
-<div class='editor_title'>Безопасность в горах: Памятка водителя</div>
+<h2 class='editor_title'>Безопасность в горах: Памятка водителя</h2>
 <div class='editor_text'>Карпатские дороги требуют уважения и навыков:<ol><li><span class='text-strong'>Торможение двигателем:</span> На затяжных спусках используйте пониженные передачи, чтобы не перегреть тормоза.</li><li><span class='text-strong'>Дистанция:</span> На скользкой дороге тормозной путь увеличивается в разы. Держите двойную дистанцию.</li><li><span class='text-strong'>Повороты:</span> Снижайте скорость перед поворотом, а не в нем. Избегайте резких движений рулем.</li><li><span class='text-strong'>Алкоголь:</span> Горная дорога не прощает ошибок. Политика REIZ — нулевая толерантность к алкоголю.</li></ol></div>
 `.trim(),
     en: `
-<div class='editor_text'>Bukovel is not just a resort, it is a center of attraction for active people. But the Carpathians are not limited to ski lifts. Yaremche waterfalls, Vorokhta viaducts, and the highest peaks — all this becomes accessible only with a personal car. The REIZ service in Bukovel specializes in renting cars ready for mountain challenges. Our fleet includes reliable crossovers and SUVs with four-wheel drive (4x4), which confidently hold the road both on a snowy pass and on a steep climb to the hotel.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.</div>
+<div class='editor_text'>Bukovel is not just a resort, it is a center of attraction for active people. But the Carpathians are not limited to ski lifts. Yaremche waterfalls, Vorokhta viaducts, and the highest peaks — all this becomes accessible only with a personal car. The REIZ service in Bukovel specializes in renting cars ready for mountain challenges. Our fleet includes reliable crossovers and SUVs with four-wheel drive (4x4), which confidently hold the road both on a snowy pass and on a steep climb to the hotel.<br/><br/>Our fleet covers all needs: prestigious <span class='text-strong'>premium car hire</span> for business, reliable <span class='text-strong'>SUV rental</span> for travel, and spacious <span class='text-strong'>minivan rental</span> for families. Even if you're looking for <span class='text-strong'>economy car rental</span>, we'll offer you a significantly higher level of comfort and newer models.</div>
 
-<div class='editor_title'>Hourly Drive: Test on Mountain Roads</div>
+<h2 class='editor_title'>Hourly Drive: Test on Mountain Roads</h2>
 <div class='editor_text'>Want to try how a specific SUV behaves in real conditions? Take a car for a day. This is an ideal test drive:<ol><li><span class='text-strong'>Traction:</span> Check the engine traction on the long climbs of the Yablunytskyi Pass.</li><li><span class='text-strong'>Handling:</span> Evaluate the handling on the serpentine.</li><li><span class='text-strong'>Trunk:</span> Make sure your skis or snowboards fit easily in the trunk.</li></ol>It is also convenient if you want to go on a day trip to Verkhovyna or Kryvorivnia.</div>
 
-<div class='editor_title'>Weekly Rate: The Ideal Vacation</div>
+<h3 class='editor_title'>Weekly Rate: The Ideal Vacation</h3>
 <div class='editor_text'>Weekly rental in Bukovel means comfort and independence from hotel shuttles. You decide when to go skiing — for the opening of the slopes or for the evening session.<ol><li><span class='text-strong'>Freedom of Choice:</span> Today you ski in Bukovel, tomorrow you drive to Drahobrat (in a specially prepared car), and the day after tomorrow you relax in the hot tubs in Tatariv.</li><li><span class='text-strong'>Savings:</span> The weekly rate is much more profitable than ordering a taxi daily between the villages of Polianytsia, Yablunytsia, and Yaremche.</li></ol></div>
 
-<div class='editor_title'>Monthly Rental (Workation in the Mountains)</div>
+<h3 class='editor_title'>Monthly Rental (Workation in the Mountains)</h3>
 <div class='editor_text'>More and more people come to the Carpathians to live and work remotely. The "Month" tariff is created just for them. This is your personal transport at a price lower than the market one. You can live in a cozy chalet away from the noise of the center, but always be able to quickly get to a supermarket, coworking space, or restaurant. Need to go to Lviv or Ivano-Frankivsk on business? With a car from REIZ, it's a matter of two hours of comfortable driving.</div>
 
-<div class='editor_title'>Long-Term Rental</div>
+<h3 class='editor_title'>Long-Term Rental</h3>
 <div class='editor_text'>For business owners in Bukovel, hoteliers, or those building real estate here. Rental from 3 months is an alternative to buying a company car. We take on the most important thing in the mountains — the technical condition.<ol><li><span class='text-strong'>Winter Preparation:</span> We install only high-quality winter tires with a "Nordic" tread.</li><li><span class='text-strong'>Maintenance:</span> Regular checks of the braking system and chassis, which work under load in the mountains.</li></ol>You simply use a reliable car.</div>
 
-<div class='editor_title'>Economy Class: Budget but Reliable</div>
-<div class='editor_text'>In summer or when the roads are perfectly cleared, it is not necessary to rent a Jeep. Our economy class cars are a great way to save money. Compact, maneuverable, with moderate fuel appetite. They are great for trips on asphalt roads between resort towns.</div>
+<h2 class='editor_title'>Coming soon in REIZ Bukovel: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, compact cars from $20/day will be available for rent in Bukovel — a cost-efficient option for summer trips on paved roads between Yaremche and Polianytsia.<br/><br/>While we prepare these models, we recommend our AWD crossovers (SUVs) for mountain roads. They provide safety on serpentines and confidence in any weather.</div>
 
-<div class='editor_title'>Advantages of REIZ in the Carpathians</div>
+<h2 class='editor_title'>Advantages of REIZ in the Carpathians</h2>
 <div class='editor_text'><ul><li>Location: We will deliver the car directly to the reception of your hotel in Bukovel, Polianytsia, Tatariv, or Yaremche. We also meet at the airport/train station of Ivano-Frankivsk.</li><li>Preparation: All cars undergo enhanced control. We check fluids, lights, and heater operation so you have no surprises in the frost.</li><li>Equipment: Upon request, we provide ski/board racks (roof boxes) and snow chains.</li><li>Transparency: No extra charges for "terrain complexity". The price is fixed.</li></ul></div>
 
-<div class='editor_title'>Rental Without Deposit</div>
+<h3 class='editor_title'>Rental Without Deposit</h3>
 <div class='editor_text'>Vacation should be carefree. For most models, we offer a no-deposit rental option (when purchasing full insurance). Enjoy the mountains, and we will take the risks.</div>
 
-<div class='editor_title'>Transfer and Chauffeur</div>
+<h3 class='editor_title'>Transfer and Chauffeur</h3>
 <div class='editor_text'>Want to relax after skiing with a glass of mulled wine? Do not get behind the wheel. Order a car with a driver. We will organize a VIP-level transfer from Ivano-Frankivsk or Lviv, or simply take you from a restaurant to the hotel. Safe, comfortable, and warm.</div>
 
-<div class='editor_title'>Car Delivery</div>
+<h3 class='editor_title'>Car Delivery</h3>
 <div class='editor_text'>Free: Within the Bukovel resort (Polianytsia village, parking lots near lifts No. 1, 2, 7, 14).<br/>Paid Delivery: Yaremche, Mykulychyn, Tatariv, Vorokhta, Yablunytsia. The cost depends on the distance to our office.</div>
 
-<div class='editor_title'>Safety in the Mountains: Driver's Memo</div>
+<h2 class='editor_title'>Safety in the Mountains: Driver's Memo</h2>
 <div class='editor_text'>Carpathian roads require respect and skills:<ol><li><span class='text-strong'>Engine Braking:</span> On long descents, use lower gears to avoid overheating the brakes.</li><li><span class='text-strong'>Distance:</span> On a slippery road, the braking distance increases significantly. Keep double the distance.</li><li><span class='text-strong'>Turns:</span> Reduce speed before the turn, not in it. Avoid sharp steering movements.</li><li><span class='text-strong'>Alcohol:</span> The mountain road does not forgive mistakes. REIZ policy is zero tolerance for alcohol.</li></ol></div>
 `.trim(),
   };

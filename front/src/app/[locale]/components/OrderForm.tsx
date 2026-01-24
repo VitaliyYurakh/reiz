@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, type FormEvent } from "react";
+import { useCallback, useEffect, useMemo, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { useRentalSearch } from "@/context/RentalSearchContext";
@@ -15,7 +15,11 @@ const formatDateWithTime = (date: Date, locale: string) => {
   return `${day} ${month} ${hours}:${minutes}`;
 };
 
-export default function OrderForm() {
+type OrderFormProps = {
+  defaultPickupLocation?: string;
+};
+
+export default function OrderForm({ defaultPickupLocation }: OrderFormProps) {
   const locale = useLocale() as "uk" | "ru" | "en";
   const tPersonal = useTranslations("carRentModal.personal");
   const tOrder = useTranslations("carRentModal.orderForm");
@@ -28,6 +32,11 @@ export default function OrderForm() {
     endDate,
     openDatePicker,
   } = useRentalSearch();
+
+  useEffect(() => {
+    if (!defaultPickupLocation) return;
+    setPickupLocation(defaultPickupLocation);
+  }, [defaultPickupLocation, setPickupLocation]);
 
   const handlePickupChange = useCallback(
     (location: string) => {

@@ -11,6 +11,7 @@ import type { Locale } from "@/i18n/request";
 import { locales, defaultLocale } from "@/i18n/request";
 import {
   getCityBySlug,
+  getCityFooterAddress,
   getCityLocalizedData,
   getAllCitySlugs,
 } from "@/data/cities";
@@ -128,6 +129,8 @@ export default async function CityRentalPage({
 
   const cars = await fetchCars();
   const faqSections = getCityFAQ(cityConfig, locale);
+  const footerAddress = getCityFooterAddress(cityConfig, locale);
+  const footerDescription = cityData.footerDescription;
 
   // Локалізований заголовок для FAQ секції
   const faqMainTitle = {
@@ -141,14 +144,14 @@ export default async function CityRentalPage({
       <Header />
       <main className="main">
         <CitySchemaOrg city={cityConfig} locale={locale} faqSections={faqSections} />
-        <CityHeroSection city={cityConfig} cityData={cityData} />
+        <CityHeroSection city={cityConfig} cityData={cityData} locale={locale} />
         <Catalog cars={cars} sectionTitle={cityData.sectionCars} />
         <Advantages />
         <Rent />
         <CityEditorSection city={cityConfig} locale={locale} />
         <CityFAQ faqSections={faqSections} mainTitle={faqMainTitle} />
       </main>
-      <Footer />
+      <Footer addressText={footerAddress} descriptionText={footerDescription} />
     </CatalogFiltersProvider>
   );
 }

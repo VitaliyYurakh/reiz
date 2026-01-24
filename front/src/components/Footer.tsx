@@ -2,8 +2,15 @@ import { useTranslations } from "next-intl";
 import UiImage from "@/components/ui/UiImage";
 import { Link } from "@/i18n/request";
 
-export default function Footer() {
+type FooterProps = {
+  addressText?: string;
+  descriptionText?: string;
+};
+
+export default function Footer({ addressText, descriptionText }: FooterProps) {
   const t = useTranslations("footer");
+  const address = addressText ?? t("address.text");
+  const description = descriptionText ?? t("description");
   return (
     <footer className="footer">
       <div className="container">
@@ -14,7 +21,7 @@ export default function Footer() {
                 REIZ
               </Link>
               <span className="footer__name">{t("tagline")}</span>
-              <p>{t("description")}</p>
+              <p>{description}</p>
 
               <nav className="footer-nav">
                 <ul className="footer-nav__list">
@@ -97,7 +104,7 @@ export default function Footer() {
                 data-title={t("address.title")}
                 aria-label={t("address.title")}
               >
-                <span>{t("address.text")}</span>
+                <span>{address}</span>
               </a>
 
               <span className="footer__rate">

@@ -21,9 +21,9 @@ export default function Rent() {
                       sizePreset="card"
                     />
                   </div>
-                  <h2 className="rent-card__title">
+                  <p className="rent-card__title">
                     {t("rent.card1_title")}
-                  </h2>
+                  </p>
                   <ul className="rent-card__list">
                     <li className="rent-card__item">
                       <i className="sprite">

@@ -5,15 +5,26 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/request";
 import LocationMapLink from "@/app/[locale]/components/LocationMapLink";
 import HeroBookButton from "@/app/[locale]/components/HeroBookButton";
+import { getCityPickupLocations } from "@/data/cities";
 import type { CityConfig, CityLocalizedData } from "@/data/cities";
+import type { Locale } from "@/i18n/request";
 
 type Props = {
   city: CityConfig;
   cityData: CityLocalizedData;
+  locale: Locale;
 };
 
-export default async function CityHeroSection({ city, cityData }: Props) {
+export default async function CityHeroSection({ city, cityData, locale }: Props) {
   const t = await getTranslations("homePage.hero");
+  const pickupLocations = getCityPickupLocations(city.slug, locale);
+  const defaultPickupLocation =
+    (city.slug === "bukovel"
+      ? pickupLocations.find((loc) => loc.type === "center")?.name
+      : undefined) ??
+    pickupLocations.find((loc) => loc.type === "airport")?.name ??
+    pickupLocations[0]?.name ??
+    city.localized[locale].name;
 
   return (
     <section className="hero-section">
@@ -104,7 +115,7 @@ export default async function CityHeroSection({ city, cityData }: Props) {
             </div>
 
             <div className="hero-section__content">
-              <h2 className="h2">{t("secondary_title")}</h2>
+              <p className="h2">{t("secondary_title")}</p>
               <Link
                 href="/invest"
                 className="main-button main-button--transparent"
@@ -113,7 +124,7 @@ export default async function CityHeroSection({ city, cityData }: Props) {
               </Link>
             </div>
 
-            <OrderForm />
+            <OrderForm defaultPickupLocation={defaultPickupLocation} />
           </div>
         </div>
       </div>
