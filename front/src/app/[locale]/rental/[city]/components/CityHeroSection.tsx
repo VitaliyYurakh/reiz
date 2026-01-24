@@ -51,7 +51,7 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
                 width={2500}
                 height={1685}
                 hero
-                quality={75}
+                quality={90}
                 sizes="100vw"
                 className="hero-image-desktop"
                 fetchPriority="high"
