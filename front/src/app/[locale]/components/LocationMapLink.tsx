@@ -1,13 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
 import Icon from "@/components/Icon";
 
-const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Lviv+International+Airport+LWO";
-const GOOGLE_MAPS_EMBED_URL =
-  "https://www.google.com/maps?q=Lviv%20International%20Airport%20LWO&output=embed";
+const DEFAULT_MAP_QUERY = "Lviv+International+Airport+LWO";
 const DESKTOP_BREAKPOINT = 1025;
 const ANIMATION_DURATION = 600;
 
@@ -15,6 +12,7 @@ type LocationMapLinkProps = {
   children: React.ReactNode;
   className?: string;
   title?: string;
+  mapQuery?: string;
   "aria-label"?: string;
 };
 
@@ -22,8 +20,18 @@ export default function LocationMapLink({
   children,
   className,
   title = "Lviv International Airport",
+  mapQuery,
   "aria-label": ariaLabel,
 }: LocationMapLinkProps) {
+  const query = mapQuery || DEFAULT_MAP_QUERY;
+  const mapsUrl = useMemo(
+    () => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query).replace(/%20/g, "+")}`,
+    [query]
+  );
+  const mapsEmbedUrl = useMemo(
+    () => `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`,
+    [query]
+  );
   const triggerRef = useRef<HTMLAnchorElement>(null);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -156,12 +164,12 @@ export default function LocationMapLink({
         </div>
         <div className="map-modal__body">
           <iframe
-            src={GOOGLE_MAPS_EMBED_URL}
+            src={mapsEmbedUrl}
             className="map-modal__iframe"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Google Maps - Lviv International Airport"
+            title={`Google Maps - ${title}`}
           />
         </div>
       </div>
@@ -172,7 +180,7 @@ export default function LocationMapLink({
     <>
       <a
         ref={triggerRef}
-        href={GOOGLE_MAPS_URL}
+        href={mapsUrl}
         target="_blank"
         rel="noopener noreferrer"
         className={className}

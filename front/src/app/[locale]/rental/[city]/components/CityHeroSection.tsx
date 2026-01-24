@@ -95,13 +95,17 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
               data-aos-duration="1000"
               data-aos-delay="1100"
             >
-              <LocationMapLink className="adress-link address-link">
+              <LocationMapLink
+                className="adress-link address-link"
+                title={cityData.address}
+                mapQuery={cityData.address}
+              >
                 <i className="sprite mode">
                   <svg width="20" height="26">
                     <use href="/img/sprite/sprite.svg#geo" />
                   </svg>
                 </i>
-                <span>{t("address_link")}</span>
+                <span>{cityData.address}</span>
               </LocationMapLink>
 
               <a href="#catalog" className="down-btn">
