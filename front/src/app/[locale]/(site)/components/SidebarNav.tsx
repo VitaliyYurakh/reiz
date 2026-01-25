@@ -55,10 +55,14 @@ export default function SidebarNav() {
       data-aos-delay={400}
     >
       <div className="aside__top">
-        <Link href="/" className="aside__title">
-          REIZ
+        <Link href="/" className="aside__logo">
+          <img
+            src="/img/icons/reiz-logo.svg"
+            alt="REIZ Car Rental"
+            width={160}
+            height={73}
+          />
         </Link>
-        <p>{t("subtitle")}</p>
       </div>
 
       <nav className="main-nav">

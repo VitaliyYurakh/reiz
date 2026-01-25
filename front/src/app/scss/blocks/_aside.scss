@@ -9,7 +9,7 @@
   background: var(--cl-t);
   display: flex;
   flex-direction: column;
-  padding: 34px 20px 0;
+  padding: 30px 20px 0;
    transition: all .4s ease;
 
    &.aos-transition-done{
@@ -24,6 +24,7 @@
     flex-direction: column;
     position: relative;
     z-index: 1;
+    padding-bottom: 6px;
 
     p {
       font-weight: 274;
@@ -34,7 +35,7 @@
 
     &::before {
       position: absolute;
-      bottom: -31px;
+      bottom: 0;
       z-index: -1;
       left: 50%;
       content: "";
@@ -129,6 +130,17 @@
     text-align: center;
     color: var(--cl-a);
     align-self: center;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    img {
+      width: 160px;
+      height: auto;
+    }
   }
 
   .main-button {
