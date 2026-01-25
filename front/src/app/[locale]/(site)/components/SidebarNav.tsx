@@ -1,6 +1,5 @@
 "use client";
 import { usePathname } from "next/navigation";
-import Icon from "@/components/Icon";
 import { Link } from "@/i18n/request";
 import { useRef, useState } from "react";
 import cn from "classnames";
@@ -91,7 +90,17 @@ export default function SidebarNav() {
                     >
                       {link.label}
                       <i className="sprite">
-                        <Icon id="arrow-d" width={11} height={8} />
+                        <img
+                          src={
+                            openAcc
+                              ? "/img/icons/minus.svg"
+                              : "/img/icons/plus.svg"
+                          }
+                          alt=""
+                          aria-hidden="true"
+                          width={16}
+                          height={16}
+                        />
                       </i>
                     </button>
                     <div
@@ -104,7 +113,7 @@ export default function SidebarNav() {
                         maxHeight: openAcc
                           ? `${ref.current?.scrollHeight ?? 500}px`
                           : "0px",
-                        overflow: openAcc ? "visible" : "hidden",
+                        overflow: "hidden",
                       }}
                       data-content="1"
                     >
