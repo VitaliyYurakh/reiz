@@ -109,9 +109,9 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
 
               <span className="footer__rate">
                 <UiImage
-                  width={164}
-                  height={59}
-                  src="/img/rate-rental.png"
+                  width={130}
+                  height={58}
+                  src="/img/icons/google.svg"
                   alt="REIZ Rental Cars rating"
                 />
               </span>
