@@ -98,8 +98,12 @@
     }
 
     @media (max-width: 405px) {
-      grid-template-columns: 100%;
+      grid-template-columns: repeat(2, 1fr);
       gap: 5px;
+
+      span:last-child {
+        grid-column: 1 / -1;
+      }
     }
   }
 
