@@ -59,8 +59,10 @@ export default function Header({
   };
 
   useEffect(() => {
-    const SCROLL_THRESHOLD = 5; // Minimum scroll delta to trigger state change
-    let isHeaderVisible = true; // Start as visible
+    const SCROLL_THRESHOLD = 15; // Larger threshold to prevent flickering
+    let isHeaderVisible = true;
+    let lastDirection: 'up' | 'down' | null = null;
+    let directionChangeScrollTop = 0;
 
     const handleScroll = () => {
       const scrollTop = document.documentElement.scrollTop;
@@ -70,33 +72,43 @@ export default function Header({
       if (scrollTop > 40) {
         headerRef.current?.classList.add("sticky");
 
-        // Only change state if scroll delta exceeds threshold
-        if (Math.abs(scrollDelta) > SCROLL_THRESHOLD) {
-          if (scrollDelta > 0) {
-            // Scrolling down - hide header
-            if (isHeaderVisible) {
-              headerRef.current?.classList.add("sticky-hidden");
-              headerRef.current?.classList.remove("sticky-visible");
-              root.style.setProperty('--header-offset', '0px');
-              isHeaderVisible = false;
-            }
-          } else {
-            // Scrolling up - show header
-            if (!isHeaderVisible) {
-              headerRef.current?.classList.add("sticky-visible");
-              headerRef.current?.classList.remove("sticky-hidden");
-              root.style.setProperty('--header-offset', '56px');
-              isHeaderVisible = true;
-            }
+        // Determine scroll direction
+        const currentDirection = scrollDelta > 0 ? 'down' : scrollDelta < 0 ? 'up' : lastDirection;
+
+        // If direction changed, record position
+        if (currentDirection !== lastDirection && currentDirection !== null) {
+          directionChangeScrollTop = scrollTop;
+          lastDirection = currentDirection;
+        }
+
+        // Calculate distance scrolled since direction change
+        const distanceSinceChange = Math.abs(scrollTop - directionChangeScrollTop);
+
+        // Only change visibility after scrolling threshold distance in same direction
+        if (distanceSinceChange > SCROLL_THRESHOLD) {
+          if (currentDirection === 'down' && isHeaderVisible) {
+            // Hide header
+            headerRef.current?.classList.add("sticky-hidden");
+            headerRef.current?.classList.remove("sticky-visible");
+            root.style.setProperty('--header-offset', '0px');
+            isHeaderVisible = false;
+          } else if (currentDirection === 'up' && !isHeaderVisible) {
+            // Show header
+            headerRef.current?.classList.add("sticky-visible");
+            headerRef.current?.classList.remove("sticky-hidden");
+            root.style.setProperty('--header-offset', '56px');
+            isHeaderVisible = true;
           }
         }
       } else {
+        // At top of page
         headerRef.current?.classList.remove("sticky");
         headerRef.current?.classList.remove("sticky-visible");
         headerRef.current?.classList.remove("sticky-hidden");
-        // At top of page, header is visible in normal position
         root.style.setProperty('--header-offset', '56px');
-        isHeaderVisible = true; // Reset to visible at top
+        isHeaderVisible = true;
+        lastDirection = null;
+        directionChangeScrollTop = scrollTop;
       }
 
       lastScrollTop.current = scrollTop;

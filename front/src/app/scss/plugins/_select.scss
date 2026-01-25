@@ -331,7 +331,7 @@
   &.mode {
     height: 29px;
     width: fit-content;
-    min-width: 150px !important;
+    min-width: auto !important;
 
     .select-icon {
       width: 16px;
@@ -355,6 +355,7 @@
     .selected-options {
       column-gap: 10px;
       width: fit-content;
+      justify-content: flex-end;
 
       .option-label {
         font-weight: 400;

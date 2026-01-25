@@ -129,11 +129,6 @@ export default function InsuranceCoverage({
         </div>
         <div className="insurance__price">
           <div>
-            {hasDiscount && (
-              <span className="text-strikethrough">
-                {formatPrice(dailyPriceBeforeDiscount)}
-              </span>
-            )}
             <span className="text-strong">{formatPrice(dailyPrice)}</span> {t("footer.pricePerDay")}
           </div>
           <div className="insurance__price-sub">

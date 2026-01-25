@@ -444,9 +444,19 @@ export default function CarCard({ car }: CarCardProps) {
             </span>
           </div>
         )}
-        <Link href={hasDates ? bookingLink : carDetailsLink} className="main-button">
+        {/* Desktop: одна кнопка */}
+        <Link href={hasDates ? bookingLink : carDetailsLink} className="main-button car-card__btn-desktop">
           {hasDates ? tCatalog("actions.book") : tCatalog("actions.details")}
         </Link>
+        {/* Mobile: дві кнопки */}
+        <div className="car-card__buttons-mobile">
+          <Link href={carDetailsLink} className="main-button main-button--outline">
+            {tCatalog("actions.details")}
+          </Link>
+          <Link href={bookingLink} className="main-button">
+            {tCatalog("actions.book")}
+          </Link>
+        </div>
       </div>
     </li>
   );

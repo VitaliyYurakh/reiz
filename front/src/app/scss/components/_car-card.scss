@@ -353,7 +353,48 @@
     }
 
     @include mobile{
-      border-radius: 20px;
+      border-radius: 16px;
+    }
+  }
+
+  &__btn-desktop {
+    @include laptop {
+      display: none;
+    }
+  }
+
+  &__buttons-mobile {
+    display: none;
+
+    @include laptop {
+      display: flex;
+      gap: 10px;
+      margin-top: -20px;
+
+      .main-button {
+        flex: 1;
+        margin-top: 0;
+        padding: 11px 15px;
+        font-size: 14px;
+        border-radius: 30px;
+        text-transform: none;
+      }
+
+      .main-button--outline {
+        background: transparent;
+        color: var(--cl-a);
+        border: 1px solid var(--cl-q);
+
+        &::before {
+          display: none;
+        }
+
+        @include hover {
+          background: var(--cl-e);
+          color: var(--cl-b);
+          border-color: var(--cl-e);
+        }
+      }
     }
   }
 

@@ -71,9 +71,8 @@
         }
     
         .custom-select {
-            max-width: 240px;
-            width: 180px;
-            min-width: 200px;
+            width: fit-content;
+            min-width: auto;
         }
     
         .custom-select.sort_options {
@@ -82,20 +81,26 @@
                 gap: 10px;
                 justify-content: flex-end;
             }
-    
+
             .arrow-down {
                 margin-left: 0;
             }
-    
+
             /* ⬇️ ВИПАДАЮЧИЙ СПИСОК (вирівнювання зліва) */
             .options-container {
+                width: max-content;
+                min-width: 100%;
+                right: 0;
+                left: auto;
+
                 .option-text {
                     justify-content: flex-start;
                     text-align: left;
                     gap: 10px;
                     align-items: center;
+                    white-space: nowrap;
                 }
-    
+
                 .sprite {
                     flex-shrink: 0;
                 }
