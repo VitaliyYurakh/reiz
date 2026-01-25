@@ -24,7 +24,7 @@
     flex-direction: column;
     position: relative;
     z-index: 1;
-    padding-bottom: 6px;
+    padding-bottom: 24px;
 
     p {
       font-weight: 274;
@@ -44,17 +44,6 @@
       transform: translate(-50%);
       width: calc(100% + 40px);
 
-      @include for-tablet {
-        @media (max-height: 850px) {
-          bottom: -2.5dvh;
-        }
-      }
-
-      @include for-tablet {
-        @media (max-height: 690px) {
-          bottom: -2dvh;
-        }
-      }
     }
   }
 
