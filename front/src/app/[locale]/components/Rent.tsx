@@ -132,11 +132,10 @@ export default function Rent() {
                 rel="noopener noreferrer nofollow"
                 aria-label={t("reviews_block.trustpilot_aria")}
               >
-                <span>{t("reviews_block.trustpilot_label")}</span>
                 <UiImage
-                  width={184}
-                  height={68}
-                  src="/img/trip.png"
+                  width={220}
+                  height={82}
+                  src="/img/icons/trip.svg"
                   alt={t("reviews_block.trustpilot_aria")}
                 />
               </a>
@@ -148,11 +147,10 @@ export default function Rent() {
                 rel="noopener noreferrer nofollow"
                 aria-label={t("reviews_block.google_aria")}
               >
-                <span>{t("reviews_block.google_label")}</span>
                 <UiImage
-                  width={195}
-                  height={70}
-                  src="/img/google.png"
+                  width={230}
+                  height={84}
+                  src="/img/icons/google.svg"
                   alt={t("reviews_block.google_aria")}
                 />
               </a>
