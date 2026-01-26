@@ -96,8 +96,11 @@ export default function SidebarNav() {
                               ? "/img/icons/minus.svg"
                               : "/img/icons/plus.svg"
                           }
-                          alt=""
-                          aria-hidden="true"
+                          alt={
+                            openAcc
+                              ? t("controls.collapse")
+                              : t("controls.expand")
+                          }
                           width={16}
                           height={16}
                         />

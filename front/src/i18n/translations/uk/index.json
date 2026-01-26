@@ -1,8 +1,12 @@
 {
   "aside": {
-    "brand": "REIZ",
-    "cta_button": "ЗАМОВИТИ ДЗВІНОК",
-    "nav": {
+  "brand": "REIZ",
+  "cta_button": "ЗАМОВИТИ ДЗВІНОК",
+  "controls": {
+    "expand": "Розгорнути підменю",
+    "collapse": "Згорнути підменю"
+  },
+  "nav": {
       "about": "ПРО НАС",
       "blog": "БЛОГ",
       "business": "КОРПОРАТИВНА ОРЕНДА",

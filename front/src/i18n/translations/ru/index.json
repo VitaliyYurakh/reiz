@@ -1,8 +1,12 @@
 {
   "aside": {
-    "brand": "REIZ",
-    "cta_button": "ЗАКАЗАТЬ ЗВОНОК",
-    "nav": {
+  "brand": "REIZ",
+  "cta_button": "ЗАКАЗАТЬ ЗВОНОК",
+  "controls": {
+    "expand": "Развернуть подменю",
+    "collapse": "Свернуть подменю"
+  },
+  "nav": {
       "about": "О НАС",
       "blog": "БЛОГ",
       "business": "КОРПОРАТИВНАЯ АРЕНДА",

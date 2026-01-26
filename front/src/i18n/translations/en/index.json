@@ -1,8 +1,12 @@
 {
   "aside": {
-    "brand": "REIZ",
-    "cta_button": "REQUEST A CALLBACK",
-    "nav": {
+  "brand": "REIZ",
+  "cta_button": "REQUEST A CALLBACK",
+  "controls": {
+    "expand": "Expand submenu",
+    "collapse": "Collapse submenu"
+  },
+  "nav": {
       "about": "ABOUT US",
       "blog": "BLOG",
       "business": "BUSINESS RENTALS",
