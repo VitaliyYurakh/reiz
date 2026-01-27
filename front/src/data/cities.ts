@@ -562,7 +562,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Прокат авто в Киеве официально. Подача в аэропорт Борисполь и по городу 24/7. Новые машины. Быстрое оформление. Бронируйте онлайн!",
       h1: "Аренда авто в Киеве",
-      sectionCars: "Автопарк REIZ в Киеве: от комфорта до премиум-класса",
+      sectionCars: "АВТОПАРК REIZ В КИЕВЕ: ОТ КОМФОРТА ДО ПРЕМИУМ-КЛАССА",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ КИЕВ",
       subtitle:
         "Аренда авто в Киеве от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
@@ -578,7 +578,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Best car rental in Kyiv (Kiev). ⭐ New fleet 2023-2025. ⚡ Delivery to Railway Station and City Center hotels. 🛡️ Full insurance & English support. Book now!",
       h1: "Car Rental in Kyiv",
-      sectionCars: "REIZ fleet in Kyiv: from comfort to premium class",
+      sectionCars: "REIZ FLEET IN KYIV: FROM COMFORT TO PREMIUM CLASS",
       sectionWelcome: "WELCOME TO REIZ KYIV",
       subtitle:
         "Car rental in Kyiv from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
@@ -695,8 +695,8 @@ export const cityLocalizations: Record<
       title: "Оренда авто Одеса: Прокат машин Центр, Таїрове, Аркадія | Бізнес клас",
       metaDescription:
         "Прокат авто в Одесі. 🌊 Найкращі ціни на бізнес-клас. 🚗 Подача в Аркадію та Центр. ⚡ Швидке оформлення. 🛡️ Страховка включена. Оренда без водія подобово.",
-      h1: "Оренда авто в Одесі — без застави та подача 24/7",
-      sectionCars: "Автопарк REIZ в Одесі: від комфорту до преміум-класу",
+      h1: "Оренда авто в Одесі",
+      sectionCars: "АВТОПАРК REIZ В ОДЕСІ: ВІД КОМФОРТУ ДО ПРЕМІУМ-КЛАСУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ОДЕСА",
       subtitle:
         "Прокат авто в Одесі без застави. Подача в аеропорт ODS, на Аркадію, в порт або за адресою. Кабріолети та позашляховики.",
@@ -712,7 +712,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Прокат авто в Одессе официально. Подача по городу, аэропорт 24/7. Новые машины. Эконом и внедорожники. Бронируйте!",
       h1: "Аренда авто в Одессе",
-      sectionCars: "Автопарк REIZ в Одессе: от комфорта до премиум-класса",
+      sectionCars: "АВТОПАРК REIZ В ОДЕССЕ: ОТ КОМФОРТА ДО ПРЕМИУМ-КЛАССА",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ОДЕССА",
       subtitle:
         "Прокат авто в Одессе без залога. Подача в аэропорт ODS, на Аркадию, в порт или по адресу. Кабриолеты и внедорожники.",
@@ -728,7 +728,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Rent a car in Odesa. 🌊 Luxury and Economy cars. ⚡ Fast booking in Arcadia & Center. 🛡️ Insurance included. Flexible terms for long-term rental.",
       h1: "Car Rental in Odesa — No Deposit & 24/7 Delivery",
-      sectionCars: "REIZ fleet in Odesa: from comfort to premium class",
+      sectionCars: "REIZ FLEET IN ODESA: FROM COMFORT TO PREMIUM CLASS",
       sectionWelcome: "WELCOME TO REIZ ODESA",
       subtitle:
         "Car rental in Odesa with no deposit. Delivery to ODS airport, Arcadia beach, port or your address. Convertibles and SUVs available.",
@@ -746,7 +746,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Оренда авто в Дніпрі. 🏭 Авто для бізнесу та волонтерів. 🚙 Позашляховики 4х4. ⚡ Працюємо з ПДВ для юр. осіб. 🛡️ Технічно справні авто.",
       h1: "Оренда авто у Дніпрі",
-      sectionCars: "Автопарк REIZ у Дніпрі: від комфорту до преміум-класу",
+      sectionCars: "АВТОПАРК REIZ У ДНІПРІ: ВІД КОМФОРТУ ДО ПРЕМІУМ-КЛАСУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ДНІПРО",
       subtitle:
         "Прокат авто у Дніпрі без застави для ділових поїздок. Подача в аеропорт DNK та по місту. Бізнес-клас та довгострокова оренда.",
@@ -762,7 +762,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Прокат авто в Днепре официально. Идеально для деловых поездок. Новые автомобили. Подача в аэропорт и по городу 24/7. Бронируйте онлайн!",
       h1: "Аренда авто в Днепре",
-      sectionCars: "Автопарк REIZ в Днепре: от комфорта до премиум-класса",
+      sectionCars: "АВТОПАРК REIZ В ДНЕПРЕ: ОТ КОМФОРТА ДО ПРЕМИУМ-КЛАССА",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ДНЕПР",
       subtitle:
         "Прокат авто в Днепре без залога для деловых поездок. Подача в аэропорт DNK и по городу. Бизнес-класс и долгосрочная аренда.",
@@ -778,7 +778,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Car rental services in Dnipro. 🏭 Reliable fleet for business and industrial needs. 🚙 4x4 SUVs available. ⚡ VAT invoices for companies.",
       h1: "Car Rental in Dnipro",
-      sectionCars: "REIZ fleet in Dnipro: from comfort to premium class",
+      sectionCars: "REIZ FLEET IN DNIPRO: FROM COMFORT TO PREMIUM CLASS",
       sectionWelcome: "WELCOME TO REIZ DNIPRO",
       subtitle:
         "Car rental in Dnipro with no deposit for business trips. Delivery to DNK airport and city-wide. Business class and long-term rental.",
@@ -796,7 +796,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Прокат авто у Харкові. ⚡ Подача на Південний вокзал. 🚗 Економ та Середній клас. 🛡️ Гнучкі умови повернення. Ми працюємо!",
       h1: "Оренда авто у Харкові",
-      sectionCars: "Автопарк REIZ у Харкові: від комфорту до преміум-класу",
+      sectionCars: "АВТОПАРК REIZ У ХАРКОВІ: ВІД КОМФОРТУ ДО ПРЕМІУМ-КЛАСУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ХАРКІВ",
       subtitle:
         "Прокат авто у Харкові без застави. Подача на вокзал, в аеропорт HRK або за адресою 24/7. Бізнес та SUV-клас.",
@@ -812,7 +812,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Прокат авто в Харькове официально. Подача на вокзал и по городу 24/7. Новые машины. Быстрое оформление. Бронируйте!",
       h1: "Аренда авто в Харькове",
-      sectionCars: "Автопарк REIZ в Харькове: от комфорта до премиум-класса",
+      sectionCars: "АВТОПАРК REIZ В ХАРЬКОВЕ: ОТ КОМФОРТА ДО ПРЕМИУМ-КЛАССА",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ХАРЬКОВ",
       subtitle:
         "Прокат авто в Харькове без залога. Подача на вокзал, в аэропорт HRK или по адресу 24/7. Бизнес и SUV-класс.",
@@ -828,7 +828,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Rent a car in Kharkiv. ⚡ Delivery to Railway Station. 🚗 Economy and Mid-size cars. 🛡️ 24/7 Support. Safe and reliable booking in 2025.",
       h1: "Car Rental in Kharkiv",
-      sectionCars: "REIZ fleet in Kharkiv: from comfort to premium class",
+      sectionCars: "REIZ FLEET IN KHARKIV: FROM COMFORT TO PREMIUM CLASS",
       sectionWelcome: "WELCOME TO REIZ KHARKIV",
       subtitle:
         "Car rental in Kharkiv with no deposit. Delivery to the railway station, HRK airport or your address 24/7. Business and SUV class.",
@@ -1146,7 +1146,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Прокат авто у Запоріжжі офіційно. Нові машини. Безкоштовна подача по місту 24/7. Швидка видача. Бронюйте!",
       h1: "Оренда авто у Запоріжжі",
-      sectionCars: "Автопарк REIZ у Запоріжжі: від комфорту до преміум-класу",
+      sectionCars: "АВТОПАРК REIZ У ЗАПОРІЖЖІ: ВІД КОМФОРТУ ДО ПРЕМІУМ-КЛАСУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЗАПОРІЖЖЯ",
       subtitle:
         "Оренда авто у Запоріжжі — надійні нові автомобілі, офіційне оформлення та швидка подача по місту.",
@@ -1162,7 +1162,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Прокат авто в Запорожье официально. Новые машины. Бесплатная подача по городу 24/7. Быстрое оформление!",
       h1: "Аренда авто в Запорожье",
-      sectionCars: "Автопарк REIZ в Запорожье: от комфорта до премиум-класса",
+      sectionCars: "АВТОПАРК REIZ В ЗАПОРОЖЬЕ: ОТ КОМФОРТА ДО ПРЕМИУМ-КЛАССА",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЗАПОРОЖЬЕ",
       subtitle:
         "Аренда авто в Запорожье — надежные новые автомобили, официальное оформление и быстрая подача по городу.",
@@ -1178,7 +1178,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Rent a car in Zaporizhzhia officially. New fleet. Free city delivery 24/7. Fast pickup. Book your self-drive!",
       h1: "Car Rental in Zaporizhzhia",
-      sectionCars: "REIZ fleet in Zaporizhzhia: from comfort to premium class",
+      sectionCars: "REIZ FLEET IN ZAPORIZHZHIA: FROM COMFORT TO PREMIUM CLASS",
       sectionWelcome: "WELCOME TO REIZ ZAPORIZHZHIA",
       subtitle:
         "Car rental in Zaporizhzhia — reliable new vehicles, official paperwork, and fast city-wide delivery.",
@@ -1346,7 +1346,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Прокат авто в Борисполі з подачею в аеропорт. Зустріч з рейсу 24/7. Нові машини. Швидке оформлення. Без застави!",
       h1: "Оренда авто в Борисполі",
-      sectionCars: "Автопарк REIZ у Борисполі: від комфорту до преміум-класу",
+      sectionCars: "АВТОПАРК REIZ У БОРИСПОЛІ: ВІД КОМФОРТУ ДО ПРЕМІУМ-КЛАСУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ БОРИСПІЛЬ",
       subtitle:
         "Оренда авто в Борисполі — зустріч в аеропорту, швидке оформлення та комфортний трансфер на нових автомобілях.",
@@ -1362,7 +1362,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Прокат авто в Борисполе с подачей в аэропорт. Встреча с рейса 24/7. Новые машины. Быстрое оформление. Без залога!",
       h1: "Аренда авто в Борисполе",
-      sectionCars: "Автопарк REIZ в Борисполе: от комфорта до премиум-класса",
+      sectionCars: "АВТОПАРК REIZ В БОРИСПОЛЕ: ОТ КОМФОРТА ДО ПРЕМИУМ-КЛАССА",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ БОРИСПОЛЬ",
       subtitle:
         "Аренда авто в Борисполе — встреча в аэропорту, быстрое оформление и комфортный трансфер на новых автомобилях.",
@@ -1378,7 +1378,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Rent a car at Boryspil Airport. Flight meet and greet 24/7. New fleet. Fast paperwork. No deposit. Book your self-drive!",
       h1: "Car Rental in Boryspil",
-      sectionCars: "REIZ fleet in Boryspil: from comfort to premium class",
+      sectionCars: "REIZ FLEET IN BORYSPIL: FROM COMFORT TO PREMIUM CLASS",
       sectionWelcome: "WELCOME TO REIZ BORYSPIL",
       subtitle:
         "Car rental in Boryspil — airport meet and greet, fast paperwork, and comfortable transfers in new vehicles.",
