@@ -65,13 +65,28 @@ export default function DashboardLayout({
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">БРОНИРОВАНИЯ</Link>
+                                        <Link
+                                            href="/admin/bookings"
+                                            className={pathname.includes('/bookings') ? 'active' : ''}
+                                        >
+                                            БРОНИРОВАНИЯ
+                                        </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">КАЛЕНДАРЬ</Link>
+                                        <Link
+                                            href="/admin/calendar"
+                                            className={pathname.includes('/calendar') ? 'active' : ''}
+                                        >
+                                            КАЛЕНДАРЬ
+                                        </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">КЛИЕНТЫ</Link>
+                                        <Link
+                                            href="/admin/clients"
+                                            className={pathname.includes('/clients') ? 'active' : ''}
+                                        >
+                                            КЛИЕНТЫ
+                                        </Link>
                                     </li>
                                 </ul>
                             </nav>

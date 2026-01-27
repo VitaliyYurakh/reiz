@@ -14,6 +14,7 @@ import { usePathname } from "next/navigation";
 import { stripLocale } from "@/lib/utils/functions";
 import { useCatalogFilters } from "@/context/CatalogFiltersContext";
 import { useThemeColorOnOpen } from "@/hooks/useThemeColorOnOpen";
+import { SOCIAL_LINKS } from "@/config/social";
 
 type HeaderProps = {
   mode?: boolean;
@@ -267,9 +268,11 @@ export default function Header({
                       +38 (063) 547 11 86
                     </a>
                     <a
-                      href="#"
+                      href={SOCIAL_LINKS.whatsapp}
                       className="header__link"
                       aria-label="REIZ в WhatsApp"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <span className="default">
                         <UiImage
@@ -289,9 +292,11 @@ export default function Header({
                       </span>
                     </a>
                     <a
-                      href="#"
+                      href={SOCIAL_LINKS.telegram}
                       className="header__link"
                       aria-label="REIZ в Telegram"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <span className="default">
                         <UiImage
@@ -311,7 +316,7 @@ export default function Header({
                       </span>
                     </a>
                     <a
-                      href="https://www.instagram.com/reiz.rental?igsh=MXY4bmMyMjl0YWNtYg=="
+                      href={SOCIAL_LINKS.instagram}
                       className="header__link"
                       aria-label="REIZ в Instagram"
                       target="_blank"

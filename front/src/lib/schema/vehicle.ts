@@ -3,6 +3,12 @@ import type { Locale } from "@/i18n/request";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 
+const toAbsolute = (value: string) => {
+  if (!value) return value;
+  if (value.startsWith("http://") || value.startsWith("https://")) return value;
+  return `${BASE}${value.startsWith("/") ? "" : "/"}${value}`;
+};
+
 type VehicleSchemaParams = {
   car: Car;
   locale: Locale;
@@ -29,7 +35,7 @@ export function generateVehicleSchema({
   // Get images (PC type preferred)
   const images = car.carPhoto
     .filter((p) => p.type === "PC" || p.type === "MOBILE")
-    .map((p) => p.url);
+    .map((p) => toAbsolute(p.url));
 
   // Calculate price range from rental tariffs
   const prices = car.rentalTariff?.map((t) => t.dailyPrice) || [];
@@ -117,7 +123,7 @@ export function generateProductSchema({
   const images = car.carPhoto
     .filter((p) => p.type === "PC" || p.type === "MOBILE")
     .slice(0, 3)
-    .map((p) => p.url);
+    .map((p) => toAbsolute(p.url));
 
   // Calculate min price from rental tariffs
   const prices = car.rentalTariff?.map((t) => t.dailyPrice) || [];

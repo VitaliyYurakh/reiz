@@ -12,11 +12,22 @@ import {getTranslations} from "next-intl/server";
 import {LocalizedText} from "@/types/cars";
 import {createCarIdSlug, parseCarIdFromSlug} from "@/lib/utils/carSlug";
 import {formatEngine} from "@/lib/utils/catalog-utils";
-import {notFound, redirect} from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import { generateVehicleSchema, generateProductSchema } from "@/lib/schema/vehicle";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+const OG_LOCALE: Record<Locale, string> = {
+    uk: "uk_UA",
+    ru: "ru_UA",
+    en: "en_US",
+};
+
+const toAbsolute = (value: string) => {
+    if (!value) return value;
+    if (value.startsWith("http://") || value.startsWith("https://")) return value;
+    return `${BASE}${value.startsWith("/") ? "" : "/"}${value}`;
+};
 
 export async function generateMetadata({
     params,
@@ -67,7 +78,13 @@ export async function generateMetadata({
         "x-default": `${BASE}${path}`,
     };
 
-    const ogImage = car.carPhoto.find((p) => p.type === "PC")?.url || "/img/og/home.webp";
+    const ogImage = toAbsolute(
+        car.carPhoto.find((p) => p.type === "PC")?.url || "/img/og/home.webp",
+    );
+    const ogLocale = OG_LOCALE[locale];
+    const ogAlternateLocales = Object.values(OG_LOCALE).filter(
+        (value) => value !== ogLocale,
+    );
 
     return {
         title,
@@ -83,6 +100,8 @@ export async function generateMetadata({
             description,
             url: `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`,
             images: [{ url: ogImage, width: 891, height: 499, alt: carName }],
+            locale: ogLocale,
+            alternateLocale: ogAlternateLocales,
         },
         twitter: {
             card: "summary_large_image",
@@ -108,10 +127,11 @@ export default async function CarPage({
         notFound();
     }
 
-    // 301 redirect if slug is missing or incorrect
+    // 308 redirect if slug is missing or incorrect
     const expectedIdSlug = createCarIdSlug(car);
     if (idSlug !== expectedIdSlug) {
-        redirect(`/${locale}/cars/${expectedIdSlug}`);
+        const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
+        permanentRedirect(`${localePrefix}/cars/${expectedIdSlug}`);
     }
 
     const t = await getTranslations("carPage");
@@ -136,11 +156,11 @@ export default async function CarPage({
             label: t("tabs.specifications"),
             content: (
                 <div className="editor">
-                    <h4>
+                    <h2>
                         {t("specifications.descriptionTitle", {
                             carName: carUpperDisplayName,
                         })}
-                    </h4>
+                    </h2>
 
                     <p
                         // biome-ignore lint/security/noDangerouslySetInnerHtml: <1>
@@ -219,7 +239,7 @@ export default async function CarPage({
             label: t("tabs.equipment"),
             content: (
                 <div className="editor">
-                    <h4>{t("equipmentTitle", {carName: carUpperDisplayName})}</h4>
+                    <h2>{t("equipmentTitle", {carName: carUpperDisplayName})}</h2>
                     <p style={{display: "flex", flexWrap: "wrap", gap: "8px"}}>
                         {(car.configuration || []).map((el) => (
                             <span

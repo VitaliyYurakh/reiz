@@ -41,7 +41,7 @@ export default async function TermsPage() {
       data-aos-duration="900"
       data-aos-delay="600"
     >
-      <h2 className="pretitle">{t("hero.pretitle")}</h2>
+      <p className="pretitle">{t("hero.pretitle")}</p>
       <Breadcrumbs
         items={[
           { href: getDefaultPath("home"), name: t("breadcrumbs.home") },

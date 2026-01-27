@@ -1,6 +1,21 @@
-import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+import CarRentPage, {
+  generateMetadata as generateLocalizedMetadata,
+} from "@/app/[locale]/(site)/cars/[idSlug]/rent/page";
+import { defaultLocale } from "@/i18n/request";
 
-export default async function CarRentPageRedirect({
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ idSlug: string }>;
+}): Promise<Metadata> {
+  const { idSlug } = await params;
+  return generateLocalizedMetadata({
+    params: Promise.resolve({ idSlug, locale: defaultLocale }),
+  });
+}
+
+export default async function CarRentPageDefault({
   params,
   searchParams,
 }: {
@@ -9,11 +24,8 @@ export default async function CarRentPageRedirect({
 }) {
   const { idSlug } = await params;
   const query = await searchParams;
-  const queryString = new URLSearchParams(
-    Object.entries(query).reduce((acc, [key, value]) => {
-      if (typeof value === "string") acc[key] = value;
-      return acc;
-    }, {} as Record<string, string>)
-  ).toString();
-  redirect(`/ru/cars/${idSlug}/rent${queryString ? `?${queryString}` : ""}`);
+  return CarRentPage({
+    params: Promise.resolve({ idSlug, locale: defaultLocale }),
+    searchParams: Promise.resolve(query),
+  });
 }

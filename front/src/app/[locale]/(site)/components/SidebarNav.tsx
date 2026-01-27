@@ -134,11 +134,10 @@ export default function SidebarNav() {
         </ul>
       </nav>
 
-      <a
-        href="#"
+      <button
+        type="button"
         className="main-button"
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={() => {
           openRequestModal({}, (phone: string) => {
             setTimeout(() => {
               openManagerModal({
@@ -151,7 +150,7 @@ export default function SidebarNav() {
         }}
       >
         {t("cta_button")}
-      </a>
+      </button>
     </aside>
   );
 }

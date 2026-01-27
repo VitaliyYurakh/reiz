@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import Icon from "@/components/Icon";
 import { SideBarModalSpec } from "@/components/modals/index";
-import { useRouter } from "@/i18n/request";
+import { Link } from "@/i18n/request";
 
 function formatDate(date: Date): string {
   const day = date.getDate().toString().padStart(2, "0");
@@ -23,16 +23,8 @@ export default function ManagerWillContactYouModal({
   isClosing: boolean;
 }) {
   const t = useTranslations("managerWillContactYouModal");
-  const router = useRouter();
-
-  const handleClick = () => {
-    if (data.type === "call_request") {
-      close();
-      return;
-    }
-    router.push("/");
-    close();
-  };
+  const shouldNavigateHome =
+    data.type !== "call_request" && data.navigateToHomePage === true;
 
   return (
     <div
@@ -44,7 +36,7 @@ export default function ManagerWillContactYouModal({
       }
     >
       {data.showCloseButton && (
-        <button className="close modal__close" onClick={close}>
+        <button className="close modal__close" onClick={close} aria-label="Close">
           <Icon id="cross" width={14} height={14} />
         </button>
       )}
@@ -78,15 +70,15 @@ export default function ManagerWillContactYouModal({
             <br />
             <div>{t("managerContact")}</div>
             <div className="modal-form">
-              <button
-                className="main-button"
-                onClick={handleClick}
-                type="button"
-              >
-                {data.navigateToHomePage
-                  ? t("buttons.home")
-                  : t("buttons.close")}
-              </button>
+              {shouldNavigateHome ? (
+                <Link href="/" className="main-button" onClick={close}>
+                  {t("buttons.home")}
+                </Link>
+              ) : (
+                <button className="main-button" onClick={close} type="button">
+                  {t("buttons.close")}
+                </button>
+              )}
             </div>
           </div>
         </div>

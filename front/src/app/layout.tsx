@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 import { gowunDodum, halvar, inter, merriweather, kyivType } from "@/fonts";
 import { Partytown } from "@qwik.dev/partytown/react";
 import ThemeColorProvider from "@/components/ThemeColorProvider";
+import LocalePreferenceSync from "@/components/LocalePreferenceSync";
 
 const SITE_ORIGIN = "https://reiz.com.ua";
 const SITE_NAME = "REIZ";
@@ -27,8 +28,6 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_ORIGIN,
     siteName: SITE_NAME,
-    locale: "uk_UA",
-    alternateLocale: ["ru_UA", "en_US"],
     title: "Оренда авто в Україні без застави | REIZ",
     description:
       "Прокат авто по Україні. Нові машини, подача 24/7, безкоштовна доставка. Київ, Львів, Одеса, Дніпро та інші міста.",
@@ -69,8 +68,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-    themeColor: '#000',
-}
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#000",
+};
 
 export default async function RootLayout({
   children,
@@ -90,11 +91,11 @@ export default async function RootLayout({
         />
 
         {/* Preload LCP hero images - CRITICAL for performance */}
-        {/* Desktop hero - mercedescle2.webp (not 1!) */}
+        {/* Desktop hero - matches current LCP image */}
         <link
           rel="preload"
           as="image"
-          href="/img/car/mercedescle2.webp"
+          href="/img/car/mercedesclsbukovel (2).webp"
           type="image/webp"
           media="(min-width: 1025px)"
           fetchPriority="high"
@@ -137,6 +138,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        <LocalePreferenceSync />
         {children}
         <ThemeColorProvider />
         <AOSProvider />

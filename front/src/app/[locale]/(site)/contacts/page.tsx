@@ -7,6 +7,7 @@ import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import ContactsForm from "@/app/[locale]/(site)/contacts/components/ContactsForm";
+import { SOCIAL_LINKS } from "@/config/social";
 
 
 export function generateStaticParams() {
@@ -33,6 +34,11 @@ export default async function ContactsPage() {
     email: string;
   }>;
 
+  const mapLink = (address: string | undefined) =>
+    address
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
+      : "https://www.google.com/maps";
+
   return (
     <div
       className="contacts-section__inner"
@@ -40,7 +46,7 @@ export default async function ContactsPage() {
       data-aos-duration="900"
       data-aos-delay="600"
     >
-      <h2 className="pretitle">{t("hero.pretitle")}</h2>
+      <p className="pretitle">{t("hero.pretitle")}</p>
 
       <Breadcrumbs
         items={[
@@ -66,7 +72,11 @@ export default async function ContactsPage() {
           <div className="contacts-section__editors">
             <div className="editor">
               <p>{offices?.[0]?.city}</p>
-              <a href="#">
+              <a
+                href={mapLink(offices?.[0]?.address)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="sprite">
                   <Icon id={"geo2"} width={17} height={17} />
                 </i>
@@ -79,7 +89,11 @@ export default async function ContactsPage() {
                   </i>
                   {offices?.[0]?.phone}
                 </a>
-                <a href="#">
+                <a
+                  href={SOCIAL_LINKS.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <UiImage
                     width={26}
                     height={26}
@@ -87,7 +101,11 @@ export default async function ContactsPage() {
                     alt="Contact via WhatsApp"
                   />
                 </a>
-                <a href="#">
+                <a
+                  href={SOCIAL_LINKS.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <UiImage
                     width={26}
                     height={26}
@@ -96,12 +114,12 @@ export default async function ContactsPage() {
                   />
                 </a>
               </div>
-              <a href="#">
+              <span className="contacts-section__meta">
                 <i className="sprite">
                   <Icon id={"clock2"} width={17} height={17} />
                 </i>
                 {offices?.[0]?.hours}
-              </a>
+              </span>
               <a href="mailto:info@reiz.com.ua">
                 <i className="sprite">
                   <Icon id={"mail"} width={17} height={17} />
@@ -112,7 +130,11 @@ export default async function ContactsPage() {
 
             <div className="editor">
               <p>{offices?.[1]?.city}</p>
-              <a href="#">
+              <a
+                href={mapLink(offices?.[1]?.address)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="sprite">
                   <Icon id={"geo2"} width={17} height={17} />
                 </i>
@@ -125,7 +147,11 @@ export default async function ContactsPage() {
                   </i>
                   {offices?.[1]?.phone}
                 </a>
-                <a href="#">
+                <a
+                  href={SOCIAL_LINKS.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <UiImage
                     width={26}
                     height={26}
@@ -133,7 +159,11 @@ export default async function ContactsPage() {
                     alt="WhatsApp — message us"
                   />
                 </a>
-                <a href="#">
+                <a
+                  href={SOCIAL_LINKS.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <UiImage
                     width={26}
                     height={26}
@@ -142,12 +172,12 @@ export default async function ContactsPage() {
                   />
                 </a>
               </div>
-              <a href="#">
+              <span className="contacts-section__meta">
                 <i className="sprite">
                   <Icon id={"clock2"} width={17} height={17} />
                 </i>
                 {offices?.[1]?.hours}
-              </a>
+              </span>
               <a href="mailto:info@reiz.com.ua">
                 <i className="sprite">
                   <Icon id={"mail"} width={17} height={17} />

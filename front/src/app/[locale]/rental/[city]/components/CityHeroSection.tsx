@@ -119,7 +119,7 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
             </div>
 
             <div className="hero-section__content">
-              <p className="h2">{t("secondary_title")}</p>
+              <h2 className="h2">{t("secondary_title")}</h2>
               <Link
                 href="/invest"
                 className="main-button main-button--transparent"

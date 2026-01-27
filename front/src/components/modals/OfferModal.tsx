@@ -20,7 +20,7 @@ export default function OfferModal({
           : { opacity: "0", display: "flex", transition: "300ms" }
       }
     >
-      <button className="close modal__close" onClick={close}>
+      <button className="close modal__close" onClick={close} aria-label="Close">
         <svg width="24" height="24">
           <use href="/img/sprite/sprite.svg#close"></use>
         </svg>

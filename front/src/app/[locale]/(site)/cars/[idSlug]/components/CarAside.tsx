@@ -1,7 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { Tooltip } from "react-tooltip";
@@ -34,8 +33,6 @@ export default function CarAside({ car }: { car: Car }) {
     "managerWillContactYouModal",
   );
   const t = useTranslations("carAside");
-  const router = useRouter();
-  const locale = useLocale();
   const { formatPrice, formatDeposit } = useCurrency();
 
   // Get context values
@@ -104,47 +101,52 @@ export default function CarAside({ car }: { car: Car }) {
     setSelectedPlanId(newPlanId);
   }, [coverageOption, car.carCountingRule]);
 
-  const handleBook = useCallback(() => {
-    if (isMobile) {
-      const params = new URLSearchParams({
-        startDate: selectedDate.startDate.toISOString(),
-        endDate: selectedDate.endDate.toISOString(),
-        planId: String(selectedPlanId),
-      });
-      const carIdSlug = createCarIdSlug(car);
-      router.push(`/${locale}/cars/${carIdSlug}/rent?${params.toString()}`);
-      return;
-    }
+  const carIdSlug = useMemo(() => createCarIdSlug(car), [car]);
 
-    open(
-      {
-        selectedPlanId,
-        car,
-        startDate: selectedDate.startDate,
-        endDate: selectedDate.endDate,
-      },
-      (result) => {
-        setTimeout(() => {
-          openManagerModal({
-            type: "car_request",
-            car: result.car,
-            startDate: result.startDate,
-            endDate: result.endDate,
-            showCloseButton: true,
-          });
-        }, 500);
-      },
-    );
-  }, [
-    car,
-    isMobile,
-    locale,
-    open,
-    router,
-    selectedDate.endDate,
-    selectedDate.startDate,
-    selectedPlanId,
-  ]);
+  const bookingHref = useMemo(() => {
+    const params = new URLSearchParams({
+      startDate: selectedDate.startDate.toISOString(),
+      endDate: selectedDate.endDate.toISOString(),
+      planId: String(selectedPlanId),
+    });
+    return `/cars/${carIdSlug}/rent?${params.toString()}`;
+  }, [carIdSlug, selectedDate.endDate, selectedDate.startDate, selectedPlanId]);
+
+  const handleBookClick = useCallback(
+    (event: React.MouseEvent<HTMLAnchorElement>) => {
+      if (isMobile) return;
+
+      event.preventDefault();
+      open(
+        {
+          selectedPlanId,
+          car,
+          startDate: selectedDate.startDate,
+          endDate: selectedDate.endDate,
+        },
+        (result) => {
+          setTimeout(() => {
+            openManagerModal({
+              type: "car_request",
+              car: result.car,
+              startDate: result.startDate,
+              endDate: result.endDate,
+              showCloseButton: true,
+            });
+          }, 500);
+        },
+      );
+    },
+    [
+      car,
+      isMobile,
+      open,
+      openManagerModal,
+      selectedDate.endDate,
+      selectedDate.startDate,
+      selectedPlanId,
+    ],
+  );
 
   const selectedPlan: CarCountingRule = useMemo(() => {
     if (selectedPlanId === null) return car.carCountingRule[0];
@@ -330,14 +332,14 @@ export default function CarAside({ car }: { car: Car }) {
       </div>
 
       <div className="single-form__btns">
-        <button
+        <Link
+          href={bookingHref}
           className="main-button"
           data-btn-modal="rent"
-          type="button"
-          onClick={handleBook}
+          onClick={handleBookClick}
         >
           {t("actions.book")}
-        </button>
+        </Link>
         <button
           className="main-button main-button--black"
           type="button"

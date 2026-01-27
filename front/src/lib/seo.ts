@@ -4,6 +4,19 @@ import { getTranslations } from "next-intl/server";
 import { defaultLocale, type Locale } from "@/i18n/request";
 import type { Messages, NamespaceKeys, NestedKeyOf } from "use-intl/core";
 
+const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+
+const OG_LOCALE: Record<Locale, string> = {
+  uk: "uk_UA",
+  ru: "ru_UA",
+  en: "en_US",
+};
+
+const toAbsolute = (value: string) => {
+  if (!value) return value;
+  if (value.startsWith("http://") || value.startsWith("https://")) return value;
+  return new URL(value, SITE_ORIGIN).toString();
+};
 export type RouteKey =
   | "home"
   | "about"
@@ -47,14 +60,14 @@ function buildAlternates(routeKey: RouteKey, locale: Locale) {
   const pathname = localizedPath(routeKey, locale);
 
   // Canonical всегда указывает на текущий URL страницы (self)
-  const canonical = localizedPath(routeKey, locale);
+  const canonical = toAbsolute(localizedPath(routeKey, locale));
 
   // hreflang codes matching HTML lang attribute
   const languages: Record<string, string> = {
-    uk: localizedPath(routeKey, "uk"),
-    ru: localizedPath(routeKey, "ru"),
-    en: localizedPath(routeKey, "en"),
-    "x-default": localizedPath(routeKey, "uk"),
+    uk: toAbsolute(localizedPath(routeKey, "uk")),
+    ru: toAbsolute(localizedPath(routeKey, "ru")),
+    en: toAbsolute(localizedPath(routeKey, "en")),
+    "x-default": toAbsolute(localizedPath(routeKey, "uk")),
   };
 
   return { canonical, languages, pathname };
@@ -74,7 +87,11 @@ export async function getPageMetadata({
   const rawPathname = await inferPathnameFromHeader(routeKey, locale);
   const { canonical, languages } = buildAlternates(routeKey, locale);
 
-  const ogImage = t("meta.og_image");
+  const ogImage = toAbsolute(t("meta.og_image"));
+  const ogLocale = OG_LOCALE[locale];
+  const ogAlternateLocales = Object.values(OG_LOCALE).filter(
+    (value) => value !== ogLocale,
+  );
 
   return {
     title: t("meta.title"),
@@ -89,7 +106,9 @@ export async function getPageMetadata({
       title: t("meta.og_title"),
       description: t("meta.og_description"),
       images: [{ url: ogImage }],
-      url: rawPathname,
+      url: toAbsolute(rawPathname),
+      locale: ogLocale,
+      alternateLocale: ogAlternateLocales,
     },
     twitter: {
       card: "summary_large_image",

@@ -34,7 +34,11 @@ export default function LanguageSwitcher() {
     >
       {locales.map((lng) => (
         <li key={lng} data-locale={lng} className="option">
-          <Link href={buildHref(lng, pathname)} className="option-text">
+          <Link
+            href={buildHref(lng, pathname)}
+            className="option-text"
+            replace
+          >
             {labels[lng]}
           </Link>
         </li>

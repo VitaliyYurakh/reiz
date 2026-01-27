@@ -131,6 +131,16 @@
           }
         }
       }
+
+      .contacts-section__meta {
+        ;
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--cl-a);
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+      }
     }
   }
 

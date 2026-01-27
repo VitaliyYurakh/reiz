@@ -28,6 +28,11 @@ type PageParams = {
 
 const MAX_META_TITLE_LENGTH = 55;
 const DASH_SEPARATOR = " \u2014 ";
+const OG_LOCALE: Record<Locale, string> = {
+  uk: "uk_UA",
+  ru: "ru_UA",
+  en: "en_US",
+};
 
 const shortenMetaTitle = (value: string) => {
   const parts = value.split(DASH_SEPARATOR);
@@ -87,6 +92,10 @@ export async function generateMetadata({
   };
 
   const metaTitle = shortenMetaTitle(cityData.title);
+  const ogLocale = OG_LOCALE[locale];
+  const ogAlternateLocales = Object.values(OG_LOCALE).filter(
+    (value) => value !== ogLocale,
+  );
 
   return {
     title: metaTitle,
@@ -102,6 +111,8 @@ export async function generateMetadata({
       description: cityData.ogDescription,
       images: [{ url: `${baseUrl}/img/og/home.webp` }],
       url: canonical,
+      locale: ogLocale,
+      alternateLocale: ogAlternateLocales,
     },
     twitter: {
       card: "summary_large_image",

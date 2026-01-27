@@ -27,6 +27,20 @@ const translations: Record<Locale, Record<string, any>> = {
   en: enTranslations,
 };
 
+const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+
+const OG_LOCALE: Record<Locale, string> = {
+  uk: "uk_UA",
+  ru: "ru_UA",
+  en: "en_US",
+};
+
+const toAbsolute = (value: string) => {
+  if (!value) return value;
+  if (value.startsWith("http://") || value.startsWith("https://")) return value;
+  return new URL(value, SITE_ORIGIN).toString();
+};
+
 export type PageKey =
   | "homePage"
   | "aboutPage"
@@ -70,7 +84,14 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
   }
 
   const paths = ROUTE_PATHS[pageKey];
-  const canonical = paths[locale];
+  const canonical = toAbsolute(paths[locale]);
+  const ogLocale = OG_LOCALE[locale];
+  const ogAlternateLocales = Object.values(OG_LOCALE).filter(
+    (value) => value !== ogLocale,
+  );
+  const ogImage = toAbsolute(
+    (meta.og_image || "https://reiz.com.ua/img/og/home.webp") as string,
+  );
 
   return {
     title: meta.title as string,
@@ -78,10 +99,10 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
     alternates: {
       canonical,
       languages: {
-        uk: paths.uk,
-        ru: paths.ru,
-        en: paths.en,
-        "x-default": paths.uk,
+        uk: toAbsolute(paths.uk),
+        ru: toAbsolute(paths.ru),
+        en: toAbsolute(paths.en),
+        "x-default": toAbsolute(paths.uk),
       },
     },
     openGraph: {
@@ -89,14 +110,16 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
       siteName: "REIZ",
       title: (meta.og_title || meta.title) as string,
       description: (meta.og_description || meta.description) as string,
-      images: [{ url: (meta.og_image || "https://reiz.com.ua/img/og/home.webp") as string }],
+      images: [{ url: ogImage }],
       url: canonical,
+      locale: ogLocale,
+      alternateLocale: ogAlternateLocales,
     },
     twitter: {
       card: "summary_large_image",
       title: (meta.og_title || meta.title) as string,
       description: (meta.og_description || meta.description) as string,
-      images: [(meta.og_image || "https://reiz.com.ua/img/og/home.webp") as string],
+      images: [ogImage],
     },
   };
 }

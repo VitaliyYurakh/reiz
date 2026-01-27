@@ -37,14 +37,6 @@ function BusinessJsonLd() {
       { "@type": "AdministrativeArea", name: "Тернополь" },
     ],
     serviceType: "Corporate Car Rental",
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      priceSpecification: {
-        "@type": "PriceSpecification",
-        priceCurrency: "UAH",
-      },
-    },
     termsOfService: "https://reiz.com.ua/terms",
     url: "https://reiz.com.ua/business/",
     hasCredential: { "@type": "Permit", name: "Договор аренды с НДС" },
@@ -93,7 +85,7 @@ export default async function BusinessPage() {
         data-aos-duration={900}
         data-aos-delay={600}
       >
-        <h2 className="pretitle">{t("pretitle")}</h2>
+        <p className="pretitle">{t("pretitle")}</p>
 
         <Breadcrumbs
           items={[

@@ -5,12 +5,23 @@ import RentPageContent from "@/app/[locale]/(site)/cars/[idSlug]/rent/RentPageCo
 import { fetchCar } from "@/lib/api/cars";
 import { type Locale, defaultLocale } from "@/i18n/request";
 import { createCarIdSlug, parseCarIdFromSlug } from "@/lib/utils/carSlug";
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import { generateRentalServiceSchema } from "@/lib/schema/rental-service";
 import { getTranslations } from "next-intl/server";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+const OG_LOCALE: Record<Locale, string> = {
+  uk: "uk_UA",
+  ru: "ru_UA",
+  en: "en_US",
+};
+
+const toAbsolute = (value: string) => {
+  if (!value) return value;
+  if (value.startsWith("http://") || value.startsWith("https://")) return value;
+  return `${BASE}${value.startsWith("/") ? "" : "/"}${value}`;
+};
 
 type RentPageParams = { idSlug: string; locale: Locale };
 
@@ -39,7 +50,13 @@ export async function generateMetadata({
   const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
   const canonicalUrl = `${BASE}${localePrefix}${carPath}`;
 
-  const ogImage = car.carPhoto.find((p) => p.type === "PC")?.url || "/img/og/home.webp";
+  const ogImage = toAbsolute(
+    car.carPhoto.find((p) => p.type === "PC")?.url || "/img/og/home.webp",
+  );
+  const ogLocale = OG_LOCALE[locale];
+  const ogAlternateLocales = Object.values(OG_LOCALE).filter(
+    (value) => value !== ogLocale,
+  );
 
   return {
     title,
@@ -56,6 +73,8 @@ export async function generateMetadata({
       description,
       url: canonicalUrl,
       images: [{ url: ogImage, alt: carName }],
+      locale: ogLocale,
+      alternateLocale: ogAlternateLocales,
     },
     twitter: {
       card: "summary_large_image",
@@ -97,11 +116,14 @@ export default async function CarRentPage({
     notFound();
   }
 
-  // 301 redirect if slug is missing or incorrect
+  // 308 redirect if slug is missing or incorrect
   const expectedIdSlug = createCarIdSlug(car);
   if (idSlug !== expectedIdSlug) {
     const queryString = new URLSearchParams(query as Record<string, string>).toString();
-    redirect(`/${locale}/cars/${expectedIdSlug}/rent${queryString ? `?${queryString}` : ""}`);
+    const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
+    permanentRedirect(
+      `${localePrefix}/cars/${expectedIdSlug}/rent${queryString ? `?${queryString}` : ""}`,
+    );
   }
 
   const today = new Date();

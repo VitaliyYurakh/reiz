@@ -122,7 +122,7 @@ export default function RequestCallModal({
           : { opacity: "0", display: "flex", transition: "300ms" }
       }
     >
-      <button className="close modal__close" onClick={close}>
+      <button className="close modal__close" onClick={close} aria-label="Close">
         <Icon id="cross" width={14} height={14} />
       </button>
 

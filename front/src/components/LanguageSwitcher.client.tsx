@@ -83,6 +83,11 @@ export default function LanguageSwitcherClient({
   );
 
   const onListClick: React.MouseEventHandler<HTMLUListElement> = (e) => {
+    const option = (e.target as HTMLElement).closest("[data-locale]");
+    const nextLocale = option?.getAttribute("data-locale");
+    if (nextLocale) {
+      document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
+    }
     const a = (e.target as HTMLElement).closest("a");
     if (a) setOpen(false);
   };

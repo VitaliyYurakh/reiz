@@ -91,9 +91,9 @@ export default async function BlogPage() {
 
                 <div className="blog-card__bottom">
                   <span className="blog-card__date">{post.date}</span>
-                  <a href="#" className="main-button">
+                  <button type="button" className="main-button">
                     {t("cta.readArticle")}
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

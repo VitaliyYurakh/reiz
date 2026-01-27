@@ -1,3 +1,7 @@
+www.reiz.com.ua {
+  redir https://reiz.com.ua{uri} permanent
+}
+
 reiz.com.ua {
   # Next.js API routes (currency rates)
   reverse_proxy /api/rates web:8080

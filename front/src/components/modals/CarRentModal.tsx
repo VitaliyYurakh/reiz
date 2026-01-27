@@ -492,7 +492,7 @@ export default function CarRentModal({
       }
       data-popup="rent"
     >
-      <button className="close modal__close" onClick={close}>
+      <button className="close modal__close" onClick={close} aria-label="Close">
         <svg width="24" height="24">
           <use href="/img/sprite/sprite.svg#close"></use>
         </svg>

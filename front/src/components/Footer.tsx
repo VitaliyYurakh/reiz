@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import UiImage from "@/components/ui/UiImage";
 import { Link } from "@/i18n/request";
+import { SOCIAL_LINKS } from "@/config/social";
 
 type FooterProps = {
   addressText?: string;
@@ -11,6 +12,9 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
   const t = useTranslations("footer");
   const address = addressText ?? t("address.text");
   const description = descriptionText ?? t("description");
+  const addressLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  const facebookLink = SOCIAL_LINKS.facebook;
+  const youtubeLink = SOCIAL_LINKS.youtube;
   return (
     <footer className="footer">
       <div className="container">
@@ -57,7 +61,12 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
               >
                 <div className="footer__social">
                   <a href="tel:+380635471186"> +380 63 547 11 86 </a>
-                  <a href="#" aria-label="REIZ WhatsApp">
+                  <a
+                    href={SOCIAL_LINKS.whatsapp}
+                    aria-label="REIZ WhatsApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <span className="default">
                       <UiImage
                         width={26}
@@ -76,7 +85,12 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                     </span>
                   </a>
 
-                  <a href="#" aria-label="REIZ Telegram">
+                  <a
+                    href={SOCIAL_LINKS.telegram}
+                    aria-label="REIZ Telegram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <span className="default">
                       <UiImage
                         width={26}
@@ -99,10 +113,12 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
               </div>
 
               <a
-                href="#"
+                href={addressLink}
                 className="footer__adress"
                 data-title={t("address.title")}
                 aria-label={t("address.title")}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span>{address}</span>
               </a>
@@ -153,26 +169,57 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
             </ul>
             <ul className="footer__list mode" data-title={t("social.title")}>
               <li className="footer__item">
-                <a href="#" className="footer__link" aria-label="REIZ Facebook">
-                  <i className="sprite" aria-hidden="true">
-                    <svg
-                      width="28"
-                      height="28"
-                      aria-hidden="true"
-                      focusable="false"
-                    >
-                      <use
-                        href="/img/sprite/sprite.svg?ver=14#fb"
-                        xlinkHref="/img/sprite/sprite.svg?ver=14#fb"
-                      />
-                    </svg>
-                  </i>
-                  <span>FACEBOOK</span>
-                </a>
+                {facebookLink ? (
+                  <a
+                    href={facebookLink}
+                    className="footer__link"
+                    aria-label="REIZ Facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="sprite" aria-hidden="true">
+                      <svg
+                        width="28"
+                        height="28"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use
+                          href="/img/sprite/sprite.svg?ver=14#fb"
+                          xlinkHref="/img/sprite/sprite.svg?ver=14#fb"
+                        />
+                      </svg>
+                    </i>
+                    <span>FACEBOOK</span>
+                  </a>
+                ) : (
+                  <span className="footer__link">
+                    <i className="sprite" aria-hidden="true">
+                      <svg
+                        width="28"
+                        height="28"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use
+                          href="/img/sprite/sprite.svg?ver=14#fb"
+                          xlinkHref="/img/sprite/sprite.svg?ver=14#fb"
+                        />
+                      </svg>
+                    </i>
+                    <span>FACEBOOK</span>
+                  </span>
+                )}
               </li>
 
               <li className="footer__item">
-                <a href="https://www.instagram.com/reiz.rental?igsh=MXY4bmMyMjl0YWNtYg==" className="footer__link pink" aria-label="REIZ Instagram" target="_blank" rel="noopener noreferrer">
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  className="footer__link pink"
+                  aria-label="REIZ Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="sprite" aria-hidden="true">
                     <svg
                       width="28"
@@ -191,29 +238,56 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
               </li>
 
               <li className="footer__item">
-                <a href="#" className="footer__link red" aria-label="REIZ YouTube">
-                  <i className="sprite" aria-hidden="true">
-                    <svg
-                      width="28"
-                      height="28"
-                      aria-hidden="true"
-                      focusable="false"
-                    >
-                      <use
-                        href="/img/sprite/sprite.svg?ver=14#youtube"
-                        xlinkHref="/img/sprite/sprite.svg?ver=14#youtube"
-                      />
-                    </svg>
-                  </i>
-                  <span>YOUTUBE</span>
-                </a>
+                {youtubeLink ? (
+                  <a
+                    href={youtubeLink}
+                    className="footer__link red"
+                    aria-label="REIZ YouTube"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="sprite" aria-hidden="true">
+                      <svg
+                        width="28"
+                        height="28"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use
+                          href="/img/sprite/sprite.svg?ver=14#youtube"
+                          xlinkHref="/img/sprite/sprite.svg?ver=14#youtube"
+                        />
+                      </svg>
+                    </i>
+                    <span>YOUTUBE</span>
+                  </a>
+                ) : (
+                  <span className="footer__link red">
+                    <i className="sprite" aria-hidden="true">
+                      <svg
+                        width="28"
+                        height="28"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use
+                          href="/img/sprite/sprite.svg?ver=14#youtube"
+                          xlinkHref="/img/sprite/sprite.svg?ver=14#youtube"
+                        />
+                      </svg>
+                    </i>
+                    <span>YOUTUBE</span>
+                  </span>
+                )}
               </li>
             </ul>
           </div>
 
           <div className="footer__bottom">
             <span>{t("bottom.copyright")}</span>
-            <a href="#" aria-label={t("bottom.privacy")}>{t("bottom.privacy")}</a>
+            <Link href="/terms" aria-label={t("bottom.privacy")}>
+              {t("bottom.privacy")}
+            </Link>
             <span>{t("bottom.developed_by")}</span>
           </div>
         </div>

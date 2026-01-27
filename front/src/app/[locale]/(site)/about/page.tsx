@@ -35,7 +35,7 @@ export default async function AboutPage() {
       data-aos-duration={900}
       data-aos-delay={600}
     >
-      <h2 className="pretitle">{t("pretitle")}</h2>
+      <p className="pretitle">{t("pretitle")}</p>
 
       <Breadcrumbs
         items={[

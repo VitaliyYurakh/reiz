@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import { getTranslations } from "next-intl/server";
 import { type Locale, locales } from "@/i18n/request";
+import { Link } from "@/i18n/request";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
@@ -31,7 +32,7 @@ export default async function InsurancePage() {
         data-aos-duration={900}
         data-aos-delay={600}
       >
-        <h2 className="pretitle">{t("pretitle")}</h2>
+        <p className="pretitle">{t("pretitle")}</p>
 
         <Breadcrumbs
           items={[
@@ -48,9 +49,9 @@ export default async function InsurancePage() {
             <div className="editor">
               <h1 className="main-title">{t("hero.title")}</h1>
               <p>{t("hero.text")}</p>
-              <a href="#" className="main-button">
+              <Link href="/contacts" className="main-button">
                 {t("hero.cta")}
-              </a>
+              </Link>
             </div>
           </div>
 

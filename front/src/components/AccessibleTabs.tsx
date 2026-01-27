@@ -5,7 +5,6 @@ import {
   useCallback,
   useEffect,
   useId,
-  useMemo,
   useRef,
   useState,
 } from "react";
@@ -55,15 +54,7 @@ export default function AccessibleTabs({
   const pathname = usePathname();
   const uid = useId();
 
-  const initial = useMemo(() => {
-    if (typeof window === "undefined") return defaultValue ?? items[0]?.value;
-    if (sync === "hash") {
-      const m = window.location.hash.match(/^#tab-(.+)$/);
-      if (m?.[1] && items.some((i) => i.value === m[1])) return m[1];
-    }
-    return defaultValue ?? items[0]?.value;
-  }, [items, sync, defaultValue]);
-
+  const initial = defaultValue ?? items[0]?.value;
   const [value, setValue] = useState<string>(initial);
 
   const btnRefs = useRef<Array<HTMLButtonElement | null>>([]);
@@ -91,9 +82,13 @@ export default function AccessibleTabs({
     [items, sync, pathname, onChange],
   );
 
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => setIsMounted(true), []);
-  if (!isMounted) return null;
+  useEffect(() => {
+    if (sync !== "hash" || typeof window === "undefined") return;
+    const match = window.location.hash.match(/^#tab-(.+)$/);
+    if (match?.[1] && items.some((i) => i.value === match[1])) {
+      setValue(match[1]);
+    }
+  }, [items, sync]);
 
   return (
     <div

@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import Icon from "@/components/Icon";
 import { SideBarModalSpec } from "@/components/modals/index";
+import { SOCIAL_LINKS } from "@/config/social";
 
 export default function BookingContactModal({
   close,
@@ -15,9 +16,9 @@ export default function BookingContactModal({
 }) {
   const t = useTranslations("bookingContactModal");
 
-  const telegramLink = "https://t.me/reaboryslavska";
-  const whatsappLink = "https://wa.me/380964441454";
-  const viberLink = "viber://chat?number=%2B380964441454";
+  const telegramLink = SOCIAL_LINKS.telegram;
+  const whatsappLink = SOCIAL_LINKS.whatsapp;
+  const viberLink = SOCIAL_LINKS.viber;
   const phoneNumber = "tel:+380964441454";
 
   return (
@@ -29,7 +30,7 @@ export default function BookingContactModal({
           : { opacity: "0", display: "flex", transition: "300ms" }
       }
     >
-      <button className="close modal__close" onClick={close}>
+      <button className="close modal__close" onClick={close} aria-label="Close">
         <Icon id="cross" width={14} height={14} />
       </button>
 
@@ -41,30 +42,28 @@ export default function BookingContactModal({
         </h2>
 
         <div className="booking-contact-modal__buttons">
-          <button
-            type="button"
+          <a
+            href={telegramLink}
             className="booking-contact-modal__btn"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {t("buttons.telegram")}
-          </button>
-          <button
-            type="button"
+          </a>
+          <a
+            href={whatsappLink}
             className="booking-contact-modal__btn"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {t("buttons.whatsapp")}
-          </button>
-          <button
-            type="button"
-            className="booking-contact-modal__btn"
-          >
+          </a>
+          <a href={viberLink} className="booking-contact-modal__btn">
             {t("buttons.viber")}
-          </button>
-          <button
-            type="button"
-            className="booking-contact-modal__btn"
-          >
+          </a>
+          <a href={phoneNumber} className="booking-contact-modal__btn">
             {t("buttons.phone")}
-          </button>
+          </a>
         </div>
 
         <p className="booking-contact-modal__terms">{t("terms")}</p>

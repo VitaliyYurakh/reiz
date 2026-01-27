@@ -20,7 +20,6 @@ const EQUIPMENT_HASH = "#Equipment";
 export default function CarTabs({ items }: Props) {
   const pathname = usePathname();
   const [defaultValue, setDefaultValue] = useState<string>("0");
-  const [isReady, setIsReady] = useState(false);
 
   // Read hash on mount
   useEffect(() => {
@@ -30,7 +29,6 @@ export default function CarTabs({ items }: Props) {
         setDefaultValue(EQUIPMENT_TAB);
       }
     }
-    setIsReady(true);
   }, []);
 
   const handleTabChange = useCallback(
@@ -50,10 +48,9 @@ export default function CarTabs({ items }: Props) {
     [pathname]
   );
 
-  if (!isReady) return null;
-
   return (
     <AccessibleTabs
+      key={defaultValue}
       classNameContainer={"single-section__tabs"}
       classNameNavUl={"single-section__nav"}
       classNameNavLi={"single-section__item"}
