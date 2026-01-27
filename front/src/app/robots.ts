@@ -12,6 +12,11 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         disallow: [
+          // Private areas
+          "/admin",
+          "/dashboard",
+          "/login",
+          "/api/auth",
           // Deleted/non-existent car pages
           "/cars/1-bmw-x3-2023",
           "/ru/cars/1-bmw-x3-2023",

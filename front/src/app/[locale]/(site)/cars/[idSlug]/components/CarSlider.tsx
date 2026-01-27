@@ -83,7 +83,7 @@ export default function CarGallerySlider({
   }
 
   const renderSlide = (it: Item, index: number) => {
-    const thumbSrc = resolveStaticPath(it.thumb ?? it.src);
+    const imageSrc = resolveStaticPath(it.src);
     const fullSrc = resolveStaticPath(it.src);
     const w = it.w ?? 891;
     const h = it.h ?? 499;
@@ -91,12 +91,13 @@ export default function CarGallerySlider({
     return (
       <a href={fullSrc} className="gallery-slider__card" data-fancybox={group}>
         <Image
-          src={thumbSrc}
+          src={imageSrc}
           width={w}
           height={h}
           alt={it.alt || "image"}
           className="block w-full h-auto object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 60vw"
+          quality={85}
           priority={index === 0}
         />
       </a>
