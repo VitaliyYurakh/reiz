@@ -29,7 +29,7 @@ export default function middleware(request: NextRequest) {
     const pathLocale = getLocaleFromPath(pathname);
     if (pathLocale !== cookieLocale) {
       const basePath = stripLocaleFromPath(pathname);
-      const nextPath = withLocale(basePath, cookieLocale);
+      const nextPath = withLocale(basePath, cookieLocale as Locale);
       if (nextPath !== pathname) {
         const url = request.nextUrl.clone();
         url.pathname = nextPath;
