@@ -546,7 +546,7 @@ export const cityLocalizations: Record<
       metaDescription:
         "Шукаєте прокат авто в Києві? ⭐ Без прихованих платежів. ⚡ Подача на Центральний залізничний вокзал та в центр (Печерськ, Поділ). 🚗 Автопарк 2023-2025. 🛡️ Повне КАСКО. Бронюйте онлайн!",
       h1: "Оренда авто у Києві",
-      sectionCars: "Автопарк REIZ у Києві: від комфорту до преміум-класу",
+      sectionCars: "АВТОПАРК REIZ У КИЄВІ: ВІД КОМФОРТУ ДО ПРЕМІУМ-КЛАСУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ КИЇВ",
       subtitle:
         "Оренда авто у Києві від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
@@ -2104,6 +2104,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "WELCOME TO REIZ CHORTKIV",
       subtitle:
         "Car rental in Chortkiv from REIZ — new vehicles, premium service and convenient delivery for Podillia routes.",
+      footerDescription:
+        "Car rental service in Chortkiv. REIZ provides Economy and Comfort class cars. Order delivery to address and enjoy freedom of movement. No hidden fees.",
       ogTitle: "Car Rental Chortkiv, Kremenets, Berehove, Khust",
       ogDescription:
         "Rent a car in Chortkiv, Kremenets, Berehove, Khust. 🏰 Explore castles and thermal baths. 🚗 Convenient service. Book now.",
@@ -2119,6 +2121,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ КРЕМЕНЕЦЬ",
       subtitle:
         "Оренда авто у Кременці від REIZ — нові автомобілі, преміум-сервіс та зручна подача на туристичні маршрути.",
+      footerDescription:
+        "Прокат авто в Кременці. Огляньте святині та гори на автомобілі від REIZ. Доступні класи Економ і Стандарт. Швидка подача машини та зручне повернення.",
       ogTitle: "Оренда авто Кременець — REIZ | Подорожі до Лаври",
       ogDescription:
         "Прокат авто у Кременці. Зручні машини для поїздок по святих місцях. Подача по місту.",
@@ -2132,6 +2136,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ КРЕМЕНЕЦ",
       subtitle:
         "Аренда авто в Кременце от REIZ — новые автомобили, премиум-сервис и удобная подача на туристические маршруты.",
+      footerDescription:
+        "Прокат авто в Кременце. Осмотрите святыни и горы на авто от REIZ. Доступны классы Эконом и Стандарт. Быстрая подача машины и удобный возврат.",
       ogTitle: "Аренда авто Кременец — REIZ | Поездки в Лавру",
       ogDescription:
         "Прокат авто в Кременце. Удобные машины для поездок по святым местам. Подача по городу.",
@@ -2145,6 +2151,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "WELCOME TO REIZ KREMENETS",
       subtitle:
         "Car rental in Kremenets from REIZ — new vehicles, premium service and convenient delivery for tourist routes.",
+      footerDescription:
+        "Car rental in Kremenets. Explore shrines and mountains with REIZ car. Economy and Standard classes available. Quick delivery and easy return.",
       ogTitle: "Car Rental Kremenets — REIZ | Pochaiv Tours",
       ogDescription:
         "Rent a car in Kremenets. Best choice for visiting Pochaiv. City and hotel delivery available.",
@@ -2160,6 +2168,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ БЕРЕГОВЕ",
       subtitle:
         "Оренда авто у Береговому від REIZ — нові автомобілі, преміум-сервіс та зручна подача біля термальних курортів.",
+      footerDescription:
+        "Прокат авто в Береговому. Термальні басейни та винороби Закарпаття — найкраще вивчати на авто від REIZ. Швидка подача, без застави.",
       ogTitle: "Оренда авто Берегове — REIZ | Відпочинок та Кордон",
       ogDescription:
         "Прокат авто у Берегові. Комфортні машини для спекотного клімату та подорожей Закарпаттям.",
@@ -2173,6 +2183,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ БЕРЕГОВО",
       subtitle:
         "Аренда авто в Берегово от REIZ — новые автомобили, премиум-сервис и удобная подача у термальных курортов.",
+      footerDescription:
+        "Прокат авто в Берегово. Термальные бассейны и виноделы Закарпатья — лучше всего изучать на авто от REIZ. Быстрая подача, без залога.",
       ogTitle: "Аренда авто Берегово — REIZ | Отдых и Граница",
       ogDescription:
         "Прокат авто в Берегово. Комфортные машины для жаркого климата и путешествий по Закарпатью.",
@@ -2186,6 +2198,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "WELCOME TO REIZ BEREHOVE",
       subtitle:
         "Car rental in Berehove from REIZ — new vehicles, premium service and convenient delivery near thermal resorts.",
+      footerDescription:
+        "Car rental in Berehove. Thermal pools and Zakarpattia wineries — best explored by REIZ car. Fast delivery, no deposit.",
       ogTitle: "Car Rental Berehove — REIZ | Transcarpathia Tours",
       ogDescription:
         "Rent a car in Berehove. Reliable cars for local trips, thermal spas, and vineyards.",
@@ -2201,6 +2215,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ХУСТ",
       subtitle:
         "Оренда авто у Хусті від REIZ — нові автомобілі, преміум-сервіс та зручна подача для гірських маршрутів.",
+      footerDescription:
+        "Прокат авто в Хусті. Закарпатський вузол — звідси легко дістатися Рахова, Ужгорода чи Берегового. REIZ забезпечить подачу авто та підтримку 24/7.",
       ogTitle: "Оренда авто Хуст — REIZ | Прокат без водія",
       ogDescription:
         "Послуги прокату авто в Хусті. Великий вибір: від економ до позашляховиків. Швидка подача.",
@@ -2214,6 +2230,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ХУСТ",
       subtitle:
         "Аренда авто в Хусте — Закарпатье и подача 24/7. Новые автомобили и премиум-сервис для горных маршрутов.",
+      footerDescription:
+        "Прокат авто в Хусте. Закарпатский узел — отсюда легко добраться до Рахова, Ужгорода или Берегово. REIZ обеспечит подачу авто и поддержку 24/7.",
       ogTitle: "Аренда авто Хуст — REIZ | Прокат без водителя",
       ogDescription:
         "Услуги проката авто в Хусте. Большой выбор: от эконом до внедорожников. Быстрая подача.",
@@ -2227,6 +2245,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "WELCOME TO REIZ KHUST",
       subtitle:
         "Car rental in Khust from REIZ — new vehicles, premium service and convenient delivery for mountain routes.",
+      footerDescription:
+        "Car rental in Khust. Zakarpattia hub — easy access to Rakhiv, Uzhhorod, or Berehove. REIZ provides car delivery and 24/7 support.",
       ogTitle: "Car Rental Khust — REIZ | Self Drive Service",
       ogDescription:
         "Car rental services in Khust. Wide selection: economy to SUVs. Fast delivery.",
@@ -2242,6 +2262,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ РАХІВ",
       subtitle:
         "Оренда авто у Рахові від REIZ — нові автомобілі, преміум-сервіс та зручна подача на карпатські маршрути.",
+      footerDescription:
+        "Оренда авто в Рахові. Найвища точка України поруч — тож вам потрібен надійний транспорт. REIZ пропонує позашляховики та комфортабельні авто.",
       ogTitle: "Оренда авто Рахів — REIZ | Повний привід 4x4",
       ogDescription:
         "Прокат позашляховиків у Рахові. Надійні авто для найвищих гір України.",
@@ -2255,6 +2277,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ РАХОВ",
       subtitle:
         "Аренда авто в Рахове от REIZ — новые автомобили, премиум-сервис и удобная подача на карпатские маршруты.",
+      footerDescription:
+        "Аренда авто в Рахове. Наивысшая точка Украины рядом — вам нужен надежный транспорт. REIZ предлагает внедорожники и комфортабельные авто.",
       ogTitle: "Аренда авто Рахов — REIZ | Полный привод 4x4",
       ogDescription:
         "Прокат внедорожников в Рахове. Надежные авто для самых высоких гор Украины.",
@@ -2268,6 +2292,8 @@ export const cityLocalizations: Record<
       sectionWelcome: "WELCOME TO REIZ RAKHIV",
       subtitle:
         "Car rental in Rakhiv from REIZ — new vehicles, premium service and convenient delivery for Carpathian routes.",
+      footerDescription:
+        "Car rental in Rakhiv. The highest point in Ukraine is nearby — you need reliable transport. REIZ offers SUVs and comfortable cars.",
       ogTitle: "Car Rental Rakhiv — REIZ | 4x4 SUVs",
       ogDescription:
         "SUV rental in Rakhiv. Reliable cars for the highest mountains in Ukraine.",

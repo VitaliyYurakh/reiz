@@ -209,16 +209,13 @@
   width: fit-content;
   span {
     margin-right: 7px;
-    font-weight: 400;
+    font-weight: 200;
     font-size: 16px;
     text-align: center;
     color: var(--cl-b);
     position: relative;
     z-index: 1;
-    font-family: Arial, sans-serif;
-    @media (min-width: 1024px) {
-      font-family: var(--font-gowun), sans-serif;
-    }
+    font-family: var(--font-inter), Arial, sans-serif;
 
     &::before {
       position: absolute;
