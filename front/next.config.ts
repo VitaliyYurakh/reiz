@@ -28,6 +28,25 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // Modern formats with fallback
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "reiz.com.ua",
+        pathname: "/static/**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "3000",
+        pathname: "/static/**",
+      },
+      {
+        protocol: "http",
+        hostname: "127.0.0.1",
+        port: "3000",
+        pathname: "/static/**",
+      },
+    ],
     // Minimize layout shift - cache for 1 year
     minimumCacheTTL: 60 * 60 * 24 * 365,
   },

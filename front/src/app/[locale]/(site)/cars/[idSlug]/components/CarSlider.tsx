@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperClass } from "swiper/types";
@@ -21,6 +22,22 @@ type Item = {
   h?: number;
 };
 
+const resolveStaticPath = (value: string) => {
+  if (!value) return value;
+
+  if (value.startsWith("http://") || value.startsWith("https://")) {
+    return value;
+  }
+
+  const base = BASE_URL.endsWith("/") ? BASE_URL : `${BASE_URL}/`;
+  const normalized = value.replace(/^\/+/, "");
+  const staticPath = normalized.startsWith("static/")
+    ? normalized
+    : `static/${normalized}`;
+
+  return `${base}${encodeURI(staticPath)}`;
+};
+
 export default function CarGallerySlider({
   pcItems,
   mobileItems,
@@ -33,18 +50,73 @@ export default function CarGallerySlider({
   ariaLabel?: string;
 }) {
   const [swiperControl, setSwiperControl] = useState<SwiperClass | null>(null);
+  const [isHydrated, setIsHydrated] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isHydrated) return;
+    const media = window.matchMedia("(max-width: 768px)");
+    const update = () => setIsMobile(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, [isHydrated]);
+
+  const fallbackItems = pcItems.length > 0 ? pcItems : mobileItems;
+  const displayItems = useMemo(() => {
+    if (isHydrated && isMobile && mobileItems.length > 0) return mobileItems;
+    return fallbackItems;
+  }, [fallbackItems, isHydrated, isMobile, mobileItems]);
+
+  useEffect(() => {
+    if (!isHydrated) return;
     Fancybox.bind(`[data-fancybox="${group}"]`, {});
     return () => Fancybox.destroy();
-  }, [group]);
+  }, [displayItems, group, isHydrated]);
 
-  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
-  const displayItems = isMobile ? mobileItems : pcItems;
+  if (fallbackItems.length === 0) {
+    return null;
+  }
 
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => setIsMounted(true), []);
-  if (!isMounted) return null;
+  const renderSlide = (it: Item, index: number) => {
+    const thumbSrc = resolveStaticPath(it.thumb ?? it.src);
+    const fullSrc = resolveStaticPath(it.src);
+    const w = it.w ?? 891;
+    const h = it.h ?? 499;
+
+    return (
+      <a href={fullSrc} className="gallery-slider__card" data-fancybox={group}>
+        <Image
+          src={thumbSrc}
+          width={w}
+          height={h}
+          alt={it.alt || "image"}
+          className="block w-full h-auto object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={index === 0}
+        />
+      </a>
+    );
+  };
+
+  if (!isHydrated) {
+    const firstItem = fallbackItems[0];
+    return (
+      <div className="gallery-slider swiper" aria-label={ariaLabel}>
+        <div className="gallery-slider__swiper">
+          <div className="gallery-slider__wrapper swiper-wrapper">
+            <div className="gallery-slider__slide swiper-slide">
+              {renderSlide(firstItem, 0)}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -63,30 +135,14 @@ export default function CarGallerySlider({
         loop={true}
         onSwiper={setSwiperControl}
       >
-        {displayItems.map((it, i) => {
-          const thumb = it.thumb ?? it.src;
-          const w = it.w ?? 891;
-          const h = it.h ?? 499;
-
-          return (
-            <SwiperSlide
-              key={`${group}-${i}-${thumb}`}
-              className="gallery-slider__slide swiper-slide"
-            >
-              <a href={it.src} className="gallery-slider__card">
-                <img
-                  width={w}
-                  height={h}
-                  src={`${BASE_URL}static/${encodeURI(thumb)}`}
-                  data-fancybox={group}
-                  alt={it.alt || "image"}
-                  className="block w-full h-auto object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </a>
-            </SwiperSlide>
-          );
-        })}
+        {displayItems.map((it, i) => (
+          <SwiperSlide
+            key={`${group}-${i}-${it.thumb ?? it.src}`}
+            className="gallery-slider__slide swiper-slide"
+          >
+            {renderSlide(it, i)}
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div className="slider-controls">
