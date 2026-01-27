@@ -168,9 +168,16 @@ export default function Catalog({cars, sectionTitle}: CatalogProps) {
     // Масив опцій для селектора: default першим
     const sortOptions = useMemo(() => [
         sortLabelDefault,
-        sortLabelAsc,
         sortLabelDesc,
+        sortLabelAsc,
     ], [sortLabelDefault, sortLabelAsc, sortLabelDesc]);
+
+    // Іконки для опцій сортування
+    const sortOptionIcons = useMemo(() => ({
+        [sortLabelDefault]: "sort-default",
+        [sortLabelAsc]: "sort-asc",
+        [sortLabelDesc]: "sort-desc",
+    }), [sortLabelDefault, sortLabelAsc, sortLabelDesc]);
 
     // Маппінг тексту опції → SortKey
     const sortOptionToKey = useCallback((option: string): SortKey => {
@@ -523,7 +530,7 @@ export default function Catalog({cars, sectionTitle}: CatalogProps) {
                                             options={sortOptions}
                                             value={sortKeyToOption(sortKey)}
                                             onChange={handleSortChange}
-                                            preSelectIcon={"filter2"}
+                                            optionIcons={sortOptionIcons}
                                             showArrow={false}
                                             defaultOption={sortLabelDefault}
                                         />
@@ -678,7 +685,7 @@ export default function Catalog({cars, sectionTitle}: CatalogProps) {
                                 options={sortOptions}
                                 value={sortKeyToOption(sortKey)}
                                 onChange={handleSortChange}
-                                preSelectIcon={"filter2"}
+                                optionIcons={sortOptionIcons}
                             />
                         </div>
 

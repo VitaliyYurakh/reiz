@@ -15,6 +15,7 @@ export default function CustomSelect({
   containerRef,
   ariaLabel,
   defaultOption,
+  optionIcons,
 }: {
   options: string[];
   value?: string | null;
@@ -28,6 +29,8 @@ export default function CustomSelect({
   ariaLabel?: string;
   /** When this option is selected, adds 'default-selected' class (hides text on mobile) */
   defaultOption?: string;
+  /** Icons for each option: { "Option Label": "icon-id" } */
+  optionIcons?: Record<string, string>;
 }) {
   const [open, setOpen] = useState(false);
   const [uncontrolled, setUncontrolled] = useState<string | null>(null);
@@ -132,11 +135,20 @@ export default function CustomSelect({
         aria-label={displayLabel}
       >
         <span className="selected-options">
-          {preSelectIcon && (
+          {preSelectIcon && !optionIcons && (
             <span className="select-icon" aria-hidden="true">
               <i className="sprite">
                 <svg width="14" height="12">
                   <use href={`/img/sprite/sprite.svg#${preSelectIcon}`} />
+                </svg>
+              </i>
+            </span>
+          )}
+          {value && optionIcons?.[value] && (
+            <span className="select-icon" aria-hidden="true">
+              <i className="sprite">
+                <svg width="20" height="14">
+                  <use href={`/img/sprite/sprite.svg#${optionIcons[value]}`} />
                 </svg>
               </i>
             </span>
@@ -178,7 +190,16 @@ export default function CustomSelect({
             }}
             onMouseEnter={() => setActiveIndex(idx)}
           >
-            <span className="option-text">{opt}</span>
+            <span className="option-text">
+              {optionIcons?.[opt] && (
+                <span className="option-icon" aria-hidden="true">
+                  <svg width="20" height="14">
+                    <use href={`/img/sprite/sprite.svg#${optionIcons[opt]}`} />
+                  </svg>
+                </span>
+              )}
+              {opt}
+            </span>
           </li>
         ))}
       </ul>
