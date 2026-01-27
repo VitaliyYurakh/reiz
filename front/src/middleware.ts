@@ -7,7 +7,7 @@ const intlMiddleware = createMiddleware(routing);
 
 const getLocaleFromPath = (pathname: string): Locale => {
   const seg = pathname.split("/")[1];
-  return isLocale(seg ?? "") ? seg : defaultLocale;
+  return isLocale(seg ?? "") ? (seg as Locale) : defaultLocale;
 };
 
 const stripLocaleFromPath = (pathname: string) => {
