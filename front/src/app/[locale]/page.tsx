@@ -26,14 +26,19 @@ export async function generateMetadata({
   });
 }
 
-export default async function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
   const cars = await fetchCars();
 
   return (
     <CatalogFiltersProvider>
       <Header />
       <main className="main">
-        <SchemaOrg />
+        <SchemaOrg locale={locale} />
         <HeroSection />
         <Catalog cars={cars} />
         <Advantages />
