@@ -11,6 +11,7 @@ type Post = {
   excerpt: string;
   date: string;
   imgAlt: string;
+  image?: string;
 };
 
 
@@ -76,7 +77,7 @@ export default async function BlogPage() {
                 <UiImage
                   width={474}
                   height={251}
-                  src={`/img/blog/img${idx + 1}.png`}
+                  src={post.image || `/img/blog/img${idx + 1}.png`}
                   alt={post.imgAlt}
                   sizePreset="card"
                 />

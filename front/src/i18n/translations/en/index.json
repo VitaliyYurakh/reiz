@@ -612,31 +612,36 @@
         "title": "What to do after a road accident in Ukraine: a step-by-step guide from REIZ",
         "excerpt": "A simple checklist on what to do after an accident in Ukraine: how to record the incident properly, whom to notify, and which documents your insurer will require.",
         "date": "17.04.2025",
-        "imgAlt": "Car with a warning triangle on the road — article about road accidents in Ukraine"
+        "imgAlt": "Car with a warning triangle on the road — article about road accidents in Ukraine",
+        "image": "/img/blog/road%20accident.webp"
       },
       {
         "title": "Road-trip route across Ukraine by car",
-        "excerpt": "Explore a route that offers a thrilling road adventure and a chance to discover the country’s culture and landscapes.",
+        "excerpt": "Explore a route that offers a thrilling road adventure and a chance to discover the country's culture and landscapes.",
         "date": "17.04.2025",
-        "imgAlt": "Panorama of Ukraine’s landmarks at sunset — road-trip route"
+        "imgAlt": "Panorama of Ukraine's landmarks at sunset — road-trip route",
+        "image": "/img/blog/Ukraineblog.webp"
       },
       {
         "title": "Top navigation apps in Ukraine",
         "excerpt": "Ukraine is a place where tech is part of daily life for locals and visitors. We review the most popular apps that help you navigate cities and highways with ease.",
         "date": "17.04.2025",
-        "imgAlt": "GPS navigator icon — review of popular navigation apps in Ukraine"
+        "imgAlt": "GPS navigator icon — review of popular navigation apps in Ukraine",
+        "image": "/img/blog/NAV.webp"
       },
       {
         "title": "Road trip around Lviv and Lviv Oblast",
         "excerpt": "Discover Lviv and its region by car — from the cozy Old Town streets to castles, lakes, and the Carpathians. A convenient route to see the essentials without rushing.",
         "date": "17.04.2025",
-        "imgAlt": "Panorama of Lviv and landmarks — route around Lviv Oblast"
+        "imgAlt": "Panorama of Lviv and landmarks — route around Lviv Oblast",
+        "image": "/img/blog/lvivblog.webp"
       },
       {
         "title": "How to pay for parking in Ukraine as a tourist?",
         "excerpt": "Learn several quick ways to make the payment with minimal fuss.",
         "date": "17.04.2025",
-        "imgAlt": "Parking sign near a city building — how to pay for parking in Ukraine"
+        "imgAlt": "Parking sign near a city building — how to pay for parking in Ukraine",
+        "image": "/img/blog/parking.webp"
       }
     ],
     "cta": {
