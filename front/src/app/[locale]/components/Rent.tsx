@@ -14,11 +14,12 @@ export default function Rent() {
                 <Link href="/invest" className="rent-card">
                   <div className="rent-card__image">
                     <UiImage
-                      width={670}
-                      height={350}
+                      width={800}
+                      height={420}
                       src="/img/invest-car.webp"
                       alt={t("rent.card1_image_alt")}
                       sizePreset="card"
+                      quality={85}
                     />
                   </div>
                   <p className="rent-card__title">
@@ -75,11 +76,12 @@ export default function Rent() {
                 <Link href="/terms" className="rent-card">
                   <div className="rent-card__image">
                     <UiImage
-                      width={670}
-                      height={350}
+                      width={800}
+                      height={420}
                       src="/img/carterms.webp"
-                      alt={t("rent.card1_image_alt")}
+                      alt={t("rent.card2_image_alt")}
                       sizePreset="card"
+                      quality={85}
                     />
                   </div>
                   <span className="rent-card__title">
@@ -95,11 +97,12 @@ export default function Rent() {
                 <Link href="/faq" className="rent-card">
                   <div className="rent-card__image">
                     <UiImage
-                      width={670}
-                      height={350}
+                      width={800}
+                      height={420}
                       src="/img/faqimg.webp"
                       alt={t("rent.card3_image_alt")}
                       sizePreset="card"
+                      quality={85}
                     />
                   </div>
                   <span className="rent-card__title">
