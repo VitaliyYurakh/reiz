@@ -17,10 +17,10 @@ export default async function HeroSection() {
             <li className="swiper-slide">
               {/* Mobile hero image - LCP critical */}
               <UiImage
-                src="/img/mercedesmobile.webp"
+                src="/img/mobreiz.webp"
                 alt="Оренда авто Львів — Mercedes CLE | REIZ"
-                width={750}
-                height={1331}
+                width={1024}
+                height={1670}
                 hero
                 quality={75}
                 sizes="100vw"
