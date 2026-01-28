@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import {Link, type Locale, defaultLocale} from "@/i18n/request";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import CarAside from "@/app/[locale]/(site)/cars/[idSlug]/components/CarAside";
 import CarGallerySlider from "@/app/[locale]/(site)/cars/[idSlug]/components/CarSlider";
 import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/modals/CarClientProvider";

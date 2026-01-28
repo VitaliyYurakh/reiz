@@ -2,7 +2,7 @@
 
 import React, {useEffect, useRef} from "react";
 import intlTelInput from "intl-tel-input";
-import "intl-tel-input/build/css/intlTelInput.css";
+import "./TelInput.scss";
 
 type TelInputProps = {
     name?: string;
