@@ -138,7 +138,6 @@ export default async function CarPage({
 
     const carDisplayName =
         `${car.brand} ${car.model} ${car.yearOfManufacture}`.trim();
-    const carUpperDisplayName = carDisplayName.toUpperCase();
 
     // Витягуємо ТІЛЬКИ локалізований опис (не весь JSON з усіма мовами)
     let localizedDescription = "";
@@ -158,7 +157,7 @@ export default async function CarPage({
                 <div className="editor">
                     <h2>
                         {t("specifications.descriptionTitle", {
-                            carName: carUpperDisplayName,
+                            carName: carDisplayName,
                         })}
                     </h2>
 
@@ -239,7 +238,7 @@ export default async function CarPage({
             label: t("tabs.equipment"),
             content: (
                 <div className="editor">
-                    <h2>{t("equipmentTitle", {carName: carUpperDisplayName})}</h2>
+                    <h2>{t("equipmentTitle", {carName: carDisplayName})}</h2>
                     <p style={{display: "flex", flexWrap: "wrap", gap: "8px"}}>
                         {(car.configuration || []).map((el) => (
                             <span

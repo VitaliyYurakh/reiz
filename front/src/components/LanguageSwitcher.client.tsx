@@ -83,13 +83,18 @@ export default function LanguageSwitcherClient({
   );
 
   const onListClick: React.MouseEventHandler<HTMLUListElement> = (e) => {
+    e.stopPropagation();
     const option = (e.target as HTMLElement).closest("[data-locale]");
     const nextLocale = option?.getAttribute("data-locale");
     if (nextLocale) {
       document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
     }
+    // Не закриваємо дропдаун одразу - дозволяємо Link спочатку виконати навігацію
+    // Затримка дає час для обробки кліку на посиланні
     const a = (e.target as HTMLElement).closest("a");
-    if (a) setOpen(false);
+    if (a) {
+      setTimeout(() => setOpen(false), 100);
+    }
   };
 
   const enhancedChildren = Children.map(children, (child) => {
