@@ -104,7 +104,7 @@ export default async function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/img/mercedesmobile.webp"
+          href="/img/mobreiz.webp"
           type="image/webp"
           media="(max-width: 1024px)"
           fetchPriority="high"

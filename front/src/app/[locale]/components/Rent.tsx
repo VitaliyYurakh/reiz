@@ -77,7 +77,7 @@ export default function Rent() {
                     <UiImage
                       width={670}
                       height={350}
-                      src="/img/carterms.png"
+                      src="/img/carterms.webp"
                       alt={t("rent.card1_image_alt")}
                       sizePreset="card"
                     />
@@ -97,7 +97,7 @@ export default function Rent() {
                     <UiImage
                       width={670}
                       height={350}
-                      src="/img/faq.png"
+                      src="/img/faqimg.webp"
                       alt={t("rent.card3_image_alt")}
                       sizePreset="card"
                     />

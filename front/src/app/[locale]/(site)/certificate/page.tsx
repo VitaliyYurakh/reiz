@@ -80,7 +80,7 @@ export default async function CertificatePage() {
           <UiImage
             width={480}
             height={600}
-            src="/img/gift2.png"
+            src="/img/gift2.webp"
             alt={t("hero.titleDesktop")}
             hero
           />

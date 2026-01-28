@@ -34,10 +34,10 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
             <li className="swiper-slide">
               {/* Mobile hero image - LCP critical */}
               <UiImage
-                src="/img/mercedesmobile.webp"
+                src="/img/mobreiz.webp"
                 alt={`${cityData.h1} — Mercedes CLE | REIZ Rental Cars`}
-                width={575}
-                height={720}
+                width={1024}
+                height={1670}
                 hero
                 quality={70}
                 sizes="100vw"

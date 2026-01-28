@@ -101,7 +101,7 @@ export default function CertificatePreviewModal({ isOpen, onClose }: Props) {
         {/* Certificate image */}
         <div className="cert-preview-modal__image">
           <UiImage
-            src="/img/certificate.png"
+            src="/img/certificate.webp"
             alt="Certificate preview"
             width={800}
             height={600}
