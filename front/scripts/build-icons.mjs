@@ -25,6 +25,7 @@ const svgoCfg = (prefix) => ({
           removeUselessDefs: false,
           collapseGroups: false,
           convertShapeToPath: false,
+          convertColors: false,
         },
       },
     },

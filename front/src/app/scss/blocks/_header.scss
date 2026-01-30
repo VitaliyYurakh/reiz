@@ -1,6 +1,5 @@
 @use "../mixins/breakpoint" as *;
 @use "../mixins/burger" as *;
-@use "../mixins/disable-mob-hover" as *;
 
 .header {
   left: 0;
@@ -13,7 +12,7 @@
 
   .container{
     &::before{
-       border-bottom: 1px solid var(--cl-m);
+       border-bottom: 1px solid #575757;
        content: '';
        width: 100vw;
        left: 50%;
@@ -26,14 +25,15 @@
   }
 
   .logo {
-    font-weight: 700;
-    font-size: 27px;
-    text-align: center;
     color: var(--cl-b);
-    transition: all 0.3s;
+    transition: color 0.3s;
 
-    @include mobile {
-      font-weight: 300;
+    svg {
+      fill: currentColor;
+    }
+
+    @include for-tablet {
+      display: none;
     }
   }
 
@@ -45,11 +45,18 @@
     transform: translateY(0);
   }
 
-  &.mode {
+  &.mode,
+  &.open-menu,
+  &.sticky {
     background: var(--body-bg);
+
+    .container::before {
+      border-bottom-color: #e5e5e5;
+    }
 
     .logo {
       color: var(--cl-a);
+      border-left-color: #e5e5e5;
     }
 
     .burger {
@@ -57,6 +64,7 @@
     }
 
     .phone-link {
+      border-left-color: #e5e5e5;
       .sprite {
         color: var(--cl-a);
       }
@@ -111,56 +119,6 @@
     }
   }
 
-  &.open-menu {
-    background: var(--body-bg);
-
-    .logo {
-      color: var(--cl-a);
-    }
-
-    .burger {
-      color: var(--cl-a);
-    }
-
-    .phone-link {
-      .sprite {
-        color: var(--cl-a);
-      }
-    }
-  }
-
-  &.sticky {
-    background: var(--body-bg);
-
-    .logo {
-      color: var(--cl-a);
-    }
-
-    .burger {
-      color: var(--cl-a);
-    }
-
-    .phone-link {
-      .sprite {
-        color: var(--cl-a);
-      }
-    }
-
-    .custom-select {
-      .select-text {
-        color: var(--cl-a);
-      }
-      .select-field {
-        * {
-          color: var(--cl-a);
-        }
-      }
-      .arrow-down {
-        color: var(--cl-a);
-      }
-    }
-  }
-
   & > .container {
     @include tablet {
       padding: 0;
@@ -191,7 +149,7 @@
       .logo {
         width: 100%;
         height: 100%;
-        border-left: solid 1px var(--cl-m);
+        border-left: solid 1px #575757;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -205,12 +163,12 @@
     justify-content: center;
     width: 55px;
     height: 55px;
-    border-left: solid 1px var(--cl-m);
+    border-left: solid 1px #575757;
     color: var(--cl-b);
 
     .sprite {
-      width: 30px;
-      height: 30px;
+      width: 34px;
+      height: 34px;
 
       svg {
         width: 100%;
@@ -372,7 +330,7 @@
       grid-column: 2/3;
       height: 100%;
       padding-left: 40px;
-      border-left: solid 1px var(--cl-m);
+      border-left: solid 1px #575757;
     }
 
     @include tablet {
@@ -467,12 +425,6 @@
         width: 100%;
         border-radius: 0;
       }
-    }
-  }
-
-  .logo {
-    @include for-tablet {
-      display: none;
     }
   }
 
