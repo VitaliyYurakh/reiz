@@ -46,15 +46,22 @@ export default async function ContactsPage() {
       data-aos-duration="900"
       data-aos-delay="600"
     >
-      <p className="pretitle">{t("hero.pretitle")}</p>
-
       <Breadcrumbs
+        mode="JsonLd"
         items={[
           { href: getDefaultPath("home"), name: t("breadcrumbs.home") },
           { href: getDefaultPath("contacts"), name: t("breadcrumbs.current") },
         ]}
       />
-      <h1 className="main-title">{t("hero.title")}</h1>
+
+      <div className="cert__breadcrumb">
+        <span className="cert__marker" />
+        <span className="cert__breadcrumb-text">{t("hero.pretitle")}</span>
+      </div>
+
+      <div className="blog-hero">
+        <h1 className="blog-hero__title">{t("hero.title")}</h1>
+      </div>
 
       <div className="contacts-section__content">
         <div className="contacts-section__map">

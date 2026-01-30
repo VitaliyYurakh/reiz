@@ -41,16 +41,21 @@ export default async function TermsPage() {
       data-aos-duration="900"
       data-aos-delay="600"
     >
-      <p className="pretitle">{t("hero.pretitle")}</p>
       <Breadcrumbs
+        mode="JsonLd"
         items={[
           { href: getDefaultPath("home"), name: t("breadcrumbs.home") },
           { href: getDefaultPath("terms"), name: t("breadcrumbs.current") },
         ]}
       />
 
+      <div className="cert__breadcrumb">
+        <span className="cert__marker" />
+        <span className="cert__breadcrumb-text">{t("hero.pretitle")}</span>
+      </div>
+
       <div className="terms-hero">
-        <h1 className="main-title">{t("hero.title")}</h1>
+        <h1 className="blog-hero__title">{t("hero.title")}</h1>
         <p className="terms-hero__subtitle">{t("hero.subtitle")}</p>
       </div>
 

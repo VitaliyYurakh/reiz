@@ -85,9 +85,8 @@ export default async function BusinessPage() {
         data-aos-duration={900}
         data-aos-delay={600}
       >
-        <p className="pretitle">{t("pretitle")}</p>
-
         <Breadcrumbs
+          mode="JsonLd"
           items={[
             { href: getDefaultPath("home"), name: t("breadcrumbs.home") },
             {
@@ -97,9 +96,17 @@ export default async function BusinessPage() {
           ]}
         />
 
+        <div className="cert__breadcrumb">
+          <span className="cert__marker" />
+          <span className="cert__breadcrumb-text">{t("pretitle")}</span>
+        </div>
+
+        <div className="blog-hero">
+          <h1 className="blog-hero__title">{t("hero.title")}</h1>
+        </div>
+
         <div className="rental-section__content">
           <div className="editor">
-            <h1 className="main-title">{t("hero.title")}</h1>
             <p>{t("hero.text")}</p>
             <a
               href="#order-call"
