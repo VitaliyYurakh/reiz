@@ -35,7 +35,7 @@ export default function PhotoCollage({ images, alt }: PhotoCollageProps) {
           pagination={{ clickable: true }}
           spaceBetween={0}
           slidesPerView={1}
-          loop={true}
+          loop={images.length >= 3}
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
