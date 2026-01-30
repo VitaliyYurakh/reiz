@@ -634,7 +634,8 @@
         "excerpt": "Discover Lviv and its region by car — from the cozy Old Town streets to castles, lakes, and the Carpathians. A convenient route to see the essentials without rushing.",
         "date": "17.04.2025",
         "imgAlt": "Panorama of Lviv and landmarks — route around Lviv Oblast",
-        "image": "/img/blog/lvivblog.webp"
+        "image": "/img/blog/lvivblog.webp",
+        "slug": "lviv-travel"
       },
       {
         "title": "How to pay for parking in Ukraine as a tourist?",
@@ -1474,5 +1475,105 @@
       "phone": "CALL US"
     },
     "terms": "By clicking the button, you accept the terms of personal data processing"
+  },
+  "blogLvivTravel": {
+    "meta": {
+      "title": "Top 4 Routes from Lviv for Instagram Photos | REIZ",
+      "description": "Where to find Instagram-worthy views and when to go to avoid crowds. Golden Horseshoe, Tustan, Tarakaniv Fort, Synevir.",
+      "og_title": "Top 4 Routes from Lviv for Instagram Photos | REIZ",
+      "og_description": "Where to find Instagram-worthy views and when to go to avoid crowds. Golden Horseshoe, Tustan, Tarakaniv Fort, Synevir."
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Articles",
+      "current": "Top 4 Routes from Lviv"
+    },
+    "title": "Top 4 Routes from Lviv: Where to Find Instagram-Worthy Views and When to Go to Avoid Crowds",
+    "hero_alt": "Lake Synevir in the Carpathians — best photo destination from Lviv",
+    "intro": {
+      "p1": "Lviv region is a ready-made movie set. Here you'll find locations in the style of \"Bridgerton\", mystical ruins like in The Last of Us, and rocks reminiscent of \"Game of Thrones\" landscapes.",
+      "p2": "But there's a catch: the most beautiful shots are taken at sunrise or sunset when tourist buses haven't arrived yet or have already left. To catch that perfect light and fog, you need freedom of movement.",
+      "p3": "We at REIZ have compiled 4 routes chosen by photographers, and calculated right away how long you should rent a car for each trip."
+    },
+    "routes": {
+      "route1": {
+        "title": "Route #1. \"Golden Horseshoe\": Aristocratic Aesthetics",
+        "locations": "Locations: Olesko, Pidhirtsi and Zolochiv castles.",
+        "vibe": "Vibe: Royal luxury, baroque, mystique.",
+        "p1": "The star of the route is Pidhirtsi Castle. It portrayed the Louvre in the Soviet \"Musketeers\". It looks monumental and slightly abandoned, giving the shots a special depth.",
+        "insight_title": "Insider tip for photographers:",
+        "insight_time": "Best time: Second half of the day, closer to sunset (\"golden hour\"). The sun softly illuminates the palace facade.",
+        "insight_angle": "Secret angle: Don't shoot point-blank at the entrance. Walk around the castle and go down to the field opposite the south facade. From there you get a panoramic view of the palace on the hill — no people in the frame at all.",
+        "why_car": "Why you need a car here: The car trunk is your mobile dressing room. To take diverse photos (in a flowing dress at the palace and casual style on the fortress walls), you need to carry spare clothes.",
+        "rental_title": "Recommended rental period: 1 day",
+        "rental_text": "This is an easy route. The road is excellent (M-06 highway), castles are close. Plan: Pick up the car in the morning, arrive at the castles by lunch, return the car to Lviv in the evening. No point in paying for a second day.",
+        "castles": {
+          "olesky": "Olesko Castle",
+          "pidhirtsi": "Pidhirtsi Castle",
+          "zolochiv": "Zolochiv Castle"
+        }
+      },
+      "route2": {
+        "title": "Route #2. Tustan and Kamianka Waterfall: Fantasy Set Design",
+        "image_alt": "Tustan rock fortress — unique Lviv region landmark for fantasy photos",
+        "locations": "Locations: Tustan rock fortress (Urych village), Kamianka waterfall, Zhuravlyne lake.",
+        "vibe": "Vibe: \"The Witcher\", Scandinavia, power of nature.",
+        "p1": "Tustan is a unique monument where a wooden fortress once stood, built right into the rocks. The route usually starts with Kamianka waterfall, and just 500 meters from it hides Zhuravlyne (Dead) lake with black water and mossy shores.",
+        "insight_title": "Insider tip for photographers:",
+        "insight_timing": "Secret timing: Most buses arrive from 12:00 to 15:00. If you arrive by car at 9:00 AM or stay until 17:00, the rocks will be yours alone.",
+        "insight_gastro": "Gastro checkpoint: In the clearing near the waterfall, locals cook mushroom soup. Incredibly atmospheric for stories.",
+        "why_car": "Why you need a car: By public transport this route becomes a challenge: bus to Skhidnytsia, transfer to a minibus to Urych, then more walking. With a rental car you park right at the entrance, saving energy for climbing the rocks.",
+        "rental_title": "Recommended rental period: 1–2 days",
+        "rental_turbo": "\"Turbo\" option (1 day): Early departure (08:00), active sightseeing of all locations and late evening return.",
+        "rental_relax": "\"Relax\" option (2 days): Take it easy, stay overnight in Skhidnytsia (20 km from the rocks), drink mineral water and return to Lviv in the morning.",
+        "locations_btn": {
+          "tustan": "Tustan",
+          "waterfall": "Kamianka Waterfall",
+          "lake": "Zhuravlyne Lake"
+        }
+      },
+      "route3": {
+        "title": "Route #3. Tarakaniv Fort: Post-Apocalypse",
+        "locations": "Locations: Tarakaniv Fort (near Dubno city).",
+        "vibe": "Vibe: Abandoned world, stalker vibes, mystery.",
+        "p1": "Massive 19th-century defensive structures swallowed by the forest. Red brick entwined with green ivy, dark tunnels and arches — the texture is incredible.",
+        "insight_title": "Insider tip for photographers:",
+        "insight_time": "Best time: Cloudy weather or fog works in your favor here — enhances the mystique.",
+        "insight_bring": "What to bring: A powerful flashlight (for illuminating dark arches) and comfortable shoes.",
+        "why_car": "Why you need a car here: This is a hard-to-reach location, you have to drive on a dirt road from the highway. Plus, after damp casemates you'll want to change into dry clothes.",
+        "rental_title": "Recommended rental period: 1 day",
+        "rental_text": "Location is 1.5–2 hours drive from Lviv on a good highway. Tip: On the way you can stop at Lubart Castle (Lutsk city), making the trip 100% packed. One day is quite enough for the road trip.",
+        "locations_btn": {
+          "fort": "Tarakaniv Fort",
+          "lubart": "Lubart Castle"
+        }
+      },
+      "route4": {
+        "title": "Route #4. Road Trip to the Heart of the Carpathians: Synevir, Shypit and Bears",
+        "locations": "Locations: Volovets Pass, Shypit waterfall, Lake Synevir, Bear Rehabilitation Center.",
+        "vibe": "Vibe: Ukrainian \"Twin Peaks\", ancient firs, wilderness.",
+        "p1": "A full expedition through Volovets Pass, where clouds cling to the car roof. Synevir itself is high in the mountains, and nearby — Shypit waterfall and the Brown Bear Rehabilitation Center.",
+        "insight_title": "Insider tip for photographers:",
+        "insight_fog": "Fog hunting: The most mystical shots at Synevir are taken at sunrise (6:00 to 8:00 AM). At this time steam hangs over the water, and there are no people.",
+        "why_car": "Logistics: By public transport this route takes three days with lots of transfers. By car it's a comfortable journey.",
+        "rental_title": "Recommended rental period: 2–3 days",
+        "rental_text": "Going here for one day is exhausting (too much time on the road). Ideal plan: Rent a car for 2–3 days. Drive at a relaxed pace, stay overnight in an authentic mountain cottage, catch sunrise at the lake without tourists and return in comfort.",
+        "locations_btn": {
+          "synevir": "Lake Synevir",
+          "shypit": "Shypit Waterfall",
+          "bears": "Bear Center"
+        }
+      }
+    },
+    "conclusion": {
+      "title": "How to Plan Your Trip?",
+      "p1": "The main secret of a successful trip and beautiful shots is timing. You shouldn't depend on the train station schedule. You should depend only on light and weather.",
+      "list": {
+        "item1": "Want to catch sunrise in the mountains?",
+        "item2": "Want to stay on the castle wall until sunset?",
+        "item3": "Want to bring three outfits and props?"
+      },
+      "cta": "Rent a car at REIZ, punch the coordinates into your navigator and create your best memories (and content). The roads are waiting!"
+    }
   }
 }

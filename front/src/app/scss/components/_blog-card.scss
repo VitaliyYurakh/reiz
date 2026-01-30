@@ -30,6 +30,10 @@
     border-radius: 20px;
     overflow: hidden;
 
+    &[href] {
+      cursor: pointer;
+    }
+
     img,
     picture {
       width: 100%;
@@ -69,8 +73,16 @@
     margin: 0;
     padding: 0;
 
-    span {
+    span,
+    a {
       display: block;
+      color: inherit;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    a:hover {
+      opacity: 0.7;
     }
 
     @include tablet {

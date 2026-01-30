@@ -1,4 +1,4 @@
-import { Inter, Merriweather } from "next/font/google";
+import { Inter, Merriweather, Jost } from "next/font/google";
 import localFont from "next/font/local";
 
 export const inter = Inter({
@@ -53,5 +53,13 @@ export const kyivType = localFont({
   ],
   adjustFontFallback: "Arial",
   variable: "--font-kyiv",
+  display: "swap",
+});
+
+export const jost = Jost({
+  subsets: ["latin", "cyrillic", "cyrillic-ext"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-jost",
+  fallback: ["Arial", "sans-serif"],
   display: "swap",
 });

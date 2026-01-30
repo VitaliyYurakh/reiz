@@ -4,7 +4,7 @@ import AOSProvider from "@/components/AOSProvider";
 import { getLocale } from "next-intl/server";
 import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
-import { gowunDodum, halvar, inter, merriweather, kyivType } from "@/fonts";
+import { gowunDodum, halvar, inter, merriweather, kyivType, jost } from "@/fonts";
 import { Partytown } from "@qwik.dev/partytown/react";
 import ThemeColorProvider from "@/components/ThemeColorProvider";
 import LocalePreferenceSync from "@/components/LocalePreferenceSync";
@@ -127,7 +127,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
       </head>
       <body
-        className={`${inter.variable} ${halvar.variable} ${gowunDodum.variable} ${merriweather.variable} ${kyivType.variable}`}
+        className={`${inter.variable} ${halvar.variable} ${gowunDodum.variable} ${merriweather.variable} ${kyivType.variable} ${jost.variable}`}
       >
         <noscript>
           <iframe

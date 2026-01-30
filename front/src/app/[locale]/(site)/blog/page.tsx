@@ -1,6 +1,6 @@
 import UiImage from "@/components/ui/UiImage";
 import { getTranslations } from "next-intl/server";
-import { type Locale, locales } from "@/i18n/request";
+import { type Locale, locales, Link } from "@/i18n/request";
 import type { Metadata } from "next";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
@@ -12,6 +12,7 @@ type Post = {
   date: string;
   imgAlt: string;
   image?: string;
+  slug?: string;
 };
 
 
@@ -73,28 +74,50 @@ export default async function BlogPage() {
         {posts.map((post, idx) => (
           <li className="blog-list__item" key={post.title}>
             <div className="blog-card">
-              <div className="blog-card__image">
-                <UiImage
-                  width={474}
-                  height={251}
-                  src={post.image || `/img/blog/img${idx + 1}.png`}
-                  alt={post.imgAlt}
-                  sizePreset="card"
-                />
-              </div>
+              {post.slug ? (
+                <Link href={`/blog/${post.slug}`} className="blog-card__image">
+                  <UiImage
+                    width={474}
+                    height={251}
+                    src={post.image || `/img/blog/img${idx + 1}.png`}
+                    alt={post.imgAlt}
+                    sizePreset="card"
+                  />
+                </Link>
+              ) : (
+                <div className="blog-card__image">
+                  <UiImage
+                    width={474}
+                    height={251}
+                    src={post.image || `/img/blog/img${idx + 1}.png`}
+                    alt={post.imgAlt}
+                    sizePreset="card"
+                  />
+                </div>
+              )}
 
               <div className="blog-card__box">
                 <h2 className="blog-card__title">
-                  <span>{post.title}</span>
+                  {post.slug ? (
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  ) : (
+                    <span>{post.title}</span>
+                  )}
                 </h2>
 
                 <p>{post.excerpt}</p>
 
                 <div className="blog-card__bottom">
                   <span className="blog-card__date">{post.date}</span>
-                  <button type="button" className="main-button">
-                    {t("cta.readArticle")}
-                  </button>
+                  {post.slug ? (
+                    <Link href={`/blog/${post.slug}`} className="main-button">
+                      {t("cta.readArticle")}
+                    </Link>
+                  ) : (
+                    <button type="button" className="main-button" disabled>
+                      {t("cta.readArticle")}
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
