@@ -18,9 +18,9 @@ interface CastleGalleryProps {
 
 export default function CastleGallery({ castles }: CastleGalleryProps) {
   return (
-    <div className="castle-gallery">
+    <div className="castle-gallery" role="region" aria-label="Галерея замків">
       {castles.map((castle) => (
-        <div key={castle.id} className="castle-gallery__item">
+        <figure key={castle.id} className="castle-gallery__item">
           <div className="castle-gallery__slider">
             <Swiper
               modules={[Pagination]}
@@ -34,7 +34,7 @@ export default function CastleGallery({ castles }: CastleGalleryProps) {
                   <div className="castle-gallery__image">
                     <UiImage
                       src={image}
-                      alt={`${castle.name} - ${index + 1}`}
+                      alt={`${castle.name} - фото ${index + 1}`}
                       width={400}
                       height={500}
                     />
@@ -43,8 +43,8 @@ export default function CastleGallery({ castles }: CastleGalleryProps) {
               ))}
             </Swiper>
           </div>
-          <p className="castle-gallery__name">{castle.name}</p>
-        </div>
+          <figcaption className="castle-gallery__name">{castle.name}</figcaption>
+        </figure>
       ))}
     </div>
   );

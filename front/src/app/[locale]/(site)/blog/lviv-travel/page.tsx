@@ -42,7 +42,7 @@ export default async function LvivTravelPage() {
   const t = await getTranslations("blogLvivTravel");
 
   return (
-    <div className="article-section__inner">
+    <article className="article-section__inner" aria-labelledby="article-title">
       {/* Breadcrumbs */}
       <Breadcrumbs
         mode="JsonLd"
@@ -54,19 +54,19 @@ export default async function LvivTravelPage() {
       />
 
       {/* Breadcrumb line */}
-      <div className="article__breadcrumb">
+      <nav className="article__breadcrumb" aria-label={t("breadcrumbs.nav_label")}>
         <Link href="/" className="article__breadcrumb-home">{t("breadcrumbs.home")}</Link>
-        <span className="article__breadcrumb-sep">&mdash;</span>
+        <span className="article__breadcrumb-sep" aria-hidden="true">&mdash;</span>
         <Link href="/blog" className="article__breadcrumb-parent">{t("breadcrumbs.blog")}</Link>
-        <span className="article__breadcrumb-sep">&mdash;</span>
-        <span className="article__breadcrumb-current">{t("breadcrumbs.current")}</span>
-      </div>
+        <span className="article__breadcrumb-sep" aria-hidden="true">&mdash;</span>
+        <span className="article__breadcrumb-current" aria-current="page">{t("breadcrumbs.current")}</span>
+      </nav>
 
       {/* Article Title */}
-      <h1 className="article__title">{t("title")}</h1>
+      <h1 id="article-title" className="article__title">{t("title")}</h1>
 
       {/* Hero Image Container */}
-      <div className="article__hero-image">
+      <figure className="article__hero-image">
         <UiImage
           src="/img/blog/synevir-lake.webp"
           alt={t("hero_alt")}
@@ -74,7 +74,7 @@ export default async function LvivTravelPage() {
           height={450}
           priority
         />
-      </div>
+      </figure>
 
       {/* Article Content */}
       <div className="article__content">
@@ -124,12 +124,13 @@ export default async function LvivTravelPage() {
         />
 
         {/* Location buttons */}
-        <div className="article__locations">
+        <nav className="article__locations" aria-label={t("locations_aria")}>
           <a
             href="https://www.google.com/maps/search/?api=1&query=Олеський+замок"
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route1.castles.olesky")} — Google Maps`}
           >
             {t("routes.route1.castles.olesky")}
           </a>
@@ -138,6 +139,7 @@ export default async function LvivTravelPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route1.castles.pidhirtsi")} — Google Maps`}
           >
             {t("routes.route1.castles.pidhirtsi")}
           </a>
@@ -146,10 +148,11 @@ export default async function LvivTravelPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route1.castles.zolochiv")} — Google Maps`}
           >
             {t("routes.route1.castles.zolochiv")}
           </a>
-        </div>
+        </nav>
 
         <h3>{t("routes.route1.insight_title")}</h3>
         <p>{t("routes.route1.insight_time")}</p>
@@ -174,12 +177,13 @@ export default async function LvivTravelPage() {
         <p>{t("routes.route2.p1")}</p>
 
         {/* Location buttons */}
-        <div className="article__locations">
+        <nav className="article__locations" aria-label={t("locations_aria")}>
           <a
             href="https://www.google.com/maps/search/?api=1&query=Тустань+Урич"
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route2.locations_btn.tustan")} — Google Maps`}
           >
             {t("routes.route2.locations_btn.tustan")}
           </a>
@@ -188,6 +192,7 @@ export default async function LvivTravelPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route2.locations_btn.waterfall")} — Google Maps`}
           >
             {t("routes.route2.locations_btn.waterfall")}
           </a>
@@ -196,10 +201,11 @@ export default async function LvivTravelPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route2.locations_btn.lake")} — Google Maps`}
           >
             {t("routes.route2.locations_btn.lake")}
           </a>
-        </div>
+        </nav>
 
         <h3>{t("routes.route2.insight_title")}</h3>
         <p>{t("routes.route2.insight_timing")}</p>
@@ -230,12 +236,13 @@ export default async function LvivTravelPage() {
         />
 
         {/* Location buttons */}
-        <div className="article__locations">
+        <nav className="article__locations" aria-label={t("locations_aria")}>
           <a
             href="https://www.google.com/maps/search/?api=1&query=Тараканівський+форт"
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route3.locations_btn.fort")} — Google Maps`}
           >
             {t("routes.route3.locations_btn.fort")}
           </a>
@@ -244,10 +251,11 @@ export default async function LvivTravelPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route3.locations_btn.lubart")} — Google Maps`}
           >
             {t("routes.route3.locations_btn.lubart")}
           </a>
-        </div>
+        </nav>
 
         <h3>{t("routes.route3.insight_title")}</h3>
         <p>{t("routes.route3.insight_time")}</p>
@@ -273,12 +281,13 @@ export default async function LvivTravelPage() {
         />
 
         {/* Location buttons */}
-        <div className="article__locations">
+        <nav className="article__locations" aria-label={t("locations_aria")}>
           <a
             href="https://www.google.com/maps/search/?api=1&query=Озеро+Синевир"
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route4.locations_btn.synevir")} — Google Maps`}
           >
             {t("routes.route4.locations_btn.synevir")}
           </a>
@@ -287,6 +296,7 @@ export default async function LvivTravelPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route4.locations_btn.shypit")} — Google Maps`}
           >
             {t("routes.route4.locations_btn.shypit")}
           </a>
@@ -295,10 +305,11 @@ export default async function LvivTravelPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="article__location-btn"
+            title={`${t("routes.route4.locations_btn.bears")} — Google Maps`}
           >
             {t("routes.route4.locations_btn.bears")}
           </a>
-        </div>
+        </nav>
 
         <h3>{t("routes.route4.insight_title")}</h3>
         <p>{t("routes.route4.insight_fog")}</p>
@@ -318,6 +329,6 @@ export default async function LvivTravelPage() {
         </ul>
         <p>{t("conclusion.cta")}</p>
       </div>
-    </div>
+    </article>
   );
 }

@@ -13,7 +13,7 @@ interface RouteSliderProps {
 
 export default function RouteSlider({ images, alt }: RouteSliderProps) {
   return (
-    <div className="route-slider">
+    <figure className="route-slider" role="group" aria-label={alt}>
       <Swiper
         modules={[Pagination]}
         pagination={{ clickable: true }}
@@ -26,7 +26,7 @@ export default function RouteSlider({ images, alt }: RouteSliderProps) {
             <div className="route-slider__image">
               <UiImage
                 src={image}
-                alt={`${alt} ${index + 1}`}
+                alt={`${alt} - фото ${index + 1}`}
                 width={800}
                 height={450}
               />
@@ -34,6 +34,6 @@ export default function RouteSlider({ images, alt }: RouteSliderProps) {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </figure>
   );
 }

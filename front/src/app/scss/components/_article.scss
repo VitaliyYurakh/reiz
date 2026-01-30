@@ -88,6 +88,7 @@
   background: var(--cl-q);
   border-radius: 20px;
   overflow: hidden;
+  margin: 0;
   margin-top: clamp(16px, 1.4706vw, 20px);
   margin-bottom: clamp(8px, 0.8824vw, 12px);
 
@@ -314,6 +315,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin: 0;
 }
 
 .castle-gallery__slider {
@@ -493,6 +495,7 @@
   border-radius: 20px;
   overflow: hidden;
   background: var(--cl-q);
+  margin: 0;
 
   img {
     width: 100%;

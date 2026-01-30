@@ -15,21 +15,21 @@ export default function PhotoCollage({ images, alt }: PhotoCollageProps) {
   return (
     <>
       {/* Desktop: Grid */}
-      <div className="photo-collage">
+      <div className="photo-collage" role="group" aria-label={alt}>
         {images.map((image, index) => (
-          <div key={index} className="photo-collage__item">
+          <figure key={index} className="photo-collage__item">
             <UiImage
               src={image}
-              alt={`${alt} ${index + 1}`}
+              alt={`${alt} - фото ${index + 1}`}
               width={400}
               height={500}
             />
-          </div>
+          </figure>
         ))}
       </div>
 
       {/* Mobile: Slider */}
-      <div className="photo-collage-mobile">
+      <div className="photo-collage-mobile" role="group" aria-label={alt}>
         <Swiper
           modules={[Pagination]}
           pagination={{ clickable: true }}
@@ -42,7 +42,7 @@ export default function PhotoCollage({ images, alt }: PhotoCollageProps) {
               <div className="photo-collage-mobile__image">
                 <UiImage
                   src={image}
-                  alt={`${alt} ${index + 1}`}
+                  alt={`${alt} - фото ${index + 1}`}
                   width={400}
                   height={500}
                 />

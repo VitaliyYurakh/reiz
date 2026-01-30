@@ -1486,10 +1486,12 @@
     "breadcrumbs": {
       "home": "Home",
       "blog": "Articles",
-      "current": "Top 4 Routes from Lviv"
+      "current": "Top 4 Routes from Lviv",
+      "nav_label": "Page navigation"
     },
     "title": "Top 4 Routes from Lviv: Where to Find Instagram-Worthy Views and When to Go to Avoid Crowds",
     "hero_alt": "Lake Synevir in the Carpathians — best photo destination from Lviv",
+    "locations_aria": "Location links to Google Maps",
     "intro": {
       "p1": "Lviv region is a ready-made movie set. Here you'll find locations in the style of \"Bridgerton\", mystical ruins like in The Last of Us, and rocks reminiscent of \"Game of Thrones\" landscapes.",
       "p2": "But there's a catch: the most beautiful shots are taken at sunrise or sunset when tourist buses haven't arrived yet or have already left. To catch that perfect light and fog, you need freedom of movement.",
