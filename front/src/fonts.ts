@@ -57,7 +57,7 @@ export const kyivType = localFont({
 });
 
 export const jost = Jost({
-  subsets: ["latin", "cyrillic", "cyrillic-ext"],
+  subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-jost",
   fallback: ["Arial", "sans-serif"],
