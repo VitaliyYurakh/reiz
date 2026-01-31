@@ -12,7 +12,7 @@
 
   .container{
     &::before{
-       border-bottom: 1px solid #575757;
+       border-bottom: 1px solid rgba(255, 255, 255, 0.283);
        content: '';
        width: 100vw;
        left: 50%;
@@ -21,6 +21,10 @@
        position: absolute;
        pointer-events: none;
        z-index: -1;
+
+       @include tablet {
+         border-bottom-color: #575757;
+       }
     }
   }
 
@@ -47,16 +51,25 @@
 
   &.mode,
   &.open-menu,
-  &.sticky {
+  &.sticky,
+  &.rental {
     background: var(--body-bg);
 
     .container::before {
-      border-bottom-color: #e5e5e5;
+      border-bottom-color: rgb(0 0 0 / .07);
+
+      @include tablet {
+        border-bottom-color: #e5e5e5;
+      }
     }
 
     .logo {
       color: var(--cl-a);
-      border-left-color: #e5e5e5;
+      border-left-color: rgb(0 0 0 / .07);
+
+      @include tablet {
+        border-left-color: #e5e5e5;
+      }
     }
 
     .burger {
@@ -64,9 +77,20 @@
     }
 
     .phone-link {
-      border-left-color: #e5e5e5;
+      border-left-color: rgb(0 0 0 / .07);
+
+      @include tablet {
+        border-left-color: #e5e5e5;
+      }
+
       .sprite {
         color: var(--cl-a);
+      }
+    }
+
+    .header__links {
+      @include for-tablet {
+        border-left-color: rgb(0 0 0 / .07);
       }
     }
 
@@ -330,7 +354,7 @@
       grid-column: 2/3;
       height: 100%;
       padding-left: 40px;
-      border-left: solid 1px #575757;
+      border-left: solid 1px rgba(255, 255, 255, 0.283);
     }
 
     @include tablet {

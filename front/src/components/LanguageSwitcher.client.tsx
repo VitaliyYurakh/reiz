@@ -11,7 +11,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 type Props = {
   children: React.ReactNode;
@@ -29,6 +29,7 @@ export default function LanguageSwitcherClient({
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const listboxId = useId();
+  const router = useRouter();
 
   const pathname = usePathname() || "/";
   const searchParams = useSearchParams();
@@ -86,14 +87,18 @@ export default function LanguageSwitcherClient({
     e.stopPropagation();
     const option = (e.target as HTMLElement).closest("[data-locale]");
     const nextLocale = option?.getAttribute("data-locale");
-    if (nextLocale) {
-      document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
-    }
-    // Не закриваємо дропдаун одразу - дозволяємо Link спочатку виконати навігацію
-    // Затримка дає час для обробки кліку на посиланні
+    if (!nextLocale) return;
+
+    document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
+
     const a = (e.target as HTMLElement).closest("a");
     if (a) {
-      setTimeout(() => setOpen(false), 100);
+      e.preventDefault();
+      const href = a.getAttribute("href");
+      if (href) {
+        setOpen(false);
+        router.replace(href);
+      }
     }
   };
 
