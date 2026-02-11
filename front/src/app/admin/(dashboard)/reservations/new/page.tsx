@@ -25,7 +25,7 @@ import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 
 interface ClientOption { id: number; firstName: string; lastName: string; phone: string }
-interface CarOption { id: number; brand: string; model: string; plateNumber: string }
+interface CarOption { id: number; brand: string | null; model: string | null; plateNumber: string | null }
 interface CoverageOption { id: number; name: string; depositPercent: number }
 interface AddOnOption { id: number; name: string; pricingMode: string; unitPriceMinor: number; currency: string; qtyEditable: boolean }
 
@@ -291,7 +291,7 @@ export default function NewReservationPage() {
             onChange={(v) => set('carId', v)}
             options={[
               { value: '', label: t('newReservation.selectCar') },
-              ...cars.map(c => ({ value: String(c.id), label: `${c.brand} ${c.model} (${c.plateNumber})` })),
+              ...cars.map(c => ({ value: String(c.id), label: `${c.brand || ''} ${c.model || ''} (${c.plateNumber || ''})`.trim() })),
             ]}
             placeholder={t('newReservation.selectCar')}
             className="w-full text-[13px]"

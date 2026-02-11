@@ -46,9 +46,9 @@ interface ServiceEvent {
 
 interface CarOption {
   id: number;
-  brand: string;
-  model: string;
-  plateNumber: string;
+  brand: string | null;
+  model: string | null;
+  plateNumber: string | null;
 }
 
 interface FormData {
@@ -352,7 +352,7 @@ export default function ServicePage() {
                   { value: '', label: t('service.selectCar') },
                   ...cars.map((c) => ({
                     value: String(c.id),
-                    label: `${c.brand} ${c.model} — ${c.plateNumber}`,
+                    label: `${c.brand || ''} ${c.model || ''} — ${c.plateNumber || ''}`.trim(),
                   })),
                 ]}
               />
@@ -559,7 +559,7 @@ export default function ServicePage() {
                               { value: '', label: t('finance.selectPlaceholder') },
                               ...cars.map((c) => ({
                                 value: String(c.id),
-                                label: `${c.brand} ${c.model} — ${c.plateNumber}`,
+                                label: `${c.brand || ''} ${c.model || ''} — ${c.plateNumber || ''}`.trim(),
                               })),
                             ]}
                           />
