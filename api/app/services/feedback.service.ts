@@ -1,6 +1,7 @@
 import {prisma} from '../utils';
 import {logger} from '../utils';
 import telegramService from './telegram.service';
+import rentalRequestService from './rental-request.service';
 import {
     BookingRequestDto,
     ContactRequestDto,
@@ -61,6 +62,14 @@ class FeedbackService {
                 }
             } catch (error) {
                 logger.error(`Failed to send Telegram notification for booking ${bookingRequest.id}: ${error.message}`);
+            }
+
+            // Auto-create RentalRequest for CRM
+            try {
+                await rentalRequestService.createFromBookingRequest(bookingRequest.id);
+                logger.info(`RentalRequest created for BookingRequest ${bookingRequest.id}`);
+            } catch (error) {
+                logger.error(`Failed to create RentalRequest for booking ${bookingRequest.id}: ${error.message}`);
             }
 
             return bookingRequest;

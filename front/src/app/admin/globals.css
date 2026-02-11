@@ -1,0 +1,1579 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Reset public-site body padding for admin pages */
+:root {
+    --header-height: 0px !important;
+}
+body {
+    padding-top: 0 !important;
+    display: block !important;
+    grid-template-rows: none !important;
+    min-height: 100vh !important;
+    background-color: transparent !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   iOS Settings Design System — Design Tokens
+   ═══════════════════════════════════════════════════════════ */
+
+@theme {
+    /* Font — system (SF Pro on Apple, system-ui elsewhere) */
+    --font-sans: system-ui, -apple-system, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Inter, sans-serif;
+
+    /* ── Horizon UI tokens ── */
+    --color-h-navy: #2B3674;
+    --color-h-gray: #A3AED0;
+    --color-h-bg: #F4F7FE;
+    --color-h-purple: #4318FF;
+    --color-h-purple-light: #868CFF;
+    --color-h-green: #01B574;
+    --color-h-red: #EE5D50;
+    --color-h-orange: #FFB547;
+    --color-h-border: #E2E8F0;
+    --shadow-h: 0px 2px 8px rgba(0,0,0,0.06);
+    --shadow-h-md: 0px 4px 16px rgba(0,0,0,0.08);
+
+    /* ── Surfaces ── */
+    --color-background: #F2F2F7;          /* systemGroupedBackground */
+    --color-foreground: #000000;          /* label */
+    --color-card: #FFFFFF;                /* secondarySystemGroupedBackground */
+    --color-card-foreground: #000000;
+    --color-popover: #FFFFFF;
+    --color-popover-foreground: #000000;
+
+    /* ── Primary = systemBlue ── */
+    --color-primary: #007AFF;
+    --color-primary-foreground: #FFFFFF;
+
+    /* ── Secondary ── */
+    --color-secondary: #F2F2F7;
+    --color-secondary-foreground: #3C3C43;
+
+    /* ── Muted ── */
+    --color-muted: #E5E5EA;              /* systemGray5 */
+    --color-muted-foreground: #8E8E93;   /* systemGray */
+
+    /* ── Accent ── */
+    --color-accent: #F2F2F7;
+    --color-accent-foreground: #000000;
+
+    /* ── Destructive ── */
+    --color-destructive: #FF3B30;
+    --color-destructive-foreground: #FFFFFF;
+
+    /* ── Borders & Rings ── */
+    --color-border: #C6C6C8;             /* separator (solid approx) */
+    --color-input: #C6C6C8;
+    --color-ring: #007AFF;
+
+    /* ── Sidebar ── */
+    --color-sidebar-background: #FFFFFF;
+    --color-sidebar-foreground: #000000;
+    --color-sidebar-primary: #007AFF;
+    --color-sidebar-primary-foreground: #FFFFFF;
+    --color-sidebar-accent: #F2F2F7;
+    --color-sidebar-accent-foreground: #007AFF;
+    --color-sidebar-border: #C6C6C8;
+    --color-sidebar-ring: #007AFF;
+
+    /* ── Chart Colors ── */
+    --color-chart-blue: #007AFF;
+    --color-chart-green: #34C759;
+    --color-chart-red: #FF3B30;
+    --color-chart-orange: #FF9500;
+    --color-chart-purple: #AF52DE;
+    --color-chart-gray: #E5E5EA;
+
+    /* ── Radius (iOS) ── */
+    --radius-sm: 0.375rem;   /* 6px */
+    --radius-md: 0.5rem;     /* 8px */
+    --radius-lg: 0.625rem;   /* 10px */
+    --radius-xl: 0.75rem;    /* 12px */
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   iOS Settings — Component Classes
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Text Field / Input ── */
+.ios-input {
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(60, 60, 67, 0.18);
+    background: #FFFFFF;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 13px;
+    line-height: 1.25;
+    color: #000000;
+    transition: all 150ms;
+}
+.ios-input::placeholder {
+    color: rgba(60, 60, 67, 0.30);
+}
+.ios-input:focus {
+    outline: none;
+    border-color: #007AFF;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25);
+}
+.ios-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ── TextArea ── */
+.ios-textarea {
+    border-radius: 10px;
+    border: 1px solid rgba(60, 60, 67, 0.18);
+    background: #FFFFFF;
+    padding: 10px 14px;
+    font-size: 16px;
+    line-height: 1.35;
+    color: #000000;
+    transition: all 150ms;
+    resize: vertical;
+}
+.ios-textarea::placeholder {
+    color: rgba(60, 60, 67, 0.30);
+}
+.ios-textarea:focus {
+    outline: none;
+    border-color: #007AFF;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25);
+}
+
+/* ── Fix: override root button{background:transparent} for Radix triggers ── */
+.ios-select-trigger {
+    background-color: #F7F9FB !important;
+    border: 1px solid #ECEFF1 !important;
+    padding-left: 20px !important;
+    padding-right: 16px !important;
+}
+.ios-select-trigger:hover {
+    background-color: #EEF2F6 !important;
+}
+
+/* ── Select ── */
+.ios-select {
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(60, 60, 67, 0.18);
+    background: #FFFFFF;
+    padding-left: 14px;
+    padding-right: 32px;
+    font-size: 13px;
+    color: #000000;
+    transition: all 150ms;
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%238E8E93' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 1.25em 1.25em;
+}
+.ios-select:focus {
+    outline: none;
+    border-color: #007AFF;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25);
+}
+
+/* ── Section Card (grouped list) ── */
+.ios-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+/* ── Buttons ── */
+.ios-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 40px;
+    border-radius: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 150ms;
+    cursor: pointer;
+    border: none;
+}
+.ios-btn:disabled {
+    cursor: not-allowed;
+}
+
+/* Primary (filled teal gradient) */
+.ios-btn-primary {
+    background: linear-gradient(to right, #26C6DA, #00ACC1);
+    color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0, 172, 193, 0.25);
+}
+.ios-btn-primary:hover {
+    box-shadow: 0 2px 8px rgba(0, 172, 193, 0.35);
+}
+.ios-btn-primary:active {
+    transform: scale(0.98);
+}
+.ios-btn-primary:disabled {
+    background: linear-gradient(to right, #80DEEA, #80DEEA);
+    color: rgba(255, 255, 255, 0.70);
+    box-shadow: none;
+}
+
+/* Secondary (tinted teal) */
+.ios-btn-secondary {
+    background: #F7F9FB;
+    color: #00ACC1;
+    border: 1px solid #ECEFF1;
+}
+.ios-btn-secondary:hover {
+    background: #EEF2F6;
+}
+.ios-btn-secondary:active {
+    transform: scale(0.98);
+}
+
+/* Tertiary (plain/ghost link) */
+.ios-btn-ghost {
+    background: transparent;
+    color: #007AFF;
+}
+.ios-btn-ghost:hover {
+    background: rgba(0, 122, 255, 0.08);
+}
+.ios-btn-ghost:active {
+    opacity: 0.6;
+}
+
+/* Destructive (filled red) */
+.ios-btn-destructive {
+    background: #FF3B30;
+    color: #FFFFFF;
+}
+.ios-btn-destructive:hover {
+    background: #E0352B;
+}
+.ios-btn-destructive:active {
+    background: #CC3228;
+}
+.ios-btn-destructive:disabled {
+    background: rgba(255, 59, 48, 0.30);
+    color: rgba(255, 255, 255, 0.70);
+}
+
+/* Warning (filled orange) */
+.ios-btn-warning {
+    background: #FF9500;
+    color: #FFFFFF;
+}
+.ios-btn-warning:hover {
+    background: #E68600;
+}
+.ios-btn-warning:active {
+    background: #CC7700;
+}
+
+/* ── Segmented Control (Tabs) ── */
+.ios-segmented {
+    display: inline-flex;
+    border-radius: 10px;
+    background: #E5E5EA;
+    padding: 3px;
+}
+.ios-segment {
+    padding: 7px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 7px;
+    color: #8E8E93;
+    transition: all 200ms;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    text-align: center;
+}
+.ios-segment-fill {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 5px 0 !important;
+    font-size: 11px !important;
+    text-align: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ios-segment:hover {
+    color: #636366;
+}
+.ios-segment-active {
+    background: #FFFFFF;
+    color: #000000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Table wrapper ── */
+.ios-table-wrap {
+    overflow: hidden;
+    border-radius: 16px;
+    background: #FFFFFF;
+}
+
+/* ── Section Title (uppercase label above sections) ── */
+.ios-section-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: rgba(60, 60, 67, 0.60);
+    margin-bottom: 8px;
+}
+
+/* ── Separator ── */
+.ios-separator {
+    border-color: rgba(60, 60, 67, 0.29);
+}
+
+/* ── Alert ── */
+.ios-alert-destructive {
+    border-radius: 12px;
+    background: rgba(255, 59, 48, 0.12);
+    padding: 12px 16px;
+    color: #FF3B30;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ── Badge ── */
+.ios-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ── Back / Icon button ── */
+.ios-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #F7F9FB;
+    color: #607D8B;
+    border: 1px solid #ECEFF1;
+    transition: all 150ms;
+    cursor: pointer;
+}
+.ios-icon-btn:hover {
+    background: #EEF2F6;
+    color: #263238;
+}
+
+/* ── Pagination buttons ── */
+.ios-page-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #F7F9FB;
+    color: #607D8B;
+    border: 1px solid #ECEFF1;
+    transition: all 150ms;
+    cursor: pointer;
+}
+.ios-page-btn:hover {
+    background: #EEF2F6;
+    color: #263238;
+}
+.ios-page-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   Horizon UI Design System — Component Classes
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Page root ── */
+.h-page {
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Card (white, rounded, shadow) ── */
+.h-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: var(--shadow-h);
+}
+
+/* ── Header card (page title row) ── */
+.h-header {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 20px 28px;
+    box-shadow: var(--shadow-h);
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* ── Icon box (48×48 gradient icon holder) ── */
+.h-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    flex-shrink: 0;
+}
+.h-icon-box-lg {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+}
+.h-icon-box-sm {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+}
+.h-icon-box-purple  { background: linear-gradient(135deg, #4318FF, #868CFF); }
+.h-icon-box-green   { background: linear-gradient(135deg, #01B574, #00D68F); }
+.h-icon-box-orange  { background: linear-gradient(135deg, #FFB547, #FF9500); }
+.h-icon-box-gray    { background: linear-gradient(135deg, #A3AED0, #8B97C0); }
+.h-icon-box-red     { background: linear-gradient(135deg, #EE5D50, #E53935); }
+
+/* ── Title / Subtitle ── */
+.h-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-h-navy);
+    margin: 0;
+}
+.h-subtitle {
+    font-size: 13px;
+    color: var(--color-h-gray);
+}
+
+/* ── Count badge (inline pill) ── */
+.h-count {
+    background: var(--color-h-bg);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-h-navy);
+}
+
+/* ── Buttons ── */
+.h-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 14px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+}
+.h-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.h-btn-primary {
+    background: linear-gradient(135deg, #4318FF, #868CFF);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(67, 24, 255, 0.25);
+}
+.h-btn-primary:hover {
+    box-shadow: 0 6px 16px rgba(67, 24, 255, 0.35);
+}
+.h-btn-danger {
+    background: #EE5D50;
+    color: #FFFFFF;
+}
+.h-btn-outline {
+    background: #FFFFFF;
+    color: var(--color-h-gray);
+    border: 1px solid var(--color-h-border);
+}
+.h-btn-sm {
+    padding: 9px 18px;
+    font-size: 13px;
+    border-radius: 12px;
+}
+
+/* ── Inputs ── */
+.h-input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--color-h-border);
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-h-navy);
+    background: #FFFFFF;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.h-input::placeholder {
+    color: var(--color-h-gray);
+}
+.h-input:focus {
+    border-color: var(--color-h-purple);
+}
+.h-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.h-input-mono {
+    font-family: monospace;
+}
+
+/* ── Textarea ── */
+.h-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--color-h-border);
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-h-navy);
+    background: #FFFFFF;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+    min-height: 60px;
+}
+.h-textarea:focus {
+    border-color: var(--color-h-purple);
+}
+
+/* ── Label ── */
+.h-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-h-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Select (native) ── */
+.h-select {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--color-h-border);
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-h-navy);
+    background: #FFFFFF;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+.h-select:focus {
+    border-color: var(--color-h-purple);
+}
+
+/* ── Form grid ── */
+.h-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+/* ── Table ── */
+.h-table-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: var(--shadow-h);
+    overflow: hidden;
+}
+.h-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+}
+.h-th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-h-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+.h-th-right {
+    text-align: right;
+}
+.h-tr {
+    border-bottom: 1px solid var(--color-h-bg);
+    transition: background 0.15s;
+}
+.h-tr:hover {
+    background: #FAFBFF;
+}
+.h-tr-edit {
+    border-bottom: 1px solid var(--color-h-bg);
+    background: #FAFBFF;
+}
+.h-td {
+    padding: 14px 16px;
+}
+.h-td-edit {
+    padding: 10px 16px;
+    vertical-align: top;
+}
+.h-td-id {
+    font-weight: 600;
+    color: var(--color-h-navy);
+}
+.h-td-mono {
+    font-family: monospace;
+    font-size: 12px;
+}
+.h-td-gray {
+    color: var(--color-h-gray);
+}
+.h-td-navy {
+    color: var(--color-h-navy);
+}
+.h-td-truncate {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ── Badge / Pill ── */
+.h-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.h-badge-sm {
+    padding: 4px 10px;
+    font-size: 11px;
+}
+.h-badge-purple  { background: #E9E3FF; color: #4318FF; }
+.h-badge-orange  { background: #FFF5E0; color: #CC8400; }
+.h-badge-green   { background: #E0F5EB; color: #01885A; }
+.h-badge-blue    { background: #E0EFFF; color: #2563EB; }
+.h-badge-cyan    { background: #E0F7FA; color: #00838F; }
+.h-badge-gray    { background: var(--color-h-bg); color: var(--color-h-gray); }
+.h-badge-red     { background: rgba(238,93,80,0.1); color: #EE5D50; }
+.h-badge-red-solid    { background: #FFE8E6; color: #D32F2F; }
+.h-badge-green-solid  { background: rgba(1,181,116,0.1); color: #01B574; }
+.h-badge-in     { background: rgba(1,181,116,0.1); color: #01B574; }
+.h-badge-out    { background: rgba(238,93,80,0.1); color: #EE5D50; }
+
+[data-theme="dark"] .h-badge-purple  { background: rgba(67,24,255,0.15); color: #B39DDB; }
+[data-theme="dark"] .h-badge-orange  { background: rgba(204,132,0,0.15); color: #FFB74D; }
+[data-theme="dark"] .h-badge-green   { background: rgba(1,136,90,0.15); color: #81C784; }
+[data-theme="dark"] .h-badge-blue    { background: rgba(37,99,235,0.15); color: #90CAF9; }
+[data-theme="dark"] .h-badge-cyan    { background: rgba(0,131,143,0.15); color: #80DEEA; }
+[data-theme="dark"] .h-badge-red     { background: rgba(238,93,80,0.15); color: #EF9A9A; }
+[data-theme="dark"] .h-badge-red-solid    { background: rgba(211,47,47,0.15); color: #EF9A9A; }
+[data-theme="dark"] .h-badge-green-solid  { background: rgba(1,181,116,0.15); color: #81C784; }
+
+/* ── Toggle switch ── */
+.h-toggle {
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    position: relative;
+    transition: background 0.2s;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.h-toggle-sm {
+    width: 36px;
+    height: 20px;
+    border-radius: 10px;
+}
+.h-toggle-on {
+    background: var(--color-h-purple);
+}
+.h-toggle-off {
+    background: #CBD5E1;
+}
+.h-toggle-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    position: absolute;
+    top: 2px;
+    transition: left 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+.h-toggle-sm .h-toggle-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+/* ── Action buttons (small, in table rows) ── */
+.h-action-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--color-h-bg);
+    color: var(--color-h-gray);
+}
+.h-action-btn:hover {
+    background: rgba(67, 24, 255, 0.08);
+    color: var(--color-h-purple);
+}
+.h-action-btn-delete:hover {
+    background: rgba(238, 93, 80, 0.08);
+    color: var(--color-h-red);
+}
+.h-action-btn-save {
+    background: rgba(1, 181, 116, 0.1);
+    color: var(--color-h-green);
+}
+.h-action-btn-save:hover {
+    background: rgba(1, 181, 116, 0.2);
+}
+
+/* ── Inline edit button (text + icon) ── */
+.h-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 10px;
+    border: none;
+    background: var(--color-h-bg);
+    color: var(--color-h-gray);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+}
+.h-edit-btn:hover {
+    background: rgba(67, 24, 255, 0.08);
+    color: var(--color-h-purple);
+}
+
+/* ── Reset button (red ghost) ── */
+.h-reset-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(238, 93, 80, 0.08);
+    color: var(--color-h-red);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Filter toggle button ── */
+.h-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+}
+.h-filter-btn-off {
+    background: var(--color-h-bg);
+    color: var(--color-h-gray);
+}
+.h-filter-btn-on {
+    background: var(--color-h-purple);
+    color: #FFFFFF;
+}
+.h-filter-count {
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+}
+
+/* ── Filter panel ── */
+.h-filter-panel {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow-h);
+    margin-bottom: 16px;
+}
+
+/* ── Pagination ── */
+.h-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-top: 1px solid var(--color-h-bg);
+}
+.h-page-info {
+    font-size: 13px;
+    color: var(--color-h-gray);
+}
+.h-page-nav {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--color-h-bg);
+    color: var(--color-h-gray);
+}
+.h-page-nav:disabled {
+    background: transparent;
+    color: #D1D5DB;
+    cursor: default;
+}
+.h-page-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--color-h-gray);
+}
+.h-page-num-active {
+    background: linear-gradient(135deg, #4318FF, #868CFF);
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(67, 24, 255, 0.25);
+}
+.h-page-ellipsis {
+    padding: 0 4px;
+    color: var(--color-h-gray);
+    font-size: 13px;
+}
+
+/* ── Tab group (Horizon pill tabs) ── */
+.h-tabs {
+    display: inline-flex;
+    background: var(--color-h-bg);
+    border-radius: 14px;
+    padding: 4px;
+    gap: 4px;
+}
+.h-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--color-h-gray);
+}
+.h-tab-active {
+    background: #FFFFFF;
+    color: var(--color-h-navy);
+    font-weight: 600;
+    box-shadow: var(--shadow-h);
+}
+
+/* ── Modal overlay ── */
+.h-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+}
+.h-modal {
+    width: 100%;
+    max-width: 520px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: var(--shadow-h-md);
+    font-family: 'DM Sans', sans-serif;
+}
+.h-modal-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-h-navy);
+    margin: 0;
+}
+
+/* ── Empty state ── */
+.h-empty {
+    padding: 48px 16px;
+    text-align: center;
+    color: var(--color-h-gray);
+    font-size: 15px;
+}
+.h-empty-icon {
+    margin: 0 auto 12px;
+    opacity: 0.3;
+}
+
+/* ── Shimmer (loading skeleton) ── */
+@keyframes h-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+.h-shimmer {
+    height: 16px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--color-h-bg) 25%, #E8ECF4 50%, var(--color-h-bg) 75%);
+    background-size: 200% 100%;
+    animation: h-shimmer 1.5s infinite;
+}
+.h-shimmer-lg {
+    height: 44px;
+    width: 280px;
+    border-radius: 12px;
+}
+
+/* ── Link (purple) ── */
+.h-link {
+    color: var(--color-h-purple);
+    text-decoration: none;
+    font-weight: 500;
+}
+.h-link:hover {
+    text-decoration: underline;
+}
+
+/* ── Profile card rows ── */
+.h-profile-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--color-h-bg);
+    border-radius: 14px;
+}
+
+/* ── Login page ── */
+.h-login-bg {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #868CFF, #4318FF);
+    overflow: hidden;
+    font-family: 'DM Sans', sans-serif;
+    z-index: 50;
+}
+.h-login-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    background: #FFFFFF;
+}
+.h-login-card {
+    width: 100%;
+    max-width: 420px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 44px 36px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+}
+.h-login-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #4318FF, #868CFF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 12px rgba(67, 24, 255, 0.25);
+}
+.h-login-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-h-navy);
+    margin: 0 0 4px;
+}
+.h-login-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-h-gray);
+    margin: 0 0 32px;
+}
+.h-login-input-wrap {
+    position: relative;
+}
+.h-login-input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-h-gray);
+    pointer-events: none;
+}
+.h-login-input {
+    width: 100%;
+    padding: 12px 14px 12px 44px;
+    border-radius: 14px;
+    border: 1px solid var(--color-h-border);
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-h-navy);
+    outline: none;
+    transition: border-color 0.2s;
+}
+.h-login-input:focus {
+    border-color: var(--color-h-purple);
+}
+.h-login-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, #4318FF, #868CFF);
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(67, 24, 255, 0.25);
+    transition: box-shadow 0.2s;
+}
+.h-login-btn:hover {
+    box-shadow: 0 6px 20px rgba(67, 24, 255, 0.35);
+}
+.h-login-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.h-login-error {
+    text-align: center;
+    font-size: 13px;
+    color: var(--color-h-red);
+    margin-bottom: 16px;
+}
+
+/* ── Section label (uppercase, small, gray) ── */
+.h-section-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-h-gray);
+    margin-bottom: 16px;
+}
+
+/* ── Error alert box ── */
+.h-alert-error {
+    background: #FEF2F2;
+    border: 1px solid rgba(238, 93, 80, 0.25);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--color-h-red);
+    font-weight: 500;
+}
+
+/* ── Required asterisk ── */
+.h-required {
+    color: var(--color-h-red);
+}
+
+/* ── Icon box tinted (light bg, colored icon) ── */
+.h-icon-box-tint-purple,
+.h-icon-box-tint-green,
+.h-icon-box-tint-blue {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.h-icon-box-tint-purple {
+    background: rgba(67, 24, 255, 0.06);
+    color: var(--color-h-purple);
+}
+.h-icon-box-tint-green {
+    background: rgba(1, 181, 116, 0.08);
+    color: var(--color-h-green);
+}
+.h-icon-box-tint-blue {
+    background: rgba(37, 99, 235, 0.06);
+    color: #2563EB;
+}
+
+/* ── Account card ── */
+.h-account-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow-h);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.h-account-card-inactive {
+    opacity: 0.5;
+}
+.h-account-status {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+.h-account-status-active {
+    background: rgba(1, 181, 116, 0.08);
+    color: var(--color-h-green);
+}
+.h-account-status-inactive {
+    background: #F1F1F1;
+    color: var(--color-h-gray);
+}
+
+/* ── Type badge (table inline pill with bg background) ── */
+.h-type-badge {
+    padding: 3px 10px;
+    border-radius: 8px;
+    background: var(--color-h-bg);
+    color: var(--color-h-navy);
+    font-weight: 500;
+    font-size: 12px;
+}
+
+/* ── Money amount ── */
+.h-money-green {
+    font-weight: 600;
+    color: var(--color-h-green);
+}
+.h-money-red {
+    font-weight: 600;
+    color: var(--color-h-red);
+}
+.h-money-sub {
+    font-size: 11px;
+    color: var(--color-h-gray);
+}
+
+/* ── Cancel button (header toggle) ── */
+.h-btn-cancel {
+    background: var(--color-h-bg);
+    color: var(--color-h-navy);
+}
+
+/* ── Header badge with 44px icon ── */
+.h-icon-box-44 {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    flex-shrink: 0;
+}
+
+/* ── Title sizes ── */
+.h-title-sm {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-h-navy);
+    margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Dark Theme Overrides
+   ═══════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+    /* ── Horizon UI tokens ── */
+    --color-h-navy: #E2E8F0;
+    --color-h-gray: #718096;
+    --color-h-bg: #111827;
+    --color-h-purple: #7C5CFF;
+    --color-h-purple-light: #A78BFA;
+    --color-h-green: #48BB78;
+    --color-h-red: #FC8181;
+    --color-h-orange: #F6AD55;
+    --color-h-border: #2D3748;
+    --shadow-h: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-h-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+
+    /* ── Surfaces ── */
+    --color-background: #111827;
+    --color-foreground: #E2E8F0;
+    --color-card: #1A2332;
+    --color-card-foreground: #E2E8F0;
+    --color-popover: #1A2332;
+    --color-popover-foreground: #E2E8F0;
+
+    /* ── Primary ── */
+    --color-primary: #7C5CFF;
+    --color-primary-foreground: #FFFFFF;
+
+    /* ── Secondary ── */
+    --color-secondary: #1E293B;
+    --color-secondary-foreground: #A0AEC0;
+
+    /* ── Muted ── */
+    --color-muted: #2D3748;
+    --color-muted-foreground: #718096;
+
+    /* ── Accent ── */
+    --color-accent: #1E293B;
+    --color-accent-foreground: #E2E8F0;
+
+    /* ── Destructive ── */
+    --color-destructive: #FC8181;
+    --color-destructive-foreground: #FFFFFF;
+
+    /* ── Borders & Rings ── */
+    --color-border: #2D3748;
+    --color-input: #2D3748;
+    --color-ring: #7C5CFF;
+
+    /* ── Sidebar ── */
+    --color-sidebar-background: #1A2332;
+    --color-sidebar-foreground: #E2E8F0;
+    --color-sidebar-primary: #7C5CFF;
+    --color-sidebar-primary-foreground: #FFFFFF;
+    --color-sidebar-accent: #1E293B;
+    --color-sidebar-accent-foreground: #7C5CFF;
+    --color-sidebar-border: #2D3748;
+    --color-sidebar-ring: #7C5CFF;
+
+    /* ── Chart Colors ── */
+    --color-chart-blue: #63B3ED;
+    --color-chart-green: #48BB78;
+    --color-chart-red: #FC8181;
+    --color-chart-orange: #F6AD55;
+    --color-chart-purple: #A78BFA;
+    --color-chart-gray: #2D3748;
+}
+
+/* ── Dark overrides for Horizon component classes ── */
+
+[data-theme="dark"] .h-card,
+[data-theme="dark"] .h-header,
+[data-theme="dark"] .h-table-card,
+[data-theme="dark"] .h-filter-panel,
+[data-theme="dark"] .h-modal,
+[data-theme="dark"] .h-account-card {
+    background: #1A2332;
+}
+
+[data-theme="dark"] .h-tr:hover {
+    background: #1E293B;
+}
+
+[data-theme="dark"] .h-tr-edit {
+    background: #1E293B;
+}
+
+[data-theme="dark"] .h-input,
+[data-theme="dark"] .h-textarea,
+[data-theme="dark"] .h-select {
+    background: #1E293B;
+    border-color: #2D3748;
+    color: #E2E8F0;
+}
+
+[data-theme="dark"] .h-input::placeholder {
+    color: #4A5568;
+}
+
+[data-theme="dark"] .h-btn-outline {
+    background: #1E293B;
+    border-color: #2D3748;
+    color: #718096;
+}
+
+[data-theme="dark"] .h-action-btn {
+    background: #1E293B;
+    color: #718096;
+}
+
+[data-theme="dark"] .h-action-btn:hover {
+    background: rgba(124, 92, 255, 0.12);
+    color: #A78BFA;
+}
+
+[data-theme="dark"] .h-action-btn-delete:hover {
+    background: rgba(252, 129, 129, 0.12);
+    color: #FC8181;
+}
+
+[data-theme="dark"] .h-action-btn-save {
+    background: rgba(72, 187, 120, 0.15);
+    color: #48BB78;
+}
+
+[data-theme="dark"] .h-edit-btn {
+    background: #1E293B;
+    color: #718096;
+}
+
+[data-theme="dark"] .h-edit-btn:hover {
+    background: rgba(124, 92, 255, 0.12);
+    color: #A78BFA;
+}
+
+[data-theme="dark"] .h-reset-btn {
+    background: rgba(252, 129, 129, 0.12);
+    color: #FC8181;
+}
+
+[data-theme="dark"] .h-filter-btn-off {
+    background: #1E293B;
+    color: #718096;
+}
+
+[data-theme="dark"] .h-tab-active {
+    background: #1E293B;
+    color: #E2E8F0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .h-tabs {
+    background: #0F1623;
+}
+
+[data-theme="dark"] .h-page-nav {
+    background: #1E293B;
+    color: #718096;
+}
+
+[data-theme="dark"] .h-page-num {
+    color: #718096;
+}
+
+[data-theme="dark"] .h-type-badge {
+    background: #1E293B;
+    color: #E2E8F0;
+}
+
+[data-theme="dark"] .h-profile-row {
+    background: #1E293B;
+}
+
+[data-theme="dark"] .h-btn-cancel {
+    background: #1E293B;
+    color: #E2E8F0;
+}
+
+[data-theme="dark"] .h-shimmer {
+    background: linear-gradient(90deg, #1E293B 25%, #2D3748 50%, #1E293B 75%);
+    background-size: 200% 100%;
+}
+
+[data-theme="dark"] .h-toggle-off {
+    background: #4A5568;
+}
+
+[data-theme="dark"] .h-icon-box-tint-purple {
+    background: rgba(124, 92, 255, 0.12);
+}
+
+[data-theme="dark"] .h-icon-box-tint-green {
+    background: rgba(72, 187, 120, 0.12);
+}
+
+[data-theme="dark"] .h-icon-box-tint-blue {
+    background: rgba(99, 179, 237, 0.12);
+}
+
+[data-theme="dark"] .h-account-status-inactive {
+    background: #2D3748;
+}
+
+[data-theme="dark"] .h-alert-error {
+    background: rgba(252, 129, 129, 0.12);
+    border-color: rgba(252, 129, 129, 0.25);
+}
+
+[data-theme="dark"] .h-login-card {
+    background: #1A2332;
+}
+
+[data-theme="dark"] .h-login-input {
+    background: #1E293B;
+    border-color: #2D3748;
+    color: #E2E8F0;
+}
+
+/* ── Dark overrides for iOS component classes ── */
+
+[data-theme="dark"] .ios-input,
+[data-theme="dark"] .ios-textarea,
+[data-theme="dark"] .ios-select {
+    background: #1E293B;
+    border-color: #2D3748;
+    color: #E2E8F0;
+}
+
+[data-theme="dark"] .ios-input::placeholder,
+[data-theme="dark"] .ios-textarea::placeholder {
+    color: #4A5568;
+}
+
+[data-theme="dark"] .ios-card,
+[data-theme="dark"] .ios-table-wrap {
+    background: #1A2332;
+}
+
+[data-theme="dark"] .ios-btn-secondary {
+    background: #1E293B;
+    border-color: #2D3748;
+    color: #26C6DA;
+}
+
+[data-theme="dark"] .ios-btn-secondary:hover {
+    background: #2D3748;
+}
+
+[data-theme="dark"] .ios-btn-ghost:hover {
+    background: rgba(124, 92, 255, 0.12);
+}
+
+[data-theme="dark"] .ios-segmented {
+    background: #1E293B;
+}
+
+[data-theme="dark"] .ios-segment-active {
+    background: #2D3748;
+    color: #E2E8F0;
+}
+
+[data-theme="dark"] .ios-icon-btn,
+[data-theme="dark"] .ios-page-btn {
+    background: #1E293B;
+    border-color: #2D3748;
+    color: #718096;
+}
+
+[data-theme="dark"] .ios-icon-btn:hover,
+[data-theme="dark"] .ios-page-btn:hover {
+    background: #2D3748;
+    color: #E2E8F0;
+}
+
+[data-theme="dark"] .ios-select-trigger {
+    background-color: #1E293B !important;
+    border-color: #2D3748 !important;
+}
+
+[data-theme="dark"] .ios-select-trigger:hover {
+    background-color: #2D3748 !important;
+}
+
+[data-theme="dark"] .ios-section-title {
+    color: #718096;
+}
+
+[data-theme="dark"] .ios-separator {
+    border-color: #2D3748;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Fix: override main-site global element text colors
+   The public site SCSS sets color on p, h1-h6, a, button
+   (unlayered), which overrides Tailwind v4 utility classes
+   (in @layer utilities). These rules are unlayered and have
+   higher specificity, so they win over the SCSS rules.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Base foreground color for admin wrapper */
+[data-theme] {
+    color: var(--color-foreground);
+}
+
+/* Reset element-level color overrides from main-site SCSS */
+[data-theme] :is(h1, h2, h3, h4, h5, h6, p, a, button) {
+    color: inherit;
+}
+
+/* Force Tailwind color utilities to win over unlayered SCSS */
+[data-theme] .text-foreground           { color: var(--color-foreground) !important; }
+[data-theme] .text-card-foreground      { color: var(--color-card-foreground) !important; }
+[data-theme] .text-muted-foreground     { color: var(--color-muted-foreground) !important; }
+[data-theme] .text-primary              { color: var(--color-primary) !important; }
+[data-theme] .text-primary-foreground   { color: var(--color-primary-foreground) !important; }
+[data-theme] .text-secondary-foreground { color: var(--color-secondary-foreground) !important; }
+[data-theme] .text-accent-foreground    { color: var(--color-accent-foreground) !important; }
+[data-theme] .text-popover-foreground   { color: var(--color-popover-foreground) !important; }
+[data-theme] .text-destructive          { color: var(--color-destructive) !important; }
+[data-theme] .text-destructive-foreground { color: var(--color-destructive-foreground) !important; }

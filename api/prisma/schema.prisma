@@ -13,11 +13,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ============================================================
+// EXISTING MODELS (preserved — do NOT modify existing columns)
+// ============================================================
+
 model User {
-  id    Int    @id @default(autoincrement())
-  email String @unique
-  pass  String
-  role  String @default("admin")
+  id          Int      @id @default(autoincrement())
+  email       String   @unique
+  pass        String
+  name        String   @default("")
+  role        String   @default("manager")
+  permissions Json     @default("{}")
+  isActive    Boolean  @default(true) @map("is_active")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  // CRM relations
+  assignedRequests    RentalRequest[]  @relation("AssignedRequests")
+  createdTransactions Transaction[]    @relation("CreatedTransactions")
+  inspections         Inspection[]
+  ratingAuthored      Client[]         @relation("RatingAuthor")
+  auditLogs           AuditLog[]       @relation("AuditLogs")
 }
 
 model Car {
@@ -46,6 +62,13 @@ model Car {
   carPhoto        CarPhoto[]
   carCountingRule CarCountingRule[]
   segment         Segment[]
+
+  // CRM relations (no DB column changes)
+  rentalRequests RentalRequest[]
+  reservations   Reservation[]
+  rentals        Rental[]
+  ratePlans      RatePlan[]
+  serviceEvents  ServiceEvent[]
 }
 
 model Segment {
@@ -116,6 +139,9 @@ model BookingRequest {
   priceBreakdown  Json?    @map("price_breakdown")
   telegramSent    Boolean  @default(false) @map("telegram_sent")
   createdAt       DateTime @default(now()) @map("created_at")
+
+  // CRM relation
+  rentalRequest RentalRequest?
 }
 
 model ContactRequest {
@@ -145,4 +171,568 @@ model BusinessRequest {
   message      String?
   telegramSent Boolean  @default(false) @map("telegram_sent")
   createdAt    DateTime @default(now()) @map("created_at")
+}
+
+// ============================================================
+// NEW CRM MODELS
+// ============================================================
+
+// --- Enums ---
+
+enum AddOnPricingMode {
+  PER_DAY
+  ONE_TIME
+  MANUAL_QTY
+}
+
+// --- Client ---
+
+model Client {
+  id                  Int       @id @default(autoincrement())
+  firstName           String    @map("first_name")
+  lastName            String    @map("last_name")
+  middleName          String?   @map("middle_name")
+  phone               String
+  email               String?
+  dateOfBirth         DateTime? @map("date_of_birth")
+  driverLicenseNo     String?   @map("driver_license_no")
+  driverLicenseExpiry DateTime? @map("driver_license_exp")
+  passportNo          String?   @map("passport_no")
+  nationalId          String?   @map("national_id")
+  address             String?
+  city                String?
+  country             String    @default("UA")
+  notes               String?
+  rating              Int?
+  ratingReason        String?   @map("rating_reason")
+  ratingAuthorId      Int?      @map("rating_author_id")
+  source              String?
+  isBlocked           Boolean   @default(false) @map("is_blocked")
+  blockReason         String?   @map("block_reason")
+  blockedAt           DateTime? @map("blocked_at")
+  deletedAt           DateTime? @map("deleted_at")
+  createdAt           DateTime  @default(now()) @map("created_at")
+  updatedAt           DateTime  @updatedAt @map("updated_at")
+
+  ratingAuthor   User?             @relation("RatingAuthor", fields: [ratingAuthorId], references: [id])
+  documents      ClientDocument[]
+  rentalRequests RentalRequest[]
+  reservations   Reservation[]
+  rentals        Rental[]
+  transactions   Transaction[]
+
+  @@index([phone])
+  @@index([email])
+  @@index([lastName, firstName])
+  @@index([deletedAt])
+  @@map("client")
+}
+
+model ClientDocument {
+  id         Int      @id @default(autoincrement())
+  clientId   Int      @map("client_id")
+  type       String
+  fileName   String   @map("file_name")
+  fileUrl    String   @map("file_url")
+  uploadedAt DateTime @default(now()) @map("uploaded_at")
+
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@index([clientId])
+  @@map("client_document")
+}
+
+// --- Rental Request (Lead) ---
+
+model RentalRequest {
+  id               Int       @id @default(autoincrement())
+  source           String    @default("website")
+  status           String    @default("new")
+  clientId         Int?      @map("client_id")
+  bookingRequestId Int?      @unique @map("booking_request_id")
+  carId            Int?      @map("car_id")
+
+  firstName      String?   @map("first_name")
+  lastName       String?   @map("last_name")
+  phone          String?
+  email          String?
+  pickupLocation String?   @map("pickup_location")
+  returnLocation String?   @map("return_location")
+  pickupDate     DateTime? @map("pickup_date")
+  returnDate     DateTime? @map("return_date")
+  flightNumber   String?   @map("flight_number")
+  comment        String?
+
+  websiteSnapshot Json?   @map("website_snapshot")
+  rejectionReason String? @map("rejection_reason")
+
+  assignedToUserId Int? @map("assigned_to_user_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  client         Client?         @relation(fields: [clientId], references: [id])
+  bookingRequest BookingRequest? @relation(fields: [bookingRequestId], references: [id])
+  car            Car?            @relation(fields: [carId], references: [id])
+  assignedTo     User?           @relation("AssignedRequests", fields: [assignedToUserId], references: [id])
+  reservation    Reservation?
+
+  @@index([status])
+  @@index([clientId])
+  @@index([carId])
+  @@index([createdAt])
+  @@map("rental_request")
+}
+
+// --- Catalogs ---
+
+model CoveragePackage {
+  id             Int       @id @default(autoincrement())
+  name           String
+  nameLocalized  Json?     @map("name_localized")
+  depositPercent Int       @map("deposit_percent")
+  description    String?
+  isActive       Boolean   @default(true) @map("is_active")
+  deletedAt      DateTime? @map("deleted_at")
+  createdAt      DateTime  @default(now()) @map("created_at")
+
+  reservations Reservation[]
+
+  @@index([isActive])
+  @@map("coverage_package")
+}
+
+model AddOn {
+  id             Int              @id @default(autoincrement())
+  name           String
+  nameLocalized  Json?            @map("name_localized")
+  pricingMode    AddOnPricingMode @map("pricing_mode")
+  unitPriceMinor Int              @map("unit_price_minor")
+  currency       String           @default("USD")
+  defaultQty     String?          @map("default_qty")
+  qtyEditable    Boolean          @default(false) @map("qty_editable")
+  isActive       Boolean          @default(true) @map("is_active")
+  deletedAt      DateTime?        @map("deleted_at")
+  createdAt      DateTime         @default(now()) @map("created_at")
+
+  reservationAddOns ReservationAddOn[]
+  rentalAddOns      RentalAddOn[]
+
+  @@index([isActive])
+  @@map("add_on")
+}
+
+model RatePlan {
+  id         Int       @id @default(autoincrement())
+  name       String
+  carId      Int       @map("car_id")
+  minDays    Int       @map("min_days")
+  maxDays    Int       @map("max_days")
+  dailyPrice Int       @map("daily_price")
+  currency   String    @default("USD")
+  isActive   Boolean   @default(true) @map("is_active")
+  deletedAt  DateTime? @map("deleted_at")
+  createdAt  DateTime  @default(now()) @map("created_at")
+
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@index([carId, isActive])
+  @@index([deletedAt])
+  @@map("rate_plan")
+}
+
+// --- Reservation ---
+
+model Reservation {
+  id                Int       @id @default(autoincrement())
+  status            String    @default("confirmed")
+  rentalRequestId   Int?      @unique @map("rental_request_id")
+  clientId          Int       @map("client_id")
+  carId             Int       @map("car_id")
+  coveragePackageId Int?      @map("coverage_package_id")
+
+  pickupLocation String   @map("pickup_location")
+  returnLocation String   @map("return_location")
+  pickupDate     DateTime @map("pickup_date")
+  returnDate     DateTime @map("return_date")
+
+  priceSnapshot    Json   @map("price_snapshot")
+  deliveryFee      Int    @default(0) @map("delivery_fee")
+  deliveryCurrency String @default("UAH") @map("delivery_currency")
+
+  cancelReason String?   @map("cancel_reason")
+  cancelledAt  DateTime? @map("cancelled_at")
+  noShowAt     DateTime? @map("no_show_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  rentalRequest     RentalRequest?   @relation(fields: [rentalRequestId], references: [id])
+  client            Client           @relation(fields: [clientId], references: [id])
+  car               Car              @relation(fields: [carId], references: [id])
+  coveragePackage   CoveragePackage? @relation(fields: [coveragePackageId], references: [id])
+  rental            Rental?
+  reservationAddOns ReservationAddOn[]
+  transactions      Transaction[]
+
+  @@index([status])
+  @@index([carId, pickupDate, returnDate])
+  @@index([clientId])
+  @@index([pickupDate])
+  @@index([returnDate])
+  @@map("reservation")
+}
+
+model ReservationAddOn {
+  id             Int    @id @default(autoincrement())
+  reservationId  Int    @map("reservation_id")
+  addOnId        Int    @map("add_on_id")
+  quantity       Int    @default(1)
+  unitPriceMinor Int    @map("unit_price_minor")
+  currency       String @default("USD")
+  totalMinor     Int    @map("total_minor")
+
+  reservation Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  addOn       AddOn       @relation(fields: [addOnId], references: [id])
+
+  @@map("reservation_add_on")
+}
+
+// --- Rental ---
+
+model Rental {
+  id               Int       @id @default(autoincrement())
+  status           String    @default("active")
+  reservationId    Int?      @unique @map("reservation_id")
+  clientId         Int       @map("client_id")
+  carId            Int       @map("car_id")
+  contractNumber   String?   @unique @map("contract_number")
+
+  pickupDate       DateTime  @map("pickup_date")
+  returnDate       DateTime  @map("return_date")
+  actualReturnDate DateTime? @map("actual_return_date")
+
+  pickupLocation String @map("pickup_location")
+  returnLocation String @map("return_location")
+
+  pickupOdometer Int? @map("pickup_odometer")
+  returnOdometer Int? @map("return_odometer")
+  allowedMileage Int? @map("allowed_mileage")
+
+  priceSnapshot Json @map("price_snapshot")
+
+  depositAmount   Int     @default(0) @map("deposit_amount")
+  depositCurrency String  @default("UAH") @map("deposit_currency")
+  depositReturned Boolean @default(false) @map("deposit_returned")
+
+  cancelReason String? @map("cancel_reason")
+  notes        String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  reservation      Reservation?      @relation(fields: [reservationId], references: [id])
+  client           Client            @relation(fields: [clientId], references: [id])
+  car              Car               @relation(fields: [carId], references: [id])
+  rentalAddOns     RentalAddOn[]
+  rentalExtensions RentalExtension[]
+  inspections      Inspection[]
+  fines            Fine[]
+  transactions     Transaction[]
+  documents        Document[]
+
+  @@index([status])
+  @@index([carId, pickupDate, returnDate])
+  @@index([clientId])
+  @@index([contractNumber])
+  @@map("rental")
+}
+
+model RentalAddOn {
+  id             Int    @id @default(autoincrement())
+  rentalId       Int    @map("rental_id")
+  addOnId        Int    @map("add_on_id")
+  quantity       Int    @default(1)
+  unitPriceMinor Int    @map("unit_price_minor")
+  currency       String @default("USD")
+  totalMinor     Int    @map("total_minor")
+
+  rental Rental @relation(fields: [rentalId], references: [id], onDelete: Cascade)
+  addOn  AddOn  @relation(fields: [addOnId], references: [id])
+
+  @@map("rental_add_on")
+}
+
+model RentalExtension {
+  id             Int      @id @default(autoincrement())
+  rentalId       Int      @map("rental_id")
+  oldReturnDate  DateTime @map("old_return_date")
+  newReturnDate  DateTime @map("new_return_date")
+  extraDays      Int      @map("extra_days")
+  dailyRateMinor Int      @map("daily_rate_minor")
+  currency       String   @default("USD")
+  totalMinor     Int      @map("total_minor")
+  reason         String?
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  rental Rental @relation(fields: [rentalId], references: [id], onDelete: Cascade)
+
+  @@map("rental_extension")
+}
+
+// --- Inspection ---
+
+model Inspection {
+  id            Int       @id @default(autoincrement())
+  rentalId      Int       @map("rental_id")
+  type          String
+  inspectorId   Int?      @map("inspector_id")
+  odometer      Int?
+  fuelLevel     Int?      @map("fuel_level")
+  cleanlinessOk Boolean   @default(true) @map("cleanliness_ok")
+  checklist     Json?
+  damages       Json?
+  notes         String?
+  completedAt   DateTime? @map("completed_at")
+  createdAt     DateTime  @default(now()) @map("created_at")
+
+  rental    Rental            @relation(fields: [rentalId], references: [id], onDelete: Cascade)
+  inspector User?             @relation(fields: [inspectorId], references: [id])
+  photos    InspectionPhoto[]
+
+  @@index([rentalId])
+  @@index([type])
+  @@map("inspection")
+}
+
+model InspectionPhoto {
+  id           Int      @id @default(autoincrement())
+  inspectionId Int      @map("inspection_id")
+  url          String
+  caption      String?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  inspection Inspection @relation(fields: [inspectionId], references: [id], onDelete: Cascade)
+
+  @@map("inspection_photo")
+}
+
+// --- Fine ---
+
+model Fine {
+  id          Int      @id @default(autoincrement())
+  rentalId    Int      @map("rental_id")
+  type        String
+  description String
+  amountMinor Int      @map("amount_minor")
+  currency    String   @default("UAH")
+  isPaid      Boolean  @default(false) @map("is_paid")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  rental      Rental       @relation(fields: [rentalId], references: [id], onDelete: Cascade)
+  transaction Transaction?
+
+  @@index([rentalId])
+  @@index([isPaid])
+  @@map("fine")
+}
+
+// --- Service ---
+
+model ServiceEvent {
+  id            Int       @id @default(autoincrement())
+  carId         Int       @map("car_id")
+  type          String
+  description   String
+  startDate     DateTime  @map("start_date")
+  endDate       DateTime? @map("end_date")
+  blocksBooking Boolean   @default(true) @map("blocks_booking")
+  costMinor     Int?      @map("cost_minor")
+  currency      String    @default("UAH")
+  odometer      Int?
+  vendor        String?
+  notes         String?
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@index([carId, startDate, endDate])
+  @@index([blocksBooking])
+  @@map("service_event")
+}
+
+// --- Finance ---
+
+model Account {
+  id       Int     @id @default(autoincrement())
+  name     String
+  type     String
+  currency String  @default("UAH")
+  isActive Boolean @default(true) @map("is_active")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  transactions Transaction[]
+
+  @@map("account")
+}
+
+model Transaction {
+  id             Int    @id @default(autoincrement())
+  type           String
+  accountId      Int    @map("account_id")
+  direction      String
+  amountMinor    Int    @map("amount_minor")
+  currency       String
+  fxRate         Float  @default(1.0) @map("fx_rate")
+  amountUahMinor Int    @map("amount_uah_minor")
+  description    String?
+
+  clientId        Int? @map("client_id")
+  reservationId   Int? @map("reservation_id")
+  rentalId        Int? @map("rental_id")
+  fineId          Int? @unique @map("fine_id")
+  createdByUserId Int? @map("created_by_user_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  account     Account      @relation(fields: [accountId], references: [id])
+  client      Client?      @relation(fields: [clientId], references: [id])
+  reservation Reservation? @relation(fields: [reservationId], references: [id])
+  rental      Rental?      @relation(fields: [rentalId], references: [id])
+  fine        Fine?        @relation(fields: [fineId], references: [id])
+  createdBy   User?        @relation("CreatedTransactions", fields: [createdByUserId], references: [id])
+
+  @@index([accountId])
+  @@index([clientId])
+  @@index([rentalId])
+  @@index([reservationId])
+  @@index([createdAt])
+  @@index([type])
+  @@map("transaction")
+}
+
+// --- Documents ---
+
+model Document {
+  id              Int      @id @default(autoincrement())
+  type            String
+  rentalId        Int?     @map("rental_id")
+  fileUrl         String   @map("file_url")
+  fileName        String   @map("file_name")
+  templateVersion String?  @map("template_version")
+  dataSnapshot    Json?    @map("data_snapshot")
+  generatedAt     DateTime @default(now()) @map("generated_at")
+
+  rental Rental? @relation(fields: [rentalId], references: [id])
+
+  @@index([rentalId])
+  @@index([type])
+  @@map("document")
+}
+
+// --- Notifications ---
+
+model NotificationTemplate {
+  id           Int      @id @default(autoincrement())
+  code         String   @unique
+  channel      String
+  subject      String?
+  bodyTemplate String   @map("body_template")
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  logs NotificationLog[]
+
+  @@map("notification_template")
+}
+
+model NotificationLog {
+  id           Int       @id @default(autoincrement())
+  templateId   Int       @map("template_id")
+  channel      String
+  recipient    String
+  subject      String?
+  body         String
+  status       String
+  errorMessage String?   @map("error_message")
+  sentAt       DateTime? @map("sent_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+
+  template NotificationTemplate @relation(fields: [templateId], references: [id])
+
+  @@index([templateId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("notification_log")
+}
+
+// --- Audit ---
+
+model AuditLog {
+  id         Int      @id @default(autoincrement())
+  actorId    Int?     @map("actor_id")
+  actor      User?    @relation("AuditLogs", fields: [actorId], references: [id])
+  entityType String   @map("entity_type")
+  entityId   Int      @map("entity_id")
+  action     String
+  before     Json?
+  after      Json?
+  ipAddress  String?  @map("ip_address")
+  userAgent  String?  @map("user_agent")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  @@index([entityType, entityId])
+  @@index([actorId])
+  @@index([createdAt])
+  @@map("audit_log")
+}
+
+// --- City & Pickup Location ---
+
+model City {
+  id              Int      @id @default(autoincrement())
+  slug            String   @unique
+  nameUk          String   @map("name_uk")
+  nameRu          String   @map("name_ru")
+  nameEn          String   @map("name_en")
+  nameLocativeUk  String   @map("name_locative_uk")
+  nameLocativeRu  String   @map("name_locative_ru")
+  nameLocativeEn  String   @map("name_locative_en")
+  latitude        String
+  longitude       String
+  postalCode      String   @map("postal_code")
+  region          String
+  sortOrder       Int      @default(0) @map("sort_order")
+  isPopular       Boolean  @default(false) @map("is_popular")
+  isActive        Boolean  @default(true) @map("is_active")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  pickupLocations PickupLocation[]
+
+  @@index([isActive])
+  @@map("city")
+}
+
+model PickupLocation {
+  id        Int      @id @default(autoincrement())
+  cityId    Int      @map("city_id")
+  slug      String
+  nameUk    String   @map("name_uk")
+  nameRu    String   @map("name_ru")
+  nameEn    String   @map("name_en")
+  type      String
+  sortOrder Int      @default(0) @map("sort_order")
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  city City @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  @@unique([cityId, slug])
+  @@index([cityId])
+  @@map("pickup_location")
 }

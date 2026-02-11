@@ -26,7 +26,8 @@ export default async function SchemaOrg({
 }: {
   locale?: Locale;
 }) {
-  const locale = inputLocale ?? ((await getLocale()) as Locale);
+  const rawLocale = inputLocale ?? ((await getLocale()) as Locale);
+  const locale = locales.includes(rawLocale) ? rawLocale : defaultLocale;
   const t = await getTranslations("homePage");
 
   const homeUrl = buildHomeUrl(locale);

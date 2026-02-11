@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useCallback} from "react";
 import intlTelInput from "intl-tel-input";
 import "./TelInput.scss";
 
@@ -23,6 +23,8 @@ export default function TelInput({
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const inputRef = useRef<HTMLInputElement | null>(null);
     const itiRef = useRef<any>(null);
+    const onChangeRef = useRef(onChange);
+    onChangeRef.current = onChange;
 
     useEffect(() => {
         const input = inputRef.current;
@@ -35,8 +37,13 @@ export default function TelInput({
         });
 
         const handleChange = () => {
-            const selectedCountryData = itiRef.current.getSelectedCountryData();
-            onChange?.(selectedCountryData.dialCode + input.value);
+            const iti = itiRef.current;
+            if (!iti) return;
+            // getNumber() requires utils loaded, _getFullNumber() works without utils
+            const number = typeof iti.getNumber === 'function' && intlTelInput.utils
+                ? iti.getNumber()
+                : iti._getFullNumber?.() || '';
+            onChangeRef.current?.(number);
         };
 
         input.addEventListener("input", handleChange);
@@ -52,7 +59,7 @@ export default function TelInput({
             }
             itiRef.current = null;
         };
-    }, [onChange]);
+    }, []);
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         const allowedKeys = [
@@ -72,16 +79,21 @@ export default function TelInput({
         }
     };
 
-    const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    const handlePaste = useCallback((e: React.ClipboardEvent<HTMLInputElement>) => {
         e.preventDefault();
         const pastedData = e.clipboardData.getData("text/plain");
-        const numericData = pastedData.replace(/\D/g, "");
+        // Keep + and digits so pasting "+972532414153" works correctly
+        const cleaned = pastedData.replace(/[^\d+]/g, "");
 
-        if (inputRef.current) {
-            itiRef.current.setNumber(inputRef.current.value + numericData);
-            onChange?.(inputRef.current.value);
+        if (inputRef.current && itiRef.current) {
+            const iti = itiRef.current;
+            iti.setNumber(cleaned);
+            const number = typeof iti.getNumber === 'function' && intlTelInput.utils
+                ? iti.getNumber()
+                : iti._getFullNumber?.() || '';
+            onChangeRef.current?.(number);
         }
-    };
+    }, []);
 
     return (
         <div
@@ -99,7 +111,6 @@ export default function TelInput({
                 className={className}
                 style={{fontFamily: "Inter, sans-serif", fontSize: "14px"}}
                 autoComplete="tel"
-                // Добавляем обработчики
                 onKeyDown={handleKeyDown}
                 onPaste={handlePaste}
             />
