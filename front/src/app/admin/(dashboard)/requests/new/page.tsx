@@ -24,7 +24,7 @@ import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 
 interface ClientOption { id: number; firstName: string; lastName: string; phone: string }
-interface CarOption { id: number; brand: string; model: string; plateNumber: string }
+interface CarOption { id: number; brand: string | null; model: string | null; plateNumber: string | null }
 
 export default function NewRequestPage() {
   const router = useRouter();
@@ -272,7 +272,7 @@ export default function NewRequestPage() {
             onChange={(v) => set('carId', v)}
             options={[
               { value: '', label: t('newRequest.selectCar') },
-              ...cars.map(c => ({ value: String(c.id), label: `${c.brand} ${c.model} (${c.plateNumber})` })),
+              ...cars.map(c => ({ value: String(c.id), label: `${c.brand || ''} ${c.model || ''} (${c.plateNumber || ''})`.trim() })),
             ]}
             placeholder={t('newRequest.selectCar')}
             className="w-full text-[13px]"
