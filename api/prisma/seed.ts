@@ -155,14 +155,18 @@ async function main() {
     });
     if (orphanedBookings.length) {
         console.log(`Migrating ${orphanedBookings.length} BookingRequest(s) to RentalRequests...`);
+        const existingCarIds = new Set(
+            (await prisma.car.findMany({select: {id: true}})).map((c) => c.id),
+        );
         for (const br of orphanedBookings) {
             try {
+                const carExists = br.carId != null && existingCarIds.has(br.carId);
                 await prisma.rentalRequest.create({
                     data: {
                         source: 'website',
                         status: 'new',
                         bookingRequestId: br.id,
-                        carId: br.carId,
+                        carId: carExists ? br.carId : null,
                         firstName: br.firstName,
                         lastName: br.lastName,
                         phone: br.phone,
