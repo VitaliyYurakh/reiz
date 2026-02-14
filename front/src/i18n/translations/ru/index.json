@@ -90,8 +90,8 @@
       "open_box": {
         "filter_button_count": 1,
         "filter_button_text": "Фильтры",
-        "sort_option1": "По возрастанию",
-        "sort_option2": "По убыванию",
+        "sort_option1": "Цена: по возрастанию",
+        "sort_option2": "Цена: по убыванию",
         "sort_option3": "По умолчанию",
         "sort_placeholder_icon": ""
       },
@@ -100,8 +100,8 @@
       "catalog_content": {
         "heading": "Автопарк REIZ: от комфорта до премиум-класса",
         "pretitle": "АВТОМОБИЛИ REIZ",
-        "sort_option1": "По возрастанию",
-        "sort_option2": "По убыванию",
+        "sort_option1": "Цена: по возрастанию",
+        "sort_option2": "Цена: по убыванию",
         "sort_placeholder": "По умолчанию"
       },
       "catalog_list": {
