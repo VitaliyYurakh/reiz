@@ -1,4 +1,4 @@
-import type { Car } from "@/types/cars";
+import { type Car, localized } from "@/types/cars";
 import type { Locale } from "@/i18n/request";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
@@ -27,9 +27,12 @@ export function generateVehicleSchema({
 
   // Collect vehicle configuration items
   const configItems: string[] = [];
-  if (car.transmission?.[locale]) configItems.push(car.transmission[locale]);
-  if (car.engineType?.[locale]) configItems.push(car.engineType[locale]);
-  if (car.driveType?.[locale]) configItems.push(car.driveType[locale]);
+  const trans = localized(car.transmission, locale);
+  const eng = localized(car.engineType, locale);
+  const drv = localized(car.driveType, locale);
+  if (trans) configItems.push(trans);
+  if (eng) configItems.push(eng);
+  if (drv) configItems.push(drv);
   if (car.engineVolume) configItems.push(car.engineVolume);
 
   // Get images (PC type preferred)
@@ -81,8 +84,9 @@ export function generateVehicleSchema({
   }
 
   // Fuel type
-  if (car.engineType?.[locale]) {
-    schema.fuelType = car.engineType[locale];
+  const fuelType = localized(car.engineType, locale);
+  if (fuelType) {
+    schema.fuelType = fuelType;
   }
 
   // Offers (rental pricing)
@@ -157,8 +161,10 @@ export function generateProductSchema({
 
   const descParts: string[] = [];
   if (car.engineVolume) descParts.push(car.engineVolume);
-  if (car.engineType?.[locale]) descParts.push(car.engineType[locale]);
-  if (car.transmission?.[locale]) descParts.push(car.transmission[locale]);
+  const engDesc = localized(car.engineType, locale);
+  const transDesc = localized(car.transmission, locale);
+  if (engDesc) descParts.push(engDesc);
+  if (transDesc) descParts.push(transDesc);
   if (car.seats) descParts.push(`${car.seats} ${seatsText[locale]}`);
 
   const template = descTemplates[locale] || descTemplates.uk;

@@ -1,4 +1,4 @@
-import type { RentalTariff, Car, LocalizedText } from "@/types/cars";
+import { type RentalTariff, type Car, type LocalizedText, localized } from "@/types/cars";
 
 export type SortKey = "default" | "asc" | "desc";
 
@@ -104,6 +104,6 @@ export function formatEngine(
   locale: string,
 ): string {
   const volume = engineVolume ?? "";
-  const type = engineType?.[locale as keyof LocalizedText] ?? "";
+  const type = localized(engineType, locale);
   return type ? `${volume} ${type}`.trim() : volume;
 }

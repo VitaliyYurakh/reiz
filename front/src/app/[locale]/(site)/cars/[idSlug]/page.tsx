@@ -13,7 +13,7 @@ import ThemeColorSetter from "@/app/[locale]/(site)/cars/[idSlug]/components/The
 import CarTabs from "@/app/[locale]/(site)/cars/[idSlug]/components/CarTabs";
 import {fetchCar} from "@/lib/api/cars";
 import {getTranslations} from "next-intl/server";
-import {LocalizedText} from "@/types/cars";
+import {LocalizedText, localized} from "@/types/cars";
 import {createCarIdSlug, parseCarIdFromSlug} from "@/lib/utils/carSlug";
 import {formatEngine} from "@/lib/utils/catalog-utils";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -53,7 +53,7 @@ export async function generateMetadata({
       car.rentalTariff?.reduce((min, t) => Math.min(min, t.dailyPrice), Infinity) ?? 0;
     const price = Number.isFinite(minPrice) && minPrice > 0 ? minPrice : 50;
 
-    const specs = [car.engineVolume, car.transmission?.[locale]].filter(Boolean).join(" ");
+    const specs = [car.engineVolume, localized(car.transmission, locale)].filter(Boolean).join(" ");
     const specsText = specs ? `${specs}, ` : "";
     const seats = car.seats || 5;
 
@@ -178,7 +178,7 @@ export default async function CarPage({
                 {t("specifications.transmission")}
               </span>
                             <span className="table-info__value">
-                {car.transmission?.[locale] || "-"}
+                {localized(car.transmission, locale) || "-"}
               </span>
                         </li>
                         <li className="table-info__item">
@@ -199,7 +199,7 @@ export default async function CarPage({
                 {t("specifications.driveType")}
               </span>
                             <span className="table-info__value">
-                {car.driveType?.[locale] || "-"}
+                {localized(car.driveType, locale) || "-"}
               </span>
                         </li>
                         <li className="table-info__item">
@@ -246,7 +246,7 @@ export default async function CarPage({
                                 }}
                             >
                 <Icon id={"checkmark"} width={20} height={20}/>
-                                {el?.[locale] || "-"}
+                                {localized(el, locale) || "-"}
               </span>
                         ))}
                     </p>

@@ -40,6 +40,12 @@ export interface LocalizedText {
   pl?: string;
 }
 
+/** Get localized value with fallback: locale → en → uk */
+export function localized(obj: LocalizedText | null | undefined, locale: string): string {
+  if (!obj) return '';
+  return (obj as unknown as Record<string, string>)[locale] || obj.en || obj.uk || '';
+}
+
 export interface Car {
   id: number;
   brand: string | null;

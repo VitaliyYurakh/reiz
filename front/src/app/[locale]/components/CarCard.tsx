@@ -9,7 +9,7 @@ import {
 } from "@/context/RentalSearchContext";
 import { useCurrency } from "@/context/CurrencyContext";
 import { BASE_URL } from "@/config/environment";
-import type { Car, CarCountingRule, RentalTariff } from "@/types/cars";
+import { type Car, type CarCountingRule, type RentalTariff, localized } from "@/types/cars";
 import { Link } from "@/i18n/request";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { formatEngine } from "@/lib/utils/catalog-utils";
@@ -363,10 +363,10 @@ export default function CarCard({ car }: CarCardProps) {
             </span>
 
             <span className="car-card__value desktop">
-              {car.transmission?.[locale]}
+              {localized(car.transmission, locale)}
             </span>
             <span className="car-card__value mob">
-              {car.transmission?.[locale]}
+              {localized(car.transmission, locale)}
             </span>
           </li>
           <li className="car-card__item">
@@ -377,10 +377,10 @@ export default function CarCard({ car }: CarCardProps) {
             </i>
             <span className="car-card__text">{tCatalog("features.drive")}</span>
             <span className="car-card__value desktop">
-              {car.driveType?.[locale]}
+              {localized(car.driveType, locale)}
             </span>
             <span className="car-card__value mob">
-              {car.driveType?.[locale]}{tCatalog("features.driveMobileSuffix")}
+              {localized(car.driveType, locale)}{tCatalog("features.driveMobileSuffix")}
             </span>
           </li>
           <li className="car-card__item">
