@@ -121,7 +121,7 @@
         },
         "features": {
           "engine": "Silnik",
-          "transmission": "Skrzynia biegow",
+          "transmission": "Skrzynia",
           "drive": "Naped",
           "seatsLabel": "Miejsca",
           "seatsValue": "{count, plural, one {{count} miejsce} few {{count} miejsca} many {{count} miejsc} other {{count} miejsc}}",
@@ -864,7 +864,7 @@
       "placeholders": {
         "car": "Marka:",
         "model": "Model:",
-        "transmission": "Skrzynia biegow",
+        "transmission": "Skrzynia",
         "milliage": "Przebieg:",
         "year": "Rok:",
         "color": "Kolor:",
@@ -1079,7 +1079,7 @@
     "specifications": {
       "descriptionTitle": "Opis i specyfikacja \"{carName}\"",
       "engine": "Silnik",
-      "transmission": "Skrzynia biegow",
+      "transmission": "Skrzynia",
       "fuelConsumption": "Zuzycie paliwa",
       "fuelIcon": "Ikona zuzycia paliwa",
       "driveType": "Rodzaj napedu",
