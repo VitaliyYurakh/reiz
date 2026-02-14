@@ -106,9 +106,13 @@ export function createModalSystem<S extends ModalSpec>() {
       useState<Record<string, Entry>>(initialEntries);
     const [order, setOrder] = useState<string[]>([]);
 
+    const hasModals = order.length > 0;
     useEffect(() => {
-      order.length > 0 ? lockScroll() : unlockScroll();
-    }, [order]);
+      if (hasModals) {
+        lockScroll();
+        return () => unlockScroll();
+      }
+    }, [hasModals]);
 
     const openModal = useCallback(
       <KK extends keyof S & string>(

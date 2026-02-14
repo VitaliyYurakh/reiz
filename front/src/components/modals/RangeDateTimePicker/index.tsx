@@ -243,7 +243,12 @@ const DatePicker: React.FC<DatePickerProps> = ({
   );
 
   return (
-    <div className={styles.datePickerOverlay}>
+    <div
+      className={styles.datePickerOverlay}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) close();
+      }}
+    >
       <div className={styles.datePickerContainer}>
         <div className={styles.header}>
           <button
