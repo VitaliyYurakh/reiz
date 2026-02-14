@@ -225,6 +225,18 @@ class CarController {
         }
     }
 
+    async migratePolish(req: Request, res: Response) {
+        try {
+            const result = await carService.migratePolish();
+
+            return res.status(StatusCodes.OK).json(result);
+        } catch (error) {
+            logger.error(error);
+
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error.message});
+        }
+    }
+
     async deleteOne(req: Request, res: Response) {
         try {
             const {id} = req.params;

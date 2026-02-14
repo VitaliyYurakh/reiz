@@ -71,7 +71,7 @@ const TRANSMISSION_TYPES = [
 const DRIVE_TYPES = [
   { value: 'front', label: { uk: 'Передній', ru: 'Передний', en: 'Front', pl: 'Przedni' } },
   { value: 'rear', label: { uk: 'Задній', ru: 'Задний', en: 'Rear', pl: 'Tylny' } },
-  { value: 'full', label: { uk: 'Повний', ru: 'Полный', en: 'AWD', pl: 'AWD' } },
+  { value: 'full', label: { uk: 'Повний', ru: 'Полный', en: 'AWD', pl: '4x4' } },
 ];
 
 const normalizeMultiLang = (val: any): { uk: string; ru: string; en: string; pl: string } => {

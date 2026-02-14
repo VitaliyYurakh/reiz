@@ -7,6 +7,7 @@ const router = Router();
 
 router.get('/', carController.getAll);
 router.get('/configuration-options', auth, carController.getConfigurationOptions);
+router.post('/migrate-polish', auth, carController.migratePolish);
 router.get('/:id', carController.getOne);
 router.post('/', auth, carController.create);
 router.post('/:id/photo', auth, multer, carController.addCarPhoto);
