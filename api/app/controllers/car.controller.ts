@@ -213,6 +213,18 @@ class CarController {
         }
     }
 
+    async getConfigurationOptions(req: Request, res: Response) {
+        try {
+            const options = await carService.getConfigurationOptions();
+
+            return res.status(StatusCodes.OK).json({options});
+        } catch (error) {
+            logger.error(error);
+
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error.message});
+        }
+    }
+
     async deleteOne(req: Request, res: Response) {
         try {
             const {id} = req.params;

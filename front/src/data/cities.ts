@@ -1,6 +1,9 @@
 // Конфігурація міст для динамічних сторінок оренди авто
 // URL формат: /rental-{slug}/
 
+import type { Locale } from "@/i18n/request";
+import type { LocalizedField } from "@/i18n/locale-config";
+
 export interface CityConfig {
   // URL slug (rental-kyiv)
   slug: string;
@@ -9,11 +12,7 @@ export interface CityConfig {
   // Назва міста в місцевому відмінку (у Києві) - legacy, для uk
   nameLocative: string;
   // Локалізовані назви міста
-  localized: {
-    uk: { name: string; nameLocative: string };
-    ru: { name: string; nameLocative: string };
-    en: { name: string; nameLocative: string };
-  };
+  localized: LocalizedField<{ name: string; nameLocative: string }>;
   // Координати для Schema.org
   geo: {
     latitude: string;
@@ -59,6 +58,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Київ", nameLocative: "Києві" },
       ru: { name: "Киев", nameLocative: "Киеве" },
       en: { name: "Kyiv", nameLocative: "Kyiv" },
+      pl: { name: "Kijów", nameLocative: "Kijowie" },
     },
     geo: { latitude: "50.4501", longitude: "30.5234" },
     postalCode: "01001",
@@ -72,6 +72,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Львів", nameLocative: "Львові" },
       ru: { name: "Львов", nameLocative: "Львове" },
       en: { name: "Lviv", nameLocative: "Lviv" },
+      pl: { name: "Lwów", nameLocative: "Lwowie" },
     },
     geo: { latitude: "49.8397", longitude: "24.0297" },
     postalCode: "79000",
@@ -85,6 +86,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Тернопіль", nameLocative: "Тернополі" },
       ru: { name: "Тернополь", nameLocative: "Тернополе" },
       en: { name: "Ternopil", nameLocative: "Ternopil" },
+      pl: { name: "Tarnopol", nameLocative: "Tarnopolu" },
     },
     geo: { latitude: "49.5535", longitude: "25.5948" },
     postalCode: "46001",
@@ -98,6 +100,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Одеса", nameLocative: "Одесі" },
       ru: { name: "Одесса", nameLocative: "Одессе" },
       en: { name: "Odesa", nameLocative: "Odesa" },
+      pl: { name: "Odessa", nameLocative: "Odessie" },
     },
     geo: { latitude: "46.4825", longitude: "30.7233" },
     postalCode: "65000",
@@ -111,6 +114,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Дніпро", nameLocative: "Дніпрі" },
       ru: { name: "Днепр", nameLocative: "Днепре" },
       en: { name: "Dnipro", nameLocative: "Dnipro" },
+      pl: { name: "Dniepr", nameLocative: "Dnieprze" },
     },
     geo: { latitude: "48.4647", longitude: "35.0462" },
     postalCode: "49000",
@@ -124,6 +128,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Харків", nameLocative: "Харкові" },
       ru: { name: "Харьков", nameLocative: "Харькове" },
       en: { name: "Kharkiv", nameLocative: "Kharkiv" },
+      pl: { name: "Charków", nameLocative: "Charkowie" },
     },
     geo: { latitude: "49.9935", longitude: "36.2304" },
     postalCode: "61000",
@@ -137,6 +142,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Буковель", nameLocative: "Буковелі" },
       ru: { name: "Буковель", nameLocative: "Буковеле" },
       en: { name: "Bukovel", nameLocative: "Bukovel" },
+      pl: { name: "Bukowel", nameLocative: "Bukowelu" },
     },
     geo: { latitude: "48.3607", longitude: "24.4003" },
     postalCode: "78593",
@@ -150,6 +156,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Трускавець", nameLocative: "Трускавці" },
       ru: { name: "Трускавец", nameLocative: "Трускавце" },
       en: { name: "Truskavets", nameLocative: "Truskavets" },
+      pl: { name: "Truskawiec", nameLocative: "Truskawcu" },
     },
     geo: { latitude: "49.2784", longitude: "23.5064" },
     postalCode: "82200",
@@ -163,6 +170,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Івано-Франківськ", nameLocative: "Івано-Франківську" },
       ru: { name: "Ивано-Франковск", nameLocative: "Ивано-Франковске" },
       en: { name: "Ivano-Frankivsk", nameLocative: "Ivano-Frankivsk" },
+      pl: { name: "Iwano-Frankiwsk", nameLocative: "Iwano-Frankiwsku" },
     },
     geo: { latitude: "48.9226", longitude: "24.7111" },
     postalCode: "76000",
@@ -176,6 +184,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Східниця", nameLocative: "Східниці" },
       ru: { name: "Сходница", nameLocative: "Сходнице" },
       en: { name: "Skhidnytsia", nameLocative: "Skhidnytsia" },
+      pl: { name: "Schodnica", nameLocative: "Schodnicy" },
     },
     geo: { latitude: "49.2667", longitude: "23.4667" },
     postalCode: "82391",
@@ -189,6 +198,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Ужгород", nameLocative: "Ужгороді" },
       ru: { name: "Ужгород", nameLocative: "Ужгороде" },
       en: { name: "Uzhhorod", nameLocative: "Uzhhorod" },
+      pl: { name: "Użhorod", nameLocative: "Użhorodzie" },
     },
     geo: { latitude: "48.6208", longitude: "22.2879" },
     postalCode: "88000",
@@ -202,6 +212,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Вінниця", nameLocative: "Вінниці" },
       ru: { name: "Винница", nameLocative: "Виннице" },
       en: { name: "Vinnytsia", nameLocative: "Vinnytsia" },
+      pl: { name: "Winnica", nameLocative: "Winnicy" },
     },
     geo: { latitude: "49.2328", longitude: "28.4681" },
     postalCode: "21000",
@@ -215,6 +226,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Запоріжжя", nameLocative: "Запоріжжі" },
       ru: { name: "Запорожье", nameLocative: "Запорожье" },
       en: { name: "Zaporizhzhia", nameLocative: "Zaporizhzhia" },
+      pl: { name: "Zaporoże", nameLocative: "Zaporożu" },
     },
     geo: { latitude: "47.8388", longitude: "35.1396" },
     postalCode: "69000",
@@ -228,6 +240,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Мукачево", nameLocative: "Мукачеві" },
       ru: { name: "Мукачево", nameLocative: "Мукачеве" },
       en: { name: "Mukachevo", nameLocative: "Mukachevo" },
+      pl: { name: "Mukaczewo", nameLocative: "Mukaczewie" },
     },
     geo: { latitude: "48.4394", longitude: "22.7183" },
     postalCode: "89600",
@@ -241,6 +254,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Полтава", nameLocative: "Полтаві" },
       ru: { name: "Полтава", nameLocative: "Полтаве" },
       en: { name: "Poltava", nameLocative: "Poltava" },
+      pl: { name: "Połtawa", nameLocative: "Połtawie" },
     },
     geo: { latitude: "49.5883", longitude: "34.5514" },
     postalCode: "36000",
@@ -254,6 +268,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Чернівці", nameLocative: "Чернівцях" },
       ru: { name: "Черновцы", nameLocative: "Черновцах" },
       en: { name: "Chernivtsi", nameLocative: "Chernivtsi" },
+      pl: { name: "Czerniowce", nameLocative: "Czerniowcach" },
     },
     geo: { latitude: "48.2920", longitude: "25.9358" },
     postalCode: "58000",
@@ -267,6 +282,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Бориспіль", nameLocative: "Борисполі" },
       ru: { name: "Борисполь", nameLocative: "Борисполе" },
       en: { name: "Boryspil", nameLocative: "Boryspil" },
+      pl: { name: "Boryszpol", nameLocative: "Boryszpolu" },
     },
     geo: { latitude: "50.3532", longitude: "30.9577" },
     postalCode: "08300",
@@ -280,6 +296,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Луцьк", nameLocative: "Луцьку" },
       ru: { name: "Луцк", nameLocative: "Луцке" },
       en: { name: "Lutsk", nameLocative: "Lutsk" },
+      pl: { name: "Łuck", nameLocative: "Łucku" },
     },
     geo: { latitude: "50.7472", longitude: "25.3254" },
     postalCode: "43000",
@@ -293,6 +310,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Рівне", nameLocative: "Рівному" },
       ru: { name: "Ровно", nameLocative: "Ровно" },
       en: { name: "Rivne", nameLocative: "Rivne" },
+      pl: { name: "Równe", nameLocative: "Równem" },
     },
     geo: { latitude: "50.6199", longitude: "26.2516" },
     postalCode: "33000",
@@ -306,6 +324,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Хмельницький", nameLocative: "Хмельницькому" },
       ru: { name: "Хмельницкий", nameLocative: "Хмельницком" },
       en: { name: "Khmelnytskyi", nameLocative: "Khmelnytskyi" },
+      pl: { name: "Chmielnicki", nameLocative: "Chmielnickim" },
     },
     geo: { latitude: "49.4230", longitude: "26.9871" },
     postalCode: "29000",
@@ -319,6 +338,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Кам'янець-Подільський", nameLocative: "Кам'янці-Подільському" },
       ru: { name: "Каменец-Подольский", nameLocative: "Каменце-Подольском" },
       en: { name: "Kamianets-Podilskyi", nameLocative: "Kamianets-Podilskyi" },
+      pl: { name: "Kamieniec Podolski", nameLocative: "Kamieńcu Podolskim" },
     },
     geo: { latitude: "48.6744", longitude: "26.5809" },
     postalCode: "32300",
@@ -332,6 +352,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Дрогобич", nameLocative: "Дрогобичі" },
       ru: { name: "Дрогобыч", nameLocative: "Дрогобыче" },
       en: { name: "Drohobych", nameLocative: "Drohobych" },
+      pl: { name: "Drohobycz", nameLocative: "Drohobyczu" },
     },
     geo: { latitude: "49.3489", longitude: "23.5069" },
     postalCode: "82100",
@@ -345,6 +366,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Стрий", nameLocative: "Стрию" },
       ru: { name: "Стрый", nameLocative: "Стрые" },
       en: { name: "Stryi", nameLocative: "Stryi" },
+      pl: { name: "Stryj", nameLocative: "Stryju" },
     },
     geo: { latitude: "49.2606", longitude: "23.8536" },
     postalCode: "82400",
@@ -358,6 +380,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Самбір", nameLocative: "Самборі" },
       ru: { name: "Самбор", nameLocative: "Самборе" },
       en: { name: "Sambir", nameLocative: "Sambir" },
+      pl: { name: "Sambor", nameLocative: "Samborze" },
     },
     geo: { latitude: "49.5181", longitude: "23.2006" },
     postalCode: "81400",
@@ -371,6 +394,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Червоноград", nameLocative: "Червонограді" },
       ru: { name: "Червоноград", nameLocative: "Червонограде" },
       en: { name: "Chervonohrad", nameLocative: "Chervonohrad" },
+      pl: { name: "Czerwonogród", nameLocative: "Czerwonogrodzie" },
     },
     geo: { latitude: "50.3872", longitude: "24.2286" },
     postalCode: "80100",
@@ -384,6 +408,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Борислав", nameLocative: "Бориславі" },
       ru: { name: "Борислав", nameLocative: "Бориславе" },
       en: { name: "Boryslav", nameLocative: "Boryslav" },
+      pl: { name: "Borysław", nameLocative: "Borysławiu" },
     },
     geo: { latitude: "49.2867", longitude: "23.4311" },
     postalCode: "82300",
@@ -397,6 +422,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Жовква", nameLocative: "Жовкві" },
       ru: { name: "Жолква", nameLocative: "Жолкве" },
       en: { name: "Zhovkva", nameLocative: "Zhovkva" },
+      pl: { name: "Żółkiew", nameLocative: "Żółkwi" },
     },
     geo: { latitude: "50.0547", longitude: "23.9714" },
     postalCode: "80300",
@@ -410,6 +436,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Яремче", nameLocative: "Яремчі" },
       ru: { name: "Яремче", nameLocative: "Яремче" },
       en: { name: "Yaremche", nameLocative: "Yaremche" },
+      pl: { name: "Jaremcze", nameLocative: "Jaremczu" },
     },
     geo: { latitude: "48.4500", longitude: "24.5500" },
     postalCode: "78500",
@@ -423,6 +450,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Коломия", nameLocative: "Коломиї" },
       ru: { name: "Коломыя", nameLocative: "Коломые" },
       en: { name: "Kolomyia", nameLocative: "Kolomyia" },
+      pl: { name: "Kołomyja", nameLocative: "Kołomyi" },
     },
     geo: { latitude: "48.5310", longitude: "25.0339" },
     postalCode: "78200",
@@ -436,6 +464,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Калуш", nameLocative: "Калуші" },
       ru: { name: "Калуш", nameLocative: "Калуше" },
       en: { name: "Kalush", nameLocative: "Kalush" },
+      pl: { name: "Kałusz", nameLocative: "Kałuszu" },
     },
     geo: { latitude: "49.0430", longitude: "24.3600" },
     postalCode: "77300",
@@ -449,6 +478,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Надвірна", nameLocative: "Надвірній" },
       ru: { name: "Надворная", nameLocative: "Надворной" },
       en: { name: "Nadvirna", nameLocative: "Nadvirna" },
+      pl: { name: "Nadwórna", nameLocative: "Nadwórnej" },
     },
     geo: { latitude: "48.6340", longitude: "24.5790" },
     postalCode: "78400",
@@ -462,6 +492,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Косів", nameLocative: "Косові" },
       ru: { name: "Косов", nameLocative: "Косове" },
       en: { name: "Kosiv", nameLocative: "Kosiv" },
+      pl: { name: "Kosów", nameLocative: "Kosowie" },
     },
     geo: { latitude: "48.3100", longitude: "25.0950" },
     postalCode: "78600",
@@ -475,6 +506,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Чортків", nameLocative: "Чорткові" },
       ru: { name: "Чортков", nameLocative: "Чорткове" },
       en: { name: "Chortkiv", nameLocative: "Chortkiv" },
+      pl: { name: "Czortków", nameLocative: "Czortkowie" },
     },
     geo: { latitude: "49.0160", longitude: "25.7980" },
     postalCode: "48500",
@@ -488,6 +520,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Кременець", nameLocative: "Кременці" },
       ru: { name: "Кременец", nameLocative: "Кременце" },
       en: { name: "Kremenets", nameLocative: "Kremenets" },
+      pl: { name: "Krzemieniec", nameLocative: "Krzemieńcu" },
     },
     geo: { latitude: "50.1030", longitude: "25.7250" },
     postalCode: "47000",
@@ -501,6 +534,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Берегове", nameLocative: "Береговому" },
       ru: { name: "Берегово", nameLocative: "Берегово" },
       en: { name: "Berehove", nameLocative: "Berehove" },
+      pl: { name: "Berehowo", nameLocative: "Berehowie" },
     },
     geo: { latitude: "48.2050", longitude: "22.6440" },
     postalCode: "90200",
@@ -514,6 +548,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Хуст", nameLocative: "Хусті" },
       ru: { name: "Хуст", nameLocative: "Хусте" },
       en: { name: "Khust", nameLocative: "Khust" },
+      pl: { name: "Chust", nameLocative: "Chuście" },
     },
     geo: { latitude: "48.1700", longitude: "23.2890" },
     postalCode: "90400",
@@ -527,6 +562,7 @@ export const cities: CityConfig[] = [
       uk: { name: "Рахів", nameLocative: "Рахові" },
       ru: { name: "Рахов", nameLocative: "Рахове" },
       en: { name: "Rakhiv", nameLocative: "Rakhiv" },
+      pl: { name: "Rachów", nameLocative: "Rachowie" },
     },
     geo: { latitude: "48.0550", longitude: "24.2060" },
     postalCode: "90600",
@@ -538,7 +574,7 @@ export const cities: CityConfig[] = [
 // Ключ: slug, значення: об'єкт з локалями
 export const cityLocalizations: Record<
   string,
-  Record<"uk" | "ru" | "en", CityLocalizedData>
+  LocalizedField<CityLocalizedData>
 > = {
   kyiv: {
     uk: {
@@ -588,6 +624,22 @@ export const cityLocalizations: Record<
         "Best car rental in Kyiv (Kiev). ⭐ New fleet 2023-2025. ⚡ Delivery to Railway Station and City Center hotels. 🛡️ Full insurance & English support. Book now!",
       footerDescription:
         "Reliable car rental in Kyiv by REIZ. Rent Economy, Comfort, and SUV cars with delivery across the city, to the Railway Station, or Boryspil (KBP) and Zhuliany (IEV) airports. 24/7 support.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Kijowie bez kaucji — podstawienie na Boryszpol 24/7",
+      metaDescription:
+        "Wynajem samochodu w Kijowie od REIZ. Flota 2023–2025, podstawienie na lotnisko Boryszpol, dworzec i po mieście. Bez ukrytych opłat, pełne ubezpieczenie. Zarezerwuj online!",
+      h1: "Wynajem samochodu w Kijowie",
+      sectionCars: "FLOTA REIZ W KIJOWIE: OD KOMFORTU DO KLASY PREMIUM",
+      sectionWelcome: "WITAMY W REIZ KIJÓW",
+      subtitle:
+        "Wynajem samochodu w Kijowie od REIZ — nowe pojazdy, serwis premium, konkurencyjne ceny i dostawa pod wskazany adres o wygodnej porze.",
+      address: "Kijów: Dostawa osobista (Lotniska / Dworzec / Miasto)",
+      ogTitle: "Wynajem samochodu w Kijowie bez kaucji — podstawienie na Boryszpol 24/7 | REIZ",
+      ogDescription:
+        "Wynajem samochodu w Kijowie od REIZ. Flota 2023–2025, podstawienie na lotnisko Boryszpol, dworzec i po mieście. Bez ukrytych opłat, pełne ubezpieczenie. Zarezerwuj online!",
+      footerDescription:
+        "Niezawodny wynajem samochodu w Kijowie od REIZ. Samochody klasy Ekonom, Komfort i SUV z dostawą po mieście, na dworzec kolejowy lub lotniska Boryszpol (KBP) i Żulany (IEV). Wsparcie 24/7.",
     },
   },
   lviv: {
@@ -639,6 +691,22 @@ export const cityLocalizations: Record<
       footerDescription:
         "Hassle-free car rental in Lviv. REIZ offers new models from Economy to Premium class. Pick up the car at our office or request delivery to the airport or your hotel. Transparent rates.",
     },
+    pl: {
+      title: "Wynajem samochodu we Lwowie bez kaucji — podstawienie na lotnisko LWO",
+      metaDescription:
+        "Wynajem samochodu we Lwowie od REIZ. Nowe samochody 2023–2025, podstawienie na lotnisko, dworzec i po mieście. Bez ukrytych opłat, wyjazd za granicę. Formalności w 15 min.",
+      h1: "Wynajem samochodu we Lwowie — bez kaucji i dostawa 24/7",
+      sectionCars: "SAMOCHODY REIZ WE LWOWIE",
+      sectionWelcome: "WITAMY W REIZ LWÓW",
+      subtitle:
+        "Wynajem samochodu we Lwowie bez kaucji. Dostawa na lotnisko LWO, dworzec lub pod wskazany adres. Formalności w 15 minut.",
+      address: "Międzynarodowy port lotniczy Lwów im. Danyła Halickiego",
+      ogTitle: "Wynajem samochodu we Lwowie bez kaucji — podstawienie na lotnisko LWO | REIZ",
+      ogDescription:
+        "Wynajem samochodu we Lwowie od REIZ. Nowe samochody 2023–2025, podstawienie na lotnisko, dworzec i po mieście. Bez ukrytych opłat, wyjazd za granicę. Formalności w 15 min.",
+      footerDescription:
+        "Bezproblemowy wynajem samochodów we Lwowie. REIZ oferuje nowe modele od klasy Ekonom do Premium. Odbierz auto w biurze lub zamów dostawę na lotnisko lub do hotelu. Przejrzyste ceny.",
+    },
   },
   ternopil: {
     uk: {
@@ -688,6 +756,22 @@ export const cityLocalizations: Record<
         "Rent a car in Ternopil. No deposit. New fleet. Free city delivery. Fast paperwork 24/7.",
       footerDescription:
         "Car rental service in Ternopil. Choose Economy or Business class cars for city trips. REIZ guarantees fast car delivery to your address and perfect technical condition.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Tarnopolu — bez kaucji, szybki odbiór",
+      metaDescription:
+        "Wynajem samochodu w Tarnopolu oficjalnie. Nowa flota. Bezpłatna dostawa po mieście i na dworzec 24/7. Szybkie formalności. Zarezerwuj!",
+      h1: "Wynajem samochodu w Tarnopolu",
+      sectionCars: "SAMOCHODY REIZ W TARNOPOLU",
+      sectionWelcome: "WITAMY W REIZ TARNOPOL",
+      subtitle:
+        "Wynajem samochodu w Tarnopolu bez kaucji. Dostawa na dworzec, dworzec autobusowy lub pod wskazany adres 24/7. Klasa ekonom i biznes.",
+      address: "Centrum miasta Tarnopol",
+      ogTitle: "Wynajem samochodu Tarnopol — REIZ | Bez kaucji, szybki odbiór",
+      ogDescription:
+        "Wynajem samochodu w Tarnopolu. Bez kaucji. Nowa flota. Bezpłatna dostawa po mieście. Szybkie formalności 24/7.",
+      footerDescription:
+        "Wypożyczalnia samochodów w Tarnopolu. Wybierz samochód klasy Ekonom lub Biznes na przejażdżki po mieście. REIZ gwarantuje szybką dostawę samochodu pod wskazany adres i doskonały stan techniczny.",
     },
   },
   odesa: {
@@ -739,6 +823,22 @@ export const cityLocalizations: Record<
       footerDescription:
         "Car rental in Odesa for leisure and business. Economy class cars and SUVs available. We will meet you at the airport or train station. Travel with comfort with REIZ.",
     },
+    pl: {
+      title: "Wynajem samochodu w Odessie: Centrum i Arkadia | Klasa biznesowa",
+      metaDescription:
+        "Wynajem samochodu w Odessie. Luksusowe i ekonomiczne samochody. Szybka rezerwacja w Arkadii i Centrum. Ubezpieczenie w cenie. Elastyczne warunki wynajmu długoterminowego.",
+      h1: "Wynajem samochodu w Odessie — bez kaucji i dostawa 24/7",
+      sectionCars: "FLOTA REIZ W ODESSIE: OD KOMFORTU DO KLASY PREMIUM",
+      sectionWelcome: "WITAMY W REIZ ODESSA",
+      subtitle:
+        "Wynajem samochodu w Odessie bez kaucji. Dostawa na lotnisko ODS, plażę Arkadia, port lub pod wskazany adres. Kabriolety i SUV-y dostępne.",
+      address: "Międzynarodowy port lotniczy Odessa (ODS)",
+      ogTitle: "Wynajem samochodu w Odessie: Centrum i Arkadia | Klasa biznesowa",
+      ogDescription:
+        "Wynajem samochodu w Odessie. Luksusowe i ekonomiczne samochody. Szybka rezerwacja w Arkadii i Centrum. Ubezpieczenie w cenie. Elastyczne warunki wynajmu długoterminowego.",
+      footerDescription:
+        "Wynajem samochodów w Odessie na wypoczynek i sprawy służbowe. Dostępne samochody klasy Ekonom i SUV-y. Spotkamy Cię na lotnisku lub dworcu. Podróżuj z komfortem z REIZ.",
+    },
   },
   dnipro: {
     uk: {
@@ -788,6 +888,22 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Dnipro: SUV & Pickup Rental | Business Services",
       ogDescription:
         "Car rental services in Dnipro. 🏭 Reliable fleet for business and industrial needs. 🚙 4x4 SUVs available. ⚡ VAT invoices for companies.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Dnieprze: SUV i klasa biznesowa",
+      metaDescription:
+        "Wynajem samochodu w Dnieprze. Niezawodna flota dla biznesu i przemysłu. SUV-y 4x4 dostępne. Faktury VAT dla firm.",
+      h1: "Wynajem samochodu w Dnieprze",
+      sectionCars: "FLOTA REIZ W DNIEPRZE: OD KOMFORTU DO KLASY PREMIUM",
+      sectionWelcome: "WITAMY W REIZ DNIEPR",
+      subtitle:
+        "Wynajem samochodu w Dnieprze bez kaucji na podróże służbowe. Dostawa na lotnisko DNK i po mieście. Klasa biznes i wynajem długoterminowy.",
+      footerDescription:
+        "Wynajem samochodów w Dnieprze od REIZ. Szeroki wybór: budżetowe samochody Ekonom i komfortowe sedany. Zamów dostawę samochodu do dowolnej dzielnicy miasta. Uczciwa cena bez ukrytych opłat.",
+      address: "Międzynarodowy port lotniczy Dniepr (DNK)",
+      ogTitle: "Wynajem samochodu w Dnieprze: SUV i klasa biznesowa | REIZ",
+      ogDescription:
+        "Wynajem samochodu w Dnieprze. Niezawodna flota dla biznesu i przemysłu. SUV-y 4x4 dostępne. Faktury VAT dla firm.",
     },
   },
   kharkiv: {
@@ -839,6 +955,22 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car in Kharkiv. ⚡ Delivery to Railway Station. 🚗 Economy and Mid-size cars. 🛡️ 24/7 Support. Safe and reliable booking in 2025.",
     },
+    pl: {
+      title: "Wynajem samochodu w Charkowie bez kaucji — podstawienie na dworzec 24/7",
+      metaDescription:
+        "Wynajem samochodu w Charkowie od REIZ. Dostawa na Dworzec Południowy, lotnisko HRK i po mieście. Ekonom, biznes i SUV. Ubezpieczenie w cenie.",
+      h1: "Wynajem samochodu w Charkowie",
+      sectionCars: "FLOTA REIZ W CHARKOWIE: OD KOMFORTU DO KLASY PREMIUM",
+      sectionWelcome: "WITAMY W REIZ CHARKÓW",
+      subtitle:
+        "Wynajem samochodu w Charkowie bez kaucji. Dostawa na dworzec, lotnisko HRK lub pod wskazany adres 24/7. Klasa biznes i SUV.",
+      footerDescription:
+        "Wynajem samochodów w Charkowie. Potrzebujesz samochodu pilnie? REIZ dostarczy auto (Ekonom / SUV) w wygodne dla Ciebie miejsce. Wynajem bez kierowcy z pełnym ubezpieczeniem i pomocą drogową.",
+      address: "Międzynarodowy port lotniczy Charków (HRK)",
+      ogTitle: "Wynajem samochodu w Charkowie bez kaucji — podstawienie na dworzec 24/7 | REIZ",
+      ogDescription:
+        "Wynajem samochodu w Charkowie od REIZ. Dostawa na Dworzec Południowy, lotnisko HRK i po mieście. Ekonom, biznes i SUV. Ubezpieczenie w cenie.",
+    },
   },
   bukovel: {
     uk: {
@@ -888,6 +1020,22 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Bukovel & Yaremche: SUV 4x4 Rental | Winter Tires",
       ogDescription:
         "Rent a Jeep/SUV in Bukovel. 🏔️ 4x4 Vehicles for mountain roads. ❄️ Winter tires guaranteed. 🚗 Hotel delivery in Polyanytsya/Yaremche.",
+    },
+    pl: {
+      title: "Wynajem samochodu Bukowel i Jaremcze: SUV 4x4 | Opony zimowe",
+      metaDescription:
+        "Wynajmij Jeepa/SUV-a w Bukowelu. Pojazdy 4x4 na drogi górskie. Opony zimowe gwarantowane. Dostawa do hotelu w Polanicy/Jaremczu.",
+      h1: "Wynajem samochodu w Bukowelu",
+      sectionCars: "FLOTA REIZ W BUKOWELU: SUV-Y I CROSSOVERY",
+      sectionWelcome: "WITAMY W REIZ BUKOWEL",
+      subtitle:
+        "Wynajem samochodu w Bukowelu bez kaucji. SUV-y i pojazdy AWD na wyjazdy górskie. Dostawa na kurort z Iwano-Frankiwska i Lwowa.",
+      footerDescription:
+        "Wynajem SUV-ów na wyjazdy do Bukowelu. Niezawodne SUV-y i samochody Ekonom od REIZ na drogi górskie. Dostawa samochodu prosto do Twojego hotelu lub domku. Bezpieczeństwo przede wszystkim.",
+      address: "Ośrodek narciarski Bukowel, Polanyca",
+      ogTitle: "Wynajem samochodu Bukowel i Jaremcze: SUV 4x4 | Opony zimowe",
+      ogDescription:
+        "Wynajmij Jeepa/SUV-a w Bukowelu. Pojazdy 4x4 na drogi górskie. Opony zimowe gwarantowane. Dostawa do hotelu w Polanicy/Jaremczu.",
     },
   },
   truskavets: {
@@ -939,6 +1087,22 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car in Truskavets. 💧 Best for visiting mineral springs. 🚗 SUVs available for Skhidnytsia roads. ⚡ Discounts for 2+ weeks rental.",
     },
+    pl: {
+      title: "Wynajem samochodu Truskawiec i Schodnica: Wynajem wakacyjny | Długoterminowy",
+      metaDescription:
+        "Wynajmij samochód w Truskawcu. Idealny do odwiedzania źródeł mineralnych. SUV-y na drogi Schodnicy. Zniżki na wynajem 2+ tygodni.",
+      h1: "Wynajem samochodu w Truskawcu",
+      sectionCars: "SAMOCHODY REIZ W TRUSKAWCU",
+      sectionWelcome: "WITAMY W REIZ TRUSKAWIEC",
+      subtitle:
+        "Wynajem samochodu w Truskawcu bez kaucji. Dostawa do sanatoriów i hoteli kurortowych. Komfortowe pojazdy na wyjazdy w Karpaty.",
+      address: "Centrum kurortu Truskawiec",
+      footerDescription:
+        "Twój samochód w Truskawcu. Zamów wynajem (Ekonom / Standard) z dostawą do sanatorium. REIZ zapewnia mobilność na kurorcie i proste warunki wynajmu.",
+      ogTitle: "Wynajem samochodu Truskawiec i Schodnica: Wynajem wakacyjny | Długoterminowy",
+      ogDescription:
+        "Wynajmij samochód w Truskawcu. Idealny do odwiedzania źródeł mineralnych. SUV-y na drogi Schodnicy. Zniżki na wynajem 2+ tygodni.",
+    },
   },
   "ivano-frankivsk": {
     uk: {
@@ -988,6 +1152,22 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Ivano-Frankivsk — REIZ | No Deposit, Carpathian Access",
       ogDescription:
         "Rent a car in Ivano-Frankivsk. No deposit. Airport delivery and Carpathian trips. New fleet.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Iwano-Frankiwsku — bez kaucji, dostęp do Karpat",
+      metaDescription:
+        "Wynajmij samochód w Iwano-Frankiwsku oficjalnie. Dostawa na lotnisko i wyjazdy w Karpaty 24/7. Nowa flota. SUV-y i sedany. Zarezerwuj!",
+      h1: "Wynajem samochodu w Iwano-Frankiwsku",
+      sectionCars: "SAMOCHODY REIZ W IWANO-FRANKIWSKU",
+      sectionWelcome: "WITAMY W REIZ IWANO-FRANKIWSK",
+      subtitle:
+        "Wynajem samochodu w Iwano-Frankiwsku bez kaucji. Dostawa na lotnisko IFO i wyjazdy w Karpaty. SUV-y i sedany dostępne 24/7.",
+      address: "Międzynarodowy port lotniczy Iwano-Frankiwsk (IFO)",
+      footerDescription:
+        "Wynajem samochodów w Iwano-Frankiwsku. Wygodny start podróży w Karpaty. Dostępne Ekonom i jeepy 4x4. REIZ organizuje dostawę samochodu na lotnisko lub dworzec o dowolnej porze.",
+      ogTitle: "Wynajem samochodu Iwano-Frankiwsk — REIZ | Bez kaucji, dostęp do Karpat",
+      ogDescription:
+        "Wynajmij samochód w Iwano-Frankiwsku. Bez kaucji. Dostawa na lotnisko i wyjazdy w Karpaty. Nowa flota.",
     },
   },
   skhidnytsia: {
@@ -1039,6 +1219,22 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car in Skhidnytsia. No deposit. Delivery to spa resort. Carpathian trips. New fleet.",
     },
+    pl: {
+      title: "Wynajem samochodu Schodnica — bez kaucji, kurort uzdrowiskowy",
+      metaDescription:
+        "Wynajmij samochód w Schodnicy oficjalnie. Dostawa do kurortu uzdrowiskowego i wyjazdy w Karpaty 24/7. Nowa flota. Komfortowy wypoczynek. Zarezerwuj!",
+      h1: "Wynajem samochodu w Schodnicy",
+      sectionCars: "SAMOCHODY REIZ W SCHODNICY",
+      sectionWelcome: "WITAMY W REIZ SCHODNICA",
+      subtitle:
+        "Wynajem samochodu w Schodnicy bez kaucji. Dostawa na kurort i wyjazdy w Karpaty. Transfery ze Lwowa i Drohobycza.",
+      address: "Centrum kurortu Schodnica",
+      footerDescription:
+        "Wynajem samochodu z dostawą do Schodnicy. Wypoczywaj swobodnie z samochodami od REIZ (Ekonom, Crossovery). Przywiesiemy samochód pod Twój adres. Szybkie formalności na miejscu.",
+      ogTitle: "Wynajem samochodu Schodnica — REIZ | Bez kaucji, dostawa na kurort 24/7",
+      ogDescription:
+        "Wynajmij samochód w Schodnicy. Bez kaucji. Dostawa na kurort uzdrowiskowy. Wyjazdy w Karpaty. Nowa flota.",
+    },
   },
   uzhhorod: {
     uk: {
@@ -1088,6 +1284,22 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Uzhhorod & Mukachevo: Cross-Border to EU",
       ogDescription:
         "Rent a car in Uzhhorod. 🌍 Cross-border rentals allowed (EU). 🏔️ Perfect start for Carpathians. ⚡ Green Card included options.",
+    },
+    pl: {
+      title: "Wynajem samochodu Użhorod i Mukaczewo: Wyjazd za granicę do UE",
+      metaDescription:
+        "Wynajmij samochód w Użhorodzie. Wynajem transgraniczny dozwolony (UE). Idealny start w Karpaty. Opcje z Zieloną Kartą.",
+      h1: "Wynajem samochodu w Użhorodzie",
+      sectionCars: "SAMOCHODY REIZ W UŻHORODZIE",
+      sectionWelcome: "WITAMY W REIZ UŻHOROD",
+      subtitle:
+        "Wynajem samochodu w Użhorodzie — nowa flota, szybkie formalności i wygodny dostęp do granicy z UE.",
+      address: "Centrum miasta Użhorod",
+      footerDescription:
+        "Wynajem samochodów w Użhorodzie. Europejski serwis i nowe samochody klasy Ekonom i Biznes. REIZ oferuje dostawę po mieście i korzystne warunki podróży po Zakarpaciu.",
+      ogTitle: "Wynajem samochodu Użhorod i Mukaczewo: Wyjazd za granicę do UE",
+      ogDescription:
+        "Wynajmij samochód w Użhorodzie. Wynajem transgraniczny dozwolony (UE). Idealny start w Karpaty. Opcje z Zieloną Kartą.",
     },
   },
   vinnytsia: {
@@ -1139,6 +1351,22 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car in Vinnytsia. No deposit. New fleet. Free city delivery. Fast pickup 24/7.",
     },
+    pl: {
+      title: "Wynajem samochodu w Winnicy — bez kaucji, nowa flota",
+      metaDescription:
+        "Wynajmij samochód w Winnicy na podróże służbowe. Nowa flota. Bezpłatna dostawa po mieście 24/7. Zarezerwuj self-drive!",
+      h1: "Wynajem samochodu w Winnicy",
+      sectionCars: "SAMOCHODY REIZ W WINNICY",
+      sectionWelcome: "WITAMY W REIZ WINNICA",
+      subtitle:
+        "Wynajem samochodu w Winnicy — idealny na podróże służbowe i komfortowe podróże po centralnej Ukrainie.",
+      address: "Centrum miasta Winnica",
+      footerDescription:
+        "Usługi wynajmu samochodów w Winnicy. Duży park REIZ: od Ekonomu do SUV. Spotkamy przy fontannie, na dworcu lub dostarczymy auto pod dom. Komfort i czystość gwarantowane.",
+      ogTitle: "Wynajem samochodu Winnica — REIZ | Bez kaucji",
+      ogDescription:
+        "Wynajmij samochód w Winnicy. Bez kaucji. Nowe samochody. Bezpłatna dostawa. Szybkie formalności 24/7.",
+    },
   },
   zaporizhzhia: {
     uk: {
@@ -1188,6 +1416,22 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Zaporizhzhia — REIZ | No Deposit, Self-Drive",
       ogDescription:
         "Rent a car in Zaporizhzhia. No deposit. New fleet. Free city delivery. Fast pickup 24/7.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Zaporożu bez kaucji — dostawa 24/7",
+      metaDescription:
+        "Wynajem samochodu w Zaporożu oficjalnie. Dostawa na dworzec i po mieście 24/7. Nowe samochody. Szybkie formalności. Zarezerwuj!",
+      h1: "Wynajem samochodu w Zaporożu",
+      sectionCars: "FLOTA REIZ W ZAPOROŻU: OD KOMFORTU DO KLASY PREMIUM",
+      sectionWelcome: "WITAMY W REIZ ZAPOROŻE",
+      subtitle:
+        "Wynajem samochodu w Zaporożu bez kaucji. Dostawa na dworzec, lotnisko OZH lub pod wskazany adres 24/7.",
+      footerDescription:
+        "Wynajem samochodów w Zaporożu od REIZ. Samochody klasy Ekonom i SUV z dostawą po mieście. Szybkie formalności i pełne ubezpieczenie.",
+      address: "Dworzec kolejowy Zaporoże-1",
+      ogTitle: "Wynajem samochodu w Zaporożu bez kaucji — dostawa 24/7",
+      ogDescription:
+        "Wynajem samochodu w Zaporożu oficjalnie. Dostawa na dworzec i po mieście 24/7. Nowe samochody. Szybkie formalności. Zarezerwuj!",
     },
   },
   mukachevo: {
@@ -1239,6 +1483,22 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car in Mukachevo. No deposit. Easy Carpathian and border access. Free city delivery 24/7.",
     },
+    pl: {
+      title: "Wynajem samochodu w Mukaczewie — Karpaty i granica z UE",
+      metaDescription:
+        "Wynajem samochodu w Mukaczewie. Wygodny wyjazd do Karpat i na granicę z UE. Nowe samochody. Dostawa po mieście 24/7. Zarezerwuj!",
+      h1: "Wynajem samochodu w Mukaczewie",
+      sectionCars: "SAMOCHODY REIZ W MUKACZEWIE",
+      sectionWelcome: "WITAMY W REIZ MUKACZEWO",
+      subtitle:
+        "Wynajem samochodu w Mukaczewie bez kaucji. SUV-y i sedany na podróże po Zakarpaciu i za granicę.",
+      address: "Centrum miasta Mukaczewo",
+      footerDescription:
+        "Wynajem samochodów w Mukaczewie. Szeroki wybór aut od Ekonomu do SUV. REIZ zapewnia dostawę po mieście i do zamku Palanok.",
+      ogTitle: "Wynajem samochodu Mukaczewo — Karpaty i granica z UE | REIZ",
+      ogDescription:
+        "Wynajem samochodu w Mukaczewie. Wygodny wyjazd do Karpat i na granicę z UE. Nowe samochody. Dostawa po mieście 24/7.",
+    },
   },
   poltava: {
     uk: {
@@ -1288,6 +1548,22 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Poltava — REIZ | No Deposit, Self-Drive",
       ogDescription:
         "Rent a car in Poltava. No deposit. New fleet. Free city delivery. Fast pickup 24/7.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Połtawie bez kaucji — szybki odbiór",
+      metaDescription:
+        "Wynajem samochodu w Połtawie oficjalnie. Dostawa na dworzec i po mieście 24/7. Nowe samochody. Szybkie formalności. Zarezerwuj!",
+      h1: "Wynajem samochodu w Połtawie",
+      sectionCars: "SAMOCHODY REIZ W POŁTAWIE",
+      sectionWelcome: "WITAMY W REIZ POŁTAWA",
+      subtitle:
+        "Wynajem samochodu w Połtawie bez kaucji. Dostawa na dworzec lub pod wskazany adres 24/7. Klasa ekonom i biznes.",
+      address: "Centrum miasta Połtawa",
+      footerDescription:
+        "Wynajem samochodów w Połtawie od REIZ. Samochody Ekonom i Biznes z dostawą po mieście. Pomoc drogowa 24/7.",
+      ogTitle: "Wynajem samochodu Połtawa — REIZ | Bez kaucji, szybki odbiór",
+      ogDescription:
+        "Wynajem samochodu w Połtawie. Bez kaucji. Nowa flota. Szybkie formalności 24/7.",
     },
   },
   chernivtsi: {
@@ -1339,6 +1615,22 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car in Chernivtsi. No deposit. Easy border access to Romania and Moldova. Free delivery 24/7.",
     },
+    pl: {
+      title: "Wynajem samochodu w Czerniowcach bez kaucji — Karpaty i granica",
+      metaDescription:
+        "Wynajem samochodu w Czerniowcach oficjalnie. Nowe samochody. Dostawa na dworzec i po mieście 24/7. Wyjazd za granicę. Zarezerwuj!",
+      h1: "Wynajem samochodu w Czerniowcach",
+      sectionCars: "SAMOCHODY REIZ W CZERNIOWCACH",
+      sectionWelcome: "WITAMY W REIZ CZERNIOWCE",
+      subtitle:
+        "Wynajem samochodu w Czerniowcach bez kaucji. Dostawa na dworzec lub pod wskazany adres 24/7. Wyjazd do Karpat i Rumunii.",
+      address: "Centrum miasta Czerniowce",
+      footerDescription:
+        "Wynajem samochodów w Czerniowcach od REIZ. Od klasy Ekonom do SUV. Dostarczymy samochód na dworzec lub pod hotel. Przejrzyste warunki.",
+      ogTitle: "Wynajem samochodu Czerniowce — REIZ | Bez kaucji, wyjazd za granicę",
+      ogDescription:
+        "Wynajem samochodu w Czerniowcach. Bez kaucji. Nowe samochody. Dostawa 24/7. Wyjazd do Karpat i Rumunii.",
+    },
   },
   boryspil: {
     uk: {
@@ -1389,6 +1681,22 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car at Boryspil Airport. No deposit. Flight meet and greet 24/7. New fleet. Fast pickup.",
     },
+    pl: {
+      title: "Wynajem samochodu Boryszpol — lotnisko KBP 24/7",
+      metaDescription:
+        "Wynajem samochodu na lotnisku Boryszpol. Szybki odbiór przy Terminalu D i F. Nowe samochody. Pełne ubezpieczenie. Zarezerwuj!",
+      h1: "Wynajem samochodu w Boryszpolu",
+      sectionCars: "SAMOCHODY REIZ W BORYSZPOLU",
+      sectionWelcome: "WITAMY W REIZ BORYSZPOL",
+      subtitle:
+        "Wynajem samochodu na lotnisku Boryszpol. Podstawienie do terminali D i F 24/7. Podróże po Kijowie i Ukrainie.",
+      address: "Międzynarodowy port lotniczy Boryszpol (KBP)",
+      footerDescription:
+        "Wynajem samochodu na lotnisku Boryszpol od REIZ. Szybki odbiór i zdanie. Samochody Ekonom, Komfort i SUV. Transfery po Kijowie i okolicach.",
+      ogTitle: "Wynajem samochodu Boryszpol — lotnisko KBP 24/7 | REIZ",
+      ogDescription:
+        "Wynajem samochodu na lotnisku Boryszpol. Szybki odbiór. Nowa flota. Pełne ubezpieczenie.",
+    },
   },
   lutsk: {
     uk: {
@@ -1435,6 +1743,22 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Lutsk — Shatsk Lakes & Border Trips | REIZ",
       ogDescription:
         "Car rental in Lutsk with no deposit. 24/7 city and station delivery. Trips to Shatsk Lakes and Poland border.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Łucku bez kaucji — szybka realizacja",
+      metaDescription:
+        "Wynajem samochodu w Łucku oficjalnie. Nowa flota. Bezpłatna dostawa po mieście i na dworzec 24/7. Szybkie formalności. Zarezerwuj!",
+      h1: "Wynajem samochodu w Łucku",
+      sectionCars: "SAMOCHODY REIZ W ŁUCKU",
+      sectionWelcome: "WITAMY W REIZ ŁUCK",
+      subtitle:
+        "Wynajem samochodu w Łucku bez kaucji. Dostawa na dworzec lub pod wskazany adres 24/7. Klasa ekonom i biznes.",
+      address: "Centrum miasta Łuck",
+      footerDescription:
+        "Wynajem samochodów w Łucku od REIZ. Samochody Ekonom i Biznes z dostawą po mieście. Idealne na wyjazdy nad Jeziora Szackie.",
+      ogTitle: "Wynajem samochodu Łuck — REIZ | Bez kaucji",
+      ogDescription:
+        "Wynajem samochodu w Łucku. Bez kaucji. Nowa flota. Bezpłatna dostawa. Szybkie formalności 24/7.",
     },
   },
   rivne: {
@@ -1483,6 +1807,22 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car in Rivne. 💚 Trip to Tunnel of Love. 🚗 Economy and Comfort cars. ⚡ Fast delivery. Book online.",
     },
+    pl: {
+      title: "Wynajem samochodu w Równem bez kaucji — szybka realizacja",
+      metaDescription:
+        "Wynajem samochodu w Równem oficjalnie. Nowa flota. Bezpłatna dostawa po mieście 24/7. Szybkie formalności. Zarezerwuj!",
+      h1: "Wynajem samochodu w Równem",
+      sectionCars: "SAMOCHODY REIZ W RÓWNEM",
+      sectionWelcome: "WITAMY W REIZ RÓWNE",
+      subtitle:
+        "Wynajem samochodu w Równem bez kaucji. Dostawa na dworzec lub pod wskazany adres 24/7.",
+      address: "Centrum miasta Równe",
+      footerDescription:
+        "Wynajem samochodów w Równem od REIZ. Samochody klasy Ekonom i Biznes z dostawą po mieście.",
+      ogTitle: "Wynajem samochodu Równe — REIZ | Bez kaucji",
+      ogDescription:
+        "Wynajem samochodu w Równem. Bez kaucji. Nowa flota. Szybkie formalności 24/7.",
+    },
   },
   khmelnytskyi: {
     uk: {
@@ -1529,6 +1869,22 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Khmelnytskyi — Fortress Routes | REIZ",
       ogDescription:
         "Car rental in Khmelnytskyi with no deposit. 24/7 city delivery. Trips to Kamianets-Podilskyi, Khotyn and Bakota.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Chmielnickim bez kaucji — szybka realizacja",
+      metaDescription:
+        "Wynajem samochodu w Chmielnickim oficjalnie. Nowa flota. Dostawa po mieście 24/7. Zarezerwuj!",
+      h1: "Wynajem samochodu w Chmielnickim",
+      sectionCars: "SAMOCHODY REIZ W CHMIELNICKIM",
+      sectionWelcome: "WITAMY W REIZ CHMIELNICKI",
+      subtitle:
+        "Wynajem samochodu w Chmielnickim bez kaucji. Dostawa na dworzec lub pod wskazany adres 24/7.",
+      address: "Centrum miasta Chmielnicki",
+      footerDescription:
+        "Wynajem samochodów w Chmielnickim od REIZ. Ekonom i Biznes z dostawą po mieście.",
+      ogTitle: "Wynajem samochodu Chmielnicki — REIZ | Bez kaucji",
+      ogDescription:
+        "Wynajem samochodu w Chmielnickim. Bez kaucji. Nowa flota. Szybkie formalności 24/7.",
     },
   },
   "kamianets-podilskyi": {
@@ -1577,6 +1933,22 @@ export const cityLocalizations: Record<
       ogDescription:
         "Car rental in Kamianets-Podilskyi with no deposit. Delivery to Old Town and fortress. Trips to Khotyn and Bakota.",
     },
+    pl: {
+      title: "Wynajem samochodu w Kamieńcu Podolskim — twierdza i atrakcje",
+      metaDescription:
+        "Wynajem samochodu w Kamieńcu Podolskim. Nowa flota. Dostawa po mieście. Idealne na zwiedzanie twierdzy i okolic. Zarezerwuj!",
+      h1: "Wynajem samochodu w Kamieńcu Podolskim",
+      sectionCars: "SAMOCHODY REIZ W KAMIEŃCU PODOLSKIM",
+      sectionWelcome: "WITAMY W REIZ KAMIENIEC PODOLSKI",
+      subtitle:
+        "Wynajem samochodu w Kamieńcu Podolskim bez kaucji. Zwiedzanie twierdzy i okolic.",
+      address: "Centrum miasta Kamieniec Podolski",
+      footerDescription:
+        "Wynajem samochodów w Kamieńcu Podolskim od REIZ. Idealne do zwiedzania twierdzy i okolic.",
+      ogTitle: "Wynajem samochodu Kamieniec Podolski — REIZ",
+      ogDescription:
+        "Wynajem samochodu w Kamieńcu Podolskim. Nowa flota. Dostawa po mieście.",
+    },
   },
   drohobych: {
     uk: {
@@ -1617,6 +1989,19 @@ export const cityLocalizations: Record<
         "Car rental in Drohobych. REIZ ensures comfort: Economy and Mid-class cars with delivery. Transparent conditions, clean interiors, and 24/7 support.",
       ogTitle: "Car Rental Drohobych — Resort Trips | REIZ",
       ogDescription: "Car rental in Drohobych with no deposit. 24/7 city delivery. Trips to Truskavets, Skhidnytsia and Carpathians.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Drohobyczu — bez kaucji",
+      metaDescription:
+        "Wynajem samochodu w Drohobyczu oficjalnie. Nowa flota. Dostawa po mieście 24/7. Zarezerwuj!",
+      h1: "Wynajem samochodu w Drohobyczu",
+      sectionCars: "SAMOCHODY REIZ W DROHOBYCZU",
+      sectionWelcome: "WITAMY W REIZ DROHOBYCZ",
+      subtitle: "Wynajem samochodu w Drohobyczu bez kaucji. Dostawa na dworzec lub pod wskazany adres.",
+      address: "Centrum miasta Drohobycz",
+      footerDescription: "Wynajem samochodów w Drohobyczu od REIZ. Ekonom i Biznes z dostawą po mieście.",
+      ogTitle: "Wynajem samochodu Drohobycz — REIZ | Bez kaucji",
+      ogDescription: "Wynajem samochodu w Drohobyczu. Bez kaucji. Nowa flota.",
     },
   },
   stryi: {
@@ -1664,6 +2049,18 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car in Stryi, Drohobych, Sambir. 🚗 Delivery to your location. ⚡ Affordable rates. 🛡️ Insurance included.",
     },
+    pl: {
+      title: "Wynajem samochodu w Stryju — bez kaucji",
+      metaDescription: "Wynajem samochodu w Stryju oficjalnie. Nowa flota. Dostawa po mieście 24/7. Zarezerwuj!",
+      h1: "Wynajem samochodu w Stryju",
+      sectionCars: "SAMOCHODY REIZ W STRYJU",
+      sectionWelcome: "WITAMY W REIZ STRYJ",
+      subtitle: "Wynajem samochodu w Stryju bez kaucji. Dostawa na dworzec lub pod wskazany adres.",
+      address: "Centrum miasta Stryj",
+      footerDescription: "Wynajem samochodów w Stryju od REIZ.",
+      ogTitle: "Wynajem samochodu Stryj — REIZ | Bez kaucji",
+      ogDescription: "Wynajem samochodu w Stryju. Bez kaucji. Nowa flota.",
+    },
   },
   sambir: {
     uk: {
@@ -1704,6 +2101,18 @@ export const cityLocalizations: Record<
         "Car rental in Sambir. REIZ offers reliable cars (Economy, Standard) for your trips. Fast processing and ability to deliver the car at the required time.",
       ogTitle: "Car Rental Sambir — Border & Resort Trips | REIZ",
       ogDescription: "Car rental in Sambir with no deposit. 24/7 city delivery. Trips to Drohobych, Truskavets and Shehyni border.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Samborze — bez kaucji",
+      metaDescription: "Wynajem samochodu w Samborze oficjalnie. Nowa flota. Dostawa po mieście 24/7. Zarezerwuj!",
+      h1: "Wynajem samochodu w Samborze",
+      sectionCars: "SAMOCHODY REIZ W SAMBORZE",
+      sectionWelcome: "WITAMY W REIZ SAMBOR",
+      subtitle: "Wynajem samochodu w Samborze bez kaucji. Dostawa na dworzec lub pod wskazany adres.",
+      address: "Centrum miasta Sambor",
+      footerDescription: "Wynajem samochodów w Samborze od REIZ.",
+      ogTitle: "Wynajem samochodu Sambor — REIZ | Bez kaucji",
+      ogDescription: "Wynajem samochodu w Samborze. Bez kaucji. Nowa flota.",
     },
   },
   chervonohrad: {
@@ -1746,6 +2155,18 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Chervonohrad — Border Routes | REIZ",
       ogDescription: "Car rental in Chervonohrad with no deposit. 24/7 delivery. Trips to Lviv and Rava-Ruska.",
     },
+    pl: {
+      title: "Wynajem samochodu w Czerwonogrodzie — bez kaucji",
+      metaDescription: "Wynajem samochodu w Czerwonogrodzie oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Czerwonogrodzie",
+      sectionCars: "SAMOCHODY REIZ W CZERWONOGRODZIE",
+      sectionWelcome: "WITAMY W REIZ CZERWONOGRÓD",
+      subtitle: "Wynajem samochodu w Czerwonogrodzie bez kaucji.",
+      address: "Centrum miasta Czerwonogród",
+      footerDescription: "Wynajem samochodów w Czerwonogrodzie od REIZ.",
+      ogTitle: "Wynajem samochodu Czerwonogród — REIZ",
+      ogDescription: "Wynajem samochodu w Czerwonogrodzie. Bez kaucji.",
+    },
   },
   boryslav: {
     uk: {
@@ -1787,6 +2208,18 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Boryslav — Resort Trips | REIZ",
       ogDescription: "Car rental in Boryslav with no deposit. 24/7 city delivery. Trips to Truskavets and Skhidnytsia.",
     },
+    pl: {
+      title: "Wynajem samochodu w Borysławiu — bez kaucji",
+      metaDescription: "Wynajem samochodu w Borysławiu oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Borysławiu",
+      sectionCars: "SAMOCHODY REIZ W BORYSŁAWIU",
+      sectionWelcome: "WITAMY W REIZ BORYSŁAW",
+      subtitle: "Wynajem samochodu w Borysławiu bez kaucji.",
+      address: "Centrum miasta Borysław",
+      footerDescription: "Wynajem samochodów w Borysławiu od REIZ.",
+      ogTitle: "Wynajem samochodu Borysław — REIZ",
+      ogDescription: "Wynajem samochodu w Borysławiu. Bez kaucji.",
+    },
   },
   zhovkva: {
     uk: {
@@ -1827,6 +2260,18 @@ export const cityLocalizations: Record<
         "Your car in Zhovkva. REIZ offers rental (Economy / Comfort) for tourists and locals. Forget about buses — book a car with personal delivery.",
       ogTitle: "Car Rental Zhovkva — Lviv Castles | REIZ",
       ogDescription: "Car rental in Zhovkva with no deposit. 24/7 delivery. Trips to Lviv, Krekhiv and Lviv region castles.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Żółkwi — bez kaucji",
+      metaDescription: "Wynajem samochodu w Żółkwi oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Żółkwi",
+      sectionCars: "SAMOCHODY REIZ W ŻÓŁKWI",
+      sectionWelcome: "WITAMY W REIZ ŻÓŁKIEW",
+      subtitle: "Wynajem samochodu w Żółkwi bez kaucji. Zwiedzanie zamku i okolic.",
+      address: "Centrum miasta Żółkiew",
+      footerDescription: "Wynajem samochodów w Żółkwi od REIZ.",
+      ogTitle: "Wynajem samochodu Żółkiew — REIZ",
+      ogDescription: "Wynajem samochodu w Żółkwi. Bez kaucji.",
     },
   },
   yaremche: {
@@ -1875,6 +2320,18 @@ export const cityLocalizations: Record<
       ogDescription:
         "Car rental in Yaremche with no deposit. 24/7 resort delivery. Trips to Bukovel, Hoverla and Yablunytsia Pass.",
     },
+    pl: {
+      title: "Wynajem samochodu w Jaremczu — Karpaty",
+      metaDescription: "Wynajem samochodu w Jaremczu. SUV-y na drogi górskie. Dostawa na kurort. Zarezerwuj!",
+      h1: "Wynajem samochodu w Jaremczu",
+      sectionCars: "SAMOCHODY REIZ W JAREMCZU",
+      sectionWelcome: "WITAMY W REIZ JAREMCZE",
+      subtitle: "Wynajem samochodu w Jaremczu bez kaucji. SUV-y na drogi karpackie.",
+      address: "Centrum Jaremcza",
+      footerDescription: "Wynajem samochodów w Jaremczu od REIZ. SUV-y i Ekonom na drogi górskie.",
+      ogTitle: "Wynajem samochodu Jaremcze — REIZ | Karpaty",
+      ogDescription: "Wynajem samochodu w Jaremczu. SUV-y. Dostawa na kurort.",
+    },
   },
   kolomyia: {
     uk: {
@@ -1921,6 +2378,18 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Kolomyia — Kosiv & Chernivtsi | REIZ",
       ogDescription:
         "Car rental in Kolomyia with no deposit. 24/7 city delivery. Trips to Kosiv, Yaremche and Chernivtsi.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Kołomyi — bez kaucji",
+      metaDescription: "Wynajem samochodu w Kołomyi oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Kołomyi",
+      sectionCars: "SAMOCHODY REIZ W KOŁOMYI",
+      sectionWelcome: "WITAMY W REIZ KOŁOMYJA",
+      subtitle: "Wynajem samochodu w Kołomyi bez kaucji.",
+      address: "Centrum miasta Kołomyja",
+      footerDescription: "Wynajem samochodów w Kołomyi od REIZ.",
+      ogTitle: "Wynajem samochodu Kołomyja — REIZ",
+      ogDescription: "Wynajem samochodu w Kołomyi. Bez kaucji.",
     },
   },
   kalush: {
@@ -1969,6 +2438,18 @@ export const cityLocalizations: Record<
       ogDescription:
         "Car rental in Kalush with no deposit. 24/7 city delivery. Routes to Ivano-Frankivsk, Halych and Dolyna.",
     },
+    pl: {
+      title: "Wynajem samochodu w Kałuszu — bez kaucji",
+      metaDescription: "Wynajem samochodu w Kałuszu oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Kałuszu",
+      sectionCars: "SAMOCHODY REIZ W KAŁUSZU",
+      sectionWelcome: "WITAMY W REIZ KAŁUSZ",
+      subtitle: "Wynajem samochodu w Kałuszu bez kaucji.",
+      address: "Centrum miasta Kałusz",
+      footerDescription: "Wynajem samochodów w Kałuszu od REIZ.",
+      ogTitle: "Wynajem samochodu Kałusz — REIZ",
+      ogDescription: "Wynajem samochodu w Kałuszu. Bez kaucji.",
+    },
   },
   nadvirna: {
     uk: {
@@ -2015,6 +2496,18 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Nadvirna — REIZ | Carpathians 24/7",
       ogDescription:
         "Rent a car in Nadvirna. No deposit. City delivery. Trips to Bukovel.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Nadwórnej — bez kaucji",
+      metaDescription: "Wynajem samochodu w Nadwórnej oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Nadwórnej",
+      sectionCars: "SAMOCHODY REIZ W NADWÓRNEJ",
+      sectionWelcome: "WITAMY W REIZ NADWÓRNA",
+      subtitle: "Wynajem samochodu w Nadwórnej bez kaucji.",
+      address: "Centrum miasta Nadwórna",
+      footerDescription: "Wynajem samochodów w Nadwórnej od REIZ.",
+      ogTitle: "Wynajem samochodu Nadwórna — REIZ",
+      ogDescription: "Wynajem samochodu w Nadwórnej. Bez kaucji.",
     },
   },
   kosiv: {
@@ -2063,6 +2556,18 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car in Kosiv. Mountain-ready cars and SUVs. Delivery within the city and region.",
     },
+    pl: {
+      title: "Wynajem samochodu w Kosowie — bez kaucji",
+      metaDescription: "Wynajem samochodu w Kosowie oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Kosowie",
+      sectionCars: "SAMOCHODY REIZ W KOSOWIE",
+      sectionWelcome: "WITAMY W REIZ KOSÓW",
+      subtitle: "Wynajem samochodu w Kosowie bez kaucji.",
+      address: "Centrum miasta Kosów",
+      footerDescription: "Wynajem samochodów w Kosowie od REIZ.",
+      ogTitle: "Wynajem samochodu Kosów — REIZ",
+      ogDescription: "Wynajem samochodu w Kosowie. Bez kaucji.",
+    },
   },
   chortkiv: {
     uk: {
@@ -2109,6 +2614,18 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Chortkiv, Kremenets, Berehove, Khust",
       ogDescription:
         "Rent a car in Chortkiv, Kremenets, Berehove, Khust. 🏰 Explore castles and thermal baths. 🚗 Convenient service. Book now.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Czortkowie — bez kaucji",
+      metaDescription: "Wynajem samochodu w Czortkowie oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Czortkowie",
+      sectionCars: "SAMOCHODY REIZ W CZORTKOWIE",
+      sectionWelcome: "WITAMY W REIZ CZORTKÓW",
+      subtitle: "Wynajem samochodu w Czortkowie bez kaucji.",
+      address: "Centrum miasta Czortków",
+      footerDescription: "Wynajem samochodów w Czortkowie od REIZ.",
+      ogTitle: "Wynajem samochodu Czortków — REIZ",
+      ogDescription: "Wynajem samochodu w Czortkowie. Bez kaucji.",
     },
   },
   kremenets: {
@@ -2157,6 +2674,18 @@ export const cityLocalizations: Record<
       ogDescription:
         "Rent a car in Kremenets. Best choice for visiting Pochaiv. City and hotel delivery available.",
     },
+    pl: {
+      title: "Wynajem samochodu w Krzemieńcu — bez kaucji",
+      metaDescription: "Wynajem samochodu w Krzemieńcu oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Krzemieńcu",
+      sectionCars: "SAMOCHODY REIZ W KRZEMIEŃCU",
+      sectionWelcome: "WITAMY W REIZ KRZEMIENIEC",
+      subtitle: "Wynajem samochodu w Krzemieńcu bez kaucji.",
+      address: "Centrum miasta Krzemieniec",
+      footerDescription: "Wynajem samochodów w Krzemieńcu od REIZ.",
+      ogTitle: "Wynajem samochodu Krzemieniec — REIZ",
+      ogDescription: "Wynajem samochodu w Krzemieńcu. Bez kaucji.",
+    },
   },
   berehove: {
     uk: {
@@ -2203,6 +2732,18 @@ export const cityLocalizations: Record<
       ogTitle: "Car Rental Berehove — REIZ | Transcarpathia Tours",
       ogDescription:
         "Rent a car in Berehove. Reliable cars for local trips, thermal spas, and vineyards.",
+    },
+    pl: {
+      title: "Wynajem samochodu w Berehowie — baseny termalne",
+      metaDescription: "Wynajem samochodu w Berehowie oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Berehowie",
+      sectionCars: "SAMOCHODY REIZ W BEREHOWIE",
+      sectionWelcome: "WITAMY W REIZ BEREHOWO",
+      subtitle: "Wynajem samochodu w Berehowie bez kaucji. Baseny termalne i atrakcje.",
+      address: "Centrum miasta Berehowo",
+      footerDescription: "Wynajem samochodów w Berehowie od REIZ.",
+      ogTitle: "Wynajem samochodu Berehowo — REIZ",
+      ogDescription: "Wynajem samochodu w Berehowie. Bez kaucji.",
     },
   },
   khust: {
@@ -2251,6 +2792,18 @@ export const cityLocalizations: Record<
       ogDescription:
         "Car rental services in Khust. Wide selection: economy to SUVs. Fast delivery.",
     },
+    pl: {
+      title: "Wynajem samochodu w Chuście — bez kaucji",
+      metaDescription: "Wynajem samochodu w Chuście oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Chuście",
+      sectionCars: "SAMOCHODY REIZ W CHUŚCIE",
+      sectionWelcome: "WITAMY W REIZ CHUST",
+      subtitle: "Wynajem samochodu w Chuście bez kaucji.",
+      address: "Centrum miasta Chust",
+      footerDescription: "Wynajem samochodów w Chuście od REIZ.",
+      ogTitle: "Wynajem samochodu Chust — REIZ",
+      ogDescription: "Wynajem samochodu w Chuście. Bez kaucji.",
+    },
   },
   rakhiv: {
     uk: {
@@ -2298,17 +2851,25 @@ export const cityLocalizations: Record<
       ogDescription:
         "SUV rental in Rakhiv. Reliable cars for the highest mountains in Ukraine.",
     },
+    pl: {
+      title: "Wynajem samochodu w Rachowie — centrum Europy",
+      metaDescription: "Wynajem samochodu w Rachowie oficjalnie. Nowa flota. Dostawa po mieście. Zarezerwuj!",
+      h1: "Wynajem samochodu w Rachowie",
+      sectionCars: "SAMOCHODY REIZ W RACHOWIE",
+      sectionWelcome: "WITAMY W REIZ RACHÓW",
+      subtitle: "Wynajem samochodu w Rachowie bez kaucji. Dostęp do szlaków górskich.",
+      address: "Centrum miasta Rachów",
+      footerDescription: "Wynajem samochodów w Rachowie od REIZ.",
+      ogTitle: "Wynajem samochodu Rachów — REIZ",
+      ogDescription: "Wynajem samochodu w Rachowie. Bez kaucji.",
+    },
   },
 };
 
 // Інтерфейс для місць подачі авто
 export interface PickupLocation {
   id: string;
-  name: {
-    uk: string;
-    ru: string;
-    en: string;
-  };
+  name: LocalizedField;
   type: "railway" | "bus" | "airport" | "mall" | "center" | "other";
 }
 
@@ -2321,6 +2882,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центральний залізничний вокзал",
         ru: "Центральный ж/д вокзал",
         en: "Central Railway Station",
+        pl: "Centralny dworzec kolejowy",
       },
       type: "railway",
     },
@@ -2330,6 +2892,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автовокзал «Центральний»",
         ru: "Автовокзал «Центральный»",
         en: "Central Bus Station",
+        pl: "Centralny dworzec autobusowy",
       },
       type: "bus",
     },
@@ -2339,6 +2902,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Бориспіль» (KBP)",
         ru: "Аэропорт «Борисполь» (KBP)",
         en: "Boryspil Airport (KBP)",
+        pl: "Lotnisko Boryszpol (KBP)",
       },
       type: "airport",
     },
@@ -2348,6 +2912,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ Ocean Plaza",
         ru: "ТРЦ Ocean Plaza",
         en: "Ocean Plaza Mall",
+        pl: "Centrum handlowe Ocean Plaza",
       },
       type: "mall",
     },
@@ -2357,6 +2922,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Майдан Незалежності",
         ru: "Майдан Независимости",
         en: "Maidan Nezalezhnosti",
+        pl: "Majdan Niepodległości",
       },
       type: "center",
     },
@@ -2368,6 +2934,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Головний залізничний вокзал",
         ru: "Главный ж/д вокзал",
         en: "Main Railway Station",
+        pl: "Główny dworzec kolejowy",
       },
       type: "railway",
     },
@@ -2377,6 +2944,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автостанція №8 (Стрийська)",
         ru: "Автостанция №8 (Стрыйская)",
         en: "Bus Station №8 (Stryiska)",
+        pl: "Dworzec autobusowy nr 8 (Stryjska)",
       },
       type: "bus",
     },
@@ -2386,6 +2954,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Львів» (LWO)",
         ru: "Аэропорт «Львов» (LWO)",
         en: "Lviv Airport (LWO)",
+        pl: "Lotnisko Lwów (LWO)",
       },
       type: "airport",
     },
@@ -2395,6 +2964,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ Forum Lviv",
         ru: "ТРЦ Forum Lviv",
         en: "Forum Lviv Mall",
+        pl: "Centrum handlowe Forum Lviv",
       },
       type: "mall",
     },
@@ -2404,6 +2974,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Площа Ринок",
         ru: "Площадь Рынок",
         en: "Rynok Square",
+        pl: "Plac Rynok",
       },
       type: "center",
     },
@@ -2415,6 +2986,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Одеса-Головна»",
         ru: "Ж/д вокзал «Одесса-Главная»",
         en: "Odesa Main Railway Station",
+        pl: "Dworzec kolejowy Odessa-Główna",
       },
       type: "railway",
     },
@@ -2424,6 +2996,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автовокзал «Привоз»",
         ru: "Автовокзал «Привоз»",
         en: "Pryvoz Bus Station",
+        pl: "Dworzec autobusowy Prywoz",
       },
       type: "bus",
     },
@@ -2433,6 +3006,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Одеса» (ODS)",
         ru: "Аэропорт «Одесса» (ODS)",
         en: "Odesa Airport (ODS)",
+        pl: "Lotnisko Odessa (ODS)",
       },
       type: "airport",
     },
@@ -2442,6 +3016,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ Fontan Sky Center",
         ru: "ТРЦ Fontan Sky Center",
         en: "Fontan Sky Center Mall",
+        pl: "Centrum handlowe Fontan Sky Center",
       },
       type: "mall",
     },
@@ -2451,6 +3026,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Дерибасівська вулиця",
         ru: "Дерибасовская улица",
         en: "Derybasivska Street",
+        pl: "Ulica Derybasówska",
       },
       type: "center",
     },
@@ -2462,6 +3038,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Дніпро-Головний»",
         ru: "Ж/д вокзал «Днепр-Главный»",
         en: "Dnipro Main Railway Station",
+        pl: "Dworzec kolejowy Dniepr-Główny",
       },
       type: "railway",
     },
@@ -2471,6 +3048,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центральний автовокзал",
         ru: "Центральный автовокзал",
         en: "Central Bus Station",
+        pl: "Centralny dworzec autobusowy",
       },
       type: "bus",
     },
@@ -2480,6 +3058,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Дніпро» (DNK)",
         ru: "Аэропорт «Днепр» (DNK)",
         en: "Dnipro Airport (DNK)",
+        pl: "Lotnisko Dniepr (DNK)",
       },
       type: "airport",
     },
@@ -2489,6 +3068,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ MOST-city",
         ru: "ТРЦ MOST-city",
         en: "MOST-city Mall",
+        pl: "Centrum handlowe MOST-city",
       },
       type: "mall",
     },
@@ -2498,6 +3078,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Європейська площа",
         ru: "Европейская площадь",
         en: "European Square",
+        pl: "Plac Europejski",
       },
       type: "center",
     },
@@ -2509,6 +3090,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Харків-Пасажирський»",
         ru: "Ж/д вокзал «Харьков-Пассажирский»",
         en: "Kharkiv Passenger Railway Station",
+        pl: "Dworzec kolejowy Charków-Pasażerski",
       },
       type: "railway",
     },
@@ -2518,6 +3100,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центральний автовокзал",
         ru: "Центральный автовокзал",
         en: "Central Bus Station",
+        pl: "Centralny dworzec autobusowy",
       },
       type: "bus",
     },
@@ -2527,6 +3110,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Міжнародний аеропорт «Харків» (HRK)",
         ru: "Международный аэропорт «Харьков» (HRK)",
         en: "Kharkiv International Airport (HRK)",
+        pl: "Międzynarodowe lotnisko Charków (HRK)",
       },
       type: "airport",
     },
@@ -2536,6 +3120,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ Нікольський",
         ru: "ТРЦ Никольский",
         en: "Nikolsky Mall",
+        pl: "Centrum handlowe Nikolski",
       },
       type: "mall",
     },
@@ -2545,6 +3130,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Площа Свободи",
         ru: "Площадь Свободы",
         en: "Freedom Square",
+        pl: "Plac Wolności",
       },
       type: "center",
     },
@@ -2556,6 +3142,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Тернопіль»",
         ru: "Ж/д вокзал «Тернополь»",
         en: "Ternopil Railway Station",
+        pl: "Dworzec kolejowy Tarnopol",
       },
       type: "railway",
     },
@@ -2565,6 +3152,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центральний автовокзал",
         ru: "Центральный автовокзал",
         en: "Central Bus Station",
+        pl: "Centralny dworzec autobusowy",
       },
       type: "bus",
     },
@@ -2574,6 +3162,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ «Поділля City»",
         ru: "ТРЦ «Подолье City»",
         en: "Podillia City Mall",
+        pl: "Centrum handlowe Podilla City",
       },
       type: "mall",
     },
@@ -2583,6 +3172,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Театральна площа",
         ru: "Театральная площадь",
         en: "Theatre Square",
+        pl: "Plac Teatralny",
       },
       type: "center",
     },
@@ -2594,6 +3184,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Ужгород»",
         ru: "Ж/д вокзал «Ужгород»",
         en: "Uzhhorod Railway Station",
+        pl: "Dworzec kolejowy Użhorod",
       },
       type: "railway",
     },
@@ -2603,6 +3194,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автовокзал «Ужгород»",
         ru: "Автовокзал «Ужгород»",
         en: "Uzhhorod Bus Station",
+        pl: "Dworzec autobusowy Użhorod",
       },
       type: "bus",
     },
@@ -2612,6 +3204,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ «Дастор»",
         ru: "ТРЦ «Дастор»",
         en: "Dastor Mall",
+        pl: "Centrum handlowe Dastor",
       },
       type: "mall",
     },
@@ -2621,6 +3214,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Площа Народна",
         ru: "Народная площадь",
         en: "Narodna Square",
+        pl: "Plac Narodna",
       },
       type: "center",
     },
@@ -2632,6 +3226,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Вінниця»",
         ru: "Ж/д вокзал «Винница»",
         en: "Vinnytsia Railway Station",
+        pl: "Dworzec kolejowy Winnica",
       },
       type: "railway",
     },
@@ -2641,6 +3236,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центральний автовокзал",
         ru: "Центральный автовокзал",
         en: "Central Bus Station",
+        pl: "Centralny dworzec autobusowy",
       },
       type: "bus",
     },
@@ -2650,6 +3246,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Вінниця» (VIN)",
         ru: "Аэропорт «Винница» (VIN)",
         en: "Vinnytsia Airport (VIN)",
+        pl: "Lotnisko Winnica (VIN)",
       },
       type: "airport",
     },
@@ -2659,6 +3256,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ Sky Park",
         ru: "ТРЦ Sky Park",
         en: "Sky Park Mall",
+        pl: "Centrum handlowe Sky Park",
       },
       type: "mall",
     },
@@ -2668,6 +3266,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Європейська площа",
         ru: "Европейская площадь",
         en: "European Square",
+        pl: "Plac Europejski",
       },
       type: "center",
     },
@@ -2679,6 +3278,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Мукачево»",
         ru: "Ж/д вокзал «Мукачево»",
         en: "Mukachevo Railway Station",
+        pl: "Dworzec kolejowy Mukaczewo",
       },
       type: "railway",
     },
@@ -2688,6 +3288,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автовокзал «Мукачево»",
         ru: "Автовокзал «Мукачево»",
         en: "Mukachevo Bus Station",
+        pl: "Dworzec autobusowy Mukaczewo",
       },
       type: "bus",
     },
@@ -2697,6 +3298,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТЦ «Карпати»",
         ru: "ТЦ «Карпаты»",
         en: "Karpaty Shopping Center",
+        pl: "Centrum handlowe Karpaty",
       },
       type: "mall",
     },
@@ -2706,6 +3308,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Площа Кирила і Мефодія",
         ru: "Площадь Кирилла и Мефодия",
         en: "Cyril and Methodius Square",
+        pl: "Plac Cyryla i Metodego",
       },
       type: "center",
     },
@@ -2717,6 +3320,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Чернівці»",
         ru: "Ж/д вокзал «Черновцы»",
         en: "Chernivtsi Railway Station",
+        pl: "Dworzec kolejowy Czerniowce",
       },
       type: "railway",
     },
@@ -2726,6 +3330,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автовокзал «Чернівці»",
         ru: "Автовокзал «Черновцы»",
         en: "Chernivtsi Bus Station",
+        pl: "Dworzec autobusowy Czerniowce",
       },
       type: "bus",
     },
@@ -2735,6 +3340,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ «Депот»",
         ru: "ТРЦ «Депот»",
         en: "Depot Mall",
+        pl: "Centrum handlowe Depot",
       },
       type: "mall",
     },
@@ -2744,6 +3350,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центральна площа",
         ru: "Центральная площадь",
         en: "Central Square",
+        pl: "Plac Centralny",
       },
       type: "center",
     },
@@ -2755,6 +3362,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Полтава-Київська»",
         ru: "Ж/д вокзал «Полтава-Киевская»",
         en: "Poltava-Kyivska Railway Station",
+        pl: "Dworzec kolejowy Połtawa-Kijowska",
       },
       type: "railway",
     },
@@ -2764,6 +3372,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центральний автовокзал",
         ru: "Центральный автовокзал",
         en: "Central Bus Station",
+        pl: "Centralny dworzec autobusowy",
       },
       type: "bus",
     },
@@ -2773,6 +3382,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ «Київ»",
         ru: "ТРЦ «Киев»",
         en: "Kyiv Mall",
+        pl: "Centrum handlowe Kijów",
       },
       type: "mall",
     },
@@ -2782,6 +3392,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Круглий сквер",
         ru: "Круглый сквер",
         en: "Round Square",
+        pl: "Skwer Okrągły",
       },
       type: "center",
     },
@@ -2793,6 +3404,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Запоріжжя-1»",
         ru: "Ж/д вокзал «Запорожье-1»",
         en: "Zaporizhzhia-1 Railway Station",
+        pl: "Dworzec kolejowy Zaporoże-1",
       },
       type: "railway",
     },
@@ -2802,6 +3414,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центральний автовокзал",
         ru: "Центральный автовокзал",
         en: "Central Bus Station",
+        pl: "Centralny dworzec autobusowy",
       },
       type: "bus",
     },
@@ -2811,6 +3424,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Запоріжжя» (OZH)",
         ru: "Аэропорт «Запорожье» (OZH)",
         en: "Zaporizhzhia Airport (OZH)",
+        pl: "Lotnisko Zaporoże (OZH)",
       },
       type: "airport",
     },
@@ -2820,6 +3434,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ City Mall",
         ru: "ТРЦ City Mall",
         en: "City Mall",
+        pl: "Centrum handlowe City Mall",
       },
       type: "mall",
     },
@@ -2829,6 +3444,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Площа Фестивальна",
         ru: "Фестивальная площадь",
         en: "Festival Square",
+        pl: "Plac Festiwalowy",
       },
       type: "center",
     },
@@ -2840,6 +3456,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Міжнародний аеропорт «Бориспіль» (KBP)",
         ru: "Международный аэропорт «Борисполь» (KBP)",
         en: "Boryspil International Airport (KBP)",
+        pl: "Międzynarodowe lotnisko Boryszpol (KBP)",
       },
       type: "airport",
     },
@@ -2849,6 +3466,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Бориспіль» — Термінал D",
         ru: "Аэропорт «Борисполь» — Терминал D",
         en: "Boryspil Airport — Terminal D",
+        pl: "Lotnisko Boryszpol — Terminal D",
       },
       type: "airport",
     },
@@ -2858,6 +3476,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Бориспіль» — Термінал F",
         ru: "Аэропорт «Борисполь» — Терминал F",
         en: "Boryspil Airport — Terminal F",
+        pl: "Lotnisko Boryszpol — Terminal F",
       },
       type: "airport",
     },
@@ -2867,6 +3486,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Бориспіль»",
         ru: "Ж/д вокзал «Борисполь»",
         en: "Boryspil Railway Station",
+        pl: "Dworzec kolejowy Boryszpol",
       },
       type: "railway",
     },
@@ -2876,6 +3496,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центр міста Бориспіль",
         ru: "Центр города Борисполь",
         en: "Boryspil City Center",
+        pl: "Centrum miasta Boryszpol",
       },
       type: "center",
     },
@@ -2887,6 +3508,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Івано-Франківськ»",
         ru: "Ж/д вокзал «Ивано-Франковск»",
         en: "Ivano-Frankivsk Railway Station",
+        pl: "Dworzec kolejowy Iwano-Frankiwsk",
       },
       type: "railway",
     },
@@ -2896,6 +3518,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центральний автовокзал",
         ru: "Центральный автовокзал",
         en: "Central Bus Station",
+        pl: "Centralny dworzec autobusowy",
       },
       type: "bus",
     },
@@ -2905,6 +3528,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Івано-Франківськ» (IFO)",
         ru: "Аэропорт «Ивано-Франковск» (IFO)",
         en: "Ivano-Frankivsk Airport (IFO)",
+        pl: "Lotnisko Iwano-Frankiwsk (IFO)",
       },
       type: "airport",
     },
@@ -2914,6 +3538,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "ТРЦ «Арсен»",
         ru: "ТРЦ «Арсен»",
         en: "Arsen Mall",
+        pl: "Centrum handlowe Arsen",
       },
       type: "mall",
     },
@@ -2923,6 +3548,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Площа Вічевий Майдан",
         ru: "Площадь Вечевой Майдан",
         en: "Viche Maidan Square",
+        pl: "Plac Wiecowy Majdan",
       },
       type: "center",
     },
@@ -2934,6 +3560,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Курорт Буковель — головний вхід",
         ru: "Курорт Буковель — главный вход",
         en: "Bukovel Resort — Main Entrance",
+        pl: "Ośrodek Bukowel — wejście główne",
       },
       type: "center",
     },
@@ -2943,6 +3570,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Підйомник №8 (Буковель)",
         ru: "Подъемник №8 (Буковель)",
         en: "Lift №8 (Bukovel)",
+        pl: "Wyciąg nr 8 (Bukowel)",
       },
       type: "other",
     },
@@ -2952,6 +3580,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Яремче — залізничний вокзал",
         ru: "Яремче — ж/д вокзал",
         en: "Yaremche Railway Station",
+        pl: "Jaremcze — dworzec kolejowy",
       },
       type: "railway",
     },
@@ -2961,6 +3590,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Івано-Франківськ» (IFO)",
         ru: "Аэропорт «Ивано-Франковск» (IFO)",
         en: "Ivano-Frankivsk Airport (IFO)",
+        pl: "Lotnisko Iwano-Frankiwsk (IFO)",
       },
       type: "airport",
     },
@@ -2972,6 +3602,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Трускавець»",
         ru: "Ж/д вокзал «Трускавец»",
         en: "Truskavets Railway Station",
+        pl: "Dworzec kolejowy Truskawiec",
       },
       type: "railway",
     },
@@ -2981,6 +3612,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автовокзал «Трускавець»",
         ru: "Автовокзал «Трускавец»",
         en: "Truskavets Bus Station",
+        pl: "Dworzec autobusowy Truskawiec",
       },
       type: "bus",
     },
@@ -2990,6 +3622,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Бювет «Нафтуся»",
         ru: "Бювет «Нафтуся»",
         en: "Naftusya Pump Room",
+        pl: "Pijalnia Naftusya",
       },
       type: "center",
     },
@@ -2999,6 +3632,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Львів» (LWO)",
         ru: "Аэропорт «Львов» (LWO)",
         en: "Lviv Airport (LWO)",
+        pl: "Lotnisko Lwów (LWO)",
       },
       type: "airport",
     },
@@ -3010,6 +3644,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центр Східниці",
         ru: "Центр Сходницы",
         en: "Skhidnytsia Center",
+        pl: "Centrum Schodnicy",
       },
       type: "center",
     },
@@ -3019,6 +3654,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Бювет мінеральних вод",
         ru: "Бювет минеральных вод",
         en: "Mineral Water Pump Room",
+        pl: "Pijalnia wód mineralnych",
       },
       type: "other",
     },
@@ -3028,6 +3664,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Дрогобич — залізничний вокзал",
         ru: "Дрогобыч — ж/д вокзал",
         en: "Drohobych Railway Station",
+        pl: "Drohobycz — dworzec kolejowy",
       },
       type: "railway",
     },
@@ -3037,6 +3674,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Аеропорт «Львів» (LWO)",
         ru: "Аэропорт «Львов» (LWO)",
         en: "Lviv Airport (LWO)",
+        pl: "Lotnisko Lwów (LWO)",
       },
       type: "airport",
     },
@@ -3048,6 +3686,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Луцьк»",
         ru: "Ж/д вокзал «Луцк»",
         en: "Lutsk Railway Station",
+        pl: "Dworzec kolejowy Łuck",
       },
       type: "railway",
     },
@@ -3057,6 +3696,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автовокзал «Луцьк»",
         ru: "Автовокзал «Луцк»",
         en: "Lutsk Bus Station",
+        pl: "Dworzec autobusowy Łuck",
       },
       type: "bus",
     },
@@ -3066,6 +3706,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центр міста Луцьк",
         ru: "Центр города Луцк",
         en: "Lutsk City Center",
+        pl: "Centrum miasta Łuck",
       },
       type: "center",
     },
@@ -3077,6 +3718,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Рівне»",
         ru: "Ж/д вокзал «Ровно»",
         en: "Rivne Railway Station",
+        pl: "Dworzec kolejowy Równe",
       },
       type: "railway",
     },
@@ -3086,6 +3728,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автовокзал «Рівне»",
         ru: "Автовокзал «Ровно»",
         en: "Rivne Bus Station",
+        pl: "Dworzec autobusowy Równe",
       },
       type: "bus",
     },
@@ -3095,6 +3738,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центр міста Рівне",
         ru: "Центр города Ровно",
         en: "Rivne City Center",
+        pl: "Centrum miasta Równe",
       },
       type: "center",
     },
@@ -3106,6 +3750,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Залізничний вокзал «Хмельницький»",
         ru: "Ж/д вокзал «Хмельницкий»",
         en: "Khmelnytskyi Railway Station",
+        pl: "Dworzec kolejowy Chmielnicki",
       },
       type: "railway",
     },
@@ -3115,6 +3760,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автовокзал «Хмельницький»",
         ru: "Автовокзал «Хмельницкий»",
         en: "Khmelnytskyi Bus Station",
+        pl: "Dworzec autobusowy Chmielnicki",
       },
       type: "bus",
     },
@@ -3124,6 +3770,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Центр міста Хмельницький",
         ru: "Центр города Хмельницкий",
         en: "Khmelnytskyi City Center",
+        pl: "Centrum miasta Chmielnicki",
       },
       type: "center",
     },
@@ -3135,6 +3782,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Кам'янець-Подільська фортеця",
         ru: "Каменец-Подольская крепость",
         en: "Kamianets-Podilskyi Fortress",
+        pl: "Twierdza Kamieniec Podolski",
       },
       type: "other",
     },
@@ -3144,6 +3792,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Старе місто Кам'янець-Подільський",
         ru: "Старый город Каменец-Подольский",
         en: "Kamianets-Podilskyi Old Town",
+        pl: "Stare miasto Kamieniec Podolski",
       },
       type: "center",
     },
@@ -3153,6 +3802,7 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
         uk: "Автовокзал «Кам'янець-Подільський»",
         ru: "Автовокзал «Каменец-Подольский»",
         en: "Kamianets-Podilskyi Bus Station",
+        pl: "Dworzec autobusowy Kamieniec Podolski",
       },
       type: "bus",
     },
@@ -3160,242 +3810,242 @@ export const cityPickupLocations: Record<string, PickupLocation[]> = {
   drohobych: [
     {
       id: "drohobych-railway",
-      name: { uk: "Залізничний вокзал «Дрогобич»", ru: "Ж/д вокзал «Дрогобыч»", en: "Drohobych Railway Station" },
+      name: { uk: "Залізничний вокзал «Дрогобич»", ru: "Ж/д вокзал «Дрогобыч»", en: "Drohobych Railway Station", pl: "Dworzec kolejowy Drohobycz" },
       type: "railway",
     },
     {
       id: "drohobych-center",
-      name: { uk: "Центр міста Дрогобич", ru: "Центр города Дрогобыч", en: "Drohobych City Center" },
+      name: { uk: "Центр міста Дрогобич", ru: "Центр города Дрогобыч", en: "Drohobych City Center", pl: "Centrum miasta Drohobycz" },
       type: "center",
     },
   ],
   stryi: [
     {
       id: "stryi-railway",
-      name: { uk: "Залізничний вокзал «Стрий»", ru: "Ж/д вокзал «Стрый»", en: "Stryi Railway Station" },
+      name: { uk: "Залізничний вокзал «Стрий»", ru: "Ж/д вокзал «Стрый»", en: "Stryi Railway Station", pl: "Dworzec kolejowy Stryj" },
       type: "railway",
     },
     {
       id: "stryi-center",
-      name: { uk: "Центр міста Стрий", ru: "Центр города Стрый", en: "Stryi City Center" },
+      name: { uk: "Центр міста Стрий", ru: "Центр города Стрый", en: "Stryi City Center", pl: "Centrum miasta Stryj" },
       type: "center",
     },
   ],
   sambir: [
     {
       id: "sambir-railway",
-      name: { uk: "Залізничний вокзал «Самбір»", ru: "Ж/д вокзал «Самбор»", en: "Sambir Railway Station" },
+      name: { uk: "Залізничний вокзал «Самбір»", ru: "Ж/д вокзал «Самбор»", en: "Sambir Railway Station", pl: "Dworzec kolejowy Sambor" },
       type: "railway",
     },
     {
       id: "sambir-center",
-      name: { uk: "Центр міста Самбір", ru: "Центр города Самбор", en: "Sambir City Center" },
+      name: { uk: "Центр міста Самбір", ru: "Центр города Самбор", en: "Sambir City Center", pl: "Centrum miasta Sambor" },
       type: "center",
     },
   ],
   chervonohrad: [
     {
       id: "chervonohrad-center",
-      name: { uk: "Центр міста Червоноград", ru: "Центр города Червоноград", en: "Chervonohrad City Center" },
+      name: { uk: "Центр міста Червоноград", ru: "Центр города Червоноград", en: "Chervonohrad City Center", pl: "Centrum miasta Czerwonogród" },
       type: "center",
     },
   ],
   boryslav: [
     {
       id: "boryslav-center",
-      name: { uk: "Центр міста Борислав", ru: "Центр города Борислав", en: "Boryslav City Center" },
+      name: { uk: "Центр міста Борислав", ru: "Центр города Борислав", en: "Boryslav City Center", pl: "Centrum miasta Borysław" },
       type: "center",
     },
   ],
   zhovkva: [
     {
       id: "zhovkva-castle",
-      name: { uk: "Жовківський замок", ru: "Жолковский замок", en: "Zhovkva Castle" },
+      name: { uk: "Жовківський замок", ru: "Жолковский замок", en: "Zhovkva Castle", pl: "Zamek w Żółkwi" },
       type: "other",
     },
     {
       id: "zhovkva-center",
-      name: { uk: "Центр міста Жовква", ru: "Центр города Жолква", en: "Zhovkva City Center" },
+      name: { uk: "Центр міста Жовква", ru: "Центр города Жолква", en: "Zhovkva City Center", pl: "Centrum miasta Żółkiew" },
       type: "center",
     },
   ],
   yaremche: [
     {
       id: "yaremche-railway",
-      name: { uk: "Залізнична станція «Яремче»", ru: "Ж/д станция «Яремче»", en: "Yaremche Railway Station" },
+      name: { uk: "Залізнична станція «Яремче»", ru: "Ж/д станция «Яремче»", en: "Yaremche Railway Station", pl: "Stacja kolejowa Jaremcze" },
       type: "railway",
     },
     {
       id: "yaremche-probiy",
-      name: { uk: "Водоспад Пробій", ru: "Водопад Пробий", en: "Probiy Waterfall" },
+      name: { uk: "Водоспад Пробій", ru: "Водопад Пробий", en: "Probiy Waterfall", pl: "Wodospad Probij" },
       type: "other",
     },
     {
       id: "yaremche-center",
-      name: { uk: "Центр Яремче", ru: "Центр Яремче", en: "Yaremche City Center" },
+      name: { uk: "Центр Яремче", ru: "Центр Яремче", en: "Yaremche City Center", pl: "Centrum Jaremcza" },
       type: "center",
     },
   ],
   kolomyia: [
     {
       id: "kolomyia-railway",
-      name: { uk: "Залізничний вокзал «Коломия»", ru: "Ж/д вокзал «Коломыя»", en: "Kolomyia Railway Station" },
+      name: { uk: "Залізничний вокзал «Коломия»", ru: "Ж/д вокзал «Коломыя»", en: "Kolomyia Railway Station", pl: "Dworzec kolejowy Kołomyja" },
       type: "railway",
     },
     {
       id: "kolomyia-bus",
-      name: { uk: "Автовокзал «Коломия»", ru: "Автовокзал «Коломыя»", en: "Kolomyia Bus Station" },
+      name: { uk: "Автовокзал «Коломия»", ru: "Автовокзал «Коломыя»", en: "Kolomyia Bus Station", pl: "Dworzec autobusowy Kołomyja" },
       type: "bus",
     },
     {
       id: "kolomyia-center",
-      name: { uk: "Центр міста Коломия", ru: "Центр города Коломыя", en: "Kolomyia City Center" },
+      name: { uk: "Центр міста Коломия", ru: "Центр города Коломыя", en: "Kolomyia City Center", pl: "Centrum miasta Kołomyja" },
       type: "center",
     },
   ],
   kalush: [
     {
       id: "kalush-railway",
-      name: { uk: "Залізничний вокзал «Калуш»", ru: "Ж/д вокзал «Калуш»", en: "Kalush Railway Station" },
+      name: { uk: "Залізничний вокзал «Калуш»", ru: "Ж/д вокзал «Калуш»", en: "Kalush Railway Station", pl: "Dworzec kolejowy Kałusz" },
       type: "railway",
     },
     {
       id: "kalush-bus",
-      name: { uk: "Автовокзал «Калуш»", ru: "Автовокзал «Калуш»", en: "Kalush Bus Station" },
+      name: { uk: "Автовокзал «Калуш»", ru: "Автовокзал «Калуш»", en: "Kalush Bus Station", pl: "Dworzec autobusowy Kałusz" },
       type: "bus",
     },
     {
       id: "kalush-center",
-      name: { uk: "Центр міста Калуш", ru: "Центр города Калуш", en: "Kalush City Center" },
+      name: { uk: "Центр міста Калуш", ru: "Центр города Калуш", en: "Kalush City Center", pl: "Centrum miasta Kałusz" },
       type: "center",
     },
   ],
   nadvirna: [
     {
       id: "nadvirna-railway",
-      name: { uk: "Залізничний вокзал «Надвірна»", ru: "Ж/д вокзал «Надворная»", en: "Nadvirna Railway Station" },
+      name: { uk: "Залізничний вокзал «Надвірна»", ru: "Ж/д вокзал «Надворная»", en: "Nadvirna Railway Station", pl: "Dworzec kolejowy Nadwórna" },
       type: "railway",
     },
     {
       id: "nadvirna-bus",
-      name: { uk: "Автовокзал «Надвірна»", ru: "Автовокзал «Надворная»", en: "Nadvirna Bus Station" },
+      name: { uk: "Автовокзал «Надвірна»", ru: "Автовокзал «Надворная»", en: "Nadvirna Bus Station", pl: "Dworzec autobusowy Nadwórna" },
       type: "bus",
     },
     {
       id: "nadvirna-center",
-      name: { uk: "Центр міста Надвірна", ru: "Центр города Надворная", en: "Nadvirna City Center" },
+      name: { uk: "Центр міста Надвірна", ru: "Центр города Надворная", en: "Nadvirna City Center", pl: "Centrum miasta Nadwórna" },
       type: "center",
     },
   ],
   kosiv: [
     {
       id: "kosiv-bus",
-      name: { uk: "Автовокзал «Косів»", ru: "Автовокзал «Косов»", en: "Kosiv Bus Station" },
+      name: { uk: "Автовокзал «Косів»", ru: "Автовокзал «Косов»", en: "Kosiv Bus Station", pl: "Dworzec autobusowy Kosów" },
       type: "bus",
     },
     {
       id: "kosiv-market",
-      name: { uk: "Косівський базар", ru: "Косовский базар", en: "Kosiv Market" },
+      name: { uk: "Косівський базар", ru: "Косовский базар", en: "Kosiv Market", pl: "Bazar w Kosowie" },
       type: "other",
     },
     {
       id: "kosiv-center",
-      name: { uk: "Центр міста Косів", ru: "Центр города Косов", en: "Kosiv City Center" },
+      name: { uk: "Центр міста Косів", ru: "Центр города Косов", en: "Kosiv City Center", pl: "Centrum miasta Kosów" },
       type: "center",
     },
   ],
   chortkiv: [
     {
       id: "chortkiv-railway",
-      name: { uk: "Залізничний вокзал «Чортків»", ru: "Ж/д вокзал «Чортков»", en: "Chortkiv Railway Station" },
+      name: { uk: "Залізничний вокзал «Чортків»", ru: "Ж/д вокзал «Чортков»", en: "Chortkiv Railway Station", pl: "Dworzec kolejowy Czortków" },
       type: "railway",
     },
     {
       id: "chortkiv-bus",
-      name: { uk: "Автовокзал «Чортків»", ru: "Автовокзал «Чортков»", en: "Chortkiv Bus Station" },
+      name: { uk: "Автовокзал «Чортків»", ru: "Автовокзал «Чортков»", en: "Chortkiv Bus Station", pl: "Dworzec autobusowy Czortków" },
       type: "bus",
     },
     {
       id: "chortkiv-center",
-      name: { uk: "Центр міста Чортків", ru: "Центр города Чортков", en: "Chortkiv City Center" },
+      name: { uk: "Центр міста Чортків", ru: "Центр города Чортков", en: "Chortkiv City Center", pl: "Centrum miasta Czortków" },
       type: "center",
     },
   ],
   kremenets: [
     {
       id: "kremenets-bus",
-      name: { uk: "Автовокзал «Кременець»", ru: "Автовокзал «Кременец»", en: "Kremenets Bus Station" },
+      name: { uk: "Автовокзал «Кременець»", ru: "Автовокзал «Кременец»", en: "Kremenets Bus Station", pl: "Dworzec autobusowy Krzemieniec" },
       type: "bus",
     },
     {
       id: "kremenets-castle",
-      name: { uk: "Замкова гора", ru: "Замковая гора", en: "Castle Hill" },
+      name: { uk: "Замкова гора", ru: "Замковая гора", en: "Castle Hill", pl: "Góra Zamkowa" },
       type: "other",
     },
     {
       id: "kremenets-center",
-      name: { uk: "Центр міста Кременець", ru: "Центр города Кременец", en: "Kremenets City Center" },
+      name: { uk: "Центр міста Кременець", ru: "Центр города Кременец", en: "Kremenets City Center", pl: "Centrum miasta Krzemieniec" },
       type: "center",
     },
   ],
   berehove: [
     {
       id: "berehove-railway",
-      name: { uk: "Залізничний вокзал «Берегове»", ru: "Ж/д вокзал «Берегово»", en: "Berehove Railway Station" },
+      name: { uk: "Залізничний вокзал «Берегове»", ru: "Ж/д вокзал «Берегово»", en: "Berehove Railway Station", pl: "Dworzec kolejowy Berehowo" },
       type: "railway",
     },
     {
       id: "berehove-bus",
-      name: { uk: "Автовокзал «Берегове»", ru: "Автовокзал «Берегово»", en: "Berehove Bus Station" },
+      name: { uk: "Автовокзал «Берегове»", ru: "Автовокзал «Берегово»", en: "Berehove Bus Station", pl: "Dworzec autobusowy Berehowo" },
       type: "bus",
     },
     {
       id: "berehove-thermal",
-      name: { uk: "Термальні басейни Берегове", ru: "Термальные бассейны Берегово", en: "Berehove Thermal Pools" },
+      name: { uk: "Термальні басейни Берегове", ru: "Термальные бассейны Берегово", en: "Berehove Thermal Pools", pl: "Baseny termalne Berehowo" },
       type: "other",
     },
     {
       id: "berehove-center",
-      name: { uk: "Центр міста Берегове", ru: "Центр города Берегово", en: "Berehove City Center" },
+      name: { uk: "Центр міста Берегове", ru: "Центр города Берегово", en: "Berehove City Center", pl: "Centrum miasta Berehowo" },
       type: "center",
     },
   ],
   khust: [
     {
       id: "khust-railway",
-      name: { uk: "Залізничний вокзал «Хуст»", ru: "Ж/д вокзал «Хуст»", en: "Khust Railway Station" },
+      name: { uk: "Залізничний вокзал «Хуст»", ru: "Ж/д вокзал «Хуст»", en: "Khust Railway Station", pl: "Dworzec kolejowy Chust" },
       type: "railway",
     },
     {
       id: "khust-bus",
-      name: { uk: "Автовокзал «Хуст»", ru: "Автовокзал «Хуст»", en: "Khust Bus Station" },
+      name: { uk: "Автовокзал «Хуст»", ru: "Автовокзал «Хуст»", en: "Khust Bus Station", pl: "Dworzec autobusowy Chust" },
       type: "bus",
     },
     {
       id: "khust-castle",
-      name: { uk: "Хустський замок", ru: "Хустский замок", en: "Khust Castle" },
+      name: { uk: "Хустський замок", ru: "Хустский замок", en: "Khust Castle", pl: "Zamek Chust" },
       type: "other",
     },
     {
       id: "khust-center",
-      name: { uk: "Центр міста Хуст", ru: "Центр города Хуст", en: "Khust City Center" },
+      name: { uk: "Центр міста Хуст", ru: "Центр города Хуст", en: "Khust City Center", pl: "Centrum miasta Chust" },
       type: "center",
     },
   ],
   rakhiv: [
     {
       id: "rakhiv-railway",
-      name: { uk: "Залізничний вокзал «Рахів»", ru: "Ж/д вокзал «Рахов»", en: "Rakhiv Railway Station" },
+      name: { uk: "Залізничний вокзал «Рахів»", ru: "Ж/д вокзал «Рахов»", en: "Rakhiv Railway Station", pl: "Dworzec kolejowy Rachów" },
       type: "railway",
     },
     {
       id: "rakhiv-bus",
-      name: { uk: "Автовокзал «Рахів»", ru: "Автовокзал «Рахов»", en: "Rakhiv Bus Station" },
+      name: { uk: "Автовокзал «Рахів»", ru: "Автовокзал «Рахов»", en: "Rakhiv Bus Station", pl: "Dworzec autobusowy Rachów" },
       type: "bus",
     },
     {
       id: "rakhiv-center",
-      name: { uk: "Центр міста Рахів", ru: "Центр города Рахов", en: "Rakhiv City Center" },
+      name: { uk: "Центр міста Рахів", ru: "Центр города Рахов", en: "Rakhiv City Center", pl: "Centrum miasta Rachów" },
       type: "center",
     },
   ],
@@ -3408,23 +4058,24 @@ export function getCityBySlug(slug: string): CityConfig | undefined {
 
 export function getCityLocalizedData(
   slug: string,
-  locale: "uk" | "ru" | "en"
+  locale: Locale
 ): CityLocalizedData | undefined {
   return cityLocalizations[slug]?.[locale];
 }
 
 export function getCityFooterAddress(
   city: CityConfig,
-  locale: "uk" | "ru" | "en"
+  locale: Locale
 ): string {
   const cityData = cityLocalizations[city.slug]?.[locale];
   if (cityData?.address) return cityData.address;
 
   const cityName = city.localized[locale].name;
-  const templates = {
+  const templates: LocalizedField = {
     uk: `${cityName}: Персональна подача (Аеропорти / Вокзал / Місто)`,
     ru: `${cityName}: Персональная подача (Аэропорты / Вокзал / Город)`,
     en: `${cityName}: Personal Delivery (Airports / Railway / City)`,
+    pl: `${cityName}: Dostawa osobista (Lotniska / Dworzec / Miasto)`,
   };
 
   return templates[locale];
@@ -3436,7 +4087,7 @@ export function getAllCitySlugs(): string[] {
 
 export function getCityPickupLocations(
   slug: string,
-  locale: "uk" | "ru" | "en"
+  locale: Locale
 ): { id: string; name: string; type: string }[] {
   const locations = cityPickupLocations[slug];
   if (!locations) return [];

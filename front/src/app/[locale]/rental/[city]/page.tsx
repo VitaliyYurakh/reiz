@@ -10,6 +10,12 @@ import { fetchCars } from "@/lib/api/cars";
 import type { Locale } from "@/i18n/request";
 import { locales, defaultLocale } from "@/i18n/request";
 import {
+  OG_LOCALE,
+  buildHreflangMap,
+  getOgAlternateLocales,
+  type LocalizedField,
+} from "@/i18n/locale-config";
+import {
   getCityBySlug,
   getCityFooterAddress,
   getCityLocalizedData,
@@ -28,11 +34,6 @@ type PageParams = {
 
 const MAX_META_TITLE_LENGTH = 55;
 const DASH_SEPARATOR = " \u2014 ";
-const OG_LOCALE: Record<Locale, string> = {
-  uk: "uk_UA",
-  ru: "ru_UA",
-  en: "en_US",
-};
 
 const shortenMetaTitle = (value: string) => {
   const parts = value.split(DASH_SEPARATOR);
@@ -84,18 +85,14 @@ export async function generateMetadata({
 
   const canonical = `${baseUrl}${getPath(locale)}`;
 
-  const languages: Record<string, string> = {
-    uk: `${baseUrl}${getPath("uk")}`,
-    ru: `${baseUrl}${getPath("ru")}`,
-    en: `${baseUrl}${getPath("en")}`,
-    "x-default": `${baseUrl}${getPath("uk")}`,
-  };
+  const languages = buildHreflangMap(
+    (loc) => getPath(loc),
+    (p) => `${baseUrl}${p}`,
+  );
 
   const metaTitle = shortenMetaTitle(cityData.title);
   const ogLocale = OG_LOCALE[locale];
-  const ogAlternateLocales = Object.values(OG_LOCALE).filter(
-    (value) => value !== ogLocale,
-  );
+  const ogAlternateLocales = getOgAlternateLocales(locale);
 
   return {
     title: metaTitle,
@@ -144,11 +141,13 @@ export default async function CityRentalPage({
   const footerDescription = cityData.footerDescription;
 
   // Локалізований заголовок для FAQ секції
-  const faqMainTitle = {
+  const faqTitles: LocalizedField = {
     uk: "Часті питання",
     ru: "Частые вопросы",
     en: "Frequently Asked Questions",
-  }[locale];
+    pl: "Najczęściej zadawane pytania",
+  };
+  const faqMainTitle = faqTitles[locale];
 
   return (
     <CatalogFiltersProvider>

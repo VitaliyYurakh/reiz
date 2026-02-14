@@ -4,6 +4,7 @@ import ThemeColorSetter from "@/app/[locale]/(site)/cars/[idSlug]/components/The
 import RentPageContent from "@/app/[locale]/(site)/cars/[idSlug]/rent/RentPageContent";
 import { fetchCar } from "@/lib/api/cars";
 import { type Locale, defaultLocale } from "@/i18n/request";
+import { OG_LOCALE, getOgAlternateLocales } from "@/i18n/locale-config";
 import { createCarIdSlug, parseCarIdFromSlug } from "@/lib/utils/carSlug";
 import { notFound, permanentRedirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
@@ -11,11 +12,6 @@ import { generateRentalServiceSchema } from "@/lib/schema/rental-service";
 import { getTranslations } from "next-intl/server";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
-const OG_LOCALE: Record<Locale, string> = {
-  uk: "uk_UA",
-  ru: "ru_UA",
-  en: "en_US",
-};
 
 const toAbsolute = (value: string) => {
   if (!value) return value;
@@ -54,9 +50,7 @@ export async function generateMetadata({
     car.carPhoto.find((p) => p.type === "PC")?.url || "/img/og/home.webp",
   );
   const ogLocale = OG_LOCALE[locale];
-  const ogAlternateLocales = Object.values(OG_LOCALE).filter(
-    (value) => value !== ogLocale,
-  );
+  const ogAlternateLocales = getOgAlternateLocales(locale);
 
   return {
     title,

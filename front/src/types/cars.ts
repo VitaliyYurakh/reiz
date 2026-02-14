@@ -37,6 +37,7 @@ export interface LocalizedText {
   en: string;
   ru: string;
   uk: string;
+  pl?: string;
 }
 
 export interface Car {

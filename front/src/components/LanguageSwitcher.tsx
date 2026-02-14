@@ -3,9 +3,10 @@
 import LanguageSwitcherClient from "./LanguageSwitcher.client";
 import { usePathname } from "next/navigation";
 import { defaultLocale, locales } from "@/i18n/request";
+import { LOCALE_LABEL } from "@/i18n/locale-config";
 import Link from "next/link";
 
-const labels = { ru: "Русский", uk: "Українська", en: "English" } as const;
+const labels = LOCALE_LABEL;
 
 function buildHref(target: string, pathname: string) {
   const parts = pathname.split("/");

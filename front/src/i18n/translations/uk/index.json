@@ -192,10 +192,6 @@
     "meta": {
       "canonical": "https://reiz.com.ua/ua/",
       "description": "Прокат авто у Львові від REIZ — нові автомобілі 2023–2025, подача в аеропорт та по місту. Економ, бізнес, SUV та преміум. Офіційний договір, оформлення за 15 хв.",
-      "href_default": "https://reiz.com.ua/",
-      "href_en": "https://reiz.com.ua/en/",
-      "href_ru": "https://reiz.com.ua/",
-      "href_uk": "https://reiz.com.ua/ua/",
       "lang": "uk",
       "og_description": "Прокат авто у Львові від REIZ — нові автомобілі 2023–2025, подача в аеропорт та по місту. Економ, бізнес, SUV та преміум. Офіційний договір, оформлення за 15 хв.",
       "og_image": "https://reiz.com.ua/img/og/home.webp",
@@ -247,11 +243,7 @@
       "og_url": "https://reiz.com.ua/ua/faq",
       "og_image": "https://reiz.com.ua/img/og/faq.webp",
       "og_locale": "uk_UA",
-      "lang": "uk",
-      "href_uk": "https://reiz.com.ua/ua/faq",
-      "href_ru": "https://reiz.com.ua/faq",
-      "href_en": "https://reiz.com.ua/en/faq",
-      "href_default": "https://reiz.com.ua/faq"
+      "lang": "uk"
     },
     "pretitle": "Питання-відповідь (FAQ)",
     "breadcrumbs": {
@@ -354,11 +346,7 @@
       "og_url": "https://reiz.com.ua/ua/insurance",
       "og_image": "https://reiz.com.ua/img/og/insurance.webp",
       "og_locale": "uk_UA",
-      "lang": "uk",
-      "href_uk": "https://reiz.com.ua/ua/insurance",
-      "href_ru": "https://reiz.com.ua/insurance",
-      "href_en": "https://reiz.com.ua/en/insurance",
-      "href_default": "https://reiz.com.ua/insurance"
+      "lang": "uk"
     },
     "images": {
       "heroAlt": "Попереджувальний знак позаду автомобіля на дорозі — страхування при оренді авто"
@@ -448,11 +436,7 @@
       "og_url": "https://reiz.com.ua/ua/business/",
       "og_image": "https://reiz.com.ua/img/og/business.webp",
       "og_locale": "uk_UA",
-      "lang": "uk",
-      "href_uk": "https://reiz.com.ua/ua/business/",
-      "href_ru": "https://reiz.com.ua/business/",
-      "href_en": "https://reiz.com.ua/en/business/",
-      "href_default": "https://reiz.com.ua/business/"
+      "lang": "uk"
     },
     "breadcrumbs": {
       "home": "Головна",
@@ -553,11 +537,7 @@
       "og_url": "https://reiz.com.ua/ua/blog/",
       "og_image": "https://reiz.com.ua/img/og/blog.webp",
       "og_locale": "uk_UA",
-      "lang": "uk",
-      "href_uk": "https://reiz.com.ua/ua/blog/",
-      "href_ru": "https://reiz.com.ua/blog/",
-      "href_en": "https://reiz.com.ua/en/blog/",
-      "href_default": "https://reiz.com.ua/blog/"
+      "lang": "uk"
     },
     "pretitle": "БЛОГ",
     "breadcrumbs": {
@@ -621,11 +601,7 @@
       "og_description": "REIZ — сервіс оренди авто у Львові: автопарк 2023–2025, прозорі умови без застави, команда з досвідом та підтримка 24/7. Дізнайтеся більше про нас.",
       "og_image": "https://reiz.com.ua/img/og/about.webp",
       "og_locale": "uk_UA",
-      "lang": "uk",
-      "href_uk": "https://reiz.com.ua/ua/about/",
-      "href_ru": "https://reiz.com.ua/about/",
-      "href_en": "https://reiz.com.ua/en/about/",
-      "href_default": "https://reiz.com.ua/about/"
+      "lang": "uk"
     },
     "pretitle": "ПРО НАС",
     "breadcrumbs": {
@@ -697,11 +673,7 @@
       "og_url": "https://reiz.com.ua/ua/certificate/",
       "og_image": "https://reiz.com.ua/img/og/certificate.webp",
       "og_locale": "uk_UA",
-      "lang": "uk",
-      "href_uk": "https://reiz.com.ua/ua/certificate/",
-      "href_ru": "https://reiz.com.ua/certificate/",
-      "href_en": "https://reiz.com.ua/en/certificate/",
-      "href_default": "https://reiz.com.ua/certificate/"
+      "lang": "uk"
     },
     "breadcrumbs": {
       "home": "Головна",
@@ -825,11 +797,7 @@
       "og_url": "https://reiz.com.ua/ua/invest",
       "og_image": "https://reiz.com.ua/img/og/invest.webp",
       "og_locale": "uk_UA",
-      "lang": "uk",
-      "href_uk": "https://reiz.com.ua/ua/invest",
-      "href_ru": "https://reiz.com.ua/invest",
-      "href_en": "https://reiz.com.ua/en/invest",
-      "href_default": "https://reiz.com.ua/invest"
+      "lang": "uk"
     },
     "breadcrumbs": {
       "home": "Головна",
@@ -891,11 +859,7 @@
       "og_description": "Умови прокату авто у Львові від REIZ: вік від 21 року, стаж від 2 років, оплата карткою або готівкою. Тарифи, страхування, ліміт пробігу та безкоштовна доставка.",
       "og_image": "https://reiz.com.ua/img/og/terms.webp",
       "og_locale": "uk_UA",
-      "lang": "uk",
-      "href_uk": "https://reiz.com.ua/ua/terms",
-      "href_ru": "https://reiz.com.ua/terms",
-      "href_en": "https://reiz.com.ua/en/terms",
-      "href_default": "https://reiz.com.ua/terms"
+      "lang": "uk"
     },
     "hero": {
       "pretitle": "УМОВИ ОРЕНДИ",
@@ -1006,11 +970,7 @@
       "og_url": "https://reiz.com.ua/ua/contacts/",
       "og_image": "https://reiz.com.ua/img/og/contacts.webp",
       "og_locale": "uk_UA",
-      "lang": "uk",
-      "href_uk": "https://reiz.com.ua/ua/contacts/",
-      "href_ru": "https://reiz.com.ua/contacts/",
-      "href_en": "https://reiz.com.ua/en/contacts/",
-      "href_default": "https://reiz.com.ua/contacts/"
+      "lang": "uk"
     },
     "hero": {
       "pretitle": "КОНТАКТИ",

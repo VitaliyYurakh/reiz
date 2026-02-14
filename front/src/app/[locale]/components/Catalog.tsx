@@ -91,7 +91,11 @@ type CatalogProps = {
     sectionTitle?: string;
 };
 
-export default function Catalog({cars, sectionTitle}: CatalogProps) {
+export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
+    const cars = useMemo(
+        () => rawCars.filter((c) => c.rentalTariff?.length > 0 && c.brand),
+        [rawCars],
+    );
     const locale = useLocale();
     const t = useTranslations("homePage.catalog_aside");
     const [toggleFixed, setToggleFixed] = useState(false);
@@ -235,7 +239,7 @@ export default function Catalog({cars, sectionTitle}: CatalogProps) {
             if (excludeKey !== "fuel" && filters.fuel) {
                 if (
                     !car.engineType ||
-                    car.engineType[locale].toLowerCase() !== filters.fuel.toLowerCase()
+                    (car.engineType[locale] ?? car.engineType.en)?.toLowerCase() !== filters.fuel.toLowerCase()
                 ) {
                     return false;
                 }

@@ -1,20 +1,9 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { defaultLocale, locales, type Locale } from "@/i18n/request";
+import { LANGUAGE_TAG, LOCALE_AREA } from "@/i18n/locale-config";
 
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 const SITE_NAME = "REIZ";
-
-const languageTagByLocale: Record<Locale, string> = {
-  uk: "uk-UA",
-  ru: "ru-UA",
-  en: "en-US",
-};
-
-const areaByLocale: Record<Locale, { city: string; region: string; country: string }> = {
-  uk: { city: "Львів", region: "Львівська область", country: "Україна" },
-  ru: { city: "Львов", region: "Львовская область", country: "Украина" },
-  en: { city: "Lviv", region: "Lviv Oblast", country: "Ukraine" },
-};
 
 const buildHomeUrl = (locale: Locale) =>
   locale === defaultLocale ? SITE_ORIGIN : `${SITE_ORIGIN}/${locale}`;
@@ -33,7 +22,7 @@ export default async function SchemaOrg({
   const homeUrl = buildHomeUrl(locale);
   const websiteId = buildId(homeUrl, "website");
   const companyId = buildId(homeUrl, "company");
-  const languageTags = locales.map((loc) => languageTagByLocale[loc]);
+  const languageTags = locales.map((loc) => LANGUAGE_TAG[loc]);
 
   const localizedTitle = t("meta.title");
   const localizedOgTitle = t("meta.og_title");
@@ -59,7 +48,7 @@ export default async function SchemaOrg({
     t(`catalog_aside.${key}`),
   );
 
-  const { city, region, country } = areaByLocale[locale];
+  const { city, region, country } = LOCALE_AREA[locale];
 
   const websiteJsonLd = {
     "@context": "https://schema.org",

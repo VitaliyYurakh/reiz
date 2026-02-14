@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { CityConfig } from "@/data/cities";
+import type { Locale } from "@/i18n/request";
 import {
   generateCityEditorContent,
   generateCityEditorTitle,
@@ -10,7 +11,7 @@ import {
 
 type Props = {
   city: CityConfig;
-  locale: "uk" | "ru" | "en";
+  locale: Locale;
 };
 
 export default function CityEditorSection({ city, locale }: Props) {

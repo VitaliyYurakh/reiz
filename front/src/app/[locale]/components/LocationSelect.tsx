@@ -3,21 +3,24 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import cn from "classnames";
 import { cities, getCityPickupLocations } from "@/data/cities";
+import type { Locale } from "@/i18n/request";
+import type { LocalizedField } from "@/i18n/locale-config";
 
-type Locale = "uk" | "ru" | "en";
 type LocationType = "pickup" | "return";
 
 // "Within city" option translations for pickup and return
-const WITHIN_CITY_OPTIONS: Record<LocationType, Record<Locale, string>> = {
+const WITHIN_CITY_OPTIONS: Record<LocationType, LocalizedField> = {
   pickup: {
     uk: "Подача у межах міста",
     ru: "Подача в пределах города",
     en: "Pickup within the city",
+    pl: "Podstawienie w granicach miasta",
   },
   return: {
     uk: "Повернення у межах міста",
     ru: "Возврат в пределах города",
     en: "Return within the city",
+    pl: "Zwrot w granicach miasta",
   },
 };
 

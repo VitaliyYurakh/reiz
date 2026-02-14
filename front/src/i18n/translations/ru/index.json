@@ -192,10 +192,6 @@
     "meta": {
       "canonical": "https://reiz.com.ua/",
       "description": "Прокат авто во Львове от REIZ. Оформление за 15 минут, официальный договор. Доставка в аэропорт, на вокзал и по городу. Эконом, бизнес и премиум класс.",
-      "href_default": "https://reiz.com.ua/",
-      "href_en": "https://reiz.com.ua/en/",
-      "href_ru": "https://reiz.com.ua/",
-      "href_uk": "https://reiz.com.ua/ua/",
       "lang": "ru",
       "og_description": "Прокат авто во Львове от REIZ. Оформление за 15 минут, официальный договор. Доставка в аэропорт, на вокзал и по городу. Эконом, бизнес и премиум класс.",
       "og_image": "https://reiz.com.ua/img/og/home.webp",
@@ -245,10 +241,7 @@
       "og_title": "Частые вопросы об аренде авто во Львове",
       "og_description": "Ответы на вопросы об аренде авто: документы, стоимость, выезд за границу, условия и бронь.",
       "og_image": "https://reiz.com.ua/img/og/faq.webp",
-      "lang": "ru",
-      "href_ru": "https://reiz.com.ua/faq",
-      "href_uk": "https://reiz.com.ua/ua/faq",
-      "href_en": "https://reiz.com.ua/en/faq"
+      "lang": "ru"
     },
     "pretitle": "Вопрос-ответ (FAQ)",
     "breadcrumbs": {
@@ -349,10 +342,7 @@
       "og_title": "Страхование при аренде авто Львов — защита и безопасность | REIZ",
       "og_description": "Страхование при аренде авто: КАСКО и ОСАГО, помощь 24/7, замена авто при поломке. Прозрачные условия без скрытых доплат.",
       "og_image": "https://reiz.com.ua/img/og/insurance.webp",
-      "lang": "ru",
-      "href_ru": "https://reiz.com.ua/insurance",
-      "href_uk": "https://reiz.com.ua/ua/insurance",
-      "href_en": "https://reiz.com.ua/en/insurance"
+      "lang": "ru"
     },
     "images": {
       "heroAlt": "Предупреждающий знак позади автомобиля на дороге — страховка при аренде авто"
@@ -445,10 +435,6 @@
       "og_image": "https://reiz.com.ua/img/og/business.webp",
       "og_locale": "ru_RU",
       "lang": "ru",
-      "href_ru": "https://reiz.com.ua/business/",
-      "href_uk": "https://reiz.com.ua/ua/business/",
-      "href_en": "https://reiz.com.ua/en/business/",
-      "href_default": "https://reiz.com.ua/business/",
       "page": "business"
     },
     "breadcrumbs": {
@@ -591,11 +577,7 @@
       "og_description": "Полезные статьи об аренде авто: документы, маршруты по Западной Украине, советы и рекомендации.",
       "og_image": "https://reiz.com.ua/img/og/blog.webp",
       "og_locale": "ru_RU",
-      "lang": "ru",
-      "href_ru": "https://reiz.com.ua/blog/",
-      "href_uk": "https://reiz.com.ua/ua/blog/",
-      "href_en": "https://reiz.com.ua/en/blog/",
-      "href_default": "https://reiz.com.ua/blog/"
+      "lang": "ru"
     },
     "pretitle": "БЛОГ",
     "breadcrumbs": {
@@ -658,11 +640,7 @@
       "og_title": "О компании REIZ — надежный прокат авто во Львове с 2023",
       "og_description": "REIZ — сервис аренды авто во Львове: новый автопарк, прозрачные условия, команда и поддержка 24/7.",
       "og_image": "https://reiz.com.ua/img/og/about.webp",
-      "lang": "ru",
-      "href_ru": "https://reiz.com.ua/about/",
-      "href_uk": "https://reiz.com.ua/ua/about/",
-      "href_en": "https://reiz.com.ua/en/about/",
-      "href_default": "https://reiz.com.ua/about/"
+      "lang": "ru"
     },
     "pretitle": "О НАС",
     "breadcrumbs": {
@@ -731,10 +709,7 @@
       "og_title": "Подарочные сертификаты REIZ — аренда авто во Львове",
       "og_description": "Подарите аренду авто: выберите сумму сертификата, электронный или физический вариант. Оформление за 5 минут.",
       "og_image": "https://reiz.com.ua/img/og/certificate.webp",
-      "lang": "ru",
-      "href_ru": "https://reiz.com.ua/certificate",
-      "href_uk": "https://reiz.com.ua/ua/certificate",
-      "href_en": "https://reiz.com.ua/en/certificate"
+      "lang": "ru"
     },
     "breadcrumbs": {
       "home": "Главная",
@@ -856,10 +831,7 @@
       "og_title": "Сдать авто в аренду во Львове",
       "og_description": "Передайте авто в управление REIZ и получайте пассивный доход. Договор, выплаты, сервис и полный контроль.",
       "og_image": "https://reiz.com.ua/img/og/invest.webp",
-      "lang": "ru",
-      "href_ru": "https://reiz.com.ua/invest",
-      "href_uk": "https://reiz.com.ua/ua/invest",
-      "href_en": "https://reiz.com.ua/en/invest"
+      "lang": "ru"
     },
     "breadcrumbs": {
       "home": "Главная",
@@ -920,10 +892,7 @@
       "og_title": "Условия аренды авто Львов — требования, документы | REIZ",
       "og_description": "Условия проката во Львове: возраст от 21 года, стаж от 2 лет, без залога, список документов и бесплатная доставка.",
       "og_image": "https://reiz.com.ua/img/og/terms.webp",
-      "lang": "ru",
-      "href_ru": "https://reiz.com.ua/terms",
-      "href_uk": "https://reiz.com.ua/ua/terms",
-      "href_en": "https://reiz.com.ua/en/terms"
+      "lang": "ru"
     },
     "hero": {
       "pretitle": "УСЛОВИЯ АРЕНДЫ",
@@ -1032,10 +1001,7 @@
       "og_title": "Контакты проката авто во Львове",
       "og_description": "Офис во Львове, телефон для бронирования, часы работы ✓ Доставка авто по адресу или в аэропорт ✓ Работаем 24/7 ✓ Ответим на все вопросы",
       "og_image": "https://reiz.com.ua/img/og/contacts.webp",
-      "lang": "ru",
-      "href_ru": "https://reiz.com.ua/contacts",
-      "href_uk": "https://reiz.com.ua/ua/contacts",
-      "href_en": "https://reiz.com.ua/en/contacts"
+      "lang": "ru"
     },
     "hero": {
       "pretitle": "КОНТАКТЫ",

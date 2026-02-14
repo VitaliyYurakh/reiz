@@ -28,12 +28,14 @@ export function generateRentalServiceSchema({
     ru: `Аренда ${carName}`,
     uk: `Оренда ${carName}`,
     en: `${carName} Rental`,
+    pl: `Wynajem ${carName}`,
   };
 
   const descriptionByLocale: Record<Locale, string> = {
     ru: `Забронируйте ${carName} онлайн. Премиум-сервис, страховка, подача по адресу 24/7.`,
     uk: `Забронюйте ${carName} онлайн. Преміум-сервіс, страховка, подача за адресою 24/7.`,
     en: `Book ${carName} online. Premium service, insurance included, 24/7 delivery.`,
+    pl: `Zarezerwuj ${carName} online. Serwis premium, ubezpieczenie w cenie, dostawa 24/7.`,
   };
 
   const schema: Record<string, unknown> = {

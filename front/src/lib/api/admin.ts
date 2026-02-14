@@ -73,6 +73,18 @@ export const updateRentalTariffs = async (id: number, tariffs: any[]) => {
     return adminApi.patch(`/car/${id}/tariff`, {data: tariffs});
 };
 
+export interface ConfigurationOption {
+    uk: string;
+    ru: string;
+    en: string;
+    pl: string;
+}
+
+export const getConfigurationOptions = async (): Promise<ConfigurationOption[]> => {
+    const res = await adminApi.get('/car/configuration-options');
+    return res.data.options;
+};
+
 
 // ── Report types ──
 

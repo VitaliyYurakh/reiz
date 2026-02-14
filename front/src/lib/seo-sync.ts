@@ -10,30 +10,34 @@
 
 import type { Metadata } from "next";
 import type { Locale } from "@/i18n/request";
+import {
+  OG_LOCALE,
+  buildLocalizedPaths,
+  buildHreflangMap,
+  getOgAlternateLocales,
+} from "@/i18n/locale-config";
 
 // Direct sync imports of translation files
+// When adding a new locale: add an import + entry below.
+// TypeScript will error via `satisfies` if any locale is missing.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 import ukTranslations from "@/i18n/translations/uk/index.json";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 import ruTranslations from "@/i18n/translations/ru/index.json";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 import enTranslations from "@/i18n/translations/en/index.json";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+import plTranslations from "@/i18n/translations/pl/index.json";
 
-// Use Record<string, any> to handle slight differences between locale files
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const translations: Record<Locale, Record<string, any>> = {
   uk: ukTranslations,
   ru: ruTranslations,
   en: enTranslations,
-};
+  pl: plTranslations,
+} satisfies Record<Locale, Record<string, any>>;
 
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
-
-const OG_LOCALE: Record<Locale, string> = {
-  uk: "uk_UA",
-  ru: "ru_UA",
-  en: "en_US",
-};
 
 const toAbsolute = (value: string) => {
   if (!value) return value;
@@ -53,19 +57,26 @@ export type PageKey =
   | "investPage"
   | "termsPage";
 
-// Route paths for alternates
-const ROUTE_PATHS: Record<PageKey, Record<Locale, string>> = {
-  homePage: { uk: "/", ru: "/ru", en: "/en" },
-  aboutPage: { uk: "/about", ru: "/ru/about", en: "/en/about" },
-  blogPage: { uk: "/blog", ru: "/ru/blog", en: "/en/blog" },
-  businessPage: { uk: "/business", ru: "/ru/business", en: "/en/business" },
-  certificatePage: { uk: "/certificate", ru: "/ru/certificate", en: "/en/certificate" },
-  contactsPage: { uk: "/contacts", ru: "/ru/contacts", en: "/en/contacts" },
-  faqPage: { uk: "/faq", ru: "/ru/faq", en: "/en/faq" },
-  insurancePage: { uk: "/insurance", ru: "/ru/insurance", en: "/en/insurance" },
-  investPage: { uk: "/invest", ru: "/ru/invest", en: "/en/invest" },
-  termsPage: { uk: "/terms", ru: "/ru/terms", en: "/en/terms" },
+const ROUTES: Record<PageKey, string> = {
+  homePage: "/",
+  aboutPage: "/about",
+  blogPage: "/blog",
+  businessPage: "/business",
+  certificatePage: "/certificate",
+  contactsPage: "/contacts",
+  faqPage: "/faq",
+  insurancePage: "/insurance",
+  investPage: "/invest",
+  termsPage: "/terms",
 };
+
+const ROUTE_PATHS: Record<PageKey, Record<Locale, string>> =
+  Object.fromEntries(
+    Object.entries(ROUTES).map(([key, path]) => [
+      key,
+      buildLocalizedPaths(path),
+    ]),
+  ) as Record<PageKey, Record<Locale, string>>;
 
 /**
  * Get page metadata SYNCHRONOUSLY
@@ -86,11 +97,14 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
   const paths = ROUTE_PATHS[pageKey];
   const canonical = toAbsolute(paths[locale]);
   const ogLocale = OG_LOCALE[locale];
-  const ogAlternateLocales = Object.values(OG_LOCALE).filter(
-    (value) => value !== ogLocale,
-  );
+  const ogAlternateLocales = getOgAlternateLocales(locale);
   const ogImage = toAbsolute(
     (meta.og_image || "https://reiz.com.ua/img/og/home.webp") as string,
+  );
+
+  const languages = buildHreflangMap(
+    (loc) => paths[loc],
+    toAbsolute,
   );
 
   return {
@@ -98,12 +112,7 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
     description: meta.description as string,
     alternates: {
       canonical,
-      languages: {
-        uk: toAbsolute(paths.uk),
-        ru: toAbsolute(paths.ru),
-        en: toAbsolute(paths.en),
-        "x-default": toAbsolute(paths.uk),
-      },
+      languages,
     },
     openGraph: {
       type: "website",

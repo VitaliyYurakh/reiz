@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { ROUTE_MAP, type RouteKey } from "@/lib/seo";
 import { defaultLocale } from "@/i18n/request";
+import { buildHreflangMap } from "@/i18n/locale-config";
 import { fetchCarsForSitemap } from "@/lib/api/cars";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { getAllCitySlugs } from "@/data/cities";
@@ -14,13 +15,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Static pages
   (Object.keys(ROUTE_MAP) as RouteKey[]).forEach((key) => {
-    const languages: Record<string, string> = {};
-
-    // hreflang codes matching HTML lang attribute
-    languages["uk"] = abs(ROUTE_MAP[key]["uk"]);
-    languages["ru"] = abs(ROUTE_MAP[key]["ru"]);
-    languages["en"] = abs(ROUTE_MAP[key]["en"]);
-    languages["x-default"] = abs(ROUTE_MAP[key]["uk"]);
+    const languages = buildHreflangMap(
+      (loc) => ROUTE_MAP[key][loc],
+      abs,
+    );
 
     const url = abs(ROUTE_MAP[key][defaultLocale]);
     const isHome = key === "home";
@@ -37,13 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // City rental pages
   const citySlugs = getAllCitySlugs();
   for (const citySlug of citySlugs) {
-    const languages: Record<string, string> = {};
-
-    // uk at root, ru and en with prefixes
-    languages["uk"] = abs(`/rental/${citySlug}`);
-    languages["ru"] = abs(`/ru/rental/${citySlug}`);
-    languages["en"] = abs(`/en/rental/${citySlug}`);
-    languages["x-default"] = abs(`/rental/${citySlug}`);
+    const languages = buildHreflangMap(`/rental/${citySlug}`, abs);
 
     entries.push({
       url: abs(`/rental/${citySlug}`),
@@ -59,13 +51,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const cars = await fetchCarsForSitemap();
     for (const car of cars) {
       const idSlug = createCarIdSlug(car);
-      const languages: Record<string, string> = {};
-
-      // uk at root, ru and en with prefixes
-      languages["uk"] = abs(`/cars/${idSlug}`);
-      languages["ru"] = abs(`/ru/cars/${idSlug}`);
-      languages["en"] = abs(`/en/cars/${idSlug}`);
-      languages["x-default"] = abs(`/cars/${idSlug}`);
+      const languages = buildHreflangMap(`/cars/${idSlug}`, abs);
 
       entries.push({
         url: abs(`/cars/${idSlug}`),

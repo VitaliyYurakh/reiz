@@ -2,6 +2,7 @@
 
 import clsx from "classnames";
 import { useTranslations, useLocale } from "next-intl";
+import type { Locale } from "@/i18n/request";
 import {
   type ChangeEvent,
   useCallback,
@@ -121,7 +122,7 @@ export default function RentPageContent({
     "managerWillContactYouModal",
   );
   const { formatPrice, formatDeposit } = useCurrency();
-  const locale = useLocale() as "uk" | "ru" | "en";
+  const locale = useLocale() as Locale;
   const rentalSearchContext = useRentalSearchOptional();
   const contextPickupLocation = rentalSearchContext?.pickupLocation ?? "";
   const contextReturnLocation = rentalSearchContext?.returnLocation ?? "";

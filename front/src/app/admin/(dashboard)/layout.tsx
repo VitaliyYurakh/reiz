@@ -89,6 +89,7 @@ const LOCALE_LABELS: Record<AdminLocale, string> = {
   uk: 'UA',
   en: 'EN',
   ru: 'RU',
+  pl: 'PL',
 };
 
 const LOCALE_ORDER: AdminLocale[] = ['uk', 'en', 'ru'];

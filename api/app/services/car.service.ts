@@ -183,6 +183,36 @@ class CarService {
     async deleteOne(id: number) {
         await prisma.car.delete({where: {id}});
     }
+
+    async getConfigurationOptions() {
+        const cars = await prisma.car.findMany({
+            where: {configuration: {not: null}},
+            select: {configuration: true},
+        });
+
+        const seen = new Map<string, {uk: string; ru: string; en: string; pl: string}>();
+
+        for (const car of cars) {
+            const config = car.configuration as any[];
+            if (!Array.isArray(config)) continue;
+
+            for (const item of config) {
+                if (!item || typeof item !== 'object') continue;
+                const uk = (item.uk || '').trim();
+                if (!uk) continue;
+                if (!seen.has(uk)) {
+                    seen.set(uk, {
+                        uk,
+                        ru: (item.ru || '').trim(),
+                        en: (item.en || '').trim(),
+                        pl: (item.pl || '').trim(),
+                    });
+                }
+            }
+        }
+
+        return Array.from(seen.values()).sort((a, b) => a.uk.localeCompare(b.uk, 'uk'));
+    }
 }
 
 export default new CarService();

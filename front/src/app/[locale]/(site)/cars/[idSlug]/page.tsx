@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import {Link, type Locale, defaultLocale} from "@/i18n/request";
+import {
+  OG_LOCALE,
+  buildHreflangMap,
+  getOgAlternateLocales,
+} from "@/i18n/locale-config";
 import CarAside from "@/app/[locale]/(site)/cars/[idSlug]/components/CarAside";
 import CarGallerySlider from "@/app/[locale]/(site)/cars/[idSlug]/components/CarSlider";
 import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/modals/CarClientProvider";
@@ -16,11 +21,6 @@ import JsonLd from "@/components/JsonLd";
 import { generateVehicleSchema, generateProductSchema } from "@/lib/schema/vehicle";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
-const OG_LOCALE: Record<Locale, string> = {
-    uk: "uk_UA",
-    ru: "ru_UA",
-    en: "en_US",
-};
 
 const toAbsolute = (value: string) => {
     if (!value) return value;
@@ -69,21 +69,13 @@ export async function generateMetadata({
       seats,
     });
 
-    // hreflang codes matching HTML lang attribute
-    const languages: Record<string, string> = {
-        uk: `${BASE}${path}`,
-        ru: `${BASE}/ru${path}`,
-        en: `${BASE}/en${path}`,
-        "x-default": `${BASE}${path}`,
-    };
+    const languages = buildHreflangMap(path, (p) => `${BASE}${p}`);
 
     const ogImage = toAbsolute(
         car.carPhoto.find((p) => p.type === "PC")?.url || "/img/og/home.webp",
     );
     const ogLocale = OG_LOCALE[locale];
-    const ogAlternateLocales = Object.values(OG_LOCALE).filter(
-        (value) => value !== ogLocale,
-    );
+    const ogAlternateLocales = getOgAlternateLocales(locale);
 
     return {
         title,
@@ -141,8 +133,9 @@ export default async function CarPage({
     // Витягуємо ТІЛЬКИ локалізований опис (не весь JSON з усіма мовами)
     let localizedDescription = "";
     try {
-        const descriptionJson: LocalizedText | null = car.description
-            ? JSON.parse(car.description || '{}')
+        const raw = car.description;
+        const descriptionJson: LocalizedText | null = raw
+            ? (typeof raw === "string" ? JSON.parse(raw) : raw) as LocalizedText
             : null;
         localizedDescription = descriptionJson?.[locale]?.replaceAll("\\n", "<br/>") || "";
     } catch (e) {

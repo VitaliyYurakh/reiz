@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/admin/ui/tabs';
 import {
@@ -12,6 +12,8 @@ import {
   updateCar,
   updatePhoto,
   updateRentalTariffs,
+  getConfigurationOptions,
+  type ConfigurationOption,
 } from '@/lib/api/admin';
 import { Car, RentalTariff, Segment } from '@/types/cars';
 import { BASE_URL } from '@/config/environment';
@@ -36,6 +38,7 @@ import {
   Sparkles,
   Tag,
   Trash2,
+  Search,
   Upload,
   X,
 } from 'lucide-react';
@@ -46,45 +49,46 @@ const LANGUAGES = [
   { code: 'uk', label: 'UA' },
   { code: 'ru', label: 'RU' },
   { code: 'en', label: 'EN' },
+  { code: 'pl', label: 'PL' },
 ] as const;
 
 type LangCode = (typeof LANGUAGES)[number]['code'];
 
 const ENGINE_TYPES = [
-  { value: 'petrol', label: { uk: 'Бензин', ru: 'Бензин', en: 'Petrol' } },
-  { value: 'diesel', label: { uk: 'Дизель', ru: 'Дизель', en: 'Diesel' } },
-  { value: 'electric', label: { uk: 'Електро', ru: 'Электро', en: 'Electric' } },
-  { value: 'hybrid', label: { uk: 'Гібрид', ru: 'Гибрид', en: 'Hybrid' } },
+  { value: 'petrol', label: { uk: 'Бензин', ru: 'Бензин', en: 'Petrol', pl: 'Benzyna' } },
+  { value: 'diesel', label: { uk: 'Дизель', ru: 'Дизель', en: 'Diesel', pl: 'Diesel' } },
+  { value: 'electric', label: { uk: 'Електро', ru: 'Электро', en: 'Electric', pl: 'Elektryczny' } },
+  { value: 'hybrid', label: { uk: 'Гібрид', ru: 'Гибрид', en: 'Hybrid', pl: 'Hybryda' } },
 ];
 
 const TRANSMISSION_TYPES = [
-  { value: 'automatic', label: { uk: 'Автомат', ru: 'Автомат', en: 'Automatic' } },
-  { value: 'manual', label: { uk: 'Механіка', ru: 'Механика', en: 'Manual' } },
-  { value: 'robot', label: { uk: 'Робот', ru: 'Робот', en: 'Robot' } },
-  { value: 'variator', label: { uk: 'Варіатор', ru: 'Вариатор', en: 'CVT' } },
+  { value: 'automatic', label: { uk: 'Автомат', ru: 'Автомат', en: 'Automatic', pl: 'Automatyczna' } },
+  { value: 'manual', label: { uk: 'Механіка', ru: 'Механика', en: 'Manual', pl: 'Manualna' } },
+  { value: 'robot', label: { uk: 'Робот', ru: 'Робот', en: 'Robot', pl: 'Zrobotyzowana' } },
+  { value: 'variator', label: { uk: 'Варіатор', ru: 'Вариатор', en: 'CVT', pl: 'CVT' } },
 ];
 
 const DRIVE_TYPES = [
-  { value: 'front', label: { uk: 'Передній', ru: 'Передний', en: 'Front' } },
-  { value: 'rear', label: { uk: 'Задній', ru: 'Задний', en: 'Rear' } },
-  { value: 'full', label: { uk: 'Повний', ru: 'Полный', en: 'AWD' } },
+  { value: 'front', label: { uk: 'Передній', ru: 'Передний', en: 'Front', pl: 'Przedni' } },
+  { value: 'rear', label: { uk: 'Задній', ru: 'Задний', en: 'Rear', pl: 'Tylny' } },
+  { value: 'full', label: { uk: 'Повний', ru: 'Полный', en: 'AWD', pl: 'AWD' } },
 ];
 
-const normalizeMultiLang = (val: any): { uk: string; ru: string; en: string } => {
-  if (!val) return { uk: '', ru: '', en: '' };
+const normalizeMultiLang = (val: any): { uk: string; ru: string; en: string; pl: string } => {
+  if (!val) return { uk: '', ru: '', en: '', pl: '' };
   if (typeof val === 'object' && val !== null) {
-    return { uk: val.uk || '', ru: val.ru || '', en: val.en || '' };
+    return { uk: val.uk || '', ru: val.ru || '', en: val.en || '', pl: val.pl || '' };
   }
   if (typeof val === 'string') {
     try {
       const parsed = JSON.parse(val);
       if (parsed && typeof parsed === 'object' && ('uk' in parsed || 'ru' in parsed || 'en' in parsed)) {
-        return { uk: parsed.uk || '', ru: parsed.ru || '', en: parsed.en || '' };
+        return { uk: parsed.uk || '', ru: parsed.ru || '', en: parsed.en || '', pl: parsed.pl || '' };
       }
     } catch (e) {}
-    return { uk: val, ru: val, en: val };
+    return { uk: val, ru: val, en: val, pl: val };
   }
-  return { uk: '', ru: '', en: '' };
+  return { uk: '', ru: '', en: '', pl: '' };
 };
 
 function findSelectValue(attributeObj: any, options: any[]) {
@@ -107,16 +111,22 @@ export default function CarEditPage() {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
   const [activeLang, setActiveLang] = useState<LangCode>('uk');
-  const [description, setDescription] = useState<{ uk: string; ru: string; en: string }>({ uk: '', ru: '', en: '' });
+  const [description, setDescription] = useState<{ uk: string; ru: string; en: string; pl: string }>({ uk: '', ru: '', en: '', pl: '' });
   const [attributes, setAttributes] = useState<any>({});
   const [tariffs, setTariffs] = useState<RentalTariff[]>([]);
   const [deposit, setDeposit] = useState<number>(0);
-  const [configurationList, setConfigurationList] = useState<{ uk: string; ru: string; en: string }[]>([]);
-  const [newConfigItem, setNewConfigItem] = useState({ uk: '', ru: '', en: '' });
+  const [configurationList, setConfigurationList] = useState<{ uk: string; ru: string; en: string; pl: string }[]>([]);
+  const [newConfigItem, setNewConfigItem] = useState({ uk: '', ru: '', en: '', pl: '' });
   const [currentDiscount, setCurrentDiscount] = useState<number | null>(null);
   const [isNew, setIsNew] = useState<boolean>(false);
   const [isAvailable, setIsAvailable] = useState<boolean>(false);
   const [saving, setSaving] = useState<string | null>(null);
+
+  // --- Configuration suggestions ---
+  const [configOptions, setConfigOptions] = useState<ConfigurationOption[]>([]);
+  const [configSearch, setConfigSearch] = useState('');
+  const [showConfigSuggestions, setShowConfigSuggestions] = useState(false);
+  const configSearchRef = useRef<HTMLDivElement>(null);
 
   const loadData = async () => {
     try {
@@ -156,6 +166,44 @@ export default function CarEditPage() {
   useEffect(() => {
     if (id) loadData();
   }, [id]);
+
+  // Fetch config options when modal opens
+  useEffect(() => {
+    if (isConfigModalOpen) {
+      getConfigurationOptions()
+        .then(setConfigOptions)
+        .catch(() => setConfigOptions([]));
+      setConfigSearch('');
+      setNewConfigItem({ uk: '', ru: '', en: '', pl: '' });
+    }
+  }, [isConfigModalOpen]);
+
+  // Click outside to close suggestions
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (configSearchRef.current && !configSearchRef.current.contains(e.target as Node)) {
+        setShowConfigSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  // Filter config options: exclude already added + match search query
+  const availableConfigOptions = useMemo(() => {
+    const addedKeys = new Set(configurationList.map((c) => c.uk.toLowerCase()));
+    const q = configSearch.toLowerCase().trim();
+    return configOptions
+      .filter((opt) => !addedKeys.has(opt.uk.toLowerCase()))
+      .filter(
+        (opt) =>
+          !q ||
+          opt.uk.toLowerCase().includes(q) ||
+          opt.ru.toLowerCase().includes(q) ||
+          opt.en.toLowerCase().includes(q) ||
+          opt.pl.toLowerCase().includes(q),
+      );
+  }, [configOptions, configurationList, configSearch]);
 
   // --- PHOTO HANDLERS ---
   const handleAddPhoto = async (type: 'PREVIEW' | 'PC' | 'MOBILE', file: File) => {
@@ -861,7 +909,7 @@ export default function CarEditPage() {
                 <button
                   type="button"
                   onClick={() => {
-                    setNewConfigItem({ uk: '', ru: '', en: '' });
+                    setNewConfigItem({ uk: '', ru: '', en: '', pl: '' });
                     setIsConfigModalOpen(true);
                   }}
                   style={{
@@ -1081,6 +1129,113 @@ export default function CarEditPage() {
                 <X style={{ width: 16, height: 16 }} />
               </button>
             </div>
+            {/* Search from existing options */}
+            <div ref={configSearchRef} style={{ position: 'relative', marginBottom: 16 }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '10px 14px',
+                  borderRadius: 12,
+                  border: `1.5px solid ${H.grayLight}`,
+                  background: H.bg,
+                }}
+              >
+                <Search style={{ width: 16, height: 16, color: H.gray, flexShrink: 0 }} />
+                <input
+                  type="text"
+                  placeholder="Пошук з існуючих..."
+                  value={configSearch}
+                  onChange={(e) => {
+                    setConfigSearch(e.target.value);
+                    setShowConfigSuggestions(true);
+                  }}
+                  onFocus={() => setShowConfigSuggestions(true)}
+                  style={{
+                    border: 'none',
+                    background: 'transparent',
+                    outline: 'none',
+                    width: '100%',
+                    fontSize: 14,
+                    color: H.navyDark,
+                    fontFamily: H.font,
+                  }}
+                />
+              </div>
+              {showConfigSuggestions && availableConfigOptions.length > 0 && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    right: 0,
+                    marginTop: 4,
+                    maxHeight: 200,
+                    overflowY: 'auto',
+                    background: H.white,
+                    borderRadius: 12,
+                    border: `1px solid ${H.grayLight}`,
+                    boxShadow: H.shadowMd,
+                    zIndex: 50,
+                  }}
+                >
+                  {availableConfigOptions.map((opt) => (
+                    <button
+                      key={opt.uk}
+                      type="button"
+                      onClick={() => {
+                        setNewConfigItem({ uk: opt.uk, ru: opt.ru, en: opt.en, pl: opt.pl });
+                        setConfigSearch('');
+                        setShowConfigSuggestions(false);
+                      }}
+                      style={{
+                        display: 'block',
+                        width: '100%',
+                        textAlign: 'left',
+                        padding: '10px 14px',
+                        border: 'none',
+                        background: 'transparent',
+                        cursor: 'pointer',
+                        fontSize: 14,
+                        color: H.navyDark,
+                        fontFamily: H.font,
+                        borderBottom: `1px solid ${H.grayLight}`,
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.target as HTMLElement).style.background = H.bg;
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.target as HTMLElement).style.background = 'transparent';
+                      }}
+                    >
+                      <span style={{ fontWeight: 600 }}>{opt.uk}</span>
+                      <span style={{ color: H.gray, marginLeft: 8, fontSize: 12 }}>
+                        {opt.en}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Divider */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 12,
+                marginBottom: 16,
+                color: H.gray,
+                fontSize: 12,
+              }}
+            >
+              <div style={{ flex: 1, height: 1, background: H.grayLight }} />
+              або введіть вручну
+              <div style={{ flex: 1, height: 1, background: H.grayLight }} />
+            </div>
+
+            {/* 4 language fields */}
             <div className="space-y-4">
               <HModalFieldControlled
                 label="Значення (UA)"
@@ -1098,6 +1253,12 @@ export default function CarEditPage() {
                 label="Value (EN)"
                 value={newConfigItem.en}
                 onChange={(v) => setNewConfigItem({ ...newConfigItem, en: v })}
+                required
+              />
+              <HModalFieldControlled
+                label="Wartość (PL)"
+                value={newConfigItem.pl}
+                onChange={(v) => setNewConfigItem({ ...newConfigItem, pl: v })}
                 required
               />
             </div>

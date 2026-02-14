@@ -1,5 +1,6 @@
 import clsx from "classnames";
 import { useTranslations, useLocale } from "next-intl";
+import type { Locale } from "@/i18n/request";
 import {
   type ChangeEvent,
   type FormEvent,
@@ -104,7 +105,7 @@ export default function CarRentModal({
   const tAside = useTranslations("carAside");
   const { open: openDatePicker } = useCarModal("rangeDateTimePicker");
   const { formatPrice, formatDeposit } = useCurrency();
-  const locale = useLocale() as "uk" | "ru" | "en";
+  const locale = useLocale() as Locale;
 
   const [step, setStep] = useState<1 | 2>(1);
   const [formState, setFormState] = useState<FormState>(() => ({

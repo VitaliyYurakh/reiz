@@ -7,13 +7,17 @@ import {
   useCallback,
   type ReactNode,
 } from 'react';
+import type { Locale } from '@/i18n/request';
 import { uk, type AdminTranslations } from '@/i18n/admin/uk';
 import { en } from '@/i18n/admin/en';
 import { ru } from '@/i18n/admin/ru';
+import { pl } from '@/i18n/admin/pl';
 
-export type AdminLocale = 'uk' | 'en' | 'ru';
+// When adding a new locale: add an import + entry below.
+// TypeScript will error if any locale from request.ts is missing.
+export type AdminLocale = Locale;
 
-const dictionaries: Record<AdminLocale, AdminTranslations> = { uk, en, ru };
+const dictionaries: Record<AdminLocale, AdminTranslations> = { uk, en, ru, pl };
 
 interface AdminLocaleContextType {
   locale: AdminLocale;

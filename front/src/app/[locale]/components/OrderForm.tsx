@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import type { Locale } from "@/i18n/request";
 
 import { useRentalSearch } from "@/context/RentalSearchContext";
 
@@ -20,7 +21,7 @@ type OrderFormProps = {
 };
 
 export default function OrderForm({ defaultPickupLocation }: OrderFormProps) {
-  const locale = useLocale() as "uk" | "ru" | "en";
+  const locale = useLocale() as Locale;
   const tPersonal = useTranslations("carRentModal.personal");
   const tOrder = useTranslations("carRentModal.orderForm");
   const {

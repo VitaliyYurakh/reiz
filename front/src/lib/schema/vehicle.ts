@@ -134,6 +134,7 @@ export function generateProductSchema({
     uk: "місць",
     ru: "мест",
     en: "seats",
+    pl: "miejsc",
   };
   const descTemplates: Record<Locale, { withSpecs: string; withoutSpecs: string }> = {
     uk: {
@@ -147,6 +148,10 @@ export function generateProductSchema({
     en: {
       withSpecs: `Rent ${carName} in Lviv. {specs}. 24/7 delivery.`,
       withoutSpecs: `Rent ${carName} in Lviv. Premium service, 24/7 delivery.`,
+    },
+    pl: {
+      withSpecs: `Wynajem ${carName} we Lwowie. {specs}. Dostawa 24/7.`,
+      withoutSpecs: `Wynajem ${carName} we Lwowie. Serwis premium, dostawa 24/7.`,
     },
   };
 

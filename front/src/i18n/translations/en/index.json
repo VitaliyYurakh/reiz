@@ -192,10 +192,6 @@
     "meta": {
       "canonical": "https://reiz.com.ua/en/",
       "description": "Car rental in Lviv from REIZ. 15-minute paperwork, official contract. Airport, train station and city delivery. Economy, business and premium class.",
-      "href_default": "https://reiz.com.ua/en/",
-      "href_en": "https://reiz.com.ua/en/",
-      "href_ru": "https://reiz.com.ua/",
-      "href_uk": "https://reiz.com.ua/ua/",
       "lang": "en",
       "og_description": "Car rental in Lviv from REIZ. 15-minute paperwork, official contract. Airport, train station and city delivery. Economy, business and premium class.",
       "og_image": "https://reiz.com.ua/img/og/home.webp",
@@ -245,10 +241,7 @@
       "og_title": "Car Rental FAQ in Lviv",
       "og_description": "Answers to popular questions: how to rent a car, what documents are needed, how much does it cost, can you travel abroad ✓ Detailed information from experts",
       "og_image": "https://reiz.com.ua/img/og/faq.webp",
-      "lang": "en",
-      "href_en": "https://reiz.com.ua/en/faq",
-      "href_uk": "https://reiz.com.ua/ua/faq",
-      "href_ru": "https://reiz.com.ua/faq"
+      "lang": "en"
     },
     "pretitle": "FAQ",
     "breadcrumbs": {
@@ -349,10 +342,7 @@
       "og_title": "Car Rental Insurance Lviv — Protection & Safety | REIZ",
       "og_description": "Car rental insurance: comprehensive & liability, 24/7 roadside assistance, replacement car if needed. Transparent terms, no hidden fees.",
       "og_image": "https://reiz.com.ua/img/og/insurance.webp",
-      "lang": "en",
-      "href_ru": "https://reiz.com.ua/insurance",
-      "href_uk": "https://reiz.com.ua/ua/insurance",
-      "href_en": "https://reiz.com.ua/en/insurance"
+      "lang": "en"
     },
     "images": {
       "heroAlt": "Warning triangle behind a car on the roadside — rental insurance"
@@ -445,10 +435,6 @@
       "og_image": "https://reiz.com.ua/img/og/business.webp",
       "og_locale": "en_US",
       "lang": "en",
-      "href_en": "https://reiz.com.ua/en/business/",
-      "href_ru": "https://reiz.com.ua/business/",
-      "href_uk": "https://reiz.com.ua/ua/business/",
-      "href_default": "https://reiz.com.ua/business/",
       "page": "business"
     },
     "breadcrumbs": {
@@ -591,11 +577,7 @@
       "og_description": "Helpful articles about car rental: how to rent a car, documents, routes in Western Ukraine, tips for beginners ✓ Expert recommendations from REIZ",
       "og_url": "https://reiz.com.ua/en/blog/",
       "og_image": "https://reiz.com.ua/img/og/blog.webp",
-      "lang": "en",
-      "href_en": "https://reiz.com.ua/en/blog/",
-      "href_ru": "https://reiz.com.ua/blog/",
-      "href_uk": "https://reiz.com.ua/ua/blog/",
-      "href_default": "https://reiz.com.ua/blog/"
+      "lang": "en"
     },
     "pretitle": "BLOG",
     "breadcrumbs": {
@@ -659,11 +641,7 @@
       "og_description": "REIZ — modern car rental service in Lviv ✓ New fleet ✓ Professional team ✓ Transparent terms ✓ 50+ satisfied customers ✓ 24/7 support",
       "og_url": "https://reiz.com.ua/en/about/",
       "og_image": "https://reiz.com.ua/img/og/about.webp",
-      "lang": "en",
-      "href_en": "https://reiz.com.ua/en/about/",
-      "href_ru": "https://reiz.com.ua/about/",
-      "href_uk": "https://reiz.com.ua/ua/about/",
-      "href_default": "https://reiz.com.ua/about/"
+      "lang": "en"
     },
     "pretitle": "ABOUT US",
     "breadcrumbs": {
@@ -734,11 +712,7 @@
       "og_image": "https://reiz.com.ua/img/og/certificate.webp",
       "og_locale": "en_US",
       "og_url": "https://reiz.com.ua/en/certificate",
-      "lang": "en",
-      "href_en": "https://reiz.com.ua/en/certificate",
-      "href_ru": "https://reiz.com.ua/certificate",
-      "href_uk": "https://reiz.com.ua/ua/certificate",
-      "href_default": "https://reiz.com.ua/certificate"
+      "lang": "en"
     },
     "breadcrumbs": {
       "home": "Home",
@@ -854,10 +828,7 @@
       "og_title": "List your car for rent in Lviv",
       "og_description": "Hand over your car to REIZ and earn passive income. Agreement, payouts, service and full control.",
       "og_image": "https://reiz.com.ua/img/og/invest.webp",
-      "lang": "en",
-      "href_ru": "https://reiz.com.ua/invest",
-      "href_uk": "https://reiz.com.ua/ua/invest",
-      "href_en": "https://reiz.com.ua/en/invest"
+      "lang": "en"
     },
     "breadcrumbs": {
       "home": "Home",
@@ -915,10 +886,7 @@
       "og_description": "Transparent car rental conditions in Lviv: age 21+, 2+ years experience ✓ No deposit ✓ Required documents list ✓ Free delivery",
       "og_url": "https://reiz.com.ua/en/terms",
       "og_image": "https://reiz.com.ua/img/og/terms.webp",
-      "lang": "en",
-      "href_ru": "https://reiz.com.ua/terms",
-      "href_uk": "https://reiz.com.ua/ua/terms",
-      "href_en": "https://reiz.com.ua/en/terms"
+      "lang": "en"
     },
     "hero": {
       "pretitle": "RENTAL TERMS",
@@ -1000,10 +968,7 @@
       "og_title": "Car Rental Contacts in Lviv",
       "og_description": "Office in Lviv, booking phone, opening hours ✓ Car delivery to address or airport ✓ Open 24/7 ✓ We answer all questions",
       "og_image": "https://reiz.com.ua/img/og/contacts.webp",
-      "lang": "en",
-      "href_en": "https://reiz.com.ua/en/contacts",
-      "href_uk": "https://reiz.com.ua/ua/contacts",
-      "href_ru": "https://reiz.com.ua/contacts"
+      "lang": "en"
     },
     "hero": {
       "pretitle": "CONTACTS",
