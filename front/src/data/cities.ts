@@ -628,7 +628,7 @@ export const cityLocalizations: Record<
     pl: {
       title: "Wynajem samochodu w Kijowie bez kaucji — podstawienie na Boryszpol 24/7",
       metaDescription:
-        "Wynajem samochodu w Kijowie od REIZ. Flota 2023–2025, podstawienie na lotnisko Boryszpol, dworzec i po mieście. Bez ukrytych opłat, pełne ubezpieczenie. Zarezerwuj online!",
+        "Wynajem samochodu w Kijowie od REIZ. Flota 2023–2025, podstawienie na lotnisko Boryszpol, dworzec i po mieście. Bez ukrytych opłat, pełne ubezpieczenie.",
       h1: "Wynajem samochodu w Kijowie",
       sectionCars: "FLOTA REIZ W KIJOWIE: OD KOMFORTU DO KLASY PREMIUM",
       sectionWelcome: "WITAMY W REIZ KIJÓW",
@@ -637,7 +637,7 @@ export const cityLocalizations: Record<
       address: "Kijów: Dostawa osobista (Lotniska / Dworzec / Miasto)",
       ogTitle: "Wynajem samochodu w Kijowie bez kaucji — podstawienie na Boryszpol 24/7 | REIZ",
       ogDescription:
-        "Wynajem samochodu w Kijowie od REIZ. Flota 2023–2025, podstawienie na lotnisko Boryszpol, dworzec i po mieście. Bez ukrytych opłat, pełne ubezpieczenie. Zarezerwuj online!",
+        "Wynajem samochodu w Kijowie od REIZ. Flota 2023–2025, podstawienie na lotnisko Boryszpol, dworzec i po mieście. Bez ukrytych opłat, pełne ubezpieczenie.",
       footerDescription:
         "Niezawodny wynajem samochodu w Kijowie od REIZ. Samochody klasy Ekonom, Komfort i SUV z dostawą po mieście, na dworzec kolejowy lub lotniska Boryszpol (KBP) i Żulany (IEV). Wsparcie 24/7.",
     },
@@ -694,7 +694,7 @@ export const cityLocalizations: Record<
     pl: {
       title: "Wynajem samochodu we Lwowie bez kaucji — podstawienie na lotnisko LWO",
       metaDescription:
-        "Wynajem samochodu we Lwowie od REIZ. Nowe samochody 2023–2025, podstawienie na lotnisko, dworzec i po mieście. Bez ukrytych opłat, wyjazd za granicę. Formalności w 15 min.",
+        "Wynajem samochodu we Lwowie od REIZ. Nowe auta 2023–2025, podstawienie na lotnisko i dworzec. Bez ukrytych opłat, wyjazd za granicę. Formalności w 15 min.",
       h1: "Wynajem samochodu we Lwowie — bez kaucji i dostawa 24/7",
       sectionCars: "SAMOCHODY REIZ WE LWOWIE",
       sectionWelcome: "WITAMY W REIZ LWÓW",
@@ -703,7 +703,7 @@ export const cityLocalizations: Record<
       address: "Międzynarodowy port lotniczy Lwów im. Danyła Halickiego",
       ogTitle: "Wynajem samochodu we Lwowie bez kaucji — podstawienie na lotnisko LWO | REIZ",
       ogDescription:
-        "Wynajem samochodu we Lwowie od REIZ. Nowe samochody 2023–2025, podstawienie na lotnisko, dworzec i po mieście. Bez ukrytych opłat, wyjazd za granicę. Formalności w 15 min.",
+        "Wynajem samochodu we Lwowie od REIZ. Nowe auta 2023–2025, podstawienie na lotnisko i dworzec. Bez ukrytych opłat, wyjazd za granicę. Formalności w 15 min.",
       footerDescription:
         "Bezproblemowy wynajem samochodów we Lwowie. REIZ oferuje nowe modele od klasy Ekonom do Premium. Odbierz auto w biurze lub zamów dostawę na lotnisko lub do hotelu. Przejrzyste ceny.",
     },
@@ -824,18 +824,18 @@ export const cityLocalizations: Record<
         "Car rental in Odesa for leisure and business. Economy class cars and SUVs available. We will meet you at the airport or train station. Travel with comfort with REIZ.",
     },
     pl: {
-      title: "Wynajem samochodu w Odessie: Centrum i Arkadia | Klasa biznesowa",
+      title: "Wynajem samochodu w Odessie bez kaucji — Centrum i Arkadia",
       metaDescription:
-        "Wynajem samochodu w Odessie. Luksusowe i ekonomiczne samochody. Szybka rezerwacja w Arkadii i Centrum. Ubezpieczenie w cenie. Elastyczne warunki wynajmu długoterminowego.",
+        "Wynajem samochodu w Odessie od REIZ. Luksusowe i ekonomiczne auta. Rezerwacja w Arkadii i Centrum. Ubezpieczenie w cenie. Elastyczny wynajem długoterminowy.",
       h1: "Wynajem samochodu w Odessie — bez kaucji i dostawa 24/7",
       sectionCars: "FLOTA REIZ W ODESSIE: OD KOMFORTU DO KLASY PREMIUM",
       sectionWelcome: "WITAMY W REIZ ODESSA",
       subtitle:
         "Wynajem samochodu w Odessie bez kaucji. Dostawa na lotnisko ODS, plażę Arkadia, port lub pod wskazany adres. Kabriolety i SUV-y dostępne.",
       address: "Międzynarodowy port lotniczy Odessa (ODS)",
-      ogTitle: "Wynajem samochodu w Odessie: Centrum i Arkadia | Klasa biznesowa",
+      ogTitle: "Wynajem samochodu w Odessie bez kaucji — Centrum i Arkadia | REIZ",
       ogDescription:
-        "Wynajem samochodu w Odessie. Luksusowe i ekonomiczne samochody. Szybka rezerwacja w Arkadii i Centrum. Ubezpieczenie w cenie. Elastyczne warunki wynajmu długoterminowego.",
+        "Wynajem samochodu w Odessie od REIZ. Luksusowe i ekonomiczne auta. Rezerwacja w Arkadii i Centrum. Ubezpieczenie w cenie. Elastyczny wynajem długoterminowy.",
       footerDescription:
         "Wynajem samochodów w Odessie na wypoczynek i sprawy służbowe. Dostępne samochody klasy Ekonom i SUV-y. Spotkamy Cię na lotnisku lub dworcu. Podróżuj z komfortem z REIZ.",
     },
@@ -1022,7 +1022,7 @@ export const cityLocalizations: Record<
         "Rent a Jeep/SUV in Bukovel. 🏔️ 4x4 Vehicles for mountain roads. ❄️ Winter tires guaranteed. 🚗 Hotel delivery in Polyanytsya/Yaremche.",
     },
     pl: {
-      title: "Wynajem samochodu Bukowel i Jaremcze: SUV 4x4 | Opony zimowe",
+      title: "Wynajem samochodu Bukowel i Jaremcze — SUV 4x4, opony zimowe",
       metaDescription:
         "Wynajmij Jeepa/SUV-a w Bukowelu. Pojazdy 4x4 na drogi górskie. Opony zimowe gwarantowane. Dostawa do hotelu w Polanicy/Jaremczu.",
       h1: "Wynajem samochodu w Bukowelu",
@@ -1033,7 +1033,7 @@ export const cityLocalizations: Record<
       footerDescription:
         "Wynajem SUV-ów na wyjazdy do Bukowelu. Niezawodne SUV-y i samochody Ekonom od REIZ na drogi górskie. Dostawa samochodu prosto do Twojego hotelu lub domku. Bezpieczeństwo przede wszystkim.",
       address: "Ośrodek narciarski Bukowel, Polanyca",
-      ogTitle: "Wynajem samochodu Bukowel i Jaremcze: SUV 4x4 | Opony zimowe",
+      ogTitle: "Wynajem samochodu Bukowel i Jaremcze — SUV 4x4, opony zimowe | REIZ",
       ogDescription:
         "Wynajmij Jeepa/SUV-a w Bukowelu. Pojazdy 4x4 na drogi górskie. Opony zimowe gwarantowane. Dostawa do hotelu w Polanicy/Jaremczu.",
     },
@@ -1088,7 +1088,7 @@ export const cityLocalizations: Record<
         "Rent a car in Truskavets. 💧 Best for visiting mineral springs. 🚗 SUVs available for Skhidnytsia roads. ⚡ Discounts for 2+ weeks rental.",
     },
     pl: {
-      title: "Wynajem samochodu Truskawiec i Schodnica: Wynajem wakacyjny | Długoterminowy",
+      title: "Wynajem samochodu Truskawiec i Schodnica — wakacje i długoterminowy",
       metaDescription:
         "Wynajmij samochód w Truskawcu. Idealny do odwiedzania źródeł mineralnych. SUV-y na drogi Schodnicy. Zniżki na wynajem 2+ tygodni.",
       h1: "Wynajem samochodu w Truskawcu",
@@ -1099,7 +1099,7 @@ export const cityLocalizations: Record<
       address: "Centrum kurortu Truskawiec",
       footerDescription:
         "Twój samochód w Truskawcu. Zamów wynajem (Ekonom / Standard) z dostawą do sanatorium. REIZ zapewnia mobilność na kurorcie i proste warunki wynajmu.",
-      ogTitle: "Wynajem samochodu Truskawiec i Schodnica: Wynajem wakacyjny | Długoterminowy",
+      ogTitle: "Wynajem samochodu Truskawiec i Schodnica — wakacje i długoterminowy | REIZ",
       ogDescription:
         "Wynajmij samochód w Truskawcu. Idealny do odwiedzania źródeł mineralnych. SUV-y na drogi Schodnicy. Zniżki na wynajem 2+ tygodni.",
     },
@@ -1286,7 +1286,7 @@ export const cityLocalizations: Record<
         "Rent a car in Uzhhorod. 🌍 Cross-border rentals allowed (EU). 🏔️ Perfect start for Carpathians. ⚡ Green Card included options.",
     },
     pl: {
-      title: "Wynajem samochodu Użhorod i Mukaczewo: Wyjazd za granicę do UE",
+      title: "Wynajem samochodu Użhorod i Mukaczewo — wyjazd za granicę UE",
       metaDescription:
         "Wynajmij samochód w Użhorodzie. Wynajem transgraniczny dozwolony (UE). Idealny start w Karpaty. Opcje z Zieloną Kartą.",
       h1: "Wynajem samochodu w Użhorodzie",
@@ -1297,7 +1297,7 @@ export const cityLocalizations: Record<
       address: "Centrum miasta Użhorod",
       footerDescription:
         "Wynajem samochodów w Użhorodzie. Europejski serwis i nowe samochody klasy Ekonom i Biznes. REIZ oferuje dostawę po mieście i korzystne warunki podróży po Zakarpaciu.",
-      ogTitle: "Wynajem samochodu Użhorod i Mukaczewo: Wyjazd za granicę do UE",
+      ogTitle: "Wynajem samochodu Użhorod i Mukaczewo — wyjazd za granicę UE | REIZ",
       ogDescription:
         "Wynajmij samochód w Użhorodzie. Wynajem transgraniczny dozwolony (UE). Idealny start w Karpaty. Opcje z Zieloną Kartą.",
     },
