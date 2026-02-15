@@ -50,45 +50,46 @@ const LANGUAGES = [
   { code: 'ru', label: 'RU' },
   { code: 'en', label: 'EN' },
   { code: 'pl', label: 'PL' },
+  { code: 'ro', label: 'RO' },
 ] as const;
 
 type LangCode = (typeof LANGUAGES)[number]['code'];
 
 const ENGINE_TYPES = [
-  { value: 'petrol', label: { uk: 'Бензин', ru: 'Бензин', en: 'Petrol', pl: 'Benzyna' } },
-  { value: 'diesel', label: { uk: 'Дизель', ru: 'Дизель', en: 'Diesel', pl: 'Diesel' } },
-  { value: 'electric', label: { uk: 'Електро', ru: 'Электро', en: 'Electric', pl: 'Elektryczny' } },
-  { value: 'hybrid', label: { uk: 'Гібрид', ru: 'Гибрид', en: 'Hybrid', pl: 'Hybryda' } },
+  { value: 'petrol', label: { uk: 'Бензин', ru: 'Бензин', en: 'Petrol', pl: 'Benzyna', ro: 'Benzină' } },
+  { value: 'diesel', label: { uk: 'Дизель', ru: 'Дизель', en: 'Diesel', pl: 'Diesel', ro: 'Diesel' } },
+  { value: 'electric', label: { uk: 'Електро', ru: 'Электро', en: 'Electric', pl: 'Elektryczny', ro: 'Electric' } },
+  { value: 'hybrid', label: { uk: 'Гібрид', ru: 'Гибрид', en: 'Hybrid', pl: 'Hybryda', ro: 'Hibrid' } },
 ];
 
 const TRANSMISSION_TYPES = [
-  { value: 'automatic', label: { uk: 'Автомат', ru: 'Автомат', en: 'Automatic', pl: 'Automatyczna' } },
-  { value: 'manual', label: { uk: 'Механіка', ru: 'Механика', en: 'Manual', pl: 'Manualna' } },
-  { value: 'robot', label: { uk: 'Робот', ru: 'Робот', en: 'Robot', pl: 'Zrobotyzowana' } },
-  { value: 'variator', label: { uk: 'Варіатор', ru: 'Вариатор', en: 'CVT', pl: 'CVT' } },
+  { value: 'automatic', label: { uk: 'Автомат', ru: 'Автомат', en: 'Automatic', pl: 'Automatyczna', ro: 'Automată' } },
+  { value: 'manual', label: { uk: 'Механіка', ru: 'Механика', en: 'Manual', pl: 'Manualna', ro: 'Manuală' } },
+  { value: 'robot', label: { uk: 'Робот', ru: 'Робот', en: 'Robot', pl: 'Zrobotyzowana', ro: 'Robotizată' } },
+  { value: 'variator', label: { uk: 'Варіатор', ru: 'Вариатор', en: 'CVT', pl: 'CVT', ro: 'CVT' } },
 ];
 
 const DRIVE_TYPES = [
-  { value: 'front', label: { uk: 'Передній', ru: 'Передний', en: 'Front', pl: 'Przedni' } },
-  { value: 'rear', label: { uk: 'Задній', ru: 'Задний', en: 'Rear', pl: 'Tylny' } },
-  { value: 'full', label: { uk: 'Повний', ru: 'Полный', en: 'AWD', pl: '4x4' } },
+  { value: 'front', label: { uk: 'Передній', ru: 'Передний', en: 'Front', pl: 'Przedni', ro: 'Față' } },
+  { value: 'rear', label: { uk: 'Задній', ru: 'Задний', en: 'Rear', pl: 'Tylny', ro: 'Spate' } },
+  { value: 'full', label: { uk: 'Повний', ru: 'Полный', en: 'AWD', pl: '4x4', ro: '4x4' } },
 ];
 
-const normalizeMultiLang = (val: any): { uk: string; ru: string; en: string; pl: string } => {
-  if (!val) return { uk: '', ru: '', en: '', pl: '' };
+const normalizeMultiLang = (val: any): { uk: string; ru: string; en: string; pl: string; ro: string } => {
+  if (!val) return { uk: '', ru: '', en: '', pl: '', ro: '' };
   if (typeof val === 'object' && val !== null) {
-    return { uk: val.uk || '', ru: val.ru || '', en: val.en || '', pl: val.pl || '' };
+    return { uk: val.uk || '', ru: val.ru || '', en: val.en || '', pl: val.pl || '', ro: val.ro || '' };
   }
   if (typeof val === 'string') {
     try {
       const parsed = JSON.parse(val);
       if (parsed && typeof parsed === 'object' && ('uk' in parsed || 'ru' in parsed || 'en' in parsed)) {
-        return { uk: parsed.uk || '', ru: parsed.ru || '', en: parsed.en || '', pl: parsed.pl || '' };
+        return { uk: parsed.uk || '', ru: parsed.ru || '', en: parsed.en || '', pl: parsed.pl || '', ro: parsed.ro || '' };
       }
     } catch (e) {}
-    return { uk: val, ru: val, en: val, pl: val };
+    return { uk: val, ru: val, en: val, pl: val, ro: val };
   }
-  return { uk: '', ru: '', en: '', pl: '' };
+  return { uk: '', ru: '', en: '', pl: '', ro: '' };
 };
 
 function findSelectValue(attributeObj: any, options: any[]) {
@@ -111,12 +112,12 @@ export default function CarEditPage() {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
   const [activeLang, setActiveLang] = useState<LangCode>('uk');
-  const [description, setDescription] = useState<{ uk: string; ru: string; en: string; pl: string }>({ uk: '', ru: '', en: '', pl: '' });
+  const [description, setDescription] = useState<{ uk: string; ru: string; en: string; pl: string; ro: string }>({ uk: '', ru: '', en: '', pl: '', ro: '' });
   const [attributes, setAttributes] = useState<any>({});
   const [tariffs, setTariffs] = useState<RentalTariff[]>([]);
   const [deposit, setDeposit] = useState<number>(0);
-  const [configurationList, setConfigurationList] = useState<{ uk: string; ru: string; en: string; pl: string }[]>([]);
-  const [newConfigItem, setNewConfigItem] = useState({ uk: '', ru: '', en: '', pl: '' });
+  const [configurationList, setConfigurationList] = useState<{ uk: string; ru: string; en: string; pl: string; ro: string }[]>([]);
+  const [newConfigItem, setNewConfigItem] = useState({ uk: '', ru: '', en: '', pl: '', ro: '' });
   const [currentDiscount, setCurrentDiscount] = useState<number | null>(null);
   const [isNew, setIsNew] = useState<boolean>(false);
   const [isAvailable, setIsAvailable] = useState<boolean>(false);
@@ -174,7 +175,7 @@ export default function CarEditPage() {
         .then(setConfigOptions)
         .catch(() => setConfigOptions([]));
       setConfigSearch('');
-      setNewConfigItem({ uk: '', ru: '', en: '', pl: '' });
+      setNewConfigItem({ uk: '', ru: '', en: '', pl: '', ro: '' });
     }
   }, [isConfigModalOpen]);
 
@@ -909,7 +910,7 @@ export default function CarEditPage() {
                 <button
                   type="button"
                   onClick={() => {
-                    setNewConfigItem({ uk: '', ru: '', en: '', pl: '' });
+                    setNewConfigItem({ uk: '', ru: '', en: '', pl: '', ro: '' });
                     setIsConfigModalOpen(true);
                   }}
                   style={{
@@ -1185,7 +1186,7 @@ export default function CarEditPage() {
                       key={opt.uk}
                       type="button"
                       onClick={() => {
-                        setNewConfigItem({ uk: opt.uk, ru: opt.ru, en: opt.en, pl: opt.pl });
+                        setNewConfigItem({ uk: opt.uk, ru: opt.ru, en: opt.en, pl: opt.pl, ro: opt.ro || '' });
                         setConfigSearch('');
                         setShowConfigSuggestions(false);
                       }}

@@ -38,6 +38,7 @@ export interface LocalizedText {
   ru: string;
   uk: string;
   pl?: string;
+  ro?: string;
 }
 
 /** Get localized value with fallback: locale → en → uk */

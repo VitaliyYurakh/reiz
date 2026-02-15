@@ -29,6 +29,7 @@ export function generateRentalServiceSchema({
     uk: `Оренда ${carName}`,
     en: `${carName} Rental`,
     pl: `Wynajem ${carName}`,
+    ro: `Închiriere ${carName}`,
   };
 
   const descriptionByLocale: Record<Locale, string> = {
@@ -36,6 +37,7 @@ export function generateRentalServiceSchema({
     uk: `Забронюйте ${carName} онлайн. Преміум-сервіс, страховка, подача за адресою 24/7.`,
     en: `Book ${carName} online. Premium service, insurance included, 24/7 delivery.`,
     pl: `Zarezerwuj ${carName} online. Serwis premium, ubezpieczenie w cenie, dostawa 24/7.`,
+    ro: `Rezervați ${carName} online. Serviciu premium, asigurare inclusă, livrare 24/7.`,
   };
 
   const schema: Record<string, unknown> = {

@@ -12,12 +12,13 @@ import { uk, type AdminTranslations } from '@/i18n/admin/uk';
 import { en } from '@/i18n/admin/en';
 import { ru } from '@/i18n/admin/ru';
 import { pl } from '@/i18n/admin/pl';
+import { ro } from '@/i18n/admin/ro';
 
 // When adding a new locale: add an import + entry below.
 // TypeScript will error if any locale from request.ts is missing.
 export type AdminLocale = Locale;
 
-const dictionaries: Record<AdminLocale, AdminTranslations> = { uk, en, ru, pl };
+const dictionaries: Record<AdminLocale, AdminTranslations> = { uk, en, ru, pl, ro };
 
 interface AdminLocaleContextType {
   locale: AdminLocale;

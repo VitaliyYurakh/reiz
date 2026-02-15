@@ -1,0 +1,1546 @@
+{
+  "aside": {
+  "brand": "REIZ",
+  "cta_button": "SOLICITĂ UN APEL",
+  "controls": {
+    "expand": "Deschide submeniu",
+    "collapse": "Închide submeniu"
+  },
+  "nav": {
+      "about": "DESPRE NOI",
+      "blog": "BLOG",
+      "business": "ÎNCHIRIERI CORPORATE",
+      "cars_link1": "Închiriere auto în Kyiv",
+      "cars_link2": "Închiriere auto în Lviv",
+      "cars_link3": "Închiriere auto în Ternopil",
+      "cars_link4": "Închiriere auto în Odesa",
+      "cars_link5": "Închiriere auto în Dnipro",
+      "cars_link6": "Închiriere auto în Kharkiv",
+      "cars_link7": "Închiriere auto în Bukovel",
+      "cars_link8": "Închiriere auto în Truskaveț",
+      "cars_link9": "Închiriere auto în Ivano-Frankivsk",
+      "cars_link10": "Închiriere auto în Ujhorod",
+      "cars_link11": "Închiriere auto în Vinnîția",
+      "cars_link12": "Închiriere auto în Mukachevo",
+      "cars_link13": "Închiriere auto în Cernăuți",
+      "cars_link14": "Închiriere auto în Poltava",
+      "cars_link15": "Închiriere auto în Zaporizhzhia",
+      "cars_link16": "Închiriere auto în Boryspil",
+      "cars_title": "ÎNCHIRIAZĂ O MAȘINĂ",
+      "certificates": "CERTIFICATE CADOU",
+      "contacts": "CONTACTE",
+      "faq": "ÎNTREBĂRI FRECVENTE",
+      "home": "ACASĂ",
+      "insurance": "ASIGURARE",
+      "invest": "LISTEAZĂ-ȚI MAȘINA",
+      "terms": "CONDIȚII DE ÎNCHIRIERE"
+    },
+    "subtitle": "ÎNCHIRIERE AUTO ÎN UCRAINA"
+  },
+  "header": {
+    "call": "Apel",
+    "currency": "Moneda",
+    "open_menu": "Deschide meniu",
+    "close_menu": "Închide meniu"
+  },
+  "homePage": {
+    "advantages": {
+      "item1_text": "Livrare gratuită oriunde în oraș — la orice oră.",
+      "item1_title": "Livrare 24/7",
+      "item2_text": "Prețuri corecte, fără surprize. Condiții transparente.",
+      "item2_title": "Fără taxe ascunse",
+      "item3_text": "Închiriază cu șofer profesionist — comod și sigur.",
+      "item3_title": "Serviciu de șofer",
+      "item4_text": "Oferte personalizate pentru clienții fideli.",
+      "item4_title": "Loialitate și reduceri"
+    },
+    "catalog_aside": {
+      "category1": "Economic",
+      "category2": "Business",
+      "category3": "Suv",
+      "category4": "Luxury",
+      "category5": "Van",
+      "filters_panel": {
+        "close_button": "Închide filtre",
+        "price_max_label": "Preț",
+        "price_max_placeholder": "până la 550",
+        "price_max_suffix": "$",
+        "price_min_label": "Preț",
+        "price_min_placeholder": "de la 40",
+        "price_min_suffix": "$",
+        "reset_button": "Resetează filtru",
+        "select_brand_placeholder": "Marcă",
+        "select_car_option1": "Luxury",
+        "select_car_option2": "Business",
+        "select_car_option3": "Suv",
+        "select_car_option4": "Van",
+        "select_car_option5": "Economic",
+        "select_car_placeholder": "Clasă auto",
+        "select_fuel_option1_value": "Benzină",
+        "select_fuel_option2_value": "Diesel",
+        "select_fuel_option3_value": "Electric",
+        "select_fuel_placeholder": "Tip combustibil",
+        "select_model_placeholder": "Model",
+        "show_button_count": 0,
+        "show_button_suffix": "Mașini",
+        "show_button_text": "Arată",
+        "subtitle_count": 1,
+        "subtitle_text": "Filtre"
+      },
+      "open_box": {
+        "filter_button_count": 1,
+        "filter_button_text": "Filtre",
+        "sort_option1": "Preț: de la mic la mare",
+        "sort_option2": "Preț: de la mare la mic",
+        "sort_option3": "Implicit",
+        "sort_placeholder_icon": ""
+      },
+      "submit": "SOLICITĂ UN APEL",
+      "top_text": "ALEGE-ȚI MAȘINA",
+      "catalog_content": {
+        "heading": "Flota REIZ: de la confort la clasa premium",
+        "pretitle": "MAȘINI REIZ",
+        "sort_option1": "Preț: de la mic la mare",
+        "sort_option2": "Preț: de la mare la mic",
+        "sort_placeholder": "Implicit"
+      },
+      "catalog_list": {
+        "badges": {
+          "withDeposit": "Cu depozit",
+          "coverage50": "Acoperire 50%",
+          "coverage100": "Acoperire 100%",
+          "available": "Disponibil acum",
+          "contact": "Verifică disponibilitatea"
+        },
+        "rates": {
+          "range1": "1 – 2 zile",
+          "range2": "3 – 7 zile",
+          "range3": "8 – 29 zile",
+          "range4": "29+ zile",
+          "perDay": "pe zi"
+        },
+        "features": {
+          "engine": "Motor",
+          "transmission": "Transmisie",
+          "drive": "Tracțiune",
+          "seatsLabel": "Locuri",
+          "seatsValue": "{count} locuri",
+          "driveMobileSuffix": ""
+        },
+        "total": {
+          "dailyLabel": "Tarif zilnic",
+          "depositLabel": "Depozit",
+          "totalLabel": "Total"
+        },
+        "actions": {
+          "details": "Detalii",
+          "book": "Rezervă acum"
+        },
+        "empty": "Nicio mașină disponibilă",
+        "imageAlt": "Închiriază {brand} {model} în Lviv"
+      }
+    },
+    "editor_block": {
+      "title": "Închiriere auto în Lviv cu REIZ: Transparentă, Fiabilă și Atentă la Detalii",
+      "text": "<div class='editor_text'>La REIZ nu doar predăm cheile; asigurăm mobilitatea ta. Oferim livrarea mașinii în toată zona Lviv și putem transporta vehiculele în orice locație din Ucraina, la cerere.<br/><br/>Flota noastră este selecționată pentru a răspunde fiecărei nevoi: modele <span class='text-strong'>premium</span> prestigioase pentru afaceri, <span class='text-strong'>SUV-uri</span> robuste pentru aventuri montane și <span class='text-strong'>microbuze</span> spațioase pentru călătorii în familie. Chiar dacă optezi pentru o <span class='text-strong'>variantă economică</span>, prioritizăm modelele noi care oferă un nivel de confort și siguranță mult peste standard.</div><h2 class='editor_title'>Planuri de închiriere: Alege ritmul tău</h2><h3 class='editor_title'>Închirierea zilnică: Testează înainte de a te angaja</h3><div class='editor_text'>Tariful zilnic este testul de drum perfect, fără presiune. Ia o mașină pentru 24 de ore și vezi cum se comportă pe pavajul din Lviv sau pe autostradă. Este ușor de parcat? Încap bagajele? Îți place sunetul motorului? De obicei o zi este suficientă pentru a decide dacă prelungești pentru o lună sau treci la altă clasă. Mulți clienți de-ai noștri iau o mașină pentru o zi doar ca s-o testeze înainte de un weekend în Carpați — urcușurile abrupte spre Slavske sau drumurile serpuite spre Bukovel îți vor arăta rapid dacă este mașina potrivită pentru vacanța ta.</div><h3 class='editor_title'>Escapada săptămânală</h3><div class='editor_text'>Închirierea pe o săptămână oferă cel mai bun echilibru între preț și libertate. Un singur tarif fix, șapte zile și zero așteptare pentru taxi. O săptămână îți dă flexibilitatea de a combina afacerile din oraș cu timpul liber: explorează castelele din regiunea Lviv, străbate drumurile vinului sau pleacă la munte. Ai mai mult timp să te obișnuiești cu mașina decât într-o închiriere zilnică, iar prelungirea rezervării este simplă dacă decizi să rămâi mai mult.</div><h3 class='editor_title'>Închiriere lunară: Soluția pentru sejururi lungi</h3><div class='editor_text'>Perfectă pentru proiecte, călătorii de afaceri sau relocare. Beneficiezi de un tarif zilnic semnificativ mai mic și o singură plată previzibilă. Acest format este conceput pentru deplasări regulate de afaceri: naveta Lviv–Kyiv sau vizite la clienți în Ternopil, Ivano-Frankivsk și Rivne. O singură mașină acoperă totul — drumuri la birou, întâlniri, mutarea cutiilor sau preluarea partenerilor. S-au schimbat planurile? Prelungirea termenului sau schimbarea mașinii se face fără bătăi de cap.</div><h3 class='editor_title'>Abonament pe termen lung (3+ luni)</h3><div class='editor_text'>Uită de bătaia de cap a cumpărării, vânzării sau întreținerii unui vehicul. Închirierea pe termen lung (3–12+ luni) îți oferă o mașină personală cu un buget lunar fix. Este comod și economic. Ai o mașină pregătită pentru sarcinile zilnice și călătoriile interurbane, fără griji legate de depreciere sau costuri de service. Îți permite să planifici bugetul cu luni înainte, iar dacă nevoile se schimbă — de exemplu, ai nevoie de un SUV iarna în loc de un sedan — putem schimba modelul.</div><h2 class='editor_title'>Disponibil în curând: Clasa Economic</h2><div class='editor_text'>V-am ascultat și ne extindem! Foarte curând vom deschide rezervările pentru mașini economice, manevrabile, începând de la doar 20$/zi. Vrei să fii primul care află? Lasă o solicitare și te vom anunța de îndată ce flota Economic este pregătită. Între timp, verifică ofertele speciale din Clasa Confort — s-ar putea să găsești un nivel mai ridicat de siguranță și dotări la un preț care te va surprinde.</div><h2 class='editor_title'>De ce să alegi REIZ?</h2><div class='editor_text'><ul><li>Rezervare fără efort: Site-ul nostru este construit pentru oameni — filtre rapide, fotografii reale și specificații exacte.</li><li>Procesare instantanee: Respectăm timpul tău; rezervarea durează doar câteva minute.</li><li>Livrare flexibilă: Aducem mașina la tine — Aeroportul LWO, gara, hotelul tău sau orice adresă din oraș.</li><li>Fără taxe ascunse: Prețul pe care îl vezi este prețul pe care îl plătești. Nicio surpriză la finalizare.</li><li>Flexibilitate totală: Vrei să prelungești? Vrei să schimbi mașina? Facem totul simplu.</li><li>Flotă de încredere: Suntem obsedați de întreținere. Interioare curate, service la timp și anvelope de sezon sunt obligatorii.</li><li>Suport 24/7: Oameni reali, gata să ajute în UA, EN, RU sau HE.</li><li>În toată Ucraina: Nu ne oprim la limitele orașului. Livrarea și returnarea interurbană sunt disponibile la cerere.</li></ul></div><h2 class='editor_title'>Servicii suplimentare</h2><h3 class='editor_title'>Fără depozit / Depozit redus</h3><div class='editor_text'>Știm că un depozit mare nu este întotdeauna convenabil. Oferim opțiuni de închiriere fără depozit sau cu o reducere de 50% pentru anumite modele. Eligibilitatea depinde de experiența ta la volan și de clasa mașinii — vei vedea toate detaliile clar în timpul rezervării.</div><h3 class='editor_title'>Serviciu de șofer</h3><div class='editor_text'>Vrei confortul fără condus? Rezervă o mașină cu șofer profesionist. Noi ne ocupăm de transferul de la aeroport, livrarea la hotel sau logistica de afaceri, în timp ce tu te relaxezi.</div><h3 class='editor_title'>Livrare și returnare</h3><div class='editor_text'>În Lviv: Gratuit. Livrăm în centru, în orice cartier, la gară sau la aeroport fără costuri suplimentare (clientul acoperă doar parcarea la aeroport).<br/>În afara Lvivului: Calculat pe baza kilometrajului. Putem livra oriunde în Ucraina.<br/>Returnări: Gratuite în limitele orașului.</div><h3 class='editor_title'>Opțiuni suplimentare utile</h3><div class='editor_text'><ul><li>Navigație: Toate mașinile sunt echipate cu Apple CarPlay și Android Auto. Conectează-ți telefonul și folosește hărțile preferate.</li><li>Scaune pentru copii: Disponibile la cerere pentru toate vârstele.</li><li>Trecere de frontieră: Posibilă cu aprobare prealabilă (ne ocupăm de documente și asigurare).</li><li>Kilometraj nelimitat: Disponibil pentru multe modele — verifică eticheta „Nelimitat” când rezervi.</li></ul></div><h3 class='editor_title'>Stare: Impecabilă și gata de drum</h3><div class='editor_text'>Ne mândrim cu starea flotei noastre. Siguranța ta este obsesia noastră.<br/><br/>Verificare pre-drum: Frâne, lumini, presiunea anvelopelor, lichide — fiecare mașină trece printr-un checklist strict înainte de a ajunge la tine.<br/><br/>Curățenie: Livrăm mașinile proaspete. Curățarea interiorului (uscată/umedă) și spălarea caroseriei sunt standard. Curățarea profundă se face ori de câte ori este necesar.<br/><br/>Întreținere: Respectăm programul. Piese originale, centre de service partenere și zero întârzieri la întreținere.</div><h2 class='editor_title'>Sfaturi de siguranță pe drum</h2><div class='editor_text'>Odată ce ești la volan, siguranța este în mâinile tale. Iată câteva amintiri prietenoase pentru a-ți menține călătoria lină:</div><h3 class='editor_title'>Regula celor 3 secunde</h3><div class='editor_text'>Păstrează distanța. Alege un reper (un semn sau stâlp) pe drum. Când mașina din față îl depășește, numără „unu-doi-trei”. Dacă treci de reper înainte de a termina numărătoarea, mărește distanța. Acel interval este timpul tău de reacție.</div><h3 class='editor_title'>Schimbarea benzii</h3><div class='editor_text'><ul><li>Verifică unghiurile moarte: Oglinzile sunt grozave, dar o privire rapidă peste umăr este mai bună.</li><li>Semnalizează din timp: Anunță-i pe ceilalți ce faci înainte de a începe să virezi.</li><li>Fii fluid: O singură manevră, o singură bandă. Nu sări peste mai multe benzi deodată.</li><li>Atenție la vehiculele pe două roți: Scuterele și motocicletele se pot ascunde ușor în unghiurile tale moarte.</li></ul></div><h3 class='editor_title'>Citește indicatoarele</h3><div class='editor_text'>Indicatoarele rutiere sunt limbajul drumului. Dacă o intersecție pare confuză sau ai ratat un indicator, este mai bine să încetinești și să te orientezi decât să te grăbești.</div><h3 class='editor_title'>Toleranță zero</h3><div class='editor_text'>Suntem stricți în privința asta: Conducerea sub influența alcoolului este interzisă. REIZ aplică o politică de toleranță zero față de alcool. Este vorba despre siguranța ta și a tuturor celor din jurul tău.</div>",
+      "show_more_button": "ARATĂ MAI MULT",
+      "show_less_button": "ARATĂ MAI PUȚIN"
+    },
+    "faq": {
+      "group1_item1_answer": "Lviv are multe zone cu plată și parcări municipale. Parcați întotdeauna în liniile marcate sau în parcări păzite, verificați indicatoarele rutiere și parcometrele și păstrați chitanțele. Parcarea necorespunzătoare atrage amenzi plătite de chiriaș. În zonele cu parcare limitată, folosiți parcările din mall-uri sau hoteluri. Este util să instalați aplicații ale orașului pentru plata parcării și navigarea între zone. Înainte de a lăsa mașina peste noapte, verificați regulile locale de stradă/curte pentru a evita ridicarea.",
+      "group1_item1_question": "Unde să parchezi o mașină închiriată în Lviv și cum eviți amenzile?",
+      "group1_item2_answer": "Asigurăm livrarea/returnarea la orice adresă din Lviv și vă întâmpinăm la terminalul LWO la ora convenită. Pot fi aplicate tarife suplimentare pentru ore timpurii/târzii și timp de așteptare, prețul final depinde de distanță. Livrarea interurbană în toată Ucraina este disponibilă la cerere. Pentru a asigura un serviciu prompt, rezervați din timp și furnizați detaliile zborului/hotelului. Vreți să accelerați procesul? Rezervați online la REIZ Rental Cars — este mai convenabil și vă blochează tariful.",
+      "group1_item2_question": "Livrarea mașinii la adresă și la Aeroportul Lviv (LWO): condiții și prețuri",
+      "group1_item3_answer": "Se aplică o limită zilnică de kilometraj (de obicei 250–300 km/zi), suficientă pentru rutele de afaceri și turistice din Lviv și regiune. Pentru călătorii mai lungi (de ex. Lviv–Kyiv sau Lviv–Odesa), adăugați opțiunea de kilometraj extins sau nelimitat la rezervare. Depășirea limitei se taxează la un tarif fix pe kilometru conform tarifelor. Informați-ne despre ruta dumneavoastră în avans — vă sugerăm cea mai bună opțiune și unde să alimentați pe drum.",
+      "group1_item3_question": "Există o limită de kilometraj și cum să rezervi o călătorie în Ucraina fără restricții?",
+      "group1_pretitle": "Informații practice",
+      "group2_item1_answer": "Închirierea include asigurarea obligatorie de răspundere civilă și Casco standard cu franșiză. Răspunderea civilă acoperă daunele terților, Casco acoperă daunele mașinii închiriate peste franșiză. Anumite cazuri (de ex. geamuri/anvelope) pot avea condiții speciale — clarificați la rezervare în secțiunea „Asigurare”. În caz de accident, înregistrați incidentul și apelați autoritățile imediat. Acoperirea extinsă vă reduce riscurile și ajută la soluționarea mai rapidă a cazurilor.",
+      "group2_item1_question": "Ce acoperă asigurarea și cum te ajută pe drum? (Răspundere civilă/Casco)",
+      "group2_item2_answer": "Franșiza este suma maximă pe care o plătiți în caz de daune; asigurarea acoperă restul. Depozitul este suma blocată pe cardul dumneavoastră pe durata închirierii, de obicei egală cu franșiza. Exemplu: daune = 50.000 UAH, franșiză/depozit = 20.000 UAH — responsabilitatea dumneavoastră este 20.000 UAH, restul este acoperit de asigurare. Depozitul este eliberat după returnarea mașinii nedeteriorate; timpul de eliberare depinde de bancă și durează de obicei câteva zile.",
+      "group2_item2_question": "Franșiză vs. depozit: care este diferența și cât riști?",
+      "group2_item3_answer": "Închirierea fără depozit nu este posibilă.<p>Implicit, se blochează un depozit egal cu franșiza (depinde de clasa mașinii). Puteți reduce responsabilitatea alegând:</p><ul><li>−50% depozit/franșiză (CDW);</li><li>−100% depozit/„răspundere zero” (SCDW) pentru daune/furt.</li></ul><p><span class=\"text-strong\">Important:</span> chiar și cu „răspundere zero” există o reținere obligatorie de <span class=\"text-strong\">200$–300$</span> (în funcție de model) pentru:</p><ul><li>amenzi și taxe de drum,</li><li>combustibil lipsă,</li><li>spălare mașină/curățare interior,</li><li>chei pierdute.</li></ul><p>Această reținere nu este pentru daune și se restituie după compensarea eventualelor costuri. Alegeți pachetul potrivit la rezervare — vă sugerăm cea mai bună opțiune pentru închirieri în Lviv și călătorii în Ucraina.</p>",
+      "group2_item3_question": "Pot închiria fără depozit și cum funcționează „răspunderea zero”?",
+      "group2_pretitle": "Asigurare și depozit",
+      "group3_item1_answer": "Cerințe de bază: vârsta de la 21 de ani cu minimum 2 ani de experiență de condus. Pentru mașini business/premium: 23–25 de ani și minimum 5 ani de experiență. Dacă nu îndepliniți complet cerințele, este disponibil un program „șofer tânăr” contra cost suplimentar. Toți șoferii trebuie menționați în contractul de închiriere: pregătiți documentele și furnizați datele șoferului suplimentar din timp pentru a evita refuzul la preluare.",
+      "group3_item1_question": "Vârsta minimă și experiența de conducere pentru închiriere în Lviv și Ucraina",
+      "group3_item2_answer": "Conducerea în Ucraina este nerestricționată, dar părăsirea țării este posibilă doar cu permisiunea scrisă a companiei și o asigurare „Carte Verde”. Este necesar timp pentru procesare și verificarea rutei/frontierelor. Trecerea frontierei fără aprobare este interzisă, invalidează asigurarea și atrage penalități. Planificați o călătorie în străinătate? Informați-ne din timp — verificăm cerințele, pregătim documentele și vă sfătuim cu privire la termene.",
+      "group3_item2_question": "Pot conduce în afara Ucrainei cu o mașină închiriată?",
+      "group3_item3_answer": "Doar șoferii menționați în contract au dreptul să conducă mașina. Transmiterea mașinii terților, utilizarea pentru taxi, carsharing sau servicii de curierat este interzisă și invalidează asigurarea. Aveți nevoie de un al doilea șofer? Adăugați-l în contract — este legal și sigur. Încălcările atrag amenzi contractuale și răspundere financiară integrală în caz de incident.",
+      "group3_item3_question": "Predarea mașinii terților și utilizarea pentru taxi/carsharing: ce este interzis",
+      "group3_pretitle": "Restricții și interdicții",
+      "group4_item1_answer": "Acceptăm plăți numerar (UAH, USD, EUR), carduri Visa/Mastercard, transfer bancar și — cu acord prealabil — criptomonede (USDT/USDC). Plățile în valută/cripto se efectuează la cursul companiei din momentul tranzacției; se pot aplica comisioane bancare și de rețea. Plățile sunt disponibile în Lviv și pentru livrări în toată Ucraina. Depozitul este blocat pe cardul chiriașului la preluare și eliberat după returnarea mașinii nedeteriorate. Timpul de eliberare depinde de bancă (de obicei câteva zile lucrătoare). Pentru companii — se furnizează facturi și documente de închidere.",
+      "group4_item1_question": "Ce metode de plată sunt disponibile și cum se prelevează depozitul?",
+      "group4_item2_answer": "Necesare: pașaport/carte de identitate, permis de conducere categoria B (minimum 2 ani) și un card bancar pe numele chiriașului. Cetățenilor străini li se recomandă să dețină un Permis Internațional de Conducere (IDP) împreună cu permisul național — aceasta facilitează verificarea. Dacă planificați o închiriere în Lviv în weekenduri sau sărbători, rezervați din timp — verificarea documentelor este mai rapidă și selecția de mașini mai largă (vezi „Restricții și interdicții”).",
+      "group4_item2_question": "Ce documente sunt necesare pentru închiriere în Lviv: pentru cetățeni și străini?",
+      "group4_item3_answer": "Mașinile sunt furnizate cu rezervorul plin și trebuie returnate cu rezervorul plin. În caz contrar, combustibilul lipsă și o taxă de realimentare sunt percepute la tarifele companiei. Alimentați înainte de returnare și păstrați chitanța — aceasta evită întrebările la predare. Pentru cei care planifică călătorii active în jurul Lvivului cu plecări de dimineață/returnări târzii, planificați din timp alimentarea și orarul.",
+      "group4_item3_question": "Politica „plin-la-plin”: cum returnezi mașina fără costuri suplimentare",
+      "group4_pretitle": "Plată și documentație",
+      "title": "Întrebări frecvente"
+    },
+    "hero": {
+      "address_link": "Aeroportul Internațional Danylo Halytskyi Lviv",
+      "availability": "RĂSPUNDEM 09:00–22:00",
+      "book_button": "REZERVĂ O MAȘINĂ",
+      "down_button": "MERGI LA CATALOGUL DE MAȘINI",
+      "intro": "REIZ oferă închiriere auto în Lviv cu vehicule noi, servicii premium, tarife corecte și livrare la adresa ta la o oră convenabilă.",
+      "pretitle": "BINE AȚI VENIT LA REIZ",
+      "secondary_button": "Află mai multe",
+      "secondary_title": "LISTEAZĂ-ȚI MAȘINA",
+      "title": "Închiriere auto în Lviv"
+    },
+    "hero_slider_image_alt": "Închiriere auto în Lviv — Mercedes CLE | REIZ Rental Cars",
+    "meta": {
+      "canonical": "https://reiz.com.ua/ro/",
+      "description": "Închiriere auto în Lviv de la REIZ. Formalități în 15 minute, contract oficial. Livrare la aeroport, gară și în oraș. Clasă economică, business și premium.",
+      "lang": "ro",
+      "og_description": "Închiriere auto în Lviv de la REIZ. Formalități în 15 minute, contract oficial. Livrare la aeroport, gară și în oraș. Clasă economică, business și premium.",
+      "og_image": "https://reiz.com.ua/img/og/home.webp",
+      "og_locale": "ro_MD",
+      "og_title": "Închiriere Auto Lviv | Rezervare în 15 Minute 24/7 | REIZ",
+      "page": "home",
+      "title": "Închiriere Auto Lviv | Rezervare în 15 Minute 24/7"
+    },
+    "order_form": {
+      "date_placeholder": "Selectați datele",
+      "pickup_option1": "Kyiv, Aeroportul Boryspil, Terminalul 3B",
+      "pickup_option2": "Kyiv, Aeroportul Zhuliany, Terminalul 2A",
+      "pickup_option3": "Lviv, Aeroportul Int. Danylo Halytskyi, T1",
+      "return_option1": "Kyiv, Aeroportul Boryspil, Terminalul 3B",
+      "return_option2": "Kyiv, Aeroportul Zhuliany, Terminalul 2A",
+      "return_option3": "Lviv, Aeroportul Int. Danylo Halytskyi, T1",
+      "submit": "CAUTĂ"
+    },
+    "rent": {
+      "card1_button": "AFLĂ MAI MULTE",
+      "card1_image_alt": "Listează-ți mașina în Lviv — control 24/7, până la 5000 USD lunar, împărțire 70/30",
+      "card1_point1": "Împărțirea veniturilor:<br/>70/30 — proprietar/închiriere",
+      "card1_point2": "Venit:<br /> de la 350 la 5000 USD — depinde de model.",
+      "card1_point3": "Control în timp real<br/>Urmărește-ți mașina 24/7 prin GPS și aplicație — transparență totală.",
+      "card1_title": "LISTEAZĂ-ȚI MAȘINA",
+      "card2_button": "DETALII",
+      "card2_image_alt": "Condiții de închiriere auto în Lviv — REIZ",
+      "card2_title": "CONDIȚII DE ÎNCHIRIERE",
+      "card3_button": "DETALII",
+      "card3_image_alt": "Întrebări frecvente despre închiriere auto în Lviv — REIZ",
+      "card3_title": "ÎNTREBĂRI FRECVENTE"
+    },
+    "reviews_block": {
+      "google_aria": "Recenzii Google",
+      "google_label": "Recenzii Google",
+      "subtitle": "Rating înalt și încrederea clienților din întreaga lume",
+      "title": "De ce să închiriezi o mașină cu noi?",
+      "trustpilot_aria": "Recenzii Trustpilot",
+      "trustpilot_label": "TrustPilot"
+    }
+  },
+  "faqPage": {
+    "meta": {
+      "title": "Întrebări frecvente despre închiriere auto în Lviv",
+      "description": "Răspunsuri la întrebările populare: cum închiriezi o mașină, ce documente sunt necesare, cât costă, poți călători în străinătate ✓ Informații detaliate de la experți",
+      "canonical": "https://reiz.com.ua/ro/faq",
+      "og_title": "Întrebări frecvente despre închiriere auto în Lviv",
+      "og_description": "Răspunsuri la întrebările populare: cum închiriezi o mașină, ce documente sunt necesare, cât costă, poți călători în străinătate ✓ Informații detaliate de la experți",
+      "og_image": "https://reiz.com.ua/img/og/faq.webp",
+      "lang": "ro"
+    },
+    "pretitle": "ÎNTREBĂRI FRECVENTE",
+    "breadcrumbs": {
+      "home": "Acasă",
+      "current": "Întrebări frecvente"
+    },
+    "main_title": "Întrebări frecvente despre închirierea auto",
+    "faq_title": "ÎNTREBĂRI FRECVENTE",
+    "faq_pretitle": "Găsește răspunsuri la întrebările frecvente despre închirierea auto cu REIZ.",
+    "questions": [
+      {
+        "question": "POT ÎNCHIRIA O MAȘINĂ PESTE NOAPTE?",
+        "answer": "Da, preluarea și returnarea pe timp de noapte sunt disponibile 24/7. Puteți începe sau termina închirierea noaptea târziu sau dimineața devreme — vă rugăm să conveniți ora exactă cu un manager în prealabil. Livrarea/returnarea nocturnă poate include o taxă de serviciu în afara programului."
+      },
+      {
+        "question": "POT ÎNCHIRIA O MAȘINĂ PE O PERIOADĂ MAI MARE DE O LUNĂ?",
+        "answer": "Da. Închirierile pe termen lung (30+ zile) beneficiază de tarife reduse și plăți lunare. Întreținerea programată este în sarcina noastră. Consultați un manager pentru o ofertă personalizată."
+      },
+      {
+        "question": "CARE ESTE VÂRSTA MINIMĂ ȘI EXPERIENȚA DE CONDUCERE?",
+        "answer": "De obicei, de la 21 de ani și peste 2 ani de experiență de conducere. Pentru crossovere și clasa premium, cerințele sunt mai ridicate — de la 25 de ani. Dacă nu îndepliniți cerințele de vârstă/experiență, se poate aplica o taxă de Șofer Tânăr."
+      },
+      {
+        "question": "TREBUIE SĂ ALIMENTEZ ÎN PRIMA ZI?",
+        "answer": "Aplicăm politica Plin-la-Plin: primiți mașina cu rezervorul plin și o returnați cu rezervorul plin. Dacă alimentarea înainte de returnare nu este posibilă, este disponibilă opțiunea de combustibil preplătit."
+      },
+      {
+        "question": "AM AVUT UN ACCIDENT — CE TREBUIE SĂ FAC?",
+        "answer": "Asigurați-vă siguranța, sunați-ne 24/7 și apelați poliția (102) și nu părăsiți locul accidentului. Faceți fotografii/video și, dacă este cazul, completați formularul european de constatare amiabilă. Răspunderea dumneavoastră depinde de acoperirea aleasă (CDW/SCDW). Consultați secțiunea Asigurare pentru detalii."
+      },
+      {
+        "question": "CE DOCUMENTE ÎMI TREBUIE PENTRU A ÎNCHIRIA O MAȘINĂ?",
+        "answer": "Pașaport, permis de conducere valabil și un card bancar. Șoferii străini pot avea nevoie de un Permis Internațional de Conducere (IDP) pe lângă permisul lor național."
+      },
+      {
+        "question": "CUM POT PLĂTI ÎNCHIRIEREA?",
+        "answer": "Cu Visa/Mastercard (inclusiv Apple Pay/Google Pay) sau numerar. Depozitul este preautorizat pe card sau primit în numerar și eliberat după compensarea tuturor costurilor."
+      },
+      {
+        "question": "POT ADĂUGA UN ȘOFER SUPLIMENTAR?",
+        "answer": "Da, dacă datele sale sunt adăugate în contract și documentele sunt furnizate. Cerințele de vârstă și experiență de conducere sunt aceleași ca pentru șoferul principal."
+      },
+      {
+        "question": "ESTE PERMIS FUMATUL ÎN MAȘINĂ?",
+        "answer": "Nu, fumatul este interzis. Încălcarea atrage o amendă și o taxă de curățare a interiorului conform condițiilor de închiriere."
+      },
+      {
+        "question": "CUM SE PREIA DEPOZITUL DE GARANȚIE?",
+        "answer": "De obicei prin preautorizare pe card sau numerar de comun acord. Suma depinde de clasa mașinii și de acoperirea de asigurare selectată."
+      },
+      {
+        "question": "POT PRELUA MAȘINA ÎN KYIV ȘI SĂ O RETURNEZ ÎN ALT ORAȘ?",
+        "answer": "Da, returnările într-o singură direcție sunt disponibile contra unei taxe de transfer interurban. Ruta și termenele trebuie stabilite din timp."
+      },
+      {
+        "question": "EXISTĂ O LIMITĂ DE KILOMETRAJ?",
+        "answer": "Tarifele zilnice includ de obicei o limită de kilometraj (de ex. 250–300 km/zi). Depășirea se taxează pe km. Sunt disponibile opțiuni de kilometraj mărit sau nelimitat."
+      },
+      {
+        "question": "LIVRAȚI LA ADRESĂ ȘI LA AEROPORTUL LVIV (LWO)?",
+        "answer": "Da. Putem livra la adresa dumneavoastră din oraș și vă putem întâmpina la aeroport. Prețul depinde de zonă și ora din zi. Livrarea interurbană este disponibilă la cerere."
+      },
+      {
+        "question": "SUNT DISPONIBILE SCAUNE PENTRU COPII/ÎNĂLȚĂTOARE?",
+        "answer": "Da, la cerere prealabilă. Sunt disponibile opțiuni pentru diferite grupe de vârstă. Se poate aplica o mică taxă suplimentară — verificați la rezervare."
+      },
+      {
+        "question": "POT CĂLĂTORI CU ANIMALE DE COMPANIE?",
+        "answer": "Da, cu condiția menținerii curățeniei (folosiți un transportor sau o husă). Se pot aplica taxe suplimentare de curățare pentru murdărie excesivă sau mirosuri."
+      },
+      {
+        "question": "CARE SUNT REGULILE DE ANULARE/REPROGRAMARE?",
+        "answer": "Anularea gratuită este disponibilă din timp, în fereastra stabilită (de obicei 24–48 de ore). Anularea tardivă sau neprezentarea pot atrage o taxă. Schimbarea datelor este posibilă în funcție de disponibilitate."
+      },
+      {
+        "question": "ÎN CE STARE TREBUIE SĂ RETURNEZ MAȘINA?",
+        "answer": "Așa cum ați primit-o: în stare de funcționare, curată și cu rezervorul plin. Murdăria excesivă poate necesita spălare/curățare cu plată. Verificați că nu ați uitat obiecte personale."
+      },
+      {
+        "question": "CUM SE GESTIONEAZĂ AMENZILE, TAXELE DE DRUM ȘI PARCAREA?",
+        "answer": "Costurile generate în timpul închirierii sunt decontate după călătorie. Dacă este necesar, pot fi reținute din depozit. Termenul final de decontare depinde de datele de la autorități și de bancă."
+      },
+      {
+        "question": "AM NEVOIE DE UN PERMIS INTERNAȚIONAL DE CONDUCERE?",
+        "answer": "Șoferii străini pot avea nevoie de un IDP pe lângă permisul lor național (mai ales dacă acesta nu este în caractere latine). Rezidenții ucraineni au nevoie de un permis național în formatul stabilit."
+      },
+      {
+        "question": "CE CLASE DE MAȘINI SUNT DISPONIBILE ȘI CARE SUNT PREȚURILE APROXIMATIVE?",
+        "answer": "Sunt disponibile clasele economic, standard, crossover și premium. Prețul depinde de clasă, durata închirierii și sezon. Cu cât închirierea este mai lungă, cu atât tariful zilnic este mai mic. Verificați tarifele actuale în lista flotei sau consultați un manager."
+      }
+    ]
+  },
+  "insurancePage": {
+    "meta": {
+      "title": "Asigurare auto pentru închiriere în Lviv",
+      "description": "Asigurare auto de închiriere: CASCO și răspundere civilă, asistență rutieră 24/7, mașină de înlocuire la nevoie. Condiții transparente, fără taxe ascunse.",
+      "canonical": "https://reiz.com.ua/ro/insurance",
+      "og_title": "Asigurare Auto Închiriere Lviv — Protecție și Siguranță | REIZ",
+      "og_description": "Asigurare auto de închiriere: CASCO și răspundere civilă, asistență rutieră 24/7, mașină de înlocuire la nevoie. Condiții transparente, fără taxe ascunse.",
+      "og_image": "https://reiz.com.ua/img/og/insurance.webp",
+      "lang": "ro"
+    },
+    "images": {
+      "heroAlt": "Triunghi de avertizare în spatele unei mașini pe marginea drumului — asigurare de închiriere"
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "current": "Asigurare"
+    },
+    "pretitle": "ASIGURARE",
+    "hero": {
+      "title": "Asigurarea mașinii închiriate",
+      "text": "Când alegeți o mașină de închiriat, este important să planificați posibile probleme pe drum. Pachetele noastre de asigurare vă ajută să reduceți riscurile și să vă protejați de cheltuieli suplimentare.",
+      "cta": "SOLICITĂ O CONSULTARE"
+    },
+    "table": {
+      "title": "PACHETE DE PROTECȚIE — COMPARAȚIE",
+      "labels": {
+        "coverageLevel": "Nivel de acoperire",
+        "deposit": "Depozit",
+        "driverLiabilityAccident": "Răspunderea șoferului (accident)",
+        "theftTotalLoss": "Răspunderea în caz de furt / pierdere totală",
+        "tyresGlass": "Deteriorarea anvelopelor / geamurilor",
+        "carWashIncluded": "Spălare auto inclusă"
+      },
+      "packages": {
+        "standard": {
+          "name": "Standard",
+          "deposit": "Depozit integral",
+          "driverLiabilityAccident": "Până la valoarea depozitului",
+          "theftTotalLoss": "10% din valoarea vehiculului"
+        },
+        "comfort": {
+          "name": "Confort",
+          "deposit": "50% din Standard",
+          "driverLiabilityAccident": "50% din Standard",
+          "theftTotalLoss": "5% din valoarea vehiculului"
+        },
+        "premium": {
+          "name": "Premium",
+          "deposit": "200$–300$",
+          "driverLiabilityAccident": "Fără răspundere",
+          "theftTotalLoss": "Fără răspundere"
+        }
+      }
+    },
+    "eligibility": {
+      "title": "ELIGIBILITATE PENTRU ACOPERIRE EXTINSĂ",
+      "items": [
+        "Șoferi cu vârsta de 25+ ani și minimum 4 ani de experiență.",
+        "Perioada de închiriere trebuie să fie de minimum 3 zile.",
+        "Persoana din contractul de închiriere trebuie să fie cea care conduce.",
+        "În caz de accident, notificați compania în termen de o oră și apelați poliția."
+      ]
+    },
+    "exclusions": {
+      "title": "NEACOPERIT ȘI INTERZIS",
+      "items": [
+        "Conducerea sub influența alcoolului sau a drogurilor.",
+        "Permiterea unui șofer neautorizat. Terți la volan.",
+        "Furtul pieselor exterioare precum oglinzi sau ștergătoare.",
+        "Părăsirea locului accidentului.",
+        "Utilizarea mașinii în scopuri comerciale (taxi, subînchiriere). Strict interzis.",
+        "Deteriorarea interiorului vehiculului."
+      ]
+    },
+    "downloads": {
+      "title": "DESCĂRCĂRI",
+      "note": "PUTEȚI CONSULTA LISTA COMPLETĂ A LIMITĂRILOR ȘI CAZURILOR NEASIGURATE ÎN DOCUMENT",
+      "file": {
+        "title": "CONDIȚII DE ASIGURARE",
+        "meta": "Detalii complete",
+        "href": "/insurance"
+      }
+    },
+    "breach": {
+      "title": "ÎNCĂLCAREA CONDIȚIILOR DE ÎNCHIRIERE",
+      "text": "Multe situații legate de nerespectarea contractului de închiriere înseamnă că asigurarea extinsă nu va acoperi daunele. Chiar și cu protecție completă, chiriașul trebuie să respecte regulile companiei."
+    },
+    "cta": {
+      "requestCall": "SOLICITĂ UN APEL"
+    }
+  },
+  "businessPage": {
+    "meta": {
+      "title": "Închiriere auto pentru companii — închirieri corporate",
+      "description": "Închiriere auto corporativă în Ucraina: sedanuri, crossovere și microbuze. Facturare cu TVA, asigurare, contract, suport 24/7. Condiții personalizate pentru companii.",
+      "canonical": "https://reiz.com.ua/ro/business/",
+      "og_title": "REIZ pentru Business — închiriere auto corporativă cu TVA",
+      "og_description": "Tarife flexibile pentru companii, acoperire completă de asigurare și suport 24/7. Un singur contract — totul inclus.",
+      "og_image": "https://reiz.com.ua/img/og/business.webp",
+      "og_locale": "ro_MD",
+      "lang": "ro",
+      "page": "business"
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "current": "Închirieri corporate"
+    },
+    "pretitle": "ÎNCHIRIERE AUTO PENTRU COMPANII ÎN UCRAINA",
+    "hero": {
+      "title": "Închiriere auto pentru companii",
+      "text": "O soluție completă pentru companii: sedanuri, crossovere și microbuze cu facturare TVA, asigurare și suport tehnic. Totul sub un singur contract.",
+      "cta": "SOLICITĂ O OFERTĂ"
+    },
+    "slider": {
+      "ariaLabel": "Beneficii corporative",
+      "items": [
+        {
+          "title": "Tarife speciale",
+          "text": "Condiții personalizate și tarife fixe pentru flota și kilometrajul dumneavoastră.",
+          "pagination": "1–8"
+        },
+        {
+          "title": "Facturare cu TVA",
+          "text": "Plată fără numerar și set complet de documente de închidere.",
+          "pagination": "2–8"
+        },
+        {
+          "title": "Suport 24/7",
+          "text": "Linie fierbinte, consultanță și coordonare în traseu în fiecare zi.",
+          "pagination": "3–8"
+        },
+        {
+          "title": "Asigurare CDW/SCDW",
+          "text": "Acoperire completă de asigurare pe toată durata închirierii, suport în caz de accident.",
+          "pagination": "4–8"
+        },
+        {
+          "title": "Contracte pe termen lung",
+          "text": "Tarife mai mici de la 30 de zile. Termeni flexibili 30/60/90+ zile.",
+          "pagination": "5–8"
+        },
+        {
+          "title": "Livrare și înlocuire",
+          "text": "Livrare/returnare la ușă. Mașină de înlocuire în caz de defecțiune.",
+          "pagination": "6–8"
+        },
+        {
+          "title": "Kilometraj adaptat nevoilor",
+          "text": "Kilometraj limitat/nelimitat conform acordului. Îl adaptăm la rutele dumneavoastră.",
+          "pagination": "7–8"
+        },
+        {
+          "title": "Manager personal",
+          "text": "Un singur punct de contact: coordonare, raportare și SLA-uri de service.",
+          "pagination": "8–8"
+        }
+      ],
+      "controls": {
+        "prev": "Slide-ul anterior",
+        "next": "Slide-ul următor"
+      }
+    },
+    "whyUs": {
+      "title": "DE CE NE ALEG COMPANIILE",
+      "text": "Alegeți închirieri corporative pe termen scurt sau lung cu plată fără numerar și facturare TVA. Ne ocupăm de contract, acte, asigurare și întreținerea flotei.",
+      "items": [
+        "Tarife corporative și condiții personalizate pentru persoane juridice",
+        "Acoperire completă de asigurare, întreținere programată și schimb de anvelope sezoniere",
+        "Livrare/returnare la ușă, mașină de înlocuire la nevoie",
+        "Raportare la timp și acte — fără birocrație suplimentară"
+      ]
+    },
+    "howItWorks": {
+      "title": "CUM FUNCȚIONEAZĂ",
+      "steps": [
+        "Cerere — lăsați datele de contact, numărul de mașini, clasa și datele.",
+        "Ofertă comercială — aliniem tariful, limita de kilometraj și condițiile de asigurare.",
+        "Documente — semnăm contractul, emitem factura, pregătim actele/foile de parcurs.",
+        "Livrare mașină — livrăm la adresa dumneavoastră, instruim șoferii și predăm un ghid rapid."
+      ]
+    },
+    "tariffs": {
+      "title": "TARIFE ȘI CONDIȚII",
+      "items": [
+        "Tarif zilnic mai mic de la închirieri de 30 de zile și pentru flote de 3+ mașini",
+        "Kilometraj limitat/nelimitat — conform acordului",
+        "Asigurare CDW/SCDW, franșiza depinde de clasa mașinii",
+        "Livrare/returnare: birou, aeroport sau locația specificată"
+      ],
+      "note": "Solicitați o ofertă personalizată — pregătim o propunere care se potrivește rutelor și programului dumneavoastră."
+    },
+    "documents": {
+      "title": "DOCUMENTE",
+      "items": [
+        "Datele companiei și contractul",
+        "Permisul de conducere și pașaportul/cartea de identitate a angajatului",
+        "Procură/notă de serviciu pentru preluarea mașinii (dacă este necesar)"
+      ]
+    },
+    "driverRequirements": {
+      "title": "CERINȚE PENTRU ȘOFERI",
+      "items": [
+        "Vârsta 21+",
+        "Experiență de conducere de minimum 2 ani (mai mult pentru clasa premium)",
+        "Respectarea condițiilor contractuale și a regulilor de circulație"
+      ]
+    },
+    "downloads": {
+      "title": "DESCĂRCĂRI",
+      "note": "DOCUMENTE DE CARE AVEȚI NEVOIE",
+      "file": {
+        "title": "CONDIȚII DE ÎNCHIRIERE",
+        "meta": "Detalii complete",
+        "href": "/terms"
+      }
+    },
+    "order": {
+      "title": "SOLICITĂ UN APEL",
+      "lead": "Lăsați datele de contact și managerul nostru vă va contacta.",
+      "form": {
+        "namePlaceholder": "Numele dumneavoastră",
+        "phonePlaceholder": "Telefon",
+        "emailPlaceholder": "E-mail",
+        "success": "Cererea dumneavoastră a fost trimisă cu succes!",
+        "error": "Trimiterea cererii a eșuat. Vă rugăm să încercați din nou.",
+        "submitting": "Se trimite...",
+        "submit": "TRIMITE CEREREA",
+        "submitBlack": "TRIMITE CEREREA"
+      }
+    },
+    "cta": {
+      "requestCall": "SOLICITĂ UN APEL"
+    }
+  },
+  "blogPage": {
+    "meta": {
+      "title": "Blog despre închiriere auto — Sfaturi utile și ghiduri",
+      "description": "Articole utile despre închirierea auto: cum să închiriezi o mașină, documente, rute în Ucraina de Vest, sfaturi pentru începători ✓ Recomandări de la experții REIZ",
+      "canonical": "https://reiz.com.ua/ro/blog/",
+      "og_title": "Blog despre închiriere auto — Sfaturi utile și ghiduri | REIZ",
+      "og_description": "Articole utile despre închirierea auto: cum să închiriezi o mașină, documente, rute în Ucraina de Vest, sfaturi pentru începători ✓ Recomandări de la experții REIZ",
+      "og_url": "https://reiz.com.ua/ro/blog/",
+      "og_image": "https://reiz.com.ua/img/og/blog.webp",
+      "lang": "ro"
+    },
+    "pretitle": "BLOG",
+    "breadcrumbs": {
+      "home": "Acasă",
+      "current": "Blog"
+    },
+    "mainTitle": "Blogul REIZ",
+    "hero": {
+      "title": "Blogul REIZ — informații despre închirierea auto",
+      "subtitle": "Descoperă informații utile despre închirierea auto: sfaturi practice, ghiduri și povești. Află mai multe despre călătoriile în Ucraina, regulile de închiriere și serviciile noastre."
+    },
+    "posts": [
+      {
+        "title": "Ce trebuie să faci după un accident rutier în Ucraina: ghid pas cu pas de la REIZ",
+        "excerpt": "O listă de verificare simplă despre ce trebuie să faci după un accident în Ucraina: cum să înregistrezi corect incidentul, pe cine să notifici și ce documente va solicita asiguratorul tău.",
+        "date": "17.04.2025",
+        "imgAlt": "Mașină cu triunghi de avertizare pe drum — articol despre accidente rutiere în Ucraina",
+        "image": "/img/blog/road%20accident.webp"
+      },
+      {
+        "title": "Traseu de road-trip prin Ucraina cu mașina",
+        "excerpt": "Explorează un traseu care oferă o aventură captivantă pe șosea și șansa de a descoperi cultura și peisajele țării.",
+        "date": "17.04.2025",
+        "imgAlt": "Panorama obiectivelor turistice ale Ucrainei la apus — traseu de road-trip",
+        "image": "/img/blog/Ukraineblog.webp"
+      },
+      {
+        "title": "Cele mai bune aplicații de navigație în Ucraina",
+        "excerpt": "Ucraina este un loc unde tehnologia face parte din viața de zi cu zi pentru localnici și vizitatori. Analizăm cele mai populare aplicații care te ajută să navighezi în orașe și pe autostrăzi cu ușurință.",
+        "date": "17.04.2025",
+        "imgAlt": "Pictogramă navigator GPS — recenzie a aplicațiilor de navigație populare în Ucraina",
+        "image": "/img/blog/NAV.webp"
+      },
+      {
+        "title": "Road trip prin Lviv și regiunea Lviv",
+        "excerpt": "Descoperă Lviv și regiunea sa cu mașina — de la străzile pitorești ale Orașului Vechi la castele, lacuri și Carpați. Un traseu convenabil pentru a vedea esențialul fără grabă.",
+        "date": "17.04.2025",
+        "imgAlt": "Panorama Lvivului și a obiectivelor turistice — traseu prin regiunea Lviv",
+        "image": "/img/blog/lvivblog.webp",
+        "slug": "lviv-travel"
+      },
+      {
+        "title": "Cum plătești parcarea în Ucraina ca turist?",
+        "excerpt": "Descoperă câteva modalități rapide de a efectua plata cu efort minim.",
+        "date": "17.04.2025",
+        "imgAlt": "Semn de parcare lângă o clădire urbană — cum plătești parcarea în Ucraina",
+        "image": "/img/blog/parking.webp"
+      }
+    ],
+    "cta": {
+      "requestCall": "SOLICITĂ UN APEL",
+      "readArticle": "CITEȘTE ARTICOLUL"
+    }
+  },
+  "aboutPage": {
+    "meta": {
+      "title": "Despre închirierea auto în Lviv",
+      "description": "REIZ — serviciu modern de închiriere auto în Lviv ✓ Flotă nouă ✓ Echipă profesionistă ✓ Condiții transparente ✓ Peste 50 de clienți mulțumiți ✓ Suport 24/7",
+      "canonical": "https://reiz.com.ua/ro/about/",
+      "og_title": "Despre REIZ — Închiriere auto de încredere în Lviv din 2023",
+      "og_description": "REIZ — serviciu modern de închiriere auto în Lviv ✓ Flotă nouă ✓ Echipă profesionistă ✓ Condiții transparente ✓ Peste 50 de clienți mulțumiți ✓ Suport 24/7",
+      "og_url": "https://reiz.com.ua/ro/about/",
+      "og_image": "https://reiz.com.ua/img/og/about.webp",
+      "lang": "ro"
+    },
+    "pretitle": "DESPRE NOI",
+    "breadcrumbs": {
+      "home": "Acasă",
+      "current": "Despre noi"
+    },
+    "mainTitle": "Despre REIZ — Serviciu de închiriere auto în Lviv",
+    "mission": {
+      "title": "MISIUNEA NOASTRĂ",
+      "text": "FACEM ÎNCHIRIEREA AUTO AȘA CUM AR TREBUI SĂ FIE: ONESTĂ, ELEGANTĂ, PLINĂ DE VIAȚĂ"
+    },
+    "brand": {
+      "title": "REIZ",
+      "imageAlt": "Logo REIZ pe fațada clădirii — brand de închiriere auto"
+    },
+    "team": {
+      "items": [
+        {
+          "name": "Marian Yedynak",
+          "position": "Fondator",
+          "imgAlt": "Marian Yedynak — Fondatorul REIZ"
+        },
+        {
+          "name": "Membru al echipei",
+          "position": "Funcție",
+          "imgAlt": "Membru al echipei — REIZ"
+        },
+        {
+          "name": "Membru al echipei 2",
+          "position": "Funcție",
+          "imgAlt": "Membru al echipei — REIZ"
+        },
+        {
+          "name": "Membru al echipei 3",
+          "position": "Funcție",
+          "imgAlt": "Marian Yedynak — Fondatorul REIZ"
+        }
+      ]
+    },
+    "stats": {
+      "items": [
+        {
+          "value": "10",
+          "label": "Mașini disponibile<br />pentru închiriere"
+        },
+        {
+          "value": "230000",
+          "label": "Kilometri parcurși de clienții noștri"
+        },
+        {
+          "value": "4",
+          "label": "Persoane în echipa REIZ"
+        },
+        {
+          "value": "54",
+          "label": "Clienți noi pe lună"
+        }
+      ]
+    }
+  },
+  "certificatePage": {
+    "meta": {
+      "title": "Certificat cadou pentru închiriere auto",
+      "description": "Dăruiește experiența: certificat REIZ 100$–5000$, pe email în 5 minute sau card fizic. Lviv.",
+      "canonical": "https://reiz.com.ua/ro/certificate",
+      "og_title": "Certificate cadou REIZ — închiriere auto în Lviv",
+      "og_description": "Dăruiește închirierea auto: alege suma certificatului, format electronic sau fizic. Emis în 5 minute.",
+      "og_image": "https://reiz.com.ua/img/og/certificate.webp",
+      "og_locale": "ro_MD",
+      "og_url": "https://reiz.com.ua/ro/certificate",
+      "lang": "ro"
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "current": "Certificate cadou"
+    },
+    "pretitle": "CERTIFICATE CADOU",
+    "hero": {
+      "titleAccent": "Certificate cadou",
+      "titleRest": "pentru închiriere auto de la REIZ",
+      "titleDesktop": "Certificate cadou pentru închiriere auto de la REIZ",
+      "titleMobile": "Dăruiește o închiriere auto celor dragi",
+      "subtitle": "O experiență nouă este cel mai bun cadou — iar cu REIZ va fi memorabilă."
+    },
+    "driverRequirements": {
+      "title": "CERINȚE PENTRU ȘOFERI",
+      "items": ["VÂRSTĂ: 21+", "EXPERIENȚĂ DE CONDUCERE: 3+ ANI"]
+    },
+    "rentalNeeds": {
+      "title": "NECESAR PENTRU ÎNCHIRIERE",
+      "items": ["PAȘAPORT", "PERMIS DE CONDUCERE"]
+    },
+    "slider": {
+      "items": [
+        {
+          "title": "Vacanțe de iarnă",
+          "text": "Un certificat cadou pentru închiriere auto este un cadou perfect de Anul Nou: excursii la munte, călătorii în familie și weekenduri calde de iarnă."
+        },
+        {
+          "title": "Zi de naștere",
+          "text": "Un cadou original pentru pasionații de mașini: alegeți clasa, datele și formatul — certificat electronic sau card fizic."
+        },
+        {
+          "title": "Weekend romantic",
+          "text": "Dăruiește emoții: un certificat de închiriere auto pentru întâlniri și excursii scurte în Lviv și împrejurimi."
+        },
+        {
+          "title": "Weekend în Carpați",
+          "text": "Un <em>cadou unic</em> pentru un weekend la munte: pleacă din Lviv și alege clasa de mașină potrivită."
+        }
+      ]
+    },
+    "form": {
+      "title": "Dăruiește experiența condusului cu REIZ",
+      "chooseAmount": "ALEGE SUMA CERTIFICATULUI",
+      "amountOptions": [
+        "$100",
+        "$250",
+        "$500",
+        "$750",
+        "$1000",
+        "$1500",
+        "$2500",
+        "$5000",
+        "Sumă personalizată"
+      ],
+      "fillForm": "COMPLETEAZĂ FORMULARUL",
+      "placeholders": {
+        "name": "Numele dumneavoastră",
+        "phone": "Telefon",
+        "email": "Email"
+      },
+      "togglePhysical": "Doresc un certificat fizic",
+      "preview": {
+        "title": "PREVIZUALIZARE",
+        "button": "VEZI CERTIFICATUL"
+      },
+      "terms": {
+        "title": "CONDIȚII DE UTILIZARE",
+        "driverRequirementsAge": "Vârsta minimă a șoferului este 21 de ani, experiența minimă de conducere este 2 ani.",
+        "driverRequirementsNote": "Pentru unele vehicule, vârsta minimă a șoferului este 24 de ani.",
+        "text": "După plată vă vom trimite certificatul pe email sau vom aranja livrarea prin curier la o oră și un loc convenabil — activați simplu «Doresc un certificat fizic»."
+      },
+      "checkout": {
+        "title": "PLATĂ",
+        "description": "După plată vă vom trimite certificatul pe email sau vă vom contacta pentru a aranja livrarea la o oră și un loc convenabil — activați simplu «Doresc un certificat fizic»",
+        "highlight": "Doresc un certificat fizic"
+      },
+      "price": "$1500",
+      "payButton": "CONTINUĂ LA PLATĂ",
+      "consent": "Prin clic pe «Continuă la plată», acceptați condițiile de prelucrare a datelor personale."
+    },
+    "faq": {
+      "title": "ÎNTREBĂRI FRECVENTE",
+      "items": [
+        {
+          "q": "Trebuie să rezerv o mașină din timp când folosesc un certificat?",
+          "aHtml": "Da, recomandăm să rezervați o mașină din timp. Certificatul confirmă suma sau drepturile de închiriere, dar nu rezervă automat un vehicul specific. Modelele populare pot fi indisponibile, mai ales în weekenduri și sărbători."
+        },
+        {
+          "q": "Ce se întâmplă dacă mașina dorită nu este disponibilă la datele solicitate?",
+          "aHtml": "În acest caz, vom oferi un vehicul alternativ de clasă similară sau vă vom ajuta să găsiți alte date convenabile. Certificatul își păstrează valoarea și poate fi utilizat ulterior."
+        },
+        {
+          "q": "Pot folosi certificatul în mai multe tranșe sau doar pentru o singură închiriere?",
+          "aHtml": "Certificatul poate fi utilizat pentru una sau mai multe închirieri, în funcție de valoarea sa. Dacă costul închirierii este mai mic decât valoarea certificatului, soldul rămas se păstrează și poate fi utilizat ulterior."
+        },
+        {
+          "q": "Pot schimba certificatul pe bani?",
+          "aHtml": "Certificatul nu poate fi schimbat pe bani. Poate fi utilizat doar pentru închirierea auto din flota disponibilă."
+        },
+        {
+          "q": "Cine poate folosi certificatul cadou?",
+          "aHtml": "Certificatul poate fi utilizat de persoana pe numele căreia a fost emis. Dacă doriți să transferați certificatul altei persoane, vă rugăm să ne contactați în prealabil — vom reemite certificatul și vom actualiza numele șoferului în sistem. Certificatul poate fi utilizat de un șofer care îndeplinește cerințele de vârstă și experiență minimă de conducere specificate în condițiile de închiriere."
+        }
+      ]
+    }
+  },
+  "investPage": {
+    "meta": {
+      "title": "Listează-ți mașina pentru închiriere în Lviv",
+      "description": "Listează-ți mașina în Lviv cu REIZ: acord oficial, plăți lunare, întreținere și monitorizare 24/7. Verifică cerințele și trimite o cerere.",
+      "canonical": "https://reiz.com.ua/ro/invest",
+      "og_title": "Listează-ți mașina pentru închiriere în Lviv",
+      "og_description": "Predă mașina ta la REIZ și câștigă venit pasiv. Acord, plăți, service și control total.",
+      "og_image": "https://reiz.com.ua/img/og/invest.webp",
+      "lang": "ro"
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "current": "Listează-ți mașina"
+    },
+    "hero": {
+      "pretitle": "LISTEAZĂ-ȚI MAȘINA",
+      "title": "Listează-ți mașina pentru închiriere în Lviv",
+      "intro": "Transformă-ți mașina într-o sursă de venit fără a gestiona operațiunile zilnice. Echipa noastră experimentată se ocupă de totul pentru tine."
+    },
+    "why": {
+      "title": "DE CE ESTE AVANTAJOS",
+      "items": [
+        "Investiți pe o piață de închiriere auto în creștere fără efort suplimentar. Ne ocupăm de ciclul complet — de la listare la returnarea vehiculului.",
+        "Mașina dumneavoastră generează venit — plățile sunt transferate în contul dumneavoastră lunar conform acordului.",
+        "Întreținere regulată, inspecții și monitorizare — pentru a menține mașina productivă fără timpi morți sau defecțiuni neașteptate.",
+        "Control total: urmăriți starea vehiculului prin contul personal. Toate procesele sunt transparente și automatizate.",
+        "Închirierile sunt acoperite de un acord oficial. Toate aspectele legale și documentele respectă standardele stabilite."
+      ]
+    },
+    "requirements": {
+      "title": "CERINȚE PENTRU VEHICULELE LISTATE",
+      "items": [
+        "Vehicul cu o vechime de maximum 3 ani",
+        "Stare tehnică bună și revizii la zi",
+        "Asigurare de răspundere civilă valabilă (CASCO opțional)",
+        "Mașina trebuie să fie curată juridic — fără gajuri/restricții și neraportată ca furată"
+      ]
+    },
+    "form": {
+      "title": "TRIMITE O CERERE DE LISTARE",
+      "text": "Completați formularul pentru a estima potențialul de randament al vehiculului dumneavoastră și a vă contacta pentru clarificarea detaliilor.",
+      "placeholders": {
+        "car": "Marcă:",
+        "model": "Model:",
+        "transmission": "Transmisie",
+        "milliage": "Kilometraj:",
+        "year": "An:",
+        "color": "Culoare:",
+        "complect": "Dotări/Pachet:",
+        "name": "Nume complet:",
+        "phone": "Telefon:",
+        "mail": "E-mail:"
+      },
+      "transmissionOptions": ["Automată", "Manuală", "Automatizată"],
+      "submit": "TRIMITE CEREREA"
+    }
+  },
+  "termsPage": {
+    "meta": {
+      "title": "Condiții de închiriere auto Lviv — Cerințe și documente",
+      "description": "Condiții transparente de închiriere auto în Lviv: vârstă 21+, 2+ ani experiență ✓ Fără depozit ✓ Lista documentelor necesare ✓ Livrare gratuită",
+      "canonical": "https://reiz.com.ua/ro/terms",
+      "og_title": "Condiții de închiriere auto Lviv — Cerințe și documente | REIZ",
+      "og_description": "Condiții transparente de închiriere auto în Lviv: vârstă 21+, 2+ ani experiență ✓ Fără depozit ✓ Lista documentelor necesare ✓ Livrare gratuită",
+      "og_url": "https://reiz.com.ua/ro/terms",
+      "og_image": "https://reiz.com.ua/img/og/terms.webp",
+      "lang": "ro"
+    },
+    "hero": {
+      "pretitle": "CONDIȚII DE ÎNCHIRIERE",
+      "title": "Condiții de închiriere auto",
+      "subtitle": "Condiții transparente fără taxe ascunse — tot ce trebuie să știi înainte de a rezerva"
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "current": "Condiții de închiriere"
+    },
+    "termsList": {
+      "ageTitle": "VÂRSTĂ 21+",
+      "experienceTitle": "EXPERIENȚĂ DE CONDUCERE 3+ ANI",
+      "requirementsBlockLabel": "CERINȚE PENTRU CHIRIAȘ",
+      "citizensUA": {
+        "title": "PENTRU CETĂȚENII UCRAINEI",
+        "items": ["Carte de identitate", "Cod fiscal", "Permis de conducere"]
+      },
+      "foreignCitizens": {
+        "title": "PENTRU CETĂȚENI STRĂINI",
+        "items": [
+          "Ștampilă/permis de intrare valabil în Ucraina",
+          "Permis Internațional de Conducere (IDP)",
+          "Pașaport"
+        ]
+      }
+    },
+    "payments": {
+      "title": "METODE DE PLATĂ",
+      "methods": [
+        "Numerar",
+        "UnionPay",
+        "Card bancar la birou",
+        "Card bancar pe site",
+        "Portofele electronice"
+      ]
+    },
+    "tabs": {
+      "nav": ["Asigurare", "Depozit", "Tarife", "Kilometraj"],
+      "contents": [
+        {
+          "paragraphs": [
+            "Toate vehiculele sunt acoperite de asigurare obligatorie. Sunt disponibile pachete de protecție suplimentare (CDW/SCDW) care reduc răspunderea financiară a chiriașului în caz de daune sau furt. Detalii pe pagina „Asigurare”."
+          ]
+        },
+        {
+          "paragraphs": [
+            "Când depozitul este furnizat prin card de credit, cardul trebuie să fie emis exclusiv pe numele chiriașului. Depozitul este preautorizat pe cardul de credit în conformitate cu contractul de închiriere. După returnarea vehiculului și îndeplinirea tuturor obligațiilor din contractul de închiriere de către chiriaș, depozitul va fi eliberat de către locator. Termenul efectiv de creditare a fondurilor este determinat de regulile și procedurile interne ale băncii emitente a chiriașului și poate dura câteva zile bancare. Locatorul nu va fi ținut responsabil pentru eventualele întârzieri cauzate de banca chiriașului."
+          ]
+        },
+        {
+          "paragraphs": [
+            "Prețul închirierii depinde de clasa vehiculului, durata închirierii și sezon. Cu cât închirierea este mai lungă, cu atât tariful zilnic este mai mic. Verificați prețurile actuale în lista de vehicule sau contactați managerul nostru pentru detalii."
+          ]
+        },
+        {
+          "paragraphs": [
+            "Se aplică o limită zilnică de kilometraj de 300 km pentru fiecare închiriere. Dacă limita este depășită, se aplică un tarif suplimentar conform tarifelor listate în tabelul de mai jos, în funcție de categoria vehiculului. Dacă este necesară o limită zilnică mai mare sau kilometraj nelimitat, chiriașul poate contacta un manager pentru un calcul individual al costurilor."
+          ],
+          "table": {
+            "head": ["Categoria vehiculului", "Preț per 1 km (USD)"],
+            "rows": [
+              ["Economic", "0.12"],
+              ["Business", "0.30"],
+              ["SUV-uri", "0.30"],
+              ["Premium", "0.70"],
+              ["Microbuze", "0.50"]
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "contactsPage": {
+    "meta": {
+      "title": "Contacte închiriere auto în Lviv",
+      "description": "Birou în Lviv, telefon de rezervări, program de lucru ✓ Livrare mașină la adresă sau aeroport ✓ Deschis 24/7 ✓ Răspundem la toate întrebările",
+      "canonical": "https://reiz.com.ua/ro/contacts",
+      "og_title": "Contacte închiriere auto în Lviv",
+      "og_description": "Birou în Lviv, telefon de rezervări, program de lucru ✓ Livrare mașină la adresă sau aeroport ✓ Deschis 24/7 ✓ Răspundem la toate întrebările",
+      "og_image": "https://reiz.com.ua/img/og/contacts.webp",
+      "lang": "ro"
+    },
+    "hero": {
+      "pretitle": "CONTACTE",
+      "title": "Contactează REIZ — Închiriere auto în Lviv"
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "current": "Contacte"
+    },
+    "officesSection": {
+      "title": "BIROURILE NOASTRE",
+      "offices": [
+        {
+          "city": "Kyiv",
+          "address": "Str. Velyka Zhytomyrska, 6/11, Kyiv",
+          "phone": "+380 63 547 11 86",
+          "hours": "Luni–Duminică 08:30–20:30",
+          "email": "info@reiz.com.ua"
+        },
+        {
+          "city": "Lviv",
+          "address": "Str. Liubinska, 168, Lviv",
+          "phone": "+380 63 547 11 86",
+          "hours": "Luni–Duminică 08:30–20:30",
+          "email": "info@reiz.com.ua"
+        }
+      ]
+    },
+    "form": {
+      "title": "SUNTEM GATA SĂ RĂSPUNDEM LA TOATE ÎNTREBĂRILE DUMNEAVOASTRĂ",
+      "placeholders": {
+        "name": "Numele dumneavoastră",
+        "email": "Email",
+        "phone": "Telefon",
+        "message": "Mesaj"
+      },
+      "submit": "TRIMITE CEREREA",
+      "success": "Mesajul dumneavoastră a fost trimis cu succes!",
+      "error": "Trimiterea mesajului a eșuat. Vă rugăm să încercați din nou.",
+      "submitting": "Se trimite..."
+    }
+  },
+  "footer": {
+    "tagline": "ÎNCHIRIERE AUTO ÎN UCRAINA",
+    "description": "Închiriere auto de încredere în toată Ucraina cu REIZ. Închiriază mașini Economic, Confort și SUV cu livrare la aeroport, gară sau la adresa ta. Suport 24/7.",
+    "nav": {
+      "home": "ACASĂ",
+      "cars": "MAȘINI",
+      "business": "PENTRU COMPANII",
+      "invest": "LISTEAZĂ-ȚI MAȘINA",
+      "blog": "BLOG",
+      "about": "DESPRE NOI",
+      "contacts": "CONTACTE"
+    },
+    "contacts": {
+      "phone_title": "Telefon birou",
+      "phone_number": "+380 63 547 11 86",
+      "working_hours": "Deschis 09:00–22:00,\nșapte zile pe săptămână"
+    },
+    "address": {
+      "title": "Adresa biroului",
+      "text": "AEROPORTUL INTERNAȚIONAL DANYLO HALYTSKYI LVIV"
+    },
+    "payments": {
+      "title": "Acceptăm"
+    },
+    "social": {
+      "title": "Urmărește-ne"
+    },
+    "bottom": {
+      "copyright": "© 2025 Reiz. Toate drepturile rezervate.",
+      "privacy": "Politica de confidențialitate",
+      "developed_by": "Dezvoltat de Reiz"
+    }
+  },
+  "offerModal": {
+    "title": "Solicită o ofertă",
+    "placeholders": {
+      "name": "Nume",
+      "phone": "Telefon",
+      "email": "E-mail"
+    },
+    "consentText": "Prin clic pe butonul «Trimite cererea», acceptați condițiile de prelucrare a datelor personale",
+    "checkboxLabel": "Am citit condițiile de prelucrare a datelor personale",
+    "submit": "Trimite cererea"
+  },
+  "applyModal": {
+    "title": "Trimite o cerere",
+    "consent": "Prin clic pe butonul «Trimite o cerere», acceptați condițiile de prelucrare a datelor personale",
+    "checkboxLabel": "Am citit condițiile de prelucrare a datelor personale",
+    "submit": "Trimite o cerere",
+    "closeAria": "Închide"
+  },
+  "carPage": {
+    "breadcrumbs": {
+      "home": "Acasă",
+      "cars": "Mașini"
+    },
+    "meta": {
+      "title": "Închiriază {brand} {model} în Lviv — de la {price}$/zi",
+      "description": "Închiriază {carName} în Lviv. {specsText}{seats, plural, one {{seats} loc} few {{seats} locuri} other {{seats} locuri}}. Livrare la aeroport și în oraș 24/7."
+    },
+    "title": "Închiriază {brand} {model} {year} în Ucraina",
+    "tabs": {
+      "specifications": "Specificații",
+      "equipment": "Dotări"
+    },
+    "specifications": {
+      "descriptionTitle": "Descriere și specificații „{carName}”",
+      "engine": "Motor",
+      "transmission": "Transmisie",
+      "fuelConsumption": "Consum de combustibil",
+      "fuelIcon": "Pictogramă consum combustibil",
+      "driveType": "Tip tracțiune",
+      "seatsLabel": "Locuri",
+      "seats": "{count, plural, one {{count} loc} few {{count} locuri} other {{count} locuri}}",
+      "year": "Anul fabricației"
+    },
+    "equipmentTitle": "Dotări „{carName}”",
+    "imageAlt": "Închiriază {brand} {model} în Lviv"
+  },
+  "carAside": {
+    "rentalPeriodTitle": "Perioada de închiriere „{brand} {model} {year}”",
+    "rangeSeparator": "până la",
+    "selectedDays": "{count, plural, one {{count} zi} few {{count} zile} other {{count} zile}}",
+    "rentalCostTitle": "Costul închirierii",
+    "plans": {
+      "withDeposit": "Cu depozit",
+      "coverage": "Acoperire {percent}%"
+    },
+    "tariffs": {
+      "exact": "{count, plural, one {{count} zi} few {{count} zile} other {{count} zile}}",
+      "more": "{count, plural, one {Mai mult de {count} zi} few {Mai mult de {count} zile} other {Mai mult de {count} zile}}",
+      "range": "{min} — {max} zile",
+      "pricePerDay": "{price} USD/zi"
+    },
+    "depositLabel": "Depozit",
+    "currency": "{value} USD",
+    "totalPriceLabel": "Cost total",
+    "clubPriceLabel": "Preț club",
+    "actions": {
+      "book": "REZERVĂ ACUM",
+      "requestCall": "SOLICITĂ UN APEL"
+    },
+    "conditionsTitle": "Condiții de închiriere „{brand} {model} {year}”",
+    "requirements": {
+      "age": {
+        "title": "Vârsta dumneavoastră",
+        "value": "{age}+ ani"
+      },
+      "experience": {
+        "title": "Experiență de conducere",
+        "value": "De la {years} ani de condus"
+      },
+      "mileage": {
+        "title": "Limită de kilometraj ({count, plural, one {{count} zi} few {{count} zile} other {{count} zile}})",
+        "value": "{limit} km"
+      }
+    },
+    "links": {
+      "conditions": "Află mai multe despre condiții",
+      "faq": "Întrebări frecvente"
+    },
+    "tooltips": {
+      "club": "Preț club pentru clienții fideli Reiz.<br/>Contactați managerul pentru detalii.",
+      "deposit": "Doriți să reduceți depozitul?<br/>Alegeți un pachet de acoperire:<br/>50% — depozitul se înjumătățește<br/>100% — fără depozit necesar",
+      "overdrive": "{price} USD pentru fiecare km suplimentar."
+    }
+  },
+  "rangeDateTimePicker": {
+    "weekDays": ["Lu", "Ma", "Mi", "Jo", "Vi", "Sâ", "Du"],
+    "reset": "Resetează",
+    "title": "Selectați data și ora de preluare și returnare",
+    "monthsAriaLabel": "Selectarea lunii",
+    "startDate": {
+      "label": "Data preluării",
+      "timeLabel": "Ora preluării"
+    },
+    "endDate": {
+      "label": "Data returnării",
+      "timeLabel": "Ora returnării"
+    },
+    "notSelected": "...",
+    "duration": "{count, plural, one {{count} zi} few {{count} zile} other {{count} zile}}",
+    "confirm": "Confirmă",
+    "close": "Închide",
+    "prevMonth": "Luna anterioară",
+    "nextMonth": "Luna următoare"
+  },
+  "carRentModal": {
+    "breadcrumbs": {
+      "home": "Acasă",
+      "cars": "Mașini"
+    },
+    "title": "Cerere de rezervare",
+    "orderForm": {
+      "datePlaceholder": "Selectați datele",
+      "submit": "Caută"
+    },
+    "steps": {
+      "title": "Cerere de rezervare",
+      "indicator": "Pasul {current}/{total}",
+      "back": "Înapoi",
+      "next": "Înainte",
+      "submit": "Trimite cererea"
+    },
+    "personal": {
+      "title": "Date personale",
+      "firstName": "Prenume",
+      "lastName": "Nume de familie",
+      "phonePlaceholder": "Telefon",
+      "email": "E-mail",
+      "pickupPlaceholder": "Locul de preluare",
+      "returnPlaceholder": "Locul de returnare",
+      "datesLabel": "Datele închirierii",
+      "selectedDays": "{count, plural, one {{count} zi} few {{count} zile} other {{count} zile}}",
+      "flightNumber": "Numărul zborului",
+      "flightOptional": "Opțional"
+    },
+    "insurance": {
+      "title": "Asigurare",
+      "infoTitle": "Asigurare",
+      "packages": {
+        "withDeposit": "Cu depozit",
+        "coverage": "Acoperire {percent}%"
+      },
+      "included": "Inclus în preț",
+      "depositReduction": "Depozit redus cu {percent}%",
+      "pricePerDay": "{formattedPrice}/zi"
+    },
+    "addOns": {
+      "title": "Opțiuni suplimentare",
+      "options": {
+        "additionalDriver": {
+          "label": "Șofer suplimentar",
+          "price": "{formattedPrice}/zi",
+          "summary": "Șofer suplimentar"
+        },
+        "childSeat": {
+          "label": "Scaun pentru copii",
+          "price": "{formattedPrice}/zi",
+          "summary": "Scaun pentru copii"
+        },
+        "borderCrossing": {
+          "label": "Trecere de frontieră",
+          "price": "{formattedPrice}",
+          "summary": "Trecere de frontieră"
+        },
+        "driverService": {
+          "label": "Serviciu de șofer",
+          "price": "{formattedPrice}/zi lucrătoare",
+          "summary": "Serviciu de șofer",
+          "tooltip": "<span class=\"text-strong\">Ce include ziua lucrătoare a șoferului?</span><br/>Program de lucru: 9:00–18:00<br/>8 ore de lucru + 1 oră pauză de masă (pauza nu se consideră timp de lucru)."
+        }
+      },
+      "noneSelected": "Nicio opțiune suplimentară selectată"
+    },
+    "comment": {
+      "title": "Comentariu",
+      "placeholder": "Mesaj pentru manager"
+    },
+    "agreement": "Am citit și sunt de acord cu condițiile de prelucrare a datelor personale",
+    "notifications": {
+      "success": "Cererea a fost trimisă cu succes. Vă vom contacta în curând.",
+      "error": "Trimiterea cererii a eșuat. Vă rugăm să încercați din nou.",
+      "validation": {
+        "fillRequired": "Completați toate câmpurile obligatorii și datele de închiriere.",
+        "invalidEmail": "Introduceți o adresă de email validă.",
+        "acceptTerms": "Vă rugăm să acceptați condițiile de prelucrare a datelor."
+      }
+    },
+    "summary": {
+      "title": "Închiriază {car}",
+      "pickupLabel": "Preluare vehicul",
+      "returnLabel": "Returnare vehicul",
+      "durationLabel": "Durata închirierii",
+      "durationValue": "{count, plural, one {{count} zi} few {{count} zile} other {{count} zile}}",
+      "rateLabel": "Tarif de închiriere",
+      "pricePerDay": "{formattedPrice}/zi",
+      "addOnsLabel": "Opțiuni suplimentare",
+      "depositLabel": "Depozit rambursabil",
+      "totalLabel": "Total de plată",
+      "locationPlaceholder": "Nespecificat",
+      "imageAlt": "Închiriere mașină {car}"
+    },
+    "locations": {
+      "options": [
+        "Kyiv, Aeroportul Boryspil, Terminalul 3B",
+        "Kyiv, Aeroportul Zhuliany, Terminalul 2A",
+        "Lviv, Aeroportul Int. Danylo Halytskyi, T1"
+      ]
+    },
+    "totalCostLabel": "Total de plată",
+    "bookButton": "Rezervă"
+  },
+  "carRentPage": {
+    "meta": {
+      "title": "Rezervă {carName} — de la {price}$/zi",
+      "description": "Rezervă {carName} online. De la {price}$/zi, asigurare inclusă, livrare 24/7."
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "cars": "Mașini",
+      "booking": "Rezervare"
+    },
+    "agreement": "Am citit și sunt de acord cu condițiile de prelucrare a datelor personale",
+    "rangeSeparator": "până la",
+    "orderForm": {
+      "datePlaceholder": "Selectați datele",
+      "submit": "Caută"
+    },
+    "personal": {
+      "title": "Date personale",
+      "firstName": "Prenume",
+      "lastName": "Nume de familie",
+      "phonePlaceholder": "Telefon",
+      "email": "E-mail",
+      "pickupPlaceholder": "Locul de preluare",
+      "returnPlaceholder": "Locul de returnare"
+    },
+    "insuranceCoverage": {
+      "title": "Alegeți tipul de acoperire",
+      "options": {
+        "deposit": "Cu depozit",
+        "50": "Acoperire 50%",
+        "100": "Acoperire totală (100%)"
+      },
+      "features": {
+        "damage": {
+          "label": "Deteriorarea vehiculului",
+          "sub": "În limita depozitului"
+        },
+        "theft": {
+          "label": "Taxă furt / pierdere totală",
+          "sub": "5% din valoarea vehiculului"
+        },
+        "tireDamage": {
+          "label": "Deteriorarea anvelopelor / jantelor",
+          "sub": "În limita depozitului"
+        },
+        "wash": {
+          "label": "Spălare auto",
+          "sub": "Inclus în pachet"
+        }
+      },
+      "footer": {
+        "deposit": "Depozit",
+        "pricePerDay": " / zi",
+        "total": "Total pe zile"
+      }
+    },
+    "addOns": {
+      "title": "Opțiuni suplimentare",
+      "options": {
+        "additionalDriver": {
+          "label": "Șofer suplimentar",
+          "price": "{formattedPrice}/zi",
+          "summary": "Șofer suplimentar"
+        },
+        "childSeat": {
+          "label": "Scaun pentru copii",
+          "price": "{formattedPrice}/zi",
+          "summary": "Scaun pentru copii"
+        },
+        "borderCrossing": {
+          "label": "Trecere de frontieră",
+          "price": "{formattedPrice}",
+          "summary": "Trecere de frontieră"
+        },
+        "driverService": {
+          "label": "Serviciu de șofer",
+          "price": "{formattedPrice}/zi lucrătoare",
+          "summary": "Serviciu de șofer",
+          "tooltip": "<span class=\"text-strong\">Ce include ziua lucrătoare a șoferului?</span><br/>Program de lucru: 9:00–18:00<br/>8 ore de lucru + 1 oră pauză de masă (pauza nu se consideră timp de lucru)."
+        }
+      },
+      "noneSelected": "Nicio opțiune suplimentară selectată"
+    },
+    "comment": {
+      "placeholder": "Mesaj pentru manager"
+    },
+    "notifications": {
+      "success": "Cererea a fost trimisă cu succes. Vă vom contacta în curând.",
+      "error": "Trimiterea cererii a eșuat. Vă rugăm să încercați din nou.",
+      "validation": {
+        "fillRequired": "Completați toate câmpurile obligatorii și datele de închiriere.",
+        "invalidEmail": "Introduceți o adresă de email validă.",
+        "acceptTerms": "Vă rugăm să acceptați condițiile de prelucrare a datelor."
+      }
+    },
+    "summary": {
+      "title": "Închiriază {car}",
+      "pickupLabel": "Preluare vehicul",
+      "returnLabel": "Returnare vehicul",
+      "durationLabel": "Durata închirierii",
+      "durationValue": "{count, plural, one {{count} zi} few {{count} zile} other {{count} zile}}",
+      "rateLabel": "Tarif de închiriere",
+      "pricePerDay": "{formattedPrice}/zi",
+      "addOnsLabel": "Opțiuni suplimentare",
+      "depositLabel": "Depozit rambursabil",
+      "totalLabel": "Total de plată",
+      "locationPlaceholder": "Nespecificat",
+      "imageAlt": "Închiriere mașină {car}"
+    },
+    "locations": {
+      "options": [
+        "Kyiv, Aeroportul Boryspil, Terminalul 3B",
+        "Kyiv, Aeroportul Zhuliany, Terminalul 2A",
+        "Lviv, Aeroportul Int. Danylo Halytskyi, T1"
+      ]
+    },
+    "totalCostLabel": "Total de plată",
+    "bookButton": "Rezervă"
+  },
+  "requestCallModal": {
+    "title": "Solicită o ofertă",
+    "placeholder": {
+      "name": "Nume",
+      "phone": "Telefon",
+      "email": "E-mail"
+    },
+    "text": "Prin clic pe butonul «Trimite cererea», acceptați condițiile de prelucrare a datelor personale",
+    "checkbox": "Am citit și sunt de acord cu condițiile de prelucrare a datelor personale",
+    "button": "Trimite cererea",
+    "submitting": "Se trimite...",
+    "contactMethods": {
+      "title": "Cum doriți să vă contactăm?",
+      "options": {
+        "phone": {
+          "title": "Apel telefonic",
+          "description": "(Managerul nostru vă va suna)"
+        },
+        "whatsapp": {
+          "title": "Mesaj pe WhatsApp",
+          "description": "(Veți primi un mesaj pe WhatsApp)"
+        },
+        "telegram": {
+          "title": "Mesaj pe Telegram",
+          "description": "(Veți primi un mesaj pe Telegram)"
+        }
+      }
+    },
+    "errors": {
+      "nameRequired": "Introduceți numele dumneavoastră",
+      "phoneRequired": "Introduceți numărul de telefon",
+      "phoneInvalid": "Introduceți un număr de telefon valid",
+      "consentRequired": "Acceptați condițiile de prelucrare a datelor personale",
+      "submitFailed": "Trimiterea cererii a eșuat. Vă rugăm să încercați din nou."
+    }
+  },
+  "managerWillContactYouModal": {
+    "title": "Vă mulțumim!",
+    "subtitle": "Am primit cererea dumneavoastră pentru",
+    "callRequest": "Vă vom contacta la: {phone}",
+    "carInfo": "{brand} {model} {year}",
+    "dateRange": "{startDate}–{endDate}.",
+    "managerContact": "Un manager REIZ vă va contacta în curând pentru confirmare.",
+    "buttons": {
+      "home": "Mergi la pagina principală",
+      "close": "Închide"
+    }
+  },
+  "bookingContactModal": {
+    "title": "Lasă o cerere în modul cel mai convenabil — <accent>managerul nostru vă va contacta</accent> și va răspunde la toate întrebările dumneavoastră",
+    "buttons": {
+      "telegram": "REZERVĂ PRIN TELEGRAM",
+      "whatsapp": "REZERVĂ PRIN WHATSAPP",
+      "viber": "REZERVĂ PRIN VIBER",
+      "phone": "SUNĂ-NE"
+    },
+    "terms": "Prin clic pe buton, acceptați condițiile de prelucrare a datelor personale"
+  },
+  "blogLvivTravel": {
+    "meta": {
+      "title": "Top 4 trasee din Lviv pentru fotografii de Instagram | REIZ",
+      "description": "Unde găsești priveliști demne de Instagram și când să mergi pentru a evita aglomerația. Potcoava de Aur, Tustan, Fortul Tarakaniv, Synevir.",
+      "og_title": "Top 4 trasee din Lviv pentru fotografii de Instagram | REIZ",
+      "og_description": "Unde găsești priveliști demne de Instagram și când să mergi pentru a evita aglomerația. Potcoava de Aur, Tustan, Fortul Tarakaniv, Synevir."
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "blog": "Articole",
+      "current": "Top 4 trasee din Lviv",
+      "nav_label": "Navigare pagină"
+    },
+    "title": "Top 4 trasee din Lviv: unde găsești priveliști demne de Instagram și când să mergi pentru a evita aglomerația",
+    "hero_alt": "Lacul Synevir din Carpați — cea mai bună destinație foto din Lviv",
+    "locations_aria": "Linkuri de locații către Google Maps",
+    "intro": {
+      "p1": "Regiunea Lviv este un platou de filmare gata pregătit. Aici vei găsi locații în stilul „Bridgerton”, ruine mistice ca în The Last of Us și stânci care amintesc de peisajele din „Game of Thrones”.",
+      "p2": "Dar este o capcană: cele mai frumoase cadre se fac la răsărit sau apus, când autobuzele turistice încă nu au sosit sau au plecat deja. Pentru a prinde lumina și ceața perfectă, ai nevoie de libertate de mișcare.",
+      "p3": "Noi, la REIZ, am compilat 4 trasee alese de fotografi și am calculat imediat cât timp ar trebui să închiriezi o mașină pentru fiecare excursie."
+    },
+    "routes": {
+      "route1": {
+        "title": "Traseul #1. „Potcoava de Aur”: Estetică aristocratică",
+        "locations": "Locații: castelele Olesko, Pidhirtsi și Zolochiv.",
+        "vibe": "Atmosferă: lux regal, baroc, mister.",
+        "p1": "Steaua traseului este Castelul Pidhirtsi. A portretizat Luvrul în filmul sovietic „Muschetarii”. Arată monumental și ușor abandonat, dând cadrelor o profunzime specială.",
+        "insight_title": "Sfat de insider pentru fotografi:",
+        "insight_time": "Cel mai bun moment: A doua jumătate a zilei, aproape de apus („ora de aur”). Soarele iluminează delicat fațada palatului.",
+        "insight_angle": "Unghi secret: Nu fotografia frontal la intrare. Ocolește castelul și coboară pe câmpul din fața fațadei sudice. De acolo obții o panoramă a palatului pe deal — fără nicio persoană în cadru.",
+        "why_car": "De ce ai nevoie de mașină aici: Portbagajul este cabina ta mobilă de schimb. Pentru fotografii diverse (în rochie vaporoasă la palat și stil casual pe zidurile fortăreței), trebuie să cari haine de schimb.",
+        "rental_title": "Perioadă recomandată de închiriere: 1 zi",
+        "rental_text": "Este un traseu ușor. Drumul este excelent (autostrada M-06), castelele sunt aproape. Plan: Preia mașina dimineața, ajungi la castele la prânz, returnezi mașina la Lviv seara. Nu merită să plătești pentru o a doua zi.",
+        "castles": {
+          "olesky": "Castelul Olesko",
+          "pidhirtsi": "Castelul Pidhirtsi",
+          "zolochiv": "Castelul Zolochiv"
+        }
+      },
+      "route2": {
+        "title": "Traseul #2. Tustan și Cascada Kamianka: Decor de fantezie",
+        "image_alt": "Fortăreața de stâncă Tustan — obiectiv unic din regiunea Lviv pentru fotografii de fantezie",
+        "locations": "Locații: fortăreața de stâncă Tustan (satul Urych), cascada Kamianka, lacul Zhuravlyne.",
+        "vibe": "Atmosferă: „The Witcher”, Scandinavia, forța naturii.",
+        "p1": "Tustan este un monument unic unde o fortăreață de lemn a fost construită direct în stânci. Traseul începe de obicei cu cascada Kamianka, iar la doar 500 de metri de ea se ascunde lacul Zhuravlyne (Mort) cu apă neagră și maluri acoperite de mușchi.",
+        "insight_title": "Sfat de insider pentru fotografi:",
+        "insight_timing": "Momentul secret: Majoritatea autobuzelor sosesc între 12:00 și 15:00. Dacă ajungi cu mașina la 9:00 dimineața sau rămâi până la 17:00, stâncile vor fi doar ale tale.",
+        "insight_gastro": "Punct de control gastronomic: Pe poiana de lângă cascadă, localnicii gătesc supă de ciuperci. Incredibil de atmosferic pentru stories.",
+        "why_car": "De ce ai nevoie de mașină: Cu transportul public acest traseu devine o provocare: autobuz până la Skhidnytsia, transfer cu microbuz până la Urych, apoi mai mult mers pe jos. Cu o mașină închiriată parchezi chiar la intrare, economisind energie pentru urcarea pe stânci.",
+        "rental_title": "Perioadă recomandată de închiriere: 1–2 zile",
+        "rental_turbo": "Opțiunea „Turbo” (1 zi): Plecare devreme (08:00), vizitare activă a tuturor locațiilor și întoarcere târziu seara.",
+        "rental_relax": "Opțiunea „Relax” (2 zile): Ia-o ușor, rămâi peste noapte în Skhidnytsia (20 km de stânci), bea apă minerală și întoarce-te la Lviv dimineața.",
+        "locations_btn": {
+          "tustan": "Tustan",
+          "waterfall": "Cascada Kamianka",
+          "lake": "Lacul Zhuravlyne"
+        }
+      },
+      "route3": {
+        "title": "Traseul #3. Fortul Tarakaniv: Post-apocalipsă",
+        "locations": "Locații: Fortul Tarakaniv (lângă orașul Dubno).",
+        "vibe": "Atmosferă: Lume abandonată, vibrații de stalker, mister.",
+        "p1": "Structuri defensive masive din secolul al XIX-lea înghițite de pădure. Cărămidă roșie împletită cu iederă verde, tuneluri și arcuri întunecate — textura este incredibilă.",
+        "insight_title": "Sfat de insider pentru fotografi:",
+        "insight_time": "Cel mai bun moment: Vremea înnorată sau ceața lucrează în favoarea ta aici — amplifică misterul.",
+        "insight_bring": "Ce să aduci: O lanternă puternică (pentru iluminarea arcurilor întunecate) și încălțăminte confortabilă.",
+        "why_car": "De ce ai nevoie de mașină aici: Este o locație greu accesibilă, trebuie să mergi pe drum de pământ de la autostradă. Plus, după cazematele umede vei vrea să te schimbi în haine uscate.",
+        "rental_title": "Perioadă recomandată de închiriere: 1 zi",
+        "rental_text": "Locația este la 1,5–2 ore de mers cu mașina de la Lviv pe o autostradă bună. Sfat: Pe drum te poți opri la Castelul Lubart (orașul Luțk), făcând excursia 100% plină. O zi este mai mult decât suficientă pentru road trip.",
+        "locations_btn": {
+          "fort": "Fortul Tarakaniv",
+          "lubart": "Castelul Lubart"
+        }
+      },
+      "route4": {
+        "title": "Traseul #4. Road Trip în inima Carpaților: Synevir, Shypit și urși",
+        "locations": "Locații: Pasul Volovets, cascada Shypit, Lacul Synevir, Centrul de Reabilitare a Urșilor.",
+        "vibe": "Atmosferă: „Twin Peaks” ucrainesc, brazi seculari, sălbăticie.",
+        "p1": "O expediție completă prin Pasul Volovets, unde norii se agață de plafonul mașinii. Synevir se află sus în munți, iar în apropiere — cascada Shypit și Centrul de Reabilitare a Ursului Brun.",
+        "insight_title": "Sfat de insider pentru fotografi:",
+        "insight_fog": "Vânătoarea de ceață: Cele mai mistice cadre la Synevir se fac la răsărit (06:00–08:00 dimineața). La această oră aburul plutește deasupra apei și nu sunt oameni.",
+        "why_car": "Logistică: Cu transportul public acest traseu durează trei zile cu multe transbordări. Cu mașina este o călătorie confortabilă.",
+        "rental_title": "Perioadă recomandată de închiriere: 2–3 zile",
+        "rental_text": "Să vii aici pentru o zi este epuizant (prea mult timp pe drum). Plan ideal: Închiriază o mașină pentru 2–3 zile. Conduce în ritm relaxat, rămâi peste noapte într-o cabană montană autentică, prinde răsăritul la lac fără turiști și întoarce-te confortabil.",
+        "locations_btn": {
+          "synevir": "Lacul Synevir",
+          "shypit": "Cascada Shypit",
+          "bears": "Centrul de Urși"
+        }
+      }
+    },
+    "conclusion": {
+      "title": "Cum să-ți planifici călătoria?",
+      "p1": "Secretul principal al unei călătorii reușite și al fotografiilor frumoase este sincronizarea. Nu ar trebui să depinzi de orarul gării. Ar trebui să depinzi doar de lumină și vreme.",
+      "list": {
+        "item1": "Vrei să prinzi răsăritul în munți?",
+        "item2": "Vrei să stai pe zidul castelului până la apus?",
+        "item3": "Vrei să aduci trei ținute și recuzită?"
+      },
+      "cta": "Închiriază o mașină la REIZ, introduce coordonatele în navigator și creează cele mai frumoase amintiri (și conținut). Drumurile te așteaptă!"
+    }
+  }
+}

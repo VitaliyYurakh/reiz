@@ -28,6 +28,8 @@ import ruTranslations from "@/i18n/translations/ru/index.json";
 import enTranslations from "@/i18n/translations/en/index.json";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 import plTranslations from "@/i18n/translations/pl/index.json";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+import roTranslations from "@/i18n/translations/ro/index.json";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const translations: Record<Locale, Record<string, any>> = {
@@ -35,6 +37,7 @@ const translations: Record<Locale, Record<string, any>> = {
   ru: ruTranslations,
   en: enTranslations,
   pl: plTranslations,
+  ro: roTranslations,
 } satisfies Record<Locale, Record<string, any>>;
 
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";

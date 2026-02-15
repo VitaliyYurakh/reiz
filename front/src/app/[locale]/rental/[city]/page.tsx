@@ -146,6 +146,7 @@ export default async function CityRentalPage({
     ru: "Частые вопросы",
     en: "Frequently Asked Questions",
     pl: "Najczęściej zadawane pytania",
+    ro: "Întrebări frecvente",
   };
   const faqMainTitle = faqTitles[locale];
 

@@ -38,6 +38,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "jak wybrany model radzi sobie z ruchem miejskim i autostradami",
       en: "how the chosen model handles capital city traffic and highways",
+      ro: "cum se comportă modelul ales în traficul capitalei și pe autostrăzi",
     },
     routes: {
       uk: "Київ ↔ Львів, Одеса, Дніпро на зустрічі та переговори",
@@ -45,6 +46,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Kijów ↔ Lwów, Odessa, Dniepr na spotkania i negocjacje",
       en: "Kyiv ↔ Lviv, Odesa, Dnipro for meetings and negotiations",
+      ro: "Kyiv ↔ Lviv, Odesa, Dnipro pentru întâlniri și negocieri",
     },
     weekendTrip: {
       uk: "уїк-енд у Карпатах — Буковель, Славське",
@@ -52,6 +54,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "weekend w Karpatach — Bukowel, Sławskie",
       en: "weekend in the Carpathians — Bukovel, Slavske",
+      ro: "weekend în Carpați — Bukovel, Slavske",
     },
     airport: {
       code: "KBP/IEV",
@@ -61,6 +64,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
         pl: "Lotnisko Boryszpol (KBP) lub Żulany (IEV)",
         en: "Boryspil Airport (KBP) or Zhuliany (IEV)",
+        ro: "Aeroportul Boryspil (KBP) sau Zhuliany (IEV)",
       },
     },
     localAttractions: {
@@ -69,6 +73,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "centrum miasta, Podił, Peczersk, Oboloń",
       en: "city center, Podil, Pechersk, Obolon",
+      ro: "centrul orașului, Podil, Pechersk, Obolon",
     },
   },
   lviv: {
@@ -78,6 +83,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles the Old Town cobblestones and Carpathian serpentines",
       en: "how the model handles the Old Town cobblestones and Carpathian serpentines",
+      ro: "cum se comportă modelul pe pavajul din Orașul Vechi și pe serpentinele carpatice",
     },
     routes: {
       uk: "Львів ↔ Київ, замки Львівщини, Карпати",
@@ -85,6 +91,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Lviv ↔ Kyiv, castles of Lviv region, Carpathians",
       en: "Lviv ↔ Kyiv, castles of Lviv region, Carpathians",
+      ro: "Lviv ↔ Kyiv, castele din regiunea Lviv, Carpați",
     },
     weekendTrip: {
       uk: "замки Галичини — Олеський, Підгірці, Золочів",
@@ -92,6 +99,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "castles of Galicia — Olesko, Pidhirtsi, Zolochiv",
       en: "castles of Galicia — Olesko, Pidhirtsi, Zolochiv",
+      ro: "castele din Galicia — Olesko, Pidhirtsi, Zolochiv",
     },
     airport: {
       code: "LWO",
@@ -101,6 +109,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
         pl: "Lviv Airport (LWO)",
         en: "Lviv Airport (LWO)",
+        ro: "Aeroportul Lviv (LWO)",
       },
     },
     localAttractions: {
@@ -109,6 +118,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Old Town, railway station, LWO airport",
       en: "city center, Old Town, railway station, LWO airport",
+      ro: "centrul orașului, Orașul Vechi, gara feroviară, aeroportul LWO",
     },
   },
   ternopil: {
@@ -118,6 +128,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles city streets and highways to neighboring cities",
       en: "how the model handles city streets and highways to neighboring cities",
+      ro: "cum se comportă modelul pe străzile orașului și pe drumurile spre orașele vecine",
     },
     routes: {
       uk: "Тернопіль ↔ Київ, Львів, Івано-Франківськ",
@@ -125,6 +136,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Ternopil ↔ Kyiv, Lviv, Ivano-Frankivsk",
       en: "Ternopil ↔ Kyiv, Lviv, Ivano-Frankivsk",
+      ro: "Ternopil ↔ Kyiv, Lviv, Ivano-Frankivsk",
     },
     weekendTrip: {
       uk: "поїздка до Кременця, Почаєва, Збаража",
@@ -132,6 +144,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "trip to Kremenets, Pochaiv, Zbarazh",
       en: "trip to Kremenets, Pochaiv, Zbarazh",
+      ro: "excursie la Kremenets, Pochaiv, Zbarazh",
     },
     localAttractions: {
       uk: "центр, набережна, залізничний вокзал",
@@ -139,6 +152,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, embankment, railway station",
       en: "city center, embankment, railway station",
+      ro: "centrul orașului, faleză, gara feroviară",
     },
   },
   odesa: {
@@ -148,6 +162,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles coastal roads and city traffic",
       en: "how the model handles coastal roads and city traffic",
+      ro: "cum se comportă modelul pe drumurile de coastă și în traficul urban",
     },
     routes: {
       uk: "Одеса ↔ Київ, Миколаїв, узбережжя Чорного моря",
@@ -155,6 +170,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Odesa ↔ Kyiv, Mykolaiv, Black Sea coast",
       en: "Odesa ↔ Kyiv, Mykolaiv, Black Sea coast",
+      ro: "Odesa ↔ Kyiv, Mykolaiv, coasta Mării Negre",
     },
     weekendTrip: {
       uk: "курорти Затока, Кароліно-Бугаз, Білгород-Дністровська фортеця",
@@ -162,6 +178,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Zatoka resort, Karolino-Buhaz, Bilhorod-Dnistrovskyi fortress",
       en: "Zatoka resort, Karolino-Buhaz, Bilhorod-Dnistrovskyi fortress",
+      ro: "stațiunea Zatoka, Karolino-Buhaz, cetatea Bilhorod-Dnistrovskyi",
     },
     airport: {
       code: "ODS",
@@ -171,6 +188,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
         pl: "Odesa Airport (ODS)",
         en: "Odesa Airport (ODS)",
+        ro: "Aeroportul Odesa (ODS)",
       },
     },
     localAttractions: {
@@ -179,6 +197,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Arcadia, Prymorskyi Boulevard, Derybasivska",
       en: "city center, Arcadia, Prymorskyi Boulevard, Derybasivska",
+      ro: "centrul orașului, Arcadia, Bulevardul Prymorskyi, Derybasivska",
     },
   },
   dnipro: {
@@ -188,6 +207,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles wide Dnipro avenues and highways",
       en: "how the model handles wide Dnipro avenues and highways",
+      ro: "cum se comportă modelul pe bulevardele largi din Dnipro și pe autostrăzi",
     },
     routes: {
       uk: "Дніпро ↔ Київ, Харків, Запоріжжя",
@@ -195,6 +215,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Dnipro ↔ Kyiv, Kharkiv, Zaporizhzhia",
       en: "Dnipro ↔ Kyiv, Kharkiv, Zaporizhzhia",
+      ro: "Dnipro ↔ Kyiv, Kharkiv, Zaporizhzhia",
     },
     weekendTrip: {
       uk: "острів Хортиця, Запоріжжя, дніпровські пляжі",
@@ -202,6 +223,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Khortytsia Island, Zaporizhzhia, Dnipro beaches",
       en: "Khortytsia Island, Zaporizhzhia, Dnipro beaches",
+      ro: "Insula Khortytsia, Zaporizhzhia, plajele din Dnipro",
     },
     airport: {
       code: "DNK",
@@ -211,6 +233,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
         pl: "Dnipro Airport (DNK)",
         en: "Dnipro Airport (DNK)",
+        ro: "Aeroportul Dnipro (DNK)",
       },
     },
     localAttractions: {
@@ -219,6 +242,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, embankment, European Square",
       en: "city center, embankment, European Square",
+      ro: "centrul orașului, faleză, Piața Europeană",
     },
   },
   kharkiv: {
@@ -228,6 +252,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles metropolis conditions and high-speed highways",
       en: "how the model handles metropolis conditions and high-speed highways",
+      ro: "cum se comportă modelul în condițiile metropolei și pe autostrăzile de mare viteză",
     },
     routes: {
       uk: "Харків ↔ Київ, Дніпро, Полтава",
@@ -235,6 +260,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Kharkiv ↔ Kyiv, Dnipro, Poltava",
       en: "Kharkiv ↔ Kyiv, Dnipro, Poltava",
+      ro: "Kharkiv ↔ Kyiv, Dnipro, Poltava",
     },
     weekendTrip: {
       uk: "Полтава, Краснокутськ, природні парки Харківщини",
@@ -242,6 +268,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Poltava, Krasnokutsk, nature parks of Kharkiv region",
       en: "Poltava, Krasnokutsk, nature parks of Kharkiv region",
+      ro: "Poltava, Krasnokutsk, parcuri naturale din regiunea Kharkiv",
     },
     airport: {
       code: "HRK",
@@ -251,6 +278,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
         pl: "Kharkiv Airport (HRK)",
         en: "Kharkiv Airport (HRK)",
+        ro: "Aeroportul Kharkiv (HRK)",
       },
     },
     localAttractions: {
@@ -259,6 +287,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Freedom Square, Sumska Street",
       en: "city center, Freedom Square, Sumska Street",
+      ro: "centrul orașului, Piața Libertății, Strada Sumska",
     },
   },
   bukovel: {
@@ -268,6 +297,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles mountain climbs and Carpathian serpentines",
       en: "how the model handles mountain climbs and Carpathian serpentines",
+      ro: "cum se comportă modelul pe urcușurile montane și pe serpentinele carpatice",
     },
     routes: {
       uk: "трансфери Буковель ↔ Івано-Франківськ, Львів",
@@ -275,6 +305,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "transfers Bukovel ↔ Ivano-Frankivsk, Lviv",
       en: "transfers Bukovel ↔ Ivano-Frankivsk, Lviv",
+      ro: "transferuri Bukovel ↔ Ivano-Frankivsk, Lviv",
     },
     weekendTrip: {
       uk: "гірськолижні курорти — Славське, Драгобрат, Яремче",
@@ -282,6 +313,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "ski resorts — Slavske, Dragobrat, Yaremche",
       en: "ski resorts — Slavske, Dragobrat, Yaremche",
+      ro: "stațiuni de schi — Slavske, Dragobrat, Yaremche",
     },
     localAttractions: {
       uk: "курорт Буковель, підйомники, готельні комплекси",
@@ -289,6 +321,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Bukovel resort, ski lifts, hotel complexes",
       en: "Bukovel resort, ski lifts, hotel complexes",
+      ro: "stațiunea Bukovel, telescaune, complexe hoteliere",
     },
   },
   truskavets: {
@@ -298,6 +331,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model provides comfort for spa vacation",
       en: "how the model provides comfort for spa vacation",
+      ro: "cum asigură modelul confort pentru vacanța la spa",
     },
     routes: {
       uk: "Трускавець ↔ Львів, Дрогобич, Стрий",
@@ -305,6 +339,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Truskavets ↔ Lviv, Drohobych, Stryi",
       en: "Truskavets ↔ Lviv, Drohobych, Stryi",
+      ro: "Truskavets ↔ Lviv, Drohobych, Stryi",
     },
     weekendTrip: {
       uk: "цілющі джерела Карпат, Сходниця, Східниця",
@@ -312,6 +347,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "healing springs of the Carpathians, Skhidnytsia",
       en: "healing springs of the Carpathians, Skhidnytsia",
+      ro: "izvoare tămăduitoare din Carpați, Skhidnytsia",
     },
     localAttractions: {
       uk: "центр курорту, бювети, санаторії",
@@ -319,6 +355,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "resort center, pump rooms, sanatoriums",
       en: "resort center, pump rooms, sanatoriums",
+      ro: "centrul stațiunii, pavilioane de ape, sanatorii",
     },
   },
   "ivano-frankivsk": {
@@ -328,6 +365,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles the Carpathian foothills and city streets",
       en: "how the model handles the Carpathian foothills and city streets",
+      ro: "cum se comportă modelul în zona subcarpatică și pe străzile orașului",
     },
     routes: {
       uk: "Івано-Франківськ ↔ Львів, Буковель, Яремче",
@@ -335,6 +373,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Ivano-Frankivsk ↔ Lviv, Bukovel, Yaremche",
       en: "Ivano-Frankivsk ↔ Lviv, Bukovel, Yaremche",
+      ro: "Ivano-Frankivsk ↔ Lviv, Bukovel, Yaremche",
     },
     weekendTrip: {
       uk: "Карпатські гори — Буковель, Яремче, водоспад Пробій",
@@ -342,6 +381,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Carpathian Mountains — Bukovel, Yaremche, Probiy Waterfall",
       en: "Carpathian Mountains — Bukovel, Yaremche, Probiy Waterfall",
+      ro: "Munții Carpați — Bukovel, Yaremche, Cascada Probiy",
     },
     airport: {
       code: "IFO",
@@ -351,6 +391,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
         pl: "Ivano-Frankivsk Airport (IFO)",
         en: "Ivano-Frankivsk Airport (IFO)",
+        ro: "Aeroportul Ivano-Frankivsk (IFO)",
       },
     },
     localAttractions: {
@@ -359,6 +400,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, town hall, railway station, airport",
       en: "city center, town hall, railway station, airport",
+      ro: "centrul orașului, primăria, gara feroviară, aeroportul",
     },
   },
   skhidnytsia: {
@@ -368,6 +410,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model provides comfort for wellness vacation",
       en: "how the model provides comfort for wellness vacation",
+      ro: "cum asigură modelul confort pentru vacanța de wellness",
     },
     routes: {
       uk: "Східниця ↔ Львів, Трускавець, Дрогобич",
@@ -375,6 +418,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Skhidnytsia ↔ Lviv, Truskavets, Drohobych",
       en: "Skhidnytsia ↔ Lviv, Truskavets, Drohobych",
+      ro: "Skhidnytsia ↔ Lviv, Truskavets, Drohobych",
     },
     weekendTrip: {
       uk: "оздоровчі курорти Карпат — Трускавець, Моршин, Сколе",
@@ -382,6 +426,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "wellness resorts of the Carpathians — Truskavets, Morshyn, Skole",
       en: "wellness resorts of the Carpathians — Truskavets, Morshyn, Skole",
+      ro: "stațiuni de wellness din Carpați — Truskavets, Morshyn, Skole",
     },
     localAttractions: {
       uk: "курортна зона, бювети мінеральних вод, санаторії",
@@ -389,6 +434,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "resort area, mineral water pump rooms, sanatoriums",
       en: "resort area, mineral water pump rooms, sanatoriums",
+      ro: "zona de stațiune, pavilioane de ape minerale, sanatorii",
     },
   },
   uzhhorod: {
@@ -398,6 +444,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles border routes and city streets",
       en: "how the model handles border routes and city streets",
+      ro: "cum se comportă modelul pe rutele de frontieră și pe străzile orașului",
     },
     routes: {
       uk: "Ужгород ↔ Київ, Львів, Мукачево, кордони ЄС",
@@ -405,6 +452,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Uzhhorod ↔ Kyiv, Lviv, Mukachevo, EU borders",
       en: "Uzhhorod ↔ Kyiv, Lviv, Mukachevo, EU borders",
+      ro: "Uzhhorod ↔ Kyiv, Lviv, Mukachevo, frontierele UE",
     },
     weekendTrip: {
       uk: "замки Закарпаття — Невицький, Паланок, Середнянський",
@@ -412,6 +460,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Transcarpathian castles — Nevytske, Palanok, Serednie",
       en: "Transcarpathian castles — Nevytske, Palanok, Serednie",
+      ro: "castele transcarpatice — Nevytske, Palanok, Serednie",
     },
     localAttractions: {
       uk: "набережна Ужа, кордон з ЄС, центр міста, Боздоський парк",
@@ -419,6 +468,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Uzh Embankment, EU border, city center, Bozdosh Park",
       en: "Uzh Embankment, EU border, city center, Bozdosh Park",
+      ro: "Faleza Uzh, frontiera UE, centrul orașului, Parcul Bozdosh",
     },
   },
   vinnytsia: {
@@ -428,6 +478,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model provides comfort for business trips in central Ukraine",
       en: "how the model provides comfort for business trips in central Ukraine",
+      ro: "cum asigură modelul confort pentru călătoriile de afaceri în Ucraina centrală",
     },
     routes: {
       uk: "Вінниця ↔ Київ, Одеса, Житомир, Хмельницький",
@@ -435,6 +486,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Vinnytsia ↔ Kyiv, Odesa, Zhytomyr, Khmelnytskyi",
       en: "Vinnytsia ↔ Kyiv, Odesa, Zhytomyr, Khmelnytskyi",
+      ro: "Vinnytsia ↔ Kyiv, Odesa, Zhytomyr, Khmelnytskyi",
     },
     weekendTrip: {
       uk: "Подільські Товтри, Немирів, Брацлавський каньйон",
@@ -442,6 +494,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Podilski Tovtry, Nemyriv, Bratslav Canyon",
       en: "Podilski Tovtry, Nemyriv, Bratslav Canyon",
+      ro: "Podilski Tovtry, Nemyriv, Canionul Bratslav",
     },
     localAttractions: {
       uk: "центр, фонтан Roshen, Єзуїтський монастир, вокзал",
@@ -449,6 +502,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Roshen Fountain, Jesuit Monastery, station",
       en: "city center, Roshen Fountain, Jesuit Monastery, station",
+      ro: "centrul orașului, Fântâna Roshen, Mânăstirea Iezuiților, gara",
     },
   },
   zaporizhzhia: {
@@ -458,6 +512,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles highways and industrial routes",
       en: "how the model handles highways and industrial routes",
+      ro: "cum se comportă modelul pe autostrăzi și pe rutele industriale",
     },
     routes: {
       uk: "Запоріжжя ↔ Дніпро, Київ, Херсон, Маріуполь",
@@ -465,6 +520,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Zaporizhzhia ↔ Dnipro, Kyiv, Kherson, Mariupol",
       en: "Zaporizhzhia ↔ Dnipro, Kyiv, Kherson, Mariupol",
+      ro: "Zaporizhzhia ↔ Dnipro, Kyiv, Kherson, Mariupol",
     },
     weekendTrip: {
       uk: "острів Хортиця, Каменська Січ, Велике Будування",
@@ -472,6 +528,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Khortytsia Island, Kamyanska Sich, Great Construction",
       en: "Khortytsia Island, Kamyanska Sich, Great Construction",
+      ro: "Insula Khortytsia, Kamyanska Sich, Marea Construcție",
     },
     localAttractions: {
       uk: "ДніпроГЕС, острів Хортиця, проспект Соборний, вокзал",
@@ -479,6 +536,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "DniproHES, Khortytsia Island, Sobornyi Avenue, station",
       en: "DniproHES, Khortytsia Island, Sobornyi Avenue, station",
+      ro: "DniproHES, Insula Khortytsia, Bulevardul Sobornyi, gara",
     },
   },
   mukachevo: {
@@ -488,6 +546,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Transcarpathian serpentines and mountain roads",
       en: "how the model handles Transcarpathian serpentines and mountain roads",
+      ro: "cum se comportă modelul pe serpentinele transcarpatice și pe drumurile montane",
     },
     routes: {
       uk: "Мукачево ↔ Ужгород, Рахів, Хуст, кордон з ЄС",
@@ -495,6 +554,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Mukachevo ↔ Uzhhorod, Rakhiv, Khust, EU border",
       en: "Mukachevo ↔ Uzhhorod, Rakhiv, Khust, EU border",
+      ro: "Mukachevo ↔ Uzhhorod, Rakhiv, Khust, frontiera UE",
     },
     weekendTrip: {
       uk: "замок Паланок, Синяк, озеро Синевир, Колочава",
@@ -502,6 +562,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Palanok Castle, Synyak, Synevyr Lake, Kolochava",
       en: "Palanok Castle, Synyak, Synevyr Lake, Kolochava",
+      ro: "Castelul Palanok, Synyak, Lacul Synevyr, Kolochava",
     },
     localAttractions: {
       uk: "замок Паланок, центр міста, Ратуша, винні підвали",
@@ -509,6 +570,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Palanok Castle, city center, Town Hall, wine cellars",
       en: "Palanok Castle, city center, Town Hall, wine cellars",
+      ro: "Castelul Palanok, centrul orașului, Primăria, pivnițe de vinuri",
     },
   },
   poltava: {
@@ -518,6 +580,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model provides comfort on transit routes",
       en: "how the model provides comfort on transit routes",
+      ro: "cum asigură modelul confort pe rutele de tranzit",
     },
     routes: {
       uk: "Полтава ↔ Київ, Харків, Дніпро, Кременчук",
@@ -525,6 +588,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Poltava ↔ Kyiv, Kharkiv, Dnipro, Kremenchuk",
       en: "Poltava ↔ Kyiv, Kharkiv, Dnipro, Kremenchuk",
+      ro: "Poltava ↔ Kyiv, Kharkiv, Dnipro, Kremenchuk",
     },
     weekendTrip: {
       uk: "Диканька, Сорочинці, Опішня, Великі Сорочинці",
@@ -532,6 +596,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Dykanka, Sorochyntsi, Opishnia, Velyki Sorochyntsi",
       en: "Dykanka, Sorochyntsi, Opishnia, Velyki Sorochyntsi",
+      ro: "Dykanka, Sorochyntsi, Opishnia, Velyki Sorochyntsi",
     },
     localAttractions: {
       uk: "Корпусний парк, Круглу площа, вокзал, центр міста",
@@ -539,6 +604,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Korpusnyi Park, Round Square, station, city center",
       en: "Korpusnyi Park, Round Square, station, city center",
+      ro: "Parcul Korpusnyi, Piața Rotundă, gara, centrul orașului",
     },
   },
   chernivtsi: {
@@ -548,6 +614,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Carpathian serpentines and border routes",
       en: "how the model handles Carpathian serpentines and border routes",
+      ro: "cum se comportă modelul pe serpentinele carpatice și pe rutele de frontieră",
     },
     routes: {
       uk: "Чернівці ↔ Львів, Івано-Франківськ, Кам'янець-Подільський, кордон з Румунією",
@@ -555,6 +622,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Chernivtsi ↔ Lviv, Ivano-Frankivsk, Kamianets-Podilskyi, Romania border",
       en: "Chernivtsi ↔ Lviv, Ivano-Frankivsk, Kamianets-Podilskyi, Romania border",
+      ro: "Chernivtsi ↔ Lviv, Ivano-Frankivsk, Kamianets-Podilskyi, frontiera cu România",
     },
     weekendTrip: {
       uk: "Хотин, Кам'янець-Подільський, Вижниця, Буковинські Карпати",
@@ -562,6 +630,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Khotyn, Kamianets-Podilskyi, Vyzhnytsia, Bukovinian Carpathians",
       en: "Khotyn, Kamianets-Podilskyi, Vyzhnytsia, Bukovinian Carpathians",
+      ro: "Khotyn, Kamianets-Podilskyi, Vyzhnytsia, Carpații Bucovineni",
     },
     localAttractions: {
       uk: "Чернівецький університет, Театральна площа, вокзал, центр міста",
@@ -569,6 +638,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Chernivtsi University, Theater Square, station, city center",
       en: "Chernivtsi University, Theater Square, station, city center",
+      ro: "Universitatea Chernivtsi, Piața Teatrului, gara, centrul orașului",
     },
   },
   boryspil: {
@@ -578,6 +648,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model provides comfortable airport transfer",
       en: "how the model provides comfortable airport transfer",
+      ro: "cum asigură modelul un transfer confortabil de la aeroport",
     },
     routes: {
       uk: "Бориспіль ↔ Київ, Львів, Одеса, Дніпро, Харків",
@@ -585,6 +656,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Boryspil ↔ Kyiv, Lviv, Odesa, Dnipro, Kharkiv",
       en: "Boryspil ↔ Kyiv, Lviv, Odesa, Dnipro, Kharkiv",
+      ro: "Boryspil ↔ Kyiv, Lviv, Odesa, Dnipro, Kharkiv",
     },
     weekendTrip: {
       uk: "Київ, Переяслав, Канів, Умань (Софіївка)",
@@ -592,6 +664,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Kyiv, Pereiaslav, Kaniv, Uman (Sofiyivka)",
       en: "Kyiv, Pereiaslav, Kaniv, Uman (Sofiyivka)",
+      ro: "Kyiv, Pereiaslav, Kaniv, Uman (Sofiyivka)",
     },
     airport: {
       code: "KBP",
@@ -601,6 +674,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
         pl: "Boryspil International Airport",
         en: "Boryspil International Airport",
+        ro: "Aeroportul Internațional Boryspil",
       },
     },
     localAttractions: {
@@ -609,6 +683,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Terminal D, Terminal F, airport hotels, Boryspil center",
       en: "Terminal D, Terminal F, airport hotels, Boryspil center",
+      ro: "Terminalul D, Terminalul F, hoteluri la aeroport, centrul Boryspil",
     },
   },
   lutsk: {
@@ -618,6 +693,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Volyn roads and the route to Shatsk Lakes",
       en: "how the model handles Volyn roads and the route to Shatsk Lakes",
+      ro: "cum se comportă modelul pe drumurile din Volînia și pe ruta spre Lacurile Shatsk",
     },
     routes: {
       uk: "Луцьк ↔ Львів, Рівне, Шацькі озера, кордон з Польщею",
@@ -625,6 +701,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Lutsk ↔ Lviv, Rivne, Shatsk Lakes, Poland border",
       en: "Lutsk ↔ Lviv, Rivne, Shatsk Lakes, Poland border",
+      ro: "Lutsk ↔ Lviv, Rivne, Lacurile Shatsk, frontiera cu Polonia",
     },
     weekendTrip: {
       uk: "відпочинок на Шацьких озерах, Луцький замок, Володимир-Волинський",
@@ -632,6 +709,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Shatsk Lakes getaway, Lutsk Castle, Volodymyr-Volynskyi",
       en: "Shatsk Lakes getaway, Lutsk Castle, Volodymyr-Volynskyi",
+      ro: "escapadă la Lacurile Shatsk, Castelul Lutsk, Volodymyr-Volynskyi",
     },
     localAttractions: {
       uk: "центр, Луцький замок, вокзал, автовокзал",
@@ -639,6 +717,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Lutsk Castle, railway station, bus station",
       en: "city center, Lutsk Castle, railway station, bus station",
+      ro: "centrul orașului, Castelul Lutsk, gara feroviară, autogara",
     },
     customEditorContent: {
       uk: `
@@ -797,6 +876,45 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 <div class='editor_title'>Safety Tips for Driving in the Region</div>
 <div class='editor_text'>Lutsk and the region have their own traffic specifics. To ensure a pleasant trip, remember:<ol><li><span class='text-strong'>Keep Distance and Watch the Surface:</span> The city center has a lot of historic cobblestones, which become slippery when wet. Increase your braking distance. On regional highways, watch for signs — wild animals may cross the road (especially in forest zones near Shatsk).</li><li><span class='text-strong'>Maneuver Wisely:</span> Check blind spots before changing lanes. Lutsk is a compact city with active traffic on roundabouts; be attentive to right-of-way rules. Don't forget about cyclists and electric scooters.</li><li><span class='text-strong'>Alcohol and Driving Don't Mix:</span> REIZ has a zero-tolerance policy towards alcohol. Safety is every driver's responsibility. Driving under the influence is strictly prohibited by the contract and the law.</li></ol></div>
 `.trim(),
+      ro: `
+<div class='editor_text'>REIZ oferă servicii moderne de închiriere auto in Lutsk, prioritizând transparența și fiabilitatea vehiculelor. Înțelegem perfect condițiile locale de conducere: from the historic cobblestones of the Old Town to the highways leading to Rivne or Kovel.<br/>Livrăm mașini la the Railway Station, PortCity Mall, TSUM, sau la orice adresă specifică în limitele orașului.</div>
+
+<div class='editor_title'>Tarif orar: test drive înainte de călătorie</div>
+<div class='editor_text'>Închirierea orară este soluția perfectă pentru rezolvarea rapidă a comisioanelor în oraș sau testarea unui vehicul. Within 24 hours, you'll understand the car's character: how the suspension handles the cobblestones near Lubart's Castle, how easy it is to park near "Promin" or "Hostynets," and how the climate control performs. Este cel mai bun mod de a vă asigura că mașina vi se potrivește before heading out on a long trip to Shatsky Lakes (Svityaz) or the Tunnel of Love in Klevan. Puteți verifica capacitatea portbagajului și confortul scaunelor fără angajamente pe termen lung.</div>
+
+<div class='editor_title'>Închiriere auto săptămânală in Lutsk: Course to Shatsky Lakes</div>
+<div class='editor_text'>Închirierea săptămânală este cea mai populară alegere for vacations in the Volyn region. Este un tarif fix unic care oferă libertate totală de mișcare. Șapte zile este timpul optim pentru o vacanță completă: Lutsk → Shatsky Lakes (Svityaz, Pisochne) → Olyka → Dubno Castle. Nu depindeți de programul autobuzelor sau de disponibilitatea biletelor de tren. Propriul program vă permite să opriți oriunde: for coffee in the forest or a photo at the Tarakaniv Fort. Dacă planurile se schimbă, prelungirea închirierii durează doar câteva minute de la distanță.</div>
+
+<div class='editor_title'>Închiriere auto lunară</div>
+<div class='editor_text'>Tariful lunar este conceput pentru cei care apreciază stabilitatea: călătorii de afaceri, relocarea afacerii sau înlocuirea temporară a mașinii proprii aflată în reparații. Economii semnificative comparativ cu închirierea zilnică și control deplin asupra timpului dvs.. This is the choice for an active business rhythm between cities: Lutsk ↔ Rivne, Volodymyr, Kovel, Lviv. One car covers all domestic and work needs: school runs, meeting partners, commuting to the office. Dacă este necesar, putem schimba rapid mașina cu o altă clasă (e.g., an SUV for winter or an economy car for city driving).</div>
+
+<div class='editor_title'>Închiriere auto pe termen lung in Lutsk</div>
+<div class='editor_text'>O soluție pentru cei care planifică să rămână în oraș pentru o perioadă lungă (de la 3 luni la un an). Obțineți toate avantajele deținerii unei mașini fără riscurile întreținerii, asigurării și deprecierii. Bugetul dvs. este fix, iar REIZ se ocupă de toată întreținerea și schimbul sezonier de anvelope. This is especially convenient for companies and professionals whose work involves regular travel within the region (Volyn and Rivne oblasts).</div>
+
+<div class='editor_title'>Închiriere auto economică — de la $20/zi</div>
+<div class='editor_text'>Aveți nevoie de mobilitate fără costuri suplimentare? Clasa Economy REIZ oferă mașini fiabile și verificate cu un consum moderat de combustibil. Sunt ideale pentru Lutsk traficul urban, ușor de parcat în centru, and have suficient spațiu pentru pasageri și cumpărături. Plătiți doar pentru funcționalitate și siguranță.</div>
+
+<div class='editor_title'>Avantajele noastre in Lutsk</div>
+<div class='editor_text'><ul><li><span class='text-strong'>Site web care economisește timp:</span> Disponibilitate în timp real și filtre pentru nevoile dvs..</li><li><span class='text-strong'>Start rapid:</span> Documente minime, cheile în mâna dvs. în câteva minute.</li><li><span class='text-strong'>Livrare locală:</span> Vă întâlnim la gară, hotel sau birou.</li><li><span class='text-strong'>Preț transparent:</span> Vedeți totalul final înainte de plată, fără "surprize" la returnare.</li><li><span class='text-strong'>Flexibilitate:</span> Termeni de la o zi la un an cu opțiuni ușoare de prelungire.</li><li><span class='text-strong'>Siguranța flotei:</span> Mașinile sunt inspectate după fiecare client; anvelopele sunt întotdeauna potrivite sezonului.</li><li><span class='text-strong'>Suport 24/7:</span> Suntem online în limba dvs. preferată (UA/EN, etc.).</li><li><span class='text-strong'>Corespondența foto:</span> Rezervați o clasă și o configurație specifică, nu "ceva similar."</li><li><span class='text-strong'>Contract uman:</span> Termeni simpli și clari privind combustibilul și kilometrajul.</li></ul></div>
+
+<div class='editor_title'>Fără garanție / Garanție redusă</div>
+<div class='editor_text'>Facem închirierea mai accesibilă. Pentru multe modele, este disponibilă opțiunea de a închiria fără o garanție completă sau cu o reducere de 50% la garanție. Aceasta permite o mai bună planificare a bugetului de călătorie. Condițiile depind de experiența dvs. de conducere, clasa mașinii și termenul de închiriere — sistemul va afișa opțiunile disponibile la rezervare.</div>
+
+<div class='editor_title'>Servicii de șofer in Lutsk</div>
+<div class='editor_text'>Doriți să vă odihniți de la volan sau trebuie să întâmpinați oaspeți VIP? Comandați o mașină cu un șofer experimentat. Asigurăm un transfer la hotel, castel sau centru de afaceri cu confort maxim.</div>
+
+<div class='editor_title'>Livrare auto gratuită in Lutsk</div>
+<div class='editor_text'>Gratuit: Livrare în oraș (Center, 33rd district, 40th district, Vyshkov, etc.) este inclusă.<br/>În afara orașului: Livrare în suburbii (e.g., Hirka Polonka, Pidhaytsi) sau în alte orașe din regiune se taxează separat. Managerul va calcula prețul în funcție de kilometraj.<br/>Returnare: Within Lutsk — gratuit.<br/>Cum să comandați: Trebuie doar să specificați adresa și ora la rezervarea pe site.</div>
+
+<div class='editor_title'>Opțiuni suplimentare pentru confort</div>
+<div class='editor_text'><ul><li><span class='text-strong'>Navigație:</span> Apple CarPlay și Android Auto în majoritatea mașinilor — hărțile dvs. sunt întotdeauna pe ecran.</li><li><span class='text-strong'>Scaun pentru copii:</span> Siguranța celor mai tineri pasageri este prioritatea noastră (specificați vârsta copilului la rezervare).</li><li><span class='text-strong'>Trecere frontieră:</span> Posibilă cu acord prealabil (pregătim asigurare extinsă și documente).</li><li><span class='text-strong'>Kilometraj nelimitat:</span> Disponibil pentru cei care planifică rute lungi through Volyn (detalii la manager).</li></ul></div>
+
+<div class='editor_title'>Autoturisme în stare perfectă</div>
+<div class='editor_text'>Suntem fanatici în privința curățeniei și mecanicii. Volyn roads can vary, but your car must be flawless. Înainte de fiecare predare, verificăm: frânele, luminile, presiunea anvelopelor și nivelul lichidelor. Interiorul trece întotdeauna prin curățare chimică sau spălare minuțioasă. Vă urcați într-o mașină proaspătă, pregătită pentru orice distanță.</div>
+
+<div class='editor_title'>Sfaturi de siguranță pentru conducerea în regiune</div>
+<div class='editor_text'>Lutsk and the region have their own traffic specifics. To ensure a pleasant trip, remember:<ol><li><span class='text-strong'>Păstrați distanța și atenție la suprafață:</span> The city center has a lot of historic cobblestones, which become slippery when wet. Măriți distanța de frânare. On regional highways, watch for signs — wild animals may cross the road (especially in forest zones near Shatsk).</li><li><span class='text-strong'>Manevrați cu înțelepciune:</span> Verificați unghiurile moarte înainte de a schimba banda. Lutsk is a compact city with active traffic on roundabouts; fiți atenți la regulile de prioritate. Nu uitați de bicicliști și trotinete electrice.</li><li><span class='text-strong'>Alcoolul și conducerea sunt incompatibile:</span> REIZ are o politică de toleranță zero față de alcool. Siguranța este responsabilitatea fiecărui șofer. Conducerea sub influența alcoolului este strict interzisă prin contract și prin lege.</li></ol></div>
+`.trim(),
     },
   },
   rivne: {
@@ -806,6 +924,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Rivne region and Polissia roads",
       en: "how the model handles Rivne region and Polissia roads",
+      ro: "cum se comportă modelul pe drumurile din regiunea Rivne și Polissia",
     },
     routes: {
       uk: "Рівне ↔ Київ, Львів, Луцьк, Тернопіль",
@@ -813,6 +932,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Rivne ↔ Kyiv, Lviv, Lutsk, Ternopil",
       en: "Rivne ↔ Kyiv, Lviv, Lutsk, Ternopil",
+      ro: "Rivne ↔ Kyiv, Lviv, Lutsk, Ternopil",
     },
     weekendTrip: {
       uk: "Тунель кохання в Клевані, Тараканівський форт, Корець",
@@ -820,6 +940,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Tunnel of Love in Klevan, Tarakaniv Fort, Korets",
       en: "Tunnel of Love in Klevan, Tarakaniv Fort, Korets",
+      ro: "Tunelul Dragostei din Klevan, Fortul Tarakaniv, Korets",
     },
     localAttractions: {
       uk: "центр, вокзал, автовокзал, Рівненський замок",
@@ -827,6 +948,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, railway station, bus station, Rivne Castle",
       en: "city center, railway station, bus station, Rivne Castle",
+      ro: "centrul orașului, gara feroviară, autogara, Castelul Rivne",
     },
   },
   khmelnytskyi: {
@@ -836,6 +958,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Podillia roads and the route to Kamianets",
       en: "how the model handles Podillia roads and the route to Kamianets",
+      ro: "cum se comportă modelul pe drumurile din Podilia și pe ruta spre Kamianets",
     },
     routes: {
       uk: "Хмельницький ↔ Київ, Львів, Вінниця, Кам'янець-Подільський",
@@ -843,6 +966,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Khmelnytskyi ↔ Kyiv, Lviv, Vinnytsia, Kamianets-Podilskyi",
       en: "Khmelnytskyi ↔ Kyiv, Lviv, Vinnytsia, Kamianets-Podilskyi",
+      ro: "Khmelnytskyi ↔ Kyiv, Lviv, Vinnytsia, Kamianets-Podilskyi",
     },
     weekendTrip: {
       uk: "Кам'янець-Подільська фортеця, Бакота, Хотин",
@@ -850,6 +974,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Kamianets-Podilskyi Fortress, Bakota, Khotyn",
       en: "Kamianets-Podilskyi Fortress, Bakota, Khotyn",
+      ro: "Cetatea Kamianets-Podilskyi, Bakota, Khotyn",
     },
     localAttractions: {
       uk: "центр, вокзал, автовокзал, Подільський міст",
@@ -857,6 +982,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, railway station, bus station, Podilskyi Bridge",
       en: "city center, railway station, bus station, Podilskyi Bridge",
+      ro: "centrul orașului, gara feroviară, autogara, Podul Podilskyi",
     },
   },
   "kamianets-podilskyi": {
@@ -866,6 +992,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles canyon serpentines and historic streets",
       en: "how the model handles canyon serpentines and historic streets",
+      ro: "cum se comportă modelul pe serpentinele canionului și pe străzile istorice",
     },
     routes: {
       uk: "Кам'янець-Подільський ↔ Хотин, Бакота, Хмельницький, Чернівці",
@@ -873,6 +1000,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Kamianets-Podilskyi ↔ Khotyn, Bakota, Khmelnytskyi, Chernivtsi",
       en: "Kamianets-Podilskyi ↔ Khotyn, Bakota, Khmelnytskyi, Chernivtsi",
+      ro: "Kamianets-Podilskyi ↔ Khotyn, Bakota, Khmelnytskyi, Chernivtsi",
     },
     weekendTrip: {
       uk: "Хотинська фортеця, Бакота, водоспад Бурбун",
@@ -880,6 +1008,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Khotyn Fortress, Bakota, Burbun Waterfall",
       en: "Khotyn Fortress, Bakota, Burbun Waterfall",
+      ro: "Cetatea Khotyn, Bakota, Cascada Burbun",
     },
     localAttractions: {
       uk: "фортеця, Старе місто, Турецький міст, каньйон",
@@ -887,6 +1016,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "fortress, Old Town, Turkish Bridge, canyon",
       en: "fortress, Old Town, Turkish Bridge, canyon",
+      ro: "cetatea, Orașul Vechi, Podul Turcesc, canionul",
     },
   },
   drohobych: {
@@ -896,6 +1026,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Prykarpattia roads",
       en: "how the model handles Prykarpattia roads",
+      ro: "cum se comportă modelul pe drumurile din Prykarpattia",
     },
     routes: {
       uk: "Дрогобич ↔ Львів, Трускавець, Борислав, Стрий",
@@ -903,6 +1034,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Drohobych ↔ Lviv, Truskavets, Boryslav, Stryi",
       en: "Drohobych ↔ Lviv, Truskavets, Boryslav, Stryi",
+      ro: "Drohobych ↔ Lviv, Truskavets, Boryslav, Stryi",
     },
     weekendTrip: {
       uk: "Трускавець, Східниця, дерев'яні церкви ЮНЕСКО",
@@ -910,6 +1042,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Truskavets, Skhidnytsia, UNESCO wooden churches",
       en: "Truskavets, Skhidnytsia, UNESCO wooden churches",
+      ro: "Truskavets, Skhidnytsia, biserici de lemn UNESCO",
     },
     localAttractions: {
       uk: "центр, вокзал, церква св. Юра",
@@ -917,6 +1050,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, railway station, St. George's Church",
       en: "city center, railway station, St. George's Church",
+      ro: 'centrul orașului, gara feroviară, Biserica Sf. Gheorghe',
     },
   },
   stryi: {
@@ -926,6 +1060,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles the highway to Carpathians",
       en: "how the model handles the highway to Carpathians",
+      ro: "cum se comportă modelul pe autostrada spre Carpați",
     },
     routes: {
       uk: "Стрий ↔ Львів, Моршин, Сколе, Буковель",
@@ -933,6 +1068,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Stryi ↔ Lviv, Morshyn, Skole, Bukovel",
       en: "Stryi ↔ Lviv, Morshyn, Skole, Bukovel",
+      ro: "Stryi ↔ Lviv, Morshyn, Skole, Bukovel",
     },
     weekendTrip: {
       uk: "Моршин, Сколівські Бескиди, озеро Синевир",
@@ -940,6 +1076,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Morshyn, Skole Beskids, Lake Synevyr",
       en: "Morshyn, Skole Beskids, Lake Synevyr",
+      ro: "Morshyn, Beskizii Skole, Lacul Synevyr",
     },
     localAttractions: {
       uk: "центр, вокзал, автовокзал",
@@ -947,6 +1084,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, railway station, bus station",
       en: "city center, railway station, bus station",
+      ro: "centrul orașului, gara feroviară, autogara",
     },
   },
   sambir: {
@@ -956,6 +1094,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles roads near the border",
       en: "how the model handles roads near the border",
+      ro: "cum se comportă modelul pe drumurile de lângă frontieră",
     },
     routes: {
       uk: "Самбір ↔ Львів, кордон з Польщею, Дрогобич",
@@ -963,6 +1102,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Sambir ↔ Lviv, Poland border, Drohobych",
       en: "Sambir ↔ Lviv, Poland border, Drohobych",
+      ro: "Sambir ↔ Lviv, frontiera cu Polonia, Drohobych",
     },
     weekendTrip: {
       uk: "поїздка до Львова, Перемишль (Польща)",
@@ -970,6 +1110,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "trip to Lviv, Przemysl (Poland)",
       en: "trip to Lviv, Przemysl (Poland)",
+      ro: "excursie la Lviv, Przemysl (Polonia)",
     },
     localAttractions: {
       uk: "центр, вокзал, ратуша",
@@ -977,6 +1118,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, railway station, town hall",
       en: "city center, railway station, town hall",
+      ro: "centrul orașului, gara feroviară, primăria",
     },
   },
   chervonohrad: {
@@ -986,6 +1128,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Sokal region roads",
       en: "how the model handles Sokal region roads",
+      ro: "cum se comportă modelul pe drumurile din regiunea Sokal",
     },
     routes: {
       uk: "Червоноград ↔ Львів, Рава-Руська, кордон",
@@ -993,6 +1136,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Chervonohrad ↔ Lviv, Rava-Ruska, border",
       en: "Chervonohrad ↔ Lviv, Rava-Ruska, border",
+      ro: "Chervonohrad ↔ Lviv, Rava-Ruska, frontieră",
     },
     weekendTrip: {
       uk: "Жовква, Львів, Белз",
@@ -1000,6 +1144,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Zhovkva, Lviv, Belz",
       en: "Zhovkva, Lviv, Belz",
+      ro: "Zhovkva, Lviv, Belz",
     },
     localAttractions: {
       uk: "центр міста",
@@ -1007,6 +1152,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center",
       en: "city center",
+      ro: "centrul orașului",
     },
   },
   boryslav: {
@@ -1016,6 +1162,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles mountainous terrain",
       en: "how the model handles mountainous terrain",
+      ro: "cum se comportă modelul pe teren montan",
     },
     routes: {
       uk: "Борислав ↔ Трускавець, Дрогобич, Східниця",
@@ -1023,6 +1170,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Boryslav ↔ Truskavets, Drohobych, Skhidnytsia",
       en: "Boryslav ↔ Truskavets, Drohobych, Skhidnytsia",
+      ro: "Boryslav ↔ Truskavets, Drohobych, Skhidnytsia",
     },
     weekendTrip: {
       uk: "Трускавець, Східниця, курорти Прикарпаття",
@@ -1030,6 +1178,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Truskavets, Skhidnytsia, Prykarpattia resorts",
       en: "Truskavets, Skhidnytsia, Prykarpattia resorts",
+      ro: "Truskavets, Skhidnytsia, stațiuni din Prykarpattia",
     },
     localAttractions: {
       uk: "центр, музей нафтовидобутку",
@@ -1037,6 +1186,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, oil extraction museum",
       en: "city center, oil extraction museum",
+      ro: "centrul orașului, muzeul extracției de petrol",
     },
   },
   zhovkva: {
@@ -1046,6 +1196,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles historic streets",
       en: "how the model handles historic streets",
+      ro: "cum se comportă modelul pe străzile istorice",
     },
     routes: {
       uk: "Жовква ↔ Львів, Рава-Руська, Белз",
@@ -1053,6 +1204,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Zhovkva ↔ Lviv, Rava-Ruska, Belz",
       en: "Zhovkva ↔ Lviv, Rava-Ruska, Belz",
+      ro: "Zhovkva ↔ Lviv, Rava-Ruska, Belz",
     },
     weekendTrip: {
       uk: "замки Львівщини, Креховський монастир",
@@ -1060,6 +1212,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Lviv region castles, Krekhiv Monastery",
       en: "Lviv region castles, Krekhiv Monastery",
+      ro: "castele din regiunea Lviv, Mânăstirea Krekhiv",
     },
     localAttractions: {
       uk: "замок, ратуша, Глинська брама",
@@ -1067,6 +1220,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "castle, town hall, Glynska Gate",
       en: "castle, town hall, Glynska Gate",
+      ro: "castelul, primăria, Poarta Glynska",
     },
   },
   yaremche: {
@@ -1076,6 +1230,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Carpathian serpentines and climbs",
       en: "how the model handles Carpathian serpentines and climbs",
+      ro: "cum se comportă modelul pe serpentinele și urcușurile carpatice",
     },
     routes: {
       uk: "Яремче ↔ Буковель, Ворохта, Івано-Франківськ",
@@ -1083,6 +1238,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Yaremche ↔ Bukovel, Vorokhta, Ivano-Frankivsk",
       en: "Yaremche ↔ Bukovel, Vorokhta, Ivano-Frankivsk",
+      ro: "Yaremche ↔ Bukovel, Vorokhta, Ivano-Frankivsk",
     },
     weekendTrip: {
       uk: "Говерла, Яблуницький перевал, водоспад Пробій",
@@ -1090,6 +1246,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Hoverla, Yablunytsia Pass, Probiy Waterfall",
       en: "Hoverla, Yablunytsia Pass, Probiy Waterfall",
+      ro: "Hoverla, Pasul Yablunytsia, Cascada Probiy",
     },
     localAttractions: {
       uk: "центр, водоспад Пробій, сувенірний ринок",
@@ -1097,6 +1254,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Probiy Waterfall, souvenir market",
       en: "city center, Probiy Waterfall, souvenir market",
+      ro: "centrul orașului, Cascada Probiy, piața de suveniruri",
     },
   },
   kolomyia: {
@@ -1106,6 +1264,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles the highway to the Carpathians and Chernivtsi",
       en: "how the model handles the highway to the Carpathians and Chernivtsi",
+      ro: "cum se comportă modelul pe autostrada spre Carpați și Chernivtsi",
     },
     routes: {
       uk: "Коломия ↔ Косів, Яремче, Чернівці",
@@ -1113,6 +1272,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Kolomyia ↔ Kosiv, Yaremche, Chernivtsi",
       en: "Kolomyia ↔ Kosiv, Yaremche, Chernivtsi",
+      ro: "Kolomyia ↔ Kosiv, Yaremche, Chernivtsi",
     },
     weekendTrip: {
       uk: "Косів, Шешори, Яремче",
@@ -1120,6 +1280,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Kosiv, Sheshory, Yaremche",
       en: "Kosiv, Sheshory, Yaremche",
+      ro: "Kosiv, Sheshory, Yaremche",
     },
     localAttractions: {
       uk: "центр, музей писанки, ратуша",
@@ -1127,6 +1288,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Pysanka Museum, town hall",
       en: "city center, Pysanka Museum, town hall",
+      ro: "centrul orașului, Muzeul Pysanka, primăria",
     },
   },
   kalush: {
@@ -1136,6 +1298,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles city traffic and the road to Dolyna",
       en: "how the model handles city traffic and the road to Dolyna",
+      ro: "cum se comportă modelul în traficul urban și pe drumul spre Dolyna",
     },
     routes: {
       uk: "Калуш ↔ Івано-Франківськ, Долина, Галич",
@@ -1143,6 +1306,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Kalush ↔ Ivano-Frankivsk, Dolyna, Halych",
       en: "Kalush ↔ Ivano-Frankivsk, Dolyna, Halych",
+      ro: "Kalush ↔ Ivano-Frankivsk, Dolyna, Halych",
     },
     weekendTrip: {
       uk: "Галич, Долина, Скелі Довбуша",
@@ -1150,6 +1314,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Halych, Dolyna, Dovbush Rocks",
       en: "Halych, Dolyna, Dovbush Rocks",
+      ro: "Halych, Dolyna, Stâncile Dovbush",
     },
     localAttractions: {
       uk: "центр, парк, соляна криниця",
@@ -1157,6 +1322,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, park, salt spring",
       en: "city center, park, salt spring",
+      ro: "centrul orașului, parcul, izvorul sărat",
     },
     customEditorContent: {
       uk: `
@@ -1246,6 +1412,33 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 <div class='editor_title'>Cars in Perfect Condition</div>
 <div class='editor_text'>Before every rental, mechanics check the suspension, brakes, and fluid levels. We understand that the road to Dolyna or Bolekhiv can vary, so your car must be 100% reliable.</div>
 `.trim(),
+      ro: `
+<div class='editor_text'>REIZ oferă servicii de închiriere auto in Kalush focused on mobility and technical reliability. We know that Kalush is both an industrial hub and the gateway to the mountains. Our cars are ready for both city driving along Lesya Ukrainka Avenue and trips on the H-10 highway.<br/>Livrăm mașini la the Ice Arena, the Culture Park, the Bus Station, or directly to your address.</div>
+
+<div class='editor_title'>Hourly Rate: Test Drive Before the Mountains</div>
+<div class='editor_text'>This is the perfect way to test a car before a trip towards Dolyna or Rozhnyativ. Within 24 hours, you will understand if the seating is comfortable for long distances, how the car handles the Kalush bypass road, and if the trunk is large enough for your hiking gear. Clients often rent a car for a day to visit relatives in nearby villages or to test a model before buying.</div>
+
+<div class='editor_title'>Weekly Rental: Weekend at Dovbush Rocks</div>
+<div class='editor_text'>The weekly tariff is your pass to the region's most beautiful spots without relying on buses. Weekend route: Kalush → Hoshiv Monastery → Dovbush Rocks (Bubnyshche) → Carpathian Tram in Vyhoda. You decide when to leave and where to stop for lunch. In 7 days, you can manage all your business in the city and enjoy a quality rest in nature.</div>
+
+<div class='editor_title'>Monthly Rental: Business Without Borders</div>
+<div class='editor_text'>The optimal solution for those working between two cities. Kalush is only 30 km from Ivano-Frankivsk, and a rental car turns this distance into a comfortable 30-minute drive. This format suits business trips to large enterprises (like "Karpatnaftokhim") or as a temporary replacement for your own transport. One payment covers everything, REIZ provides full technical support, and you can swap a sedan for a crossover if winter trips to the mountains are planned.</div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>If your project in Kalush lasts several months or you have relocated temporarily, long-term rental is more cost-effective than taxis. You get a personal vehicle without depreciation and insurance costs. We take care of all maintenance (oil changes, seasonal tires).</div>
+
+<div class='editor_title'>Budget Rental — From $20/day</div>
+<div class='editor_text'>For trips around the city and to neighboring district centers (Halych, Broshniv-Osada), we offer economical cars. Minimal fuel consumption, compact size for parking near the market or in the center, yet fully safe and reliable.</div>
+
+<div class='editor_title'>REIZ Advantages in Kalush</div>
+<div class='editor_text'><ul><li><span class='text-strong'>Local Expertise:</span> We know the region's roads and will recommend the best car for your route.</li><li><span class='text-strong'>Speed:</span> Contract signing takes up to 15 minutes.</li><li><span class='text-strong'>No Hidden Fees:</span> The price you see on the website is final.</li><li><span class='text-strong'>Cleanliness:</span> The car is delivered after washing and interior dry cleaning.</li><li><span class='text-strong'>Support:</span> We are available 24/7 if you need help on the road.</li></ul></div>
+
+<div class='editor_title'>Livrare gratuită in Kalush</div>
+<div class='editor_text'>In the City: Delivery within Kalush limits (Center, Khotin, Zahirya) is free.<br/>Suburbs: Delivery to Piylo, Kopanky, or Verkhnya is calculated individually.<br/>Returnare: Within the city limits — free.</div>
+
+<div class='editor_title'>Autoturisme în stare perfectă</div>
+<div class='editor_text'>Before every rental, mechanics check the suspension, brakes, and fluid levels. We understand that the road to Dolyna or Bolekhiv can vary, so your car must be 100% reliable.</div>
+`.trim(),
       ru: `
 <div class='editor_text'>REIZ предлагает прокат автомобилей в Калуше с акцентом на мобильность и техническую надежность. Мы знаем, что Калуш — это и промышленный хаб, и ворота в горы. Наши авто готовы как к городским поездкам по проспекту Леси Украинки, так и к выездам на трассу Н-10.<br/>Мы подаем авто к ледовой арене, парку культуры, автовокзалу или по вашему адресу.</div>
 
@@ -1282,6 +1475,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles mountain climbs and the road to Bukovel",
       en: "how the model handles mountain climbs and the road to Bukovel",
+      ro: "how the model handles mountain climbs and the road to Bukovel",
     },
     routes: {
       uk: "Надвірна ↔ Буковель, Яремче, Івано-Франківськ",
@@ -1289,6 +1483,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Nadvirna ↔ Bukovel, Yaremche, Ivano-Frankivsk",
       en: "Nadvirna ↔ Bukovel, Yaremche, Ivano-Frankivsk",
+      ro: "Nadvirna ↔ Bukovel, Yaremche, Ivano-Frankivsk",
     },
     weekendTrip: {
       uk: "Ворохта, Яблуницький перевал, Буковель",
@@ -1296,6 +1491,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Vorokhta, Yablunytsia Pass, Bukovel",
       en: "Vorokhta, Yablunytsia Pass, Bukovel",
+      ro: "Vorokhta, Yablunytsia Pass, Bukovel",
     },
     localAttractions: {
       uk: "центр, Надвірнянський замок, автовокзал",
@@ -1303,6 +1499,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Nadvirna Castle, bus station",
       en: "city center, Nadvirna Castle, bus station",
+      ro: "city center, Nadvirna Castle, bus station",
     },
     customEditorContent: {
       uk: `
@@ -1413,6 +1610,42 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 <div class='editor_title'>Driving Specifics: Tips for the H-09 Highway</div>
 <div class='editor_text'>Leaving Nadvirna towards the mountains, remember:<ol><li><span class='text-strong'>Serpentines and Blind Turns:</span> The road to Bukovel has many blind corners. Do not overtake if you do not see the oncoming lane 100%.</li><li><span class='text-strong'>Engine Braking:</span> On long descents (e.g., Yablunytsia Pass), use engine braking to avoid overheating the brake pads.</li><li><span class='text-strong'>Weather Changes Instantly:</span> It might be sunny in Nadvirna, but snowing or raining 20 km away in Tatariv. Be ready for changing road surface conditions.</li></ol></div>
 `.trim(),
+      ro: `
+<div class='editor_text'>REIZ oferă servicii de închiriere auto in Nadvirna tailored for those who value freedom of movement. Nadvirna is a strategic point: the best tourist routes to Yaremche and Bukovel start here, and a strong industrial sector is concentrated in the city.<br/>Livrăm mașini la the Pniv Castle Ruins, the Bus Station, Franko City Park, or any address within the city.</div>
+
+<div class='editor_title'>Hourly Rate: Mountain Test</div>
+<div class='editor_text'>Hourly rental is the perfect way to test a car before a serious climb. One day is enough to understand: does the engine handle the long ascents near Delyatyn, how do the brakes work on descents, and is the interior comfortable for you. It's a "test drive" in real conditions before booking a car for a long vacation in the mountains.</div>
+
+<div class='editor_title'>Weekly Rental: Freedom from Schedules</div>
+<div class='editor_text'>The weekly tariff in Nadvirna is the choice of tourists who do not want to depend on crowded buses. Your route: Nadvirna → Yaremche (Probiy Waterfall) → Mykulychyn → Tatariv → Bukovel. You stop where the view is beautiful, not where the bus stops. In 7 days, you will have time to visit all locations, including the Manyava Waterfall, which is difficult to reach without a private car.</div>
+
+<div class='editor_title'>Monthly Rental: For Business and Life</div>
+<div class='editor_text'>Nadvirna is an industrial city. Monthly rental is a profitable solution for oil and gas industry specialists, visiting engineers, or managers. Fixed payment, full technical support, and the possibility of car replacement. If you plan frequent trips on the Nadvirna ↔ Ivano-Frankivsk route, a rental car will save you hours daily.</div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>For those staying in the city for a season or longer. You get a car at your disposal without the need to buy, register, and insure it. The REIZ team handles all maintenance, oil changes, and seasonal tire swaps. This is especially convenient in winter when vehicle requirements in this region are higher.</div>
+
+<div class='editor_title'>Budget Rental — From $20/day</div>
+<div class='editor_text'>Need to run errands in the city? Our economy class features maneuverable and fuel-efficient cars. Sunt ideale pentru the narrow streets of Nadvirna and trips to neighboring villages (Lanchyn, Pniv) without extra fuel costs.</div>
+
+<div class='editor_title'>Why Choose REIZ in Nadvirna</div>
+<div class='editor_text'><ul><li><span class='text-strong'>Mountain Ready:</span> Our cars are prepared for elevation changes — checked brakes, powerful lights, reliable tires.</li><li><span class='text-strong'>Instant Delivery:</span> We will meet you at the station or near the "Smaragd" hotel.</li><li><span class='text-strong'>Transparency:</span> No hidden fees — the price is fixed in the contract.</li><li><span class='text-strong'>Suport 24/7:</span> If the connection is lost in the mountains or force majeure happens, we will find a way to help.</li></ul></div>
+
+<div class='editor_title'>Fără garanție / Garanție redusă</div>
+<div class='editor_text'>We trust our clients. For many models, a reduced deposit option (up to 50%) or no deposit at all is available. The system will automatically suggest available options when booking.</div>
+
+<div class='editor_title'>Servicii de șofer</div>
+<div class='editor_text'>Not confident in your skills driving on serpentines? Order a car with a professional driver who knows every turn on the H-09 highway.</div>
+
+<div class='editor_title'>Livrare gratuită within the City</div>
+<div class='editor_text'>Nadvirna: Delivery and return within the city limits are free.<br/>Region: Delivery to Yaremche, Bohorodchany, or remote villages is calculated separately.</div>
+
+<div class='editor_title'>Autoturisme în stare perfectă</div>
+<div class='editor_text'>Mountains do not forgive malfunctions. Therefore, in Nadvirna, we pay double attention to technical condition:<ul><li>Brake system check after each client.</li><li>Engine cooling system control (crucial for climbs).</li><li>Clean interior without foreign odors.</li></ul></div>
+
+<div class='editor_title'>Driving Specifics: Tips for the H-09 Highway</div>
+<div class='editor_text'>Leaving Nadvirna towards the mountains, remember:<ol><li><span class='text-strong'>Serpentines and Blind Turns:</span> The road to Bukovel has many blind corners. Do not overtake if you do not see the oncoming lane 100%.</li><li><span class='text-strong'>Engine Braking:</span> On long descents (e.g., Yablunytsia Pass), use engine braking to avoid overheating the brake pads.</li><li><span class='text-strong'>Weather Changes Instantly:</span> It might be sunny in Nadvirna, but snowing or raining 20 km away in Tatariv. Be ready for changing road surface conditions.</li></ol></div>
+`.trim(),
       ru: `
 <div class='editor_text'>REIZ — это автопрокат в Надворной, созданный для тех, кто ценит свободу движения. Надворная — это стратегическая точка: отсюда начинаются лучшие туристические маршруты на Яремче и Буковель, и именно здесь сосредоточен мощный бизнес-сектор.<br/>Мы подаем авто к Руинам Пневского замка, автовокзалу, городскому парку им. Франко или по любому адресу в городе.</div>
 
@@ -1458,6 +1691,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Hutsul roads",
       en: "how the model handles Hutsul roads",
+      ro: "how the model handles Hutsul roads",
     },
     routes: {
       uk: "Косів ↔ Коломия, Верховина, Яремче",
@@ -1465,6 +1699,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Kosiv ↔ Kolomyia, Verkhovyna, Yaremche",
       en: "Kosiv ↔ Kolomyia, Verkhovyna, Yaremche",
+      ro: "Kosiv ↔ Kolomyia, Verkhovyna, Yaremche",
     },
     weekendTrip: {
       uk: "Шешори, Космач, Яворів",
@@ -1472,6 +1707,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Sheshory, Kosmach, Yavoriv",
       en: "Sheshory, Kosmach, Yavoriv",
+      ro: "Sheshory, Kosmach, Yavoriv",
     },
     localAttractions: {
       uk: "центр, Косівський базар, музей народного мистецтва",
@@ -1479,6 +1715,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Kosiv market, folk art museum",
       en: "city center, Kosiv market, folk art museum",
+      ro: "city center, Kosiv market, folk art museum",
     },
     customEditorContent: {
       uk: `
@@ -1589,6 +1826,42 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 <div class='editor_title'>Driving Specifics: Tips for Kosiv Region</div>
 <div class='editor_text'><ol><li><span class='text-strong'>Attention: Market Day:</span> On Saturday mornings, traffic in Kosiv center and near the Smodna market is very heavy. Plan your departure in advance or choose bypass routes.</li><li><span class='text-strong'>Mountain Turns:</span> The road to Verkhovyna via Bukovets Pass is a series of sharp turns. Do not speed and stay in your lane.</li><li><span class='text-strong'>Pedestrians and Cyclists:</span> In villages of the Kosiv district (especially Kosmach, Rozhniv), shoulders are often missing, so people walk on the edge of the roadway. Be especially careful at night.</li></ol></div>
 `.trim(),
+      ro: `
+<div class='editor_text'>REIZ is your reliable partner for traveling in the Precarpathian region. Kosiv is a city of artisans where roads can lead to perfect asphalt towards Kolomyia or gravel climbs into high mountain villages. We will select a car that can handle any route.<br/>Livrăm mașini la the Bus Station, the Museum of Hutsul Folk Art, the "Baika" tourist complex, or directly to your address.</div>
+
+<div class='editor_title'>Tarif orar: test înainte de munți</div>
+<div class='editor_text'>Decided to drive to Yavoriv for handmade blankets but not sure if a sedan can handle it? Rent a car hourly. In 24 hours, you can check: how the suspension reacts to roads near Smodna, how easy it is to maneuver through narrow streets on market day, and if there is enough power for the Bukovets Pass climb. It is the best way to verify your choice before a long trip.</div>
+
+<div class='editor_title'>Weekly Rental: Ethno-Tour Without Limits</div>
+<div class='editor_text'>Weekly rental is the ideal format for exploring the authentic Carpathians. Route for inspiration: Kosiv → Silver Waterfalls (Sheshory) → Pistyn (St. Nicholas Estate) → Kryvorivnia. You don't depend on bus schedules, which are rare in remote villages. Your own schedule allows you to watch the sunset on the Sokilsky Ridge and return to your hotel in comfort.</div>
+
+<div class='editor_title'>Monthly Rental: Life in the Mountain Rhythm</div>
+<div class='editor_text'>If you chose Kosiv for relocation or a long-term project, monthly rental is your independence. This format suits those living in cozy Kosiv while traveling to Kolomyia or Ivano-Frankivsk for business. You get one car for all needs: from grocery shopping to meeting partners. REIZ takes care of all technical maintenance.</div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>A solution for locals and businesses. You use a new, reliable car without the need to buy it and lose money on depreciation. We ensure tires always match the season (crucial for Kosiv winters) and insurance is up to date.</div>
+
+<div class='editor_title'>Budget Rental — From $20/day</div>
+<div class='editor_text'>Need a car for errands within the city and trips on good roads to Kuty or Kolomyia? REIZ Economy Class offers maneuverable cars that are easy to park near the souvenir market even on Saturday mornings, with pleasantly low fuel consumption.</div>
+
+<div class='editor_title'>Why Choose REIZ in Kosiv</div>
+<div class='editor_text'><ul><li><span class='text-strong'>Local Knowledge:</span> We will advise which car is better for a trip to Kosmach and which for the highway to Chernivtsi.</li><li><span class='text-strong'>Speed:</span> Minimum time from call to receiving keys.</li><li><span class='text-strong'>Honesty:</span> You pay only the amount specified in the contract. No hidden "mountain fees."</li><li><span class='text-strong'>Condition:</span> Our cars are always clean and technically sound, ready for photoshoots against the mountain backdrop.</li></ul></div>
+
+<div class='editor_title'>Fără garanție / Garanție redusă</div>
+<div class='editor_text'>We make our service accessible. For regular clients and certain car categories, rental without a deposit or with a discount on the deposit of up to 50% is available. Check availability when booking on the site.</div>
+
+<div class='editor_title'>Servicii de șofer</div>
+<div class='editor_text'>Want to enjoy the views instead of watching the road? Order a transfer or rental with a driver. This is especially relevant after tasting local liqueurs or for meeting guests.</div>
+
+<div class='editor_title'>Livrare gratuită in Kosiv</div>
+<div class='editor_text'>In the City: Delivery and return within Kosiv (Center, Moskalivka, Monastyrske) are free.<br/>Surroundings: Delivery to Staryi Kosiv, Verbovets, or Smodna is possible for an extra fee (calculated by the manager).</div>
+
+<div class='editor_title'>Autoturisme în stare perfectă</div>
+<div class='editor_text'>Mountain roads demand reliability. Before every rental, we check:<ul><li>Steering condition (important for serpentines).</li><li>Brake and handbrake performance.</li><li>Lighting functionality for safe evening driving.</li></ul></div>
+
+<div class='editor_title'>Driving Specifics: Tips for Kosiv Region</div>
+<div class='editor_text'><ol><li><span class='text-strong'>Attention: Market Day:</span> On Saturday mornings, traffic in Kosiv center and near the Smodna market is very heavy. Plan your departure in advance or choose bypass routes.</li><li><span class='text-strong'>Mountain Turns:</span> The road to Verkhovyna via Bukovets Pass is a series of sharp turns. Do not speed and stay in your lane.</li><li><span class='text-strong'>Pedestrians and Cyclists:</span> In villages of the Kosiv district (especially Kosmach, Rozhniv), shoulders are often missing, so people walk on the edge of the roadway. Be especially careful at night.</li></ol></div>
+`.trim(),
       ru: `
 <div class='editor_text'>REIZ — это ваш надежный партнер для путешествий по Прикарпатью. Косов — город мастеров, где дороги могут вести как к идеальному асфальту на Коломыю, так и к гравийным подъемам в высокогорные села. Мы подберем авто, которое справится с любым маршрутом.<br/>Мы подаем авто к автостанции, Музею народного искусства Гуцульщины, туристическому комплексу "Байка" или по вашему адресу.</div>
 
@@ -1634,6 +1907,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Podillia roads",
       en: "how the model handles Podillia roads",
+      ro: "how the model handles Podillia roads",
     },
     routes: {
       uk: "Чортків ↔ Тернопіль, Бучач, Заліщики",
@@ -1641,6 +1915,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Chortkiv ↔ Ternopil, Buchach, Zalishchyky",
       en: "Chortkiv ↔ Ternopil, Buchach, Zalishchyky",
+      ro: "Chortkiv ↔ Ternopil, Buchach, Zalishchyky",
     },
     weekendTrip: {
       uk: "Дністровський каньйон, Заліщики, Бучач",
@@ -1648,6 +1923,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Dniester Canyon, Zalishchyky, Buchach",
       en: "Dniester Canyon, Zalishchyky, Buchach",
+      ro: "Dniester Canyon, Zalishchyky, Buchach",
     },
     localAttractions: {
       uk: "центр, замок, автовокзал",
@@ -1655,6 +1931,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, castle, bus station",
       en: "city center, castle, bus station",
+      ro: "city center, castle, bus station",
     },
     customEditorContent: {
       uk: `
@@ -1765,6 +2042,42 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 <div class='editor_title'>Driving Specifics: Tips for Chortkiv</div>
 <div class='editor_text'><ol><li><span class='text-strong'>Historic Cobblestones:</span> The city center is paved with old stones. In the rain, they become as slippery as ice. Increase your distance and brake gently.</li><li><span class='text-strong'>Bridges over Seret:</span> There are narrow spots on the bridges in the city. Pay attention to priority signs for oncoming traffic.</li><li><span class='text-strong'>Agricultural Machinery:</span> During the harvest season, there is a lot of large machinery on the roads around Chortkiv. Be careful when overtaking on the M-19 highway.</li></ol></div>
 `.trim(),
+      ro: `
+<div class='editor_text'>REIZ oferă servicii de închiriere auto in Chortkiv, combining European service standards with an understanding of local roads. Chortkiv is not just a historical center but an ideal base for trips towards Ternopil, Chernivtsi, or the Dniester Canyon.<br/>Livrăm mașini la the Golski Castle, the City Hall (Ratusha), the Railway Station, or any address in the city.</div>
+
+<div class='editor_title'>Hourly Rate: Cobblestone Test</div>
+<div class='editor_text'>Hourly rental is the best way to test a car in the real conditions of the old town. One day is enough to feel how the suspension handles the historic cobblestones near the Dominican Church, how easy it is to park near the market, and how the car behaves on hills. It is a great option for urgent errands or picking up guests from the train.</div>
+
+<div class='editor_title'>Weekly Rental: Dniester Canyon Tour</div>
+<div class='editor_text'>Chortkiv is the gateway to the region's natural wonders. A weekly tariff lets you see everything without rushing. Recommended route: Chortkiv → Dzhurynskyi Waterfall (Nyrkiv) → Zalishchyky (Panorama) → Mlynky Cave. A private car allows you to get as close as possible to waterfalls and campsites where public transport does not go.</div>
+
+<div class='editor_title'>Monthly Rental: Business Mobility</div>
+<div class='editor_text'>For those working between cities. Chortkiv is located at a crossroads of important routes. A rental car turns the Chortkiv ↔ Ternopil route into a comfortable 1-hour drive. This is a profitable solution for agribusiness, sales representatives, and relocated entrepreneurs. One monthly payment covers logistics, insurance, and service.</div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>If you plan to stay in Chortkiv for a season or longer, long-term rental is an alternative to buying a car. You get a fresh vehicle, and we take care of oil changes, filters, and seasonal tires. Your budget remains fixed and predictable.</div>
+
+<div class='editor_title'>Budget Rental — From $20/day</div>
+<div class='editor_text'>Need an economical car for the city? Our economy class features compact cars with minimal fuel consumption. Perfect for the narrow streets of the center and short trips to nearby Kopychyntsi or Buchach.</div>
+
+<div class='editor_title'>REIZ Advantages in Chortkiv</div>
+<div class='editor_text'><ul><li><span class='text-strong'>Livrare locală:</span> Free delivery within the city limits (Center, Kadub, Syniakovo).</li><li><span class='text-strong'>Honesty:</span> You get exactly the car class you booked. No "surprises" with downgrades.</li><li><span class='text-strong'>Support:</span> We are online 24/7. If you have a flat tire near Zalishchyky, we will guide you to the nearest service or help organizationally.</li><li><span class='text-strong'>No Limits:</span> Unlimited mileage tariffs are available for long trips.</li></ul></div>
+
+<div class='editor_title'>Fără garanție / Garanție redusă</div>
+<div class='editor_text'>We build relationships on trust. Check when booking — a reduced deposit option (up to 50%) or no deposit (for returning clients) is available for many cars.</div>
+
+<div class='editor_title'>Servicii de șofer</div>
+<div class='editor_text'>Need to meet a delegation or celebrate an event? Order a car with a driver. We ensure a comfortable transfer to the hotel or restaurant.</div>
+
+<div class='editor_title'>Car Delivery</div>
+<div class='editor_text'>In the City: Delivery and return within Chortkiv are free.<br/>Region: Delivery to Husiatyn, Borshchiv, or Buchach is possible upon individual calculation.</div>
+
+<div class='editor_title'>Autoturisme în stare perfectă</div>
+<div class='editor_text'>We know the road conditions in the area, so our mechanics thoroughly check the suspension (bushings, shock absorbers) after every return. You get into a car you can trust.</div>
+
+<div class='editor_title'>Driving Specifics: Tips for Chortkiv</div>
+<div class='editor_text'><ol><li><span class='text-strong'>Historic Cobblestones:</span> The city center is paved with old stones. In the rain, they become as slippery as ice. Increase your distance and brake gently.</li><li><span class='text-strong'>Bridges over Seret:</span> There are narrow spots on the bridges in the city. Pay attention to priority signs for oncoming traffic.</li><li><span class='text-strong'>Agricultural Machinery:</span> During the harvest season, there is a lot of large machinery on the roads around Chortkiv. Be careful when overtaking on the M-19 highway.</li></ol></div>
+`.trim(),
       ru: `
 <div class='editor_text'>REIZ — это сервис проката авто в Чорткове, который сочетает европейские стандарты обслуживания с пониманием местных дорог. Чортков — это не просто исторический центр, а идеальная база для старта в направлении Тернополя, Черновцов или Днестровского каньона.<br/>Мы подаем авто к Замку Гольских, Ратуше, ж/д вокзалу или по любому адресу в городе.</div>
 
@@ -1810,6 +2123,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Kremenets hills",
       en: "how the model handles Kremenets hills",
+      ro: "how the model handles Kremenets hills",
     },
     routes: {
       uk: "Кременець ↔ Почаїв, Тернопіль, Дубно",
@@ -1817,6 +2131,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Kremenets ↔ Pochaiv, Ternopil, Dubno",
       en: "Kremenets ↔ Pochaiv, Ternopil, Dubno",
+      ro: "Kremenets ↔ Pochaiv, Ternopil, Dubno",
     },
     weekendTrip: {
       uk: "Почаївська лавра, Замкова гора",
@@ -1824,6 +2139,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Pochaiv Lavra, Castle Hill",
       en: "Pochaiv Lavra, Castle Hill",
+      ro: "Pochaiv Lavra, Castle Hill",
     },
     localAttractions: {
       uk: "центр, Замкова гора, колегіум",
@@ -1831,6 +2147,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Castle Hill, collegium",
       en: "city center, Castle Hill, collegium",
+      ro: "city center, Castle Hill, collegium",
     },
     customEditorContent: {
       uk: `
@@ -1941,6 +2258,42 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 <div class='editor_title'>Driving Specifics: Tips for Kremenets</div>
 <div class='editor_text'><ol><li><span class='text-strong'>Hill Starts:</span> This is the #1 skill in the city. Keep a much larger distance to the car in front than usual, as vehicles may roll back slightly at traffic lights.</li><li><span class='text-strong'>Narrow Streets:</span> The city center is densely built. Park only in designated areas to avoid blocking tourist buses.</li><li><span class='text-strong'>Cobblestones and Rain:</span> Historic cobblestones on descents become very slippery. Use engine braking and avoid sudden maneuvers in wet weather.</li></ol></div>
 `.trim(),
+      ro: `
+<div class='editor_text'>REIZ is a car rental service in Kremenets that understands the specifics of local roads. This city is known for steep climbs and narrow historic streets, so we offer cars that feel confident on the serpentines of Castle Hill and the cobblestones of the center.<br/>Livrăm mașini la the Jesuit Collegium, the Bus Station, the foot of Mount Bona, or your specific address.</div>
+
+<div class='editor_title'>Hourly Rate: Endurance Test</div>
+<div class='editor_text'>Kremenets is an ideal proving ground for cars. Rent a vehicle for a day to test it on the steep climb to the castle ruins. You will immediately understand: does the handbrake hold well, does the engine have enough torque, and is it comfortable to park on inclined streets. It is the best way to verify the car's reliability before a trip to Pochaiv or the Spring of St. Anne.</div>
+
+<div class='editor_title'>Weekly Rental: Historical Route</div>
+<div class='editor_text'>Weekly rental allows you to cover the region's "Golden Ring" without relying on tour buses. Your route: Kremenets → Pochaiv Lavra → Vyshnivets Palace → Dubno Castle. You can watch the sunrise on Bozha Hill or visit Bilokrynytsia without worrying about bus schedules.</div>
+
+<div class='editor_title'>Monthly Rental: Inter-Regional Mobility</div>
+<div class='editor_text'>Kremenets is located at the junction of Ternopil, Rivne, and Khmelnytskyi regions. Monthly rental is a strategic decision for business. Routes Kremenets ↔ Ternopil or Kremenets ↔ Rivne become fast and comfortable. A single payment covers insurance and service. If you need to impress partners, we will select a business-class car.</div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>Living in Kremenets but don't want to buy a car? Închiriere pe termen lung removes the main headache for drivers in this region — suspension maintenance and clutch replacement (which suffers from mountain driving). We take care of all technical issues. You just refuel and drive.</div>
+
+<div class='editor_title'>Budget Rental — From $20/day</div>
+<div class='editor_text'>For students (Humanitarian Academy is nearby) and budget travels. Our economy class features compact but lively cars that easily pass oncoming traffic on the narrow streets of the old town.</div>
+
+<div class='editor_title'>Why Choose REIZ in Kremenets</div>
+<div class='editor_text'><ul><li><span class='text-strong'>Technical Confidence:</span> Given the terrain, we meticulously check the clutch and braking system.</li><li><span class='text-strong'>Hill Start Help:</span> Most of our cars are equipped with Hill Start Assist, which is indispensable in Kremenets.</li><li><span class='text-strong'>Landmark Delivery:</span> We can hand over keys right next to the Botanical Garden or Juliusz Słowacki Museum.</li><li><span class='text-strong'>Transparency:</span> You pay only for the rental. No hidden fees for "route complexity."</li></ul></div>
+
+<div class='editor_title'>Fără garanție / Garanție redusă</div>
+<div class='editor_text'>We make rental accessible. For many models, a discounted deposit option (up to 50%) or no deposit is available. Check the conditions for your driving experience on the website.</div>
+
+<div class='editor_title'>Servicii de șofer</div>
+<div class='editor_text'>Not sure you can handle steep serpentines in winter or rain? Order a car with an experienced driver who knows every pothole and turn in the city.</div>
+
+<div class='editor_title'>Livrare gratuită</div>
+<div class='editor_text'>In the City: Delivery and return within Kremenets limits are free.<br/>Region: Delivery to Pochaiv, Shumsk, or Vyshnivets is available at a separate rate.</div>
+
+<div class='editor_title'>Autoturisme în stare perfectă</div>
+<div class='editor_text'>Hills test the machinery. Therefore, after every client, we diagnose the suspension and check brake fluid levels. The interior is always clean and fresh.</div>
+
+<div class='editor_title'>Driving Specifics: Tips for Kremenets</div>
+<div class='editor_text'><ol><li><span class='text-strong'>Hill Starts:</span> This is the #1 skill in the city. Keep a much larger distance to the car in front than usual, as vehicles may roll back slightly at traffic lights.</li><li><span class='text-strong'>Narrow Streets:</span> The city center is densely built. Park only in designated areas to avoid blocking tourist buses.</li><li><span class='text-strong'>Cobblestones and Rain:</span> Historic cobblestones on descents become very slippery. Use engine braking and avoid sudden maneuvers in wet weather.</li></ol></div>
+`.trim(),
       ru: `
 <div class='editor_text'>REIZ — это прокат авто в Кременце, который понимает специфику местных дорог. Это город крутых подъемов и узких исторических улиц, поэтому мы предлагаем автомобили, которые уверенно чувствуют себя на серпантинах Замковой горы и брусчатке центра.<br/>Мы подаем авто к Иезуитскому коллегиуму, автовокзалу, подножию горы Бона или по вашему адресу.</div>
 
@@ -1986,6 +2339,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles border roads and the route to Mukachevo",
       en: "how the model handles border roads and the route to Mukachevo",
+      ro: "how the model handles border roads and the route to Mukachevo",
     },
     routes: {
       uk: "Берегове ↔ Мукачево, Ужгород, кордон",
@@ -1993,6 +2347,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Berehove ↔ Mukachevo, Uzhhorod, border",
       en: "Berehove ↔ Mukachevo, Uzhhorod, border",
+      ro: "Berehove ↔ Mukachevo, Uzhhorod, border",
     },
     weekendTrip: {
       uk: "термальні басейни, винні дегустації",
@@ -2000,6 +2355,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "thermal pools, wine tastings",
       en: "thermal pools, wine tastings",
+      ro: "thermal pools, wine tastings",
     },
     localAttractions: {
       uk: "центр, термальні басейни, винні підвали",
@@ -2007,6 +2363,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, thermal pools, wine cellars",
       en: "city center, thermal pools, wine cellars",
+      ro: "city center, thermal pools, wine cellars",
     },
     customEditorContent: {
       uk: `
@@ -2117,6 +2474,42 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 <div class='editor_title'>Driving Specifics: Tips for Berehove</div>
 <div class='editor_text'><ol><li><span class='text-strong'>Watch Out for Cyclists!</span> Berehove is the most "bicycle-friendly" city in the region due to its flat terrain. Cyclists are everywhere, often without reflectors at night. Be extremely careful when overtaking and turning right.</li><li><span class='text-strong'>Cobblestones in the Center:</span> The central part of the city is paved with cobblestones. In the rain, they are slippery, and the braking distance increases.</li><li><span class='text-strong'>Border Traffic:</span> On the exit from the city towards the border (Secheni St.), traffic queues are possible. Consider this when planning your time.</li></ol></div>
 `.trim(),
+      ro: `
+<div class='editor_text'>REIZ is a car rental service in Berehove adapted to the rhythm of a border town. Here you find a unique atmosphere: Hungarian architecture, thermal springs, and active traffic towards the border. We offer cars that fit perfectly into this context.<br/>Livrăm mașini la the "Zhayvoronok" Thermal Complex, "Zakarpattia" Sports Base, the Bus Station, or directly to your hotel.</div>
+
+<div class='editor_title'>Hourly Rate: Comfortable Visit</div>
+<div class='editor_text'>Arrived by train but want to visit both the pool and a wine tasting at "Chateau Chizay"? Hourly rental solves this. In 24 hours, you can drive to Kosino (just 20 km away), return for dinner in Berehove center, and pick up friends from the border. It's more convenient than a taxi, especially when carrying bags with wet towels and swimsuits after the thermal baths.</div>
+
+<div class='editor_title'>Weekly Rental: Wine & Gastro Tour</div>
+<div class='editor_text'>Berehove region is the land of vineyards. The weekly tariff is your ticket to a gastronomic journey. Route: Berehove → Kosino (Thermal Waters) → Mukachevo (Palanok Castle) → Vynohradiv (Buffalo Farm). You can visit private wine cellars in Bene or Kidyosh villages, which are hard to reach by public transport.</div>
+
+<div class='editor_title'>Monthly Rental: Business on the Border</div>
+<div class='editor_text'>Berehove is an important logistics hub near the "Luzhanka" checkpoint. Monthly rental suits entrepreneurs, forwarders, and those involved in foreign trade. The Berehove ↔ Uzhhorod or Berehove ↔ Chop route becomes faster. We ensure technical reliability so you don't lose time on the road.</div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>Ideal for those who have relocated their business or family to Transcarpathia. You get a personal car without buying one. We handle seasonal tire changes and maintenance. Your task is only to refuel and enjoy the region's mild climate.</div>
+
+<div class='editor_title'>Budget Rental — From $20/day</div>
+<div class='editor_text'>Berehove streets can be narrow and one-way. Our economy class features compact cars that are easy to park near the market or the church in the center, consuming minimal fuel.</div>
+
+<div class='editor_title'>Why Choose REIZ in Berehove</div>
+<div class='editor_text'><ul><li><span class='text-strong'>Climate Control:</span> Berehove can be very hot in summer (it's the warmest region in Western Ukraine). All our cars have working A/C.</li><li><span class='text-strong'>Spacious Trunk:</span> Even compact cars have enough room for shopping, suitcases, and souvenir wine.</li><li><span class='text-strong'>Cleanliness:</span> After visiting thermal pools, it's important to get into a clean, dry interior. We monitor this strictly.</li><li><span class='text-strong'>No Limits:</span> Unlimited mileage tariffs for those who want to drive all over Transcarpathia.</li></ul></div>
+
+<div class='editor_title'>Fără garanție / Garanție redusă</div>
+<div class='editor_text'>European-level service. For many cars, a no-deposit or reduced-deposit option is available. Convenient if you don't want to "freeze" funds during your vacation.</div>
+
+<div class='editor_title'>Servicii de șofer</div>
+<div class='editor_text'>Planning a Transcarpathian wine tasting? Don't risk your license and safety. Order a car with a driver who will take your company to the best cellars in the region.</div>
+
+<div class='editor_title'>Livrare gratuită</div>
+<div class='editor_text'>In the City: Delivery and return within Berehove limits are free.<br/>Region: Delivery to Kosino, Dyida (lake), or "Luzhanka" Checkpoint is possible at an individual rate.</div>
+
+<div class='editor_title'>Autoturisme în stare perfectă</div>
+<div class='editor_text'>We check the engine cooling system and air conditioning (crucial for the local climate). You get a reliable car ready for roads of any quality.</div>
+
+<div class='editor_title'>Driving Specifics: Tips for Berehove</div>
+<div class='editor_text'><ol><li><span class='text-strong'>Watch Out for Cyclists!</span> Berehove is the most "bicycle-friendly" city in the region due to its flat terrain. Cyclists are everywhere, often without reflectors at night. Be extremely careful when overtaking and turning right.</li><li><span class='text-strong'>Cobblestones in the Center:</span> The central part of the city is paved with cobblestones. In the rain, they are slippery, and the braking distance increases.</li><li><span class='text-strong'>Border Traffic:</span> On the exit from the city towards the border (Secheni St.), traffic queues are possible. Consider this when planning your time.</li></ol></div>
+`.trim(),
       ru: `
 <div class='editor_text'>REIZ — это прокат авто в Берегово, адаптированный к ритму приграничного города. Здесь особая атмосфера: венгерская архитектура, термальные источники и активное движение в сторону границы. Мы предлагаем авто, которые идеально вписываются в этот контекст.<br/>Мы подаем авто к термальному комплексу "Жаворонок", спортбазе "Закарпатье", автостанции или прямо к вашему отелю.</div>
 
@@ -2162,6 +2555,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles Zakarpattia mountain roads",
       en: "how the model handles Zakarpattia mountain roads",
+      ro: "how the model handles Zakarpattia mountain roads",
     },
     routes: {
       uk: "Хуст ↔ Мукачево, Ужгород, Рахів",
@@ -2169,6 +2563,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Khust ↔ Mukachevo, Uzhhorod, Rakhiv",
       en: "Khust ↔ Mukachevo, Uzhhorod, Rakhiv",
+      ro: "Khust ↔ Mukachevo, Uzhhorod, Rakhiv",
     },
     weekendTrip: {
       uk: "Долина нарцисів, Синевир",
@@ -2176,6 +2571,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Valley of Daffodils, Synevyr",
       en: "Valley of Daffodils, Synevyr",
+      ro: "Valley of Daffodils, Synevyr",
     },
     localAttractions: {
       uk: "центр, Хустський замок, автовокзал",
@@ -2183,6 +2579,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, Khust Castle, bus station",
       en: "city center, Khust Castle, bus station",
+      ro: "city center, Khust Castle, bus station",
     },
     customEditorContent: {
       uk: `
@@ -2293,6 +2690,42 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 <div class='editor_title'>Driving Specifics: Tips for Khust District</div>
 <div class='editor_text'><ol><li><span class='text-strong'>Careful on Passes:</span> The road to Synevir via Mizhhiria is very scenic but has many sharp turns. Do not speed on descents.</li><li><span class='text-strong'>Livestock:</span> In villages around Khust (especially in Iza and Nankovo), cows and horses often wander onto the road. Be careful, especially in the morning and evening.</li><li><span class='text-strong'>Road Quality:</span> Main highways (H-09) are in good condition, but the road to the Valley of Narcissi or secondary roads may have potholes. Choose speed according to conditions.</li></ol></div>
 `.trim(),
+      ro: `
+<div class='editor_text'>REIZ offers car rental in Khust — the perfect starting point for trips around the Carpathian Mountains. From here, it is equally convenient to drive to the highlands (Synevir) and the resort area (Shayan). We have prepared a fleet ready for any of these routes.<br/>Livrăm mașini la Khust Castle, the Railway Station, Hotel "Karpaty", or your address.</div>
+
+<div class='editor_title'>Hourly Rate: Testing on Serpentines</div>
+<div class='editor_text'>Hourly rental is an opportunity to check the car before a trip to the mountains. In 24 hours, you can drive to Iza village (wickerwork center) and visit the Deer Farm. This allows you to assess if you are comfortable driving the chosen model on narrow roads.</div>
+
+<div class='editor_title'>Weekly Rental: Resort Tour</div>
+<div class='editor_text'>The weekly tariff is most profitable for those who came for treatment or vacation. Route: Khust → Velyatyno (Thermal Waters) → Shayan (Mineral Waters) → Valley of Narcissi (in season). You don't need to adjust to the schedule of sanatorium buses. You decide how much time to spend in the pool.</div>
+
+<div class='editor_title'>Monthly Rental: For Business & Life</div>
+<div class='editor_text'>Khust is an active trading city. Monthly rental suits sales representatives working throughout the district (Tiachiv, Vynohradiv). It is cheaper than maintaining your own car, as we cover all maintenance costs.</div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>A solution for those who moved to Khust for a long time. You get reliable transport without a down payment (like in leasing) and bureaucracy. We ensure that insurance is valid and tires are appropriate for the season.</div>
+
+<div class='editor_title'>Budget Rental — From $20/day</div>
+<div class='editor_text'>For trips around the city and to neighboring villages (Sokyrnytsia, Krainykovo), our economy class is perfect. These are reliable cars with low fuel consumption that maneuver easily in the center of Khust.</div>
+
+<div class='editor_title'>Why Choose REIZ in Khust</div>
+<div class='editor_text'><ul><li><span class='text-strong'>Mountain Ready:</span> Our cars are tested on climbs. Brakes and cooling systems work perfectly.</li><li><span class='text-strong'>Convenient Logistics:</span> We are located near major transport interchanges.</li><li><span class='text-strong'>Support:</span> If you get lost in the mountains or have a flat tire — we are online 24/7 to help.</li></ul></div>
+
+<div class='editor_title'>Fără garanție / Garanție redusă</div>
+<div class='editor_text'>We understand that every hryvnia counts on vacation. Therefore, we offer rental with a reduced deposit or no deposit for verified clients.</div>
+
+<div class='editor_title'>Servicii de șofer</div>
+<div class='editor_text'>Want to visit the cheese dairy in Nyzhnie Selyshche with tasting? Order a car with a driver so you don't deny yourself the pleasure.</div>
+
+<div class='editor_title'>Livrare gratuită</div>
+<div class='editor_text'>In the City: Delivery and return within Khust are free.<br/>Region: Delivery to Shayan, Vyshkovo, or Velyatyno is calculated separately.</div>
+
+<div class='editor_title'>Autoturisme în stare perfectă</div>
+<div class='editor_text'>Before every rental, we wash the car and disinfect the interior. Technical condition is checked via a checklist (suspension, fluids, electronics).</div>
+
+<div class='editor_title'>Driving Specifics: Tips for Khust District</div>
+<div class='editor_text'><ol><li><span class='text-strong'>Careful on Passes:</span> The road to Synevir via Mizhhiria is very scenic but has many sharp turns. Do not speed on descents.</li><li><span class='text-strong'>Livestock:</span> In villages around Khust (especially in Iza and Nankovo), cows and horses often wander onto the road. Be careful, especially in the morning and evening.</li><li><span class='text-strong'>Road Quality:</span> Main highways (H-09) are in good condition, but the road to the Valley of Narcissi or secondary roads may have potholes. Choose speed according to conditions.</li></ol></div>
+`.trim(),
       ru: `
 <div class='editor_text'>REIZ предлагает автопрокат в Хусте — городе, который является идеальной точкой для старта путешествий по Карпатам. Отсюда одинаково удобно ехать и к высокогорью (Синевир), и в курортную зону (Шаян). Мы подготовили автопарк, который выдержит любой из этих маршрутов.<br/>Мы подаем авто к Хустскому замку, ж/д вокзалу, отелю "Карпаты" или по вашему адресу.</div>
 
@@ -2338,6 +2771,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "how the model handles high-mountain routes",
       en: "how the model handles high-mountain routes",
+      ro: "how the model handles high-mountain routes",
     },
     routes: {
       uk: "Рахів ↔ Ясіня, Буковель, Івано-Франківськ",
@@ -2345,6 +2779,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Rakhiv ↔ Yasinia, Bukovel, Ivano-Frankivsk",
       en: "Rakhiv ↔ Yasinia, Bukovel, Ivano-Frankivsk",
+      ro: "Rakhiv ↔ Yasinia, Bukovel, Ivano-Frankivsk",
     },
     weekendTrip: {
       uk: "Драгобрат, Говерла, Ясіня",
@@ -2352,6 +2787,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "Drahobrat, Hoverla, Yasinia",
       en: "Drahobrat, Hoverla, Yasinia",
+      ro: "Drahobrat, Hoverla, Yasinia",
     },
     localAttractions: {
       uk: "центр, вокзал, музей гуцульської культури",
@@ -2359,6 +2795,7 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 
       pl: "city center, railway station, Hutsul culture museum",
       en: "city center, railway station, Hutsul culture museum",
+      ro: "city center, railway station, Hutsul culture museum",
     },
     customEditorContent: {
       uk: `
@@ -2469,6 +2906,42 @@ export const citySpecificContent: Record<string, CitySpecificContent> = {
 <div class='editor_title'>Driving Specifics: Tips for Rakhiv District</div>
 <div class='editor_text'><ol><li><span class='text-strong'>Brakes Overheat!</span> On long descents (e.g., from Yablunytsia Pass), be sure to use engine braking. Never coast in neutral!</li><li><span class='text-strong'>Narrow Spots:</span> Roads in the city are often squeezed between the Tisa River and the mountains. Be prepared that passing a truck might be difficult.</li><li><span class='text-strong'>Weather Changes Instantly:</span> It can be raining in Rakhiv, and snowing 15 km away in Yasinia. Be ready for sudden changes in road conditions.</li></ol></div>
 `.trim(),
+      ro: `
+<div class='editor_text'>REIZ provides car rental in the very heart of the Carpathians. Rakhiv is a city where flat roads are scarce. Every trip here is a small test for the driver and the vehicle. That's why we offer cars ready for serious challenges: from powerful SUVs to agile AWD sedans.<br/>Livrăm mașini la the Railway Station, Hotel "Europa", the Geographical Center of Europe (Dilove), or your address.</div>
+
+<div class='editor_title'>Hourly Rate: Mountain Test Drive</div>
+<div class='editor_text'>Arrived by train but want to see more than the city center? Rent a car for a few hours or a day. During this time, you can visit the "Center of Europe" monument and taste banosh in a kolyba (local hut). It's also a great opportunity to check how the car handles climbs to high-altitude villages like Bohdan or Luhy.</div>
+
+<div class='editor_title'>Weekly Rental: Conquering Peaks</div>
+<div class='editor_text'>Rakhiv is the base for those hiking Hoverla, Petros, or Blyznytsi. Weekly rental is your independence from transfers. Route: Rakhiv → Lazeshchyna (Hoverla start) → Yasinia (Dragobrat) → Kvasy (mineral springs). Important: Only prepared off-road vehicles are allowed to drive up to Dragobrat. Our managers will advise which car from our fleet can handle this task, and which is better left in Yasinia.</div>
+
+<div class='editor_title'>Monthly Rental: Work at Altitude</div>
+<div class='editor_text'>For those working in the highlands or developing a business here. Monthly rental is more profitable than owning a car, as mountain roads wear out suspension quickly. At REIZ, depreciation is our concern, not yours. We will promptly replace the car if service is needed so your schedule doesn't suffer.</div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>Ideal for locals and those who moved to the mountains. You get a reliable all-wheel-drive vehicle for the winter season or the whole year. You don't need to think about buying expensive winter tires or chains — we provide it all.</div>
+
+<div class='editor_title'>Budget Rental — From $20/day</div>
+<div class='editor_text'>Even in the mountains, you can drive economically. For trips along the H-09 highway (Rakhiv-Yaremche), our comfortable economy class is quite suitable. These are modern cars with climate control and low fuel consumption that hold the road confidently.</div>
+
+<div class='editor_title'>Why Choose REIZ in Rakhiv</div>
+<div class='editor_text'><ul><li><span class='text-strong'>4x4 Available:</span> We understand that in Rakhiv, all-wheel drive is not a luxury but a necessity in winter.</li><li><span class='text-strong'>Mountain Prep:</span> Enhanced check of brakes and steering before every rental.</li><li><span class='text-strong'>Winter Pack:</span> In season, all cars come with scrapers, winter washer fluid, and snow chains upon request.</li><li><span class='text-strong'>Fair Price:</span> No surcharges for "terrain complexity."</li></ul></div>
+
+<div class='editor_title'>Fără garanție / Garanție redusă</div>
+<div class='editor_text'>A trip to the mountains involves expenses. We meet you halfway and offer rental with a reduced deposit or no deposit for experienced drivers.</div>
+
+<div class='editor_title'>Servicii de șofer</div>
+<div class='editor_text'>The road to Dragobrat or high-altitude villages can scare an inexperienced driver. Order a car with a professional who knows every stone on this path.</div>
+
+<div class='editor_title'>Livrare gratuită</div>
+<div class='editor_text'>In the City: Delivery and return within Rakhiv are free.<br/>Region: Delivery to Yasinia, Lazeshchyna, Kvasy, or Velykyi Bychkiv is calculated individually.</div>
+
+<div class='editor_title'>Autoturisme în stare perfectă</div>
+<div class='editor_text'>Mountains do not forgive mistakes. We know this, so our cars undergo double technical control. You can be sure of your safety.</div>
+
+<div class='editor_title'>Driving Specifics: Tips for Rakhiv District</div>
+<div class='editor_text'><ol><li><span class='text-strong'>Brakes Overheat!</span> On long descents (e.g., from Yablunytsia Pass), be sure to use engine braking. Never coast in neutral!</li><li><span class='text-strong'>Narrow Spots:</span> Roads in the city are often squeezed between the Tisa River and the mountains. Be prepared that passing a truck might be difficult.</li><li><span class='text-strong'>Weather Changes Instantly:</span> It can be raining in Rakhiv, and snowing 15 km away in Yasinia. Be ready for sudden changes in road conditions.</li></ol></div>
+`.trim(),
       ru: `
 <div class='editor_text'>REIZ — это прокат авто в самом сердце Карпат. Рахов — это город, где ровных дорог почти нет. Здесь каждый выезд — это маленький экзамен для водителя и техники. Поэтому мы предлагаем автомобили, которые готовы к серьезным нагрузкам: от мощных кроссоверов до маневренных полноприводных седанов.<br/>Мы подаем авто к ж/д вокзалу, отелю "Европа", Географическому центру Европы (Деловое) или по вашему адресу.</div>
 
@@ -2522,6 +2995,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -2531,6 +3005,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Kyiv and how to avoid fines?",
             en: "Where to park a rental car in Kyiv and how to avoid fines?",
+            ro: "Unde să parcați o mașină închiriată în Kyiv și cum să evitați amenzile?",
           },
           answer: {
             uk: "У центрі Києва працює платне паркування — оплачуйте через ParkingUA або Kyiv Smart City. Поза зоною платного паркування можна залишати авто безкоштовно. Біля ТРЦ і бізнес-центрів є підземні паркінги. Уникайте зупинок під знаками «Зупинку заборонено» та на тротуарах.",
@@ -2538,6 +3013,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Paid parking operates in central Kyiv — pay via ParkingUA or Kyiv Smart City apps. Outside the paid zone, you can park for free. Underground parking is available near shopping malls and business centers. Avoid stopping under 'No Stopping' signs and on sidewalks.",
             en: "Paid parking operates in central Kyiv — pay via ParkingUA or Kyiv Smart City apps. Outside the paid zone, you can park for free. Underground parking is available near shopping malls and business centers. Avoid stopping under 'No Stopping' signs and on sidewalks.",
+            ro: 'Parcarea cu plată funcționează în centrul Kyiv — plătiți prin aplicațiile ParkingUA sau Kyiv Smart City. În afara zonei cu plată, puteți parca gratuit. Parcarea subterană este disponibilă lângă centrele comerciale și de afaceri. Evitați oprirea sub indicatoarele de oprire interzisă indicatoare și pe trotuare.',
           },
         },
         {
@@ -2547,6 +3023,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Kyiv airports (Boryspil KBP, Zhuliany IEV): terms and prices",
             en: "Car delivery to Kyiv airports (Boryspil KBP, Zhuliany IEV): terms and prices",
+            ro: "Livrarea mașinii la Kyiv airports (Boryspil KBP, Zhuliany IEV): condiții și prețuri",
           },
           answer: {
             uk: "Подача авто в аеропорт Бориспіль (KBP) та Жуляни (IEV) — безкоштовна при оренді від 3 діб. При короткостроковій оренді може застосовуватись невелика доплата. Менеджер зустріне вас у зоні прильоту з табличкою. Час подачі — від 30 хвилин після підтвердження прильоту.",
@@ -2554,6 +3031,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Boryspil (KBP) and Zhuliany (IEV) airports is free for rentals of 3+ days. A small fee may apply for short-term rentals. Our manager will meet you in the arrivals area with a sign. Delivery time — from 30 minutes after confirmed arrival.",
             en: "Car delivery to Boryspil (KBP) and Zhuliany (IEV) airports is free for rentals of 3+ days. A small fee may apply for short-term rentals. Our manager will meet you in the arrivals area with a sign. Delivery time — from 30 minutes after confirmed arrival.",
+            ro: "Livrarea mașinii la Boryspil (KBP) and Zhuliany (IEV) airports este gratuită pentru închirieri de 3+ zile. Se poate aplica o taxă mică pentru închirierile pe termen scurt. Managerul nostru vă va întâlni în zona de sosiri cu o pancartă. Timp de livrare — de la 30 de minute după confirmarea sosirii.",
           },
         },
         {
@@ -2563,6 +3041,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit for rentals in Kyiv and how to travel across Ukraine without restrictions?",
             en: "Is there a mileage limit for rentals in Kyiv and how to travel across Ukraine without restrictions?",
+            ro: "Există o limită de kilometraj pentru închirieri în Kyiv și cum să călătoriți prin Ucraina fără restricții?",
           },
           answer: {
             uk: "Стандартний ліміт — 250-300 км/добу залежно від тарифу. Для далеких поїздок (Київ — Львів, Київ — Одеса, Київ — Харків) рекомендуємо тариф з безлімітним пробігом. Перевищення ліміту оплачується за км згідно з прайсом.",
@@ -2570,6 +3049,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250-300 km/day depending on the rate. For long trips (Kyiv — Lviv, Kyiv — Odesa, Kyiv — Kharkiv), we recommend the unlimited mileage rate. Exceeding the limit is charged per km according to the price list.",
             en: "Standard limit is 250-300 km/day depending on the rate. For long trips (Kyiv — Lviv, Kyiv — Odesa, Kyiv — Kharkiv), we recommend the unlimited mileage rate. Exceeding the limit is charged per km according to the price list.",
+            ro: "Limita standard este de 250-300 km/zi în funcție de tarif. Pentru călătorii lungi (Kyiv — Lviv, Kyiv — Odesa, Kyiv — Kharkiv), vă recomandăm tariful cu kilometraj nelimitat. Depășirea limitei se taxează pe km conform listei de prețuri.",
           },
         },
       ],
@@ -2582,6 +3062,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -2591,6 +3072,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Kyiv? (MTPL/Comprehensive)",
             en: "What does insurance cover when renting a car in Kyiv? (MTPL/Comprehensive)",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Kyiv? (RCA/CASCO)",
           },
           answer: {
             uk: "Всі авто мають обов'язкову ОСЦПВ — вона покриває шкоду третім особам. Додатково доступні пакети CDW/SCDW, які зменшують вашу відповідальність при пошкодженні авто. Пакет «Преміум» покриває навіть шини, скло та дзеркала.",
@@ -2598,6 +3080,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "All cars have mandatory MTPL insurance covering third-party damage. Additional CDW/SCDW packages are available to reduce your liability for car damage. The 'Premium' package even covers tires, glass, and mirrors.",
             en: "All cars have mandatory MTPL insurance covering third-party damage. Additional CDW/SCDW packages are available to reduce your liability for car damage. The 'Premium' package even covers tires, glass, and mirrors.",
+            ro: "Toate mașinile au asigurare RCA obligatorie care acoperă daunele terțelor părți. Pachetele CDW/SCDW suplimentare sunt disponibile pentru a reduce responsabilitatea dvs. pentru daunele aduse mașinii. The 'Premium' package acoperă chiar și anvelope, geamuri și oglinzi.",
           },
         },
         {
@@ -2607,6 +3090,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deductible and security deposit in Kyiv: what's the difference and how much do you risk?",
             en: "Deductible and security deposit in Kyiv: what's the difference and how much do you risk?",
+            ro: "Franșiza și garanția de securitate în Kyiv: what's diferența și cât riscați?",
           },
           answer: {
             uk: "Депозит — це сума, яка блокується на картці на час оренди і повертається при поверненні авто без пошкоджень. Франшиза — максимальна сума вашої відповідальності при страховому випадку. Пакети «Комфорт» та «Преміум» зменшують обидві суми.",
@@ -2614,6 +3098,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit is the amount blocked on your card during rental and returned when the car is returned undamaged. Deductible is the maximum amount of your liability in case of an incident. 'Comfort' and 'Premium' packages reduce both amounts.",
             en: "Deposit is the amount blocked on your card during rental and returned when the car is returned undamaged. Deductible is the maximum amount of your liability in case of an incident. 'Comfort' and 'Premium' packages reduce both amounts.",
+            ro: "Garanția este suma blocată pe cardul dvs. pe durata închirierii și returnată când mașina este returnată fără daune. Franșiza este suma maximă a răspunderii dvs. în caz de incident. Pachetele „Comfort” și „Premium” reduc ambele sume.",
           },
         },
         {
@@ -2623,6 +3108,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car in Kyiv without a deposit and how does 'zero liability' work?",
             en: "Can I rent a car in Kyiv without a deposit and how does 'zero liability' work?",
+            ro: 'Pot închiria o mașină în Kyiv fără garanție and cum funcționează „răspundere zero”?',
           },
           answer: {
             uk: "Так, з пакетом страхування «Преміум» застава мінімальна (200-300$) або відсутня для окремих моделей. «Нульова відповідальність» означає, що навіть при ДТП з вашої вини ви не платите за ремонт (крім випадків грубих порушень).",
@@ -2630,6 +3116,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, with the 'Premium' insurance package, the deposit is minimal ($200-300) or waived for selected models. 'Zero liability' means that even in an accident caused by you, you don't pay for repairs (except for gross violations).",
             en: "Yes, with the 'Premium' insurance package, the deposit is minimal ($200-300) or waived for selected models. 'Zero liability' means that even in an accident caused by you, you don't pay for repairs (except for gross violations).",
+            ro: "Da, cu pachetul de asigurare „Premium”, garanția este minimă ($200-300) sau eliminată pentru modelele selectate. „Răspundere zero” înseamnă că chiar și în cazul unui accident cauzat de dvs., nu plătiți pentru reparații (cu excepția încălcărilor grave).",
           },
         },
       ],
@@ -2642,6 +3129,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -2651,6 +3139,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age and driving experience for car rental in Kyiv",
             en: "Minimum age and driving experience for car rental in Kyiv",
+            ro: "Vârsta minimă și experiența de conducere pentru închirierea auto în Kyiv",
           },
           answer: {
             uk: "Мінімальний вік — 21 рік, стаж водіння — від 2 років. Для преміум-авто та кросоверів вимоги вищі: від 25 років і стаж від 3-4 років. Для молодих водіїв може діяти додатковий збір.",
@@ -2658,6 +3147,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age is 21, driving experience from 2 years. For premium cars and crossovers, requirements are higher: from 25 years old and 3-4 years of experience. Young driver surcharge may apply.",
             en: "Minimum age is 21, driving experience from 2 years. For premium cars and crossovers, requirements are higher: from 25 years old and 3-4 years of experience. Young driver surcharge may apply.",
+            ro: "Vârsta minimă este de 21 de ani, experiența de conducere de la 2 ani. Pentru mașini premium și crossovere, cerințele are higher: from 25 years old and 3-4 years of experience. Young driver surcharge may apply.",
           },
         },
         {
@@ -2667,6 +3157,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I travel outside Ukraine with a rental car from Kyiv?",
             en: "Can I travel outside Ukraine with a rental car from Kyiv?",
+            ro: "Pot călători în afara Ucrainei cu o mașină închiriată din Kyiv?",
           },
           answer: {
             uk: "Так, виїзд за кордон можливий за попереднім погодженням. Потрібно повідомити мінімум за 48 годин, оформити додаткову страховку та документи (Green Card). Список дозволених країн уточнюйте у менеджера.",
@@ -2674,6 +3165,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, cross-border travel is possible with prior arrangement. Notify us at least 48 hours in advance, arrange additional insurance and documents (Green Card). Check with our manager for the list of permitted countries.",
             en: "Yes, cross-border travel is possible with prior arrangement. Notify us at least 48 hours in advance, arrange additional insurance and documents (Green Card). Check with our manager for the list of permitted countries.",
+            ro: "Da, călătoria transfrontalieră este posibilă cu aranjament prealabil. Anunțați-ne cu cel puțin 48 de ore în avans, arrange additional insurance and documents (Green Card). Check with our manager for the list of permitted countries.",
           },
         },
         {
@@ -2683,6 +3175,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Transferring the car to third parties and taxi use: what's prohibited in Kyiv",
             en: "Transferring the car to third parties and taxi use: what's prohibited in Kyiv",
+            ro: 'Transferul mașinii către terți și utilizarea ca taxi: ce este interzis in Kyiv',
           },
           answer: {
             uk: "Категорично заборонено: передавати авто особам, не вказаним у договорі; використовувати для таксі, Uber, Bolt; здавати в суборенду; брати участь у змаганнях; буксирувати інші авто. Порушення — розірвання договору та штраф.",
@@ -2690,6 +3183,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Strictly prohibited: transferring the car to persons not listed in the contract; using for taxi, Uber, Bolt; subletting; participating in races; towing other vehicles. Violation results in contract termination and penalty.",
             en: "Strictly prohibited: transferring the car to persons not listed in the contract; using for taxi, Uber, Bolt; subletting; participating in races; towing other vehicles. Violation results in contract termination and penalty.",
+            ro: "Strict interzis: transferul mașinii către persoane care nu figurează în contract; utilizarea pentru taxi, Uber, Bolt; subinchirierea; participarea la curse; tractarea altor vehicule. Încălcarea duce la rezilierea contractului și penalizări.",
           },
         },
       ],
@@ -2702,6 +3196,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -2711,6 +3206,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What payment methods are available for car rental in Kyiv?",
             en: "What payment methods are available for car rental in Kyiv?",
+            ro: "Ce metode de plată sunt disponibile pentru închirierea auto în Kyiv?",
           },
           answer: {
             uk: "Приймаємо: банківські картки Visa/Mastercard (включно з Apple Pay, Google Pay), готівку (UAH, USD, EUR), безготівковий розрахунок для юридичних осіб. Депозит блокується на картці або вноситься готівкою.",
@@ -2718,6 +3214,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard bank cards (including Apple Pay, Google Pay), cash (UAH, USD, EUR), bank transfer for legal entities. Deposit is blocked on the card or paid in cash.",
             en: "We accept: Visa/Mastercard bank cards (including Apple Pay, Google Pay), cash (UAH, USD, EUR), bank transfer for legal entities. Deposit is blocked on the card or paid in cash.",
+            ro: "Acceptăm: carduri bancare Visa/Mastercard (inclusiv Apple Pay, Google Pay), numerar (UAH, USD, EUR), transfer bancar pentru persoane juridice. Garanția este blocată pe card sau plătită în numerar.",
           },
         },
         {
@@ -2727,6 +3224,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required to rent a car in Kyiv: for Ukrainian citizens and foreigners?",
             en: "What documents are required to rent a car in Kyiv: for Ukrainian citizens and foreigners?",
+            ro: "Ce documente sunt necesare pentru a închiria o mașină în Kyiv: for Ukrainian citizens and foreigners?",
           },
           answer: {
             uk: "Громадянам України: паспорт/ID-картка, посвідчення водія категорії B, РНОКПП (ІПН). Іноземцям: закордонний паспорт, національне посвідчення водія (бажано міжнародне, якщо права не латиницею), віза/штамп про в'їзд.",
@@ -2734,6 +3232,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ukrainian citizens: passport/ID card, category B driver's license, tax ID (RNOKPP). Foreigners: international passport, national driver's license (international preferred if not in Latin script), entry visa/stamp.",
             en: "Ukrainian citizens: passport/ID card, category B driver's license, tax ID (RNOKPP). Foreigners: international passport, national driver's license (international preferred if not in Latin script), entry visa/stamp.",
+            ro: "Cetățeni ucraineni: pașaport/carte de identitate, permis de conducere categoria B, cod fiscal (RNOKPP). Străini: pașaport internațional, permis de conducere național (internațional preferat dacă nu este în alfabet latin), viză/ștampilă de intrare.",
           },
         },
         {
@@ -2743,6 +3242,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full fuel policy: how to return a car in Kyiv without extra charges?",
             en: "Full-to-full fuel policy: how to return a car in Kyiv without extra charges?",
+            ro: "Politica de combustibil plin-la-plin: cum să returnați o mașină în Kyiv fără taxe suplimentare?",
           },
           answer: {
             uk: "Авто видається з повним баком — поверніть також із повним. Найближчі АЗС є в 5 хвилинах від точок повернення. Якщо не встигаєте заправитись — доступна опція передплаченого пального за ринковою ціною + невеликий сервісний збір.",
@@ -2750,6 +3250,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "The car is provided with a full tank — return it full as well. Nearby gas stations are 5 minutes from return points. If you don't have time to refuel, a prepaid fuel option is available at market price + small service fee.",
             en: "The car is provided with a full tank — return it full as well. Nearby gas stations are 5 minutes from return points. If you don't have time to refuel, a prepaid fuel option is available at market price + small service fee.",
+            ro: "Mașina este furnizată cu rezervorul plin — returnați-o tot cu rezervorul plin. Benzinăriile din apropiere sunt la 5 minute de punctele de returnare. Dacă nu aveți timp să alimentați, este disponibilă opțiunea de combustibil preplătit la preț de piață + taxă mică de serviciu.",
           },
         },
       ],
@@ -2764,6 +3265,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -2773,6 +3275,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Lviv and how to avoid fines?",
             en: "Where to park a rental car in Lviv and how to avoid fines?",
+            ro: "Unde să parcați o mașină închiriată în Lviv și cum să evitați amenzile?",
           },
           answer: {
             uk: "У центрі Львова (Старе місто) паркування обмежене — користуйтесь підземними паркінгами біля Оперного театру чи на пл. Міцкевича. Оплата через додаток Lviv Parking. Поза історичним центром паркування переважно безкоштовне. Уникайте пішохідних зон та місць з табличкою «Евакуатор працює».",
@@ -2780,6 +3283,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Parking in central Lviv (Old Town) is limited — use underground parking near the Opera House or Mickiewicz Square. Pay via Lviv Parking app. Outside the historic center, parking is mostly free. Avoid pedestrian zones and areas with 'Tow truck operates' signs.",
             en: "Parking in central Lviv (Old Town) is limited — use underground parking near the Opera House or Mickiewicz Square. Pay via Lviv Parking app. Outside the historic center, parking is mostly free. Avoid pedestrian zones and areas with 'Tow truck operates' signs.",
+            ro: "Parcarea în centrul Lviv-ului (Orașul Vechi) este limitată — folosiți parcarea subterană lângă Opera sau Piața Mickiewicz. Plătiți prin aplicația Lviv Parking. În afara centrului istoric, parcarea este în mare parte gratuită. Evitați zonele pietonale și zonele cu semne „Tractare activă”.",
           },
         },
         {
@@ -2789,6 +3293,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Lviv Airport (LWO) and railway station: terms and prices",
             en: "Car delivery to Lviv Airport (LWO) and railway station: terms and prices",
+            ro: "Livrarea mașinii la Lviv Airport (LWO) and railway station: condiții și prețuri",
           },
           answer: {
             uk: "Подача авто в аеропорт Львів (LWO) та на головний залізничний вокзал — безкоштовна. Менеджер зустріне вас у зоні прильоту або біля виходу з вокзалу. Час подачі — від 20 хвилин. Також доставляємо в Старе місто, готелі та за вашою адресою по Львову.",
@@ -2796,6 +3301,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Lviv Airport (LWO) and the main railway station is free. Our manager will meet you in the arrivals area or at the station exit. Delivery time — from 20 minutes. We also deliver to the Old Town, hotels, and your address in Lviv.",
             en: "Car delivery to Lviv Airport (LWO) and the main railway station is free. Our manager will meet you in the arrivals area or at the station exit. Delivery time — from 20 minutes. We also deliver to the Old Town, hotels, and your address in Lviv.",
+            ro: "Livrarea mașinii la Lviv Airport (LWO) and the main railway station is free. Our manager will meet you in the arrivals area or at the station exit. Timp de livrare — from 20 minutes. We also deliver to the Old Town, hotels, and your address in Lviv.",
           },
         },
         {
@@ -2805,6 +3311,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit for rentals in Lviv and how to travel to the Carpathians without restrictions?",
             en: "Is there a mileage limit for rentals in Lviv and how to travel to the Carpathians without restrictions?",
+            ro: "Există o limită de kilometraj pentru închirieri în Lviv and how to travel to the Carpathians without restrictions?",
           },
           answer: {
             uk: "Стандартний ліміт — 250-300 км/добу. Для поїздок у Карпати (Буковель — 280 км, Славське — 150 км) та далеких маршрутів рекомендуємо тариф Unlimited. Перевищення ліміту оплачується за км згідно з прайсом класу авто.",
@@ -2812,6 +3319,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250-300 km/day. For Carpathian trips (Bukovel — 280 km, Slavske — 150 km) and long routes, we recommend the Unlimited rate. Exceeding the limit is charged per km based on the car class price list.",
             en: "Standard limit is 250-300 km/day. For Carpathian trips (Bukovel — 280 km, Slavske — 150 km) and long routes, we recommend the Unlimited rate. Exceeding the limit is charged per km based on the car class price list.",
+            ro: "Standard limit is 250-300 km/day. For Carpathian trips (Bukovel — 280 km, Slavske — 150 km) and long routes, we recommend the Unlimited rate. Exceeding the limit is charged per km based on the car class price list.",
           },
         },
       ],
@@ -2824,6 +3332,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -2833,6 +3342,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Lviv? (MTPL/Comprehensive)",
             en: "What does insurance cover when renting a car in Lviv? (MTPL/Comprehensive)",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Lviv? (RCA/CASCO)",
           },
           answer: {
             uk: "Базова ОСЦПВ покриває шкоду третім особам. Пакети CDW/SCDW зменшують вашу відповідальність при пошкодженні авто. Для поїздок у Карпати рекомендуємо пакет «Преміум» — він покриває навіть пошкодження шин і скла на гірських дорогах.",
@@ -2840,6 +3350,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce your liability for car damage. For Carpathian trips, we recommend the 'Premium' package — it covers even tire and glass damage on mountain roads.",
             en: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce your liability for car damage. For Carpathian trips, we recommend the 'Premium' package — it covers even tire and glass damage on mountain roads.",
+            ro: "Basic MTPL covers third-party damage. Pachetele CDW/SCDW reduc responsabilitatea dvs. pentru daunele aduse mașinii. For Carpathian trips, we recommend the 'Premium' package — it covers even tire and glass damage on mountain roads.",
           },
         },
         {
@@ -2849,6 +3360,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deductible and security deposit in Lviv: how much is blocked on the card?",
             en: "Deductible and security deposit in Lviv: how much is blocked on the card?",
+            ro: "Franșiza și garanția de securitate în Lviv: how much is blocked on the card?",
           },
           answer: {
             uk: "Розмір депозиту залежить від класу авто: економ — від $200, бізнес — від $400, SUV — від $500. Пакет «Комфорт» зменшує депозит на 50%, «Преміум» — до мінімуму ($200-300). Кошти повертаються протягом 1-3 днів після повернення авто.",
@@ -2856,6 +3368,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit amount depends on car class: economy — from $200, business — from $400, SUV — from $500. 'Comfort' package reduces deposit by 50%, 'Premium' — to minimum ($200-300). Funds are returned within 1-3 days after car return.",
             en: "Deposit amount depends on car class: economy — from $200, business — from $400, SUV — from $500. 'Comfort' package reduces deposit by 50%, 'Premium' — to minimum ($200-300). Funds are returned within 1-3 days after car return.",
+            ro: "Suma garanției depinde de clasa mașinii: economic — de la $200, business — de la $400, SUV — de la $500. Pachetul „Comfort” reduce garanția cu 50%, „Premium” — la minimum ($200-300). Fondurile sunt returnate în 1-3 zile după returnarea mașinii.",
           },
         },
         {
@@ -2865,6 +3378,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car in Lviv without a deposit?",
             en: "Can I rent a car in Lviv without a deposit?",
+            ro: "Pot închiria o mașină în Lviv fără garanție?",
           },
           answer: {
             uk: "Для окремих моделей економ-класу та при довгостроковій оренді (від 2 тижнів) доступна опція без застави або зі зменшеним депозитом. Доступність залежить від історії клієнта та умов бронювання — уточнюйте при оформленні.",
@@ -2872,6 +3386,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For selected economy models and long-term rentals (from 2 weeks), a no-deposit or reduced deposit option is available. Availability depends on customer history and booking conditions — check when booking.",
             en: "For selected economy models and long-term rentals (from 2 weeks), a no-deposit or reduced deposit option is available. Availability depends on customer history and booking conditions — check when booking.",
+            ro: "Pentru modelele economice selectate și închirierile pe termen lung (de la 2 săptămâni), este disponibilă opțiunea fără garanție sau cu garanție redusă. Disponibilitatea depinde de istoricul clientului și condițiile de rezervare — verificați la rezervare.",
           },
         },
       ],
@@ -2884,6 +3399,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -2893,6 +3409,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age and driving experience for car rental in Lviv",
             en: "Minimum age and driving experience for car rental in Lviv",
+            ro: "Vârsta minimă și experiența de conducere pentru închirierea auto în Lviv",
           },
           answer: {
             uk: "Мінімум 21 рік і 2 роки стажу. Для кросоверів/SUV (популярних для Карпат) — від 23 років і 3 роки стажу. Преміум-авто — від 25 років. Молоді водії (21-24) можуть мати додатковий збір.",
@@ -2900,6 +3417,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum 21 years old and 2 years of experience. For crossovers/SUVs (popular for the Carpathians) — from 23 years and 3 years experience. Premium cars — from 25 years. Young drivers (21-24) may have an additional fee.",
             en: "Minimum 21 years old and 2 years of experience. For crossovers/SUVs (popular for the Carpathians) — from 23 years and 3 years experience. Premium cars — from 25 years. Young drivers (21-24) may have an additional fee.",
+            ro: "Minim 21 de ani și 2 ani de experiență. Pentru crossovere/SUV-uri (populare pentru Carpați) — de la 23 de ani și 3 ani de experiență. Mașini premium — de la 25 de ani. Conducătorii tineri (21-24 ani) pot avea o taxă suplimentară.",
           },
         },
         {
@@ -2909,6 +3427,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I travel abroad from Lviv with a rental car (Poland, Slovakia)?",
             en: "Can I travel abroad from Lviv with a rental car (Poland, Slovakia)?",
+            ro: "Pot călători în străinătate din Lviv cu o mașină închiriată (Polonia, Slovacia)?",
           },
           answer: {
             uk: "Так, виїзд до Польщі та інших країн ЄС можливий за попереднім погодженням (мінімум за 48 годин). Потрібно: оформити Green Card, додаткову страховку, сплатити збір за міжнародну поїздку. Список країн та умови — у менеджера.",
@@ -2916,6 +3435,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, travel to Poland and other EU countries is possible with prior arrangement (minimum 48 hours). Required: Green Card, additional insurance, international trip fee. Country list and conditions — check with our manager.",
             en: "Yes, travel to Poland and other EU countries is possible with prior arrangement (minimum 48 hours). Required: Green Card, additional insurance, international trip fee. Country list and conditions — check with our manager.",
+            ro: "Da, călătoria în Polonia și alte țări UE este posibilă cu aranjament prealabil (minim 48 de ore). Necesar: Green Card, asigurare suplimentară, taxă de călătorie internațională. Lista țărilor și condițiile — verificați cu managerul nostru.",
           },
         },
         {
@@ -2925,6 +3445,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What's prohibited when renting a car in Lviv: taxi, pets, smoking",
             en: "What's prohibited when renting a car in Lviv: taxi, pets, smoking",
+            ro: "Ce este interzis la închirierea unei mașini în Lviv: taxi, animale, fumat",
           },
           answer: {
             uk: "Заборонено: використання для таксі/Uber/Bolt, суборенда, участь у змаганнях, куріння в салоні. Перевезення тварин — дозволено у переносці/з покривалом (за забруднення — доплата за хімчистку). За порушення — штраф та можливе розірвання договору.",
@@ -2932,6 +3453,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Prohibited: taxi/Uber/Bolt use, subletting, racing, smoking inside. Pet transport allowed in carriers/with blankets (extra cleaning fee for soiling). Violations result in fines and possible contract termination.",
             en: "Prohibited: taxi/Uber/Bolt use, subletting, racing, smoking inside. Pet transport allowed in carriers/with blankets (extra cleaning fee for soiling). Violations result in fines and possible contract termination.",
+            ro: "Interzis: utilizarea pentru taxi/Uber/Bolt, subînchiriere, curse, fumat în interior. Transportul animalelor permis în cusete/cu pături (taxă suplimentară de curățenie pentru murdărire). Încălcările duc la amenzi și posibila reziliere a contractului.",
           },
         },
       ],
@@ -2944,6 +3466,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -2953,6 +3476,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What payment methods are available for car rental in Lviv?",
             en: "What payment methods are available for car rental in Lviv?",
+            ro: "Ce metode de plată sunt disponibile pentru închirierea auto în Lviv?",
           },
           answer: {
             uk: "Приймаємо: Visa/Mastercard (Apple Pay, Google Pay), готівку UAH/USD/EUR, безготівковий розрахунок для компаній. Туристи з-за кордону можуть оплатити карткою іноземного банку. Депозит — блокування на картці або готівка.",
@@ -2960,6 +3484,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, bank transfer for companies. Foreign tourists can pay with international bank cards. Deposit — card block or cash.",
             en: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, bank transfer for companies. Foreign tourists can pay with international bank cards. Deposit — card block or cash.",
+            ro: "Acceptăm: Visa/Mastercard (Apple Pay, Google Pay), numerar UAH/USD/EUR, transfer bancar pentru companii. Turiștii străini pot plăti cu carduri bancare internaționale. Garanție — blocare pe card sau numerar.",
           },
         },
         {
@@ -2969,6 +3494,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required to rent a car in Lviv: for tourists and Ukrainians?",
             en: "What documents are required to rent a car in Lviv: for tourists and Ukrainians?",
+            ro: "Ce documente sunt necesare pentru a închiria o mașină în Lviv: for tourists and Ukrainians?",
           },
           answer: {
             uk: "Українцям: паспорт/ID, посвідчення водія кат. B, ІПН. Іноземцям: закордонний паспорт, водійське посвідчення (міжнародне — якщо права не латиницею), штамп про в'їзд. Туристам з ЄС/США — національні права дійсні.",
@@ -2976,6 +3502,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, driver's license (international if not in Latin script), entry stamp. EU/US tourists — national licenses are valid.",
             en: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, driver's license (international if not in Latin script), entry stamp. EU/US tourists — national licenses are valid.",
+            ro: "Ucraineni: pașaport/carte de identitate, permis de conducere categoria B, cod fiscal. Străini: pașaport, permis de conducere (internațional dacă nu este în latină), ștampila de intrare. Turiști din UE/SUA — permisele naționale sunt valabile.",
           },
         },
         {
@@ -2985,6 +3512,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Fuel policy in Lviv: how to refuel before returning the car?",
             en: "Fuel policy in Lviv: how to refuel before returning the car?",
+            ro: "Fuel policy in Lviv: how to refuel before returning the car?",
           },
           answer: {
             uk: "Правило «повний-повний»: отримали з повним баком — поверніть так само. АЗС OKKO, WOG, UPG є по всьому Львову і на виїздах. Не встигаєте заправитись? Є опція передплаченого пального (ринкова ціна + сервісний збір).",
@@ -2992,6 +3520,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full rule: received with a full tank — return it the same. OKKO, WOG, UPG gas stations are throughout Lviv and at exits. No time to refuel? Prepaid fuel option available (market price + service fee).",
             en: "Full-to-full rule: received with a full tank — return it the same. OKKO, WOG, UPG gas stations are throughout Lviv and at exits. No time to refuel? Prepaid fuel option available (market price + service fee).",
+            ro: "Regula plin-la-plin: primit cu rezervorul plin — returnați-l la fel. Benzinăriile OKKO, WOG, UPG sunt în tot Lviv-ul și la ieșiri. Nu aveți timp să alimentați? Opțiune de combustibil preplătit disponibilă (preț de piață + taxă de serviciu).",
           },
         },
       ],
@@ -3006,6 +3535,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -3015,6 +3545,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Ternopil?",
             en: "Where to park a rental car in Ternopil?",
+            ro: "Unde să parcați o mașină închiriată în Ternopil?",
           },
           answer: {
             uk: "У центрі Тернополя паркування переважно безкоштовне. Біля озера та на набережній є облаштовані паркінги. Уникайте паркування на газонах та під забороняючими знаками. Біля торгових центрів є безкоштовні парковки.",
@@ -3022,6 +3553,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Parking in central Ternopil is mostly free. There are equipped parking lots near the lake and embankment. Avoid parking on lawns and under prohibition signs. Free parking is available near shopping centers.",
             en: "Parking in central Ternopil is mostly free. There are equipped parking lots near the lake and embankment. Avoid parking on lawns and under prohibition signs. Free parking is available near shopping centers.",
+            ro: "Parking in central Ternopil is mostly free. There are equipped parking lots near the lake and embankment. Avoid parking on lawns and under prohibition signs. Free parking is available near shopping centers.",
           },
         },
         {
@@ -3031,6 +3563,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery in Ternopil: station, center, to your address",
             en: "Car delivery in Ternopil: station, center, to your address",
+            ro: "Livrare auto în Ternopil: gară, centru, la adresa dvs.",
           },
           answer: {
             uk: "Подача авто по Тернополю безкоштовна: залізничний вокзал, центр міста, набережна Тернопільського ставу, готелі. Час подачі — від 30 хвилин. Також можлива подача в сусідні міста (Збараж, Кременець) за домовленістю.",
@@ -3038,6 +3571,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery in Ternopil is free: railway station, city center, Ternopil Lake embankment, hotels. Delivery time — from 30 minutes. Delivery to nearby towns (Zbarazh, Kremenets) is also available by arrangement.",
             en: "Car delivery in Ternopil is free: railway station, city center, Ternopil Lake embankment, hotels. Delivery time — from 30 minutes. Delivery to nearby towns (Zbarazh, Kremenets) is also available by arrangement.",
+            ro: "Livrarea auto în Ternopil este gratuită: gara feroviară, centrul orașului, faleza lacului Ternopil, hoteluri. Timp de livrare — de la 30 de minute. Livrarea în orașele din apropiere (Zbarazh, Kremenets) este de asemenea disponibilă la cerere.",
           },
         },
         {
@@ -3047,6 +3581,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit and how to visit Pochaiv and Kremenets?",
             en: "Is there a mileage limit and how to visit Pochaiv and Kremenets?",
+            ro: "Is there a mileage limit and how to visit Pochaiv and Kremenets?",
           },
           answer: {
             uk: "Стандартний ліміт — 250 км/добу. Для маршрутів Тернопіль — Почаївська Лавра (60 км), Кременецькі гори (50 км), Збаразький замок (25 км) цього достатньо. Для далеких поїздок є тариф Unlimited.",
@@ -3054,6 +3589,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250 km/day. For routes Ternopil — Pochaiv Lavra (60 km), Kremenets Mountains (50 km), Zbarazh Castle (25 km) this is enough. Unlimited rate available for longer trips.",
             en: "Standard limit is 250 km/day. For routes Ternopil — Pochaiv Lavra (60 km), Kremenets Mountains (50 km), Zbarazh Castle (25 km) this is enough. Unlimited rate available for longer trips.",
+            ro: "Standard limit is 250 km/day. For routes Ternopil — Pochaiv Lavra (60 km), Kremenets Mountains (50 km), Zbarazh Castle (25 km) this is enough. Unlimited rate available for longer trips.",
           },
         },
       ],
@@ -3066,6 +3602,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -3075,6 +3612,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Ternopil?",
             en: "What does insurance cover when renting a car in Ternopil?",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Ternopil?",
           },
           answer: {
             uk: "Всі авто мають базову ОСЦПВ. Додатково доступні пакети CDW (зменшення відповідальності) та SCDW (повне покриття). Для поїздок до печер Млинки/Оптимістична рекомендуємо розширену страховку.",
@@ -3082,6 +3620,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "All cars have basic MTPL. Additional CDW (reduced liability) and SCDW (full coverage) packages available. Extended insurance recommended for trips to Mlynky/Optymistychna caves.",
             en: "All cars have basic MTPL. Additional CDW (reduced liability) and SCDW (full coverage) packages available. Extended insurance recommended for trips to Mlynky/Optymistychna caves.",
+            ro: "All cars have basic MTPL. Additional CDW (reduced liability) and SCDW (full coverage) packages available. Extended insurance recommended for trips to Mlynky/Optymistychna caves.",
           },
         },
         {
@@ -3091,6 +3630,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for car rental in Ternopil?",
             en: "What is the deposit for car rental in Ternopil?",
+            ro: "Care este garanția pentru închirierea auto în Ternopil?",
           },
           answer: {
             uk: "Депозит залежить від класу авто: економ — від $150, бізнес — від $300, SUV — від $400. Пакет страхування «Комфорт» зменшує суму на 50%. Кошти повертаються після огляду авто.",
@@ -3098,6 +3638,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit depends on car class: economy — from $150, business — from $300, SUV — from $400. 'Comfort' insurance package reduces the amount by 50%. Funds returned after car inspection.",
             en: "Deposit depends on car class: economy — from $150, business — from $300, SUV — from $400. 'Comfort' insurance package reduces the amount by 50%. Funds returned after car inspection.",
+            ro: "Garanția depinde de clasa mașinii: economic — de la $150, business — de la $300, SUV — de la $400. Pachetul de asigurare „Comfort” reduce suma cu 50%. Fondurile sunt returnate după inspecția mașinii.",
           },
         },
         {
@@ -3107,6 +3648,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent without a deposit in Ternopil?",
             en: "Can I rent without a deposit in Ternopil?",
+            ro: "Pot închiria fără garanție în Ternopil?",
           },
           answer: {
             uk: "Для постійних клієнтів та при довгостроковій оренді (від 2 тижнів) можлива оренда без застави або зі зменшеним депозитом. Умови обговорюються індивідуально.",
@@ -3114,6 +3656,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For regular customers and long-term rentals (from 2 weeks), rental without deposit or with reduced deposit is possible. Terms discussed individually.",
             en: "For regular customers and long-term rentals (from 2 weeks), rental without deposit or with reduced deposit is possible. Terms discussed individually.",
+            ro: "Pentru clienții fideli și închirierile pe termen lung (de la 2 săptămâni), închirierea fără garanție sau cu garanție redusă este posibilă. Condițiile se discută individual.",
           },
         },
       ],
@@ -3126,6 +3669,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -3135,6 +3679,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age and experience for rental in Ternopil",
             en: "Minimum age and experience for rental in Ternopil",
+            ro: "Vârsta minimă și experiența pentru închiriere în Ternopil",
           },
           answer: {
             uk: "Мінімум 21 рік і 2 роки водійського стажу. Для SUV та преміум-авто — від 23-25 років. Молодим водіям може нараховуватись додатковий збір.",
@@ -3142,6 +3687,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum 21 years old and 2 years driving experience. For SUV and premium cars — from 23-25 years. Young driver fee may apply.",
             en: "Minimum 21 years old and 2 years driving experience. For SUV and premium cars — from 23-25 years. Young driver fee may apply.",
+            ro: "Minim 21 de ani și 2 ani experiență de conducere. Pentru SUV și mașini premium — de la 23-25 de ani. Se poate aplica o taxă pentru conducători tineri.",
           },
         },
         {
@@ -3151,6 +3697,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I travel from Ternopil to Lviv or Kyiv?",
             en: "Can I travel from Ternopil to Lviv or Kyiv?",
+            ro: "Pot călători din Ternopil la Lviv sau Kyiv?",
           },
           answer: {
             uk: "Так, подорожі по Україні дозволені без обмежень. Популярні маршрути: Тернопіль — Львів (130 км), Тернопіль — Київ (400 км), Тернопіль — Чернівці (200 км). Виїзд за кордон — за попереднім погодженням.",
@@ -3158,6 +3705,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, travel within Ukraine is allowed without restrictions. Popular routes: Ternopil — Lviv (130 km), Ternopil — Kyiv (400 km), Ternopil — Chernivtsi (200 km). Cross-border travel — by prior arrangement.",
             en: "Yes, travel within Ukraine is allowed without restrictions. Popular routes: Ternopil — Lviv (130 km), Ternopil — Kyiv (400 km), Ternopil — Chernivtsi (200 km). Cross-border travel — by prior arrangement.",
+            ro: "Da, călătoriile în Ucraina sunt permise fără restricții. Rute populare: Ternopil — Lviv (130 km), Ternopil — Kyiv (400 km), Ternopil — Chernivtsi (200 km). Călătoria transfrontalieră — cu aranjament prealabil.",
           },
         },
         {
@@ -3167,6 +3715,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is prohibited when renting a car in Ternopil?",
             en: "What is prohibited when renting a car in Ternopil?",
+            ro: "Ce este interzis la închirierea unei mașini în Ternopil?",
           },
           answer: {
             uk: "Заборонено: таксі/Uber, суборенда, участь у змаганнях, куріння, керування у стані сп'яніння. Перевезення тварин дозволене у переносці. Порушення — штраф і можливе розірвання договору.",
@@ -3174,6 +3723,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Prohibited: taxi/Uber, subletting, racing, smoking, driving under influence. Pet transport allowed in carriers. Violation — fine and possible contract termination.",
             en: "Prohibited: taxi/Uber, subletting, racing, smoking, driving under influence. Pet transport allowed in carriers. Violation — fine and possible contract termination.",
+            ro: "Interzis: taxi/Uber, subînchiriere, curse, fumat, conducere sub influența alcoolului. Transportul animalelor permis în cusete. Încălcarea — amendă și posibila reziliere a contractului.",
           },
         },
       ],
@@ -3186,6 +3736,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -3195,6 +3746,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to pay for car rental in Ternopil?",
             en: "How to pay for car rental in Ternopil?",
+            ro: "Cum se plătește închirierea auto în Ternopil?",
           },
           answer: {
             uk: "Приймаємо картки Visa/Mastercard, готівку (гривня, долари, євро), Apple Pay/Google Pay. Для компаній — безготівковий розрахунок з ПДВ. Депозит — блокування на картці або готівка.",
@@ -3202,6 +3754,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept Visa/Mastercard, cash (UAH, USD, EUR), Apple Pay/Google Pay. For companies — bank transfer with VAT. Deposit — card block or cash.",
             en: "We accept Visa/Mastercard, cash (UAH, USD, EUR), Apple Pay/Google Pay. For companies — bank transfer with VAT. Deposit — card block or cash.",
+            ro: "Acceptăm Visa/Mastercard, numerar (UAH, USD, EUR), Apple Pay/Google Pay. Pentru companii — transfer bancar cu TVA. Garanție — blocare pe card sau numerar.",
           },
         },
         {
@@ -3211,6 +3764,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required for rental in Ternopil?",
             en: "What documents are required for rental in Ternopil?",
+            ro: "Ce documente sunt necesare pentru închiriere în Ternopil?",
           },
           answer: {
             uk: "Громадянам України: паспорт/ID, посвідчення водія, ІПН. Іноземцям: закордонний паспорт, водійське посвідчення (міжнародне — якщо не латиницею). Вік від 21 року, стаж від 2 років.",
@@ -3218,6 +3772,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ukrainian citizens: passport/ID, driver's license, tax ID. Foreigners: passport, driver's license (international if not in Latin). Age from 21, experience from 2 years.",
             en: "Ukrainian citizens: passport/ID, driver's license, tax ID. Foreigners: passport, driver's license (international if not in Latin). Age from 21, experience from 2 years.",
+            ro: "Cetățeni ucraineni: pașaport/carte de identitate, permis de conducere, cod fiscal. Străini: pașaport, permis de conducere (internațional dacă nu este în latină). Vârsta de la 21 de ani, experiența de la 2 ani.",
           },
         },
         {
@@ -3227,6 +3782,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to return the car with a full tank in Ternopil?",
             en: "How to return the car with a full tank in Ternopil?",
+            ro: "Cum se returnează mașina cu rezervorul plin în Ternopil?",
           },
           answer: {
             uk: "Правило «повний-повний». АЗС WOG, OKKO, SOCAR є по всьому місту та на виїздах. Якщо не встигаєте — є опція передплаченого пального. Повернення з неповним баком — доплата за пальне + сервісний збір.",
@@ -3234,6 +3790,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full rule. WOG, OKKO, SOCAR gas stations throughout the city and at exits. If no time — prepaid fuel option available. Return with less fuel — fuel charge + service fee.",
             en: "Full-to-full rule. WOG, OKKO, SOCAR gas stations throughout the city and at exits. If no time — prepaid fuel option available. Return with less fuel — fuel charge + service fee.",
+            ro: "Regula plin-la-plin. Benzinării WOG, OKKO, SOCAR în tot orașul și la ieșiri. Dacă nu aveți timp — opțiune de combustibil preplătit disponibilă. Returnare cu mai puțin combustibil — taxă de combustibil + taxă de serviciu.",
           },
         },
       ],
@@ -3248,6 +3805,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -3257,6 +3815,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Odesa in summer?",
             en: "Where to park a rental car in Odesa in summer?",
+            ro: "Unde să parcați o mașină închiriată în Odesa in summer?",
           },
           answer: {
             uk: "У центрі Одеси (Дерибасівська, Приморський бульвар) паркування платне та обмежене. В Аркадії влітку — підземні паркінги біля готелів. На пляжах Ланжерон, Отрада є парковки. Оплата через Odesa Parking або паркомати.",
@@ -3264,6 +3823,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "In central Odesa (Derybasivska, Prymorskyi Boulevard), parking is paid and limited. In Arcadia in summer — underground parking near hotels. Lanzheron, Otrada beaches have parking. Pay via Odesa Parking or parking meters.",
             en: "In central Odesa (Derybasivska, Prymorskyi Boulevard), parking is paid and limited. In Arcadia in summer — underground parking near hotels. Lanzheron, Otrada beaches have parking. Pay via Odesa Parking or parking meters.",
+            ro: "In central Odesa (Derybasivska, Prymorskyi Boulevard), parking is paid and limited. In Arcadia in summer — underground parking near hotels. Lanzheron, Otrada beaches have parking. Pay via Odesa Parking or parking meters.",
           },
         },
         {
@@ -3273,6 +3833,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Odesa Airport (ODS) and station: terms",
             en: "Car delivery to Odesa Airport (ODS) and station: terms",
+            ro: "Livrarea mașinii la Odesa Airport (ODS) and station: terms",
           },
           answer: {
             uk: "Подача в аеропорт Одеса (ODS), на залізничний вокзал, в Аркадію, на Дерибасівську — безкоштовна. Менеджер зустріне з табличкою. Час подачі від 30 хвилин. Також доставляємо в Затоку та на курорти (за домовленістю).",
@@ -3280,6 +3841,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Delivery to Odesa Airport (ODS), railway station, Arcadia, Derybasivska — free. Manager meets with a sign. Delivery from 30 minutes. We also deliver to Zatoka and resorts (by arrangement).",
             en: "Delivery to Odesa Airport (ODS), railway station, Arcadia, Derybasivska — free. Manager meets with a sign. Delivery from 30 minutes. We also deliver to Zatoka and resorts (by arrangement).",
+            ro: "Delivery to Odesa Airport (ODS), railway station, Arcadia, Derybasivska — free. Manager meets with a sign. Delivery from 30 minutes. We also deliver to Zatoka and resorts (by arrangement).",
           },
         },
         {
@@ -3289,6 +3851,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit and how to visit Zatoka and resorts?",
             en: "Is there a mileage limit and how to visit Zatoka and resorts?",
+            ro: "Is there a mileage limit and how to visit Zatoka and resorts?",
           },
           answer: {
             uk: "Стандартний ліміт — 250-300 км/добу. Для маршрутів Одеса — Затока (60 км), Кароліно-Бугаз (65 км), Білгород-Дністровський (80 км) цього достатньо. Для далеких поїздок (Київ, Молдова) є Unlimited.",
@@ -3296,6 +3859,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250-300 km/day. For routes Odesa — Zatoka (60 km), Karolino-Buhaz (65 km), Bilhorod-Dnistrovskyi (80 km) this is enough. Unlimited available for long trips (Kyiv, Moldova).",
             en: "Standard limit is 250-300 km/day. For routes Odesa — Zatoka (60 km), Karolino-Buhaz (65 km), Bilhorod-Dnistrovskyi (80 km) this is enough. Unlimited available for long trips (Kyiv, Moldova).",
+            ro: "Standard limit is 250-300 km/day. For routes Odesa — Zatoka (60 km), Karolino-Buhaz (65 km), Bilhorod-Dnistrovskyi (80 km) this is enough. Unlimited available for long trips (Kyiv, Moldova).",
           },
         },
       ],
@@ -3308,6 +3872,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -3317,6 +3882,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Odesa?",
             en: "What does insurance cover when renting a car in Odesa?",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Odesa?",
           },
           answer: {
             uk: "Базова ОСЦПВ включена. Пакети CDW/SCDW зменшують вашу відповідальність. Для літнього сезону в Одесі (інтенсивний трафік) рекомендуємо пакет «Комфорт» або «Преміум» — покриття навіть дрібних подряпин.",
@@ -3324,6 +3890,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL included. CDW/SCDW packages reduce your liability. For summer season in Odesa (heavy traffic), we recommend 'Comfort' or 'Premium' package — covers even minor scratches.",
             en: "Basic MTPL included. CDW/SCDW packages reduce your liability. For summer season in Odesa (heavy traffic), we recommend 'Comfort' or 'Premium' package — covers even minor scratches.",
+            ro: "RCA de bază inclusă. Pachetele CDW/SCDW reduc răspunderea dvs. Pentru sezonul de vară în Odesa (trafic intens), recomandăm pachetul „Comfort” sau „Premium” — acoperă chiar și zgârieturile minore.",
           },
         },
         {
@@ -3333,6 +3900,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for car rental in Odesa in summer?",
             en: "What is the deposit for car rental in Odesa in summer?",
+            ro: "Care este garanția pentru închirierea auto în Odesa vara?",
           },
           answer: {
             uk: "Депозит: економ — від $200, бізнес — від $400, кабріолет — від $600. Влітку попит високий — бронюйте заздалегідь. Пакет «Преміум» зменшує депозит до $200-300 для всіх класів.",
@@ -3340,6 +3908,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit: economy — from $200, business — from $400, convertible — from $600. Summer demand is high — book in advance. 'Premium' package reduces deposit to $200-300 for all classes.",
             en: "Deposit: economy — from $200, business — from $400, convertible — from $600. Summer demand is high — book in advance. 'Premium' package reduces deposit to $200-300 for all classes.",
+            ro: "Deposit: economy — from $200, business — from $400, convertible — from $600. Summer demand is high — book in advance. „Premium” package reduces deposit to $200-300 for all classes.",
           },
         },
         {
@@ -3349,6 +3918,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a convertible in Odesa without a large deposit?",
             en: "Can I rent a convertible in Odesa without a large deposit?",
+            ro: "Pot închiria o decapotabilă în Odesa fără o garanție mare?",
           },
           answer: {
             uk: "Так, з пакетом «Преміум» застава на кабріолети зменшується до $300-400. Кабріолети особливо популярні влітку — бронюйте за 1-2 тижні. Доступні: Mercedes C-Class Cabrio, BMW 4 Series.",
@@ -3356,6 +3926,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, with 'Premium' package, convertible deposit is reduced to $300-400. Convertibles are especially popular in summer — book 1-2 weeks ahead. Available: Mercedes C-Class Cabrio, BMW 4 Series.",
             en: "Yes, with 'Premium' package, convertible deposit is reduced to $300-400. Convertibles are especially popular in summer — book 1-2 weeks ahead. Available: Mercedes C-Class Cabrio, BMW 4 Series.",
+            ro: "Da, cu pachetul „Premium”, garanția pentru decapotabile este redusă la $300-400. Decapotabilele sunt deosebit de populare vara — rezervați cu 1-2 săptămâni înainte. Disponibile: Mercedes C-Class Cabrio, BMW 4 Series.",
           },
         },
       ],
@@ -3368,6 +3939,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -3377,6 +3949,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age for car rental in Odesa (convertibles, premium)",
             en: "Minimum age for car rental in Odesa (convertibles, premium)",
+            ro: "Vârsta minimă pentru închirierea auto în Odesa (decapotabile, premium)",
           },
           answer: {
             uk: "Економ/бізнес: 21 рік, стаж 2 роки. Кабріолети та преміум: від 25 років, стаж 3-4 роки. Для водіїв 21-24 років може діяти додатковий збір «молодий водій».",
@@ -3384,6 +3957,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Economy/business: 21 years, 2 years experience. Convertibles and premium: from 25 years, 3-4 years experience. Drivers 21-24 may have 'young driver' surcharge.",
             en: "Economy/business: 21 years, 2 years experience. Convertibles and premium: from 25 years, 3-4 years experience. Drivers 21-24 may have 'young driver' surcharge.",
+            ro: "Economic/business: 21 de ani, 2 ani de experiență. Decapotabile și premium: de la 25 de ani, 3-4 ani de experiență. Conducătorii de 21-24 de ani pot avea o taxă suplimentară „conducător tânăr”.",
           },
         },
         {
@@ -3393,6 +3967,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I travel from Odesa to Moldova by rental car?",
             en: "Can I travel from Odesa to Moldova by rental car?",
+            ro: "Pot călători din Odesa în Moldova cu o mașină închiriată?",
           },
           answer: {
             uk: "Так, виїзд до Молдови можливий за попереднім погодженням (48 годин). Потрібно: Green Card, додаткова страховка, збір за міжнародну поїздку. Кишинів — 180 км від Одеси, зручний маршрут на день.",
@@ -3400,6 +3975,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, travel to Moldova possible with prior arrangement (48 hours). Required: Green Card, additional insurance, international trip fee. Chisinau — 180 km from Odesa, convenient day trip.",
             en: "Yes, travel to Moldova possible with prior arrangement (48 hours). Required: Green Card, additional insurance, international trip fee. Chisinau — 180 km from Odesa, convenient day trip.",
+            ro: "Da, călătoria în Moldova este posibilă cu aranjament prealabil (48 de ore). Necesar: Green Card, asigurare suplimentară, taxă de călătorie internațională. Chișinău — 180 km de la Odesa, excursie convenabilă de o zi.",
           },
         },
         {
@@ -3409,6 +3985,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is prohibited when renting a car in Odesa?",
             en: "What is prohibited when renting a car in Odesa?",
+            ro: "Ce este interzis la închirierea unei mașini în Odesa?",
           },
           answer: {
             uk: "Заборонено: таксі/Uber/Bolt, суборенда, куріння, виїзд на пляж (пісок пошкоджує авто). Перевезення тварин — у переносці. Влітку слідкуйте за температурою двигуна в заторах Аркадії.",
@@ -3416,6 +3993,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Prohibited: taxi/Uber/Bolt, subletting, smoking, driving on beach (sand damages car). Pets in carriers. In summer, watch engine temperature in Arcadia traffic jams.",
             en: "Prohibited: taxi/Uber/Bolt, subletting, smoking, driving on beach (sand damages car). Pets in carriers. In summer, watch engine temperature in Arcadia traffic jams.",
+            ro: "Interzis: taxi/Uber/Bolt, subînchiriere, fumat, condus pe plajă (nisipul deteriorează mașina). Animalele în cusete. Vara, urmăriți temperatura motorului în ambuteiajele din Arcadia.",
           },
         },
       ],
@@ -3428,6 +4006,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -3437,6 +4016,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How can a tourist pay for car rental in Odesa?",
             en: "How can a tourist pay for car rental in Odesa?",
+            ro: "Cum poate un turist să plătească închirierea auto în Odesa?",
           },
           answer: {
             uk: "Приймаємо: міжнародні картки Visa/Mastercard, готівку USD/EUR/UAH, Apple Pay/Google Pay. Для іноземних туристів — оплата карткою будь-якого банку світу. Депозит — блокування на картці.",
@@ -3444,6 +4024,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: international Visa/Mastercard, cash USD/EUR/UAH, Apple Pay/Google Pay. Foreign tourists can pay with any international bank card. Deposit — card block.",
             en: "We accept: international Visa/Mastercard, cash USD/EUR/UAH, Apple Pay/Google Pay. Foreign tourists can pay with any international bank card. Deposit — card block.",
+            ro: "Acceptăm: Visa/Mastercard internațional, numerar USD/EUR/UAH, Apple Pay/Google Pay. Turiștii străini pot plăti cu orice card bancar internațional. Garanție — blocare pe card.",
           },
         },
         {
@@ -3453,6 +4034,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents does a tourist need to rent in Odesa?",
             en: "What documents does a tourist need to rent in Odesa?",
+            ro: "Ce documente are nevoie un turist pentru a închiria în Odesa?",
           },
           answer: {
             uk: "Іноземцям: закордонний паспорт, водійське посвідчення (міжнародне — якщо не латиницею), штамп про в'їзд. Українцям: паспорт/ID, права кат. B, ІПН. Вік від 21 року.",
@@ -3460,6 +4042,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Foreigners: passport, driver's license (international if not in Latin), entry stamp. Ukrainians: passport/ID, category B license, tax ID. Age from 21.",
             en: "Foreigners: passport, driver's license (international if not in Latin), entry stamp. Ukrainians: passport/ID, category B license, tax ID. Age from 21.",
+            ro: 'Foreigners: passport, permis de conducere (internațional dacă nu este în latină), entry stamp. Ukrainians: pașaport/carte de identitate, category B license, tax ID. Age from 21.',
           },
         },
         {
@@ -3469,6 +4052,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel before returning the car in Odesa?",
             en: "Where to refuel before returning the car in Odesa?",
+            ro: "Unde să alimentați înainte de returnarea mașinii în Odesa?",
           },
           answer: {
             uk: "Правило «повний-повний». АЗС OKKO, WOG, Shell є по всій Одесі, на трасі до аеропорту та в Аркадії. Біля вокзалу — OKKO на Пантелеймонівській. Передплачене пальне — за запитом.",
@@ -3476,6 +4060,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full rule. OKKO, WOG, Shell stations throughout Odesa, on airport road and in Arcadia. Near station — OKKO on Panteleimonivska. Prepaid fuel — on request.",
             en: "Full-to-full rule. OKKO, WOG, Shell stations throughout Odesa, on airport road and in Arcadia. Near station — OKKO on Panteleimonivska. Prepaid fuel — on request.",
+            ro: "Regula plin-la-plin. Benzinării OKKO, WOG, Shell în toată Odesa, pe drumul spre aeroport și în Arcadia. Lângă gară — OKKO pe Panteleimonivska. Combustibil preplătit — la cerere.",
           },
         },
       ],
@@ -3490,6 +4075,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -3499,6 +4085,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Dnipro?",
             en: "Where to park a rental car in Dnipro?",
+            ro: "Unde să parcați o mașină închiriată în Dnipro?",
           },
           answer: {
             uk: "У центрі Дніпра (пр. Яворницького, набережна) є платні та безкоштовні парковки. Біля ТРЦ «Мост-сіті», «Passage» — безкоштовні паркінги. На набережній — зони з погодинною оплатою. Уникайте паркування під знаками заборони.",
@@ -3506,6 +4093,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "In central Dnipro (Yavornytskoho Ave, embankment), there are paid and free parking. Near Most-City, Passage malls — free parking. On the embankment — hourly paid zones. Avoid parking under prohibition signs.",
             en: "In central Dnipro (Yavornytskoho Ave, embankment), there are paid and free parking. Near Most-City, Passage malls — free parking. On the embankment — hourly paid zones. Avoid parking under prohibition signs.",
+            ro: "In central Dnipro (Yavornytskoho Ave, embankment), there are paid and free parking. Near Most-City, Passage malls — free parking. On the embankment — hourly paid zones. Avoid parking under prohibition signs.",
           },
         },
         {
@@ -3515,6 +4103,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Dnipro Airport (DNK) and station",
             en: "Car delivery to Dnipro Airport (DNK) and station",
+            ro: "Livrarea mașinii la Dnipro Airport (DNK) and station",
           },
           answer: {
             uk: "Подача в аеропорт Дніпро (DNK), на залізничний вокзал, у центр міста — безкоштовна. Також доставляємо на набережну, в готелі та за адресою. Час подачі — від 30 хвилин.",
@@ -3522,6 +4111,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Delivery to Dnipro Airport (DNK), railway station, city center — free. We also deliver to the embankment, hotels, and your address. Delivery time — from 30 minutes.",
             en: "Delivery to Dnipro Airport (DNK), railway station, city center — free. We also deliver to the embankment, hotels, and your address. Delivery time — from 30 minutes.",
+            ro: "Delivery to Dnipro Airport (DNK), railway station, city center — free. We also deliver to the embankment, hotels, and your address. Timp de livrare — from 30 minutes.",
           },
         },
         {
@@ -3531,6 +4121,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit and how to travel to Zaporizhzhia and Kharkiv?",
             en: "Is there a mileage limit and how to travel to Zaporizhzhia and Kharkiv?",
+            ro: "Is there a mileage limit and how to travel to Zaporizhzhia and Kharkiv?",
           },
           answer: {
             uk: "Стандартний ліміт — 250-300 км/добу. Для маршрутів Дніпро — Запоріжжя (80 км), Хортиця, Кривий Ріг (150 км) достатньо. Для Києва (480 км), Харкова (220 км) рекомендуємо Unlimited.",
@@ -3538,6 +4129,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250-300 km/day. For routes Dnipro — Zaporizhzhia (80 km), Khortytsia, Kryvyi Rih (150 km) this is enough. For Kyiv (480 km), Kharkiv (220 km) we recommend Unlimited.",
             en: "Standard limit is 250-300 km/day. For routes Dnipro — Zaporizhzhia (80 km), Khortytsia, Kryvyi Rih (150 km) this is enough. For Kyiv (480 km), Kharkiv (220 km) we recommend Unlimited.",
+            ro: "Standard limit is 250-300 km/day. For routes Dnipro — Zaporizhzhia (80 km), Khortytsia, Kryvyi Rih (150 km) this is enough. For Kyiv (480 km), Kharkiv (220 km) we recommend Unlimited.",
           },
         },
       ],
@@ -3550,6 +4142,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -3559,6 +4152,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Dnipro?",
             en: "What does insurance cover when renting a car in Dnipro?",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Dnipro?",
           },
           answer: {
             uk: "Базова ОСЦПВ включена. Пакети CDW/SCDW зменшують відповідальність. Для ділових поїздок рекомендуємо «Комфорт» або «Преміум» — повне покриття пошкоджень без зайвих питань.",
@@ -3566,6 +4160,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL included. CDW/SCDW packages reduce liability. For business trips, we recommend 'Comfort' or 'Premium' — full damage coverage without extra questions.",
             en: "Basic MTPL included. CDW/SCDW packages reduce liability. For business trips, we recommend 'Comfort' or 'Premium' — full damage coverage without extra questions.",
+            ro: "Basic MTPL included. CDW/SCDW packages reduce liability. For business trips, we recommend „Comfort” or „Premium” — full damage coverage without extra questions.",
           },
         },
         {
@@ -3575,6 +4170,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for car rental in Dnipro?",
             en: "What is the deposit for car rental in Dnipro?",
+            ro: "Care este garanția pentru închirierea auto în Dnipro?",
           },
           answer: {
             uk: "Депозит: економ — від $150, бізнес — від $350, SUV — від $450. Пакет «Комфорт» зменшує на 50%, «Преміум» — до мінімуму. Кошти повертаються після огляду авто протягом 1-3 днів.",
@@ -3582,6 +4178,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit: economy — from $150, business — from $350, SUV — from $450. 'Comfort' package reduces by 50%, 'Premium' — to minimum. Funds returned after car inspection within 1-3 days.",
             en: "Deposit: economy — from $150, business — from $350, SUV — from $450. 'Comfort' package reduces by 50%, 'Premium' — to minimum. Funds returned after car inspection within 1-3 days.",
+            ro: "Deposit: economy — from $150, business — from $350, SUV — from $450. „Comfort” package reduces by 50%, „Premium” — to minimum. Funds returned after car inspection within 1-3 days.",
           },
         },
         {
@@ -3591,6 +4188,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there no-deposit rental for business clients in Dnipro?",
             en: "Is there no-deposit rental for business clients in Dnipro?",
+            ro: "Is there no-deposit rental for business clients in Dnipro?",
           },
           answer: {
             uk: "Так, для корпоративних клієнтів та при довгостроковій оренді (від 1 місяця) можлива оренда без застави або зі зменшеним депозитом. Оформлення договору на юридичну особу з ПДВ.",
@@ -3598,6 +4196,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, for corporate clients and long-term rentals (from 1 month), no-deposit or reduced deposit rental is possible. Contract issued to legal entity with VAT.",
             en: "Yes, for corporate clients and long-term rentals (from 1 month), no-deposit or reduced deposit rental is possible. Contract issued to legal entity with VAT.",
+            ro: "Da, pentru clienții corporativi și închirierile pe termen lung (de la 1 lună), închirierea fără garanție sau cu garanție redusă este posibilă. Contractul este emis pe persoană juridică cu TVA.",
           },
         },
       ],
@@ -3610,6 +4209,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -3619,6 +4219,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age and experience for car rental in Dnipro",
             en: "Minimum age and experience for car rental in Dnipro",
+            ro: "Vârsta minimă și experiența pentru închirierea auto în Dnipro",
           },
           answer: {
             uk: "Мінімум 21 рік і 2 роки стажу. Для бізнес-класу та SUV — від 23 років. Преміум-авто — від 25 років, стаж 3-4 роки. Молодим водіям може нараховуватись додатковий збір.",
@@ -3626,6 +4227,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum 21 years and 2 years experience. For business class and SUV — from 23 years. Premium cars — from 25 years, 3-4 years experience. Young driver fee may apply.",
             en: "Minimum 21 years and 2 years experience. For business class and SUV — from 23 years. Premium cars — from 25 years, 3-4 years experience. Young driver fee may apply.",
+            ro: "Minim 21 de ani și 2 ani de experiență. Pentru clasa business și SUV — de la 23 de ani. Mașini premium — de la 25 de ani, 3-4 ani de experiență. Se poate aplica taxa pentru conducători tineri.",
           },
         },
         {
@@ -3635,6 +4237,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I travel from Dnipro to Kyiv or Kharkiv?",
             en: "Can I travel from Dnipro to Kyiv or Kharkiv?",
+            ro: "Pot călători din Dnipro la Kyiv sau Kharkiv?",
           },
           answer: {
             uk: "Так, подорожі по Україні без обмежень. Популярні маршрути: Дніпро — Київ (480 км, 5 год), Дніпро — Харків (220 км, 2.5 год), Дніпро — Одеса (450 км). Для далеких поїздок — тариф Unlimited.",
@@ -3642,6 +4245,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, travel within Ukraine without restrictions. Popular routes: Dnipro — Kyiv (480 km, 5 hrs), Dnipro — Kharkiv (220 km, 2.5 hrs), Dnipro — Odesa (450 km). For long trips — Unlimited rate.",
             en: "Yes, travel within Ukraine without restrictions. Popular routes: Dnipro — Kyiv (480 km, 5 hrs), Dnipro — Kharkiv (220 km, 2.5 hrs), Dnipro — Odesa (450 km). For long trips — Unlimited rate.",
+            ro: "Da, călătorii în Ucraina fără restricții. Rute populare: Dnipro — Kyiv (480 km, 5 ore), Dnipro — Kharkiv (220 km, 2,5 ore), Dnipro — Odesa (450 km). Pentru călătorii lungi — tariful Unlimited.",
           },
         },
         {
@@ -3651,6 +4255,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is prohibited when renting a car in Dnipro?",
             en: "What is prohibited when renting a car in Dnipro?",
+            ro: "Ce este interzis la închirierea unei mașini în Dnipro?",
           },
           answer: {
             uk: "Заборонено: таксі/Uber/Bolt, суборенда, куріння, участь у змаганнях, керування у стані сп'яніння. Перевезення тварин — у переносці. Порушення — штраф та розірвання договору.",
@@ -3658,6 +4263,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Prohibited: taxi/Uber/Bolt, subletting, smoking, racing, driving under influence. Pets in carriers only. Violation — fine and contract termination.",
             en: "Prohibited: taxi/Uber/Bolt, subletting, smoking, racing, driving under influence. Pets in carriers only. Violation — fine and contract termination.",
+            ro: "Interzis: taxi/Uber/Bolt, subînchiriere, fumat, curse, conducere sub influența alcoolului. Animale doar în cusete. Încălcarea — amendă și rezilierea contractului.",
           },
         },
       ],
@@ -3670,6 +4276,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -3679,6 +4286,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to pay for car rental in Dnipro?",
             en: "How to pay for car rental in Dnipro?",
+            ro: "Cum se plătește închirierea auto în Dnipro?",
           },
           answer: {
             uk: "Приймаємо: Visa/Mastercard (Apple Pay, Google Pay), готівку UAH/USD/EUR, безготівковий розрахунок для компаній з ПДВ. Депозит — блокування на картці або готівка.",
@@ -3686,6 +4294,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, bank transfer for companies with VAT. Deposit — card block or cash.",
             en: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, bank transfer for companies with VAT. Deposit — card block or cash.",
+            ro: "Acceptăm: Visa/Mastercard (Apple Pay, Google Pay), numerar UAH/USD/EUR, transfer bancar pentru companii cu TVA. Garanție — blocare pe card sau numerar.",
           },
         },
         {
@@ -3695,6 +4304,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required for rental in Dnipro?",
             en: "What documents are required for rental in Dnipro?",
+            ro: "Ce documente sunt necesare pentru închiriere în Dnipro?",
           },
           answer: {
             uk: "Українцям: паспорт/ID, посвідчення водія кат. B, ІПН. Іноземцям: закордонний паспорт, права (міжнародні — якщо не латиницею). Компаніям: статут, довіреність на представника.",
@@ -3702,6 +4312,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). Companies: charter, power of attorney for representative.",
             en: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). Companies: charter, power of attorney for representative.",
+            ro: "Ucraineni: pașaport/carte de identitate, permis de conducere categoria B, cod fiscal. Străini: pașaport, permis de conducere (internațional dacă nu este în latină). Vârsta de la 21 de ani.",
           },
         },
         {
@@ -3711,6 +4322,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel before returning the car in Dnipro?",
             en: "Where to refuel before returning the car in Dnipro?",
+            ro: "Unde să alimentați înainte de returnarea mașinii în Dnipro?",
           },
           answer: {
             uk: "Правило «повний-повний». АЗС OKKO, WOG, SOCAR є по всьому місту, на виїздах на Київ та Запоріжжя. Біля вокзалу та аеропорту — декілька станцій. Передплачене пальне — за запитом.",
@@ -3718,6 +4330,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full rule. OKKO, WOG, SOCAR stations throughout the city, at exits to Kyiv and Zaporizhzhia. Near station and airport — several stations. Prepaid fuel — on request.",
             en: "Full-to-full rule. OKKO, WOG, SOCAR stations throughout the city, at exits to Kyiv and Zaporizhzhia. Near station and airport — several stations. Prepaid fuel — on request.",
+            ro: "Regula plin-la-plin. Benzinării OKKO, WOG, SOCAR în tot orașul, la ieșirile spre Kyiv și Zaporizhzhia. Lângă gară și aeroport — mai multe benzinării la 5 minute.",
           },
         },
       ],
@@ -3732,6 +4345,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -3741,6 +4355,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Kharkiv?",
             en: "Where to park a rental car in Kharkiv?",
+            ro: "Unde să parcați o mașină închiriată în Kharkiv?",
           },
           answer: {
             uk: "У центрі Харкова (пл. Свободи, Сумська) паркування платне. Біля ТРЦ «Французький бульвар», «Дафі» — безкоштовні паркінги. Є підземні паркінги в центрі. Уникайте паркування на трамвайних коліях та під знаками.",
@@ -3748,6 +4363,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "In central Kharkiv (Freedom Square, Sumska), parking is paid. Near French Boulevard, Dafi malls — free parking. Underground parking available in center. Avoid parking on tram tracks and under signs.",
             en: "In central Kharkiv (Freedom Square, Sumska), parking is paid. Near French Boulevard, Dafi malls — free parking. Underground parking available in center. Avoid parking on tram tracks and under signs.",
+            ro: "In central Kharkiv (Freedom Square, Sumska), parking is paid. Near French Boulevard, Dafi malls — free parking. Underground parking available in center. Avoid parking on tram tracks and under signs.",
           },
         },
         {
@@ -3757,6 +4373,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to station and Kharkiv center",
             en: "Car delivery to station and Kharkiv center",
+            ro: "Livrarea mașinii la station and Kharkiv center",
           },
           answer: {
             uk: "Подача на залізничний вокзал Харків-Пасажирський, у центр міста (пл. Свободи, Сумська), готелі — безкоштовна. Час подачі від 30 хвилин. Доставка за адресою по всьому місту.",
@@ -3764,6 +4381,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Delivery to Kharkiv-Pasazhyrskyi station, city center (Freedom Square, Sumska), hotels — free. Delivery time from 30 minutes. Address delivery throughout the city.",
             en: "Delivery to Kharkiv-Pasazhyrskyi station, city center (Freedom Square, Sumska), hotels — free. Delivery time from 30 minutes. Address delivery throughout the city.",
+            ro: "Delivery to Kharkiv-Pasazhyrskyi station, city center (Freedom Square, Sumska), hotels — free. Timp de livrare from 30 minutes. Address delivery throughout the city.",
           },
         },
         {
@@ -3773,6 +4391,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit and how to travel to Poltava and Dnipro?",
             en: "Is there a mileage limit and how to travel to Poltava and Dnipro?",
+            ro: "Is there a mileage limit and how to travel to Poltava and Dnipro?",
           },
           answer: {
             uk: "Стандартний ліміт — 250-300 км/добу. Для маршрутів Харків — Полтава (140 км), природні парки Харківщини достатньо. Для Дніпра (220 км), Києва (480 км) рекомендуємо Unlimited.",
@@ -3780,6 +4399,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250-300 km/day. For routes Kharkiv — Poltava (140 km), Kharkiv region nature parks this is enough. For Dnipro (220 km), Kyiv (480 km) we recommend Unlimited.",
             en: "Standard limit is 250-300 km/day. For routes Kharkiv — Poltava (140 km), Kharkiv region nature parks this is enough. For Dnipro (220 km), Kyiv (480 km) we recommend Unlimited.",
+            ro: "Standard limit is 250-300 km/day. For routes Kharkiv — Poltava (140 km), Kharkiv region nature parks this is enough. For Dnipro (220 km), Kyiv (480 km) we recommend Unlimited.",
           },
         },
       ],
@@ -3792,6 +4412,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -3801,6 +4422,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Kharkiv?",
             en: "What does insurance cover when renting a car in Kharkiv?",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Kharkiv?",
           },
           answer: {
             uk: "Базова ОСЦПВ включена в усі тарифи. Пакети CDW/SCDW зменшують вашу відповідальність при пошкодженні. Пакет «Преміум» покриває навіть дрібні подряпини, шини та скло.",
@@ -3808,6 +4430,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL included in all rates. CDW/SCDW packages reduce your liability for damage. 'Premium' package covers even minor scratches, tires, and glass.",
             en: "Basic MTPL included in all rates. CDW/SCDW packages reduce your liability for damage. 'Premium' package covers even minor scratches, tires, and glass.",
+            ro: "Basic MTPL included in all rates. CDW/SCDW packages reduce your liability for damage. „Premium” package covers even minor scratches, tires, and glass.",
           },
         },
         {
@@ -3817,6 +4440,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for car rental in Kharkiv?",
             en: "What is the deposit for car rental in Kharkiv?",
+            ro: "Care este garanția pentru închirierea auto în Kharkiv?",
           },
           answer: {
             uk: "Депозит: економ — від $150, бізнес — від $350, SUV — від $400. Пакет «Комфорт» зменшує депозит на 50%, «Преміум» — до мінімуму ($200). Кошти повертаються протягом 1-3 днів.",
@@ -3824,6 +4448,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit: economy — from $150, business — from $350, SUV — from $400. 'Comfort' package reduces deposit by 50%, 'Premium' — to minimum ($200). Funds returned within 1-3 days.",
             en: "Deposit: economy — from $150, business — from $350, SUV — from $400. 'Comfort' package reduces deposit by 50%, 'Premium' — to minimum ($200). Funds returned within 1-3 days.",
+            ro: "Deposit: economy — from $150, business — from $350, SUV — from $400. „Comfort” package reduces deposit by 50%, „Premium” — to minimum ($200). Funds returned within 1-3 days.",
           },
         },
         {
@@ -3833,6 +4458,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car in Kharkiv without a deposit?",
             en: "Can I rent a car in Kharkiv without a deposit?",
+            ro: "Pot închiria o mașină în Kharkiv fără garanție?",
           },
           answer: {
             uk: "Для окремих моделей економ-класу та при довгостроковій оренді (від 2 тижнів) доступна оренда без застави. З пакетом «Преміум» депозит мінімальний для всіх класів. Умови — при бронюванні.",
@@ -3840,6 +4466,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For selected economy models and long-term rentals (from 2 weeks), no-deposit rental is available. With 'Premium' package, deposit is minimal for all classes. Terms — when booking.",
             en: "For selected economy models and long-term rentals (from 2 weeks), no-deposit rental is available. With 'Premium' package, deposit is minimal for all classes. Terms — when booking.",
+            ro: "Pentru modelele economice selectate și închirierile pe termen lung (de la 2 săptămâni), închirierea fără garanție este disponibilă. Cu pachetul „Premium”, garanția este minimă ($200-250) sau eliminată.",
           },
         },
       ],
@@ -3852,6 +4479,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -3861,6 +4489,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age and experience for car rental in Kharkiv",
             en: "Minimum age and experience for car rental in Kharkiv",
+            ro: "Vârsta minimă și experiența pentru închirierea auto în Kharkiv",
           },
           answer: {
             uk: "Мінімум 21 рік і 2 роки стажу. Для бізнес-класу та SUV — від 23 років. Преміум — від 25 років, стаж 3-4 роки. Молодим водіям може нараховуватись додатковий збір.",
@@ -3868,6 +4497,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum 21 years and 2 years experience. For business class and SUV — from 23. Premium — from 25, 3-4 years experience. Young driver fee may apply.",
             en: "Minimum 21 years and 2 years experience. For business class and SUV — from 23. Premium — from 25, 3-4 years experience. Young driver fee may apply.",
+            ro: "Minim 21 de ani și 2 ani de experiență. Pentru clasa business și SUV — de la 23. Premium — de la 25, 3-4 ani de experiență. Se poate aplica taxa suplimentară pentru conducători tineri.",
           },
         },
         {
@@ -3877,6 +4507,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I travel from Kharkiv to Kyiv or Dnipro?",
             en: "Can I travel from Kharkiv to Kyiv or Dnipro?",
+            ro: "Pot călători din Kharkiv la Kyiv sau Dnipro?",
           },
           answer: {
             uk: "Так, подорожі по Україні без обмежень. Популярні маршрути: Харків — Київ (480 км), Харків — Дніпро (220 км), Харків — Полтава (140 км). Для далеких поїздок — тариф Unlimited.",
@@ -3884,6 +4515,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, travel within Ukraine without restrictions. Popular routes: Kharkiv — Kyiv (480 km), Kharkiv — Dnipro (220 km), Kharkiv — Poltava (140 km). For long trips — Unlimited rate.",
             en: "Yes, travel within Ukraine without restrictions. Popular routes: Kharkiv — Kyiv (480 km), Kharkiv — Dnipro (220 km), Kharkiv — Poltava (140 km). For long trips — Unlimited rate.",
+            ro: "Da, călătorii în Ucraina fără restricții. Rute populare: Kharkiv — Kyiv (480 km), Kharkiv — Dnipro (220 km), Kharkiv — Poltava (140 km). Transfrontalier — cu aranjament prealabil.",
           },
         },
         {
@@ -3893,6 +4525,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is prohibited when renting a car in Kharkiv?",
             en: "What is prohibited when renting a car in Kharkiv?",
+            ro: "Ce este interzis la închirierea unei mașini în Kharkiv?",
           },
           answer: {
             uk: "Заборонено: таксі/Uber/Bolt, суборенда, куріння, участь у змаганнях, керування у стані сп'яніння. Перевезення тварин — у переносці. Порушення — штраф та розірвання договору.",
@@ -3900,6 +4533,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Prohibited: taxi/Uber/Bolt, subletting, smoking, racing, driving under influence. Pets in carriers. Violation — fine and contract termination.",
             en: "Prohibited: taxi/Uber/Bolt, subletting, smoking, racing, driving under influence. Pets in carriers. Violation — fine and contract termination.",
+            ro: "Interzis: taxi/Uber/Bolt, subînchiriere, fumat, curse, conducere sub influența alcoolului. Animale în cusete. Încălcarea — amendă și rezilierea contractului.",
           },
         },
       ],
@@ -3912,6 +4546,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -3921,6 +4556,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to pay for car rental in Kharkiv?",
             en: "How to pay for car rental in Kharkiv?",
+            ro: "Cum se plătește închirierea auto în Kharkiv?",
           },
           answer: {
             uk: "Приймаємо: Visa/Mastercard (Apple Pay, Google Pay), готівку UAH/USD/EUR, безготівковий розрахунок для компаній. Депозит — блокування на картці або готівка.",
@@ -3928,6 +4564,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, bank transfer for companies. Deposit — card block or cash.",
             en: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, bank transfer for companies. Deposit — card block or cash.",
+            ro: "Acceptăm: Visa/Mastercard (Apple Pay, Google Pay), numerar UAH/USD/EUR, transfer bancar pentru companii. Garanție — blocare pe card sau numerar.",
           },
         },
         {
@@ -3937,6 +4574,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required for rental in Kharkiv?",
             en: "What documents are required for rental in Kharkiv?",
+            ro: "Ce documente sunt necesare pentru închiriere în Kharkiv?",
           },
           answer: {
             uk: "Українцям: паспорт/ID, посвідчення водія кат. B, ІПН. Іноземцям: закордонний паспорт, права (міжнародні — якщо не латиницею), штамп про в'їзд. Вік від 21 року.",
@@ -3944,6 +4582,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin), entry stamp. Age from 21.",
             en: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin), entry stamp. Age from 21.",
+            ro: "Ucraineni: pașaport/carte de identitate, permis de conducere categoria B, cod fiscal. Străini: pașaport, permis de conducere (internațional dacă nu este în latină), ștampila de intrare. Vârsta de la 21 de ani.",
           },
         },
         {
@@ -3953,6 +4592,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel before returning the car in Kharkiv?",
             en: "Where to refuel before returning the car in Kharkiv?",
+            ro: "Unde să alimentați înainte de returnarea mașinii în Kharkiv?",
           },
           answer: {
             uk: "Правило «повний-повний». АЗС OKKO, WOG, Shell є по всьому місту та на виїздах. Біля вокзалу — OKKO на Полтавському шляху. Передплачене пальне — за запитом.",
@@ -3960,6 +4600,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full rule. OKKO, WOG, Shell stations throughout the city and at exits. Near station — OKKO on Poltavskyi Shliakh. Prepaid fuel — on request.",
             en: "Full-to-full rule. OKKO, WOG, Shell stations throughout the city and at exits. Near station — OKKO on Poltavskyi Shliakh. Prepaid fuel — on request.",
+            ro: "Regula plin-la-plin. Benzinării OKKO, WOG, Shell în tot orașul și la ieșiri. Lângă gară — OKKO pe Poltavskyi Shliakh. Opțiune de combustibil preplătit disponibilă.",
           },
         },
       ],
@@ -3974,6 +4615,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -3983,6 +4625,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car at Bukovel resort?",
             en: "Where to park a rental car at Bukovel resort?",
+            ro: "Unde să parcați o mașină închiriată la stațiunea Bukovel?",
           },
           answer: {
             uk: "На Буковелі є платні паркінги біля підйомників (P1-P8). Біля готелів зазвичай безкоштовне паркування для гостей. Взимку рекомендуємо залишати авто на охороняваному паркінгу — сніг може накрити машину за ніч.",
@@ -3990,6 +4633,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Bukovel has paid parking near lifts (P1-P8). Hotels usually have free parking for guests. In winter, we recommend leaving the car in guarded parking — snow can cover the car overnight.",
             en: "Bukovel has paid parking near lifts (P1-P8). Hotels usually have free parking for guests. In winter, we recommend leaving the car in guarded parking — snow can cover the car overnight.",
+            ro: "Bukovel has paid parking near lifts (P1-P8). Hotels usually have free parking for guests. In winter, we recommend leaving the car in guarded parking — snow can cover the car overnight.",
           },
         },
         {
@@ -3999,6 +4643,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to pick up a car for a trip to Bukovel?",
             en: "Where to pick up a car for a trip to Bukovel?",
+            ro: "De unde să ridicați o mașină pentru o călătorie la Bukovel?",
           },
           answer: {
             uk: "Авто можна забрати: аеропорт Івано-Франківськ (IFO) — 100 км до Буковеля; Львів (LWO, вокзал) — 280 км. Також доставляємо безпосередньо на курорт за домовленістю. Взимку рекомендуємо SUV з повним приводом.",
@@ -4006,6 +4651,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Pick up locations: Ivano-Frankivsk Airport (IFO) — 100 km to Bukovel; Lviv (LWO, station) — 280 km. We also deliver directly to the resort by arrangement. In winter, we recommend AWD SUV.",
             en: "Pick up locations: Ivano-Frankivsk Airport (IFO) — 100 km to Bukovel; Lviv (LWO, station) — 280 km. We also deliver directly to the resort by arrangement. In winter, we recommend AWD SUV.",
+            ro: "Pick up locations: Ivano-Frankivsk Airport (IFO) — 100 km to Bukovel; Lviv (LWO, station) — 280 km. We also deliver directly to the resort by arrangement. In winter, we recommend AWD SUV.",
           },
         },
         {
@@ -4015,6 +4661,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Which car is best for Bukovel in winter?",
             en: "Which car is best for Bukovel in winter?",
+            ro: "Care mașină este cea mai bună pentru Bukovel iarna?",
           },
           answer: {
             uk: "Для зимових поїздок рекомендуємо повнопривідні SUV: Skoda Kodiaq, VW Tiguan, Toyota RAV4, Mitsubishi Outlander. Всі авто оснащені зимовою гумою в сезон. Для літа підійде будь-яке авто — дорога до Буковеля асфальтована.",
@@ -4022,6 +4669,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For winter trips, we recommend AWD SUVs: Skoda Kodiaq, VW Tiguan, Toyota RAV4, Mitsubishi Outlander. All cars have winter tires in season. For summer, any car works — the road to Bukovel is paved.",
             en: "For winter trips, we recommend AWD SUVs: Skoda Kodiaq, VW Tiguan, Toyota RAV4, Mitsubishi Outlander. All cars have winter tires in season. For summer, any car works — the road to Bukovel is paved.",
+            ro: "Pentru călătoriile de iarnă, recomandăm SUV-uri cu tracțiune integrală: Skoda Kodiaq, VW Tiguan, Toyota RAV4, Mitsubishi Outlander. Toate mașinile au anvelope de iarnă în sezon. Pentru vară — orice clasă este potrivită.",
           },
         },
       ],
@@ -4034,6 +4682,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -4043,6 +4692,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What insurance is needed for a trip to the Carpathians?",
             en: "What insurance is needed for a trip to the Carpathians?",
+            ro: "Ce asigurare este necesară pentru o călătorie în Carpați?",
           },
           answer: {
             uk: "Для гірських доріг рекомендуємо пакет «Преміум» — він покриває пошкодження шин, скла, дзеркал та днища на серпантинах. Базова ОСЦПВ включена. CDW/SCDW зменшують вашу відповідальність.",
@@ -4050,6 +4700,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For mountain roads, we recommend 'Premium' package — it covers tire, glass, mirror, and underbody damage on serpentines. Basic MTPL included. CDW/SCDW reduce your liability.",
             en: "For mountain roads, we recommend 'Premium' package — it covers tire, glass, mirror, and underbody damage on serpentines. Basic MTPL included. CDW/SCDW reduce your liability.",
+            ro: "Pentru drumurile de munte, recomandăm pachetul „Premium” — acoperă daunele la anvelope, geamuri, oglinzi și partea inferioară pe serpentine. RCA de bază este inclusă în toate tarifele.",
           },
         },
         {
@@ -4059,6 +4710,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for SUV rental for Bukovel?",
             en: "What is the deposit for SUV rental for Bukovel?",
+            ro: "Care este garanția pentru închirierea unui SUV pentru Bukovel?",
           },
           answer: {
             uk: "Депозит на SUV: від $400-500. Пакет «Комфорт» зменшує на 50%, «Преміум» — до $200-300. Взимку попит на SUV високий — бронюйте за 1-2 тижні, особливо на новорічні свята.",
@@ -4066,6 +4718,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "SUV deposit: from $400-500. 'Comfort' package reduces by 50%, 'Premium' — to $200-300. In winter, SUV demand is high — book 1-2 weeks ahead, especially for New Year holidays.",
             en: "SUV deposit: from $400-500. 'Comfort' package reduces by 50%, 'Premium' — to $200-300. In winter, SUV demand is high — book 1-2 weeks ahead, especially for New Year holidays.",
+            ro: "SUV deposit: from $400-500. „Comfort” package reduces by 50%, „Premium” — to $200-300. In winter, SUV demand is high — book 1-2 weeks ahead, especially for New Year holidays.",
           },
         },
         {
@@ -4075,6 +4728,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car for Bukovel without a large deposit?",
             en: "Can I rent a car for Bukovel without a large deposit?",
+            ro: "Pot închiria o mașină pentru Bukovel fără o garanție mare?",
           },
           answer: {
             uk: "З пакетом «Преміум» застава на SUV зменшується до $200-300. Для постійних клієнтів можливі індивідуальні умови. Також є опція економ-кросоверів з меншим депозитом.",
@@ -4082,6 +4736,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "With 'Premium' package, SUV deposit is reduced to $200-300. Individual terms available for regular clients. Economy crossovers with lower deposits are also available.",
             en: "With 'Premium' package, SUV deposit is reduced to $200-300. Individual terms available for regular clients. Economy crossovers with lower deposits are also available.",
+            ro: "With „Premium” package, SUV deposit is reduced to $200-300. Individual terms available for regular clients. Economy crossovers with lower deposits are also available.",
           },
         },
       ],
@@ -4094,6 +4749,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -4103,6 +4759,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age for SUV rental for Bukovel",
             en: "Minimum age for SUV rental for Bukovel",
+            ro: "Vârsta minimă pentru închirierea unui SUV pentru Bukovel",
           },
           answer: {
             uk: "Для SUV та кросоверів: від 23 років, стаж 3 роки. Для преміум-SUV (BMW X5, Mercedes GLE): від 25 років, стаж 4 роки. Для молодших водіїв доступні компактні кросовери зі збільшеним депозитом.",
@@ -4110,6 +4767,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For SUVs and crossovers: from 23 years, 3 years experience. For premium SUVs (BMW X5, Mercedes GLE): from 25 years, 4 years experience. Younger drivers can rent compact crossovers with increased deposit.",
             en: "For SUVs and crossovers: from 23 years, 3 years experience. For premium SUVs (BMW X5, Mercedes GLE): from 25 years, 4 years experience. Younger drivers can rent compact crossovers with increased deposit.",
+            ro: "Pentru SUV-uri și crossovere: de la 23 de ani, 3 ani de experiență. Pentru SUV-uri premium (BMW X5, Mercedes GLE): de la 25 de ani, 4 ani de experiență. Se aplică taxa suplimentară pentru conducători tineri.",
           },
         },
         {
@@ -4119,6 +4777,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where else can I go from Bukovel by rental car?",
             en: "Where else can I go from Bukovel by rental car?",
+            ro: "Unde altundeva pot merge din Bukovel cu o mașină închiriată?",
           },
           answer: {
             uk: "Популярні напрямки: Драгобрат (30 км), Яремче (25 км), Славське (100 км), Говерла (40 км до початку маршруту). Для гірських доріг рекомендуємо повний привід. Подорожі по Україні без обмежень.",
@@ -4126,6 +4785,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Popular destinations: Dragobrat (30 km), Yaremche (25 km), Slavske (100 km), Hoverla (40 km to trailhead). AWD recommended for mountain roads. Travel within Ukraine without restrictions.",
             en: "Popular destinations: Dragobrat (30 km), Yaremche (25 km), Slavske (100 km), Hoverla (40 km to trailhead). AWD recommended for mountain roads. Travel within Ukraine without restrictions.",
+            ro: "Popular destinations: Dragobrat (30 km), Yaremche (25 km), Slavske (100 km), Hoverla (40 km to trailhead). AWD recommended for mountain roads. Travel within Ukraine without restrictions.",
           },
         },
         {
@@ -4135,6 +4795,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What special rules apply for Bukovel car rental?",
             en: "What special rules apply for Bukovel car rental?",
+            ro: "Ce reguli speciale se aplică pentru închirierea auto la Bukovel?",
           },
           answer: {
             uk: "Взимку обов'язково: перевірте рівень антифризу, не залишайте авто з ручним гальмом (може примерзнути), очищуйте дах від снігу. Заборонено: офф-роуд поза дорогами, буксирування, куріння. Ланцюги — за запитом.",
@@ -4142,6 +4803,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Winter essentials: check antifreeze level, don't leave car on handbrake (may freeze), clear roof of snow. Prohibited: off-road driving, towing, smoking. Snow chains available on request.",
             en: "Winter essentials: check antifreeze level, don't leave car on handbrake (may freeze), clear roof of snow. Prohibited: off-road driving, towing, smoking. Snow chains available on request.",
+            ro: "Winter essentials: check antifreeze level, don't leave car on handbrake (may freeze), clear roof of snow. Prohibited: off-road driving, towing, smoking. Snow chains available on request.",
           },
         },
       ],
@@ -4154,6 +4816,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -4163,6 +4826,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to pay for Bukovel car rental?",
             en: "How to pay for Bukovel car rental?",
+            ro: "Cum se plătește închirierea auto la Bukovel?",
           },
           answer: {
             uk: "Приймаємо: Visa/Mastercard (Apple Pay, Google Pay), готівку UAH/USD/EUR. Взимку рекомендуємо бронювати та оплачувати заздалегідь — попит на SUV високий. Депозит блокується на картці.",
@@ -4170,6 +4834,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR. In winter, book and pay in advance — SUV demand is high. Deposit blocked on card.",
             en: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR. In winter, book and pay in advance — SUV demand is high. Deposit blocked on card.",
+            ro: "Acceptăm: Visa/Mastercard (Apple Pay, Google Pay), numerar UAH/USD/EUR. Iarna, rezervați și plătiți în avans — cererea de SUV-uri este mare. Garanție — blocare pe card sau numerar.",
           },
         },
         {
@@ -4179,6 +4844,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required for Bukovel car rental?",
             en: "What documents are required for Bukovel car rental?",
+            ro: "Ce documente sunt necesare pentru închirierea auto la Bukovel?",
           },
           answer: {
             uk: "Українцям: паспорт/ID, посвідчення водія кат. B, ІПН. Іноземцям: закордонний паспорт, права (міжнародні — якщо не латиницею). Для SUV вік від 23 років, стаж від 3 років.",
@@ -4186,6 +4852,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). For SUV: age 23+, 3+ years experience.",
             en: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). For SUV: age 23+, 3+ years experience.",
+            ro: "Ucraineni: pașaport/carte de identitate, permis de conducere categoria B, cod fiscal. Străini: pașaport, permis de conducere (internațional dacă nu este în latină). Pentru SUV — de la 23 de ani. Pentru SUV premium — de la 25 de ani.",
           },
         },
         {
@@ -4195,6 +4862,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel on the way to Bukovel?",
             en: "Where to refuel on the way to Bukovel?",
+            ro: "Unde să alimentați pe drumul spre Bukovel?",
           },
           answer: {
             uk: "Рекомендуємо заправитись у Івано-Франківську або Надвірній — на Буковелі АЗС немає. Найближча заправка — в Яремче (25 км). Правило «повний-повний» діє. Поверніть авто з тим же рівнем пального.",
@@ -4202,6 +4870,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Refuel in Ivano-Frankivsk or Nadvirna — no gas stations at Bukovel. Nearest station in Yaremche (25 km). Full-to-full rule applies. Return car with same fuel level.",
             en: "Refuel in Ivano-Frankivsk or Nadvirna — no gas stations at Bukovel. Nearest station in Yaremche (25 km). Full-to-full rule applies. Return car with same fuel level.",
+            ro: "Refuel in Ivano-Frankivsk or Nadvirna — no gas stations at Bukovel. Nearest station in Yaremche (25 km). Full-to-full rule applies. Return car with same fuel level.",
           },
         },
       ],
@@ -4216,6 +4885,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -4225,6 +4895,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Truskavets?",
             en: "Where to park a rental car in Truskavets?",
+            ro: "Unde să parcați o mașină închiriată în Truskavets?",
           },
           answer: {
             uk: "Біля санаторіїв є парковки для гостей (часто безкоштовні). У центрі курорту, біля бювету «Нафтуся» — платне паркування. Біля парку є безкоштовні місця. Уникайте паркування на пішохідних зонах курорту.",
@@ -4232,6 +4903,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Sanatoriums have guest parking (often free). In the resort center near Naftusya pump room — paid parking. Free spots available near the park. Avoid parking in pedestrian resort zones.",
             en: "Sanatoriums have guest parking (often free). In the resort center near Naftusya pump room — paid parking. Free spots available near the park. Avoid parking in pedestrian resort zones.",
+            ro: "Sanatoriums have guest parking (often free). In the resort center near Naftusya pump room — paid parking. Free spots available near the park. Avoid parking in pedestrian resort zones.",
           },
         },
         {
@@ -4241,6 +4913,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to pick up a car for a trip to Truskavets?",
             en: "Where to pick up a car for a trip to Truskavets?",
+            ro: "De unde să ridicați o mașină pentru o călătorie la Truskavets?",
           },
           answer: {
             uk: "Авто можна забрати у Львові (аеропорт LWO, вокзал — 100 км) або замовити доставку безпосередньо в Трускавець, до санаторію чи готелю. Час у дорозі від Львова — 1.5 години.",
@@ -4248,6 +4921,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Pick up in Lviv (LWO airport, station — 100 km) or order delivery directly to Truskavets, to your sanatorium or hotel. Travel time from Lviv — 1.5 hours.",
             en: "Pick up in Lviv (LWO airport, station — 100 km) or order delivery directly to Truskavets, to your sanatorium or hotel. Travel time from Lviv — 1.5 hours.",
+            ro: "Pick up in Lviv (LWO airport, station — 100 km) or order delivery directly to Truskavets, to your sanatorium or hotel. Travel time from Lviv — 1.5 hours.",
           },
         },
         {
@@ -4257,6 +4931,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is it convenient to travel by car during spa vacation?",
             en: "Is it convenient to travel by car during spa vacation?",
+            ro: "Is it convenient to travel by car during spa vacation?",
           },
           answer: {
             uk: "Так, авто дає свободу пересування між бюветами, санаторіями та курортними зонами. Зручно відвідати: Сходницю (20 км), Дрогобич (15 км), Борислав (5 км), Моршин (75 км). Пробігу 250 км/добу достатньо.",
@@ -4264,6 +4939,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, a car gives freedom to move between pump rooms, sanatoriums, and resort areas. Easy to visit: Skhidnytsia (20 km), Drohobych (15 km), Boryslav (5 km), Morshyn (75 km). 250 km/day is enough.",
             en: "Yes, a car gives freedom to move between pump rooms, sanatoriums, and resort areas. Easy to visit: Skhidnytsia (20 km), Drohobych (15 km), Boryslav (5 km), Morshyn (75 km). 250 km/day is enough.",
+            ro: "Da, o mașină oferă libertatea de a vă deplasa între sălile de pompe, sanatorii și zonele de stațiune. Ușor de vizitat: Skhidnytsia (20 km), Drohobych (15 km), Boryslav, Stryi. Transportul public este limitat — o mașină este mult mai convenabilă.",
           },
         },
       ],
@@ -4276,6 +4952,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -4285,6 +4962,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What insurance for car rental in Truskavets?",
             en: "What insurance for car rental in Truskavets?",
+            ro: "Ce asigurare pentru închirierea auto în Truskavets?",
           },
           answer: {
             uk: "Базова ОСЦПВ включена. Пакети CDW/SCDW зменшують вашу відповідальність. Для спокійного санаторного відпочинку достатньо базової страховки, для поїздок у Карпати — рекомендуємо «Комфорт».",
@@ -4292,6 +4970,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL included. CDW/SCDW packages reduce your liability. For relaxing spa vacation, basic insurance is enough; for Carpathian trips — we recommend 'Comfort'.",
             en: "Basic MTPL included. CDW/SCDW packages reduce your liability. For relaxing spa vacation, basic insurance is enough; for Carpathian trips — we recommend 'Comfort'.",
+            ro: "Basic MTPL included. CDW/SCDW packages reduce your liability. For relaxing spa vacation, basic insurance is enough; for Carpathian trips — we recommend „Comfort”.",
           },
         },
         {
@@ -4301,6 +4980,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for car rental in Truskavets?",
             en: "What is the deposit for car rental in Truskavets?",
+            ro: "Care este garanția pentru închirierea auto în Truskavets?",
           },
           answer: {
             uk: "Депозит: економ — від $150, бізнес — від $300, SUV — від $400. Для тривалого санаторного відпочинку (від 2 тижнів) можливі знижки та зменшений депозит.",
@@ -4308,6 +4988,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit: economy — from $150, business — from $300, SUV — from $400. For long spa stays (from 2 weeks), discounts and reduced deposit available.",
             en: "Deposit: economy — from $150, business — from $300, SUV — from $400. For long spa stays (from 2 weeks), discounts and reduced deposit available.",
+            ro: "Deposit: economy — from $150, business — from $300, SUV — from $400. For long spa stays (from 2 weeks), discounts and reduced deposit available.",
           },
         },
         {
@@ -4317,6 +4998,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is no-deposit rental available for sanatorium guests?",
             en: "Is no-deposit rental available for sanatorium guests?",
+            ro: "Is no-deposit rental available for sanatorium guests?",
           },
           answer: {
             uk: "При оренді від 2 тижнів (типовий термін санаторного відпочинку) доступні варіанти зі зменшеним депозитом або без застави. Пакет «Преміум» зменшує депозит до мінімуму для всіх класів.",
@@ -4324,6 +5006,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For rentals from 2 weeks (typical spa stay), options with reduced or no deposit are available. 'Premium' package reduces deposit to minimum for all classes.",
             en: "For rentals from 2 weeks (typical spa stay), options with reduced or no deposit are available. 'Premium' package reduces deposit to minimum for all classes.",
+            ro: "Pentru închirieri de la 2 săptămâni (sejur tipic la spa), sunt disponibile opțiuni cu garanție redusă sau fără garanție. Pachetul „Premium” reduce garanția la minimum.",
           },
         },
       ],
@@ -4336,6 +5019,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -4345,6 +5029,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age for car rental in Truskavets",
             en: "Minimum age for car rental in Truskavets",
+            ro: "Vârsta minimă pentru închirierea auto în Truskavets",
           },
           answer: {
             uk: "Мінімум 21 рік і 2 роки стажу. Для бізнес-класу та SUV — від 23 років. Багато гостей курорту старшого віку — для них немає обмежень за віком.",
@@ -4352,6 +5037,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum 21 years and 2 years experience. For business class and SUV — from 23 years. Many resort guests are older — no upper age limits.",
             en: "Minimum 21 years and 2 years experience. For business class and SUV — from 23 years. Many resort guests are older — no upper age limits.",
+            ro: "Minim 21 de ani și 2 ani de experiență. Pentru clasa business și SUV — de la 23 de ani. Mulți oaspeți ai stațiunii sunt mai în vârstă — nu există limită superioară de vârstă cu permis valid.",
           },
         },
         {
@@ -4361,6 +5047,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I go from Truskavets by rental car?",
             en: "Where can I go from Truskavets by rental car?",
+            ro: "Unde pot merge din Truskavets cu o mașină închiriată?",
           },
           answer: {
             uk: "Популярні напрямки: Сходниця (20 км), Дрогобич (15 км), Львів (100 км), Моршин (75 км), Карпати. Подорожі по Україні без обмежень. Для Карпат рекомендуємо кросовер.",
@@ -4368,6 +5055,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Popular destinations: Skhidnytsia (20 km), Drohobych (15 km), Lviv (100 km), Morshyn (75 km), Carpathians. Travel within Ukraine without restrictions. Crossover recommended for Carpathians.",
             en: "Popular destinations: Skhidnytsia (20 km), Drohobych (15 km), Lviv (100 km), Morshyn (75 km), Carpathians. Travel within Ukraine without restrictions. Crossover recommended for Carpathians.",
+            ro: "Popular destinations: Skhidnytsia (20 km), Drohobych (15 km), Lviv (100 km), Morshyn (75 km), Carpathians. Travel within Ukraine without restrictions. Crossover recommended for Carpathians.",
           },
         },
         {
@@ -4377,6 +5065,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is prohibited when renting a car in Truskavets?",
             en: "What is prohibited when renting a car in Truskavets?",
+            ro: "Ce este interzis la închirierea unei mașini în Truskavets?",
           },
           answer: {
             uk: "Стандартні заборони: таксі/Uber, суборенда, куріння в салоні. Перевезення тварин дозволене у переносці. Курортна зона — дотримуйтесь обмежень швидкості та паркування.",
@@ -4384,6 +5073,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard prohibitions: taxi/Uber, subletting, smoking inside. Pets allowed in carriers. Resort area — follow speed and parking restrictions.",
             en: "Standard prohibitions: taxi/Uber, subletting, smoking inside. Pets allowed in carriers. Resort area — follow speed and parking restrictions.",
+            ro: "Standard prohibitions: taxi/Uber, subletting, smoking inside. Pets allowed in carriers. Resort area — follow speed and parking restrictions.",
           },
         },
       ],
@@ -4396,6 +5086,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -4405,6 +5096,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to pay for car rental in Truskavets?",
             en: "How to pay for car rental in Truskavets?",
+            ro: "Cum se plătește închirierea auto în Truskavets?",
           },
           answer: {
             uk: "Приймаємо: Visa/Mastercard (Apple Pay, Google Pay), готівку UAH/USD/EUR. Для тривалого санаторного відпочинку можлива оплата частинами (передоплата + залишок на місці).",
@@ -4412,6 +5104,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR. For long spa stays, partial payment possible (deposit + remainder on site).",
             en: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR. For long spa stays, partial payment possible (deposit + remainder on site).",
+            ro: "Acceptăm: Visa/Mastercard (Apple Pay, Google Pay), numerar UAH/USD/EUR. Pentru sejururi lungi la spa, plata parțială este posibilă (avans + restul la returnare). Transfer bancar pentru companii.",
           },
         },
         {
@@ -4421,6 +5114,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required for rental in Truskavets?",
             en: "What documents are required for rental in Truskavets?",
+            ro: "Ce documente sunt necesare pentru închiriere în Truskavets?",
           },
           answer: {
             uk: "Українцям: паспорт/ID, посвідчення водія кат. B, ІПН. Іноземцям: закордонний паспорт, права (міжнародні — якщо не латиницею). Вік від 21 року.",
@@ -4428,6 +5122,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). Age from 21.",
             en: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). Age from 21.",
+            ro: "Ucraineni: pașaport/carte de identitate, permis de conducere categoria B, cod fiscal. Străini: pașaport, permis de conducere (internațional dacă nu este în latină). Vârsta de la 21 de ani.",
           },
         },
         {
@@ -4437,6 +5132,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel in Truskavets?",
             en: "Where to refuel in Truskavets?",
+            ro: "Unde să alimentați în Truskavets?",
           },
           answer: {
             uk: "У Трускавці є АЗС OKKO, WOG на виїзді в напрямку Дрогобича та Львова. У самому курорті заправок немає. Правило «повний-повний» — поверніть авто з повним баком.",
@@ -4444,6 +5140,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Truskavets has OKKO, WOG stations at exits toward Drohobych and Lviv. No stations in the resort itself. Full-to-full rule — return car with full tank.",
             en: "Truskavets has OKKO, WOG stations at exits toward Drohobych and Lviv. No stations in the resort itself. Full-to-full rule — return car with full tank.",
+            ro: "Truskavets has OKKO, WOG stations at exits toward Drohobych and Lviv. No stations in the resort itself. Full-to-full rule — return car with full tank.",
           },
         },
       ],
@@ -4458,6 +5155,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -4467,6 +5165,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Ivano-Frankivsk?",
             en: "Where to park a rental car in Ivano-Frankivsk?",
+            ro: "Unde să parcați o mașină închiriată în Ivano-Frankivsk?",
           },
           answer: {
             uk: "У центрі міста (Площа Ринок, вул. Незалежності) паркування платне або обмежене. Біля ТРЦ «Арсен», «Епіцентр» — безкоштовні паркінги. На вулицях житлових районів — безкоштовно. Уникайте пішохідних зон.",
@@ -4474,6 +5173,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "In the city center (Rynok Square, Nezalezhnosti St), parking is paid or limited. Near Arsen, Epicentr malls — free parking. Street parking in residential areas — free. Avoid pedestrian zones.",
             en: "In the city center (Rynok Square, Nezalezhnosti St), parking is paid or limited. Near Arsen, Epicentr malls — free parking. Street parking in residential areas — free. Avoid pedestrian zones.",
+            ro: "In the city center (Rynok Square, Nezalezhnosti St), parking is paid or limited. Near Arsen, Epicentr malls — free parking. Street parking in residential areas — free. Avoid pedestrian zones.",
           },
         },
         {
@@ -4483,6 +5183,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Ivano-Frankivsk Airport (IFO) and station",
             en: "Car delivery to Ivano-Frankivsk Airport (IFO) and station",
+            ro: "Livrarea mașinii la Ivano-Frankivsk Airport (IFO) and station",
           },
           answer: {
             uk: "Подача в аеропорт Івано-Франківськ (IFO), на залізничний вокзал, у центр міста — безкоштовна. Менеджер зустріне з табличкою. Час подачі — від 30 хвилин. Аеропорт — 15 хвилин від центру.",
@@ -4490,6 +5191,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Delivery to Ivano-Frankivsk Airport (IFO), railway station, city center — free. Manager meets with a sign. Delivery time — from 30 minutes. Airport — 15 minutes from center.",
             en: "Delivery to Ivano-Frankivsk Airport (IFO), railway station, city center — free. Manager meets with a sign. Delivery time — from 30 minutes. Airport — 15 minutes from center.",
+            ro: "Delivery to Ivano-Frankivsk Airport (IFO), railway station, city center — free. Manager meets with a sign. Timp de livrare — from 30 minutes. Airport — 15 minutes from center.",
           },
         },
         {
@@ -4499,6 +5201,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to get from Ivano-Frankivsk to Bukovel?",
             en: "How to get from Ivano-Frankivsk to Bukovel?",
+            ro: "Cum să ajungeți din Ivano-Frankivsk la Bukovel?",
           },
           answer: {
             uk: "На авто — 100 км, 1.5 години через Надвірну та Яремче. Дорога асфальтована, але взимку рекомендуємо SUV з повним приводом. Також зручно відвідати Яремче (60 км), Говерлу (140 км), Манявський скит (25 км).",
@@ -4506,6 +5209,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "By car — 100 km, 1.5 hours via Nadvirna and Yaremche. Road is paved, but in winter we recommend AWD SUV. Also convenient to visit Yaremche (60 km), Hoverla (140 km), Manyava Monastery (25 km).",
             en: "By car — 100 km, 1.5 hours via Nadvirna and Yaremche. Road is paved, but in winter we recommend AWD SUV. Also convenient to visit Yaremche (60 km), Hoverla (140 km), Manyava Monastery (25 km).",
+            ro: "By car — 100 km, 1.5 hours via Nadvirna and Yaremche. Road is paved, but in winter we recommend AWD SUV. Also convenient to visit Yaremche (60 km), Hoverla (140 km), Manyava Monastery (25 km).",
           },
         },
       ],
@@ -4518,6 +5222,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -4527,6 +5232,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What insurance is needed for Carpathian trips from Ivano-Frankivsk?",
             en: "What insurance is needed for Carpathian trips from Ivano-Frankivsk?",
+            ro: "Ce asigurare este necesară pentru călătoriile în Carpați din Ivano-Frankivsk?",
           },
           answer: {
             uk: "Базова ОСЦПВ включена. Для гірських доріг рекомендуємо пакет «Комфорт» або «Преміум» — покриває пошкодження шин, скла, дзеркал на серпантинах. Взимку — обов'язково розширена страховка.",
@@ -4534,6 +5240,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL included. For mountain roads, we recommend 'Comfort' or 'Premium' package — covers tire, glass, mirror damage on serpentines. In winter — extended insurance is essential.",
             en: "Basic MTPL included. For mountain roads, we recommend 'Comfort' or 'Premium' package — covers tire, glass, mirror damage on serpentines. In winter — extended insurance is essential.",
+            ro: "Basic MTPL included. For mountain roads, we recommend „Comfort” or „Premium” package — covers tire, glass, mirror damage on serpentines. In winter — extended insurance is essential.",
           },
         },
         {
@@ -4543,6 +5250,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for car rental in Ivano-Frankivsk?",
             en: "What is the deposit for car rental in Ivano-Frankivsk?",
+            ro: "Care este garanția pentru închirierea auto în Ivano-Frankivsk?",
           },
           answer: {
             uk: "Депозит: економ — від $150, бізнес — від $350, SUV — від $400-500. Пакет «Комфорт» зменшує на 50%, «Преміум» — до $200-300. Взимку попит на SUV високий — бронюйте заздалегідь.",
@@ -4550,6 +5258,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit: economy — from $150, business — from $350, SUV — from $400-500. 'Comfort' package reduces by 50%, 'Premium' — to $200-300. In winter, SUV demand is high — book in advance.",
             en: "Deposit: economy — from $150, business — from $350, SUV — from $400-500. 'Comfort' package reduces by 50%, 'Premium' — to $200-300. In winter, SUV demand is high — book in advance.",
+            ro: "Deposit: economy — from $150, business — from $350, SUV — from $400-500. „Comfort” package reduces by 50%, „Premium” — to $200-300. In winter, SUV demand is high — book in advance.",
           },
         },
         {
@@ -4559,6 +5268,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is no-deposit rental available in Ivano-Frankivsk?",
             en: "Is no-deposit rental available in Ivano-Frankivsk?",
+            ro: "Is no-deposit rental available in Ivano-Frankivsk?",
           },
           answer: {
             uk: "Для окремих моделей та при довгостроковій оренді (від 2 тижнів) можлива оренда зі зменшеним депозитом або без застави. Пакет «Преміум» мінімізує застави для всіх класів авто.",
@@ -4566,6 +5276,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For selected models and long-term rentals (from 2 weeks), rental with reduced or no deposit is available. 'Premium' package minimizes deposits for all car classes.",
             en: "For selected models and long-term rentals (from 2 weeks), rental with reduced or no deposit is available. 'Premium' package minimizes deposits for all car classes.",
+            ro: "Pentru modelele selectate și închirierile pe termen lung (de la 2 săptămâni), închirierea cu garanție redusă sau fără garanție este disponibilă. Pachetul „Premium” minimizează garanția.",
           },
         },
       ],
@@ -4578,6 +5289,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -4587,6 +5299,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age for car rental in Ivano-Frankivsk",
             en: "Minimum age for car rental in Ivano-Frankivsk",
+            ro: "Vârsta minimă pentru închirierea auto în Ivano-Frankivsk",
           },
           answer: {
             uk: "Економ: 21 рік, 2 роки стажу. SUV/кросовери (для Карпат): від 23 років, 3 роки стажу. Преміум-SUV: від 25 років, 4 роки. Молодим водіям може нараховуватись додатковий збір.",
@@ -4594,6 +5307,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Economy: 21 years, 2 years experience. SUV/crossovers (for Carpathians): from 23 years, 3 years experience. Premium SUV: from 25 years, 4 years. Young driver fee may apply.",
             en: "Economy: 21 years, 2 years experience. SUV/crossovers (for Carpathians): from 23 years, 3 years experience. Premium SUV: from 25 years, 4 years. Young driver fee may apply.",
+            ro: "Economy: 21 years, 2 years experience. SUV/crossovers (for Carpathians): from 23 years, 3 years experience. Premium SUV: from 25 years, 4 years. Young driver fee may apply.",
           },
         },
         {
@@ -4603,6 +5317,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I go from Ivano-Frankivsk by rental car?",
             en: "Where can I go from Ivano-Frankivsk by rental car?",
+            ro: "Unde pot merge din Ivano-Frankivsk cu o mașină închiriată?",
           },
           answer: {
             uk: "Популярні напрямки: Буковель (100 км), Яремче (60 км), Говерла (140 км), Львів (130 км), Чернівці (180 км). Подорожі по Україні без обмежень. Виїзд за кордон — за погодженням.",
@@ -4610,6 +5325,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Popular destinations: Bukovel (100 km), Yaremche (60 km), Hoverla (140 km), Lviv (130 km), Chernivtsi (180 km). Travel within Ukraine without restrictions. Cross-border — by arrangement.",
             en: "Popular destinations: Bukovel (100 km), Yaremche (60 km), Hoverla (140 km), Lviv (130 km), Chernivtsi (180 km). Travel within Ukraine without restrictions. Cross-border — by arrangement.",
+            ro: "Popular destinations: Bukovel (100 km), Yaremche (60 km), Hoverla (140 km), Lviv (130 km), Chernivtsi (180 km). Travel within Ukraine without restrictions. Cross-border — by arrangement.",
           },
         },
         {
@@ -4619,6 +5335,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What rules for Carpathian trips from Ivano-Frankivsk?",
             en: "What rules for Carpathian trips from Ivano-Frankivsk?",
+            ro: "Ce reguli se aplică pentru călătoriile în Carpați din Ivano-Frankivsk?",
           },
           answer: {
             uk: "Для гірських доріг рекомендуємо SUV з повним приводом (особливо взимку). Заборонено: офф-роуд поза дорогами, буксирування, перегрузка. Взимку — зимова гума включена, ланцюги за запитом. Куріння заборонено.",
@@ -4626,6 +5343,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For mountain roads, we recommend AWD SUV (especially in winter). Prohibited: off-road driving, towing, overloading. In winter — winter tires included, chains on request. Smoking prohibited.",
             en: "For mountain roads, we recommend AWD SUV (especially in winter). Prohibited: off-road driving, towing, overloading. In winter — winter tires included, chains on request. Smoking prohibited.",
+            ro: "Pentru drumurile de munte, recomandăm SUV cu tracțiune integrală (mai ales iarna). Interzis: condusul off-road, tractarea, supîncărcarea. Iarna — anvelopele de iarnă sunt obligatorii (le furnizăm noi).",
           },
         },
       ],
@@ -4638,6 +5356,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -4647,6 +5366,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to pay for car rental in Ivano-Frankivsk?",
             en: "How to pay for car rental in Ivano-Frankivsk?",
+            ro: "Cum se plătește închirierea auto în Ivano-Frankivsk?",
           },
           answer: {
             uk: "Приймаємо: Visa/Mastercard (Apple Pay, Google Pay), готівку UAH/USD/EUR, безготівковий розрахунок для компаній. Взимку рекомендуємо бронювати SUV заздалегідь з передоплатою.",
@@ -4654,6 +5374,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, bank transfer for companies. In winter, book SUV in advance with prepayment.",
             en: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, bank transfer for companies. In winter, book SUV in advance with prepayment.",
+            ro: "Acceptăm: Visa/Mastercard (Apple Pay, Google Pay), numerar UAH/USD/EUR, transfer bancar pentru companii. Iarna, rezervați SUV-ul în avans — cererea este mare.",
           },
         },
         {
@@ -4663,6 +5384,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required for rental in Ivano-Frankivsk?",
             en: "What documents are required for rental in Ivano-Frankivsk?",
+            ro: "Ce documente sunt necesare pentru închiriere în Ivano-Frankivsk?",
           },
           answer: {
             uk: "Українцям: паспорт/ID, посвідчення водія кат. B, ІПН. Іноземцям: закордонний паспорт, права (міжнародні — якщо не латиницею). Для SUV: вік від 23 років, стаж від 3 років.",
@@ -4670,6 +5392,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). For SUV: age 23+, 3+ years experience.",
             en: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). For SUV: age 23+, 3+ years experience.",
+            ro: "Ucraineni: pașaport/carte de identitate, permis de conducere categoria B, cod fiscal. Străini: pașaport, permis de conducere (internațional dacă nu este în latină). Pentru SUV — de la 23 de ani.",
           },
         },
         {
@@ -4679,6 +5402,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel before returning the car in Ivano-Frankivsk?",
             en: "Where to refuel before returning the car in Ivano-Frankivsk?",
+            ro: "Unde să alimentați înainte de returnarea mașinii în Ivano-Frankivsk?",
           },
           answer: {
             uk: "АЗС OKKO, WOG є по всьому місту, біля аеропорту та на виїздах на Буковель і Львів. Правило «повний-повний». Їдете з Буковеля — заправтесь у Яремче або Надвірній.",
@@ -4686,6 +5410,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "OKKO, WOG stations throughout the city, near airport and at exits to Bukovel and Lviv. Full-to-full rule. Coming from Bukovel — refuel in Yaremche or Nadvirna.",
             en: "OKKO, WOG stations throughout the city, near airport and at exits to Bukovel and Lviv. Full-to-full rule. Coming from Bukovel — refuel in Yaremche or Nadvirna.",
+            ro: "OKKO, WOG stations throughout the city, near airport and at exits to Bukovel and Lviv. Full-to-full rule. Coming from Bukovel — refuel in Yaremche or Nadvirna.",
           },
         },
       ],
@@ -4700,6 +5425,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -4709,6 +5435,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Skhidnytsia?",
             en: "Where to park a rental car in Skhidnytsia?",
+            ro: "Unde să parcați o mașină închiriată în Skhidnytsia?",
           },
           answer: {
             uk: "Біля санаторіїв та пансіонатів є парковки для гостей (часто безкоштовні). У центральній курортній зоні біля бюветів — платне паркування. Уникайте паркування на пішохідних алеях курорту та приватних територіях.",
@@ -4716,6 +5443,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Sanatoriums and guesthouses have parking for guests (often free). In the central resort area near pump rooms — paid parking. Avoid parking on pedestrian alleys and private property.",
             en: "Sanatoriums and guesthouses have parking for guests (often free). In the central resort area near pump rooms — paid parking. Avoid parking on pedestrian alleys and private property.",
+            ro: "Sanatoriums and guesthouses have parking for guests (often free). In the central resort area near pump rooms — paid parking. Avoid parking on pedestrian alleys and private property.",
           },
         },
         {
@@ -4725,6 +5453,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to pick up a car for a trip to Skhidnytsia?",
             en: "Where to pick up a car for a trip to Skhidnytsia?",
+            ro: "De unde să ridicați o mașină pentru o călătorie la Skhidnytsia?",
           },
           answer: {
             uk: "Авто можна забрати у Львові (аеропорт LWO, вокзал — 110 км) або замовити доставку безпосередньо у Східницю, до вашого санаторію чи готелю. Час у дорозі від Львова — близько 2 годин.",
@@ -4732,6 +5461,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Pick up in Lviv (LWO airport, station — 110 km) or order delivery directly to Skhidnytsia, to your sanatorium or hotel. Travel time from Lviv — about 2 hours.",
             en: "Pick up in Lviv (LWO airport, station — 110 km) or order delivery directly to Skhidnytsia, to your sanatorium or hotel. Travel time from Lviv — about 2 hours.",
+            ro: "Pick up in Lviv (LWO airport, station — 110 km) or order delivery directly to Skhidnytsia, to your sanatorium or hotel. Travel time from Lviv — about 2 hours.",
           },
         },
         {
@@ -4741,6 +5471,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is it convenient to travel by car during wellness vacation in Skhidnytsia?",
             en: "Is it convenient to travel by car during wellness vacation in Skhidnytsia?",
+            ro: "Is it convenient to travel by car during wellness vacation in Skhidnytsia?",
           },
           answer: {
             uk: "Так, авто дає свободу відвідувати різні бювети та курортні зони. Зручно відвідати: Трускавець (15 км), Дрогобич (25 км), Борислав (10 км), Моршин (70 км), Скелі Довбуша (40 км). Пробігу 250 км/добу цілком достатньо.",
@@ -4748,6 +5479,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, a car gives freedom to visit different pump rooms and resort areas. Easy to visit: Truskavets (15 km), Drohobych (25 km), Boryslav (10 km), Morshyn (70 km), Dovbush Rocks (40 km). 250 km/day is enough.",
             en: "Yes, a car gives freedom to visit different pump rooms and resort areas. Easy to visit: Truskavets (15 km), Drohobych (25 km), Boryslav (10 km), Morshyn (70 km), Dovbush Rocks (40 km). 250 km/day is enough.",
+            ro: "Da, o mașină oferă libertatea de a vizita diferite săli de pompe și zone de stațiune. Ușor de vizitat: Truskavets (15 km), Drohobych (25 km), Boryslav, Stryi. Drumurile de munte sunt pitoresti dar înguste.",
           },
         },
       ],
@@ -4760,6 +5492,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -4769,6 +5502,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What insurance for car rental in Skhidnytsia?",
             en: "What insurance for car rental in Skhidnytsia?",
+            ro: "Ce asigurare pentru închirierea auto în Skhidnytsia?",
           },
           answer: {
             uk: "Базова ОСЦПВ включена. Пакети CDW/SCDW зменшують вашу відповідальність. Для спокійного оздоровчого відпочинку достатньо базової страховки, для поїздок у гори — рекомендуємо пакет «Комфорт».",
@@ -4776,6 +5510,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL included. CDW/SCDW packages reduce your liability. For relaxing wellness vacation, basic insurance is enough; for mountain trips — we recommend 'Comfort' package.",
             en: "Basic MTPL included. CDW/SCDW packages reduce your liability. For relaxing wellness vacation, basic insurance is enough; for mountain trips — we recommend 'Comfort' package.",
+            ro: "Basic MTPL included. CDW/SCDW packages reduce your liability. For relaxing wellness vacation, basic insurance is enough; for mountain trips — we recommend „Comfort” package.",
           },
         },
         {
@@ -4785,6 +5520,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for car rental in Skhidnytsia?",
             en: "What is the deposit for car rental in Skhidnytsia?",
+            ro: "Care este garanția pentru închirierea auto în Skhidnytsia?",
           },
           answer: {
             uk: "Депозит: економ — від $150, бізнес — від $300, SUV — від $400. Для тривалого оздоровчого відпочинку (від 2 тижнів) можливі знижки та зменшений депозит.",
@@ -4792,6 +5528,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit: economy — from $150, business — from $300, SUV — from $400. For long wellness stays (from 2 weeks), discounts and reduced deposit available.",
             en: "Deposit: economy — from $150, business — from $300, SUV — from $400. For long wellness stays (from 2 weeks), discounts and reduced deposit available.",
+            ro: "Deposit: economy — from $150, business — from $300, SUV — from $400. For long wellness stays (from 2 weeks), discounts and reduced deposit available.",
           },
         },
         {
@@ -4801,6 +5538,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is no-deposit rental available for Skhidnytsia guests?",
             en: "Is no-deposit rental available for Skhidnytsia guests?",
+            ro: "Is no-deposit rental available for Skhidnytsia guests?",
           },
           answer: {
             uk: "При оренді від 2 тижнів (типовий термін санаторного відпочинку) доступні варіанти зі зменшеним депозитом або без застави. Пакет «Преміум» зменшує депозит до мінімуму для всіх класів.",
@@ -4808,6 +5546,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For rentals from 2 weeks (typical spa stay), options with reduced or no deposit are available. 'Premium' package reduces deposit to minimum for all classes.",
             en: "For rentals from 2 weeks (typical spa stay), options with reduced or no deposit are available. 'Premium' package reduces deposit to minimum for all classes.",
+            ro: "Pentru închirieri de la 2 săptămâni (sejur tipic la spa), sunt disponibile opțiuni cu garanție redusă sau fără garanție. Pachetul „Premium” reduce garanția la minimum.",
           },
         },
       ],
@@ -4820,6 +5559,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -4829,6 +5569,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age for car rental in Skhidnytsia",
             en: "Minimum age for car rental in Skhidnytsia",
+            ro: "Vârsta minimă pentru închirierea auto în Skhidnytsia",
           },
           answer: {
             uk: "Для економ-класу: від 21 року, стаж 2 роки. Для бізнес та SUV: від 23 років, стаж 3 роки. Для преміум-класу: від 25 років, стаж 4 роки. Молодшим водіям доступні економ-авто зі збільшеним депозитом.",
@@ -4836,6 +5577,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For economy: from 21 years, 2 years experience. For business and SUV: from 23 years, 3 years experience. For premium: from 25 years, 4 years experience. Younger drivers can rent economy cars with increased deposit.",
             en: "For economy: from 21 years, 2 years experience. For business and SUV: from 23 years, 3 years experience. For premium: from 25 years, 4 years experience. Younger drivers can rent economy cars with increased deposit.",
+            ro: "Pentru economic: de la 21 de ani, 2 ani de experiență. Pentru business și SUV: de la 23 de ani, 3 ani de experiență. Pentru premium: de la 25 de ani, 4 ani de experiență.",
           },
         },
         {
@@ -4845,6 +5587,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where else can I go from Skhidnytsia by rental car?",
             en: "Where else can I go from Skhidnytsia by rental car?",
+            ro: "Unde altundeva pot merge din Skhidnytsia cu o mașină închiriată?",
           },
           answer: {
             uk: "Популярні напрямки: Трускавець (15 км), Дрогобич (25 км), Моршин (70 км), Скелі Довбуша (40 км), Львів (110 км), замки Галичини (80-100 км). Подорожі по Україні без обмежень.",
@@ -4852,6 +5595,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Popular destinations: Truskavets (15 km), Drohobych (25 km), Morshyn (70 km), Dovbush Rocks (40 km), Lviv (110 km), Galician castles (80-100 km). Travel within Ukraine without restrictions.",
             en: "Popular destinations: Truskavets (15 km), Drohobych (25 km), Morshyn (70 km), Dovbush Rocks (40 km), Lviv (110 km), Galician castles (80-100 km). Travel within Ukraine without restrictions.",
+            ro: "Popular destinations: Truskavets (15 km), Drohobych (25 km), Morshyn (70 km), Dovbush Rocks (40 km), Lviv (110 km), Galician castles (80-100 km). Travel within Ukraine without restrictions.",
           },
         },
         {
@@ -4861,6 +5605,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What special rules apply for car rental in Skhidnytsia?",
             en: "What special rules apply for car rental in Skhidnytsia?",
+            ro: "Ce reguli speciale se aplică pentru închirierea auto în Skhidnytsia?",
           },
           answer: {
             uk: "Заборонено: куріння в авто, офф-роуд, передача керування третім особам без узгодження. Для поїздок у гори взимку рекомендуємо SUV або авто з добрим кліренсом. Дороги в курортній зоні вузькі — паркуйтесь акуратно.",
@@ -4868,6 +5613,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Prohibited: smoking in car, off-road driving, giving control to third parties without agreement. For mountain trips in winter, we recommend SUV or cars with good clearance. Roads in resort area are narrow — park carefully.",
             en: "Prohibited: smoking in car, off-road driving, giving control to third parties without agreement. For mountain trips in winter, we recommend SUV or cars with good clearance. Roads in resort area are narrow — park carefully.",
+            ro: "Interzis: fumatul în mașină, condusul off-road, cedarea controlului către terți fără acord. Pentru călătoriile de munte iarna recomandăm anvelope de iarnă.",
           },
         },
       ],
@@ -4880,6 +5626,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -4889,6 +5636,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to pay for car rental in Skhidnytsia?",
             en: "How to pay for car rental in Skhidnytsia?",
+            ro: "Cum se plătește închirierea auto în Skhidnytsia?",
           },
           answer: {
             uk: "Приймаємо: Visa/Mastercard (Apple Pay, Google Pay), готівку UAH/USD/EUR. Рекомендуємо бронювати та оплачувати заздалегідь, особливо у високий сезон (літо). Депозит блокується на картці.",
@@ -4896,6 +5644,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR. We recommend booking and paying in advance, especially during high season (summer). Deposit blocked on card.",
             en: "We accept: Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR. We recommend booking and paying in advance, especially during high season (summer). Deposit blocked on card.",
+            ro: "Acceptăm: Visa/Mastercard (Apple Pay, Google Pay), numerar UAH/USD/EUR. Recomandăm să rezervați și să plătiți în avans, mai ales în sezonul de spa.",
           },
         },
         {
@@ -4905,6 +5654,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required for car rental in Skhidnytsia?",
             en: "What documents are required for car rental in Skhidnytsia?",
+            ro: "Ce documente sunt necesare pentru închirierea auto în Skhidnytsia?",
           },
           answer: {
             uk: "Українцям: паспорт/ID, посвідчення водія кат. B, ІПН. Іноземцям: закордонний паспорт, права (міжнародні — якщо не латиницею). Вік від 21 року для економ-класу, від 23 років для бізнес та SUV.",
@@ -4912,6 +5662,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). Age from 21 for economy, from 23 for business and SUV.",
             en: "Ukrainians: passport/ID, category B license, tax ID. Foreigners: passport, license (international if not in Latin). Age from 21 for economy, from 23 for business and SUV.",
+            ro: "Ucraineni: pașaport/carte de identitate, permis de conducere categoria B, cod fiscal. Străini: pașaport, permis de conducere (internațional dacă nu este în latină). Vârsta de la 21 de ani.",
           },
         },
         {
@@ -4921,6 +5672,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel near Skhidnytsia?",
             en: "Where to refuel near Skhidnytsia?",
+            ro: "Unde să alimentați lângă Skhidnytsia?",
           },
           answer: {
             uk: "У самій Східниці АЗС немає. Найближчі заправки — в Трускавці (15 км), Дрогобичі (25 км) та Бориславі (10 км). Є АЗС OKKO, WOG. Правило «повний-повний» — поверніть авто з повним баком.",
@@ -4928,6 +5680,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "No gas stations in Skhidnytsia itself. Nearest stations in Truskavets (15 km), Drohobych (25 km) and Boryslav (10 km). OKKO, WOG stations available. Full-to-full rule — return car with full tank.",
             en: "No gas stations in Skhidnytsia itself. Nearest stations in Truskavets (15 km), Drohobych (25 km) and Boryslav (10 km). OKKO, WOG stations available. Full-to-full rule — return car with full tank.",
+            ro: "No gas stations in Skhidnytsia itself. Nearest stations in Truskavets (15 km), Drohobych (25 km) and Boryslav (10 km). OKKO, WOG stations available. Full-to-full rule — return car with full tank.",
           },
         },
       ],
@@ -4942,6 +5695,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -4951,6 +5705,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Uzhhorod near the border?",
             en: "Where to park a rental car in Uzhhorod near the border?",
+            ro: "Unde să parcați o mașină închiriată în Uzhhorod near the border?",
           },
           answer: {
             uk: "Біля КПП «Малі Селменці» (Словаччина) та «Ужгород» (Словаччина) є платні паркінги. У центрі Ужгорода паркування платне на Корзо та Площі Петефі — оплата через термінали або додаток. Біля замку Ужгород безкоштовні місця обмежені.",
@@ -4958,6 +5713,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Near border crossing points 'Mali Selmenci' (Slovakia) and 'Uzhhorod' (Slovakia) there are paid parking lots. In Uzhhorod center, parking is paid on Korzo and Petofi Square — pay via terminals or app. Free spots near Uzhhorod Castle are limited.",
             en: "Near border crossing points 'Mali Selmenci' (Slovakia) and 'Uzhhorod' (Slovakia) there are paid parking lots. In Uzhhorod center, parking is paid on Korzo and Petofi Square — pay via terminals or app. Free spots near Uzhhorod Castle are limited.",
+            ro: "Near border crossing points 'Mali Selmenci' (Slovakia) and 'Uzhhorod' (Slovakia) there are paid parking lots. In Uzhhorod center, parking is paid on Korzo and Petofi Square — pay via terminals or app. Free spots near Uzhhorod Castle are limited.",
           },
         },
         {
@@ -4967,6 +5723,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery in Uzhhorod to border and station: terms",
             en: "Car delivery in Uzhhorod to border and station: terms",
+            ro: "Livrare auto în Uzhhorod la frontieră și gară: condiții",
           },
           answer: {
             uk: "Подача авто в центр Ужгорода, на вокзал, до готелів біля кордону — безкоштовна. Доставка до КПП «Малі Селменці» та «Ужгород» (Словаччина) узгоджується окремо. Час подачі від 30-40 хвилин.",
@@ -4974,6 +5731,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Uzhhorod center, station, hotels near border — free. Delivery to 'Mali Selmenci' and 'Uzhhorod' (Slovakia) border crossings is arranged separately. Delivery time from 30-40 minutes.",
             en: "Car delivery to Uzhhorod center, station, hotels near border — free. Delivery to 'Mali Selmenci' and 'Uzhhorod' (Slovakia) border crossings is arranged separately. Delivery time from 30-40 minutes.",
+            ro: "Livrarea mașinii la Uzhhorod center, station, hotels near border — free. Delivery to 'Mali Selmenci' and 'Uzhhorod' (Slovakia) border crossings is arranged separately. Timp de livrare from 30-40 minutes.",
           },
         },
         {
@@ -4983,6 +5741,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit for Uzhhorod rentals for EU trips?",
             en: "Is there a mileage limit for Uzhhorod rentals for EU trips?",
+            ro: "Is there a mileage limit for Uzhhorod rentals for EU trips?",
           },
           answer: {
             uk: "Стандартний ліміт 250-300 км/добу. Для поїздок у Словаччину (Кошице — 90 км, Братислава — 270 км), Угорщину (Ніредьгаза — 80 км) чи Польщу рекомендуємо тариф Unlimited. Виїзд за кордон — за попереднім погодженням (48 годин).",
@@ -4990,6 +5749,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250-300 km/day. For trips to Slovakia (Košice — 90 km, Bratislava — 270 km), Hungary (Nyíregyháza — 80 km) or Poland, we recommend Unlimited rate. Cross-border travel — with prior arrangement (48 hours).",
             en: "Standard limit is 250-300 km/day. For trips to Slovakia (Košice — 90 km, Bratislava — 270 km), Hungary (Nyíregyháza — 80 km) or Poland, we recommend Unlimited rate. Cross-border travel — with prior arrangement (48 hours).",
+            ro: "Standard limit is 250-300 km/day. For trips to Slovakia (Košice — 90 km, Bratislava — 270 km), Hungary (Nyíregyháza — 80 km) or Poland, we recommend Unlimited rate. Cross-border travel — with prior arrangement (48 hours).",
           },
         },
       ],
@@ -5002,6 +5762,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -5011,6 +5772,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Uzhhorod for EU trips?",
             en: "What does insurance cover when renting a car in Uzhhorod for EU trips?",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Uzhhorod for EU trips?",
           },
           answer: {
             uk: "Базова ОСЦПВ діє в Україні. Для виїзду в ЄС оформляємо Green Card (міжнародна страховка) — покриває шкоду третім особам у Європі. Пакети CDW/SCDW діють у межах дозволених країн. Для транзитних поїздок рекомендуємо «Преміум».",
@@ -5018,6 +5780,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL is valid in Ukraine. For EU travel, we arrange Green Card (international insurance) — covers third-party damage in Europe. CDW/SCDW packages are valid in permitted countries. We recommend 'Premium' for transit trips.",
             en: "Basic MTPL is valid in Ukraine. For EU travel, we arrange Green Card (international insurance) — covers third-party damage in Europe. CDW/SCDW packages are valid in permitted countries. We recommend 'Premium' for transit trips.",
+            ro: "Basic MTPL is valid in Ukraine. For EU travel, we arrange Green Card (international insurance) — covers third-party damage in Europe. CDW/SCDW packages are valid in permitted countries. We recommend „Premium” for transit trips.",
           },
         },
         {
@@ -5027,6 +5790,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for car rental in Uzhhorod with cross-border travel?",
             en: "What is the deposit for car rental in Uzhhorod with cross-border travel?",
+            ro: "Care este garanția pentru închirierea auto în Uzhhorod cu călătorie transfrontalieră?",
           },
           answer: {
             uk: "Депозит: економ — від $300, бізнес — від $500, SUV — від $600 (підвищений для виїзду за кордон). Пакет «Преміум» зменшує депозит до $300-400. Green Card оплачується окремо — від €50 на 15 днів.",
@@ -5034,6 +5798,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit: economy — from $300, business — from $500, SUV — from $600 (increased for cross-border). 'Premium' package reduces deposit to $300-400. Green Card paid separately — from €50 for 15 days.",
             en: "Deposit: economy — from $300, business — from $500, SUV — from $600 (increased for cross-border). 'Premium' package reduces deposit to $300-400. Green Card paid separately — from €50 for 15 days.",
+            ro: "Deposit: economy — from $300, business — from $500, SUV — from $600 (increased for cross-border). „Premium” package reduces deposit to $300-400. Green Card paid separately — from €50 for 15 days.",
           },
         },
         {
@@ -5043,6 +5808,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car in Uzhhorod without a deposit for Transcarpathian trips?",
             en: "Can I rent a car in Uzhhorod without a deposit for Transcarpathian trips?",
+            ro: "Pot închiria o mașină în Uzhhorod fără garanție for Transcarpathian trips?",
           },
           answer: {
             uk: "Так, для поїздок по Закарпаттю (без виїзду за кордон) з пакетом «Преміум» депозит мінімальний ($200-250) або відсутній для окремих економ-моделей. Для виїзду в ЄС застава обов'язкова.",
@@ -5050,6 +5816,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, for Transcarpathian trips (without cross-border) with 'Premium' package, deposit is minimal ($200-250) or waived for selected economy models. For EU travel, deposit is mandatory.",
             en: "Yes, for Transcarpathian trips (without cross-border) with 'Premium' package, deposit is minimal ($200-250) or waived for selected economy models. For EU travel, deposit is mandatory.",
+            ro: "Da, pentru călătoriile în Transcarpatia (fără transfrontalier) cu pachetul „Premium”, garanția este minimă ($200-250) sau eliminată pentru modelele economice selectate. Pentru călătorii în UE — se necesită garanție majorată.",
           },
         },
       ],
@@ -5062,6 +5829,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -5071,6 +5839,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age and experience for Uzhhorod car rental with EU travel",
             en: "Minimum age and experience for Uzhhorod car rental with EU travel",
+            ro: "Vârsta minimă și experiența pentru închirierea auto în Uzhhorod cu călătorie în UE",
           },
           answer: {
             uk: "Для поїздок по Україні: 21 рік, стаж 2 роки. Для виїзду в ЄС: від 23 років, стаж від 3 років (для преміум-авто — 25 років і стаж 4+ роки). Молодим водіям може діяти додатковий збір.",
@@ -5078,6 +5847,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For Ukraine trips: 21 years, 2 years experience. For EU travel: from 23 years, 3+ years experience (premium cars — 25 years and 4+ years experience). Young driver surcharge may apply.",
             en: "For Ukraine trips: 21 years, 2 years experience. For EU travel: from 23 years, 3+ years experience (premium cars — 25 years and 4+ years experience). Young driver surcharge may apply.",
+            ro: "Pentru călătorii în Ucraina: 21 de ani, 2 ani de experiență. Pentru călătorii în UE: de la 23 de ani, 3+ ani de experiență (mașini premium — 25 de ani și 4+ ani). Se aplică taxa suplimentară pentru conducători tineri.",
           },
         },
         {
@@ -5087,6 +5857,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Which countries can I visit by rental car from Uzhhorod?",
             en: "Which countries can I visit by rental car from Uzhhorod?",
+            ro: "Ce țări pot vizita cu o mașină închiriată din Uzhhorod?",
           },
           answer: {
             uk: "Дозволені країни (за попереднім погодженням): Словаччина, Польща, Угорщина, Чехія, Австрія, Німеччина (із Green Card). Заборонені: країни СНД (крім України), Балкани. Повідомляйте про виїзд мінімум за 48 годин — оформимо документи.",
@@ -5094,6 +5865,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Permitted countries (with prior arrangement): Slovakia, Poland, Hungary, Czech Republic, Austria, Germany (with Green Card). Prohibited: CIS countries (except Ukraine), Balkans. Notify at least 48 hours in advance — we'll arrange documents.",
             en: "Permitted countries (with prior arrangement): Slovakia, Poland, Hungary, Czech Republic, Austria, Germany (with Green Card). Prohibited: CIS countries (except Ukraine), Balkans. Notify at least 48 hours in advance — we'll arrange documents.",
+            ro: "Permitted countries (with prior arrangement): Slovakia, Poland, Hungary, Czech Republic, Austria, Germany (with Green Card). Prohibited: CIS countries (except Ukraine), Balkans. Notify at least 48 hours in advance — we'll arrange documents.",
           },
         },
         {
@@ -5103,6 +5875,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is prohibited when renting a car in Uzhhorod?",
             en: "What is prohibited when renting a car in Uzhhorod?",
+            ro: "Ce este interzis la închirierea unei mașini în Uzhhorod?",
           },
           answer: {
             uk: "Категорично заборонено: таксі/Uber/Bolt, суборенда, передача третім особам, використання для контрабанди, участь у змаганнях. Виїзд за кордон — тільки з Green Card. Куріння в авто — штраф €100.",
@@ -5110,6 +5883,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Strictly prohibited: taxi/Uber/Bolt, subletting, transfer to third parties, use for smuggling, racing participation. Cross-border travel — only with Green Card. Smoking in car — €100 fine.",
             en: "Strictly prohibited: taxi/Uber/Bolt, subletting, transfer to third parties, use for smuggling, racing participation. Cross-border travel — only with Green Card. Smoking in car — €100 fine.",
+            ro: "Strict interzis: taxi/Uber/Bolt, subînchiriere, transfer către terți, utilizare pentru contrabandă, participare la curse. Pentru călătorii transfrontaliere — se aplică restricții specifice pe țară.",
           },
         },
       ],
@@ -5122,6 +5896,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -5131,6 +5906,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How can a foreigner pay for car rental in Uzhhorod?",
             en: "How can a foreigner pay for car rental in Uzhhorod?",
+            ro: "Cum poate un străin să plătească închirierea auto în Uzhhorod?",
           },
           answer: {
             uk: "Приймаємо: міжнародні картки Visa/Mastercard (у т.ч. європейські), готівку EUR/USD/UAH, Apple Pay/Google Pay. Green Card оплачується окремо (готівкою або карткою). Депозит блокується на картці.",
@@ -5138,6 +5914,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: international Visa/Mastercard (including European), cash EUR/USD/UAH, Apple Pay/Google Pay. Green Card paid separately (cash or card). Deposit blocked on card.",
             en: "We accept: international Visa/Mastercard (including European), cash EUR/USD/UAH, Apple Pay/Google Pay. Green Card paid separately (cash or card). Deposit blocked on card.",
+            ro: "Acceptăm: Visa/Mastercard internațional (inclusiv european), numerar EUR/USD/UAH, Apple Pay/Google Pay. Green Card se plătește separat (card sau numerar). Garanție — blocare pe card sau numerar.",
           },
         },
         {
@@ -5147,6 +5924,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required for Uzhhorod rental with EU travel?",
             en: "What documents are required for Uzhhorod rental with EU travel?",
+            ro: "Ce documente sunt necesare pentru închirierea în Uzhhorod cu călătorie în UE?",
           },
           answer: {
             uk: "Базові: паспорт (закордонний для іноземців), права категорії B (міжнародні — для не-латиниці), ІПН. Для ЄС додатково: Green Card (оформимо), маршрут поїздки, контактні дані за кордоном. Бронюйте заздалегідь.",
@@ -5154,6 +5932,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic: passport (international for foreigners), category B license (international for non-Latin), tax ID. For EU additionally: Green Card (we'll arrange), trip itinerary, contact details abroad. Book in advance.",
             en: "Basic: passport (international for foreigners), category B license (international for non-Latin), tax ID. For EU additionally: Green Card (we'll arrange), trip itinerary, contact details abroad. Book in advance.",
+            ro: "Basic: passport (international for foreigners), category B license (international for non-Latin), tax ID. For EU additionally: Green Card (we'll arrange), trip itinerary, contact details abroad. Book in advance.",
           },
         },
         {
@@ -5163,6 +5942,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel before returning the car in Uzhhorod?",
             en: "Where to refuel before returning the car in Uzhhorod?",
+            ro: "Unde să alimentați înainte de returnarea mașinii în Uzhhorod?",
           },
           answer: {
             uk: "Політика «повний-повний». У центрі Ужгорода є OKKO (вул. Собранецька), WOG (Київська набережна), Shell (вул. Загорська). Біля кордону — АЗС SOCAR (траса Чоп). Передплачене пальне — за запитом + сервісний збір.",
@@ -5170,6 +5950,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full policy. In Uzhhorod center: OKKO (Sobranetska St), WOG (Kyivska embankment), Shell (Zahorska St). Near border — SOCAR station (Chop highway). Prepaid fuel — on request + service fee.",
             en: "Full-to-full policy. In Uzhhorod center: OKKO (Sobranetska St), WOG (Kyivska embankment), Shell (Zahorska St). Near border — SOCAR station (Chop highway). Prepaid fuel — on request + service fee.",
+            ro: "Politica plin-la-plin. În centrul Uzhhorod: OKKO (str. Sobranetska), WOG (faleaza Kyivska), Shell (str. Zahorska). Lângă frontieră — benzinărie SOCAR. Înainte de călătoria în UE, alimentați în Ucraina (combustibilul este mai ieftin).",
           },
         },
       ],
@@ -5184,6 +5965,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -5193,6 +5975,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Vinnytsia near Roshen fountain?",
             en: "Where to park a rental car in Vinnytsia near Roshen fountain?",
+            ro: "Unde să parcați o mașină închiriată în Vinnytsia near Roshen fountain?",
           },
           answer: {
             uk: "Біля фонтану Roshen на острові Фестивальному є платний паркінг. У центрі Вінниці (вул. Соборна, Театральна площа) паркування платне — оплата через термінали або додаток Vinnytsia Parking. Біля ТРЦ Megamall є безкоштовний паркінг для відвідувачів.",
@@ -5200,6 +5983,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Near Roshen fountain on Festyvalnyi Island there is paid parking. In Vinnytsia center (Soborna St, Theatre Square), parking is paid — pay via terminals or Vinnytsia Parking app. Near Megamall shopping center, free parking for visitors.",
             en: "Near Roshen fountain on Festyvalnyi Island there is paid parking. In Vinnytsia center (Soborna St, Theatre Square), parking is paid — pay via terminals or Vinnytsia Parking app. Near Megamall shopping center, free parking for visitors.",
+            ro: "Near Roshen fountain on Festyvalnyi Island there is paid parking. In Vinnytsia center (Soborna St, Theatre Square), parking is paid — pay via terminals or Vinnytsia Parking app. Near Megamall shopping center, free parking for visitors.",
           },
         },
         {
@@ -5209,6 +5993,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery in Vinnytsia to station and airport: terms",
             en: "Car delivery in Vinnytsia to station and airport: terms",
+            ro: "Livrare auto în Vinnytsia la gară și aeroport: condiții",
           },
           answer: {
             uk: "Подача авто на залізничний вокзал Вінниці, автовокзал, у центр міста та до готелів — безкоштовна. Доставка в аеропорт Гавришівка (30 км від міста) узгоджується окремо. Час подачі в місті — від 20-30 хвилин.",
@@ -5216,6 +6001,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Vinnytsia railway station, bus station, city center and hotels — free. Delivery to Havryshivka Airport (30 km from city) arranged separately. Delivery time in city — from 20-30 minutes.",
             en: "Car delivery to Vinnytsia railway station, bus station, city center and hotels — free. Delivery to Havryshivka Airport (30 km from city) arranged separately. Delivery time in city — from 20-30 minutes.",
+            ro: "Livrarea mașinii la Vinnytsia railway station, bus station, city center and hotels — free. Delivery to Havryshivka Airport (30 km from city) arranged separately. Timp de livrare in city — from 20-30 minutes.",
           },
         },
         {
@@ -5225,6 +6011,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit for Vinnytsia rentals for Kyiv-Odesa transit?",
             en: "Is there a mileage limit for Vinnytsia rentals for Kyiv-Odesa transit?",
+            ro: "Is there a mileage limit for Vinnytsia rentals for Kyiv-Odesa transit?",
           },
           answer: {
             uk: "Стандартний ліміт 250-300 км/добу. Вінниця — зручна точка для транзиту: Київ — 270 км, Одеса — 400 км, Львів — 360 км. Для міжміських поїздок рекомендуємо тариф Unlimited — без обмежень за пробігом.",
@@ -5232,6 +6019,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250-300 km/day. Vinnytsia is a convenient transit point: Kyiv — 270 km, Odesa — 400 km, Lviv — 360 km. For intercity trips, we recommend Unlimited rate — no mileage restrictions.",
             en: "Standard limit is 250-300 km/day. Vinnytsia is a convenient transit point: Kyiv — 270 km, Odesa — 400 km, Lviv — 360 km. For intercity trips, we recommend Unlimited rate — no mileage restrictions.",
+            ro: "Standard limit is 250-300 km/day. Vinnytsia is a convenient transit point: Kyiv — 270 km, Odesa — 400 km, Lviv — 360 km. For intercity trips, we recommend Unlimited rate — no mileage restrictions.",
           },
         },
       ],
@@ -5244,6 +6032,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -5253,6 +6042,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Vinnytsia?",
             en: "What does insurance cover when renting a car in Vinnytsia?",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Vinnytsia?",
           },
           answer: {
             uk: "Базова ОСЦПВ покриває шкоду третім особам. Пакети CDW/SCDW зменшують вашу відповідальність при пошкодженні авто. Для бізнес-поїздок і корпоративних клієнтів рекомендуємо пакет «Преміум» — мінімальна франшиза та повне покриття.",
@@ -5260,6 +6050,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce your liability for car damage. For business trips and corporate clients, we recommend 'Premium' package — minimal deductible and full coverage.",
             en: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce your liability for car damage. For business trips and corporate clients, we recommend 'Premium' package — minimal deductible and full coverage.",
+            ro: "Basic MTPL covers third-party damage. Pachetele CDW/SCDW reduc responsabilitatea dvs. pentru daunele aduse mașinii. For business trips and corporate clients, we recommend 'Premium' package — minimal deductible and full coverage.",
           },
         },
         {
@@ -5269,6 +6060,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for business class car rental in Vinnytsia?",
             en: "What is the deposit for business class car rental in Vinnytsia?",
+            ro: "Care este garanția pentru închirierea auto business class în Vinnytsia?",
           },
           answer: {
             uk: "Депозит: економ — від $200, бізнес — від $400, преміум — від $600. Для корпоративних клієнтів з договором депозит знижується. Пакет «Преміум» зменшує депозит до $250-350. Повернення коштів — протягом 1-3 робочих днів.",
@@ -5276,6 +6068,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit: economy — from $200, business — from $400, premium — from $600. For corporate clients with contract, deposit is reduced. 'Premium' package reduces deposit to $250-350. Refund within 1-3 business days.",
             en: "Deposit: economy — from $200, business — from $400, premium — from $600. For corporate clients with contract, deposit is reduced. 'Premium' package reduces deposit to $250-350. Refund within 1-3 business days.",
+            ro: "Deposit: economy — from $200, business — from $400, premium — from $600. For corporate clients with contract, deposit is reduced. „Premium” package reduces deposit to $250-350. Refund within 1-3 business days.",
           },
         },
         {
@@ -5285,6 +6078,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car in Vinnytsia without a deposit for local trips?",
             en: "Can I rent a car in Vinnytsia without a deposit for local trips?",
+            ro: "Pot închiria o mașină în Vinnytsia fără garanție for local trips?",
           },
           answer: {
             uk: "Так, для довгострокової оренді (від 2 тижнів) та корпоративних клієнтів доступна опція мінімального депозиту ($150-200) або без застави. Для короткострокової оренді — пакет «Преміум» зменшує депозит до $200.",
@@ -5292,6 +6086,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, for long-term rentals (from 2 weeks) and corporate clients, minimal deposit option ($150-200) or no-deposit is available. For short-term rentals — 'Premium' package reduces deposit to $200.",
             en: "Yes, for long-term rentals (from 2 weeks) and corporate clients, minimal deposit option ($150-200) or no-deposit is available. For short-term rentals — 'Premium' package reduces deposit to $200.",
+            ro: "Da, pentru închirierile pe termen lung (de la 2 săptămâni) și clienții corporativi, opțiunea de garanție minimă ($150-200) sau fără garanție este disponibilă. Pentru termen scurt — se aplică garanția standard.",
           },
         },
       ],
@@ -5304,6 +6099,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -5313,6 +6109,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age and driving experience for car rental in Vinnytsia",
             en: "Minimum age and driving experience for car rental in Vinnytsia",
+            ro: "Vârsta minimă și experiența de conducere pentru închirierea auto în Vinnytsia",
           },
           answer: {
             uk: "Мінімальний вік — 21 рік, стаж водіння — від 2 років. Для бізнес-класу та преміум авто: від 23 років, стаж від 3 років. Для корпоративних клієнтів вимоги до стажу можуть бути знижені за згодою.",
@@ -5320,6 +6117,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age is 21, driving experience from 2 years. For business and premium cars: from 23 years, 3+ years experience. For corporate clients, experience requirements may be reduced by arrangement.",
             en: "Minimum age is 21, driving experience from 2 years. For business and premium cars: from 23 years, 3+ years experience. For corporate clients, experience requirements may be reduced by arrangement.",
+            ro: "Vârsta minimă este de 21 de ani, experiența de conducere de la 2 ani. For business and premium cars: from 23 years, 3+ years experience. For corporate clients, experience requirements may be reduced by arrangement.",
           },
         },
         {
@@ -5329,6 +6127,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I travel from Vinnytsia to other regions by rental car?",
             en: "Can I travel from Vinnytsia to other regions by rental car?",
+            ro: "Pot călători din Vinnytsia în alte regiuni cu o mașină închiriată?",
           },
           answer: {
             uk: "Так, виїзд по всій Україні дозволений. Вінниця — зручна точка для поїздок: Київ, Одеса, Львів, Чернівці. Для виїзду за кордон потрібне попереднє погодження (48 годин) та оформлення Green Card.",
@@ -5336,6 +6135,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, travel throughout Ukraine is permitted. Vinnytsia is a convenient hub for trips: Kyiv, Odesa, Lviv, Chernivtsi. For cross-border travel, prior arrangement required (48 hours) and Green Card registration.",
             en: "Yes, travel throughout Ukraine is permitted. Vinnytsia is a convenient hub for trips: Kyiv, Odesa, Lviv, Chernivtsi. For cross-border travel, prior arrangement required (48 hours) and Green Card registration.",
+            ro: "Da, călătoriile în toată Ucraina sunt permise. Vinnytsia este un nod convenabil pentru călătorii: Kyiv, Odesa, Lviv, Chernivtsi. Pentru transfrontalier — aranjament prealabil necesar (48 ore).",
           },
         },
         {
@@ -5345,6 +6145,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is prohibited when renting a car in Vinnytsia?",
             en: "What is prohibited when renting a car in Vinnytsia?",
+            ro: "Ce este interzis la închirierea unei mașini în Vinnytsia?",
           },
           answer: {
             uk: "Категорично заборонено: використання для таксі (Uber, Bolt, Uklon), передача третім особам, суборенда, куріння в авто, участь у змаганнях, буксирування. Порушення — розірвання договору та штраф до $500.",
@@ -5352,6 +6153,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Strictly prohibited: using for taxi (Uber, Bolt, Uklon), transfer to third parties, subletting, smoking in car, racing participation, towing. Violation — contract termination and penalty up to $500.",
             en: "Strictly prohibited: using for taxi (Uber, Bolt, Uklon), transfer to third parties, subletting, smoking in car, racing participation, towing. Violation — contract termination and penalty up to $500.",
+            ro: "Strict interzis: utilizarea pentru taxi (Uber, Bolt, Uklon), transfer către terți, subînchiriere, fumat în mașină, participare la curse, înălțime excesivă a încărcăturii. Încălcarea — amendă și rezilierea contractului.",
           },
         },
       ],
@@ -5364,6 +6166,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -5373,6 +6176,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What payment methods are available for car rental in Vinnytsia?",
             en: "What payment methods are available for car rental in Vinnytsia?",
+            ro: "Ce metode de plată sunt disponibile pentru închirierea auto în Vinnytsia?",
           },
           answer: {
             uk: "Приймаємо: банківські картки Visa/Mastercard, Apple Pay/Google Pay, готівку UAH/USD/EUR, безготівковий розрахунок для юридичних осіб. Для корпоративних клієнтів — оплата за рахунком з відстрочкою платежу.",
@@ -5380,6 +6184,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard bank cards, Apple Pay/Google Pay, cash UAH/USD/EUR, bank transfer for legal entities. For corporate clients — invoice payment with deferred payment.",
             en: "We accept: Visa/Mastercard bank cards, Apple Pay/Google Pay, cash UAH/USD/EUR, bank transfer for legal entities. For corporate clients — invoice payment with deferred payment.",
+            ro: "Acceptăm: carduri bancare Visa/Mastercard, Apple Pay/Google Pay, numerar UAH/USD/EUR, transfer bancar pentru persoane juridice. For corporate clients — invoice payment with deferred payment.",
           },
         },
         {
@@ -5389,6 +6194,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required to rent a car in Vinnytsia?",
             en: "What documents are required to rent a car in Vinnytsia?",
+            ro: "Ce documente sunt necesare pentru a închiria o mașină în Vinnytsia?",
           },
           answer: {
             uk: "Фізичним особам: паспорт/ID-картка, права категорії B, ІПН. Іноземцям: закордонний паспорт, національні права (міжнародні — якщо не латиницею). Юридичним особам додатково: витяг з ЄДРПОУ, довіреність (якщо необхідно).",
@@ -5396,6 +6202,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national license (international if not in Latin). Legal entities additionally: company registration extract, power of attorney (if needed).",
             en: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national license (international if not in Latin). Legal entities additionally: company registration extract, power of attorney (if needed).",
+            ro: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national license (international if not in Latin). Legal entities additionally: company registration extract, power of attorney (if needed).",
           },
         },
         {
@@ -5405,6 +6212,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel before returning the car in Vinnytsia?",
             en: "Where to refuel before returning the car in Vinnytsia?",
+            ro: "Unde să alimentați înainte de returnarea mașinii în Vinnytsia?",
           },
           answer: {
             uk: "Політика «повний-повний». АЗС у Вінниці: OKKO (вул. Київська, 600-річчя), WOG (Хмельницьке шосе), Shell (вул. Стрілецька). Біля вокзалу — SOCAR (вул. Келецька). Передплачене пальне — за запитом + сервісний збір 5%.",
@@ -5412,6 +6220,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full policy. Gas stations in Vinnytsia: OKKO (Kyivska St, 600-richchia), WOG (Khmelnytske highway), Shell (Striletska St). Near station — SOCAR (Keletska St). Prepaid fuel — on request + 5% service fee.",
             en: "Full-to-full policy. Gas stations in Vinnytsia: OKKO (Kyivska St, 600-richchia), WOG (Khmelnytske highway), Shell (Striletska St). Near station — SOCAR (Keletska St). Prepaid fuel — on request + 5% service fee.",
+            ro: "Politica plin-la-plin. Benzinării în Vinnytsia: OKKO (str. Kyivska, 600-richchia), WOG (șoseaua Khmelnytske), Shell (str. Striletska). Lângă gară — OKKO (5 min mers pe jos). Opțiune de combustibil preplătit disponibilă.",
           },
         },
       ],
@@ -5426,6 +6235,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -5435,6 +6245,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Zaporizhzhia near Dnipro Hydroelectric Station?",
             en: "Where to park a rental car in Zaporizhzhia near Dnipro Hydroelectric Station?",
+            ro: "Unde să parcați o mașină închiriată în Zaporizhzhia near Dnipro Hydroelectric Station?",
           },
           answer: {
             uk: "Біля ДніпроГЕС є безкоштовні паркінги для туристів (обмежений час). На проспекті Соборному та біля ТРЦ Dnipro Plaza паркування платне. На острові Хортиця є парковки біля музею та входу до заповідника. Оплата через додаток або термінали.",
@@ -5442,6 +6253,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Near Dnipro Hydroelectric Station there are free tourist parking lots (limited time). On Sobornyi Avenue and near Dnipro Plaza mall, parking is paid. On Khortytsia Island, parking near museum and reserve entrance. Pay via app or terminals.",
             en: "Near Dnipro Hydroelectric Station there are free tourist parking lots (limited time). On Sobornyi Avenue and near Dnipro Plaza mall, parking is paid. On Khortytsia Island, parking near museum and reserve entrance. Pay via app or terminals.",
+            ro: "Near Dnipro Hydroelectric Station there are free tourist parking lots (limited time). On Sobornyi Avenue and near Dnipro Plaza mall, parking is paid. On Khortytsia Island, parking near museum and reserve entrance. Pay via app or terminals.",
           },
         },
         {
@@ -5451,6 +6263,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery in Zaporizhzhia to station and airport: terms",
             en: "Car delivery in Zaporizhzhia to station and airport: terms",
+            ro: "Livrare auto în Zaporizhzhia la gară și aeroport: condiții",
           },
           answer: {
             uk: "Подача авто на залізничний вокзал Запоріжжя-1, автовокзал, у центр міста — безкоштовна. Доставка на Хортицю, до промислових об'єктів та готелів — безкоштовна по місту. Час подачі від 30 хвилин.",
@@ -5458,6 +6271,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Zaporizhzhia-1 railway station, bus station, city center — free. Delivery to Khortytsia, industrial facilities and hotels — free within city. Delivery time from 30 minutes.",
             en: "Car delivery to Zaporizhzhia-1 railway station, bus station, city center — free. Delivery to Khortytsia, industrial facilities and hotels — free within city. Delivery time from 30 minutes.",
+            ro: "Livrarea mașinii la Zaporizhzhia-1 railway station, bus station, city center — free. Delivery to Khortytsia, industrial facilities and hotels — free within city. Timp de livrare from 30 minutes.",
           },
         },
         {
@@ -5467,6 +6281,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit for Zaporizhzhia rentals for regional trips?",
             en: "Is there a mileage limit for Zaporizhzhia rentals for regional trips?",
+            ro: "Is there a mileage limit for Zaporizhzhia rentals for regional trips?",
           },
           answer: {
             uk: "Стандартний ліміт 250-300 км/добу. Для поїздок по області (Мелітополь — 105 км, Бердянськ — 200 км, Токмак — 70 км) і далеких маршрутів (Київ — 520 км, Дніпро — 90 км) рекомендуємо тариф Unlimited.",
@@ -5474,6 +6289,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250-300 km/day. For regional trips (Melitopol — 105 km, Berdiansk — 200 km, Tokmak — 70 km) and long routes (Kyiv — 520 km, Dnipro — 90 km), we recommend Unlimited rate.",
             en: "Standard limit is 250-300 km/day. For regional trips (Melitopol — 105 km, Berdiansk — 200 km, Tokmak — 70 km) and long routes (Kyiv — 520 km, Dnipro — 90 km), we recommend Unlimited rate.",
+            ro: "Standard limit is 250-300 km/day. For regional trips (Melitopol — 105 km, Berdiansk — 200 km, Tokmak — 70 km) and long routes (Kyiv — 520 km, Dnipro — 90 km), we recommend Unlimited rate.",
           },
         },
       ],
@@ -5486,6 +6302,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -5495,6 +6312,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Zaporizhzhia?",
             en: "What does insurance cover when renting a car in Zaporizhzhia?",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Zaporizhzhia?",
           },
           answer: {
             uk: "Базова ОСЦПВ покриває шкоду третім особам. Пакети CDW/SCDW зменшують відповідальність при пошкодженні авто. Для промислового регіону (складні дороги, інтенсивний трафік) рекомендуємо пакет «Комфорт» або «Преміум».",
@@ -5502,6 +6320,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce liability for car damage. For industrial region (challenging roads, heavy traffic), we recommend 'Comfort' or 'Premium' package.",
             en: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce liability for car damage. For industrial region (challenging roads, heavy traffic), we recommend 'Comfort' or 'Premium' package.",
+            ro: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce liability for car damage. For industrial region (challenging roads, heavy traffic), we recommend „Comfort” or „Premium” package.",
           },
         },
         {
@@ -5511,6 +6330,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for SUV rental in Zaporizhzhia?",
             en: "What is the deposit for SUV rental in Zaporizhzhia?",
+            ro: "Care este garanția pentru închirierea unui SUV în Zaporizhzhia?",
           },
           answer: {
             uk: "Депозит: економ — від $200, бізнес — від $400, SUV/кросовер — від $500. SUV популярні для поїздок на Хортицю та по області. Пакет «Преміум» зменшує депозит до $300-400 для всіх класів.",
@@ -5518,6 +6338,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit: economy — from $200, business — from $400, SUV/crossover — from $500. SUVs are popular for Khortytsia trips and regional travel. 'Premium' package reduces deposit to $300-400 for all classes.",
             en: "Deposit: economy — from $200, business — from $400, SUV/crossover — from $500. SUVs are popular for Khortytsia trips and regional travel. 'Premium' package reduces deposit to $300-400 for all classes.",
+            ro: "Deposit: economy — from $200, business — from $400, SUV/crossover — from $500. SUVs are popular for Khortytsia trips and regional travel. „Premium” package reduces deposit to $300-400 for all classes.",
           },
         },
         {
@@ -5527,6 +6348,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car in Zaporizhzhia without a deposit?",
             en: "Can I rent a car in Zaporizhzhia without a deposit?",
+            ro: "Pot închiria o mașină în Zaporizhzhia fără garanție?",
           },
           answer: {
             uk: "Так, для довгострокової оренді (від 2 тижнів) та корпоративних клієнтів з промислових підприємств міста доступна опція зменшеного депозиту ($150-200) або без застави. Для короткострокової оренді — пакет «Преміум».",
@@ -5534,6 +6356,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, for long-term rentals (from 2 weeks) and corporate clients from city's industrial enterprises, reduced deposit option ($150-200) or no-deposit is available. For short-term rentals — 'Premium' package.",
             en: "Yes, for long-term rentals (from 2 weeks) and corporate clients from city's industrial enterprises, reduced deposit option ($150-200) or no-deposit is available. For short-term rentals — 'Premium' package.",
+            ro: "Da, pentru închirierile pe termen lung (de la 2 săptămâni) și clienții corporativi din întreprinderile industriale ale orașului, opțiunea de garanție redusă ($150-200) sau fără garanție este disponibilă.",
           },
         },
       ],
@@ -5546,6 +6369,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -5555,6 +6379,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age and driving experience for car rental in Zaporizhzhia",
             en: "Minimum age and driving experience for car rental in Zaporizhzhia",
+            ro: "Vârsta minimă și experiența de conducere pentru închirierea auto în Zaporizhzhia",
           },
           answer: {
             uk: "Мінімальний вік — 21 рік, стаж водіння — від 2 років. Для SUV та кросоверів: від 23 років, стаж 3+ роки. Для преміум-класу: від 25 років, стаж 4+ роки. Для молодих водіїв може діяти додатковий збір.",
@@ -5562,6 +6387,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age is 21, driving experience from 2 years. For SUVs and crossovers: from 23 years, 3+ years experience. For premium class: from 25 years, 4+ years experience. Young driver surcharge may apply.",
             en: "Minimum age is 21, driving experience from 2 years. For SUVs and crossovers: from 23 years, 3+ years experience. For premium class: from 25 years, 4+ years experience. Young driver surcharge may apply.",
+            ro: "Vârsta minimă este de 21 de ani, experiența de conducere de la 2 ani. For SUVs and crossovers: from 23 years, 3+ years experience. For premium class: from 25 years, 4+ years experience. Young driver surcharge may apply.",
           },
         },
         {
@@ -5571,6 +6397,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I travel from Zaporizhzhia to other regions by rental car?",
             en: "Can I travel from Zaporizhzhia to other regions by rental car?",
+            ro: "Pot călători din Zaporizhzhia în alte regiuni cu o mașină închiriată?",
           },
           answer: {
             uk: "Так, виїзд по всій Україні дозволений: Київ, Дніпро, Харків, Одеса, Херсон. Враховуйте обмеження для певних зон (уточнюйте актуальні). Для виїзду за кордон — попереднє погодження (48 годин) та Green Card.",
@@ -5578,6 +6405,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, travel throughout Ukraine is permitted: Kyiv, Dnipro, Kharkiv, Odesa, Kherson. Consider restrictions for certain zones (check current). For cross-border travel — prior arrangement (48 hours) and Green Card.",
             en: "Yes, travel throughout Ukraine is permitted: Kyiv, Dnipro, Kharkiv, Odesa, Kherson. Consider restrictions for certain zones (check current). For cross-border travel — prior arrangement (48 hours) and Green Card.",
+            ro: "Da, călătoriile în toată Ucraina sunt permise: Kyiv, Dnipro, Kharkiv, Odesa, Kherson. Țineți cont de restricțiile pentru anumite zone (verificați informațiile actuale). Transfrontalier — cu aranjament prealabil.",
           },
         },
         {
@@ -5587,6 +6415,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is prohibited when renting a car in Zaporizhzhia?",
             en: "What is prohibited when renting a car in Zaporizhzhia?",
+            ro: "Ce este interzis la închirierea unei mașini în Zaporizhzhia?",
           },
           answer: {
             uk: "Категорично заборонено: таксі (Uber, Bolt, Uklon), передача третім особам, суборенда, куріння, використання для комерційних перевезень, буксирування. Виїзд на бездоріжжя без погодження. Порушення — штраф до $500.",
@@ -5594,6 +6423,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Strictly prohibited: taxi (Uber, Bolt, Uklon), transfer to third parties, subletting, smoking, use for commercial transport, towing. Off-road driving without approval. Violation — penalty up to $500.",
             en: "Strictly prohibited: taxi (Uber, Bolt, Uklon), transfer to third parties, subletting, smoking, use for commercial transport, towing. Off-road driving without approval. Violation — penalty up to $500.",
+            ro: "Strict interzis: taxi (Uber, Bolt, Uklon), transfer către terți, subînchiriere, fumat, utilizare pentru transport comercial, tractare. Încălcarea — amendă și rezilierea contractului.",
           },
         },
       ],
@@ -5606,6 +6436,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -5615,6 +6446,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What payment methods are available for car rental in Zaporizhzhia?",
             en: "What payment methods are available for car rental in Zaporizhzhia?",
+            ro: "Ce metode de plată sunt disponibile pentru închirierea auto în Zaporizhzhia?",
           },
           answer: {
             uk: "Приймаємо: банківські картки Visa/Mastercard, Apple Pay/Google Pay, готівку UAH/USD/EUR, безготівковий розрахунок для юридичних осіб. Для корпоративних клієнтів промислових підприємств — оплата за рахунком.",
@@ -5622,6 +6454,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard bank cards, Apple Pay/Google Pay, cash UAH/USD/EUR, bank transfer for legal entities. For corporate clients from industrial enterprises — invoice payment.",
             en: "We accept: Visa/Mastercard bank cards, Apple Pay/Google Pay, cash UAH/USD/EUR, bank transfer for legal entities. For corporate clients from industrial enterprises — invoice payment.",
+            ro: "Acceptăm: carduri bancare Visa/Mastercard, Apple Pay/Google Pay, numerar UAH/USD/EUR, transfer bancar pentru persoane juridice. For corporate clients from industrial enterprises — invoice payment.",
           },
         },
         {
@@ -5631,6 +6464,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required to rent a car in Zaporizhzhia?",
             en: "What documents are required to rent a car in Zaporizhzhia?",
+            ro: "Ce documente sunt necesare pentru a închiria o mașină în Zaporizhzhia?",
           },
           answer: {
             uk: "Фізичним особам: паспорт/ID-картка, права категорії B, ІПН. Іноземцям: закордонний паспорт, національні/міжнародні права. Юридичним особам: витяг з ЄДРПОУ, довіреність на водія (для корпоративних авто).",
@@ -5638,6 +6472,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national/international license. Legal entities: company registration extract, power of attorney for driver (for corporate cars).",
             en: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national/international license. Legal entities: company registration extract, power of attorney for driver (for corporate cars).",
+            ro: "Individuals: pașaport/carte de identitate, category B license, tax ID. Foreigners: international passport, national/international license. Legal entities: company registration extract, power of attorney for driver (for corporate cars).",
           },
         },
         {
@@ -5647,6 +6482,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel before returning the car in Zaporizhzhia?",
             en: "Where to refuel before returning the car in Zaporizhzhia?",
+            ro: "Unde să alimentați înainte de returnarea mașinii în Zaporizhzhia?",
           },
           answer: {
             uk: "Політика «повний-повний». АЗС у Запоріжжі: OKKO (просп. Соборний, Перемоги), WOG (вул. Незалежної України), Shell (просп. Моторобудівників). Біля вокзалу — SOCAR. Передплачене пальне — за запитом + 5% сервісний збір.",
@@ -5654,6 +6490,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full policy. Gas stations in Zaporizhzhia: OKKO (Sobornyi Ave, Peremogy), WOG (Nezalezhnoi Ukrainy St), Shell (Motorobudivnykiv Ave). Near station — SOCAR. Prepaid fuel — on request + 5% service fee.",
             en: "Full-to-full policy. Gas stations in Zaporizhzhia: OKKO (Sobornyi Ave, Peremogy), WOG (Nezalezhnoi Ukrainy St), Shell (Motorobudivnykiv Ave). Near station — SOCAR. Prepaid fuel — on request + 5% service fee.",
+            ro: "Politica plin-la-plin. Benzinării în Zaporizhzhia: OKKO (Bulevardul Sobornyi, Peremogy), WOG (str. Nezalezhnoi Ukrainy), Shell (str. Motorobudivnykiv). Lângă gară — WOG pe Bulevardul Peremogy.",
           },
         },
       ],
@@ -5668,6 +6505,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -5677,6 +6515,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Mukachevo near Palanok Castle?",
             en: "Where to park a rental car in Mukachevo near Palanok Castle?",
+            ro: "Unde să parcați o mașină închiriată în Mukachevo near Palanok Castle?",
           },
           answer: {
             uk: "Біля замку Паланок є платний паркінг для відвідувачів. У центрі Мукачева (площа Миру, вул. Духновича) паркування обмежене — оплата через термінали. Біля залізничного вокзалу безкоштовні місця обмежені, є платна стоянка.",
@@ -5684,6 +6523,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Near Palanok Castle there is paid parking for visitors. In Mukachevo center (Peace Square, Dukhnovycha St), parking is limited — pay via terminals. Near railway station, free spots are limited, paid parking available.",
             en: "Near Palanok Castle there is paid parking for visitors. In Mukachevo center (Peace Square, Dukhnovycha St), parking is limited — pay via terminals. Near railway station, free spots are limited, paid parking available.",
+            ro: "Near Palanok Castle there is paid parking for visitors. In Mukachevo center (Peace Square, Dukhnovycha St), parking is limited — pay via terminals. Near railway station, free spots are limited, paid parking available.",
           },
         },
         {
@@ -5693,6 +6533,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery in Mukachevo to station and castle: terms",
             en: "Car delivery in Mukachevo to station and castle: terms",
+            ro: "Livrare auto în Mukachevo la gară și castel: condiții",
           },
           answer: {
             uk: "Подача авто на залізничний вокзал, у центр міста, до готелів та замку Паланок — безкоштовна по Мукачеву. Доставка в Ужгород (40 км) та гірські курорти узгоджується окремо. Час подачі від 20-30 хвилин.",
@@ -5700,6 +6541,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to railway station, city center, hotels and Palanok Castle — free within Mukachevo. Delivery to Uzhhorod (40 km) and mountain resorts arranged separately. Delivery time from 20-30 minutes.",
             en: "Car delivery to railway station, city center, hotels and Palanok Castle — free within Mukachevo. Delivery to Uzhhorod (40 km) and mountain resorts arranged separately. Delivery time from 20-30 minutes.",
+            ro: "Livrarea mașinii la railway station, city center, hotels and Palanok Castle — free within Mukachevo. Delivery to Uzhhorod (40 km) and mountain resorts arranged separately. Timp de livrare from 20-30 minutes.",
           },
         },
         {
@@ -5709,6 +6551,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit for Mukachevo rentals for mountain trips?",
             en: "Is there a mileage limit for Mukachevo rentals for mountain trips?",
+            ro: "Is there a mileage limit for Mukachevo rentals for mountain trips?",
           },
           answer: {
             uk: "Стандартний ліміт 250-300 км/добу. Для поїздок до Синевиру (60 км), Колочави (80 км), Рахова (120 км), Буковелю (180 км) і гірських маршрутів рекомендуємо тариф Unlimited. Для гір краще брати SUV або кросовер.",
@@ -5716,6 +6559,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250-300 km/day. For trips to Synevyr (60 km), Kolochava (80 km), Rakhiv (120 km), Bukovel (180 km) and mountain routes, we recommend Unlimited rate. SUV or crossover better for mountains.",
             en: "Standard limit is 250-300 km/day. For trips to Synevyr (60 km), Kolochava (80 km), Rakhiv (120 km), Bukovel (180 km) and mountain routes, we recommend Unlimited rate. SUV or crossover better for mountains.",
+            ro: "Standard limit is 250-300 km/day. For trips to Synevyr (60 km), Kolochava (80 km), Rakhiv (120 km), Bukovel (180 km) and mountain routes, we recommend Unlimited rate. SUV or crossover better for mountains.",
           },
         },
       ],
@@ -5728,6 +6572,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -5737,6 +6582,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Mukachevo for mountain roads?",
             en: "What does insurance cover when renting a car in Mukachevo for mountain roads?",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Mukachevo for mountain roads?",
           },
           answer: {
             uk: "Базова ОСЦПВ покриває шкоду третім особам. Для гірських доріг Закарпаття (серпантини, складні умови) настійно рекомендуємо пакет «Преміум» — повне покриття шин, скла, дзеркал, днища авто та підвіски.",
@@ -5744,6 +6590,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL covers third-party damage. For Transcarpathian mountain roads (serpentines, challenging conditions), we strongly recommend 'Premium' package — full coverage for tires, glass, mirrors, car underbody and suspension.",
             en: "Basic MTPL covers third-party damage. For Transcarpathian mountain roads (serpentines, challenging conditions), we strongly recommend 'Premium' package — full coverage for tires, glass, mirrors, car underbody and suspension.",
+            ro: "Basic MTPL covers third-party damage. For Transcarpathian mountain roads (serpentines, challenging conditions), we strongly recommend „Premium” package — full coverage for tires, glass, mirrors, car underbody and suspension.",
           },
         },
         {
@@ -5753,6 +6600,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for SUV rental in Mukachevo for Carpathians?",
             en: "What is the deposit for SUV rental in Mukachevo for Carpathians?",
+            ro: "Care este garanția pentru închirierea unui SUV în Mukachevo pentru Carpați?",
           },
           answer: {
             uk: "Депозит для SUV/кросоверів — від $500-600 (підвищений через гірські умови). Економ-клас — від $200, бізнес — від $400. Пакет «Преміум» зменшує депозит до $300-400. SUV найпопулярніші для гірських маршрутів.",
@@ -5760,6 +6608,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit for SUV/crossovers — from $500-600 (increased due to mountain conditions). Economy class — from $200, business — from $400. 'Premium' package reduces deposit to $300-400. SUVs are most popular for mountain routes.",
             en: "Deposit for SUV/crossovers — from $500-600 (increased due to mountain conditions). Economy class — from $200, business — from $400. 'Premium' package reduces deposit to $300-400. SUVs are most popular for mountain routes.",
+            ro: "Deposit for SUV/crossovers — from $500-600 (increased due to mountain conditions). Economy class — from $200, business — from $400. „Premium” package reduces deposit to $300-400. SUVs are most popular for mountain routes.",
           },
         },
         {
@@ -5769,6 +6618,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car in Mukachevo without a deposit for local trips?",
             en: "Can I rent a car in Mukachevo without a deposit for local trips?",
+            ro: "Pot închiria o mașină în Mukachevo fără garanție for local trips?",
           },
           answer: {
             uk: "Так, для місцевих поїздок по Мукачеву (без гір) з пакетом «Преміум» депозит мінімальний ($200-250) або відсутній для економ-класу. Для гірських маршрутів депозит обов'язковий через підвищені ризики.",
@@ -5776,6 +6626,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, for local Mukachevo trips (no mountains) with 'Premium' package, deposit is minimal ($200-250) or waived for economy class. For mountain routes, deposit is mandatory due to increased risks.",
             en: "Yes, for local Mukachevo trips (no mountains) with 'Premium' package, deposit is minimal ($200-250) or waived for economy class. For mountain routes, deposit is mandatory due to increased risks.",
+            ro: "Da, pentru călătoriile locale în Mukachevo (fără munți) cu pachetul „Premium”, garanția este minimă ($200-250) sau eliminată pentru clasa economică. Pentru călătorii în munți — se aplică garanția standard.",
           },
         },
       ],
@@ -5788,6 +6639,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -5797,6 +6649,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age and driving experience for SUV rental in Mukachevo",
             en: "Minimum age and driving experience for SUV rental in Mukachevo",
+            ro: "Vârsta minimă și experiența de conducere pentru închirierea unui SUV în Mukachevo",
           },
           answer: {
             uk: "Мінімальний вік — 21 рік, стаж 2 роки (економ). Для SUV та гірських поїздок: від 23 років, стаж 3+ роки. Для преміум-класу: від 25 років, стаж 4+ роки. Досвід водіння в горах — перевага.",
@@ -5804,6 +6657,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age is 21, 2 years experience (economy). For SUVs and mountain trips: from 23 years, 3+ years experience. For premium class: from 25 years, 4+ years experience. Mountain driving experience is an advantage.",
             en: "Minimum age is 21, 2 years experience (economy). For SUVs and mountain trips: from 23 years, 3+ years experience. For premium class: from 25 years, 4+ years experience. Mountain driving experience is an advantage.",
+            ro: "Vârsta minimă este de 21 de ani, 2 years experience (economy). For SUVs and mountain trips: from 23 years, 3+ years experience. For premium class: from 25 years, 4+ years experience. Mountain driving experience is an advantage.",
           },
         },
         {
@@ -5813,6 +6667,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I travel from Mukachevo to Romania and Slovakia?",
             en: "Can I travel from Mukachevo to Romania and Slovakia?",
+            ro: "Pot călători din Mukachevo în România și Slovacia?",
           },
           answer: {
             uk: "Так, виїзд до Румунії (КПП Дякове — 60 км), Словаччини (Малі Селменці — 50 км) і Угорщини можливий за попереднім погодженням (48 годин). Потрібно: Green Card, додаткова страховка. Для гірських маршрутів у Румунію рекомендуємо SUV.",
@@ -5820,6 +6675,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, travel to Romania (Diakove border — 60 km), Slovakia (Mali Selmenci — 50 km) and Hungary possible with prior arrangement (48 hours). Required: Green Card, additional insurance. SUV recommended for mountain routes to Romania.",
             en: "Yes, travel to Romania (Diakove border — 60 km), Slovakia (Mali Selmenci — 50 km) and Hungary possible with prior arrangement (48 hours). Required: Green Card, additional insurance. SUV recommended for mountain routes to Romania.",
+            ro: "Da, călătoria în România (frontiera Diakove — 60 km), Slovacia (Mali Selmenci — 50 km) și Ungaria este posibilă cu aranjament prealabil (48 de ore). Green Card, asigurare suplimentară, taxă internațională necesare.",
           },
         },
         {
@@ -5829,6 +6685,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is prohibited when renting a car in Mukachevo for mountains?",
             en: "What is prohibited when renting a car in Mukachevo for mountains?",
+            ro: "Ce este interzis la închirierea unei mașini în Mukachevo pentru munți?",
           },
           answer: {
             uk: "Заборонено: таксі/Uber, суборенда, виїзд на бездоріжжя без погодження, користування економ-класом для важких гірських доріг (лише SUV/кросовери), куріння. Перевищення швидкості на серпантинах — розірвання договору.",
@@ -5836,6 +6693,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Prohibited: taxi/Uber, subletting, off-road driving without approval, using economy class for difficult mountain roads (only SUV/crossovers), smoking. Speeding on serpentines — contract termination.",
             en: "Prohibited: taxi/Uber, subletting, off-road driving without approval, using economy class for difficult mountain roads (only SUV/crossovers), smoking. Speeding on serpentines — contract termination.",
+            ro: "Interzis: taxi/Uber, subînchiriere, condus off-road fără aprobare, utilizarea clasei economice pentru drumuri dificile de munte (doar SUV/crossover), supîncărcare. Pentru transfrontalier — restricții specifice pe țară.",
           },
         },
       ],
@@ -5848,6 +6706,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -5857,6 +6716,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What payment methods are available for car rental in Mukachevo?",
             en: "What payment methods are available for car rental in Mukachevo?",
+            ro: "Ce metode de plată sunt disponibile pentru închirierea auto în Mukachevo?",
           },
           answer: {
             uk: "Приймаємо: банківські картки Visa/Mastercard (включно з європейськими), Apple Pay/Google Pay, готівку EUR/USD/UAH. Green Card для виїзду в ЄС оплачується окремо (від €50). Депозит — блокування на картці.",
@@ -5864,6 +6724,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard bank cards (including European), Apple Pay/Google Pay, cash EUR/USD/UAH. Green Card for EU travel paid separately (from €50). Deposit — card block.",
             en: "We accept: Visa/Mastercard bank cards (including European), Apple Pay/Google Pay, cash EUR/USD/UAH. Green Card for EU travel paid separately (from €50). Deposit — card block.",
+            ro: "Acceptăm: carduri bancare Visa/Mastercard (including European), Apple Pay/Google Pay, cash EUR/USD/UAH. Green Card for EU travel paid separately (from €50). Deposit — card block.",
           },
         },
         {
@@ -5873,6 +6734,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required to rent a car in Mukachevo?",
             en: "What documents are required to rent a car in Mukachevo?",
+            ro: "Ce documente sunt necesare pentru a închiria o mașină în Mukachevo?",
           },
           answer: {
             uk: "Фізичним особам: паспорт/ID-картка, права категорії B, ІПН. Іноземцям: закордонний паспорт, національні/міжнародні права. Для виїзду в ЄС: Green Card (оформимо), маршрут подорожі, контакти за кордоном.",
@@ -5880,6 +6742,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national/international license. For EU travel: Green Card (we'll arrange), trip itinerary, contacts abroad.",
             en: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national/international license. For EU travel: Green Card (we'll arrange), trip itinerary, contacts abroad.",
+            ro: "Individuals: pașaport/carte de identitate, category B license, tax ID. Foreigners: international passport, national/international license. For EU travel: Green Card (we'll arrange), trip itinerary, contacts abroad.",
           },
         },
         {
@@ -5889,6 +6752,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel before returning the car in Mukachevo?",
             en: "Where to refuel before returning the car in Mukachevo?",
+            ro: "Unde să alimentați înainte de returnarea mașinii în Mukachevo?",
           },
           answer: {
             uk: "Політика «повний-повний». У Мукачеві є OKKO (вул. Пряшівська), WOG (вул. Берегівська), Shell (вул. Духновича). Перед поїздками в гори заправляйтесь у місті — АЗС у горах рідкісні. Передплачене пальне — за запитом.",
@@ -5896,6 +6760,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full policy. In Mukachevo: OKKO (Priashivska St), WOG (Berehivska St), Shell (Dukhnovycha St). Before mountain trips, refuel in city — gas stations are rare in mountains. Prepaid fuel — on request.",
             en: "Full-to-full policy. In Mukachevo: OKKO (Priashivska St), WOG (Berehivska St), Shell (Dukhnovycha St). Before mountain trips, refuel in city — gas stations are rare in mountains. Prepaid fuel — on request.",
+            ro: "Politica plin-la-plin. În Mukachevo: OKKO (str. Priashivska), WOG (str. Berehivska), Shell (str. Dukhnovycha). Înainte de călătoriile în munți, alimentați complet — nu sunt benzinării în munți.",
           },
         },
       ],
@@ -5910,6 +6775,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -5919,6 +6785,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Poltava near Korpusnyi Park?",
             en: "Where to park a rental car in Poltava near Korpusnyi Park?",
+            ro: "Unde să parcați o mașină închiriată în Poltava near Korpusnyi Park?",
           },
           answer: {
             uk: "Біля Корпусного парку та Круглої площі паркування обмежене — платні паркінги через термінали. У центрі Полтави (вул. Соборності, Жовтнева) паркування платне. Біля ТРЦ Lavina Mall та вокзалу є безкоштовні паркінги.",
@@ -5926,6 +6793,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Near Korpusnyi Park and Round Square, parking is limited — paid parking via terminals. In Poltava center (Sobornosti St, Zhovtneva), parking is paid. Near Lavina Mall and station, free parking available.",
             en: "Near Korpusnyi Park and Round Square, parking is limited — paid parking via terminals. In Poltava center (Sobornosti St, Zhovtneva), parking is paid. Near Lavina Mall and station, free parking available.",
+            ro: "Near Korpusnyi Park and Round Square, parking is limited — paid parking via terminals. In Poltava center (Sobornosti St, Zhovtneva), parking is paid. Near Lavina Mall and station, free parking available.",
           },
         },
         {
@@ -5935,6 +6803,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery in Poltava to station and center: terms",
             en: "Car delivery in Poltava to station and center: terms",
+            ro: "Livrare auto în Poltava la gară și centru: condiții",
           },
           answer: {
             uk: "Подача авто на залізничний вокзал, у центр міста (Корпусний парк, Кругла площа), до готелів та бізнес-центрів — безкоштовна по Полтаві. Час подачі від 20-30 хвилин. Полтава — зручна точка для транзиту між Києвом і Харковом.",
@@ -5942,6 +6811,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to railway station, city center (Korpusnyi Park, Round Square), hotels and business centers — free within Poltava. Delivery time from 20-30 minutes. Poltava is a convenient transit point between Kyiv and Kharkiv.",
             en: "Car delivery to railway station, city center (Korpusnyi Park, Round Square), hotels and business centers — free within Poltava. Delivery time from 20-30 minutes. Poltava is a convenient transit point between Kyiv and Kharkiv.",
+            ro: "Livrarea mașinii la railway station, city center (Korpusnyi Park, Round Square), hotels and business centers — free within Poltava. Timp de livrare from 20-30 minutes. Poltava is a convenient transit point between Kyiv and Kharkiv.",
           },
         },
         {
@@ -5951,6 +6821,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit for Poltava rentals for Kyiv-Kharkiv transit?",
             en: "Is there a mileage limit for Poltava rentals for Kyiv-Kharkiv transit?",
+            ro: "Is there a mileage limit for Poltava rentals for Kyiv-Kharkiv transit?",
           },
           answer: {
             uk: "Стандартний ліміт 250-300 км/добу. Полтава — оптимальна транзитна точка: Київ — 340 км, Харків — 140 км, Дніпро — 180 км, Кременчук — 95 км. Для міжміських поїздок рекомендуємо тариф Unlimited.",
@@ -5958,6 +6829,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard limit is 250-300 km/day. Poltava is an optimal transit point: Kyiv — 340 km, Kharkiv — 140 km, Dnipro — 180 km, Kremenchuk — 95 km. For intercity trips, we recommend Unlimited rate.",
             en: "Standard limit is 250-300 km/day. Poltava is an optimal transit point: Kyiv — 340 km, Kharkiv — 140 km, Dnipro — 180 km, Kremenchuk — 95 km. For intercity trips, we recommend Unlimited rate.",
+            ro: "Standard limit is 250-300 km/day. Poltava is an optimal transit point: Kyiv — 340 km, Kharkiv — 140 km, Dnipro — 180 km, Kremenchuk — 95 km. For intercity trips, we recommend Unlimited rate.",
           },
         },
       ],
@@ -5970,6 +6842,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -5979,6 +6852,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What does insurance cover when renting a car in Poltava?",
             en: "What does insurance cover when renting a car in Poltava?",
+            ro: "Ce acoperă asigurarea la închirierea unei mașini în Poltava?",
           },
           answer: {
             uk: "Базова ОСЦПВ покриває шкоду третім особам. Пакети CDW/SCDW зменшують вашу відповідальність при ДТП. Для транзитних поїздок і довгих маршрутів (Київ-Харків) рекомендуємо пакет «Комфорт» або «Преміум» — розширене покриття.",
@@ -5986,6 +6860,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce your liability in accidents. For transit trips and long routes (Kyiv-Kharkiv), we recommend 'Comfort' or 'Premium' package — extended coverage.",
             en: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce your liability in accidents. For transit trips and long routes (Kyiv-Kharkiv), we recommend 'Comfort' or 'Premium' package — extended coverage.",
+            ro: "Basic MTPL covers third-party damage. CDW/SCDW packages reduce your liability in accidents. For transit trips and long routes (Kyiv-Kharkiv), we recommend „Comfort” or „Premium” package — extended coverage.",
           },
         },
         {
@@ -5995,6 +6870,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for car rental in Poltava for business trips?",
             en: "What is the deposit for car rental in Poltava for business trips?",
+            ro: "Care este garanția pentru închirierea auto în Poltava pentru călătorii de afaceri?",
           },
           answer: {
             uk: "Депозит: економ — від $200, бізнес — від $400, преміум — від $600. Для корпоративних клієнтів та довгострокової оренді депозит знижується. Пакет «Преміум» зменшує депозит до $250-350 для всіх класів.",
@@ -6002,6 +6878,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Deposit: economy — from $200, business — from $400, premium — from $600. For corporate clients and long-term rentals, deposit is reduced. 'Premium' package reduces deposit to $250-350 for all classes.",
             en: "Deposit: economy — from $200, business — from $400, premium — from $600. For corporate clients and long-term rentals, deposit is reduced. 'Premium' package reduces deposit to $250-350 for all classes.",
+            ro: "Deposit: economy — from $200, business — from $400, premium — from $600. For corporate clients and long-term rentals, deposit is reduced. „Premium” package reduces deposit to $250-350 for all classes.",
           },
         },
         {
@@ -6011,6 +6888,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car in Poltava without a deposit?",
             en: "Can I rent a car in Poltava without a deposit?",
+            ro: "Pot închiria o mașină în Poltava fără garanție?",
           },
           answer: {
             uk: "Так, для довгострокової оренді (від 2 тижнів) та постійних клієнтів доступна опція мінімального депозиту ($150-200) або без застави. Для транзитних поїздок — пакет «Преміум» зменшує депозит.",
@@ -6018,6 +6896,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, for long-term rentals (from 2 weeks) and regular clients, minimal deposit option ($150-200) or no-deposit is available. For transit trips — 'Premium' package reduces deposit.",
             en: "Yes, for long-term rentals (from 2 weeks) and regular clients, minimal deposit option ($150-200) or no-deposit is available. For transit trips — 'Premium' package reduces deposit.",
+            ro: "Da, pentru închirierile pe termen lung (de la 2 săptămâni) și clienții fideli, opțiunea de garanție minimă ($150-200) sau fără garanție este disponibilă. Pentru tranzit/o singură direcție — garanție standard.",
           },
         },
       ],
@@ -6030,6 +6909,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       },
       items: [
         {
@@ -6039,6 +6919,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age and driving experience for car rental in Poltava",
             en: "Minimum age and driving experience for car rental in Poltava",
+            ro: "Vârsta minimă și experiența de conducere pentru închirierea auto în Poltava",
           },
           answer: {
             uk: "Мінімальний вік — 21 рік, стаж водіння — від 2 років. Для бізнес-класу: від 23 років, стаж 3+ роки. Для преміум-авто: від 25 років, стаж 4+ роки. Молодим водіям може діяти додатковий збір.",
@@ -6046,6 +6927,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Minimum age is 21, driving experience from 2 years. For business class: from 23 years, 3+ years experience. For premium cars: from 25 years, 4+ years experience. Young driver surcharge may apply.",
             en: "Minimum age is 21, driving experience from 2 years. For business class: from 23 years, 3+ years experience. For premium cars: from 25 years, 4+ years experience. Young driver surcharge may apply.",
+            ro: "Vârsta minimă este de 21 de ani, experiența de conducere de la 2 ani. For business class: from 23 years, 3+ years experience. For premium cars: from 25 years, 4+ years experience. Young driver surcharge may apply.",
           },
         },
         {
@@ -6055,6 +6937,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I travel from Poltava to other regions by rental car?",
             en: "Can I travel from Poltava to other regions by rental car?",
+            ro: "Pot călători din Poltava în alte regiuni cu o mașină închiriată?",
           },
           answer: {
             uk: "Так, виїзд по всій Україні дозволений: Київ, Харків, Дніпро, Суми, Черкаси. Полтава — ідеальна точка для транзиту. Для виїзду за кордон потрібне попереднє погодження (48 годин) та оформлення Green Card.",
@@ -6062,6 +6945,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, travel throughout Ukraine is permitted: Kyiv, Kharkiv, Dnipro, Sumy, Cherkasy. Poltava is an ideal transit point. For cross-border travel, prior arrangement required (48 hours) and Green Card registration.",
             en: "Yes, travel throughout Ukraine is permitted: Kyiv, Kharkiv, Dnipro, Sumy, Cherkasy. Poltava is an ideal transit point. For cross-border travel, prior arrangement required (48 hours) and Green Card registration.",
+            ro: "Da, călătoriile în toată Ucraina sunt permise: Kyiv, Kharkiv, Dnipro, Sumy, Cherkasy. Poltava este un punct de tranzit ideal. Pentru transfrontalier — aranjament prealabil necesar.",
           },
         },
         {
@@ -6071,6 +6955,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is prohibited when renting a car in Poltava?",
             en: "What is prohibited when renting a car in Poltava?",
+            ro: "Ce este interzis la închirierea unei mașini în Poltava?",
           },
           answer: {
             uk: "Категорично заборонено: таксі (Uber, Bolt, Uklon), передача третім особам не вказаним у договорі, суборенда, куріння в авто, використання для комерційних перевезень. Порушення — штраф і розірвання договору.",
@@ -6078,6 +6963,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Strictly prohibited: taxi (Uber, Bolt, Uklon), transfer to persons not listed in contract, subletting, smoking in car, use for commercial transport. Violation — penalty and contract termination.",
             en: "Strictly prohibited: taxi (Uber, Bolt, Uklon), transfer to persons not listed in contract, subletting, smoking in car, use for commercial transport. Violation — penalty and contract termination.",
+            ro: "Strict interzis: taxi (Uber, Bolt, Uklon), transfer către persoane care nu figurează în contract, subînchiriere, fumat în mașină, utilizare pentru transport comercial. Încălcarea — amendă, rezilierea contractului, confiscarea garanției.",
           },
         },
       ],
@@ -6090,6 +6976,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       },
       items: [
         {
@@ -6099,6 +6986,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What payment methods are available for car rental in Poltava?",
             en: "What payment methods are available for car rental in Poltava?",
+            ro: "Ce metode de plată sunt disponibile pentru închirierea auto în Poltava?",
           },
           answer: {
             uk: "Приймаємо: банківські картки Visa/Mastercard, Apple Pay/Google Pay, готівку UAH/USD/EUR, безготівковий розрахунок для юридичних осіб. Для корпоративних клієнтів — оплата за рахунком. Депозит блокується на картці.",
@@ -6106,6 +6994,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We accept: Visa/Mastercard bank cards, Apple Pay/Google Pay, cash UAH/USD/EUR, bank transfer for legal entities. For corporate clients — invoice payment. Deposit blocked on card.",
             en: "We accept: Visa/Mastercard bank cards, Apple Pay/Google Pay, cash UAH/USD/EUR, bank transfer for legal entities. For corporate clients — invoice payment. Deposit blocked on card.",
+            ro: "Acceptăm: carduri bancare Visa/Mastercard, Apple Pay/Google Pay, numerar UAH/USD/EUR, transfer bancar pentru persoane juridice. For corporate clients — invoice payment. Deposit blocked on card.",
           },
         },
         {
@@ -6115,6 +7004,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required to rent a car in Poltava?",
             en: "What documents are required to rent a car in Poltava?",
+            ro: "Ce documente sunt necesare pentru a închiria o mașină în Poltava?",
           },
           answer: {
             uk: "Фізичним особам: паспорт/ID-картка, права категорії B, ІПН. Іноземцям: закордонний паспорт, національні права (міжнародні — для не-латиниці). Юридичним особам: витяг з ЄДРПОУ, довіреність на водія.",
@@ -6122,6 +7012,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national license (international for non-Latin). Legal entities: company registration extract, power of attorney for driver.",
             en: "Individuals: passport/ID card, category B license, tax ID. Foreigners: international passport, national license (international for non-Latin). Legal entities: company registration extract, power of attorney for driver.",
+            ro: "Individuals: pașaport/carte de identitate, category B license, tax ID. Foreigners: international passport, national license (international for non-Latin). Legal entities: company registration extract, power of attorney for driver.",
           },
         },
         {
@@ -6131,6 +7022,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to refuel before returning the car in Poltava?",
             en: "Where to refuel before returning the car in Poltava?",
+            ro: "Unde să alimentați înainte de returnarea mașinii în Poltava?",
           },
           answer: {
             uk: "Політика «повний-повний». АЗС у Полтаві: OKKO (просп. Першотравневий, вул. Європейська), WOG (вул. Небесної Сотні), Shell (вул. Київська). Біля вокзалу — SOCAR. Передплачене пальне — за запитом + 5% збір.",
@@ -6138,6 +7030,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Full-to-full policy. Gas stations in Poltava: OKKO (Pershotravnevyi Ave, Yevropeiska St), WOG (Nebesnoi Sotni St), Shell (Kyivska St). Near station — SOCAR. Prepaid fuel — on request + 5% fee.",
             en: "Full-to-full policy. Gas stations in Poltava: OKKO (Pershotravnevyi Ave, Yevropeiska St), WOG (Nebesnoi Sotni St), Shell (Kyivska St). Near station — SOCAR. Prepaid fuel — on request + 5% fee.",
+            ro: "Politica plin-la-plin. Benzinării în Poltava: OKKO (Bulevardul Pershotravnevyi, str. Yevropeiska), WOG (str. Nebesnoi Sotni), Shell (str. Kyivska). Lângă gară — WOG (5 min). Opțiune de combustibil preplătit disponibilă.",
           },
         },
       ],
@@ -6151,6 +7044,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -6160,6 +7054,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park a rental car in Chernivtsi near the university?",
             en: "Where to park a rental car in Chernivtsi near the university?",
+            ro: "Unde să parcați o mașină închiriată în Chernivtsi near the university?",
           },
           answer: {
             uk: "Біля Чернівецького університету та Театральної площі паркування обмежене. У центрі (вул. Кобилянської, Головна) — платне паркування. Безкоштовні паркінги є біля ТРЦ Depot Center та залізничного вокзалу.",
@@ -6167,6 +7062,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Near Chernivtsi University and Theater Square, parking is limited. In center (Kobylianska St, Holovna) — paid parking. Free parking available near Depot Center mall and railway station.",
             en: "Near Chernivtsi University and Theater Square, parking is limited. In center (Kobylianska St, Holovna) — paid parking. Free parking available near Depot Center mall and railway station.",
+            ro: "Near Chernivtsi University and Theater Square, parking is limited. In center (Kobylianska St, Holovna) — paid parking. Free parking available near Depot Center mall and railway station.",
           },
         },
         {
@@ -6176,6 +7072,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Romania border: terms and cost",
             en: "Car delivery to Romania border: terms and cost",
+            ro: "Livrarea mașinii la Romania border: terms and cost",
           },
           answer: {
             uk: "Подача авто до КПП Порубне (15 км) — безкоштовна. До КПП Вадул-Сірет (Молдова, 40 км) — за домовленістю. Виїзд за кордон можливий з пакетом «Європа» — додаткова страховка Green Card обов'язкова.",
@@ -6183,6 +7080,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Porubne checkpoint (15 km) — free. To Vadul-Siret checkpoint (Moldova, 40 km) — by arrangement. Border crossing available with 'Europe' package — Green Card insurance required.",
             en: "Car delivery to Porubne checkpoint (15 km) — free. To Vadul-Siret checkpoint (Moldova, 40 km) — by arrangement. Border crossing available with 'Europe' package — Green Card insurance required.",
+            ro: "Livrarea mașinii la Porubne checkpoint (15 km) — free. To Vadul-Siret checkpoint (Moldova, 40 km) — by arrangement. Border crossing available with 'Europe' package — Green Card insurance required.",
           },
         },
       ],
@@ -6194,6 +7092,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -6203,6 +7102,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What insurance is needed for Romania trips from Chernivtsi?",
             en: "What insurance is needed for Romania trips from Chernivtsi?",
+            ro: "Ce asigurare este necesară pentru călătoriile în România din Chernivtsi?",
           },
           answer: {
             uk: "Для виїзду в ЄС обов'язкова Green Card. Пакет «Європа» включає розширене КАСКО та асистанс на території ЄС. Додатково рекомендуємо захист від крадіжки для подорожей по Румунії та Молдові.",
@@ -6210,6 +7110,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Green Card is required for EU travel. 'Europe' package includes extended CASCO and EU assistance. We also recommend theft protection for Romania and Moldova trips.",
             en: "Green Card is required for EU travel. 'Europe' package includes extended CASCO and EU assistance. We also recommend theft protection for Romania and Moldova trips.",
+            ro: "Green Card is required for EU travel. 'Europe' package includes extended CASCO and EU assistance. We also recommend theft protection for Romania and Moldova trips.",
           },
         },
       ],
@@ -6223,6 +7124,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -6232,6 +7134,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to get a car at Boryspil Airport after arrival?",
             en: "How to get a car at Boryspil Airport after arrival?",
+            ro: "Cum să obțineți o mașină la Aeroportul Boryspil după sosire?",
           },
           answer: {
             uk: "Зустріч біля терміналу D або F — менеджер чекатиме з табличкою. Оформлення займає 10-15 хвилин. Паркінг P1 (термінал D) — найзручніший для передачі авто. Працюємо 24/7, включаючи нічні рейси.",
@@ -6239,6 +7142,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Meeting near Terminal D or F — manager will wait with a sign. Paperwork takes 10-15 minutes. P1 parking (Terminal D) — most convenient for car handover. We work 24/7, including night flights.",
             en: "Meeting near Terminal D or F — manager will wait with a sign. Paperwork takes 10-15 minutes. P1 parking (Terminal D) — most convenient for car handover. We work 24/7, including night flights.",
+            ro: "Meeting near Terminal D or F — manager will wait with a sign. Paperwork takes 10-15 minutes. P1 parking (Terminal D) — most convenient for car handover. We work 24/7, including night flights.",
           },
         },
         {
@@ -6248,6 +7152,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I return the car in another Ukrainian city after Boryspil rental?",
             en: "Can I return the car in another Ukrainian city after Boryspil rental?",
+            ro: "Pot returna mașina în alt oraș din Ucraina după închirierea de la Boryspil?",
           },
           answer: {
             uk: "Так, one-way оренда доступна. Популярні напрямки: Київ (центр), Львів, Одеса, Дніпро, Харків. Вартість залежить від відстані. Львів — найпопулярніший напрямок, подача туди додатково оплачується.",
@@ -6255,6 +7160,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, one-way rental is available. Popular destinations: Kyiv (center), Lviv, Odesa, Dnipro, Kharkiv. Cost depends on distance. Lviv is the most popular — delivery there is charged additionally.",
             en: "Yes, one-way rental is available. Popular destinations: Kyiv (center), Lviv, Odesa, Dnipro, Kharkiv. Cost depends on distance. Lviv is the most popular — delivery there is charged additionally.",
+            ro: "Da, închirierea într-o singură direcție este disponibilă. Destinații populare: Kyiv (centru), Lviv, Odesa, Dnipro, Kharkiv. Costul depinde de distanță. Lviv este direcția cea mai populară.",
           },
         },
         {
@@ -6264,6 +7170,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Car delivery to Boryspil Airport from Kyiv: cost and time",
             en: "Car delivery to Boryspil Airport from Kyiv: cost and time",
+            ro: "Livrarea mașinii la Boryspil Airport from Kyiv: cost and time",
           },
           answer: {
             uk: "Подача з Києва в аеропорт Бориспіль — безкоштовна при оренді від 3 діб. Час у дорозі 35-50 хвилин залежно від трафіку. Рекомендуємо бронювати за 24 години до прильоту.",
@@ -6271,6 +7178,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Delivery from Kyiv to Boryspil Airport — free for rentals from 3 days. Travel time 35-50 minutes depending on traffic. We recommend booking 24 hours before arrival.",
             en: "Delivery from Kyiv to Boryspil Airport — free for rentals from 3 days. Travel time 35-50 minutes depending on traffic. We recommend booking 24 hours before arrival.",
+            ro: "Delivery from Kyiv to Boryspil Airport — free for rentals from 3 days. Travel time 35-50 minutes depending on traffic. We recommend booking 24 hours before arrival.",
           },
         },
       ],
@@ -6282,6 +7190,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       },
       items: [
         {
@@ -6291,6 +7200,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for Boryspil Airport rentals?",
             en: "What is the deposit for Boryspil Airport rentals?",
+            ro: "Care este garanția pentru închirierile de la Aeroportul Boryspil?",
           },
           answer: {
             uk: "Стандартний депозит: економ — від $200, бізнес — від $400, преміум/SUV — від $600. Оплата готівкою або карткою. При пакеті «Преміум» депозит знижується. Для корпоративних клієнтів — спеціальні умови.",
@@ -6298,6 +7208,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard deposit: economy — from $200, business — from $400, premium/SUV — from $600. Payment by cash or card. 'Premium' package reduces deposit. Special terms for corporate clients.",
             en: "Standard deposit: economy — from $200, business — from $400, premium/SUV — from $600. Payment by cash or card. 'Premium' package reduces deposit. Special terms for corporate clients.",
+            ro: "Standard deposit: economy — from $200, business — from $400, premium/SUV — from $600. Payment by cash or card. „Premium” package reduces deposit. Special terms for corporate clients.",
           },
         },
       ],
@@ -6311,6 +7222,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -6320,6 +7232,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to get to Shatsk Lakes by rental car?",
             en: "How to get to Shatsk Lakes by rental car?",
+            ro: "Cum să ajungeți la Lacurile Shatsk cu o mașină închiriată?",
           },
           answer: {
             uk: "Від Луцька до Шацьких озер близько 60 км (1 година). Дорога у хорошому стані. Рекомендуємо кросовер для лісових доріг біля озер. Ми доставимо авто до вашого готелю або бази відпочинку.",
@@ -6327,6 +7240,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "From Lutsk to Shatsk Lakes is about 60 km (1 hour). Road is in good condition. We recommend a crossover for forest roads near the lakes. We deliver to your hotel or resort.",
             en: "From Lutsk to Shatsk Lakes is about 60 km (1 hour). Road is in good condition. We recommend a crossover for forest roads near the lakes. We deliver to your hotel or resort.",
+            ro: "From Lutsk to Shatsk Lakes is about 60 km (1 hour). Road is in good condition. We recommend a crossover for forest roads near the lakes. We deliver to your hotel or resort.",
           },
         },
         {
@@ -6336,6 +7250,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I take the rental car to Poland?",
             en: "Can I take the rental car to Poland?",
+            ro: "Pot duce mașina închiriată în Polonia?",
           },
           answer: {
             uk: "Так, виїзд до Польщі та країн ЄС можливий за попереднім узгодженням. Потрібна зелена карта (можемо оформити). Найближчі КПП: Ягодин, Устилуг. Додаткова плата від 15€/день.",
@@ -6343,6 +7258,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, travel to Poland and EU countries is possible with prior approval. Green card required (we can arrange). Nearest checkpoints: Yahodyn, Ustyluh. Extra fee from €15/day.",
             en: "Yes, travel to Poland and EU countries is possible with prior approval. Green card required (we can arrange). Nearest checkpoints: Yahodyn, Ustyluh. Extra fee from €15/day.",
+            ro: "Da, călătoria în Polonia și țările UE este posibilă cu aprobare prealabilă. Carte verde necesară (o putem aranja). Cele mai apropiate puncte de trecere: Yahodyn (70 km), Rava-Ruska (200 km).",
           },
         },
         {
@@ -6352,6 +7268,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I park in Lutsk city center?",
             en: "Where can I park in Lutsk city center?",
+            ro: "Unde pot parca în centrul orașului Lutsk?",
           },
           answer: {
             uk: "Безкоштовні парковки біля ТЦ «Порт Сіті», «Там Там». Платні парковки в центрі коштують 10-20 грн/год. Біля Луцького замку є велика безкоштовна парковка.",
@@ -6359,6 +7276,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Free parking near Port City and Tam Tam malls. Paid parking in center costs 10-20 UAH/hour. Large free parking near Lutsk Castle.",
             en: "Free parking near Port City and Tam Tam malls. Paid parking in center costs 10-20 UAH/hour. Large free parking near Lutsk Castle.",
+            ro: "Parcare gratuită lângă mall-urile Port City și Tam Tam. Parcarea plătită în centru costă 10-20 UAH/oră. Parcare mare gratuită lângă Castelul Lutsk.",
           },
         },
       ],
@@ -6370,6 +7288,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Rental Terms",
         en: "Rental Terms",
+        ro: "Rental Terms",
       },
       items: [
         {
@@ -6379,6 +7298,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver cars to Shatsk Lakes?",
             en: "Do you deliver cars to Shatsk Lakes?",
+            ro: "Do you deliver cars to Shatsk Lakes?",
           },
           answer: {
             uk: "Так, доставляємо авто на Шацькі озера, до Світязя та інших баз відпочинку. Вартість доставки від 500 грн в один бік. При оренді від 3 днів — знижка на доставку.",
@@ -6386,6 +7306,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we deliver to Shatsk Lakes, Svityaz and other resorts. Delivery from 500 UAH one way. Discount on delivery for 3+ day rentals.",
             en: "Yes, we deliver to Shatsk Lakes, Svityaz and other resorts. Delivery from 500 UAH one way. Discount on delivery for 3+ day rentals.",
+            ro: "Da, livrăm la Lacurile Shatsk, Svityaz și alte stațiuni. Livrare de la 500 UAH dus. Reducere la livrare pentru închirieri de 3+ zile.",
           },
         },
         {
@@ -6395,6 +7316,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are needed to rent in Lutsk?",
             en: "What documents are needed to rent in Lutsk?",
+            ro: "Ce documente sunt necesare pentru a închiria în Lutsk?",
           },
           answer: {
             uk: "Паспорт громадянина України або закордонний паспорт, водійське посвідчення (стаж від 2 років). Для іноземців — міжнародне посвідчення або національне з перекладом.",
@@ -6402,6 +7324,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ukrainian passport or international passport, driver's license (2+ years experience). For foreigners — international license or national with translation.",
             en: "Ukrainian passport or international passport, driver's license (2+ years experience). For foreigners — international license or national with translation.",
+            ro: "Pașaport ucrainean sau pașaport internațional, permis de conducere (2+ ani de experiență). Pentru străini — permis internațional sau permis național în latină. Vârsta de la 21 de ani.",
           },
         },
       ],
@@ -6415,6 +7338,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -6424,6 +7348,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to get to the Tunnel of Love by rental car?",
             en: "How to get to the Tunnel of Love by rental car?",
+            ro: "Cum să ajungeți la Tunelul Iubirii cu o mașină închiriată?",
           },
           answer: {
             uk: "Тунель кохання знаходиться в селі Клевань, 25 км від Рівного (30 хв). Дорога асфальтована. Є безкоштовна парковка біля входу. Краще відвідувати влітку, коли листя найгустіше.",
@@ -6431,6 +7356,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Tunnel of Love is in Klevan village, 25 km from Rivne (30 min). Road is paved. Free parking at entrance. Best to visit in summer when foliage is thickest.",
             en: "Tunnel of Love is in Klevan village, 25 km from Rivne (30 min). Road is paved. Free parking at entrance. Best to visit in summer when foliage is thickest.",
+            ro: "Tunnel of Love is in Klevan village, 25 km from Rivne (30 min). Road is paved. Free parking at entrance. Best to visit in summer when foliage is thickest.",
           },
         },
         {
@@ -6440,6 +7366,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park in Rivne city center?",
             en: "Where to park in Rivne city center?",
+            ro: "Unde să parcați în centrul orașului Rivne?",
           },
           answer: {
             uk: "Безкоштовні парковки біля ТЦ «Злата Плаза», «Екватор». Платні парковки в центрі 10-15 грн/год. Біля театру та набережної є великі парковки.",
@@ -6447,6 +7374,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Free parking at Zlata Plaza and Ekvator malls. Paid parking in center 10-15 UAH/hour. Large parking areas near theater and embankment.",
             en: "Free parking at Zlata Plaza and Ekvator malls. Paid parking in center 10-15 UAH/hour. Large parking areas near theater and embankment.",
+            ro: "Parcare gratuită la mall-urile Zlata Plaza și Ekvator. Parcare plătită în centru 10-15 UAH/oră. Zone mari de parcare lângă teatru și falează.",
           },
         },
         {
@@ -6456,6 +7384,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the road condition in Rivne region?",
             en: "What is the road condition in Rivne region?",
+            ro: "Care este starea drumurilor în regiunea Rivne?",
           },
           answer: {
             uk: "Основні траси М-06 (Київ-Львів) та М-07 в хорошому стані. Дороги до туристичних місць (Клевань, Корець, Острог) переважно асфальтовані. До деяких сіл — ґрунтові дороги.",
@@ -6463,6 +7392,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Main highways M-06 (Kyiv-Lviv) and M-07 are in good condition. Roads to tourist spots (Klevan, Korets, Ostroh) are mostly paved. Some village roads are unpaved.",
             en: "Main highways M-06 (Kyiv-Lviv) and M-07 are in good condition. Roads to tourist spots (Klevan, Korets, Ostroh) are mostly paved. Some village roads are unpaved.",
+            ro: "Main highways M-06 (Kyiv-Lviv) and M-07 are in good condition. Roads to tourist spots (Klevan, Korets, Ostroh) are mostly paved. Some village roads are unpaved.",
           },
         },
       ],
@@ -6474,6 +7404,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Rental Terms",
         en: "Rental Terms",
+        ro: "Rental Terms",
       },
       items: [
         {
@@ -6483,6 +7414,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver cars to Ostroh or Korets?",
             en: "Do you deliver cars to Ostroh or Korets?",
+            ro: "Do you deliver cars to Ostroh or Korets?",
           },
           answer: {
             uk: "Так, доставляємо по всій Рівненській області: Острог (40 км), Корець (50 км), Дубно (45 км). Вартість доставки від 400 грн. При оренді від 3 днів — знижка.",
@@ -6490,6 +7422,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we deliver throughout Rivne region: Ostroh (40 km), Korets (50 km), Dubno (45 km). Delivery from 400 UAH. Discount for 3+ day rentals.",
             en: "Yes, we deliver throughout Rivne region: Ostroh (40 km), Korets (50 km), Dubno (45 km). Delivery from 400 UAH. Discount for 3+ day rentals.",
+            ro: "Da, livrăm în toată regiunea Rivne: Ostroh (40 km), Korets (50 km), Dubno (45 km). Livrare de la 400 UAH. Reducere pentru închirieri de 3+ zile.",
           },
         },
         {
@@ -6499,6 +7432,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car for just one day?",
             en: "Can I rent a car for just one day?",
+            ro: "Pot închiria o mașină doar pentru o zi?",
           },
           answer: {
             uk: "Так, мінімальний термін оренди — 1 доба. Вартість від 800 грн/день залежно від класу авто. При оренді від 3 днів діють знижки до 15%.",
@@ -6506,6 +7440,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, minimum rental is 1 day. Price from 800 UAH/day depending on car class. Discounts up to 15% for 3+ day rentals.",
             en: "Yes, minimum rental is 1 day. Price from 800 UAH/day depending on car class. Discounts up to 15% for 3+ day rentals.",
+            ro: "Da, închirierea minimă este de 1 zi. Preț de la 800 UAH/zi în funcție de clasa mașinii. Reduceri de până la 15% pentru închirieri de 3+ zile.",
           },
         },
       ],
@@ -6519,6 +7454,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -6528,6 +7464,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to get to Kamianets-Podilskyi by rental car?",
             en: "How to get to Kamianets-Podilskyi by rental car?",
+            ro: "Cum să ajungeți la Kamianets-Podilskyi cu o mașină închiriată?",
           },
           answer: {
             uk: "Від Хмельницького до Кам'янця-Подільського 100 км (1,5 години). Дорога в хорошому стані. Є платні парковки біля фортеці (30-50 грн). Рекомендуємо виїжджати вранці, щоб уникнути туристичних черг.",
@@ -6535,6 +7472,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "From Khmelnytskyi to Kamianets-Podilskyi is 100 km (1.5 hours). Road is in good condition. Paid parking near fortress (30-50 UAH). We recommend leaving early to avoid tourist crowds.",
             en: "From Khmelnytskyi to Kamianets-Podilskyi is 100 km (1.5 hours). Road is in good condition. Paid parking near fortress (30-50 UAH). We recommend leaving early to avoid tourist crowds.",
+            ro: "From Khmelnytskyi to Kamianets-Podilskyi is 100 km (1.5 hours). Road is in good condition. Paid parking near fortress (30-50 UAH). We recommend leaving early to avoid tourist crowds.",
           },
         },
         {
@@ -6544,6 +7482,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park in Khmelnytskyi city center?",
             en: "Where to park in Khmelnytskyi city center?",
+            ro: "Unde să parcați în centrul orașului Khmelnytskyi?",
           },
           answer: {
             uk: "Безкоштовні парковки біля ТЦ «Либідь», «Дастор». Платні парковки в центрі 10-20 грн/год. Біля набережної є велика безкоштовна парковка.",
@@ -6551,6 +7490,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Free parking at Lybid and Dastor malls. Paid parking in center 10-20 UAH/hour. Large free parking near the embankment.",
             en: "Free parking at Lybid and Dastor malls. Paid parking in center 10-20 UAH/hour. Large free parking near the embankment.",
+            ro: "Parcare gratuită la mall-urile Lybid și Dastor. Parcare plătită în centru 10-20 UAH/oră. Parcare mare gratuită lângă falează.",
           },
         },
         {
@@ -6560,6 +7500,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver cars to Kamianets-Podilskyi?",
             en: "Do you deliver cars to Kamianets-Podilskyi?",
+            ro: "Do you deliver cars to Kamianets-Podilskyi?",
           },
           answer: {
             uk: "Так, доставляємо авто до Кам'янця-Подільського (100 км). Вартість доставки від 800 грн. При оренді від 3 днів — знижка на доставку 50%.",
@@ -6567,6 +7508,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we deliver to Kamianets-Podilskyi (100 km). Delivery from 800 UAH. 50% discount on delivery for 3+ day rentals.",
             en: "Yes, we deliver to Kamianets-Podilskyi (100 km). Delivery from 800 UAH. 50% discount on delivery for 3+ day rentals.",
+            ro: "Da, livrăm la Kamianets-Podilskyi (100 km). Livrare de la 800 UAH. 50% reducere la livrare pentru închirieri de 3+ zile.",
           },
         },
       ],
@@ -6578,6 +7520,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Rental Terms",
         en: "Rental Terms",
+        ro: "Rental Terms",
       },
       items: [
         {
@@ -6587,6 +7530,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What routes are popular from Khmelnytskyi?",
             en: "What routes are popular from Khmelnytskyi?",
+            ro: "Ce rute sunt populare din Khmelnytskyi?",
           },
           answer: {
             uk: "Популярні маршрути: Кам'янець-Подільський (100 км), Бакота (120 км), Хотин (130 км), Меджибіж (35 км), Вінниця (120 км). Всі дороги асфальтовані та в хорошому стані.",
@@ -6594,6 +7538,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Popular routes: Kamianets-Podilskyi (100 km), Bakota (120 km), Khotyn (130 km), Medzhybizh (35 km), Vinnytsia (120 km). All roads are paved and in good condition.",
             en: "Popular routes: Kamianets-Podilskyi (100 km), Bakota (120 km), Khotyn (130 km), Medzhybizh (35 km), Vinnytsia (120 km). All roads are paved and in good condition.",
+            ro: "Rute populare: Kamianets-Podilskyi (100 km), Bakota (120 km), Khotyn (130 km), Medzhybizh (35 km), Vinnytsia (120 km). All roads are paved and in good condition.",
           },
         },
         {
@@ -6603,6 +7548,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the deposit for rental in Khmelnytskyi?",
             en: "What is the deposit for rental in Khmelnytskyi?",
+            ro: "Care este garanția pentru închiriere în Khmelnytskyi?",
           },
           answer: {
             uk: "Стандартний депозит: економ — від $200, бізнес — від $400, преміум/SUV — від $600. При пакеті «Без застави» депозит відсутній. Повертається при здачі авто в належному стані.",
@@ -6610,6 +7556,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Standard deposit: economy — from $200, business — from $400, premium/SUV — from $600. 'No Deposit' package available. Returned upon car return in proper condition.",
             en: "Standard deposit: economy — from $200, business — from $400, premium/SUV — from $600. 'No Deposit' package available. Returned upon car return in proper condition.",
+            ro: "Standard deposit: economy — from $200, business — from $400, premium/SUV — from $600. 'No Deposit' package available. Returned upon car return in proper condition.",
           },
         },
       ],
@@ -6623,6 +7570,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       },
       items: [
         {
@@ -6632,6 +7580,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where to park near Kamianets-Podilskyi Fortress?",
             en: "Where to park near Kamianets-Podilskyi Fortress?",
+            ro: "Unde să parcați lângă Cetatea Kamianets-Podilskyi?",
           },
           answer: {
             uk: "Є платна парковка біля фортеці (30-50 грн). Також безкоштовна парковка за 300м біля мосту. У вихідні краще приїжджати до 10:00, бо місць може не бути.",
@@ -6639,6 +7588,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Paid parking near fortress (30-50 UAH). Also free parking 300m away near the bridge. On weekends, arrive before 10:00 as spots fill up quickly.",
             en: "Paid parking near fortress (30-50 UAH). Also free parking 300m away near the bridge. On weekends, arrive before 10:00 as spots fill up quickly.",
+            ro: "Parcare plătită lângă cetate (30-50 UAH). De asemenea, parcare gratuită la 300m lângă pod. În weekenduri, ajungeți înainte de 10:00 deoarece locurile se ocupă rapid.",
           },
         },
         {
@@ -6648,6 +7598,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to get to Khotyn Fortress?",
             en: "How to get to Khotyn Fortress?",
+            ro: "Cum să ajungeți la Cetatea Khotyn?",
           },
           answer: {
             uk: "Від Кам'янця до Хотина 20 км (25 хв). Дорога асфальтована. Парковка біля фортеці безкоштовна. Рекомендуємо відвідати обидві фортеці за один день.",
@@ -6655,6 +7606,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "From Kamianets to Khotyn is 20 km (25 min). Road is paved. Parking at fortress is free. We recommend visiting both fortresses in one day.",
             en: "From Kamianets to Khotyn is 20 km (25 min). Road is paved. Parking at fortress is free. We recommend visiting both fortresses in one day.",
+            ro: "From Kamianets to Khotyn is 20 km (25 min). Road is paved. Parking at fortress is free. We recommend visiting both fortresses in one day.",
           },
         },
         {
@@ -6664,6 +7616,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to get to Bakota?",
             en: "How to get to Bakota?",
+            ro: "Cum să ajungeți la Bakota?",
           },
           answer: {
             uk: "Бакота знаходиться в 35 км від Кам'янця (45 хв). Останні 5 км — ґрунтова дорога, рекомендуємо кросовер. Є оглядовий майданчик та скельний монастир.",
@@ -6671,6 +7624,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Bakota is 35 km from Kamianets (45 min). Last 5 km is unpaved road, crossover recommended. There's a viewpoint and rock monastery.",
             en: "Bakota is 35 km from Kamianets (45 min). Last 5 km is unpaved road, crossover recommended. There's a viewpoint and rock monastery.",
+            ro: "Bakota is 35 km from Kamianets (45 min). Last 5 km is unpaved road, crossover recommended. There's a viewpoint and rock monastery.",
           },
         },
       ],
@@ -6682,6 +7636,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
         pl: "Rental Terms",
         en: "Rental Terms",
+        ro: "Rental Terms",
       },
       items: [
         {
@@ -6691,6 +7646,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I rent a car for a weekend fortress tour?",
             en: "Can I rent a car for a weekend fortress tour?",
+            ro: "Pot închiria o mașină pentru un tur al cetăților în weekend?",
           },
           answer: {
             uk: "Так, мінімальний термін — 1 день. Для огляду Кам'янця, Хотина та Бакоти рекомендуємо 2 дні. При оренді на вихідні (пт-нд) діє спеціальна ціна.",
@@ -6698,6 +7654,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, minimum is 1 day. For touring Kamianets, Khotyn and Bakota we recommend 2 days. Weekend (Fri-Sun) special rates available.",
             en: "Yes, minimum is 1 day. For touring Kamianets, Khotyn and Bakota we recommend 2 days. Weekend (Fri-Sun) special rates available.",
+            ro: "Da, minimul este de 1 zi. Pentru turul Kamianets, Khotyn și Bakota recomandăm 2 zile. Tarife speciale de weekend (vineri-duminică) disponibile.",
           },
         },
         {
@@ -6707,6 +7664,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver cars to hotels in Kamianets?",
             en: "Do you deliver cars to hotels in Kamianets?",
+            ro: "Do you deliver cars to hotels in Kamianets?",
           },
           answer: {
             uk: "Так, доставляємо авто до будь-якого готелю в Кам'янці-Подільському безкоштовно. До Старого міста та фортеці — теж безкоштовно.",
@@ -6714,6 +7672,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we deliver to any hotel in Kamianets-Podilskyi for free. To Old Town and fortress — also free.",
             en: "Yes, we deliver to any hotel in Kamianets-Podilskyi for free. To Old Town and fortress — also free.",
+            ro: "Da, livrăm la orice hotel din Kamianets-Podilskyi gratuit. În Orașul Vechi și la cetate — de asemenea gratuit.",
           },
         },
       ],
@@ -6721,193 +7680,193 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
   ],
   drohobych: [
     {
-      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery" },
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery", ro: "Închiriere și livrare" },
       items: [
         {
-          question: { uk: "Чи є доставка до Трускавця?", ru: "Есть ли доставка в Трускавец?", en: "Do you deliver to Truskavets?", pl: "Do you deliver to Truskavets?" },
-          answer: { uk: "Так, доставка до Трускавця (10 км) безкоштовна. До Східниці та Борислава — від 200 грн.", ru: "Да, доставка в Трускавец (10 км) бесплатная. В Сходницу и Борислав — от 200 грн.", en: "Yes, delivery to Truskavets (10 km) is free. To Skhidnytsia and Boryslav — from 200 UAH.", pl: "Yes, delivery to Truskavets (10 km) is free. To Skhidnytsia and Boryslav — from 200 UAH." },
+          question: { uk: "Чи є доставка до Трускавця?", ru: "Есть ли доставка в Трускавец?", en: "Do you deliver to Truskavets?", pl: "Do you deliver to Truskavets?", ro: "Livrați la Truskavets?" },
+          answer: { uk: "Так, доставка до Трускавця (10 км) безкоштовна. До Східниці та Борислава — від 200 грн.", ru: "Да, доставка в Трускавец (10 км) бесплатная. В Сходницу и Борислав — от 200 грн.", en: "Yes, delivery to Truskavets (10 km) is free. To Skhidnytsia and Boryslav — from 200 UAH.", pl: "Yes, delivery to Truskavets (10 km) is free. To Skhidnytsia and Boryslav — from 200 UAH.", ro: "Da, livrarea la Truskavets (10 km) este gratuită. La Skhidnytsia și Boryslav — de la 200 UAH." },
         },
         {
-          question: { uk: "Де орендувати авто для поїздки до Карпат?", ru: "Где арендовать авто для поездки в Карпаты?", en: "Where to rent a car for a Carpathian trip?", pl: "Where to rent a car for a Carpathian trip?" },
-          answer: { uk: "REIZ у Дрогобичі — ідеальний старт для подорожі до Карпат. До Буковеля 150 км, до Славського 80 км. Рекомендуємо кросовер для гірських доріг.", ru: "REIZ в Дрогобыче — идеальный старт для путешествия в Карпаты. До Буковеля 150 км, до Славского 80 км. Рекомендуем кроссовер для горных дорог.", en: "REIZ in Drohobych is the perfect start for a Carpathian trip. Bukovel is 150 km, Slavske is 80 km. We recommend a crossover for mountain roads.", pl: "REIZ in Drohobych is the perfect start for a Carpathian trip. Bukovel is 150 km, Slavske is 80 km. We recommend a crossover for mountain roads." },
+          question: { uk: "Де орендувати авто для поїздки до Карпат?", ru: "Где арендовать авто для поездки в Карпаты?", en: "Where to rent a car for a Carpathian trip?", pl: "Where to rent a car for a Carpathian trip?", ro: "De unde să închiriați o mașină pentru o călătorie în Carpați?" },
+          answer: { uk: "REIZ у Дрогобичі — ідеальний старт для подорожі до Карпат. До Буковеля 150 км, до Славського 80 км. Рекомендуємо кросовер для гірських доріг.", ru: "REIZ в Дрогобыче — идеальный старт для путешествия в Карпаты. До Буковеля 150 км, до Славского 80 км. Рекомендуем кроссовер для горных дорог.", en: "REIZ in Drohobych is the perfect start for a Carpathian trip. Bukovel is 150 km, Slavske is 80 km. We recommend a crossover for mountain roads.", pl: "REIZ in Drohobych is the perfect start for a Carpathian trip. Bukovel is 150 km, Slavske is 80 km. We recommend a crossover for mountain roads.", ro: "REIZ în Drohobych este startul perfect pentru o călătorie în Carpați. Bukovel este la 150 km, Slavske la 80 km. Recomandăm un crossover pentru drumurile de munte." },
         },
         {
-          question: { uk: "Де припаркувати авто в центрі Дрогобича?", ru: "Где припарковать авто в центре Дрогобыча?", en: "Where can I park in Drohobych city center?", pl: "Where can I park in Drohobych city center?" },
-          answer: { uk: "Є парковки біля ратуші та туристичних локацій, також місця вздовж вулиць. У сезон краще приїхати раніше.", ru: "Есть парковки у ратуши и туристических локаций, также места вдоль улиц. В сезон лучше приезжать раньше.", en: "There is parking near the town hall and tourist spots, plus street parking. In high season, arrive earlier.", pl: "There is parking near the town hall and tourist spots, plus street parking. In high season, arrive earlier." },
+          question: { uk: "Де припаркувати авто в центрі Дрогобича?", ru: "Где припарковать авто в центре Дрогобыча?", en: "Where can I park in Drohobych city center?", pl: "Where can I park in Drohobych city center?", ro: "Unde pot parca în centrul orașului Drohobych?" },
+          answer: { uk: "Є парковки біля ратуші та туристичних локацій, також місця вздовж вулиць. У сезон краще приїхати раніше.", ru: "Есть парковки у ратуши и туристических локаций, также места вдоль улиц. В сезон лучше приезжать раньше.", en: "There is parking near the town hall and tourist spots, plus street parking. In high season, arrive earlier.", pl: "There is parking near the town hall and tourist spots, plus street parking. In high season, arrive earlier.", ro: "Există parcare lângă primărie și locurile turistice, plus parcare pe stradă. În sezonul de vârf, ajungeți mai devreme." },
         },
         {
-          question: { uk: "Чи можна отримати та повернути авто на вокзалі або в готелі?", ru: "Можно ли получить и вернуть авто на вокзале или в отеле?", en: "Can I pick up and return the car at the station or a hotel?", pl: "Can I pick up and return the car at the station or a hotel?" },
-          answer: { uk: "Так, подача й повернення можливі за адресою, у готелі або на вокзалі. Час узгоджується під час бронювання.", ru: "Да, подача и возврат возможны по адресу, в отеле или на вокзале. Время согласовывается при бронировании.", en: "Yes, delivery and return are available to your address, hotel, or the station. Timing is arranged during booking.", pl: "Yes, delivery and return are available to your address, hotel, or the station. Timing is arranged during booking." },
+          question: { uk: "Чи можна отримати та повернути авто на вокзалі або в готелі?", ru: "Можно ли получить и вернуть авто на вокзале или в отеле?", en: "Can I pick up and return the car at the station or a hotel?", pl: "Can I pick up and return the car at the station or a hotel?", ro: "Pot ridica și returna mașina la gară sau la un hotel?" },
+          answer: { uk: "Так, подача й повернення можливі за адресою, у готелі або на вокзалі. Час узгоджується під час бронювання.", ru: "Да, подача и возврат возможны по адресу, в отеле или на вокзале. Время согласовывается при бронировании.", en: "Yes, delivery and return are available to your address, hotel, or the station. Timing is arranged during booking.", pl: "Yes, delivery and return are available to your address, hotel, or the station. Timing is arranged during booking.", ro: "Da, livrarea și returnarea sunt disponibile la adresa dvs., hotel sau gară. Programarea este stabilită în timpul rezervării." },
         },
         {
-          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?", pl: "What is the fuel policy?" },
-          answer: { uk: "Зазвичай діє правило «повний‑повний». За потреби доступна опція передоплати.", ru: "Обычно действует правило «полный‑полный». При необходимости доступна опция предоплаты.", en: "We typically use a full-to-full policy. A prepaid option is available if needed.", pl: "We typically use a full-to-full policy. A prepaid option is available if needed." },
+          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?", pl: "What is the fuel policy?", ro: "Care este politica de combustibil?" },
+          answer: { uk: "Зазвичай діє правило «повний‑повний». За потреби доступна опція передоплати.", ru: "Обычно действует правило «полный‑полный». При необходимости доступна опция предоплаты.", en: "We typically use a full-to-full policy. A prepaid option is available if needed.", pl: "We typically use a full-to-full policy. A prepaid option is available if needed.", ro: "De obicei folosim politica plin-la-plin. O opțiune preplătită este disponibilă dacă este necesar." },
         },
         {
-          question: { uk: "Які документи потрібні та чи є депозит?", ru: "Какие документы нужны и есть ли депозит?", en: "What documents are required and is there a deposit?", pl: "What documents are required and is there a deposit?" },
-          answer: { uk: "Потрібні паспорт/ID та водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.", ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.", en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.", pl: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available." },
+          question: { uk: "Які документи потрібні та чи є депозит?", ru: "Какие документы нужны и есть ли депозит?", en: "What documents are required and is there a deposit?", pl: "What documents are required and is there a deposit?", ro: "Ce documente sunt necesare și există garanție?" },
+          answer: { uk: "Потрібні паспорт/ID та водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.", ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.", en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.", pl: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.", ro: "Aveți nevoie de pașaport/carte de identitate și permis de conducere (2+ ani de experiență). Garanția depinde de clasa mașinii; sunt disponibile pachete fără garanție." },
         },
       ],
     },
   ],
   stryi: [
     {
-      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery" },
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery", ro: "Închiriere și livrare" },
       items: [
         {
-          question: { uk: "Чи є доставка до Моршина?", ru: "Есть ли доставка в Моршин?", en: "Do you deliver to Morshyn?", pl: "Do you deliver to Morshyn?" },
-          answer: { uk: "Так, доставка до Моршина (30 км) — 300 грн. При оренді від 3 днів — безкоштовно.", ru: "Да, доставка в Моршин (30 км) — 300 грн. При аренде от 3 дней — бесплатно.", en: "Yes, delivery to Morshyn (30 km) — 300 UAH. Free for 3+ day rentals.", pl: "Yes, delivery to Morshyn (30 km) — 300 UAH. Free for 3+ day rentals." },
+          question: { uk: "Чи є доставка до Моршина?", ru: "Есть ли доставка в Моршин?", en: "Do you deliver to Morshyn?", pl: "Do you deliver to Morshyn?", ro: "Livrați la Morshyn?" },
+          answer: { uk: "Так, доставка до Моршина (30 км) — 300 грн. При оренді від 3 днів — безкоштовно.", ru: "Да, доставка в Моршин (30 км) — 300 грн. При аренде от 3 дней — бесплатно.", en: "Yes, delivery to Morshyn (30 km) — 300 UAH. Free for 3+ day rentals.", pl: "Yes, delivery to Morshyn (30 km) — 300 UAH. Free for 3+ day rentals.", ro: "Da, livrarea la Morshyn (30 km) — 300 UAH. Gratuit pentru închirieri de 3+ zile." },
         },
         {
-          question: { uk: "Який найкращий маршрут до Буковеля?", ru: "Какой лучший маршрут до Буковеля?", en: "What's the best route to Bukovel?", pl: "What's the best route to Bukovel?" },
-          answer: { uk: "Зі Стрия до Буковеля 130 км через Сколе та Славське. Дорога асфальтована. Взимку можуть бути снігопади на перевалі.", ru: "Из Стрыя до Буковеля 130 км через Сколе и Славское. Дорога асфальтирована. Зимой возможны снегопады на перевале.", en: "From Stryi to Bukovel is 130 km via Skole and Slavske. Road is paved. Winter snowfall possible at the pass.", pl: "From Stryi to Bukovel is 130 km via Skole and Slavske. Road is paved. Winter snowfall possible at the pass." },
+          question: { uk: "Який найкращий маршрут до Буковеля?", ru: "Какой лучший маршрут до Буковеля?", en: "What's the best route to Bukovel?", pl: "What's the best route to Bukovel?", ro: "Care este cel mai bun drum spre Bukovel?" },
+          answer: { uk: "Зі Стрия до Буковеля 130 км через Сколе та Славське. Дорога асфальтована. Взимку можуть бути снігопади на перевалі.", ru: "Из Стрыя до Буковеля 130 км через Сколе и Славское. Дорога асфальтирована. Зимой возможны снегопады на перевале.", en: "From Stryi to Bukovel is 130 km via Skole and Slavske. Road is paved. Winter snowfall possible at the pass.", pl: "From Stryi to Bukovel is 130 km via Skole and Slavske. Road is paved. Winter snowfall possible at the pass.", ro: "Din Stryi la Bukovel sunt 130 km prin Skole și Slavske. Drumul este asfaltat. Ninsori posibile iarna la pasul montan." },
         },
         {
-          question: { uk: "Чи можна отримати авто на вокзалі Стрия або за адресою?", ru: "Можно ли получить авто на вокзале Стрыя или по адресу?", en: "Can I pick up the car at Stryi station or at an address?", pl: "Can I pick up the car at Stryi station or at an address?" },
-          answer: { uk: "Так, подаємо на вокзал, автостанцію або за адресою в місті. Час узгоджується під час бронювання.", ru: "Да, подаем на вокзал, автостанцию или по адресу в городе. Время согласовывается при бронировании.", en: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking.", pl: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking." },
+          question: { uk: "Чи можна отримати авто на вокзалі Стрия або за адресою?", ru: "Можно ли получить авто на вокзале Стрыя или по адресу?", en: "Can I pick up the car at Stryi station or at an address?", pl: "Can I pick up the car at Stryi station or at an address?", ro: "Pot ridica mașina la gara din Stryi sau la o adresă?" },
+          answer: { uk: "Так, подаємо на вокзал, автостанцію або за адресою в місті. Час узгоджується під час бронювання.", ru: "Да, подаем на вокзал, автостанцию или по адресу в городе. Время согласовывается при бронировании.", en: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking.", pl: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking.", ro: "Da, putem livra la gara feroviară, autogara sau la adresa dvs. Programarea este stabilită în timpul rezervării." },
         },
         {
-          question: { uk: "Де припаркувати авто в центрі Стрия?", ru: "Где припарковать авто в центре Стрыя?", en: "Where can I park in Stryi city center?", pl: "Where can I park in Stryi city center?" },
-          answer: { uk: "Є парковки біля центральних вулиць та торгових зон, також місця вздовж вулиць. Дотримуйтесь знаків.", ru: "Есть парковки у центральных улиц и торговых зон, также места вдоль улиц. Соблюдайте знаки.", en: "There is parking near central streets and shopping areas, plus street parking. Follow signage.", pl: "There is parking near central streets and shopping areas, plus street parking. Follow signage." },
+          question: { uk: "Де припаркувати авто в центрі Стрия?", ru: "Где припарковать авто в центре Стрыя?", en: "Where can I park in Stryi city center?", pl: "Where can I park in Stryi city center?", ro: "Unde pot parca în centrul orașului Stryi?" },
+          answer: { uk: "Є парковки біля центральних вулиць та торгових зон, також місця вздовж вулиць. Дотримуйтесь знаків.", ru: "Есть парковки у центральных улиц и торговых зон, также места вдоль улиц. Соблюдайте знаки.", en: "There is parking near central streets and shopping areas, plus street parking. Follow signage.", pl: "There is parking near central streets and shopping areas, plus street parking. Follow signage.", ro: "Există parcare lângă străzile centrale și zonele comerciale, plus parcare pe stradă. Respectați semnalistica." },
         },
         {
-          question: { uk: "Які маршрути популярні зі Стрия на 1 день?", ru: "Какие маршруты популярны из Стрыя на 1 день?", en: "What day-trip routes are popular from Stryi?", pl: "What day-trip routes are popular from Stryi?" },
-          answer: { uk: "Сколе, Тустань, Славське та Моршин — найпопулярніші напрямки. Для гірських доріг радимо кросовер.", ru: "Сколе, Тустань, Славское и Моршин — самые популярные направления. Для горных дорог советуем кроссовер.", en: "Skole, Tustan, Slavske, and Morshyn are the most popular directions. For mountain roads, we recommend a crossover.", pl: "Skole, Tustan, Slavske, and Morshyn are the most popular directions. For mountain roads, we recommend a crossover." },
+          question: { uk: "Які маршрути популярні зі Стрия на 1 день?", ru: "Какие маршруты популярны из Стрыя на 1 день?", en: "What day-trip routes are popular from Stryi?", pl: "What day-trip routes are popular from Stryi?", ro: "Ce rute de excursie de o zi sunt populare din Stryi?" },
+          answer: { uk: "Сколе, Тустань, Славське та Моршин — найпопулярніші напрямки. Для гірських доріг радимо кросовер.", ru: "Сколе, Тустань, Славское и Моршин — самые популярные направления. Для горных дорог советуем кроссовер.", en: "Skole, Tustan, Slavske, and Morshyn are the most popular directions. For mountain roads, we recommend a crossover.", pl: "Skole, Tustan, Slavske, and Morshyn are the most popular directions. For mountain roads, we recommend a crossover.", ro: "Skole, Tustan, Slavske și Morshyn sunt cele mai populare direcții. Pentru drumurile de munte, recomandăm un crossover." },
         },
         {
-          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?", pl: "What is the fuel policy?" },
-          answer: { uk: "Стандартно діє правило «повний‑повний». За потреби доступна опція передоплати.", ru: "Стандартно действует правило «полный‑полный». При необходимости доступна опция предоплаты.", en: "We use a full-to-full policy. A prepaid option is available if needed.", pl: "We use a full-to-full policy. A prepaid option is available if needed." },
+          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?", pl: "What is the fuel policy?", ro: "Care este politica de combustibil?" },
+          answer: { uk: "Стандартно діє правило «повний‑повний». За потреби доступна опція передоплати.", ru: "Стандартно действует правило «полный‑полный». При необходимости доступна опция предоплаты.", en: "We use a full-to-full policy. A prepaid option is available if needed.", pl: "We use a full-to-full policy. A prepaid option is available if needed.", ro: "Folosim politica plin-la-plin. O opțiune preplătită este disponibilă dacă este necesar." },
         },
       ],
     },
   ],
   sambir: [
     {
-      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery" },
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery", ro: "Închiriere și livrare" },
       items: [
         {
-          question: { uk: "Чи можна виїхати до Польщі?", ru: "Можно ли выехать в Польшу?", en: "Can I travel to Poland?", pl: "Can I travel to Poland?" },
-          answer: { uk: "Так, до КПП Шегині 30 км. Потрібна зелена карта (оформляємо). Додаткова плата від 15€/день.", ru: "Да, до КПП Шегини 30 км. Нужна зелёная карта (оформляем). Дополнительная плата от 15€/день.", en: "Yes, Shehyni checkpoint is 30 km. Green card required (we can arrange). Extra fee from €15/day.", pl: "Yes, Shehyni checkpoint is 30 km. Green card required (we can arrange). Extra fee from €15/day." },
+          question: { uk: "Чи можна виїхати до Польщі?", ru: "Можно ли выехать в Польшу?", en: "Can I travel to Poland?", pl: "Can I travel to Poland?", ro: "Pot călători în Polonia?" },
+          answer: { uk: "Так, до КПП Шегині 30 км. Потрібна зелена карта (оформляємо). Додаткова плата від 15€/день.", ru: "Да, до КПП Шегини 30 км. Нужна зелёная карта (оформляем). Дополнительная плата от 15€/день.", en: "Yes, Shehyni checkpoint is 30 km. Green card required (we can arrange). Extra fee from €15/day.", pl: "Yes, Shehyni checkpoint is 30 km. Green card required (we can arrange). Extra fee from €15/day.", ro: "Da, punctul de trecere Shehyni este la 30 km. Carte verde necesară (o putem aranja). Taxă suplimentară de la 15€/zi." },
         },
         {
-          question: { uk: "Чи є доставка до Львова?", ru: "Есть ли доставка во Львов?", en: "Do you deliver to Lviv?", pl: "Do you deliver to Lviv?" },
-          answer: { uk: "Так, доставка до Львова (75 км) — 600 грн. При оренді від 5 днів — знижка 50%.", ru: "Да, доставка во Львов (75 км) — 600 грн. При аренде от 5 дней — скидка 50%.", en: "Yes, delivery to Lviv (75 km) — 600 UAH. 50% discount for 5+ day rentals.", pl: "Yes, delivery to Lviv (75 km) — 600 UAH. 50% discount for 5+ day rentals." },
+          question: { uk: "Чи є доставка до Львова?", ru: "Есть ли доставка во Львов?", en: "Do you deliver to Lviv?", pl: "Do you deliver to Lviv?", ro: "Livrați la Lviv?" },
+          answer: { uk: "Так, доставка до Львова (75 км) — 600 грн. При оренді від 5 днів — знижка 50%.", ru: "Да, доставка во Львов (75 км) — 600 грн. При аренде от 5 дней — скидка 50%.", en: "Yes, delivery to Lviv (75 km) — 600 UAH. 50% discount for 5+ day rentals.", pl: "Yes, delivery to Lviv (75 km) — 600 UAH. 50% discount for 5+ day rentals.", ro: "Da, livrarea la Lviv (75 km) — 600 UAH. 50% reducere pentru închirieri de 5+ zile." },
         },
         {
-          question: { uk: "Чи можна отримати авто на вокзалі Самбора або за адресою?", ru: "Можно ли получить авто на вокзале Самбора или по адресу?", en: "Can I pick up the car at Sambir station or at an address?", pl: "Can I pick up the car at Sambir station or at an address?" },
-          answer: { uk: "Так, подаємо на вокзал, автостанцію або до готелю. Час узгоджується при бронюванні.", ru: "Да, подаем на вокзал, автостанцию или в отель. Время согласовывается при бронировании.", en: "Yes, we can deliver to the railway station, bus station, or a hotel. Timing is arranged during booking.", pl: "Yes, we can deliver to the railway station, bus station, or a hotel. Timing is arranged during booking." },
+          question: { uk: "Чи можна отримати авто на вокзалі Самбора або за адресою?", ru: "Можно ли получить авто на вокзале Самбора или по адресу?", en: "Can I pick up the car at Sambir station or at an address?", pl: "Can I pick up the car at Sambir station or at an address?", ro: "Pot ridica mașina la gara din Sambir sau la o adresă?" },
+          answer: { uk: "Так, подаємо на вокзал, автостанцію або до готелю. Час узгоджується при бронюванні.", ru: "Да, подаем на вокзал, автостанцию или в отель. Время согласовывается при бронировании.", en: "Yes, we can deliver to the railway station, bus station, or a hotel. Timing is arranged during booking.", pl: "Yes, we can deliver to the railway station, bus station, or a hotel. Timing is arranged during booking.", ro: "Da, putem livra la gara feroviară, autogara sau la un hotel. Programarea este stabilită în timpul rezervării." },
         },
         {
-          question: { uk: "Де припаркувати авто в центрі Самбора?", ru: "Где припарковать авто в центре Самбора?", en: "Where can I park in Sambir city center?", pl: "Where can I park in Sambir city center?" },
-          answer: { uk: "Є парковки в центрі та місця вздовж основних вулиць. У вихідні місць менше — краще приїхати раніше.", ru: "Есть парковки в центре и места вдоль основных улиц. В выходные мест меньше — лучше приехать раньше.", en: "There is parking in the center and along main streets. On weekends, spots are limited, so arrive earlier.", pl: "There is parking in the center and along main streets. On weekends, spots are limited, so arrive earlier." },
+          question: { uk: "Де припаркувати авто в центрі Самбора?", ru: "Где припарковать авто в центре Самбора?", en: "Where can I park in Sambir city center?", pl: "Where can I park in Sambir city center?", ro: "Unde pot parca în centrul orașului Sambir?" },
+          answer: { uk: "Є парковки в центрі та місця вздовж основних вулиць. У вихідні місць менше — краще приїхати раніше.", ru: "Есть парковки в центре и места вдоль основных улиц. В выходные мест меньше — лучше приехать раньше.", en: "There is parking in the center and along main streets. On weekends, spots are limited, so arrive earlier.", pl: "There is parking in the center and along main streets. On weekends, spots are limited, so arrive earlier.", ro: "Există parcare în centru și de-a lungul străzilor principale. În weekenduri, locurile sunt limitate, așa că ajungeți mai devreme." },
         },
         {
-          question: { uk: "Які маршрути популярні з Самбора на 1 день?", ru: "Какие маршруты популярны из Самбора на 1 день?", en: "What day-trip routes are popular from Sambir?", pl: "What day-trip routes are popular from Sambir?" },
-          answer: { uk: "Популярні напрямки: Дрогобич, Трускавець, Старий Самбір та Турка. Для гірських доріг радимо кросовер.", ru: "Популярные направления: Дрогобыч, Трускавец, Старый Самбор и Турка. Для горных дорог советуем кроссовер.", en: "Popular directions include Drohobych, Truskavets, Staryi Sambir, and Turka. For mountain roads, we recommend a crossover.", pl: "Popular directions include Drohobych, Truskavets, Staryi Sambir, and Turka. For mountain roads, we recommend a crossover." },
+          question: { uk: "Які маршрути популярні з Самбора на 1 день?", ru: "Какие маршруты популярны из Самбора на 1 день?", en: "What day-trip routes are popular from Sambir?", pl: "What day-trip routes are popular from Sambir?", ro: "Ce rute de excursie de o zi sunt populare din Sambir?" },
+          answer: { uk: "Популярні напрямки: Дрогобич, Трускавець, Старий Самбір та Турка. Для гірських доріг радимо кросовер.", ru: "Популярные направления: Дрогобыч, Трускавец, Старый Самбор и Турка. Для горных дорог советуем кроссовер.", en: "Popular directions include Drohobych, Truskavets, Staryi Sambir, and Turka. For mountain roads, we recommend a crossover.", pl: "Popular directions include Drohobych, Truskavets, Staryi Sambir, and Turka. For mountain roads, we recommend a crossover.", ro: "Direcții populare includ Drohobych, Truskavets, Staryi Sambir și Turka. Pentru drumurile de munte, recomandăm un crossover." },
         },
         {
-          question: { uk: "Які документи потрібні та чи є депозит?", ru: "Какие документы нужны и есть ли депозит?", en: "What documents are required and is there a deposit?", pl: "What documents are required and is there a deposit?" },
-          answer: { uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.", ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.", en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.", pl: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available." },
+          question: { uk: "Які документи потрібні та чи є депозит?", ru: "Какие документы нужны и есть ли депозит?", en: "What documents are required and is there a deposit?", pl: "What documents are required and is there a deposit?", ro: "Ce documente sunt necesare și există garanție?" },
+          answer: { uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.", ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.", en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.", pl: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.", ro: "Aveți nevoie de pașaport/carte de identitate și permis de conducere (2+ ani de experiență). Garanția depinde de clasa mașinii; sunt disponibile pachete fără garanție." },
         },
       ],
     },
   ],
   chervonohrad: [
     {
-      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery" },
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery", ro: "Închiriere și livrare" },
       items: [
         {
-          question: { uk: "Чи є доставка до Львова?", ru: "Есть ли доставка во Львов?", en: "Do you deliver to Lviv?", pl: "Do you deliver to Lviv?" },
-          answer: { uk: "Так, доставка до Львова (65 км) — 500 грн. При оренді від 3 днів — безкоштовно.", ru: "Да, доставка во Львов (65 км) — 500 грн. При аренде от 3 дней — бесплатно.", en: "Yes, delivery to Lviv (65 km) — 500 UAH. Free for 3+ day rentals.", pl: "Yes, delivery to Lviv (65 km) — 500 UAH. Free for 3+ day rentals." },
+          question: { uk: "Чи є доставка до Львова?", ru: "Есть ли доставка во Львов?", en: "Do you deliver to Lviv?", pl: "Do you deliver to Lviv?", ro: "Livrați la Lviv?" },
+          answer: { uk: "Так, доставка до Львова (65 км) — 500 грн. При оренді від 3 днів — безкоштовно.", ru: "Да, доставка во Львов (65 км) — 500 грн. При аренде от 3 дней — бесплатно.", en: "Yes, delivery to Lviv (65 km) — 500 UAH. Free for 3+ day rentals.", pl: "Yes, delivery to Lviv (65 km) — 500 UAH. Free for 3+ day rentals.", ro: "Da, livrarea la Lviv (65 km) — 500 UAH. Gratuit pentru închirieri de 3+ zile." },
         },
         {
-          question: { uk: "Чи можна виїхати до Польщі?", ru: "Можно ли выехать в Польшу?", en: "Can I travel to Poland?", pl: "Can I travel to Poland?" },
-          answer: { uk: "Так, до КПП Рава-Руська 40 км. Потрібна зелена карта. Оформляємо на місці.", ru: "Да, до КПП Рава-Русская 40 км. Нужна зелёная карта. Оформляем на месте.", en: "Yes, Rava-Ruska checkpoint is 40 km. Green card required. We arrange it on site.", pl: "Yes, Rava-Ruska checkpoint is 40 km. Green card required. We arrange it on site." },
+          question: { uk: "Чи можна виїхати до Польщі?", ru: "Можно ли выехать в Польшу?", en: "Can I travel to Poland?", pl: "Can I travel to Poland?", ro: "Pot călători în Polonia?" },
+          answer: { uk: "Так, до КПП Рава-Руська 40 км. Потрібна зелена карта. Оформляємо на місці.", ru: "Да, до КПП Рава-Русская 40 км. Нужна зелёная карта. Оформляем на месте.", en: "Yes, Rava-Ruska checkpoint is 40 km. Green card required. We arrange it on site.", pl: "Yes, Rava-Ruska checkpoint is 40 km. Green card required. We arrange it on site.", ro: "Da, punctul de trecere Rava-Ruska este la 40 km. Carte verde necesară. O aranjăm la fața locului." },
         },
         {
-          question: { uk: "Де припаркувати авто в центрі Червонограда?", ru: "Где припарковать авто в центре Червонограда?", en: "Where can I park in Chervonohrad city center?", pl: "Where can I park in Chervonohrad city center?" },
-          answer: { uk: "Є парковки біля центру та торгових зон, також місця вздовж вулиць. Дотримуйтесь знаків.", ru: "Есть парковки у центра и торговых зон, также места вдоль улиц. Соблюдайте знаки.", en: "There is parking near the center and shopping areas, plus street parking. Follow signage.", pl: "There is parking near the center and shopping areas, plus street parking. Follow signage." },
+          question: { uk: "Де припаркувати авто в центрі Червонограда?", ru: "Где припарковать авто в центре Червонограда?", en: "Where can I park in Chervonohrad city center?", pl: "Where can I park in Chervonohrad city center?", ro: "Unde pot parca în centrul orașului Chervonohrad?" },
+          answer: { uk: "Є парковки біля центру та торгових зон, також місця вздовж вулиць. Дотримуйтесь знаків.", ru: "Есть парковки у центра и торговых зон, также места вдоль улиц. Соблюдайте знаки.", en: "There is parking near the center and shopping areas, plus street parking. Follow signage.", pl: "There is parking near the center and shopping areas, plus street parking. Follow signage.", ro: "Există parcare lângă centru și zonele comerciale, plus parcare pe stradă. Respectați semnalistica." },
         },
         {
-          question: { uk: "Чи можна отримати авто на вокзалі або за адресою?", ru: "Можно ли получить авто на вокзале или по адресу?", en: "Can I pick up the car at the station or at an address?", pl: "Can I pick up the car at the station or at an address?" },
-          answer: { uk: "Так, подаємо на вокзал, автостанцію або за адресою в місті. Час узгоджується при бронюванні.", ru: "Да, подаем на вокзал, автостанцию или по адресу в городе. Время согласовывается при бронировании.", en: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking.", pl: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking." },
+          question: { uk: "Чи можна отримати авто на вокзалі або за адресою?", ru: "Можно ли получить авто на вокзале или по адресу?", en: "Can I pick up the car at the station or at an address?", pl: "Can I pick up the car at the station or at an address?", ro: "Pot ridica mașina la gară sau la o adresă?" },
+          answer: { uk: "Так, подаємо на вокзал, автостанцію або за адресою в місті. Час узгоджується при бронюванні.", ru: "Да, подаем на вокзал, автостанцию или по адресу в городе. Время согласовывается при бронировании.", en: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking.", pl: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking.", ro: "Da, putem livra la gara feroviară, autogara sau la adresa dvs. Programarea este stabilită în timpul rezervării." },
         },
         {
-          question: { uk: "Які маршрути популярні з Червонограда на 1 день?", ru: "Какие маршруты популярны из Червонограда на 1 день?", en: "What day-trip routes are popular from Chervonohrad?", pl: "What day-trip routes are popular from Chervonohrad?" },
-          answer: { uk: "Популярні напрямки: Сокаль, Белз, Рава-Руська та Львів. Дороги переважно асфальтовані.", ru: "Популярные направления: Сокаль, Белз, Рава-Русская и Львов. Дороги преимущественно асфальтированы.", en: "Popular directions include Sokal, Belz, Rava-Ruska, and Lviv. Roads are mostly paved.", pl: "Popular directions include Sokal, Belz, Rava-Ruska, and Lviv. Roads are mostly paved." },
+          question: { uk: "Які маршрути популярні з Червонограда на 1 день?", ru: "Какие маршруты популярны из Червонограда на 1 день?", en: "What day-trip routes are popular from Chervonohrad?", pl: "What day-trip routes are popular from Chervonohrad?", ro: "Ce rute de excursie de o zi sunt populare din Chervonohrad?" },
+          answer: { uk: "Популярні напрямки: Сокаль, Белз, Рава-Руська та Львів. Дороги переважно асфальтовані.", ru: "Популярные направления: Сокаль, Белз, Рава-Русская и Львов. Дороги преимущественно асфальтированы.", en: "Popular directions include Sokal, Belz, Rava-Ruska, and Lviv. Roads are mostly paved.", pl: "Popular directions include Sokal, Belz, Rava-Ruska, and Lviv. Roads are mostly paved.", ro: "Direcții populare includ Sokal, Belz, Rava-Ruska și Lviv. Drumurile sunt în mare parte asfaltate." },
         },
         {
-          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?", pl: "What is the fuel policy?" },
-          answer: { uk: "Зазвичай діє правило «повний‑повний». За потреби доступна передоплата.", ru: "Обычно действует правило «полный‑полный». При необходимости доступна предоплата.", en: "We typically use a full-to-full policy. A prepaid option is available if needed.", pl: "We typically use a full-to-full policy. A prepaid option is available if needed." },
+          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?", pl: "What is the fuel policy?", ro: "Care este politica de combustibil?" },
+          answer: { uk: "Зазвичай діє правило «повний‑повний». За потреби доступна передоплата.", ru: "Обычно действует правило «полный‑полный». При необходимости доступна предоплата.", en: "We typically use a full-to-full policy. A prepaid option is available if needed.", pl: "We typically use a full-to-full policy. A prepaid option is available if needed.", ro: "De obicei folosim politica plin-la-plin. O opțiune preplătită este disponibilă dacă este necesar." },
         },
       ],
     },
   ],
   boryslav: [
     {
-      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery" },
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery", ro: "Închiriere și livrare" },
       items: [
         {
-          question: { uk: "Чи є доставка до Трускавця?", ru: "Есть ли доставка в Трускавец?", en: "Do you deliver to Truskavets?", pl: "Do you deliver to Truskavets?" },
-          answer: { uk: "Так, доставка до Трускавця (5 км) безкоштовна. До Східниці (15 км) — 150 грн.", ru: "Да, доставка в Трускавец (5 км) бесплатная. В Сходницу (15 км) — 150 грн.", en: "Yes, delivery to Truskavets (5 km) is free. To Skhidnytsia (15 km) — 150 UAH.", pl: "Yes, delivery to Truskavets (5 km) is free. To Skhidnytsia (15 km) — 150 UAH." },
+          question: { uk: "Чи є доставка до Трускавця?", ru: "Есть ли доставка в Трускавец?", en: "Do you deliver to Truskavets?", pl: "Do you deliver to Truskavets?", ro: "Livrați la Truskavets?" },
+          answer: { uk: "Так, доставка до Трускавця (5 км) безкоштовна. До Східниці (15 км) — 150 грн.", ru: "Да, доставка в Трускавец (5 км) бесплатная. В Сходницу (15 км) — 150 грн.", en: "Yes, delivery to Truskavets (5 km) is free. To Skhidnytsia (15 km) — 150 UAH.", pl: "Yes, delivery to Truskavets (5 km) is free. To Skhidnytsia (15 km) — 150 UAH.", ro: "Da, livrarea la Truskavets (5 km) este gratuită. La Skhidnytsia (15 km) — 150 UAH." },
         },
         {
-          question: { uk: "Яке авто краще для гір?", ru: "Какое авто лучше для гор?", en: "Which car is better for mountains?", pl: "Which car is better for mountains?" },
-          answer: { uk: "Рекомендуємо кросовер або SUV для гірських доріг Прикарпаття. Для асфальтових трас підійде будь-яке авто.", ru: "Рекомендуем кроссовер или SUV для горных дорог Прикарпатья. Для асфальтовых трасс подойдёт любое авто.", en: "We recommend a crossover or SUV for Prykarpattia mountain roads. Any car works for paved roads.", pl: "We recommend a crossover or SUV for Prykarpattia mountain roads. Any car works for paved roads." },
+          question: { uk: "Яке авто краще для гір?", ru: "Какое авто лучше для гор?", en: "Which car is better for mountains?", pl: "Which car is better for mountains?", ro: "Care mașină este mai bună pentru munți?" },
+          answer: { uk: "Рекомендуємо кросовер або SUV для гірських доріг Прикарпаття. Для асфальтових трас підійде будь-яке авто.", ru: "Рекомендуем кроссовер или SUV для горных дорог Прикарпатья. Для асфальтовых трасс подойдёт любое авто.", en: "We recommend a crossover or SUV for Prykarpattia mountain roads. Any car works for paved roads.", pl: "We recommend a crossover or SUV for Prykarpattia mountain roads. Any car works for paved roads.", ro: "Recomandăm un crossover sau SUV pentru drumurile de munte din Prykarpattia. Orice mașină funcționează pentru drumuri asfaltate." },
         },
         {
-          question: { uk: "Чи можна отримати авто в Бориславі на вокзалі або в готелі?", ru: "Можно ли получить авто в Бориславе на вокзале или в отеле?", en: "Can I pick up the car in Boryslav at the station or a hotel?", pl: "Can I pick up the car in Boryslav at the station or a hotel?" },
-          answer: { uk: "Так, подача можлива на вокзал, до готелю або за адресою. Час узгоджується при бронюванні.", ru: "Да, подача возможна на вокзал, в отель или по адресу. Время согласовывается при бронировании.", en: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking.", pl: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking." },
+          question: { uk: "Чи можна отримати авто в Бориславі на вокзалі або в готелі?", ru: "Можно ли получить авто в Бориславе на вокзале или в отеле?", en: "Can I pick up the car in Boryslav at the station or a hotel?", pl: "Can I pick up the car in Boryslav at the station or a hotel?", ro: "Can I pick up the car in Boryslav at the station or a hotel?" },
+          answer: { uk: "Так, подача можлива на вокзал, до готелю або за адресою. Час узгоджується при бронюванні.", ru: "Да, подача возможна на вокзал, в отель или по адресу. Время согласовывается при бронировании.", en: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking.", pl: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking.", ro: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking." },
         },
         {
-          question: { uk: "Де припаркувати авто в центрі Борислава?", ru: "Где припарковать авто в центре Борислава?", en: "Where can I park in Boryslav city center?", pl: "Where can I park in Boryslav city center?" },
-          answer: { uk: "Є парковки біля центру та санаторних зон, також місця вздовж вулиць. У сезон краще приїхати раніше.", ru: "Есть парковки у центра и санаторных зон, также места вдоль улиц. В сезон лучше приехать раньше.", en: "There is parking near the center and resort areas, plus street parking. In high season, arrive earlier.", pl: "There is parking near the center and resort areas, plus street parking. In high season, arrive earlier." },
+          question: { uk: "Де припаркувати авто в центрі Борислава?", ru: "Где припарковать авто в центре Борислава?", en: "Where can I park in Boryslav city center?", pl: "Where can I park in Boryslav city center?", ro: "Unde pot parca în centrul orașului Boryslav?" },
+          answer: { uk: "Є парковки біля центру та санаторних зон, також місця вздовж вулиць. У сезон краще приїхати раніше.", ru: "Есть парковки у центра и санаторных зон, также места вдоль улиц. В сезон лучше приехать раньше.", en: "There is parking near the center and resort areas, plus street parking. In high season, arrive earlier.", pl: "There is parking near the center and resort areas, plus street parking. In high season, arrive earlier.", ro: "There is parking near the center and resort areas, plus street parking. In high season, arrive earlier." },
         },
         {
-          question: { uk: "Які маршрути популярні з Борислава?", ru: "Какие маршруты популярны из Борислава?", en: "What routes are popular from Boryslav?", pl: "What routes are popular from Boryslav?" },
-          answer: { uk: "Трускавець, Східниця, Дрогобич і Сколе — часті напрямки на день.", ru: "Трускавец, Сходница, Дрогобыч и Сколе — частые направления на день.", en: "Truskavets, Skhidnytsia, Drohobych, and Skole are popular day-trip directions.", pl: "Truskavets, Skhidnytsia, Drohobych, and Skole are popular day-trip directions." },
+          question: { uk: "Які маршрути популярні з Борислава?", ru: "Какие маршруты популярны из Борислава?", en: "What routes are popular from Boryslav?", pl: "What routes are popular from Boryslav?", ro: "What routes are popular from Boryslav?" },
+          answer: { uk: "Трускавець, Східниця, Дрогобич і Сколе — часті напрямки на день.", ru: "Трускавец, Сходница, Дрогобыч и Сколе — частые направления на день.", en: "Truskavets, Skhidnytsia, Drohobych, and Skole are popular day-trip directions.", pl: "Truskavets, Skhidnytsia, Drohobych, and Skole are popular day-trip directions.", ro: "Truskavets, Skhidnytsia, Drohobych, and Skole are popular day-trip directions." },
         },
         {
-          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?", pl: "What is the fuel policy?" },
-          answer: { uk: "Стандартно «повний‑повний». За потреби можна обрати передоплату.", ru: "Стандартно «полный‑полный». При необходимости можно выбрать предоплату.", en: "We use a full-to-full policy. A prepaid option is available if needed.", pl: "We use a full-to-full policy. A prepaid option is available if needed." },
+          question: { uk: "Яка паливна політика?", ru: "Какая топливная политика?", en: "What is the fuel policy?", pl: "What is the fuel policy?", ro: "Care este politica de combustibil?" },
+          answer: { uk: "Стандартно «повний‑повний». За потреби можна обрати передоплату.", ru: "Стандартно «полный‑полный». При необходимости можно выбрать предоплату.", en: "We use a full-to-full policy. A prepaid option is available if needed.", pl: "We use a full-to-full policy. A prepaid option is available if needed.", ro: "Folosim politica plin-la-plin. O opțiune preplătită este disponibilă dacă este necesar." },
         },
       ],
     },
   ],
   zhovkva: [
     {
-      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery" },
+      title: { uk: "Оренда та доставка", ru: "Аренда и доставка", en: "Rental and Delivery", pl: "Rental and Delivery", ro: "Închiriere și livrare" },
       items: [
         {
-          question: { uk: "Чи є доставка до Львова?", ru: "Есть ли доставка во Львов?", en: "Do you deliver to Lviv?", pl: "Do you deliver to Lviv?" },
-          answer: { uk: "Так, доставка до Львова (30 км) безкоштовна. До аеропорту LWO — теж безкоштовно.", ru: "Да, доставка во Львов (30 км) бесплатная. В аэропорт LWO — тоже бесплатно.", en: "Yes, delivery to Lviv (30 km) is free. To LWO airport — also free.", pl: "Yes, delivery to Lviv (30 km) is free. To LWO airport — also free." },
+          question: { uk: "Чи є доставка до Львова?", ru: "Есть ли доставка во Львов?", en: "Do you deliver to Lviv?", pl: "Do you deliver to Lviv?", ro: "Livrați la Lviv?" },
+          answer: { uk: "Так, доставка до Львова (30 км) безкоштовна. До аеропорту LWO — теж безкоштовно.", ru: "Да, доставка во Львов (30 км) бесплатная. В аэропорт LWO — тоже бесплатно.", en: "Yes, delivery to Lviv (30 km) is free. To LWO airport — also free.", pl: "Yes, delivery to Lviv (30 km) is free. To LWO airport — also free.", ro: "Yes, delivery to Lviv (30 km) is free. To LWO airport — also free." },
         },
         {
-          question: { uk: "Які замки можна відвідати?", ru: "Какие замки можно посетить?", en: "Which castles can I visit?", pl: "Which castles can I visit?" },
-          answer: { uk: "Жовківський замок, Креховський монастир (20 км), Олеський замок (50 км), Підгорецький замок (60 км). Всі дороги асфальтовані.", ru: "Жолковский замок, Креховский монастырь (20 км), Олесский замок (50 км), Подгорецкий замок (60 км). Все дороги асфальтированы.", en: "Zhovkva Castle, Krekhiv Monastery (20 km), Olesko Castle (50 km), Pidhirtsi Castle (60 km). All roads are paved.", pl: "Zhovkva Castle, Krekhiv Monastery (20 km), Olesko Castle (50 km), Pidhirtsi Castle (60 km). All roads are paved." },
+          question: { uk: "Які замки можна відвідати?", ru: "Какие замки можно посетить?", en: "Which castles can I visit?", pl: "Which castles can I visit?", ro: "Which castles can I visit?" },
+          answer: { uk: "Жовківський замок, Креховський монастир (20 км), Олеський замок (50 км), Підгорецький замок (60 км). Всі дороги асфальтовані.", ru: "Жолковский замок, Креховский монастырь (20 км), Олесский замок (50 км), Подгорецкий замок (60 км). Все дороги асфальтированы.", en: "Zhovkva Castle, Krekhiv Monastery (20 km), Olesko Castle (50 km), Pidhirtsi Castle (60 km). All roads are paved.", pl: "Zhovkva Castle, Krekhiv Monastery (20 km), Olesko Castle (50 km), Pidhirtsi Castle (60 km). All roads are paved.", ro: "Zhovkva Castle, Krekhiv Monastery (20 km), Olesko Castle (50 km), Pidhirtsi Castle (60 km). All roads are paved." },
         },
         {
-          question: { uk: "Де припаркувати авто в центрі Жовкви або біля замку?", ru: "Где припарковать авто в центре Жолквы или у замка?", en: "Where can I park in Zhovkva center or near the castle?", pl: "Where can I park in Zhovkva center or near the castle?" },
-          answer: { uk: "Є парковки біля замку та центральної площі, також місця вздовж вулиць. У сезон краще приїхати раніше.", ru: "Есть парковки у замка и центральной площади, также места вдоль улиц. В сезон лучше приехать раньше.", en: "There is parking near the castle and the main square, plus street parking. In high season, arrive earlier.", pl: "There is parking near the castle and the main square, plus street parking. In high season, arrive earlier." },
+          question: { uk: "Де припаркувати авто в центрі Жовкви або біля замку?", ru: "Где припарковать авто в центре Жолквы или у замка?", en: "Where can I park in Zhovkva center or near the castle?", pl: "Where can I park in Zhovkva center or near the castle?", ro: "Where can I park in Zhovkva center or near the castle?" },
+          answer: { uk: "Є парковки біля замку та центральної площі, також місця вздовж вулиць. У сезон краще приїхати раніше.", ru: "Есть парковки у замка и центральной площади, также места вдоль улиц. В сезон лучше приехать раньше.", en: "There is parking near the castle and the main square, plus street parking. In high season, arrive earlier.", pl: "There is parking near the castle and the main square, plus street parking. In high season, arrive earlier.", ro: "There is parking near the castle and the main square, plus street parking. In high season, arrive earlier." },
         },
         {
-          question: { uk: "Чи можна отримати авто в Жовкві на вокзалі або за адресою?", ru: "Можно ли получить авто в Жолкве на вокзале или по адресу?", en: "Can I pick up the car in Zhovkva at the station or at an address?", pl: "Can I pick up the car in Zhovkva at the station or at an address?" },
-          answer: { uk: "Так, подача можлива на вокзал, у готель або за адресою в місті. Час узгоджується при бронюванні.", ru: "Да, подача возможна на вокзал, в отель или по адресу в городе. Время согласовывается при бронировании.", en: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking.", pl: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking." },
+          question: { uk: "Чи можна отримати авто в Жовкві на вокзалі або за адресою?", ru: "Можно ли получить авто в Жолкве на вокзале или по адресу?", en: "Can I pick up the car in Zhovkva at the station or at an address?", pl: "Can I pick up the car in Zhovkva at the station or at an address?", ro: "Can I pick up the car in Zhovkva at the station or at an address?" },
+          answer: { uk: "Так, подача можлива на вокзал, у готель або за адресою в місті. Час узгоджується при бронюванні.", ru: "Да, подача возможна на вокзал, в отель или по адресу в городе. Время согласовывается при бронировании.", en: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking.", pl: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking.", ro: "Yes, delivery is available to the station, a hotel, or your address. Timing is arranged during booking." },
         },
         {
-          question: { uk: "Які маршрути популярні з Жовкви на 1 день?", ru: "Какие маршруты популярны из Жолквы на 1 день?", en: "What day-trip routes are popular from Zhovkva?", pl: "What day-trip routes are popular from Zhovkva?" },
-          answer: { uk: "Львів, Крехівський монастир, Рава-Руська та Белз — зручні напрямки на день.", ru: "Львов, Креховский монастырь, Рава-Русская и Белз — удобные направления на день.", en: "Lviv, Krekhiv Monastery, Rava-Ruska, and Belz are convenient day-trip routes.", pl: "Lviv, Krekhiv Monastery, Rava-Ruska, and Belz are convenient day-trip routes." },
+          question: { uk: "Які маршрути популярні з Жовкви на 1 день?", ru: "Какие маршруты популярны из Жолквы на 1 день?", en: "What day-trip routes are popular from Zhovkva?", pl: "What day-trip routes are popular from Zhovkva?", ro: "What day-trip routes are popular from Zhovkva?" },
+          answer: { uk: "Львів, Крехівський монастир, Рава-Руська та Белз — зручні напрямки на день.", ru: "Львов, Креховский монастырь, Рава-Русская и Белз — удобные направления на день.", en: "Lviv, Krekhiv Monastery, Rava-Ruska, and Belz are convenient day-trip routes.", pl: "Lviv, Krekhiv Monastery, Rava-Ruska, and Belz are convenient day-trip routes.", ro: "Lviv, Krekhiv Monastery, Rava-Ruska, and Belz are convenient day-trip routes." },
         },
         {
-          question: { uk: "Які документи потрібні та чи є депозит?", ru: "Какие документы нужны и есть ли депозит?", en: "What documents are required and is there a deposit?", pl: "What documents are required and is there a deposit?" },
-          answer: { uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.", ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.", en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.", pl: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available." },
+          question: { uk: "Які документи потрібні та чи є депозит?", ru: "Какие документы нужны и есть ли депозит?", en: "What documents are required and is there a deposit?", pl: "What documents are required and is there a deposit?", ro: "Ce documente sunt necesare și există garanție?" },
+          answer: { uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.", ru: "Нужны паспорт/ID и водительское удостоверение (стаж от 2 лет). Депозит зависит от класса авто; есть пакеты без залога.", en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.", pl: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.", ro: "Aveți nevoie de pașaport/carte de identitate și permis de conducere (2+ ani de experiență). Garanția depinde de clasa mașinii; sunt disponibile pachete fără garanție." },
         },
       ],
     },
   ],
   yaremche: [
     {
-      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information" },
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information", ro: "Practical Information" },
       items: [
         {
           question: {
@@ -6916,6 +7875,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Which car is better for Carpathian roads in Yaremche?",
             en: "Which car is better for Carpathian roads in Yaremche?",
+            ro: "Care mașină este mai bună pentru drumurile carpatine din Yaremche?",
           },
           answer: {
             uk: "Для серпантинів і підйомів рекомендуємо кросовер або авто з більшим кліренсом. Взимку — обов'язково зимові шини. Під ваш маршрут підберемо оптимальний клас.",
@@ -6923,6 +7883,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For serpentines and climbs, we recommend a crossover or a car with higher clearance. In winter, winter tires are required. We'll suggest the best class for your route.",
             en: "For serpentines and climbs, we recommend a crossover or a car with higher clearance. In winter, winter tires are required. We'll suggest the best class for your route.",
+            ro: "Pentru serpentine și urcări, recomandăm un crossover sau o mașină cu gardă la sol mai mare. Iarna, anvelopele de iarnă sunt obligatorii. Vă vom sugera o mașină potrivită în timpul rezervării.",
           },
         },
         {
@@ -6932,6 +7893,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver cars to Bukovel or Vorokhta?",
             en: "Do you deliver cars to Bukovel or Vorokhta?",
+            ro: "Do you deliver cars to Bukovel or Vorokhta?",
           },
           answer: {
             uk: "Так, доставка по регіону можлива за попереднім узгодженням. Вартість залежить від відстані, для оренди на кілька днів діють знижки.",
@@ -6939,6 +7901,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, regional delivery is possible with prior arrangement. Cost depends on distance, and discounts apply for multi-day rentals.",
             en: "Yes, regional delivery is possible with prior arrangement. Cost depends on distance, and discounts apply for multi-day rentals.",
+            ro: "Da, livrarea regională este posibilă cu aranjament prealabil. Costul depinde de distanță, iar reducerile se aplică pentru închirierile de mai multe zile.",
           },
         },
         {
@@ -6948,6 +7911,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I park in Yaremche and near Probiy Waterfall?",
             en: "Where can I park in Yaremche and near Probiy Waterfall?",
+            ro: "Unde pot parca în Yaremche și lângă Cascada Probiy?",
           },
           answer: {
             uk: "Біля водоспаду та сувенірного ринку є паркувальні майданчики, у центрі — місця вздовж вулиць. У сезон приїжджайте раніше та орієнтуйтеся на знаки.",
@@ -6955,6 +7919,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "There are parking areas near the waterfall and the souvenir market, and street parking in the center. In high season, arrive early and follow signage.",
             en: "There are parking areas near the waterfall and the souvenir market, and street parking in the center. In high season, arrive early and follow signage.",
+            ro: "There are parking areas near the waterfall and the souvenir market, and street parking in the center. In high season, arrive early and follow signage.",
           },
         },
         {
@@ -6964,6 +7929,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I pick up and return the car at a hotel or Yaremche station?",
             en: "Can I pick up and return the car at a hotel or Yaremche station?",
+            ro: "Pot ridica și returna mașina la un hotel sau la gara din Yaremche?",
           },
           answer: {
             uk: "Так, подача і повернення можливі за адресою, у готелі чи на вокзалі. Час і місце узгоджуються під час бронювання.",
@@ -6971,6 +7937,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, delivery and return are available to your address, hotel, or the station. Time and place are arranged during booking.",
             en: "Yes, delivery and return are available to your address, hotel, or the station. Time and place are arranged during booking.",
+            ro: "Da, livrarea și returnarea sunt disponibile la adresa dvs., hotel sau gară. Ora și locul sunt stabilite în timpul rezervării.",
           },
         },
         {
@@ -6980,6 +7947,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is there a mileage limit for Carpathian trips?",
             en: "Is there a mileage limit for Carpathian trips?",
+            ro: "Is there a mileage limit for Carpathian trips?",
           },
           answer: {
             uk: "Ліміт залежить від обраного тарифу. Для далеких маршрутів можна обрати опцію Unlimited — підкажемо при бронюванні.",
@@ -6987,6 +7955,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "The limit depends on the selected rate. For longer routes you can choose Unlimited — we'll advise during booking.",
             en: "The limit depends on the selected rate. For longer routes you can choose Unlimited — we'll advise during booking.",
+            ro: "Limita depinde de tariful selectat. Pentru rute mai lungi puteți alege Unlimited — vă vom sfătui în timpul rezervării.",
           },
         },
         {
@@ -6996,6 +7965,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required and is there a deposit?",
             en: "What documents are required and is there a deposit?",
+            ro: "Ce documente sunt necesare și există garanție?",
           },
           answer: {
             uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.",
@@ -7003,6 +7973,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
             en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
+            ro: "Aveți nevoie de pașaport/carte de identitate și permis de conducere (2+ ani de experiență). Garanția depinde de clasa mașinii; opțiuni fără garanție sunt disponibile pentru anumite modele.",
           },
         },
       ],
@@ -7010,7 +7981,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
   ],
   kolomyia: [
     {
-      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information" },
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information", ro: "Practical Information" },
       items: [
         {
           question: {
@@ -7019,6 +7990,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to get to Kosiv or Sheshory by rental car?",
             en: "How to get to Kosiv or Sheshory by rental car?",
+            ro: "Cum să ajungeți la Kosiv sau Sheshory cu o mașină închiriată?",
           },
           answer: {
             uk: "Від Коломиї до Косова близько 40 км, до Шешор — близько 55 км. Дороги переважно асфальтовані, місцями звивисті. Рекомендуємо виїжджати вдень.",
@@ -7026,6 +7998,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "From Kolomyia to Kosiv is about 40 km, to Sheshory about 55 km. Roads are mostly paved, with winding sections. We recommend traveling in daylight.",
             en: "From Kolomyia to Kosiv is about 40 km, to Sheshory about 55 km. Roads are mostly paved, with winding sections. We recommend traveling in daylight.",
+            ro: "From Kolomyia to Kosiv is about 40 km, to Sheshory about 55 km. Roads are mostly paved, with winding sections. We recommend traveling in daylight.",
           },
         },
         {
@@ -7035,6 +8008,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I pick up the car at Kolomyia station?",
             en: "Can I pick up the car at Kolomyia station?",
+            ro: "Pot ridica mașina la gara din Kolomyia?",
           },
           answer: {
             uk: "Так, подаємо авто на вокзал або автостанцію, також за адресою в місті. Час подачі узгоджується при бронюванні.",
@@ -7042,6 +8016,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we can deliver to the railway or bus station, or to your address in the city. Delivery time is arranged during booking.",
             en: "Yes, we can deliver to the railway or bus station, or to your address in the city. Delivery time is arranged during booking.",
+            ro: "Da, putem livra la gara feroviară sau de autobuz, sau la adresa dvs. din oraș. Timpul de livrare este stabilit în timpul rezervării.",
           },
         },
         {
@@ -7051,6 +8026,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I park in Kolomyia city center?",
             en: "Where can I park in Kolomyia city center?",
+            ro: "Unde pot parca în centrul orașului Kolomyia?",
           },
           answer: {
             uk: "Є паркування біля центральних вулиць, ратуші та музеїв. У години пік місць менше — краще приїхати раніше.",
@@ -7058,6 +8034,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "There is parking near central streets, the town hall, and museums. At peak times there are fewer spots, so arrive earlier.",
             en: "There is parking near central streets, the town hall, and museums. At peak times there are fewer spots, so arrive earlier.",
+            ro: "There is parking near central streets, the town hall, and museums. At peak times there are fewer spots, so arrive earlier.",
           },
         },
         {
@@ -7067,6 +8044,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What day-trip routes are popular from Kolomyia?",
             en: "What day-trip routes are popular from Kolomyia?",
+            ro: "Ce rute de excursie de o zi sunt populare din Kolomyia?",
           },
           answer: {
             uk: "Популярні напрямки: Косів, Яремче, Верховина, Чернівці. Для гірських маршрутів радимо кросовер.",
@@ -7074,6 +8052,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Popular directions include Kosiv, Yaremche, Verkhovyna, and Chernivtsi. For mountain routes we recommend a crossover.",
             en: "Popular directions include Kosiv, Yaremche, Verkhovyna, and Chernivtsi. For mountain routes we recommend a crossover.",
+            ro: "Popular directions include Kosiv, Yaremche, Verkhovyna, and Chernivtsi. For mountain routes we recommend a crossover.",
           },
         },
         {
@@ -7083,6 +8062,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I return the car in another city (Ivano-Frankivsk or Chernivtsi)?",
             en: "Can I return the car in another city (Ivano-Frankivsk or Chernivtsi)?",
+            ro: "Pot returna mașina în alt oraș (Ivano-Frankivsk sau Chernivtsi)?",
           },
           answer: {
             uk: "Так, повернення в іншому місті можливе за попереднім узгодженням. Умови та вартість підтвердить менеджер.",
@@ -7090,6 +8070,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, one-way return is possible with prior arrangement. Terms and cost are confirmed by our manager.",
             en: "Yes, one-way return is possible with prior arrangement. Terms and cost are confirmed by our manager.",
+            ro: "Da, returnarea într-o singură direcție este posibilă cu aranjament prealabil. Termenii și costul sunt confirmate de managerul nostru.",
           },
         },
         {
@@ -7099,6 +8080,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the fuel policy?",
             en: "What is the fuel policy?",
+            ro: "Care este politica de combustibil?",
           },
           answer: {
             uk: "Зазвичай діє правило «повний‑повний»: повертаєте авто з таким самим рівнем пального. За потреби доступна опція передоплати.",
@@ -7106,6 +8088,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We typically use a full-to-full policy: return the car with the same fuel level. A prepaid option is available if needed.",
             en: "We typically use a full-to-full policy: return the car with the same fuel level. A prepaid option is available if needed.",
+            ro: "De obicei folosim politica plin-la-plin: returnați mașina cu același nivel de combustibil. O opțiune preplătită este disponibilă dacă este necesar.",
           },
         },
       ],
@@ -7113,7 +8096,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
   ],
   kalush: [
     {
-      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information" },
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information", ro: "Practical Information" },
       items: [
         {
           question: {
@@ -7122,6 +8105,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver cars to Ivano-Frankivsk or Dolyna?",
             en: "Do you deliver cars to Ivano-Frankivsk or Dolyna?",
+            ro: "Do you deliver cars to Ivano-Frankivsk or Dolyna?",
           },
           answer: {
             uk: "Так, доставляємо по області за попереднім узгодженням. Вартість залежить від відстані, для оренди від 3 днів можливі знижки.",
@@ -7129,6 +8113,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we deliver within the region with prior arrangement. The cost depends on distance; discounts are available for 3+ day rentals.",
             en: "Yes, we deliver within the region with prior arrangement. The cost depends on distance; discounts are available for 3+ day rentals.",
+            ro: "Da, livrăm în regiune cu aranjament prealabil. Costul depinde de distanță; reducerile sunt disponibile pentru închirieri de 3+ zile.",
           },
         },
         {
@@ -7138,6 +8123,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are needed to rent in Kalush?",
             en: "What documents are needed to rent in Kalush?",
+            ro: "Ce documente sunt necesare pentru a închiria în Kalush?",
           },
           answer: {
             uk: "Паспорт або ID-картка та водійське посвідчення (стаж від 2 років). Для іноземців — закордонний паспорт і посвідчення.",
@@ -7145,6 +8131,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Passport or ID card and a driver's license (2+ years experience). For foreigners — international passport and license.",
             en: "Passport or ID card and a driver's license (2+ years experience). For foreigners — international passport and license.",
+            ro: "Passport or ID card and a driver's license (2+ years experience). For foreigners — international passport and license.",
           },
         },
         {
@@ -7154,6 +8141,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I park in Kalush city center?",
             en: "Where can I park in Kalush city center?",
+            ro: "Unde pot parca în centrul orașului Kalush?",
           },
           answer: {
             uk: "Є міські парковки біля центру та торгових зон, також місця вздовж вулиць. Дотримуйтесь знаків і розмітки.",
@@ -7161,6 +8149,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "There are city parking areas near the center and shopping zones, plus street parking. Follow signage and markings.",
             en: "There are city parking areas near the center and shopping zones, plus street parking. Follow signage and markings.",
+            ro: "There are city parking areas near the center and shopping zones, plus street parking. Follow signage and markings.",
           },
         },
         {
@@ -7170,6 +8159,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What routes are popular from Kalush?",
             en: "What routes are popular from Kalush?",
+            ro: "Ce rute sunt populare din Kalush?",
           },
           answer: {
             uk: "Івано-Франківськ, Долина, Галич і Яремче — часті напрямки на день. Для Карпат краще авто з більшим кліренсом.",
@@ -7177,6 +8167,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Ivano-Frankivsk, Dolyna, Halych, and Yaremche are popular day-trip directions. For the Carpathians, a higher-clearance car is better.",
             en: "Ivano-Frankivsk, Dolyna, Halych, and Yaremche are popular day-trip directions. For the Carpathians, a higher-clearance car is better.",
+            ro: "Ivano-Frankivsk, Dolyna, Halych, and Yaremche are popular day-trip directions. For the Carpathians, a higher-clearance car is better.",
           },
         },
         {
@@ -7186,6 +8177,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I return the car in another city?",
             en: "Can I return the car in another city?",
+            ro: "Pot returna mașina în alt oraș?",
           },
           answer: {
             uk: "Так, повернення в іншому місті можливе за попереднім узгодженням. Умови залежать від маршруту.",
@@ -7193,6 +8185,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, one-way return is available with prior arrangement. Terms depend on the route.",
             en: "Yes, one-way return is available with prior arrangement. Terms depend on the route.",
+            ro: "Da, returnarea într-o singură direcție este disponibilă cu aranjament prealabil. Termenii depind de rută.",
           },
         },
         {
@@ -7202,6 +8195,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How does the fuel policy work?",
             en: "How does the fuel policy work?",
+            ro: "Cum funcționează politica de combustibil?",
           },
           answer: {
             uk: "Зазвичай діє правило «повний‑повний». Якщо потрібно — можна обрати опцію передоплати пального.",
@@ -7209,6 +8203,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We typically use a full-to-full policy. If needed, you can choose a prepaid fuel option.",
             en: "We typically use a full-to-full policy. If needed, you can choose a prepaid fuel option.",
+            ro: "De obicei folosim politica plin-la-plin. Dacă este necesar, puteți alege opțiunea de combustibil preplătit.",
           },
         },
       ],
@@ -7216,7 +8211,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
   ],
   nadvirna: [
     {
-      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information" },
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information", ro: "Practical Information" },
       items: [
         {
           question: {
@@ -7225,6 +8220,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How convenient is the drive to Bukovel from Nadvirna?",
             en: "How convenient is the drive to Bukovel from Nadvirna?",
+            ro: "Cât de convenabil este drumul spre Bukovel din Nadvirna?",
           },
           answer: {
             uk: "Маршрут проходить через Яремче та Ворохту, приблизно 60-70 км. Дорога асфальтована, взимку можливі снігові ділянки.",
@@ -7232,6 +8228,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "The route goes via Yaremche and Vorokhta, about 60-70 km. The road is paved, with possible snowy sections in winter.",
             en: "The route goes via Yaremche and Vorokhta, about 60-70 km. The road is paved, with possible snowy sections in winter.",
+            ro: "Ruta trece prin Yaremche și Vorokhta, aproximativ 60-70 km. Drumul este asfaltat, cu posibile secțiuni înzăpezite iarna.",
           },
         },
         {
@@ -7241,6 +8238,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Which car do you recommend for mountain routes?",
             en: "Which car do you recommend for mountain routes?",
+            ro: "Ce mașină recomandați pentru rutele de munte?",
           },
           answer: {
             uk: "Для Карпат рекомендуємо кросовер або AWD. Улітку підійде й компакт, але з повним багажником краще авто з більшим кліренсом.",
@@ -7248,6 +8246,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "For the Carpathians, we recommend a crossover or AWD. In summer a compact car works too, but with a full trunk it's better to choose higher clearance.",
             en: "For the Carpathians, we recommend a crossover or AWD. In summer a compact car works too, but with a full trunk it's better to choose higher clearance.",
+            ro: "Pentru Carpați, recomandăm un crossover sau tracțiune integrală. Vara, o mașină compactă funcționează și ea, dar cu portbagajul plin este mai bine să alegeți un model mai mare.",
           },
         },
         {
@@ -7257,6 +8256,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I pick up the car at Nadvirna railway or bus station?",
             en: "Can I pick up the car at Nadvirna railway or bus station?",
+            ro: "Pot ridica mașina la gara feroviară sau de autobuz din Nadvirna?",
           },
           answer: {
             uk: "Так, подаємо на вокзал, автостанцію чи за адресою в місті. Час подачі узгоджується при бронюванні.",
@@ -7264,6 +8264,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we can deliver to the railway station, bus station, or your address. Delivery time is arranged during booking.",
             en: "Yes, we can deliver to the railway station, bus station, or your address. Delivery time is arranged during booking.",
+            ro: "Da, putem livra la gara feroviară, autogara sau la adresa dvs. Timpul de livrare este stabilit în timpul rezervării.",
           },
         },
         {
@@ -7273,6 +8274,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I park in Nadvirna city center?",
             en: "Where can I park in Nadvirna city center?",
+            ro: "Unde pot parca în centrul orașului Nadvirna?",
           },
           answer: {
             uk: "Є парковки біля центру та місця вздовж основних вулиць. У сезон краще приїхати раніше.",
@@ -7280,6 +8282,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "There is parking near the center and along main streets. In high season, arrive earlier.",
             en: "There is parking near the center and along main streets. In high season, arrive earlier.",
+            ro: "There is parking near the center and along main streets. In high season, arrive earlier.",
           },
         },
         {
@@ -7289,6 +8292,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver cars to Yaremche or Vorokhta?",
             en: "Do you deliver cars to Yaremche or Vorokhta?",
+            ro: "Do you deliver cars to Yaremche or Vorokhta?",
           },
           answer: {
             uk: "Так, доставка по регіону можлива за попереднім узгодженням. Вартість залежить від відстані.",
@@ -7296,6 +8300,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, regional delivery is possible with prior arrangement. The cost depends on distance.",
             en: "Yes, regional delivery is possible with prior arrangement. The cost depends on distance.",
+            ro: "Da, livrarea regională este posibilă cu aranjament prealabil. Costul depinde de distanță.",
           },
         },
         {
@@ -7305,6 +8310,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What are the deposit and document requirements?",
             en: "What are the deposit and document requirements?",
+            ro: "Care sunt cerințele privind garanția și documentele?",
           },
           answer: {
             uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.",
@@ -7312,6 +8318,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
             en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
+            ro: "Aveți nevoie de pașaport/carte de identitate și permis de conducere (2+ ani de experiență). Garanția depinde de clasa mașinii; opțiuni fără garanție sunt disponibile pentru anumite modele.",
           },
         },
       ],
@@ -7319,7 +8326,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
   ],
   kosiv: [
     {
-      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information" },
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information", ro: "Practical Information" },
       items: [
         {
           question: {
@@ -7328,6 +8335,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I drive to Sheshory or Verkhovyna with a rental car?",
             en: "Can I drive to Sheshory or Verkhovyna with a rental car?",
+            ro: "Pot merge la Sheshory sau Verkhovyna cu o mașină închiriată?",
           },
           answer: {
             uk: "Так, це популярні маршрути: Косів—Шешори (15-20 км), Косів—Верховина (~60 км). Частина доріг звивиста, тож рекомендуємо кросовер.",
@@ -7335,6 +8343,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, these are popular routes: Kosiv–Sheshory (15-20 km), Kosiv–Verkhovyna (~60 km). Some roads are winding, so a crossover is recommended.",
             en: "Yes, these are popular routes: Kosiv–Sheshory (15-20 km), Kosiv–Verkhovyna (~60 km). Some roads are winding, so a crossover is recommended.",
+            ro: "Da, acestea sunt rute populare: Kosiv–Sheshory (15-20 km), Kosiv–Verkhovyna (~60 km). Unele drumuri sunt sinuoase, așa că se recomandă un crossover.",
           },
         },
         {
@@ -7344,6 +8353,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver cars to Kosmach or Yavoriv?",
             en: "Do you deliver cars to Kosmach or Yavoriv?",
+            ro: "Do you deliver cars to Kosmach or Yavoriv?",
           },
           answer: {
             uk: "Так, можливе подання за попереднім узгодженням. Вартість залежить від відстані, деталі підтвердить менеджер.",
@@ -7351,6 +8361,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, delivery is possible with prior arrangement. Cost depends on distance; details are confirmed by the manager.",
             en: "Yes, delivery is possible with prior arrangement. Cost depends on distance; details are confirmed by the manager.",
+            ro: "Da, livrarea este posibilă cu aranjament prealabil. Costul depinde de distanță; detaliile sunt confirmate de manager.",
           },
         },
         {
@@ -7360,6 +8371,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where is it convenient to park in Kosiv (center, market)?",
             en: "Where is it convenient to park in Kosiv (center, market)?",
+            ro: "Unde este convenabil să parcați în Kosiv (centru, piață)?",
           },
           answer: {
             uk: "Є парковки біля базару та в центрі. У ярмаркові дні краще приїхати раніше.",
@@ -7367,6 +8379,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "There is parking near the market and in the center. On fair days, it's better to arrive earlier.",
             en: "There is parking near the market and in the center. On fair days, it's better to arrive earlier.",
+            ro: "There is parking near the market and in the center. On fair days, it's better to arrive earlier.",
           },
         },
         {
@@ -7376,6 +8389,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Which car is better for local mountain roads?",
             en: "Which car is better for local mountain roads?",
+            ro: "Care mașină este mai bună pentru drumurile locale de munte?",
           },
           answer: {
             uk: "Рекомендуємо кросовер або авто з більшим кліренсом; взимку — обов'язково зимові шини.",
@@ -7383,6 +8397,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We recommend a crossover or a car with higher clearance; in winter, winter tires are required.",
             en: "We recommend a crossover or a car with higher clearance; in winter, winter tires are required.",
+            ro: "Recomandăm un crossover sau o mașină cu gardă la sol mai mare; iarna, anvelopele de iarnă sunt obligatorii.",
           },
         },
         {
@@ -7392,6 +8407,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I return the car in Kolomyia or Ivano-Frankivsk?",
             en: "Can I return the car in Kolomyia or Ivano-Frankivsk?",
+            ro: "Pot returna mașina în Kolomyia sau Ivano-Frankivsk?",
           },
           answer: {
             uk: "Так, за попереднім узгодженням. Умови та вартість підтвердить менеджер.",
@@ -7399,6 +8415,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, with prior arrangement. Terms and cost are confirmed by our manager.",
             en: "Yes, with prior arrangement. Terms and cost are confirmed by our manager.",
+            ro: "Da, cu aranjament prealabil. Termenii și costul sunt confirmate de managerul nostru.",
           },
         },
         {
@@ -7408,6 +8425,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the fuel policy?",
             en: "What is the fuel policy?",
+            ro: "Care este politica de combustibil?",
           },
           answer: {
             uk: "Стандартно «повний‑повний». За потреби доступна опція передоплати.",
@@ -7415,6 +8433,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We use a full-to-full policy. A prepaid option is available if needed.",
             en: "We use a full-to-full policy. A prepaid option is available if needed.",
+            ro: "Folosim politica plin-la-plin. O opțiune preplătită este disponibilă dacă este necesar.",
           },
         },
       ],
@@ -7422,7 +8441,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
   ],
   chortkiv: [
     {
-      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information" },
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information", ro: "Practical Information" },
       items: [
         {
           question: {
@@ -7431,6 +8450,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to get to the Dniester Canyon from Chortkiv?",
             en: "How to get to the Dniester Canyon from Chortkiv?",
+            ro: "Cum să ajungeți la Canionul Nistrului din Chortkiv?",
           },
           answer: {
             uk: "Найпопулярніші напрямки — Заліщики та Устечко (40-60 км). Дороги асфальтовані, місцями серпантини та спуски.",
@@ -7438,6 +8458,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "The most popular directions are Zalishchyky and Ustechko (40-60 km). Roads are paved, with some serpentines and descents.",
             en: "The most popular directions are Zalishchyky and Ustechko (40-60 km). Roads are paved, with some serpentines and descents.",
+            ro: "Cele mai populare direcții sunt Zalishchyky și Ustechko (40-60 km). Drumurile sunt asfaltate, cu unele serpentine și coborâșuri.",
           },
         },
         {
@@ -7447,6 +8468,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver cars across Ternopil region?",
             en: "Do you deliver cars across Ternopil region?",
+            ro: "Do you deliver cars across Ternopil region?",
           },
           answer: {
             uk: "Так, доставляємо до Бучача, Тернополя, Заліщиків та інших міст. Умови й час узгоджуються під час бронювання.",
@@ -7454,6 +8476,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we deliver to Buchach, Ternopil, Zalishchyky and other towns. Terms and timing are arranged during booking.",
             en: "Yes, we deliver to Buchach, Ternopil, Zalishchyky and other towns. Terms and timing are arranged during booking.",
+            ro: "Da, livrăm la Buchach, Ternopil, Zalishchyky și alte orașe. Termenii și programarea sunt stabilite în timpul rezervării.",
           },
         },
         {
@@ -7463,6 +8486,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I park in Chortkiv center or near the castle?",
             en: "Where can I park in Chortkiv center or near the castle?",
+            ro: "Unde pot parca în centrul Chortkiv sau lângă castel?",
           },
           answer: {
             uk: "Є парковки біля центру та туристичних локацій. У вихідні краще приїхати раніше.",
@@ -7470,6 +8494,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "There is parking near the center and tourist spots. On weekends, arrive earlier.",
             en: "There is parking near the center and tourist spots. On weekends, arrive earlier.",
+            ro: "There is parking near the center and tourist spots. On weekends, arrive earlier.",
           },
         },
         {
@@ -7479,6 +8504,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What day-trip routes are popular from Chortkiv?",
             en: "What day-trip routes are popular from Chortkiv?",
+            ro: "Ce rute de excursie de o zi sunt populare din Chortkiv?",
           },
           answer: {
             uk: "Бучач, Заліщики, Устечко та Дністровський каньйон — найпопулярніші напрямки.",
@@ -7486,6 +8512,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Buchach, Zalishchyky, Ustechko, and the Dniester Canyon are the most popular directions.",
             en: "Buchach, Zalishchyky, Ustechko, and the Dniester Canyon are the most popular directions.",
+            ro: "Buchach, Zalishchyky, Ustechko, and the Dniester Canyon are the most popular directions.",
           },
         },
         {
@@ -7495,6 +8522,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the fuel policy?",
             en: "What is the fuel policy?",
+            ro: "Care este politica de combustibil?",
           },
           answer: {
             uk: "Зазвичай діє правило «повний‑повний». Якщо потрібно — можна обрати передоплату.",
@@ -7502,6 +8530,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We typically use a full-to-full policy. A prepaid option is available if needed.",
             en: "We typically use a full-to-full policy. A prepaid option is available if needed.",
+            ro: "De obicei folosim politica plin-la-plin. O opțiune preplătită este disponibilă dacă este necesar.",
           },
         },
         {
@@ -7511,6 +8540,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I return the car in another city?",
             en: "Can I return the car in another city?",
+            ro: "Pot returna mașina în alt oraș?",
           },
           answer: {
             uk: "Так, повернення в Тернополі чи інших містах можливе за попереднім узгодженням.",
@@ -7518,6 +8548,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, one-way return in Ternopil or other cities is possible with prior arrangement.",
             en: "Yes, one-way return in Ternopil or other cities is possible with prior arrangement.",
+            ro: "Da, returnarea într-o singură direcție în Ternopil sau alte orașe este posibilă cu aranjament prealabil.",
           },
         },
       ],
@@ -7525,7 +8556,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
   ],
   kremenets: [
     {
-      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information" },
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information", ro: "Practical Information" },
       items: [
         {
           question: {
@@ -7534,6 +8565,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How fast can I get to Pochaiv from Kremenets?",
             en: "How fast can I get to Pochaiv from Kremenets?",
+            ro: "Cât de repede pot ajunge la Pochaiv din Kremenets?",
           },
           answer: {
             uk: "До Почаєва близько 20 км, дорога асфальтована. У святкові дні можливий трафік біля лаври.",
@@ -7541,6 +8573,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Pochaiv is about 20 km away, and the road is paved. On holidays, traffic near the Lavra is possible.",
             en: "Pochaiv is about 20 km away, and the road is paved. On holidays, traffic near the Lavra is possible.",
+            ro: "Pochaiv is about 20 km away, and the road is paved. On holidays, traffic near the Lavra is possible.",
           },
         },
         {
@@ -7550,6 +8583,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where is it convenient to park in Kremenets center?",
             en: "Where is it convenient to park in Kremenets center?",
+            ro: "Unde este convenabil să parcați în centrul Kremenets?",
           },
           answer: {
             uk: "Паркування є біля Замкової гори, колегіуму та центральної площі. У туристичний сезон краще приїжджати раніше.",
@@ -7557,6 +8591,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Parking is available near Castle Hill, the collegium, and the central square. In tourist season, it's better to arrive early.",
             en: "Parking is available near Castle Hill, the collegium, and the central square. In tourist season, it's better to arrive early.",
+            ro: "Parking is available near Castle Hill, the collegium, and the central square. In tourist season, it's better to arrive early.",
           },
         },
         {
@@ -7566,6 +8601,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I pick up the car at the bus station or a hotel in Kremenets?",
             en: "Can I pick up the car at the bus station or a hotel in Kremenets?",
+            ro: "Pot ridica mașina la autogara sau la un hotel din Kremenets?",
           },
           answer: {
             uk: "Так, подаємо на автостанцію, за адресою або до готелю. Час узгоджується при бронюванні.",
@@ -7573,6 +8609,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we can deliver to the bus station, your address, or a hotel. Timing is arranged during booking.",
             en: "Yes, we can deliver to the bus station, your address, or a hotel. Timing is arranged during booking.",
+            ro: "Da, putem livra la autogară, la adresa dvs. sau la un hotel. Programarea este stabilită în timpul rezervării.",
           },
         },
         {
@@ -7582,6 +8619,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What routes are popular from Kremenets?",
             en: "What routes are popular from Kremenets?",
+            ro: "Ce rute sunt populare din Kremenets?",
           },
           answer: {
             uk: "Почаїв, Дубно та Тернопіль — зручні маршрути на день.",
@@ -7589,6 +8627,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Pochaiv, Dubno, and Ternopil are convenient day-trip routes.",
             en: "Pochaiv, Dubno, and Ternopil are convenient day-trip routes.",
+            ro: "Pochaiv, Dubno, and Ternopil are convenient day-trip routes.",
           },
         },
         {
@@ -7598,6 +8637,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the fuel policy?",
             en: "What is the fuel policy?",
+            ro: "Care este politica de combustibil?",
           },
           answer: {
             uk: "Зазвичай діє правило «повний‑повний». За потреби доступна передоплата.",
@@ -7605,6 +8645,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We typically use a full-to-full policy. A prepaid option is available if needed.",
             en: "We typically use a full-to-full policy. A prepaid option is available if needed.",
+            ro: "De obicei folosim politica plin-la-plin. O opțiune preplătită este disponibilă dacă este necesar.",
           },
         },
         {
@@ -7614,6 +8655,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are required and is there a deposit?",
             en: "What documents are required and is there a deposit?",
+            ro: "Ce documente sunt necesare și există garanție?",
           },
           answer: {
             uk: "Потрібні паспорт/ID і водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.",
@@ -7621,6 +8663,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
             en: "You need a passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
+            ro: "Aveți nevoie de pașaport/carte de identitate și permis de conducere (2+ ani de experiență). Garanția depinde de clasa mașinii; opțiuni fără garanție sunt disponibile pentru anumite modele.",
           },
         },
       ],
@@ -7628,7 +8671,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
   ],
   berehove: [
     {
-      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information" },
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information", ro: "Practical Information" },
       items: [
         {
           question: {
@@ -7637,6 +8680,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I drive to Hungary with a rental car?",
             en: "Can I drive to Hungary with a rental car?",
+            ro: "Pot merge în Ungaria cu o mașină închiriată?",
           },
           answer: {
             uk: "Так, виїзд можливий за попереднім узгодженням. Потрібна зелена карта; оформимо за запитом. Може діяти додаткова плата.",
@@ -7644,6 +8688,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, cross-border travel is possible with prior approval. A green card is required; we can arrange it on request. Additional fees may apply.",
             en: "Yes, cross-border travel is possible with prior approval. A green card is required; we can arrange it on request. Additional fees may apply.",
+            ro: "Da, călătoria transfrontalieră este posibilă cu aprobare prealabilă. Este necesară cartea verde; o putem aranja la cerere. Se pot aplica taxe suplimentare.",
           },
         },
         {
@@ -7653,6 +8698,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver to thermal pools in Berehove?",
             en: "Do you deliver to thermal pools in Berehove?",
+            ro: "Do you deliver to thermal pools in Berehove?",
           },
           answer: {
             uk: "Так, подаємо авто до термальних комплексів та готелів Берегового. Час і місце узгоджуються при бронюванні.",
@@ -7660,6 +8706,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we deliver to thermal complexes and hotels in Berehove. Time and place are arranged during booking.",
             en: "Yes, we deliver to thermal complexes and hotels in Berehove. Time and place are arranged during booking.",
+            ro: "Da, livrăm la complexele termale și hotelurile din Berehove. Ora și locul sunt stabilite în timpul rezervării.",
           },
         },
         {
@@ -7669,6 +8716,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I park near the thermal pools or in Berehove center?",
             en: "Where can I park near the thermal pools or in Berehove center?",
+            ro: "Unde pot parca lângă piscinele termale sau în centrul Berehove?",
           },
           answer: {
             uk: "Є парковки біля термальних комплексів і в центрі. У сезон місць менше — краще приїхати раніше.",
@@ -7676,6 +8724,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "There is parking near the thermal complexes and in the center. In high season, arrive earlier.",
             en: "There is parking near the thermal complexes and in the center. In high season, arrive earlier.",
+            ro: "There is parking near the thermal complexes and in the center. In high season, arrive earlier.",
           },
         },
         {
@@ -7685,6 +8734,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What routes are popular from Berehove?",
             en: "What routes are popular from Berehove?",
+            ro: "Ce rute sunt populare din Berehove?",
           },
           answer: {
             uk: "Мукачево, Ужгород і винні маршрути Закарпаття — найпопулярніші напрямки.",
@@ -7692,6 +8742,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Mukachevo, Uzhhorod, and Zakarpattia wine routes are the most popular directions.",
             en: "Mukachevo, Uzhhorod, and Zakarpattia wine routes are the most popular directions.",
+            ro: "Mukachevo, Uzhhorod, and Zakarpattia wine routes are the most popular directions.",
           },
         },
         {
@@ -7701,6 +8752,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I return the car in Mukachevo or Uzhhorod?",
             en: "Can I return the car in Mukachevo or Uzhhorod?",
+            ro: "Pot returna mașina în Mukachevo sau Uzhhorod?",
           },
           answer: {
             uk: "Так, повернення в іншому місті можливе за попереднім узгодженням. Вартість залежить від маршруту.",
@@ -7708,6 +8760,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, one-way return is possible with prior arrangement. Cost depends on the route.",
             en: "Yes, one-way return is possible with prior arrangement. Cost depends on the route.",
+            ro: "Da, returnarea într-o singură direcție este posibilă cu aranjament prealabil. Costul depinde de rută.",
           },
         },
         {
@@ -7717,6 +8770,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What documents are needed to rent in Berehove?",
             en: "What documents are needed to rent in Berehove?",
+            ro: "Ce documente sunt necesare pentru a închiria în Berehove?",
           },
           answer: {
             uk: "Паспорт/ID та водійське посвідчення (стаж від 2 років). Депозит залежить від класу авто; є пакети без застави.",
@@ -7724,6 +8778,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
             en: "Passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
+            ro: "Passport/ID card and a driver's license (2+ years experience). The deposit depends on the car class; no-deposit packages are available.",
           },
         },
       ],
@@ -7731,7 +8786,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
   ],
   khust: [
     {
-      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information" },
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information", ro: "Practical Information" },
       items: [
         {
           question: {
@@ -7740,6 +8795,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "How to get to the Valley of Daffodils or Synevyr?",
             en: "How to get to the Valley of Daffodils or Synevyr?",
+            ro: "Cum să ajungeți la Valea Narciselor sau Synevyr?",
           },
           answer: {
             uk: "Долина нарцисів — близько 8 км від центру, Синевир — близько 80 км через Міжгір'я. Дороги асфальтовані, місцями гірські.",
@@ -7747,6 +8803,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "The Valley of Daffodils is about 8 km from the center; Synevyr is around 80 km via Mizhhiria. Roads are paved, with mountain sections.",
             en: "The Valley of Daffodils is about 8 km from the center; Synevyr is around 80 km via Mizhhiria. Roads are paved, with mountain sections.",
+            ro: "Valea Narciselor este la aproximativ 8 km de centru; Synevyr este la aproximativ 80 km prin Mizhhiria. Drumurile sunt asfaltate, cu secțiuni montane.",
           },
         },
         {
@@ -7756,6 +8813,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Which car is better for mountain trips from Khust?",
             en: "Which car is better for mountain trips from Khust?",
+            ro: "Care mașină este mai bună pentru călătoriile de munte din Khust?",
           },
           answer: {
             uk: "Рекомендуємо кросовер або SUV, особливо взимку. На рівні траси підійде будь-який клас.",
@@ -7763,6 +8821,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We recommend a crossover or SUV, especially in winter. Any class works for flat highways.",
             en: "We recommend a crossover or SUV, especially in winter. Any class works for flat highways.",
+            ro: "Recomandăm un crossover sau SUV, mai ales iarna. Orice clasă funcționează pentru autostrăzile plate.",
           },
         },
         {
@@ -7772,6 +8831,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I pick up the car at the station or at an address in Khust?",
             en: "Can I pick up the car at the station or at an address in Khust?",
+            ro: "Pot ridica mașina la gară sau la o adresă din Khust?",
           },
           answer: {
             uk: "Так, подаємо на вокзал, автостанцію чи за адресою. Час узгоджується при бронюванні.",
@@ -7779,6 +8839,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking.",
             en: "Yes, we can deliver to the railway station, bus station, or your address. Timing is arranged during booking.",
+            ro: "Da, putem livra la gara feroviară, autogara sau la adresa dvs. Programarea este stabilită în timpul rezervării.",
           },
         },
         {
@@ -7788,6 +8849,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I park in Khust center or near the castle?",
             en: "Where can I park in Khust center or near the castle?",
+            ro: "Unde pot parca în centrul Khust sau lângă castel?",
           },
           answer: {
             uk: "Є парковки біля центру та туристичних локацій; у сезон краще приїхати раніше.",
@@ -7795,6 +8857,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "There is parking near the center and tourist spots; in high season, arrive earlier.",
             en: "There is parking near the center and tourist spots; in high season, arrive earlier.",
+            ro: "There is parking near the center and tourist spots; in high season, arrive earlier.",
           },
         },
         {
@@ -7804,6 +8867,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "What is the fuel policy?",
             en: "What is the fuel policy?",
+            ro: "Care este politica de combustibil?",
           },
           answer: {
             uk: "Зазвичай діє правило «повний‑повний». За потреби доступна передоплата.",
@@ -7811,6 +8875,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We typically use a full-to-full policy. A prepaid option is available if needed.",
             en: "We typically use a full-to-full policy. A prepaid option is available if needed.",
+            ro: "De obicei folosim politica plin-la-plin. O opțiune preplătită este disponibilă dacă este necesar.",
           },
         },
         {
@@ -7820,6 +8885,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I return the car in Mukachevo, Uzhhorod, or Rakhiv?",
             en: "Can I return the car in Mukachevo, Uzhhorod, or Rakhiv?",
+            ro: "Pot returna mașina în Mukachevo, Uzhhorod sau Rakhiv?",
           },
           answer: {
             uk: "Так, повернення в іншому місті можливе за попереднім узгодженням. Умови підтвердить менеджер.",
@@ -7827,6 +8893,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, one-way return is possible with prior arrangement. Terms are confirmed by our manager.",
             en: "Yes, one-way return is possible with prior arrangement. Terms are confirmed by our manager.",
+            ro: "Da, returnarea într-o singură direcție este posibilă cu aranjament prealabil. Termenii sunt confirmați de managerul nostru.",
           },
         },
       ],
@@ -7834,7 +8901,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
   ],
   rakhiv: [
     {
-      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information" },
+      title: { uk: "Практична інформація", ru: "Практическая информация", en: "Practical Information", pl: "Practical Information", ro: "Practical Information" },
       items: [
         {
           question: {
@@ -7843,6 +8910,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I drive to Drahobrat with a rental car?",
             en: "Can I drive to Drahobrat with a rental car?",
+            ro: "Pot merge la Drahobrat cu o mașină închiriată?",
           },
           answer: {
             uk: "До Ясіні — асфальт, далі підйом до Драгобрата ґрунтовий. Узимку часто потрібен 4x4 або трансфер. Підкажемо оптимальний варіант.",
@@ -7850,6 +8918,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Road to Yasinia is paved; the climb to Drahobrat is unpaved. In winter a 4x4 or transfer is often needed. We'll suggest the best option.",
             en: "Road to Yasinia is paved; the climb to Drahobrat is unpaved. In winter a 4x4 or transfer is often needed. We'll suggest the best option.",
+            ro: "Road to Yasinia is paved; the climb to Drahobrat is unpaved. In winter a 4x4 or transfer is often needed. We'll suggest the best option.",
           },
         },
         {
@@ -7859,6 +8928,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Is travel to Romania from Rakhiv possible?",
             en: "Is travel to Romania from Rakhiv possible?",
+            ro: "Is travel to Romania from Rakhiv possible?",
           },
           answer: {
             uk: "Так, за попереднім узгодженням і з зеленою картою. Умови та тарифи уточнюйте у менеджера.",
@@ -7866,6 +8936,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, with prior approval and a green card. Please check terms and fees with our manager.",
             en: "Yes, with prior approval and a green card. Please check terms and fees with our manager.",
+            ro: "Da, cu aprobare prealabilă and a green card. Please check terms and fees with our manager.",
           },
         },
         {
@@ -7875,6 +8946,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Which car is better for high-mountain routes near Rakhiv?",
             en: "Which car is better for high-mountain routes near Rakhiv?",
+            ro: "Care mașină este mai bună pentru rutele de munte înalt de lângă Rakhiv?",
           },
           answer: {
             uk: "Рекомендуємо кросовер або AWD; взимку — обов'язково зимові шини. Для рівних трас підійде будь-який клас.",
@@ -7882,6 +8954,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "We recommend a crossover or AWD; in winter, winter tires are required. Any class works for flat highways.",
             en: "We recommend a crossover or AWD; in winter, winter tires are required. Any class works for flat highways.",
+            ro: "Recomandăm un crossover sau tracțiune integrală; iarna, anvelopele de iarnă sunt obligatorii. Orice clasă funcționează pentru autostrăzile plate.",
           },
         },
         {
@@ -7891,6 +8964,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Do you deliver cars to Yasinia or Bukovel?",
             en: "Do you deliver cars to Yasinia or Bukovel?",
+            ro: "Do you deliver cars to Yasinia or Bukovel?",
           },
           answer: {
             uk: "Так, доставка по регіону можлива за попереднім узгодженням. Вартість залежить від відстані.",
@@ -7898,6 +8972,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, regional delivery is possible with prior arrangement. Cost depends on distance.",
             en: "Yes, regional delivery is possible with prior arrangement. Cost depends on distance.",
+            ro: "Da, livrarea regională este posibilă cu aranjament prealabil. Costul depinde de distanță.",
           },
         },
         {
@@ -7907,6 +8982,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Where can I park in Rakhiv city center?",
             en: "Where can I park in Rakhiv city center?",
+            ro: "Unde pot parca în centrul orașului Rakhiv?",
           },
           answer: {
             uk: "Є парковки біля вокзалу та в центрі; у сезон місць менше — краще приїхати раніше.",
@@ -7914,6 +8990,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "There is parking near the station and in the center; in high season, arrive earlier.",
             en: "There is parking near the station and in the center; in high season, arrive earlier.",
+            ro: "There is parking near the station and in the center; in high season, arrive earlier.",
           },
         },
         {
@@ -7923,6 +9000,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Can I return the car in another city?",
             en: "Can I return the car in another city?",
+            ro: "Pot returna mașina în alt oraș?",
           },
           answer: {
             uk: "Так, повернення в іншому місті можливе за попереднім узгодженням. Умови та вартість підтвердить менеджер.",
@@ -7930,6 +9008,7 @@ export const cityFAQData: Record<string, CityFAQSection[]> = {
 
             pl: "Yes, one-way return is possible with prior arrangement. Terms and cost are confirmed by our manager.",
             en: "Yes, one-way return is possible with prior arrangement. Terms and cost are confirmed by our manager.",
+            ro: "Da, returnarea într-o singură direcție este posibilă cu aranjament prealabil. Termenii și costul sunt confirmate de managerul nostru.",
           },
         },
       ],
@@ -7946,6 +9025,7 @@ export const dynamicTitles = {
       uk: `Оренда авто в Україні з REIZ: новий підхід до комфорту`,
       ru: `Аренда авто в Украине с REIZ: новый подход к комфорту`,
       en: `Car Rental in Ukraine with REIZ: A New Approach to Comfort`,
+      ro: `Închiriere auto în Ucraina cu REIZ: o nouă abordare a confortului`,
 
       pl: `Car Rental in Ukraine with REIZ: A New Approach to Comfort`,
     };
@@ -7958,6 +9038,7 @@ export const dynamicTitles = {
       uk: `Оренда авто на тиждень у ${loc.nameLocative}`,
       ru: `Аренда авто на неделю в ${loc.nameLocative}`,
       en: `Weekly Car Rental in ${loc.name}`,
+      ro: `Închiriere auto săptămânală în ${loc.name}`,
 
       pl: `Weekly Car Rental in ${loc.name}`,
     };
@@ -7969,6 +9050,7 @@ export const dynamicTitles = {
       uk: `Оренда авто на місяць`,
       ru: `Аренда авто на месяц`,
       en: `Monthly Car Rental`,
+      ro: `Închiriere auto lunară`,
 
       pl: `Monthly Car Rental`,
     };
@@ -7981,6 +9063,7 @@ export const dynamicTitles = {
       uk: `Довгострокова оренда авто у ${loc.nameLocative}`,
       ru: `Долгосрочная аренда авто в ${loc.nameLocative}`,
       en: `Long-term Car Rental in ${loc.name}`,
+      ro: `Închiriere auto pe termen lung în ${loc.name}`,
 
       pl: `Long-term Car Rental in ${loc.name}`,
     };
@@ -7993,6 +9076,7 @@ export const dynamicTitles = {
       uk: `Наші переваги оренди авто у ${loc.nameLocative}`,
       ru: `Наши преимущества аренды авто в ${loc.nameLocative}`,
       en: `Our Advantages of Car Rental in ${loc.name}`,
+      ro: `Avantajele închirierii auto în ${loc.name}`,
 
       pl: `Our Advantages of Car Rental in ${loc.name}`,
     };
@@ -8005,6 +9089,7 @@ export const dynamicTitles = {
       uk: `Послуги водія у ${loc.nameLocative}`,
       ru: `Услуги водителя в ${loc.nameLocative}`,
       en: `Driver Service in ${loc.name}`,
+      ro: `Servicii de șofer în ${loc.name}`,
 
       pl: `Driver Service in ${loc.name}`,
     };
@@ -8017,6 +9102,7 @@ export const dynamicTitles = {
       uk: `Безкоштовна доставка авто по ${loc.name}`,
       ru: `Бесплатная доставка авто по ${loc.name}`,
       en: `Free Car Delivery in ${loc.name}`,
+      ro: `Livrare auto gratuită în ${loc.name}`,
 
       pl: `Free Car Delivery in ${loc.name}`,
     };
@@ -8035,11 +9121,13 @@ export const staticContent = {
 
       pl: "Hourly Rate",
       en: "Hourly Rate",
+      ro: "Tarif orar",
     },
     content: {
       uk: `Погодинний тариф — найкращий спосіб «приміряти» автомобіль без зобов'язань.<br/>Однієї доби зазвичай достатньо, щоби вирішити: продовжити оренду на тиждень/місяць або змінити клас.`,
       ru: `Почасовой тариф — лучший способ «примерить» автомобиль без обязательств.<br/>Одних суток обычно достаточно, чтобы решить: продолжить аренду на неделю/месяц или сменить класс.`,
       en: `The hourly rate is the best way to "try on" a car without commitment.<br/>One day is usually enough to decide: extend the rental for a week/month or change the class.`,
+      ro: `Tariful orar este cel mai bun mod de a „proba" o mașină fără angajament.<br/>O zi este de obicei suficientă pentru a decide: prelungiți închirierea pentru o săptămână/lună sau schimbați clasa.`,
 
       pl: `The hourly rate is the best way to "try on" a car without commitment.<br/>One day is usually enough to decide: extend the rental for a week/month or change the class.`,
     },
@@ -8049,6 +9137,7 @@ export const staticContent = {
     uk: `Місячна оренда — для тих, хто залишається надовго: проєкт, командировка, релокація.<br/>Нижча добова вартість, один передбачуваний платіж і повна свобода маршрутів — без розкладів і прив'язки до міста.`,
     ru: `Месячная аренда — для тех, кто остаётся надолго: проект, командировка, релокация.<br/>Ниже суточная стоимость, один предсказуемый платёж и полная свобода маршрутов — без расписаний и привязки к городу.`,
     en: `Monthly rental is for those who stay for a long time: project, business trip, relocation.<br/>Lower daily cost, one predictable payment, and complete freedom of routes — without schedules and city restrictions.`,
+    ro: `Închirierea lunară este pentru cei care rămân pe termen lung: proiecte, călătorii de afaceri, relocare.<br/>Cost zilnic mai mic, o plată previzibilă și libertate completă a rutelor — fără program și restricții urbane.`,
 
     pl: `Monthly rental is for those who stay for a long time: project, business trip, relocation.<br/>Lower daily cost, one predictable payment, and complete freedom of routes — without schedules and city restrictions.`,
   },
@@ -8058,6 +9147,7 @@ export const staticContent = {
     ru: `Долгосрочная аренда — решение для тех, кто остаётся надолго: жители города, релокация, проекты на несколько месяцев, корпоративные задачи.<br/>На срок от 3 до 12+ месяцев вы получаете персональный автомобиль с фиксированным ежемесячным платежом и предсказуемым бюджетом — без хлопот с покупкой, продажей и потерей стоимости.`,
     pl: `Long-term rental is the solution for those who stay for a long time: city residents, relocation, projects for several months, corporate tasks.<br/>For a period of 3 to 12+ months, you get a personal car with a fixed monthly payment and a predictable budget — without the hassle of buying, selling, and losing value.`,
     en: `Long-term rental is the solution for those who stay for a long time: city residents, relocation, projects for several months, corporate tasks.<br/>For a period of 3 to 12+ months, you get a personal car with a fixed monthly payment and a predictable budget — without the hassle of buying, selling, and losing value.`,
+    ro: `Închirierea pe termen lung este soluția pentru cei care rămân mult timp: rezidenți ai orașului, relocare, proiecte de câteva luni, sarcini corporative.<br/>Pentru o perioadă de 3 până la 12+ luni, primiți o mașină personală cu o plată lunară fixă și un buget previzibil — fără bătăile de cap ale cumpărării, vânzării și pierderii de valoare.`,
   },
 
   budgetCars: {
@@ -8067,12 +9157,14 @@ export const staticContent = {
 
       pl: "Budget Car Rental — from $20/day",
       en: "Budget Car Rental — from $20/day",
+      ro: "Închiriere auto economică — de la $20/zi",
     },
     content: {
       uk: `Потрібна практична машина без переплат? Економ-клас REIZ — це комфорт у місті та на трасі за розумний бюджет.<br/>Компактні розміри для паркування в центрі, впевнене керування, низький витрата пального і достатньо місця для 1–4 пасажирів та багажу.`,
       ru: `Нужна практичная машина без переплат? Эконом-класс REIZ — это комфорт в городе и на трассе за разумный бюджет.<br/>Компактные размеры для парковки в центре, уверенное управление, низкий расход топлива и достаточно места для 1–4 пассажиров и багажа.`,
       pl: `Need a practical car without overpaying? REIZ economy class offers comfort in the city and on the highway for a reasonable budget.<br/>Compact size for parking in the center, confident handling, low fuel consumption, and enough space for 1-4 passengers and luggage.`,
       en: `Need a practical car without overpaying? REIZ economy class offers comfort in the city and on the highway for a reasonable budget.<br/>Compact size for parking in the center, confident handling, low fuel consumption, and enough space for 1-4 passengers and luggage.`,
+      ro: `Aveți nevoie de o mașină practică fără să plătiți prea mult? Clasa economică REIZ oferă confort în oraș și pe autostradă pentru un buget rezonabil.<br/>Dimensiuni compacte pentru parcare în centru, manevrabilitate sigură, consum redus de combustibil și suficient spațiu pentru 1-4 pasageri și bagaje.`,
     },
   },
 
@@ -8081,6 +9173,7 @@ export const staticContent = {
     ru: `<ul><li>Удобный сайт — быстрый фильтр, актуальные цены и точные характеристики.</li><li>Мгновенное оформление — бронирование за пару минут.</li><li>Прозрачная цена — итоговая стоимость видна до оплаты, без скрытых комиссий.</li><li>Гибкие сроки — сутки, неделя, месяц или долгосрочно; легко продлить или сменить модель.</li><li>Надёжный парк — регулярный сервис, чистый салон, сезонные шины по времени года.</li><li>Поддержка 24/7 — оперативно реагируем на любые вопросы (UA/RU/EN/HE-IL).</li><li>Межгород по запросу — подача и возврат авто возможны по Украине.</li><li>Соответствие каталогу — получаете именно тот класс и комплектацию, которые выбрали.</li><li>Простые правила — топливо, пробег и возврат описаны «человеческим» языком в договоре.</li></ul>`,
     pl: `<ul><li>Convenient website — quick filter, current prices, and accurate specifications.</li><li>Instant booking — reservation in a couple of minutes.</li><li>Transparent pricing — the final cost is visible before payment, no hidden fees.</li><li>Flexible terms — day, week, month, or long-term; easy to extend or change the model.</li><li>Reliable fleet — regular service, clean interior, seasonal tires according to the season.</li><li>24/7 support — we respond promptly to any questions (UA/RU/EN/HE-IL).</li><li>Intercity on request — car delivery and return available throughout Ukraine.</li><li>Catalog compliance — you get exactly the class and configuration you chose.</li><li>Simple rules — fuel, mileage, and return are described in plain language in the contract.</li></ul>`,
     en: `<ul><li>Convenient website — quick filter, current prices, and accurate specifications.</li><li>Instant booking — reservation in a couple of minutes.</li><li>Transparent pricing — the final cost is visible before payment, no hidden fees.</li><li>Flexible terms — day, week, month, or long-term; easy to extend or change the model.</li><li>Reliable fleet — regular service, clean interior, seasonal tires according to the season.</li><li>24/7 support — we respond promptly to any questions (UA/RU/EN/HE-IL).</li><li>Intercity on request — car delivery and return available throughout Ukraine.</li><li>Catalog compliance — you get exactly the class and configuration you chose.</li><li>Simple rules — fuel, mileage, and return are described in plain language in the contract.</li></ul>`,
+    ro: `<ul><li>Site web convenabil — filtru rapid, prețuri actuale și specificații precise.</li><li>Rezervare instantanee — rezervare în câteva minute.</li><li>Prețuri transparente — costul final este vizibil înainte de plată, fără taxe ascunse.</li><li>Termeni flexibili — zi, săptămână, lună sau pe termen lung; ușor de prelungit sau de schimbat modelul.</li><li>Flotă fiabilă — service regulat, interior curat, anvelope de sezon.</li><li>Suport 24/7 — răspundem prompt la orice întrebare (UA/RU/EN/HE-IL).</li><li>Interurban la cerere — livrare și returnare auto disponibile în toată Ucraina.</li><li>Conformitate cu catalogul — primiți exact clasa și configurația aleasă.</li><li>Reguli simple — combustibilul, kilometrajul și returnarea sunt descrise în limbaj simplu în contract.</li></ul>`,
   },
 
   noDeposit: {
@@ -8090,12 +9183,14 @@ export const staticContent = {
 
       pl: "No Deposit / Reduced Deposit",
       en: "No Deposit / Reduced Deposit",
+      ro: "Fără garanție / Garanție redusă",
     },
     content: {
       uk: `Можна взяти авто без внесення застави — це робить оренду доступнішою і передбачуваною за бюджетом.<br/>Для окремих моделей доступна опція знизити депозит на 50%.<br/>Доступність залежить від моделі, строку і дат оренди; всі деталі видно під час бронювання.`,
       ru: `Можно взять авто без внесения залога — это делает аренду доступнее и предсказуемее по бюджету.<br/>Для отдельных моделей доступна опция снизить депозит на 50%.<br/>Доступность зависит от модели, срока и дат аренды; все детали видны при бронировании.`,
       pl: `You can rent a car without a deposit — this makes rental more affordable and predictable for your budget.<br/>For some models, an option to reduce the deposit by 50% is available.<br/>Availability depends on the model, term, and rental dates; all details are visible during booking.`,
       en: `You can rent a car without a deposit — this makes rental more affordable and predictable for your budget.<br/>For some models, an option to reduce the deposit by 50% is available.<br/>Availability depends on the model, term, and rental dates; all details are visible during booking.`,
+      ro: `Puteți închiria o mașină fără garanție — aceasta face închirierea mai accesibilă și mai previzibilă pentru bugetul dvs.<br/>Pentru unele modele, este disponibilă opțiunea de a reduce garanția cu 50%.<br/>Disponibilitatea depinde de model, termen și datele de închiriere; toate detaliile sunt vizibile în timpul rezervării.`,
     },
   },
 
@@ -8106,12 +9201,14 @@ export const staticContent = {
 
       pl: "Additional Services",
       en: "Additional Services",
+      ro: "Servicii suplimentare",
     },
     content: {
       uk: `<ul><li>Навігація — всі авто оснащені Apple CarPlay та Android Auto. Підключайте смартфон і використовуйте звичні карти.</li><li>Дитяче крісло. Надаємо за запитом (вікові групи — за потребою).</li><li>Виїзд за кордон. Можливий за попереднім погодженням — оформимо необхідні документи і додаткову страховку.</li><li>Безлімітний пробіг. Опція Unlimited доступна для частини моделей/тарифів; доступність і вартість видно під час бронювання або уточнюйте у адміністратора.</li></ul>Оберіть потрібні опції при оформленні — ми підготуємо автомобіль до часу подачі.`,
       ru: `<ul><li>Навигация — все авто оснащены Apple CarPlay и Android Auto. Подключайте смартфон и используйте привычные карты.</li><li>Детское кресло. Предоставляем по запросу (возрастные группы — по потребности).</li><li>Выезд за границу. Возможен по предварительному согласованию — оформим необходимые документы и дополнительную страховку.</li><li>Безлимитный пробег. Опция Unlimited доступна для части моделей/тарифов; доступность и стоимость видны при бронировании или уточняйте у администратора.</li></ul>Выберите нужные опции при оформлении — мы подготовим автомобиль ко времени подачи.`,
       pl: `<ul><li>Navigation — all cars are equipped with Apple CarPlay and Android Auto. Connect your smartphone and use familiar maps.</li><li>Child seat. Available on request (age groups as needed).</li><li>Cross-border travel. Possible with prior agreement — we'll prepare the necessary documents and additional insurance.</li><li>Unlimited mileage. Unlimited option is available for some models/rates; availability and cost are visible during booking or check with the administrator.</li></ul>Select the options you need when booking — we'll prepare the car for the pickup time.`,
       en: `<ul><li>Navigation — all cars are equipped with Apple CarPlay and Android Auto. Connect your smartphone and use familiar maps.</li><li>Child seat. Available on request (age groups as needed).</li><li>Cross-border travel. Possible with prior agreement — we'll prepare the necessary documents and additional insurance.</li><li>Unlimited mileage. Unlimited option is available for some models/rates; availability and cost are visible during booking or check with the administrator.</li></ul>Select the options you need when booking — we'll prepare the car for the pickup time.`,
+      ro: `<ul><li>Navigație — toate mașinile sunt echipate cu Apple CarPlay și Android Auto. Conectați-vă smartphone-ul și utilizați hărțile familiare.</li><li>Scaun pentru copii. Disponibil la cerere (grupe de vârstă conform necesităților).</li><li>Călătorie transfrontalieră. Posibilă cu acord prealabil — vom pregăti documentele necesare și asigurarea suplimentară.</li><li>Kilometraj nelimitat. Opțiunea Unlimited este disponibilă pentru unele modele/tarife; disponibilitatea și costul sunt vizibile la rezervare sau verificați cu administratorul.</li></ul>Selectați opțiunile de care aveți nevoie la rezervare — vom pregăti mașina pentru ora de ridicare.`,
   },
   },
 
@@ -8122,12 +9219,14 @@ export const staticContent = {
 
       pl: "Cars in Excellent Condition",
       en: "Cars in Excellent Condition",
+      ro: "Mașini în stare excelentă",
     },
     content: {
       uk: `Ми дбайливо слідкуємо за парком REIZ — щоб кожна поїздка була комфортною і безпечною.<br/>Перед подачею кожен автомобіль проходить чек-лист: гальма, світло, шини і тиск, рідини, склоомивач. Сезонні шини ставимо вчасно.<br/>Чистота і порядок: суха/волога уборка салону, протирка поверхонь, миття кузова; за необхідності — глибоке очищення.<br/>Сервіс за регламентом: планове техобслуговування на партнёрських СТО, заміна витратних матеріалів без «відтягувань».<br/>Ви отримуєте акуратну, справну і готову до поїздки машину — просто сідайте і їдьте.`,
       ru: `Мы заботливо следим за парком REIZ — чтобы каждая поездка была комфортной и безопасной.<br/>Перед подачей каждый автомобиль проходит чек-лист: тормоза, свет, шины и давление, жидкости, стеклоомыватель. Сезонные шины ставим вовремя.<br/>Чистота и порядок: сухая/влажная уборка салона, протирка поверхностей, мойка кузова; при необходимости — глубокая очистка.<br/>Сервис по регламенту: плановое техобслуживание на партнёрских СТО, замена расходных материалов без «оттягиваний».<br/>Вы получаете аккуратную, исправную и готовую к поездке машину — просто садитесь и едьте.`,
       pl: `We carefully maintain the REIZ fleet so that every trip is comfortable and safe.<br/>Before delivery, each car goes through a checklist: brakes, lights, tires and pressure, fluids, windshield washer. We install seasonal tires on time.<br/>Cleanliness and order: dry/wet interior cleaning, surface wiping, body washing; deep cleaning if necessary.<br/>Service according to regulations: scheduled maintenance at partner service stations, replacement of consumables without delays.<br/>You get a neat, working, and trip-ready car — just get in and go.`,
       en: `We carefully maintain the REIZ fleet so that every trip is comfortable and safe.<br/>Before delivery, each car goes through a checklist: brakes, lights, tires and pressure, fluids, windshield washer. We install seasonal tires on time.<br/>Cleanliness and order: dry/wet interior cleaning, surface wiping, body washing; deep cleaning if necessary.<br/>Service according to regulations: scheduled maintenance at partner service stations, replacement of consumables without delays.<br/>You get a neat, working, and trip-ready car — just get in and go.`,
+      ro: `Întreținem cu grijă flota REIZ astfel încât fiecare călătorie să fie confortabilă și sigură.<br/>Înainte de livrare, fiecare mașină trece printr-un checklist: frâne, lumini, anvelope și presiune, lichide, spălător de parbriz. Instalăm anvelope de sezon la timp.<br/>Curățenie și ordine: curățare uscată/umedă a interiorului, ștergerea suprafețelor, spălarea caroseriei; curățare profundă dacă este necesar.<br/>Service conform reglementărilor: întreținere programată la stațiile de service partenere, înlocuirea consumabilelor fără întârzieri.<br/>Primiți o mașină îngrijită, funcțională și pregătită pentru călătorie — doar urcați și plecați.`,
     },
   },
 
@@ -8138,11 +9237,13 @@ export const staticContent = {
 
       pl: "Basic Safe Driving Tips",
       en: "Basic Safe Driving Tips",
+      ro: "Sfaturi de bază pentru condus sigur",
     },
     content: {
       uk: `Ви забронювали авто — далі все залежить від вашого маршруту. Щоб поїздка пройшла спокійно і приємно, тримайте в увазі базові правила безпеки.`,
       ru: `Вы забронировали авто — дальше всё зависит от вашего маршрута. Чтобы поездка прошла спокойно и приятно, держите в уме базовые правила безопасности.`,
       en: `You've booked a car — the rest depends on your route. To make the trip go smoothly and pleasantly, keep basic safety rules in mind.`,
+      ro: `Ați rezervat o mașină — restul depinde de ruta dvs. Pentru ca călătoria să decurgă lin și plăcut, păstrați în minte regulile de bază de siguranță.`,
 
       pl: `You've booked a car — the rest depends on your route. To make the trip go smoothly and pleasantly, keep basic safety rules in mind.`,
     },
@@ -8155,12 +9256,14 @@ export const staticContent = {
 
       pl: "Maintain a Safe Following Distance",
       en: "Maintain a Safe Following Distance",
+      ro: "Mențineți o distanță de siguranță",
     },
     content: {
       uk: `Тримайте запас до переду йдучого авто — це ваш час на реакцію.<br/>Базове правило — «три секунди». Оберіть орієнтир (знак, стовп): як тільки машина попереду його проїхала, рахуйте «раз-два-три». Якщо ви перетнули орієнтир раніше — дистанції недостатньо.`,
       ru: `Держите запас до впереди идущего авто — это ваше время на реакцию.<br/>Базовое правило — «три секунды». Выберите ориентир (знак, столб): как только машина впереди его проехала, считайте «раз-два-три». Если вы пересекли ориентир раньше — дистанции недостаточно.`,
       pl: `Keep a margin to the car ahead — this is your reaction time.<br/>The basic rule is "three seconds." Choose a landmark (sign, pole): as soon as the car ahead passes it, count "one-two-three." If you crossed the landmark earlier, the distance is not enough.`,
       en: `Keep a margin to the car ahead — this is your reaction time.<br/>The basic rule is "three seconds." Choose a landmark (sign, pole): as soon as the car ahead passes it, count "one-two-three." If you crossed the landmark earlier, the distance is not enough.`,
+      ro: `Păstrați o marjă față de mașina din față — acesta este timpul dvs. de reacție.<br/>Regula de bază este „trei secunde". Alegeți un reper (semn, stâlp): imediat ce mașina din față îl trece, numărați „unu-doi-trei". Dacă ați trecut reperul mai devreme, distanța nu este suficientă.`,
     },
   },
 
@@ -8171,12 +9274,14 @@ export const staticContent = {
 
       pl: "Change Lanes Only When Safe",
       en: "Change Lanes Only When Safe",
+      ro: "Schimbați banda doar când este sigur",
     },
     content: {
       uk: `<ul><li>Оцініть обстановку: центральне та бокові дзеркала, потім короткий погляд через плече — перевірте «сліпу зону».</li><li>Подайте сигнал заздалегідь, а не в момент маневру — дайте іншим час відреагувати.</li><li>Синхронізуйте швидкість з потоком у цільовій смузі, не «ныряйте» з великим розривом за швидкістю.</li><li>Тримайте дистанцію: не підрізайте — залишайте безпечний інтервал спереду і позаду.</li><li>Один маневр — одна смуга: без «змійки» і перетину кількох смуг відразу.</li><li>Уникайте перестроювань на перехрестях, пішохідних переходах і в повороті.</li><li>Особлива увага мотоциклам/велосипедам/самокатам — вони легко губляться в дзеркалах.</li><li>У погану погоду дійте м'якше: більше інтервал і довше час для маневру.</li><li>Завершили — вимкніть поворот і відновіть безпечну дистанцію.</li></ul>`,
       ru: `<ul><li>Оцените обстановку: центральное и боковые зеркала, затем короткий взгляд через плечо — проверьте «слепую зону».</li><li>Подайте сигнал заблаговременно, а не в момент манёвра — дайте другим время отреагировать.</li><li>Синхронизируйте скорость с потоком в целевой полосе, не «ныряйте» с большим разрывом по скорости.</li><li>Держите дистанцию: не подрезайте — оставляйте безопасный интервал спереди и сзади.</li><li>Один манёвр — одна полоса: без «змейки» и пересечения нескольких полос сразу.</li><li>Избегайте перестроений на перекрёстках, пешеходных переходах и в повороте.</li><li>Особое внимание мотоциклам/велосипедам/самокатам — они легко теряются в зеркалах.</li><li>В плохую погоду действуйте мягче: больше интервал и дольше время для манёвра.</li><li>Завершили — выключите поворот и восстановите безопасную дистанцию.</li></ul>`,
       pl: `<ul><li>Assess the situation: center and side mirrors, then a quick glance over your shoulder — check the "blind spot."</li><li>Signal in advance, not at the moment of the maneuver — give others time to react.</li><li>Synchronize your speed with the flow in the target lane, don't "dive" with a large speed gap.</li><li>Keep your distance: don't cut off — leave a safe interval in front and behind.</li><li>One maneuver — one lane: no "snake" and crossing multiple lanes at once.</li><li>Avoid lane changes at intersections, pedestrian crossings, and while turning.</li><li>Pay special attention to motorcycles/bicycles/scooters — they easily get lost in mirrors.</li><li>In bad weather, act more gently: more interval and more time for the maneuver.</li><li>Finished — turn off the turn signal and restore the safe distance.</li></ul>`,
       en: `<ul><li>Assess the situation: center and side mirrors, then a quick glance over your shoulder — check the "blind spot."</li><li>Signal in advance, not at the moment of the maneuver — give others time to react.</li><li>Synchronize your speed with the flow in the target lane, don't "dive" with a large speed gap.</li><li>Keep your distance: don't cut off — leave a safe interval in front and behind.</li><li>One maneuver — one lane: no "snake" and crossing multiple lanes at once.</li><li>Avoid lane changes at intersections, pedestrian crossings, and while turning.</li><li>Pay special attention to motorcycles/bicycles/scooters — they easily get lost in mirrors.</li><li>In bad weather, act more gently: more interval and more time for the maneuver.</li><li>Finished — turn off the turn signal and restore the safe distance.</li></ul>`,
+      ro: `<ul><li>Evaluați situația: oglinzile centrale și laterale, apoi o privire rapidă peste umăr — verificați „unghiul mort".</li><li>Semnalizați din timp, nu în momentul manevrei — oferiți celorlalți timp să reacționeze.</li><li>Sincronizați viteza cu fluxul de pe banda țintă, nu „plonjați" cu o diferență mare de viteză.</li><li>Păstrați distanța: nu tăiați calea — lăsați un interval sigur în față și în spate.</li><li>O manevră — o bandă: fără „șarpe" și traversarea mai multor benzi deodată.</li><li>Evitați schimbările de bandă la intersecții, treceri de pietoni și în viraje.</li><li>Acordați atenție specială motocicletelor/bicicletelor/trotinetelor — se pierd ușor în oglinzi.</li><li>Pe vreme rea, acționați mai blând: mai mult interval și mai mult timp pentru manevră.</li><li>Ați terminat — opriți semnalul de virare și restabiliți distanța de siguranță.</li></ul>`,
     },
   },
 
@@ -8187,12 +9292,14 @@ export const staticContent = {
 
       pl: "Follow Road Signs",
       en: "Follow Road Signs",
+      ro: "Respectați semnele de circulație",
     },
     content: {
       uk: `Знаки і сигнали — це «мова» дороги: вони заздалегідь попереджають про обмеження і можливі небезпеки.<br/>Читайте їх вчасно і дійте без поспіху.<br/>Якщо знак або схема руху незрозумілі — зменшіть швидкість, тримайте дистанцію і керуйтесь правилами пріоритету.`,
       ru: `Знаки и сигналы — это «язык» дороги: они заранее предупреждают об ограничениях и возможных опасностях.<br/>Читайте их вовремя и действуйте без спешки.<br/>Если знак или схема движения непонятны — снизьте скорость, держите дистанцию и руководствуйтесь правилами приоритета.`,
       pl: `Signs and signals are the "language" of the road: they warn in advance about restrictions and possible dangers.<br/>Read them in time and act without haste.<br/>If a sign or traffic pattern is unclear — slow down, keep your distance, and follow the priority rules.`,
       en: `Signs and signals are the "language" of the road: they warn in advance about restrictions and possible dangers.<br/>Read them in time and act without haste.<br/>If a sign or traffic pattern is unclear — slow down, keep your distance, and follow the priority rules.`,
+      ro: `Semnele și semnalele sunt „limbajul" drumului: ele avertizează din timp despre restricții și posibile pericole.<br/>Citiți-le la timp și acționați fără grabă.<br/>Dacă un semn sau un model de trafic este neclar — încetiniți, păstrați distanța și respectați regulile de prioritate.`,
     },
   },
 
@@ -8203,12 +9310,14 @@ export const staticContent = {
 
       pl: "Prohibition of Alcohol While Driving",
       en: "Prohibition of Alcohol While Driving",
+      ro: "Interzicerea consumului de alcool la volan",
     },
     content: {
       uk: `Керування автомобілем у стані алкогольного сп'яніння строго заборонене.<br/>REIZ дотримується політики нульової толерантності: клієнт зобов'язаний утримуватись від вживання алкоголю до початку поїздки і на весь час використання орендованого автомобіля.`,
       ru: `Управление автомобилем в состоянии алкогольного опьянения строго запрещено.<br/>REIZ придерживается политики нулевой толерантности: клиент обязан воздерживаться от употребления алкоголя до начала поездки и на всё время использования арендованного автомобиля.`,
       pl: `Driving under the influence of alcohol is strictly prohibited.<br/>REIZ adheres to a zero tolerance policy: the client must refrain from consuming alcohol before the trip and throughout the use of the rented car.`,
       en: `Driving under the influence of alcohol is strictly prohibited.<br/>REIZ adheres to a zero tolerance policy: the client must refrain from consuming alcohol before the trip and throughout the use of the rented car.`,
+      ro: `Conducerea sub influența alcoolului este strict interzisă.<br/>REIZ aderă la o politică de toleranță zero: clientul trebuie să se abțină de la consumul de alcool înainte de călătorie și pe toată durata utilizării mașinii închiriate.`,
     },
   },
 };
@@ -8378,6 +9487,46 @@ function generateKyivEditorContent(locale: Locale): string {
 <h2 class='editor_title'>Traffic Safety in the Capital</h2>
 <div class='editor_text'>Kyiv traffic requires attention. Here are some tips for a comfortable drive:<ol><li><span class='text-strong'>Distance:</span> In dense traffic and on bridges, keep a safe distance for reaction.</li><li><span class='text-strong'>Maneuvering:</span> Always use turn signals and check blind spots before changing lanes. Avoid aggressive lane changing.</li><li><span class='text-strong'>Signs and Markings:</span> Watch out for public transport lanes — driving on them is prohibited.</li><li><span class='text-strong'>Zero Tolerance:</span> REIZ strictly prohibits driving under the influence of alcohol or drugs. Violation of this rule entails fines and termination of the contract.</li></ol></div>
 `.trim(),
+    ro: `
+<div class='editor_text'>REIZ offers a car rental service in Kyiv designed for those who value time and comfort. We understand the specifics of the metropolis: from traffic jams on bridges to the need to be at the airport on time. Livrăm mașini la any district of Kyiv or meet you with a car anywhere in Ukraine by prior arrangement.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <span class='text-strong'>închiriere auto premium</span> for business, reliable <span class='text-strong'>închiriere SUV</span> for travel, and spacious <span class='text-strong'>închiriere microbuz</span> for families. Even if you're looking for <span class='text-strong'>închiriere auto economic</span>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<h2 class='editor_title'>Rental Plans</h2>
+<h3 class='editor_title'>Hourly Rental: Real-World Test Drive</h3>
+<div class='editor_text'>Hourly rental is the perfect way to experience a car without long-term commitments. One day is enough to understand the character of the car: how it maneuvers in dense Kyiv traffic, whether it is easy to find a parking spot in Podil or Pechersk, and how convenient the driver assistants are. It is also a great opportunity to check the car before long trips. Clients often rent a car for a day to test it before a weekend in the Carpathians or a trip to the seaside.</div>
+
+<h3 class='editor_title'>Weekly Rate: Freedom from Schedules</h3>
+<div class='editor_text'>Car rental for a week in Kyiv is your independence. You get a fixed price for 7 days and complete freedom of movement, forgetting about waiting for taxis and surge pricing. This format is ideal for a busy schedule: on weekdays you solve business issues in the city, and on weekends you head out of town — to country complexes or on a trip to Odesa or Kharkiv. A weekly test drive allows you to fully evaluate the comfort of the model, and if you like everything, the contract is easy to extend.</div>
+
+<h3 class='editor_title'>Monthly Rental: For Business and Life</h3>
+<div class='editor_text'>The "Month" tariff is a profitable solution for project work, business trips, or relocation to the capital. The longer the term, the lower the daily cost. You make one payment and use the car without restrictions on routes. This is the optimal choice for regular trips between cities (Kyiv ↔ Dnipro, Kharkiv, Odesa). One car will cover all your needs: from daily trips to the office to meeting delegations at the airport. If necessary, the car class can be changed.</div>
+
+<h3 class='editor_title'>Long-Term Rental (from 3 months)</h3>
+<div class='editor_text'>An alternative to buying a car. You get a personal vehicle for a period of 3 months to a year or more. Your advantages:<ul><li>Fixed monthly budget.</li><li>No worries about insurance, maintenance, seasonal tire changes, and car depreciation.</li><li>Flexibility to change cars depending on the season or tasks (sedan in summer, crossover in winter).</li></ul>Delivery and return are possible not only in Kyiv but also in other regions of Ukraine.</div>
+
+<h2 class='editor_title'>Coming soon in REIZ Kyiv: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, compact and economical cars from $20/day will be available for rent in Kyiv — an ideal solution for the capital's busy traffic and easy parking in the center.<br/><br/>While we prepare these models for launch, we invite you to consider our Comfort class cars. They offer a higher level of safety on Kyiv's high-speed highways and maximum convenience at a price close to the budget segment.</div>
+
+<h2 class='editor_title'>Why Choose REIZ in Kyiv</h2>
+<div class='editor_text'><ul><li>Convenience: Website with filters and up-to-date prices.</li><li>Speed: Paperwork and key handover in minutes.</li><li>Locations: We meet you at Boryspil (KBP) and Zhuliany (IEV) airports, at the railway station, or at your address.</li><li>Honesty: No hidden fees — you pay the price you see.</li><li>Flexibilitate: Simple rental extension or car replacement.</li><li>Quality: Technically sound, clean cars with seasonal tires.</li><li>Suport 24/7: We are in touch in any convenient language.</li><li>Transparent Conditions: Rules regarding fuel and mileage are clearly stated in the contract.</li></ul></div>
+
+<h3 class='editor_title'>Rental Without Deposit</h3>
+<div class='editor_text'>Facem închirierea mai accesibilă. For certain models and rental conditions, a reduced deposit option (up to 50%) or rental without a deposit is available. Check the availability of this option when booking or ask the manager.</div>
+
+<h3 class='editor_title'>Chauffeur Services and Transfer</h3>
+<div class='editor_text'>Want to relax or work on the road? Order a car with a professional driver. We will ensure a comfortable transfer from Boryspil/Zhuliany airports to your hotel or business center.</div>
+
+<h3 class='editor_title'>Car Delivery in Kyiv</h3>
+<div class='editor_text'>Gratuit: Livrăm mașini la central districts (Pechersk, Podil, Shevchenkivskyi), Obolon, and airports (airport parking fees are paid by the client).<br/>Outside the City: Delivery to the suburbs or region is calculated individually depending on the mileage.<br/>Cum să comandați: Just specify the address and time when booking, and our administrator will coordinate the details.</div>
+
+<h3 class='editor_title'>Opțiuni suplimentare pentru confort</h3>
+<div class='editor_text'><ul><li>Connectivity: Apple CarPlay / Android Auto in every car.</li><li>Kids: Child seats of any size upon request.</li><li>Borders: We prepare documents for traveling outside Ukraine (by prior agreement).</li><li>Unlimited: Unlimited mileage option is available for most tariffs.</li></ul></div>
+
+<h3 class='editor_title'>Technical Condition is Our Priority</h3>
+<div class='editor_text'>We guarantee that your trip around Kyiv will be safe. Before delivery, every car undergoes a check-list inspection (brakes, fluids, tire pressure, lights). The interior undergoes dry cleaning and washing. You get into a perfectly prepared car.</div>
+
+<h2 class='editor_title'>Traffic Safety in the Capital</h2>
+<div class='editor_text'>Kyiv traffic requires attention. Here are some tips for a comfortable drive:<ol><li><span class='text-strong'>Distance:</span> In dense traffic and on bridges, keep a safe distance for reaction.</li><li><span class='text-strong'>Maneuvering:</span> Always use turn signals and check blind spots before changing lanes. Avoid aggressive lane changing.</li><li><span class='text-strong'>Signs and Markings:</span> Watch out for public transport lanes — driving on them is prohibited.</li><li><span class='text-strong'>Zero Tolerance:</span> REIZ strictly prohibits driving under the influence of alcohol or drugs. Violation of this rule entails fines and termination of the contract.</li></ol></div>
+`.trim(),
   };
 
   return contentByLocale[locale];
@@ -8513,6 +9662,39 @@ function generateOdesaEditorContent(locale: Locale): string {
 
 <h3 class='editor_title'>Car Delivery</h3>
 <div class='editor_text'>Free: Center, Prymorskyi district, Arcadia, Cheremushky, Airport (parking fee is paid by the client).<br/>Kotovskyi District and Region: Delivery is possible, the cost is calculated individually depending on the distance.</div>
+
+<h2 class='editor_title'>Safety on Odesa Roads</h2>
+<div class='editor_text'>The specifics of the southern city require attention.<ol><li><span class='text-strong'>Trams:</span> There are many tram tracks in the center. Be careful, especially in the rain — the rails are slippery.</li><li><span class='text-strong'>Seasonality:</span> In summer, traffic increases significantly due to tourists, scooters, and electric scooters. Check your mirrors and "blind spots" more often.</li><li><span class='text-strong'>Parking:</span> Do not leave the car under "No Stopping" signs — tow trucks are actively working in Odesa.</li><li><span class='text-strong'>Alcohol:</span> We have zero tolerance for drinking and driving. Violation means immediate termination of the contract, a fine, and blacklisting.</li></ol></div>
+`.trim(),
+    ro: `
+<div class='editor_text'>Odesa is a city that lives in its own rhythm: business meetings at the port in the morning, lunch on Deribasivska Street, and an evening promenade in Arcadia. To be on time everywhere and not depend on taxis, choose car rental from REIZ. We offer a service that combines Odesa hospitality with German precision: perfectly clean cars, transparent contracts, and delivery anywhere in the city.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <span class='text-strong'>închiriere auto premium</span> for business, reliable <span class='text-strong'>închiriere SUV</span> for travel, and spacious <span class='text-strong'>închiriere microbuz</span> for families. Even if you're looking for <span class='text-strong'>închiriere auto economic</span>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<h2 class='editor_title'>Hourly Drive</h2>
+<div class='editor_text'>Renting for a few hours or a day is your test drive. Try how the car behaves on the cobblestones of Pushkinska Street or in traffic on Shevchenko Avenue. Is it easy for you to park near "Privoz"? Will the trunk fit your shopping? This is the best way to understand if the car suits you before renting it for a long term.</div>
+
+<h3 class='editor_title'>Weekly Rate: Vacation and Business</h3>
+<div class='editor_text'>Came to Odesa for a week? Car rental is more profitable than constant taxi rides. A fixed rate for 7 days gives you freedom. You can combine work in the center with trips to the beaches of Fontana or go out of town: to Shabo wineries, Sanzhibka cliffs, or Akkerman Fortress. You build the route yourself, without adjusting to the schedule of buses or trains.</div>
+
+<h3 class='editor_title'>Month of Freedom (Tariff "30+")</h3>
+<div class='editor_text'>For those who stay in Odesa for a long time — relocation, seasonal work, or a long business trip. We offer a special tariff: pay once a month, and the daily cost is significantly lower. This is ideal for regular trips on routes like Odesa ↔ Kyiv or Odesa ↔ Mykolaiv. One car solves all issues: office, home, shopping, meeting partners. Tired of a sedan? You can swap it for a crossover next month.</div>
+
+<h3 class='editor_title'>Long-Term Rental</h3>
+<div class='editor_text'>Live in Odesa comfortably without buying a car. Car subscription from REIZ (from 3 months) frees you from car owner problems: we handle insurance, maintenance, seasonal tires, and repairs. You simply enjoy driving along the coast. This is profitable for businesses and IT specialists: predictable expenses with no surprises.</div>
+
+<h2 class='editor_title'>Coming soon in REIZ Odesa: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, compact and economical cars from $20/day will be available for rent in Odesa — with powerful air conditioning for the hot summer and convenient dimensions for parking in the center and near the beaches.<br/><br/>While we prepare these models for launch, we invite you to consider our Comfort class cars. They offer the ideal balance of price and quality for trips to Arcadia, out of town, or business meetings at the port.</div>
+
+<h2 class='editor_title'>Why Choose REIZ in Odesa</h2>
+<div class='editor_text'><ul><li>Location: We will meet you at Odesa International Airport (ODS), at the Railway Station, or bring the car to your hotel.</li><li>Speed: Minimum bureaucracy. Booking and key handover take just a few minutes.</li><li>Honesty: You see the final price. No hidden fees.</li><li>Car Condition: We care about our cars. The interior is dry-cleaned, the technical part is perfect.</li><li>Support: We are in touch 24/7 via messengers and phone.</li></ul></div>
+
+<h3 class='editor_title'>Rental Without Deposit</h3>
+<div class='editor_text'>For your convenience, we have introduced an option of rental with a reduced deposit (up to 50%) or no deposit at all (subject to purchasing full insurance). Check the availability of this option for the selected car class with the manager.</div>
+
+<h3 class='editor_title'>Transfer and Chauffeur</h3>
+<div class='editor_text'>Want to relax and not think about the road? Order a car service with a driver. We will meet you with a sign at the airport and comfortably deliver you to any point in Odesa or the region.</div>
+
+<h3 class='editor_title'>Car Delivery</h3>
+<div class='editor_text'>Gratuit: Center, Prymorskyi district, Arcadia, Cheremushky, Airport (parking fee is paid by the client).<br/>Kotovskyi District and Region: Delivery is possible, the cost is calculated individually depending on the distance.</div>
 
 <h2 class='editor_title'>Safety on Odesa Roads</h2>
 <div class='editor_text'>The specifics of the southern city require attention.<ol><li><span class='text-strong'>Trams:</span> There are many tram tracks in the center. Be careful, especially in the rain — the rails are slippery.</li><li><span class='text-strong'>Seasonality:</span> In summer, traffic increases significantly due to tourists, scooters, and electric scooters. Check your mirrors and "blind spots" more often.</li><li><span class='text-strong'>Parking:</span> Do not leave the car under "No Stopping" signs — tow trucks are actively working in Odesa.</li><li><span class='text-strong'>Alcohol:</span> We have zero tolerance for drinking and driving. Violation means immediate termination of the contract, a fine, and blacklisting.</li></ol></div>
@@ -8656,6 +9838,39 @@ function generateDniproEditorContent(locale: Locale): string {
 <h2 class='editor_title'>Traffic Safety in Dnipro</h2>
 <div class='editor_text'>Driving in Dnipro has its specifics:<ol><li><span class='text-strong'>Bridges:</span> Traffic across the Dnipro river during rush hours can be difficult. Plan your time with a margin.</li><li><span class='text-strong'>Tram Tracks:</span> The city has an extensive tram network. Be careful when crossing tracks, especially in the rain.</li><li><span class='text-strong'>Speed:</span> It is tempting to speed up on the embankment, but speed cameras are working. Observe the limits.</li><li><span class='text-strong'>Alcohol:</span> REIZ adheres to a zero-tolerance policy. Drunk driving is strictly prohibited and leads to immediate termination of the contract.</li></ol></div>
 `.trim(),
+    ro: `
+<div class='editor_text'>Dnipro is a powerful industrial and business hub. Here, time is expensive, and mobility determines the success of deals. REIZ offers a car rental service tailored to the city's ambitions: from economical sedans for moving between offices to premium class vehicles for meeting important partners. We provide car delivery to both the Right and Left banks, as well as delivery throughout the region.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <span class='text-strong'>închiriere auto premium</span> for business, reliable <span class='text-strong'>închiriere SUV</span> for travel, and spacious <span class='text-strong'>închiriere microbuz</span> for families. Even if you're looking for <span class='text-strong'>închiriere auto economic</span>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<h2 class='editor_title'>Hourly Test Drive</h2>
+<div class='editor_text'>You don't have to rent a car for a week to appreciate its benefits. The "Hourly" tariff allows you to take a car for a day. Drive along the longest embankment in Europe, check the dynamics on the ascent of Yavornytskyi Avenue, or maneuverability in traffic on the Central Bridge. This is the best way to make sure the dimensions and comfort of the car suit you.</div>
+
+<h3 class='editor_title'>Weekly Rate: Work and Leisure</h3>
+<div class='editor_text'>Came on a business trip for 7 days? A personal car is much more efficient than a taxi. You can freely move between industrial zones and the center, and on weekends — head to the Blue Lakes or visit Khortytsia Island in neighboring Zaporizhzhia. The fixed cost of a weekly rental allows you to clearly plan your trip budget.</div>
+
+<h3 class='editor_title'>Monthly Rental ("Business" Tariff)</h3>
+<div class='editor_text'>The optimal solution for those staying in Dnipro for a long time. Instead of daily payments — one payment for 30 days with a significant discount. This is your personal transport without being tied to train or bus schedules. Convenient for regular trips on routes Dnipro ↔ Poltava, Kharkiv, Zaporizhzhia. If your plans change (for example, you need more luggage space), we will promptly replace the car with another class.</div>
+
+<h3 class='editor_title'>Long-Term Rental</h3>
+<div class='editor_text'>Need a car for a season or a year, but don't want to spend money on buying one? Închiriere pe termen lung from REIZ is a turnkey service. You use the car, and we handle insurance, technical inspection, and seasonal tire changes. This is an ideal option for corporate clients and companies that have relocated their business to Dnipro.</div>
+
+<h2 class='editor_title'>Coming soon in REIZ Dnipro: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, agile and economical cars from $20/day will be available for rent in Dnipro — a practical choice for daily trips between the office, warehouse, and home.<br/><br/>While we prepare these models for launch, we invite you to consider our Comfort class cars. They offer a status look for business meetings and maximum reliability on regional roads at a reasonable price.</div>
+
+<h2 class='editor_title'>Advantages of REIZ Service in Dnipro</h2>
+<div class='editor_text'><ul><li>Meeting: We deliver the car to the airport (DNK), Dnipro-Main Railway Station, or your address.</li><li>Transparency: All conditions are written in the contract. No hidden fees upon return.</li><li>Technical Condition: We are fanatics of cleanliness and serviceability. Every car undergoes inspection before delivery.</li><li>Support: Our managers are in touch 24/7, ready to help in Ukrainian, English, or other languages.</li><li>Intercity: Delivery and return of the car are possible in other cities of Ukraine upon prior request.</li></ul></div>
+
+<h3 class='editor_title'>No Deposit Conditions</h3>
+<div class='editor_text'>We make the service flexible. For many models, a reduced deposit or no deposit option is available (with full coverage purchase). Ask the manager for details when booking.</div>
+
+<h3 class='editor_title'>Transfer and Chauffeur</h3>
+<div class='editor_text'>Need to prepare for a meeting on the road? Order a car with a driver. We will meet you or your guests and provide premium-level transfer around the city and the region.</div>
+
+<h3 class='editor_title'>Car Delivery</h3>
+<div class='editor_text'>Gratuit: Center, Embankment (Naberezhna), Railway Station area, and adjacent zones.<br/>Paid Delivery: Left bank, remote residential areas, suburbs. The cost is calculated individually.</div>
+
+<h2 class='editor_title'>Traffic Safety in Dnipro</h2>
+<div class='editor_text'>Driving in Dnipro has its specifics:<ol><li><span class='text-strong'>Bridges:</span> Traffic across the Dnipro river during rush hours can be difficult. Plan your time with a margin.</li><li><span class='text-strong'>Tram Tracks:</span> The city has an extensive tram network. Be careful when crossing tracks, especially in the rain.</li><li><span class='text-strong'>Speed:</span> It is tempting to speed up on the embankment, but speed cameras are working. Observe the limits.</li><li><span class='text-strong'>Alcohol:</span> REIZ adheres to a zero-tolerance policy. Drunk driving is strictly prohibited and leads to immediate termination of the contract.</li></ol></div>
+`.trim(),
   };
 
   return contentByLocale[locale];
@@ -8791,6 +10006,39 @@ function generateKharkivEditorContent(locale: Locale): string {
 
 <h3 class='editor_title'>Car Delivery in Kharkiv</h3>
 <div class='editor_text'>Free: Central districts (Shevchenkivskyi, Kyivskyi), Nauky Avenue, Botanical Garden area, Gorky Park.<br/>Paid Delivery: Residential districts (Saltivka, Oleksiivka, KHTZ, Rohan), as well as suburbs (Pisochyn, Derhachi, Vysokyi). The cost is calculated individually depending on the mileage.</div>
+
+<h2 class='editor_title'>Traffic Safety in Kharkiv: What to Look Out For</h2>
+<div class='editor_text'>Kharkiv is a city of wide roads that provoke speed. But safety is paramount.<ol><li><span class='text-strong'>Cameras:</span> Speed cameras operate on Haharyna Avenue, Nauky Avenue, and other highways. Observe the limits.</li><li><span class='text-strong'>Tram Tracks:</span> Be especially careful on Moskovskyi (Heroiv Kharkova Avenue) and in the Kinnyi Market area. The rails can be slippery, and the tiles near them often have irregularities.</li><li><span class='text-strong'>Complex Intersections:</span> Roundabouts on Haharyna and interchanges near the center require attention. Watch the priority signs.</li><li><span class='text-strong'>Alcohol:</span> REIZ policy is zero tolerance. Driving under the influence is strictly prohibited, punished by a huge fine and immediate termination of the contract without a refund.</li></ol></div>
+`.trim(),
+    ro: `
+<div class='editor_text'>Kharkiv is a city of scale, intelligence, and a frantic rhythm. It is a metropolis where distances matter: driving from the business center near Gosprom to the industrial giants on the outskirts can take an hour. REIZ service offers not just car rental, but a tool for your freedom. We understand the specifics of Kharkiv: you need cars with reliable suspension for the cobblestones on Sumska Street and dynamic engines for wide avenues. We deliver perfectly clean, refueled, and technically flawless cars anywhere in the city.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <span class='text-strong'>închiriere auto premium</span> for business, reliable <span class='text-strong'>închiriere SUV</span> for travel, and spacious <span class='text-strong'>închiriere microbuz</span> for families. Even if you're looking for <span class='text-strong'>închiriere auto economic</span>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<h2 class='editor_title'>Hourly Rate: Your Real-World Test Drive</h2>
+<div class='editor_text'>Not sure if you should rent a car for a long time? The hourly rate is the best way to "try on" a car without unnecessary commitments. One day is enough to understand everything:<ol><li><span class='text-strong'>Tram Tracks:</span> How does the car overcome tram tracks on Heroiv Kharkova Avenue or cobblestones on Pushkinska Street?</li><li><span class='text-strong'>Parking:</span> Is it convenient for you to park in the cramped courtyards of the center near the Opera House?</li><li><span class='text-strong'>Trunk:</span> Will the trunk fit all the equipment for a picnic in Sarzhyn Yar?</li></ol>This is an ideal option for short tasks: meeting business partners at the train station, arranging a romantic evening, or simply testing a model before buying.</div>
+
+<h3 class='editor_title'>Închiriere auto săptămânală: Freedom from Metro and Taxi</h3>
+<div class='editor_text'>The weekly rate in Kharkiv is the golden mean between price and comfort. You get one fixed rate for 7 days, which is much more profitable than daily rental. In a week, you can combine active work and proper rest:<ol><li><span class='text-strong'>On weekdays:</span> Make it to meetings from "Naukova" to "Sportyvna" metro stations without waiting for a taxi during rush hour.</li><li><span class='text-strong'>On the weekend:</span> Head out of town! Visit Feldman Ecopark, walk along the Singing Terraces in Horodnie, or drive to the palace in Sharivka.</li></ol>The "Week" format gives time to get used to the dimensions of the car and enjoy the trip without haste.</div>
+
+<h3 class='editor_title'>Monthly Rental ("Business" Tariff)</h3>
+<div class='editor_text'>A special offer for those who have come to Kharkiv for a long time: IT specialists, project managers, or those who are temporarily without their own "iron horse".<ol><li><span class='text-strong'>Savings:</span> The cost of a rental day is reduced to a minimum.</li><li><span class='text-strong'>Predictability:</span> One payment once every 30 days.</li><li><span class='text-strong'>Mobility:</span> You are not tied to the city. Need to go to Poltava, Sumy, or Dnipro? Just get in and drive.</li><li><span class='text-strong'>Flexibilitate:</span> If your plans change (for example, your family arrives and you need more space), we will replace the sedan with a crossover or minivan.</li></ol></div>
+
+<h3 class='editor_title'>Long-Term Rental (Car Subscription)</h3>
+<div class='editor_text'>A solution for business and rational people. Rental de la 3 luni la un an or more. You get all the benefits of your own car but get rid of the owner's headache:<ol><li><span class='text-strong'>Technical Service:</span> We monitor oil and filter changes ourselves.</li><li><span class='text-strong'>Tires:</span> Seasonal replacement and storage of tires is our concern.</li><li><span class='text-strong'>Insurance:</span> Full CASCO and MTPL are already included in the price. You simply pay a fixed amount monthly and use the car.</li></ol></div>
+
+<h2 class='editor_title'>Coming soon in REIZ Kharkiv: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, agile and economical cars from $20/day will be available for rent in Kharkiv — an ideal choice for city trips and easy parking near markets and business centers.<br/><br/>While we prepare these models for launch, we invite you to consider our Comfort class cars. They offer reliability on the cobblestones of Sumska Street and comfort for longer regional trips.</div>
+
+<h2 class='editor_title'>Why Kharkiv Citizens and Guests Choose REIZ</h2>
+<div class='editor_text'><ul><li>Location: We will meet you in the arrival hall of the Airport (HRK), on the platform of "Kharkiv-Pasazhyrskyi" Railway Station, or drive the car right to your doorstep.</li><li>Speed: From the call to receiving the keys — minimum time. We process documents in 15 minutes.</li><li>Transparency: No hidden "service fees". You pay exactly the price you see on the website.</li><li>Car Condition: Our cars undergo washing and dry cleaning before every delivery. The technical condition is checked by a checklist.</li><li>Suport 24/7: We are always in touch — in Ukrainian, Russian, English, or Hebrew.</li></ul></div>
+
+<h3 class='editor_title'>Rental Without Deposit</h3>
+<div class='editor_text'>We make rental accessible. For many models, a reduced deposit option (50%) or no deposit at all (subject to purchasing additional Super CDW insurance) is available. Check detalii la manager when booking.</div>
+
+<h3 class='editor_title'>Chauffeur Services and VIP Transfer</h3>
+<div class='editor_text'>Want to rest on the road or make an impression? Order a business or premium class car with a professional driver. Ideal for weddings, meeting important delegations, or a comfortable transfer to another city. The driver knows the city perfectly and will choose a route without traffic jams.</div>
+
+<h3 class='editor_title'>Car Delivery in Kharkiv</h3>
+<div class='editor_text'>Gratuit: Central districts (Shevchenkivskyi, Kyivskyi), Nauky Avenue, Botanical Garden area, Gorky Park.<br/>Paid Delivery: Residential districts (Saltivka, Oleksiivka, KHTZ, Rohan), as well as suburbs (Pisochyn, Derhachi, Vysokyi). The cost is calculated individually depending on the mileage.</div>
 
 <h2 class='editor_title'>Traffic Safety in Kharkiv: What to Look Out For</h2>
 <div class='editor_text'>Kharkiv is a city of wide roads that provoke speed. But safety is paramount.<ol><li><span class='text-strong'>Cameras:</span> Speed cameras operate on Haharyna Avenue, Nauky Avenue, and other highways. Observe the limits.</li><li><span class='text-strong'>Tram Tracks:</span> Be especially careful on Moskovskyi (Heroiv Kharkova Avenue) and in the Kinnyi Market area. The rails can be slippery, and the tiles near them often have irregularities.</li><li><span class='text-strong'>Complex Intersections:</span> Roundabouts on Haharyna and interchanges near the center require attention. Watch the priority signs.</li><li><span class='text-strong'>Alcohol:</span> REIZ policy is zero tolerance. Driving under the influence is strictly prohibited, punished by a huge fine and immediate termination of the contract without a refund.</li></ol></div>
@@ -8934,6 +10182,39 @@ function generateZaporizhzhiaEditorContent(locale: Locale): string {
 <h2 class='editor_title'>Traffic Safety in Zaporizhzhia</h2>
 <div class='editor_text'>Zaporizhzhia has its own road specifics worth considering:<ol><li><span class='text-strong'>Bridges and Dam:</span> These are the city's "bottlenecks". Traffic jams are possible here during rush hours. Plan your time with a margin if crossing from bank to bank.</li><li><span class='text-strong'>Avenue:</span> The wide road tempts to speed, but speed cameras are working. Observe the rules.</li><li><span class='text-strong'>Roundabouts:</span> Be careful at the circle near "Dubovyi Hai" and on Khortytsia Island.</li><li><span class='text-strong'>Alcohol:</span> REIZ policy remains unchanged — zero tolerance. Drunk driving is strictly prohibited.</li></ol></div>
 `.trim(),
+    ro: `
+<div class='editor_text'>Zaporizhzhia is a giant city where distances dictate their own rules. Driving from the Pivdennyi district to the Dnipro HES dam is a small journey in itself. REIZ service offers car rental that gives you independence from public transport and complex bus schedules. Whether you are an engineer visiting a factory or a tourist wanting to see the cradle of the Cossacks, we have the perfect car for your tasks. We guarantee: a clean interior, a full tank, and technical serviceability of every car.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <span class='text-strong'>închiriere auto premium</span> for business, reliable <span class='text-strong'>închiriere SUV</span> for travel, and spacious <span class='text-strong'>închiriere microbuz</span> for families. Even if you're looking for <span class='text-strong'>închiriere auto economic</span>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<h2 class='editor_title'>Hourly Rate: Test Drive of Legendary Routes</h2>
+<div class='editor_text'>Doubt if you will be comfortable driving a specific model? Take the car for a day. This time is enough to feel the rhythm of the city:<ol><li><span class='text-strong'>Avenue:</span> Drive along Sobornyi Avenue — one of the longest streets in Europe.</li><li><span class='text-strong'>Bridges:</span> Check how the car behaves in traffic on the Dnipro HES dam or on the new bridges.</li><li><span class='text-strong'>Trunk:</span> Evaluate the trunk capacity near supermarkets in the city center.</li></ol>This is the best way to ensure the car suits your size and comfort needs.</div>
+
+<h3 class='editor_title'>Weekly Rental: Work and Weekend in Nature</h3>
+<div class='editor_text'>The weekly rate in Zaporizhzhia is your ticket to a world without limits. One fixed payment for 7 days, and you forget about calling a taxi.<ol><li><span class='text-strong'>For Business:</span> You will easily make it to business meetings in the Voznesenivskyi district and production sites in Pavlo-Kichkas.</li><li><span class='text-strong'>For Leisure:</span> On the weekend, be sure to visit Khortytsia Island. With your own car, you can drive deep into the reserve, see the Scythian Camp and the Horse Theater, which are hard to reach on foot. Or head to the "Aqueduct" or to the banks of the Dnipro for a picnic.</li></ol></div>
+
+<h3 class='editor_title'>Monthly Rental ("Business" Tariff)</h3>
+<div class='editor_text'>The optimal solution for contractors, seconded specialists, and those temporarily without their own car. We offer a special price (significantly lower than the daily rate) and complete freedom of movement. Zaporizhzhia is conveniently located: just an hour's drive to Dnipro. You can freely use the car for intercity trips. If your tasks change, we will promptly replace a compact car with a prestigious business class for meeting a delegation.</div>
+
+<h3 class='editor_title'>Long-Term Rental (from 3 months)</h3>
+<div class='editor_text'>Why buy a car for a project that will last six months? Rental from REIZ is a profitable alternative. You get personal transport but have no hassle with its maintenance.<ol><li><span class='text-strong'>Insurance:</span> CASCO/MTPL — included.</li><li><span class='text-strong'>Maintenance:</span> Maintenance and oil changes — our concern.</li><li><span class='text-strong'>Tires:</span> Winter/summer tires — we change tires on time.</li></ol>This is ideal for corporate clients who value cost predictability.</div>
+
+<h2 class='editor_title'>Coming soon in REIZ Zaporizhzhia: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, agile and economical cars from $20/day will be available for rent in Zaporizhzhia — a reliable choice for trips between districts, to industrial sites, or out to the dacha.<br/><br/>While we prepare these models for launch, we invite you to consider our Comfort class cars. They offer a resilient suspension for our roads and maximum convenience for moving along Sobornyi Avenue.</div>
+
+<h2 class='editor_title'>Why Zaporizhzhia Chooses REIZ</h2>
+<div class='editor_text'><ul><li>Convenience: We will meet you on the platform of "Zaporizhzhia-1" Railway Station or deliver the car to the specified address.</li><li>Speed: From signing the contract to starting the engine — 15 minutes.</li><li>Honesty: No hidden fees. "Full-to-full" fuel policy.</li><li>Service: 24/7 customer support. We will help if you get a flat tire or have questions about the route.</li></ul></div>
+
+<h3 class='editor_title'>Rental Without Deposit</h3>
+<div class='editor_text'>We meet clients halfway. For many models, a reduced deposit or no deposit rental service is available (subject to additional insurance). This simplifies the procedure and reduces the financial burden at the start.</div>
+
+<h3 class='editor_title'>Chauffeur Services</h3>
+<div class='editor_text'>Need to meet important guests or just want to relax during the trip? Order a car with a professional driver. We will ensure a comfortable transfer to the hotel, airport (in neighboring cities), or a business dinner.</div>
+
+<h3 class='editor_title'>Car Delivery in the City</h3>
+<div class='editor_text'>Gratuit: Sobornyi Avenue, Festivalna Square area, Shevchenka Boulevard, "Zaporizhzhia-1" Station area.<br/>Paid Delivery: Khortytskyi district (Baburka), Right Bank (Osypenkivskyi, Borodinskyi), Shevchenkivskyi district, and suburbs.</div>
+
+<h2 class='editor_title'>Traffic Safety in Zaporizhzhia</h2>
+<div class='editor_text'>Zaporizhzhia has its own road specifics worth considering:<ol><li><span class='text-strong'>Bridges and Dam:</span> These are the city's "bottlenecks". Traffic jams are possible here during rush hours. Plan your time with a margin if crossing from bank to bank.</li><li><span class='text-strong'>Avenue:</span> The wide road tempts to speed, but speed cameras are working. Observe the rules.</li><li><span class='text-strong'>Roundabouts:</span> Be careful at the circle near "Dubovyi Hai" and on Khortytsia Island.</li><li><span class='text-strong'>Alcohol:</span> REIZ policy remains unchanged — zero tolerance. Drunk driving is strictly prohibited.</li></ol></div>
+`.trim(),
   };
 
   return contentByLocale[locale];
@@ -9069,6 +10350,39 @@ function generateBoryspilEditorContent(locale: Locale): string {
 
 <h3 class='editor_title'>Car Delivery</h3>
 <div class='editor_text'>Free: Airport territory (KBP), hotels within a 5 km radius, Boryspil city center.<br/>Outside the City: Delivery to Brovary, Kyiv, or other cities in the region is calculated individually.</div>
+
+<h2 class='editor_title'>Traffic Safety: Highway Specifics</h2>
+<div class='editor_text'>The Boryspil highway is the best road in Ukraine, but it requires attention:<ol><li><span class='text-strong'>Speed:</span> The permitted speed (in summer) is 130 km/h. Keep your distance and do not occupy the left lane unnecessarily.</li><li><span class='text-strong'>Fatigue:</span> After a flight, reaction time may be slowed. If you feel tired, it is better to stop for coffee at one of the numerous gas stations.</li><li><span class='text-strong'>Fog:</span> In the morning and in autumn, thick fog often occurs in the lowlands near the airport. Use fog lights.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Celebrating arrival must be done without driving. Violation is immediate termination of the contract.</li></ol></div>
+`.trim(),
+    ro: `
+<div class='editor_text'>Boryspil is the city where Ukraine begins for thousands of travelers. The main artery here is the International Airport and the M-03 high-speed highway. The REIZ service in Boryspil is created so that you do not depend on the SkyBus schedule or high taxi rates in the arrival zone. We offer the "Plane – Car" concept: you land, pick up your luggage, and within 15 minutes you are sitting behind the wheel of a comfortable car. Livrăm mașini la Terminals D and F, as well as to hotels near the airport, to make your start as smooth as possible.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <span class='text-strong'>închiriere auto premium</span> for business, reliable <span class='text-strong'>închiriere SUV</span> for travel, and spacious <span class='text-strong'>închiriere microbuz</span> for families. Even if you're looking for <span class='text-strong'>închiriere auto economic</span>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<h2 class='editor_title'>Hourly Rate: Ideal for Meeting and Transfer</h2>
+<div class='editor_text'>Do you need to meet business partners or relatives, but your own car is being repaired? Or do you have a long layover between flights? Hourly rental is your solution.<ol><li><span class='text-strong'>Comfort:</span> Instead of waiting outside, you wait in the climate control of your own car.</li><li><span class='text-strong'>Test Drive:</span> Try the car on the perfect "Boryspil – Kyiv" highway. This is the best testing ground to check dynamics, noise insulation, and cruise control operation.</li><li><span class='text-strong'>Capacity:</span> Check if all suitcases fit in the trunk before booking a car for a long trip.</li></ol></div>
+
+<h3 class='editor_title'>Weekly Rate: Start of a Big Journey</h3>
+<div class='editor_text'>If you flew to Ukraine for a vacation or business for a week, renting a car directly in Boryspil saves you a lot of time. You don't need to go to Kyiv to pick up a car. Arrange the rental on the spot and set off on your own route:<ol><li><span class='text-strong'>Pereiaslav:</span> Visit the museums of Pereiaslav (only 40 min drive).</li><li><span class='text-strong'>Kaniv:</span> Go to Taras Hill in Kaniv.</li><li><span class='text-strong'>Long routes:</span> Or head straight to Odesa, Lviv, or the Carpathians, bypassing the capital's traffic jams.</li></ol>The weekly rate gives a fixed price and complete freedom of action.</div>
+
+<h3 class='editor_title'>Monthly Rental ("Long Visit" Tariff)</h3>
+<div class='editor_text'>A profitable offer for expats who have come to visit family, or specialists involved in logistics projects (of which there are many in Boryspil). The "Month" tariff means:<ol><li><span class='text-strong'>Savings:</span> The daily cost is significantly lower than with short-term rental.</li><li><span class='text-strong'>Stability:</span> One payment once every 30 days.</li><li><span class='text-strong'>Flexibilitate:</span> Need to go abroad? We will prepare the documents. Need to change the car to another class? We will do it quickly.</li></ol>This is your personal transport without the need to buy and maintain a car.</div>
+
+<h3 class='editor_title'>Long-Term Rental (from 3 months)</h3>
+<div class='editor_text'>For businesses working in aviation or logistics, as well as for those building a house in the suburbs of Kyiv. Închiriere pe termen lung from REIZ removes all technical issues from you. We monitor insurance, maintenance, and tires. Your task is only to refuel the car. This is much more convenient than a taxi and cheaper than maintaining the company's own fleet.</div>
+
+<h2 class='editor_title'>Coming soon in REIZ Boryspil: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, compact and economical cars from $20/day will be available for rent in Boryspil — a great solution for short transfers or light trips.<br/><br/>While we prepare these models, we invite you to consider our Comfort class cars. They offer spacious trunks for all your luggage and maximum comfort after a long flight.</div>
+
+<h2 class='editor_title'>Advantages of REIZ in Boryspil</h2>
+<div class='editor_text'><ul><li>Flight Tracking: We track your flight. If the plane is delayed, our manager will wait for you, and it will not cost extra.</li><li>Meet &amp; Greet: We meet you with a name sign in the arrival zone of Terminal D.</li><li>24/7: Flights arrive at night too. We work 24/7 (by prior booking).</li><li>Cleanliness: You get into a perfectly clean car, ready for the road.</li><li>Navigație: We will help set up CarPlay/Android Auto so you can plot your route immediately.</li></ul></div>
+
+<h3 class='editor_title'>Rental Without Deposit</h3>
+<div class='editor_text'>We understand that after a flight, you don't want to think about deposits. For many car classes, a no-deposit rental option is available (when purchasing full protection). This simplifies the process and saves your nerves.</div>
+
+<h3 class='editor_title'>Chauffeur Services (Transfer)</h3>
+<div class='editor_text'>Tired after a long flight? Don't risk getting behind the wheel. Order a transfer with a professional driver from REIZ. We will meet you, help with luggage, and deliver you with business-class comfort to any hotel in Kyiv or another city in Ukraine.</div>
+
+<h3 class='editor_title'>Car Delivery</h3>
+<div class='editor_text'>Gratuit: Airport territory (KBP), hotels within a 5 km radius, Boryspil city center.<br/>Outside the City: Delivery to Brovary, Kyiv, or other cities in the region is calculated individually.</div>
 
 <h2 class='editor_title'>Traffic Safety: Highway Specifics</h2>
 <div class='editor_text'>The Boryspil highway is the best road in Ukraine, but it requires attention:<ol><li><span class='text-strong'>Speed:</span> The permitted speed (in summer) is 130 km/h. Keep your distance and do not occupy the left lane unnecessarily.</li><li><span class='text-strong'>Fatigue:</span> After a flight, reaction time may be slowed. If you feel tired, it is better to stop for coffee at one of the numerous gas stations.</li><li><span class='text-strong'>Fog:</span> In the morning and in autumn, thick fog often occurs in the lowlands near the airport. Use fog lights.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Celebrating arrival must be done without driving. Violation is immediate termination of the contract.</li></ol></div>
@@ -9212,6 +10526,39 @@ function generateBukovelEditorContent(locale: Locale): string {
 <h2 class='editor_title'>Safety in the Mountains: Driver's Memo</h2>
 <div class='editor_text'>Carpathian roads require respect and skills:<ol><li><span class='text-strong'>Engine Braking:</span> On long descents, use lower gears to avoid overheating the brakes.</li><li><span class='text-strong'>Distance:</span> On a slippery road, the braking distance increases significantly. Keep double the distance.</li><li><span class='text-strong'>Turns:</span> Reduce speed before the turn, not in it. Avoid sharp steering movements.</li><li><span class='text-strong'>Alcohol:</span> The mountain road does not forgive mistakes. REIZ policy is zero tolerance for alcohol.</li></ol></div>
 `.trim(),
+    ro: `
+<div class='editor_text'>Bukovel is not just a resort, it is a center of attraction for active people. But the Carpathians are not limited to ski lifts. Yaremche waterfalls, Vorokhta viaducts, and the highest peaks — all this becomes accessible only with a personal car. The REIZ service in Bukovel specializes in renting cars ready for mountain challenges. Our fleet includes reliable crossovers and SUVs with four-wheel drive (4x4), which confidently hold the road both on a snowy pass and on a steep climb to the hotel.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <span class='text-strong'>închiriere auto premium</span> for business, reliable <span class='text-strong'>închiriere SUV</span> for travel, and spacious <span class='text-strong'>închiriere microbuz</span> for families. Even if you're looking for <span class='text-strong'>închiriere auto economic</span>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<h2 class='editor_title'>Hourly Drive: Test on Mountain Roads</h2>
+<div class='editor_text'>Want to try how a specific SUV behaves in real conditions? Take a car for a day. This is an ideal test drive:<ol><li><span class='text-strong'>Traction:</span> Check the engine traction on the long climbs of the Yablunytskyi Pass.</li><li><span class='text-strong'>Handling:</span> Evaluate the handling on the serpentine.</li><li><span class='text-strong'>Trunk:</span> Make sure your skis or snowboards fit easily in the trunk.</li></ol>It is also convenient if you want to go on a day trip to Verkhovyna or Kryvorivnia.</div>
+
+<h3 class='editor_title'>Weekly Rate: The Ideal Vacation</h3>
+<div class='editor_text'>Weekly rental in Bukovel means comfort and independence from hotel shuttles. You decide when to go skiing — for the opening of the slopes or for the evening session.<ol><li><span class='text-strong'>Freedom of Choice:</span> Today you ski in Bukovel, tomorrow you drive to Drahobrat (in a specially prepared car), and the day after tomorrow you relax in the hot tubs in Tatariv.</li><li><span class='text-strong'>Savings:</span> The weekly rate is much more profitable than ordering a taxi daily between the villages of Polianytsia, Yablunytsia, and Yaremche.</li></ol></div>
+
+<h3 class='editor_title'>Monthly Rental (Workation in the Mountains)</h3>
+<div class='editor_text'>More and more people come to the Carpathians to live and work remotely. The "Month" tariff is created just for them. This is your personal transport at a price lower than the market one. You can live in a cozy chalet away from the noise of the center, but always be able to quickly get to a supermarket, coworking space, or restaurant. Need to go to Lviv or Ivano-Frankivsk on business? With a car from REIZ, it's a matter of two hours of comfortable driving.</div>
+
+<h3 class='editor_title'>Long-Term Rental</h3>
+<div class='editor_text'>For business owners in Bukovel, hoteliers, or those building real estate here. Rental from 3 months is an alternative to buying a company car. We take on the most important thing in the mountains — the technical condition.<ol><li><span class='text-strong'>Winter Preparation:</span> We install only high-quality winter tires with a "Nordic" tread.</li><li><span class='text-strong'>Maintenance:</span> Regular checks of the braking system and chassis, which work under load in the mountains.</li></ol>You simply use a reliable car.</div>
+
+<h2 class='editor_title'>Coming soon in REIZ Bukovel: Economy car rental (Economy)</h2>
+<div class='editor_text'>We are preparing a fleet expansion! Soon, compact cars from $20/day will be available for rent in Bukovel — a cost-efficient option for summer trips on paved roads between Yaremche and Polianytsia.<br/><br/>While we prepare these models, we recommend our AWD crossovers (SUVs) for mountain roads. They provide safety on serpentines and confidence in any weather.</div>
+
+<h2 class='editor_title'>Advantages of REIZ in the Carpathians</h2>
+<div class='editor_text'><ul><li>Location: We will deliver the car directly to the reception of your hotel in Bukovel, Polianytsia, Tatariv, or Yaremche. We also meet at the airport/train station of Ivano-Frankivsk.</li><li>Preparation: All cars undergo enhanced control. We check fluids, lights, and heater operation so you have no surprises in the frost.</li><li>Equipment: Upon request, we provide ski/board racks (roof boxes) and snow chains.</li><li>Transparency: No extra charges for "terrain complexity". The price is fixed.</li></ul></div>
+
+<h3 class='editor_title'>Rental Without Deposit</h3>
+<div class='editor_text'>Vacation should be carefree. For most models, we offer a no-deposit rental option (when purchasing full insurance). Enjoy the mountains, and we will take the risks.</div>
+
+<h3 class='editor_title'>Transfer and Chauffeur</h3>
+<div class='editor_text'>Want to relax after skiing with a glass of mulled wine? Do not get behind the wheel. Order a car with a driver. We will organize a VIP-level transfer from Ivano-Frankivsk or Lviv, or simply take you from a restaurant to the hotel. Safe, comfortable, and warm.</div>
+
+<h3 class='editor_title'>Car Delivery</h3>
+<div class='editor_text'>Gratuit: Within the Bukovel resort (Polianytsia village, parking lots near lifts No. 1, 2, 7, 14).<br/>Paid Delivery: Yaremche, Mykulychyn, Tatariv, Vorokhta, Yablunytsia. The cost depends on the distance to our office.</div>
+
+<h2 class='editor_title'>Safety in the Mountains: Driver's Memo</h2>
+<div class='editor_text'>Carpathian roads require respect and skills:<ol><li><span class='text-strong'>Engine Braking:</span> On long descents, use lower gears to avoid overheating the brakes.</li><li><span class='text-strong'>Distance:</span> On a slippery road, the braking distance increases significantly. Keep double the distance.</li><li><span class='text-strong'>Turns:</span> Reduce speed before the turn, not in it. Avoid sharp steering movements.</li><li><span class='text-strong'>Alcohol:</span> The mountain road does not forgive mistakes. REIZ policy is zero tolerance for alcohol.</li></ol></div>
+`.trim(),
   };
 
   return contentByLocale[locale];
@@ -9347,6 +10694,39 @@ function generateTernopilEditorContent(locale: Locale): string {
 
 <div class='editor_title'>Car Delivery in the City</div>
 <div class='editor_text'>Free: Center, "Druzhba" district, Lake Embankment area, Railway Station.<br/>Paid Delivery: "Sonyachnyi", "Skhidnyi", "Alaska" districts, "Podolyany" area, and suburbs. The cost is calculated individually.</div>
+
+<div class='editor_title'>Traffic Safety in Ternopil</div>
+<div class='editor_text'>The city has its specifics that drivers should consider:<ol><li><span class='text-strong'>Roundabouts:</span> There are many roundabouts in Ternopil (Zbarazke, Mykulynetske, etc.). Be careful when entering and exiting, follow priority signs and markings.</li><li><span class='text-strong'>Cobblestones:</span> Historic cobblestones remain in the city center. In the rain, they become slippery, so increase the braking distance.</li><li><span class='text-strong'>Pedestrians:</span> The city is active and full of students. Be careful near pedestrian crossings, especially in the university area.</li><li><span class='text-strong'>Alcohol:</span> We have zero tolerance for alcohol consumption. Safety is paramount.</li></ol></div>
+`.trim(),
+    ro: `
+<div class='editor_text'>Ternopil is a city with a special atmosphere, where business is combined with leisurely walks along the Lake embankment. But beyond the compact center, real magic begins: castles, caves, and spiritual shrines. To see all this and not depend on bus schedules, REIZ service offers rental of modern cars. We understand the city's needs: compact cars for narrow center streets and reliable crossovers for trips around the region.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <h2>închiriere auto premium</h2> for business, reliable <h2>închiriere SUV</h2> for travel, and spacious <h2>închiriere microbuz</h2> for families. Even if you're looking for <h2>închiriere auto economic</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<div class='editor_title'>Hourly Rate: Your Personal Test Drive</div>
+<div class='editor_text'>Not sure if a large car is suitable for Ternopil roads? Take a car for a day. This time is enough to:<ol><li><span class='text-strong'>Suspension:</span> Check the suspension on the cobblestones of Ruska Street.</li><li><span class='text-strong'>Parking:</span> Evaluate the convenience of parking near Theater Square or "Podolyany" Mall.</li><li><span class='text-strong'>Comfort:</span> Understand how comfortable you and your passengers feel in the cabin.</li></ol>This is an ideal option for solving current affairs in the city or meeting guests at the train station.</div>
+
+<div class='editor_title'>Weekly Rental: Ternopil Region Castles Tour</div>
+<div class='editor_text'>The Ternopil region ranks first in Ukraine in the number of castles. Weekly rental is your chance to see them all without haste. A fixed rate for 7 days allows you to plan the perfect route:<ol><li><span class='text-strong'>Zbarazh:</span> Visit the residence of the Vyshnevetsky princes (only 20 km from the city).</li><li><span class='text-strong'>Kremenets:</span> Climb Bona Hill and enjoy the panorama.</li><li><span class='text-strong'>Pochaiv:</span> Visit the Lavra — a spiritual center known throughout the world.</li></ol>With your own car, you can stop wherever you want, do photo shoots, and dine in colorful roadside restaurants.</div>
+
+<div class='editor_title'>Monthly Rental ("Business" Tariff)</div>
+<div class='editor_text'>Ternopil is an important logistics hub between Lviv, Khmelnytskyi, and Rivne. For entrepreneurs and managers working in the region, we offer the "Month" tariff. This is more profitable than maintaining your own fleet:<ol><li><span class='text-strong'>Payment:</span> One payment once every 30 days.</li><li><span class='text-strong'>Routes:</span> Possibility of free travel to neighboring regions (Lviv, Ivano-Frankivsk, Chernivtsi).</li><li><span class='text-strong'>Flexibilitate:</span> If you need a vehicle to transport cargo or a delegation, we will promptly replace it with a more spacious model.</li></ol></div>
+
+<div class='editor_title'>Long-Term Rental (from 3 months)</div>
+<div class='editor_text'>If you relocated your business to Ternopil or just live here and value comfort. Închiriere pe termen lung from REIZ removes all car owner worries from you. You don't think about insurance, oil changes, or seasonal tire swapping. You simply enjoy driving, and our team solves all technical issues. This is a modern approach to car ownership without unnecessary obligations.</div>
+
+<div class='editor_title'>Economy Class: Smart Mobility from $20</div>
+<div class='editor_text'>Ternopil is a compact city. You don't always need a huge SUV here. Our economy class cars are maneuverable, easy-to-drive machines with minimal fuel consumption. They fit perfectly into traficul urban, easily turn around on narrow streets, and create no parking problems in courtyards.</div>
+
+<div class='editor_title'>Advantages of REIZ in Ternopil</div>
+<div class='editor_text'><ul><li>Meeting: We wait for you at "Ternopil" Railway Station, at the Bus Station, or deliver the car to your doorstep.</li><li>Speed: Contract processing takes 15 minutes. Minimum bureaucracy.</li><li>Honesty: You receive a car with a full tank and a clean interior. The price is fixed when booking.</li><li>Support: Our managers are in touch 24/7 to help in case of any questions on the road.</li></ul></div>
+
+<div class='editor_title'>Rental Without Deposit</div>
+<div class='editor_text'>For your peace of mind, we offer a no-deposit rental option (or with a significantly reduced deposit) subject to full insurance coverage. Travel confidently knowing that financial risks are covered.</div>
+
+<div class='editor_title'>Chauffeur Services</div>
+<div class='editor_text'>Planning a wedding, a gala event, or a meeting of VIP partners? Order a business class car with a driver. Our drivers are professionals who know the city perfectly and will ensure a safe and comfortable transfer.</div>
+
+<div class='editor_title'>Car Delivery in the City</div>
+<div class='editor_text'>Gratuit: Center, "Druzhba" district, Lake Embankment area, Railway Station.<br/>Paid Delivery: "Sonyachnyi", "Skhidnyi", "Alaska" districts, "Podolyany" area, and suburbs. The cost is calculated individually.</div>
 
 <div class='editor_title'>Traffic Safety in Ternopil</div>
 <div class='editor_text'>The city has its specifics that drivers should consider:<ol><li><span class='text-strong'>Roundabouts:</span> There are many roundabouts in Ternopil (Zbarazke, Mykulynetske, etc.). Be careful when entering and exiting, follow priority signs and markings.</li><li><span class='text-strong'>Cobblestones:</span> Historic cobblestones remain in the city center. In the rain, they become slippery, so increase the braking distance.</li><li><span class='text-strong'>Pedestrians:</span> The city is active and full of students. Be careful near pedestrian crossings, especially in the university area.</li><li><span class='text-strong'>Alcohol:</span> We have zero tolerance for alcohol consumption. Safety is paramount.</li></ol></div>
@@ -9490,6 +10870,39 @@ function generateTruskavetsEditorContent(locale: Locale): string {
 <div class='editor_title'>Traffic Safety in the Region</div>
 <div class='editor_text'>Truskavets is a city of pedestrians.<ol><li><span class='text-strong'>Resort Zone:</span> In the center, speed limits apply, and entry into pedestrian zones near the pump room is prohibited. Watch the signs.</li><li><span class='text-strong'>Mountain Roads:</span> The road to Skhidnytsia through the pass requires attention, especially in winter or rain. Do not exceed the speed on the serpentine.</li><li><span class='text-strong'>Parking:</span> Leave the car only in designated hotel parking lots or paid parking lots so as not to disturb other vacationers.</li><li><span class='text-strong'>Alcohol:</span> REIZ is for safe rest. Driving under the influence is strictly prohibited.</li></ol></div>
 `.trim(),
+    ro: `
+<div class='editor_text'>Truskavets is the pearl of balneological resorts, a place of peace and recovery. But drinking "Naftusya" water does not mean sitting in a hotel. Incredible natural attractions are scattered around the city. REIZ service offers car rental for those who want to combine treatment with active travel. Forget about crowded tour buses. With a personal car, you decide when to go to the Kamianka waterfall, and when to go shopping in Lviv.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <h2>închiriere auto premium</h2> for business, reliable <h2>închiriere SUV</h2> for travel, and spacious <h2>închiriere microbuz</h2> for families. Even if you're looking for <h2>închiriere auto economic</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<div class='editor_title'>Hourly Rate: A Little Journey</div>
+<div class='editor_text'>Tired of procedures? Take a car for a day and change the scenery.<ol><li><span class='text-strong'>Skhidnytsia:</span> Only 20 km along the serpentine — and you are in "Ukrainian Switzerland". Test how the car behaves on mountain turns.</li><li><span class='text-strong'>Tustan:</span> Legendary fortress in the rocks. Getting there by a rented crossover is much more comfortable than looking for a ride.</li><li><span class='text-strong'>Drohobych:</span> Visit the ancient saltworks and the town hall in the neighboring city.</li></ol>Hourly rental is an ideal test drive before renting a car for the entire vacation period.</div>
+
+<div class='editor_title'>Weekly Rental: Your Perfect Rhythm</div>
+<div class='editor_text'>A standard voucher to a sanatorium lasts 14-21 days. Renting a car for a week or two is the best solution for a family. You don't need to adjust to the bus schedule to go to dinner at another restaurant or visit the "Limpopo" zoo in Medenychi. You get freedom of movement: procedures in the morning, a trip to the mountains in the afternoon, a walk in the center in the evening. And all this at a fixed, favorable rate.</div>
+
+<div class='editor_title'>Monthly Rental (For Long Rest)</div>
+<div class='editor_text'>If you came to Truskavets for a full course of recovery or just to live in silence away from the metropolis. The "Month" tariff is maximum savings.<ol><li><span class='text-strong'>Cost:</span> The price per day is reduced by almost half compared to short-term rental.</li><li><span class='text-strong'>Mobility:</span> You can freely go to Lviv for the weekend, meet friends at the station, or arrange a tour of the castles of the Lviv region.</li><li><span class='text-strong'>Comfort:</span> We will select a car with a large trunk for your things or an economical option for frequent trips.</li></ol></div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>For those who own real estate in Truskavets or manage a business in the hotel sector. Rental from 3 months relieves you of the need to buy a company car. We take care of all technical issues: insurance, inspection, tire replacement. You get a ready-to-use car that is always at hand.</div>
+
+<div class='editor_title'>Economy Class: Convenient and Inexpensive</div>
+<div class='editor_text'>The streets of Truskavets are compact, and parking in the center can be difficult. Our economy class cars are the perfect choice. They are maneuverable, easy to park near the pump room, and consume minimum fuel. This is a smart choice for a quiet resort vacation.</div>
+
+<div class='editor_title'>Why Truskavets Guests Choose REIZ</div>
+<div class='editor_text'><ul><li>Delivery to the Hotel: You don't have to go anywhere. We will drive the car directly to the reception of "Rixos", "Mirotel", "Karpaty", or any other sanatorium.</li><li>Meeting at the Station: If you arrive by train, our manager will meet you on the platform with the keys.</li><li>Cleanliness: The car undergoes full sanitary treatment before delivery.</li><li>No Hidden Fees: The price you see when booking is final.</li></ul></div>
+
+<div class='editor_title'>Rental Without Deposit</div>
+<div class='editor_text'>We understand that on vacation you don't want to freeze funds on the card. For most cars, a no-deposit rental service is available (subject to full insurance). Enjoy your vacation without unnecessary financial blocks.</div>
+
+<div class='editor_title'>Transfer and Chauffeur</div>
+<div class='editor_text'>Need to get to Lviv airport? Or want to go for wine tasting and not drive? Order a transfer with a professional driver. Comfortable business class cars, polite drivers, and punctuality are guaranteed.</div>
+
+<div class='editor_title'>Car Delivery</div>
+<div class='editor_text'>Gratuit: Within the city of Truskavets (all sanatoriums, villas, Railway Station).<br/>Paid Delivery: Stebnyk, Drohobych, Boryslav, Skhidnytsia, Modrychi. The cost is calculated individually depending on the mileage.</div>
+
+<div class='editor_title'>Traffic Safety in the Region</div>
+<div class='editor_text'>Truskavets is a city of pedestrians.<ol><li><span class='text-strong'>Resort Zone:</span> In the center, speed limits apply, and entry into pedestrian zones near the pump room is prohibited. Watch the signs.</li><li><span class='text-strong'>Mountain Roads:</span> The road to Skhidnytsia through the pass requires attention, especially in winter or rain. Do not exceed the speed on the serpentine.</li><li><span class='text-strong'>Parking:</span> Leave the car only in designated hotel parking lots or paid parking lots so as not to disturb other vacationers.</li><li><span class='text-strong'>Alcohol:</span> REIZ is for safe rest. Driving under the influence is strictly prohibited.</li></ol></div>
+`.trim(),
   };
 
   return contentByLocale[locale];
@@ -9625,6 +11038,39 @@ function generateChernivtsiEditorContent(locale: Locale): string {
 
 <div class='editor_title'>Car Delivery</div>
 <div class='editor_text'>Free: Central part of the city, Shevchenko Park area, Nezalezhnosti Avenue, Railway Station.<br/>Paid Delivery: Hraviton, Sadhora, Rosha, Hodyliv, and suburban zones.</div>
+
+<div class='editor_title'>Traffic Safety in Chernivtsi: Important Tips</div>
+<div class='editor_text'>Driving here has its own flavor:<ol><li><span class='text-strong'>Cobblestones:</span> The entire old center is paved with stone. In the rain, it becomes slippery like ice. Increase distance and brake smoothly.</li><li><span class='text-strong'>Terrain:</span> The city stands on hills. In winter or on a wet road, starting uphill (for example, on Holovna St.) requires caution.</li><li><span class='text-strong'>One-Way Traffic:</span> The center is a labyrinth of one-way streets. Watch the navigator and signs carefully.</li><li><span class='text-strong'>Alcohol:</span> REIZ adheres to zero tolerance. Drinking and driving is unacceptable.</li></ol></div>
+`.trim(),
+    ro: `
+<div class='editor_text'>Chernivtsi is an architectural gem and a logistic gateway to Romania. The narrow streets of the old city, the majestic Residence of Metropolitans, and the complex terrain require a special approach to mobility. REIZ service in Chernivtsi offers cars that perfectly fit this context: reliable suspensions for historic cobblestones and powerful engines for trips along the serpentines of Bukovina. Forget about taxis that cannot always enter the courtyards of the old buildings. With a personal car, you are the master of your time.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <h2>închiriere auto premium</h2> for business, reliable <h2>închiriere SUV</h2> for travel, and spacious <h2>închiriere microbuz</h2> for families. Even if you're looking for <h2>închiriere auto economic</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<div class='editor_title'>Hourly Rate: Tour or Business Meeting?</div>
+<div class='editor_text'>Arrived by train in the morning and have time until the evening? Do not waste it waiting. Hourly rental is your solution for short visits.<ol><li><span class='text-strong'>Tourism:</span> Have time to see the University (UNESCO site), walk along Olha Kobylianska Street, and drink coffee on Turkish Square.</li><li><span class='text-strong'>Business:</span> Hold several meetings in different parts of the city with the comfort of your own office on wheels.</li><li><span class='text-strong'>Photoshoots:</span> Chernivtsi is a popular city for weddings and filming. A stylish car will be a perfect addition to the frame against the background of ancient architecture.</li></ol></div>
+
+<div class='editor_title'>Weekly Rental: Grand Tour of Bukovina</div>
+<div class='editor_text'>Chernivtsi is an ideal base for radial trips. The weekly rate will allow you to see all the most interesting things within a radius of 100 km without haste. A fixed price for 7 days makes rental more profitable than any transfer. Where to go:<ol><li><span class='text-strong'>Khotyn Fortress:</span> Legendary stronghold on the Dniester River, just an hour's drive away.</li><li><span class='text-strong'>Nimchych Pass:</span> Incredible landscapes of the Bukovinian Carpathians near Vyzhnytsia.</li><li><span class='text-strong'>Bancheny:</span> A famous monastery with unique architecture.</li></ol></div>
+
+<div class='editor_title'>Monthly Rental (Tariff for Business and Borders)</div>
+<div class='editor_text'>Chernivtsi is an important transit hub near the border (Porubne checkpoint). For entrepreneurs working with export/import, or those who travel frequently on business, the "Month" tariff is indispensable.<ol><li><span class='text-strong'>Benefit:</span> You pay once every 30 days and get a special low price.</li><li><span class='text-strong'>Border:</span> Upon prior request, we prepare a package of documents for traveling abroad (Romania, Moldova, EU countries).</li><li><span class='text-strong'>Reliability:</span> If the car needs maintenance, we simply provide another one.</li></ol></div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>A solution for locals and relocated companies. Is it worth buying a car if your plans might change? Închiriere pe termen lung from REIZ offers flexibility. You choose the car class, and we take care of the rest:<ol><li><span class='text-strong'>Insurance:</span> CASCO/MTPL.</li><li><span class='text-strong'>Tires:</span> Seasonal tire replacement (critical on Bukovinian slopes).</li><li><span class='text-strong'>Repairs:</span> Scheduled repairs.</li></ol></div>
+
+<div class='editor_title'>Economy Class: Kings of Narrow Streets</div>
+<div class='editor_text'>The center of Chernivtsi is a network of one-way and narrow streets. Here, a large SUV can become a burden. Our economy class cars are the perfect choice. Compact hatchbacks and sedans easily pass oncoming traffic, find parking space near the City Hall, and save your money on fuel.</div>
+
+<div class='editor_title'>Why Choose REIZ in Chernivtsi</div>
+<div class='editor_text'><ul><li>Location: We meet at the Railway Station, Bus Station, or deliver the car to your address.</li><li>Car Condition: We know what Chernivtsi cobblestones are, so we pay special attention to chassis diagnostics. You get a "tight", quiet, and serviceable car.</li><li>Transparency: No hidden fees. Full tank upon pick-up and return.</li><li>Support: We are always in touch, to suggest a route or help in an unusual situation.</li></ul></div>
+
+<div class='editor_title'>Rental Without Deposit</div>
+<div class='editor_text'>Travel without financial pressure. For most models, the "No Deposit" option is available subject to purchasing full insurance coverage. This is especially convenient for tourists.</div>
+
+<div class='editor_title'>Chauffeur Services</div>
+<div class='editor_text'>Need to meet foreign partners or planning a festive event? Order a car with a driver. A professional driver who knows every alley of the city will deliver you on time and with comfort.</div>
+
+<div class='editor_title'>Car Delivery</div>
+<div class='editor_text'>Gratuit: Central part of the city, Shevchenko Park area, Nezalezhnosti Avenue, Railway Station.<br/>Paid Delivery: Hraviton, Sadhora, Rosha, Hodyliv, and suburban zones.</div>
 
 <div class='editor_title'>Traffic Safety in Chernivtsi: Important Tips</div>
 <div class='editor_text'>Driving here has its own flavor:<ol><li><span class='text-strong'>Cobblestones:</span> The entire old center is paved with stone. In the rain, it becomes slippery like ice. Increase distance and brake smoothly.</li><li><span class='text-strong'>Terrain:</span> The city stands on hills. In winter or on a wet road, starting uphill (for example, on Holovna St.) requires caution.</li><li><span class='text-strong'>One-Way Traffic:</span> The center is a labyrinth of one-way streets. Watch the navigator and signs carefully.</li><li><span class='text-strong'>Alcohol:</span> REIZ adheres to zero tolerance. Drinking and driving is unacceptable.</li></ol></div>
@@ -9768,6 +11214,39 @@ function generateIvanoFrankivskEditorContent(locale: Locale): string {
 <div class='editor_title'>Traffic Safety: Specifics of the Region</div>
 <div class='editor_text'>Driving in Prykarpattia has its features:<ol><li><span class='text-strong'>Weather:</span> The weather changes instantly. It can be raining in the city, and snowing 30 km away in the mountains. Be prepared.</li><li><span class='text-strong'>Cyclists:</span> Cycling is very developed in Frankivsk. Be careful when turning right and opening doors.</li><li><span class='text-strong'>Exit from the City:</span> The H-09 highway (to Lviv and Mukachevo) is busy. Plan time with a margin, especially on Friday evenings and Sundays.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Safety on the road is our priority.</li></ol></div>
 `.trim(),
+    ro: `
+<div class='editor_text'>Ivano-Frankivsk is the perfect hub. From here, it is equally convenient to travel on business to Lviv or for vacation to Bukovel. But without your own car, you are tied to bus schedules or expensive taxis. REIZ service offers car rental technically prepared for the specifics of the region. We understand that the road to Yaremche can be perfect, but the exit to the waterfall might be unpaved. That is why our cars have tested suspension, and in winter — the best tires.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <h2>închiriere auto premium</h2> for business, reliable <h2>închiriere SUV</h2> for travel, and spacious <h2>închiriere microbuz</h2> for families. Even if you're looking for <h2>închiriere auto economic</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<div class='editor_title'>Hourly Rate: For the City and Short Trips</div>
+<div class='editor_text'>Arrived by train in the morning, but hotel check-in is only in the afternoon? Don't waste time. Hourly rental is an opportunity to do more.<ol><li><span class='text-strong'>In the City:</span> Visit the Town Hall, walk along the famous "Stometrivka" (Hundred Meter Street), or drop by Promprylad.Renovation.</li><li><span class='text-strong'>Outside the City:</span> Drive to ancient Halych or Tysmenytsia.</li><li><span class='text-strong'>Test Drive:</span> Check if you are comfortable driving the chosen crossover before heading to the mountains for a week.</li></ol></div>
+
+<div class='editor_title'>Weekly Rate: Discover Prykarpattia</div>
+<div class='editor_text'>Ivano-Frankivsk is the best base for radial trips. Weekly rental at a fixed rate gives you freedom. Plan your tour:<ol><li><span class='text-strong'>Day 1:</span> Trip to Dovbush Rocks and Probiy Waterfall in Yaremche.</li><li><span class='text-strong'>Day 2:</span> Relax at Manyava Skete and near Manyava Waterfall.</li><li><span class='text-strong'>Day 3:</span> Gastro-tour — trout farms and cheese dairies of Verkhovyna.</li></ol>With your own car, you don't depend on guides. You stop where the view is beautiful, not where the bus stopped.</div>
+
+<div class='editor_title'>Monthly Rental ("Business" Tariff)</div>
+<div class='editor_text'>Ivano-Frankivsk is rapidly developing as an IT cluster and business center. If you came here for work for a long time, the "Month" tariff is your saving and status.<ol><li><span class='text-strong'>Cost:</span> Significantly cheaper than car sharing or daily taxi.</li><li><span class='text-strong'>Logistics:</span> You freely move between the office, home, and sites in the region.</li><li><span class='text-strong'>Flexibilitate:</span> Need to go to Lviv or Ternopil? No problems or extra charges for leaving the city limits.</li></ol></div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>For those who moved to Frankivsk to live. Buying a car means big expenses and risks. Închiriere pe termen lung from REIZ is a turnkey service. You choose the car, and we take care of its "health":<ol><li><span class='text-strong'>Maintenance:</span> We pass technical inspections.</li><li><span class='text-strong'>Insurance:</span> We monitor insurance (full CASCO).</li><li><span class='text-strong'>Tires:</span> We change tires on time (in Frankivsk this is critically important, as winter comes here suddenly).</li></ol>You simply enjoy a comfortable life in a cozy European city.</div>
+
+<div class='editor_title'>Economy Class: Convenience in the Center</div>
+<div class='editor_text'>The historic center of Frankivsk has many narrow one-way streets. Our economy class cars (hatchbacks and compact sedans) are the ideal choice for the city. They are maneuverable, easy to park near the Bastion or Shevchenko Park, and consume minimum fuel.</div>
+
+<div class='editor_title'>Advantages of REIZ in Ivano-Frankivsk</div>
+<div class='editor_text'><ul><li>Airport and Train Station: We will meet you at the International Airport (IFO) or the Railway Station. The car will be waiting for you immediately upon arrival.</li><li>Car Condition: After mountain roads, cars can often be dirty, but not at REIZ. You get a perfectly clean car after a complex wash.</li><li>Honesty: "Full to Full" fuel policy. You get a full tank to drive straight to the mountains.</li><li>Equipment: Upon request, we will add a child seat or ski racks to the package.</li></ul></div>
+
+<div class='editor_title'>Rental Without Deposit</div>
+<div class='editor_text'>We simplify the conditions. For many models, a no-deposit rental option is available when choosing full insurance coverage. This is convenient for tourists who want to spend money on experiences, not freeze it on a card.</div>
+
+<div class='editor_title'>Transfer and Chauffeur</div>
+<div class='editor_text'>Planning a trip to Bukovel but afraid of mountain roads in winter? Order a transfer. Our professional driver will meet you at Ivano-Frankivsk airport and safely deliver you to the door of the hotel in the mountains in a comfortable car.</div>
+
+<div class='editor_title'>Car Delivery</div>
+<div class='editor_text'>Gratuit: Central part of the city, Railway Station area, "Nadiya" Hotel, "Cascade" district.<br/>Paid Delivery: Krykhivtsi, Uhornyky, Drahomyrchany, as well as delivery to Yaremche or Bukovel. The cost is calculated individually.</div>
+
+<div class='editor_title'>Traffic Safety: Specifics of the Region</div>
+<div class='editor_text'>Driving in Prykarpattia has its features:<ol><li><span class='text-strong'>Weather:</span> The weather changes instantly. It can be raining in the city, and snowing 30 km away in the mountains. Be prepared.</li><li><span class='text-strong'>Cyclists:</span> Cycling is very developed in Frankivsk. Be careful when turning right and opening doors.</li><li><span class='text-strong'>Exit from the City:</span> The H-09 highway (to Lviv and Mukachevo) is busy. Plan time with a margin, especially on Friday evenings and Sundays.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Safety on the road is our priority.</li></ol></div>
+`.trim(),
   };
 
   return contentByLocale[locale];
@@ -9903,6 +11382,39 @@ function generateSkhidnytsiaEditorContent(locale: Locale): string {
 
 <div class='editor_title'>Car Delivery</div>
 <div class='editor_text'>Free: The entire territory of Skhidnytsia (including remote hotels on the hills).<br/>Paid Delivery: Urych (Tustan), Novyi Kropyvnyk, Rybnyk, Maidan.</div>
+
+<div class='editor_title'>Traffic Safety: Mountain Specifics</div>
+<div class='editor_text'>Skhidnytsia has its own road rules:<ol><li><span class='text-strong'>The Pass:</span> The road from Boryslav is a steep serpentine. Do not overtake on turns and use engine braking on the descent.</li><li><span class='text-strong'>Gravel:</span> Approaches to many springs are gravel roads. Drive slowly so stones don't damage the car.</li><li><span class='text-strong'>Narrow Passages:</span> Many streets are designed for only one car. Be polite and give way to those driving uphill.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Mountain roads do not forgive inattention.</li></ol></div>
+`.trim(),
+    ro: `
+<div class='editor_text'>Skhidnytsia is a resort without borders. Mineral springs here are not collected in one pump room, as in Truskavets, but are scattered through forests and hills. Walking around springs No. 1, No. 18, and No. 2C in one day is an exhausting task. REIZ service offers the perfect solution — a personal car for the duration of your vacation. We recommend choosing crossovers with higher ground clearance so that you can comfortably drive up to any spring, even if the road there is a forest gravel path.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <h2>închiriere auto premium</h2> for business, reliable <h2>închiriere SUV</h2> for travel, and spacious <h2>închiriere microbuz</h2> for families. Even if you're looking for <h2>închiriere auto economic</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<div class='editor_title'>Hourly Rate: Mountain Road Test</div>
+<div class='editor_text'>Doubt if you can handle the local terrain? Take a car for a day.<ol><li><span class='text-strong'>The Pass:</span> Drive through the famous Skhidnytsia Pass. This is a great test for handling and brakes.</li><li><span class='text-strong'>Springs:</span> Try to drive to distant springs in the forest.</li><li><span class='text-strong'>Tustan:</span> Just 8 km from Skhidnytsia lies the Tustan rock fortress. A trip there by rented car will take 15 minutes and offer incredible views.</li></ol></div>
+
+<div class='editor_title'>Weekly Rental: Comfortable Treatment</div>
+<div class='editor_text'>The standard course of drinking mineral water is at least a week. Renting a car for this period will turn treatment into pleasure. You won't have to get wet in the rain waiting for a taxi or walk uphill with heavy water bottles. You get freedom:<ol><li><span class='text-strong'>Morning:</span> Trip to the spring.</li><li><span class='text-strong'>Afternoon:</span> Lunch at a trout farm in Opaka.</li><li><span class='text-strong'>Evening:</span> Shopping in Boryslav or Drohobych.</li></ol>A fixed weekly rate is much more profitable than daily calls to local carriers.</div>
+
+<div class='editor_title'>Monthly Rental ("Vacation + Work" Tariff)</div>
+<div class='editor_text'>Skhidnytsia is an ideal place to escape from city noise. Many people rent cottages here for a month. The "30 Days" tariff from REIZ allows you to have a reliable car at hand for a price comparable to long-term leasing. You live in the silence of the mountains but remain mobile. Need to meet a partner in Lviv? Two hours on a picturesque road — and you are there. Need to purchase groceries? The large trunk of our car will fit everything you need.</div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>For owners of hotels, villas, and those building their home in the mountains. A personal car wears out quickly in the mountains. Rental from 3 months shifts depreciation costs to us. We monitor the chassis, which suffers from stones, and change tires to winter ones on time (and winter on the pass is severe). You simply use a serviceable SUV.</div>
+
+<div class='editor_title'>Economy Class: Can It Handle the Mountains?</div>
+<div class='editor_text'>Yes! Modern economy class cars in our fleet have enough power to overcome Skhidnytsia climbs. If you plan to drive mainly on paved streets and the highway to Truskavets, this is a great option to save money. The compactness of the car will allow you to easily pass oncoming traffic on narrow sections.</div>
+
+<div class='editor_title'>Why Choose REIZ in Skhidnytsia</div>
+<div class='editor_text'><ul><li>Delivery to Villa: Skhidnytsia stretches for kilometers. We won't make you walk to us. We will drive the car right to the gates of your hotel ("Three Sons", "Kyivska Rus", "TuStan", etc.).</li><li>Cleanliness: Mountain road dust has no chance. You get a car after washing and interior cleaning.</li><li>Safety: We carefully check the brakes, knowing that you will have to descend from the mountains often.</li></ul></div>
+
+<div class='editor_title'>Rental Without Deposit</div>
+<div class='editor_text'>Relax without unnecessary thoughts about money. When choosing a full insurance package (Super CDW), we can provide a car without a deposit. Enjoy nature, and we take the risks of scratches on ourselves.</div>
+
+<div class='editor_title'>Transfer and Chauffeur</div>
+<div class='editor_text'>The road to Skhidnytsia through the pass can scare inexperienced drivers, especially in winter. Order a transfer with a professional driver from REIZ. We will meet you in Lviv or Truskavets and safely deliver you to the hotel in a comfortable premium car.</div>
+
+<div class='editor_title'>Car Delivery</div>
+<div class='editor_text'>Gratuit: The entire territory of Skhidnytsia (including remote hotels on the hills).<br/>Paid Delivery: Urych (Tustan), Novyi Kropyvnyk, Rybnyk, Maidan.</div>
 
 <div class='editor_title'>Traffic Safety: Mountain Specifics</div>
 <div class='editor_text'>Skhidnytsia has its own road rules:<ol><li><span class='text-strong'>The Pass:</span> The road from Boryslav is a steep serpentine. Do not overtake on turns and use engine braking on the descent.</li><li><span class='text-strong'>Gravel:</span> Approaches to many springs are gravel roads. Drive slowly so stones don't damage the car.</li><li><span class='text-strong'>Narrow Passages:</span> Many streets are designed for only one car. Be polite and give way to those driving uphill.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Mountain roads do not forgive inattention.</li></ol></div>
@@ -10046,6 +11558,39 @@ function generateUzhhorodEditorContent(locale: Locale): string {
 <div class='editor_title'>Traffic Safety in Uzhhorod</div>
 <div class='editor_text'>Specifics of the smallest regional center:<ol><li><span class='text-strong'>Cobblestones:</span> Many streets in the center (Kapushanska, Shvabska) are paved with stone. In the rain, it is very slippery — keep your distance.</li><li><span class='text-strong'>One-Way Traffic:</span> The city center has a complex traffic scheme. Watch the signs carefully.</li><li><span class='text-strong'>Pedestrians:</span> Uzhhorod residents love to walk. Be careful at uncontrolled crossings, especially on the embankment.</li><li><span class='text-strong'>Border:</span> There may be queues of trucks on the approaches to the checkpoint. Be careful when bypassing them.</li></ol></div>
 `.trim(),
+    ro: `
+<div class='editor_text'>Uzhhorod is a city where coffee is drunk slowly, and business is done quickly. It is a strategic hub on the border with Slovakia and Hungary. Whether you came to admire the cherry blossoms or solve export issues, it is difficult without a car here. REIZ service in Uzhhorod offers cars ready for any scenario: from compact models for the narrow streets of the center to reliable estate cars for trips to the mountains or abroad.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <h2>închiriere auto premium</h2> for business, reliable <h2>închiriere SUV</h2> for travel, and spacious <h2>închiriere microbuz</h2> for families. Even if you're looking for <h2>închiriere auto economic</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<div class='editor_title'>Hourly Rate: Coffee on Korzo and Business</div>
+<div class='editor_text'>You can drive through Uzhhorod in 20 minutes, but you need to enjoy it for a long time. Hourly rental is your way to be on time everywhere:<ol><li><span class='text-strong'>Test Drive:</span> Try how the car overcomes the cobblestones near the Holy Cross Cathedral.</li><li><span class='text-strong'>Mobility:</span> Make it to a meeting in Bozdosh Park, then to lunch on the Independence Embankment, and in the evening — meet the train.</li><li><span class='text-strong'>Check:</span> Make sure the chosen car class suits your comfort needs before going on a tour of Zakarpattia.</li></ol></div>
+
+<div class='editor_title'>Weekly Rental: Thermal and Wine Tour</div>
+<div class='editor_text'>Zakarpattia is a region that needs to be explored on wheels. Weekly rental from REIZ opens all doors for you. For a fixed price, you get freedom of movement:<ol><li><span class='text-strong'>Relax:</span> Go to Lumshory to "boil" in vats (chan) or to Kosyno for thermal waters.</li><li><span class='text-strong'>Mountains:</span> Visit Lake Synevyr or Shypit Waterfall.</li><li><span class='text-strong'>Wine:</span> Arrange a tour of the wine cellars of Serednie and Berehove (remember about the driver!).</li></ol>Public transport runs rarely in the mountains, and taxis for such distances are expensive. Your own car means savings and comfort.</div>
+
+<div class='editor_title'>Monthly Rental ("Business and Border" Tariff)</div>
+<div class='editor_text'>Uzhhorod is a logistics hub. For those working with European partners or waiting for departure, we offer the "Month" tariff.<ol><li><span class='text-strong'>Travel Abroad:</span> Upon prior request, we prepare documents for travel to EU countries. Uzhhorod is the ideal starting point, as the border is only 3 km away.</li><li><span class='text-strong'>Savings:</span> The cost of monthly rental is significantly lower than daily rental.</li><li><span class='text-strong'>Flexibilitate:</span> Need a van for things or a sedan for meetings? We will select a car for your tasks.</li></ol></div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>For those who chose Uzhhorod for life. This city is cozy and comfortable, and owning a car here should be the same. Rental from 3 months relieves you of hassle. We ensure the car is "shod" for the season (winters in the mountains can be snowy), insured, and serviceable. You simply enjoy life in the westernmost regional center of Ukraine.</div>
+
+<div class='editor_title'>Economy Class: Ideal for the Old City</div>
+<div class='editor_text'>The center of Uzhhorod is a labyrinth of narrow one-way streets. Our economy class cars are the best choice for the city. They are maneuverable, easy to park near Uzhhorod Castle or the Philharmonic, and consume minimum fuel.</div>
+
+<div class='editor_title'>Why Choose REIZ in Uzhhorod</div>
+<div class='editor_text'><ul><li>Meeting at the Station: Uzhhorod Railway Station is the main gate of the city. We will deliver the car directly to the platform of your train.</li><li>Technical Condition: Mountain roads require perfect brakes and chassis. We check every car before delivery.</li><li>Documents: We know the specifics of the border zone and will help with the necessary paperwork.</li><li>Support: We are in touch 24/7, to help you with routes or technical questions.</li></ul></div>
+
+<div class='editor_title'>Rental Without Deposit</div>
+<div class='editor_text'>We trust our clients. When purchasing full insurance (Super CDW), you can rent a car without a deposit. Travel around Zakarpattia without unnecessary financial blocks.</div>
+
+<div class='editor_title'>Chauffeur Services</div>
+<div class='editor_text'>Want to go for a tasting of Transcarpathian wines or cheeses? Don't risk your license. Order a car with a driver. We will take you to the best chateaus of the region and deliver you back to the hotel with maximum comfort.</div>
+
+<div class='editor_title'>Car Delivery</div>
+<div class='editor_text'>Gratuit: Within Uzhhorod (Koryatovich Sq., Svobody Ave., Train Station, "Dastor" area).<br/>Paid Delivery: Mynai, Chop, Mukachevo, Serednie, Perechyn. The cost depends on the distance.</div>
+
+<div class='editor_title'>Traffic Safety in Uzhhorod</div>
+<div class='editor_text'>Specifics of the smallest regional center:<ol><li><span class='text-strong'>Cobblestones:</span> Many streets in the center (Kapushanska, Shvabska) are paved with stone. In the rain, it is very slippery — keep your distance.</li><li><span class='text-strong'>One-Way Traffic:</span> The city center has a complex traffic scheme. Watch the signs carefully.</li><li><span class='text-strong'>Pedestrians:</span> Uzhhorod residents love to walk. Be careful at uncontrolled crossings, especially on the embankment.</li><li><span class='text-strong'>Border:</span> There may be queues of trucks on the approaches to the checkpoint. Be careful when bypassing them.</li></ol></div>
+`.trim(),
   };
 
   return contentByLocale[locale];
@@ -10181,6 +11726,39 @@ function generateVinnytsiaEditorContent(locale: Locale): string {
 
 <div class='editor_title'>Car Delivery in the City</div>
 <div class='editor_text'>Free: Center, Zamostia, Vyshenka, Roshen Fountain area, Railway Station.<br/>Paid Delivery: Old Town, Piatnychany, Sabariv, Ahronomichne, and suburbs.</div>
+
+<div class='editor_title'>Traffic Safety in Vinnytsia: Attention, Tram!</div>
+<div class='editor_text'>Vinnytsia has a unique feature:<ol><li><span class='text-strong'>Swiss Trams:</span> Vinnytsia is famous for its blue trams. They have unconditional priority. Be very careful at track crossings and turns. Trams move fast and silently here.</li><li><span class='text-strong'>Center Restrictions:</span> Traffic on Soborna Street for private cars is restricted during the day. Watch the signs.</li><li><span class='text-strong'>Bike Paths:</span> Vinnytsia is a cycling capital. Always give way to cyclists when turning.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Driving under the influence is strictly punished.</li></ol></div>
+`.trim(),
+    ro: `
+<div class='editor_text'>Vinnytsia consistently tops the rankings of the most comfortable cities in Ukraine. It is a strategic hub connecting Kyiv, Odesa, and the West. Business and tourism paths cross here. REIZ service offers car rental that meets the high standards of the city. Whether you need to meet partners at the train station or plan a weekend tour of Podillia castles, we have the perfect car. Forget about the trolleybus schedule: with your own car, you will have time to visit the "Werewolf" bunker and have dinner on Soborna Street on the same day.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <h2>închiriere auto premium</h2> for business, reliable <h2>închiriere SUV</h2> for travel, and spacious <h2>închiriere microbuz</h2> for families. Even if you're looking for <h2>închiriere auto economic</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<div class='editor_title'>Hourly Rate: Test Drive through the "City of Ideas"</div>
+<div class='editor_text'>Vinnytsia is compact but intense. Hourly rental is your tool for quick decisions.<ol><li><span class='text-strong'>Tourism:</span> In just a few hours you can visit the National Pirogov's Estate Museum and the Water Tower in the center.</li><li><span class='text-strong'>Business:</span> Hold a meeting at the business center on Magistratska St., and then comfortably get to the industrial park.</li><li><span class='text-strong'>Test:</span> Want to buy a car but have doubts? Rent a similar model from us for a day and check it on Vinnytsia roads.</li></ol></div>
+
+<div class='editor_title'>Weekly Rental: Palaces and Canyons</div>
+<div class='editor_text'>Vinnytsia region is a land that cannot be known from a bus window. The weekly rate gives you the keys to the hidden treasures of the region. Plan your grand tour:<ol><li><span class='text-strong'>Tulchyn:</span> Visit the "Podillia Versailles" — Potocki Palace.</li><li><span class='text-strong'>Nemyriv:</span> Walk along the ramparts of the Great Scythian Settlement.</li><li><span class='text-strong'>Busha:</span> A place of power. Getting to this reserve by public transport is a challenge, but by REIZ car, it's a pleasant journey.</li></ol>A fixed price for 7 days makes such a trip cheaper than any organized tour.</div>
+
+<div class='editor_title'>Monthly Rental ("Regional Representative" Tariff)</div>
+<div class='editor_text'>Vinnytsia is an ideal base for doing business in Central Ukraine. If you came to set up processes or control branches, the "Month" tariff is the only solution.<ol><li><span class='text-strong'>Savings:</span> The daily cost is reduced to a minimum.</li><li><span class='text-strong'>Geography:</span> You can easily make radial trips: today Zhytomyr, tomorrow Khmelnytskyi, the day after tomorrow Uman.</li><li><span class='text-strong'>Flexibilitate:</span> Need a representative sedan for negotiations? We will provide it. Need a station wagon to transport product samples? We will replace it without problems.</li></ol></div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>Many IT specialists and families choose Vinnytsia for life because of its coziness. Închiriere pe termen lung from REIZ allows you to feel like a local from day one. You don't need to spend a large sum on buying a car. You take a car by subscription:<ol><li><span class='text-strong'>Insurance:</span> We pay for insurance.</li><li><span class='text-strong'>Maintenance:</span> We do maintenance.</li><li><span class='text-strong'>Winter tires:</span> We store your winter tires.</li></ol>You simply commute to work, take kids to school, and enjoy life.</div>
+
+<div class='editor_title'>Economy Class: Practicality on Soborna</div>
+<div class='editor_text'>The central street of Vinnytsia (Soborna) has traffic restrictions for private transport during the day, and the adjacent streets can be busy. Our economy class cars are a smart choice. Compact dimensions allow you to easily park near "Sky Park" or the City Council, and economical engines save your budget.</div>
+
+<div class='editor_title'>Advantages of REIZ in Vinnytsia</div>
+<div class='editor_text'><ul><li>Meeting at the Station: Vinnytsia Railway Station is the main gate of the city. We will deliver the car directly to the station parking lot by the arrival of your Intercity train.</li><li>Car Condition: We are cleanliness fanatics. Your car will be washed and disinfected.</li><li>Transparency: No hidden fees for "delivery after hours" (with prior booking).</li></ul></div>
+
+<div class='editor_title'>Rental Without Deposit</div>
+<div class='editor_text'>We simplify the procedure. For many models, a no-deposit rental option is available subject to purchasing full insurance protection. This is ideal for city guests who do not want to "freeze" funds.</div>
+
+<div class='editor_title'>Chauffeur Services</div>
+<div class='editor_text'>Need to meet VIP guests or want to visit a tasting of Podillia wines? Order a transfer with a driver. Our drivers are professionals who know the city perfectly.</div>
+
+<div class='editor_title'>Car Delivery in the City</div>
+<div class='editor_text'>Gratuit: Center, Zamostia, Vyshenka, Roshen Fountain area, Railway Station.<br/>Paid Delivery: Old Town, Piatnychany, Sabariv, Ahronomichne, and suburbs.</div>
 
 <div class='editor_title'>Traffic Safety in Vinnytsia: Attention, Tram!</div>
 <div class='editor_text'>Vinnytsia has a unique feature:<ol><li><span class='text-strong'>Swiss Trams:</span> Vinnytsia is famous for its blue trams. They have unconditional priority. Be very careful at track crossings and turns. Trams move fast and silently here.</li><li><span class='text-strong'>Center Restrictions:</span> Traffic on Soborna Street for private cars is restricted during the day. Watch the signs.</li><li><span class='text-strong'>Bike Paths:</span> Vinnytsia is a cycling capital. Always give way to cyclists when turning.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Driving under the influence is strictly punished.</li></ol></div>
@@ -10324,6 +11902,39 @@ function generateMukachevoEditorContent(locale: Locale): string {
 <div class='editor_title'>Traffic Safety in Mukachevo</div>
 <div class='editor_text'>What a driver needs to know:<ol><li><span class='text-strong'>Cobblestones:</span> Old cobblestones have been preserved in the city center and on the ascent to the castle. In the rain, it is very slippery.</li><li><span class='text-strong'>Cyclists:</span> Mukachevo is a city of bicycles. There are many of them here, and they are full-fledged participants in the traffic. Be careful when maneuvering.</li><li><span class='text-strong'>Horse-Drawn Transport:</span> At the exits from the city and in the villages of the district, you can still meet carts with horses. Be careful in the dark.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Police often run checks, especially on weekends.</li></ol></div>
 `.trim(),
+    ro: `
+<div class='editor_text'>Mukachevo is the soul of Transcarpathia. A cozy European town dominated by the majestic Palanok Castle. It is an ideal starting point for any trip: to the south — thermal waters, to the north — high mountains. Public transport here is not always convenient, so car rental from REIZ is a necessity. We offer cars that will allow you to do everything: drink coffee near the Town Hall in the morning, climb the steep Castle Hill in the afternoon, and relax in the Kosyno pools in the evening.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <h2>închiriere auto premium</h2> for business, reliable <h2>închiriere SUV</h2> for travel, and spacious <h2>închiriere microbuz</h2> for families. Even if you're looking for <h2>închiriere auto economic</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<div class='editor_title'>Hourly Rate: History Test Drive</div>
+<div class='editor_text'>Do you have a few hours between trains or business meetings? Hourly rental is an opportunity to see more than just the train station.<ol><li><span class='text-strong'>Palanok Castle:</span> Driving to the upper parking lot of the castle is a great test for the engine and brakes (the climb is quite steep).</li><li><span class='text-strong'>Monastery:</span> Visit the St. Nicholas Convent on the banks of the Latorytsia River.</li><li><span class='text-strong'>Shopping:</span> Go to the HYD market or supermarkets in the Rosvyhovo district. It is also convenient to meet relatives with heavy bags at the station.</li></ol></div>
+
+<div class='editor_title'>Weekly Rental: Thermal and Mountain Tour</div>
+<div class='editor_text'>If you chose Mukachevo as a vacation base, weekly car rental will save your budget and time. Taxis to thermal resorts are not cheap, and with your own car, you can go there every day. Your plan with REIZ:<ol><li><span class='text-strong'>Thermal Waters:</span> Just 20-30 minutes drive — and you are in "Kosyno" or "Zhayvoronok" (Berehove).</li><li><span class='text-strong'>Nature:</span> Trip to the Skakalo waterfall or to the "Karpaty" sanatorium (Shenborn Castle).</li><li><span class='text-strong'>Gastronomy:</span> Visit wine cellars in the village of Bobovyshche.</li></ol>You pay a fixed price for a week and get complete freedom of movement in the region.</div>
+
+<div class='editor_title'>Monthly Rental ("Logistics" Tariff)</div>
+<div class='editor_text'>Mukachevo is an important transport hub. The Kyiv-Chop highway and roads to the borders with Hungary and Romania intersect here. For business, the "Month" tariff is a godsend.<ol><li><span class='text-strong'>Mobility:</span> You easily control sites in Uzhhorod, Svalyava, or Khust. All of them are within an hour's drive.</li><li><span class='text-strong'>Benefit:</span> One payment per month is significantly cheaper than maintaining your own fleet.</li><li><span class='text-strong'>Service:</span> If the car needs an oil change or repair, we instantly provide a replacement car.</li></ol></div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>A solution for locals and those who moved to Transcarpathia. Car ownership without worries. Închiriere pe termen lung (from 3 months) includes a full package of services. We ensure that the car has high-quality tires (in winter on passes, this is a matter of life), valid insurance, and passed technical inspection. You just refuel and drive.</div>
+
+<div class='editor_title'>Economy Class: Convenient in the Center</div>
+<div class='editor_text'>The center of Mukachevo (pedestrian zone and adjacent streets) is quite compact. Our economy class cars are perfect for the city. They are maneuverable, easy to turn around on narrow streets near St. Martin's Cathedral, and consume minimum fuel in the city cycle.</div>
+
+<div class='editor_title'>Why Choose REIZ in Mukachevo</div>
+<div class='editor_text'><ul><li>Meeting on the Platform: Mukachevo is an important railway station. We will meet you right next to the carriage and guide you to the car.</li><li>Cleanliness: Your car will be perfectly clean, even if it is slushy outside.</li><li>Safety: We check every car before delivery, paying special attention to the braking system and lights (fogs are frequent here).</li></ul></div>
+
+<div class='editor_title'>Rental Without Deposit</div>
+<div class='editor_text'>Travel without unnecessary thoughts about the deposit. When purchasing full insurance (Super CDW), a no-deposit rental option is available. Enjoy your vacation, and we take the risks of minor damage on ourselves.</div>
+
+<div class='editor_title'>Chauffeur Services (Wine Tours)</div>
+<div class='editor_text'>Transcarpathia is famous for wine. Want to visit a tasting in the "Old Cellar" or go to the Berehove district? Don't risk your license. Order a car with a driver. We will comfortably take you to the tasting and deliver you back to the hotel.</div>
+
+<div class='editor_title'>Car Delivery</div>
+<div class='editor_text'>Gratuit: City center, Palanok district, Rosvyhovo, Pidhoriany, Railway Station.<br/>Paid Delivery: Chynadiyovo, Kolchyno, Kliucharky, and other villages of the district.</div>
+
+<div class='editor_title'>Traffic Safety in Mukachevo</div>
+<div class='editor_text'>What a driver needs to know:<ol><li><span class='text-strong'>Cobblestones:</span> Old cobblestones have been preserved in the city center and on the ascent to the castle. In the rain, it is very slippery.</li><li><span class='text-strong'>Cyclists:</span> Mukachevo is a city of bicycles. There are many of them here, and they are full-fledged participants in the traffic. Be careful when maneuvering.</li><li><span class='text-strong'>Horse-Drawn Transport:</span> At the exits from the city and in the villages of the district, you can still meet carts with horses. Be careful in the dark.</li><li><span class='text-strong'>Alcohol:</span> Zero tolerance. Police often run checks, especially on weekends.</li></ol></div>
+`.trim(),
   };
 
   return contentByLocale[locale];
@@ -10463,6 +12074,39 @@ function generatePoltavaEditorContent(locale: Locale): string {
 <div class='editor_title'>Traffic Safety in Poltava: "The Corps" and Cobblestones</div>
 <div class='editor_text'>Novice drivers in Poltava should know:<ol><li><span class='text-strong'>Round Square (Korpusny Sad):</span> This is the heart of the city and a giant ring. Roundabout rules apply here. Be careful when changing lanes.</li><li><span class='text-strong'>Cobblestones:</span> Part of the center is paved with historical stone. In the rain, grip on the road worsens — increase the distance.</li><li><span class='text-strong'>Agricultural Machinery:</span> Large agricultural machinery is often found at exits from the city and on the ring road. Be careful when overtaking.</li><li><span class='text-strong'>Alcohol:</span> REIZ adheres to sobriety. Driving under the influence is strictly prohibited.</li></ol></div>
 `.trim(),
+    ro: `
+<div class='editor_text'>Poltava is a city where history meets modernity. It is an important junction between Kyiv, Kharkiv, and Dnipro, as well as a center of the oil and gas industry. REIZ service offers car rental that matches the rhythm of the city. Whether you came for business negotiations, or want to taste real "halushky" (dumplings) and see Kotlyarevsky's estate — with your own car, you will have time for everything. Forget about waiting for minibuses: your journey begins with the turn of the ignition key.<br/><br/>Flota noastră acoperă toate nevoile: prestigious <h2>închiriere auto premium</h2> for business, reliable <h2>închiriere SUV</h2> for travel, and spacious <h2>închiriere microbuz</h2> for families. Even if you're looking for <h2>închiriere auto economic</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>
+
+<div class='editor_title'>Hourly Rate: City of Parks Test Drive</div>
+<div class='editor_text'>Poltava is an incredibly green city. Hourly rental will allow you to feel its atmosphere.<ol><li><span class='text-strong'>Center:</span> Drive around the Corps Garden (Korpusny Sad) — a unique round square from which streets radiate like rays.</li><li><span class='text-strong'>Observation Deck:</span> Climb the White Arbor (Bila Altanka) to see the panorama of the city and the Vorskla valley.</li><li><span class='text-strong'>Business:</span> Solve issues at the tax office, visit the "Equator" mall and the "Kyivskyi" railway station in just a couple of hours. This is also a great opportunity to test the car before a trip to the country house or nature.</li></ol></div>
+
+<div class='editor_title'>Weekly Rental: Gogol Tour and Pottery</div>
+<div class='editor_text'>Poltava region is a tourist magnet. Weekly car rental opens routes unavailable to hikers. A fixed price for a week allows you to visit:<ol><li><span class='text-strong'>Dikanka:</span> A legendary place with a Triumphal Arch and Kochubey oaks.</li><li><span class='text-strong'>Opishnia:</span> The capital of Ukrainian pottery. Buy ceramics and try local borscht with pears.</li><li><span class='text-strong'>Velyki Sorochyntsi:</span> The place of the famous fair and the Gogol Museum.</li><li><span class='text-strong'>Myrhorod:</span> A resort town with healing water. With your own car, you build the schedule yourself, stopping for photos in picturesque sunflower fields.</li></ol></div>
+
+<div class='editor_title'>Monthly Rental ("Business Region" Tariff)</div>
+<div class='editor_text'>Poltava region is a center of extractive industry and agribusiness. If your business trip drags on, the "Month" tariff will be your salvation.<ol><li><span class='text-strong'>Logistics:</span> You can freely travel between sites in Kremenchuk, Horishni Plavni, and Hadiach.</li><li><span class='text-strong'>Savings:</span> The daily rental cost with a monthly tariff competes with public transport prices but gives incomparably higher comfort.</li><li><span class='text-strong'>Reliability:</span> If your own car is being repaired or you are waiting for a company car, REIZ will provide a worthy replacement.</li></ol></div>
+
+<div class='editor_title'>Long-Term Rental</div>
+<div class='editor_text'>For those who live in Poltava but do not want to buy a car. Închiriere pe termen lung (from 3 months) is freedom from obligations. We take care of insurance, seasonal tire replacement, and maintenance. Your business is only to refuel the car and enjoy trips: to work, picking up children from school, or for a picnic by the Vorskla River.</div>
+
+<div class='editor_title'>Economy Class: Practicality for the City</div>
+<div class='editor_text'>Poltava has many cobbled streets in the historic center. Our economy class cars have energy-intensive suspension that smooths out the irregularities of cobblestones on Nebesna Sotnia or Yevropeiska streets. The compactness of the car will allow you to easily park near the Gogol Theater or TSUM.</div>
+
+<div class='editor_title'>Why Choose REIZ in Poltava</div>
+<div class='editor_text'><ul><li>Meeting at the Station: Poltava-Kyivska is an important station for Intercity trains. We will meet you on the platform so you don't waste time looking for a taxi.</li><li>Car Condition: We wash the car thoroughly and check the technical condition before each delivery.</li><li>Transparency: No hidden fees. You get a car with a full tank and return it the same way.</li></ul></div>
+
+<div class='editor_title'>Rental Without Deposit</div>
+<div class='editor_text'>We make the service accessible. When purchasing full insurance (Super CDW), you can rent a car without a deposit. This is ideal for city guests who want to save free funds for impressions and souvenirs.</div>
+
+<div class='editor_title'>Chauffeur Services</div>
+<div class='editor_text'>Need to meet a delegation or planning a wedding in a country complex? Order a business class car with a driver. Our professionals know the city perfectly and will ensure punctuality and comfort.</div>
+
+<div class='editor_title'>Car Delivery in the City</div>
+<div class='editor_text'>Gratuit: Center (Round Square), Almaz district, Levada, Podil, "Poltava-Kyivska" station.<br/>Paid Delivery: Rozsoshentsi, Suprunivka, Rybtsi, and other suburban zones.</div>
+
+<div class='editor_title'>Traffic Safety in Poltava: "The Corps" and Cobblestones</div>
+<div class='editor_text'>Novice drivers in Poltava should know:<ol><li><span class='text-strong'>Round Square (Korpusny Sad):</span> This is the heart of the city and a giant ring. Roundabout rules apply here. Be careful when changing lanes.</li><li><span class='text-strong'>Cobblestones:</span> Part of the center is paved with historical stone. In the rain, grip on the road worsens — increase the distance.</li><li><span class='text-strong'>Agricultural Machinery:</span> Large agricultural machinery is often found at exits from the city and on the ring road. Be careful when overtaking.</li><li><span class='text-strong'>Alcohol:</span> REIZ adheres to sobriety. Driving under the influence is strictly prohibited.</li></ol></div>
+`.trim(),
   };
 
   return contentByLocale[locale];
@@ -10539,6 +12183,7 @@ export function generateCityEditorContent(
     ru: `REIZ — это прокат автомобилей в ${loc.nameLocative} с вниманием к деталям и прозрачными условиями. Мы подаём авто по городу и можем доставить машину в любую точку Украины по запросу.<br/><br/>Наш автопарк покрывает любые потребности: статусный <h2>прокат премиум-авто</h2> для бизнеса, надёжная <h2>аренда внедорожников</h2> для путешествий и вместительный <h2>прокат минивэнов</h2> для семьи. Даже если вы ищете <h2>аренду авто эконом-класса</h2>, мы предложим вам значительно более высокий уровень комфорта и новые модели.`,
     pl: `REIZ is a car rental service in ${loc.name} with attention to detail and transparent terms. We deliver cars throughout the city and can deliver a car to any point in Ukraine upon request.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.`,
     en: `REIZ is a car rental service in ${loc.name} with attention to detail and transparent terms. We deliver cars throughout the city and can deliver a car to any point in Ukraine upon request.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.`,
+    ro: `REIZ este un serviciu de închiriere auto în ${loc.name} cu atenție la detalii și condiții transparente. Livrăm mașini în tot orașul și putem livra o mașină în orice punct din Ucraina la cerere.<br/><br/>Flota noastră acoperă toate nevoile: <h2>închiriere auto premium</h2> prestigioasă pentru afaceri, <h2>închiriere SUV</h2> fiabilă pentru călătorii și <h2>închiriere microbuz</h2> spațioasă pentru familii. Chiar dacă sunteți în căutarea <h2>închirierii auto de clasă economică</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.`,
   };
 
   const hourlyExtended = {
@@ -10546,6 +12191,7 @@ export function generateCityEditorContent(
     ru: `${staticContent.hourlyRental.content[locale]}<br/>За один день вы успеете узнать, ${cityData.routeExample[locale]}, удобно ли парковаться, хватает ли места для чемоданов или спортивного инвентаря, нравится ли звук, посадка и помощники водителя.<br/>Часто клиенты берут авто на день, чтобы проверить его перед ${cityData.weekendTrip[locale]} — подъёмы, серпантины и длинные спуски быстро покажут, ваш это автомобиль для отдыха или нет.`,
     pl: `${staticContent.hourlyRental.content[locale]}<br/>In one day, you'll have time to find out ${cityData.routeExample[locale]}, whether it's convenient to park, whether there's enough space for suitcases or sports equipment, whether you like the sound, seating position, and driver assists.<br/>Clients often rent a car for a day to test it before ${cityData.weekendTrip[locale]} — climbs, serpentines, and long descents will quickly show whether this is your car for recreation or not.`,
     en: `${staticContent.hourlyRental.content[locale]}<br/>In one day, you'll have time to find out ${cityData.routeExample[locale]}, whether it's convenient to park, whether there's enough space for suitcases or sports equipment, whether you like the sound, seating position, and driver assists.<br/>Clients often rent a car for a day to test it before ${cityData.weekendTrip[locale]} — climbs, serpentines, and long descents will quickly show whether this is your car for recreation or not.`,
+    ro: `${staticContent.hourlyRental.content[locale]}<br/>Într-o zi, veți avea timp să aflați ${cityData.routeExample[locale]}, dacă este convenabil să parcați, dacă este suficient spațiu pentru valize sau echipament sportiv, dacă vă place sunetul, poziția de ședere și asistența la conducere.<br/>Clienții închiriază adesea o mașină pentru o zi pentru a o testa înainte de ${cityData.weekendTrip[locale]} — urcușurile, serpentinele și coborâșurile lungi vor arăta rapid dacă aceasta este mașina dvs. pentru recreere sau nu.`,
   };
 
   const content = `
@@ -10611,6 +12257,7 @@ function getWeeklyContent(city: CityConfig, cityData: CitySpecificContent, local
     ru: `Недельная аренда авто в ${loc.nameLocative} — лучший баланс цены и свободы: один фиксированный тариф на семь дней и собственный темп без ожидания такси и пересадок.<br/>За неделю легко совместить город и выезды: ${cityData.weekendTrip[locale]}.<br/>Формат «неделя» даёт больше времени проверить маршрут и автомобиль, чем почасовой прокат, и при необходимости просто продлить срок.`,
     pl: `Weekly car rental in ${loc.name} — the best balance of price and freedom: one fixed rate for seven days and your own pace without waiting for taxis and transfers.<br/>In a week, it's easy to combine the city and trips: ${cityData.weekendTrip[locale]}.<br/>The "week" format gives more time to check the route and car than hourly rental, and if necessary, simply extend the term.`,
     en: `Weekly car rental in ${loc.name} — the best balance of price and freedom: one fixed rate for seven days and your own pace without waiting for taxis and transfers.<br/>In a week, it's easy to combine the city and trips: ${cityData.weekendTrip[locale]}.<br/>The "week" format gives more time to check the route and car than hourly rental, and if necessary, simply extend the term.`,
+    ro: `Închiriere auto săptămânală în ${loc.name} — cel mai bun echilibru între preț și libertate: un tarif fix pentru șapte zile și propriul ritm fără așteptarea taxiurilor și a transferurilor.<br/>Într-o săptămână, este ușor să combinați orașul și excursiile: ${cityData.weekendTrip[locale]}.<br/>Formatul „săptămână" oferă mai mult timp pentru a verifica ruta și mașina decât închirierea orară, și dacă este necesar, pur și simplu prelungiți termenul.`,
   };
   return templates[locale];
 }
@@ -10621,6 +12268,7 @@ function getMonthlyRoutesContent(_city: CityConfig, cityData: CitySpecificConten
     ru: `Формат «30 дней» создан для регулярных бизнес-поездок и междугородних маршрутов: ${cityData.routes[locale]}.<br/>Один автомобиль закрывает все задачи месяца: офис, встречи, переезды, встреча партнёров и гостей.<br/>При необходимости легко продлить срок или сменить класс модели.`,
     pl: `The "30 days" format is designed for regular business trips and intercity routes: ${cityData.routes[locale]}.<br/>One car covers all the tasks of the month: office, meetings, relocations, meeting partners and guests.<br/>If necessary, it's easy to extend the term or change the model class.`,
     en: `The "30 days" format is designed for regular business trips and intercity routes: ${cityData.routes[locale]}.<br/>One car covers all the tasks of the month: office, meetings, relocations, meeting partners and guests.<br/>If necessary, it's easy to extend the term or change the model class.`,
+    ro: `Formatul „30 de zile" este conceput pentru călătorii regulate de afaceri și rute interurbane: ${cityData.routes[locale]}.<br/>O singură mașină acoperă toate sarcinile lunii: birou, întâlniri, relocări, întâmpinarea partenerilor și oaspeților.<br/>Dacă este necesar, este ușor să prelungiți termenul sau să schimbați clasa modelului.`,
   };
   return templates[locale];
 }
@@ -10631,6 +12279,7 @@ function getLongTermContent(_city: CityConfig, cityData: CitySpecificContent, lo
     ru: `Это удобно и экономично: машина всегда под рукой для ежедневных дел и междугородних поездок — офис, встречи, филиалы, регулярные маршруты ${cityData.routes[locale]}.<br/>Формат позволяет планировать нагрузку на месяц вперёд, а при смене задач — легко продлить срок или заменить модель на более подходящую (городской седан, универсал, кроссовер).<br/>По запросу организуем подачу и возврат в других городах Украины.`,
     pl: `It's convenient and economical: the car is always at hand for daily tasks and intercity trips — office, meetings, branches, regular routes ${cityData.routes[locale]}.<br/>The format allows you to plan the workload for a month ahead, and when tasks change — easily extend the term or replace the model with a more suitable one (city sedan, station wagon, crossover).<br/>On request, we organize delivery and return in other cities of Ukraine.`,
     en: `It's convenient and economical: the car is always at hand for daily tasks and intercity trips — office, meetings, branches, regular routes ${cityData.routes[locale]}.<br/>The format allows you to plan the workload for a month ahead, and when tasks change — easily extend the term or replace the model with a more suitable one (city sedan, station wagon, crossover).<br/>On request, we organize delivery and return in other cities of Ukraine.`,
+    ro: `Este convenabil și economic: mașina este întotdeauna la îndemână pentru sarcinile zilnice și călătoriile interurbane — birou, întâlniri, filiale, rute regulate ${cityData.routes[locale]}.<br/>Formatul vă permite să planificați volumul de muncă cu o lună înainte, iar când sarcinile se schimbă — prelungiți ușor termenul sau înlocuiți modelul cu unul mai potrivit (sedan urban, break, crossover).<br/>La cerere, organizăm livrarea și returnarea în alte orașe din Ucraina.`,
   };
   return templates[locale];
 }
@@ -10641,6 +12290,7 @@ function getAdvantagesWithLocation(_city: CityConfig, cityData: CitySpecificCont
         uk: `<li>Видача там, де зручно — ${cityData.airport.name[locale]}, вокзал, центр міста або подача за адресою.</li>`,
         ru: `<li>Выдача там, где удобно — ${cityData.airport.name[locale]}, вокзал, центр города или подача по адресу.</li>`,
         en: `<li>Pickup where convenient — ${cityData.airport.name[locale]}, railway station, city center, or delivery to your address.</li>`,
+        ro: `<li>Ridicare unde este convenabil — ${cityData.airport.name[locale]}, gara feroviară, centrul orașului sau livrare la adresa dvs.</li>`,
 
         pl: `<li>Pickup where convenient — ${cityData.airport.name[locale]}, railway station, city center, or delivery to your address.</li>`,
       }[locale]
@@ -10648,6 +12298,7 @@ function getAdvantagesWithLocation(_city: CityConfig, cityData: CitySpecificCont
         uk: `<li>Видача там, де зручно — вокзал, центр міста або подача за адресою.</li>`,
         ru: `<li>Выдача там, где удобно — вокзал, центр города или подача по адресу.</li>`,
         en: `<li>Pickup where convenient — railway station, city center, or delivery to your address.</li>`,
+        ro: `<li>Ridicare unde este convenabil — gara feroviară, centrul orașului sau livrare la adresa dvs.</li>`,
 
         pl: `<li>Pickup where convenient — railway station, city center, or delivery to your address.</li>`,
       }[locale];
@@ -10670,12 +12321,14 @@ function getDriverServiceContent(_city: CityConfig, cityData: CitySpecificConten
 
         pl: "to the hotel or railway station",
         en: "to the hotel or railway station",
+        ro: "la hotel sau la gara feroviară",
       }[locale];
 
   const templates = {
     uk: `Бажаєте комфорт без керма? Замовте авто з професійним водієм — ми подамо його в ${airportText}, до готелю або за вашою адресою.`,
     ru: `Хотите комфорт без руля? Закажите авто с профессиональным водителем — мы подадим его в ${airportText}, к отелю или по вашему адресу.`,
     en: `Want comfort without driving? Order a car with a professional driver — we'll deliver it to ${airportText}, hotel, or your address.`,
+    ro: `Doriți confort fără să conduceți? Comandați o mașină cu un șofer profesionist — o vom livra la ${airportText}, hotel sau la adresa dvs.`,
 
     pl: `Want comfort without driving? Order a car with a professional driver — we'll deliver it to ${airportText}, hotel, or your address.`,
   };
@@ -10690,6 +12343,7 @@ function getDeliveryContent(city: CityConfig, cityData: CitySpecificContent, loc
         uk: ` та ${cityData.airport.name[locale]}`,
         ru: ` и ${cityData.airport.name[locale]}`,
         en: ` and ${cityData.airport.name[locale]}`,
+        ro: ` și ${cityData.airport.name[locale]}`,
 
         pl: ` and ${cityData.airport.name[locale]}`,
       }[locale]
@@ -10700,6 +12354,7 @@ function getDeliveryContent(city: CityConfig, cityData: CitySpecificContent, loc
     ru: `Бесплатно по ${loc.name}. Подаём автомобиль в пределах города — ${locations}${airportText} — без доплат${cityData.airport ? " (парковка в аэропорту оплачивается клиентом)" : ""}.<br/>За городом — платно. Возможна подача по области и по всей Украине. Стоимость зависит от адреса и километража — уточняется у администратора перед подтверждением брони.<br/>Возврат. В пределах ${loc.name} — без доплат; за городом — на тех же условиях, что и подача.<br/>Как оформить. При бронировании выберите «подача по адресу» и укажите место/время. Администратор подтвердит детали и, при выезде за ${loc.name}, назовёт стоимость.`,
     pl: `Free delivery in ${loc.name}. We deliver the car within the city — ${locations}${airportText} — at no extra charge${cityData.airport ? " (airport parking is paid by the client)" : ""}.<br/>Outside the city — paid. Delivery throughout the region and all of Ukraine is possible. The cost depends on the address and mileage — clarified with the administrator before booking confirmation.<br/>Return. Within ${loc.name} — at no extra charge; outside the city — under the same conditions as delivery.<br/>How to book. When booking, select "delivery to address" and specify the place/time. The administrator will confirm the details and, if traveling outside ${loc.name}, will name the cost.`,
     en: `Free delivery in ${loc.name}. We deliver the car within the city — ${locations}${airportText} — at no extra charge${cityData.airport ? " (airport parking is paid by the client)" : ""}.<br/>Outside the city — paid. Delivery throughout the region and all of Ukraine is possible. The cost depends on the address and mileage — clarified with the administrator before booking confirmation.<br/>Return. Within ${loc.name} — at no extra charge; outside the city — under the same conditions as delivery.<br/>How to book. When booking, select "delivery to address" and specify the place/time. The administrator will confirm the details and, if traveling outside ${loc.name}, will name the cost.`,
+    ro: `Livrare gratuită în ${loc.name}. Livrăm mașina în limita orașului — ${locations}${airportText} — fără costuri suplimentare${cityData.airport ? " (parcarea la aeroport este plătită de client)" : ""}.<br/>În afara orașului — cu plată. Livrarea în regiune și în toată Ucraina este posibilă. Costul depinde de adresă și kilometraj — se clarifică cu administratorul înainte de confirmarea rezervării.<br/>Returnare. În limita ${loc.name} — fără costuri suplimentare; în afara orașului — în aceleași condiții ca livrarea.<br/>Cum se comandă. La rezervare, selectați „livrare la adresă" și specificați locul/ora. Administratorul va confirma detaliile și, în cazul deplasării în afara ${loc.name}, va preciza costul.`,
   };
   return templates[locale];
 }
@@ -10712,6 +12367,7 @@ function generateFallbackContent(city: CityConfig, locale: Locale): string {
     ru: `<div class='editor_text'>REIZ — это прокат автомобилей в ${loc.nameLocative} с вниманием к деталям и прозрачными условиями. Мы подаём авто по городу и можем доставить машину в любую точку Украины по запросу.<br/><br/>Наш автопарк покрывает любые потребности: статусный <h2>прокат премиум-авто</h2> для бизнеса, надёжная <h2>аренда внедорожников</h2> для путешествий и вместительный <h2>прокат минивэнов</h2> для семьи. Даже если вы ищете <h2>аренду авто эконом-класса</h2>, мы предложим вам значительно более высокий уровень комфорта и новые модели.</div>`,
     pl: `<div class='editor_text'>REIZ is a car rental in ${loc.name} with attention to detail and transparent terms. We deliver cars throughout the city and can deliver a car to any point in Ukraine upon request.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.</div>`,
     en: `<div class='editor_text'>REIZ is a car rental in ${loc.name} with attention to detail and transparent terms. We deliver cars throughout the city and can deliver a car to any point in Ukraine upon request.<br/><br/>Our fleet covers all needs: prestigious <h2>premium car hire</h2> for business, reliable <h2>SUV rental</h2> for travel, and spacious <h2>minivan rental</h2> for families. Even if you're looking for <h2>economy car rental</h2>, we'll offer you a significantly higher level of comfort and newer models.</div>`,
+    ro: `<div class='editor_text'>REIZ este un serviciu de închiriere auto în ${loc.name} cu atenție la detalii și condiții transparente. Livrăm mașini în tot orașul și putem livra o mașină în orice punct din Ucraina la cerere.<br/><br/>Flota noastră acoperă toate nevoile: <h2>închiriere auto premium</h2> prestigioasă pentru afaceri, <h2>închiriere SUV</h2> fiabilă pentru călătorii și <h2>închiriere microbuz</h2> spațioasă pentru familii. Chiar dacă sunteți în căutarea <h2>închirierii auto de clasă economică</h2>, vă vom oferi un nivel semnificativ mai ridicat de confort și modele mai noi.</div>`,
   };
   return templates[locale];
 }
@@ -10730,6 +12386,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Kyiv with REIZ: Capital City Rhythm",
       en: "Car Rental in Kyiv with REIZ: Capital City Rhythm",
+      ro: "Închiriere auto în Kyiv cu REIZ: ritmul capitalei",
     };
     return kyivTitles[locale];
   }
@@ -10740,6 +12397,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Odesa: Freedom of Movement by the Sea",
       en: "Car Rental in Odesa: Freedom of Movement by the Sea",
+      ro: "Închiriere auto în Odesa: libertatea de mișcare la mare",
     };
     return odesaTitles[locale];
   }
@@ -10750,6 +12408,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Dnipro: Speed and Comfort of the Business Capital",
       en: "Car Rental in Dnipro: Speed and Comfort of the Business Capital",
+      ro: "Închiriere auto în Dnipro: viteza și confortul capitalei de afaceri",
     };
     return dniproTitles[locale];
   }
@@ -10760,6 +12419,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Kharkiv: Maximum Comfort in the First Capital",
       en: "Car Rental in Kharkiv: Maximum Comfort in the First Capital",
+      ro: "Închiriere auto în Kharkiv: confort maxim în prima capitală",
     };
     return kharkivTitles[locale];
   }
@@ -10770,6 +12430,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Zaporizhzhia: Energy and Drive of the Big City",
       en: "Car Rental in Zaporizhzhia: Energy and Drive of the Big City",
+      ro: "Închiriere auto în Zaporizhzhia: energia și dinamica marelui oraș",
     };
     return zaporizhzhiaTitles[locale];
   }
@@ -10780,6 +12441,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Boryspil: Mobility Right from the Plane Steps",
       en: "Car Rental in Boryspil: Mobility Right from the Plane Steps",
+      ro: "Închiriere auto în Boryspil: mobilitate direct de la scara avionului",
     };
     return boryspilTitles[locale];
   }
@@ -10790,6 +12452,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Lutsk with REIZ: Explore Volyn with Comfort",
       en: "Car Rental in Lutsk with REIZ: Explore Volyn with Comfort",
+      ro: "Închiriere auto în Lutsk cu REIZ: explorați Volînia cu confort",
     };
     return lutskTitles[locale];
   }
@@ -10800,6 +12463,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Kalush with REIZ: Your Gateway to the Carpathians",
       en: "Car Rental in Kalush with REIZ: Your Gateway to the Carpathians",
+      ro: "Închiriere auto în Kalush cu REIZ: poarta dvs. spre Carpați",
     };
     return kalushTitles[locale];
   }
@@ -10810,6 +12474,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Nadvirna with REIZ: Your Gateway to the Mountains",
       en: "Car Rental in Nadvirna with REIZ: Your Gateway to the Mountains",
+      ro: "Închiriere auto în Nadvirna cu REIZ: poarta dvs. spre munți",
     };
     return nadvirnaTitles[locale];
   }
@@ -10820,6 +12485,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Kosiv with REIZ: The Heart of Hutsulshchyna",
       en: "Car Rental in Kosiv with REIZ: The Heart of Hutsulshchyna",
+      ro: "Închiriere auto în Kosiv cu REIZ: inima Huțulșcinei",
     };
     return kosivTitles[locale];
   }
@@ -10830,6 +12496,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Chortkiv with REIZ: Explore Podillia Without Limits",
       en: "Car Rental in Chortkiv with REIZ: Explore Podillia Without Limits",
+      ro: "Închiriere auto în Chortkiv cu REIZ: explorați Podilia fără limite",
     };
     return chortkivTitles[locale];
   }
@@ -10840,6 +12507,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Kremenets with REIZ: Conquer the Hills with Comfort",
       en: "Car Rental in Kremenets with REIZ: Conquer the Hills with Comfort",
+      ro: "Închiriere auto în Kremenets cu REIZ: cuceriți dealurile cu confort",
     };
     return kremenetsTitles[locale];
   }
@@ -10850,6 +12518,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Berehove with REIZ: Thermal Spas & Border Proximity",
       en: "Car Rental in Berehove with REIZ: Thermal Spas & Border Proximity",
+      ro: "Închiriere auto în Berehove cu REIZ: spa termal și apropierea de frontieră",
     };
     return berehoveTitles[locale];
   }
@@ -10860,6 +12529,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Khust with REIZ: The Heart of Transcarpathia",
       en: "Car Rental in Khust with REIZ: The Heart of Transcarpathia",
+      ro: "Închiriere auto în Khust cu REIZ: inima Transcarpatiei",
     };
     return khustTitles[locale];
   }
@@ -10870,6 +12540,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Rakhiv with REIZ: Altitude Under Control",
       en: "Car Rental in Rakhiv with REIZ: Altitude Under Control",
+      ro: "Închiriere auto în Rakhiv cu REIZ: altitudinea sub control",
     };
     return rakhivTitles[locale];
   }
@@ -10880,6 +12551,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Bukovel: Your Freedom in the Heart of the Carpathians",
       en: "Car Rental in Bukovel: Your Freedom in the Heart of the Carpathians",
+      ro: "Închiriere auto în Bukovel: libertatea dvs. în inima Carpaților",
     };
     return bukovelTitles[locale];
   }
@@ -10890,6 +12562,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Ternopil: Journeys Through the Heart of Halychyna",
       en: "Car Rental in Ternopil: Journeys Through the Heart of Halychyna",
+      ro: "Închiriere auto în Ternopil: călătorii prin inima Galiției",
     };
     return ternopilTitles[locale];
   }
@@ -10900,6 +12573,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Truskavets: Comfort of Your Recovery",
       en: "Car Rental in Truskavets: Comfort of Your Recovery",
+      ro: "Închiriere auto în Truskavets: confortul recuperării dvs.",
     };
     return truskavetsTitles[locale];
   }
@@ -10910,6 +12584,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Chernivtsi: Discover \"Little Vienna\" and Bukovina",
       en: "Car Rental in Chernivtsi: Discover \"Little Vienna\" and Bukovina",
+      ro: "Închiriere auto în Chernivtsi: descoperiți \"Mica Vienă\" și Bucovina",
     };
     return chernivtsiTitles[locale];
   }
@@ -10920,6 +12595,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Ivano-Frankivsk: Start of Your Carpathian Adventure",
       en: "Car Rental in Ivano-Frankivsk: Start of Your Carpathian Adventure",
+      ro: "Închiriere auto în Ivano-Frankivsk: începutul aventurii dvs. carpatice",
     };
     return ivanoFrankivskTitles[locale];
   }
@@ -10930,6 +12606,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Skhidnytsia: Mobility in the \"Ukrainian Switzerland\"",
       en: "Car Rental in Skhidnytsia: Mobility in the \"Ukrainian Switzerland\"",
+      ro: "Închiriere auto în Skhidnytsia: mobilitate în \"Elveția ucraineană\"",
     };
     return skhidnytsiaTitles[locale];
   }
@@ -10940,6 +12617,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Uzhhorod: Gateway to Europe and Heart of Zakarpattia",
       en: "Car Rental in Uzhhorod: Gateway to Europe and Heart of Zakarpattia",
+      ro: "Închiriere auto în Uzhhorod: poartă spre Europa și inima Transcarpatiei",
     };
     return uzhhorodTitles[locale];
   }
@@ -10950,6 +12628,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Vinnytsia: Comfort in the Heart of Podillia",
       en: "Car Rental in Vinnytsia: Comfort in the Heart of Podillia",
+      ro: "Închiriere auto în Vinnytsia: confort în inima Podiliei",
     };
     return vinnytsiaTitles[locale];
   }
@@ -10960,6 +12639,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Mukachevo: The Hub of Your Transcarpathian Route",
       en: "Car Rental in Mukachevo: The Hub of Your Transcarpathian Route",
+      ro: "Închiriere auto în Mukachevo: centrul rutei dvs. transcarpatice",
     };
     return mukachevoTitles[locale];
   }
@@ -10970,6 +12650,7 @@ export function generateCityEditorTitle(
 
       pl: "Car Rental in Poltava: Comfort in the Heart of Ukraine",
       en: "Car Rental in Poltava: Comfort in the Heart of Ukraine",
+      ro: "Închiriere auto în Poltava: confort în inima Ucrainei",
     };
     return poltavaTitles[locale];
   }
@@ -10979,6 +12660,7 @@ export function generateCityEditorTitle(
     uk: `Оренда авто у ${loc.nameLocative} з REIZ: новий підхід до комфорту`,
     ru: `Аренда авто в ${loc.nameLocative} с REIZ: новый подход к комфорту`,
     en: `Car Rental in ${loc.name} with REIZ: A New Approach to Comfort`,
+    ro: `Închiriere auto în ${loc.name} cu REIZ: o nouă abordare a confortului`,
 
     pl: `Car Rental in ${loc.name} with REIZ: A New Approach to Comfort`,
   };
@@ -11005,6 +12687,7 @@ const DEFAULT_LOCAL_ATTRACTIONS = {
 
   pl: "the city center and your address",
   en: "the city center and your address",
+  ro: "centrul orașului și adresa dvs.",
 };
 
 const DEFAULT_ROUTES = {
@@ -11013,6 +12696,7 @@ const DEFAULT_ROUTES = {
 
   pl: "trips around the region and nearby cities",
   en: "trips around the region and nearby cities",
+  ro: "excursii prin regiune și în orașele din apropiere",
 };
 
 const DEFAULT_WEEKEND = {
@@ -11021,6 +12705,7 @@ const DEFAULT_WEEKEND = {
 
   pl: "popular tourist spots in the region",
   en: "popular tourist spots in the region",
+  ro: "locuri turistice populare din regiune",
 };
 
 const joinWithConjunction = (items: string[], locale: Locale): string => {
@@ -11033,6 +12718,7 @@ const joinWithConjunction = (items: string[], locale: Locale): string => {
 
     pl: "and",
     en: "and",
+    ro: "and",
   }[locale];
 
   if (items.length === 2) {
@@ -11055,6 +12741,7 @@ const getPickupLocationsText = (city: CityConfig, locale: Locale): string => {
 
       pl: "city center pickup",
       en: "city center pickup",
+      ro: "ridicare din centrul orașului",
     }[locale];
   }
 
@@ -11072,6 +12759,7 @@ const getAirportSentence = (
     uk: `Подача в ${airportName} можлива за попереднім узгодженням, час та умови підтвердить менеджер.`,
     ru: `Подача в ${airportName} возможна по предварительному согласованию, время и условия подтвердит менеджер.`,
     en: `Delivery to ${airportName} is available by request; the manager confirms time and terms.`,
+    ro: `Livrarea la ${airportName} este disponibilă la cerere; managerul confirmă ora și condițiile.`,
 
     pl: `Delivery to ${airportName} is available by request; the manager confirms time and terms.`,
   };
@@ -11099,6 +12787,7 @@ const generateCityFaqTemplate = (
       uk: `Найчастіші точки подачі: ${pickupLocations}.`,
       ru: `Частые точки подачи: ${pickupLocations}.`,
       en: `Common pickup points: ${pickupLocations}.`,
+      ro: `Puncte comune de ridicare: ${pickupLocations}.`,
 
       pl: `Common pickup points: ${pickupLocations}.`,
     }[locale],
@@ -11106,6 +12795,7 @@ const generateCityFaqTemplate = (
       uk: `Також доставляємо авто в ${localAttractions}.`,
       ru: `Также доставляем авто в ${localAttractions}.`,
       en: `We can also deliver the car to ${localAttractions}.`,
+      ro: `De asemenea, putem livra mașina la ${localAttractions}.`,
 
       pl: `We can also deliver the car to ${localAttractions}.`,
     }[locale],
@@ -11122,6 +12812,7 @@ const generateCityFaqTemplate = (
 
         pl: "Practical Information",
         en: "Practical Information",
+        ro: "Informații practice",
       }[locale],
       items: [
         {
@@ -11129,6 +12820,7 @@ const generateCityFaqTemplate = (
             uk: `Де паркувати орендований автомобіль у ${cityName} і як уникнути штрафів?`,
             ru: `Где парковать арендованный автомобиль в ${cityName} и как избежать штрафов?`,
             en: `Where to park a rental car in ${loc.name} and how to avoid fines?`,
+            ro: `Unde să parcați o mașină închiriată în ${loc.name} și cum să evitați amenzile?`,
 
             pl: `Where to park a rental car in ${loc.name} and how to avoid fines?`,
           }[locale],
@@ -11138,6 +12830,7 @@ const generateCityFaqTemplate = (
 
             pl: "Paid parking often applies in central areas — use meters or city apps and check signage. Outside the center, parking is usually free. Avoid sidewalks and No Stopping zones.",
             en: "Paid parking often applies in central areas — use meters or city apps and check signage. Outside the center, parking is usually free. Avoid sidewalks and No Stopping zones.",
+            ro: "Parcarea cu plată se aplică adesea în zonele centrale — folosiți parcometre sau aplicații urbane și verificați indicatoarele. În afara centrului, parcarea este de obicei gratuită. Evitați trotuarele și zonele de oprire interzisă.",
           }[locale],
         },
         {
@@ -11145,6 +12838,7 @@ const generateCityFaqTemplate = (
             uk: `Де можна отримати авто в ${cityName} і чи є подача на вокзал/аеропорт?`,
             ru: `Где можно получить авто в ${cityName} и есть ли подача на вокзал/аэропорт?`,
             en: `Where can I pick up a car in ${loc.name} and is airport/station delivery available?`,
+            ro: `Unde pot ridica o mașină în ${loc.name} și este disponibilă livrarea la aeroport/gară?`,
 
             pl: `Where can I pick up a car in ${loc.name} and is airport/station delivery available?`,
           }[locale],
@@ -11155,6 +12849,7 @@ const generateCityFaqTemplate = (
             uk: `Які маршрути з ${cityName} найпопулярніші?`,
             ru: `Какие маршруты из ${cityName} самые популярные?`,
             en: `Which routes from ${loc.name} are most popular?`,
+            ro: `Care sunt cele mai populare rute din ${loc.name}?`,
 
             pl: `Which routes from ${loc.name} are most popular?`,
           }[locale],
@@ -11162,6 +12857,7 @@ const generateCityFaqTemplate = (
             uk: `Популярні маршрути: ${routes}. Для відпочинку радимо ${weekendTrip}.`,
             ru: `Популярные маршруты: ${routes}. Для отдыха рекомендуем ${weekendTrip}.`,
             en: `Popular routes: ${routes}. For a weekend trip, consider ${weekendTrip}.`,
+            ro: `Rute populare: ${routes}. Pentru o excursie de weekend, luați în considerare ${weekendTrip}.`,
 
             pl: `Popular routes: ${routes}. For a weekend trip, consider ${weekendTrip}.`,
           }[locale],
@@ -11175,6 +12871,7 @@ const generateCityFaqTemplate = (
 
         pl: "Insurance and Deposit",
         en: "Insurance and Deposit",
+        ro: "Asigurare și garanție",
       }[locale],
       items: [
         {
@@ -11182,6 +12879,7 @@ const generateCityFaqTemplate = (
             uk: `Що покриває страховка при оренді авто у ${cityName}?`,
             ru: `Что покрывает страховка при аренде авто в ${cityName}?`,
             en: `What does insurance cover when renting a car in ${loc.name}?`,
+            ro: `Ce acoperă asigurarea la închirierea unei mașini în ${loc.name}?`,
 
             pl: `What does insurance cover when renting a car in ${loc.name}?`,
           }[locale],
@@ -11191,6 +12889,7 @@ const generateCityFaqTemplate = (
 
             pl: "Every car has mandatory MTPL covering third-party damage. CDW/SCDW packages reduce your liability for car damage. Extended coverage may include glass, tires, and mirrors.",
             en: "Every car has mandatory MTPL covering third-party damage. CDW/SCDW packages reduce your liability for car damage. Extended coverage may include glass, tires, and mirrors.",
+            ro: "Fiecare mașină are asigurare obligatorie RCA care acoperă daunele terțelor părți. Pachetele CDW/SCDW reduc responsabilitatea dvs. pentru daunele aduse mașinii. Acoperirea extinsă poate include geamuri, anvelope și oglinzi.",
           }[locale],
         },
         {
@@ -11198,6 +12897,7 @@ const generateCityFaqTemplate = (
             uk: `Франшиза та депозит у ${cityName}: у чому різниця?`,
             ru: `Франшиза и депозит в ${cityName}: в чем разница?`,
             en: `Deductible and deposit in ${loc.name}: what's the difference?`,
+            ro: `Franșiza și garanția în ${loc.name}: care este diferența?`,
 
             pl: `Deductible and deposit in ${loc.name}: what's the difference?`,
           }[locale],
@@ -11207,6 +12907,7 @@ const generateCityFaqTemplate = (
 
             pl: "The deposit is blocked on your card during the rental and returned after the car is accepted. The deductible is the maximum amount of your liability in case of an incident. Insurance packages reduce both amounts.",
             en: "The deposit is blocked on your card during the rental and returned after the car is accepted. The deductible is the maximum amount of your liability in case of an incident. Insurance packages reduce both amounts.",
+            ro: "Garanția este blocată pe cardul dvs. pe durata închirierii și returnată după acceptarea mașinii. Franșiza este suma maximă a responsabilității dvs. în cazul unui incident. Pachetele de asigurare reduc ambele sume.",
           }[locale],
         },
         {
@@ -11214,6 +12915,7 @@ const generateCityFaqTemplate = (
             uk: `Чи можна орендувати авто у ${cityName} без застави?`,
             ru: `Можно ли арендовать авто в ${cityName} без залога?`,
             en: `Can I rent a car in ${loc.name} without a deposit?`,
+            ro: `Pot închiria o mașină în ${loc.name} fără garanție?`,
 
             pl: `Can I rent a car in ${loc.name} without a deposit?`,
           }[locale],
@@ -11223,6 +12925,7 @@ const generateCityFaqTemplate = (
 
             pl: "For selected models, a minimal deposit or no deposit is available with extended insurance. Terms depend on the car class and rental period — please check with the manager.",
             en: "For selected models, a minimal deposit or no deposit is available with extended insurance. Terms depend on the car class and rental period — please check with the manager.",
+            ro: "Pentru modele selectate, este disponibilă o garanție minimă sau fără garanție cu asigurare extinsă. Condițiile depind de clasa mașinii și de perioada de închiriere — vă rugăm să verificați cu managerul.",
           }[locale],
         },
       ],
@@ -11234,6 +12937,7 @@ const generateCityFaqTemplate = (
 
         pl: "Restrictions and Prohibitions",
         en: "Restrictions and Prohibitions",
+        ro: "Restricții și interdicții",
       }[locale],
       items: [
         {
@@ -11241,6 +12945,7 @@ const generateCityFaqTemplate = (
             uk: `Мінімальний вік і стаж водія для оренди авто у ${cityName}`,
             ru: `Минимальный возраст и стаж водителя для аренды авто в ${cityName}`,
             en: `Minimum age and driving experience for car rental in ${loc.name}`,
+            ro: `Vârsta minimă și experiența de conducere pentru închirierea auto în ${loc.name}`,
 
             pl: `Minimum age and driving experience for car rental in ${loc.name}`,
           }[locale],
@@ -11250,6 +12955,7 @@ const generateCityFaqTemplate = (
 
             pl: "Minimum age is 21 and driving experience from 2 years. For premium cars and crossovers, requirements may be higher: from 25 years and 3+ years of experience.",
             en: "Minimum age is 21 and driving experience from 2 years. For premium cars and crossovers, requirements may be higher: from 25 years and 3+ years of experience.",
+            ro: "Vârsta minimă este de 21 de ani și experiența de conducere de la 2 ani. Pentru mașini premium și crossovere, cerințele pot fi mai mari: de la 25 de ani și 3+ ani de experiență.",
           }[locale],
         },
         {
@@ -11257,6 +12963,7 @@ const generateCityFaqTemplate = (
             uk: `Чи можна виїжджати за межі України на орендованому авто з ${cityName}?`,
             ru: `Можно ли выезжать за пределы Украины на арендованном авто из ${cityName}?`,
             en: `Can I travel outside Ukraine with a rental car from ${loc.name}?`,
+            ro: `Pot călători în afara Ucrainei cu o mașină închiriată din ${loc.name}?`,
 
             pl: `Can I travel outside Ukraine with a rental car from ${loc.name}?`,
           }[locale],
@@ -11266,6 +12973,7 @@ const generateCityFaqTemplate = (
 
             pl: "Yes, with prior approval. Please notify the manager in advance and arrange additional documents (Green Card). The list of permitted countries is confirmed individually.",
             en: "Yes, with prior approval. Please notify the manager in advance and arrange additional documents (Green Card). The list of permitted countries is confirmed individually.",
+            ro: "Da, cu aprobare prealabilă. Vă rugăm să anunțați managerul în avans și să aranjați documentele suplimentare (Green Card). Lista țărilor permise este confirmată individual.",
           }[locale],
         },
         {
@@ -11275,6 +12983,7 @@ const generateCityFaqTemplate = (
 
             pl: "Transferring the car to third parties and taxi use: what's prohibited",
             en: "Transferring the car to third parties and taxi use: what's prohibited",
+            ro: 'Transferul mașinii către terți și utilizarea ca taxi: ce este interzis',
           }[locale],
           answer: {
             uk: "Заборонено передавати авто особам, не вказаним у договорі, використовувати для таксі/доставки, суборенди, участі в перегонах та буксирування інших авто. Порушення призводять до штрафу та розірвання договору.",
@@ -11282,6 +12991,7 @@ const generateCityFaqTemplate = (
 
             pl: "It is prohibited to transfer the car to anyone not listed in the contract, use it for taxi/delivery, sublet it, participate in races, or tow other vehicles. Violations lead to penalties and contract termination.",
             en: "It is prohibited to transfer the car to anyone not listed in the contract, use it for taxi/delivery, sublet it, participate in races, or tow other vehicles. Violations lead to penalties and contract termination.",
+            ro: "Este interzis să transferați mașina oricui nu este menționat în contract, să o folosiți pentru taxi/livrare, să o subînchiriați, să participați la curse sau să tractați alte vehicule. Încălcările duc la penalități și rezilierea contractului.",
           }[locale],
         },
       ],
@@ -11293,6 +13003,7 @@ const generateCityFaqTemplate = (
 
         pl: "Payment and Documents",
         en: "Payment and Documents",
+        ro: "Plată și documente",
       }[locale],
       items: [
         {
@@ -11300,6 +13011,7 @@ const generateCityFaqTemplate = (
             uk: `Які способи оплати доступні при оренді авто у ${cityName}?`,
             ru: `Какие способы оплаты доступны при аренде авто в ${cityName}?`,
             en: `What payment methods are available for car rental in ${loc.name}?`,
+            ro: `Ce metode de plată sunt disponibile pentru închirierea auto în ${loc.name}?`,
 
             pl: `What payment methods are available for car rental in ${loc.name}?`,
           }[locale],
@@ -11309,6 +13021,7 @@ const generateCityFaqTemplate = (
 
             pl: "We accept Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, and bank transfer for legal entities. The deposit is blocked on the card or paid in cash.",
             en: "We accept Visa/Mastercard (Apple Pay, Google Pay), cash UAH/USD/EUR, and bank transfer for legal entities. The deposit is blocked on the card or paid in cash.",
+            ro: "Acceptăm Visa/Mastercard (Apple Pay, Google Pay), numerar UAH/USD/EUR și transfer bancar pentru persoane juridice. Garanția este blocată pe card sau plătită în numerar.",
           }[locale],
         },
         {
@@ -11316,6 +13029,7 @@ const generateCityFaqTemplate = (
             uk: `Які документи потрібні для оренди авто у ${cityName}?`,
             ru: `Какие документы нужны для аренды авто в ${cityName}?`,
             en: `What documents are required to rent a car in ${loc.name}?`,
+            ro: `Ce documente sunt necesare pentru a închiria o mașină în ${loc.name}?`,
 
             pl: `What documents are required to rent a car in ${loc.name}?`,
           }[locale],
@@ -11325,6 +13039,7 @@ const generateCityFaqTemplate = (
 
             pl: "Ukrainian citizens need a passport/ID, a category B driver's license, and tax ID. Foreigners need a passport, a driver's license (international if not in Latin), and an entry visa/stamp.",
             en: "Ukrainian citizens need a passport/ID, a category B driver's license, and tax ID. Foreigners need a passport, a driver's license (international if not in Latin), and an entry visa/stamp.",
+            ro: 'Cetățenii ucraineni au nevoie de a pașaport/carte de identitate, un permis de conducere categoria B, și cod fiscal. Străinii au nevoie de un pașaport, un permis de conducere (internațional dacă nu este în latină), și o viză/ștampilă de intrare.',
           }[locale],
         },
         {
@@ -11334,6 +13049,7 @@ const generateCityFaqTemplate = (
 
             pl: "Full-to-full fuel policy: how to return a car without extra charges?",
             en: "Full-to-full fuel policy: how to return a car without extra charges?",
+            ro: "Politica de combustibil plin-plin: cum se returnează mașina fără costuri suplimentare?",
           }[locale],
           answer: {
             uk: "Авто видається з повним баком — поверніть також із повним. Якщо не встигаєте заправитись, можемо заправити за ринковою ціною + сервісний збір.",
@@ -11341,6 +13057,7 @@ const generateCityFaqTemplate = (
 
             pl: "The car is provided with a full tank — return it full as well. If you don't have time to refuel, we can fill it at market price plus a service fee.",
             en: "The car is provided with a full tank — return it full as well. If you don't have time to refuel, we can fill it at market price plus a service fee.",
+            ro: 'Mașina este furnizată cu rezervorul plin — returnați-o tot cu rezervorul plin. Dacă nu aveți timp să alimentați, putem alimenta la prețul pieței plus o taxă de serviciu.',
           }[locale],
         },
       ],

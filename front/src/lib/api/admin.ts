@@ -78,6 +78,7 @@ export interface ConfigurationOption {
     ru: string;
     en: string;
     pl: string;
+    ro?: string;
 }
 
 export const getConfigurationOptions = async (): Promise<ConfigurationOption[]> => {

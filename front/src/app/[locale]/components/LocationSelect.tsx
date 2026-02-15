@@ -15,12 +15,14 @@ const WITHIN_CITY_OPTIONS: Record<LocationType, LocalizedField> = {
     ru: "Подача в пределах города",
     en: "Pickup within the city",
     pl: "Podstawienie w granicach miasta",
+    ro: "Livrare în oraș",
   },
   return: {
     uk: "Повернення у межах міста",
     ru: "Возврат в пределах города",
     en: "Return within the city",
     pl: "Zwrot w granicach miasta",
+    ro: "Returnare în oraș",
   },
 };
 

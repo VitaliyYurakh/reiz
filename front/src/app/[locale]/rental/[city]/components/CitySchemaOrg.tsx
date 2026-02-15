@@ -24,6 +24,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     ru: `Аренда авто в ${city.nameLocative} — современные автомобили, подача по городу и в аэропорт, поддержка 24/7.`,
     en: `Car rental in ${city.name} — modern vehicles, city-wide delivery and airport pickup, 24/7 support.`,
     pl: `Wynajem samochodu w ${city.name} — nowoczesne pojazdy, dostawa po mieście i na lotnisko, wsparcie 24/7.`,
+    ro: `Închiriere auto în ${city.name} — vehicule moderne, livrare în oraș și la aeroport, asistență 24/7.`,
   };
 
   // Schema.org WebPage для конкретного міста

@@ -6,6 +6,7 @@ export const OG_LOCALE: Record<Locale, string> = {
   ru: "ru_UA",
   en: "en_US",
   pl: "pl_PL",
+  ro: "ro_MD",
 };
 
 // ---------- BCP-47 language tags (Schema.org, HTML lang) ----------
@@ -14,6 +15,7 @@ export const LANGUAGE_TAG: Record<Locale, string> = {
   ru: "ru-UA",
   en: "en-US",
   pl: "pl-PL",
+  ro: "ro-MD",
 };
 
 // ---------- Display labels for language switcher ----------
@@ -22,6 +24,7 @@ export const LOCALE_LABEL: Record<Locale, string> = {
   ru: "Русский",
   en: "English",
   pl: "Polski",
+  ro: "Română",
 };
 
 // ---------- Schema.org area data ----------
@@ -33,6 +36,7 @@ export const LOCALE_AREA: Record<
   ru: { city: "Львов", region: "Львовская область", country: "Украина" },
   en: { city: "Lviv", region: "Lviv Oblast", country: "Ukraine" },
   pl: { city: "Lwów", region: "Obwód lwowski", country: "Ukraina" },
+  ro: { city: "Lviv", region: "Regiunea Lviv", country: "Ucraina" },
 };
 
 // ---------- Utility type: replaces { uk: string; ru: string; en: string } ----------
