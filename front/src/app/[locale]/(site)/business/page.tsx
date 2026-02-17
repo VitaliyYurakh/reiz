@@ -29,12 +29,14 @@ function BusinessJsonLd({ locale }: { locale: Locale }) {
     ru: "Корпоративная аренда автомобилей с НДС",
     en: "Corporate Car Rental with VAT",
     pl: "Wynajem korporacyjny samochodów z VAT",
+    ro: "Închiriere corporativă de mașini cu TVA",
   };
   const cities: Record<Locale, string[]> = {
     uk: ["Київ", "Львів", "Тернопіль"],
     ru: ["Киев", "Львов", "Тернополь"],
     en: ["Kyiv", "Lviv", "Ternopil"],
     pl: ["Kijów", "Lwów", "Tarnopol"],
+    ro: ["Kiev", "Lviv", "Ternopil"],
   };
 
   const service = {
