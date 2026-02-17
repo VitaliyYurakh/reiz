@@ -13,6 +13,7 @@ import { type Car, type CarCountingRule, type RentalTariff, localized } from "@/
 import { Link } from "@/i18n/request";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { formatEngine } from "@/lib/utils/catalog-utils";
+import UiImage from "@/components/ui/UiImage";
 
 type CarCardProps = {
   car: Car;
@@ -211,13 +212,12 @@ export default function CarCard({ car }: CarCardProps) {
   return (
     <li className={compactBadges ? "car-card car-card--compact-badges" : "car-card"}>
       <Link href={carDetailsLink} className="car-card__image">
-        <img
-          width="450"
-          height="252"
+        <UiImage
+          width={450}
+          height={252}
           src={`${BASE_URL}static/${encodeURI(car.previewUrl ?? "")}`}
           alt={tCatalog("imageAlt", { brand: car.brand ?? "", model: car.model ?? "" })}
-          loading="lazy"
-          decoding="async"
+          sizePreset="card"
         />
       </Link>
 

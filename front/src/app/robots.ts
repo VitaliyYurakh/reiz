@@ -24,6 +24,8 @@ export default function robots(): MetadataRoute.Robots {
           "/cars/5-1111-232323-7777",
           "/ru/cars/5-1111-232323-7777",
           "/en/cars/5-1111-232323-7777",
+          "/pl/cars/1-bmw-x3-2023",
+          "/pl/cars/5-1111-232323-7777",
         ],
       },
     ],

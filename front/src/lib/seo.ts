@@ -99,7 +99,7 @@ export async function getPageMetadata({
       siteName: "REIZ",
       title: t("meta.og_title"),
       description: t("meta.og_description"),
-      images: [{ url: ogImage }],
+      images: [{ url: ogImage, width: 1200, height: 630 }],
       url: toAbsolute(rawPathname),
       locale: ogLocale,
       alternateLocale: ogAlternateLocales,

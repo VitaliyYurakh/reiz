@@ -55,7 +55,7 @@ export default async function AboutPage() {
       <div className="about-section__content">
         <div className="about-section__wrapp">
           <div className="about-section__card">
-            <span className="about-section__title">{t("mission.title")}</span>
+            <h2 className="about-section__title">{t("mission.title")}</h2>
             <p>{t("mission.text")}</p>
           </div>
 
@@ -69,7 +69,7 @@ export default async function AboutPage() {
                 sizePreset="card"
               />
             </div>
-            <span className="about-section__title">{t("brand.title")}</span>
+            <h2 className="about-section__title">{t("brand.title")}</h2>
           </div>
         </div>
 
@@ -86,7 +86,7 @@ export default async function AboutPage() {
         <ul className="about-section__list">
           {stats.map((s) => (
             <li className="about-section__item" key={s.label}>
-              <span className="about-section__title">{s.value}</span>
+              <h2 className="about-section__title">{s.value}</h2>
 
               {/** biome-ignore lint/security/noDangerouslySetInnerHtml: i18n */}
               <p dangerouslySetInnerHTML={{ __html: s.label }} />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
+import UiImage from "@/components/ui/UiImage";
 import {Link, type Locale, defaultLocale} from "@/i18n/request";
 import {
   OG_LOCALE,
@@ -182,7 +183,7 @@ export default async function CarPage({
               </span>
                         </li>
                         <li className="table-info__item">
-                            <img src="/img/fuel-icon.png" width={23} height={23} alt={t("specifications.fuelIcon")}/>
+                            <UiImage src="/img/fuel-icon.png" width={23} height={23} alt={t("specifications.fuelIcon")} />
                             <span className="table-info__name">
                 {t("specifications.fuelConsumption")}
               </span>

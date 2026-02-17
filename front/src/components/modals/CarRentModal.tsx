@@ -22,6 +22,7 @@ import type { CarCountingRule } from "@/types/cars";
 import { BASE_URL } from "@/config/environment";
 import { useCurrency } from "@/context/CurrencyContext";
 import { submitBookingRequest } from "@/lib/api/feedback";
+import UiImage from "@/components/ui/UiImage";
 
 const formatFull = (d: Date) => {
   const dd = String(d.getDate()).padStart(2, "0");
@@ -950,13 +951,14 @@ export default function CarRentModal({
 
         <div className="modal__right">
           <div className="modal__image">
-            <img
+            <UiImage
               width={570}
               height={319}
               src={`${BASE_URL}static/${encodeURI(data.car.previewUrl ?? "")}`}
               alt={t("summary.imageAlt", {
                 car: carName || t("summary.locationPlaceholder"),
               })}
+              sizePreset="card"
             />
           </div>
 

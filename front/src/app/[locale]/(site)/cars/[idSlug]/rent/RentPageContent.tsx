@@ -26,6 +26,7 @@ import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useRentalSearchOptional } from "@/context/RentalSearchContext";
 import { submitBookingRequest } from "@/lib/api/feedback";
+import UiImage from "@/components/ui/UiImage";
 
 type ExtraDefinition = {
   id: "additionalDriver" | "childSeat" | "borderCrossing" | "driverService";
@@ -769,9 +770,10 @@ export default function RentPageContent({
 
           <div className="rent-page__summary rent-page__summary-panel">
             <div className="rent-page__summary-image">
-              <img
+              <UiImage
                 width={570}
                 height={319}
+                sizePreset="card"
                 src={`${BASE_URL}static/${encodeURI(car.previewUrl ?? "")}`}
                 alt={t("summary.imageAlt", {
                   car: carName || t("summary.locationPlaceholder"),

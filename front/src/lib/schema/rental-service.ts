@@ -64,7 +64,7 @@ export function generateRentalServiceSchema({
         "@type": "ContactPoint",
         telephone: "+380635471186",
         contactType: "customer service",
-        availableLanguage: ["Ukrainian", "Russian", "English"],
+        availableLanguage: ["Ukrainian", "Russian", "English", "Polish"],
       },
     },
     areaServed: {
@@ -79,7 +79,7 @@ export function generateRentalServiceSchema({
     itemOffered: {
       "@type": "Vehicle",
       name: carName,
-      brand: car.brand,
+      brand: { "@type": "Brand", name: car.brand },
       model: car.model,
       vehicleModelDate: car.yearOfManufacture?.toString(),
     },
@@ -90,10 +90,10 @@ export function generateRentalServiceSchema({
     schema.offers = {
       "@type": "Offer",
       priceCurrency: "USD",
-      price: minPrice,
+      price: minPrice.toString(),
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: minPrice,
+        price: minPrice.toString(),
         priceCurrency: "USD",
         unitText: "DAY",
       },

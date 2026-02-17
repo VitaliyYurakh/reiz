@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import InfoSlider from "@/app/[locale]/(site)/business/components/InfoSlider";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { type Locale, locales } from "@/i18n/request";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
@@ -21,25 +21,38 @@ export function generateMetadata({
   return getStaticPageMetadata("businessPage", params.locale);
 }
 
-function BusinessJsonLd() {
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+
+function BusinessJsonLd({ locale }: { locale: Locale }) {
+  const names: Record<Locale, string> = {
+    uk: "Корпоративна оренда автомобілів з ПДВ",
+    ru: "Корпоративная аренда автомобилей с НДС",
+    en: "Corporate Car Rental with VAT",
+    pl: "Wynajem korporacyjny samochodów z VAT",
+  };
+  const cities: Record<Locale, string[]> = {
+    uk: ["Київ", "Львів", "Тернопіль"],
+    ru: ["Киев", "Львов", "Тернополь"],
+    en: ["Kyiv", "Lviv", "Ternopil"],
+    pl: ["Kijów", "Lwów", "Tarnopol"],
+  };
+
   const service = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Корпоративная аренда автомобилей с НДС",
+    name: names[locale],
     provider: {
       "@type": "Organization",
       name: "REIZ",
-      url: "https://reiz.com.ua",
+      url: BASE,
     },
-    areaServed: [
-      { "@type": "AdministrativeArea", name: "Киев" },
-      { "@type": "AdministrativeArea", name: "Львов" },
-      { "@type": "AdministrativeArea", name: "Тернополь" },
-    ],
+    areaServed: cities[locale].map((name) => ({
+      "@type": "AdministrativeArea",
+      name,
+    })),
     serviceType: "Corporate Car Rental",
-    termsOfService: "https://reiz.com.ua/terms",
-    url: "https://reiz.com.ua/business/",
-    hasCredential: { "@type": "Permit", name: "Договор аренды с НДС" },
+    termsOfService: `${BASE}/terms`,
+    url: `${BASE}/business`,
   };
 
   return (
@@ -54,6 +67,7 @@ function BusinessJsonLd() {
 type Slide = { id: string; title: string; text: string };
 
 export default async function BusinessPage() {
+  const locale = await getLocale() as Locale;
   const t = await getTranslations("businessPage");
 
   const iconOrder = [
@@ -77,7 +91,7 @@ export default async function BusinessPage() {
 
   return (
     <>
-      <BusinessJsonLd />
+      <BusinessJsonLd locale={locale} />
 
       <div
         className="rental-section__inner"

@@ -122,7 +122,7 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
       siteName: "REIZ",
       title: (meta.og_title || meta.title) as string,
       description: (meta.og_description || meta.description) as string,
-      images: [{ url: ogImage }],
+      images: [{ url: ogImage, width: 1200, height: 630 }],
       url: canonical,
       locale: ogLocale,
       alternateLocale: ogAlternateLocales,

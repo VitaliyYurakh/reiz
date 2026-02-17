@@ -66,7 +66,7 @@ export async function generateMetadata({
       title,
       description,
       url: canonicalUrl,
-      images: [{ url: ogImage, alt: carName }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: carName }],
       locale: ogLocale,
       alternateLocale: ogAlternateLocales,
     },

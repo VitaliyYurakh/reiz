@@ -62,7 +62,7 @@ export default async function TermsPage() {
       <div className="terms-section__content">
         <ul className="terms-list">
           <li className="terms-list__item">
-            <span className="terms-list__title">{t("termsList.ageTitle")}</span>
+            <h2 className="terms-list__title">{t("termsList.ageTitle")}</h2>
             <div className="terms-list__bg">
               <UiImage
                 width={480}
@@ -75,9 +75,9 @@ export default async function TermsPage() {
           </li>
 
           <li className="terms-list__item">
-            <span className="terms-list__title">
+            <h2 className="terms-list__title">
               {t("termsList.experienceTitle")}
-            </span>
+            </h2>
             <div className="terms-list__bg">
               <UiImage
                 width={480}
@@ -94,9 +94,9 @@ export default async function TermsPage() {
           </li>
 
           <li className="terms-list__item">
-            <span className="terms-list__title">
+            <h2 className="terms-list__title">
               {t("termsList.citizensUA.title")}
-            </span>
+            </h2>
             <div className="terms-list__bg">
               <UiImage
                 width={480}
@@ -120,9 +120,9 @@ export default async function TermsPage() {
           </li>
 
           <li className="terms-list__item">
-            <span className="terms-list__title">
+            <h2 className="terms-list__title">
               {t("termsList.foreignCitizens.title")}
-            </span>
+            </h2>
             <div className="terms-list__bg">
               <UiImage
                 width={480}
@@ -156,7 +156,7 @@ export default async function TermsPage() {
               quality={100}
             />
           </div>
-          <div className="terms-card__title">{t("payments.title")}</div>
+          <h2 className="terms-card__title">{t("payments.title")}</h2>
 
           <div className="terms-card__box">
             <div className="terms-card__wrapp">

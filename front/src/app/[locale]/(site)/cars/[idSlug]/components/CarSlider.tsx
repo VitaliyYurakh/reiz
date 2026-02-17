@@ -94,7 +94,7 @@ export default function CarGallerySlider({
           src={imageSrc}
           width={w}
           height={h}
-          alt={it.alt || "image"}
+          alt={it.alt || ""}
           className="block w-full h-auto object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 60vw"
           quality={85}

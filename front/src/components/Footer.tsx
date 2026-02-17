@@ -50,6 +50,15 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                   <li className="footer-nav__item">
                     <Link href="/contacts">{t("nav.contacts")}</Link>
                   </li>
+                  <li className="footer-nav__item">
+                    <Link href="/insurance">{t("nav.insurance")}</Link>
+                  </li>
+                  <li className="footer-nav__item">
+                    <Link href="/faq">{t("nav.faq")}</Link>
+                  </li>
+                  <li className="footer-nav__item">
+                    <Link href="/certificate">{t("nav.certificate")}</Link>
+                  </li>
                 </ul>
               </nav>
             </div>

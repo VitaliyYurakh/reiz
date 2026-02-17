@@ -1021,7 +1021,10 @@
       "invest": "ODDAJ SAMOCHOD",
       "blog": "BLOG",
       "about": "O NAS",
-      "contacts": "KONTAKT"
+      "contacts": "KONTAKT",
+      "insurance": "UBEZPIECZENIE",
+      "faq": "FAQ",
+      "certificate": "CERTYFIKAT"
     },
     "contacts": {
       "phone_title": "Telefon biura",

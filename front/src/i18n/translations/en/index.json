@@ -1021,7 +1021,10 @@
       "invest": "LIST YOUR CAR",
       "blog": "BLOG",
       "about": "ABOUT US",
-      "contacts": "CONTACTS"
+      "contacts": "CONTACTS",
+      "insurance": "INSURANCE",
+      "faq": "FAQ",
+      "certificate": "CERTIFICATE"
     },
     "contacts": {
       "phone_title": "Office phone",

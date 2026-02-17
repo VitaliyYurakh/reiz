@@ -1054,7 +1054,10 @@
       "invest": "СДАТЬ АВТО В АРЕНДУ",
       "blog": "БЛОГ",
       "about": "О НАС",
-      "contacts": "КОНТАКТЫ"
+      "contacts": "КОНТАКТЫ",
+      "insurance": "СТРАХОВАНИЕ",
+      "faq": "FAQ",
+      "certificate": "СЕРТИФИКАТ"
     },
     "contacts": {
       "phone_title": "Телефон офиса",

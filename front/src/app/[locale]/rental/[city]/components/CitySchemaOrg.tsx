@@ -38,13 +38,15 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
         ? `Оренда авто у ${city.nameLocative}`
         : locale === "ru"
           ? `Аренда авто в ${city.nameLocative}`
-          : `Car Rental in ${city.name}`
+          : locale === "pl"
+            ? `Wynajem samochodu w ${city.name}`
+            : `Car Rental in ${city.name}`
     }`,
     description: descriptions[locale],
     isPartOf: {
       "@id": `${baseUrl}/#website`,
     },
-    inLanguage: locale === "uk" ? "uk-UA" : locale === "ru" ? "ru-UA" : "en",
+    inLanguage: locale === "uk" ? "uk-UA" : locale === "ru" ? "ru-UA" : locale === "pl" ? "pl-PL" : "en-US",
   };
 
   // Schema.org LocalBusiness для конкретного міста
@@ -78,7 +80,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     areaServed: [
       { "@type": "City", name: city.name },
       { "@type": "AdministrativeArea", name: city.region },
-      { "@type": "Country", name: "Україна" },
+      { "@type": "Country", name: locale === "uk" ? "Україна" : locale === "ru" ? "Украина" : locale === "pl" ? "Ukraina" : "Ukraine" },
     ],
     openingHoursSpecification: [
       {
@@ -107,7 +109,9 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
           ? "Автомобілі в оренду"
           : locale === "ru"
             ? "Автомобили в аренду"
-            : "Cars for rent",
+            : locale === "pl"
+              ? "Samochody do wynajęcia"
+              : "Cars for rent",
       itemListElement: [
         {
           "@type": "Offer",
@@ -118,7 +122,9 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
                 ? "Автомобілі економ класу"
                 : locale === "ru"
                   ? "Автомобили эконом класса"
-                  : "Economy class cars",
+                  : locale === "pl"
+                    ? "Samochody klasy ekonomicznej"
+                    : "Economy class cars",
           },
         },
         {
@@ -130,7 +136,9 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
                 ? "Автомобілі бізнес класу"
                 : locale === "ru"
                   ? "Автомобили бизнес класса"
-                  : "Business class cars",
+                  : locale === "pl"
+                    ? "Samochody klasy biznes"
+                    : "Business class cars",
           },
         },
         {
@@ -142,7 +150,9 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
                 ? "SUV та позашляховики"
                 : locale === "ru"
                   ? "SUV и внедорожники"
-                  : "SUVs and crossovers",
+                  : locale === "pl"
+                    ? "SUV-y i crossovery"
+                    : "SUVs and crossovers",
           },
         },
         {
@@ -154,7 +164,9 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
                 ? "Преміум автомобілі"
                 : locale === "ru"
                   ? "Премиум автомобили"
-                  : "Premium cars",
+                  : locale === "pl"
+                    ? "Samochody premium"
+                    : "Premium cars",
           },
         },
       ],
@@ -169,7 +181,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
       {
         "@type": "ListItem",
         position: 1,
-        name: locale === "uk" ? "Головна" : locale === "ru" ? "Главная" : "Home",
+        name: locale === "uk" ? "Головна" : locale === "ru" ? "Главная" : locale === "pl" ? "Strona główna" : "Home",
         item: `${baseUrl}${locale === defaultLocale ? "/" : `/${locale}/`}`,
       },
       {

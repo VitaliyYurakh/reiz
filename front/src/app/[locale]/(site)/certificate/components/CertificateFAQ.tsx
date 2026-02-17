@@ -26,7 +26,7 @@ export default function CertificateFAQ({ title, items }: Props) {
       {/* Section label */}
       <div className="cert-faq-section__label">
         <span className="cert-faq-section__marker" />
-        <span className="cert-faq-section__label-text">{title}</span>
+        <h2 className="cert-faq-section__label-text">{title}</h2>
       </div>
 
       {/* FAQ Accordion */}

@@ -13,7 +13,9 @@ const abs = (path: string) => new URL(path, BASE).toString();
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
-  // Static pages
+  // Static pages (lastModified fixed — content rarely changes)
+  const staticLastModified = new Date("2025-06-01");
+
   (Object.keys(ROUTE_MAP) as RouteKey[]).forEach((key) => {
     const languages = buildHreflangMap(
       (loc) => ROUTE_MAP[key][loc],
@@ -25,8 +27,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url,
-      lastModified: new Date(),
-      changeFrequency: isHome ? "daily" : "weekly",
+      lastModified: isHome ? new Date() : staticLastModified,
+      changeFrequency: isHome ? "daily" : "monthly",
       priority: isHome ? 1.0 : 0.8,
       alternates: { languages },
     });
@@ -39,7 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: abs(`/rental/${citySlug}`),
-      lastModified: new Date(),
+      lastModified: staticLastModified,
       changeFrequency: "weekly",
       priority: 0.9,
       alternates: { languages },
@@ -55,7 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       entries.push({
         url: abs(`/cars/${idSlug}`),
-        lastModified: new Date(),
+        lastModified: staticLastModified,
         changeFrequency: "weekly",
         priority: 0.9,
         alternates: { languages },
@@ -64,6 +66,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   } catch (error) {
     console.error("Failed to fetch cars for sitemap:", error);
+  }
+
+  // Blog articles
+  const blogArticles = ["/blog/lviv-travel"];
+  for (const articlePath of blogArticles) {
+    const languages = buildHreflangMap(articlePath, abs);
+    entries.push({
+      url: abs(articlePath),
+      lastModified: staticLastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      alternates: { languages },
+    });
   }
 
   return entries;

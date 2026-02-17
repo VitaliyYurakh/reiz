@@ -6,6 +6,7 @@ import cn from "classnames";
 import { useTranslations } from "next-intl";
 import { stripLocale } from "@/lib/utils/functions";
 import { useSideBarModal } from "@/components/modals";
+import UiImage from "@/components/ui/UiImage";
 
 export default function SidebarNav() {
   const pathname = usePathname();
@@ -55,7 +56,7 @@ export default function SidebarNav() {
     >
       <div className="aside__top">
         <Link href="/" className="aside__logo">
-          <img
+          <UiImage
             src="/img/icons/reiz-logo.svg"
             alt="REIZ Car Rental"
             width={160}

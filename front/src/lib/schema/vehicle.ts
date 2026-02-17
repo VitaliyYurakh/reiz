@@ -89,13 +89,23 @@ export function generateVehicleSchema({
     schema.fuelType = fuelType;
   }
 
+  // Transmission
+  if (trans) {
+    schema.vehicleTransmission = trans;
+  }
+
+  // Drive wheel configuration
+  if (drv) {
+    schema.driveWheelConfiguration = drv;
+  }
+
   // Offers (rental pricing)
   if (minPrice !== null) {
     schema.offers = {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
-      lowPrice: minPrice,
-      highPrice: maxPrice,
+      lowPrice: minPrice.toString(),
+      highPrice: maxPrice?.toString(),
       offerCount: prices.length,
       availability: "https://schema.org/InStock",
       url: canonicalUrl,
@@ -196,7 +206,7 @@ export function generateProductSchema({
       "@type": "Offer",
       url: canonicalUrl,
       priceCurrency: "USD",
-      price: minPrice,
+      price: minPrice.toString(),
       availability: "https://schema.org/InStock",
       priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
         .toISOString()

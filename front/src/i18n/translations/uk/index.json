@@ -1024,7 +1024,10 @@
       "invest": "ЗДАТИ АВТО В ОРЕНДУ",
       "blog": "БЛОГ",
       "about": "ПРО НАС",
-      "contacts": "КОНТАКТИ"
+      "contacts": "КОНТАКТИ",
+      "insurance": "СТРАХУВАННЯ",
+      "faq": "FAQ",
+      "certificate": "СЕРТИФІКАТ"
     },
     "contacts": {
       "phone_title": "Телефон офісу",

@@ -2,6 +2,8 @@ import "./scss/style.scss";
 import type {Metadata, Viewport} from "next";
 import AOSProvider from "@/components/AOSProvider";
 import { getLocale } from "next-intl/server";
+import { LANGUAGE_TAG } from "@/i18n/locale-config";
+import type { Locale } from "@/i18n/request";
 import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
 import { gowunDodum, halvar, inter, merriweather, kyivType, jost } from "@/fonts";
@@ -78,7 +80,7 @@ export default async function RootLayout({
 }: Readonly<{ children: ReactNode }>) {
   const locale = await getLocale();
   return (
-    <html lang={locale} className="page">
+    <html lang={LANGUAGE_TAG[locale as Locale] ?? locale} className="page">
       <head>
         {/* Partytown - moves third-party scripts to Web Worker */}
         <Partytown

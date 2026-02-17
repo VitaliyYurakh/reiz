@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { type Locale, locales, Link } from "@/i18n/request";
+import { type Locale, locales, defaultLocale, Link } from "@/i18n/request";
+import { buildHreflangMap, OG_LOCALE, getOgAlternateLocales } from "@/i18n/locale-config";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import UiImage from "@/components/ui/UiImage";
 import CastleGallery from "./CastleGallery";
 import RouteSlider from "./RouteSlider";
 import PhotoCollage from "./PhotoCollage";
+
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -19,13 +22,25 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blogLvivTravel" });
 
+  const path = "/blog/lviv-travel";
+  const canonical = `${BASE}${locale === defaultLocale ? "" : `/${locale}`}${path}`;
+  const languages = buildHreflangMap(path, (p) => `${BASE}${p}`);
+  const ogLocale = OG_LOCALE[locale];
+  const ogAlternateLocales = getOgAlternateLocales(locale);
+
   return {
     title: t("meta.title"),
     description: t("meta.description"),
+    alternates: {
+      canonical,
+      languages,
+    },
     openGraph: {
       title: t("meta.og_title"),
       description: t("meta.og_description"),
       type: "article",
+      url: canonical,
+      siteName: "REIZ",
       images: [
         {
           url: "/img/blog/synevir-lake.webp",
@@ -34,6 +49,8 @@ export async function generateMetadata({
           alt: t("meta.og_title"),
         },
       ],
+      locale: ogLocale,
+      alternateLocale: ogAlternateLocales,
     },
   };
 }
