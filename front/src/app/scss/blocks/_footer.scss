@@ -33,12 +33,12 @@
   &__top {
     display: grid;
     gap: 28px;
-    grid-template-columns: 1.07fr 1fr;
+    grid-template-columns: 1.4fr 0.6fr;
     padding-bottom: 14px;
 
     @media (max-width: 1341px) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: clamp(40px, 5.8824vw, 80px);
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: clamp(28px, 4vw, 60px);
     }
 
     @include small-tablet {
@@ -55,16 +55,19 @@
     display: flex;
     flex-direction: column;
     gap: 41px;
+    padding-top: 20px;
 
     @include small-tablet {
       @include for-mobile {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        padding-top: 0;
       }
     }
 
     @include mobile {
       gap: 31px;
+      padding-top: 0;
     }
   }
 
@@ -192,6 +195,7 @@
           transition: all 0.3s;
           text-decoration: underline;
           text-decoration-color: transparent;
+          white-space: nowrap;
 
           &:hover {
             text-decoration-color: inherit;
