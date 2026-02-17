@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
     // Image widths for fixed-size images (icons, thumbnails, cards)
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // Modern formats with fallback
-    formats: ["image/avif", "image/webp"],
+    formats: ["image/webp"],
     remotePatterns: [
       {
         protocol: "https",

@@ -20,6 +20,7 @@
   &__slide {
     display: flex;
     height: clamp(410px, 36.3235vw, 494px)!important;
+    background-color: #f0f0f0;
 
     img,
     picture {
