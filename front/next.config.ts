@@ -72,7 +72,7 @@ const nextConfig: NextConfig = {
       },
       {
         key: "X-XSS-Protection",
-        value: "1; mode=block",
+        value: "0",
       },
       {
         key: "Referrer-Policy",
@@ -91,14 +91,14 @@ const nextConfig: NextConfig = {
           key: "Content-Security-Policy",
           value: [
             "default-src 'self'",
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://connect.facebook.net",
+            "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://connect.facebook.net",
             "style-src 'self' 'unsafe-inline'",
             "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com https://reiz.com.ua",
             "font-src 'self' data:",
             "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://grwapi.net https://*.grwapi.net https://reiz.com.ua https://connect.facebook.net https://www.facebook.com",
             "frame-src 'self' https://www.googletagmanager.com https://www.facebook.com https://td.doubleclick.net https://www.google.com",
-            "worker-src 'self' blob:",
-            "child-src 'self' blob:",
+            "worker-src 'self'",
+            "child-src 'self'",
             "object-src 'none'",
             "base-uri 'self'",
             "form-action 'self'",
@@ -114,20 +114,6 @@ const nextConfig: NextConfig = {
         // Security headers for all routes
         source: "/:path*",
         headers: securityHeaders,
-      },
-      {
-        // Partytown service worker - needs special headers
-        source: "/~partytown/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-          {
-            key: "Cross-Origin-Embedder-Policy",
-            value: "credentialless",
-          },
-        ],
       },
       {
         // Images - cache for 1 year

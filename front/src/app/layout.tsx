@@ -7,7 +7,7 @@ import type { Locale } from "@/i18n/request";
 import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
 import { gowunDodum, halvar, inter, merriweather, kyivType, jost } from "@/fonts";
-import { Partytown } from "@qwik.dev/partytown/react";
+import Script from "next/script";
 import ThemeColorProvider from "@/components/ThemeColorProvider";
 import LocalePreferenceSync from "@/components/LocalePreferenceSync";
 
@@ -82,16 +82,6 @@ export default async function RootLayout({
   return (
     <html lang={LANGUAGE_TAG[locale as Locale] ?? locale} className="page">
       <head>
-        {/* Partytown - moves third-party scripts to Web Worker */}
-        <Partytown
-          debug={process.env.NODE_ENV === "development"}
-          forward={[
-            "dataLayer.push",
-            "gtag",
-            "fbq",
-          ]}
-        />
-
         {/* Preload LCP hero images - CRITICAL for performance */}
         {/* Desktop hero - matches current LCP image */}
         <link
@@ -116,17 +106,6 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//grwapi.net" />
 
-        {/* GTM - runs in Partytown Web Worker for better performance */}
-        <script
-          type="text/partytown"
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WGHWDS62');`,
-          }}
-        />
       </head>
       <body
         className={`${inter.variable} ${halvar.variable} ${gowunDodum.variable} ${merriweather.variable} ${kyivType.variable} ${jost.variable}`}
@@ -145,6 +124,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ThemeColorProvider />
         <AOSProvider />
         <PreloadResources />
+
+        {/* GTM - loaded after page is interactive */}
+        <Script
+          id="gtm"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WGHWDS62');`,
+          }}
+        />
       </body>
     </html>
   );
