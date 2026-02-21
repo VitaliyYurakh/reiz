@@ -22,7 +22,7 @@ services:
             - reiz
 
     web:
-        build: 
+        build:
             context: ./front
             dockerfile: Dockerfile
         image: my-next-app:latest
@@ -33,6 +33,8 @@ services:
         expose:
             - "8080"
         restart: always
+        volumes:
+            - next_cache:/app/.next/cache
         networks:
             - reiz
 
@@ -67,6 +69,7 @@ volumes:
     pgdata:
     caddy_data:
     caddy_config:
+    next_cache:
 
 networks:
     reiz:
