@@ -20,6 +20,7 @@ export default function Rent() {
                       alt={t("rent.card1_image_alt")}
                       sizePreset="card"
                       quality={85}
+                      loading="eager"
                     />
                   </div>
                   <p className="rent-card__title">
@@ -82,6 +83,7 @@ export default function Rent() {
                       alt={t("rent.card2_image_alt")}
                       sizePreset="card"
                       quality={85}
+                      loading="eager"
                     />
                   </div>
                   <span className="rent-card__title">
@@ -103,6 +105,7 @@ export default function Rent() {
                       alt={t("rent.card3_image_alt")}
                       sizePreset="card"
                       quality={85}
+                      loading="eager"
                     />
                   </div>
                   <span className="rent-card__title">
