@@ -34,7 +34,7 @@ export default async function HeroSection() {
                 width={2500}
                 height={1685}
                 hero
-                quality={100}
+                quality={80}
                 sizes="100vw"
                 className="hero-image-desktop"
                 fetchPriority="high"
