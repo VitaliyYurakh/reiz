@@ -1021,7 +1021,10 @@
       "invest": "LISTEAZĂ-ȚI MAȘINA",
       "blog": "BLOG",
       "about": "DESPRE NOI",
-      "contacts": "CONTACTE"
+      "contacts": "CONTACTE",
+      "insurance": "ASIGURARE",
+      "faq": "FAQ",
+      "certificate": "CERTIFICAT"
     },
     "contacts": {
       "phone_title": "Telefon birou",
