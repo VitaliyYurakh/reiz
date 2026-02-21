@@ -73,12 +73,16 @@ export default function LocationSelect({
   const buttonId = useId();
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // Get sorted cities
+  // Get sorted cities with location counts
   const sortedCities = useMemo(() => {
     return POPULAR_CITY_SLUGS
       .map((slug) => cities.find((c) => c.slug === slug))
-      .filter((c): c is NonNullable<typeof c> => c !== undefined);
-  }, []);
+      .filter((c): c is NonNullable<typeof c> => c !== undefined)
+      .map((city) => ({
+        ...city,
+        locationCount: getCityPickupLocations(city.slug, locale).length,
+      }));
+  }, [locale]);
 
   // Get locations for selected city
   const cityLocations = useMemo(() => {
@@ -244,11 +248,7 @@ export default function LocationSelect({
             className="option option--back"
             onClick={handleBack}
           >
-            <span className="option-back-icon" aria-hidden="true">
-              <svg width="6" height="10" viewBox="0 0 6 10" style={{ transform: "rotate(180deg)" }}>
-                <path d="M1 1L5 5L1 9" stroke="currentColor" strokeWidth="1.5" fill="none" />
-              </svg>
-            </span>
+            <span className="option-back-arrow" aria-hidden="true">&larr;</span>
             <span className="option-text">
               {sortedCities.find((c) => c.slug === selectedCity)?.localized[locale].name}
             </span>
@@ -300,11 +300,7 @@ export default function LocationSelect({
                 onMouseEnter={() => setActiveIndex(idx)}
               >
                 <span className="option-text">{city.localized[locale].name}</span>
-                <span className="option-arrow" aria-hidden="true">
-                  <svg width="6" height="10" viewBox="0 0 6 10">
-                    <path d="M1 1L5 5L1 9" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                  </svg>
-                </span>
+                <span className="option-count">{city.locationCount}</span>
               </li>
             ))}
       </ul>

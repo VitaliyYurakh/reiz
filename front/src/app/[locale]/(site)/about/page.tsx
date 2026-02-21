@@ -64,7 +64,7 @@ export default async function AboutPage() {
               <UiImage
                 width={490}
                 height={300}
-                src="/img/reiz.png"
+                src="/img/reiz%20office.webp"
                 alt={t("brand.imageAlt")}
                 sizePreset="card"
               />

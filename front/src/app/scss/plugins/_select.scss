@@ -144,7 +144,7 @@
     width: 100%;
     max-height: 0;
     overflow: hidden;
-  
+
     background: #d8d9d2;
     border: 1px solid var(--cl-mm);
     border-radius: 0 0 16px 16px;
@@ -721,46 +721,40 @@
 }
 
 // Location select with city/location two-level selection
-.custom-select.order {
+.custom-select.order,
+.custom-select.rent {
   .option--city {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 
     .option-text {
       flex: 1;
-      font-weight: 600;
+      font-weight: 500;
     }
 
-    .option-arrow {
+    .option-count {
       flex-shrink: 0;
-      width: 16px;
-      height: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--cl-a);
-      opacity: 0.5;
-      margin-right: 8px;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-
-      svg {
-        width: 6px;
-        height: 10px;
-      }
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.4);
+      margin-right: 14px;
+      min-width: 16px;
+      text-align: center;
+      transition: color 0.15s ease;
     }
 
-    &:hover .option-arrow {
-      opacity: 1;
-      transform: translateX(2px);
+    &:hover .option-count,
+    &.focused .option-count {
+      color: rgba(0, 0, 0, 0.65);
     }
   }
 
   .option--within-city {
     .option-text {
-      font-weight: 500;
-      color: var(--cl-a);
-      opacity: 0.85;
+      font-weight: 400;
+      font-style: italic;
+      opacity: 0.75;
     }
 
     &:hover .option-text {
@@ -772,37 +766,30 @@
     display: flex;
     align-items: center;
     padding: 0 8px;
-    margin-bottom: 4px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    padding-bottom: 8px;
+    margin-bottom: 2px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    cursor: pointer;
 
-    .option-back-icon {
+    .option-back-arrow {
       flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 14px;
       color: var(--cl-a);
-      margin-right: 4px;
-
-      svg {
-        width: 6px;
-        height: 10px;
-      }
+      opacity: 0.5;
+      margin-right: 6px;
+      transition: opacity 0.15s ease, transform 0.15s ease;
     }
 
     .option-text {
       font-weight: 600;
       color: var(--cl-a);
       padding-left: 0;
+      background: transparent !important;
     }
 
     &:hover {
-      .option-text {
-        background: transparent;
-      }
-      .option-back-icon {
+      .option-back-arrow {
+        opacity: 1;
         transform: translateX(-2px);
       }
     }

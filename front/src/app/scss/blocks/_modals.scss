@@ -95,7 +95,8 @@
     flex-direction: column;
 
     @include for-small-tablet {
-      overflow: hidden;
+      overflow: visible;
+      clip-path: inset(0 0 -100vh 0);
     }
 
     @include small-tablet {
