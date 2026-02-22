@@ -144,7 +144,7 @@
 
   &__box {
     display: grid;
-    grid-template-columns: clamp(280px, 22.7941vw, 310px) 1fr;
+    grid-template-columns: clamp(260px, 21.3vw, 290px) 1fr;
     gap: clamp(20px, 3.6765vw, 50px);
 
     padding-bottom: clamp(34px, 2.8676vw, 39px);

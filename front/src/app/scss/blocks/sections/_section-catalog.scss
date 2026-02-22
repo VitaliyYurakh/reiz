@@ -29,7 +29,7 @@
 
     &__box {
         display: grid;
-        grid-template-columns: clamp(280px, 22.7941vw, 310px) 1fr;
+        grid-template-columns: clamp(260px, 21.3vw, 290px) 1fr;
         gap: clamp(20px, 3.6765vw, 50px);
 
         @include tablet {
@@ -159,7 +159,7 @@
 }
 
 .catalog-aside {
-    padding-top: 30px;
+    padding-top: 28px;
     border: 1px solid var(--cl-t);
     border-radius: 16px;
     width: 100%;
@@ -189,13 +189,13 @@
     &__form {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 18px;
     }
 
     &__price {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 18px;
 
         @include mobile {
             .catalog-aside__label span {
@@ -221,14 +221,14 @@
     &__content {
         display: flex;
         flex-direction: column;
-        padding: 30px 0 0;
-        gap: 20px;
+        padding: 28px 0 0;
+        gap: 18px;
         min-height: max-content;
 
         @include for-tablet {
             transition: all 0.4s ease;
             max-height: calc(100dvh - 20px - 30px - 20px - 50px - 132px);
-            padding: 25px 20px 0;
+            padding: 23px 18px 0;
         }
 
         @include tablet {
@@ -239,7 +239,7 @@
     &__filters {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 18px;
 
         & > .main-button {
             @include for-mobile {
@@ -316,12 +316,12 @@
         color: var(--cl-a);
         ;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 14px;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 9px;
         text-transform: uppercase;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
 
         i {
             margin-top: -2px;
@@ -654,7 +654,7 @@
     &__inner {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 18px;
 
         .radio-checkbox:last-of-type {
             @include for-tablet {
@@ -686,14 +686,14 @@
     }
 
     &__top {
-        gap: 31px;
+        gap: 29px;
         display: flex;
         flex-direction: column;
 
         p {
             ;
             font-weight: 400;
-            font-size: 16px;
+            font-size: 14px;
             text-align: center;
             color: var(--cl-n);
 
@@ -721,7 +721,7 @@
         font-size: 35px;
         text-align: center;
         color: var(--cl-n);
-        padding: 20px 0 18px;
+        padding: 18px 0 17px;
         border-bottom: 1px solid var(--cl-k);
 
         @include tablet {
@@ -730,8 +730,8 @@
     }
 
     .main-button {
-        width: calc(100% + 42px);
-        margin-left: -21px;
+        width: calc(100% + 38px);
+        margin-left: -19px;
         margin-top: 0;
         margin-bottom: -1px;
         min-width: initial;

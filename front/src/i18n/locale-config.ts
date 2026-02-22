@@ -21,7 +21,7 @@ export const LANGUAGE_TAG: Record<Locale, string> = {
 // ---------- Display labels for language switcher ----------
 export const LOCALE_LABEL: Record<Locale, string> = {
   uk: "Українська",
-  ru: "Русский",
+  ru: "русский",
   en: "English",
   pl: "Polski",
   ro: "Română",

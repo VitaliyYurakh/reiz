@@ -39,8 +39,8 @@
 
   &__box {
     display: grid;
-    grid-template-columns: clamp(280px, 22.7941vw, 310px) calc(
-        100% - clamp(280px, 22.7941vw, 310px) - clamp(20px, 3.6765vw, 50px)
+    grid-template-columns: clamp(260px, 21.3vw, 290px) calc(
+        100% - clamp(260px, 21.3vw, 290px) - clamp(20px, 3.6765vw, 50px)
       );
     gap: clamp(20px, 3.6765vw, 50px);
 
