@@ -63,6 +63,7 @@
     "cheerio": "^1.1.2",
     "cross-env": "^10.0.0",
     "fast-glob": "^3.3.3",
+    "googleapis": "^171.4.0",
     "sass": "^1.92.0",
     "svgo": "^4.0.0",
     "typescript": "5.9.2"

@@ -19,7 +19,7 @@ import {
   Loader2,
   Globe,
 } from 'lucide-react';
-import { IosSelect } from '@/components/admin/ios-select';
+import { IosSelect } from '@/components/admin/IosSelect';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 

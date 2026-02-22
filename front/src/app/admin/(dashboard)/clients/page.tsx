@@ -20,6 +20,7 @@ import {
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAdminTheme, type ThemeTokens } from '@/context/AdminThemeContext';
+import { fmtDate } from '@/app/admin/lib/format';
 
 function getSourceStyles(H: ThemeTokens): Record<string, { bg: string; color: string }> {
   return {
@@ -41,15 +42,6 @@ interface Client {
   rating: number | null;
   source: string | null;
   createdAt: string;
-}
-
-function fmtDate(d: string | null) {
-  if (!d) return '—';
-  return new Date(d).toLocaleDateString('ru', {
-    day: '2-digit',
-    month: '2-digit',
-    year: '2-digit',
-  });
 }
 
 function getInitials(firstName: string, lastName: string) {

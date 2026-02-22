@@ -26,7 +26,7 @@ import {
   Moon,
   Sun,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 import { TopBar } from '@/components/admin/TopBar';
 import { useAdminLocale, type AdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';

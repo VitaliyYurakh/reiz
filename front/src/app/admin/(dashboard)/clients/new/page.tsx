@@ -5,7 +5,7 @@ import { adminApiClient, checkClientDuplicates, type DuplicateClient } from '@/l
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Save, AlertTriangle, Users, ExternalLink } from 'lucide-react';
-import { IosSelect } from '@/components/admin/ios-select';
+import { IosSelect } from '@/components/admin/IosSelect';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 

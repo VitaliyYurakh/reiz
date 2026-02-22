@@ -22,10 +22,7 @@ import {
   DashboardSkeleton,
 } from '@/components/admin/dashboard';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
-
-function formatMoney(minor: number) {
-  return `${(minor / 100).toLocaleString('uk-UA')} грн`;
-}
+import { fmtMoneyUAH as formatMoney } from '@/app/admin/lib/format';
 
 function calcTrend(current: number, previous: number) {
   if (previous === 0) return current > 0 ? 100 : 0;

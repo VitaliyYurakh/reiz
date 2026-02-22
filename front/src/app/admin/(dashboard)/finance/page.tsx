@@ -14,7 +14,8 @@ import {
   TrendingDown,
   Receipt,
 } from 'lucide-react';
-import { IosSelect } from '@/components/admin/ios-select';
+import { IosSelect } from '@/components/admin/IosSelect';
+import { fmtMoney, fmtDateTime } from '@/app/admin/lib/format';
 
 /* ── Types ── */
 
@@ -101,14 +102,7 @@ const initialCreateForm: CreateTransactionForm = {
 };
 
 function formatMoney(minor: number, currency?: string) {
-  const formatted = (minor / 100).toLocaleString('uk-UA', { minimumFractionDigits: 2 });
-  return currency ? `${formatted} ${currency}` : formatted;
-}
-
-function fmtDateTime(d: string | null) {
-  if (!d) return '—';
-  const dt = new Date(d);
-  return `${dt.toLocaleDateString('ru', { day: '2-digit', month: '2-digit', year: '2-digit' })} ${dt.toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' })}`;
+  return fmtMoney(minor, currency);
 }
 
 const ACCOUNT_STYLE: Record<string, { icon: typeof CreditCard; tint: string }> = {

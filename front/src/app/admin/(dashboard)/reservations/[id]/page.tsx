@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient, getAllCars } from '@/lib/api/admin';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -12,8 +12,9 @@ import {
     Edit, Save, X, Calculator, Plus, Minus, Trash2, RotateCcw,
 } from 'lucide-react';
 import { BASE_URL } from '@/config/environment';
-import { IosSelect } from '@/components/admin/ios-select';
+import { IosSelect } from '@/components/admin/IosSelect';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { fmtDate, fmtDateTime, fmtMoney } from '@/app/admin/lib/format';
 
 /* ── Types ── */
 
@@ -78,22 +79,6 @@ interface PriceResult {
 }
 
 /* ── Helpers ── */
-
-function fmtDate(d: string | null) {
-    if (!d) return '—';
-    return new Date(d).toLocaleDateString('uk', { day: '2-digit', month: '2-digit', year: '2-digit' });
-}
-
-function fmtDateTime(d: string | null) {
-    if (!d) return '—';
-    const dt = new Date(d);
-    return `${dt.toLocaleDateString('uk', { day: '2-digit', month: '2-digit', year: '2-digit' })} ${dt.toLocaleTimeString('uk', { hour: '2-digit', minute: '2-digit' })}`;
-}
-
-function fmtMoney(minor: number, currency?: string) {
-    const f = (minor / 100).toLocaleString('uk-UA', { minimumFractionDigits: 2 });
-    return currency ? `${f} ${currency}` : f;
-}
 
 function toLocalDatetime(iso: string) {
     const d = new Date(iso);

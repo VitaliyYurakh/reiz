@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/admin/ui/select';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 
 const EMPTY_SENTINEL = '__none__';
 

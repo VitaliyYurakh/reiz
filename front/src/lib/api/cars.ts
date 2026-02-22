@@ -1,10 +1,12 @@
 import type { Car } from "@/types/cars";
 import {API_URL} from "@/config/environment";
 
+const isDev = process.env.NODE_ENV === "development";
+
 export async function fetchCars(): Promise<Car[]> {
   try {
     const res = await fetch(`${API_URL}/car`, {
-      next: { revalidate: 10 },
+      ...(isDev ? { cache: "no-store" as const } : { next: { revalidate: 10 } }),
       headers: { Accept: "application/json" },
     });
 
@@ -23,7 +25,7 @@ export async function fetchCars(): Promise<Car[]> {
 
 export async function fetchCar(id: number): Promise<Car | null> {
   const res = await fetch(`${API_URL}/car/${id}`, {
-    next: { revalidate: 10 }, // TODO: update in prod
+    ...(isDev ? { cache: "no-store" as const } : { next: { revalidate: 10 } }),
     headers: { Accept: "application/json" },
   });
 

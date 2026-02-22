@@ -19,6 +19,7 @@ import {
   User,
 } from 'lucide-react';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { fmtDate } from '@/app/admin/lib/format';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -134,15 +135,6 @@ const DOC_TYPE_KEYS = [
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-function fmtDate(d: string | null) {
-  if (!d) return '—';
-  return new Date(d).toLocaleDateString('ru', {
-    day: '2-digit',
-    month: '2-digit',
-    year: '2-digit',
-  });
-}
 
 function StatusBadge({
   status,

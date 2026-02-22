@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 import {
   ChevronLeft,
   ChevronRight,
@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { fmtDateShort as fmtDate } from '@/app/admin/lib/format';
 
 interface RentalRequest {
   id: number;
@@ -30,11 +31,6 @@ interface RentalRequest {
   client: { id: number; firstName: string; lastName: string; phone: string } | null;
   car: { id: number; brand: string; model: string; plateNumber: string } | null;
   assignedTo: { id: number; email: string } | null;
-}
-
-function fmtDate(d: string | null) {
-  if (!d) return '—';
-  return new Date(d).toLocaleDateString('uk', { day: '2-digit', month: 'short' });
 }
 
 export default function RequestsPage() {

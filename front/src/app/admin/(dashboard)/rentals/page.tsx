@@ -2,9 +2,10 @@
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { fmtDateShort as fmtDate } from '@/app/admin/lib/format';
 import {
   ChevronLeft,
   ChevronRight,
@@ -49,11 +50,6 @@ function timeAgo(d: string) {
   const days = Math.floor(hrs / 24);
   if (days < 7) return `${days} дн назад`;
   return new Date(d).toLocaleDateString('ru', { day: '2-digit', month: '2-digit', year: '2-digit' });
-}
-
-function fmtDate(d: string | null) {
-  if (!d) return '—';
-  return new Date(d).toLocaleDateString('ru', { day: '2-digit', month: 'short' });
 }
 
 export default function RentalsPage() {

@@ -81,6 +81,9 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
+# Google Service Account key
+service-account.json
+
 # dotenv environment variables file
 .env
 

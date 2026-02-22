@@ -3,7 +3,8 @@
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient, getAllCars } from '@/lib/api/admin';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
-import { IosSelect } from '@/components/admin/ios-select';
+import { IosSelect } from '@/components/admin/IosSelect';
+import { fmtMoney as formatMoney, fmtDate } from '@/app/admin/lib/format';
 import {
   ChevronLeft,
   ChevronRight,
@@ -106,15 +107,6 @@ const EMPTY_FORM: FormData = {
   vendor: '',
   notes: '',
 };
-
-function formatMoney(minor: number, currency: string) {
-  return `${(minor / 100).toLocaleString('he-IL', { minimumFractionDigits: 2 })} ${currency}`;
-}
-
-function fmtDate(d: string | null) {
-  if (!d) return '—';
-  return new Date(d).toLocaleDateString('ru', { day: '2-digit', month: '2-digit', year: '2-digit' });
-}
 
 function toDatetimeLocal(iso: string | null): string {
   if (!iso) return '';

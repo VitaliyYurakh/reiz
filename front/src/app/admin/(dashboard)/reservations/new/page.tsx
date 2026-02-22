@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { adminApiClient, getAllCars } from '@/lib/api/admin';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -20,9 +20,10 @@ import {
   Package,
   Truck,
 } from 'lucide-react';
-import { IosSelect } from '@/components/admin/ios-select';
+import { IosSelect } from '@/components/admin/IosSelect';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { fmtMoney } from '@/app/admin/lib/format';
 
 interface ClientOption { id: number; firstName: string; lastName: string; phone: string }
 interface CarOption { id: number; brand: string | null; model: string | null; plateNumber: string | null }
@@ -54,10 +55,6 @@ function todayLocal() {
   const h = String(now.getHours()).padStart(2, '0');
   const min = String(now.getMinutes()).padStart(2, '0');
   return `${y}-${m}-${d}T${h}:${min}`;
-}
-
-function fmtMoney(minor: number, currency: string) {
-  return `${(minor / 100).toFixed(2)} ${currency}`;
 }
 
 export default function NewReservationPage() {
