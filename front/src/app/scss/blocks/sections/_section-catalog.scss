@@ -164,6 +164,7 @@
     border-radius: 16px;
     width: 100%;
     // height: fit-content;
+    min-height: -webkit-max-content;
     min-height: max-content;
     background: var(--cl-t);
     // gap: 30px;
@@ -172,7 +173,7 @@
 
     @include for-tablet {
         transition: all 0.4s ease;
-        overflow: hidden;
+        overflow-y: auto;
         max-height: calc(100dvh - 20px - 20px);
 
         &.aos-transition-done {
@@ -223,11 +224,8 @@
         flex-direction: column;
         padding: 28px 0 0;
         gap: 18px;
-        min-height: max-content;
-
         @include for-tablet {
             transition: all 0.4s ease;
-            max-height: calc(100dvh - 20px - 30px - 20px - 50px - 132px);
             padding: 23px 18px 0;
         }
 
@@ -306,7 +304,7 @@
             }
 
             &.active {
-                transition: transform 0.3s ease;
+                transition: transform 0.3s ease, top 0.6s ease, max-height 0.6s ease;
                 transform: translateX(0);
             }
         }
@@ -494,7 +492,7 @@
                 // Use transform (same as header) for perfect sync
                 transform: translateY(var(--header-offset, 0px));
                 // Must match header's transition exactly
-                transition: box-shadow 0.3s ease, transform 0.5s ease;
+                transition: box-shadow 0.3s ease, transform 0.6s ease;
                 will-change: transform;
 
                 &:after {
