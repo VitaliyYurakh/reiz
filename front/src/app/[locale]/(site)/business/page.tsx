@@ -271,21 +271,21 @@ export default async function BusinessPage() {
           )}
 
         </div>
-      </div>
 
-      {/* ORDER CTA (Siberia-style) — outside rental-section__inner so sidebar stops here */}
-      <div className="business-cta-section" id="order-call">
-        <div className="business-cta-section__label">
-          <span>{t("order.title")}</span>
-        </div>
-        <div className="business-cta-section__body">
-          <h2 className="business-cta-section__title">
-            {t.rich("order.heading", {
-              accent: (chunks) => <em>{chunks}</em>,
-            })}
-          </h2>
-          <p className="business-cta-section__text">{t("order.lead")}</p>
-          <BusinessCtaButton label={t("order.submit")} />
+        {/* ORDER CTA (Siberia-style) */}
+        <div className="business-cta-section" id="order-call">
+          <div className="business-cta-section__label">
+            <span>{t("order.title")}</span>
+          </div>
+          <div className="business-cta-section__body">
+            <h2 className="business-cta-section__title">
+              {t.rich("order.heading", {
+                accent: (chunks) => <em>{chunks}</em>,
+              })}
+            </h2>
+            <p className="business-cta-section__text">{t("order.lead")}</p>
+            <BusinessCtaButton label={t("order.submit")} />
+          </div>
         </div>
       </div>
     </>
