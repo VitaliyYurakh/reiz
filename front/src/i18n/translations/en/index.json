@@ -644,7 +644,16 @@
       "title": "REQUEST A CALL",
       "heading": "Request <accent>for corporate rental</accent>",
       "lead": "Leave a request in a convenient way — our manager will contact you and answer all questions.",
-      "submit": "SUBMIT REQUEST"
+      "submit": "SUBMIT REQUEST",
+      "form": {
+        "namePlaceholder": "Your name",
+        "phonePlaceholder": "Phone number",
+        "emailPlaceholder": "Email",
+        "success": "Your request has been sent successfully!",
+        "error": "Failed to send request. Please try again.",
+        "submitting": "Sending...",
+        "submit": "SUBMIT REQUEST"
+      }
     },
     "cta": {
       "requestCall": "REQUEST A CALL"

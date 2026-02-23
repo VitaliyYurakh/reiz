@@ -644,7 +644,16 @@
       "title": "ZAMÓW ODDZWONIENIE",
       "heading": "Wniosek <accent>o wynajem korporacyjny</accent>",
       "lead": "Zostaw zgłoszenie w wygodny sposób — nasz menedżer skontaktuje się z Tobą i odpowie na wszystkie pytania.",
-      "submit": "WYŚLIJ ZGŁOSZENIE"
+      "submit": "WYŚLIJ ZGŁOSZENIE",
+      "form": {
+        "namePlaceholder": "Twoje imię",
+        "phonePlaceholder": "Numer telefonu",
+        "emailPlaceholder": "Email",
+        "success": "Twoje zgłoszenie zostało wysłane!",
+        "error": "Nie udało się wysłać zgłoszenia. Spróbuj ponownie.",
+        "submitting": "Wysyłanie...",
+        "submit": "WYŚLIJ ZGŁOSZENIE"
+      }
     },
     "cta": {
       "requestCall": "ZAMOW ODDZWONIENIE"

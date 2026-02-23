@@ -644,7 +644,16 @@
       "title": "SOLICITĂ UN APEL",
       "heading": "Cerere <accent>de închiriere corporativă</accent>",
       "lead": "Lăsați o cerere într-un mod convenabil — managerul nostru vă va contacta și va răspunde la toate întrebările.",
-      "submit": "TRIMITE CEREREA"
+      "submit": "TRIMITE CEREREA",
+      "form": {
+        "namePlaceholder": "Numele dvs.",
+        "phonePlaceholder": "Număr de telefon",
+        "emailPlaceholder": "Email",
+        "success": "Cererea dvs. a fost trimisă cu succes!",
+        "error": "Nu s-a putut trimite cererea. Încercați din nou.",
+        "submitting": "Se trimite...",
+        "submit": "TRIMITE CEREREA"
+      }
     },
     "cta": {
       "requestCall": "SOLICITĂ UN APEL"
