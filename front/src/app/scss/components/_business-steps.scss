@@ -1,0 +1,383 @@
+@use "../mixins/breakpoint" as *;
+
+// ── Steps — photo left + card right (Siberia-style) ────────
+.business-steps {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.0294vw, 14px);
+
+  &__item {
+    display: grid;
+    grid-template-columns: 225px 1fr;
+    grid-template-rows: 132px;
+    gap: clamp(10px, 0.8824vw, 12px);
+
+    @include tablet {
+      grid-template-columns: 190px 1fr;
+      grid-template-rows: 132px;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      gap: 0;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    background: var(--cl-c);
+    min-height: 0;
+
+    // placeholder gradient until real photos
+    &--placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(33, 66, 48, 0.15) 0%,
+          rgba(33, 66, 48, 0.05) 100%
+        );
+      }
+    }
+
+    &-hint {
+      position: relative;
+      z-index: 1;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cl-b);
+      opacity: 0.6;
+      text-align: center;
+      padding: 12px;
+      line-height: 1.5;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.25);
+    }
+
+    @include mobile {
+      min-height: 150px;
+      border-radius: 40px 40px 0 0;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(10px, 0.8824vw, 12px);
+    padding: 16px clamp(24px, 2.2059vw, 30px);
+    background: var(--cl-b);
+    border-radius: 40px;
+    overflow: hidden;
+    min-height: 0;
+
+    @include mobile {
+      border-radius: 0 0 40px 40px;
+      padding: 24px;
+    }
+  }
+
+  &__label {
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cl-e);
+    line-height: 1.4;
+  }
+
+  &__title {
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) {
+      font-family: var(--font-kyiv), Arial, sans-serif;
+      font-feature-settings: "ss01" 1;
+    }
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.35;
+    color: var(--cl-brown);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  &__text {
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) {
+      font-family: var(--font-kyiv), Arial, sans-serif;
+      font-feature-settings: "ss01" 1;
+    }
+    font-weight: 300;
+    font-size: clamp(15px, 1.1765vw, 16px);
+    line-height: 1.7;
+    color: var(--cl-ab);
+    margin: 0;
+  }
+}
+
+// ── Guarantees icon grid ────────────────────────────────
+.business-guarantees {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.1765vw, 16px);
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: clamp(20px, 1.7647vw, 24px);
+    background: var(--cl-b);
+    border-radius: 16px;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(33, 66, 48, 0.08);
+    color: var(--cl-e);
+    flex-shrink: 0;
+
+    .sprite {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    font-family: var(--font-inter), Arial, sans-serif;
+    font-weight: 600;
+    font-size: clamp(14px, 1.1029vw, 15px);
+    line-height: 1.4;
+    color: var(--cl-brown);
+    margin: 0;
+  }
+
+  &__text {
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) {
+      font-family: var(--font-kyiv), Arial, sans-serif;
+      font-feature-settings: "ss01" 1;
+    }
+    font-weight: 300;
+    font-size: clamp(15px, 1.1765vw, 16px);
+    line-height: 1.7;
+    color: var(--cl-ab);
+    margin: 0;
+  }
+}
+
+// ── CTA Banner (dark style) ─────────────────────────────────
+.business-cta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(14px, 1.1765vw, 16px);
+  padding: clamp(44px, 4.4118vw, 60px) clamp(20px, 2.9412vw, 40px);
+  background: var(--cl-a);
+  border-radius: 20px;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &__title {
+    z-index: 2;
+    position: relative;
+    font-family: var(--font-inter), Arial, sans-serif;
+    font-weight: 600;
+    font-size: clamp(20px, 1.9118vw, 26px);
+    line-height: 1.35;
+    color: var(--cl-b);
+    margin: 0;
+    max-width: 550px;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+    font-weight: 400;
+    font-size: clamp(13px, 1.0294vw, 14px);
+    line-height: 155%;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+    max-width: 450px;
+  }
+
+  .main-button {
+    position: relative;
+    z-index: 2;
+    background: var(--cl-e);
+    color: var(--cl-b);
+    margin-top: 8px;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+// ── Comparison cards (two-column) ───────────────────────────
+.business-compare {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(12px, 1.1765vw, 16px);
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 1.4706vw, 20px);
+    padding: clamp(24px, 2.3529vw, 32px);
+    background: var(--cl-a);
+    border-radius: 16px;
+    color: var(--cl-b);
+
+    &--accent {
+      background: var(--cl-e);
+    }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+  }
+
+  &__title {
+    font-family: var(--font-inter), Arial, sans-serif;
+    font-weight: 600;
+    font-size: clamp(18px, 1.6176vw, 22px);
+    line-height: 1.35;
+    color: var(--cl-b);
+    margin: 0;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: clamp(13px, 1.0294vw, 14px);
+    line-height: 165%;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: relative;
+      padding-left: 20px;
+      font-weight: 400;
+      font-size: clamp(13px, 1.0294vw, 14px);
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.8);
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 7px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--cl-e);
+      }
+    }
+  }
+
+  &__card--accent &__list li::before {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  &__cta {
+    margin-top: auto;
+    padding-top: 4px;
+
+    .main-button {
+      background: var(--cl-b);
+      color: var(--cl-a);
+      width: 100%;
+      justify-content: center;
+
+      &::before {
+        display: none;
+      }
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  &__card--accent .main-button {
+    background: var(--cl-b);
+    color: var(--cl-e);
+  }
+}

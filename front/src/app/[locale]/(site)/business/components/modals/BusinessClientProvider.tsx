@@ -1,6 +1,6 @@
 "use client";
 
-import OfferModal from "@/components/modals/OfferModal";
+import BookingContactModal from "@/components/modals/BookingContactModal";
 import { BusinessModalProvider } from "@/app/[locale]/(site)/business/components/modals/index";
 
 export default function BusinessClientProvider({
@@ -11,7 +11,7 @@ export default function BusinessClientProvider({
   return (
     <BusinessModalProvider
       registry={{
-        offer: (props: any) => <OfferModal {...props} />,
+        offer: (props: any) => <BookingContactModal {...props} />,
       }}
     >
       {children}

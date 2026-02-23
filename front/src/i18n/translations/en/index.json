@@ -1,12 +1,12 @@
 {
   "aside": {
-  "brand": "REIZ",
-  "cta_button": "REQUEST A CALLBACK",
-  "controls": {
-    "expand": "Expand submenu",
-    "collapse": "Collapse submenu"
-  },
-  "nav": {
+    "brand": "REIZ",
+    "cta_button": "REQUEST A CALLBACK",
+    "controls": {
+      "expand": "Expand submenu",
+      "collapse": "Collapse submenu"
+    },
+    "nav": {
       "about": "ABOUT US",
       "blog": "BLOG",
       "business": "BUSINESS RENTALS",
@@ -506,6 +506,96 @@
         "On-time reporting and acts — without extra bureaucracy"
       ]
     },
+    "guarantees": {
+      "title": "WHAT WE GUARANTEE",
+      "items": [
+        { "icon": "t-steering", "title": "New serviced cars", "text": "Fleet from 2023–2025. Every car undergoes regular maintenance and pre-delivery inspection." },
+        { "icon": "t-insurance", "title": "Full insurance", "text": "CDW / SCDW coverage for the entire rental period. Accident assistance included." },
+        { "icon": "t-contract", "title": "Payment with VAT", "text": "Cashless payment, closing documents, invoices — everything for your accounting." },
+        { "icon": "t-services", "title": "24/7 support", "text": "Help line, route coordination and consultations without weekends or breaks." },
+        { "icon": "t-return", "title": "Replacement car", "text": "Free car replacement in case of breakdown or scheduled maintenance." },
+        { "icon": "t-person-key", "title": "Personal manager", "text": "Single point of contact: coordination, reporting, documents and service SLA." }
+      ]
+    },
+    "useCases": {
+      "title": "WHO WE HELP",
+      "items": [
+        { "value": "business", "label": "For Business", "title": "For Small & Medium Business", "text": "Flexible car rental terms to help your business solve logistics tasks efficiently, saving time and money.", "cta": "GET A QUOTE" },
+        { "value": "corporate", "label": "For Corporations", "title": "For Large Corporations & Fleet Management", "text": "Effective corporate fleet management: rental, maintenance, insurance and car replacement.", "cta": "GET A QUOTE" },
+        { "value": "missions", "label": "International Missions", "title": "Support for International & Diplomatic Missions", "text": "Supporting diplomatic and humanitarian projects with modern, reliable vehicles.", "cta": "GET A QUOTE" },
+        { "value": "construction", "label": "Construction", "title": "Transport for Construction Projects", "text": "Rental services for transporting equipment and specialists to your construction sites.", "cta": "GET A QUOTE" },
+        { "value": "fleet", "label": "Fleet Management", "title": "Full Fleet Outsourcing", "text": "We handle the entire cycle: vehicle selection, insurance, maintenance, seasonal tire changes and replacement cars.", "cta": "GET A QUOTE" }
+      ]
+    },
+    "cases": {
+      "title": "WHO WE WORK WITH",
+      "items": [
+        {
+          "title": "IT Companies & Startups",
+          "text": "Car rental for development teams, managers, and client meetings on the go.",
+          "photo": "/img/business/simple-comfortable-female-customer-modern-stylish-bearded-businessman-automobile-saloon.webp"
+        },
+        {
+          "title": "International Organizations",
+          "text": "Transport for diplomatic and humanitarian missions, embassies, and representative offices.",
+          "photo": "/img/business/elegant-uber-driver-giving-taxi-ride.webp"
+        },
+        {
+          "title": "Construction Companies",
+          "text": "SUVs and minivans for transporting specialists and coordinating construction sites.",
+          "photo": "/img/business/medium-shot-men-wearing-equipment.webp"
+        },
+        {
+          "title": "Logistics & Trade Companies",
+          "text": "Fleet for sales representatives, courier services, and regional trips.",
+          "photo": "/img/business/high-angle-delivery-men-concept.webp"
+        }
+      ]
+    },
+    "steps": {
+      "title": "HOW IT WORKS",
+      "label": "Step",
+      "items": [
+        { "title": "Choose a car", "text": "Browse the catalog or contact a manager — we'll find the right car for your needs and budget.", "photo": "/img/business/выбор авто.webp" },
+        { "title": "Send documents", "text": "Within an hour of receiving your company documents, we send the invoice and contract.", "photo": "/img/business/young-woman-looking-documents.webp" },
+        { "title": "Sign the contract", "text": "Send scanned copies of signed documents or visit our office to inspect the vehicles.", "photo": "/img/business/satisfied-smiling-businessman-suit-signing-contract-meeting-concept.webp" },
+        { "title": "Use the car", "text": "We deliver the car to your address as quickly as possible. A driver and extra equipment available on request.", "photo": "/img/business/young-businesswoman-holding-disposable-coffee-cup-driving-car.webp" }
+      ]
+    },
+    "compare": {
+      "title": "CHOOSE YOUR FORMAT",
+      "items": [
+        {
+          "badge": "Small business",
+          "title": "Short-term rental",
+          "text": "Perfect for one-time projects, business trips and seasonal needs — from 1 to 29 days.",
+          "items": [
+            "From 1 car with no commitments",
+            "Full CDW/SCDW insurance",
+            "VAT payment, closing documents",
+            "Delivery to your address"
+          ],
+          "cta": "GET A QUOTE"
+        },
+        {
+          "badge": "Corporations",
+          "title": "Long-term rental",
+          "text": "For ongoing needs — fleet management, reduced rates and full service from 30 days.",
+          "items": [
+            "Reduced rates from 30 days",
+            "Free replacement vehicle",
+            "Personal manager and SLA",
+            "Seasonal tire change included"
+          ],
+          "cta": "GET A QUOTE"
+        }
+      ]
+    },
+    "ctaBanner": {
+      "title": "Special rates for long-term needs",
+      "text": "Leave a request, we'll contact you shortly.",
+      "cta": "GET A QUOTE"
+    },
     "howItWorks": {
       "title": "HOW IT WORKS",
       "steps": [
@@ -552,17 +642,9 @@
     },
     "order": {
       "title": "REQUEST A CALL",
-      "lead": "Leave your contacts and our manager will get back to you.",
-      "form": {
-        "namePlaceholder": "Your name",
-        "phonePlaceholder": "Phone",
-        "emailPlaceholder": "E-mail",
-        "success": "Your request has been sent successfully!",
-        "error": "Failed to send request. Please try again.",
-        "submitting": "Sending...",
-        "submit": "SUBMIT REQUEST",
-        "submitBlack": "SUBMIT REQUEST"
-      }
+      "heading": "Request <accent>for corporate rental</accent>",
+      "lead": "Leave a request in a convenient way — our manager will contact you and answer all questions.",
+      "submit": "SUBMIT REQUEST"
     },
     "cta": {
       "requestCall": "REQUEST A CALL"
@@ -728,11 +810,17 @@
     },
     "driverRequirements": {
       "title": "DRIVER REQUIREMENTS",
-      "items": ["AGE: 21+", "DRIVING EXPERIENCE: 3+ YEARS"]
+      "items": [
+        "AGE: 21+",
+        "DRIVING EXPERIENCE: 3+ YEARS"
+      ]
     },
     "rentalNeeds": {
       "title": "REQUIRED TO RENT",
-      "items": ["PASSPORT", "DRIVER’S LICENSE"]
+      "items": [
+        "PASSPORT",
+        "DRIVER’S LICENSE"
+      ]
     },
     "slider": {
       "items": [
@@ -873,7 +961,11 @@
         "phone": "Phone:",
         "mail": "E-mail:"
       },
-      "transmissionOptions": ["Automatic", "Manual", "Automated"],
+      "transmissionOptions": [
+        "Automatic",
+        "Manual",
+        "Automated"
+      ],
       "submit": "SUBMIT REQUEST"
     }
   },
@@ -903,7 +995,11 @@
       "requirementsBlockLabel": "RENTER REQUIREMENTS",
       "citizensUA": {
         "title": "FOR CITIZENS OF UKRAINE",
-        "items": ["ID card", "Tax ID number", "Driver’s license"]
+        "items": [
+          "ID card",
+          "Tax ID number",
+          "Driver’s license"
+        ]
       },
       "foreignCitizens": {
         "title": "FOR FOREIGN CITIZENS",
@@ -924,40 +1020,283 @@
         "E-wallets"
       ]
     },
-    "tabs": {
-      "nav": ["Insurance", "Deposit", "Rates", "Mileage"],
-      "contents": [
+    "nav": {
+      "ariaLabel": "Section navigation",
+      "goToSection": "Go to section:",
+      "items": [
         {
-          "paragraphs": [
-            "All vehicles are covered by mandatory insurance. Additional protection packages (CDW/SCDW) are available and reduce the renter’s financial liability in case of damage or theft. Details are on the “Insurance” page."
-          ]
+          "id": "requirements",
+          "label": "Renter requirements"
         },
         {
-          "paragraphs": [
-            "When a deposit is provided by credit card, the card must be issued exclusively in the renter’s name. The deposit is pre-authorized on the credit card in accordance with the rental agreement. After the vehicle is returned and all obligations under the rental agreement have been duly fulfilled by the renter, the deposit shall be released by the lessor. The actual timeframe for the funds to be credited back is determined by the rules and internal procedures of the renter’s issuing bank and may take several banking days. The lessor shall not be held liable for any delays caused by the renter’s bank."
-          ]
+          "id": "documents",
+          "label": "Documents"
         },
         {
-          "paragraphs": [
-            "The rental price depends on the vehicle class, rental duration, and season. The longer the rental, the lower the daily rate. Check current prices in the vehicle listing or contact our manager for details."
-          ]
+          "id": "payments",
+          "label": "Payment"
         },
         {
-          "paragraphs": [
-            "A daily mileage limit of 300 km applies to each rental. If the установлен limit is exceeded, an additional charge applies according to the rates listed in the table below, depending on the vehicle category. If a higher daily limit or unlimited mileage is required, the renter may contact a manager for an individual cost calculation."
-          ],
-          "table": {
-            "head": ["Vehicle category", "Price per 1 km (USD)"],
-            "rows": [
-              ["Economy", "0.12"],
-              ["Business", "0.30"],
-              ["SUVs", "0.30"],
-              ["Premium", "0.70"],
-              ["Minivans", "0.50"]
-            ]
-          }
+          "id": "loyalty",
+          "label": "Loyalty program"
+        },
+        {
+          "id": "services",
+          "label": "Add-on services"
+        },
+        {
+          "id": "one-way",
+          "label": "One-Way"
+        },
+        {
+          "id": "mileage",
+          "label": "Mileage"
+        },
+        {
+          "id": "deposit",
+          "label": "Deposit"
+        },
+        {
+          "id": "insurance",
+          "label": "Insurance"
+        },
+        {
+          "id": "driver",
+          "label": "Who can drive"
+        },
+        {
+          "id": "delivery",
+          "label": "Pick-up / return"
+        },
+        {
+          "id": "territory",
+          "label": "Territory"
+        },
+        {
+          "id": "cancellation",
+          "label": "Cancellation"
+        },
+        {
+          "id": "contract",
+          "label": "Rental agreement"
         }
       ]
+    },
+    "images": {
+      "ageAlt": "Driver behind the wheel — minimum renter age is 21",
+      "experienceAlt": "Mercedes in a parking lot — minimum 3 years driving experience required",
+      "uaAlt": "Kyiv panorama — requirements for Ukrainian citizens to rent a car",
+      "visaAlt": "Passport with visa — documents for foreign citizens",
+      "paymentAlt": "Online rental booking on the REIZ website — available payment methods"
+    },
+    "sections": {
+      "loyalty": {
+        "title": "Loyalty program",
+        "subtitle": "The more you rent — the better the deal. After each completed rental your personal discount is updated automatically.",
+        "note": "The loyalty discount applies to the base rental price and can be combined with seasonal promotions according to the current offer terms.\nDoes not apply to deposit, insurance, add-on services, delivery/return, and other associated fees.",
+        "tiers": [
+          {
+            "rentals": "2–4",
+            "discount": "5%",
+            "label": "rentals"
+          },
+          {
+            "rentals": "5–7",
+            "discount": "7%",
+            "label": "rentals"
+          },
+          {
+            "rentals": "8–11",
+            "discount": "10%",
+            "label": "rentals"
+          },
+          {
+            "rentals": "12+",
+            "discount": "15%",
+            "label": "rentals"
+          }
+        ]
+      },
+      "addOns": {
+        "title": "Add-on services",
+        "subtitle": "Choose the options you need when booking or picking up the car.",
+        "perDay": "USD/day",
+        "byFact": "actual cost",
+        "items": [
+          {
+            "name": "Wi-Fi router",
+            "description": "Unlimited 4G mobile internet on the road",
+            "priceShort": "5",
+            "priceLong": "5"
+          },
+          {
+            "name": "Additional driver",
+            "description": "Adding a second driver to the rental agreement",
+            "priceShort": "5",
+            "priceLong": "5"
+          },
+          {
+            "name": "Full tank",
+            "description": "Car is provided with a full tank. If returned with less fuel — a fuel charge + service fee applies",
+            "priceShort": "actual cost",
+            "priceLong": "actual cost"
+          },
+          {
+            "name": "Booster seat",
+            "description": "For children weighing 15–36 kg (approximately 4–12 years)",
+            "priceShort": "4",
+            "priceLong": "4"
+          },
+          {
+            "name": "Child seat",
+            "description": "For children weighing 9–18 kg (approximately 1–4 years)",
+            "priceShort": "4",
+            "priceLong": "4"
+          },
+          {
+            "name": "Infant seat",
+            "description": "For children up to 13 kg (up to ~1 year)",
+            "priceShort": "4",
+            "priceLong": "4"
+          }
+        ]
+      },
+      "oneWay": {
+        "title": "One-Way service",
+        "text": "A convenient option for intercity trips: pick up the car in one location and return it in another. The service cost depends on the route and vehicle class — the exact amount will be confirmed by a manager when booking.",
+        "menuName": "One-Way",
+        "menuPrice": "$100 – 250",
+        "menuDesc": "Depends on route and vehicle class"
+      },
+      "mileage": {
+        "title": "Mileage terms",
+        "subtitle": "Daily mileage limit is 300 km, calculated cumulatively for the entire rental period, but no more than 5,000 km per month.\nIn case of exceeding the limit, each kilometer is charged additionally according to company rates.",
+        "bannerValue": "300 km",
+        "bannerLabel": "daily mileage limit",
+        "overageTitle": "Overage charge",
+        "perKm": "USD / km",
+        "note": "Need a higher limit or unlimited mileage? Contact our manager.",
+        "rates": [
+          {
+            "segment": "Economy",
+            "pricePerKm": "0.12"
+          },
+          {
+            "segment": "Business",
+            "pricePerKm": "0.30"
+          },
+          {
+            "segment": "SUVs",
+            "pricePerKm": "0.30"
+          },
+          {
+            "segment": "Premium",
+            "pricePerKm": "0.70"
+          },
+          {
+            "segment": "Minivans",
+            "pricePerKm": "0.50"
+          }
+        ]
+      },
+      "deposit": {
+        "title": "Deposit",
+        "subtitle": "A guarantee amount blocked on your bank card when picking up the vehicle. The deposit amount depends on the vehicle class and insurance terms.",
+        "items": [
+          "Blocked on a card issued in the renter's name",
+          "Released by REIZ within one business day after return",
+          "Actual refund — 1 to 14 banking days",
+          "With CDW / SCDW, the deposit amount may be reduced"
+        ]
+      },
+      "insurance": {
+        "title": "Insurance",
+        "subtitle": "Every vehicle has mandatory insurance coverage. Additionally, you can choose extended protection.",
+        "items": [
+          {
+            "strong": "Basic coverage",
+            "text": "mandatory third-party liability insurance included in the rental price. Covers liability to third parties."
+          },
+          {
+            "strong": "CDW",
+            "text": "partial body damage coverage. Reduces the renter's financial liability to a fixed deductible."
+          },
+          {
+            "strong": "SCDW",
+            "text": "full coverage without deductible. The renter bears no financial liability for damage or theft."
+          }
+        ],
+        "btnText": "Learn more about insurance"
+      },
+      "driver": {
+        "title": "Who can drive",
+        "items": [
+          "Only the person named in the rental agreement is authorized to drive. Transferring the vehicle to unauthorized persons is prohibited.",
+          "If multiple drivers are planned — use the «Additional driver» service. Each driver will be added to the agreement upon providing documents."
+        ]
+      },
+      "delivery": {
+        "title": "Pick-up and return",
+        "subtitle": "The car is provided clean, with a full tank and a complete set of documents. It should be returned in the same condition.",
+        "deliveryTitle": "Pick-up",
+        "deliveryItems": [
+          {
+            "name": "At the rental office",
+            "price": "free",
+            "desc": "during business hours"
+          },
+          {
+            "name": "At the client's address",
+            "price": "from 15 USD",
+            "desc": "depending on distance"
+          },
+          {
+            "name": "After hours",
+            "price": "surcharge 20 USD"
+          }
+        ],
+        "returnTitle": "Return",
+        "returnItems": [
+          {
+            "name": "At the rental office",
+            "price": "free",
+            "desc": "during business hours"
+          },
+          {
+            "name": "At address",
+            "price": "from 15 USD"
+          },
+          {
+            "name": "After hours",
+            "price": "surcharge 20 USD"
+          }
+        ],
+        "washName": "Car wash",
+        "washPrice": "25 USD",
+        "washDesc": "If the car is returned in a dirty condition",
+        "note": "The car is provided with a full tank. Upon return the tank must be refilled to the same level, otherwise the fuel cost + service fee will be deducted from the deposit."
+      },
+      "territory": {
+        "title": "Usage territory",
+        "items": [
+          "The vehicle may be used throughout Ukraine, except for temporarily occupied territories and combat zones.",
+          "Travel outside Ukraine is possible only with prior written approval from REIZ. The list of permitted countries can be clarified when booking."
+        ]
+      },
+      "cancellation": {
+        "title": "Cancellation and booking changes",
+        "items": [
+          "Free cancellation or changes — no later than 24 hours before the scheduled pick-up time.",
+          "Cancellation less than 24 hours in advance may incur a compensation fee. Details available when booking."
+        ]
+      },
+      "contract": {
+        "title": "Rental agreement",
+        "text": "The rental is formalized based on a public agreement. It contains the rights and obligations of both parties, liability terms, and dispute resolution procedures. Signing takes place upon vehicle pick-up.",
+        "downloadTitle": "Download agreement",
+        "downloadMeta": "PDF",
+        "downloadAriaLabel": "Download the public rental agreement"
+      }
     }
   },
   "contactsPage": {
@@ -1142,7 +1481,15 @@
     }
   },
   "rangeDateTimePicker": {
-    "weekDays": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+    "weekDays": [
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa",
+      "Su"
+    ],
     "reset": "Reset",
     "title": "Select pickup and return date & time",
     "monthsAriaLabel": "Month selection",
@@ -1295,9 +1642,9 @@
     "insuranceCoverage": {
       "title": "Choose coverage type",
       "options": {
-        "deposit": "With deposit",
         "50": "50% coverage",
-        "100": "Full coverage (100%)"
+        "100": "Full coverage (100%)",
+        "deposit": "With deposit"
       },
       "features": {
         "damage": {
@@ -1437,9 +1784,9 @@
   "bookingContactModal": {
     "title": "Leave a request in a convenient way — our <accent>manager will contact</accent> you and answer all your questions",
     "buttons": {
-      "telegram": "BOOK VIA TELEGRAM",
-      "whatsapp": "BOOK VIA WHATSAPP",
-      "viber": "BOOK VIA VIBER",
+      "telegram": "REQUEST VIA TELEGRAM",
+      "whatsapp": "REQUEST VIA WHATSAPP",
+      "viber": "REQUEST VIA VIBER",
       "phone": "CALL US"
     },
     "terms": "By clicking the button, you accept the terms of personal data processing"

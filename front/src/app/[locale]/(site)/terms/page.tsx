@@ -6,8 +6,19 @@ import { type Locale, locales } from "@/i18n/request";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
-import AccessibleTabs from "@/components/AccessibleTabs";
 
+import SectionNav from "./SectionNav";
+import LoyaltySection from "./sections/LoyaltySection";
+import AddOnsSection from "./sections/AddOnsSection";
+import OneWaySection from "./sections/OneWaySection";
+import MileageSection from "./sections/MileageSection";
+import DepositSection from "./sections/DepositSection";
+import InsuranceSection from "./sections/InsuranceSection";
+import DriverSection from "./sections/DriverSection";
+import DeliverySection from "./sections/DeliverySection";
+import TerritorySection from "./sections/TerritorySection";
+import CancellationSection from "./sections/CancellationSection";
+import ContractSection from "./sections/ContractSection";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -27,12 +38,7 @@ export default async function TermsPage() {
   const uaItems = t.raw("termsList.citizensUA.items") as string[];
   const frItems = t.raw("termsList.foreignCitizens.items") as string[];
   const payMethods = t.raw("payments.methods") as string[];
-
-  const tabsNav = t.raw("tabs.nav") as string[];
-  const tabs = t.raw("tabs.contents") as Array<{
-    paragraphs?: string[];
-    table?: { head: string[]; rows: string[][] };
-  }>;
+  const navItems = t.raw("nav.items") as { id: string; label: string }[];
 
   return (
     <div
@@ -59,100 +65,101 @@ export default async function TermsPage() {
         <p className="terms-hero__subtitle">{t("hero.subtitle")}</p>
       </div>
 
+      <SectionNav
+        items={navItems}
+        ariaLabel={t("nav.ariaLabel")}
+        goToSection={t("nav.goToSection")}
+      />
+
       <div className="terms-section__content">
-        <ul className="terms-list">
-          <li className="terms-list__item">
-            <h2 className="terms-list__title">{t("termsList.ageTitle")}</h2>
-            <div className="terms-list__bg">
-              <UiImage
-                width={480}
-                height={270}
-                src="/img/car/years-2.webp"
-                alt="Водитель за рулем — минимальный возраст арендатора от 21 года"
-                sizePreset="card"
-              />
-            </div>
-          </li>
+        {/* --- Original blocks with images (requirements, documents, payments) --- */}
+        <div id="requirements">
+          <ul className="terms-list">
+            <li className="terms-list__item">
+              <h2 className="terms-list__title">{t("termsList.ageTitle")}</h2>
+              <div className="terms-list__bg">
+                <UiImage
+                  width={480}
+                  height={270}
+                  src="/img/car/years-2.webp"
+                  alt={t("images.ageAlt")}
+                  sizePreset="card"
+                />
+              </div>
+            </li>
 
-          <li className="terms-list__item">
-            <h2 className="terms-list__title">
-              {t("termsList.experienceTitle")}
-            </h2>
-            <div className="terms-list__bg">
-              <UiImage
-                width={480}
-                height={270}
-                src="/img/car/mers2.webp"
-                alt="Mercedes на парковке — требуемый стаж вождения от 3 лет"
-                sizePreset="card"
-              />
-            </div>
-          </li>
+            <li className="terms-list__item">
+              <h2 className="terms-list__title">
+                {t("termsList.experienceTitle")}
+              </h2>
+              <div className="terms-list__bg">
+                <UiImage
+                  width={480}
+                  height={270}
+                  src="/img/car/mers2.webp"
+                  alt={t("images.experienceAlt")}
+                  sizePreset="card"
+                />
+              </div>
+            </li>
 
-          <li className="terms-list__item mode">
-            <p>{t("termsList.requirementsBlockLabel")}</p>
-          </li>
+            <li className="terms-list__item mode">
+              <p>{t("termsList.requirementsBlockLabel")}</p>
+            </li>
 
-          <li className="terms-list__item">
-            <h2 className="terms-list__title">
-              {t("termsList.citizensUA.title")}
-            </h2>
-            <div className="terms-list__bg">
-              <UiImage
-                width={480}
-                height={270}
-                src="/img/car/ua.webp"
-                alt="Панорама Киева — требования к гражданам Украины для аренды авто"
-                sizePreset="card"
-              />
-            </div>
-            <ul>
-              <li>
-                <p>{uaItems[0]}</p>
-              </li>
-              <li>
-                <p>{uaItems[1]}</p>
-              </li>
-              <li>
-                <p>{uaItems[2]}</p>
-              </li>
-            </ul>
-          </li>
+            <li className="terms-list__item" id="documents">
+              <h2 className="terms-list__title">
+                {t("termsList.citizensUA.title")}
+              </h2>
+              <div className="terms-list__bg">
+                <UiImage
+                  width={480}
+                  height={270}
+                  src="/img/car/ua.webp"
+                  alt={t("images.uaAlt")}
+                  sizePreset="card"
+                />
+              </div>
+              <ul>
+                {uaItems.map((item, i) => (
+                  <li key={i}>
+                    <p>{item}</p>
+                  </li>
+                ))}
+              </ul>
+            </li>
 
-          <li className="terms-list__item">
-            <h2 className="terms-list__title">
-              {t("termsList.foreignCitizens.title")}
-            </h2>
-            <div className="terms-list__bg">
-              <UiImage
-                width={480}
-                height={270}
-                src="/img/car/visa.webp"
-                alt="Заграничный паспорт с визой — документы для иностранных граждан"
-                sizePreset="card"
-              />
-            </div>
-            <ul>
-              <li>
-                <p>{frItems[0]}</p>
-              </li>
-              <li>
-                <p>{frItems[1]}</p>
-              </li>
-              <li>
-                <p>{frItems[2]}</p>
-              </li>
-            </ul>
-          </li>
-        </ul>
+            <li className="terms-list__item">
+              <h2 className="terms-list__title">
+                {t("termsList.foreignCitizens.title")}
+              </h2>
+              <div className="terms-list__bg">
+                <UiImage
+                  width={480}
+                  height={270}
+                  src="/img/car/visa.webp"
+                  alt={t("images.visaAlt")}
+                  sizePreset="card"
+                />
+              </div>
+              <ul>
+                {frItems.map((item, i) => (
+                  <li key={i}>
+                    <p>{item}</p>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          </ul>
+        </div>
 
-        <div className="terms-card">
+        <div className="terms-card" id="payments">
           <div className="terms-card__bg">
             <UiImage
               width={1000}
               height={440}
               src="/img/car/macbook2.webp"
-              alt="Онлайн оформление аренды на сайте REIZ — доступные способы оплаты"
+              alt={t("images.paymentAlt")}
               quality={100}
             />
           </div>
@@ -196,35 +203,17 @@ export default async function TermsPage() {
           </div>
         </div>
 
-        <div className="terms-section__tabs">
-          <AccessibleTabs
-            items={tabsNav.map((nav, i) => ({
-              label: nav,
-              value: String(i),
-              content: (
-                <div className="editor">
-                  <p>{tabs?.[i]?.paragraphs?.[0]}</p>
-                  <ul className="terms-table">
-                    <li className="terms-table__row head">
-                      <span className="terms-table__value">
-                        {tabs?.[i]?.table?.head?.[0]}
-                      </span>
-                      <span className="terms-table__value">
-                        {tabs?.[i]?.table?.head?.[1]}
-                      </span>
-                    </li>
-                    {tabs?.[i]?.table?.rows?.map((r, i) => (
-                      <li className="terms-table__row" key={`${i}-${r[0]}`}>
-                        <span className="terms-table__value">{r[0]}</span>
-                        <span className="terms-table__value">{r[1]}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ),
-            }))}
-          />
-        </div>
+        <LoyaltySection />
+        <AddOnsSection />
+        <OneWaySection />
+        <MileageSection />
+        <DepositSection />
+        <InsuranceSection />
+        <DriverSection />
+        <DeliverySection />
+        <TerritorySection />
+        <CancellationSection />
+        <ContractSection />
       </div>
     </div>
   );

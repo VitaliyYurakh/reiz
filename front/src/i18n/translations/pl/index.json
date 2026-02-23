@@ -1,12 +1,12 @@
 {
   "aside": {
-  "brand": "REIZ",
-  "cta_button": "ZAMOW ODDZWONIENIE",
-  "controls": {
-    "expand": "Rozwin podmenu",
-    "collapse": "Zwin podmenu"
-  },
-  "nav": {
+    "brand": "REIZ",
+    "cta_button": "ZAMOW ODDZWONIENIE",
+    "controls": {
+      "expand": "Rozwin podmenu",
+      "collapse": "Zwin podmenu"
+    },
+    "nav": {
       "about": "O NAS",
       "blog": "BLOG",
       "business": "WYNAJEM DLA FIRM",
@@ -506,6 +506,96 @@
         "Terminowe raporty i akty — bez zbednej biurokracji"
       ]
     },
+    "guarantees": {
+      "title": "CO GWARANTUJEMY",
+      "items": [
+        { "icon": "t-steering", "title": "Nowe serwisowane auta", "text": "Flota z lat 2023–2025. Kazdy samochod przechodzi regularne przeglady i kontrole przed wydaniem." },
+        { "icon": "t-insurance", "title": "Pelne ubezpieczenie", "text": "Pokrycie CDW / SCDW na caly okres wynajmu. Pomoc w razie wypadku." },
+        { "icon": "t-contract", "title": "Platnosc z VAT", "text": "Platnosc bezgotowkowa, dokumenty zamykajace, faktury — wszystko dla ksiegowosci." },
+        { "icon": "t-services", "title": "Wsparcie 24/7", "text": "Linia pomocy, koordynacja trasy i konsultacje bez dni wolnych." },
+        { "icon": "t-return", "title": "Samochod zastepczy", "text": "Bezplatna wymiana auta w przypadku awarii lub planowego serwisu." },
+        { "icon": "t-person-key", "title": "Osobisty menedzer", "text": "Jeden punkt kontaktu: koordynacja, raportowanie, dokumenty i SLA serwisowe." }
+      ]
+    },
+    "useCases": {
+      "title": "KOMU POMAGAMY",
+      "items": [
+        { "value": "business", "label": "Dla biznesu", "title": "Dla malego i sredniego biznesu", "text": "Elastyczne warunki wynajmu samochodow, ktore pomoga Twojej firmie sprawnie rozwiazywac zadania logistyczne.", "cta": "OTRZYMAJ OFERTE" },
+        { "value": "corporate", "label": "Dla korporacji", "title": "Dla duzych korporacji i fleet management", "text": "Efektywne zarzadzanie flota korporacyjna: wynajem, serwis, ubezpieczenie i wymiana pojazdow.", "cta": "OTRZYMAJ OFERTE" },
+        { "value": "missions", "label": "Misje miedzynarodowe", "title": "Wsparcie misji miedzynarodowych i dyplomatycznych", "text": "Wspieramy projekty dyplomatyczne i humanitarne, zapewniajac nowoczesne i niezawodne pojazdy.", "cta": "OTRZYMAJ OFERTE" },
+        { "value": "construction", "label": "Projekty budowlane", "title": "Transport dla projektow budowlanych", "text": "Swiadczymy uslugi wynajmu samochodow do transportu sprzetu i specjalistow.", "cta": "OTRZYMAJ OFERTE" },
+        { "value": "fleet", "label": "Fleet Management", "title": "Pelny outsourcing floty", "text": "Zajmujemy sie calym cyklem: dobor pojazdow, ubezpieczenie, serwis, sezonowa wymiana opon i samochody zastepcze.", "cta": "OTRZYMAJ OFERTE" }
+      ]
+    },
+    "cases": {
+      "title": "Z KIM WSPÓŁPRACUJEMY",
+      "items": [
+        {
+          "title": "Firmy IT i startupy",
+          "text": "Wynajem samochodów dla zespołów deweloperskich, menedżerów i spotkań z klientami.",
+          "photo": "/img/business/simple-comfortable-female-customer-modern-stylish-bearded-businessman-automobile-saloon.webp"
+        },
+        {
+          "title": "Organizacje międzynarodowe",
+          "text": "Transport dla misji dyplomatycznych i humanitarnych, ambasad i przedstawicielstw.",
+          "photo": "/img/business/elegant-uber-driver-giving-taxi-ride.webp"
+        },
+        {
+          "title": "Firmy budowlane",
+          "text": "SUV-y i minibusy do transportu specjalistów i koordynacji placów budowy.",
+          "photo": "/img/business/medium-shot-men-wearing-equipment.webp"
+        },
+        {
+          "title": "Firmy logistyczne i handlowe",
+          "text": "Flota dla przedstawicieli handlowych, kurierów i podróży regionalnych.",
+          "photo": "/img/business/high-angle-delivery-men-concept.webp"
+        }
+      ]
+    },
+    "steps": {
+      "title": "JAK TO DZIALA",
+      "label": "Krok",
+      "items": [
+        { "title": "Wybierz samochod", "text": "Przejrzyj katalog lub skontaktuj sie z menedzerem — dobierzemy samochod do Twoich potrzeb.", "photo": "/img/business/выбор авто.webp" },
+        { "title": "Wyslij dokumenty", "text": "W ciagu godziny od otrzymania dokumentow firmy wysylamy fakture i umowe.", "photo": "/img/business/young-woman-looking-documents.webp" },
+        { "title": "Podpisz umowe", "text": "Wyslij skany podpisanych dokumentow lub odwiedz nasze biuro, aby obejrzec samochody.", "photo": "/img/business/satisfied-smiling-businessman-suit-signing-contract-meeting-concept.webp" },
+        { "title": "Korzystaj z samochodu", "text": "Dostarczymy samochod pod Twoj adres w najkrotszym czasie. Na zyczenie zapewnimy kierowce.", "photo": "/img/business/young-businesswoman-holding-disposable-coffee-cup-driving-car.webp" }
+      ]
+    },
+    "compare": {
+      "title": "WYBIERZ SWOJ FORMAT",
+      "items": [
+        {
+          "badge": "Maly biznes",
+          "title": "Wynajem krotkoterminowy",
+          "text": "Idealny do jednorazowych projektow, delegacji i zadan sezonowych — od 1 do 29 dni.",
+          "items": [
+            "Od 1 samochodu bez zobowiazan",
+            "Pelne ubezpieczenie CDW/SCDW",
+            "Platnosc z VAT, dokumenty zamykajace",
+            "Dostawa pod adres"
+          ],
+          "cta": "OTRZYMAJ OFERTE"
+        },
+        {
+          "badge": "Korporacje",
+          "title": "Wynajem dlugoterminowy",
+          "text": "Dla stalych potrzeb — fleet management, obnizione stawki i pelna obsluga od 30 dni.",
+          "items": [
+            "Obnizione stawki od 30 dni",
+            "Bezplatny samochod zastepczy",
+            "Osobisty manager i SLA",
+            "Sezonowa wymiana opon w cenie"
+          ],
+          "cta": "OTRZYMAJ OFERTE"
+        }
+      ]
+    },
+    "ctaBanner": {
+      "title": "Dla potrzeb dlugoterminowych — szczegolnie korzystne warunki",
+      "text": "Zostaw zapytanie, skontaktujemy sie wkrotce.",
+      "cta": "OTRZYMAJ OFERTE"
+    },
     "howItWorks": {
       "title": "JAK TO DZIALA",
       "steps": [
@@ -551,18 +641,10 @@
       }
     },
     "order": {
-      "title": "ZAMOW ODDZWONIENIE",
-      "lead": "Zostaw swoje dane kontaktowe, a nasz menedzer oddzwoni.",
-      "form": {
-        "namePlaceholder": "Twoje imie",
-        "phonePlaceholder": "Telefon",
-        "emailPlaceholder": "E-mail",
-        "success": "Twoje zgloszenie zostalo wyslane pomyslnie!",
-        "error": "Nie udalo sie wyslac zgloszenia. Sprobuj ponownie.",
-        "submitting": "Wysylanie...",
-        "submit": "WYSLIJ ZGLOSZENIE",
-        "submitBlack": "WYSLIJ ZGLOSZENIE"
-      }
+      "title": "ZAMÓW ODDZWONIENIE",
+      "heading": "Wniosek <accent>o wynajem korporacyjny</accent>",
+      "lead": "Zostaw zgłoszenie w wygodny sposób — nasz menedżer skontaktuje się z Tobą i odpowie na wszystkie pytania.",
+      "submit": "WYŚLIJ ZGŁOSZENIE"
     },
     "cta": {
       "requestCall": "ZAMOW ODDZWONIENIE"
@@ -728,11 +810,17 @@
     },
     "driverRequirements": {
       "title": "WYMAGANIA DLA KIEROWCOW",
-      "items": ["WIEK: 21+", "DOSWIADCZENIE W PROWADZENIU: 3+ LATA"]
+      "items": [
+        "WIEK: 21+",
+        "DOSWIADCZENIE W PROWADZENIU: 3+ LATA"
+      ]
     },
     "rentalNeeds": {
       "title": "WYMAGANE DO WYNAJMU",
-      "items": ["PASZPORT", "PRAWO JAZDY"]
+      "items": [
+        "PASZPORT",
+        "PRAWO JAZDY"
+      ]
     },
     "slider": {
       "items": [
@@ -873,7 +961,11 @@
         "phone": "Telefon:",
         "mail": "E-mail:"
       },
-      "transmissionOptions": ["Automatyczna", "Manualna", "Zautomatyzowana"],
+      "transmissionOptions": [
+        "Automatyczna",
+        "Manualna",
+        "Zautomatyzowana"
+      ],
       "submit": "WYSLIJ WNIOSEK"
     }
   },
@@ -903,7 +995,11 @@
       "requirementsBlockLabel": "WYMAGANIA DLA NAJEMCY",
       "citizensUA": {
         "title": "DLA OBYWATELI UKRAINY",
-        "items": ["Dowod osobisty", "Numer identyfikacji podatkowej", "Prawo jazdy"]
+        "items": [
+          "Dowod osobisty",
+          "Numer identyfikacji podatkowej",
+          "Prawo jazdy"
+        ]
       },
       "foreignCitizens": {
         "title": "DLA OBCOKRAJOWCOW",
@@ -924,40 +1020,283 @@
         "Portfele elektroniczne"
       ]
     },
-    "tabs": {
-      "nav": ["Ubezpieczenie", "Kaucja", "Stawki", "Przebieg"],
-      "contents": [
+    "nav": {
+      "ariaLabel": "Nawigacja po sekcjach",
+      "goToSection": "Przejdź do sekcji:",
+      "items": [
         {
-          "paragraphs": [
-            "Wszystkie pojazdy sa objete obowiazkowym ubezpieczeniem. Dodatkowe pakiety ochronne (CDW/SCDW) sa dostepne i zmniejszaja odpowiedzialnosc finansowa najemcy w przypadku szkody lub kradziezy. Szczegoly na stronie \"Ubezpieczenie\"."
-          ]
+          "id": "requirements",
+          "label": "Wymagania dla najemcy"
         },
         {
-          "paragraphs": [
-            "Gdy kaucja jest wplacana karta kredytowa, karta musi byc wystawiona wylacznie na nazwisko najemcy. Kaucja jest preautoryzowana na karcie kredytowej zgodnie z umowa wynajmu. Po zwrocie pojazdu i nalezytym spelnieniu przez najemce wszystkich zobowiazan wynikajacych z umowy wynajmu, kaucja zostanie zwolniona przez wynajmujacego. Rzeczywisty czas zwrotu srodkow jest okreslony zasadami i procedurami wewneetrznymi banku wydajacego karte najemcy i moze potrwac kilka dni roboczych. Wynajmujacy nie ponosi odpowiedzialnosci za opoznienia spowodowane przez bank najemcy."
-          ]
+          "id": "documents",
+          "label": "Dokumenty"
         },
         {
-          "paragraphs": [
-            "Cena wynajmu zalezy od klasy pojazdu, czasu trwania wynajmu i sezonu. Im dluzszy wynajem, tym nizsza stawka dzienna. Aktualne ceny sprawdz w ofercie pojazdow lub skontaktuj sie z naszym menedzerem po szczegoly."
-          ]
+          "id": "payments",
+          "label": "Płatności"
         },
         {
-          "paragraphs": [
-            "Dla kazdego wynajmu obowiazuje dzienny limit przebiegu 300 km. W przypadku przekroczenia limitu naliczana jest dodatkowa oplata zgodnie ze stawkami podanymi w ponizszej tabeli, w zaleznosci od kategorii pojazdu. Jesli wymagany jest wyzszy dzienny limit lub nieograniczony przebieg, najemca moze skontaktowac sie z menedzerem w celu indywidualnej kalkulacji kosztow."
-          ],
-          "table": {
-            "head": ["Kategoria pojazdu", "Cena za 1 km (USD)"],
-            "rows": [
-              ["Ekonomiczny", "0.12"],
-              ["Biznesowy", "0.30"],
-              ["SUV", "0.30"],
-              ["Premium", "0.70"],
-              ["Minibusy", "0.50"]
-            ]
-          }
+          "id": "loyalty",
+          "label": "Program lojalnościowy"
+        },
+        {
+          "id": "services",
+          "label": "Usługi dodatkowe"
+        },
+        {
+          "id": "one-way",
+          "label": "One-Way"
+        },
+        {
+          "id": "mileage",
+          "label": "Przebieg"
+        },
+        {
+          "id": "deposit",
+          "label": "Kaucja"
+        },
+        {
+          "id": "insurance",
+          "label": "Ubezpieczenie"
+        },
+        {
+          "id": "driver",
+          "label": "Kto może prowadzić"
+        },
+        {
+          "id": "delivery",
+          "label": "Wydanie / zwrot"
+        },
+        {
+          "id": "territory",
+          "label": "Terytorium"
+        },
+        {
+          "id": "cancellation",
+          "label": "Anulowanie"
+        },
+        {
+          "id": "contract",
+          "label": "Umowa publiczna"
         }
       ]
+    },
+    "images": {
+      "ageAlt": "Kierowca za kierownicą — minimalny wiek najemcy to 21 lat",
+      "experienceAlt": "Mercedes na parkingu — wymagane minimum 3 lata doświadczenia w prowadzeniu",
+      "uaAlt": "Panorama Kijowa — wymagania dla obywateli Ukrainy przy wynajmie auta",
+      "visaAlt": "Paszport z wizą — dokumenty dla obcokrajowców",
+      "paymentAlt": "Rezerwacja online na stronie REIZ — dostępne metody płatności"
+    },
+    "sections": {
+      "loyalty": {
+        "title": "Program lojalnościowy",
+        "subtitle": "Im częściej wynajmujesz — tym lepsze warunki. Po każdym zakończonym wynajmie Twoja osobista zniżka aktualizuje się automatycznie.",
+        "note": "Zniżka lojalnościowa dotyczy podstawowej ceny wynajmu i może być łączona z promocjami sezonowymi zgodnie z warunkami bieżącej oferty.\nNie dotyczy kaucji, ubezpieczenia, usług dodatkowych, dostawy/zwrotu i innych opłat towarzyszących.",
+        "tiers": [
+          {
+            "rentals": "2–4",
+            "discount": "5%",
+            "label": "wynajmy"
+          },
+          {
+            "rentals": "5–7",
+            "discount": "7%",
+            "label": "wynajmów"
+          },
+          {
+            "rentals": "8–11",
+            "discount": "10%",
+            "label": "wynajmów"
+          },
+          {
+            "rentals": "12+",
+            "discount": "15%",
+            "label": "wynajmów"
+          }
+        ]
+      },
+      "addOns": {
+        "title": "Usługi dodatkowe",
+        "subtitle": "Wybierz potrzebne opcje podczas rezerwacji lub przy odbiorze samochodu.",
+        "perDay": "USD/dobę",
+        "byFact": "wg kosztów",
+        "items": [
+          {
+            "name": "Router Wi-Fi",
+            "description": "Nielimitowany internet mobilny 4G w podróży",
+            "priceShort": "5",
+            "priceLong": "5"
+          },
+          {
+            "name": "Dodatkowy kierowca",
+            "description": "Wpisanie drugiego kierowcy do umowy wynajmu",
+            "priceShort": "5",
+            "priceLong": "5"
+          },
+          {
+            "name": "Pełny bak",
+            "description": "Auto wydawane z pełnym bakiem. W przypadku zwrotu z mniejszym poziomem — dopłata za paliwo + opłata serwisowa",
+            "priceShort": "wg kosztów",
+            "priceLong": "wg kosztów"
+          },
+          {
+            "name": "Fotelik podwyższający",
+            "description": "Dla dzieci o wadze 15–36 kg (ok. 4–12 lat)",
+            "priceShort": "4",
+            "priceLong": "4"
+          },
+          {
+            "name": "Fotelik dziecięcy",
+            "description": "Dla dzieci o wadze 9–18 kg (ok. 1–4 lata)",
+            "priceShort": "4",
+            "priceLong": "4"
+          },
+          {
+            "name": "Fotelik dla niemowląt",
+            "description": "Dla dzieci do 13 kg (do ~1 roku)",
+            "priceShort": "4",
+            "priceLong": "4"
+          }
+        ]
+      },
+      "oneWay": {
+        "title": "Usługa One-Way",
+        "text": "Wygodna opcja na podróże między miastami: odbierz samochód w jednej lokalizacji i zwróć w innej. Koszt usługi zależy od trasy i klasy pojazdu — dokładną kwotę potwierdzi menedżer przy rezerwacji.",
+        "menuName": "One-Way",
+        "menuPrice": "$100 – 250",
+        "menuDesc": "Zależy od trasy i klasy pojazdu"
+      },
+      "mileage": {
+        "title": "Warunki przebiegu",
+        "subtitle": "Dzienny limit przebiegu — 300 km, liczony łącznie za cały okres wynajmu, ale nie więcej niż 5000 km miesięcznie.\nW przypadku przekroczenia limitu każdy kilometr jest płatny dodatkowo zgodnie z taryfami firmy.",
+        "bannerValue": "300 km",
+        "bannerLabel": "dzienny limit przebiegu",
+        "overageTitle": "Dopłata za przekroczenie limitu",
+        "perKm": "USD / km",
+        "note": "Potrzebujesz wyższego limitu lub nieograniczonego przebiegu? Skontaktuj się z menedżerem.",
+        "rates": [
+          {
+            "segment": "Ekonomiczny",
+            "pricePerKm": "0.12"
+          },
+          {
+            "segment": "Biznesowy",
+            "pricePerKm": "0.30"
+          },
+          {
+            "segment": "SUV",
+            "pricePerKm": "0.30"
+          },
+          {
+            "segment": "Premium",
+            "pricePerKm": "0.70"
+          },
+          {
+            "segment": "Minibusy",
+            "pricePerKm": "0.50"
+          }
+        ]
+      },
+      "deposit": {
+        "title": "Kaucja / depozyt",
+        "subtitle": "Kwota gwarancyjna blokowana na karcie bankowej przy odbiorze pojazdu. Wysokość kaucji zależy od klasy auta i warunków ubezpieczenia.",
+        "items": [
+          "Blokowana na karcie wystawionej na nazwisko najemcy",
+          "Zwalniana przez REIZ w ciągu dnia roboczego po zwrocie",
+          "Faktyczny zwrot — od 1 do 14 dni roboczych",
+          "Przy CDW / SCDW kwota kaucji może być zmniejszona"
+        ]
+      },
+      "insurance": {
+        "title": "Ubezpieczenie",
+        "subtitle": "Każdy samochód posiada obowiązkową polisę ubezpieczeniową. Dodatkowo można wybrać rozszerzoną ochronę.",
+        "items": [
+          {
+            "strong": "Podstawowe ubezpieczenie",
+            "text": "obowiązkowa polisa OC wliczona w cenę wynajmu. Pokrywa odpowiedzialność wobec osób trzecich."
+          },
+          {
+            "strong": "CDW",
+            "text": "częściowe pokrycie szkód karoserii. Zmniejsza odpowiedzialność finansową najemcy do stałej franszyzy."
+          },
+          {
+            "strong": "SCDW",
+            "text": "pełne pokrycie bez franszyzy. Najemca nie ponosi odpowiedzialności finansowej za uszkodzenia lub kradzież auta."
+          }
+        ],
+        "btnText": "Więcej o ubezpieczeniu"
+      },
+      "driver": {
+        "title": "Kto może prowadzić",
+        "items": [
+          "Prowadzić pojazd ma prawo wyłącznie osoba wskazana w umowie. Przekazanie kierowania osobom nieupoważnionym jest zabronione.",
+          "Jeśli kilku kierowców planuje prowadzić — skorzystaj z usługi «Dodatkowy kierowca». Każdy kierowca zostanie wpisany do umowy po okazaniu dokumentów."
+        ]
+      },
+      "delivery": {
+        "title": "Wydanie i zwrot",
+        "subtitle": "Auto wydawane jest czyste, z pełnym bakiem paliwa i kompletem dokumentów. Zwrot w analogicznym stanie.",
+        "deliveryTitle": "Wydanie",
+        "deliveryItems": [
+          {
+            "name": "W punkcie wynajmu",
+            "price": "bezpłatnie",
+            "desc": "w godzinach pracy"
+          },
+          {
+            "name": "Pod adres klienta",
+            "price": "od 15 USD",
+            "desc": "w zależności od odległości"
+          },
+          {
+            "name": "Poza godzinami pracy",
+            "price": "dopłata 20 USD"
+          }
+        ],
+        "returnTitle": "Zwrot",
+        "returnItems": [
+          {
+            "name": "W punkcie wynajmu",
+            "price": "bezpłatnie",
+            "desc": "w godzinach pracy"
+          },
+          {
+            "name": "Pod adres",
+            "price": "od 15 USD"
+          },
+          {
+            "name": "Poza godzinami pracy",
+            "price": "dopłata 20 USD"
+          }
+        ],
+        "washName": "Mycie samochodu",
+        "washPrice": "25 USD",
+        "washDesc": "W przypadku zwrotu auta w zabrudzonym stanie",
+        "note": "Auto wydawane jest z pełnym bakiem. Przy zwrocie bak musi być zatankowany do tego samego poziomu, w przeciwnym razie z kaucji zostanie potrącony koszt paliwa + opłata serwisowa."
+      },
+      "territory": {
+        "title": "Terytorium użytkowania",
+        "items": [
+          "Samochód może być używany na całym terytorium Ukrainy z wyjątkiem tymczasowo okupowanych terytoriów i stref działań wojennych.",
+          "Wyjazd poza Ukrainę możliwy wyłącznie za uprzednią pisemną zgodą REIZ. Listę dozwolonych krajów można uzyskać przy rezerwacji."
+        ]
+      },
+      "cancellation": {
+        "title": "Anulowanie i zmiana rezerwacji",
+        "items": [
+          "Bezpłatne anulowanie lub zmiana — nie później niż 24 godziny przed planowanym czasem odbioru.",
+          "Anulowanie na mniej niż 24 godziny przed odbiorem może wiązać się z opłatą kompensacyjną. Szczegóły podawane przy rezerwacji."
+        ]
+      },
+      "contract": {
+        "title": "Umowa publiczna",
+        "text": "Wynajem realizowany jest na podstawie umowy publicznej. Zawiera prawa i obowiązki stron, warunki odpowiedzialności i tryb rozwiązywania sporów. Podpisanie następuje przy odbiorze pojazdu.",
+        "downloadTitle": "Pobierz umowę",
+        "downloadMeta": "PDF",
+        "downloadAriaLabel": "Pobierz publiczną umowę wynajmu"
+      }
     }
   },
   "contactsPage": {
@@ -1142,7 +1481,15 @@
     }
   },
   "rangeDateTimePicker": {
-    "weekDays": ["Pn", "Wt", "Sr", "Cz", "Pt", "Sb", "Nd"],
+    "weekDays": [
+      "Pn",
+      "Wt",
+      "Sr",
+      "Cz",
+      "Pt",
+      "Sb",
+      "Nd"
+    ],
     "reset": "Resetuj",
     "title": "Wybierz date i godzine odbioru oraz zwrotu",
     "monthsAriaLabel": "Wybor miesiaca",
@@ -1295,9 +1642,9 @@
     "insuranceCoverage": {
       "title": "Wybierz typ pokrycia",
       "options": {
-        "deposit": "Z kaucja",
         "50": "Pokrycie 50%",
-        "100": "Pelne pokrycie (100%)"
+        "100": "Pelne pokrycie (100%)",
+        "deposit": "Z kaucja"
       },
       "features": {
         "damage": {
@@ -1437,10 +1784,10 @@
   "bookingContactModal": {
     "title": "Zostaw zgloszenie w wygodny sposob — nasz <accent>menedzer sie z Toba skontaktuje</accent> i odpowie na wszystkie pytania",
     "buttons": {
-      "telegram": "ZAREZERWUJ PRZEZ TELEGRAM",
-      "whatsapp": "ZAREZERWUJ PRZEZ WHATSAPP",
-      "viber": "ZAREZERWUJ PRZEZ VIBER",
-      "phone": "ZADZWON DO NAS"
+      "telegram": "ZGŁOSZENIE PRZEZ TELEGRAM",
+      "whatsapp": "ZGŁOSZENIE PRZEZ WHATSAPP",
+      "viber": "ZGŁOSZENIE PRZEZ VIBER",
+      "phone": "ZADZWOŃ"
     },
     "terms": "Klikajac przycisk, akceptujesz warunki przetwarzania danych osobowych"
   },

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import "air-datepicker/air-datepicker.css";
+import { formatFull } from "@/lib/utils/date-format";
 
 type Mode = "short" | "full";
 
@@ -100,13 +101,6 @@ export default function DateRangePicker({
             const mm = String(d.getMinutes()).padStart(2, "0");
             return `${day} ${month} ${hh}:${mm}`;
           };
-          const formatFull = (d: Date) => {
-            const dd = String(d.getDate()).padStart(2, "0");
-            const mm = String(d.getMonth() + 1).padStart(2, "0");
-            const yyyy = d.getFullYear();
-            return `${dd}.${mm}.${yyyy}`;
-          };
-
           const value =
             mode === "short"
               ? `${formatShort(start)} — ${formatShort(end)}`

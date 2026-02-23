@@ -1,12 +1,12 @@
 {
   "aside": {
-  "brand": "REIZ",
-  "cta_button": "SOLICITĂ UN APEL",
-  "controls": {
-    "expand": "Deschide submeniu",
-    "collapse": "Închide submeniu"
-  },
-  "nav": {
+    "brand": "REIZ",
+    "cta_button": "SOLICITĂ UN APEL",
+    "controls": {
+      "expand": "Deschide submeniu",
+      "collapse": "Închide submeniu"
+    },
+    "nav": {
       "about": "DESPRE NOI",
       "blog": "BLOG",
       "business": "ÎNCHIRIERI CORPORATE",
@@ -506,6 +506,96 @@
         "Raportare la timp și acte — fără birocrație suplimentară"
       ]
     },
+    "guarantees": {
+      "title": "CE GARANTĂM",
+      "items": [
+        { "icon": "t-steering", "title": "Mașini noi întreținute", "text": "Flotă din 2023–2025. Fiecare mașină trece prin revizii regulate și verificare înainte de predare." },
+        { "icon": "t-insurance", "title": "Asigurare completă", "text": "Acoperire CDW / SCDW pe toată perioada de închiriere. Asistență în caz de accident." },
+        { "icon": "t-contract", "title": "Plată cu TVA", "text": "Plată fără numerar, documente de închidere, facturi — totul pentru contabilitate." },
+        { "icon": "t-services", "title": "Suport 24/7", "text": "Linie de ajutor, coordonare pe traseu și consultanță fără zile libere." },
+        { "icon": "t-return", "title": "Mașină de înlocuire", "text": "Înlocuire gratuită a mașinii în caz de defecțiune sau service planificat." },
+        { "icon": "t-person-key", "title": "Manager personal", "text": "Un singur punct de contact: coordonare, raportare, documente și SLA de service." }
+      ]
+    },
+    "useCases": {
+      "title": "PE CINE AJUTĂM",
+      "items": [
+        { "value": "business", "label": "Pentru afaceri", "title": "Pentru afaceri mici și medii", "text": "Condiții flexibile de închiriere auto care ajută afacerea dumneavoastră să rezolve eficient sarcinile logistice.", "cta": "OBȚINEȚI OFERTA" },
+        { "value": "corporate", "label": "Pentru corporații", "title": "Pentru corporații mari și fleet management", "text": "Gestionarea eficientă a flotei corporative: închiriere, service, asigurare și înlocuirea vehiculelor.", "cta": "OBȚINEȚI OFERTA" },
+        { "value": "missions", "label": "Misiuni internaționale", "title": "Suport pentru misiuni internaționale și diplomatice", "text": "Susținem proiecte diplomatice și umanitare, oferind vehicule moderne și fiabile.", "cta": "OBȚINEȚI OFERTA" },
+        { "value": "construction", "label": "Proiecte de construcții", "title": "Transport pentru proiecte de construcții", "text": "Oferim servicii de închiriere auto pentru transportul echipamentelor și specialiștilor.", "cta": "OBȚINEȚI OFERTA" },
+        { "value": "fleet", "label": "Fleet Management", "title": "Externalizarea completă a flotei", "text": "Ne ocupăm de întreg ciclul: selectarea vehiculelor, asigurare, service, schimbul sezonier de anvelope și mașini de înlocuire.", "cta": "OBȚINEȚI OFERTA" }
+      ]
+    },
+    "cases": {
+      "title": "CU CINE LUCRĂM",
+      "items": [
+        {
+          "title": "Companii IT și startup-uri",
+          "text": "Închiriere auto pentru echipe de dezvoltatori, manageri și întâlniri cu clienții.",
+          "photo": "/img/business/simple-comfortable-female-customer-modern-stylish-bearded-businessman-automobile-saloon.webp"
+        },
+        {
+          "title": "Organizații internaționale",
+          "text": "Transport pentru misiuni diplomatice și umanitare, ambasade și reprezentanțe.",
+          "photo": "/img/business/elegant-uber-driver-giving-taxi-ride.webp"
+        },
+        {
+          "title": "Companii de construcții",
+          "text": "SUV-uri și microbuze pentru transportul specialiștilor și coordonarea șantierelor.",
+          "photo": "/img/business/medium-shot-men-wearing-equipment.webp"
+        },
+        {
+          "title": "Companii de logistică și comerț",
+          "text": "Flotă pentru reprezentanți de vânzări, curierat și deplasări regionale.",
+          "photo": "/img/business/high-angle-delivery-men-concept.webp"
+        }
+      ]
+    },
+    "steps": {
+      "title": "CUM FUNCȚIONEAZĂ",
+      "label": "Pasul",
+      "items": [
+        { "title": "Alegeți mașina", "text": "Consultați catalogul sau contactați un manager — vom găsi mașina potrivită pentru nevoile dumneavoastră.", "photo": "/img/business/выбор авто.webp" },
+        { "title": "Trimiteți documentele", "text": "În termen de o oră de la primirea documentelor companiei, trimitem factura și contractul.", "photo": "/img/business/young-woman-looking-documents.webp" },
+        { "title": "Semnați contractul", "text": "Trimiteți copii scanate ale documentelor semnate sau vizitați biroul nostru.", "photo": "/img/business/satisfied-smiling-businessman-suit-signing-contract-meeting-concept.webp" },
+        { "title": "Folosiți mașina", "text": "Livrăm mașina la adresa dumneavoastră cât mai repede posibil. Șofer și echipament suplimentar la cerere.", "photo": "/img/business/young-businesswoman-holding-disposable-coffee-cup-driving-car.webp" }
+      ]
+    },
+    "compare": {
+      "title": "ALEGEȚI FORMATUL",
+      "items": [
+        {
+          "badge": "Afaceri mici",
+          "title": "Închiriere pe termen scurt",
+          "text": "Ideal pentru proiecte unice, călătorii de afaceri și nevoi sezoniere — de la 1 la 29 de zile.",
+          "items": [
+            "De la 1 mașină fără obligații",
+            "Asigurare completă CDW/SCDW",
+            "Plată cu TVA, documente de închidere",
+            "Livrare la adresa dumneavoastră"
+          ],
+          "cta": "OBȚINEȚI OFERTA"
+        },
+        {
+          "badge": "Corporații",
+          "title": "Închiriere pe termen lung",
+          "text": "Pentru nevoi permanente — fleet management, tarife reduse și servicii complete de la 30 de zile.",
+          "items": [
+            "Tarife reduse de la 30 de zile",
+            "Mașină de înlocuire gratuită",
+            "Manager personal și SLA",
+            "Schimbul sezonier de anvelope inclus"
+          ],
+          "cta": "OBȚINEȚI OFERTA"
+        }
+      ]
+    },
+    "ctaBanner": {
+      "title": "Pentru nevoi pe termen lung — condiții deosebit de avantajoase",
+      "text": "Lăsați o cerere, vă contactăm în curând.",
+      "cta": "OBȚINEȚI OFERTA"
+    },
     "howItWorks": {
       "title": "CUM FUNCȚIONEAZĂ",
       "steps": [
@@ -552,17 +642,9 @@
     },
     "order": {
       "title": "SOLICITĂ UN APEL",
-      "lead": "Lăsați datele de contact și managerul nostru vă va contacta.",
-      "form": {
-        "namePlaceholder": "Numele dumneavoastră",
-        "phonePlaceholder": "Telefon",
-        "emailPlaceholder": "E-mail",
-        "success": "Cererea dumneavoastră a fost trimisă cu succes!",
-        "error": "Trimiterea cererii a eșuat. Vă rugăm să încercați din nou.",
-        "submitting": "Se trimite...",
-        "submit": "TRIMITE CEREREA",
-        "submitBlack": "TRIMITE CEREREA"
-      }
+      "heading": "Cerere <accent>de închiriere corporativă</accent>",
+      "lead": "Lăsați o cerere într-un mod convenabil — managerul nostru vă va contacta și va răspunde la toate întrebările.",
+      "submit": "TRIMITE CEREREA"
     },
     "cta": {
       "requestCall": "SOLICITĂ UN APEL"
@@ -728,11 +810,17 @@
     },
     "driverRequirements": {
       "title": "CERINȚE PENTRU ȘOFERI",
-      "items": ["VÂRSTĂ: 21+", "EXPERIENȚĂ DE CONDUCERE: 3+ ANI"]
+      "items": [
+        "VÂRSTĂ: 21+",
+        "EXPERIENȚĂ DE CONDUCERE: 3+ ANI"
+      ]
     },
     "rentalNeeds": {
       "title": "NECESAR PENTRU ÎNCHIRIERE",
-      "items": ["PAȘAPORT", "PERMIS DE CONDUCERE"]
+      "items": [
+        "PAȘAPORT",
+        "PERMIS DE CONDUCERE"
+      ]
     },
     "slider": {
       "items": [
@@ -873,7 +961,11 @@
         "phone": "Telefon:",
         "mail": "E-mail:"
       },
-      "transmissionOptions": ["Automată", "Manuală", "Automatizată"],
+      "transmissionOptions": [
+        "Automată",
+        "Manuală",
+        "Automatizată"
+      ],
       "submit": "TRIMITE CEREREA"
     }
   },
@@ -903,7 +995,11 @@
       "requirementsBlockLabel": "CERINȚE PENTRU CHIRIAȘ",
       "citizensUA": {
         "title": "PENTRU CETĂȚENII UCRAINEI",
-        "items": ["Carte de identitate", "Cod fiscal", "Permis de conducere"]
+        "items": [
+          "Carte de identitate",
+          "Cod fiscal",
+          "Permis de conducere"
+        ]
       },
       "foreignCitizens": {
         "title": "PENTRU CETĂȚENI STRĂINI",
@@ -924,40 +1020,283 @@
         "Portofele electronice"
       ]
     },
-    "tabs": {
-      "nav": ["Asigurare", "Depozit", "Tarife", "Kilometraj"],
-      "contents": [
+    "nav": {
+      "ariaLabel": "Navigare pe secțiuni",
+      "goToSection": "Mergi la secțiunea:",
+      "items": [
         {
-          "paragraphs": [
-            "Toate vehiculele sunt acoperite de asigurare obligatorie. Sunt disponibile pachete de protecție suplimentare (CDW/SCDW) care reduc răspunderea financiară a chiriașului în caz de daune sau furt. Detalii pe pagina „Asigurare”."
-          ]
+          "id": "requirements",
+          "label": "Cerințe pentru chiriaș"
         },
         {
-          "paragraphs": [
-            "Când depozitul este furnizat prin card de credit, cardul trebuie să fie emis exclusiv pe numele chiriașului. Depozitul este preautorizat pe cardul de credit în conformitate cu contractul de închiriere. După returnarea vehiculului și îndeplinirea tuturor obligațiilor din contractul de închiriere de către chiriaș, depozitul va fi eliberat de către locator. Termenul efectiv de creditare a fondurilor este determinat de regulile și procedurile interne ale băncii emitente a chiriașului și poate dura câteva zile bancare. Locatorul nu va fi ținut responsabil pentru eventualele întârzieri cauzate de banca chiriașului."
-          ]
+          "id": "documents",
+          "label": "Documente"
         },
         {
-          "paragraphs": [
-            "Prețul închirierii depinde de clasa vehiculului, durata închirierii și sezon. Cu cât închirierea este mai lungă, cu atât tariful zilnic este mai mic. Verificați prețurile actuale în lista de vehicule sau contactați managerul nostru pentru detalii."
-          ]
+          "id": "payments",
+          "label": "Plată"
         },
         {
-          "paragraphs": [
-            "Se aplică o limită zilnică de kilometraj de 300 km pentru fiecare închiriere. Dacă limita este depășită, se aplică un tarif suplimentar conform tarifelor listate în tabelul de mai jos, în funcție de categoria vehiculului. Dacă este necesară o limită zilnică mai mare sau kilometraj nelimitat, chiriașul poate contacta un manager pentru un calcul individual al costurilor."
-          ],
-          "table": {
-            "head": ["Categoria vehiculului", "Preț per 1 km (USD)"],
-            "rows": [
-              ["Economic", "0.12"],
-              ["Business", "0.30"],
-              ["SUV-uri", "0.30"],
-              ["Premium", "0.70"],
-              ["Microbuze", "0.50"]
-            ]
-          }
+          "id": "loyalty",
+          "label": "Program de fidelitate"
+        },
+        {
+          "id": "services",
+          "label": "Servicii suplimentare"
+        },
+        {
+          "id": "one-way",
+          "label": "One-Way"
+        },
+        {
+          "id": "mileage",
+          "label": "Kilometraj"
+        },
+        {
+          "id": "deposit",
+          "label": "Depozit"
+        },
+        {
+          "id": "insurance",
+          "label": "Asigurare"
+        },
+        {
+          "id": "driver",
+          "label": "Cine poate conduce"
+        },
+        {
+          "id": "delivery",
+          "label": "Predare / returnare"
+        },
+        {
+          "id": "territory",
+          "label": "Teritoriu"
+        },
+        {
+          "id": "cancellation",
+          "label": "Anulare"
+        },
+        {
+          "id": "contract",
+          "label": "Contract public"
         }
       ]
+    },
+    "images": {
+      "ageAlt": "Șofer la volan — vârsta minimă a chiriașului este 21 de ani",
+      "experienceAlt": "Mercedes în parcare — experiență minimă de conducere de 3 ani",
+      "uaAlt": "Panorama Kievului — cerințe pentru cetățenii Ucrainei pentru închiriere auto",
+      "visaAlt": "Pașaport cu viză — documente pentru cetățenii străini",
+      "paymentAlt": "Rezervare online pe site-ul REIZ — metode de plată disponibile"
+    },
+    "sections": {
+      "loyalty": {
+        "title": "Program de fidelitate",
+        "subtitle": "Cu cât închiriezi mai des — cu atât mai avantajos. După fiecare închiriere finalizată, reducerea ta personală se actualizează automat.",
+        "note": "Reducerea de fidelitate se aplică prețului de bază al închirierii și poate fi combinată cu promoțiile sezoniere conform condițiilor ofertei curente.\nNu se aplică depozitului, asigurării, serviciilor suplimentare, livrării/returnării și altor taxe asociate.",
+        "tiers": [
+          {
+            "rentals": "2–4",
+            "discount": "5%",
+            "label": "închirieri"
+          },
+          {
+            "rentals": "5–7",
+            "discount": "7%",
+            "label": "închirieri"
+          },
+          {
+            "rentals": "8–11",
+            "discount": "10%",
+            "label": "închirieri"
+          },
+          {
+            "rentals": "12+",
+            "discount": "15%",
+            "label": "închirieri"
+          }
+        ]
+      },
+      "addOns": {
+        "title": "Servicii suplimentare",
+        "subtitle": "Alegeți opțiunile necesare la rezervare sau la ridicarea mașinii.",
+        "perDay": "USD/zi",
+        "byFact": "cost efectiv",
+        "items": [
+          {
+            "name": "Router Wi-Fi",
+            "description": "Internet mobil 4G nelimitat în călătorie",
+            "priceShort": "5",
+            "priceLong": "5"
+          },
+          {
+            "name": "Șofer suplimentar",
+            "description": "Adăugarea unui al doilea șofer în contractul de închiriere",
+            "priceShort": "5",
+            "priceLong": "5"
+          },
+          {
+            "name": "Rezervor plin",
+            "description": "Mașina este furnizată cu rezervorul plin. Dacă este returnată cu mai puțin combustibil — se aplică taxa pentru combustibil + taxa de serviciu",
+            "priceShort": "cost efectiv",
+            "priceLong": "cost efectiv"
+          },
+          {
+            "name": "Scaun înălțător",
+            "description": "Pentru copii cu greutatea de 15–36 kg (aproximativ 4–12 ani)",
+            "priceShort": "4",
+            "priceLong": "4"
+          },
+          {
+            "name": "Scaun auto copii",
+            "description": "Pentru copii cu greutatea de 9–18 kg (aproximativ 1–4 ani)",
+            "priceShort": "4",
+            "priceLong": "4"
+          },
+          {
+            "name": "Scaun pentru bebeluși",
+            "description": "Pentru copii până la 13 kg (până la ~1 an)",
+            "priceShort": "4",
+            "priceLong": "4"
+          }
+        ]
+      },
+      "oneWay": {
+        "title": "Serviciul One-Way",
+        "text": "O opțiune convenabilă pentru călătoriile între orașe: ridică mașina dintr-o locație și returneaz-o în alta. Costul serviciului depinde de traseu și clasa vehiculului — suma exactă va fi confirmată de manager la rezervare.",
+        "menuName": "One-Way",
+        "menuPrice": "$100 – 250",
+        "menuDesc": "Depinde de traseu și clasa vehiculului"
+      },
+      "mileage": {
+        "title": "Condiții de kilometraj",
+        "subtitle": "Limita zilnică de kilometraj — 300 km, calculată cumulativ pe toată perioada de închiriere, dar nu mai mult de 5000 km pe lună.\nÎn caz de depășire, fiecare kilometru este taxat suplimentar conform tarifelor companiei.",
+        "bannerValue": "300 km",
+        "bannerLabel": "limita zilnică de kilometraj",
+        "overageTitle": "Taxă pentru depășire",
+        "perKm": "USD / km",
+        "note": "Aveți nevoie de o limită mai mare sau de kilometraj nelimitat? Contactați managerul.",
+        "rates": [
+          {
+            "segment": "Economic",
+            "pricePerKm": "0.12"
+          },
+          {
+            "segment": "Business",
+            "pricePerKm": "0.30"
+          },
+          {
+            "segment": "SUV-uri",
+            "pricePerKm": "0.30"
+          },
+          {
+            "segment": "Premium",
+            "pricePerKm": "0.70"
+          },
+          {
+            "segment": "Microbuze",
+            "pricePerKm": "0.50"
+          }
+        ]
+      },
+      "deposit": {
+        "title": "Depozit / garanție",
+        "subtitle": "O sumă de garanție blocată pe cardul bancar la ridicarea vehiculului. Valoarea depozitului depinde de clasa mașinii și condițiile de asigurare.",
+        "items": [
+          "Blocată pe un card emis pe numele chiriașului",
+          "Deblocată de REIZ în termen de o zi lucrătoare după returnare",
+          "Returnare efectivă — de la 1 la 14 zile bancare",
+          "Cu CDW / SCDW, valoarea depozitului poate fi redusă"
+        ]
+      },
+      "insurance": {
+        "title": "Asigurare",
+        "subtitle": "Fiecare vehicul are o poliță de asigurare obligatorie. Suplimentar, puteți alege o acoperire extinsă.",
+        "items": [
+          {
+            "strong": "Acoperire de bază",
+            "text": "poliță obligatorie de răspundere civilă inclusă în prețul închirierii. Acoperă răspunderea față de terțe persoane."
+          },
+          {
+            "strong": "CDW",
+            "text": "acoperire parțială a daunelor caroseriei. Reduce răspunderea financiară a chiriașului la o franciză fixă."
+          },
+          {
+            "strong": "SCDW",
+            "text": "acoperire completă fără franciză. Chiriașul nu poartă nicio răspundere financiară pentru daune sau furt."
+          }
+        ],
+        "btnText": "Mai multe despre asigurare"
+      },
+      "driver": {
+        "title": "Cine poate conduce",
+        "items": [
+          "Dreptul de a conduce îl are exclusiv persoana menționată în contract. Transferul conducerii către persoane neautorizate este interzis.",
+          "Dacă mai mulți șoferi intenționează să conducă — folosiți serviciul «Șofer suplimentar». Fiecare șofer va fi adăugat în contract după prezentarea documentelor."
+        ]
+      },
+      "delivery": {
+        "title": "Predare și returnare",
+        "subtitle": "Mașina este furnizată curată, cu rezervorul plin și setul complet de documente. Se returnează în aceeași stare.",
+        "deliveryTitle": "Predare",
+        "deliveryItems": [
+          {
+            "name": "La punctul de închiriere",
+            "price": "gratuit",
+            "desc": "în programul de lucru"
+          },
+          {
+            "name": "La adresa clientului",
+            "price": "de la 15 USD",
+            "desc": "în funcție de distanță"
+          },
+          {
+            "name": "În afara programului",
+            "price": "suprataxă 20 USD"
+          }
+        ],
+        "returnTitle": "Returnare",
+        "returnItems": [
+          {
+            "name": "La punctul de închiriere",
+            "price": "gratuit",
+            "desc": "în programul de lucru"
+          },
+          {
+            "name": "La adresă",
+            "price": "de la 15 USD"
+          },
+          {
+            "name": "În afara programului",
+            "price": "suprataxă 20 USD"
+          }
+        ],
+        "washName": "Spălarea mașinii",
+        "washPrice": "25 USD",
+        "washDesc": "În cazul returnării mașinii în stare murdară",
+        "note": "Mașina este furnizată cu rezervorul plin. La returnare, rezervorul trebuie alimentat la același nivel, altfel costul combustibilului + taxa de serviciu vor fi reținute din depozit."
+      },
+      "territory": {
+        "title": "Teritoriul de utilizare",
+        "items": [
+          "Vehiculul poate fi utilizat pe întreg teritoriul Ucrainei, cu excepția teritoriilor temporar ocupate și a zonelor de conflict.",
+          "Deplasarea în afara Ucrainei este posibilă doar cu acordul scris prealabil al REIZ. Lista țărilor permise poate fi clarificată la rezervare."
+        ]
+      },
+      "cancellation": {
+        "title": "Anulare și modificarea rezervării",
+        "items": [
+          "Anulare sau modificare gratuită — cu cel puțin 24 de ore înainte de ora programată de ridicare.",
+          "Anularea cu mai puțin de 24 de ore înainte poate implica o taxă de compensare. Detaliile sunt disponibile la rezervare."
+        ]
+      },
+      "contract": {
+        "title": "Contract public",
+        "text": "Închirierea se formalizează pe baza unui contract public. Acesta conține drepturile și obligațiile ambelor părți, condițiile de răspundere și procedurile de soluționare a litigiilor. Semnarea are loc la ridicarea vehiculului.",
+        "downloadTitle": "Descarcă contractul",
+        "downloadMeta": "PDF",
+        "downloadAriaLabel": "Descarcă contractul public de închiriere"
+      }
     }
   },
   "contactsPage": {
@@ -1142,7 +1481,15 @@
     }
   },
   "rangeDateTimePicker": {
-    "weekDays": ["Lu", "Ma", "Mi", "Jo", "Vi", "Sâ", "Du"],
+    "weekDays": [
+      "Lu",
+      "Ma",
+      "Mi",
+      "Jo",
+      "Vi",
+      "Sâ",
+      "Du"
+    ],
     "reset": "Resetează",
     "title": "Selectați data și ora de preluare și returnare",
     "monthsAriaLabel": "Selectarea lunii",
@@ -1295,9 +1642,9 @@
     "insuranceCoverage": {
       "title": "Alegeți tipul de acoperire",
       "options": {
-        "deposit": "Cu depozit",
         "50": "Acoperire 50%",
-        "100": "Acoperire totală (100%)"
+        "100": "Acoperire totală (100%)",
+        "deposit": "Cu depozit"
       },
       "features": {
         "damage": {
@@ -1437,9 +1784,9 @@
   "bookingContactModal": {
     "title": "Lasă o cerere în modul cel mai convenabil — <accent>managerul nostru vă va contacta</accent> și va răspunde la toate întrebările dumneavoastră",
     "buttons": {
-      "telegram": "REZERVĂ PRIN TELEGRAM",
-      "whatsapp": "REZERVĂ PRIN WHATSAPP",
-      "viber": "REZERVĂ PRIN VIBER",
+      "telegram": "CERERE PRIN TELEGRAM",
+      "whatsapp": "CERERE PRIN WHATSAPP",
+      "viber": "CERERE PRIN VIBER",
       "phone": "SUNĂ-NE"
     },
     "terms": "Prin clic pe buton, acceptați condițiile de prelucrare a datelor personale"

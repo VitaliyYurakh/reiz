@@ -11,22 +11,22 @@ import {
   useRef,
   useState,
 } from "react";
-import { createPortal } from "react-dom";
-import { Tooltip } from "react-tooltip";
 
 import { useCarModal } from "@/app/[locale]/(site)/cars/[idSlug]/components/modals";
 import LocationSelect from "@/app/[locale]/components/LocationSelect";
-import TelInput from "@/components/TelInput";
 import { Link } from "@/i18n/request";
 import type { Car, CarCountingRule } from "@/types/cars";
 import InsuranceCoverage from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/InsuranceCoverage";
-import { BASE_URL } from "@/config/environment";
+import AddOnsSection from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/AddOnsSection";
+import PersonalInfoForm from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/PersonalInfoForm";
+import PricingSummaryPanel from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/PricingSummaryPanel";
+import FormFeedback from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/FormFeedback";
 import { useSideBarModal } from "@/components/modals";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
+import { formatFull } from "@/lib/utils/date-format";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useRentalSearchOptional } from "@/context/RentalSearchContext";
 import { submitBookingRequest } from "@/lib/api/feedback";
-import UiImage from "@/components/ui/UiImage";
 
 type ExtraDefinition = {
   id: "additionalDriver" | "childSeat" | "borderCrossing" | "driverService";
@@ -53,19 +53,6 @@ type RentPageContentProps = {
   initialPlanId: number;
   initialStartDate: string;
   initialEndDate: string;
-};
-
-const formatFull = (d: Date) => {
-  const dd = String(d.getDate()).padStart(2, "0");
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  const yyyy = d.getFullYear();
-  return `${dd}.${mm}.${yyyy}`;
-};
-
-const formatTime = (d: Date) => {
-  const hh = String(d.getHours()).padStart(2, "0");
-  const mm = String(d.getMinutes()).padStart(2, "0");
-  return `${hh}:${mm}`;
 };
 
 const EXTRA_DEFINITIONS = [
@@ -122,7 +109,7 @@ export default function RentPageContent({
   const { open: openManagerModal } = useSideBarModal(
     "managerWillContactYouModal",
   );
-  const { formatPrice, formatDeposit } = useCurrency();
+  const { formatPrice } = useCurrency();
   const locale = useLocale() as Locale;
   const rentalSearchContext = useRentalSearchOptional();
   const contextPickupLocation = rentalSearchContext?.pickupLocation ?? "";
@@ -153,12 +140,6 @@ export default function RentPageContent({
     startDate: parseISODate(initialStartDate),
     endDate: parseISODate(initialEndDate),
   });
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   useEffect(() => {
     setSelectedDate({
       startDate: parseISODate(initialStartDate),
@@ -577,308 +558,45 @@ export default function RentPageContent({
                       hasDiscount={hasDiscount}
                     />
 
-                    <div className="main-form__wrapp">
-                      <span className="main-form__text">
-                        {t("addOns.title")}
-                      </span>
+                    <AddOnsSection
+                      extraDefinitions={EXTRA_DEFINITIONS}
+                      selectedExtras={selectedExtras}
+                      toggleExtra={toggleExtra}
+                    />
 
-                      {EXTRA_DEFINITIONS.map((extra) => (
-                        <label className="custom-checkbox offer" key={extra.id}>
-                          <input
-                            type="checkbox"
-                            className="custom-checkbox__field"
-                            checked={selectedExtras.has(extra.id)}
-                            onChange={() => toggleExtra(extra.id)}
-                          />
-                          <span
-                            className="custom-checkbox__content"
-                            style={{ borderRadius: "20px" }}
-                          >
-                            <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                              {t(`addOns.options.${extra.id}.label`)}
-                              {extra.id === "driverService" && (
-                                <span
-                                  data-tooltip-id="driver-service-tooltip"
-                                  style={{
-                                    cursor: "pointer",
-                                    width: "18px",
-                                    height: "18px",
-                                    fontSize: "11px",
-                                    fontWeight: 600,
-                                    border: "1px solid currentColor",
-                                    borderRadius: "50%",
-                                    display: "inline-flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                  }}
-                                  onClick={(e) => e.preventDefault()}
-                                >
-                                  i
-                                </span>
-                              )}
-                            </span>
-                            <span className="text-strong">
-                              {t(`addOns.options.${extra.id}.price`, {
-                                formattedPrice: formatPrice(extra.price),
-                              })}
-                            </span>
-                          </span>
-                        </label>
-                      ))}
-                    </div>
+                    <PersonalInfoForm
+                      formState={formState}
+                      invalidFields={invalidFields}
+                      locale={locale}
+                      formResetKey={formResetKey}
+                      handleInputChange={handleInputChange}
+                      handlePhoneChange={handlePhoneChange}
+                      setFieldRef={setFieldRef}
+                    />
 
-                    <div className="main-form__wrapp">
-                      <span className="main-form__text">
-                        {t("personal.title")}
-                      </span>
-
-                      <label
-                        className="main-form__label"
-                        ref={setFieldRef("firstName")}
-                      >
-                        <input
-                          type="text"
-                          name="first_name"
-                          id="first_name"
-                          placeholder={t("personal.firstName")}
-                          className={clsx("main-form__input", {
-                            "main-form__input--error":
-                              invalidFields.has("firstName"),
-                          })}
-                          value={formState.firstName}
-                          onChange={handleInputChange("firstName")}
-                          required
-                        />
-                        <i></i>
-                      </label>
-                      <label
-                        className="main-form__label"
-                        ref={setFieldRef("lastName")}
-                      >
-                        <input
-                          type="text"
-                          name="last_name"
-                          id="last_name"
-                          placeholder={t("personal.lastName")}
-                          className={clsx("main-form__input", {
-                            "main-form__input--error":
-                              invalidFields.has("lastName"),
-                          })}
-                          value={formState.lastName}
-                          onChange={handleInputChange("lastName")}
-                          required
-                        />
-                        <i></i>
-                      </label>
-                      <label
-                        className="main-form__label tel"
-                        ref={setFieldRef("phone")}
-                      >
-                        <TelInput
-                          key={formResetKey}
-                          // @ts-expect-error
-                          onChange={handlePhoneChange}
-                          name="step_phone"
-                          id="step_phone"
-                          required
-                          placeholder={t("personal.phonePlaceholder")}
-                          className={clsx({
-                            "main-form__tel_input--error":
-                              invalidFields.has("phone"),
-                          })}
-                          defaultValue={formState.phone}
-                        />
-                        <i></i>
-                      </label>
-                      <label
-                        className="main-form__label"
-                        ref={setFieldRef("email")}
-                      >
-                        <input
-                          type="email"
-                          name="step_mail"
-                          id="step_mail"
-                          placeholder={t("personal.email")}
-                          className={clsx("main-form__input", {
-                            "main-form__input--error":
-                              invalidFields.has("email"),
-                          })}
-                          value={formState.email}
-                          onChange={handleInputChange("email")}
-                          required
-                        />
-                        <i></i>
-                      </label>
-                      <label className="main-form__label">
-                        <input
-                          type="text"
-                          name="step_mess"
-                          id="step_mess"
-                          placeholder={t("comment.placeholder")}
-                          className="main-form__input"
-                          value={formState.comment}
-                          onChange={handleInputChange("comment")}
-                        />
-                      </label>
-                      <span></span>
-
-                      <label
-                        className="custom-checkbox"
-                        style={{ marginTop: "-15px" }}
-                      >
-                        <input
-                          type="checkbox"
-                          className="custom-checkbox__field"
-                          checked={formState.consent}
-                          onChange={handleInputChange("consent")}
-                        />
-                        <span
-                          className="custom-checkbox__content"
-                          style={{ border: "none" }}
-                        >
-                          {t("agreement")}
-                        </span>
-                      </label>
-                    </div>
-
-                    {formError && (
-                      <p className="rent-page-form__error" role="alert">
-                        {formError}
-                      </p>
-                    )}
-
-                    {feedback && (
-                      <p
-                        className={clsx("rent-page-form__feedback", {
-                          "rent-page-form__feedback--success":
-                            feedback === "success",
-                          "rent-page-form__feedback--error":
-                            feedback === "error",
-                        })}
-                        role="status"
-                      >
-                        {feedback === "success"
-                          ? t("notifications.success")
-                          : t("notifications.error")}
-                      </p>
-                    )}
+                    <FormFeedback
+                      formError={formError}
+                      feedback={feedback}
+                    />
                   </div>
                 </div>
               </div>
             </form>
           </div>
 
-          <div className="rent-page__summary rent-page__summary-panel">
-            <div className="rent-page__summary-image">
-              <UiImage
-                width={570}
-                height={319}
-                sizePreset="card"
-                src={`${BASE_URL}static/${encodeURI(car.previewUrl ?? "")}`}
-                alt={t("summary.imageAlt", {
-                  car: carName || t("summary.locationPlaceholder"),
-                })}
-              />
-            </div>
-
-            <h2 className="rent-page__summary-title">
-              {t("summary.title", { car: carName })}
-            </h2>
-
-            <ul className="rent-page__summary-list">
-              <li
-                className="rent-page__summary-item rent-page__summary-item--mode"
-                style={{ gap: "10px" }}
-              >
-                <div className="rent-page__summary-item-info">
-                  <span className="rent-page__summary-name">
-                    {t("summary.pickupLabel")}
-                  </span>
-                  <span className="rent-page__summary-info">
-                    <span className="text-strong">
-                      {formatFull(selectedDate.startDate)} (
-                      {formatTime(selectedDate.startDate)})
-                    </span>{" "}
-                    {formState.pickupLocation ||
-                      t("summary.locationPlaceholder")}
-                  </span>
-                </div>
-                <div className="rent-page__summary-item-info">
-                  <span className="rent-page__summary-name">
-                    {t("summary.returnLabel")}
-                  </span>
-                  <span className="rent-page__summary-info">
-                    <span className="text-strong">
-                      {formatFull(selectedDate.endDate)} (
-                      {formatTime(selectedDate.endDate)})
-                    </span>{" "}
-                    {formState.returnLocation ||
-                      t("summary.locationPlaceholder")}
-                  </span>
-                </div>
-              </li>
-
-              <li className="rent-page__summary-item rent-page__summary-item--mode">
-                <div className="rent-page__summary-item-wrapper">
-                  <span className="rent-page__summary-name">
-                    {t("summary.durationLabel")}
-                  </span>
-                  <span className="rent-page__summary-value">
-                    {t("summary.durationValue", { count: totalDays })}
-                  </span>
-                </div>
-                <div className="rent-page__summary-item-wrapper">
-                  <span className="rent-page__summary-name">
-                    {t("summary.rateLabel")}
-                  </span>
-                  <span className="rent-page__summary-value">
-                    {formatPrice(dailyPrice)}/day
-                  </span>
-                </div>
-                {Array.from(selectedExtras).map((id) => {
-                  const extra = EXTRA_DEFINITIONS.find(
-                    (item) => item.id === id,
-                  );
-                  if (!extra) return null;
-
-                  const isPerDay = extra.pricing === "perDay";
-                  const priceText = t(`addOns.options.${id}.price`, {
-                    formattedPrice: formatPrice(extra.price),
-                  });
-
-                  return (
-                    <div className="rent-page__summary-item-wrapper" key={id}>
-                      <span className="rent-page__summary-name">
-                        {t(`addOns.options.${id}.label`)}
-                      </span>
-                      <span className="rent-page__summary-value">
-                        {priceText}
-                        {isPerDay && totalDays > 0
-                          ? ` × ${totalDays} = ${formatPrice(extra.price * totalDays)}`
-                          : ""}
-                      </span>
-                    </div>
-                  );
-                })}
-              </li>
-              <li className="rent-page__summary-item">
-                <span className="rent-page__summary-name">
-                  {t("summary.depositLabel")}
-                </span>
-                <span className="rent-page__summary-value">
-                  <span className="text-strong">{formatDeposit(depositAmount)}</span>
-                </span>
-              </li>
-              <li className="rent-page__summary-item">
-                <span className="rent-page__summary-name">
-                  {t("summary.totalLabel")}
-                </span>
-                <span className="rent-page__summary-value rent-page__summary-value--big">
-                  {formatPrice(totalCost)}
-                </span>
-              </li>
-            </ul>
-          </div>
+          <PricingSummaryPanel
+            carName={carName}
+            previewUrl={car.previewUrl}
+            selectedDate={selectedDate}
+            pickupLocation={formState.pickupLocation}
+            returnLocation={formState.returnLocation}
+            totalDays={totalDays}
+            dailyPrice={dailyPrice}
+            depositAmount={depositAmount}
+            totalCost={totalCost}
+            selectedExtras={selectedExtras}
+            extraDefinitions={EXTRA_DEFINITIONS}
+          />
 
           <div className="main-order-wrapper">
             <div className="main-order">
@@ -894,28 +612,6 @@ export default function RentPageContent({
           </div>
         </div>
       </div>
-
-      {/* Driver service tooltip rendered via portal */}
-      {isMounted &&
-        createPortal(
-          <Tooltip
-            id="driver-service-tooltip"
-            place="top"
-            positionStrategy="fixed"
-            variant="light"
-            opacity={1}
-            border="1px solid #D6D6D6"
-            style={{ zIndex: 9999, borderRadius: "16px", maxWidth: "300px" }}
-          >
-            <div
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: tooltip content
-              dangerouslySetInnerHTML={{
-                __html: t.raw("addOns.options.driverService.tooltip"),
-              }}
-            />
-          </Tooltip>,
-          document.body
-        )}
     </section>
   );
 }

@@ -11,18 +11,12 @@ import { useSideBarModal } from "@/components/modals";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useRentalSearch, type CoverageOption } from "@/context/RentalSearchContext";
+import { formatFull } from "@/lib/utils/date-format";
 
 const COVERAGE_TO_PLAN_INDEX: Record<CoverageOption, number> = {
   deposit: 0,
   coverage50: 1,
   coverage100: 2,
-};
-
-const formatFull = (d: Date) => {
-  const dd = String(d.getDate()).padStart(2, "0");
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  const yyyy = d.getFullYear();
-  return `${dd}.${mm}.${yyyy}`;
 };
 
 export default function CarAside({ car }: { car: Car }) {
