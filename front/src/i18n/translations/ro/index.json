@@ -533,22 +533,22 @@
         {
           "title": "Companii IT și startup-uri",
           "text": "Închiriere auto pentru echipe de dezvoltatori, manageri și întâlniri cu clienții.",
-          "photo": "/img/business/simple-comfortable-female-customer-modern-stylish-bearded-businessman-automobile-saloon.webp"
+          "photo": "/img/business/client-consultation.webp"
         },
         {
           "title": "Organizații internaționale",
           "text": "Transport pentru misiuni diplomatice și umanitare, ambasade și reprezentanțe.",
-          "photo": "/img/business/elegant-uber-driver-giving-taxi-ride.webp"
+          "photo": "/img/business/corporate-driver.webp"
         },
         {
           "title": "Companii de construcții",
           "text": "SUV-uri și microbuze pentru transportul specialiștilor și coordonarea șantierelor.",
-          "photo": "/img/business/medium-shot-men-wearing-equipment.webp"
+          "photo": "/img/business/construction-team.webp"
         },
         {
           "title": "Companii de logistică și comerț",
           "text": "Flotă pentru reprezentanți de vânzări, curierat și deplasări regionale.",
-          "photo": "/img/business/high-angle-delivery-men-concept.webp"
+          "photo": "/img/business/logistics-delivery.webp"
         }
       ]
     },
@@ -556,10 +556,10 @@
       "title": "CUM FUNCȚIONEAZĂ",
       "label": "Pasul",
       "items": [
-        { "title": "Alegeți mașina", "text": "Consultați catalogul sau contactați un manager — vom găsi mașina potrivită pentru nevoile dumneavoastră.", "photo": "/img/business/выбор авто.webp" },
-        { "title": "Trimiteți documentele", "text": "În termen de o oră de la primirea documentelor companiei, trimitem factura și contractul.", "photo": "/img/business/young-woman-looking-documents.webp" },
-        { "title": "Semnați contractul", "text": "Trimiteți copii scanate ale documentelor semnate sau vizitați biroul nostru.", "photo": "/img/business/satisfied-smiling-businessman-suit-signing-contract-meeting-concept.webp" },
-        { "title": "Folosiți mașina", "text": "Livrăm mașina la adresa dumneavoastră cât mai repede posibil. Șofer și echipament suplimentar la cerere.", "photo": "/img/business/young-businesswoman-holding-disposable-coffee-cup-driving-car.webp" }
+        { "title": "Alegeți mașina", "text": "Consultați catalogul sau contactați un manager — vom găsi mașina potrivită pentru nevoile dumneavoastră.", "photo": "/img/business/choose-car.webp" },
+        { "title": "Trimiteți documentele", "text": "În termen de o oră de la primirea documentelor companiei, trimitem factura și contractul.", "photo": "/img/business/document-review.webp" },
+        { "title": "Semnați contractul", "text": "Trimiteți copii scanate ale documentelor semnate sau vizitați biroul nostru.", "photo": "/img/business/contract-signing.webp" },
+        { "title": "Folosiți mașina", "text": "Livrăm mașina la adresa dumneavoastră cât mai repede posibil. Șofer și echipament suplimentar la cerere.", "photo": "/img/business/driving-experience.webp" }
       ]
     },
     "compare": {

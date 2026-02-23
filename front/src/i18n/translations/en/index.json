@@ -533,22 +533,22 @@
         {
           "title": "IT Companies & Startups",
           "text": "Car rental for development teams, managers, and client meetings on the go.",
-          "photo": "/img/business/simple-comfortable-female-customer-modern-stylish-bearded-businessman-automobile-saloon.webp"
+          "photo": "/img/business/client-consultation.webp"
         },
         {
           "title": "International Organizations",
           "text": "Transport for diplomatic and humanitarian missions, embassies, and representative offices.",
-          "photo": "/img/business/elegant-uber-driver-giving-taxi-ride.webp"
+          "photo": "/img/business/corporate-driver.webp"
         },
         {
           "title": "Construction Companies",
           "text": "SUVs and minivans for transporting specialists and coordinating construction sites.",
-          "photo": "/img/business/medium-shot-men-wearing-equipment.webp"
+          "photo": "/img/business/construction-team.webp"
         },
         {
           "title": "Logistics & Trade Companies",
           "text": "Fleet for sales representatives, courier services, and regional trips.",
-          "photo": "/img/business/high-angle-delivery-men-concept.webp"
+          "photo": "/img/business/logistics-delivery.webp"
         }
       ]
     },
@@ -556,10 +556,10 @@
       "title": "HOW IT WORKS",
       "label": "Step",
       "items": [
-        { "title": "Choose a car", "text": "Browse the catalog or contact a manager — we'll find the right car for your needs and budget.", "photo": "/img/business/выбор авто.webp" },
-        { "title": "Send documents", "text": "Within an hour of receiving your company documents, we send the invoice and contract.", "photo": "/img/business/young-woman-looking-documents.webp" },
-        { "title": "Sign the contract", "text": "Send scanned copies of signed documents or visit our office to inspect the vehicles.", "photo": "/img/business/satisfied-smiling-businessman-suit-signing-contract-meeting-concept.webp" },
-        { "title": "Use the car", "text": "We deliver the car to your address as quickly as possible. A driver and extra equipment available on request.", "photo": "/img/business/young-businesswoman-holding-disposable-coffee-cup-driving-car.webp" }
+        { "title": "Choose a car", "text": "Browse the catalog or contact a manager — we'll find the right car for your needs and budget.", "photo": "/img/business/choose-car.webp" },
+        { "title": "Send documents", "text": "Within an hour of receiving your company documents, we send the invoice and contract.", "photo": "/img/business/document-review.webp" },
+        { "title": "Sign the contract", "text": "Send scanned copies of signed documents or visit our office to inspect the vehicles.", "photo": "/img/business/contract-signing.webp" },
+        { "title": "Use the car", "text": "We deliver the car to your address as quickly as possible. A driver and extra equipment available on request.", "photo": "/img/business/driving-experience.webp" }
       ]
     },
     "compare": {

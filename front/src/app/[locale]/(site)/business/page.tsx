@@ -188,7 +188,7 @@ export default async function BusinessPage() {
                 <div className="business-cta">
                   <Image
                     className="business-cta__bg"
-                    src="/img/business/medium-shot-man-working-as-valet.webp"
+                    src="/img/business/valet-service.webp"
                     alt=""
                     width={1020}
                     height={680}

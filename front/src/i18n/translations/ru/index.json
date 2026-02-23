@@ -533,22 +533,22 @@
         {
           "title": "IT-компании и стартапы",
           "text": "Аренда авто для команд разработчиков, менеджеров и выездных встреч с клиентами.",
-          "photo": "/img/business/simple-comfortable-female-customer-modern-stylish-bearded-businessman-automobile-saloon.webp"
+          "photo": "/img/business/client-consultation.webp"
         },
         {
           "title": "Международные организации",
           "text": "Транспорт для дипломатических и гуманитарных миссий, посольств и представительств.",
-          "photo": "/img/business/elegant-uber-driver-giving-taxi-ride.webp"
+          "photo": "/img/business/corporate-driver.webp"
         },
         {
           "title": "Строительные компании",
           "text": "Кроссоверы и минивэны для перевозки специалистов и координации строительных площадок.",
-          "photo": "/img/business/medium-shot-men-wearing-equipment.webp"
+          "photo": "/img/business/construction-team.webp"
         },
         {
           "title": "Логистические и торговые компании",
           "text": "Парк автомобилей для торговых представителей, курьерской службы и региональных поездок.",
-          "photo": "/img/business/high-angle-delivery-men-concept.webp"
+          "photo": "/img/business/logistics-delivery.webp"
         }
       ]
     },
@@ -556,10 +556,10 @@
       "title": "КАК ЭТО РАБОТАЕТ",
       "label": "Шаг",
       "items": [
-        { "title": "Выберите авто", "text": "Посмотрите каталог или свяжитесь с менеджером — подберём автомобиль под ваши задачи и бюджет.", "photo": "/img/business/выбор авто.webp" },
-        { "title": "Отправьте документы", "text": "В течение часа после получения документов компании мы отправляем счёт и договор.", "photo": "/img/business/young-woman-looking-documents.webp" },
-        { "title": "Подпишите договор", "text": "Пришлите скан-копии подписанных документов или приезжайте в офис для осмотра авто.", "photo": "/img/business/satisfied-smiling-businessman-suit-signing-contract-meeting-concept.webp" },
-        { "title": "Пользуйтесь авто", "text": "Подадим авто по вашему адресу в кратчайшие сроки. При необходимости предоставим водителя.", "photo": "/img/business/young-businesswoman-holding-disposable-coffee-cup-driving-car.webp" }
+        { "title": "Выберите авто", "text": "Посмотрите каталог или свяжитесь с менеджером — подберём автомобиль под ваши задачи и бюджет.", "photo": "/img/business/choose-car.webp" },
+        { "title": "Отправьте документы", "text": "В течение часа после получения документов компании мы отправляем счёт и договор.", "photo": "/img/business/document-review.webp" },
+        { "title": "Подпишите договор", "text": "Пришлите скан-копии подписанных документов или приезжайте в офис для осмотра авто.", "photo": "/img/business/contract-signing.webp" },
+        { "title": "Пользуйтесь авто", "text": "Подадим авто по вашему адресу в кратчайшие сроки. При необходимости предоставим водителя.", "photo": "/img/business/driving-experience.webp" }
       ]
     },
     "compare": {
