@@ -12,6 +12,7 @@ import { CatalogFiltersProvider } from "@/context/CatalogFiltersContext";
 import { fetchCars } from "@/lib/api/cars";
 import { getPageMetadata } from "@/lib/seo";
 import type { Locale } from "@/i18n/request";
+import { setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({
   params,
@@ -32,6 +33,7 @@ export default async function Home({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const cars = await fetchCars();
 
   return (

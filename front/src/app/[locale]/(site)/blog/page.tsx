@@ -1,5 +1,5 @@
 import UiImage from "@/components/ui/UiImage";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
 import { type Locale, locales, Link } from "@/i18n/request";
 import type { Metadata } from "next";
 import { getDefaultPath } from "@/lib/seo";
@@ -20,15 +20,18 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
-}): Metadata {
-  return getStaticPageMetadata("blogPage", params.locale);
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return getStaticPageMetadata("blogPage", locale);
 }
 
 export default async function BlogPage() {
+  const locale = await getLocale() as Locale;
+  setRequestLocale(locale);
   const t = await getTranslations("blogPage");
   const posts = t.raw("posts") as Post[];
 

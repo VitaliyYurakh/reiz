@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import UiImage from "@/components/ui/UiImage";
 import Icon from "@/components/Icon";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
 import { type Locale, locales } from "@/i18n/request";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
@@ -24,15 +24,18 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
-}): Metadata {
-  return getStaticPageMetadata("termsPage", params.locale);
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return getStaticPageMetadata("termsPage", locale);
 }
 
 export default async function TermsPage() {
+  const locale = await getLocale() as Locale;
+  setRequestLocale(locale);
   const t = await getTranslations("termsPage");
 
   const uaItems = t.raw("termsList.citizensUA.items") as string[];
@@ -41,12 +44,7 @@ export default async function TermsPage() {
   const navItems = t.raw("nav.items") as { id: string; label: string }[];
 
   return (
-    <div
-      className="terms-section__inner"
-      data-aos="fade-left"
-      data-aos-duration="900"
-      data-aos-delay="600"
-    >
+    <div className="terms-section__inner">
       <Breadcrumbs
         mode="JsonLd"
         items={[

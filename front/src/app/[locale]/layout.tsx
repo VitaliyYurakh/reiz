@@ -1,4 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { locales, type Locale, defaultLocale, isLocale } from "@/i18n/request";
 import type { ReactNode } from "react";
 import SideBarClientProvider from "@/components/modals/SideBarClientProvider";
@@ -16,8 +17,13 @@ type Props = {
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
+  const resolvedLocale = isLocale(locale) ? locale : defaultLocale;
+
+  // Enable static rendering for pages under [locale]
+  setRequestLocale(resolvedLocale);
+
   return (
-    <NextIntlClientProvider locale={isLocale(locale) ? locale : defaultLocale}>
+    <NextIntlClientProvider locale={resolvedLocale}>
       <CurrencyProvider>
         <RentalSearchProvider>
           <SideBarClientProvider>{children}</SideBarClientProvider>

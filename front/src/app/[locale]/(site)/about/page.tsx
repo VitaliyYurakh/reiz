@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import UiImage from "@/components/ui/UiImage";
 // import TeamSlider from "@/app/[locale]/(site)/about/components/TeamSlider"; // тимчасово закоментовано
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
 import { type Locale, locales } from "@/i18n/request";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
@@ -15,26 +15,24 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
-}): Metadata {
-  return getStaticPageMetadata("aboutPage", params.locale);
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return getStaticPageMetadata("aboutPage", locale);
 }
 
 export default async function AboutPage() {
+  const locale = await getLocale() as Locale;
+  setRequestLocale(locale);
   const t = await getTranslations("aboutPage");
   // const team = t.raw("team.items") as TeamItem[]; // тимчасово закоментовано
   const stats = t.raw("stats.items") as StatItem[];
 
   return (
-    <div
-      className="about-section__inner"
-      data-aos="fade-left"
-      data-aos-duration={900}
-      data-aos-delay={600}
-    >
+    <div className="about-section__inner">
       <Breadcrumbs
         mode="JsonLd"
         items={[

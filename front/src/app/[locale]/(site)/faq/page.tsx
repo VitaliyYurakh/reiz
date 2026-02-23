@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
 import { type Locale, locales } from "@/i18n/request";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
@@ -12,12 +12,13 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
-}): Metadata {
-  return getStaticPageMetadata("faqPage", params.locale);
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return getStaticPageMetadata("faqPage", locale);
 }
 
 type FaqItem = {
@@ -26,6 +27,8 @@ type FaqItem = {
 };
 
 export default async function FaqPage() {
+  const locale = await getLocale() as Locale;
+  setRequestLocale(locale);
   const t = await getTranslations("faqPage");
 
   const faqs = t.raw("questions") as FaqItem[];
@@ -40,12 +43,7 @@ export default async function FaqPage() {
   };
   return (
     <>
-      <div
-        className="faq-section__inner"
-        data-aos="fade-left"
-        data-aos-duration="900"
-        data-aos-delay="600"
-      >
+      <div className="faq-section__inner">
         <Breadcrumbs
           mode="JsonLd"
           items={[

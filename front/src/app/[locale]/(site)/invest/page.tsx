@@ -5,7 +5,7 @@ import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import InvestForm from "@/app/[locale]/(site)/invest/components/InvestForm";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
 import { type Locale, locales } from "@/i18n/request";
 import type { Metadata } from "next";
 
@@ -14,15 +14,18 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
-}): Metadata {
-  return getStaticPageMetadata("investPage", params.locale);
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return getStaticPageMetadata("investPage", locale);
 }
 
 export default async function InvestPage() {
+  const locale = await getLocale() as Locale;
+  setRequestLocale(locale);
   const t = await getTranslations("investPage");
 
   const whyItems = t.raw("why.items") as string[];
@@ -40,12 +43,7 @@ export default async function InvestPage() {
   );
 
   return (
-    <div
-      className="rental-section__inner"
-      data-aos="fade-left"
-      data-aos-duration="900"
-      data-aos-delay="600"
-    >
+    <div className="rental-section__inner">
       <Breadcrumbs
         mode="JsonLd"
         items={[

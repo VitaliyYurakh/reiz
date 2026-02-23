@@ -46,11 +46,11 @@
     "tailwindcss": "^4.1.18"
   },
   "browserslist": [
-    "Chrome >= 90",
-    "Firefox >= 90",
-    "Safari >= 15",
-    "Edge >= 90",
-    "iOS >= 15",
+    "Chrome >= 105",
+    "Firefox >= 105",
+    "Safari >= 16",
+    "Edge >= 105",
+    "iOS >= 16",
     "not dead"
   ],
   "devDependencies": {

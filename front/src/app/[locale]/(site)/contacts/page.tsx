@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
 import UiImage from "@/components/ui/UiImage";
 import Icon from "@/components/Icon";
 import { type Locale, locales } from "@/i18n/request";
@@ -14,15 +14,18 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
-}): Metadata {
-  return getStaticPageMetadata("contactsPage", params.locale);
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return getStaticPageMetadata("contactsPage", locale);
 }
 
 export default async function ContactsPage() {
+  const locale = await getLocale() as Locale;
+  setRequestLocale(locale);
   const t = await getTranslations("contactsPage");
 
   const officesTitle = t("officesSection.title");
@@ -40,12 +43,7 @@ export default async function ContactsPage() {
       : "https://www.google.com/maps";
 
   return (
-    <div
-      className="contacts-section__inner"
-      data-aos="fade-left"
-      data-aos-duration="900"
-      data-aos-delay="600"
-    >
+    <div className="contacts-section__inner">
       <Breadcrumbs
         mode="JsonLd"
         items={[

@@ -85,6 +85,10 @@ const nextConfig: NextConfig = {
         key: "Referrer-Policy",
         value: "strict-origin-when-cross-origin",
       },
+      {
+        key: "Cross-Origin-Opener-Policy",
+        value: "same-origin",
+      },
     ];
 
     // Add HSTS and CSP only in production (HTTPS required)

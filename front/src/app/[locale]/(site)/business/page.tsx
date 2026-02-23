@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Icon from "@/components/Icon";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
 import { type Locale, locales } from "@/i18n/request";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
@@ -11,12 +12,13 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
-}): Metadata {
-  return getStaticPageMetadata("businessPage", params.locale);
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return getStaticPageMetadata("businessPage", locale);
 }
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
@@ -77,6 +79,7 @@ type CompareCard = {
 
 export default async function BusinessPage() {
   const locale = (await getLocale()) as Locale;
+  setRequestLocale(locale);
   const t = await getTranslations("businessPage");
 
   const guarantees = t.has("guarantees.items")
@@ -101,12 +104,7 @@ export default async function BusinessPage() {
     <>
       <BusinessJsonLd locale={locale} />
 
-      <div
-        className="rental-section__inner"
-        data-aos="fade-left"
-        data-aos-duration={900}
-        data-aos-delay={600}
-      >
+      <div className="rental-section__inner">
         <Breadcrumbs
           mode="JsonLd"
           items={[
@@ -132,7 +130,7 @@ export default async function BusinessPage() {
 
           {/* GUARANTEES — ICON GRID */}
           {guarantees.length > 0 && (
-            <div className="rental-section__wrapp">
+            <div className="rental-section__wrapp" data-aos="fade-up" data-aos-duration={700}>
               <div className="editor">
                 <h2 className="pretitle">{t("guarantees.title")}</h2>
               </div>
@@ -154,7 +152,7 @@ export default async function BusinessPage() {
 
           {/* CASES — photo + card rows (business examples) */}
           {cases.length > 0 && (
-            <div className="rental-section__wrapp">
+            <div className="rental-section__wrapp" data-aos="fade-up" data-aos-duration={700}>
               <div className="editor">
                 <h2 className="pretitle">{t("cases.title")}</h2>
               </div>
@@ -163,7 +161,14 @@ export default async function BusinessPage() {
                   <div className="business-steps__item" key={item.title}>
                     <div className={`business-steps__photo${!item.photo ? " business-steps__photo--placeholder" : ""}`}>
                       {item.photo ? (
-                        <img src={item.photo} alt={item.title} />
+                        <Image
+                          src={item.photo}
+                          alt={item.title}
+                          width={450}
+                          height={300}
+                          sizes="(max-width: 768px) 100vw, 225px"
+                          loading={i === 0 ? "eager" : "lazy"}
+                        />
                       ) : (
                         <span className="business-steps__photo-hint">
                           {item.photoHint ?? `Photo ${i + 1}`}
@@ -181,10 +186,13 @@ export default async function BusinessPage() {
               {/* CTA BANNER (dark) — inside cases wrapp */}
               {t.has("ctaBanner.title") && (
                 <div className="business-cta">
-                  <img
+                  <Image
                     className="business-cta__bg"
                     src="/img/business/medium-shot-man-working-as-valet.webp"
                     alt=""
+                    width={1020}
+                    height={680}
+                    sizes="(max-width: 768px) 100vw, 1020px"
                   />
                   <h2 className="business-cta__title">{t("ctaBanner.title")}</h2>
                   <p className="business-cta__text">{t("ctaBanner.text")}</p>
@@ -202,7 +210,7 @@ export default async function BusinessPage() {
 
           {/* PROCESS — HOW IT WORKS (Siberia-style) */}
           {steps.length > 0 && (
-            <div className="rental-section__wrapp">
+            <div className="rental-section__wrapp" data-aos="fade-up" data-aos-duration={700}>
               <div className="editor">
                 <h2 className="pretitle">{t("steps.title")}</h2>
               </div>
@@ -218,7 +226,14 @@ export default async function BusinessPage() {
                     </div>
                     <div className={`business-process__photo${!step.photo ? " business-process__photo--placeholder" : ""}`}>
                       {step.photo ? (
-                        <img src={step.photo} alt={step.title} />
+                        <Image
+                          src={step.photo}
+                          alt={step.title}
+                          width={560}
+                          height={374}
+                          sizes="(max-width: 768px) 100vw, 280px"
+                          loading="lazy"
+                        />
                       ) : (
                         <span className="business-process__photo-hint">
                           {step.photoHint ?? `Photo ${i + 1}`}
@@ -233,7 +248,7 @@ export default async function BusinessPage() {
 
           {/* COMPARISON CARDS */}
           {compareCards.length > 0 && (
-            <div className="rental-section__wrapp">
+            <div className="rental-section__wrapp" data-aos="fade-up" data-aos-duration={700}>
               <div className="editor">
                 <h2 className="pretitle">{t("compare.title")}</h2>
               </div>

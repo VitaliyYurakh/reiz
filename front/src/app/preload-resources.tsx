@@ -11,12 +11,5 @@ export function PreloadResources() {
   // Hero images are already preloaded in layout.tsx <head>
   // Don't duplicate preload here
 
-  // Preload critical local fonts
-  ReactDOM.preload("/fonts/HalvarBreit-Md.woff2", {
-    as: "font",
-    type: "font/woff2",
-    crossOrigin: "anonymous",
-  });
-
   return null;
 }
