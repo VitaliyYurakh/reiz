@@ -37,7 +37,6 @@
     }
 
     .aside {
-        transition: all 0.4s ease;
         height: calc(100dvh - (var(--header-height) + 20px + clamp(34px, 2.8676vw, 39px)));
 
         .main-nav {

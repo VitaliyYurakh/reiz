@@ -10,11 +10,11 @@
   display: flex;
   flex-direction: column;
   padding: 30px 18px 0;
-   transition: all .4s ease;
+   transition: top .6s ease, height .6s ease, max-height .6s ease;
 
    &.aos-transition-done{
     @include for-tablet{
-     transition: all .4s ease !important;
+     transition: top .6s ease, height .6s ease, max-height .6s ease !important;
    }
   }
 
@@ -59,17 +59,17 @@
 
     @include for-tablet{
       flex-grow: 1;
-        transition: all .4s ease;
+        transition: max-height .6s ease;
     }
 
 
     & > ul{
       @include for-tablet{
-         transition: all .4s ease;
+         transition: max-height .6s ease;
         padding-left: clamp(45px, 4.7794vw, 65px) !important;
         padding: 31px 0;
         overflow-y: auto;
-        max-height:  calc(100dvh - (62px + 90px + 50px + var(--header-height) + 20px + clamp(34px, 2.8676vw, 39px)));
+        max-height:  calc(100dvh - (62px + 90px + 50px + var(--header-offset) + 20px + clamp(34px, 2.8676vw, 39px)));
         margin-top: -14px;
       }
 
@@ -77,7 +77,7 @@
         @media (max-height: 850px) {
           margin-top: calc((2dvh - 3px) * -1);
           padding: 2.5dvh 0;
-          max-height:  calc(100dvh - (9dvh - 2dvh - 4px + 90px + 50px + var(--header-height) + 20px + clamp(34px, 2.8676vw, 39px)));
+          max-height:  calc(100dvh - (9dvh - 2dvh - 4px + 90px + 50px + var(--header-offset) + 20px + clamp(34px, 2.8676vw, 39px)));
         }
       }
 
@@ -85,7 +85,7 @@
         @media (max-height: 690px) {
           padding: 2dvh 0;
           margin-top: -2dvh;
-          max-height:  calc(100dvh - (8dvh - 2dvh + 93px + 50px + var(--header-height) + 20px + clamp(34px, 2.8676vw, 39px)));
+          max-height:  calc(100dvh - (8dvh - 2dvh + 93px + 50px + var(--header-offset) + 20px + clamp(34px, 2.8676vw, 39px)));
         }
       }
     }
