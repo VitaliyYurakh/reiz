@@ -146,9 +146,12 @@
     text-align: center;
     padding: calc(var(--header-height) + 30px) 20px 44px;
     gap: 14px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    background: rgba(0, 0, 0, 0.3);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 35%,
+      transparent 60%
+    );
   }
 
   &__mob-hero-title {
@@ -680,6 +683,7 @@ body:has(.insurance-section__mob-hero) {
 
       .logo {
         color: var(--cl-b);
+        border-left-color: rgba(255, 255, 255, 0.15);
       }
 
       .burger {
@@ -687,7 +691,7 @@ body:has(.insurance-section__mob-hero) {
       }
 
       .phone-link {
-        border-left-color: rgba(255, 255, 255, 0.2);
+        border-left-color: rgba(255, 255, 255, 0.15);
 
         .sprite {
           color: var(--cl-b);
