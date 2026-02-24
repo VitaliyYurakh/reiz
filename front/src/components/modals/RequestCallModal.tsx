@@ -58,13 +58,6 @@ export default function RequestCallModal({
     [],
   );
 
-  const handleContactMethodChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      setSelectedContactMethod(event.target.value);
-    },
-    [],
-  );
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -123,11 +116,14 @@ export default function RequestCallModal({
       }
     >
       <button className="close modal__close" onClick={close} aria-label="Close">
-        <Icon id="cross" width={14} height={14} />
+        <Icon id="cross" width={12} height={12} />
       </button>
 
       <div className="editor">
-        <h2>{t("title")}</h2>
+        <div className="request-call-modal__header">
+          <h2>{t("title")}</h2>
+        </div>
+
         <form className="modal-form" onSubmit={handleSubmit}>
           <label className="modal-form__label">
             <input
@@ -160,62 +156,77 @@ export default function RequestCallModal({
             />
           </label>
           {errors.phone && <span className="form-error">{errors.phone}</span>}
-          <div className="group">
-            <div className="group-title">{t("contactMethods.title")}</div>
-            <label className="custom-checkbox">
-              <input
-                type="radio"
-                name="contactMethod"
-                value="phone"
-                className="custom-checkbox__field"
-                checked={selectedContactMethod === "phone"}
-                onChange={handleContactMethodChange}
-              />
-              <span className="custom-checkbox__content">
-                <div>
-                  {t("contactMethods.options.phone.title")}{" "}
-                  <span className="gray">
-                    {t("contactMethods.options.phone.description")}
-                  </span>
-                </div>
-              </span>
-            </label>
-            <label className="custom-checkbox">
-              <input
-                type="radio"
-                name="contactMethod"
-                value="whatsapp"
-                className="custom-checkbox__field"
-                checked={selectedContactMethod === "whatsapp"}
-                onChange={handleContactMethodChange}
-              />
-              <span className="custom-checkbox__content">
-                <div>
-                  {t("contactMethods.options.whatsapp.title")}{" "}
-                  <span className="gray">
-                    {t("contactMethods.options.whatsapp.description")}
-                  </span>
-                </div>
-              </span>
-            </label>
-            <label className="custom-checkbox">
-              <input
-                type="radio"
-                name="contactMethod"
-                value="telegram"
-                className="custom-checkbox__field"
-                checked={selectedContactMethod === "telegram"}
-                onChange={handleContactMethodChange}
-              />
-              <span className="custom-checkbox__content">
-                <div>
-                  {t("contactMethods.options.telegram.title")}{" "}
-                  <span className="gray">
-                    {t("contactMethods.options.telegram.description")}
-                  </span>
-                </div>
-              </span>
-            </label>
+
+          <div className="request-call-modal__contact">
+            <div className="request-call-modal__contact-title">
+              {t("contactMethods.title")}
+            </div>
+            <div className="request-call-modal__methods">
+              <button
+                type="button"
+                className={clsx("request-call-modal__method", {
+                  "request-call-modal__method--active": selectedContactMethod === "phone",
+                })}
+                onClick={() => setSelectedContactMethod("phone")}
+              >
+                <img
+                  src="/img/icons/phone-call-icon.svg"
+                  alt=""
+                  width={22}
+                  height={22}
+                  aria-hidden="true"
+                />
+                <span>{t("contactMethods.options.phone.title")}</span>
+              </button>
+              <button
+                type="button"
+                className={clsx("request-call-modal__method", {
+                  "request-call-modal__method--active": selectedContactMethod === "whatsapp",
+                })}
+                onClick={() => setSelectedContactMethod("whatsapp")}
+              >
+                <img
+                  src="/img/icons/whatsapp.svg"
+                  alt=""
+                  width={22}
+                  height={22}
+                  aria-hidden="true"
+                />
+                <span>{t("contactMethods.options.whatsapp.title")}</span>
+              </button>
+              <button
+                type="button"
+                className={clsx("request-call-modal__method", {
+                  "request-call-modal__method--active": selectedContactMethod === "telegram",
+                })}
+                onClick={() => setSelectedContactMethod("telegram")}
+              >
+                <img
+                  src="/img/icons/Telegram_logo.svg"
+                  alt=""
+                  width={22}
+                  height={22}
+                  aria-hidden="true"
+                />
+                <span>{t("contactMethods.options.telegram.title")}</span>
+              </button>
+              <button
+                type="button"
+                className={clsx("request-call-modal__method", {
+                  "request-call-modal__method--active": selectedContactMethod === "viber",
+                })}
+                onClick={() => setSelectedContactMethod("viber")}
+              >
+                <img
+                  src="/img/icons/viber-color-svgrepo-com.svg"
+                  alt=""
+                  width={22}
+                  height={22}
+                  aria-hidden="true"
+                />
+                <span>{t("contactMethods.options.viber.title")}</span>
+              </button>
+            </div>
           </div>
 
           <label className="custom-checkbox">

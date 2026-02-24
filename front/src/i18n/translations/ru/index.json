@@ -1814,6 +1814,10 @@
         "telegram": {
           "title": "Написать в Telegram",
           "description": "(Вы получите сообщение в Telegram)"
+        },
+        "viber": {
+          "title": "Написать в Viber",
+          "description": "(Вы получите сообщение в Viber)"
         }
       }
     },

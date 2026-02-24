@@ -135,6 +135,20 @@ export default async function ContactsPage() {
                     Telegram
                   </a>
                   <a
+                    href={SOCIAL_LINKS.viber}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contacts-section__messenger"
+                  >
+                    <UiImage
+                      width={26}
+                      height={26}
+                      src="/img/icons/viber-color-svgrepo-com.svg"
+                      alt="Viber"
+                    />
+                    Viber
+                  </a>
+                  <a
                     href={SOCIAL_LINKS.instagram}
                     target="_blank"
                     rel="noopener noreferrer"

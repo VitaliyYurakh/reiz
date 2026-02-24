@@ -1866,6 +1866,10 @@
         "telegram": {
           "title": "Написати в Telegram",
           "description": "(Ви отримаєте повідомлення у Telegram)"
+        },
+        "viber": {
+          "title": "Написати в Viber",
+          "description": "(Ви отримаєте повідомлення у Viber)"
         }
       }
     },

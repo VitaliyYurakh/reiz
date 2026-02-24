@@ -1818,6 +1818,10 @@
         "telegram": {
           "title": "Mesaj pe Telegram",
           "description": "(Veți primi un mesaj pe Telegram)"
+        },
+        "viber": {
+          "title": "Mesaj pe Viber",
+          "description": "(Veți primi un mesaj pe Viber)"
         }
       }
     },

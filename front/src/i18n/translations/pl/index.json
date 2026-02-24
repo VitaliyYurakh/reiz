@@ -1818,6 +1818,10 @@
         "telegram": {
           "title": "Wyslac wiadomosc Telegram",
           "description": "(Otrzymasz wiadomosc Telegram)"
+        },
+        "viber": {
+          "title": "Wyslac wiadomosc Viber",
+          "description": "(Otrzymasz wiadomosc Viber)"
         }
       }
     },
