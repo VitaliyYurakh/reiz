@@ -192,7 +192,6 @@
   // ─── Messengers row ───────────────────────────────────────
   &__messengers {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
     padding-top: 4px;
   }
@@ -214,6 +213,17 @@
       width: 22px;
       height: 22px;
       flex-shrink: 0;
+    }
+
+    @include mobile {
+      padding: 6px 10px;
+      font-size: 12px;
+      gap: 5px;
+
+      img {
+        width: 18px;
+        height: 18px;
+      }
     }
 
     &:hover {
