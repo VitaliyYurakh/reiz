@@ -741,8 +741,6 @@
         height: 50px;
         border-radius: 0;
         font-weight: 300;
-        background: #fff;
-        color: var(--cl-a);
 
         @include for-tablet {
             border-radius: 0 0 16px 16px;

@@ -253,8 +253,8 @@
   .main-button {
     position: relative;
     z-index: 2;
-    background: var(--cl-e);
-    color: var(--cl-b);
+    background: #fff;
+    color: var(--cl-a);
     margin-top: 8px;
 
     &::before {
