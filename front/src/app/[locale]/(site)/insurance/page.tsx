@@ -8,6 +8,7 @@ import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import HeroBookButton from "@/app/[locale]/components/HeroBookButton";
+import InsuranceThemeColorSetter from "./components/ThemeColorSetter";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -72,6 +73,7 @@ export default async function InsurancePage() {
 
   return (
     <div className="insurance-section__inner">
+      <InsuranceThemeColorSetter />
       <Breadcrumbs
         mode="JsonLd"
         items={[
