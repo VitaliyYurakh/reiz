@@ -7,7 +7,7 @@ import { Link } from "@/i18n/request";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
-
+import HeroBookButton from "@/app/[locale]/components/HeroBookButton";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -22,245 +22,290 @@ export async function generateMetadata({
   return getStaticPageMetadata("insurancePage", locale);
 }
 
+type PackageKey = "standard" | "comfort" | "premium";
+
+const PACKAGES: {
+  key: PackageKey;
+  featured: boolean;
+  tyresGlass: boolean;
+  carWash: boolean;
+}[] = [
+  { key: "standard", featured: false, tyresGlass: false, carWash: false },
+  { key: "comfort", featured: true, tyresGlass: false, carWash: true },
+  { key: "premium", featured: false, tyresGlass: true, carWash: true },
+];
+
+function CheckIcon({ included }: { included: boolean }) {
+  return (
+    <span
+      className={`ins-card__check ins-card__check--${included ? "yes" : "no"}`}
+      aria-hidden="true"
+    >
+      {included ? (
+        <svg viewBox="0 0 12 12" fill="none">
+          <path
+            d="M2.5 6l2.5 2.5 4.5-5"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 10 10" fill="none">
+          <path
+            d="M2.5 2.5l5 5M7.5 2.5l-5 5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      )}
+    </span>
+  );
+}
+
 export default async function InsurancePage() {
-  const locale = await getLocale() as Locale;
+  const locale = (await getLocale()) as Locale;
   setRequestLocale(locale);
   const t = await getTranslations("insurancePage");
 
   return (
-    <div className="rental-section insurance">
-      <div className="rental-section__inner">
-        <Breadcrumbs
-          mode="JsonLd"
-          items={[
-            { href: getDefaultPath("home"), name: t("breadcrumbs.home") },
-            {
-              href: getDefaultPath("insurance"),
-              name: t("breadcrumbs.current"),
-            },
-          ]}
-        />
+    <div className="insurance-section__inner">
+      <Breadcrumbs
+        mode="JsonLd"
+        items={[
+          { href: getDefaultPath("home"), name: t("breadcrumbs.home") },
+          {
+            href: getDefaultPath("insurance"),
+            name: t("breadcrumbs.current"),
+          },
+        ]}
+      />
 
-        <div className="cert__breadcrumb">
-          <span className="cert__marker" />
-          <span className="cert__breadcrumb-text">{t("pretitle")}</span>
+      <div className="cert__breadcrumb">
+        <span className="cert__marker" />
+        <span className="cert__breadcrumb-text">{t("pretitle")}</span>
+      </div>
+
+      <div className="blog-hero">
+        <h1 className="blog-hero__title">{t("hero.title")}</h1>
+      </div>
+
+      <div className="insurance-section__content">
+        {/* Intro */}
+        <div className="insurance-section__intro">
+          <p>{t("hero.text")}</p>
+          <HeroBookButton className="main-button">
+            {t("hero.cta")}
+          </HeroBookButton>
         </div>
 
-        <div className="blog-hero">
-          <h1 className="blog-hero__title">{t("hero.title")}</h1>
-        </div>
-
-        <div className="rental-section__content">
-          <div className="rental-section__top">
-            <div className="editor">
-              <p>{t("hero.text")}</p>
-              <Link href="/contacts" className="main-button">
-                {t("hero.cta")}
-              </Link>
+        {/* Explainer: What is additional insurance? */}
+        <div className="insurance-section__block">
+          <h2 className="pretitle">{t("explainer.title")}</h2>
+          <div className="insurance-section__explainer">
+            <p>{t("explainer.text")}</p>
+            <div className="insurance-section__explainer-features">
+              {(
+                t.raw("explainer.features") as {
+                  title: string;
+                  subtitle: string;
+                  desc: string;
+                }[]
+              ).map((f) => (
+                <div key={f.title} className="insurance-section__explainer-item">
+                  <span className="insurance-section__explainer-abbr">
+                    {f.title}
+                    <span className="insurance-section__explainer-subtitle">
+                      {" "}({f.subtitle})
+                    </span>
+                  </span>
+                  <span className="insurance-section__explainer-desc">
+                    {f.desc}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
 
-          <div className="rental-section__wrapp">
-            <h2 className="pretitle">{t("table.title")}</h2>
-            <ul className="rental-table">
-              <li className="rental-table__col mode">
-                <span className="rental-table__value head">
-                  {t("table.labels.coverageLevel")}
-                </span>
-                <span className="rental-table__value">
-                  {t("table.labels.deposit")}
-                </span>
-                <span className="rental-table__value">
-                  {t("table.labels.driverLiabilityAccident")}
-                </span>
-                <span className="rental-table__value">
-                  {t("table.labels.theftTotalLoss")}
-                </span>
-                <span className="rental-table__value">
-                  {t("table.labels.tyresGlass")}
-                </span>
-                <span className="rental-table__value">
-                  {t("table.labels.carWashIncluded")}
-                </span>
-              </li>
+        {/* Package cards */}
+        <div className="insurance-section__block">
+          <h2 className="pretitle">{t("table.title")}</h2>
 
-              {/* Standard */}
-              <li className="rental-table__col">
-                <span className="rental-table__value head">
-                  {t("table.packages.standard.name")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.deposit")}
-                >
-                  {t("table.packages.standard.deposit")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.driverLiabilityAccident")}
-                >
-                  {t("table.packages.standard.driverLiabilityAccident")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.theftTotalLoss")}
-                >
-                  {t("table.packages.standard.theftTotalLoss")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.tyresGlass")}
-                >
-                  ✘
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.carWashIncluded")}
-                >
-                  ✘
-                </span>
-              </li>
+          <div className="insurance-section__cards">
+            {PACKAGES.map((pkg) => (
+              <div
+                key={pkg.key}
+                className={`ins-card${pkg.featured ? " ins-card--featured" : ""}`}
+              >
+                <div className="ins-card__header">
+                  {pkg.featured && (
+                    <span className="ins-card__badge">
+                      {t("table.recommended")}
+                    </span>
+                  )}
+                  <div className="ins-card__header-text">
+                    <h3 className="ins-card__name">
+                      {t(`table.packages.${pkg.key}.name`)}
+                    </h3>
+                    <span className="ins-card__tier-label">
+                      {t(`table.packages.${pkg.key}.type`)}
+                    </span>
+                  </div>
+                </div>
 
-              {/* Comfort */}
-              <li className="rental-table__col">
-                <span className="rental-table__value head">
-                  {t("table.packages.comfort.name")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.deposit")}
-                >
-                  {t("table.packages.comfort.deposit")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.driverLiabilityAccident")}
-                >
-                  {t("table.packages.comfort.driverLiabilityAccident")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.theftTotalLoss")}
-                >
-                  {t("table.packages.comfort.theftTotalLoss")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.tyresGlass")}
-                >
-                  ✘
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.carWashIncluded")}
-                >
-                  ✔
-                </span>
-              </li>
-
-              {/* Premium */}
-              <li className="rental-table__col">
-                <span className="rental-table__value head">
-                  {t("table.packages.premium.name")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.deposit")}
-                >
-                  {t("table.packages.premium.deposit")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.driverLiabilityAccident")}
-                >
-                  {t("table.packages.premium.driverLiabilityAccident")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.theftTotalLoss")}
-                >
-                  {t("table.packages.premium.theftTotalLoss")}
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.tyresGlass")}
-                >
-                  ✔
-                </span>
-                <span
-                  className="rental-table__value"
-                  data-title={t("table.labels.carWashIncluded")}
-                >
-                  ✔
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="rental-section__wrapp">
-            <h2 className="pretitle">{t("eligibility.title")}</h2>
-            <ul className="info-list">
-              {t.raw("eligibility.items").map((item: string, i: number) => (
-                <li className="info-list__item" key={item}>
-                  <span className="info-list__icon sprite">
-                    <Icon id={`icon${5 + i}`} width={40} height={40} />
+                <div className="ins-card__feature">
+                  <span className="ins-card__label">
+                    {t("table.labels.deposit")}
                   </span>
-                  <p>{item}</p>
-                </li>
+                  <span className="ins-card__value">
+                    {t(`table.packages.${pkg.key}.deposit`)}
+                  </span>
+                </div>
+
+                <div className="ins-card__feature">
+                  <span className="ins-card__label">
+                    {t("table.labels.driverLiabilityAccident")}
+                  </span>
+                  <span className="ins-card__value">
+                    {t(`table.packages.${pkg.key}.driverLiabilityAccident`)}
+                  </span>
+                </div>
+
+                <div className="ins-card__feature">
+                  <span className="ins-card__label">
+                    {t("table.labels.theftTotalLoss")}
+                  </span>
+                  <span className="ins-card__value">
+                    {t(`table.packages.${pkg.key}.theftTotalLoss`)}
+                  </span>
+                </div>
+
+                <div className="ins-card__feature">
+                  <span className="ins-card__label">
+                    {t("table.labels.tyresGlass")}
+                  </span>
+                  <span className="ins-card__value">
+                    <CheckIcon included={pkg.tyresGlass} />
+                  </span>
+                </div>
+
+                <div className="ins-card__feature">
+                  <span className="ins-card__label">
+                    {t("table.labels.carWashIncluded")}
+                  </span>
+                  <span className="ins-card__value">
+                    <CheckIcon included={pkg.carWash} />
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Eligibility */}
+        <div className="insurance-section__block">
+          <h2 className="pretitle">{t("eligibility.title")}</h2>
+          <div className="terms-block">
+            <ul className="terms-block__list">
+              {(t.raw("eligibility.items") as string[]).map((item) => (
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
+        </div>
 
-          {/* Exclusions */}
-          <div className="rental-section__wrapp">
-            <h2 className="pretitle">{t("exclusions.title")}</h2>
-            <div className="info-list warn">
-              <div className="info-list__item">
-                <span className="info-list__icon yellow">
-                  <Icon id="icon9" width={43} height={43} />
-                </span>
-                <ul>
-                  {t.raw("exclusions.items").map((item: string) => (
-                    <li key={item}>
-                      <p>{item}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+        {/* Exclusions */}
+        <div className="insurance-section__block">
+          <h2 className="pretitle">{t("exclusions.title")}</h2>
+          <div className="terms-block">
+            <ul className="terms-block__list insurance-section__warn-list">
+              {(t.raw("exclusions.items") as string[]).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
+        </div>
 
-          {/* Downloads */}
-          <div className="rental-section__wrapp mode">
-            <div className="editor">
-              <h2 className="pretitle">{t("downloads.title")}</h2>
-            </div>
-            <div className="rental-section__download">
-              <p>{t("downloads.note")}</p>
-              <a href={t("downloads.file.href")} className="download">
-                <span className="download__icon">
-                  <Icon id="load" width={14} height={26} />
+        {/* Accident steps */}
+        <div className="insurance-section__block">
+          <h2 className="pretitle">{t("accident.title")}</h2>
+          <div className="insurance-section__steps">
+            {(
+              t.raw("accident.steps") as { title: string; text: string }[]
+            ).map((step, i) => (
+              <div key={step.title} className="insurance-section__step">
+                <span className="insurance-section__step-number">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="download__info">
-                  <div className="download__title">
-                    {t("downloads.file.title")}
-                  </div>
-                  <div className="download__meta">
-                    {t("downloads.file.meta")}
-                  </div>
+                <div className="insurance-section__step-content">
+                  <span className="insurance-section__step-title">
+                    {step.title}
+                  </span>
+                  <span className="insurance-section__step-text">
+                    {step.text}
+                  </span>
                 </div>
-              </a>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 24/7 Roadside assistance */}
+        <div className="insurance-section__roadside">
+          <div className="insurance-section__roadside-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+          <div className="insurance-section__roadside-info">
+            <span className="insurance-section__roadside-title">
+              {t("roadside.title")}
+            </span>
+            <span className="insurance-section__roadside-text">
+              {t("roadside.text")}
+            </span>
+          </div>
+        </div>
+
+        {/* Bottom: Downloads + Breach */}
+        <div className="insurance-section__bottom">
+          <div className="terms-block insurance-section__download-block">
+            <div className="terms-block__header">
+              <h2 className="terms-block__title">{t("downloads.title")}</h2>
             </div>
+            <p className="terms-block__note">{t("downloads.note")}</p>
+            <Link
+              href={t("downloads.file.href")}
+              className="insurance-section__download-link"
+            >
+              <span className="insurance-section__download-icon">
+                <Icon id="load" width={14} height={26} />
+              </span>
+              <span className="download__info">
+                <span className="download__title">
+                  {t("downloads.file.title")}
+                </span>
+                <span className="download__meta">
+                  {t("downloads.file.meta")}
+                </span>
+              </span>
+            </Link>
           </div>
 
-          {/* Breach */}
-          <div className="rental-section__wrapp mode">
-            <div className="editor">
-              <h2 className="pretitle">{t("breach.title")}</h2>
+          <div className="terms-block">
+            <div className="terms-block__header">
+              <h2 className="terms-block__title">{t("breach.title")}</h2>
             </div>
-            <div className="editor">
-              <p>{t("breach.text")}</p>
-            </div>
+            <p className="terms-block__text">{t("breach.text")}</p>
           </div>
         </div>
       </div>

@@ -359,6 +359,7 @@
     },
     "table": {
       "title": "PROTECTION PACKAGES — COMPARISON",
+      "recommended": "Best value",
       "labels": {
         "coverageLevel": "Coverage level",
         "deposit": "Deposit",
@@ -370,18 +371,21 @@
       "packages": {
         "standard": {
           "name": "Standard",
+          "type": "CDW",
           "deposit": "Full deposit",
           "driverLiabilityAccident": "Up to the deposit amount",
           "theftTotalLoss": "10% of vehicle value"
         },
         "comfort": {
           "name": "Comfort",
+          "type": "SCDW",
           "deposit": "50% of Standard",
           "driverLiabilityAccident": "50% of Standard",
           "theftTotalLoss": "5% of vehicle value"
         },
         "premium": {
           "name": "Premium",
+          "type": "SCDW + TP",
           "deposit": "$200–$300",
           "driverLiabilityAccident": "No liability",
           "theftTotalLoss": "No liability"
@@ -420,6 +424,52 @@
     "breach": {
       "title": "BREACH OF RENTAL TERMS",
       "text": "Many situations related to non-compliance with the rental agreement mean that extended insurance will not cover the damage. Even with full protection, the renter must follow the company’s rules."
+    },
+    "explainer": {
+      "title": "WHAT IS ADDITIONAL INSURANCE?",
+      "text": "Every rental car comes with basic mandatory insurance (TPL) covering third-party liability. Additional insurance significantly reduces your financial responsibility in case of an accident, theft, or total loss of the vehicle.",
+      "features": [
+        {
+          "title": "CDW",
+          "subtitle": "partial coverage",
+          "desc": "Reduced liability for collision damage"
+        },
+        {
+          "title": "SCDW",
+          "subtitle": "full coverage",
+          "desc": "Maximum reduction or full waiver of liability"
+        },
+        {
+          "title": "TP",
+          "subtitle": "theft protection",
+          "desc": "Protection against theft or total vehicle loss"
+        }
+      ]
+    },
+    "accident": {
+      "title": "WHAT TO DO IN CASE OF AN ACCIDENT?",
+      "steps": [
+        {
+          "title": "Pull over",
+          "text": "Turn on your hazard lights and place the warning triangle."
+        },
+        {
+          "title": "Call the police",
+          "text": "Dial 102 to file an official accident report."
+        },
+        {
+          "title": "Contact us",
+          "text": "Call our office within 1 hour of the incident."
+        },
+        {
+          "title": "Document everything",
+          "text": "Take photos of the scene, damage, and other vehicles’ license plates."
+        }
+      ]
+    },
+    "roadside": {
+      "title": "24/7 ROADSIDE ASSISTANCE",
+      "text": "When you pick up your rental, you'll receive a personal assistant number to call 24/7 in case of a breakdown, accident, or any emergency."
     },
     "cta": {
       "requestCall": "REQUEST A CALL"
@@ -1792,14 +1842,11 @@
     }
   },
   "bookingContactModal": {
-    "title": "Leave a request in a convenient way — our <accent>manager will contact</accent> you and answer all your questions",
+    "title": "Choose a <accent>convenient way to contact us</accent> — our manager will answer all your questions",
     "buttons": {
-      "telegram": "REQUEST VIA TELEGRAM",
-      "whatsapp": "REQUEST VIA WHATSAPP",
-      "viber": "REQUEST VIA VIBER",
-      "phone": "CALL US"
+      "phone": "Call us"
     },
-    "terms": "By clicking the button, you accept the terms of personal data processing"
+    "terms": "Open daily 9:00 AM – 9:00 PM · We respond within 15 minutes"
   },
   "blogLvivTravel": {
     "meta": {

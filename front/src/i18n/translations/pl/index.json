@@ -359,6 +359,7 @@
     },
     "table": {
       "title": "PAKIETY OCHRONNE — POROWNANIE",
+      "recommended": "Optymalny wybór",
       "labels": {
         "coverageLevel": "Poziom pokrycia",
         "deposit": "Kaucja",
@@ -370,18 +371,21 @@
       "packages": {
         "standard": {
           "name": "Standard",
+          "type": "CDW",
           "deposit": "Pelna kaucja",
           "driverLiabilityAccident": "Do wysokosci kaucji",
           "theftTotalLoss": "10% wartosci pojazdu"
         },
         "comfort": {
           "name": "Komfort",
+          "type": "SCDW",
           "deposit": "50% kaucji Standard",
           "driverLiabilityAccident": "50% kaucji Standard",
           "theftTotalLoss": "5% wartosci pojazdu"
         },
         "premium": {
           "name": "Premium",
+          "type": "SCDW + TP",
           "deposit": "200–300 $",
           "driverLiabilityAccident": "Brak odpowiedzialnosci",
           "theftTotalLoss": "Brak odpowiedzialnosci"
@@ -420,6 +424,52 @@
     "breach": {
       "title": "NARUSZENIE WARUNKOW WYNAJMU",
       "text": "Wiele sytuacji zwiazanych z niezgodnoscia z umowa wynajmu oznacza, ze rozszerzone ubezpieczenie nie pokryje szkody. Nawet z pelna ochrona najemca musi przestrzegac zasad firmy."
+    },
+    "explainer": {
+      "title": "CZYM JEST DODATKOWE UBEZPIECZENIE?",
+      "text": "Każdy wynajmowany samochód posiada podstawowe obowiązkowe ubezpieczenie (OC) pokrywające odpowiedzialność wobec osób trzecich. Dodatkowe ubezpieczenie znacząco zmniejsza Twoją odpowiedzialność finansową w razie wypadku, kradzieży lub całkowitej utraty pojazdu.",
+      "features": [
+        {
+          "title": "CDW",
+          "subtitle": "częściowe AC",
+          "desc": "Zmniejszenie odpowiedzialności za uszkodzenia przy wypadku"
+        },
+        {
+          "title": "SCDW",
+          "subtitle": "pełne AC",
+          "desc": "Maksymalne zmniejszenie lub zniesienie odpowiedzialności"
+        },
+        {
+          "title": "TP",
+          "subtitle": "ochrona przed kradzieżą",
+          "desc": "Ochrona przed stratami w razie kradzieży lub utraty pojazdu"
+        }
+      ]
+    },
+    "accident": {
+      "title": "CO ROBIĆ W RAZIE WYPADKU?",
+      "steps": [
+        {
+          "title": "Zatrzymaj się",
+          "text": "Włącz światła awaryjne i ustaw trójkąt ostrzegawczy."
+        },
+        {
+          "title": "Wezwij policję",
+          "text": "Zadzwoń 102, aby sporządzić protokół wypadku."
+        },
+        {
+          "title": "Powiadom nas",
+          "text": "Zadzwoń do firmy w ciągu 1 godziny od zdarzenia."
+        },
+        {
+          "title": "Udokumentuj wszystko",
+          "text": "Zrób zdjęcia miejsca zdarzenia, uszkodzeń i tablic rejestracyjnych innych pojazdów."
+        }
+      ]
+    },
+    "roadside": {
+      "title": "POMOC DROGOWA 24/7",
+      "text": "Przy odbiorze samochodu każdy klient otrzymuje osobisty numer asystenta, pod który można dzwonić całodobowo w razie awarii, wypadku lub jakiejkolwiek sytuacji awaryjnej."
     },
     "cta": {
       "requestCall": "ZAMOW ODDZWONIENIE"
@@ -1792,14 +1842,11 @@
     }
   },
   "bookingContactModal": {
-    "title": "Zostaw zgloszenie w wygodny sposob — nasz <accent>menedzer sie z Toba skontaktuje</accent> i odpowie na wszystkie pytania",
+    "title": "Wybierz <accent>wygodny sposób kontaktu</accent> — nasz menedżer odpowie na wszystkie pytania",
     "buttons": {
-      "telegram": "ZGŁOSZENIE PRZEZ TELEGRAM",
-      "whatsapp": "ZGŁOSZENIE PRZEZ WHATSAPP",
-      "viber": "ZGŁOSZENIE PRZEZ VIBER",
-      "phone": "ZADZWOŃ"
+      "phone": "Zadzwoń"
     },
-    "terms": "Klikajac przycisk, akceptujesz warunki przetwarzania danych osobowych"
+    "terms": "Pracujemy codziennie od 9:00 do 21:00 · Odpowiadamy w ciągu 15 minut"
   },
   "blogLvivTravel": {
     "meta": {

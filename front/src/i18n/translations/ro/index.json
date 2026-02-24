@@ -359,6 +359,7 @@
     },
     "table": {
       "title": "PACHETE DE PROTECȚIE — COMPARAȚIE",
+      "recommended": "Alegerea optimă",
       "labels": {
         "coverageLevel": "Nivel de acoperire",
         "deposit": "Depozit",
@@ -370,18 +371,21 @@
       "packages": {
         "standard": {
           "name": "Standard",
+          "type": "CDW",
           "deposit": "Depozit integral",
           "driverLiabilityAccident": "Până la valoarea depozitului",
           "theftTotalLoss": "10% din valoarea vehiculului"
         },
         "comfort": {
           "name": "Confort",
+          "type": "SCDW",
           "deposit": "50% din Standard",
           "driverLiabilityAccident": "50% din Standard",
           "theftTotalLoss": "5% din valoarea vehiculului"
         },
         "premium": {
           "name": "Premium",
+          "type": "SCDW + TP",
           "deposit": "200$–300$",
           "driverLiabilityAccident": "Fără răspundere",
           "theftTotalLoss": "Fără răspundere"
@@ -420,6 +424,52 @@
     "breach": {
       "title": "ÎNCĂLCAREA CONDIȚIILOR DE ÎNCHIRIERE",
       "text": "Multe situații legate de nerespectarea contractului de închiriere înseamnă că asigurarea extinsă nu va acoperi daunele. Chiar și cu protecție completă, chiriașul trebuie să respecte regulile companiei."
+    },
+    "explainer": {
+      "title": "CE ESTE ASIGURAREA SUPLIMENTARĂ?",
+      "text": "Fiecare mașină închiriată are o asigurare obligatorie de bază (RCA) care acoperă răspunderea față de terți. Asigurarea suplimentară reduce semnificativ responsabilitatea financiară în caz de accident, furt sau pierdere totală a vehiculului.",
+      "features": [
+        {
+          "title": "CDW",
+          "subtitle": "CASCO parțial",
+          "desc": "Reducerea răspunderii pentru daunele din coliziune"
+        },
+        {
+          "title": "SCDW",
+          "subtitle": "CASCO complet",
+          "desc": "Reducere maximă sau eliminarea completă a răspunderii"
+        },
+        {
+          "title": "TP",
+          "subtitle": "protecție împotriva furtului",
+          "desc": "Protecție împotriva pierderilor în caz de furt sau pierdere totală"
+        }
+      ]
+    },
+    "accident": {
+      "title": "CE SĂ FACI ÎN CAZ DE ACCIDENT?",
+      "steps": [
+        {
+          "title": "Oprește-te",
+          "text": "Activează luminile de avarie și plasează triunghiul de avertizare."
+        },
+        {
+          "title": "Cheamă poliția",
+          "text": "Sună la 102 pentru a completa procesul-verbal al accidentului."
+        },
+        {
+          "title": "Contactează-ne",
+          "text": "Sună la companie în decurs de 1 oră de la incident."
+        },
+        {
+          "title": "Documentează totul",
+          "text": "Fotografiază locul accidentului, daunele și numerele celorlalte vehicule."
+        }
+      ]
+    },
+    "roadside": {
+      "title": "ASISTENȚĂ RUTIERĂ 24/7",
+      "text": "La preluarea mașinii, fiecare client primește un număr personal de asistent, disponibil non-stop în caz de defecțiune, accident sau orice situație de urgență."
     },
     "cta": {
       "requestCall": "SOLICITĂ UN APEL"
@@ -1792,14 +1842,11 @@
     }
   },
   "bookingContactModal": {
-    "title": "Lasă o cerere în modul cel mai convenabil — <accent>managerul nostru vă va contacta</accent> și va răspunde la toate întrebările dumneavoastră",
+    "title": "Alegeți <accent>modalitatea convenabilă de contact</accent> — managerul nostru va răspunde la toate întrebările",
     "buttons": {
-      "telegram": "CERERE PRIN TELEGRAM",
-      "whatsapp": "CERERE PRIN WHATSAPP",
-      "viber": "CERERE PRIN VIBER",
-      "phone": "SUNĂ-NE"
+      "phone": "Sună-ne"
     },
-    "terms": "Prin clic pe buton, acceptați condițiile de prelucrare a datelor personale"
+    "terms": "Deschiși zilnic 9:00 – 21:00 · Răspundem în 15 minute"
   },
   "blogLvivTravel": {
     "meta": {
