@@ -83,12 +83,30 @@ export default async function InsurancePage() {
         ]}
       />
 
+      {/* Mobile hero banner */}
+      <div className="insurance-section__mob-hero">
+        <img
+          src="/img/emergency-sign-with-black-car-background-2.webp"
+          alt=""
+          className="insurance-section__mob-hero-img"
+        />
+        <div className="insurance-section__mob-hero-content">
+          <h1 className="insurance-section__mob-hero-title">
+            {t("hero.title")}
+          </h1>
+          <p className="insurance-section__mob-hero-text">{t("hero.text")}</p>
+          <HeroBookButton className="insurance-section__mob-hero-btn">
+            {t("hero.cta")}
+          </HeroBookButton>
+        </div>
+      </div>
+
       <div className="cert__breadcrumb">
         <span className="cert__marker" />
         <span className="cert__breadcrumb-text">{t("pretitle")}</span>
       </div>
 
-      <div className="blog-hero">
+      <div className="blog-hero insurance-section__desktop-hero">
         <h1 className="blog-hero__title">{t("hero.title")}</h1>
       </div>
 
