@@ -329,7 +329,7 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
 
     @include tablet {
       flex-wrap: nowrap;
@@ -338,19 +338,26 @@
       touch-action: pan-x pan-y;
       padding-bottom: 4px;
       scrollbar-width: none;
+      mask-image: linear-gradient(to right, #000 85%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, #000 85%, transparent 100%);
 
       &::-webkit-scrollbar {
         display: none;
+      }
+
+      &.scrolled-end {
+        mask-image: linear-gradient(to left, #000 85%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to left, #000 85%, transparent 100%);
       }
     }
   }
 
   &__chip {
     flex-shrink: 0;
-    padding: 7px 14px;
+    padding: 8px 16px;
     border-radius: 20px;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--cl-c);
     background: var(--cl-t);
     cursor: pointer;

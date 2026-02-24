@@ -80,7 +80,11 @@
     }
 
     @include for-tablet {
-      padding-top: 67px;
+      padding-top: clamp(20px, 2.2059vw, 30px);
+    }
+
+    @include tablet {
+      padding-top: 0;
     }
 
     @include mobile{

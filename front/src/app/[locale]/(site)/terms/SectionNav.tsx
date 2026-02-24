@@ -60,6 +60,23 @@ export default function SectionNav({
     list.scrollTo({ left, behavior: "smooth" });
   }, [active]);
 
+  /* fade indicator: toggle class when scrolled to end */
+  useEffect(() => {
+    const list = navRef.current?.querySelector(
+      ".terms-anchors__list",
+    ) as HTMLElement | null;
+    if (!list) return;
+
+    const update = () => {
+      const atEnd = list.scrollLeft + list.offsetWidth >= list.scrollWidth - 10;
+      list.classList.toggle("scrolled-end", atEnd);
+    };
+
+    list.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => list.removeEventListener("scroll", update);
+  }, []);
+
   return (
     <div className="terms-anchors" ref={navRef}>
       <nav className="terms-anchors__list" aria-label={ariaLabel}>
