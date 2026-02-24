@@ -173,7 +173,11 @@
 
     @include for-tablet {
         transition: all 0.4s ease;
+        overflow-x: hidden;
         overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar { display: none; }
         max-height: calc(100dvh - 20px - 20px);
 
         &.aos-transition-done {
