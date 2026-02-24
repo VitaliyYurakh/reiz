@@ -1343,7 +1343,8 @@
           "hours": "Luni–Duminică 08:30–20:30",
           "email": "info@reiz.com.ua"
         }
-      ]
+      ],
+      "mapButton": "Arată pe hartă"
     },
     "form": {
       "title": "SUNTEM GATA SĂ RĂSPUNDEM LA TOATE ÎNTREBĂRILE DUMNEAVOASTRĂ",

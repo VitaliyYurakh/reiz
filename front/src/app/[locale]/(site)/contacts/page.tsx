@@ -62,140 +62,110 @@ export default async function ContactsPage() {
       </div>
 
       <div className="contacts-section__content">
-        <div className="contacts-section__map">
-          <UiImage
-            width={673}
-            height={539}
-            src="/img/map.png"
-            alt="Map of Ukraine with REIZ offices marked in Kyiv and Lviv"
-          />
-        </div>
-
-        <div className="contacts-section__wrapp">
+        <div className="contacts-section__offices-block">
           <h2 className="pretitle">{officesTitle}</h2>
 
-          <div className="contacts-section__editors">
-            <div className="editor">
-              <p>{offices?.[0]?.city}</p>
-              <a
-                href={mapLink(offices?.[0]?.address)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="sprite">
-                  <Icon id={"geo2"} width={17} height={17} />
-                </i>
-                {offices?.[0]?.address}
-              </a>
-              <div className="row">
-                <a href="tel:+380635471186">
-                  <i className="sprite">
-                    <Icon id={"tel"} width={17} height={17} />
-                  </i>
-                  {offices?.[0]?.phone}
-                </a>
-                <a
-                  href={SOCIAL_LINKS.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <UiImage
-                    width={26}
-                    height={26}
-                    src="/img/icons/whatsapp.svg"
-                    alt="Contact via WhatsApp"
-                  />
-                </a>
-                <a
-                  href={SOCIAL_LINKS.telegram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <UiImage
-                    width={26}
-                    height={26}
-                    src="/img/icons/Telegram_logo.svg"
-                    alt="Contact via Telegram"
-                  />
-                </a>
-              </div>
-              <span className="contacts-section__meta">
-                <i className="sprite">
-                  <Icon id={"clock2"} width={17} height={17} />
-                </i>
-                {offices?.[0]?.hours}
-              </span>
-              <a href="mailto:info@reiz.com.ua">
-                <i className="sprite">
-                  <Icon id={"mail"} width={17} height={17} />
-                </i>
-                {offices?.[0]?.email}
-              </a>
-            </div>
+          <div className="contacts-section__offices-grid">
+            {offices.map((office, index) => (
+              <div className="contacts-section__card" key={index}>
+                <p className="contacts-section__city">{office.city}</p>
 
-            <div className="editor">
-              <p>{offices?.[1]?.city}</p>
-              <a
-                href={mapLink(offices?.[1]?.address)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="sprite">
-                  <Icon id={"geo2"} width={17} height={17} />
-                </i>
-                {offices?.[1]?.address}
-              </a>
-              <div className="row">
-                <a href="tel:+380635471186">
-                  <i className="sprite">
-                    <Icon id={"tel"} width={17} height={17} />
-                  </i>
-                  {offices?.[1]?.phone}
-                </a>
+                <div className="contacts-section__details">
+                  <a
+                    href={mapLink(office.address)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contacts-section__detail"
+                  >
+                    <i className="sprite">
+                      <Icon id="geo2" width={17} height={17} />
+                    </i>
+                    {office.address}
+                  </a>
+
+                  <a href="tel:+380635471186" className="contacts-section__detail">
+                    <i className="sprite">
+                      <Icon id="tel" width={17} height={17} />
+                    </i>
+                    {office.phone}
+                  </a>
+
+                  <span className="contacts-section__detail">
+                    <i className="sprite">
+                      <Icon id="clock2" width={17} height={17} />
+                    </i>
+                    {office.hours}
+                  </span>
+
+                  <a href="mailto:info@reiz.com.ua" className="contacts-section__detail">
+                    <i className="sprite">
+                      <Icon id="mail" width={17} height={17} />
+                    </i>
+                    {office.email}
+                  </a>
+                </div>
+
+                <div className="contacts-section__messengers">
+                  <a
+                    href={SOCIAL_LINKS.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contacts-section__messenger"
+                  >
+                    <UiImage
+                      width={26}
+                      height={26}
+                      src="/img/icons/whatsapp.svg"
+                      alt="WhatsApp"
+                    />
+                    WhatsApp
+                  </a>
+                  <a
+                    href={SOCIAL_LINKS.telegram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contacts-section__messenger"
+                  >
+                    <UiImage
+                      width={26}
+                      height={26}
+                      src="/img/icons/Telegram_logo.svg"
+                      alt="Telegram"
+                    />
+                    Telegram
+                  </a>
+                  <a
+                    href={SOCIAL_LINKS.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contacts-section__messenger"
+                  >
+                    <UiImage
+                      width={26}
+                      height={26}
+                      src="/img/icons/ingsta.svg"
+                      alt="Instagram"
+                    />
+                    Instagram
+                  </a>
+                </div>
+
                 <a
-                  href={SOCIAL_LINKS.whatsapp}
+                  href={mapLink(office.address)}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="contacts-section__map-link"
                 >
-                  <UiImage
-                    width={26}
-                    height={26}
-                    src="/img/icons/whatsapp.svg"
-                    alt="WhatsApp — message us"
-                  />
-                </a>
-                <a
-                  href={SOCIAL_LINKS.telegram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <UiImage
-                    width={26}
-                    height={26}
-                    src="/img/icons/Telegram_logo.svg"
-                    alt="Telegram — message us"
-                  />
+                  <Icon id="geo2" width={15} height={15} />
+                  {t("officesSection.mapButton")}
                 </a>
               </div>
-              <span className="contacts-section__meta">
-                <i className="sprite">
-                  <Icon id={"clock2"} width={17} height={17} />
-                </i>
-                {offices?.[1]?.hours}
-              </span>
-              <a href="mailto:info@reiz.com.ua">
-                <i className="sprite">
-                  <Icon id={"mail"} width={17} height={17} />
-                </i>
-                {offices?.[1]?.email}
-              </a>
-            </div>
+            ))}
           </div>
         </div>
 
-        <div className="contacts-section__wrapp">
+        <div className="contacts-section__form-block">
           <h2 className="pretitle">{t("form.title")}</h2>
-
           <ContactsForm />
         </div>
       </div>

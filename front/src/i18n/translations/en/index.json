@@ -1343,7 +1343,8 @@
           "hours": "Mon–Sun 08:30–20:30",
           "email": "info@reiz.com.ua"
         }
-      ]
+      ],
+      "mapButton": "Show on map"
     },
     "form": {
       "title": "WE'RE READY TO ANSWER ALL YOUR QUESTIONS",
