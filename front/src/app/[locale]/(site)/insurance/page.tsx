@@ -8,6 +8,7 @@ import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import HeroBookButton from "@/app/[locale]/components/HeroBookButton";
+import HeroThemeColor from "./components/HeroThemeColor";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -85,6 +86,7 @@ export default async function InsurancePage() {
 
       {/* Mobile hero banner */}
       <div className="insurance-section__mob-hero">
+        <HeroThemeColor />
         <img
           src="/img/emergency-sign-with-black-car-background-2.webp"
           alt=""

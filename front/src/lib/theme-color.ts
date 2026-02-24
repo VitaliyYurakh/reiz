@@ -1,7 +1,5 @@
 const HOME_PATHS = ["/", "/ru", "/en"];
-const DARK_PATHS = ["/insurance", "/ru/insurance", "/en/insurance", "/pl/insurance", "/ro/insurance"];
 const HOME_THEME_COLOR = "#000000";
-const DARK_THEME_COLOR = "#1a1a1a";
 const DEFAULT_THEME_COLOR = "#f1f0eb";
 const MENU_THEME_COLOR = "#F1F0EB";
 
@@ -9,9 +7,8 @@ const MENU_THEME_COLOR = "#F1F0EB";
 export const themeColorLock = { locked: false };
 
 export function getThemeColorForPath(pathname: string): string {
-  if (HOME_PATHS.includes(pathname)) return HOME_THEME_COLOR;
-  if (DARK_PATHS.includes(pathname)) return DARK_THEME_COLOR;
-  return DEFAULT_THEME_COLOR;
+  const isHomePage = HOME_PATHS.includes(pathname);
+  return isHomePage ? HOME_THEME_COLOR : DEFAULT_THEME_COLOR;
 }
 
 export function getMenuThemeColor(): string {

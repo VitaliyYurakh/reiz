@@ -390,7 +390,7 @@
         "premium": {
           "name": "Преміум",
           "type": "SCDW + TP",
-          "deposit": "200–300 $",
+          "deposit": "200–300 $ — застосовується лише у разі штрафів або недостачі палива",
           "driverLiabilityAccident": "Без штрафів",
           "theftTotalLoss": "Без штрафів"
         }

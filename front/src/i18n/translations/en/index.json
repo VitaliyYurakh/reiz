@@ -386,7 +386,7 @@
         "premium": {
           "name": "Premium",
           "type": "SCDW + TP",
-          "deposit": "$200–$300",
+          "deposit": "$200–$300 — applied only in case of fines or fuel shortage",
           "driverLiabilityAccident": "No liability",
           "theftTotalLoss": "No liability"
         }
