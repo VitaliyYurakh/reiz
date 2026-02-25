@@ -121,17 +121,26 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
 
                   <a
                     href={SOCIAL_LINKS.viber}
-                    className="footer__viber-link"
                     aria-label="REIZ Viber"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <UiImage
-                      width={26}
-                      height={26}
-                      src="/img/icons/viber-color.svg"
-                      alt="Viber"
-                    />
+                    <span className="default">
+                      <UiImage
+                        width={26}
+                        height={26}
+                        src="/img/icons/viber-color.svg"
+                        alt="Viber"
+                      />
+                    </span>
+                    <span className="hover">
+                      <UiImage
+                        width={26}
+                        height={26}
+                        src="/img/icons/viber-hover.svg"
+                        alt="Viber"
+                      />
+                    </span>
                   </a>
                 </div>
                 <p>{t("contacts.working_hours")}</p>

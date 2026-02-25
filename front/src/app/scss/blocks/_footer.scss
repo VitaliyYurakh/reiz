@@ -695,14 +695,14 @@
     }
   }
 
-  // Viber link in messenger row
+  // Viber link: colored default → white on hover
   &__viber-link {
-    display: flex;
-
     img {
       transition: all 0.3s;
-      width: 26px;
-      height: 26px;
+    }
+
+    &:hover img {
+      filter: brightness(0) invert(1);
     }
   }
 
