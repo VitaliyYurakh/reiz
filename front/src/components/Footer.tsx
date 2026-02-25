@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import UiImage from "@/components/ui/UiImage";
 import { Link } from "@/i18n/request";
 import { SOCIAL_LINKS } from "@/config/social";
+import FooterAccordion from "@/components/FooterAccordion";
 
 type FooterProps = {
   addressText?: string;
@@ -69,7 +70,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 data-title={t("contacts.phone_title")}
               >
                 <div className="footer__social">
-                  <a href="tel:+380635471186"> +380 63 547 11 86 </a>
+                  <a href="tel:+380635471186" className="footer__phone-btn"> +380 63 547 11 86 </a>
                   <a
                     href={SOCIAL_LINKS.whatsapp}
                     aria-label="REIZ WhatsApp"
@@ -117,6 +118,21 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                       />
                     </span>
                   </a>
+
+                  <a
+                    href={SOCIAL_LINKS.viber}
+                    className="footer__viber-link"
+                    aria-label="REIZ Viber"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <UiImage
+                      width={26}
+                      height={26}
+                      src="/img/icons/viber-color.svg"
+                      alt="Viber"
+                    />
+                  </a>
                 </div>
                 <p>{t("contacts.working_hours")}</p>
               </div>
@@ -141,6 +157,45 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 />
               </span>
             </div>
+          </div>
+
+          {/* Mobile accordion navigation — visible only on mobile via CSS */}
+          <div className="footer__mobile-nav">
+            <FooterAccordion title={t("accordion.rental")}>
+              <ul>
+                <li>
+                  <Link href="/#catalog">{t("nav.cars")}</Link>
+                </li>
+                <li>
+                  <Link href="/business">{t("nav.business")}</Link>
+                </li>
+                <li>
+                  <Link href="/invest">{t("nav.invest")}</Link>
+                </li>
+                <li>
+                  <Link href="/insurance">{t("nav.insurance")}</Link>
+                </li>
+                <li>
+                  <Link href="/certificate">{t("nav.certificate")}</Link>
+                </li>
+              </ul>
+            </FooterAccordion>
+            <FooterAccordion title={t("accordion.company")}>
+              <ul>
+                <li>
+                  <Link href="/about">{t("nav.about")}</Link>
+                </li>
+                <li>
+                  <Link href="/blog">{t("nav.blog")}</Link>
+                </li>
+                <li>
+                  <Link href="/faq">{t("nav.faq")}</Link>
+                </li>
+                <li>
+                  <Link href="/contacts">{t("nav.contacts")}</Link>
+                </li>
+              </ul>
+            </FooterAccordion>
           </div>
 
           <div className="footer__middle">

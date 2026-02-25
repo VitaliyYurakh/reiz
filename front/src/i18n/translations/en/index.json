@@ -1446,11 +1446,20 @@
     "social": {
       "title": "Follow us"
     },
+    "accordion": {
+      "rental": "Rental",
+      "company": "Company"
+    },
     "bottom": {
       "copyright": "© 2025 Reiz. All rights reserved.",
       "privacy": "Privacy Policy",
       "developed_by": "Developed by Reiz"
     }
+  },
+  "mobileBar": {
+    "aria_label": "Quick actions",
+    "call": "Call",
+    "cars": "Cars"
   },
   "offerModal": {
     "title": "Get an offer",

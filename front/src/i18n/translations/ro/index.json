@@ -1446,11 +1446,20 @@
     "social": {
       "title": "Urmărește-ne"
     },
+    "accordion": {
+      "rental": "Închiriere",
+      "company": "Companie"
+    },
     "bottom": {
       "copyright": "© 2025 Reiz. Toate drepturile rezervate.",
       "privacy": "Politica de confidențialitate",
       "developed_by": "Dezvoltat de Reiz"
     }
+  },
+  "mobileBar": {
+    "aria_label": "Acțiuni rapide",
+    "call": "Apel",
+    "cars": "Mașini"
   },
   "offerModal": {
     "title": "Solicită o ofertă",

@@ -1446,11 +1446,20 @@
     "social": {
       "title": "Obserwuj nas"
     },
+    "accordion": {
+      "rental": "Wynajem",
+      "company": "Firma"
+    },
     "bottom": {
       "copyright": "© 2025 Reiz. Wszelkie prawa zastrzezone.",
       "privacy": "Polityka prywatnosci",
       "developed_by": "Stworzone przez Reiz"
     }
+  },
+  "mobileBar": {
+    "aria_label": "Szybkie akcje",
+    "call": "Zadzwon",
+    "cars": "Auta"
   },
   "offerModal": {
     "title": "Uzyskaj oferte",

@@ -27,6 +27,7 @@
 
     @include mobile {
       font-weight: 900;
+      margin-bottom: 0;
     }
   }
 
@@ -48,6 +49,7 @@
 
     @include mobile {
       padding-bottom: 23px;
+      gap: 16px;
     }
   }
 
@@ -220,7 +222,7 @@
     color: var(--cl-o);
 
     @include mobile {
-      margin-top: 1px;
+      margin-top: 0;
       color: var(--cl-o);
     }
   }
@@ -230,9 +232,17 @@
     display: flex;
     align-items: center;
 
+    @include mobile {
+      gap: 12px;
+    }
+
     a {
       &:first-of-type {
         margin-right: 7px;
+
+        @include mobile {
+          margin-right: 0;
+        }
       }
 
       font-weight: 400;
@@ -240,6 +250,12 @@
       color: var(--cl-c);
       position: relative;
       transition: all 0.3s;
+      -webkit-tap-highlight-color: transparent;
+
+      @include mobile {
+        font-size: 14px;
+        color: var(--cl-a);
+      }
 
       img {
         transition: all 0.3s;
@@ -247,7 +263,7 @@
         height: 26px;
       }
 
-      span{
+      span {
         display: flex;
       }
 
@@ -301,7 +317,7 @@
     }
 
     @include mobile {
-      gap: 20px;
+      gap: 16px;
     }
   }
 
@@ -676,6 +692,104 @@
 
     @include mobile {
       gap: 16px 21px;
+    }
+  }
+
+  // Viber link in messenger row
+  &__viber-link {
+    display: flex;
+
+    img {
+      transition: all 0.3s;
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  // Phone button (mobile only)
+  &__phone-btn {
+    @include mobile {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      padding: 0 16px;
+      background: var(--cl-a);
+      color: var(--cl-b) !important;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  // Mobile accordion navigation section
+  &__mobile-nav {
+    display: none;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      padding-top: 4px;
+      padding-bottom: 8px;
+    }
+  }
+
+  // Mobile: hide description paragraph
+  &__col > p {
+    @include mobile {
+      display: none;
+    }
+  }
+
+  // Mobile: simplify payment/social cards to inline icons
+  @include mobile {
+    &__middle {
+      gap: 24px;
+      padding-top: 16px;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__list {
+      gap: 12px;
+
+      &::before {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        margin-bottom: 0;
+      }
+    }
+
+    &__link {
+      height: 48px;
+      padding: 0 10px;
+      border-radius: 10px;
+      gap: 0;
+      justify-content: center;
+      align-items: center;
+
+      .sprite {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-height: none;
+      }
+    }
+
+    // Bottom section adjustments for mobile
+    &__bottom {
+      padding-bottom: 24px;
+      gap: 12px;
+
+      span,
+      a {
+        font-size: 13px;
+      }
     }
   }
 

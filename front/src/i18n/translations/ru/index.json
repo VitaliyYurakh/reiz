@@ -1442,11 +1442,20 @@
     "social": {
       "title": "Следите за нами"
     },
+    "accordion": {
+      "rental": "Аренда",
+      "company": "Компания"
+    },
     "bottom": {
       "copyright": "© 2025 Reiz. Все права защищены",
       "privacy": "Политика конфенденциальносити",
       "developed_by": "Разработка Reiz"
     }
+  },
+  "mobileBar": {
+    "aria_label": "Быстрые действия",
+    "call": "Звонок",
+    "cars": "Авто"
   },
   "offerModal": {
     "title": "Получить предложение",

@@ -6,6 +6,7 @@ import SideBarClientProvider from "@/components/modals/SideBarClientProvider";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { RentalSearchProvider } from "@/context/RentalSearchContext";
 
+
 export function generateStaticParams(): { locale: Locale }[] {
   return locales.map((locale) => ({ locale }));
 }

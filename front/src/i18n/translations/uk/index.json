@@ -1494,11 +1494,20 @@
     "social": {
       "title": "Стежте за нами"
     },
+    "accordion": {
+      "rental": "Оренда",
+      "company": "Компанія"
+    },
     "bottom": {
       "copyright": "© 2025 REIZ. Усі права захищено",
       "privacy": "Політика конфіденційності",
       "developed_by": "Розробка — REIZ"
     }
+  },
+  "mobileBar": {
+    "aria_label": "Швидкі дії",
+    "call": "Дзвінок",
+    "cars": "Авто"
   },
   "offerModal": {
     "title": "Отримати пропозицію",
