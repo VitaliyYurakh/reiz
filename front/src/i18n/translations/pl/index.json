@@ -561,22 +561,76 @@
     "guarantees": {
       "title": "CO GWARANTUJEMY",
       "items": [
-        { "icon": "t-steering", "title": "Nowe serwisowane auta", "text": "Flota z lat 2023–2025. Kazdy samochod przechodzi regularne przeglady i kontrole przed wydaniem." },
-        { "icon": "t-insurance", "title": "Pelne ubezpieczenie", "text": "Pokrycie CDW / SCDW na caly okres wynajmu. Pomoc w razie wypadku." },
-        { "icon": "t-contract", "title": "Platnosc z VAT", "text": "Platnosc bezgotowkowa, dokumenty zamykajace, faktury — wszystko dla ksiegowosci." },
-        { "icon": "t-services", "title": "Wsparcie 24/7", "text": "Linia pomocy, koordynacja trasy i konsultacje bez dni wolnych." },
-        { "icon": "t-return", "title": "Samochod zastepczy", "text": "Bezplatna wymiana auta w przypadku awarii lub planowego serwisu." },
-        { "icon": "t-person-key", "title": "Osobisty menedzer", "text": "Jeden punkt kontaktu: koordynacja, raportowanie, dokumenty i SLA serwisowe." }
+        {
+          "icon": "t-steering",
+          "title": "Nowe serwisowane auta",
+          "text": "Flota z lat 2023–2025. Kazdy samochod przechodzi regularne przeglady i kontrole przed wydaniem."
+        },
+        {
+          "icon": "t-insurance",
+          "title": "Pelne ubezpieczenie",
+          "text": "Pokrycie CDW / SCDW na caly okres wynajmu. Pomoc w razie wypadku."
+        },
+        {
+          "icon": "t-contract",
+          "title": "Platnosc z VAT",
+          "text": "Platnosc bezgotowkowa, dokumenty zamykajace, faktury — wszystko dla ksiegowosci."
+        },
+        {
+          "icon": "t-services",
+          "title": "Wsparcie 24/7",
+          "text": "Linia pomocy, koordynacja trasy i konsultacje bez dni wolnych."
+        },
+        {
+          "icon": "t-return",
+          "title": "Samochod zastepczy",
+          "text": "Bezplatna wymiana auta w przypadku awarii lub planowego serwisu."
+        },
+        {
+          "icon": "t-person-key",
+          "title": "Osobisty menedzer",
+          "text": "Jeden punkt kontaktu: koordynacja, raportowanie, dokumenty i SLA serwisowe."
+        }
       ]
     },
     "useCases": {
       "title": "KOMU POMAGAMY",
       "items": [
-        { "value": "business", "label": "Dla biznesu", "title": "Dla malego i sredniego biznesu", "text": "Elastyczne warunki wynajmu samochodow, ktore pomoga Twojej firmie sprawnie rozwiazywac zadania logistyczne.", "cta": "OTRZYMAJ OFERTE" },
-        { "value": "corporate", "label": "Dla korporacji", "title": "Dla duzych korporacji i fleet management", "text": "Efektywne zarzadzanie flota korporacyjna: wynajem, serwis, ubezpieczenie i wymiana pojazdow.", "cta": "OTRZYMAJ OFERTE" },
-        { "value": "missions", "label": "Misje miedzynarodowe", "title": "Wsparcie misji miedzynarodowych i dyplomatycznych", "text": "Wspieramy projekty dyplomatyczne i humanitarne, zapewniajac nowoczesne i niezawodne pojazdy.", "cta": "OTRZYMAJ OFERTE" },
-        { "value": "construction", "label": "Projekty budowlane", "title": "Transport dla projektow budowlanych", "text": "Swiadczymy uslugi wynajmu samochodow do transportu sprzetu i specjalistow.", "cta": "OTRZYMAJ OFERTE" },
-        { "value": "fleet", "label": "Fleet Management", "title": "Pelny outsourcing floty", "text": "Zajmujemy sie calym cyklem: dobor pojazdow, ubezpieczenie, serwis, sezonowa wymiana opon i samochody zastepcze.", "cta": "OTRZYMAJ OFERTE" }
+        {
+          "value": "business",
+          "label": "Dla biznesu",
+          "title": "Dla malego i sredniego biznesu",
+          "text": "Elastyczne warunki wynajmu samochodow, ktore pomoga Twojej firmie sprawnie rozwiazywac zadania logistyczne.",
+          "cta": "OTRZYMAJ OFERTE"
+        },
+        {
+          "value": "corporate",
+          "label": "Dla korporacji",
+          "title": "Dla duzych korporacji i fleet management",
+          "text": "Efektywne zarzadzanie flota korporacyjna: wynajem, serwis, ubezpieczenie i wymiana pojazdow.",
+          "cta": "OTRZYMAJ OFERTE"
+        },
+        {
+          "value": "missions",
+          "label": "Misje miedzynarodowe",
+          "title": "Wsparcie misji miedzynarodowych i dyplomatycznych",
+          "text": "Wspieramy projekty dyplomatyczne i humanitarne, zapewniajac nowoczesne i niezawodne pojazdy.",
+          "cta": "OTRZYMAJ OFERTE"
+        },
+        {
+          "value": "construction",
+          "label": "Projekty budowlane",
+          "title": "Transport dla projektow budowlanych",
+          "text": "Swiadczymy uslugi wynajmu samochodow do transportu sprzetu i specjalistow.",
+          "cta": "OTRZYMAJ OFERTE"
+        },
+        {
+          "value": "fleet",
+          "label": "Fleet Management",
+          "title": "Pelny outsourcing floty",
+          "text": "Zajmujemy sie calym cyklem: dobor pojazdow, ubezpieczenie, serwis, sezonowa wymiana opon i samochody zastepcze.",
+          "cta": "OTRZYMAJ OFERTE"
+        }
       ]
     },
     "cases": {
@@ -608,10 +662,26 @@
       "title": "JAK TO DZIALA",
       "label": "Krok",
       "items": [
-        { "title": "Wybierz samochod", "text": "Przejrzyj katalog lub skontaktuj sie z menedzerem — dobierzemy samochod do Twoich potrzeb.", "photo": "/img/business/choose-car.webp" },
-        { "title": "Wyslij dokumenty", "text": "W ciagu godziny od otrzymania dokumentow firmy wysylamy fakture i umowe.", "photo": "/img/business/document-review.webp" },
-        { "title": "Podpisz umowe", "text": "Wyslij skany podpisanych dokumentow lub odwiedz nasze biuro, aby obejrzec samochody.", "photo": "/img/business/contract-signing.webp" },
-        { "title": "Korzystaj z samochodu", "text": "Dostarczymy samochod pod Twoj adres w najkrotszym czasie. Na zyczenie zapewnimy kierowce.", "photo": "/img/business/driving-experience.webp" }
+        {
+          "title": "Wybierz samochod",
+          "text": "Przejrzyj katalog lub skontaktuj sie z menedzerem — dobierzemy samochod do Twoich potrzeb.",
+          "photo": "/img/business/choose-car.webp"
+        },
+        {
+          "title": "Wyslij dokumenty",
+          "text": "W ciagu godziny od otrzymania dokumentow firmy wysylamy fakture i umowe.",
+          "photo": "/img/business/document-review.webp"
+        },
+        {
+          "title": "Podpisz umowe",
+          "text": "Wyslij skany podpisanych dokumentow lub odwiedz nasze biuro, aby obejrzec samochody.",
+          "photo": "/img/business/contract-signing.webp"
+        },
+        {
+          "title": "Korzystaj z samochodu",
+          "text": "Dostarczymy samochod pod Twoj adres w najkrotszym czasie. Na zyczenie zapewnimy kierowce.",
+          "photo": "/img/business/driving-experience.webp"
+        }
       ]
     },
     "compare": {
@@ -1007,7 +1077,7 @@
       "items": [
         "Pojazd nie starszy niz 3 lata",
         "Sprawny technicznie i w pelni serwisowany",
-        "Wazne ubezpieczenie OC (opcjonalnie AC pelen zakres)",
+        "Obowiazkowe ubezpieczenie CASCO i OC",
         "Samochod musi byc prawnie czysty — bez zastawow/ograniczen i niezgloszony jako ukradziony"
       ]
     },
@@ -1032,6 +1102,86 @@
         "Zautomatyzowana"
       ],
       "submit": "WYSLIJ WNIOSEK"
+    },
+    "highlights": {
+      "items": [
+        {
+          "value": "15–25%",
+          "label": "prognozowana rentownosc rocznie"
+        },
+        {
+          "value": "Co miesiac",
+          "label": "regularne wyplaty na konto"
+        },
+        {
+          "value": "24/7",
+          "label": "kontrola GPS i monitoring"
+        }
+      ]
+    },
+    "income": {
+      "title": "SZACUNKOWY DOCHOD WEDLUG KLASY POJAZDU",
+      "text": "Poziom dochodu zalezy od klasy, modelu, stanu technicznego i sezonowosci popytu. Ponizej — szacunkowe zakresy miesiecznego dochodu dla wlasciciela pojazdu.",
+      "disclaimer": "* Dane sa prognozowane i moga sie roznic w zaleznosci od konkretnego modelu, jego stanu i warunkow rynkowych.",
+      "items": [
+        {
+          "label": "Ekonomiczny",
+          "range": "$300 — $500"
+        },
+        {
+          "label": "Komfort",
+          "range": "$400 — $700"
+        },
+        {
+          "label": "Biznes",
+          "range": "$600 — $1 200"
+        },
+        {
+          "label": "Premium",
+          "range": "$1 000 — $3 000"
+        },
+        {
+          "label": "SUV-y",
+          "range": "$700 — $2 500"
+        },
+        {
+          "label": "Minivansy",
+          "range": "$800 — $1 500"
+        }
+      ]
+    },
+    "faq": {
+      "title": "NAJCZESCIEJ ZADAWANE PYTANIA",
+      "items": [
+        {
+          "question": "Ile moge zarabiac miesiecznie?",
+          "answer": "Dochod zalezy od klasy i modelu pojazdu, jego stanu technicznego i sezonowosci. Orientacyjnie — od 300 do 3000 USD miesiecznie. Dokladna prognoze menedzer obliczy po ocenie Twojego auta."
+        },
+        {
+          "question": "Kto pokrywa szkody w razie wypadku?",
+          "answer": "Wszystkie pojazdy w naszej flocie sa ubezpieczone. Szkody z wypadku sa pokrywane przez ubezpieczenie zgodnie z warunkami polisy. W przypadku przekroczenia limitu — strona winna ponosi odpowiedzialnosc zgodnie z umowa."
+        },
+        {
+          "question": "Jak weryfikowani sa najemcy?",
+          "answer": "Kazdy najemca przechodzi weryfikacje dokumentow: prawo jazdy, paszport, zdolnosc platnicza. Prowadzimy wewnetrzna baze i nie dopuszczamy do wynajmu osob z naruszeniami w przeszlosci."
+        },
+        {
+          "question": "Czy moge korzystac z auta, kiedy potrzebuje?",
+          "answer": "Tak, po wczesniejszym uzgodnieniu z menedzerem. Glowny warunek — auto nie moze byc zarezerwowane przez klienta na ten okres. Wstrzymujemy auto w systemie na potrzebny Ci czas."
+        },
+        {
+          "question": "Jak czesto wyplacany jest dochod?",
+          "answer": "Wyplaty sa realizowane co miesiac zgodnie z harmonogramem ustalonym w umowie. Zawsze znasz dokladna date i kwote. Dostepne metody wyplat: przelew bankowy, konto firmy, gotowka w biurze lub kryptowaluta — wybierasz najwygodniejsza opcje."
+        },
+        {
+          "question": "Jak dziala monitoring GPS?",
+          "answer": "Na pojezdzie montowany jest tracker GPS. Przez aplikacje mobilna widzisz aktualna lokalizacje, trasy i stan pojazdu w czasie rzeczywistym."
+        },
+        {
+          "question": "Jak szybko auto trafia na rynek?",
+          "answer": "Zwykle od podpisania umowy do pierwszego wynajmu mija 3–7 dni roboczych — w zaleznosci od stanu auta i zakresu niezbednych przygotowan (zdjecia, ubezpieczenie, GPS)."
+        }
+      ]
     }
   },
   "termsPage": {

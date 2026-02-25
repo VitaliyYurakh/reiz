@@ -195,10 +195,15 @@
       width: 100%;
 
       p {
-        ;
+        font-family: Arial, sans-serif;
+        @media (min-width: 1024px) {
+          font-family: var(--font-kyiv), Arial, sans-serif;
+          font-feature-settings: "ss01" 1;
+        }
         font-weight: 400;
         font-size: 15px;
         line-height: 160%;
+        color: var(--cl-ab);
 
         @include small-tablet {
           ;

@@ -1,0 +1,119 @@
+@use "../mixins/breakpoint" as *;
+
+// ── Invest highlights bar ──────────────────────────────
+.invest-highlights {
+  display: flex;
+  align-items: stretch;
+  background: var(--cl-b);
+  border-radius: 16px;
+  overflow: hidden;
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  &__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    padding: clamp(20px, 1.7647vw, 24px) clamp(16px, 1.4706vw, 20px);
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: var(--cl-d);
+
+      @include mobile {
+        top: auto;
+        bottom: 0;
+        right: 10%;
+        width: 80%;
+        height: 1px;
+      }
+    }
+  }
+
+  &__value {
+    font-family: var(--font-inter), Arial, sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 1.7647vw, 24px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--cl-brown);
+  }
+
+  &__label {
+    font-weight: 300;
+    font-size: clamp(11px, 0.8824vw, 12px);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--cl-c);
+  }
+}
+
+// ── Invest income cards grid ───────────────────────────
+.invest-income {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.1765vw, 16px);
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: clamp(20px, 1.7647vw, 24px);
+    background: var(--cl-b);
+    border-radius: 16px;
+  }
+
+  &__label {
+    font-family: Arial, sans-serif;
+    @media (min-width: 1024px) {
+      font-family: var(--font-kyiv), Arial, sans-serif;
+      font-feature-settings: "ss01" 1;
+    }
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cl-c);
+    line-height: 1.4;
+  }
+
+  &__range {
+    font-family: var(--font-inter), Arial, sans-serif;
+    font-weight: 500;
+    font-size: clamp(16px, 1.3235vw, 18px);
+    line-height: 1.3;
+    color: var(--cl-brown);
+    letter-spacing: -0.01em;
+  }
+}
+
+// ── Invest disclaimer text ─────────────────────────────
+.invest-disclaimer {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--cl-c);
+  margin: 0;
+}

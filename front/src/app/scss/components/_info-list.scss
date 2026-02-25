@@ -65,6 +65,11 @@
       clamp(11px, 1.1029vw, 15px) 0;
 
     p {
+      font-family: Arial, sans-serif;
+      @media (min-width: 1024px) {
+        font-family: var(--font-kyiv), Arial, sans-serif;
+        font-feature-settings: "ss01" 1;
+      }
       font-weight: 400;
       font-size: 15px;
       line-height: 140%;

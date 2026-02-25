@@ -561,22 +561,76 @@
     "guarantees": {
       "title": "WHAT WE GUARANTEE",
       "items": [
-        { "icon": "t-steering", "title": "New serviced cars", "text": "Fleet from 2023–2025. Every car undergoes regular maintenance and pre-delivery inspection." },
-        { "icon": "t-insurance", "title": "Full insurance", "text": "CDW / SCDW coverage for the entire rental period. Accident assistance included." },
-        { "icon": "t-contract", "title": "Payment with VAT", "text": "Cashless payment, closing documents, invoices — everything for your accounting." },
-        { "icon": "t-services", "title": "24/7 support", "text": "Help line, route coordination and consultations without weekends or breaks." },
-        { "icon": "t-return", "title": "Replacement car", "text": "Free car replacement in case of breakdown or scheduled maintenance." },
-        { "icon": "t-person-key", "title": "Personal manager", "text": "Single point of contact: coordination, reporting, documents and service SLA." }
+        {
+          "icon": "t-steering",
+          "title": "New serviced cars",
+          "text": "Fleet from 2023–2025. Every car undergoes regular maintenance and pre-delivery inspection."
+        },
+        {
+          "icon": "t-insurance",
+          "title": "Full insurance",
+          "text": "CDW / SCDW coverage for the entire rental period. Accident assistance included."
+        },
+        {
+          "icon": "t-contract",
+          "title": "Payment with VAT",
+          "text": "Cashless payment, closing documents, invoices — everything for your accounting."
+        },
+        {
+          "icon": "t-services",
+          "title": "24/7 support",
+          "text": "Help line, route coordination and consultations without weekends or breaks."
+        },
+        {
+          "icon": "t-return",
+          "title": "Replacement car",
+          "text": "Free car replacement in case of breakdown or scheduled maintenance."
+        },
+        {
+          "icon": "t-person-key",
+          "title": "Personal manager",
+          "text": "Single point of contact: coordination, reporting, documents and service SLA."
+        }
       ]
     },
     "useCases": {
       "title": "WHO WE HELP",
       "items": [
-        { "value": "business", "label": "For Business", "title": "For Small & Medium Business", "text": "Flexible car rental terms to help your business solve logistics tasks efficiently, saving time and money.", "cta": "GET A QUOTE" },
-        { "value": "corporate", "label": "For Corporations", "title": "For Large Corporations & Fleet Management", "text": "Effective corporate fleet management: rental, maintenance, insurance and car replacement.", "cta": "GET A QUOTE" },
-        { "value": "missions", "label": "International Missions", "title": "Support for International & Diplomatic Missions", "text": "Supporting diplomatic and humanitarian projects with modern, reliable vehicles.", "cta": "GET A QUOTE" },
-        { "value": "construction", "label": "Construction", "title": "Transport for Construction Projects", "text": "Rental services for transporting equipment and specialists to your construction sites.", "cta": "GET A QUOTE" },
-        { "value": "fleet", "label": "Fleet Management", "title": "Full Fleet Outsourcing", "text": "We handle the entire cycle: vehicle selection, insurance, maintenance, seasonal tire changes and replacement cars.", "cta": "GET A QUOTE" }
+        {
+          "value": "business",
+          "label": "For Business",
+          "title": "For Small & Medium Business",
+          "text": "Flexible car rental terms to help your business solve logistics tasks efficiently, saving time and money.",
+          "cta": "GET A QUOTE"
+        },
+        {
+          "value": "corporate",
+          "label": "For Corporations",
+          "title": "For Large Corporations & Fleet Management",
+          "text": "Effective corporate fleet management: rental, maintenance, insurance and car replacement.",
+          "cta": "GET A QUOTE"
+        },
+        {
+          "value": "missions",
+          "label": "International Missions",
+          "title": "Support for International & Diplomatic Missions",
+          "text": "Supporting diplomatic and humanitarian projects with modern, reliable vehicles.",
+          "cta": "GET A QUOTE"
+        },
+        {
+          "value": "construction",
+          "label": "Construction",
+          "title": "Transport for Construction Projects",
+          "text": "Rental services for transporting equipment and specialists to your construction sites.",
+          "cta": "GET A QUOTE"
+        },
+        {
+          "value": "fleet",
+          "label": "Fleet Management",
+          "title": "Full Fleet Outsourcing",
+          "text": "We handle the entire cycle: vehicle selection, insurance, maintenance, seasonal tire changes and replacement cars.",
+          "cta": "GET A QUOTE"
+        }
       ]
     },
     "cases": {
@@ -608,10 +662,26 @@
       "title": "HOW IT WORKS",
       "label": "Step",
       "items": [
-        { "title": "Choose a car", "text": "Browse the catalog or contact a manager — we'll find the right car for your needs and budget.", "photo": "/img/business/choose-car.webp" },
-        { "title": "Send documents", "text": "Within an hour of receiving your company documents, we send the invoice and contract.", "photo": "/img/business/document-review.webp" },
-        { "title": "Sign the contract", "text": "Send scanned copies of signed documents or visit our office to inspect the vehicles.", "photo": "/img/business/contract-signing.webp" },
-        { "title": "Use the car", "text": "We deliver the car to your address as quickly as possible. A driver and extra equipment available on request.", "photo": "/img/business/driving-experience.webp" }
+        {
+          "title": "Choose a car",
+          "text": "Browse the catalog or contact a manager — we'll find the right car for your needs and budget.",
+          "photo": "/img/business/choose-car.webp"
+        },
+        {
+          "title": "Send documents",
+          "text": "Within an hour of receiving your company documents, we send the invoice and contract.",
+          "photo": "/img/business/document-review.webp"
+        },
+        {
+          "title": "Sign the contract",
+          "text": "Send scanned copies of signed documents or visit our office to inspect the vehicles.",
+          "photo": "/img/business/contract-signing.webp"
+        },
+        {
+          "title": "Use the car",
+          "text": "We deliver the car to your address as quickly as possible. A driver and extra equipment available on request.",
+          "photo": "/img/business/driving-experience.webp"
+        }
       ]
     },
     "compare": {
@@ -1007,7 +1077,7 @@
       "items": [
         "Vehicle no older than 3 years",
         "Technically sound and fully serviced",
-        "Valid third-party liability insurance (CASCO comprehensive optional)",
+        "Mandatory CASCO and third-party liability insurance",
         "The car must be legally clean — no liens/restrictions and not reported stolen"
       ]
     },
@@ -1032,6 +1102,86 @@
         "Automated"
       ],
       "submit": "SUBMIT REQUEST"
+    },
+    "highlights": {
+      "items": [
+        {
+          "value": "15–25%",
+          "label": "projected annual return"
+        },
+        {
+          "value": "Monthly",
+          "label": "regular payouts to your account"
+        },
+        {
+          "value": "24/7",
+          "label": "GPS tracking and monitoring"
+        }
+      ]
+    },
+    "income": {
+      "title": "ESTIMATED INCOME BY VEHICLE CLASS",
+      "text": "Income depends on the class, model, technical condition and seasonal demand. Below are estimated monthly income ranges for vehicle owners.",
+      "disclaimer": "* Data is projected and may vary depending on the specific model, its condition and market conditions.",
+      "items": [
+        {
+          "label": "Economy",
+          "range": "$300 — $500"
+        },
+        {
+          "label": "Comfort",
+          "range": "$400 — $700"
+        },
+        {
+          "label": "Business",
+          "range": "$600 — $1 200"
+        },
+        {
+          "label": "Premium",
+          "range": "$1 000 — $3 000"
+        },
+        {
+          "label": "SUVs",
+          "range": "$700 — $2 500"
+        },
+        {
+          "label": "Minivans",
+          "range": "$800 — $1 500"
+        }
+      ]
+    },
+    "faq": {
+      "title": "FREQUENTLY ASKED QUESTIONS",
+      "items": [
+        {
+          "question": "How much can I earn monthly?",
+          "answer": "Income depends on the class and model of the vehicle, its technical condition and seasonality. Approximately $300 to $3,000 per month. The manager will calculate an exact forecast after evaluating your car."
+        },
+        {
+          "question": "Who covers damages in case of an accident?",
+          "answer": "All vehicles operating in our fleet are insured. Accident damages are covered by insurance according to the policy terms. If the limit is exceeded, the at-fault party bears responsibility according to the agreement."
+        },
+        {
+          "question": "How are renters verified?",
+          "answer": "Every renter undergoes document verification: driving licence, passport, creditworthiness. We maintain an internal database and do not allow rentals to individuals with past violations."
+        },
+        {
+          "question": "Can I use the car when I need it?",
+          "answer": "Yes, by prior arrangement with the manager. The main condition is that the car must not be booked by a client for that period. We pause the car in the system for the time you need."
+        },
+        {
+          "question": "How often is income paid out?",
+          "answer": "Payouts are made monthly according to the schedule fixed in the agreement. You always know the exact date and amount. Available payout methods: bank transfer, sole proprietor account, cash at the office or cryptocurrency — you choose whichever is most convenient."
+        },
+        {
+          "question": "How does GPS monitoring work?",
+          "answer": "A GPS tracker is installed on the vehicle. Via a mobile app you can see its current location, routes and condition in real time."
+        },
+        {
+          "question": "How quickly does the car go to market?",
+          "answer": "Usually 3–7 business days from signing the agreement to the first rental — depending on the car's condition and the preparation required (photos, insurance, GPS)."
+        }
+      ]
     }
   },
   "termsPage": {

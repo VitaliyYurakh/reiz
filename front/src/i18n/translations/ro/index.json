@@ -561,22 +561,76 @@
     "guarantees": {
       "title": "CE GARANTĂM",
       "items": [
-        { "icon": "t-steering", "title": "Mașini noi întreținute", "text": "Flotă din 2023–2025. Fiecare mașină trece prin revizii regulate și verificare înainte de predare." },
-        { "icon": "t-insurance", "title": "Asigurare completă", "text": "Acoperire CDW / SCDW pe toată perioada de închiriere. Asistență în caz de accident." },
-        { "icon": "t-contract", "title": "Plată cu TVA", "text": "Plată fără numerar, documente de închidere, facturi — totul pentru contabilitate." },
-        { "icon": "t-services", "title": "Suport 24/7", "text": "Linie de ajutor, coordonare pe traseu și consultanță fără zile libere." },
-        { "icon": "t-return", "title": "Mașină de înlocuire", "text": "Înlocuire gratuită a mașinii în caz de defecțiune sau service planificat." },
-        { "icon": "t-person-key", "title": "Manager personal", "text": "Un singur punct de contact: coordonare, raportare, documente și SLA de service." }
+        {
+          "icon": "t-steering",
+          "title": "Mașini noi întreținute",
+          "text": "Flotă din 2023–2025. Fiecare mașină trece prin revizii regulate și verificare înainte de predare."
+        },
+        {
+          "icon": "t-insurance",
+          "title": "Asigurare completă",
+          "text": "Acoperire CDW / SCDW pe toată perioada de închiriere. Asistență în caz de accident."
+        },
+        {
+          "icon": "t-contract",
+          "title": "Plată cu TVA",
+          "text": "Plată fără numerar, documente de închidere, facturi — totul pentru contabilitate."
+        },
+        {
+          "icon": "t-services",
+          "title": "Suport 24/7",
+          "text": "Linie de ajutor, coordonare pe traseu și consultanță fără zile libere."
+        },
+        {
+          "icon": "t-return",
+          "title": "Mașină de înlocuire",
+          "text": "Înlocuire gratuită a mașinii în caz de defecțiune sau service planificat."
+        },
+        {
+          "icon": "t-person-key",
+          "title": "Manager personal",
+          "text": "Un singur punct de contact: coordonare, raportare, documente și SLA de service."
+        }
       ]
     },
     "useCases": {
       "title": "PE CINE AJUTĂM",
       "items": [
-        { "value": "business", "label": "Pentru afaceri", "title": "Pentru afaceri mici și medii", "text": "Condiții flexibile de închiriere auto care ajută afacerea dumneavoastră să rezolve eficient sarcinile logistice.", "cta": "OBȚINEȚI OFERTA" },
-        { "value": "corporate", "label": "Pentru corporații", "title": "Pentru corporații mari și fleet management", "text": "Gestionarea eficientă a flotei corporative: închiriere, service, asigurare și înlocuirea vehiculelor.", "cta": "OBȚINEȚI OFERTA" },
-        { "value": "missions", "label": "Misiuni internaționale", "title": "Suport pentru misiuni internaționale și diplomatice", "text": "Susținem proiecte diplomatice și umanitare, oferind vehicule moderne și fiabile.", "cta": "OBȚINEȚI OFERTA" },
-        { "value": "construction", "label": "Proiecte de construcții", "title": "Transport pentru proiecte de construcții", "text": "Oferim servicii de închiriere auto pentru transportul echipamentelor și specialiștilor.", "cta": "OBȚINEȚI OFERTA" },
-        { "value": "fleet", "label": "Fleet Management", "title": "Externalizarea completă a flotei", "text": "Ne ocupăm de întreg ciclul: selectarea vehiculelor, asigurare, service, schimbul sezonier de anvelope și mașini de înlocuire.", "cta": "OBȚINEȚI OFERTA" }
+        {
+          "value": "business",
+          "label": "Pentru afaceri",
+          "title": "Pentru afaceri mici și medii",
+          "text": "Condiții flexibile de închiriere auto care ajută afacerea dumneavoastră să rezolve eficient sarcinile logistice.",
+          "cta": "OBȚINEȚI OFERTA"
+        },
+        {
+          "value": "corporate",
+          "label": "Pentru corporații",
+          "title": "Pentru corporații mari și fleet management",
+          "text": "Gestionarea eficientă a flotei corporative: închiriere, service, asigurare și înlocuirea vehiculelor.",
+          "cta": "OBȚINEȚI OFERTA"
+        },
+        {
+          "value": "missions",
+          "label": "Misiuni internaționale",
+          "title": "Suport pentru misiuni internaționale și diplomatice",
+          "text": "Susținem proiecte diplomatice și umanitare, oferind vehicule moderne și fiabile.",
+          "cta": "OBȚINEȚI OFERTA"
+        },
+        {
+          "value": "construction",
+          "label": "Proiecte de construcții",
+          "title": "Transport pentru proiecte de construcții",
+          "text": "Oferim servicii de închiriere auto pentru transportul echipamentelor și specialiștilor.",
+          "cta": "OBȚINEȚI OFERTA"
+        },
+        {
+          "value": "fleet",
+          "label": "Fleet Management",
+          "title": "Externalizarea completă a flotei",
+          "text": "Ne ocupăm de întreg ciclul: selectarea vehiculelor, asigurare, service, schimbul sezonier de anvelope și mașini de înlocuire.",
+          "cta": "OBȚINEȚI OFERTA"
+        }
       ]
     },
     "cases": {
@@ -608,10 +662,26 @@
       "title": "CUM FUNCȚIONEAZĂ",
       "label": "Pasul",
       "items": [
-        { "title": "Alegeți mașina", "text": "Consultați catalogul sau contactați un manager — vom găsi mașina potrivită pentru nevoile dumneavoastră.", "photo": "/img/business/choose-car.webp" },
-        { "title": "Trimiteți documentele", "text": "În termen de o oră de la primirea documentelor companiei, trimitem factura și contractul.", "photo": "/img/business/document-review.webp" },
-        { "title": "Semnați contractul", "text": "Trimiteți copii scanate ale documentelor semnate sau vizitați biroul nostru.", "photo": "/img/business/contract-signing.webp" },
-        { "title": "Folosiți mașina", "text": "Livrăm mașina la adresa dumneavoastră cât mai repede posibil. Șofer și echipament suplimentar la cerere.", "photo": "/img/business/driving-experience.webp" }
+        {
+          "title": "Alegeți mașina",
+          "text": "Consultați catalogul sau contactați un manager — vom găsi mașina potrivită pentru nevoile dumneavoastră.",
+          "photo": "/img/business/choose-car.webp"
+        },
+        {
+          "title": "Trimiteți documentele",
+          "text": "În termen de o oră de la primirea documentelor companiei, trimitem factura și contractul.",
+          "photo": "/img/business/document-review.webp"
+        },
+        {
+          "title": "Semnați contractul",
+          "text": "Trimiteți copii scanate ale documentelor semnate sau vizitați biroul nostru.",
+          "photo": "/img/business/contract-signing.webp"
+        },
+        {
+          "title": "Folosiți mașina",
+          "text": "Livrăm mașina la adresa dumneavoastră cât mai repede posibil. Șofer și echipament suplimentar la cerere.",
+          "photo": "/img/business/driving-experience.webp"
+        }
       ]
     },
     "compare": {
@@ -1007,7 +1077,7 @@
       "items": [
         "Vehicul cu o vechime de maximum 3 ani",
         "Stare tehnică bună și revizii la zi",
-        "Asigurare de răspundere civilă valabilă (CASCO opțional)",
+        "Asigurare CASCO și răspundere civilă obligatorie",
         "Mașina trebuie să fie curată juridic — fără gajuri/restricții și neraportată ca furată"
       ]
     },
@@ -1032,6 +1102,86 @@
         "Automatizată"
       ],
       "submit": "TRIMITE CEREREA"
+    },
+    "highlights": {
+      "items": [
+        {
+          "value": "15–25%",
+          "label": "randament anual prognozat"
+        },
+        {
+          "value": "Lunar",
+          "label": "plati regulate in cont"
+        },
+        {
+          "value": "24/7",
+          "label": "control GPS si monitorizare"
+        }
+      ]
+    },
+    "income": {
+      "title": "VENIT ESTIMAT PE CLASA DE VEHICUL",
+      "text": "Nivelul venitului depinde de clasa, model, starea tehnica si sezonalitatea cererii. Mai jos — intervale estimate ale venitului lunar pentru proprietarul vehiculului.",
+      "disclaimer": "* Datele sunt prognozate si pot varia in functie de modelul specific, starea sa si conditiile pietei.",
+      "items": [
+        {
+          "label": "Economic",
+          "range": "$300 — $500"
+        },
+        {
+          "label": "Confort",
+          "range": "$400 — $700"
+        },
+        {
+          "label": "Business",
+          "range": "$600 — $1 200"
+        },
+        {
+          "label": "Premium",
+          "range": "$1 000 — $3 000"
+        },
+        {
+          "label": "SUV-uri",
+          "range": "$700 — $2 500"
+        },
+        {
+          "label": "Minivanuri",
+          "range": "$800 — $1 500"
+        }
+      ]
+    },
+    "faq": {
+      "title": "INTREBARI FRECVENTE",
+      "items": [
+        {
+          "question": "Cat pot castiga lunar?",
+          "answer": "Venitul depinde de clasa si modelul vehiculului, starea tehnica si sezonalitate. Aproximativ 300 - 3000 USD pe luna. Managerul va calcula o prognoza exacta dupa evaluarea masinii dumneavoastra."
+        },
+        {
+          "question": "Cine acopera daunele in caz de accident?",
+          "answer": "Toate vehiculele din flota noastra sunt asigurate. Daunele din accident sunt acoperite de asigurare conform conditiilor politei. Daca limita este depasita, partea vinovata poarta responsabilitatea conform acordului."
+        },
+        {
+          "question": "Cum sunt verificati chiriasii?",
+          "answer": "Fiecare chirias trece prin verificarea documentelor: permis de conducere, pasaport, solvabilitate. Mentinam o baza de date interna si nu permitem inchirierea persoanelor cu incalcari in trecut."
+        },
+        {
+          "question": "Pot folosi masina cand am nevoie?",
+          "answer": "Da, prin aranjament prealabil cu managerul. Conditia principala este ca masina sa nu fie rezervata de un client pentru acea perioada. Punem masina pe pauza in sistem pentru timpul de care aveti nevoie."
+        },
+        {
+          "question": "Cat de des se plateste venitul?",
+          "answer": "Platile se fac lunar conform graficului stabilit in acord. Stiti intotdeauna data exacta si suma. Metode de plata disponibile: transfer bancar, cont de intreprinzator, numerar la birou sau criptomoneda — alegeti varianta cea mai convenabila."
+        },
+        {
+          "question": "Cum functioneaza monitorizarea GPS?",
+          "answer": "Pe vehicul se monteaza un tracker GPS. Prin aplicatia mobila vedeti locatia curenta, rutele si starea vehiculului in timp real."
+        },
+        {
+          "question": "Cat de repede ajunge masina pe piata?",
+          "answer": "De obicei 3-7 zile lucratoare de la semnarea acordului pana la prima inchiriere — in functie de starea masinii si pregatirea necesara (fotografii, asigurare, GPS)."
+        }
+      ]
     }
   },
   "termsPage": {

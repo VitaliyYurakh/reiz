@@ -1,9 +1,9 @@
 "use client";
 
-import Icon from "@/components/Icon";
 import type { SyntheticEvent } from "react";
 import { useTranslations } from "next-intl";
 import { useInvestModal } from "@/app/[locale]/(site)/invest/components/modals";
+import CustomSelect from "@/app/[locale]/components/CustomSelect";
 
 export default function InvestForm() {
   const t = useTranslations("investPage");
@@ -40,25 +40,10 @@ export default function InvestForm() {
       </label>
 
       <div className="main-form__fields">
-        <div className="custom-select">
-          <div className="select-field">
-            <div className="selected-options">
-              <span className="placeholder">
-                {t("form.placeholders.transmission")}
-              </span>
-            </div>
-            <div className="arrow-down">
-              <Icon id={"arrow-d"} width={6} height={3} />
-            </div>
-          </div>
-          <ul className="options-container">
-            {transmissionOptions.map((opt) => (
-              <li className="option" data-value={opt} key={opt}>
-                <span className="option-text">{opt}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <CustomSelect
+          options={transmissionOptions}
+          placeholder={t("form.placeholders.transmission")}
+        />
 
         <label className="main-form__label">
           <input
