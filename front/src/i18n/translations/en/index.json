@@ -1195,12 +1195,6 @@
             "priceLong": "5"
           },
           {
-            "name": "Full tank",
-            "description": "Car is provided with a full tank. If returned with less fuel — a fuel charge + service fee applies",
-            "priceShort": "actual cost",
-            "priceLong": "actual cost"
-          },
-          {
             "name": "Booster seat",
             "description": "For children weighing 15–36 kg (approximately 4–12 years)",
             "priceShort": "4",
@@ -1217,6 +1211,12 @@
             "description": "For children up to 13 kg (up to ~1 year)",
             "priceShort": "4",
             "priceLong": "4"
+          },
+          {
+            "name": "Full tank",
+            "description": "Car is provided with a full tank. If returned with less fuel — a fuel charge + service fee applies",
+            "priceShort": "actual cost",
+            "priceLong": "actual cost"
           }
         ]
       },

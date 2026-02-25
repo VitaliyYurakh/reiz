@@ -276,13 +276,7 @@ export default async function InsurancePage() {
         {/* 24/7 Roadside assistance */}
         <div className="insurance-section__roadside">
           <div className="insurance-section__roadside-icon">
-            <img
-              src="/img/icons/phone-call-icon.svg"
-              alt=""
-              width={24}
-              height={24}
-              aria-hidden="true"
-            />
+            <Icon id="phone" width={32} height={32} />
           </div>
           <div className="insurance-section__roadside-info">
             <span className="insurance-section__roadside-title">

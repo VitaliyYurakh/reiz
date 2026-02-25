@@ -385,16 +385,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: var(--cl-e);
-    color: var(--cl-b);
     flex-shrink: 0;
+    color: var(--cl-e);
 
     svg {
-      width: 20px;
-      height: 20px;
+      width: 32px;
+      height: 32px;
     }
   }
 

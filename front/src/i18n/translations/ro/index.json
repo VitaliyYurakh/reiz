@@ -1195,12 +1195,6 @@
             "priceLong": "5"
           },
           {
-            "name": "Rezervor plin",
-            "description": "Mașina este furnizată cu rezervorul plin. Dacă este returnată cu mai puțin combustibil — se aplică taxa pentru combustibil + taxa de serviciu",
-            "priceShort": "cost efectiv",
-            "priceLong": "cost efectiv"
-          },
-          {
             "name": "Scaun înălțător",
             "description": "Pentru copii cu greutatea de 15–36 kg (aproximativ 4–12 ani)",
             "priceShort": "4",
@@ -1217,6 +1211,12 @@
             "description": "Pentru copii până la 13 kg (până la ~1 an)",
             "priceShort": "4",
             "priceLong": "4"
+          },
+          {
+            "name": "Rezervor plin",
+            "description": "Mașina este furnizată cu rezervorul plin. Dacă este returnată cu mai puțin combustibil — se aplică taxa pentru combustibil + taxa de serviciu",
+            "priceShort": "cost efectiv",
+            "priceLong": "cost efectiv"
           }
         ]
       },

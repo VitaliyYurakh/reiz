@@ -1195,12 +1195,6 @@
             "priceLong": "5"
           },
           {
-            "name": "Pełny bak",
-            "description": "Auto wydawane z pełnym bakiem. W przypadku zwrotu z mniejszym poziomem — dopłata za paliwo + opłata serwisowa",
-            "priceShort": "wg kosztów",
-            "priceLong": "wg kosztów"
-          },
-          {
             "name": "Fotelik podwyższający",
             "description": "Dla dzieci o wadze 15–36 kg (ok. 4–12 lat)",
             "priceShort": "4",
@@ -1217,6 +1211,12 @@
             "description": "Dla dzieci do 13 kg (do ~1 roku)",
             "priceShort": "4",
             "priceLong": "4"
+          },
+          {
+            "name": "Pełny bak",
+            "description": "Auto wydawane z pełnym bakiem. W przypadku zwrotu z mniejszym poziomem — dopłata za paliwo + opłata serwisowa",
+            "priceShort": "wg kosztów",
+            "priceLong": "wg kosztów"
           }
         ]
       },

@@ -196,13 +196,10 @@ export default async function BusinessPage() {
                   />
                   <h2 className="business-cta__title">{t("ctaBanner.title")}</h2>
                   <p className="business-cta__text">{t("ctaBanner.text")}</p>
-                  <a
-                    href="#order-call"
+                  <BusinessCtaButton
+                    label={t("ctaBanner.cta")}
                     className="main-button"
-                    data-btn-modal="offer"
-                  >
-                    {t("ctaBanner.cta")}
-                  </a>
+                  />
                 </div>
               )}
             </div>
@@ -271,13 +268,10 @@ export default async function BusinessPage() {
                       </ul>
                     )}
                     <div className="business-compare__cta">
-                      <a
-                        href="#order-call"
+                      <BusinessCtaButton
+                        label={card.cta}
                         className="main-button"
-                        data-btn-modal="offer"
-                      >
-                        {card.cta}
-                      </a>
+                      />
                     </div>
                   </div>
                 ))}
