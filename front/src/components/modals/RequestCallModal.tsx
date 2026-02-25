@@ -170,7 +170,7 @@ export default function RequestCallModal({
                 onClick={() => setSelectedContactMethod("phone")}
               >
                 <img
-                  src="/img/icons/phone-call-icon.svg"
+                  src="/img/icons/phone-receiver.svg"
                   alt=""
                   width={22}
                   height={22}
@@ -202,7 +202,7 @@ export default function RequestCallModal({
                 onClick={() => setSelectedContactMethod("telegram")}
               >
                 <img
-                  src="/img/icons/Telegram_logo.svg"
+                  src="/img/icons/telegram.svg"
                   alt=""
                   width={22}
                   height={22}
@@ -218,7 +218,7 @@ export default function RequestCallModal({
                 onClick={() => setSelectedContactMethod("viber")}
               >
                 <img
-                  src="/img/icons/viber-color-svgrepo-com.svg"
+                  src="/img/icons/viber-color.svg"
                   alt=""
                   width={22}
                   height={22}

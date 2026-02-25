@@ -49,7 +49,7 @@ export default function BookingContactModal({
             rel="noopener noreferrer"
           >
             <img
-              src="/img/icons/Telegram_logo.svg"
+              src="/img/icons/telegram.svg"
               alt=""
               width={28}
               height={28}
@@ -79,7 +79,7 @@ export default function BookingContactModal({
             rel="noopener noreferrer"
           >
             <img
-              src="/img/icons/viber-color-svgrepo-com.svg"
+              src="/img/icons/viber-color.svg"
               alt=""
               width={28}
               height={28}
@@ -92,7 +92,7 @@ export default function BookingContactModal({
             className="booking-contact-modal__btn booking-contact-modal__btn--phone"
           >
             <img
-              src="/img/icons/phone-call-icon.svg"
+              src="/img/icons/phone-receiver.svg"
               alt=""
               width={28}
               height={28}

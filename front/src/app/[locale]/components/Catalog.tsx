@@ -556,7 +556,7 @@ export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
                                         aria-label={t("filters_panel.close_button")}
                                     >
                                         <i className="sprite">
-                                            <Icon width={36} height={36} id={"close2"}></Icon>
+                                            <Icon width={36} height={36} id={"close-alt"}></Icon>
                                         </i>
                                     </button>
 

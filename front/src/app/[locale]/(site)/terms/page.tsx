@@ -167,35 +167,35 @@ export default async function TermsPage() {
             <div className="terms-card__wrapp">
               <span className="terms-card__name">{payMethods[0]}</span>
               <span className="terms-card__icon sprite">
-                <Icon id="icon18" width={56} height={56} />
+                <Icon id="photo-gallery" width={56} height={56} />
               </span>
             </div>
 
             <div className="terms-card__wrapp">
               <span className="terms-card__name">{payMethods[1]}</span>
               <span className="terms-card__icon sprite">
-                <Icon id="icon15" width={93} height={28} />
+                <Icon id="reiz-text" width={93} height={28} />
               </span>
             </div>
 
             <div className="terms-card__wrapp">
               <span className="terms-card__name">{payMethods[2]}</span>
               <span className="terms-card__icon sprite">
-                <Icon id="icon16" width={56} height={56} />
+                <Icon id="credit-cards" width={56} height={56} />
               </span>
             </div>
 
             <div className="terms-card__wrapp">
               <span className="terms-card__name">{payMethods[3]}</span>
               <span className="terms-card__icon sprite">
-                <Icon id="icon16" width={56} height={56} />
+                <Icon id="credit-cards" width={56} height={56} />
               </span>
             </div>
 
             <div className="terms-card__wrapp">
               <span className="terms-card__name">{payMethods[4]}</span>
               <span className="terms-card__icon sprite">
-                <Icon id="icon17" width={56} height={56} />
+                <Icon id="gps-tracker" width={56} height={56} />
               </span>
             </div>
           </div>

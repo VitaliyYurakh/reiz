@@ -164,7 +164,7 @@ export default async function CarPage({
                     <ul className="table-info">
                         <li className="table-info__item">
               <span className="sprite">
-                <Icon id={"icon1"} width={26} height={26}/>
+                <Icon id={"engine"} width={26} height={26}/>
               </span>
                             <span className="table-info__name">
                 {t("specifications.engine")}
@@ -173,7 +173,7 @@ export default async function CarPage({
                         </li>
                         <li className="table-info__item">
               <span className="sprite">
-                <Icon id={"icon2"} width={26} height={26}/>
+                <Icon id={"gearbox"} width={26} height={26}/>
               </span>
                             <span className="table-info__name">
                 {t("specifications.transmission")}
@@ -194,7 +194,7 @@ export default async function CarPage({
 
                         <li className="table-info__item">
               <span className="sprite">
-                <Icon id={"icon3"} width={26} height={26}/>
+                <Icon id={"drivetrain"} width={26} height={26}/>
               </span>
                             <span className="table-info__name">
                 {t("specifications.driveType")}
@@ -205,7 +205,7 @@ export default async function CarPage({
                         </li>
                         <li className="table-info__item">
               <span className="sprite">
-                <Icon id={"icon4"} width={26} height={26}/>
+                <Icon id={"seats"} width={26} height={26}/>
               </span>
                             <span className="table-info__name">
                 {t("specifications.seatsLabel")}
@@ -216,7 +216,7 @@ export default async function CarPage({
                         </li>
                         <li className="table-info__item">
               <span className="sprite">
-                <Icon id={"icon21"} width={26} height={26}/>
+                <Icon id={"calendar-detail"} width={26} height={26}/>
               </span>
                             <span className="table-info__name">
                 {t("specifications.year")}

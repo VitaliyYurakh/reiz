@@ -291,7 +291,7 @@ export default function Header({
                         <UiImage
                           width={26}
                           height={26}
-                          src="/img/icons/whatsapp_hover.svg"
+                          src="/img/icons/whatsapp-hover.svg"
                           alt="REIZ в WhatsApp"
                         />
                       </span>
@@ -307,7 +307,7 @@ export default function Header({
                         <UiImage
                           width={26}
                           height={26}
-                          src="/img/icons/Telegram_logo.svg"
+                          src="/img/icons/telegram.svg"
                           alt="REIZ в Telegram"
                         />
                       </span>
@@ -315,7 +315,7 @@ export default function Header({
                         <UiImage
                           width={26}
                           height={26}
-                          src="/img/icons/tg_hover.svg"
+                          src="/img/icons/telegram-hover.svg"
                           alt="REIZ в Telegram"
                         />
                       </span>
@@ -331,7 +331,7 @@ export default function Header({
                         <UiImage
                           width={26}
                           height={26}
-                          src="/img/icons/ingsta.svg"
+                          src="/img/icons/instagram-color.svg"
                           alt="REIZ в Instagram"
                         />
                       </span>
@@ -339,7 +339,7 @@ export default function Header({
                         <UiImage
                           width={26}
                           height={26}
-                          src="/img/icons/INST_hover.svg"
+                          src="/img/icons/instagram-hover.svg"
                           alt="REIZ в Instagram"
                         />
                       </span>

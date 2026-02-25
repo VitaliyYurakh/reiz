@@ -88,7 +88,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                       <UiImage
                         width={26}
                         height={26}
-                        src="/img/icons/whatsapp_hover.svg"
+                        src="/img/icons/whatsapp-hover.svg"
                         alt="WhatsApp"
                       />
                     </span>
@@ -104,7 +104,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                       <UiImage
                         width={26}
                         height={26}
-                        src="/img/icons/Telegram_logo.svg"
+                        src="/img/icons/telegram.svg"
                         alt="Telegram"
                       />
                     </span>
@@ -112,7 +112,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                       <UiImage
                         width={26}
                         height={26}
-                        src="/img/icons/tg_hover.svg"
+                        src="/img/icons/telegram-hover.svg"
                         alt="Telegram"
                       />
                     </span>
@@ -149,7 +149,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 <span className="footer__link ms">
                   <i className="sprite" aria-hidden="true">
                     <svg width="42" height="26">
-                      <use href="/img/sprite/sprite.svg?ver=15#ms"></use>
+                      <use href="/img/sprite/sprite.svg?ver=15#mastercard"></use>
                     </svg>
                   </i>
                   <span>MASTERCARD</span>
@@ -169,7 +169,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 <span className="footer__link pay">
                   <i className="sprite" aria-hidden="true">
                     <svg width="70" height="22">
-                      <use href="/img/sprite/sprite.svg?ver=14#pay"></use>
+                      <use href="/img/sprite/sprite.svg?ver=14#payment"></use>
                     </svg>
                   </i>
                   <span>UNIONPAY</span>
@@ -194,8 +194,8 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                         focusable="false"
                       >
                         <use
-                          href="/img/sprite/sprite.svg?ver=14#fb"
-                          xlinkHref="/img/sprite/sprite.svg?ver=14#fb"
+                          href="/img/sprite/sprite.svg?ver=14#facebook"
+                          xlinkHref="/img/sprite/sprite.svg?ver=14#facebook"
                         />
                       </svg>
                     </i>
@@ -211,8 +211,8 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                         focusable="false"
                       >
                         <use
-                          href="/img/sprite/sprite.svg?ver=14#fb"
-                          xlinkHref="/img/sprite/sprite.svg?ver=14#fb"
+                          href="/img/sprite/sprite.svg?ver=14#facebook"
+                          xlinkHref="/img/sprite/sprite.svg?ver=14#facebook"
                         />
                       </svg>
                     </i>
@@ -237,8 +237,8 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                       focusable="false"
                     >
                       <use
-                        href="/img/sprite/sprite.svg?ver=14#inst"
-                        xlinkHref="/img/sprite/sprite.svg?ver=14#inst"
+                        href="/img/sprite/sprite.svg?ver=14#instagram"
+                        xlinkHref="/img/sprite/sprite.svg?ver=14#instagram"
                       />
                     </svg>
                   </i>

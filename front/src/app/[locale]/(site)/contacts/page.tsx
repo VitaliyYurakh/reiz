@@ -78,7 +78,7 @@ export default async function ContactsPage() {
                     className="contacts-section__detail"
                   >
                     <i className="sprite">
-                      <Icon id="geo2" width={17} height={17} />
+                      <Icon id="geo-alt" width={17} height={17} />
                     </i>
                     {office.address}
                   </a>
@@ -92,7 +92,7 @@ export default async function ContactsPage() {
 
                   <span className="contacts-section__detail">
                     <i className="sprite">
-                      <Icon id="clock2" width={17} height={17} />
+                      <Icon id="clock-alt" width={17} height={17} />
                     </i>
                     {office.hours}
                   </span>
@@ -129,7 +129,7 @@ export default async function ContactsPage() {
                     <UiImage
                       width={26}
                       height={26}
-                      src="/img/icons/Telegram_logo.svg"
+                      src="/img/icons/telegram.svg"
                       alt="Telegram"
                     />
                     Telegram
@@ -143,7 +143,7 @@ export default async function ContactsPage() {
                     <UiImage
                       width={26}
                       height={26}
-                      src="/img/icons/viber-color-svgrepo-com.svg"
+                      src="/img/icons/viber-color.svg"
                       alt="Viber"
                     />
                     Viber
@@ -157,7 +157,7 @@ export default async function ContactsPage() {
                     <UiImage
                       width={26}
                       height={26}
-                      src="/img/icons/ingsta.svg"
+                      src="/img/icons/instagram-color.svg"
                       alt="Instagram"
                     />
                     Instagram
@@ -170,7 +170,7 @@ export default async function ContactsPage() {
                   rel="noopener noreferrer"
                   className="contacts-section__map-link"
                 >
-                  <Icon id="geo2" width={15} height={15} />
+                  <Icon id="geo-alt" width={15} height={15} />
                   {t("officesSection.mapButton")}
                 </a>
               </div>

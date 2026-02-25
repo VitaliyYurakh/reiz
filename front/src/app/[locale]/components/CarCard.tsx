@@ -342,7 +342,7 @@ export default function CarCard({ car }: CarCardProps) {
           <li className="car-card__item">
             <i className="sprite">
               <svg width="26" height="26">
-                <use href="/img/sprite/sprite.svg#icon1"></use>
+                <use href="/img/sprite/sprite.svg#engine"></use>
               </svg>
             </i>
             <span className="car-card__text">
@@ -355,7 +355,7 @@ export default function CarCard({ car }: CarCardProps) {
           <li className="car-card__item">
             <i className="sprite">
               <svg width="26" height="26">
-                <use href="/img/sprite/sprite.svg#icon2"></use>
+                <use href="/img/sprite/sprite.svg#gearbox"></use>
               </svg>
             </i>
             <span className="car-card__text">
@@ -372,7 +372,7 @@ export default function CarCard({ car }: CarCardProps) {
           <li className="car-card__item">
             <i className="sprite">
               <svg width="26" height="26">
-                <use href="/img/sprite/sprite.svg#icon3"></use>
+                <use href="/img/sprite/sprite.svg#drivetrain"></use>
               </svg>
             </i>
             <span className="car-card__text">{tCatalog("features.drive")}</span>
@@ -386,7 +386,7 @@ export default function CarCard({ car }: CarCardProps) {
           <li className="car-card__item">
             <i className="sprite">
               <svg width="26" height="26">
-                <use href="/img/sprite/sprite.svg#icon4"></use>
+                <use href="/img/sprite/sprite.svg#seats"></use>
               </svg>
             </i>
             <span className="car-card__text">

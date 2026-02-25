@@ -113,7 +113,7 @@ export default function InsuranceCoverage({
                 {f.included ? (
                   <Icon id={"check"} height={20} width={20} />
                 ) : (
-                  <Icon id={"cancel2"} width={10} height={10} />
+                  <Icon id={"cancel"} width={10} height={10} />
                 )}
               </span>
             </div>

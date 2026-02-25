@@ -29,7 +29,7 @@ export default function Rent() {
                     <li className="rent-card__item">
                       <i className="sprite">
                         <svg width="45" height="43">
-                          <use href="/img/sprite/sprite.svg#axes"></use>
+                          <use href="/img/sprite/sprite.svg#growth-chart"></use>
                         </svg>
                       </i>
                       {/** biome-ignore lint/security/noDangerouslySetInnerHtml: i18n */}
@@ -42,7 +42,7 @@ export default function Rent() {
                     <li className="rent-card__item">
                       <i className="sprite mode">
                         <svg width="53" height="53">
-                          <use href="/img/sprite/sprite.svg#money"></use>
+                          <use href="/img/sprite/sprite.svg#wallet"></use>
                         </svg>
                       </i>
                       {/** biome-ignore lint/security/noDangerouslySetInnerHtml: i18n */}
@@ -55,7 +55,7 @@ export default function Rent() {
                     <li className="rent-card__item">
                       <i className="sprite">
                         <svg width="41" height="41">
-                          <use href="/img/sprite/sprite.svg#icon"></use>
+                          <use href="/img/sprite/sprite.svg#crosshair"></use>
                         </svg>
                       </i>
                       {/** biome-ignore lint/security/noDangerouslySetInnerHtml: i18n */}
@@ -138,7 +138,7 @@ export default function Rent() {
                 <UiImage
                   width={220}
                   height={82}
-                  src="/img/icons/trip.svg"
+                  src="/img/icons/trustpilot.svg"
                   alt={t("reviews_block.trustpilot_aria")}
                 />
               </a>

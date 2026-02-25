@@ -82,7 +82,7 @@ export default async function InvestPage() {
             <li className="info-list__item">
               <span className="info-list__icon sprite">
                 <i className="sprite">
-                  <Icon id={"money"} width={47} height={47} />
+                  <Icon id={"wallet"} width={47} height={47} />
                 </i>
               </span>
               <p>{whyItems[1]}</p>
@@ -94,7 +94,7 @@ export default async function InvestPage() {
                   <UiImage
                     width={40}
                     height={40}
-                    src="/img/icons/setting.svg"
+                    src="/img/icons/settings.svg"
                     alt="icon"
                   />
                 </i>
@@ -158,7 +158,7 @@ export default async function InvestPage() {
             <li className="info-list__item">
               <span className="info-list__icon sprite">
                 <i className="sprite">
-                  <Icon id={"icong"} width={48} height={48} />
+                  <Icon id={"question-circle"} width={48} height={48} />
                 </i>
               </span>
               <p>{reqItems[3]}</p>
