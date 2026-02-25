@@ -34,7 +34,7 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
             <li className="swiper-slide">
               {/* Mobile hero image - LCP critical */}
               <UiImage
-                src="/img/mobreiz.webp"
+                src="/img/hero/hero-mobile.webp"
                 alt={`${cityData.h1} — Mercedes CLE | REIZ Rental Cars`}
                 width={1024}
                 height={1670}
@@ -46,7 +46,7 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
               />
               {/* Desktop hero image - LCP critical */}
               <UiImage
-                src="/img/car/mercedesclsbukovel (2).webp"
+                src="/img/hero/hero-desktop.webp"
                 alt={`${cityData.h1} — Mercedes CLE | REIZ Rental Cars`}
                 width={2500}
                 height={1685}

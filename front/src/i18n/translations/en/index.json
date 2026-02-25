@@ -186,7 +186,8 @@
       "pretitle": "WELCOME TO REIZ",
       "secondary_button": "Learn more",
       "secondary_title": "LIST YOUR CAR",
-      "title": "Car rental in Lviv"
+      "title": "Car rental in Lviv",
+      "hero_image_alt": "Car rental Lviv — Mercedes CLE in the Carpathians | REIZ"
     },
     "hero_slider_image_alt": "Car rental in Lviv — Mercedes CLE | REIZ Rental Cars",
     "meta": {
@@ -355,7 +356,8 @@
     "hero": {
       "title": "Rental Car Insurance",
       "text": "When choosing a rental car, it's important to plan for possible issues on the road. Our insurance packages help you reduce risks and protect yourself from extra expenses.",
-      "cta": "GET A CONSULTATION"
+      "cta": "GET A CONSULTATION",
+      "imageAlt": "Emergency warning sign near a car — REIZ rental car insurance"
     },
     "table": {
       "title": "PROTECTION PACKAGES — COMPARISON",
@@ -644,7 +646,8 @@
     "ctaBanner": {
       "title": "Special rates for long-term needs",
       "text": "Leave a request, we'll contact you shortly.",
-      "cta": "GET A QUOTE"
+      "cta": "GET A QUOTE",
+      "imageAlt": "Premium car for business — REIZ corporate rental"
     },
     "howItWorks": {
       "title": "HOW IT WORKS",
@@ -866,6 +869,9 @@
       "titleDesktop": "Gift certificates for car rental from REIZ",
       "titleMobile": "Give a car rental to the people who matter most",
       "subtitle": "A new experience is the best gift — and with REIZ it will be memorable."
+    },
+    "preview": {
+      "imageAlt": "REIZ gift certificate preview for car rental"
     },
     "driverRequirements": {
       "title": "DRIVER REQUIREMENTS",

@@ -186,7 +186,8 @@
       "pretitle": "WITAMY W REIZ",
       "secondary_button": "Dowiedz sie wiecej",
       "secondary_title": "ODDAJ SAMOCHOD",
-      "title": "Wynajem samochodow we Lwowie"
+      "title": "Wynajem samochodow we Lwowie",
+      "hero_image_alt": "Wynajem samochodów Lwów — Mercedes CLE w Karpatach | REIZ"
     },
     "hero_slider_image_alt": "Wynajem samochodow we Lwowie — Mercedes CLE | REIZ Rental Cars",
     "meta": {
@@ -355,7 +356,8 @@
     "hero": {
       "title": "Ubezpieczenie wynajmowanego samochodu",
       "text": "Przy wyborze samochodu na wynajem warto zaplanowac ewentualne problemy na drodze. Nasze pakiety ubezpieczeniowe pomagaja ograniczyc ryzyko i chronic przed dodatkowymi wydatkami.",
-      "cta": "UZYSKAJ KONSULTACJE"
+      "cta": "UZYSKAJ KONSULTACJE",
+      "imageAlt": "Znak ostrzegawczy przy samochodzie — ubezpieczenie wynajmu REIZ"
     },
     "table": {
       "title": "PAKIETY OCHRONNE — POROWNANIE",
@@ -644,7 +646,8 @@
     "ctaBanner": {
       "title": "Dla potrzeb dlugoterminowych — szczegolnie korzystne warunki",
       "text": "Zostaw zapytanie, skontaktujemy sie wkrotce.",
-      "cta": "OTRZYMAJ OFERTE"
+      "cta": "OTRZYMAJ OFERTE",
+      "imageAlt": "Samochód premium dla biznesu — wynajem korporacyjny REIZ"
     },
     "howItWorks": {
       "title": "JAK TO DZIALA",
@@ -866,6 +869,9 @@
       "titleDesktop": "Bony podarunkowe na wynajem samochodu od REIZ",
       "titleMobile": "Podaruj wynajem samochodu najblizszym",
       "subtitle": "Nowe doswiadczenie to najlepszy prezent — a z REIZ bedzie niezapomniane."
+    },
+    "preview": {
+      "imageAlt": "Podgląd certyfikatu podarunkowego REIZ na wynajem samochodu"
     },
     "driverRequirements": {
       "title": "WYMAGANIA DLA KIEROWCOW",

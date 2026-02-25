@@ -88,8 +88,8 @@ export default async function InsurancePage() {
       <div className="insurance-section__mob-hero">
         <HeroThemeColor />
         <img
-          src="/img/emergency-sign-with-black-car-background-2.webp"
-          alt=""
+          src="/img/insurance/insurance-hero-mobile.webp"
+          alt={t("hero.imageAlt")}
           className="insurance-section__mob-hero-img"
         />
         <div className="insurance-section__mob-hero-content">

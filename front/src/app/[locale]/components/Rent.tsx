@@ -16,7 +16,7 @@ export default function Rent() {
                     <UiImage
                       width={800}
                       height={420}
-                      src="/img/invest-car.webp"
+                      src="/img/home/card-invest.webp"
                       alt={t("rent.card1_image_alt")}
                       sizePreset="card"
                       quality={85}
@@ -78,7 +78,7 @@ export default function Rent() {
                     <UiImage
                       width={800}
                       height={420}
-                      src="/img/carterms.webp"
+                      src="/img/home/card-terms.webp"
                       alt={t("rent.card2_image_alt")}
                       sizePreset="card"
                       quality={85}
@@ -99,7 +99,7 @@ export default function Rent() {
                     <UiImage
                       width={800}
                       height={420}
-                      src="/img/faqimg.webp"
+                      src="/img/home/card-faq.webp"
                       alt={t("rent.card3_image_alt")}
                       sizePreset="card"
                       quality={85}

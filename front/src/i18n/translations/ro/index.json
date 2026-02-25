@@ -186,7 +186,8 @@
       "pretitle": "BINE AȚI VENIT LA REIZ",
       "secondary_button": "Află mai multe",
       "secondary_title": "LISTEAZĂ-ȚI MAȘINA",
-      "title": "Închiriere auto în Lviv"
+      "title": "Închiriere auto în Lviv",
+      "hero_image_alt": "Închiriere auto Lviv — Mercedes CLE în Carpați | REIZ"
     },
     "hero_slider_image_alt": "Închiriere auto în Lviv — Mercedes CLE | REIZ Rental Cars",
     "meta": {
@@ -355,7 +356,8 @@
     "hero": {
       "title": "Asigurarea mașinii închiriate",
       "text": "Când alegeți o mașină de închiriat, este important să planificați posibile probleme pe drum. Pachetele noastre de asigurare vă ajută să reduceți riscurile și să vă protejați de cheltuieli suplimentare.",
-      "cta": "SOLICITĂ O CONSULTARE"
+      "cta": "SOLICITĂ O CONSULTARE",
+      "imageAlt": "Semn de urgență lângă mașină — asigurare închiriere auto REIZ"
     },
     "table": {
       "title": "PACHETE DE PROTECȚIE — COMPARAȚIE",
@@ -644,7 +646,8 @@
     "ctaBanner": {
       "title": "Pentru nevoi pe termen lung — condiții deosebit de avantajoase",
       "text": "Lăsați o cerere, vă contactăm în curând.",
-      "cta": "OBȚINEȚI OFERTA"
+      "cta": "OBȚINEȚI OFERTA",
+      "imageAlt": "Mașină premium pentru afaceri — închiriere corporativă REIZ"
     },
     "howItWorks": {
       "title": "CUM FUNCȚIONEAZĂ",
@@ -866,6 +869,9 @@
       "titleDesktop": "Certificate cadou pentru închiriere auto de la REIZ",
       "titleMobile": "Dăruiește o închiriere auto celor dragi",
       "subtitle": "O experiență nouă este cel mai bun cadou — iar cu REIZ va fi memorabilă."
+    },
+    "preview": {
+      "imageAlt": "Previzualizare certificat cadou REIZ pentru închiriere auto"
     },
     "driverRequirements": {
       "title": "CERINȚE PENTRU ȘOFERI",

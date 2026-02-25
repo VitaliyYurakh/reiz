@@ -79,7 +79,7 @@ export default async function TermsPage() {
                 <UiImage
                   width={480}
                   height={270}
-                  src="/img/car/years-2.webp"
+                  src="/img/terms/age-requirement.webp"
                   alt={t("images.ageAlt")}
                   sizePreset="card"
                 />
@@ -94,7 +94,7 @@ export default async function TermsPage() {
                 <UiImage
                   width={480}
                   height={270}
-                  src="/img/car/mers2.webp"
+                  src="/img/terms/driving-experience.webp"
                   alt={t("images.experienceAlt")}
                   sizePreset="card"
                 />
@@ -113,7 +113,7 @@ export default async function TermsPage() {
                 <UiImage
                   width={480}
                   height={270}
-                  src="/img/car/ua.webp"
+                  src="/img/terms/documents-ukraine.webp"
                   alt={t("images.uaAlt")}
                   sizePreset="card"
                 />
@@ -135,7 +135,7 @@ export default async function TermsPage() {
                 <UiImage
                   width={480}
                   height={270}
-                  src="/img/car/visa.webp"
+                  src="/img/terms/documents-foreign.webp"
                   alt={t("images.visaAlt")}
                   sizePreset="card"
                 />
@@ -156,7 +156,7 @@ export default async function TermsPage() {
             <UiImage
               width={1000}
               height={440}
-              src="/img/car/macbook2.webp"
+              src="/img/terms/payment-methods.webp"
               alt={t("images.paymentAlt")}
               quality={100}
             />

@@ -183,7 +183,7 @@ export default async function CarPage({
               </span>
                         </li>
                         <li className="table-info__item">
-                            <UiImage src="/img/fuel-icon.png" width={23} height={23} alt={t("specifications.fuelIcon")} />
+                            <UiImage src="/img/cars/fuel-icon.png" width={23} height={23} alt={t("specifications.fuelIcon")} />
                             <span className="table-info__name">
                 {t("specifications.fuelConsumption")}
               </span>

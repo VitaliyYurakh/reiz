@@ -87,7 +87,7 @@ export default async function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/img/car/mercedesclsbukovel (2).webp"
+          href="/img/hero/hero-desktop.webp"
           type="image/webp"
           media="(min-width: 1025px)"
           fetchPriority="high"
@@ -96,7 +96,7 @@ export default async function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/img/mobreiz.webp"
+          href="/img/hero/hero-mobile.webp"
           type="image/webp"
           media="(max-width: 1024px)"
           fetchPriority="high"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useCallback, useState, useRef } from "react";
+import { useTranslations } from "next-intl";
 import UiImage from "@/components/ui/UiImage";
 import { lockScroll, unlockScroll } from "@/lib/utils/scroll";
 
@@ -10,6 +11,7 @@ type Props = {
 };
 
 export default function CertificatePreviewModal({ isOpen, onClose }: Props) {
+  const t = useTranslations("certificatePage");
   // Track visibility separately for animation
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -101,8 +103,8 @@ export default function CertificatePreviewModal({ isOpen, onClose }: Props) {
         {/* Certificate image */}
         <div className="cert-preview-modal__image">
           <UiImage
-            src="/img/certificate.webp"
-            alt="Certificate preview"
+            src="/img/certificate/certificate-preview.webp"
+            alt={t("preview.imageAlt")}
             width={800}
             height={600}
             priority

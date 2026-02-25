@@ -189,7 +189,7 @@ export default async function BusinessPage() {
                   <Image
                     className="business-cta__bg"
                     src="/img/business/valet-service.webp"
-                    alt=""
+                    alt={t("ctaBanner.imageAlt")}
                     width={1020}
                     height={680}
                     sizes="(max-width: 768px) 100vw, 1020px"

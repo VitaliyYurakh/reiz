@@ -17,8 +17,8 @@ export default async function HeroSection() {
             <li className="swiper-slide">
               {/* Mobile hero image - LCP critical */}
               <UiImage
-                src="/img/mobreiz.webp"
-                alt="Оренда авто Львів — Mercedes CLE | REIZ"
+                src="/img/hero/hero-mobile.webp"
+                alt={t("hero_image_alt")}
                 width={1024}
                 height={1670}
                 hero
@@ -29,8 +29,8 @@ export default async function HeroSection() {
               />
               {/* Desktop hero image - LCP critical */}
               <UiImage
-                src="/img/car/mercedesclsbukovel (2).webp"
-                alt="Оренда авто Львів — Mercedes CLE | REIZ"
+                src="/img/hero/hero-desktop.webp"
+                alt={t("hero_image_alt")}
                 width={2500}
                 height={1685}
                 hero
