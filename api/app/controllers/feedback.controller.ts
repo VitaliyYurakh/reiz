@@ -46,6 +46,20 @@ class FeedbackController {
         }
     }
 
+    async invest(req: Request, res: Response) {
+        try {
+            const result = await feedbackService.createInvestRequest(req.body);
+            return res.status(StatusCodes.CREATED).json({
+                success: true,
+                data: result,
+            });
+        } catch (error) {
+            logger.error(error);
+
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error.message});
+        }
+    }
+
     async rentsBusiness(req: Request, res: Response) {
         try {
             const result = await feedbackService.createBusinessRequest(req.body);

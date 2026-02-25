@@ -1627,6 +1627,10 @@
     "consent": "Klikajac przycisk \"Zloz zgloszenie\", akceptujesz warunki przetwarzania danych osobowych",
     "checkboxLabel": "Zapoznalem sie z warunkami przetwarzania danych osobowych",
     "submit": "Zloz zgloszenie",
+    "loading": "Wysylanie...",
+    "successTitle": "Dziekujemy!",
+    "successMessage": "Twoje zgloszenie zostalo przyjete. Skontaktujemy sie z Toba wkrotce.",
+    "errorMessage": "Blad wysylania. Sprobuj ponownie.",
     "closeAria": "Zamknij"
   },
   "carPage": {

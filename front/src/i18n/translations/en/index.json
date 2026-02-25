@@ -1627,6 +1627,10 @@
     "consent": "By clicking the «Submit a request» button, you accept the personal data processing terms",
     "checkboxLabel": "I have read the personal data processing terms",
     "submit": "Submit a request",
+    "loading": "Sending...",
+    "successTitle": "Thank you!",
+    "successMessage": "Your request has been received. We will contact you shortly.",
+    "errorMessage": "Failed to send. Please try again.",
     "closeAria": "Close"
   },
   "carPage": {

@@ -284,6 +284,32 @@ class TelegramService {
         return message;
     }
 
+    formatInvestRequest(data: any): string {
+        let message = `📊 <b>Запит на Розрахунок Дохідності</b>\n\n`;
+        message += `🚗 <b>Автомобіль:</b> ${data.car} ${data.model}\n`;
+
+        if (data.year) message += `📅 <b>Рік:</b> ${data.year}\n`;
+        if (data.transmission) message += `⚙️ <b>КПП:</b> ${data.transmission}\n`;
+        if (data.mileage) message += `🛣️ <b>Пробіг:</b> ${data.mileage}\n`;
+        if (data.color) message += `🎨 <b>Колір:</b> ${data.color}\n`;
+        if (data.complect) message += `📋 <b>Комплектація:</b> ${data.complect}\n`;
+
+        message += `\n👤 <b>Ім'я:</b> ${data.name}\n`;
+        message += `📞 <b>Телефон:</b> ${data.phone}\n`;
+        message += `📧 <b>Email:</b> ${data.email}\n`;
+
+        const date = new Date().toLocaleString('uk-UA', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+        });
+        message += `\n🕐 ${date}`;
+
+        return message;
+    }
+
     private getDaysWord(days: number): string {
         if (days % 10 === 1 && days % 100 !== 11) return 'день';
         if ([2, 3, 4].includes(days % 10) && ![12, 13, 14].includes(days % 100)) return 'дні';

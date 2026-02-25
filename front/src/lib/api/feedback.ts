@@ -45,6 +45,19 @@ interface BusinessRequestData {
   message?: string;
 }
 
+interface InvestRequestData {
+  car: string;
+  model: string;
+  transmission?: string;
+  mileage?: string;
+  year?: string;
+  color?: string;
+  complect?: string;
+  name: string;
+  phone: string;
+  email: string;
+}
+
 export async function submitBookingRequest(data: BookingRequestData): Promise<any> {
   const res = await fetch(`${API_URL}/feedback/bookings`, {
     method: "POST",
@@ -91,6 +104,23 @@ export async function submitCallbackRequest(data: CallbackRequestData): Promise<
 
   if (!res.ok) {
     throw new Error(`Submit callback request failed: ${res.status} ${res.statusText}`);
+  }
+
+  return res.json();
+}
+
+export async function submitInvestRequest(data: InvestRequestData): Promise<any> {
+  const res = await fetch(`${API_URL}/feedback/invest`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Submit invest request failed: ${res.status} ${res.statusText}`);
   }
 
   return res.json();

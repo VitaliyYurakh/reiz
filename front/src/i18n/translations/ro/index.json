@@ -1627,6 +1627,10 @@
     "consent": "Prin clic pe butonul «Trimite o cerere», acceptați condițiile de prelucrare a datelor personale",
     "checkboxLabel": "Am citit condițiile de prelucrare a datelor personale",
     "submit": "Trimite o cerere",
+    "loading": "Se trimite...",
+    "successTitle": "Mulțumim!",
+    "successMessage": "Cererea dvs. a fost primită. Vă vom contacta în curând.",
+    "errorMessage": "Eroare la trimitere. Încercați din nou.",
     "closeAria": "Închide"
   },
   "carPage": {

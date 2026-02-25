@@ -1,6 +1,6 @@
 "use client";
 
-import type { SyntheticEvent } from "react";
+import { useState, type SyntheticEvent } from "react";
 import { useTranslations } from "next-intl";
 import { useInvestModal } from "@/app/[locale]/(site)/invest/components/modals";
 import CustomSelect from "@/app/[locale]/components/CustomSelect";
@@ -9,12 +9,27 @@ export default function InvestForm() {
   const t = useTranslations("investPage");
   const transmissionOptions = t.raw("form.transmissionOptions") as string[];
   const invest = useInvestModal("confirm");
+  const [transmission, setTransmission] = useState<string | null>(null);
 
   const openInvest = (e: SyntheticEvent<HTMLFormElement, SubmitEvent>) => {
     e.preventDefault();
-    invest.open({ plan: "pro" }, (result) => {
-      console.log("invest result", result);
-    });
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    const formData = {
+      car: (fd.get("car") as string) || "",
+      model: (fd.get("model") as string) || "",
+      transmission: transmission || undefined,
+      mileage: (fd.get("milliage") as string) || undefined,
+      year: (fd.get("year") as string) || undefined,
+      color: (fd.get("color") as string) || undefined,
+      complect: (fd.get("complect") as string) || undefined,
+      name: (fd.get("name") as string) || "",
+      phone: (fd.get("phone") as string) || "",
+      email: (fd.get("mail") as string) || "",
+    };
+
+    invest.open({ formData });
   };
 
   return (
@@ -26,6 +41,7 @@ export default function InvestForm() {
           id="car"
           placeholder={t("form.placeholders.car")}
           className="main-form__input"
+          required
         />
       </label>
 
@@ -36,6 +52,7 @@ export default function InvestForm() {
           id="model"
           placeholder={t("form.placeholders.model")}
           className="main-form__input"
+          required
         />
       </label>
 
@@ -43,6 +60,8 @@ export default function InvestForm() {
         <CustomSelect
           options={transmissionOptions}
           placeholder={t("form.placeholders.transmission")}
+          value={transmission}
+          onChange={setTransmission}
         />
 
         <label className="main-form__label">
@@ -93,6 +112,7 @@ export default function InvestForm() {
           id="name"
           placeholder={t("form.placeholders.name")}
           className="main-form__input"
+          required
         />
       </label>
 
@@ -103,6 +123,7 @@ export default function InvestForm() {
           id="phone"
           placeholder={t("form.placeholders.phone")}
           className="main-form__input"
+          required
         />
       </label>
 
@@ -113,6 +134,7 @@ export default function InvestForm() {
           id="mail"
           placeholder={t("form.placeholders.mail")}
           className="main-form__input"
+          required
         />
       </label>
 

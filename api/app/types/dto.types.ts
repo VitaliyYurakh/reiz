@@ -94,6 +94,19 @@ type BusinessRequestDto = {
     message?: string;
 };
 
+type InvestRequestDto = {
+    car: string;
+    model: string;
+    transmission?: string;
+    mileage?: string;
+    year?: string;
+    color?: string;
+    complect?: string;
+    name: string;
+    phone: string;
+    email: string;
+};
+
 export {
     CreateCarDto,
     UpdateCarDto,
@@ -105,4 +118,5 @@ export {
     ContactRequestDto,
     CallbackRequestDto,
     BusinessRequestDto,
+    InvestRequestDto,
 };

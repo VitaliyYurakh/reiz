@@ -7,6 +7,7 @@ import {
     ContactRequestDto,
     CallbackRequestDto,
     BusinessRequestDto,
+    InvestRequestDto,
 } from '../types/dto.types';
 
 class FeedbackService {
@@ -173,6 +174,47 @@ class FeedbackService {
             return businessRequest;
         } catch (error) {
             logger.error(`Failed to create business request: ${error.message}`);
+            throw error;
+        }
+    }
+    async createInvestRequest(data: InvestRequestDto) {
+        try {
+            const carInfo = [
+                `${data.car} ${data.model}`,
+                data.year && `Рік: ${data.year}`,
+                data.transmission && `КПП: ${data.transmission}`,
+                data.mileage && `Пробіг: ${data.mileage}`,
+                data.color && `Колір: ${data.color}`,
+                data.complect && `Комплектація: ${data.complect}`,
+            ].filter(Boolean).join(', ');
+
+            const businessRequest = await prisma.businessRequest.create({
+                data: {
+                    name: data.name,
+                    phone: data.phone,
+                    email: data.email,
+                    message: `[Інвестиція] ${carInfo}`,
+                    telegramSent: false,
+                },
+            });
+
+            try {
+                const message = telegramService.formatInvestRequest(data);
+                const sent = await telegramService.sendMessage(message);
+
+                if (sent) {
+                    await prisma.businessRequest.update({
+                        where: {id: businessRequest.id},
+                        data: {telegramSent: true},
+                    });
+                }
+            } catch (error) {
+                logger.error(`Failed to send Telegram notification for invest request ${businessRequest.id}: ${error.message}`);
+            }
+
+            return businessRequest;
+        } catch (error) {
+            logger.error(`Failed to create invest request: ${error.message}`);
             throw error;
         }
     }
