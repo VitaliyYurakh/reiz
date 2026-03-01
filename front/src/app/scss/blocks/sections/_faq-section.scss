@@ -222,6 +222,10 @@
             padding-bottom: 25px;
             margin-bottom: 8px;
         }
+
+        .acc__item:last-of-type {
+            border-bottom: none;
+        }
     }
 
     @include tablet {
