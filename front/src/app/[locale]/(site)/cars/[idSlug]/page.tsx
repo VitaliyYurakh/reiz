@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
-import UiImage from "@/components/ui/UiImage";
 import {Link, type Locale, defaultLocale} from "@/i18n/request";
 import {
   OG_LOCALE,
@@ -183,7 +182,9 @@ export default async function CarPage({
               </span>
                         </li>
                         <li className="table-info__item">
-                            <UiImage src="/img/cars/fuel-icon.png" width={23} height={23} alt={t("specifications.fuelIcon")} />
+              <span className="sprite">
+                <Icon id={"fuel"} width={26} height={26}/>
+              </span>
                             <span className="table-info__name">
                 {t("specifications.fuelConsumption")}
               </span>
@@ -232,25 +233,14 @@ export default async function CarPage({
             content: (
                 <div className="editor">
                     <h2>{t("equipmentTitle", {carName: carDisplayName})}</h2>
-                    <p style={{display: "flex", flexWrap: "wrap", gap: "8px"}}>
+                    <ul className="equipment-list">
                         {(car.configuration || []).map((el) => (
-                            <span
-                                key={el.ru}
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    backgroundColor: "#e0e0e0",
-                                    padding: "6px 12px",
-                                    borderRadius: "12px",
-                                    fontSize: "14px",
-                                    gap: "3px",
-                                }}
-                            >
-                <Icon id={"checkmark"} width={20} height={20}/>
+                            <li key={el.ru} className="equipment-list__item">
+                                <Icon id={"checkmark"} width={20} height={20}/>
                                 {localized(el, locale) || "-"}
-              </span>
+                            </li>
                         ))}
-                    </p>
+                    </ul>
                 </div>
             ),
         },
@@ -329,22 +319,24 @@ export default async function CarPage({
             <ThemeColorSetter />
             <div className="container">
                 <div className="single-section__box">
-                    <ul
-                        className="breadcrumbs"
-                        data-aos="fade-right"
-                        data-aos-duration="900"
-                        data-aos-delay="400"
-                    >
-                        <li>
-                            <Link href="/">{t("breadcrumbs.home")}</Link>
-                        </li>
-                        <li>
-                            <Link href="/#catalog">{t("breadcrumbs.cars")}</Link>
-                        </li>
-                        <li>
-                            {car.brand} {car.model} {car.yearOfManufacture}
-                        </li>
-                    </ul>
+                    <nav aria-label="Breadcrumb">
+                        <ul
+                            className="breadcrumbs"
+                            data-aos="fade-right"
+                            data-aos-duration="900"
+                            data-aos-delay="400"
+                        >
+                            <li>
+                                <Link href="/">{t("breadcrumbs.home")}</Link>
+                            </li>
+                            <li>
+                                <Link href="/#catalog">{t("breadcrumbs.cars")}</Link>
+                            </li>
+                            <li aria-current="page">
+                                {car.brand} {car.model} {car.yearOfManufacture}
+                            </li>
+                        </ul>
+                    </nav>
 
                     <div className="single-section__inner">
                         <h1
@@ -365,6 +357,9 @@ export default async function CarPage({
                                 group={"1"}
                                 pcItems={PCImages}
                                 mobileItems={mobileImages}
+                                ariaLabel={t("gallery.ariaLabel", { brand: car.brand ?? "", model: car.model ?? "" })}
+                                prevSlideLabel={t("gallery.prevSlide")}
+                                nextSlideLabel={t("gallery.nextSlide")}
                             />
 
                             <CarTabs
@@ -380,9 +375,6 @@ export default async function CarPage({
                             <CarAside car={{...car, description: null}}/>
                         </CarClientProvider>
 
-                        <div className="main-order-wrapper rentPage">
-                            <div className="main-order"></div>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -1659,7 +1659,12 @@
       "year": "Anul fabricației"
     },
     "equipmentTitle": "Dotări „{carName}”",
-    "imageAlt": "Închiriază {brand} {model} în Lviv"
+    "imageAlt": "Închiriază {brand} {model} în Lviv",
+    "gallery": {
+      "ariaLabel": "Galerie foto {brand} {model}",
+      "prevSlide": "Slide-ul anterior",
+      "nextSlide": "Slide-ul următor"
+    }
   },
   "carAside": {
     "rentalPeriodTitle": "Perioada de închiriere „{brand} {model} {year}”",

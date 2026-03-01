@@ -19,6 +19,14 @@ const COVERAGE_TO_PLAN_INDEX: Record<CoverageOption, number> = {
   coverage100: 2,
 };
 
+const getPlanIdForCoverage = (
+  rules: CarCountingRule[],
+  coverage: CoverageOption,
+) => {
+  const planIndex = COVERAGE_TO_PLAN_INDEX[coverage] ?? 0;
+  return rules[planIndex]?.id || rules[0]?.id || 0;
+};
+
 export default function CarAside({ car }: { car: Car }) {
   const { open } = useCarModal("rent");
   const { open: openDateSelect } = useCarModal("rangeDateTimePicker");
@@ -37,10 +45,8 @@ export default function CarAside({ car }: { car: Car }) {
   } = useRentalSearch();
 
   // Initialize plan from context coverage option
-  const getInitialPlanId = () => {
-    const planIndex = COVERAGE_TO_PLAN_INDEX[coverageOption] ?? 0;
-    return car.carCountingRule[planIndex]?.id || car.carCountingRule[0]?.id || 0;
-  };
+  const getInitialPlanId = () =>
+    getPlanIdForCoverage(car.carCountingRule, coverageOption);
 
   const [selectedPlanId, setSelectedPlanId] = useState<number>(getInitialPlanId);
 
@@ -69,13 +75,11 @@ export default function CarAside({ car }: { car: Car }) {
 
   useEffect(() => {
     setIsMounted(true);
-    const update = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
+    const media = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(media.matches);
     update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
   }, []);
 
   // Update dates when context changes
@@ -90,8 +94,7 @@ export default function CarAside({ car }: { car: Car }) {
 
   // Update plan when coverage option changes
   useEffect(() => {
-    const planIndex = COVERAGE_TO_PLAN_INDEX[coverageOption] ?? 0;
-    const newPlanId = car.carCountingRule[planIndex]?.id || car.carCountingRule[0]?.id || 0;
+    const newPlanId = getPlanIdForCoverage(car.carCountingRule, coverageOption);
     setSelectedPlanId(newPlanId);
   }, [coverageOption, car.carCountingRule]);
 
@@ -175,16 +178,45 @@ export default function CarAside({ car }: { car: Car }) {
   const pricePercent = selectedPlan?.pricePercent ?? 0;
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
-  const dailyPriceBeforeDiscount = activeTariff!.dailyPrice * (1 + pricePercent / 100);
   const discountPercent = car.discount ?? 0;
-  const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
-  const hasDiscount = discountPercent > 0;
 
-  const depositAmount =
-    (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100);
-  // const totalPrice = dailyPrice * totalDays + depositAmount;
-  const totalPrice = dailyPrice * totalDays;
-  const clubPrice = totalPrice * 0.9;
+  const pricing = useMemo(() => {
+    if (!activeTariff) return { dailyBeforeDiscount: 0, daily: 0, deposit: 0, total: 0, club: 0, hasDiscount: false };
+    const baseDaily = activeTariff.dailyPrice;
+    const dailyBeforeDiscount = baseDaily * (1 + pricePercent / 100);
+    const daily = Math.round(
+      dailyBeforeDiscount * (1 - discountPercent / 100),
+    );
+    const deposit = (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100);
+    const total = daily * totalDays;
+    return {
+      dailyBeforeDiscount,
+      daily,
+      deposit,
+      total,
+      club: total * 0.9,
+      hasDiscount: discountPercent > 0,
+    };
+  }, [
+    activeTariff,
+    pricePercent,
+    discountPercent,
+    depositPercent,
+    totalDays,
+  ]);
+
+  const dailyPriceBeforeDiscount = pricing.dailyBeforeDiscount;
+  const dailyPrice = pricing.daily;
+  const hasDiscount = pricing.hasDiscount;
+  const depositAmount = pricing.deposit;
+  const totalPrice = pricing.total;
+  const clubPrice = pricing.club;
+
+  const dateRangeLabel = useMemo(
+    () =>
+      `${formatFull(selectedDate.startDate)} ${t("rangeSeparator")} ${formatFull(selectedDate.endDate)}`,
+    [selectedDate.endDate, selectedDate.startDate, t],
+  );
   const formatTariffRange = (minDays: number, maxDays: number) => {
     if (minDays === maxDays) {
       return t("tariffs.exact", { count: minDays });
@@ -224,7 +256,7 @@ export default function CarAside({ car }: { car: Car }) {
         >
           <input
             type="text"
-            value={`${formatFull(selectedDate.startDate)} ${t("rangeSeparator")} ${formatFull(selectedDate.endDate)}`}
+            value={dateRangeLabel}
             readOnly={true}
           />
           <span className="selectedDays">
@@ -272,8 +304,7 @@ export default function CarAside({ car }: { car: Car }) {
                       {formatPrice(priceBeforeDiscount)}
                     </span>
                   )}
-                  {formatPrice(finalPrice)}
-                  /day
+                  {t("tariffs.pricePerDay", { price: formatPrice(finalPrice) })}
                 </span>
               </li>
             );
@@ -284,13 +315,16 @@ export default function CarAside({ car }: { car: Car }) {
       <div className="single-form__info">
         <span className="single-form__name">
           {t("depositLabel")}
-          <div
+          <span
+            role="button"
+            tabIndex={0}
+            aria-label={t("depositLabel")}
             style={{ cursor: "pointer" }}
             className="single-form__label"
             data-tooltip-id="deposit-tooltip"
           >
             i
-          </div>
+          </span>
         </span>
         <span className="single-form__value single-form__value--nowrap">
           {formatDeposit(depositAmount)}
@@ -299,13 +333,16 @@ export default function CarAside({ car }: { car: Car }) {
       <div className="single-form__info mode">
         <span className="single-form__name">
           {t("clubPriceLabel")}
-          <div
+          <span
+            role="button"
+            tabIndex={0}
+            aria-label={t("clubPriceLabel")}
             style={{ cursor: "pointer" }}
             className="single-form__label"
             data-tooltip-id="my-tooltip"
           >
             i
-          </div>
+          </span>
         </span>
         <span className="single-form__value">
           <span className="text-strong">{formatPrice(clubPrice)}</span>
@@ -366,19 +403,22 @@ export default function CarAside({ car }: { car: Car }) {
           <span className="single-form__quest">
             <span className="text-strong">{t("requirements.age.title")}</span>
             {t("requirements.age.value", {
-              age: car.segment[0].driverAge,
+              age: car.segment?.[0]?.driverAge ?? 21,
             })}
           </span>
           <span className="single-form__quest">
             <span className="text-strong">{t("requirements.experience.title")}</span>
             {t("requirements.experience.value", {
-              years: car.segment[0].experience,
+              years: car.segment?.[0]?.experience ?? 2,
             })}
           </span>
           <span className="single-form__quest">
             <span className="text-strong" style={{ display: "flex", alignItems: "center", gap: "5px" }}>
               {t("requirements.mileage.title", { count: totalDays })}
               <span
+                role="button"
+                tabIndex={0}
+                aria-label={t("requirements.mileage.title", { count: totalDays })}
                 style={{ cursor: "pointer" }}
                 className="single-form__label"
                 data-tooltip-id="overdrive-tooltip"
@@ -441,7 +481,7 @@ export default function CarAside({ car }: { car: Car }) {
                 // biome-ignore lint/security/noDangerouslySetInnerHtml: <3>
                 dangerouslySetInnerHTML={{
                   __html: t("tooltips.overdrive", {
-                    price: car.segment[0].overmileagePrice,
+                    price: car.segment?.[0]?.overmileagePrice ?? 0,
                   }),
                 }}
               />

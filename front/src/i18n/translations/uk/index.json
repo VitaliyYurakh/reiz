@@ -113,10 +113,10 @@
           "contact": "Дізнатись наявність"
         },
         "rates": {
-          "range1": "1 – 2 дні",
-          "range2": "3 – 7 днів",
-          "range3": "8 – 29 днів",
-          "range4": "29+ днів",
+          "range1": "1 – 2 доби",
+          "range2": "3 – 7 діб",
+          "range3": "8 – 29 діб",
+          "range4": "29+ діб",
           "perDay": "доба"
         },
         "features": {
@@ -1637,22 +1637,27 @@
       "year": "Рік випуску"
     },
     "equipmentTitle": "Комплектація \"{carName}\"",
-    "imageAlt": "Оренда {brand} {model} у Львові"
+    "imageAlt": "Оренда {brand} {model} у Львові",
+    "gallery": {
+      "ariaLabel": "Галерея фото {brand} {model}",
+      "prevSlide": "Попередній слайд",
+      "nextSlide": "Наступний слайд"
+    }
   },
   "carAside": {
     "rentalPeriodTitle": "Період оренди “{brand} {model} {year}”",
     "rangeSeparator": "до",
-    "selectedDays": "{count, plural, one {{count} день} few {{count} дні} many {{count} днів} other {{count} днів}}",
+    "selectedDays": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
     "rentalCostTitle": "Вартість оренди",
     "plans": {
       "withDeposit": "З заставою",
       "coverage": "Покриття {percent}%"
     },
     "tariffs": {
-      "exact": "{count, plural, one {{count} день} few {{count} дні} many {{count} днів} other {{count} днів}}",
-      "more": "{count, plural, one {Більше {count} дня} few {Більше {count} днів} many {Більше {count} днів} other {Більше {count} днів}}",
-      "range": "{min} — {max} днів",
-      "pricePerDay": "{price} USD/день"
+      "exact": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
+      "more": "{count, plural, one {Більше {count} доби} few {Більше {count} діб} many {Більше {count} діб} other {Більше {count} діб}}",
+      "range": "{min} — {max} діб",
+      "pricePerDay": "{price} USD/доба"
     },
     "depositLabel": "Застава",
     "currency": "{value} USD",
@@ -1673,7 +1678,7 @@
         "value": "Від {years} років стажу"
       },
       "mileage": {
-        "title": "Обмеження пробігу ({count, plural, one {{count} день} few {{count} дні} many {{count} днів} other {{count} днів}})",
+        "title": "Обмеження пробігу ({count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}})",
         "value": "{limit} км"
       }
     },
@@ -1709,7 +1714,7 @@
       "timeLabel": "Час повернення"
     },
     "notSelected": "...",
-    "duration": "{count, plural, one {{count} день} few {{count} дні} many {{count} днів} other {{count} днів}}",
+    "duration": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
     "confirm": "Підтвердити",
     "close": "Закрити",
     "prevMonth": "Попередній місяць",
@@ -1741,7 +1746,7 @@
       "pickupPlaceholder": "Місце подачі",
       "returnPlaceholder": "Місце повернення",
       "datesLabel": "Дати оренди",
-      "selectedDays": "{count, plural, one {{count} день} few {{count} дні} many {{count} днів} other {{count} днів}}",
+      "selectedDays": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "flightNumber": "Номер рейсу",
       "flightOptional": "Необов'язково"
     },
@@ -1802,7 +1807,7 @@
       "pickupLabel": "Отримання автомобіля",
       "returnLabel": "Повернення автомобіля",
       "durationLabel": "Тривалість оренди",
-      "durationValue": "{count, plural, one {{count} день} few {{count} дні} many {{count} днів} other {{count} днів}}",
+      "durationValue": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "rateLabel": "Тариф",
       "pricePerDay": "{formattedPrice}/доба",
       "addOnsLabel": "Доповнення",
@@ -1823,8 +1828,8 @@
   },
   "carRentPage": {
     "meta": {
-      "title": "Забронювати {carName} — від {price}$/день",
-      "description": "Оформіть оренду {carName} онлайн. Від {price}$/день, страховка включена, подача за адресою 24/7."
+      "title": "Забронювати {carName} — від {price}$/доба",
+      "description": "Оформіть оренду {carName} онлайн. Від {price}$/доба, страховка включена, подача за адресою 24/7."
     },
     "breadcrumbs": {
       "home": "Головна",
@@ -1874,7 +1879,7 @@
       "footer": {
         "deposit": "Застава",
         "pricePerDay": " / доба",
-        "total": "Разом за дні"
+        "total": "Разом за доби"
       }
     },
     "addOns": {
@@ -1921,7 +1926,7 @@
       "pickupLabel": "Отримання автомобіля",
       "returnLabel": "Повернення автомобіля",
       "durationLabel": "Тривалість оренди",
-      "durationValue": "{count, plural, one {{count} день} few {{count} дні} many {{count} днів} other {{count} днів}}",
+      "durationValue": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "rateLabel": "Тариф",
       "pricePerDay": "{formattedPrice}/доба",
       "addOnsLabel": "Доповнення",

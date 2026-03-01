@@ -8,6 +8,10 @@
   border-radius: 16px;
   display: flex;
 
+  @include small-tablet {
+    border-radius: 22px;
+  }
+
   &__card{
     width: 100%;
     height: 100%;
@@ -29,11 +33,11 @@
     }
 
     @include tablet{
-       height: clamp(410px, 48.24vw, 494px)!important;;
+       height: clamp(410px, 48.24vw, 494px) !important;
     }
 
     @include ios{
-      height: initial!important;;
+      height: initial !important;
       aspect-ratio: 1;
     }
   }
@@ -44,13 +48,17 @@
       position: absolute;
       right: 0;
       bottom: 0;
-      border-radius: 0 0 16px 0;
+      border-radius: 0 0 16px 16px;
       height: 51px;
       border-color: #d8d8d8;
       justify-content: flex-end;
       display: flex;
       align-items: center;
       width: 100%;
+
+      @include small-tablet {
+        border-radius: 0 0 22px 22px;
+      }
     }
 
     &-btn {

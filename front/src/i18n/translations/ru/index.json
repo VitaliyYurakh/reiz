@@ -113,10 +113,10 @@
           "contact": "Узнать наличие"
         },
         "rates": {
-          "range1": "1 – 2 дня",
-          "range2": "3 – 7 дней",
-          "range3": "8 – 29 дней",
-          "range4": "29+ дней",
+          "range1": "1 – 2 суток",
+          "range2": "3 – 7 суток",
+          "range3": "8 – 29 суток",
+          "range4": "29+ суток",
           "perDay": "сутки"
         },
         "features": {
@@ -1655,22 +1655,27 @@
       "year": "Год выпуска"
     },
     "equipmentTitle": "Комплектация \"{carName}\"",
-    "imageAlt": "Аренда {brand} {model} во Львове"
+    "imageAlt": "Аренда {brand} {model} во Львове",
+    "gallery": {
+      "ariaLabel": "Галерея фото {brand} {model}",
+      "prevSlide": "Предыдущий слайд",
+      "nextSlide": "Следующий слайд"
+    }
   },
   "carAside": {
     "rentalPeriodTitle": "Период аренды “{brand} {model} {year}”",
     "rangeSeparator": "до",
-    "selectedDays": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
+    "selectedDays": "{count, plural, one {{count} сутки} few {{count} суток} many {{count} суток} other {{count} суток}}",
     "rentalCostTitle": "Стоимость аренды",
     "plans": {
       "withDeposit": "С залогом",
       "coverage": "Покрытие {percent}%"
     },
     "tariffs": {
-      "exact": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
-      "more": "{count, plural, one {Более {count} дня} few {Более {count} дней} many {Более {count} дней} other {Более {count} дней}}",
-      "range": "{min} — {max} дней",
-      "pricePerDay": "{price} USD/день"
+      "exact": "{count, plural, one {{count} сутки} few {{count} суток} many {{count} суток} other {{count} суток}}",
+      "more": "{count, plural, one {Более {count} суток} few {Более {count} суток} many {Более {count} суток} other {Более {count} суток}}",
+      "range": "{min} — {max} суток",
+      "pricePerDay": "{price} USD/сутки"
     },
     "depositLabel": "Залог",
     "currency": "{value} USD",
@@ -1691,7 +1696,7 @@
         "value": "От {years} лет стажа вождения"
       },
       "mileage": {
-        "title": "{count, plural, one {Ограничение пробега ({count} день)} few {Ограничение пробега ({count} дня)} many {Ограничение пробега ({count} дней)} other {Ограничение пробега ({count} дней)}}",
+        "title": "{count, plural, one {Ограничение пробега ({count} сутки)} few {Ограничение пробега ({count} суток)} many {Ограничение пробега ({count} суток)} other {Ограничение пробега ({count} суток)}}",
         "value": "{limit} км"
       }
     },
@@ -1727,7 +1732,7 @@
       "timeLabel": "Время возврата"
     },
     "notSelected": "...",
-    "duration": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
+    "duration": "{count, plural, one {{count} сутки} few {{count} суток} many {{count} суток} other {{count} суток}}",
     "confirm": "Подтвердить",
     "close": "Закрыть",
     "prevMonth": "Предыдущий месяц",
@@ -1759,7 +1764,7 @@
       "pickupPlaceholder": "Место подачи",
       "returnPlaceholder": "Место возврата",
       "datesLabel": "Даты аренды",
-      "selectedDays": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
+      "selectedDays": "{count, plural, one {{count} сутки} few {{count} суток} many {{count} суток} other {{count} суток}}",
       "flightNumber": "Номер рейса",
       "flightOptional": "Необязательно"
     },
@@ -1820,7 +1825,7 @@
       "pickupLabel": "Получение автомобиля",
       "returnLabel": "Возврат автомобиля",
       "durationLabel": "Продолжительность аренды",
-      "durationValue": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
+      "durationValue": "{count, plural, one {{count} сутки} few {{count} суток} many {{count} суток} other {{count} суток}}",
       "rateLabel": "Тариф",
       "pricePerDay": "{formattedPrice}/сутки",
       "addOnsLabel": "Дополнения",
@@ -1841,8 +1846,8 @@
   },
   "carRentPage": {
     "meta": {
-      "title": "Забронировать {carName} — от {price}$/день",
-      "description": "Оформите аренду {carName} онлайн. От {price}$/день, страховка включена, подача по адресу 24/7."
+      "title": "Забронировать {carName} — от {price}$/сутки",
+      "description": "Оформите аренду {carName} онлайн. От {price}$/сутки, страховка включена, подача по адресу 24/7."
     },
     "breadcrumbs": {
       "home": "Главная",
@@ -1892,7 +1897,7 @@
       "footer": {
         "deposit": "Залог",
         "pricePerDay": " / сутки",
-        "total": "Итого за дни"
+        "total": "Итого за сутки"
       }
     },
     "addOns": {
@@ -1939,7 +1944,7 @@
       "pickupLabel": "Получение автомобиля",
       "returnLabel": "Возврат автомобиля",
       "durationLabel": "Продолжительность аренды",
-      "durationValue": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
+      "durationValue": "{count, plural, one {{count} сутки} few {{count} суток} many {{count} суток} other {{count} суток}}",
       "rateLabel": "Тариф",
       "pricePerDay": "{formattedPrice}/сутки",
       "addOnsLabel": "Дополнения",

@@ -1659,7 +1659,12 @@
       "year": "Rok produkcji"
     },
     "equipmentTitle": "Wyposazenie \"{carName}\"",
-    "imageAlt": "Wynajem {brand} {model} we Lwowie"
+    "imageAlt": "Wynajem {brand} {model} we Lwowie",
+    "gallery": {
+      "ariaLabel": "Galeria zdjęć {brand} {model}",
+      "prevSlide": "Poprzedni slajd",
+      "nextSlide": "Następny slajd"
+    }
   },
   "carAside": {
     "rentalPeriodTitle": "Okres wynajmu \"{brand} {model} {year}\"",

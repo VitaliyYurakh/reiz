@@ -5,6 +5,11 @@
   padding: clamp(15px, 1.6176vw, 22px) 0 var(--default-padding);
   margin-bottom: 0;
 
+  // Mobile: add a little extra space so the last block doesn't sit under the footer
+  @include small-tablet {
+    padding-bottom: calc(var(--default-padding) + 40px);
+  }
+
   .breadcrumbs {
     @include for-mobile{
     position: relative;
@@ -81,14 +86,12 @@
       gap: clamp(11px, 1.8382vw, 25px);
 
       p {
-        ;
         font-weight: 400;
         font-size: 14px;
         line-height: 143%;
         color: #5e5e5e;
 
         @include tablet {
-          ;
           line-height: 157%;
           color: rgba(0, 0, 0, 0.7);
         }
@@ -125,7 +128,6 @@
   }
 
   &__btn {
-    ;
     font-weight: 500;
     font-size: 14px;
     text-align: center;
@@ -171,12 +173,10 @@
     .main-title {
       margin-bottom: clamp(11px, 1.1029vw, 15px);
       grid-column: 1/-1;
-      ;
       font-weight: 400;
       font-size: clamp(25px, 2.2794vw, 31px);
 
       @include small-tablet {
-        ;
         font-weight: 600;
         line-height: 132%;
         color: #212529;
@@ -199,5 +199,242 @@
 
   .single-form {
     background: #f3f3f3;
+  }
+
+  @include small-tablet {
+    &__tabs {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      gap: 0;
+    }
+
+    &__nav {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid #e7e7e7;
+      background: #ffffff;
+    }
+
+    &__nav .single-section__item {
+      width: 100%;
+    }
+
+    &__btn {
+      height: 44px;
+      min-width: 0;
+      width: 100%;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: #111111;
+      padding: 6px 10px;
+      background: transparent;
+    }
+
+    &__btn.active {
+      background: #0f0f0f;
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    &__content {
+      padding: 0;
+      background: transparent;
+      margin-top: 20px;
+    }
+
+    &__content .table-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border: 1px solid #e6e6e6;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #ffffff;
+      width: auto;
+      margin: 0;
+    }
+
+    &__content .table-info__item {
+      border-right: 1px solid #e6e6e6;
+      border-top: 1px solid #e6e6e6;
+      padding: 14px 12px;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      grid-template-rows: auto auto;
+      column-gap: 10px;
+      row-gap: 4px;
+      align-items: center;
+      height: auto;
+      min-height: 84px;
+      background: transparent;
+    }
+
+    &__content .table-info__item:nth-child(2n) {
+      border-right: none;
+    }
+
+    &__content .table-info__item:nth-child(-n + 2) {
+      border-top: none;
+    }
+
+    &__content .table-info__item img,
+    &__content .table-info__item .sprite {
+      width: 30px;
+      height: 30px;
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: center;
+      align-self: center;
+      color: #000000;
+      grid-row: 1 / span 2;
+    }
+
+    &__content .table-info__item img {
+      object-fit: contain;
+      width: 20px;
+      height: 20px;
+    }
+
+    &__content .table-info__item .sprite svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    &__content .table-info__name {
+      font-size: 13px;
+      line-height: 1.2;
+      color: #8b8b8b;
+      margin-bottom: 0;
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    &__content .table-info__value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111111;
+      line-height: 1.2;
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    &__content [data-tab-content="0"] .editor {
+      gap: 16px;
+    }
+
+    &__content [data-tab-content="0"] .editor h2 {
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #111111;
+      margin-bottom: 2px;
+    }
+
+    &__content [data-tab-content="0"] .editor p {
+      position: relative;
+      padding: 14px 16px 16px;
+      border-radius: 22px;
+      border: 1px solid #ececec;
+      background: linear-gradient(135deg, #ffffff 0%, #f6f6f6 100%);
+      color: #424242;
+      font-size: 15px;
+      line-height: 1.6;
+      overflow: hidden;
+    }
+
+    &__content [data-tab-content="0"] .editor p::before {
+      content: none;
+    }
+
+    &__content [data-tab-content="0"] .editor p::after {
+      content: "";
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(17, 17, 17, 0.08) 0%, rgba(17, 17, 17, 0) 70%);
+      pointer-events: none;
+    }
+
+    &__content [data-tab-content="0"] .table-info {
+      border: none;
+      background: transparent;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 2px;
+      overflow: visible;
+    }
+
+    &__content [data-tab-content="0"] .table-info__item {
+      border: 1px solid #e8e8e8;
+      border-radius: 22px;
+      background: #ffffff;
+      padding: 12px 12px 14px;
+      min-height: 92px;
+    }
+
+    &__content [data-tab-content="0"] .table-info__item:nth-child(2n),
+    &__content [data-tab-content="0"] .table-info__item:nth-child(-n + 2) {
+      border-right: 1px solid #e8e8e8;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    &__content [data-tab-content="0"] .table-info__item .sprite,
+    &__content [data-tab-content="0"] .table-info__item img {
+      width: 46px;
+      height: 46px;
+      border-radius: 0;
+      border: none;
+      background: transparent;
+    }
+
+    &__content [data-tab-content="0"] .table-info__item .sprite svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    &__content [data-tab-content="0"] .table-info__name {
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #7c7c7c;
+    }
+
+    &__content [data-tab-content="0"] .table-info__value {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111111;
+      line-height: 1.25;
+    }
+  }
+}
+
+.equipment-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    gap: 3px;
   }
 }

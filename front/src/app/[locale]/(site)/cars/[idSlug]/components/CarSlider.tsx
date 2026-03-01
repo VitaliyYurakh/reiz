@@ -43,11 +43,15 @@ export default function CarGallerySlider({
   mobileItems,
   group = "car-gallery-1",
   ariaLabel = "Галерея авто",
+  prevSlideLabel = "Попередній слайд",
+  nextSlideLabel = "Наступний слайд",
 }: {
   pcItems: Item[];
   mobileItems: Item[];
   group?: string;
   ariaLabel?: string;
+  prevSlideLabel?: string;
+  nextSlideLabel?: string;
 }) {
   const [swiperControl, setSwiperControl] = useState<SwiperClass | null>(null);
   const [isHydrated, setIsHydrated] = useState(false);
@@ -150,20 +154,22 @@ export default function CarGallerySlider({
         <button
           className="slider-btn prev"
           onClick={() => swiperControl?.slidePrev()}
-          aria-label="Попередній слайд"
+          type="button"
+          aria-label={prevSlideLabel}
         >
-          <i className="sprite">
+          <span className="sprite">
             <Icon id="arrow-d2" width={12} height={7} />
-          </i>
+          </span>
         </button>
         <button
           className="slider-btn next"
           onClick={() => swiperControl?.slideNext()}
-          aria-label="Наступний слайд"
+          type="button"
+          aria-label={nextSlideLabel}
         >
-          <i className="sprite">
+          <span className="sprite">
             <Icon id="arrow-d2" width={12} height={7} />
-          </i>
+          </span>
         </button>
       </div>
     </div>

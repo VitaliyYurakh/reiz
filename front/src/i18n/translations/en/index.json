@@ -1659,7 +1659,12 @@
       "year": "Year of manufacture"
     },
     "equipmentTitle": "Equipment \"{carName}\"",
-    "imageAlt": "Rent {brand} {model} in Lviv"
+    "imageAlt": "Rent {brand} {model} in Lviv",
+    "gallery": {
+      "ariaLabel": "Photo gallery of {brand} {model}",
+      "prevSlide": "Previous slide",
+      "nextSlide": "Next slide"
+    }
   },
   "carAside": {
     "rentalPeriodTitle": "Rental period “{brand} {model} {year}”",
