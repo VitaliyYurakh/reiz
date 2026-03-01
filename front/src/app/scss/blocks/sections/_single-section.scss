@@ -4,10 +4,6 @@
 .single-section {
   padding: clamp(15px, 1.6176vw, 22px) 0 20px;
 
-  @include mobile {
-    padding-bottom: 0;
-  }
-
   .breadcrumbs {
     @include for-mobile{
     position: relative;
