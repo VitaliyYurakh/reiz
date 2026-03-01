@@ -221,19 +221,6 @@
             z-index: 1;
             padding-bottom: 25px;
             margin-bottom: 8px;
-            &::before {
-                position: absolute;
-                width: 100vw;
-                left: 50%;
-                height: 1px;
-                transform: translateX(-50%);
-                bottom: 0;
-                z-index: -1;
-                pointer-events: none;
-                content: '';
-                background: var(--col-q);
-                z-index: 0;
-            }
         }
     }
 

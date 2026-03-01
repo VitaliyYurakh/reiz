@@ -18,6 +18,10 @@
         content: '';
         background: var(--col-q);
         z-index: 0;
+
+        @include mobile {
+            display: none;
+        }
     }
 
     &__box {
