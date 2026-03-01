@@ -27,7 +27,7 @@ export default function Icon({
       style={style}
     >
       {title && <title>{title}</title>}
-      <use href={`/img/sprite/sprite.svg?v=6#${id}`} xlinkHref={`#${id}`} />
+      <use href={`/img/sprite/sprite.svg?v=7#${id}`} xlinkHref={`#${id}`} />
     </svg>
   );
 }

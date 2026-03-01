@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const LIGHT_THEME_COLOR = "#F1F0EB";
+const LIGHT_THEME_COLOR = "#ffffff";
 
 export default function ThemeColorSetter() {
     const themeColorMeta = useRef<HTMLMetaElement | null>(null);

@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
-const CERTIFICATE_THEME_COLOR = "#ffffff";
+const INVEST_THEME_COLOR = "#ffffff";
 
-export default function CertificateThemeColorSetter() {
+export default function InvestThemeColorSetter() {
   const themeColorMeta = useRef<HTMLMetaElement | null>(null);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function CertificateThemeColorSetter() {
       document.head.appendChild(themeColorMeta.current);
     }
 
-    themeColorMeta.current.setAttribute("content", CERTIFICATE_THEME_COLOR);
+    themeColorMeta.current.setAttribute("content", INVEST_THEME_COLOR);
 
     return () => {
       if (themeColorMeta.current) {

@@ -322,6 +322,7 @@
   }
 
   &::before {
+    content: "";
     position: absolute;
     width: 100vw;
     left: 50%;
@@ -331,9 +332,6 @@
     top: 0;
     z-index: -1;
     pointer-events: none;
-    @include for-mobile {
-      content: "";
-    }
   }
 
   &__bottom {

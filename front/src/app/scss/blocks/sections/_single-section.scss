@@ -55,7 +55,7 @@
     gap: clamp(20px, 2.5vw, 34px);
     padding: 20px;
     border-radius: 16px;
-    background: var(--cl-b);
+    background: #efefef;
   }
 
   [data-tab-content="1"] {
@@ -194,5 +194,9 @@
         margin-bottom: 0;
       }
     }
+  }
+
+  .single-form {
+    background: #efefef;
   }
 }

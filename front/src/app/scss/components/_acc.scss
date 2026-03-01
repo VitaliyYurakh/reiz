@@ -8,12 +8,12 @@
   background: var(--cl-b);
 
   &__item {
-    border-bottom: 1px solid #d8d9d2;
+    border-bottom: 1px solid var(--cl-t);
     padding: 19px 14px 20px;
     transition: all 0.3s;
 
     &:first-of-type {
-      border-top: 1px solid #d8d9d2;
+      border-top: 1px solid var(--cl-t);
     }
 
     &.active {

@@ -39,7 +39,7 @@
                     width: 100%;
                     height: 10px;
                     pointer-events: none;
-                    background: #f1f0eb;
+                    background: #fff;
                     top: -11px;
                     left: 0;
                 }
@@ -66,9 +66,9 @@
                     transition: all 0.3s;
                     background: linear-gradient(
                         0deg,
-                        #f1f0eb 0%,
-                        rgba(241, 240, 235, 0.8) 54.58%,
-                        rgba(241, 240, 235, 0.38) 100%
+                        #fff 0%,
+                        rgba(255, 255, 255, 0.8) 54.58%,
+                        rgba(255, 255, 255, 0.38) 100%
                     );
                     width: 100%;
                     height: 71px;

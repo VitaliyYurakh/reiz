@@ -221,7 +221,7 @@
             height: 60px;
             padding: 0 32px;
             margin-top: clamp(31px, 3.0882vw, 42px);
-            background: #D8D9D2;
+            background: var(--cl-t);
             border: none;
             border-radius: 16px;
             font-weight: 300;
@@ -234,7 +234,7 @@
             transition: background 0.3s ease;
 
             &:hover {
-                background: #c9cac3;
+                background: #d4d4d4;
             }
         }
 

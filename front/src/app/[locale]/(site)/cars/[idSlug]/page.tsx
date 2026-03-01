@@ -239,7 +239,7 @@ export default async function CarPage({
                                 style={{
                                     display: "flex",
                                     alignItems: "center",
-                                    backgroundColor: "#f5f5f5",
+                                    backgroundColor: "#e0e0e0",
                                     padding: "6px 12px",
                                     borderRadius: "12px",
                                     fontSize: "14px",

@@ -54,7 +54,7 @@
     color: var(--cl-n);
 
     @include for-tablet {
-      background: #d8d9d2;
+      background: var(--cl-t);
     }
   }
 

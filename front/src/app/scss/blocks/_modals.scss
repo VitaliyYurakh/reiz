@@ -756,7 +756,7 @@
 
 .cabinet-modal {
   max-width: 1440px;
-  background: #d8d9d2;
+  background: var(--cl-t);
   flex-direction: column;
   gap: 20px;
   padding: 0;
@@ -1275,7 +1275,7 @@
     justify-content: center;
     gap: 8px;
     padding: 16px 8px;
-    background: #ffffff;
+    background: #efefef;
     border: none;
     border-radius: 14px;
     font-family: var(--font-inter), Arial, sans-serif;
@@ -1296,7 +1296,7 @@
     }
 
     &:hover {
-      background: #f0efed;
+      background: #e5e5e5;
       transform: translateY(-1px);
     }
 

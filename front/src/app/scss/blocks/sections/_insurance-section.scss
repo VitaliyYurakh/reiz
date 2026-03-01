@@ -296,7 +296,7 @@
     flex-direction: column;
     gap: 6px;
     padding: clamp(18px, 1.6vw, 24px);
-    background: var(--cl-b);
+    background: #efefef;
     border-radius: 12px;
   }
 
@@ -337,7 +337,7 @@
     display: flex;
     gap: clamp(14px, 1.3vw, 18px);
     padding: clamp(20px, 1.8vw, 28px);
-    background: var(--cl-b);
+    background: #efefef;
     border-radius: 12px;
   }
 
@@ -376,7 +376,7 @@
     align-items: center;
     gap: clamp(16px, 1.5vw, 24px);
     padding: clamp(24px, 2.2vw, 36px);
-    background: var(--cl-b);
+    background: #efefef;
     border-radius: 16px;
     border-left: 3px solid var(--cl-e);
   }
@@ -527,7 +527,7 @@
 /*  Insurance package card                                              */
 /* ================================================================== */
 .ins-card {
-  background: var(--cl-b);
+  background: #efefef;
   border-radius: 16px;
   padding: clamp(24px, 2.2059vw, 32px);
   display: grid;

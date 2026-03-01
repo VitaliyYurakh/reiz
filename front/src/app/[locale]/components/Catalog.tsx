@@ -141,7 +141,7 @@ export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
             // Skip if theme-color is locked by mobile menu
             if (themeColorLock.locked) return;
             if (window.scrollY > 100) {
-                themeColorMeta.current.setAttribute("content", "#F1F0EB");
+                themeColorMeta.current.setAttribute("content", "#ffffff");
             } else {
                 themeColorMeta.current.setAttribute("content", "#000");
             }
@@ -150,7 +150,7 @@ export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
         return () => {
             window.removeEventListener("scroll", handleScroll);
             if (!themeColorMeta.current) return;
-            themeColorMeta.current.setAttribute("content", "#F1F0EB");
+            themeColorMeta.current.setAttribute("content", "#ffffff");
         };
     }, []);
 
