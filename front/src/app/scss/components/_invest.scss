@@ -36,9 +36,9 @@ main:has(.rental-section--invest) + .footer {
   --inv-body-color: rgb(0 0 0 / 0.6);
   --inv-title-weight: 700;
   --inv-title-letter: -0.01em;
-  --inv-soft: #efefef;
+  --inv-soft: #f3f3f3;
   --inv-soft-alt: #eaeaea;
-  --inv-grad-soft: linear-gradient(180deg, #efefef 0%, #f8f8f8 100%);
+  --inv-grad-soft: linear-gradient(180deg, #f3f3f3 0%, #f8f8f8 100%);
   --inv-grad-soft-alt: linear-gradient(180deg, #ebebeb 0%, #f6f6f6 100%);
   --inv-olive: #939a6f;
   --inv-olive-deep: #7b8160;
@@ -162,7 +162,7 @@ main:has(.rental-section--invest) + .footer {
   gap: 4px;
   padding: 16px;
   border-radius: 20px;
-  background: #efefef;
+  background: #f3f3f3;
 }
 
 .invest-page__stat-value {
@@ -320,7 +320,7 @@ main:has(.rental-section--invest) + .footer {
 }
 
 .invest-page__block--calculator {
-  background: linear-gradient(180deg, #efefef 0%, #f8f8f8 100%);
+  background: linear-gradient(180deg, #f3f3f3 0%, #f8f8f8 100%);
   scroll-margin-top: 20vh;
 }
 
@@ -704,7 +704,7 @@ main:has(.rental-section--invest) + .footer {
 .invest-compare__card {
   border-radius: var(--inv-radius-lg);
   padding: 28px;
-  background: linear-gradient(180deg, #efefef 0%, #f8f8f8 100%);
+  background: linear-gradient(180deg, #f3f3f3 0%, #f8f8f8 100%);
   display: flex;
   flex-direction: column;
   gap: 16px;

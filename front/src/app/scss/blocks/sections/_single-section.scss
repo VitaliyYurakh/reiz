@@ -4,6 +4,10 @@
 .single-section {
   padding: clamp(15px, 1.6176vw, 22px) 0 20px;
 
+  @include mobile {
+    padding-bottom: 0;
+  }
+
   .breadcrumbs {
     @include for-mobile{
     position: relative;
@@ -55,7 +59,7 @@
     gap: clamp(20px, 2.5vw, 34px);
     padding: 20px;
     border-radius: 16px;
-    background: #efefef;
+    background: #f3f3f3;
   }
 
   [data-tab-content="1"] {
@@ -197,6 +201,6 @@
   }
 
   .single-form {
-    background: #efefef;
+    background: #f3f3f3;
   }
 }
