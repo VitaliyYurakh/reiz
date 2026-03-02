@@ -109,12 +109,14 @@ export default function LocationSelect({
   const handleLocationClick = useCallback(
     (locationName: string) => {
       if (selectedCity) {
-        onChange?.(locationName, selectedCity);
+        const cityName = sortedCities.find((c) => c.slug === selectedCity)?.localized[locale].name;
+        const fullValue = cityName ? `${cityName}, ${locationName}` : locationName;
+        onChange?.(fullValue, selectedCity);
         setOpen(false);
         setSelectedCity(null);
       }
     },
-    [selectedCity, onChange]
+    [selectedCity, sortedCities, locale, onChange]
   );
 
   const handleBack = useCallback(() => {

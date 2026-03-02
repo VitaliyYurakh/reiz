@@ -738,7 +738,7 @@
 
   &.slide-step-2 .modal__steps {
     @include for-small-tablet {
-      transform: translateX(-50%);
+      transform: translateX(calc(-50% - 10px));
     }
   }
 
