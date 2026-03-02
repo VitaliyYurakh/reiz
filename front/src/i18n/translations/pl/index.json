@@ -151,7 +151,7 @@
       "group1_item1_question": "Gdzie zaparkowac wynajety samochod we Lwowie i jak uniknac mandatow?",
       "group1_item2_answer": "Zapewniamy dostawe/zwrot pod dowolny adres we Lwowie i spotykamy sie na terminalu LWO o umowionej godzinie. Za wczesne/pozne godziny i czas oczekiwania moga byc naliczane dodatkowe oplaty, cena koncowa zalezy od odleglosci. Dostawa miedzymiastowa na terenie Ukrainy jest rowniez dostepna na zyczenie. Aby zapewnic terminowa obsluge, rezerwuj z wyprzedzeniem i podaj dane lotu/hotelu. Chcesz przyspieszyc proces? Zarezerwuj online na REIZ Rental Cars — to wygodniejsze i gwarantuje Twoja stawke.",
       "group1_item2_question": "Dostawa samochodu pod adres i na lotnisko we Lwowie (LWO): warunki i ceny",
-      "group1_item3_answer": "Obowiazuje dzienny limit przejechanych kilometrow (zwykle 250–300 km/dzien), co wystarcza na trasy biznesowe i turystyczne wokol Lwowa i regionu. Na dluzsze trasy (np. Lwow–Kijow lub Lwow–Odessa) dodaj opcje rozszerzonego lub nieograniczonego przebiegu podczas rezerwacji. Przekroczenie limitu jest naliczane wg stalej stawki za kilometr zgodnie z cennikiem. Poinformuj nas o swojej trasie z wyprzedzeniem — zaproponujemy najlepsza opcje i podpowiemy, gdzie zatankowac po drodze.",
+      "group1_item3_answer": "Dzienny limit przebiegu — 300 km na dobe, ale nie wiecej niz 4500 km miesiecznie. To wystarcza na trasy biznesowe i turystyczne wokol Lwowa i regionu. Przekroczenie limitu jest naliczane wg stalej stawki za kilometr zgodnie z cennikiem. Jesli potrzebujesz wiecej — skontaktuj sie z menedzerem.",
       "group1_item3_question": "Czy jest limit przejechanych kilometrow i jak zarezerwowac podroz po Ukrainie bez ograniczen?",
       "group1_pretitle": "Informacje praktyczne",
       "group2_item1_answer": "Wynajem obejmuje obowiazkowe ubezpieczenie OC i standardowe Casco z franszyza. OC pokrywa szkody osob trzecich, Casco pokrywa szkody pojazdu wynajmowanego powyzej franszyny. Niektore przypadki (np. szyby/opony) moga miec specjalne warunki — prosimy o wyjasnienie podczas rezerwacji w sekcji \"Ubezpieczenie\". W przypadku wypadku nalezy natychmiast udokumentowac zdarzenie i wezwac policje. Rozszerzone pokrycie zmniejsza ryzyko i pomaga szybciej zamknac sprawe.",
@@ -299,7 +299,7 @@
       },
       {
         "question": "CZY JEST LIMIT PRZEJECHANYCH KILOMETROW?",
-        "answer": "Stawki dzienne zwykle obejmuja limit kilometrow (np. 250–300 km/dzien). Nadmiarowe kilometry sa naliczane za km. Dostepne sa opcje zwiekszeonego lub nieograniczonego przebiegu."
+        "answer": "Dzienny limit przebiegu — 300 km na dobe, ale nie wiecej niz 4500 km miesiecznie. Nadmiarowe kilometry sa naliczane za km. Jesli potrzebujesz wiekszego przebiegu — skontaktuj sie z menedzerem."
       },
       {
         "question": "CZY DOSTARCZACIE POD ADRES I NA LOTNISKO WE LWOWIE (LWO)?",
@@ -1385,7 +1385,7 @@
       },
       "mileage": {
         "title": "Warunki przebiegu",
-        "subtitle": "Dzienny limit przebiegu — 300 km, liczony łącznie za cały okres wynajmu, ale nie więcej niż 5000 km miesięcznie.\nW przypadku przekroczenia limitu każdy kilometr jest płatny dodatkowo zgodnie z taryfami firmy.",
+        "subtitle": "Dzienny limit przebiegu — 300 km, liczony łącznie za cały okres wynajmu, ale nie więcej niż 4500 km miesięcznie.\nW przypadku przekroczenia limitu każdy kilometr jest płatny dodatkowo zgodnie z taryfami firmy.",
         "bannerValue": "300 km",
         "bannerLabel": "dzienny limit przebiegu",
         "overageTitle": "Dopłata za przekroczenie limitu",

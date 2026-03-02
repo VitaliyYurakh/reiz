@@ -151,7 +151,7 @@
       "group1_item1_question": "Unde să parchezi o mașină închiriată în Lviv și cum eviți amenzile?",
       "group1_item2_answer": "Asigurăm livrarea/returnarea la orice adresă din Lviv și vă întâmpinăm la terminalul LWO la ora convenită. Pot fi aplicate tarife suplimentare pentru ore timpurii/târzii și timp de așteptare, prețul final depinde de distanță. Livrarea interurbană în toată Ucraina este disponibilă la cerere. Pentru a asigura un serviciu prompt, rezervați din timp și furnizați detaliile zborului/hotelului. Vreți să accelerați procesul? Rezervați online la REIZ Rental Cars — este mai convenabil și vă blochează tariful.",
       "group1_item2_question": "Livrarea mașinii la adresă și la Aeroportul Lviv (LWO): condiții și prețuri",
-      "group1_item3_answer": "Se aplică o limită zilnică de kilometraj (de obicei 250–300 km/zi), suficientă pentru rutele de afaceri și turistice din Lviv și regiune. Pentru călătorii mai lungi (de ex. Lviv–Kyiv sau Lviv–Odesa), adăugați opțiunea de kilometraj extins sau nelimitat la rezervare. Depășirea limitei se taxează la un tarif fix pe kilometru conform tarifelor. Informați-ne despre ruta dumneavoastră în avans — vă sugerăm cea mai bună opțiune și unde să alimentați pe drum.",
+      "group1_item3_answer": "Limita zilnică de kilometraj — 300 km pe zi, dar nu mai mult de 4500 km pe lună. Suficient pentru rutele de afaceri și turistice din Lviv și regiune. Depășirea limitei se taxează la un tarif fix pe kilometru conform tarifelor. Dacă aveți nevoie de mai mult — contactați managerul nostru.",
       "group1_item3_question": "Există o limită de kilometraj și cum să rezervi o călătorie în Ucraina fără restricții?",
       "group1_pretitle": "Informații practice",
       "group2_item1_answer": "Închirierea include asigurarea obligatorie de răspundere civilă și Casco standard cu franșiză. Răspunderea civilă acoperă daunele terților, Casco acoperă daunele mașinii închiriate peste franșiză. Anumite cazuri (de ex. geamuri/anvelope) pot avea condiții speciale — clarificați la rezervare în secțiunea „Asigurare”. În caz de accident, înregistrați incidentul și apelați autoritățile imediat. Acoperirea extinsă vă reduce riscurile și ajută la soluționarea mai rapidă a cazurilor.",
@@ -299,7 +299,7 @@
       },
       {
         "question": "EXISTĂ O LIMITĂ DE KILOMETRAJ?",
-        "answer": "Tarifele zilnice includ de obicei o limită de kilometraj (de ex. 250–300 km/zi). Depășirea se taxează pe km. Sunt disponibile opțiuni de kilometraj mărit sau nelimitat."
+        "answer": "Limita zilnică de kilometraj — 300 km pe zi, dar nu mai mult de 4500 km pe lună. Depășirea se taxează pe km. Dacă aveți nevoie de mai mult kilometraj — contactați managerul nostru."
       },
       {
         "question": "LIVRAȚI LA ADRESĂ ȘI LA AEROPORTUL LVIV (LWO)?",
@@ -1385,7 +1385,7 @@
       },
       "mileage": {
         "title": "Condiții de kilometraj",
-        "subtitle": "Limita zilnică de kilometraj — 300 km, calculată cumulativ pe toată perioada de închiriere, dar nu mai mult de 5000 km pe lună.\nÎn caz de depășire, fiecare kilometru este taxat suplimentar conform tarifelor companiei.",
+        "subtitle": "Limita zilnică de kilometraj — 300 km, calculată cumulativ pe toată perioada de închiriere, dar nu mai mult de 4500 km pe lună.\nÎn caz de depășire, fiecare kilometru este taxat suplimentar conform tarifelor companiei.",
         "bannerValue": "300 km",
         "bannerLabel": "limita zilnică de kilometraj",
         "overageTitle": "Taxă pentru depășire",

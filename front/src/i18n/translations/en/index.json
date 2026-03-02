@@ -151,7 +151,7 @@
       "group1_item1_question": "Where to park a rental car in Lviv and how to avoid fines?",
       "group1_item2_answer": "We provide delivery/return to any address in Lviv and meet you at the LWO terminal at the agreed time. Extra charges may apply for early/late hours and waiting time, final price depends on distance. Intercity delivery across Ukraine is also available on request. To ensure timely service, book in advance and provide your flight/hotel details. Want to speed up the process? Book online at REIZ Rental Cars — it’s more convenient and locks in your rate.",
       "group1_item2_question": "Car delivery to an address and Lviv Airport (LWO): conditions and prices",
-      "group1_item3_answer": "A daily mileage limit applies (usually 250–300 km/day), which is enough for business and tourist routes around Lviv and the region. For longer trips (e.g., Lviv–Kyiv or Lviv–Odesa), add the extended or unlimited mileage option when booking. Exceeding the limit is charged at a fixed rate per kilometer according to tariffs. Inform us about your route in advance — we’ll suggest the best option and where to refuel along the way.",
+      "group1_item3_answer": "The daily mileage limit is 300 km per day, but no more than 4,500 km per month. This is enough for business and tourist routes around Lviv and the region. Exceeding the limit is charged at a fixed rate per kilometer according to tariffs. If you need more mileage, please contact our manager — we’ll find the best option for you.",
       "group1_item3_question": "Is there a mileage limit and how to book a trip across Ukraine without restrictions?",
       "group1_pretitle": "Practical Information",
       "group2_item1_answer": "Rental includes mandatory liability insurance and standard Casco with a deductible. Liability covers third-party damages, Casco covers damage to the rental car above the deductible. Certain cases (e.g., glass/tires) may have special conditions — clarify during booking in the “Insurance” section. In case of an accident, record the incident and call the authorities immediately. Extended coverage reduces your risks and helps close cases faster.",
@@ -299,7 +299,7 @@
       },
       {
         "question": "IS THERE A MILEAGE LIMIT?",
-        "answer": "Daily rates usually include a mileage limit (e.g., 250–300 km/day). Excess mileage is charged per km. Increased or unlimited mileage options are available."
+        "answer": "The daily mileage limit is 300 km per day, but no more than 4,500 km per month. Excess mileage is charged per km. If you need more mileage, please contact our manager."
       },
       {
         "question": "DO YOU DELIVER TO ADDRESSES AND TO LVIV AIRPORT (LWO)?",
@@ -1385,7 +1385,7 @@
       },
       "mileage": {
         "title": "Mileage terms",
-        "subtitle": "Daily mileage limit is 300 km, calculated cumulatively for the entire rental period, but no more than 5,000 km per month.\nIn case of exceeding the limit, each kilometer is charged additionally according to company rates.",
+        "subtitle": "Daily mileage limit is 300 km, calculated cumulatively for the entire rental period, but no more than 4,500 km per month.\nIn case of exceeding the limit, each kilometer is charged additionally according to company rates.",
         "bannerValue": "300 km",
         "bannerLabel": "daily mileage limit",
         "overageTitle": "Overage charge",

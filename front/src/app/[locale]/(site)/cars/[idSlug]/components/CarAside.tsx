@@ -426,7 +426,12 @@ export default function CarAside({ car }: { car: Car }) {
                 i
               </span>
             </span>
-            {t("requirements.mileage.value", { limit: totalDays * 300 })}
+            {t("requirements.mileage.value", {
+              limit: Math.min(
+                totalDays * 300,
+                Math.floor(totalDays / 30) * 4500 + Math.min((totalDays % 30) * 300, 4500),
+              ),
+            })}
           </span>
         </div>
 
