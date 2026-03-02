@@ -256,6 +256,10 @@ $rental-success-color: #2f8f5b;
         border-radius: 16px;
         padding: 15px;
 
+        @include small-tablet {
+          background-color: var(--cl-t);
+        }
+
         .custom-checkbox:has(input:checked) .custom-checkbox__content {
             border: 1px solid var(--cl-l);
         }
@@ -389,6 +393,7 @@ $rental-success-color: #2f8f5b;
   &__summary-panel {
     background-color: #fff;
     @include small-tablet {
+      background-color: var(--cl-t);
       border-radius: 20px;
       box-shadow: none;
     }
@@ -546,6 +551,10 @@ $rental-success-color: #2f8f5b;
     //max-width: 420px;
     background: #fff;
     border-radius: 16px;
+
+    @include small-tablet {
+      background: var(--cl-t);
+    }
     padding: 20px 10px 10px;
     font-family: system-ui, sans-serif;
 
