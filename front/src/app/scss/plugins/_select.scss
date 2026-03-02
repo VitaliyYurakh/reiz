@@ -800,6 +800,10 @@
   .custom-select {
     .options-container {
       background: #ffffff;
+
+      @media (max-width: 767px) {
+        background: #f3f3f3;
+      }
     }
   }
 }

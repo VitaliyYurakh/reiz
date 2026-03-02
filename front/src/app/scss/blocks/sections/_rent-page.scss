@@ -41,6 +41,12 @@ $rental-success-color: #2f8f5b;
     display: grid;
     gap: 15px;
     margin-bottom: 0;
+    position: relative;
+    z-index: 10;
+
+    @include small-tablet {
+      background: var(--cl-t);
+    }
 
     .select-field.active {
       background-color: transparent;
@@ -583,6 +589,11 @@ $rental-success-color: #2f8f5b;
       color: #222;
       cursor: pointer;
       transition: 0.2s;
+
+      @include small-tablet {
+        background: var(--cl-t);
+        border-color: #b0b0b0;
+      }
 
       &.active {
         background: #1e372e;
