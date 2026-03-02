@@ -8,8 +8,6 @@ type Props = {
 
 type CarClass = "economy" | "business" | "luxury" | "suv";
 
-const MIN_PRICE = 10000;
-const MAX_PRICE = 120000;
 const PRICE_STEP = 500;
 const MIN_TERM = 3;
 const MAX_TERM = 36;
@@ -18,11 +16,13 @@ const MAX_LOAD = 80;
 
 const OWNER_NET_SHARE = 0.58;
 
-const classYieldRange: Record<CarClass, { min: number; max: number }> = {
-  economy: { min: 15, max: 24 },
-  business: { min: 17, max: 26 },
-  luxury: { min: 19, max: 28 },
-  suv: { min: 18, max: 27 },
+const MIN_YIELD_FLOOR = 18;
+
+const classConfig: Record<CarClass, { minPrice: number; maxPrice: number; minYield: number; maxYield: number }> = {
+  economy: { minPrice: 10000, maxPrice: 20000, minYield: 18, maxYield: 24 },
+  business: { minPrice: 20000, maxPrice: 55000, minYield: 18, maxYield: 25 },
+  suv: { minPrice: 25000, maxPrice: 100000, minYield: 18, maxYield: 26 },
+  luxury: { minPrice: 40000, maxPrice: 120000, minYield: 18, maxYield: 28 },
 };
 
 const copy = {
@@ -164,6 +164,8 @@ export default function InvestCalculator({ locale }: Props) {
   const [load, setLoad] = useState(75);
   const [carClass, setCarClass] = useState<CarClass>("business");
 
+  const cfg = classConfig[carClass];
+
   const localeCode =
     locale === "ru" ? "ru-RU" : locale === "uk" ? "uk-UA" : locale === "pl" ? "pl-PL" : locale === "ro" ? "ro-RO" : "en-US";
   const text = copy[locale as keyof typeof copy] ?? copy.en;
@@ -184,10 +186,10 @@ export default function InvestCalculator({ locale }: Props) {
     [localeCode],
   );
 
-  const { min: minYield, max: maxYield } = classYieldRange[carClass];
+  const clampedPrice = Math.max(cfg.minPrice, Math.min(cfg.maxPrice, carPrice));
   const loadFactor = (load - MIN_LOAD) / (MAX_LOAD - MIN_LOAD);
-  const annualYield = minYield + (maxYield - minYield) * loadFactor;
-  const monthlyNet = (annualYield / 100) * carPrice / 12;
+  const annualYield = Math.max(MIN_YIELD_FLOOR, cfg.minYield + (cfg.maxYield - cfg.minYield) * loadFactor);
+  const monthlyNet = (annualYield / 100) * clampedPrice / 12;
   const monthlyGross = monthlyNet / OWNER_NET_SHARE;
   const totalNet = monthlyNet * term;
 
@@ -205,7 +207,11 @@ export default function InvestCalculator({ locale }: Props) {
               className={`invest-calculator__class-button${
                 carClass === item ? " is-active" : ""
               }`}
-              onClick={() => setCarClass(item)}
+              onClick={() => {
+                setCarClass(item);
+                const c = classConfig[item];
+                setCarPrice((prev) => Math.max(c.minPrice, Math.min(c.maxPrice, prev)));
+              }}
             >
               {text.classes[item]}
             </button>
@@ -217,19 +223,19 @@ export default function InvestCalculator({ locale }: Props) {
         <label className="invest-calculator__control">
           <span className="invest-calculator__label">{text.price}</span>
           <div className="invest-calculator__value-row">
-            <strong>{moneyFormatter.format(carPrice)} $</strong>
+            <strong>{moneyFormatter.format(clampedPrice)} $</strong>
             <span>
               {text.priceRange
-                .replace("{min}", moneyFormatter.format(MIN_PRICE))
-                .replace("{max}", moneyFormatter.format(MAX_PRICE))}
+                .replace("{min}", moneyFormatter.format(cfg.minPrice))
+                .replace("{max}", moneyFormatter.format(cfg.maxPrice))}
             </span>
           </div>
           <input
             type="range"
-            min={MIN_PRICE}
-            max={MAX_PRICE}
+            min={cfg.minPrice}
+            max={cfg.maxPrice}
             step={PRICE_STEP}
-            value={carPrice}
+            value={clampedPrice}
             onChange={(e) => setCarPrice(Number(e.target.value))}
           />
         </label>
