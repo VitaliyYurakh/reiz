@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import type { InvestModalSpec } from "@/app/[locale]/(site)/invest/components/modals";
+import type { InvestModalSpec } from "@/app/[locale]/(site)/contacts/components/modals";
 import { submitInvestRequest } from "@/lib/api/feedback";
 
 export default function ConfirmTicket({

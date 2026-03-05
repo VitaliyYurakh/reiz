@@ -1,4 +1,4 @@
-import { InvestModalSpec } from "@/app/[locale]/(site)/invest/components/modals";
+import type { InvestModalSpec } from "@/app/[locale]/(site)/contacts/components/modals";
 import { useTranslations } from "next-intl";
 
 export default function OfferModal({
