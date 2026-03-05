@@ -1,0 +1,258 @@
+@use "../mixins/breakpoint" as *;
+
+.rental-section--business {
+  margin-top: -20px;
+  padding-top: 0;
+  background: #fff;
+}
+
+.rental-section--business .rental-section__inner {
+  padding-top: 20px;
+}
+
+.business-hero {
+  position: relative;
+  display: grid;
+  gap: 25px;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 40px;
+  background: linear-gradient(90deg, rgba(243, 243, 243, 0.58) 32.22%, #214230 99.95%);
+  overflow: hidden;
+  mask-image: radial-gradient(#fff, #000);
+  -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
+}
+
+.business-hero__content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 525px);
+  max-width: 525px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.business-hero__eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #dcdcdc;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.business-hero__title {
+  font-family: var(--font-inter), Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 5vw, 35px);
+  line-height: normal;
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.business-hero__features {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 8px;
+}
+
+.business-hero__feature {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.business-hero__feature-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 999px;
+  border: 1px solid #dcdcdc;
+  background: transparent;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+
+.business-hero__feature-text {
+  font-family: var(--font-inter), Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--cl-ab);
+}
+
+.business-hero__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  margin-top: 16px;
+  background: #fff;
+  border-radius: 50px;
+}
+
+.business-hero__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 50px;
+  height: 54px;
+  padding: 0 24px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.business-hero__cta--primary {
+  flex: 1;
+  background: #214230;
+  color: #fff;
+
+  &:hover {
+    background: #1a3526;
+    transform: translateY(-1px);
+  }
+}
+
+.business-hero__cta--secondary {
+  flex: 1;
+  background: transparent;
+  color: #757575;
+
+  &:hover {
+    background: #214230;
+    color: #fff;
+  }
+}
+
+.business-hero__actions:has(.business-hero__cta--secondary:hover) .business-hero__cta--primary {
+  background: transparent;
+  color: #214230;
+  transform: none;
+}
+
+.business-hero__visual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(100%, 494px);
+  justify-self: center;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.business-hero__device {
+  position: relative;
+  width: 100%;
+}
+
+.business-hero__laptop {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 60px rgba(0, 0, 0, 0.25));
+}
+
+@include mobile {
+  .business-hero {
+    border-radius: 24px;
+    padding: 24px;
+  }
+
+  .business-hero__title {
+    font-size: 22px;
+  }
+
+  .business-hero__visual {
+    display: none;
+  }
+
+  .business-hero__feature-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .business-hero__features {
+    gap: 12px;
+  }
+
+  .business-hero__actions {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .business-hero__cta {
+    height: 46px;
+    padding: 14px 20px;
+    font-size: 13px;
+  }
+
+  .business-hero__cta--primary {
+    width: auto;
+    flex: 1;
+  }
+
+  .business-hero__cta--secondary {
+    flex: 1;
+  }
+}
+
+@include for-small-tablet {
+  .business-hero {
+    min-height: 506px;
+  }
+
+  .business-hero__content {
+    height: 100%;
+  }
+
+  .business-hero__actions {
+    margin-top: auto;
+  }
+
+  .business-hero__visual {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 40px;
+    width: 494px;
+    height: auto;
+    max-width: none;
+    align-self: auto;
+    justify-self: auto;
+  }
+
+  .business-hero__device {
+    width: 100%;
+    height: 100%;
+  }
+
+  .business-hero__laptop {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}

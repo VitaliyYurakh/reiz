@@ -493,11 +493,18 @@
       "home": "Strona glowna",
       "current": "Wynajem dla firm"
     },
-    "pretitle": "WYNAJEM SAMOCHODOW DLA FIRM NA UKRAINIE",
+    "pretitle": "WYNAJEM KORPORACYJNY",
     "hero": {
-      "title": "Wynajem samochodow dla firm",
-      "text": "Kompleksowe rozwiazanie dla firm: sedany, crossovery i minivany z fakturowaniem VAT, ubezpieczeniem i wsparciem technicznym. Wszystko w ramach jednej umowy.",
-      "cta": "UZYSKAJ WYCENE"
+      "title": "Wynajem aut dla firm w Ukrainie",
+      "text": "Usluga premium dla firm: faktury VAT, dlugoterminowe stawki i pelna kontrola floty.",
+      "features": [
+        "Rozliczenie z VAT",
+        "Nizsze stawki od 30 dni",
+        "Sledzenie floty w panelu"
+      ],
+      "cta": "OTRZYMAJ OFERTĘ",
+      "ctaPrimary": "Otrzymaj ofertę",
+      "ctaSecondary": "Zadzwon"
     },
     "slider": {
       "ariaLabel": "Korzysci korporacyjne",
@@ -780,6 +787,64 @@
     },
     "cta": {
       "requestCall": "ZAMOW ODDZWONIENIE"
+    },
+    "benefit": {
+      "title": "Dlaczego wynajem, a nie zakup",
+      "subtitle": "Porownaj koszty — i zobacz roznice",
+      "cols": [
+        { "value": "100% VAT", "label": "w kredycie podatkowym", "desc": "Kazda platnosc zmniejsza Twoje zobowiazania podatkowe" },
+        { "value": "0 zl", "label": "na amortyzacje", "desc": "Auto nie na bilansie — brak zuzycia, brak ksiegowania" },
+        { "value": "OPEX", "label": "zamiast CAPEX", "desc": "Zachowujesz kapital obrotowy na rozwoj biznesu" },
+        { "value": "od 30 dni", "label": "elastyczne terminy", "desc": "Wynajem od miesiaca z mozliwoscia przedluzenia" }
+      ],
+      "cta": "Oblicz oszczednosci"
+    },
+    "legal": {
+      "title": "Auto nie na Twoim bilansie",
+      "subtitle": "Mniej ryzyka, mniej ksiegowania, wiecej spokoju",
+      "cards": [
+        { "title": "Nie jest majatkiem Twojej firmy", "text": "Auto jest zarejestrowane na REIZ i nie wchodzi w sklad Twoich aktywow. Korzystasz z niego na podstawie umowy najmu — bez wprowadzania na bilans, bez amortyzacji." },
+        { "title": "List gwarancyjny zamiast depozytu", "text": "Dla klientow korporacyjnych mozemy pracowac na podstawie listu gwarancyjnego bez zamrazania srodkow — po uzgodnieniu warunkow." }
+      ]
+    },
+    "fleet": {
+      "title": "Zajmujemy sie wszystkim",
+      "subtitle": "Skup sie na biznesie — my zadbamy o flote",
+      "cards": [
+        { "title": "Serwis i przeglady", "text": "Planowe przeglady, sezonowa wymiana opon, naprawy — organizujemy i oplacamy. Jesli auto sie zepsuje — dostarczamy zastepczy w ciagu doby." },
+        { "title": "Ubezpieczenie AC + OC", "text": "Pelne pokrycie juz w cenie wynajmu. Obsluga wypadkow i szkod — po naszej stronie." },
+        { "title": "Jedna faktura miesiecznie", "text": "Zadnego zamieszania z dziesiiatkami paragonow. Jedna faktura, jedna platnosc, 100% VAT do odliczenia." }
+      ]
+    },
+    "cases": {
+      "title": "Z kim współpracujemy",
+      "items": [
+        { "title": "Firmy IT i startupy", "text": "Wynajem samochodów dla zespołów deweloperskich, menedżerów i spotkań z klientami.", "photo": "/img/business/client-consultation.webp" },
+        { "title": "Organizacje międzynarodowe", "text": "Transport dla misji dyplomatycznych i humanitarnych, ambasad i przedstawicielstw.", "photo": "/img/business/corporate-driver.webp" },
+        { "title": "Firmy budowlane", "text": "SUV-y i minibusy do transportu specjalistów i koordynacji placów budowy.", "photo": "/img/business/construction-team.webp" },
+        { "title": "Firmy logistyczne i handlowe", "text": "Flota dla przedstawicieli handlowych, kurierów i podróży regionalnych.", "photo": "/img/business/logistics-delivery.webp" }
+      ]
+    },
+    "vehicles": {
+      "title": "Flota na kazde zadanie",
+      "subtitle": "Od furgonetki dostawczej po limuzyne na spotkania",
+      "tabs": [
+        { "key": "commercial", "label": "Komercyjne", "title": "Ekonom i komfort", "text": "Skoda Octavia, Renault Megane, Peugeot 308. Niezawodne auta do codziennych potrzeb biznesowych.", "cta": "Otrzymaj listę dostępnych aut" },
+        { "key": "executive", "label": "Reprezentacyjne", "title": "Klasa biznes", "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. Dla zarzadu, spotkan i transferow.", "cta": "Otrzymaj listę dostępnych aut" },
+        { "key": "suv", "label": "SUV", "title": "SUV i crossovery", "text": "Toyota RAV4, Hyundai Tucson, Mitsubishi Outlander. Na wyjazdy terenowe i trudne drogi.", "cta": "Otrzymaj listę dostępnych aut" },
+        { "key": "cross-border", "label": "Cross-Border", "title": "Wyjazd za granice", "text": "Przejrzyste przekraczanie granic UE bez ukrytych oplat. Mozliwosc zostawienia auta w Polsce lub innym kraju.", "cta": "Poznaj warunki" },
+        { "key": "vans", "label": "Furgony i ciezarowe", "title": "Furgony i ciezarowe", "text": "Renault Master, Mercedes Sprinter i inne. Idealne do logistyki, dostaw i ekip mobilnych.", "cta": "Otrzymaj listę dostępnych aut" }
+      ]
+    },
+    "finalCta": {
+      "title": "Gotowy zoptymalizowac flote?",
+      "subtitle": "Zostaw zgloszenie — menedzer przygotuje indywidualna oferte dla Twojej firmy.",
+      "features": [
+        "Szybka ocena potrzeb w 15–30 minut",
+        "Przejrzysty harmonogram platnosci i warunki",
+        "Umowa i ochrona ubezpieczeniowa od pierwszego dnia"
+      ],
+      "cta": "Uzyskaj oferte"
     }
   },
   "blogPage": {
@@ -2003,6 +2068,45 @@
       "nameRequired": "Prosze podac swoje imie",
       "phoneRequired": "Prosze podac numer telefonu",
       "phoneInvalid": "Podaj prawidlowy numer telefonu",
+      "consentRequired": "Prosze zaakceptowac warunki przetwarzania danych osobowych",
+      "submitFailed": "Nie udalo sie wyslac zgloszenia. Sprobuj ponownie."
+    }
+  },
+  "businessOfferModal": {
+    "title": "Uzyskaj oferte dla biznesu",
+    "placeholder": {
+      "name": "Imie",
+      "company": "Nazwa firmy (opcjonalnie)",
+      "phone": "Telefon"
+    },
+    "vehicleCount": {
+      "label": "Liczba samochodow",
+      "options": {
+        "1": "1 samochod",
+        "2-5": "2–5 samochodow",
+        "5-10": "5–10 samochodow",
+        "10+": "10+ samochodow"
+      }
+    },
+    "contactMethods": {
+      "title": "Jak mamy sie z Toba skontaktowac?",
+      "options": {
+        "phone": "Telefon",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "viber": "Viber"
+      }
+    },
+    "checkbox": "Zapoznalem sie i akceptuje warunki przetwarzania danych osobowych",
+    "button": "Wyslij zgloszenie",
+    "submitting": "Wysylanie...",
+    "success": "Dziekujemy! Skontaktujemy sie z Toba wkrotce.",
+    "text": "Klikajac przycisk \"Wyslij zgloszenie\", akceptujesz warunki przetwarzania danych osobowych",
+    "errors": {
+      "nameRequired": "Prosze podac swoje imie",
+      "phoneRequired": "Prosze podac numer telefonu",
+      "phoneInvalid": "Podaj prawidlowy numer telefonu",
+      "vehicleCountRequired": "Wybierz liczbe samochodow",
       "consentRequired": "Prosze zaakceptowac warunki przetwarzania danych osobowych",
       "submitFailed": "Nie udalo sie wyslac zgloszenia. Sprobuj ponownie."
     }

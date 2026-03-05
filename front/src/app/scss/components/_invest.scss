@@ -59,11 +59,9 @@ main:has(.rental-section--invest) + .footer {
   position: relative;
   display: grid;
   gap: 20px;
-  padding: clamp(20px, 4vw, 36px);
+  padding: clamp(20px, 4vw, 40px);
   border-radius: var(--inv-radius-lg);
-  background: radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.16), transparent 34%),
-    linear-gradient(150deg, var(--inv-olive) 0%, var(--inv-olive-deep) 100%);
-  color: var(--cl-b);
+  background: linear-gradient(to right, #f3f3f3 25%, #214230 100%);
   overflow: hidden;
 }
 
@@ -71,18 +69,29 @@ main:has(.rental-section--invest) + .footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(8px, 1vw, 12px);
-  width: min(100%, 560px);
-  max-width: 560px;
+  gap: clamp(16px, 3vw, 24px);
+  width: min(100%, 520px);
+  max-width: 520px;
+}
+
+.invest-page__hero-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(12px, 2vw, 20px);
 }
 
 .invest-page__hero-tag {
   display: inline-flex;
-  width: fit-content;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.14);
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 18px;
+  border-radius: 30px;
+  background: #dcdcdc;
+  color: #3b3b3b;
   font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -90,50 +99,107 @@ main:has(.rental-section--invest) + .footer {
 .invest-page__hero-title {
   margin: 0;
   width: 100%;
-  max-width: none;
+  max-width: 488px;
   font-family: var(--font-inter), Arial, sans-serif;
-  font-weight: var(--inv-title-weight);
-  font-size: clamp(28px, 7vw, 44px);
-  line-height: 1.04;
-  letter-spacing: var(--inv-title-letter);
+  font-weight: 600;
+  font-size: clamp(26px, 6vw, 35px);
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000;
   text-wrap: pretty;
 }
 
-.invest-page__hero-text {
-  margin: 0;
-  width: 100%;
-  max-width: none;
-  color: rgba(255, 255, 255, 0.84);
-  font-weight: 400;
-  font-size: clamp(14px, 3vw, 16px);
-  line-height: var(--inv-body-line);
-  text-wrap: pretty;
+.invest-page__hero-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.invest-page__hero-feature {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.invest-page__hero-feature-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 999px;
+  border: 1px solid #dcdcdc;
+  background: transparent;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.invest-page__hero-feature-text {
+  font-family: var(--font-inter), Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--cl-ab);
+  white-space: pre-line;
 }
 
 .invest-page__hero-actions {
-  display: grid;
-  gap: 10px;
-  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 50px;
+  padding: 3px;
+  width: 420px;
+  max-width: calc(100% - 80px);
+  height: 60px;
+}
 
-  .main-button {
-    width: 100%;
-    min-width: 0;
-    border-radius: var(--inv-radius-sm);
-    height: 52px;
-  }
+.invest-page__hero-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0 24px;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+  cursor: pointer;
 
-  .main-button--white {
-    background: #fff;
-
-    &::before {
-      display: none;
-    }
+  &--primary {
+    flex: 0 0 210px;
+    background: #214230;
+    color: #fff;
 
     @include hover {
-      color: #888;
-      background: #fff;
+      background: #1a3526;
+      transform: translateY(-1px);
     }
   }
+
+  &--secondary {
+    flex: 1 1 0;
+    min-width: 0;
+    background: transparent;
+    color: #757575;
+
+    @include hover {
+      background: #214230;
+      color: #fff;
+    }
+  }
+}
+
+.invest-page__hero-actions:has(.invest-page__hero-btn--secondary:hover) .invest-page__hero-btn--primary {
+  background: transparent;
+  color: #214230;
+  transform: none;
 }
 
 .invest-page__hero-media {
@@ -151,9 +217,10 @@ main:has(.rental-section--invest) + .footer {
   img {
     position: relative;
     z-index: 1;
-    border-radius: 28px;
+    border-radius: 20px;
     width: 100%;
     height: auto;
+    aspect-ratio: 1;
     object-fit: cover;
     display: block;
     box-shadow: none;
@@ -1377,17 +1444,6 @@ main:has(.rental-section--invest) + .footer {
 }
 
 @include for-mobile {
-  .invest-page__hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-
-    .main-button {
-      width: fit-content;
-      min-width: 210px;
-      padding-inline: 22px;
-    }
-  }
-
   .invest-calculator__result-item {
     span,
     b {
@@ -1406,30 +1462,19 @@ main:has(.rental-section--invest) + .footer {
   }
 
   .invest-page__hero {
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 426px);
+    gap: 0;
     align-items: stretch;
   }
 
   .invest-page__hero-content {
-    height: 100%;
-  }
-
-  .invest-page__hero-actions {
-    margin-top: auto;
-    padding-top: 14px;
+    justify-content: space-between;
   }
 
   .invest-page__hero-media {
     width: 100%;
-    max-width: 430px;
-    height: 100%;
-    align-self: stretch;
+    max-width: 426px;
     justify-self: end;
-
-    img {
-      height: 100%;
-      min-height: 100%;
-    }
   }
 
   .invest-page__stats {

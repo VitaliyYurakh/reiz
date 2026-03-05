@@ -6,7 +6,7 @@ export default function BusinessLayout({ children }: { children: ReactNode }) {
   return (
     <SiteShell
       sectionBoxClass={"rental-section__box"}
-      sectionClass={"rental-section busines"}
+      sectionClass={"rental-section rental-section--business"}
     >
       <BusinessClientProvider>{children}</BusinessClientProvider>
     </SiteShell>

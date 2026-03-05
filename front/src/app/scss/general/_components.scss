@@ -28,6 +28,8 @@
 @use "../components/range-date-picker";
 @use "../components/rent_modal_custom_select";
 @use "../components/business-steps";
+@use "../components/business-hero";
+@use "../components/business-blocks";
 @use "../components/business-process";
 @use "../components/invest";
 // ----------------- MAIN COMPONENTS -----------------
@@ -39,6 +41,5 @@
 @use "../components/cabinet-table";
 @use "../components/info-table";
 @use "../components/main-info";
-
 
 

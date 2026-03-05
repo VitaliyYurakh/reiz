@@ -493,11 +493,18 @@
       "home": "Home",
       "current": "Business rentals"
     },
-    "pretitle": "CAR RENTAL FOR BUSINESSES IN UKRAINE",
+    "pretitle": "CORPORATE RENTAL",
     "hero": {
-      "title": "Car rental for business",
-      "text": "A complete solution for companies: sedans, crossovers and minivans with VAT invoicing, insurance and tech support. All under a single contract.",
-      "cta": "GET A QUOTE"
+      "title": "Corporate car rental for legal entities in Ukraine",
+      "text": "Premium service for companies: VAT invoicing, long-term rates, and full fleet visibility.",
+      "features": [
+        "VAT invoicing",
+        "Reduced rates from 30+ days",
+        "Fleet tracking via the dashboard"
+      ],
+      "cta": "GET A QUOTE",
+      "ctaPrimary": "Get a quote",
+      "ctaSecondary": "Call us"
     },
     "slider": {
       "ariaLabel": "Corporate benefits",
@@ -780,6 +787,64 @@
     },
     "cta": {
       "requestCall": "REQUEST A CALL"
+    },
+    "benefit": {
+      "title": "Why rent instead of buying",
+      "subtitle": "Compare the costs — and see the difference",
+      "cols": [
+        { "value": "100% VAT", "label": "as tax credit", "desc": "Every payment reduces your tax obligations" },
+        { "value": "$0", "label": "depreciation", "desc": "Car is not on your balance sheet — no wear accounting" },
+        { "value": "OPEX", "label": "instead of CAPEX", "desc": "Preserve working capital for business growth" },
+        { "value": "from 30 days", "label": "flexible terms", "desc": "Rental from one month with option to extend" }
+      ],
+      "cta": "Calculate savings"
+    },
+    "legal": {
+      "title": "Car is not on your balance sheet",
+      "subtitle": "Less risk, less accounting, more peace of mind",
+      "cards": [
+        { "title": "Not your company's asset", "text": "The car is registered under REIZ and is not part of your assets. You use it under a rental agreement — no balance sheet entry, no depreciation. In case of disputes, ownership is confirmed by documents." },
+        { "title": "Guarantee letter instead of deposit", "text": "For corporate clients, we can work with a guarantee letter without freezing funds — under agreement and after approval of terms." }
+      ]
+    },
+    "fleet": {
+      "title": "We take care of everything",
+      "subtitle": "Focus on your business — we'll handle the fleet",
+      "cards": [
+        { "title": "Service & Maintenance", "text": "Scheduled maintenance, seasonal tire changes, repairs — we organize and pay. If a car breaks down — we provide a replacement within 24 hours." },
+        { "title": "Full Insurance Coverage", "text": "Comprehensive coverage is already included in the rental price. Accident and insurance case management — on us." },
+        { "title": "One invoice per month", "text": "No hassle with dozens of receipts. One invoice, one payment, 100% VAT credit." }
+      ]
+    },
+    "cases": {
+      "title": "Who we work with",
+      "items": [
+        { "title": "IT Companies & Startups", "text": "Car rental for development teams, managers, and client meetings on the go.", "photo": "/img/business/client-consultation.webp" },
+        { "title": "International Organizations", "text": "Transport for diplomatic and humanitarian missions, embassies, and representative offices.", "photo": "/img/business/corporate-driver.webp" },
+        { "title": "Construction Companies", "text": "SUVs and minivans for transporting specialists and coordinating construction sites.", "photo": "/img/business/construction-team.webp" },
+        { "title": "Logistics & Trade Companies", "text": "Fleet for sales representatives, courier services, and regional trips.", "photo": "/img/business/logistics-delivery.webp" }
+      ]
+    },
+    "vehicles": {
+      "title": "Fleet for any task",
+      "subtitle": "From a delivery van to an executive sedan for negotiations",
+      "tabs": [
+        { "key": "commercial", "label": "Commercial", "title": "Economy & Comfort", "text": "Skoda Octavia, Renault Megane, Peugeot 308. Reliable cars for everyday business needs.", "cta": "Get list of available cars" },
+        { "key": "executive", "label": "Executive", "title": "Business Class", "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. For management, meetings, and transfers.", "cta": "Get list of available cars" },
+        { "key": "suv", "label": "SUVs", "title": "SUVs & Crossovers", "text": "Toyota RAV4, Hyundai Tucson, Mitsubishi Outlander. For site visits and tough roads.", "cta": "Get list of available cars" },
+        { "key": "cross-border", "label": "Cross-Border", "title": "International Travel", "text": "Transparent EU border crossing with no hidden fees. Option to leave the car in Poland or another country — we'll pick it up.", "cta": "Learn more" },
+        { "key": "vans", "label": "Vans & Cargo", "title": "Vans & Cargo", "text": "Renault Master, Mercedes Sprinter and more. Perfect for logistics, delivery, and mobile teams.", "cta": "Get list of available cars" }
+      ]
+    },
+    "finalCta": {
+      "title": "Ready to optimize your fleet?",
+      "subtitle": "Leave a request — our manager will prepare an individual offer for your company.",
+      "features": [
+        "Quick needs assessment in 15–30 minutes",
+        "Clear payment schedule and terms",
+        "Contract and insurance from day one"
+      ],
+      "cta": "Get an offer"
     }
   },
   "blogPage": {
@@ -2003,6 +2068,45 @@
       "nameRequired": "Please enter your name",
       "phoneRequired": "Please enter your phone number",
       "phoneInvalid": "Enter a valid phone number",
+      "consentRequired": "Please accept the personal data processing terms",
+      "submitFailed": "Failed to submit request. Please try again."
+    }
+  },
+  "businessOfferModal": {
+    "title": "Get a Business Offer",
+    "placeholder": {
+      "name": "Name",
+      "company": "Company name (optional)",
+      "phone": "Phone"
+    },
+    "vehicleCount": {
+      "label": "Number of vehicles",
+      "options": {
+        "1": "1 vehicle",
+        "2-5": "2–5 vehicles",
+        "5-10": "5–10 vehicles",
+        "10+": "10+ vehicles"
+      }
+    },
+    "contactMethods": {
+      "title": "How should we contact you?",
+      "options": {
+        "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "viber": "Viber"
+      }
+    },
+    "checkbox": "I have read and agree to the personal data processing terms",
+    "button": "Submit Request",
+    "submitting": "Submitting...",
+    "success": "Thank you! We will contact you shortly.",
+    "text": "By clicking 'Submit Request', you accept the terms of personal data processing",
+    "errors": {
+      "nameRequired": "Please enter your name",
+      "phoneRequired": "Please enter your phone number",
+      "phoneInvalid": "Enter a valid phone number",
+      "vehicleCountRequired": "Please select the number of vehicles",
       "consentRequired": "Please accept the personal data processing terms",
       "submitFailed": "Failed to submit request. Please try again."
     }

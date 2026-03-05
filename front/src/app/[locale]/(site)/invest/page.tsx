@@ -66,7 +66,7 @@ type InvestCopy = {
   hero: {
     tag: string;
     title: string;
-    text: string;
+    features: [string, string];
     primaryCta: string;
     secondaryCta: string;
     heroAlt: string;
@@ -433,9 +433,12 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
     breadcrumbCurrent: "Передать авто в автопарк",
     hero: {
       tag: "АВТО В УПРАВЛЕНИЕ REIZ",
-      title: "Передайте авто в автопарк REIZ и получайте доход каждый месяц",
-      text: "Вы передаёте автомобиль, мы берём на себя аренду, сервис, проверку клиентов, страховки и контроль. Вы получаете выплаты владельца по прозрачной модели.",
-      primaryCta: "Рассчитать доход авто",
+      title: "Передайте авто в управление и получайте доход ежемесячно",
+      features: [
+        "Доход: от 200 до 3500 USD\n(зависит от модели)",
+        "Распределение дохода:\n70/30 — владелец / автопрокат",
+      ],
+      primaryCta: "Рассчитать доход",
       secondaryCta: "Передать авто",
       heroAlt: "Автопарк REIZ — передайте авто в управление",
     },
@@ -679,9 +682,12 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
     breadcrumbCurrent: "Передати авто в автопарк",
     hero: {
       tag: "АВТО В УПРАВЛІННЯ REIZ",
-      title: "Передайте авто в управління REIZ і отримуйте дохід щомісяця",
-      text: "Ви передаєте автомобіль нам в управління. Ми беремо на себе оренду, сервіс, перевірку клієнтів, страхування та контроль. Ви отримуєте регулярні виплати власника за прозорою моделлю.",
-      primaryCta: "Розрахувати дохід авто",
+      title: "Передайте авто в управління і отримуйте дохід щомісяця",
+      features: [
+        "Дохід: від 200 до 3500 USD\n(залежить від моделі)",
+        "Розподіл доходу:\n70/30 — власник / автопрокат",
+      ],
+      primaryCta: "Розрахувати дохід",
       secondaryCta: "Передати авто",
       heroAlt: "Автопарк REIZ — передайте авто в управління",
     },
@@ -925,9 +931,12 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
     breadcrumbCurrent: "List Your Car",
     hero: {
       tag: "CAR MANAGEMENT BY REIZ",
-      title: "List your car with REIZ and receive monthly owner payouts",
-      text: "You hand over the vehicle, we handle rentals, service, screening, insurance, and control. You receive regular owner payouts under a clear model.",
-      primaryCta: "Calculate car income",
+      title: "List your car and receive monthly income",
+      features: [
+        "Income: from 200 to 3500 USD\n(depends on the model)",
+        "Revenue split:\n70/30 — owner / rental company",
+      ],
+      primaryCta: "Calculate income",
       secondaryCta: "List your car",
       heroAlt: "REIZ fleet — list your car for management",
     },
@@ -1170,9 +1179,12 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
     breadcrumbCurrent: "Przekaż auto do floty",
     hero: {
       tag: "AUTO W ZARZĄDZANIU REIZ",
-      title: "Przekaż auto do floty REIZ i otrzymuj dochód co miesiąc",
-      text: "Przekazujesz samochód, my zajmujemy się wynajmem, serwisem, weryfikacją klientów, ubezpieczeniem i kontrolą. Ty otrzymujesz regularne wypłaty właściciela według przejrzystego modelu.",
-      primaryCta: "Oblicz dochód z auta",
+      title: "Przekaż auto w zarządzanie i otrzymuj dochód co miesiąc",
+      features: [
+        "Dochód: od 200 do 3500 USD\n(zależy od modelu)",
+        "Podział dochodu:\n70/30 — właściciel / wynajem",
+      ],
+      primaryCta: "Oblicz dochód",
       secondaryCta: "Przekaż auto",
       heroAlt: "Flota REIZ — przekaż auto w zarządzanie",
     },
@@ -1413,9 +1425,12 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
     breadcrumbCurrent: "Predă mașina în flotă",
     hero: {
       tag: "MAȘINĂ ÎN ADMINISTRAREA REIZ",
-      title: "Predă mașina flotei REIZ și primește venit în fiecare lună",
-      text: "Predai automobilul, noi ne ocupăm de închiriere, service, verificarea clienților, asigurare și control. Tu primești plăți regulate de proprietar conform unui model transparent.",
-      primaryCta: "Calculează venitul din mașină",
+      title: "Predă mașina în administrare și primește venit lunar",
+      features: [
+        "Venit: de la 200 la 3500 USD\n(depinde de model)",
+        "Distribuția venitului:\n70/30 — proprietar / închiriere",
+      ],
+      primaryCta: "Calculează venitul",
       secondaryCta: "Predă mașina",
       heroAlt: "Flota REIZ — predă mașina în administrare",
     },
@@ -1673,18 +1688,36 @@ export default async function InvestPage() {
 
       <section className="invest-page__hero">
         <div className="invest-page__hero-content">
-          <span className="invest-page__hero-tag">{copy.hero.tag}</span>
-          <h1 className="invest-page__hero-title">{copy.hero.title}</h1>
-          <p className="invest-page__hero-text">{copy.hero.text}</p>
+          <div className="invest-page__hero-heading">
+            <span className="invest-page__hero-tag">{copy.hero.tag}</span>
+            <h1 className="invest-page__hero-title">{copy.hero.title}</h1>
+          </div>
+
+          <div className="invest-page__hero-features">
+            <div className="invest-page__hero-feature">
+              <span className="invest-page__hero-feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.996 0C31.025 0 40 8.974 40 19.992 40 31.026 31.025 40 19.996 40 8.967 40 0 31.027 0 19.992 0 8.974 8.967 0 19.996 0Zm-6.663 20.667v1.25h1.76a3.17 3.17 0 0 0-.919 2.047v.022c0 1.937 1.871 3.498 5.147 3.498 3.231 0 5.356-1.55 5.522-3.719l.012-.1h-2.358l-.022.122c-.222 1.029-1.373 1.66-3.055 1.66-1.87 0-2.843-.786-2.843-1.638v-.022c0-.874.565-1.44 1.594-1.849h7.637v-1.25H13.333Zm6.375-8.667c-3.11 0-5.157 1.55-5.323 3.708l-.012.1h2.358l.033-.122c.2-1.018 1.284-1.65 2.845-1.65 1.748 0 2.645.786 2.645 1.638v.022c0 .863-.554 1.428-1.572 1.837H13.333v1.252H25.807v-1.252h-2.048a3.17 3.17 0 0 0 .897-2.014v-.023c0-1.937-1.794-3.497-4.948-3.497Z" fill="#214230"/>
+                </svg>
+              </span>
+              <span className="invest-page__hero-feature-text">{copy.hero.features[0]}</span>
+            </div>
+            <div className="invest-page__hero-feature">
+              <span className="invest-page__hero-feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.7229 0C16.0856 0.000901833 12.5195 1.01997 9.42032 2.94539C6.31666 4.87531 3.80438 7.63492 2.15027 10.9176C0.500618 14.2048 -0.224163 17.8933 0.0604136 21.5682C0.349437 25.2432 1.63003 28.7694 3.7688 31.7544C5.90758 34.7395 8.8156 37.0662 12.1772 38.4776C15.5343 39.889 19.216 40.3309 22.8088 39.7537C26.4015 39.1765 29.7676 37.6028 32.5288 35.2085C35.2946 32.8096 37.3533 29.6847 38.4783 26.1811L19.7229 19.999V0Z" fill="#214230"/>
+                  <path d="M39.1529 23.1318C39.9953 20.4909 40.2137 17.6835 39.7886 14.9435C39.3596 12.2034 38.3027 9.60221 36.6959 7.35784C35.093 5.11348 32.987 3.28547 30.5573 2.0245C28.1237 0.763529 25.4326 0.109253 22.7026 0.109253V17.6954L39.1529 23.1318Z" fill="#909994"/>
+                </svg>
+              </span>
+              <span className="invest-page__hero-feature-text">{copy.hero.features[1]}</span>
+            </div>
+          </div>
 
           <div className="invest-page__hero-actions">
-            <a
-              href="#invest-calculator"
-              className="main-button main-button--black"
-            >
+            <a href="#invest-calculator" className="invest-page__hero-btn invest-page__hero-btn--primary">
               {copy.hero.primaryCta}
             </a>
-            <a href="#invest-form" className="main-button main-button--white">
+            <a href="#invest-form" className="invest-page__hero-btn invest-page__hero-btn--secondary">
               {copy.hero.secondaryCta}
             </a>
           </div>

@@ -493,11 +493,18 @@
       "home": "Acasă",
       "current": "Închirieri corporate"
     },
-    "pretitle": "ÎNCHIRIERE AUTO PENTRU COMPANII ÎN UCRAINA",
+    "pretitle": "ÎNCHIRIERE CORPORATIVĂ",
     "hero": {
-      "title": "Închiriere auto pentru companii",
-      "text": "O soluție completă pentru companii: sedanuri, crossovere și microbuze cu facturare TVA, asigurare și suport tehnic. Totul sub un singur contract.",
-      "cta": "SOLICITĂ O OFERTĂ"
+      "title": "Închiriere auto pentru persoane juridice în Ucraina",
+      "text": "Serviciu premium pentru companii: facturare TVA, tarife pe termen lung și control complet al flotei.",
+      "features": [
+        "Plată cu TVA",
+        "Tarife reduse de la 30 de zile",
+        "Urmărirea flotei în cont"
+      ],
+      "cta": "OBȚINE O OFERTĂ",
+      "ctaPrimary": "Obține o ofertă",
+      "ctaSecondary": "Sună-ne"
     },
     "slider": {
       "ariaLabel": "Beneficii corporative",
@@ -780,6 +787,64 @@
     },
     "cta": {
       "requestCall": "SOLICITĂ UN APEL"
+    },
+    "benefit": {
+      "title": "De ce închiriere, nu cumpărare",
+      "subtitle": "Comparați costurile — și vedeți diferența",
+      "cols": [
+        { "value": "100% TVA", "label": "în credit fiscal", "desc": "Fiecare plată reduce obligațiile fiscale" },
+        { "value": "0 lei", "label": "amortizare", "desc": "Mașina nu este în bilanț — fără uzură, fără contabilitate" },
+        { "value": "OPEX", "label": "în loc de CAPEX", "desc": "Păstrați capitalul de lucru pentru creșterea afacerii" },
+        { "value": "de la 30 zile", "label": "termene flexibile", "desc": "Închiriere de la o lună cu posibilitate de prelungire" }
+      ],
+      "cta": "Calculați economia"
+    },
+    "legal": {
+      "title": "Mașina nu este în bilanțul dvs.",
+      "subtitle": "Mai puține riscuri, mai puțină contabilitate, mai multă liniște",
+      "cards": [
+        { "title": "Nu este proprietatea companiei dvs.", "text": "Mașina este înregistrată pe REIZ și nu face parte din activele dvs. O utilizați în baza unui contract de închiriere — fără înregistrare în bilanț, fără amortizare." },
+        { "title": "Scrisoare de garanție în loc de depozit", "text": "Pentru clienții corporativi putem lucra cu scrisoare de garanție fără înghețarea fondurilor — în baza contractului și după acordul condițiilor." }
+      ]
+    },
+    "fleet": {
+      "title": "Ne ocupăm de tot",
+      "subtitle": "Concentrați-vă pe afacere — noi vom avea grijă de flotă",
+      "cards": [
+        { "title": "Service și întreținere", "text": "Întreținere planificată, schimbul sezonier al anvelopelor, reparații — organizăm și plătim. Dacă mașina se strică — oferim o mașină de schimb în 24 de ore." },
+        { "title": "Asigurare CASCO + RCA", "text": "Acoperire completă inclusă în prețul închirierii. Gestionarea accidentelor — pe noi." },
+        { "title": "O singură factură pe lună", "text": "Fără deranj cu zeci de chitanțe. O factură, o plată, 100% TVA deductibil." }
+      ]
+    },
+    "cases": {
+      "title": "Cu cine lucrăm",
+      "items": [
+        { "title": "Companii IT și startup-uri", "text": "Închiriere auto pentru echipe de dezvoltatori, manageri și întâlniri cu clienții.", "photo": "/img/business/client-consultation.webp" },
+        { "title": "Organizații internaționale", "text": "Transport pentru misiuni diplomatice și umanitare, ambasade și reprezentanțe.", "photo": "/img/business/corporate-driver.webp" },
+        { "title": "Companii de construcții", "text": "SUV-uri și microbuze pentru transportul specialiștilor și coordonarea șantierelor.", "photo": "/img/business/construction-team.webp" },
+        { "title": "Companii de logistică și comerț", "text": "Flotă pentru reprezentanți de vânzări, curierat și deplasări regionale.", "photo": "/img/business/logistics-delivery.webp" }
+      ]
+    },
+    "vehicles": {
+      "title": "Flotă pentru orice sarcină",
+      "subtitle": "De la furgonete de livrare la sedanuri executive",
+      "tabs": [
+        { "key": "commercial", "label": "Comerciale", "title": "Econom și confort", "text": "Skoda Octavia, Renault Megane, Peugeot 308. Mașini fiabile pentru nevoile zilnice ale afacerii.", "cta": "Obțineți lista mașinilor disponibile" },
+        { "key": "executive", "label": "Executive", "title": "Clasa business", "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. Pentru management, întâlniri și transferuri.", "cta": "Obțineți lista mașinilor disponibile" },
+        { "key": "suv", "label": "SUV", "title": "SUV-uri și crossovere", "text": "Toyota RAV4, Hyundai Tucson, Mitsubishi Outlander. Pentru vizite pe teren și drumuri dificile.", "cta": "Obțineți lista mașinilor disponibile" },
+        { "key": "cross-border", "label": "Cross-Border", "title": "Călătorii internaționale", "text": "Trecere transparentă a frontierelor UE fără comisioane ascunse. Posibilitate de a lăsa mașina în Polonia sau altă țară.", "cta": "Aflați condițiile" },
+        { "key": "vans", "label": "Furgonete și cargo", "title": "Furgonete și cargo", "text": "Renault Master, Mercedes Sprinter și altele. Ideale pentru logistică, livrări și echipe mobile.", "cta": "Obțineți lista mașinilor disponibile" }
+      ]
+    },
+    "finalCta": {
+      "title": "Pregătiți să vă optimizați flota?",
+      "subtitle": "Lăsați o cerere — managerul va pregăti o ofertă individuală pentru compania dvs.",
+      "features": [
+        "Evaluare rapidă a nevoilor în 15–30 de minute",
+        "Grafic clar de plăți și condiții",
+        "Contract și protecție de asigurare din prima zi"
+      ],
+      "cta": "Obțineți o ofertă"
     }
   },
   "blogPage": {
@@ -2003,6 +2068,45 @@
       "nameRequired": "Introduceți numele dumneavoastră",
       "phoneRequired": "Introduceți numărul de telefon",
       "phoneInvalid": "Introduceți un număr de telefon valid",
+      "consentRequired": "Acceptați condițiile de prelucrare a datelor personale",
+      "submitFailed": "Trimiterea cererii a eșuat. Vă rugăm să încercați din nou."
+    }
+  },
+  "businessOfferModal": {
+    "title": "Solicită o ofertă pentru afaceri",
+    "placeholder": {
+      "name": "Nume",
+      "company": "Numele companiei (opțional)",
+      "phone": "Telefon"
+    },
+    "vehicleCount": {
+      "label": "Numărul de vehicule",
+      "options": {
+        "1": "1 vehicul",
+        "2-5": "2–5 vehicule",
+        "5-10": "5–10 vehicule",
+        "10+": "10+ vehicule"
+      }
+    },
+    "contactMethods": {
+      "title": "Cum doriți să vă contactăm?",
+      "options": {
+        "phone": "Telefon",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "viber": "Viber"
+      }
+    },
+    "checkbox": "Am citit și sunt de acord cu condițiile de prelucrare a datelor personale",
+    "button": "Trimite cererea",
+    "submitting": "Se trimite...",
+    "success": "Mulțumim! Vă vom contacta în curând.",
+    "text": "Prin clic pe butonul «Trimite cererea», acceptați condițiile de prelucrare a datelor personale",
+    "errors": {
+      "nameRequired": "Introduceți numele dumneavoastră",
+      "phoneRequired": "Introduceți numărul de telefon",
+      "phoneInvalid": "Introduceți un număr de telefon valid",
+      "vehicleCountRequired": "Selectați numărul de vehicule",
       "consentRequired": "Acceptați condițiile de prelucrare a datelor personale",
       "submitFailed": "Trimiterea cererii a eșuat. Vă rugăm să încercați din nou."
     }
