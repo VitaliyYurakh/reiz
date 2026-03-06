@@ -1456,6 +1456,38 @@ main:has(.rental-section--invest) + .footer {
   }
 }
 
+@include small-tablet {
+  .invest-page__hero-content {
+    width: 100%;
+    max-width: none;
+    align-items: stretch;
+  }
+
+  .invest-page__hero-actions {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+
+  .invest-page__hero-btn--primary {
+    flex: 1 1 0;
+  }
+
+  .invest-page__hero-feature-icon {
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .invest-page__hero-media {
+    width: 100%;
+  }
+}
+
 @include for-small-tablet {
   .invest-page {
     padding-bottom: 0;
