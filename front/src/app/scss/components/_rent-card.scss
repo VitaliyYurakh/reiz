@@ -13,6 +13,10 @@
   display: flex;
   flex-direction: column;
 
+  &:not(:has(#{&}__list)) {
+    gap: clamp(50px, 5vw, 70px);
+  }
+
   .main-button {
     margin-top: auto;
     align-self: flex-end;
