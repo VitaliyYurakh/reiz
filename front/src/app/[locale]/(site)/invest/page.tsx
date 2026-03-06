@@ -435,7 +435,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
       tag: "АВТО В УПРАВЛЕНИЕ REIZ",
       title: "Передайте авто в управление и получайте доход ежемесячно",
       features: [
-        "Доход: от 200 до 3500 USD\n(зависит от модели)",
+        "Доход: от 250 до 3500 USD\n(зависит от модели)",
         "Распределение дохода:\n70/30 — владелец / автопрокат",
       ],
       primaryCta: "Рассчитать доход",
@@ -507,7 +507,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
         {
           title: "Economy",
           load: "79%",
-          payout: "$200-300 / мес",
+          payout: "$250-300 / мес",
           text: "Высокая частота бронирований и стабильный спрос в течение года.",
         },
         {
@@ -684,7 +684,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
       tag: "АВТО В УПРАВЛІННЯ REIZ",
       title: "Передайте авто в управління і отримуйте дохід щомісяця",
       features: [
-        "Дохід: від 200 до 3500 USD\n(залежить від моделі)",
+        "Дохід: від 250 до 3500 USD\n(залежить від моделі)",
         "Розподіл доходу:\n70/30 — власник / автопрокат",
       ],
       primaryCta: "Розрахувати дохід",
@@ -756,7 +756,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
         {
           title: "Economy",
           load: "79%",
-          payout: "$200-300 / міс",
+          payout: "$250-300 / міс",
           text: "Висока частота бронювань і стабільний попит протягом року.",
         },
         {
@@ -933,7 +933,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
       tag: "CAR MANAGEMENT BY REIZ",
       title: "List your car and receive monthly income",
       features: [
-        "Income: from 200 to 3500 USD\n(depends on the model)",
+        "Income: from 250 to 3500 USD\n(depends on the model)",
         "Revenue split:\n70/30 — owner / rental company",
       ],
       primaryCta: "Calculate income",
@@ -1005,7 +1005,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
         {
           title: "Economy",
           load: "79%",
-          payout: "$200-300 / mo",
+          payout: "$250-300 / mo",
           text: "High booking frequency with steady year-round demand.",
         },
         {
@@ -1181,7 +1181,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
       tag: "AUTO W ZARZĄDZANIU REIZ",
       title: "Przekaż auto w zarządzanie i otrzymuj dochód co miesiąc",
       features: [
-        "Dochód: od 200 do 3500 USD\n(zależy od modelu)",
+        "Dochód: od 250 do 3500 USD\n(zależy od modelu)",
         "Podział dochodu:\n70/30 — właściciel / wynajem",
       ],
       primaryCta: "Oblicz dochód",
@@ -1250,7 +1250,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
         {
           title: "Economy",
           load: "79%",
-          payout: "$200-300 / mies.",
+          payout: "$250-300 / mies.",
           text: "Wysoka częstotliwość rezerwacji i stabilny popyt przez cały rok.",
         },
         {
@@ -1427,7 +1427,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
       tag: "MAȘINĂ ÎN ADMINISTRAREA REIZ",
       title: "Predă mașina în administrare și primește venit lunar",
       features: [
-        "Venit: de la 200 la 3500 USD\n(depinde de model)",
+        "Venit: de la 250 la 3500 USD\n(depinde de model)",
         "Distribuția venitului:\n70/30 — proprietar / închiriere",
       ],
       primaryCta: "Calculează venitul",
@@ -1496,7 +1496,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
         {
           title: "Economy",
           load: "79%",
-          payout: "$200-300 / lună",
+          payout: "$250-300 / lună",
           text: "Frecvență ridicată a rezervărilor și cerere stabilă pe tot parcursul anului.",
         },
         {
