@@ -1,4 +1,5 @@
-import {prisma} from '../utils';
+import {prisma, MS_PER_DAY, ReservationStatus} from '../utils';
+import {PriceSnapshot} from '../types/dto.types';
 import availabilityService from './availability.service';
 import {formatConflicts} from './availability.service';
 
@@ -159,8 +160,7 @@ class ReservationService {
 
             // Recalculate PER_DAY add-ons if dates changed
             if (data.pickupDate || data.returnDate) {
-                const msPerDay = 24 * 60 * 60 * 1000;
-                const newTotalDays = Math.max(1, Math.ceil((returnDate.getTime() - pickupDate.getTime()) / msPerDay));
+                const newTotalDays = Math.max(1, Math.ceil((returnDate.getTime() - pickupDate.getTime()) / MS_PER_DAY));
                 const addOns = await tx.reservationAddOn.findMany({
                     where: {reservationId: id},
                     include: {addOn: true},
@@ -207,7 +207,7 @@ class ReservationService {
             throw new Error(`Reservation with id ${id} not found`);
         }
 
-        if (reservation.status !== 'confirmed') {
+        if (reservation.status !== ReservationStatus.CONFIRMED) {
             throw new Error(`Бронювання повинно мати статус "підтверджено". Поточний статус: ${reservation.status}`);
         }
 
@@ -262,7 +262,7 @@ class ReservationService {
             // Update reservation status
             const updatedReservation = await tx.reservation.update({
                 where: {id},
-                data: {status: 'picked_up'},
+                data: {status: ReservationStatus.PICKED_UP},
             });
 
             // Create rental from reservation
@@ -277,8 +277,8 @@ class ReservationService {
                     returnLocation: reservation.returnLocation,
                     pickupOdometer: pickupData.pickupOdometer || null,
                     contractNumber: pickupData.contractNumber || null,
-                    priceSnapshot: reservation.priceSnapshot,
-                    depositAmount: (reservation.priceSnapshot as any)?.depositAmount || 0,
+                    priceSnapshot: (reservation.priceSnapshot ?? {}) as any,
+                    depositAmount: (reservation.priceSnapshot as PriceSnapshot)?.depositAmount || 0,
                     // Copy add-ons from reservation to rental
                     rentalAddOns: reservation.reservationAddOns.length > 0
                         ? {
@@ -308,7 +308,7 @@ class ReservationService {
         return await prisma.reservation.update({
             where: {id},
             data: {
-                status: 'cancelled',
+                status: ReservationStatus.CANCELLED,
                 cancelReason: reason,
                 cancelledAt: new Date(),
             },
@@ -319,7 +319,7 @@ class ReservationService {
         return await prisma.reservation.update({
             where: {id},
             data: {
-                status: 'no_show',
+                status: ReservationStatus.NO_SHOW,
                 noShowAt: new Date(),
             },
         });
@@ -330,34 +330,36 @@ class ReservationService {
         if (!reservation) {
             throw new Error(`Reservation with id ${id} not found`);
         }
-        if (reservation.status !== 'no_show' && reservation.status !== 'cancelled') {
+        if (reservation.status !== ReservationStatus.NO_SHOW && reservation.status !== ReservationStatus.CANCELLED) {
             throw new Error(`Можна реактивувати лише скасовані або no-show бронювання. Поточний статус: ${reservation.status}`);
         }
 
-        // Check car availability for the original dates
-        const availability = await availabilityService.checkCarAvailability(
-            reservation.carId,
-            reservation.pickupDate,
-            reservation.returnDate,
-            id,
-        );
-        if (!availability.available) {
-            throw new Error(formatConflicts(availability.conflicts));
-        }
+        return await prisma.$transaction(async (tx) => {
+            // Check car availability INSIDE the transaction to prevent race conditions
+            const availability = await availabilityService.checkCarAvailability(
+                reservation.carId,
+                reservation.pickupDate,
+                reservation.returnDate,
+                id,
+            );
+            if (!availability.available) {
+                throw new Error(formatConflicts(availability.conflicts));
+            }
 
-        return await prisma.reservation.update({
-            where: {id},
-            data: {
-                status: 'confirmed',
-                cancelReason: null,
-                cancelledAt: null,
-                noShowAt: null,
-            },
-            include: {
-                client: true,
-                car: true,
-                coveragePackage: true,
-            },
+            return await tx.reservation.update({
+                where: {id},
+                data: {
+                    status: ReservationStatus.CONFIRMED,
+                    cancelReason: null,
+                    cancelledAt: null,
+                    noShowAt: null,
+                },
+                include: {
+                    client: true,
+                    car: true,
+                    coveragePackage: true,
+                },
+            });
         });
     }
 

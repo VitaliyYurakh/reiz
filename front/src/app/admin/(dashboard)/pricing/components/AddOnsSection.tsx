@@ -54,7 +54,7 @@ export function AddOnsSection({
       await adminApiClient.post('/pricing/add-on', {
         name: createForm.name,
         pricingMode: createForm.pricingMode,
-        unitPriceMinor: Number(createForm.unitPriceMinor),
+        unitPriceMinor: Math.round(Number(createForm.unitPriceMinor) * 100),
         currency: createForm.currency,
         isActive: createForm.isActive,
       });
@@ -73,7 +73,7 @@ export function AddOnsSection({
     setEditForm({
       name: ao.name,
       pricingMode: ao.pricingMode,
-      unitPriceMinor: ao.unitPriceMinor,
+      unitPriceMinor: ao.unitPriceMinor / 100,
       currency: ao.currency,
       isActive: ao.isActive,
     });
@@ -90,7 +90,7 @@ export function AddOnsSection({
       await adminApiClient.patch(`/pricing/add-on/${id}`, {
         name: editForm.name,
         pricingMode: editForm.pricingMode,
-        unitPriceMinor: Number(editForm.unitPriceMinor),
+        unitPriceMinor: Math.round(Number(editForm.unitPriceMinor) * 100),
         currency: editForm.currency,
         isActive: editForm.isActive,
       });
@@ -212,7 +212,7 @@ export function AddOnsSection({
               />
             </div>
             <div>
-              <HLabel>Цена (центы)</HLabel>
+              <HLabel>Цена</HLabel>
               <HInput
                 type="number"
                 value={createForm.unitPriceMinor}
@@ -224,8 +224,9 @@ export function AddOnsSection({
                       : '',
                   })
                 }
-                placeholder="500"
+                placeholder="5.00"
                 min={0}
+                step="0.01"
               />
             </div>
             <div>

@@ -1,4 +1,5 @@
 import {logger} from '../utils';
+import {env} from '../config/env';
 
 interface TelegramMessage {
     chat_id: string;
@@ -11,6 +12,18 @@ interface ExchangeRates {
     usd: number;
 }
 
+/**
+ * Escape user-provided text for Telegram HTML parse mode.
+ * Prevents HTML injection in messages.
+ */
+function escapeHtml(text: string | undefined | null): string {
+    if (!text) return '';
+    return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
 class TelegramService {
     private botToken: string;
     private chatId: string;
@@ -20,8 +33,8 @@ class TelegramService {
     private readonly CACHE_DURATION = 3600000; // 1 hour in milliseconds
 
     constructor() {
-        this.botToken = process.env.TELEGRAM_BOT_TOKEN || '';
-        this.chatId = process.env.TELEGRAM_CHAT_ID || '';
+        this.botToken = env.TELEGRAM_BOT_TOKEN || '';
+        this.chatId = env.TELEGRAM_CHAT_ID || '';
         this.apiUrl = `https://api.telegram.org/bot${this.botToken}/sendMessage`;
     }
 
@@ -127,13 +140,13 @@ class TelegramService {
         };
 
         let message = `🚗 <b>Нова Заявка на Оренду</b>\n\n`;
-        message += `👤 <b>Клієнт:</b> ${data.firstName} ${data.lastName}\n`;
-        message += `📞 <b>Телефон:</b> ${data.phone}\n`;
-        message += `📧 <b>Email:</b> ${data.email}\n\n`;
+        message += `👤 <b>Клієнт:</b> ${escapeHtml(data.firstName)} ${escapeHtml(data.lastName)}\n`;
+        message += `📞 <b>Телефон:</b> ${escapeHtml(data.phone)}\n`;
+        message += `📧 <b>Email:</b> ${escapeHtml(data.email)}\n\n`;
 
         if (data.carDetails) {
             const car = data.carDetails;
-            message += `🚙 <b>Автомобіль:</b> ${car.brand} ${car.model}`;
+            message += `🚙 <b>Автомобіль:</b> ${escapeHtml(car.brand)} ${escapeHtml(car.model)}`;
             if (car.year) message += ` ${car.year}`;
             message += `\n`;
         }
@@ -144,11 +157,11 @@ class TelegramService {
         }
         message += `\n`;
 
-        message += `📍 <b>Взяття:</b> ${data.pickupLocation}\n`;
-        message += `📍 <b>Повернення:</b> ${data.returnLocation}\n`;
+        message += `📍 <b>Взяття:</b> ${escapeHtml(data.pickupLocation)}\n`;
+        message += `📍 <b>Повернення:</b> ${escapeHtml(data.returnLocation)}\n`;
 
         if (data.flightNumber) {
-            message += `✈️ <b>Рейс:</b> ${data.flightNumber}\n`;
+            message += `✈️ <b>Рейс:</b> ${escapeHtml(data.flightNumber)}\n`;
         }
 
         // Detailed price breakdown
@@ -213,7 +226,7 @@ class TelegramService {
         }
 
         if (data.comment) {
-            message += `\n💬 <b>Коментар:</b> ${data.comment}`;
+            message += `\n💬 <b>Коментар:</b> ${escapeHtml(data.comment)}`;
         }
 
         return message;
@@ -221,12 +234,12 @@ class TelegramService {
 
     formatContactRequest(data: any): string {
         let message = `📧 <b>Нове Повідомлення з Форми Контактів</b>\n\n`;
-        message += `👤 <b>Ім'я:</b> ${data.name}\n`;
-        message += `📧 <b>Email:</b> ${data.email}\n`;
-        message += `📞 <b>Телефон:</b> ${data.phone}\n`;
+        message += `👤 <b>Ім'я:</b> ${escapeHtml(data.name)}\n`;
+        message += `📧 <b>Email:</b> ${escapeHtml(data.email)}\n`;
+        message += `📞 <b>Телефон:</b> ${escapeHtml(data.phone)}\n`;
 
         if (data.message) {
-            message += `\n💬 <b>Повідомлення:</b>\n${data.message}`;
+            message += `\n💬 <b>Повідомлення:</b>\n${escapeHtml(data.message)}`;
         }
 
         const date = new Date().toLocaleString('uk-UA', {
@@ -243,11 +256,11 @@ class TelegramService {
 
     formatCallbackRequest(data: any): string {
         let message = `📞 <b>Запит на Дзвінок</b>\n\n`;
-        message += `👤 <b>Ім'я:</b> ${data.name}\n`;
-        message += `📱 <b>Телефон:</b> ${data.phone}\n`;
+        message += `👤 <b>Ім'я:</b> ${escapeHtml(data.name)}\n`;
+        message += `📱 <b>Телефон:</b> ${escapeHtml(data.phone)}\n`;
 
         if (data.contactMethod) {
-            message += `💬 <b>Метод зв'язку:</b> ${data.contactMethod}\n`;
+            message += `💬 <b>Метод зв'язку:</b> ${escapeHtml(data.contactMethod)}\n`;
         }
 
         const date = new Date().toLocaleString('uk-UA', {
@@ -264,12 +277,12 @@ class TelegramService {
 
     formatBusinessRequest(data: any): string {
         let message = `💼 <b>Запит для Бізнесу</b>\n\n`;
-        message += `👤 <b>Ім'я:</b> ${data.name}\n`;
-        message += `📞 <b>Телефон:</b> ${data.phone}\n`;
-        message += `📧 <b>Email:</b> ${data.email}\n`;
+        message += `👤 <b>Ім'я:</b> ${escapeHtml(data.name)}\n`;
+        message += `📞 <b>Телефон:</b> ${escapeHtml(data.phone)}\n`;
+        message += `📧 <b>Email:</b> ${escapeHtml(data.email)}\n`;
 
         if (data.message) {
-            message += `\n💬 <b>Повідомлення:</b>\n${data.message}`;
+            message += `\n💬 <b>Повідомлення:</b>\n${escapeHtml(data.message)}`;
         }
 
         const date = new Date().toLocaleString('uk-UA', {
@@ -286,17 +299,17 @@ class TelegramService {
 
     formatInvestRequest(data: any): string {
         let message = `📊 <b>Запит на Розрахунок Дохідності</b>\n\n`;
-        message += `🚗 <b>Автомобіль:</b> ${data.car} ${data.model}\n`;
+        message += `🚗 <b>Автомобіль:</b> ${escapeHtml(data.car)} ${escapeHtml(data.model)}\n`;
 
-        if (data.year) message += `📅 <b>Рік:</b> ${data.year}\n`;
-        if (data.transmission) message += `⚙️ <b>КПП:</b> ${data.transmission}\n`;
-        if (data.mileage) message += `🛣️ <b>Пробіг:</b> ${data.mileage}\n`;
-        if (data.color) message += `🎨 <b>Колір:</b> ${data.color}\n`;
-        if (data.complect) message += `📋 <b>Комплектація:</b> ${data.complect}\n`;
+        if (data.year) message += `📅 <b>Рік:</b> ${escapeHtml(data.year)}\n`;
+        if (data.transmission) message += `⚙️ <b>КПП:</b> ${escapeHtml(data.transmission)}\n`;
+        if (data.mileage) message += `🛣️ <b>Пробіг:</b> ${escapeHtml(data.mileage)}\n`;
+        if (data.color) message += `🎨 <b>Колір:</b> ${escapeHtml(data.color)}\n`;
+        if (data.complect) message += `📋 <b>Комплектація:</b> ${escapeHtml(data.complect)}\n`;
 
-        message += `\n👤 <b>Ім'я:</b> ${data.name}\n`;
-        message += `📞 <b>Телефон:</b> ${data.phone}\n`;
-        message += `📧 <b>Email:</b> ${data.email}\n`;
+        message += `\n👤 <b>Ім'я:</b> ${escapeHtml(data.name)}\n`;
+        message += `📞 <b>Телефон:</b> ${escapeHtml(data.phone)}\n`;
+        message += `📧 <b>Email:</b> ${escapeHtml(data.email)}\n`;
 
         const date = new Date().toLocaleString('uk-UA', {
             day: '2-digit',

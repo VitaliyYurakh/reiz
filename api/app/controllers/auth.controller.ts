@@ -4,8 +4,9 @@ import {authServices} from '../services';
 import {StatusCodes} from 'http-status-codes';
 import {loginSchema, validate, ValidationError} from '../validators';
 import logAudit from '../middleware/audit.middleware';
+import {env} from '../config/env';
 
-const IS_PROD = process.env.NODE_ENV === 'production';
+const IS_PROD = env.NODE_ENV === 'production';
 
 const COOKIE_OPTIONS = {
     httpOnly: true,
@@ -24,7 +25,6 @@ function checkLockout(email: string): boolean {
     const record = failedAttempts.get(email);
     if (!record) return false;
 
-    // Reset if window expired
     if (Date.now() - record.firstAttempt > LOCKOUT_WINDOW_MS) {
         failedAttempts.delete(email);
         return false;
@@ -49,11 +49,11 @@ function clearFailedAttempts(email: string): void {
 }
 
 class AuthController {
+    // Login keeps its own try/catch for lockout logic (unique error handling)
     async login(req: Request, res: Response) {
         try {
             const {nickname, pass} = validate(loginSchema, req.body);
 
-            // Account lockout check
             if (checkLockout(nickname)) {
                 logger.warn({email: nickname}, 'Login blocked: account locked out');
                 logAudit({entityType: 'Auth', entityId: 0, action: 'LOGIN_LOCKOUT', after: {email: nickname}, req});
@@ -64,7 +64,6 @@ class AuthController {
 
             clearFailedAttempts(nickname);
 
-            // Audit: successful login
             const user = await prisma.user.findFirst({where: {email: nickname}, select: {id: true}});
             logAudit({actorId: user?.id, entityType: 'Auth', entityId: user?.id || 0, action: 'LOGIN_SUCCESS', req});
 
@@ -76,55 +75,34 @@ class AuthController {
                 return res.status(StatusCodes.BAD_REQUEST).json({msg: 'Validation error', errors: error.errors});
             }
 
-            logger.error(error);
-
             if (error instanceof UserNotFoundError || error instanceof AccessDenied) {
                 const email = req.body?.nickname;
                 if (email) recordFailedAttempt(email);
 
-                // Audit: failed login
                 logAudit({entityType: 'Auth', entityId: 0, action: 'LOGIN_FAILED', after: {email}, req});
 
                 return res.status(StatusCodes.UNAUTHORIZED).json({msg: 'Invalid credentials'});
             }
 
+            logger.error(error);
             return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
         }
     }
 
     async checkAuth(req: Request, res: Response) {
-        try {
-            const token = req.cookies?.token || req.header('Authorization');
-
-            await authServices.authenticateUser(token);
-
-            return res.status(StatusCodes.OK).json();
-        } catch (error) {
-            logger.error(error);
-
-            if (error instanceof AccessDenied) {
-                return res.status(StatusCodes.UNAUTHORIZED).json({msg: 'Not authenticated'});
-            }
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        const token = req.cookies?.token || req.header('Authorization');
+        await authServices.authenticateUser(token);
+        return res.status(StatusCodes.OK).json();
     }
 
     async me(req: Request, res: Response) {
-        try {
-            const user = res.locals.user;
-            return res.status(StatusCodes.OK).json({user});
-        } catch (error) {
-            logger.error(error);
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        const user = res.locals.user;
+        return res.status(StatusCodes.OK).json({user});
     }
 
     async logout(req: Request, res: Response) {
-        // Audit: logout
         logAudit({actorId: res.locals.user?.id, entityType: 'Auth', entityId: res.locals.user?.id || 0, action: 'LOGOUT', req});
 
-        // Invalidate all existing tokens by incrementing tokenVersion
         if (res.locals.user?.id) {
             await prisma.user.update({where: {id: res.locals.user.id}, data: {tokenVersion: {increment: 1}}});
         }

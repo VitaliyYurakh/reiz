@@ -926,6 +926,16 @@ export const pl: AdminTranslations = {
     typeServiceCost: 'Koszt serwisu',
     typeAddonPayment: 'Opłata za dodatek',
     typeExtensionPayment: 'Opłata za przedłużenie',
+    balance: 'Saldo',
+    in: 'Przychód',
+    out: 'Wydatek',
+    allAccounts: 'Wszystkie konta',
+    editAccount: 'Edytuj',
+    saveAccount: 'Zapisz',
+    newAccount: 'Nowe konto',
+    accountName: 'Nazwa',
+    accountType: 'Typ',
+    filterByAccount: 'Konto',
   },
 
   /* ── Service ── */

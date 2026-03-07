@@ -13,6 +13,8 @@ import {
   TrendingUp,
   TrendingDown,
   Receipt,
+  Pencil,
+  Check,
 } from 'lucide-react';
 import { IosSelect } from '@/components/admin/IosSelect';
 import { fmtMoney, fmtDateTime } from '@/app/admin/lib/format';
@@ -64,6 +66,20 @@ interface CreateTransactionForm {
   clientId: string;
   rentalId: string;
 }
+
+interface AccountBalance {
+  accountId: number;
+  totalIn: number;
+  totalOut: number;
+  balance: number;
+}
+
+const CURRENCY_SYMBOL: Record<string, string> = {
+  UAH: '₴',
+  USD: '$',
+  EUR: '€',
+  ILS: '₪',
+};
 
 const TRANSACTION_TYPES = [
   'PAYMENT',
@@ -129,10 +145,29 @@ export default function FinancePage() {
   const [loadingTx, setLoadingTx] = useState(true);
   const limit = 20;
 
+  const [balances, setBalances] = useState<Map<number, AccountBalance>>(new Map());
+  const [filterAccountId, setFilterAccountId] = useState<number | null>(null);
+  const [editingAccountId, setEditingAccountId] = useState<number | null>(null);
+  const [editForm, setEditForm] = useState({ name: '', type: '', isActive: true });
+  const [saving, setSaving] = useState(false);
+
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [createForm, setCreateForm] = useState<CreateTransactionForm>(initialCreateForm);
   const [creating, setCreating] = useState(false);
   const [createError, setCreateError] = useState<string | null>(null);
+
+  const fetchBalances = useCallback(async () => {
+    try {
+      const res = await adminApiClient.get('/finance/account/balances');
+      const map = new Map<number, AccountBalance>();
+      for (const b of res.data) {
+        map.set(b.accountId, b);
+      }
+      setBalances(map);
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -145,12 +180,14 @@ export default function FinancePage() {
         setLoadingAccounts(false);
       }
     })();
-  }, []);
+    fetchBalances();
+  }, [fetchBalances]);
 
   const fetchTransactions = useCallback(async () => {
     setLoadingTx(true);
     try {
       const params = new URLSearchParams({ page: String(page), limit: String(limit) });
+      if (filterAccountId) params.set('accountId', String(filterAccountId));
       const res = await adminApiClient.get(`/finance/transaction?${params}`);
       setTransactions(res.data.items);
       setTotal(res.data.total);
@@ -159,7 +196,7 @@ export default function FinancePage() {
     } finally {
       setLoadingTx(false);
     }
-  }, [page]);
+  }, [page, filterAccountId]);
 
   useEffect(() => { fetchTransactions(); }, [fetchTransactions]);
 
@@ -172,6 +209,36 @@ export default function FinancePage() {
   const resetCreateForm = () => {
     setCreateForm(initialCreateForm);
     setCreateError(null);
+  };
+
+  const handleCardClick = (accountId: number) => {
+    setFilterAccountId((prev) => (prev === accountId ? null : accountId));
+    setPage(1);
+  };
+
+  const handleEditClick = (e: React.MouseEvent, account: Account) => {
+    e.stopPropagation();
+    setEditingAccountId(account.id);
+    setEditForm({ name: account.name, type: account.type, isActive: account.isActive });
+  };
+
+  const handleEditSave = async (e: React.MouseEvent, accountId: number) => {
+    e.stopPropagation();
+    setSaving(true);
+    try {
+      const res = await adminApiClient.patch(`/finance/account/${accountId}`, editForm);
+      setAccounts((prev) => prev.map((a) => (a.id === accountId ? { ...a, ...res.data } : a)));
+      setEditingAccountId(null);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleEditCancel = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setEditingAccountId(null);
   };
 
   const handleToggleForm = () => {
@@ -215,6 +282,7 @@ export default function FinancePage() {
       resetCreateForm();
       setShowCreateForm(false);
       setPage(1);
+      fetchBalances();
     } catch (err: any) {
       const message =
         err?.response?.data?.message ||
@@ -256,27 +324,89 @@ export default function FinancePage() {
 
       {/* Account Cards */}
       {!loadingAccounts && accounts.length > 0 && (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-3.5 mb-6">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-3.5 mb-6">
           {accounts.map((a) => {
             const style = ACCOUNT_STYLE[a.type.toLowerCase()] || { icon: CreditCard, tint: 'h-icon-box-tint-purple' };
             const Icon = style.icon;
+            const bal = balances.get(a.id);
+            const balanceVal = bal?.balance ?? 0;
+            const symbol = CURRENCY_SYMBOL[a.currency] || a.currency;
+            const balanceClass = balanceVal > 0 ? 'h-account-balance-positive' : balanceVal < 0 ? 'h-account-balance-negative' : 'h-account-balance-zero';
+            const isSelected = filterAccountId === a.id;
+            const isEditing = editingAccountId === a.id;
+
             return (
               <div
                 key={a.id}
-                className={`h-account-card ${!a.isActive ? 'h-account-card-inactive' : ''}`}
+                className={`h-account-card ${!a.isActive ? 'h-account-card-inactive' : ''} ${isSelected ? 'h-account-card-selected' : ''}`}
+                onClick={() => handleCardClick(a.id)}
               >
-                <div className={style.tint}>
-                  <Icon size={20} />
+                {/* Header: icon + name + edit */}
+                <div className="h-account-card-header">
+                  <div className={style.tint}>
+                    <Icon size={20} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        value={editForm.name}
+                        onChange={(e) => setEditForm((f) => ({ ...f, name: e.target.value }))}
+                        onClick={(e) => e.stopPropagation()}
+                        className="h-input text-sm py-1"
+                      />
+                    ) : (
+                      <>
+                        <p className="text-sm font-semibold text-h-navy m-0">{a.name}</p>
+                        <p className="text-xs text-h-gray m-0">
+                          {t(ACCOUNT_TYPE_LABEL_KEYS[a.type]) || a.type} · {a.currency}
+                        </p>
+                      </>
+                    )}
+                  </div>
+                  {isEditing ? (
+                    <div className="flex gap-1">
+                      <button type="button" className="h-account-card-edit" style={{ opacity: 1 }} onClick={(e) => handleEditSave(e, a.id)} disabled={saving}>
+                        <Check size={16} />
+                      </button>
+                      <button type="button" className="h-account-card-edit" style={{ opacity: 1 }} onClick={handleEditCancel}>
+                        <X size={16} />
+                      </button>
+                    </div>
+                  ) : (
+                    <button type="button" className="h-account-card-edit" onClick={(e) => handleEditClick(e, a)}>
+                      <Pencil size={14} />
+                    </button>
+                  )}
                 </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-h-navy m-0">{a.name}</p>
-                  <p className="text-xs text-h-gray m-0">
-                    {t(ACCOUNT_TYPE_LABEL_KEYS[a.type]) || a.type} · {a.currency}
-                  </p>
+
+                {/* Balance */}
+                <div className={`h-account-balance ${balanceClass}`}>
+                  {symbol} {formatMoney(balanceVal, a.currency)}
                 </div>
-                <span className={`h-account-status ${a.isActive ? 'h-account-status-active' : 'h-account-status-inactive'}`}>
-                  {a.isActive ? t('finance.active') : t('finance.inactive')}
-                </span>
+
+                {/* IN / OUT flows */}
+                <div className="h-account-flow">
+                  <span className="h-account-flow-in">↑ {formatMoney(bal?.totalIn ?? 0, a.currency)}</span>
+                  <span className="h-account-flow-out">↓ {formatMoney(bal?.totalOut ?? 0, a.currency)}</span>
+                </div>
+
+                {/* Footer: status + toggle */}
+                <div className="h-account-footer">
+                  <span className={`h-account-status ${a.isActive ? 'h-account-status-active' : 'h-account-status-inactive'}`}>
+                    {a.isActive ? t('finance.active') : t('finance.inactive')}
+                  </span>
+                  {isEditing && (
+                    <label className="flex items-center gap-2 text-xs text-h-gray cursor-pointer" onClick={(e) => e.stopPropagation()}>
+                      <input
+                        type="checkbox"
+                        checked={editForm.isActive}
+                        onChange={(e) => setEditForm((f) => ({ ...f, isActive: e.target.checked }))}
+                      />
+                      {t('finance.active')}
+                    </label>
+                  )}
+                </div>
               </div>
             );
           })}
@@ -412,6 +542,16 @@ export default function FinancePage() {
               </button>
             </div>
           </form>
+        </div>
+      )}
+
+      {/* Filter chip */}
+      {filterAccountId && (
+        <div className="h-filter-chip">
+          {t('finance.filterByAccount')}: {accounts.find((a) => a.id === filterAccountId)?.name || filterAccountId}
+          <button type="button" onClick={() => { setFilterAccountId(null); setPage(1); }}>
+            <X size={14} />
+          </button>
         </div>
       )}
 

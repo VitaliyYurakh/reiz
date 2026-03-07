@@ -7,6 +7,7 @@ const router = Router();
 
 // Accounts
 router.get('/account', auth, requirePermission('finance', 'view'), financeController.getAllAccounts.bind(financeController));
+router.get('/account/balances', auth, requirePermission('finance', 'view'), financeController.getAccountBalances.bind(financeController));
 router.post('/account', auth, requirePermission('finance', 'full'), financeController.createAccount.bind(financeController));
 router.patch('/account/:id', auth, requirePermission('finance', 'full'), financeController.updateAccount.bind(financeController));
 

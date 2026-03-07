@@ -1,4 +1,4 @@
-import {prisma} from '../utils';
+import {prisma, ReservationStatus, RentalStatus} from '../utils';
 
 class CalendarService {
     async getData(from: string, to: string, carIds?: number[]) {
@@ -28,7 +28,7 @@ class CalendarService {
             prisma.reservation.findMany({
                 where: {
                     carId: {in: carIdList},
-                    status: {in: ['confirmed']},
+                    status: {in: [ReservationStatus.CONFIRMED]},
                     pickupDate: {lt: toDate},
                     returnDate: {gt: fromDate},
                 },
@@ -44,7 +44,7 @@ class CalendarService {
             prisma.rental.findMany({
                 where: {
                     carId: {in: carIdList},
-                    status: {in: ['active']},
+                    status: {in: [RentalStatus.ACTIVE]},
                     pickupDate: {lt: toDate},
                     returnDate: {gt: fromDate},
                 },

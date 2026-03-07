@@ -926,6 +926,16 @@ export const ru: AdminTranslations = {
     typeServiceCost: 'Расход на сервис',
     typeAddonPayment: 'Оплата доп. услуг',
     typeExtensionPayment: 'Оплата продления',
+    balance: 'Баланс',
+    in: 'Приход',
+    out: 'Расход',
+    allAccounts: 'Все счета',
+    editAccount: 'Редактировать',
+    saveAccount: 'Сохранить',
+    newAccount: 'Новый счёт',
+    accountName: 'Название',
+    accountType: 'Тип',
+    filterByAccount: 'Счёт',
   },
 
   /* ── Service ── */

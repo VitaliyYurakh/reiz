@@ -1,4 +1,5 @@
 import {Router} from 'express';
+import {prisma} from '../utils';
 
 import authRouter from './auth.router';
 import segmentRouter from './segment.router';
@@ -6,6 +7,21 @@ import carRouter from './car.router';
 import feedbackRouter from './feedback.router';
 
 const router = Router();
+const startedAt = new Date().toISOString();
+
+// ── Health check endpoints (no auth) ──
+router.get('/health', (_req, res) => {
+    res.json({status: 'healthy', uptime: process.uptime(), startedAt});
+});
+
+router.get('/readiness', async (_req, res) => {
+    try {
+        await prisma.$queryRaw`SELECT 1`;
+        res.json({status: 'ready', database: 'connected'});
+    } catch {
+        res.status(503).json({status: 'not ready', database: 'disconnected'});
+    }
+});
 
 router.use('/auth', authRouter);
 router.use('/segment', segmentRouter);

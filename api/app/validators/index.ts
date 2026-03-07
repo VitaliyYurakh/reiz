@@ -96,6 +96,451 @@ export const sendNotificationSchema = z.object({
     variables: z.record(z.string(), z.string()).optional().default({}),
 });
 
+// ── Car ──
+export const createCarSchema = z.object({
+    data: z.object({
+        brand: z.string().min(1).max(100),
+        model: z.string().min(1).max(100),
+        plateNumber: z.string().min(1).max(20),
+        VIN: z.string().min(1).max(50),
+        yearOfManufacture: z.number().int().min(1900).max(2100),
+        color: z.string().min(1).max(50),
+        segmentIds: z.array(z.number().int().positive()),
+    }),
+});
+
+export const updateCarSchema = z.object({
+    data: z.object({
+        brand: z.string().min(1).max(100).optional(),
+        model: z.string().min(1).max(100).optional(),
+        plateNumber: z.string().min(1).max(20).optional(),
+        VIN: z.string().min(1).max(50).optional(),
+        yearOfManufacture: z.number().int().min(1900).max(2100).optional(),
+        color: z.string().min(1).max(50).optional(),
+        segmentIds: z.array(z.number().int().positive()).optional(),
+        description: z.string().max(5000).optional(),
+        engineVolume: z.string().max(20).optional(),
+        engineType: z.string().max(50).optional(),
+        transmission: z.string().max(50).optional(),
+        fuelConsumption: z.string().max(20).optional(),
+        driveType: z.string().max(50).optional(),
+        seats: z.number().int().min(1).max(100).optional(),
+        discount: z.number().min(0).optional(),
+        configuration: z.string().max(200).optional(),
+        alt: z.string().max(500).optional(),
+        isNew: z.boolean().optional(),
+    }),
+});
+
+export const tariffSchema = z.object({
+    data: z.array(z.object({
+        deposit: z.number().min(0),
+        minDays: z.number().int().min(0),
+        maxDays: z.number().int().min(0),
+        dailyPrice: z.number().min(0),
+    })),
+});
+
+export const countingRuleSchema = z.object({
+    data: z.array(z.object({
+        pricePercent: z.number().min(0),
+        depositPercent: z.number().min(0),
+    })),
+});
+
+// ── Rental ──
+export const createRentalSchema = z.object({
+    clientId: z.number().int().positive(),
+    carId: z.number().int().positive(),
+    pickupDate: z.coerce.date(),
+    returnDate: z.coerce.date(),
+    pickupLocation: z.string().min(1).max(500),
+    returnLocation: z.string().min(1).max(500),
+    pickupOdometer: z.number().int().min(0).optional(),
+    contractNumber: z.string().max(100).optional(),
+    priceSnapshot: z.any(),
+    depositAmount: z.number().int().min(0).optional(),
+    depositCurrency: z.string().length(3).optional(),
+    allowedMileage: z.number().int().min(0).optional(),
+    notes: z.string().max(5000).optional(),
+});
+
+export const updateRentalSchema = z.object({
+    pickupOdometer: z.number().int().min(0).optional(),
+    returnOdometer: z.number().int().min(0).optional(),
+    allowedMileage: z.number().int().min(0).optional(),
+    notes: z.string().max(5000).optional(),
+    depositAmount: z.number().int().min(0).optional(),
+    depositCurrency: z.string().length(3).optional(),
+    depositReturned: z.boolean().optional(),
+    pickupLocation: z.string().max(500).optional(),
+    returnLocation: z.string().max(500).optional(),
+});
+
+export const completeRentalSchema = z.object({
+    returnOdometer: z.number().int().min(0),
+    actualReturnDate: z.coerce.date(),
+});
+
+export const cancelRentalSchema = z.object({
+    reason: z.string().min(1).max(2000),
+    depositAccountId: z.number().int().positive().optional(),
+});
+
+export const extendRentalSchema = z.object({
+    newReturnDate: z.coerce.date(),
+    reason: z.string().max(2000).optional(),
+});
+
+// ── Reservation ──
+export const createReservationSchema = z.object({
+    clientId: z.number().int().positive(),
+    carId: z.number().int().positive(),
+    pickupDate: z.coerce.date(),
+    returnDate: z.coerce.date(),
+    pickupLocation: z.string().min(1).max(500),
+    returnLocation: z.string().min(1).max(500),
+    coveragePackageId: z.number().int().positive().optional(),
+    priceSnapshot: z.any().optional(),
+    deliveryFee: z.number().int().min(0).optional(),
+    deliveryCurrency: z.string().length(3).optional(),
+    rentalRequestId: z.number().int().positive().optional(),
+});
+
+export const updateReservationSchema = z.object({
+    pickupDate: z.coerce.date().optional(),
+    returnDate: z.coerce.date().optional(),
+    pickupLocation: z.string().max(500).optional(),
+    returnLocation: z.string().max(500).optional(),
+    coveragePackageId: z.number().int().positive().optional(),
+    priceSnapshot: z.any().optional(),
+    deliveryFee: z.number().int().min(0).optional(),
+    deliveryCurrency: z.string().length(3).optional(),
+});
+
+export const pickupReservationSchema = z.object({
+    pickupOdometer: z.number().int().min(0).optional(),
+    contractNumber: z.string().max(100).optional(),
+});
+
+export const cancelReservationSchema = z.object({
+    reason: z.string().min(1).max(2000),
+});
+
+export const addReservationAddOnSchema = z.object({
+    addOnId: z.number().int().positive(),
+    quantity: z.number().int().min(1).optional(),
+    unitPriceMinor: z.number().int().min(0),
+    currency: z.string().length(3).optional(),
+});
+
+// ── Rental Request ──
+export const createRentalRequestSchema = z.object({
+    source: z.string().max(100).optional(),
+    status: z.string().max(50).optional(),
+    clientId: z.number().int().positive().optional(),
+    carId: z.number().int().positive().optional(),
+    firstName: z.string().max(200).optional(),
+    lastName: z.string().max(200).optional(),
+    phone: z.string().max(50).optional(),
+    email: z.string().email().optional().or(z.literal('')),
+    pickupLocation: z.string().max(500).optional(),
+    returnLocation: z.string().max(500).optional(),
+    pickupDate: z.coerce.date().optional(),
+    returnDate: z.coerce.date().optional(),
+    flightNumber: z.string().max(50).optional(),
+    comment: z.string().max(5000).optional(),
+    websiteSnapshot: z.any().optional(),
+    assignedToUserId: z.number().int().positive().optional(),
+});
+
+export const updateRentalRequestSchema = z.object({
+    status: z.string().max(50).optional(),
+    clientId: z.number().int().positive().optional(),
+    carId: z.number().int().positive().optional(),
+    firstName: z.string().max(200).optional(),
+    lastName: z.string().max(200).optional(),
+    phone: z.string().max(50).optional(),
+    email: z.string().email().optional().or(z.literal('')),
+    pickupLocation: z.string().max(500).optional(),
+    returnLocation: z.string().max(500).optional(),
+    pickupDate: z.coerce.date().optional(),
+    returnDate: z.coerce.date().optional(),
+    flightNumber: z.string().max(50).optional(),
+    comment: z.string().max(5000).optional(),
+    assignedToUserId: z.number().int().positive().optional(),
+    rejectionReason: z.string().max(2000).optional(),
+});
+
+export const approveRentalRequestSchema = z.object({
+    clientId: z.number().int().positive().optional(),
+    carId: z.number().int().positive(),
+    pickupDate: z.coerce.date(),
+    returnDate: z.coerce.date(),
+    pickupLocation: z.string().max(500).optional(),
+    returnLocation: z.string().max(500).optional(),
+    coveragePackageId: z.number().int().positive().optional(),
+    addOns: z.array(z.object({
+        addOnId: z.number().int().positive(),
+        quantity: z.number().int().min(1),
+        unitPriceMinor: z.number().int().min(0),
+        currency: z.string().length(3),
+    })).optional(),
+    deliveryFee: z.number().int().min(0).optional(),
+    priceSnapshot: z.any().optional(),
+});
+
+export const rejectRentalRequestSchema = z.object({
+    reason: z.string().min(1).max(2000),
+});
+
+// ── Pricing ──
+export const createRatePlanSchema = z.object({
+    name: z.string().min(1).max(200),
+    carId: z.number().int().positive(),
+    minDays: z.number().int().min(0),
+    maxDays: z.number().int().min(0),
+    dailyPrice: z.number().int().min(0),
+    currency: z.string().length(3).optional(),
+    isActive: z.boolean().optional(),
+});
+
+export const updateRatePlanSchema = z.object({
+    name: z.string().min(1).max(200).optional(),
+    minDays: z.number().int().min(0).optional(),
+    maxDays: z.number().int().min(0).optional(),
+    dailyPrice: z.number().int().min(0).optional(),
+    currency: z.string().length(3).optional(),
+    isActive: z.boolean().optional(),
+});
+
+export const createAddOnSchema = z.object({
+    name: z.string().min(1).max(200),
+    nameLocalized: z.any().optional(),
+    pricingMode: z.enum(['PER_DAY', 'ONE_TIME', 'MANUAL_QTY']),
+    unitPriceMinor: z.number().int().min(0),
+    currency: z.string().length(3).optional(),
+    defaultQty: z.string().optional(),
+    qtyEditable: z.boolean().optional(),
+    isActive: z.boolean().optional(),
+});
+
+export const updateAddOnSchema = z.object({
+    name: z.string().min(1).max(200).optional(),
+    nameLocalized: z.any().optional(),
+    pricingMode: z.enum(['PER_DAY', 'ONE_TIME', 'MANUAL_QTY']).optional(),
+    unitPriceMinor: z.number().int().min(0).optional(),
+    currency: z.string().length(3).optional(),
+    defaultQty: z.string().optional(),
+    qtyEditable: z.boolean().optional(),
+    isActive: z.boolean().optional(),
+});
+
+export const createCoveragePackageSchema = z.object({
+    name: z.string().min(1).max(200),
+    nameLocalized: z.any().optional(),
+    depositPercent: z.number().min(0).max(100),
+    description: z.string().max(5000).optional(),
+    isActive: z.boolean().optional(),
+});
+
+export const updateCoveragePackageSchema = z.object({
+    name: z.string().min(1).max(200).optional(),
+    nameLocalized: z.any().optional(),
+    depositPercent: z.number().min(0).max(100).optional(),
+    description: z.string().max(5000).optional(),
+    isActive: z.boolean().optional(),
+});
+
+export const calculatePricingSchema = z.object({
+    carId: z.number().int().positive(),
+    startDate: z.coerce.date(),
+    endDate: z.coerce.date(),
+    coveragePackageId: z.number().int().positive().optional(),
+    addOns: z.array(z.object({
+        addOnId: z.number().int().positive(),
+        qty: z.number().int().min(1).optional(),
+    })).optional(),
+    deliveryFee: z.number().int().min(0).optional(),
+    currency: z.string().length(3).optional(),
+});
+
+// ── Service Event ──
+export const createServiceEventSchema = z.object({
+    carId: z.number().int().positive(),
+    type: z.string().min(1).max(100),
+    description: z.string().min(1).max(5000),
+    startDate: z.coerce.date(),
+    endDate: z.coerce.date().optional(),
+    blocksBooking: z.boolean().optional(),
+    costMinor: z.number().int().min(0).optional(),
+    currency: z.string().length(3).optional(),
+    odometer: z.number().int().min(0).optional(),
+    vendor: z.string().max(500).optional(),
+    notes: z.string().max(5000).optional(),
+});
+
+export const updateServiceEventSchema = z.object({
+    type: z.string().min(1).max(100).optional(),
+    description: z.string().max(5000).optional(),
+    startDate: z.coerce.date().optional(),
+    endDate: z.coerce.date().optional(),
+    blocksBooking: z.boolean().optional(),
+    costMinor: z.number().int().min(0).optional(),
+    currency: z.string().length(3).optional(),
+    odometer: z.number().int().min(0).optional(),
+    vendor: z.string().max(500).optional(),
+    notes: z.string().max(5000).optional(),
+});
+
+// ── Inspection ──
+export const createInspectionSchema = z.object({
+    type: z.enum(['PICKUP', 'RETURN']),
+    fuelLevel: z.number().int().min(0).max(100).optional(),
+    cleanlinessOk: z.boolean().optional(),
+    bodyDamage: z.string().max(5000).optional(),
+    notes: z.string().max(5000).optional(),
+});
+
+export const updateInspectionSchema = z.object({
+    fuelLevel: z.number().int().min(0).max(100).optional(),
+    cleanlinessOk: z.boolean().optional(),
+    bodyDamage: z.string().max(5000).optional(),
+    notes: z.string().max(5000).optional(),
+});
+
+// ── Fine ──
+export const createFineSchema = z.object({
+    type: z.string().min(1).max(100),
+    description: z.string().min(1).max(5000),
+    amountMinor: z.number().int().min(0),
+    currency: z.string().length(3).optional(),
+});
+
+export const updateFineSchema = z.object({
+    type: z.string().min(1).max(100).optional(),
+    description: z.string().max(5000).optional(),
+    amountMinor: z.number().int().min(0).optional(),
+    currency: z.string().length(3).optional(),
+    fineDate: z.coerce.date().optional(),
+});
+
+export const markFinePaidSchema = z.object({
+    accountId: z.number().int().positive(),
+    amountMinor: z.number().int().min(0),
+    currency: z.string().length(3),
+    fxRate: z.number().optional(),
+    amountUahMinor: z.number().int(),
+});
+
+// ── City ──
+export const createCitySchema = z.object({
+    slug: z.string().min(1).max(200),
+    nameUk: z.string().min(1).max(200),
+    nameRu: z.string().min(1).max(200),
+    nameEn: z.string().min(1).max(200),
+    nameLocativeUk: z.string().min(1).max(200),
+    nameLocativeRu: z.string().min(1).max(200),
+    nameLocativeEn: z.string().min(1).max(200),
+    latitude: z.string().max(50),
+    longitude: z.string().max(50),
+    postalCode: z.string().max(20),
+    region: z.string().max(200),
+    sortOrder: z.number().int().min(0).optional(),
+    isPopular: z.boolean().optional(),
+    isActive: z.boolean().optional(),
+});
+
+export const updateCitySchema = z.object({
+    slug: z.string().min(1).max(200).optional(),
+    nameUk: z.string().min(1).max(200).optional(),
+    nameRu: z.string().min(1).max(200).optional(),
+    nameEn: z.string().min(1).max(200).optional(),
+    nameLocativeUk: z.string().min(1).max(200).optional(),
+    nameLocativeRu: z.string().min(1).max(200).optional(),
+    nameLocativeEn: z.string().min(1).max(200).optional(),
+    latitude: z.string().max(50).optional(),
+    longitude: z.string().max(50).optional(),
+    postalCode: z.string().max(20).optional(),
+    region: z.string().max(200).optional(),
+    sortOrder: z.number().int().min(0).optional(),
+    isPopular: z.boolean().optional(),
+    isActive: z.boolean().optional(),
+});
+
+export const createLocationSchema = z.object({
+    slug: z.string().min(1).max(200),
+    nameUk: z.string().min(1).max(200),
+    nameRu: z.string().min(1).max(200),
+    nameEn: z.string().min(1).max(200),
+    type: z.string().min(1).max(100),
+    sortOrder: z.number().int().min(0).optional(),
+    isActive: z.boolean().optional(),
+});
+
+export const updateLocationSchema = z.object({
+    slug: z.string().min(1).max(200).optional(),
+    nameUk: z.string().min(1).max(200).optional(),
+    nameRu: z.string().min(1).max(200).optional(),
+    nameEn: z.string().min(1).max(200).optional(),
+    type: z.string().max(100).optional(),
+    sortOrder: z.number().int().min(0).optional(),
+    isActive: z.boolean().optional(),
+});
+
+// ── Feedback (public) ──
+export const bookingRequestSchema = z.object({
+    firstName: z.string().min(1, 'First name is required').max(200),
+    lastName: z.string().min(1, 'Last name is required').max(200),
+    phone: z.string().min(5, 'Phone is required').max(30),
+    email: z.string().email('Invalid email format').max(200),
+    pickupLocation: z.string().min(1).max(500),
+    returnLocation: z.string().min(1).max(500),
+    startDate: z.coerce.date(),
+    endDate: z.coerce.date(),
+    flightNumber: z.string().max(50).optional(),
+    comment: z.string().max(5000).optional(),
+    carId: z.number().int().positive().optional(),
+    carDetails: z.any().optional(),
+    selectedPlan: z.any().optional(),
+    selectedExtras: z.any().optional(),
+    totalDays: z.number().int().positive().optional(),
+    priceBreakdown: z.any().optional(),
+});
+
+export const contactRequestSchema = z.object({
+    name: z.string().min(1, 'Name is required').max(200),
+    email: z.string().email('Invalid email format').max(200),
+    phone: z.string().min(5, 'Phone is required').max(30),
+    message: z.string().max(5000).optional(),
+});
+
+export const callbackRequestSchema = z.object({
+    name: z.string().min(1, 'Name is required').max(200),
+    phone: z.string().min(5, 'Phone is required').max(30),
+    contactMethod: z.string().max(50).optional(),
+});
+
+export const businessRequestSchema = z.object({
+    name: z.string().min(1, 'Name is required').max(200),
+    phone: z.string().min(5, 'Phone is required').max(30),
+    email: z.string().email('Invalid email format').max(200),
+    message: z.string().max(5000).optional(),
+});
+
+export const investRequestSchema = z.object({
+    car: z.string().min(1).max(200),
+    model: z.string().min(1).max(200),
+    transmission: z.string().max(50).optional(),
+    mileage: z.string().max(50).optional(),
+    year: z.string().max(10).optional(),
+    color: z.string().max(50).optional(),
+    complect: z.string().max(500).optional(),
+    name: z.string().min(1, 'Name is required').max(200),
+    phone: z.string().min(5, 'Phone is required').max(30),
+    email: z.string().email('Invalid email format').max(200),
+});
+
 // ── Validation error class ──
 export class ValidationError extends Error {
     errors: string[];

@@ -944,6 +944,16 @@ export const uk = {
     typeServiceCost: 'Витрата на сервіс',
     typeAddonPayment: 'Оплата дод. послуг',
     typeExtensionPayment: 'Оплата продовження',
+    balance: 'Баланс',
+    in: 'Прихід',
+    out: 'Витрата',
+    allAccounts: 'Всі рахунки',
+    editAccount: 'Редагувати',
+    saveAccount: 'Зберегти',
+    newAccount: 'Новий рахунок',
+    accountName: 'Назва',
+    accountType: 'Тип',
+    filterByAccount: 'Рахунок',
   },
 
   /* ── Service ── */

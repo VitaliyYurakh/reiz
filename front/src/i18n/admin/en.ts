@@ -926,6 +926,16 @@ export const en: AdminTranslations = {
     typeServiceCost: 'Service cost',
     typeAddonPayment: 'Add-on payment',
     typeExtensionPayment: 'Extension payment',
+    balance: 'Balance',
+    in: 'Income',
+    out: 'Expense',
+    allAccounts: 'All accounts',
+    editAccount: 'Edit',
+    saveAccount: 'Save',
+    newAccount: 'New Account',
+    accountName: 'Name',
+    accountType: 'Type',
+    filterByAccount: 'Account',
   },
 
   /* ── Service ── */

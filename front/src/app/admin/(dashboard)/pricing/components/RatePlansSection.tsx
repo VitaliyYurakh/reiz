@@ -95,7 +95,7 @@ export function RatePlansSection({
         carId: Number(createForm.carId),
         minDays: Number(createForm.minDays),
         maxDays: Number(createForm.maxDays),
-        dailyPrice: Number(createForm.dailyPrice),
+        dailyPrice: Math.round(Number(createForm.dailyPrice) * 100),
         currency: createForm.currency,
         isActive: createForm.isActive,
       });
@@ -116,7 +116,7 @@ export function RatePlansSection({
       carId: rp.carId,
       minDays: rp.minDays,
       maxDays: rp.maxDays,
-      dailyPrice: rp.dailyPrice,
+      dailyPrice: rp.dailyPrice / 100,
       currency: rp.currency,
       isActive: rp.isActive,
     });
@@ -142,7 +142,7 @@ export function RatePlansSection({
         carId: Number(editForm.carId),
         minDays: Number(editForm.minDays),
         maxDays: Number(editForm.maxDays),
-        dailyPrice: Number(editForm.dailyPrice),
+        dailyPrice: Math.round(Number(editForm.dailyPrice) * 100),
         currency: editForm.currency,
         isActive: editForm.isActive,
       });
@@ -295,7 +295,7 @@ export function RatePlansSection({
               />
             </div>
             <div>
-              <HLabel>Цена/день (центы)</HLabel>
+              <HLabel>Цена/день</HLabel>
               <HInput
                 type="number"
                 value={createForm.dailyPrice}
@@ -305,8 +305,9 @@ export function RatePlansSection({
                     dailyPrice: e.target.value ? Number(e.target.value) : '',
                   })
                 }
-                placeholder="5000"
+                placeholder="50.00"
                 min={0}
+                step="0.01"
               />
             </div>
             <div>

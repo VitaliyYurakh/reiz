@@ -1,4 +1,4 @@
-import {prisma} from '../utils';
+import {prisma, MS_PER_DAY} from '../utils';
 
 class PricingService {
     async calculate(params: {
@@ -14,8 +14,7 @@ class PricingService {
 
         const start = new Date(startDate);
         const end = new Date(endDate);
-        const msPerDay = 24 * 60 * 60 * 1000;
-        const totalDays = Math.max(1, Math.ceil((end.getTime() - start.getTime()) / msPerDay));
+        const totalDays = Math.max(1, Math.ceil((end.getTime() - start.getTime()) / MS_PER_DAY));
 
         // Find applicable rate plan
         const ratePlan = await prisma.ratePlan.findFirst({

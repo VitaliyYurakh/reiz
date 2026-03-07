@@ -7,8 +7,8 @@ interface AuditLogParams {
     entityId?: number | string;
     action: string;
     details?: string;
-    before?: Record<string, any>;
-    after?: Record<string, any>;
+    before?: Record<string, any> | null;
+    after?: Record<string, any> | null;
     req?: Request;
 }
 

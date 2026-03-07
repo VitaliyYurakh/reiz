@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import PDFDocument from 'pdfkit';
 import {prisma} from '../utils';
+import {PriceSnapshot} from '../types/dto.types';
 
 const DOC_TYPE_TITLES: Record<string, string> = {
     RENTAL_CONTRACT: 'ДОГОВІР ОРЕНДИ ТРАНСПОРТНОГО ЗАСОБУ',
@@ -133,7 +134,7 @@ class DocumentService {
             const title = DOC_TYPE_TITLES[type] || type;
             const client = rental.client;
             const car = rental.car;
-            const ps = rental.priceSnapshot as any;
+            const ps = rental.priceSnapshot as PriceSnapshot;
 
             // Title
             doc.fontSize(16).text(title, {align: 'center'});
@@ -214,8 +215,9 @@ class DocumentService {
                     if (ps.totalDays) {
                         doc.text(`Кількість діб: ${ps.totalDays}`);
                     }
-                    if (ps.totalMinor || ps.total) {
-                        doc.text(`Загальна вартість: ${fmtMoney(ps.totalMinor || ps.total, ps.currency || 'UAH')}`);
+                    const total = (ps.totalMinor || ps.total) as number | undefined;
+                    if (total) {
+                        doc.text(`Загальна вартість: ${fmtMoney(total, ps.currency || 'UAH')}`);
                     }
                 }
                 if (rental.depositAmount) {

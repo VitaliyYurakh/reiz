@@ -1,83 +1,60 @@
 import {StatusCodes} from 'http-status-codes';
-import {logger} from '../utils';
+import {logger, parseId, parsePagination} from '../utils';
 import {Request, Response} from 'express';
 import rentalRequestService from '../services/rental-request.service';
 import logAudit from '../middleware/audit.middleware';
+import {createRentalRequestSchema, updateRentalRequestSchema, approveRentalRequestSchema, rejectRentalRequestSchema, validate} from '../validators';
 
 class RentalRequestController {
     async getAll(req: Request, res: Response) {
-        try {
-            const page = parseInt(req.query.page as string) || 1;
-            const limit = parseInt(req.query.limit as string) || 20;
-            const status = req.query.status as string | undefined;
+        const {page, limit} = parsePagination(req.query);
+        const status = req.query.status as string | undefined;
 
-            const result = await rentalRequestService.getAll({page, limit, status});
-
-            return res.status(StatusCodes.OK).json(result);
-        } catch (error) {
-            logger.error(error);
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        const result = await rentalRequestService.getAll({page, limit, status});
+        return res.status(StatusCodes.OK).json(result);
     }
 
     async getOne(req: Request, res: Response) {
-        try {
-            const {id} = req.params;
-            const rentalRequest = await rentalRequestService.getOne(parseInt(id));
+        const {id} = req.params;
+        const rentalRequest = await rentalRequestService.getOne(parseId(id));
 
-            if (!rentalRequest) {
-                return res.status(StatusCodes.NOT_FOUND).json({msg: 'Rental request not found'});
-            }
-
-            return res.status(StatusCodes.OK).json({rentalRequest});
-        } catch (error) {
-            logger.error(error);
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
+        if (!rentalRequest) {
+            return res.status(StatusCodes.NOT_FOUND).json({msg: 'Rental request not found'});
         }
+
+        return res.status(StatusCodes.OK).json({rentalRequest});
     }
 
     async create(req: Request, res: Response) {
-        try {
-            const rentalRequest = await rentalRequestService.create(req.body);
+        const data = validate(createRentalRequestSchema, req.body);
+        const rentalRequest = await rentalRequestService.create(data);
 
-            logAudit({actorId: res.locals.user?.id, entityType: 'RentalRequest', entityId: rentalRequest.id, action: 'CREATE', after: rentalRequest, req});
-            return res.status(StatusCodes.CREATED).json({rentalRequest});
-        } catch (error) {
-            logger.error(error);
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        logAudit({actorId: res.locals.user?.id, entityType: 'RentalRequest', entityId: rentalRequest.id, action: 'CREATE', after: rentalRequest, req});
+        return res.status(StatusCodes.CREATED).json({rentalRequest});
     }
 
     async update(req: Request, res: Response) {
-        try {
-            const {id} = req.params;
-            const before = await rentalRequestService.getOne(parseInt(id));
-            const rentalRequest = await rentalRequestService.update(parseInt(id), req.body);
+        const {id} = req.params;
+        const data = validate(updateRentalRequestSchema, req.body);
+        const before = await rentalRequestService.getOne(parseId(id));
+        const rentalRequest = await rentalRequestService.update(parseId(id), data);
 
-            logAudit({actorId: res.locals.user?.id, entityType: 'RentalRequest', entityId: parseInt(id), action: 'UPDATE', before, after: rentalRequest, req});
-            return res.status(StatusCodes.OK).json({rentalRequest});
-        } catch (error) {
-            logger.error(error);
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        logAudit({actorId: res.locals.user?.id, entityType: 'RentalRequest', entityId: parseId(id), action: 'UPDATE', before, after: rentalRequest, req});
+        return res.status(StatusCodes.OK).json({rentalRequest});
     }
 
     async approve(req: Request, res: Response) {
         try {
             const {id} = req.params;
-            logger.info({body: req.body, id}, 'approve rental request');
-            const before = await rentalRequestService.getOne(parseInt(id));
-            const result = await rentalRequestService.approve(parseInt(id), req.body);
+            const data = validate(approveRentalRequestSchema, req.body);
+            logger.info({body: data, id}, 'approve rental request');
+            const before = await rentalRequestService.getOne(parseId(id));
+            const result = await rentalRequestService.approve(parseId(id), data);
 
-            logAudit({actorId: res.locals.user?.id, entityType: 'RentalRequest', entityId: parseInt(id), action: 'STATUS_CHANGE', before, after: result, req});
+            logAudit({actorId: res.locals.user?.id, entityType: 'RentalRequest', entityId: parseId(id), action: 'STATUS_CHANGE', before, after: result, req});
             return res.status(StatusCodes.OK).json(result);
         } catch (error) {
             const msg = error.message || 'Unknown error';
-            // Business logic errors — 400, not 500
             if (
                 msg.includes('зайняте') ||
                 msg.includes('пізніше') ||
@@ -94,19 +71,13 @@ class RentalRequestController {
     }
 
     async reject(req: Request, res: Response) {
-        try {
-            const {id} = req.params;
-            const {reason} = req.body;
-            const before = await rentalRequestService.getOne(parseInt(id));
-            const rentalRequest = await rentalRequestService.reject(parseInt(id), reason);
+        const {id} = req.params;
+        const {reason} = validate(rejectRentalRequestSchema, req.body);
+        const before = await rentalRequestService.getOne(parseId(id));
+        const rentalRequest = await rentalRequestService.reject(parseId(id), reason);
 
-            logAudit({actorId: res.locals.user?.id, entityType: 'RentalRequest', entityId: parseInt(id), action: 'STATUS_CHANGE', before, after: rentalRequest, req});
-            return res.status(StatusCodes.OK).json({rentalRequest});
-        } catch (error) {
-            logger.error(error);
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        logAudit({actorId: res.locals.user?.id, entityType: 'RentalRequest', entityId: parseId(id), action: 'STATUS_CHANGE', before, after: rentalRequest, req});
+        return res.status(StatusCodes.OK).json({rentalRequest});
     }
 }
 

@@ -107,6 +107,28 @@ type InvestRequestDto = {
     email: string;
 };
 
+/**
+ * Shape of the `priceSnapshot` JSON blob stored in Reservation / Rental.
+ * All fields optional because the snapshot can come from different sources
+ * (website booking, manual creation, rental-request approval).
+ */
+type PriceSnapshot = {
+    dailyRateMinor?: number;
+    dailyRate?: number;
+    currency?: string;
+    depositAmount?: number;
+    baseRentalCost?: number;
+    insuranceCost?: number;
+    extrasCost?: number;
+    totalCost?: number;
+    totalDays?: number;
+    ratePlanName?: string;
+    approvedAt?: string;
+    pickupDate?: string;
+    returnDate?: string;
+    [key: string]: unknown; // allow additional fields from website snapshot
+};
+
 export {
     CreateCarDto,
     UpdateCarDto,
@@ -119,4 +141,5 @@ export {
     CallbackRequestDto,
     BusinessRequestDto,
     InvestRequestDto,
+    PriceSnapshot,
 };

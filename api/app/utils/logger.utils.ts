@@ -1,7 +1,9 @@
 import pino from 'pino';
+import {env} from '../config/env';
+import {requestContext} from '../config/request-context';
 
 const transports = [];
-const prettyLogging = process.env.PRETTY_LOGGING || 'true';
+const prettyLogging = env.PRETTY_LOGGING || 'true';
 
 const prettyTransport = pino.transport({
     target: 'pino-pretty',
@@ -15,6 +17,10 @@ if (prettyLogging === 'true') {
 export default pino(
     {
         level: 'trace',
+        mixin() {
+            const store = requestContext.getStore();
+            return store ? {requestId: store.requestId} : {};
+        },
     },
     ...transports
 );

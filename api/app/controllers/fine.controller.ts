@@ -1,84 +1,57 @@
 import {StatusCodes} from 'http-status-codes';
-import {logger} from '../utils';
 import {Request, Response} from 'express';
 import fineService from '../services/fine.service';
+import {parseId} from '../utils';
 import logAudit from '../middleware/audit.middleware';
+import {createFineSchema, updateFineSchema, markFinePaidSchema, validate} from '../validators';
 
 class FineController {
     async getByRental(req: Request, res: Response) {
-        try {
-            const {rentalId} = req.params;
-            const fines = await fineService.getByRental(parseInt(rentalId));
-
-            return res.status(StatusCodes.OK).json({fines});
-        } catch (error) {
-            logger.error(error);
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        const {rentalId} = req.params;
+        const fines = await fineService.getByRental(parseId(rentalId));
+        return res.status(StatusCodes.OK).json({fines});
     }
 
     async create(req: Request, res: Response) {
-        try {
-            const {rentalId} = req.params;
-            const fine = await fineService.create({
-                rentalId: parseInt(rentalId),
-                ...req.body,
-            });
+        const {rentalId} = req.params;
+        const data = validate(createFineSchema, req.body);
+        const fine = await fineService.create({
+            rentalId: parseId(rentalId),
+            ...data,
+        });
 
-            logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: fine.id, action: 'CREATE', after: fine, req});
-            return res.status(StatusCodes.CREATED).json({fine});
-        } catch (error) {
-            logger.error(error);
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: fine.id, action: 'CREATE', after: fine, req});
+        return res.status(StatusCodes.CREATED).json({fine});
     }
 
     async update(req: Request, res: Response) {
-        try {
-            const {fineId} = req.params;
-            const fine = await fineService.update(parseInt(fineId), req.body);
+        const {fineId} = req.params;
+        const data = validate(updateFineSchema, req.body);
+        const fine = await fineService.update(parseId(fineId), data);
 
-            logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: parseInt(fineId), action: 'UPDATE', after: fine, req});
-            return res.status(StatusCodes.OK).json({fine});
-        } catch (error) {
-            logger.error(error);
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: parseId(fineId), action: 'UPDATE', after: fine, req});
+        return res.status(StatusCodes.OK).json({fine});
     }
 
     async delete(req: Request, res: Response) {
-        try {
-            const {fineId} = req.params;
-            await fineService.delete(parseInt(fineId));
+        const {fineId} = req.params;
+        await fineService.delete(parseId(fineId));
 
-            logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: parseInt(fineId), action: 'DELETE', req});
-            return res.status(StatusCodes.OK).json({msg: 'Fine deleted'});
-        } catch (error) {
-            logger.error(error);
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: parseId(fineId), action: 'DELETE', req});
+        return res.status(StatusCodes.OK).json({msg: 'Fine deleted'});
     }
 
     async markPaid(req: Request, res: Response) {
-        try {
-            const {fineId} = req.params;
-            const user = res.locals.user;
-            const result = await fineService.markPaid(parseInt(fineId), {
-                ...req.body,
-                createdByUserId: user.id,
-            });
+        const {fineId} = req.params;
+        const user = res.locals.user;
+        const data = validate(markFinePaidSchema, req.body);
+        const result = await fineService.markPaid(parseId(fineId), {
+            ...data,
+            createdByUserId: user.id,
+        });
 
-            logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: parseInt(fineId), action: 'STATUS_CHANGE', after: result, req});
-            return res.status(StatusCodes.OK).json(result);
-        } catch (error) {
-            logger.error(error);
-
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
-        }
+        logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: parseId(fineId), action: 'STATUS_CHANGE', after: result, req});
+        return res.status(StatusCodes.OK).json(result);
     }
 }
 

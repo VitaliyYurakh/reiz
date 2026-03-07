@@ -6,5 +6,6 @@ import {requirePermission} from './role.middleware';
 import logAudit from './audit.middleware';
 import parsePagination from './pagination.middleware';
 import csrfProtection from './csrf.middleware';
+import globalErrorHandler from './global-error.middleware';
 
-export {auth, multer, documentUpload, validateImageFile, validateDocFile, requireRole, requirePermission, logAudit, parsePagination, csrfProtection};
+export {auth, multer, documentUpload, validateImageFile, validateDocFile, requireRole, requirePermission, logAudit, parsePagination, csrfProtection, globalErrorHandler};

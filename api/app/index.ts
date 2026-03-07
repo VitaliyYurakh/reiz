@@ -1,5 +1,4 @@
-import {config} from 'dotenv';
-config({ override: true }); // Override existing env vars with values from .env
+import {env} from './config/env';
 
 import express from 'express';
 import cors from 'cors';
@@ -7,33 +6,25 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
 import crypto from 'node:crypto';
-import {logger} from './utils';
+import {logger, prisma} from './utils';
 import {router} from './routers';
-import {auth, csrfProtection} from './middleware';
+import {auth, csrfProtection, globalErrorHandler} from './middleware';
+import {requestContext} from './config/request-context';
 import path from 'node:path';
 
-// ── Validate required env vars at startup ──
-const REQUIRED_ENV = ['DATABASE_URL', 'SECRET'] as const;
-for (const key of REQUIRED_ENV) {
-    if (!process.env[key]) {
-        console.error(`FATAL: Missing required environment variable: ${key}`);
-        process.exit(1);
-    }
-}
+const SHUTDOWN_TIMEOUT = 10_000;
 
 const startServer = async () => {
     try {
         const app = express();
-        const port = process.env.PORT || 3000;
+        const port = env.PORT;
         const pathToUploads = path.resolve('./uploads/');
 
         // Security headers
         app.use(helmet());
 
         // CORS — restrict to known origins
-        const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:3000,http://localhost:3002')
-            .split(',')
-            .map((o) => o.trim());
+        const allowedOrigins = env.CORS_ORIGINS.split(',').map((o) => o.trim());
 
         app.use(cors({
             origin: (origin, callback) => {
@@ -93,20 +84,43 @@ const startServer = async () => {
         // CSRF protection (must be after cookieParser)
         app.use('/api', csrfProtection);
 
-        // Request ID for tracing
+        // Request ID for tracing — propagated to all logs via AsyncLocalStorage
         app.use((req, res, next) => {
             const requestId = crypto.randomUUID();
             res.setHeader('X-Request-Id', requestId);
             res.locals.requestId = requestId;
-            next();
+            requestContext.run({requestId}, next);
         });
 
         // API routes
         app.use('/api', router);
 
-        app.listen(port, async () => {
+        // Global error handler (must be after routes)
+        app.use(globalErrorHandler);
+
+        const server = app.listen(port, () => {
             logger.info(`Server listening on port ${port}`);
         });
+
+        // ── Graceful shutdown ──
+        const shutdown = (signal: string) => {
+            logger.info(`${signal} received — shutting down gracefully`);
+
+            server.close(async () => {
+                logger.info('HTTP server closed');
+                await prisma.$disconnect();
+                logger.info('Database disconnected');
+                process.exit(0);
+            });
+
+            setTimeout(() => {
+                logger.error('Forced shutdown — timeout exceeded');
+                process.exit(1);
+            }, SHUTDOWN_TIMEOUT);
+        };
+
+        process.on('SIGTERM', () => shutdown('SIGTERM'));
+        process.on('SIGINT', () => shutdown('SIGINT'));
     } catch (error) {
         logger.fatal(error);
         process.exit(1);

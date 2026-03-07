@@ -1202,14 +1202,72 @@ body {
 .h-account-card {
     background: #FFFFFF;
     border-radius: 16px;
-    padding: 16px 18px;
+    padding: 18px 20px;
     box-shadow: var(--shadow-h);
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
+    gap: 14px;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    border: 2px solid transparent;
+    position: relative;
+}
+.h-account-card:hover {
+    box-shadow: var(--shadow-h-md);
+}
+.h-account-card-selected {
+    border-color: var(--color-h-purple);
 }
 .h-account-card-inactive {
     opacity: 0.5;
+}
+.h-account-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+.h-account-card-edit {
+    opacity: 0;
+    transition: opacity 0.15s;
+    background: none;
+    border: none;
+    color: var(--color-h-gray);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+.h-account-card-edit:hover {
+    color: var(--color-h-purple);
+    background: rgba(67, 24, 255, 0.06);
+}
+.h-account-card:hover .h-account-card-edit {
+    opacity: 1;
+}
+.h-account-balance {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+.h-account-balance-positive { color: var(--color-h-green); }
+.h-account-balance-negative { color: var(--color-h-red); }
+.h-account-balance-zero { color: var(--color-h-navy); }
+.h-account-flow {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--color-h-gray);
+}
+.h-account-flow-in { color: var(--color-h-green); }
+.h-account-flow-out { color: var(--color-h-red); }
+.h-account-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 .h-account-status {
     padding: 3px 10px;
@@ -1224,6 +1282,30 @@ body {
 .h-account-status-inactive {
     background: #F1F1F1;
     color: var(--color-h-gray);
+}
+.h-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(67, 24, 255, 0.06);
+    color: var(--color-h-purple);
+    margin-bottom: 12px;
+}
+.h-filter-chip button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.h-filter-chip button:hover {
+    opacity: 0.7;
 }
 
 /* ── Type badge (table inline pill with bg background) ── */
@@ -1480,6 +1562,20 @@ body {
 
 [data-theme="dark"] .h-account-status-inactive {
     background: #2D3748;
+}
+
+[data-theme="dark"] .h-account-card-selected {
+    border-color: var(--color-h-purple-light);
+}
+[data-theme="dark"] .h-account-balance-zero {
+    color: #E2E8F0;
+}
+[data-theme="dark"] .h-account-card-edit:hover {
+    background: rgba(134, 140, 255, 0.12);
+}
+[data-theme="dark"] .h-filter-chip {
+    background: rgba(134, 140, 255, 0.12);
+    color: var(--color-h-purple-light);
 }
 
 [data-theme="dark"] .h-alert-error {

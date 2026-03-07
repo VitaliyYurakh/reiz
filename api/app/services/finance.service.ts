@@ -13,6 +13,30 @@ class FinanceService {
         });
     }
 
+    async getAccountBalances() {
+        const rows = await prisma.transaction.groupBy({
+            by: ['accountId', 'direction'],
+            _sum: {amountMinor: true},
+        });
+
+        const map = new Map<number, {totalIn: number; totalOut: number}>();
+        for (const row of rows) {
+            if (!map.has(row.accountId)) map.set(row.accountId, {totalIn: 0, totalOut: 0});
+            const entry = map.get(row.accountId)!;
+            if (row.direction === 'in') {
+                entry.totalIn = row._sum.amountMinor ?? 0;
+            } else {
+                entry.totalOut = row._sum.amountMinor ?? 0;
+            }
+        }
+
+        const result: Array<{accountId: number; totalIn: number; totalOut: number; balance: number}> = [];
+        for (const [accountId, {totalIn, totalOut}] of map) {
+            result.push({accountId, totalIn, totalOut, balance: totalIn - totalOut});
+        }
+        return result;
+    }
+
     async createAccount(data: {
         name: string;
         type: string;

@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs';
 import crypto from 'node:crypto';
 import {promisify} from 'node:util';
+import {env} from '../config/env';
 
 const BCRYPT_ROUNDS = 12;
 
@@ -10,7 +11,7 @@ const pbkdf2 = promisify(crypto.pbkdf2);
  * Legacy PBKDF2 hash — only used to verify old passwords during migration.
  */
 const legacyHash = async (password: string): Promise<string> => {
-    const salt = process.env.SALT || '';
+    const salt = env.SALT;
     const derivedKey = await pbkdf2(password, salt, 10000, 64, 'sha512');
     return derivedKey.toString('hex');
 };

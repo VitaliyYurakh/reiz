@@ -926,6 +926,16 @@ export const ro: AdminTranslations = {
         typeServiceCost: 'Cost service',
         typeAddonPayment: 'Plată serviciu suplimentar',
         typeExtensionPayment: 'Plată prelungire',
+        balance: 'Sold',
+        in: 'Intrare',
+        out: 'Ieșire',
+        allAccounts: 'Toate conturile',
+        editAccount: 'Editează',
+        saveAccount: 'Salvează',
+        newAccount: 'Cont nou',
+        accountName: 'Nume',
+        accountType: 'Tip',
+        filterByAccount: 'Cont',
     },
 
     /* ── Service ── */

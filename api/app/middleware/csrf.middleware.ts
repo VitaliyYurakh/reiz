@@ -1,5 +1,6 @@
 import {NextFunction, Request, Response} from 'express';
 import {StatusCodes} from 'http-status-codes';
+import {env} from '../config/env';
 
 /**
  * CSRF protection via Origin/Referer header check.
@@ -8,9 +9,7 @@ import {StatusCodes} from 'http-status-codes';
  *
  * Only applies to non-GET/HEAD/OPTIONS methods.
  */
-const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:3000,http://localhost:3002')
-    .split(',')
-    .map((o) => o.trim());
+const allowedOrigins = env.CORS_ORIGINS.split(',').map((o) => o.trim());
 
 const csrfProtection = (req: Request, res: Response, next: NextFunction) => {
     // Safe methods don't need CSRF protection

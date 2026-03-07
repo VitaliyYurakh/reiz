@@ -1,4 +1,4 @@
-import {prisma} from '../utils';
+import {prisma, MS_PER_DAY, RentalStatus, ReservationStatus} from '../utils';
 
 class ReportService {
     async getDashboard() {
@@ -20,12 +20,12 @@ class ReportService {
             totalCars,
         ] = await Promise.all([
             // Active rentals
-            prisma.rental.count({where: {status: 'active'}}),
+            prisma.rental.count({where: {status: RentalStatus.ACTIVE}}),
 
             // Confirmed reservations (upcoming)
             prisma.reservation.count({
                 where: {
-                    status: 'confirmed',
+                    status: ReservationStatus.CONFIRMED,
                     pickupDate: {gte: now},
                 },
             }),
@@ -64,7 +64,7 @@ class ReportService {
             // Completed rentals this month
             prisma.rental.count({
                 where: {
-                    status: 'completed',
+                    status: RentalStatus.COMPLETED,
                     actualReturnDate: {gte: startOfMonth},
                 },
             }),
@@ -72,7 +72,7 @@ class ReportService {
             // Overdue rentals (active with returnDate in the past)
             prisma.rental.count({
                 where: {
-                    status: 'active',
+                    status: RentalStatus.ACTIVE,
                     returnDate: {lt: now},
                 },
             }),
@@ -170,38 +170,40 @@ class ReportService {
 
         const totalDaysInPeriod = Math.max(
             1,
-            Math.ceil((toDate.getTime() - fromDate.getTime()) / (24 * 60 * 60 * 1000)),
+            Math.ceil((toDate.getTime() - fromDate.getTime()) / MS_PER_DAY),
         );
 
-        const utilization: Array<{
-            carId: number;
-            brand: string | null;
-            model: string | null;
-            plateNumber: string | null;
-            rentedDays: number;
-            totalDays: number;
-            utilizationPercent: number;
-        }> = [];
+        const carIds = cars.map((c) => c.id);
 
-        for (const car of cars) {
-            // Find all rentals for this car that overlap with the period
-            const rentals = await prisma.rental.findMany({
-                where: {
-                    carId: car.id,
-                    status: {in: ['active', 'completed']},
-                    pickupDate: {lt: toDate},
-                    OR: [
-                        {returnDate: {gt: fromDate}},
-                        {actualReturnDate: {gt: fromDate}},
-                    ],
-                },
-                select: {
-                    pickupDate: true,
-                    returnDate: true,
-                    actualReturnDate: true,
-                },
-            });
+        // Single query for ALL cars instead of N+1
+        const allRentals = await prisma.rental.findMany({
+            where: {
+                carId: {in: carIds},
+                status: {in: [RentalStatus.ACTIVE, RentalStatus.COMPLETED]},
+                pickupDate: {lt: toDate},
+                OR: [
+                    {returnDate: {gt: fromDate}},
+                    {actualReturnDate: {gt: fromDate}},
+                ],
+            },
+            select: {
+                carId: true,
+                pickupDate: true,
+                returnDate: true,
+                actualReturnDate: true,
+            },
+        });
 
+        // Group rentals by carId
+        const rentalsByCarId = new Map<number, typeof allRentals>();
+        for (const rental of allRentals) {
+            const list = rentalsByCarId.get(rental.carId) || [];
+            list.push(rental);
+            rentalsByCarId.set(rental.carId, list);
+        }
+
+        const utilization = cars.map((car) => {
+            const rentals = rentalsByCarId.get(car.id) || [];
             let rentedDays = 0;
             for (const rental of rentals) {
                 const rentalStart = rental.pickupDate > fromDate ? rental.pickupDate : fromDate;
@@ -211,12 +213,12 @@ class ReportService {
 
                 const days = Math.max(
                     0,
-                    Math.ceil((rentalEnd.getTime() - rentalStart.getTime()) / (24 * 60 * 60 * 1000)),
+                    Math.ceil((rentalEnd.getTime() - rentalStart.getTime()) / MS_PER_DAY),
                 );
                 rentedDays += days;
             }
 
-            utilization.push({
+            return {
                 carId: car.id,
                 brand: car.brand,
                 model: car.model,
@@ -224,8 +226,8 @@ class ReportService {
                 rentedDays,
                 totalDays: totalDaysInPeriod,
                 utilizationPercent: Math.round((rentedDays / totalDaysInPeriod) * 100),
-            });
-        }
+            };
+        });
 
         const avgUtilization = utilization.length > 0
             ? Math.round(utilization.reduce((sum, u) => sum + u.utilizationPercent, 0) / utilization.length)
@@ -247,8 +249,8 @@ class ReportService {
 
     async getNotifications(permissions: Record<string, string>, role: string) {
         const now = new Date();
-        const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-        const threeDaysFromNow = new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000);
+        const sevenDaysAgo = new Date(now.getTime() - 7 * MS_PER_DAY);
+        const threeDaysFromNow = new Date(now.getTime() + 3 * MS_PER_DAY);
 
         const canSeeRequests = this.hasAccess(permissions, role, 'requests');
         const canSeeService = this.hasAccess(permissions, role, 'service');
@@ -286,7 +288,7 @@ class ReportService {
             canSeeRentals
                 ? prisma.rental.findMany({
                       where: {
-                          status: 'active',
+                          status: RentalStatus.ACTIVE,
                           returnDate: {lt: now},
                       },
                       take: 10,
@@ -324,7 +326,7 @@ class ReportService {
         for (const s of upcomingService) {
             const car = s.car ? `${s.car.brand} ${s.car.model}` : 'Car';
             const daysUntil = Math.ceil(
-                (s.startDate.getTime() - now.getTime()) / (24 * 60 * 60 * 1000),
+                (s.startDate.getTime() - now.getTime()) / MS_PER_DAY,
             );
             items.push({
                 id: `service-${s.id}`,
@@ -341,7 +343,7 @@ class ReportService {
                 : 'Client';
             const car = r.car ? `${r.car.brand} ${r.car.model}` : 'Car';
             const overdueDays = Math.ceil(
-                (now.getTime() - r.returnDate.getTime()) / (24 * 60 * 60 * 1000),
+                (now.getTime() - r.returnDate.getTime()) / MS_PER_DAY,
             );
             items.push({
                 id: `overdue-${r.id}`,
@@ -363,7 +365,7 @@ class ReportService {
 
         const overdueRentals = await prisma.rental.findMany({
             where: {
-                status: 'active',
+                status: RentalStatus.ACTIVE,
                 returnDate: {lt: now},
             },
             orderBy: {returnDate: 'asc'},
@@ -375,7 +377,7 @@ class ReportService {
 
         const items = overdueRentals.map((rental) => {
             const overdueDays = Math.ceil(
-                (now.getTime() - rental.returnDate.getTime()) / (24 * 60 * 60 * 1000),
+                (now.getTime() - rental.returnDate.getTime()) / MS_PER_DAY,
             );
             return {
                 ...rental,

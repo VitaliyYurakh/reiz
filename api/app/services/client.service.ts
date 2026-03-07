@@ -301,15 +301,30 @@ class ClientService {
         source?: string;
     }) {
         const updateData: any = {...data};
+
+        // Remove undefined keys so Prisma doesn't try to set them
+        for (const key of Object.keys(updateData)) {
+            if (updateData[key] === undefined) {
+                delete updateData[key];
+            }
+        }
+
         if (data.phone) {
             updateData.phone = normalizePhone(data.phone);
         }
-        if (data.dateOfBirth) {
-            updateData.dateOfBirth = new Date(data.dateOfBirth);
+
+        // Handle date fields: valid string → Date, empty string → null
+        for (const dateField of ['dateOfBirth', 'driverLicenseExpiry'] as const) {
+            if (dateField in updateData) {
+                const val = updateData[dateField];
+                if (val && typeof val === 'string') {
+                    updateData[dateField] = new Date(val);
+                } else if (val === '' || val === null) {
+                    updateData[dateField] = null;
+                }
+            }
         }
-        if (data.driverLicenseExpiry) {
-            updateData.driverLicenseExpiry = new Date(data.driverLicenseExpiry);
-        }
+
         return await prisma.client.update({
             where: {id},
             data: updateData,

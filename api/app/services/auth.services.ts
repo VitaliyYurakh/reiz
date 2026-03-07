@@ -1,10 +1,8 @@
 import {AccessDenied, createHashedPassword, verifyPassword, prisma, UserNotFoundError} from '../utils';
 import jwt from 'jsonwebtoken';
+import {env} from '../config/env';
 
-const SECRET = process.env.SECRET || '';
-if (!SECRET || SECRET.length < 32) {
-    throw new Error('FATAL: JWT SECRET must be set and at least 32 characters long. Set SECRET in .env');
-}
+const SECRET = env.SECRET;
 
 class AuthService {
     async authenticateUser(token: string) {

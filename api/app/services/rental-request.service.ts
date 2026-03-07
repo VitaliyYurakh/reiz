@@ -1,4 +1,4 @@
-import {prisma} from '../utils';
+import {prisma, RentalRequestStatus} from '../utils';
 import availabilityService, {formatConflicts} from './availability.service';
 import clientService from './client.service';
 
@@ -135,7 +135,7 @@ class RentalRequestService {
             // Fetch request and check status
             const req = await tx.rentalRequest.findUnique({where: {id}});
             if (!req) throw new Error('Rental request not found');
-            if (req.status === 'approved') throw new Error('Request is already approved');
+            if (req.status === RentalRequestStatus.APPROVED) throw new Error('Request is already approved');
 
             // Check for conflicts INSIDE the transaction to prevent race conditions
             const availability = await availabilityService.checkCarAvailability(
@@ -182,7 +182,7 @@ class RentalRequestService {
             }
 
             // Resolve or auto-create client (with deduplication)
-            let resolvedClientId = approvalData.clientId;
+            let resolvedClientId: number | undefined = approvalData.clientId;
             if (!resolvedClientId) {
                 const {client} = await clientService.findOrCreate({
                     firstName: req.firstName || 'Unknown',
@@ -196,7 +196,7 @@ class RentalRequestService {
 
             // Check if client exists and is not blocked
             const clientRecord = await tx.client.findUnique({
-                where: {id: resolvedClientId},
+                where: {id: resolvedClientId!},
                 select: {isBlocked: true, blockReason: true, firstName: true, lastName: true},
             });
             if (!clientRecord) {
@@ -211,8 +211,8 @@ class RentalRequestService {
             const rentalRequest = await tx.rentalRequest.update({
                 where: {id},
                 data: {
-                    status: 'approved',
-                    clientId: resolvedClientId,
+                    status: RentalRequestStatus.APPROVED,
+                    clientId: resolvedClientId!,
                     carId,
                     pickupDate: pickup,
                     returnDate: ret,
@@ -224,7 +224,7 @@ class RentalRequestService {
             const reservation = await tx.reservation.create({
                 data: {
                     rentalRequestId: id,
-                    clientId: resolvedClientId,
+                    clientId: resolvedClientId!,
                     carId,
                     pickupDate: pickup,
                     returnDate: ret,
@@ -260,7 +260,7 @@ class RentalRequestService {
         return await prisma.rentalRequest.update({
             where: {id},
             data: {
-                status: 'rejected',
+                status: RentalRequestStatus.REJECTED,
                 rejectionReason: reason,
             },
         });
@@ -269,7 +269,7 @@ class RentalRequestService {
     async cancel(id: number) {
         return await prisma.rentalRequest.update({
             where: {id},
-            data: {status: 'cancelled'},
+            data: {status: RentalRequestStatus.CANCELLED},
         });
     }
 

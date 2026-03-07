@@ -1,4 +1,5 @@
-import {prisma} from '../utils';
+import {prisma, MS_PER_DAY, RentalStatus} from '../utils';
+import {PriceSnapshot} from '../types/dto.types';
 import availabilityService, {formatConflicts} from './availability.service';
 
 class RentalService {
@@ -146,7 +147,7 @@ class RentalService {
             throw new Error(`Rental with id ${id} not found`);
         }
 
-        if (rental.status !== 'active') {
+        if (rental.status !== RentalStatus.ACTIVE) {
             throw new Error(`Rental must be in active status to complete. Current status: ${rental.status}`);
         }
 
@@ -169,7 +170,7 @@ class RentalService {
             const updatedRental = await tx.rental.update({
                 where: {id},
                 data: {
-                    status: 'completed',
+                    status: RentalStatus.COMPLETED,
                     returnOdometer: data.returnOdometer,
                     actualReturnDate: new Date(data.actualReturnDate),
                 },
@@ -198,10 +199,9 @@ class RentalService {
             const actualReturn = new Date(data.actualReturnDate);
             const expectedReturn = rental.returnDate;
             if (actualReturn > expectedReturn) {
-                const msPerDay = 24 * 60 * 60 * 1000;
-                const lateDays = Math.ceil((actualReturn.getTime() - expectedReturn.getTime()) / msPerDay);
+                const lateDays = Math.ceil((actualReturn.getTime() - expectedReturn.getTime()) / MS_PER_DAY);
                 // Use daily rate from priceSnapshot
-                const ps = rental.priceSnapshot as any;
+                const ps = rental.priceSnapshot as PriceSnapshot;
                 const dailyRate = ps?.dailyRateMinor || ps?.dailyRate || 0;
                 if (lateDays > 0 && dailyRate > 0) {
                     const lateFee = dailyRate * lateDays;
@@ -239,7 +239,7 @@ class RentalService {
             const updatedRental = await tx.rental.update({
                 where: {id},
                 data: {
-                    status: 'cancelled',
+                    status: RentalStatus.CANCELLED,
                     cancelReason: reason,
                 },
             });
@@ -281,7 +281,7 @@ class RentalService {
             throw new Error(`Rental with id ${id} not found`);
         }
 
-        if (rental.status !== 'active') {
+        if (rental.status !== RentalStatus.ACTIVE) {
             throw new Error(`Rental must be in active status to extend. Current status: ${rental.status}`);
         }
 
@@ -293,11 +293,10 @@ class RentalService {
         }
 
         // Calculate extra days
-        const msPerDay = 24 * 60 * 60 * 1000;
-        const extraDays = Math.ceil((newReturnDateObj.getTime() - oldReturnDate.getTime()) / msPerDay);
+        const extraDays = Math.ceil((newReturnDateObj.getTime() - oldReturnDate.getTime()) / MS_PER_DAY);
 
         // Get daily rate from price snapshot
-        const priceSnapshot = rental.priceSnapshot as any;
+        const priceSnapshot = rental.priceSnapshot as PriceSnapshot;
         const dailyRateMinor = priceSnapshot?.dailyRateMinor || priceSnapshot?.dailyRate || 0;
         const currency = priceSnapshot?.currency || 'USD';
         const totalMinor = dailyRateMinor * extraDays;

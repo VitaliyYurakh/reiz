@@ -1,4 +1,4 @@
-import {prisma} from '../utils';
+import {prisma, ReservationStatus, RentalStatus} from '../utils';
 
 interface ConflictItem {
     type: 'reservation' | 'rental' | 'service_event';
@@ -42,7 +42,7 @@ class AvailabilityService {
         // Overlap condition: A.start < B.end AND B.start < A.end
         const reservationWhere: any = {
             carId,
-            status: {in: ['confirmed']},
+            status: {in: [ReservationStatus.CONFIRMED]},
             pickupDate: {lt: endDate},
             returnDate: {gt: startDate},
         };
@@ -68,7 +68,7 @@ class AvailabilityService {
         // Check rentals with active status
         const rentalWhere: any = {
             carId,
-            status: {in: ['active']},
+            status: {in: [RentalStatus.ACTIVE]},
             pickupDate: {lt: endDate},
             returnDate: {gt: startDate},
         };
@@ -122,7 +122,7 @@ class AvailabilityService {
             prisma.reservation.findMany({
                 where: {
                     carId,
-                    status: {in: ['confirmed']},
+                    status: {in: [ReservationStatus.CONFIRMED]},
                     pickupDate: {lt: to},
                     returnDate: {gt: from},
                 },
@@ -137,7 +137,7 @@ class AvailabilityService {
             prisma.rental.findMany({
                 where: {
                     carId,
-                    status: {in: ['active']},
+                    status: {in: [RentalStatus.ACTIVE]},
                     pickupDate: {lt: to},
                     returnDate: {gt: from},
                 },
