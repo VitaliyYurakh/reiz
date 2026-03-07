@@ -450,6 +450,7 @@
     },
     "accident": {
       "title": "WHAT TO DO IN CASE OF AN ACCIDENT?",
+      "cta": "DETAILED ACCIDENT GUIDE",
       "steps": [
         {
           "title": "Pull over",
@@ -874,7 +875,8 @@
         "excerpt": "A simple checklist on what to do after an accident in Ukraine: how to record the incident properly, whom to notify, and which documents your insurer will require.",
         "date": "17.04.2025",
         "imgAlt": "Car with a warning triangle on the road — article about road accidents in Ukraine",
-        "image": "/img/blog/road%20accidentua.webp"
+        "image": "/img/blog/road%20accidentua.webp",
+        "slug": "dtp-ukraine"
       },
       {
         "title": "Road-trip route across Ukraine by car",
@@ -2230,6 +2232,178 @@
         "item3": "Want to bring three outfits and props?"
       },
       "cta": "Rent a car at REIZ, punch the coordinates into your navigator and create your best memories (and content). The roads are waiting!"
+    }
+  },
+  "blogDtpUkraine": {
+    "meta": {
+      "title": "What to Do After a Road Accident in Ukraine: Step-by-Step Guide | REIZ",
+      "description": "Detailed guide on what to do after a road accident in Ukraine: steps to follow, European protocol, calling the police, filing insurance documents. Tips from REIZ Car Rental.",
+      "og_title": "What to Do After a Road Accident in Ukraine: Step-by-Step Guide | REIZ",
+      "og_description": "Detailed guide on what to do after a road accident in Ukraine: steps to follow, European protocol, calling the police, filing insurance documents. Tips from REIZ Car Rental."
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Blog",
+      "current": "What to Do After a Road Accident",
+      "nav_label": "Page navigation"
+    },
+    "title": "What to Do After a Road Accident in Ukraine: Step-by-Step Guide",
+    "hero_alt": "Car with a warning triangle on the road — guide on what to do after a road accident in Ukraine",
+    "intro": "A road traffic accident is always a stressful situation. Especially if you are driving in an unfamiliar city or a rental car. It is important to know the proper steps to ensure people's safety, correctly document the accident and avoid problems with the insurance company. In this article, the REIZ Car Rental team has prepared a detailed guide on what to do after a road accident in Ukraine.",
+    "steps": {
+      "step1": {
+        "title": "1. Stop the Vehicle Immediately",
+        "text": "If an accident has occurred:",
+        "list": {
+          "item1": "Stop the vehicle",
+          "item2": "Turn on the hazard lights",
+          "item3": "Do not move the vehicle until the circumstances are documented"
+        },
+        "note": "Moving the vehicle may complicate determining the cause of the accident."
+      },
+      "step2": {
+        "title": "2. Check for Injuries",
+        "text": "First of all, check whether anyone is injured.",
+        "if_injured": "If there are injured people:",
+        "list": {
+          "item1": "Call an ambulance — 103",
+          "item2": "Call the police — 102",
+          "item3": "If possible, provide first aid"
+        },
+        "remember": "Remember: people's lives and health are more important than any material damage."
+      },
+      "step3": {
+        "title": "3. Set Up the Warning Triangle",
+        "text": "According to Ukrainian traffic rules, the driver must set up a warning triangle:",
+        "list": {
+          "item1": "20 metres from the vehicle — in an urban area",
+          "item2": "40 metres — outside urban areas"
+        },
+        "note": "This will help prevent a secondary accident."
+      },
+      "step4": {
+        "title": "4. Call the Police or Fill Out a European Protocol",
+        "text": "In Ukraine, an accident can be documented in two ways.",
+        "police": {
+          "title": "When to Call the Police",
+          "text": "You must call the police if:",
+          "list": {
+            "item1": "There are injured people",
+            "item2": "The drivers cannot agree on the circumstances of the accident",
+            "item3": "One of the drivers is under the influence of alcohol",
+            "item4": "More than two vehicles are damaged",
+            "item5": "Public property is damaged (fences, road signs, etc.)"
+          },
+          "phone": "Police phone number — 102."
+        },
+        "euro": {
+          "title": "When You Can Use the European Protocol",
+          "text": "The European Protocol allows you to document an accident without the police.",
+          "conditions": "It is possible when:",
+          "list": {
+            "item1": "There are no injured people",
+            "item2": "Only two vehicles are involved",
+            "item3": "Both drivers have valid insurance policies",
+            "item4": "The drivers agree on the circumstances of the accident"
+          },
+          "fill": "The European Protocol can be filled out:",
+          "fill_list": {
+            "item1": "On paper",
+            "item2": "Through the MTIBU online system"
+          }
+        }
+      },
+      "step5": {
+        "title": "5. Document the Accident Scene",
+        "text": "Before moving the vehicles from the road, you need to take photos or videos.",
+        "recommend": "It is recommended to document:",
+        "list": {
+          "item1": "General view of the accident scene",
+          "item2": "Vehicle damage",
+          "item3": "Licence plates",
+          "item4": "Road markings",
+          "item5": "Road signs",
+          "item6": "Braking marks"
+        },
+        "note": "This will help the insurance company process the claim faster."
+      },
+      "step6": {
+        "title": "6. Exchange Information with the Other Driver",
+        "text": "You need to record:",
+        "list": {
+          "item1": "Full name of the driver",
+          "item2": "Phone number",
+          "item3": "Insurance policy number",
+          "item4": "Vehicle make and registration number",
+          "item5": "Insurance company name"
+        },
+        "photo_text": "It is also advisable to photograph:",
+        "photo_list": {
+          "item1": "Driver's licence",
+          "item2": "Vehicle registration certificate",
+          "item3": "Insurance policy"
+        }
+      },
+      "step7": {
+        "title": "7. Notify the Insurance Company",
+        "text": "Usually, the insurance company must be notified within 3 business days after the accident.",
+        "prepare": "Prepare:",
+        "list": {
+          "item1": "Driver's documents",
+          "item2": "Vehicle documents",
+          "item3": "Insurance policy",
+          "item4": "Photos from the accident scene"
+        }
+      },
+      "step8": {
+        "title": "8. What to Do If the Accident Involves a Rental Car",
+        "text": "If you are driving a rental car, for example from REIZ Car Rental, you need to:",
+        "list": {
+          "item1": "Ensure safety at the accident scene",
+          "item2": "Call the police or fill out the European Protocol",
+          "item3": "Take photos of the damage",
+          "item4": "Immediately notify the rental company manager"
+        },
+        "reiz_title": "The REIZ team will help you:",
+        "reiz_text1": "Properly fill out the documents",
+        "reiz_text2": "Contact the insurance company",
+        "reiz_text3": "Arrange further steps",
+        "insurance_link": "REIZ INSURANCE TERMS"
+      }
+    },
+    "phones": {
+      "title": "Useful Emergency Phone Numbers",
+      "text": "The following numbers are used in Ukraine:",
+      "list": {
+        "item1": "Police — 102",
+        "item2": "Ambulance — 103",
+        "item3": "Rescue service — 101",
+        "item4": "Unified emergency number — 112"
+      }
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "p1": "The most important thing in an accident is to act calmly and consistently. Following the rules will help you avoid additional problems and resolve the situation with the insurance company faster.",
+      "p2": "If you rent a car from REIZ, our team is always ready to help you in any situation on the road."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "What should you do immediately after an accident?",
+        "answer": "You need to stop the vehicle, turn on the hazard lights, check for injuries and set up the warning triangle."
+      },
+      "q2": {
+        "question": "When can you use the European Protocol?",
+        "answer": "When there are no injuries, only two vehicles are involved, both drivers have insurance and agree on the circumstances of the accident."
+      },
+      "q3": {
+        "question": "Do you need to call the police for every accident?",
+        "answer": "No. If the damage is minor and the European Protocol conditions are met, you do not need to call the police."
+      },
+      "q4": {
+        "question": "How much time do you have to notify the insurance company?",
+        "answer": "Usually, the insurance company must be notified within three business days after the accident."
+      }
     }
   }
 }

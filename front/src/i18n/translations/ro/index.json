@@ -450,6 +450,7 @@
     },
     "accident": {
       "title": "CE SĂ FACI ÎN CAZ DE ACCIDENT?",
+      "cta": "GHID DETALIAT PENTRU ACCIDENT",
       "steps": [
         {
           "title": "Oprește-te",
@@ -2230,6 +2231,178 @@
         "item3": "Vrei să aduci trei ținute și recuzită?"
       },
       "cta": "Închiriază o mașină la REIZ, introduce coordonatele în navigator și creează cele mai frumoase amintiri (și conținut). Drumurile te așteaptă!"
+    }
+  },
+  "blogDtpUkraine": {
+    "meta": {
+      "title": "Ce să faci în caz de accident rutier în Ucraina: ghid pas cu pas | REIZ",
+      "description": "Ghid detaliat despre ce să faci în caz de accident rutier în Ucraina: pașii de urmat, europrotocol, apelarea poliției, documente pentru asigurare. Sfaturi de la REIZ Car Rental.",
+      "og_title": "Ce să faci în caz de accident rutier în Ucraina: ghid pas cu pas | REIZ",
+      "og_description": "Ghid detaliat despre ce să faci în caz de accident rutier în Ucraina: pașii de urmat, europrotocol, apelarea poliției, documente pentru asigurare. Sfaturi de la REIZ Car Rental."
+    },
+    "breadcrumbs": {
+      "home": "Pagina principală",
+      "blog": "Articole",
+      "current": "Ce să faci în caz de accident",
+      "nav_label": "Navigare pagină"
+    },
+    "title": "Ce să faci în caz de accident rutier în Ucraina: ghid pas cu pas",
+    "hero_alt": "Mașină cu triunghi de avertizare pe drum — ghid despre ce să faci în caz de accident rutier în Ucraina",
+    "intro": "Un accident rutier este întotdeauna o situație stresantă. Mai ales dacă conduci într-un oraș necunoscut sau o mașină închiriată. Este important să cunoști pașii corecți pentru a asigura siguranța oamenilor, a documenta corect accidentul și a evita problemele cu compania de asigurări. În acest articol, echipa REIZ Car Rental a pregătit un ghid detaliat despre ce să faci în caz de accident rutier în Ucraina.",
+    "steps": {
+      "step1": {
+        "title": "1. Oprește imediat mașina",
+        "text": "Dacă a avut loc un accident:",
+        "list": {
+          "item1": "Oprește mașina",
+          "item2": "Pornește luminile de avarie",
+          "item3": "Nu deplasa vehiculul până la documentarea circumstanțelor"
+        },
+        "note": "Deplasarea mașinii poate complica stabilirea cauzelor accidentului."
+      },
+      "step2": {
+        "title": "2. Asigură-te că nu sunt răniți",
+        "text": "În primul rând, verifică dacă există persoane rănite.",
+        "if_injured": "Dacă sunt răniți:",
+        "list": {
+          "item1": "Cheamă ambulanța — 103",
+          "item2": "Cheamă poliția — 102",
+          "item3": "Dacă este posibil, acordă primul ajutor"
+        },
+        "remember": "Ține minte: viața și sănătatea oamenilor sunt mai importante decât orice pagube materiale."
+      },
+      "step3": {
+        "title": "3. Instalează triunghiul de avertizare",
+        "text": "Conform regulilor de circulație din Ucraina, șoferul trebuie să instaleze triunghiul de avertizare:",
+        "list": {
+          "item1": "20 de metri de mașină — în localitate",
+          "item2": "40 de metri — în afara localității"
+        },
+        "note": "Acest lucru va ajuta la prevenirea unui alt accident."
+      },
+      "step4": {
+        "title": "4. Cheamă poliția sau completează europrotocolul",
+        "text": "În Ucraina, un accident poate fi documentat în două moduri.",
+        "police": {
+          "title": "Când trebuie chemată poliția",
+          "text": "Poliția trebuie chemată dacă:",
+          "list": {
+            "item1": "Sunt persoane rănite",
+            "item2": "Șoferii nu pot ajunge la un acord privind circumstanțele accidentului",
+            "item3": "Unul dintre șoferi este sub influența alcoolului",
+            "item4": "Sunt avariate mai mult de două mașini",
+            "item5": "Este avariat bunul public (gard, semne rutiere etc.)"
+          },
+          "phone": "Numărul poliției — 102."
+        },
+        "euro": {
+          "title": "Când se poate folosi europrotocolul",
+          "text": "Europrotocolul permite documentarea accidentului fără poliție.",
+          "conditions": "Este posibil când:",
+          "list": {
+            "item1": "Nu sunt persoane rănite",
+            "item2": "Doar două mașini sunt implicate",
+            "item3": "Ambii șoferi au asigurare valabilă",
+            "item4": "Șoferii sunt de acord cu circumstanțele accidentului"
+          },
+          "fill": "Europrotocolul poate fi completat:",
+          "fill_list": {
+            "item1": "Pe hârtie",
+            "item2": "Prin sistemul online MTIBU"
+          }
+        }
+      },
+      "step5": {
+        "title": "5. Documentează locul accidentului",
+        "text": "Înainte de a muta mașinile de pe drum, trebuie să faci fotografii sau înregistrări video.",
+        "recommend": "Se recomandă să documentezi:",
+        "list": {
+          "item1": "Vederea generală a locului accidentului",
+          "item2": "Daunele mașinilor",
+          "item3": "Plăcuțele de înmatriculare",
+          "item4": "Marcajul rutier",
+          "item5": "Semnele rutiere",
+          "item6": "Urmele de frânare"
+        },
+        "note": "Acest lucru va ajuta compania de asigurări să proceseze cererea mai rapid."
+      },
+      "step6": {
+        "title": "6. Schimbă datele cu celălalt șofer",
+        "text": "Trebuie să notezi:",
+        "list": {
+          "item1": "Numele complet al șoferului",
+          "item2": "Numărul de telefon",
+          "item3": "Numărul poliței de asigurare",
+          "item4": "Marca și numărul de înmatriculare al mașinii",
+          "item5": "Numele companiei de asigurări"
+        },
+        "photo_text": "De asemenea, este recomandat să fotografiezi:",
+        "photo_list": {
+          "item1": "Permisul de conducere",
+          "item2": "Certificatul de înmatriculare",
+          "item3": "Polița de asigurare"
+        }
+      },
+      "step7": {
+        "title": "7. Anunță compania de asigurări",
+        "text": "De obicei, compania de asigurări trebuie anunțată în termen de 3 zile lucrătoare de la accident.",
+        "prepare": "Pregătește:",
+        "list": {
+          "item1": "Documentele șoferului",
+          "item2": "Documentele vehiculului",
+          "item3": "Polița de asigurare",
+          "item4": "Fotografii de la locul accidentului"
+        }
+      },
+      "step8": {
+        "title": "8. Ce să faci dacă accidentul implică o mașină închiriată",
+        "text": "Dacă conduci o mașină închiriată, de exemplu de la REIZ Car Rental, trebuie să:",
+        "list": {
+          "item1": "Asiguri siguranța la locul accidentului",
+          "item2": "Chemi poliția sau completezi europrotocolul",
+          "item3": "Faci fotografii ale daunelor",
+          "item4": "Anunți imediat managerul companiei de închirieri"
+        },
+        "reiz_title": "Echipa REIZ te va ajuta să:",
+        "reiz_text1": "Completezi corect documentele",
+        "reiz_text2": "Contactezi compania de asigurări",
+        "reiz_text3": "Organizezi pașii următori",
+        "insurance_link": "CONDIȚII DE ASIGURARE REIZ"
+      }
+    },
+    "phones": {
+      "title": "Numere utile de urgență",
+      "text": "În Ucraina funcționează următoarele numere:",
+      "list": {
+        "item1": "Poliția — 102",
+        "item2": "Ambulanța — 103",
+        "item3": "Serviciul de salvare — 101",
+        "item4": "Numărul unic de urgență — 112"
+      }
+    },
+    "conclusion": {
+      "title": "Concluzie",
+      "p1": "Cel mai important lucru în caz de accident este să acționezi calm și consecvent. Respectarea regulilor te va ajuta să eviți probleme suplimentare și să rezolvi mai rapid situația cu compania de asigurări.",
+      "p2": "Dacă închiriezi o mașină de la REIZ, echipa noastră este mereu pregătită să te ajute în orice situație pe drum."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Ce trebuie să faci imediat după un accident?",
+        "answer": "Trebuie să oprești mașina, să pornești luminile de avarie, să verifici dacă sunt răniți și să instalezi triunghiul de avertizare."
+      },
+      "q2": {
+        "question": "Când se poate folosi europrotocolul?",
+        "answer": "Dacă în accident nu sunt răniți, sunt implicate doar două mașini, ambii șoferi au asigurare și sunt de acord cu circumstanțele accidentului."
+      },
+      "q3": {
+        "question": "Trebuie chemată poliția la fiecare accident?",
+        "answer": "Nu. Dacă daunele sunt minore și sunt îndeplinite condițiile europrotocolului, nu trebuie chemată poliția."
+      },
+      "q4": {
+        "question": "Cât timp ai la dispoziție pentru a anunța asigurătorul?",
+        "answer": "De obicei, compania de asigurări trebuie anunțată în termen de trei zile lucrătoare de la accident."
+      }
     }
   }
 }

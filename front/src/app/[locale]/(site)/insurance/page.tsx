@@ -271,6 +271,9 @@ export default async function InsurancePage() {
               </div>
             ))}
           </div>
+          <Link href="/blog/dtp-ukraine" className="main-button insurance-section__accident-link">
+            {t("accident.cta")}
+          </Link>
         </div>
 
         {/* 24/7 Roadside assistance */}

@@ -450,6 +450,7 @@
     },
     "accident": {
       "title": "CO ROBIĆ W RAZIE WYPADKU?",
+      "cta": "SZCZEGÓŁOWA INSTRUKCJA WYPADKOWA",
       "steps": [
         {
           "title": "Zatrzymaj się",
@@ -2230,6 +2231,178 @@
         "item3": "Chcesz zabrac trzy stroje i rekwizyty?"
       },
       "cta": "Wynajmij samochod w REIZ, wbij wspolrzedne w nawigacje i twoz swoje najlepsze wspomnienia (i tresci). Drogi czekaja!"
+    }
+  },
+  "blogDtpUkraine": {
+    "meta": {
+      "title": "Co robic w razie wypadku drogowego na Ukrainie: instrukcja krok po kroku | REIZ",
+      "description": "Szczegolowa instrukcja, co robic w razie wypadku drogowego na Ukrainie: kolejnosc dzialal, europrotokol, wezwanie policji, dokumenty dla ubezpieczyciela. Porady od REIZ Car Rental.",
+      "og_title": "Co robic w razie wypadku drogowego na Ukrainie: instrukcja krok po kroku | REIZ",
+      "og_description": "Szczegolowa instrukcja, co robic w razie wypadku drogowego na Ukrainie: kolejnosc dzialal, europrotokol, wezwanie policji, dokumenty dla ubezpieczyciela. Porady od REIZ Car Rental."
+    },
+    "breadcrumbs": {
+      "home": "Strona glowna",
+      "blog": "Artykuly",
+      "current": "Co robic w razie wypadku",
+      "nav_label": "Nawigacja po stronie"
+    },
+    "title": "Co robic w razie wypadku drogowego na Ukrainie: instrukcja krok po kroku",
+    "hero_alt": "Samochod z trojkatem ostrzegawczym na drodze — instrukcja postepowania w razie wypadku drogowego na Ukrainie",
+    "intro": "Wypadek drogowy to zawsze stresujaca sytuacja. Szczegolnie jesli prowadzisz samochod w nieznanym miescie lub wynajmowanym autem. Wazne jest, aby znac kolejnosc dzialal, zapewnic bezpieczenstwo ludzi, prawidlowo udokumentowac wypadek i uniknac problemow z ubezpieczycielem. W tym artykule zespol REIZ Car Rental przygotowal szczegolowa instrukcje, co robic w razie wypadku drogowego na Ukrainie.",
+    "steps": {
+      "step1": {
+        "title": "1. Natychmiast zatrzymaj samochod",
+        "text": "Jesli doszlo do wypadku:",
+        "list": {
+          "item1": "Zatrzymaj samochod",
+          "item2": "Wlacz swiatla awaryjne",
+          "item3": "Nie przemieszczaj pojazdu przed udokumentowaniem okolicznosci"
+        },
+        "note": "Przemieszczenie samochodu moze utrudnic ustalenie przyczyn wypadku."
+      },
+      "step2": {
+        "title": "2. Upewnij sie, ze nie ma poszkodowanych",
+        "text": "Przede wszystkim nalezy sprawdzic, czy sa ranni.",
+        "if_injured": "Jesli sa poszkodowani:",
+        "list": {
+          "item1": "Wezwij pogotowie ratunkowe — 103",
+          "item2": "Wezwij policje — 102",
+          "item3": "W miare mozliwosci udziel pierwszej pomocy"
+        },
+        "remember": "Pamietaj: zycie i zdrowie ludzi sa wazniejsze niz jakiekolwiek straty materialne."
+      },
+      "step3": {
+        "title": "3. Ustaw trojkat ostrzegawczy",
+        "text": "Zgodnie z ukrainskimi przepisami ruchu drogowego kierowca musi ustawic trojkat ostrzegawczy:",
+        "list": {
+          "item1": "20 metrow od samochodu — w terenie zabudowanym",
+          "item2": "40 metrow — poza terenem zabudowanym"
+        },
+        "note": "To pomoze uniknac kolejnego wypadku."
+      },
+      "step4": {
+        "title": "4. Wezwij policje lub wypelnij europrotokol",
+        "text": "Na Ukrainie wypadek mozna udokumentowac na dwa sposoby.",
+        "police": {
+          "title": "Kiedy nalezy wezwac policje",
+          "text": "Policje nalezy wezwac, jesli:",
+          "list": {
+            "item1": "Sa poszkodowani",
+            "item2": "Kierowcy nie moga dojsc do porozumienia w sprawie okolicznosci wypadku",
+            "item3": "Jeden z kierowcow jest pod wplywem alkoholu",
+            "item4": "Uszkodzonych jest wiecej niz dwa samochody",
+            "item5": "Uszkodzone jest mienie panstwowe (ogrodzenie, znaki drogowe itp.)"
+          },
+          "phone": "Numer policji — 102."
+        },
+        "euro": {
+          "title": "Kiedy mozna uzyc europrotokolu",
+          "text": "Europrotokol pozwala udokumentowac wypadek bez policji.",
+          "conditions": "Jest to mozliwe, gdy:",
+          "list": {
+            "item1": "Nie ma poszkodowanych",
+            "item2": "W wypadku uczestnicza tylko dwa samochody",
+            "item3": "Obaj kierowcy maja wazne ubezpieczenie",
+            "item4": "Kierowcy zgadzaja sie co do okolicznosci wypadku"
+          },
+          "fill": "Europrotokol mozna wypelnic:",
+          "fill_list": {
+            "item1": "W formie papierowej",
+            "item2": "Przez system online MTIBU"
+          }
+        }
+      },
+      "step5": {
+        "title": "5. Udokumentuj miejsce wypadku",
+        "text": "Przed usuniecem samochodow z drogi nalezy zrobic zdjecia lub nagranie wideo.",
+        "recommend": "Zaleca sie udokumentowac:",
+        "list": {
+          "item1": "Ogolny widok miejsca wypadku",
+          "item2": "Uszkodzenia samochodow",
+          "item3": "Tablice rejestracyjne",
+          "item4": "Oznakowanie drogowe",
+          "item5": "Znaki drogowe",
+          "item6": "Slady hamowania"
+        },
+        "note": "To pomoze ubezpieczycielowi szybciej rozpatrzyc sprawe."
+      },
+      "step6": {
+        "title": "6. Wymien dane z drugim kierowca",
+        "text": "Nalezy zapisac:",
+        "list": {
+          "item1": "Imie i nazwisko kierowcy",
+          "item2": "Numer telefonu",
+          "item3": "Numer polisy ubezpieczeniowej",
+          "item4": "Marke i numer rejestracyjny samochodu",
+          "item5": "Nazwe firmy ubezpieczeniowej"
+        },
+        "photo_text": "Zaleca sie rowniez sfotografowac:",
+        "photo_list": {
+          "item1": "Prawo jazdy",
+          "item2": "Dowod rejestracyjny",
+          "item3": "Polise ubezpieczeniowa"
+        }
+      },
+      "step7": {
+        "title": "7. Powiadom ubezpieczyciela",
+        "text": "Zazwyczaj ubezpieczyciela nalezy powiadomic w ciagu 3 dni roboczych po wypadku.",
+        "prepare": "Przygotuj:",
+        "list": {
+          "item1": "Dokumenty kierowcy",
+          "item2": "Dokumenty pojazdu",
+          "item3": "Polise ubezpieczeniowa",
+          "item4": "Zdjecia z miejsca wypadku"
+        }
+      },
+      "step8": {
+        "title": "8. Co robic, jesli wypadek dotyczy wynajmowanego samochodu",
+        "text": "Jesli prowadzisz wynajmowany samochod, na przyklad od REIZ Car Rental, nalezy:",
+        "list": {
+          "item1": "Zapewnic bezpieczenstwo na miejscu wypadku",
+          "item2": "Wezwac policje lub wypelnic europrotokol",
+          "item3": "Zrobic zdjecia uszkodzen",
+          "item4": "Natychmiast powiadomic menedzera firmy wynajmu"
+        },
+        "reiz_title": "Zespol REIZ pomoze:",
+        "reiz_text1": "Prawidlowo wypelnic dokumenty",
+        "reiz_text2": "Skontaktowac sie z ubezpieczycielem",
+        "reiz_text3": "Zorganizowac dalsze dzialania",
+        "insurance_link": "WARUNKI UBEZPIECZENIA REIZ"
+      }
+    },
+    "phones": {
+      "title": "Przydatne numery alarmowe",
+      "text": "Na Ukrainie dzialaja nastepujace numery:",
+      "list": {
+        "item1": "Policja — 102",
+        "item2": "Pogotowie ratunkowe — 103",
+        "item3": "Sluzba ratunkowa — 101",
+        "item4": "Jednolity numer alarmowy — 112"
+      }
+    },
+    "conclusion": {
+      "title": "Podsumowanie",
+      "p1": "Najwazniejsze przy wypadku — dzialac spokojnie i konsekwentnie. Przestrzeganie zasad pomoze uniknac dodatkowych problemow i szybciej rozwiazac sytuacje z ubezpieczycielem.",
+      "p2": "Jesli wynajmujesz samochod w REIZ, nasz zespol jest zawsze gotowy pomoc Ci w kazdej sytuacji na drodze."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Co robic natychmiast po wypadku?",
+        "answer": "Nalezy zatrzymac samochod, wlaczyc swiatla awaryjne, sprawdzic czy sa poszkodowani i ustawic trojkat ostrzegawczy."
+      },
+      "q2": {
+        "question": "Kiedy mozna uzyc europrotokolu?",
+        "answer": "Jesli w wypadku nie ma poszkodowanych, uczestnicza dwa samochody, obaj kierowcy maja ubezpieczenie i zgadzaja sie co do okolicznosci wypadku."
+      },
+      "q3": {
+        "question": "Czy trzeba wzywac policje przy kazdym wypadku?",
+        "answer": "Nie. Jesli uszkodzenia sa niewielkie i spelnione sa warunki europrotokolu, policji mozna nie wzywac."
+      },
+      "q4": {
+        "question": "Ile czasu jest na powiadomienie ubezpieczyciela?",
+        "answer": "Zazwyczaj ubezpieczyciela nalezy powiadomic w ciagu trzech dni roboczych po wypadku."
+      }
     }
   }
 }
