@@ -70,7 +70,7 @@ class AuthController {
 
             res.cookie('token', token, COOKIE_OPTIONS);
 
-            return res.status(StatusCodes.OK).json({token});
+            return res.status(StatusCodes.OK).json({ok: true});
         } catch (error) {
             if (error instanceof ValidationError) {
                 return res.status(StatusCodes.BAD_REQUEST).json({msg: 'Validation error', errors: error.errors});
@@ -123,6 +123,11 @@ class AuthController {
     async logout(req: Request, res: Response) {
         // Audit: logout
         logAudit({actorId: res.locals.user?.id, entityType: 'Auth', entityId: res.locals.user?.id || 0, action: 'LOGOUT', req});
+
+        // Invalidate all existing tokens by incrementing tokenVersion
+        if (res.locals.user?.id) {
+            await prisma.user.update({where: {id: res.locals.user.id}, data: {tokenVersion: {increment: 1}}});
+        }
 
         res.clearCookie('token', {path: '/'});
         return res.status(StatusCodes.OK).json({msg: 'Logged out'});

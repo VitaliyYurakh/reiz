@@ -3,6 +3,7 @@ import {logger} from '../utils';
 import {Request, Response} from 'express';
 import notificationService from '../services/notification.service';
 import {createTemplateSchema, sendNotificationSchema, validate, ValidationError} from '../validators';
+import logAudit from '../middleware/audit.middleware';
 
 class NotificationController {
     // --- Templates ---
@@ -24,6 +25,7 @@ class NotificationController {
             const data = validate(createTemplateSchema, req.body);
             const template = await notificationService.createTemplate(data);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'NotificationTemplate', entityId: template.id, action: 'CREATE', after: template, req});
             return res.status(StatusCodes.CREATED).json({template});
         } catch (error) {
             if (error instanceof ValidationError) {
@@ -40,6 +42,7 @@ class NotificationController {
             const {id} = req.params;
             const template = await notificationService.updateTemplate(parseInt(id), req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'NotificationTemplate', entityId: parseInt(id), action: 'UPDATE', after: template, req});
             return res.status(StatusCodes.OK).json({template});
         } catch (error) {
             logger.error(error);

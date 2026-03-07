@@ -74,6 +74,15 @@ export const en: AdminTranslations = {
     unavailable: 'Unavailable',
     new_: 'New',
     active_: 'active',
+    accessDenied: 'Access denied',
+    noAccess: 'You do not have access to this page',
+  },
+
+  /* ── Notifications ── */
+  notification: {
+    newRequest: 'New request',
+    plannedService: 'Planned service',
+    overdueReturn: 'Overdue return',
   },
 
   /* ── TopBar ── */
@@ -112,6 +121,30 @@ export const en: AdminTranslations = {
     overdue: 'Overdue',
     vsPrevMonth: 'vs prev. month',
     available: 'available',
+    revenueTitle: 'Revenue',
+    period7d: '7d',
+    period30d: '30d',
+    period90d: '90d',
+    incomeLabel: 'Income',
+    expenseLabel: 'Expenses',
+    netLabel: 'Net',
+    noDataForPeriod: 'No data for this period',
+    fleetTitle: 'Fleet Utilization',
+    allSegments: 'All',
+    utilization: 'utilization',
+    occupied: 'Occupied',
+    free: 'Free',
+    noDataForSegment: 'No data for this segment',
+    statsTitle: 'Metrics',
+    confirmedReservations: 'Confirmed Bookings',
+    requestsThisMonth: 'Requests this month',
+    completedRentals: 'Completed Rentals',
+    totalClients: 'Total Clients',
+    overdueTitle: 'Overdue Rentals',
+    noOverdue: 'No overdue',
+    allRentalsOk: 'All rentals on track',
+    overdueDays: '{days} d.',
+    showAll: 'Show all ({count})',
   },
 
   /* ── Requests ── */
@@ -188,6 +221,7 @@ export const en: AdminTranslations = {
     pickupLocationLabel: 'Pickup Location',
     returnLocationLabel: 'Return Location',
     autoCreateClient: 'Auto-create from request',
+    clientIdHint: 'Optional. Leave empty to auto-create a client from the request data, or enter an existing ID from the Clients section.',
     statusChangeFailed: 'Failed to change status',
     fillRequired: 'Fill in required fields (car, dates)',
     approveError: 'Failed to approve request',
@@ -411,6 +445,10 @@ export const en: AdminTranslations = {
     emptyTitle: 'No rentals found',
     emptyFilter: 'Try changing the filter',
     emptyDefault: 'Active rentals will appear here',
+    justNow: 'just now',
+    minutesAgo: '{n}m ago',
+    hoursAgo: '{n}h ago',
+    daysAgo: '{n}d ago',
   },
 
   /* ── Rental Detail ── */
@@ -560,6 +598,9 @@ export const en: AdminTranslations = {
     deleteBtn: 'Delete',
     createError: 'Error creating car',
     deleteError: 'Error deleting',
+    searchCount: '{found} of {total}',
+    seats: '{n} seats',
+    carFallback: 'Car #{id}',
   },
 
   /* ── Clients ── */
@@ -769,6 +810,7 @@ export const en: AdminTranslations = {
     noCars: 'No cars',
     clickForDetails: 'Click for details',
     conflict: 'Conflict',
+    km: 'km',
   },
 
   /* ── Pricing ── */

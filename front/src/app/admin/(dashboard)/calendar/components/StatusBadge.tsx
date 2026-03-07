@@ -1,12 +1,14 @@
 'use client';
 
 import type { ThemeTokens } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { getStatusMap } from './calendar-types';
 
 export function StatusBadge({ status, H }: { status?: string; H: ThemeTokens }) {
+  const { t } = useAdminLocale();
   if (!status) return null;
   const STATUS_MAP = getStatusMap(H);
-  const s = STATUS_MAP[status] ?? { label: status, color: H.gray, bg: H.bg };
+  const s = STATUS_MAP[status] ?? { labelKey: status, color: H.gray, bg: H.bg };
   return (
     <span
       style={{
@@ -30,7 +32,7 @@ export function StatusBadge({ status, H }: { status?: string; H: ThemeTokens }) 
           background: s.color,
         }}
       />
-      {s.label}
+      {t(s.labelKey)}
     </span>
   );
 }

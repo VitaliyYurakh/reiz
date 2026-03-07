@@ -16,6 +16,7 @@ import {
   Search,
 } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 
 export default function CarListPage() {
   const router = useRouter();
@@ -24,6 +25,7 @@ export default function CarListPage() {
   const [search, setSearch] = useState('');
   const [deleteConfirm, setDeleteConfirm] = useState<number | null>(null);
   const { H, theme } = useAdminTheme();
+  const { t } = useAdminLocale();
   const isDark = theme === 'dark';
 
   const fetchCars = async () => {
@@ -46,7 +48,7 @@ export default function CarListPage() {
       const newCar = await createCar({});
       router.push(`/admin/cars/${newCar.id}`);
     } catch (e) {
-      alert('Ошибка при создании авто');
+      alert(t('cars.createError'));
     }
   };
 
@@ -56,7 +58,7 @@ export default function CarListPage() {
       setCars((prev) => prev.filter((c) => c.id !== id));
       setDeleteConfirm(null);
     } catch (e) {
-      alert('Ошибка удаления');
+      alert(t('cars.deleteError'));
     }
   };
 
@@ -80,8 +82,8 @@ export default function CarListPage() {
           background: H.white,
           borderRadius: 20,
           boxShadow: H.shadow,
-          padding: '20px 24px',
-          marginBottom: 20,
+          padding: '20px 28px',
+          marginBottom: 24,
         }}
       >
         {/* Row 1: Title + actions */}
@@ -93,43 +95,13 @@ export default function CarListPage() {
             gap: 16,
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <div
-              style={{
-                width: 42,
-                height: 42,
-                borderRadius: 14,
-                background: `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 4px 12px rgba(67, 24, 255, 0.3)',
-              }}
-            >
-              <CarIcon style={{ width: 20, height: 20, color: '#fff' }} />
+          <div className="flex items-center gap-3.5">
+            <div className="h-icon-box h-icon-box-purple">
+              <CarIcon size={24} />
             </div>
             <div>
-              <h1
-                style={{
-                  fontSize: 22,
-                  fontWeight: 700,
-                  color: H.navy,
-                  margin: 0,
-                  lineHeight: 1.2,
-                }}
-              >
-                Автомобили
-              </h1>
-              <p
-                style={{
-                  fontSize: 13,
-                  color: H.gray,
-                  margin: 0,
-                  marginTop: 2,
-                }}
-              >
-                Управление автопарком
-              </p>
+              <h1 className="h-title">{t('cars.title')}</h1>
+              <span className="h-subtitle">{t('cars.subtitle', { n: String(cars.length) })}</span>
             </div>
           </div>
 
@@ -167,33 +139,18 @@ export default function CarListPage() {
               }}
             >
               <div style={{ width: 7, height: 7, borderRadius: '50%', background: H.green }} />
-              {availableCount} доступно
+              {availableCount} {t('cars.availableBadge')}
             </div>
 
             {/* Create */}
             <button
               type="button"
               onClick={handleAddCar}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 7,
-                height: 40,
-                padding: '0 20px',
-                borderRadius: 49,
-                background: `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`,
-                color: '#fff',
-                fontSize: 13,
-                fontWeight: 700,
-                fontFamily: H.font,
-                border: 'none',
-                cursor: 'pointer',
-                boxShadow: '0 4px 12px rgba(67, 24, 255, 0.3)',
-                transition: 'all 0.15s ease',
-              }}
+              className="h-btn h-btn-primary h-btn-sm"
+              style={{ borderRadius: 49 }}
             >
               <Plus style={{ width: 16, height: 16 }} />
-              Добавить
+              {t('cars.addCar')}
             </button>
           </div>
         </div>
@@ -224,7 +181,7 @@ export default function CarListPage() {
             />
             <input
               type="text"
-              placeholder="Поиск по марке, модели, номеру..."
+              placeholder={t('cars.searchPlaceholder')}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               style={{
@@ -250,7 +207,7 @@ export default function CarListPage() {
           </div>
           {search && (
             <span style={{ fontSize: 13, fontWeight: 500, color: H.gray }}>
-              {filtered.length} из {cars.length}
+              {t('cars.searchCount', { found: String(filtered.length), total: String(cars.length) })}
             </span>
           )}
         </div>
@@ -302,7 +259,7 @@ export default function CarListPage() {
               <CarIcon style={{ width: 28, height: 28, color: H.grayLight }} />
             </div>
             <p style={{ marginTop: 16, fontSize: 15, fontWeight: 500, color: H.gray }}>
-              {search ? 'Ничего не найдено' : 'Автомобили не добавлены'}
+              {search ? t('cars.emptySearch') : t('cars.emptyDefault')}
             </p>
           </div>
         ) : (
@@ -413,7 +370,7 @@ export default function CarListPage() {
                             background: car.isAvailable ? H.green : H.red,
                           }}
                         />
-                        {car.isAvailable ? 'Доступно' : 'Недоступно'}
+                        {car.isAvailable ? t('cars.available') : t('cars.unavailable')}
                       </span>
                     </div>
                   </div>
@@ -431,7 +388,7 @@ export default function CarListPage() {
                         whiteSpace: 'nowrap',
                       }}
                     >
-                      {displayName || `Авто #${car.id}`}
+                      {displayName || t('cars.carFallback', { id: String(car.id) })}
                     </h3>
 
                     <div style={{ marginTop: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -454,7 +411,7 @@ export default function CarListPage() {
                       )}
                       {car.yearOfManufacture && (
                         <span style={{ fontSize: 12, fontWeight: 500, color: H.gray }}>
-                          {car.yearOfManufacture} г.
+                          {car.yearOfManufacture}
                         </span>
                       )}
                     </div>
@@ -478,7 +435,7 @@ export default function CarListPage() {
                       )}
                       {car.seats && (
                         <span style={{ fontSize: 12, fontWeight: 500, color: H.gray }}>
-                          {car.seats} мест
+                          {t('cars.seats', { n: String(car.seats) })}
                         </span>
                       )}
                       {car.color && (
@@ -505,11 +462,11 @@ export default function CarListPage() {
                             ${minTariff}
                           </span>
                           <span style={{ fontSize: 12, fontWeight: 500, color: H.gray, marginLeft: 4 }}>
-                            / сутки
+                            {t('common.perDay')}
                           </span>
                         </div>
                       ) : (
-                        <span style={{ fontSize: 13, fontWeight: 500, color: H.gray }}>Цена не указана</span>
+                        <span style={{ fontSize: 13, fontWeight: 500, color: H.gray }}>{t('common.noPriceSet')}</span>
                       )}
                       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                         <button
@@ -518,7 +475,7 @@ export default function CarListPage() {
                             e.stopPropagation();
                             router.push(`/admin/cars/${car.id}`);
                           }}
-                          title="Редактировать"
+                          title={t('cars.editBtn')}
                           style={{
                             width: 32,
                             height: 32,
@@ -549,7 +506,7 @@ export default function CarListPage() {
                             e.stopPropagation();
                             setDeleteConfirm(car.id);
                           }}
-                          title="Удалить"
+                          title={t('cars.deleteBtn')}
                           style={{
                             width: 32,
                             height: 32,
@@ -613,7 +570,7 @@ export default function CarListPage() {
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
               <h3 style={{ fontSize: 20, fontWeight: 700, color: H.navyDark, margin: 0 }}>
-                Удалить автомобиль?
+                {t('cars.deleteTitle')}
               </h3>
               <button
                 type="button"
@@ -635,7 +592,7 @@ export default function CarListPage() {
               </button>
             </div>
             <p style={{ fontSize: 14, fontWeight: 500, color: H.gray, lineHeight: 1.5, margin: 0 }}>
-              Это действие нельзя отменить. Все связанные фото и данные будут удалены.
+              {t('cars.deleteMessage')}
             </p>
             <div style={{ marginTop: 24, display: 'flex', gap: 12, justifyContent: 'flex-end' }}>
               <button
@@ -653,7 +610,7 @@ export default function CarListPage() {
                   transition: 'background 0.15s',
                 }}
               >
-                Отмена
+                {t('common.cancel')}
               </button>
               <button
                 type="button"
@@ -671,7 +628,7 @@ export default function CarListPage() {
                   transition: 'all 0.15s',
                 }}
               >
-                Удалить
+                {t('common.delete')}
               </button>
             </div>
           </div>

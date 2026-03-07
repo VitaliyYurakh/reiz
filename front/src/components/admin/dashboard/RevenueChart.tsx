@@ -13,6 +13,7 @@ import {
 import { Download } from 'lucide-react';
 import { getRevenue, type RevenueData } from '@/lib/api/admin';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 
 type Period = '7d' | '30d' | '90d';
 
@@ -50,6 +51,7 @@ const PERIOD_DAYS: Record<Period, number> = { '7d': 7, '30d': 30, '90d': 90 };
 
 export function RevenueChart() {
   const { theme } = useAdminTheme();
+  const { t } = useAdminLocale();
   const isDark = theme === 'dark';
   const [period, setPeriod] = useState<Period>('30d');
   const [data, setData] = useState<RevenueData | null>(null);
@@ -72,10 +74,16 @@ export function RevenueChart() {
     fetchData(period);
   }, [period, fetchData]);
 
+  const periodLabels: Record<Period, string> = {
+    '7d': t('dashboard.period7d'),
+    '30d': t('dashboard.period30d'),
+    '90d': t('dashboard.period90d'),
+  };
+
   return (
     <div className="ios-card !py-3 flex flex-col">
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-sm font-semibold text-card-foreground">Доход</p>
+        <p className="text-sm font-semibold text-card-foreground">{t('dashboard.revenueTitle')}</p>
         <div className="flex items-center gap-2">
           <div className="ios-segmented">
             {(['7d', '30d', '90d'] as Period[]).map((p) => (
@@ -84,7 +92,7 @@ export function RevenueChart() {
                 onClick={() => setPeriod(p)}
                 className={`ios-segment ${period === p ? 'ios-segment-active' : ''}`}
               >
-                {p === '7d' ? '7 дн' : p === '30d' ? '30 дн' : '90 дн'}
+                {periodLabels[p]}
               </button>
             ))}
           </div>
@@ -99,21 +107,21 @@ export function RevenueChart() {
             style={{ backgroundColor: isDark ? 'rgba(59,130,246,0.15)' : '#EFF6FF', color: isDark ? '#60A5FA' : '#1D4ED8' }}
           >
             <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#3B82F6' }} />
-            Доход: {formatMoney(data.totalIncome)}
+            {t('dashboard.incomeLabel')}: {formatMoney(data.totalIncome)}
           </span>
           <span
             className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold"
             style={{ backgroundColor: isDark ? 'rgba(239,68,68,0.15)' : '#FEF2F2', color: isDark ? '#FCA5A5' : '#B91C1C' }}
           >
             <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#EF4444' }} />
-            Расходы: {formatMoney(data.totalExpense)}
+            {t('dashboard.expenseLabel')}: {formatMoney(data.totalExpense)}
           </span>
           <span
             className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold"
             style={{ backgroundColor: isDark ? 'rgba(34,197,94,0.15)' : '#F0FDF4', color: isDark ? '#4ADE80' : '#15803D' }}
           >
             <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#22C55E' }} />
-            Чистыми: {formatMoney(data.net)}
+            {t('dashboard.netLabel')}: {formatMoney(data.net)}
           </span>
         </div>
       )}
@@ -127,7 +135,7 @@ export function RevenueChart() {
         ) : !data || data.daily.length === 0 ? (
           <div className="flex h-full flex-col items-center justify-center gap-2 text-muted-foreground">
             <Download className="h-8 w-8" />
-            <p className="text-sm">Нет данных за этот период</p>
+            <p className="text-sm">{t('dashboard.noDataForPeriod')}</p>
           </div>
         ) : (
           <ResponsiveContainer width="100%" height="100%">
@@ -162,7 +170,7 @@ export function RevenueChart() {
                 stroke="#007AFF"
                 strokeWidth={2}
                 fill="url(#incomeGradient)"
-                name="Доход"
+                name={t('dashboard.incomeLabel')}
               />
               <Area
                 type="monotone"
@@ -171,7 +179,7 @@ export function RevenueChart() {
                 strokeWidth={1.5}
                 fill="none"
                 strokeDasharray="4 4"
-                name="Расходы"
+                name={t('dashboard.expenseLabel')}
               />
             </AreaChart>
           </ResponsiveContainer>

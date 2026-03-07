@@ -36,44 +36,44 @@ export const SUMMARY_H = 30;
 
 export const TYPE_STYLES: Record<
   string,
-  { gradient: string; dot: string; label: string; shadow: string }
+  { gradient: string; dot: string; labelKey: string; shadow: string }
 > = {
   rental: {
     gradient: 'linear-gradient(135deg, #01B574 0%, #01A266 100%)',
     dot: '#01B574',
-    label: 'Аренда',
+    labelKey: 'calendar.typeRental',
     shadow: '0 2px 8px rgba(1, 181, 116, 0.35)',
   },
   reservation: {
     gradient: 'linear-gradient(135deg, #3965FF 0%, #4318FF 100%)',
     dot: '#4318FF',
-    label: 'Бронь',
+    labelKey: 'calendar.typeReservation',
     shadow: '0 2px 8px rgba(67, 24, 255, 0.35)',
   },
   service: {
     gradient: 'linear-gradient(135deg, #FFB547 0%, #FF9F0A 100%)',
     dot: '#FFB547',
-    label: 'Сервис',
+    labelKey: 'calendar.typeService',
     shadow: '0 2px 8px rgba(255, 181, 71, 0.35)',
   },
 };
 
-export function getStatusMap(H: ThemeTokens): Record<string, { label: string; color: string; bg: string }> {
+export function getStatusMap(H: ThemeTokens): Record<string, { labelKey: string; color: string; bg: string }> {
   return {
-    confirmed: { label: 'Подтверждено', color: H.blue, bg: H.blueBg },
-    picked_up: { label: 'Выдано', color: H.green, bg: H.greenBg },
-    cancelled: { label: 'Отменено', color: H.red, bg: H.redBg },
-    no_show: { label: 'Не явился', color: H.orange, bg: H.orangeBg },
-    active: { label: 'Активна', color: H.green, bg: H.greenBg },
-    completed: { label: 'Завершена', color: H.gray, bg: H.bg },
+    confirmed: { labelKey: 'calendar.statusConfirmed', color: H.blue, bg: H.blueBg },
+    picked_up: { labelKey: 'calendar.statusPickedUp', color: H.green, bg: H.greenBg },
+    cancelled: { labelKey: 'calendar.statusCancelled', color: H.red, bg: H.redBg },
+    no_show: { labelKey: 'calendar.statusNoShow', color: H.orange, bg: H.orangeBg },
+    active: { labelKey: 'calendar.statusActive', color: H.green, bg: H.greenBg },
+    completed: { labelKey: 'calendar.statusCompleted', color: H.gray, bg: H.bg },
   };
 }
 
 export const PERIOD_OPTIONS = [
-  { v: 14, l: '2 недели' },
-  { v: 28, l: '4 недели' },
-  { v: 42, l: '6 недель' },
-  { v: 60, l: '2 месяца' },
+  { v: 14, labelKey: 'calendar.period2w' },
+  { v: 28, labelKey: 'calendar.period4w' },
+  { v: 42, labelKey: 'calendar.period6w' },
+  { v: 60, labelKey: 'calendar.period2m' },
 ] as const;
 
 /* ═══════════════ Helpers ═══════════════ */
@@ -85,15 +85,27 @@ export function addDays(d: Date, n: number) {
   return new Date(d.getTime() + n * DAY_MS);
 }
 
-export function fmtWeekday(d: Date) {
+const LOCALE_MAP: Record<string, string> = {
+  uk: 'uk-UA',
+  ru: 'ru-RU',
+  en: 'en-GB',
+  ro: 'ro-RO',
+  pl: 'pl-PL',
+};
+
+export function mapLocale(locale: string): string {
+  return LOCALE_MAP[locale] || locale;
+}
+
+export function fmtWeekday(d: Date, locale = 'uk') {
   return d
-    .toLocaleDateString('ru', { weekday: 'short' })
+    .toLocaleDateString(mapLocale(locale), { weekday: 'short' })
     .replace('.', '')
     .toUpperCase();
 }
 
-export function fmtMonth(d: Date) {
-  return d.toLocaleDateString('ru', { month: 'long', year: 'numeric' });
+export function fmtMonth(d: Date, locale = 'uk') {
+  return d.toLocaleDateString(mapLocale(locale), { month: 'long', year: 'numeric' });
 }
 
 export function isWeekend(d: Date) {

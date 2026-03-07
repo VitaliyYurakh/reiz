@@ -39,23 +39,23 @@ function getStatusStyles(isDark: boolean): Record<string, { bg: string; text: st
   };
 }
 
-function timeAgo(d: string) {
+function timeAgo(d: string, t: (key: string, params?: Record<string, string>) => string) {
   const now = Date.now();
   const diff = now - new Date(d).getTime();
   const mins = Math.floor(diff / 60000);
-  if (mins < 1) return 'только что';
-  if (mins < 60) return `${mins} мин назад`;
+  if (mins < 1) return t('rentals.justNow');
+  if (mins < 60) return t('rentals.minutesAgo', { n: String(mins) });
   const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs} ч назад`;
+  if (hrs < 24) return t('rentals.hoursAgo', { n: String(hrs) });
   const days = Math.floor(hrs / 24);
-  if (days < 7) return `${days} дн назад`;
-  return new Date(d).toLocaleDateString('ru', { day: '2-digit', month: '2-digit', year: '2-digit' });
+  if (days < 7) return t('rentals.daysAgo', { n: String(days) });
+  return new Date(d).toLocaleDateString(undefined, { day: '2-digit', month: '2-digit', year: '2-digit' });
 }
 
 export default function RentalsPage() {
   const router = useRouter();
   const { t } = useAdminLocale();
-  const { theme } = useAdminTheme();
+  const { theme, H } = useAdminTheme();
   const isDark = theme === 'dark';
   const STATUS_STYLES = useMemo(() => getStatusStyles(isDark), [isDark]);
   const [items, setItems] = useState<Rental[]>([]);
@@ -109,20 +109,17 @@ export default function RentalsPage() {
     <div>
       {/* -- Page header -- */}
       <div
-        className="mb-6 rounded-2xl px-8 py-6"
-        style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
+        className="mb-6 rounded-[20px] px-7 py-5"
+        style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
       >
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div
-              className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#66BB6A] to-[#43A047]"
-              style={{ boxShadow: '0 4px 12px rgba(76,175,80,0.3)' }}
-            >
-              <Receipt className="h-6 w-6 text-white" />
+          <div className="flex items-center gap-3.5">
+            <div className="h-icon-box h-icon-box-green">
+              <Receipt size={24} />
             </div>
             <div>
               <div className="flex items-center gap-3">
-                <h1 className="text-[18px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('rentals.title')}</h1>
+                <h1 className="h-title">{t('rentals.title')}</h1>
                 {activeCount > 0 && (
                   <span
                     className="inline-flex h-6 items-center gap-1 rounded-full px-2.5 text-[11px] font-bold text-white"
@@ -132,9 +129,7 @@ export default function RentalsPage() {
                   </span>
                 )}
               </div>
-              <p className="mt-0.5 text-[13px]" style={{ color: isDark ? '#718096' : '#90A4AE' }}>
-                {t('rentals.subtitle')}
-              </p>
+              <span className="h-subtitle">{t('rentals.subtitle')}</span>
             </div>
           </div>
         </div>
@@ -287,7 +282,7 @@ export default function RentalsPage() {
                         {fmtDate(r.pickupDate)} → {fmtDate(r.returnDate)}
                       </td>
                       <td className="px-4 py-2.5 text-[12px] whitespace-nowrap" style={{ color: isDark ? '#90A4AE' : '#607D8B' }}>{fmtDate(r.actualReturnDate)}</td>
-                      <td className="px-4 py-2.5 text-right text-[12px] whitespace-nowrap" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{timeAgo(r.createdAt)}</td>
+                      <td className="px-4 py-2.5 text-right text-[12px] whitespace-nowrap" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{timeAgo(r.createdAt, t)}</td>
                     </tr>
                   );
                 })}

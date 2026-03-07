@@ -190,35 +190,22 @@ function WebsiteSnapshotCard({ snapshot, t, H, isDark }: { snapshot: Record<stri
 
   return (
     <div className="space-y-4">
-      {/* Stat pills */}
-      <div className="grid grid-cols-3 gap-2">
+      {/* Stat chips */}
+      <div className="flex flex-wrap gap-2 pt-1">
         {carDetails && (
-          <div className="rounded-xl p-3 text-center" style={{ backgroundColor: H.bg }}>
-            <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.car')}</p>
-            <p className="mt-0.5 text-[13px] font-bold" style={{ color: H.navy }}>
-              {carDetails.brand} {carDetails.model}
-            </p>
-            {carDetails.year && (
-              <p className="text-[11px]" style={{ color: H.gray }}>{carDetails.year}</p>
-            )}
-          </div>
+          <span className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12px] font-medium" style={{ backgroundColor: H.bg, color: H.navy }}>
+            {carDetails.brand} {carDetails.model}{carDetails.year ? ` (${carDetails.year})` : ''}
+          </span>
         )}
         {totalDays != null && (
-          <div className="rounded-xl p-3 text-center" style={{ backgroundColor: isDark ? H.blueBg : '#E3F2FD' }}>
-            <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: isDark ? H.blue : '#1565C0' }}>{t('requestDetail.daysCount')}</p>
-            <p className="mt-0.5 text-xl font-bold" style={{ color: isDark ? H.blue : '#1565C0' }}>{totalDays}</p>
-          </div>
+          <span className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12px] font-semibold" style={{ backgroundColor: isDark ? H.blueBg : '#E3F2FD', color: isDark ? H.blue : '#1565C0' }}>
+            {totalDays} {t('common.days')}
+          </span>
         )}
-        {selectedPlan && (
-          <div className="rounded-xl p-3 text-center" style={{ backgroundColor: isDark ? '#2D2047' : '#EDE7F6' }}>
-            <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: isDark ? H.purple : '#7C4DFF' }}>{t('requestDetail.package')}</p>
-            <p className="mt-0.5 text-[13px] font-bold" style={{ color: isDark ? H.purpleLight : '#5E35B1' }}>
-              {PLAN_LABELS[selectedPlan.id ?? 0] || `#${selectedPlan.id}`}
-            </p>
-            {selectedPlan.depositPercent != null && (
-              <p className="text-[11px]" style={{ color: isDark ? H.purple : '#7C4DFF' }}>{t('requestDetail.deposit')} {selectedPlan.depositPercent}%</p>
-            )}
-          </div>
+        {selectedPlan?.depositPercent != null && (
+          <span className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12px] font-semibold" style={{ backgroundColor: isDark ? '#2D2047' : '#EDE7F6', color: isDark ? H.purpleLight : '#5E35B1' }}>
+            {t('requestDetail.deposit')} {selectedPlan.depositPercent}%
+          </span>
         )}
       </div>
 
@@ -572,13 +559,7 @@ export default function RequestDetailPage() {
                 type="button"
                 disabled={actionLoading}
                 onClick={() => { setShowApproveForm((v) => !v); setShowRejectForm(false); }}
-                className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[13px] font-semibold text-white transition-all active:scale-[0.98] disabled:opacity-50"
-                style={{
-                  background: showApproveForm
-                    ? isDark ? 'linear-gradient(to right, #276749, #1C5631)' : 'linear-gradient(to right, #2E7D32, #1B5E20)'
-                    : isDark ? 'linear-gradient(to right, #48BB78, #38A169)' : 'linear-gradient(to right, #66BB6A, #43A047)',
-                  boxShadow: isDark ? '0 2px 8px rgba(72,187,120,0.3)' : '0 2px 8px rgba(76,175,80,0.3)',
-                }}
+                className={`ios-btn ios-btn-success text-[13px] ${showApproveForm ? 'opacity-80' : ''}`}
               >
                 <CheckCircle2 className="h-4 w-4" />
                 {t('requestDetail.approve')}
@@ -587,13 +568,7 @@ export default function RequestDetailPage() {
                 type="button"
                 disabled={actionLoading}
                 onClick={() => { setShowRejectForm((v) => !v); setShowApproveForm(false); }}
-                className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[13px] font-semibold text-white transition-all active:scale-[0.98] disabled:opacity-50"
-                style={{
-                  background: showRejectForm
-                    ? isDark ? 'linear-gradient(to right, #9B2C2C, #822727)' : 'linear-gradient(to right, #C62828, #B71C1C)'
-                    : isDark ? 'linear-gradient(to right, #FC8181, #F56565)' : 'linear-gradient(to right, #EF5350, #E53935)',
-                  boxShadow: isDark ? '0 2px 8px rgba(252,129,129,0.3)' : '0 2px 8px rgba(239,83,80,0.3)',
-                }}
+                className={`ios-btn ios-btn-destructive text-[13px] ${showRejectForm ? 'opacity-80' : ''}`}
               >
                 <XCircle className="h-4 w-4" />
                 {t('requestDetail.reject')}
@@ -660,6 +635,9 @@ export default function RequestDetailPage() {
                 placeholder={t('requestDetail.autoCreateClient')}
                 className="mt-1.5 block w-full ios-input text-[13px]"
               />
+              <span className="mt-1 block text-[11px]" style={{ color: H.gray }}>
+                {t('requestDetail.clientIdHint')}
+              </span>
             </label>
             <label className="block">
               <span className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.carIdLabel')}</span>
@@ -723,11 +701,7 @@ export default function RequestDetailPage() {
             <button
               type="submit"
               disabled={actionLoading}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-2.5 text-[13px] font-semibold text-white transition-all active:scale-[0.98] disabled:opacity-50"
-              style={{
-                background: isDark ? 'linear-gradient(to right, #48BB78, #38A169)' : 'linear-gradient(to right, #66BB6A, #43A047)',
-                boxShadow: isDark ? '0 2px 8px rgba(72,187,120,0.25)' : '0 2px 8px rgba(76,175,80,0.25)',
-              }}
+              className="ios-btn ios-btn-success text-[13px]"
             >
               {actionLoading && <Loader2 className="h-4 w-4 animate-spin" />}
               {t('requestDetail.confirm')}

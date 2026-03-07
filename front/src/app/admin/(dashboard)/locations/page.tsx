@@ -76,8 +76,8 @@ export default function LocationsPage() {
           background: H.white,
           borderRadius: 20,
           boxShadow: H.shadow,
-          padding: '20px 24px',
-          marginBottom: 20,
+          padding: '20px 28px',
+          marginBottom: 24,
         }}
       >
         {/* Row 1: Title + actions */}
@@ -89,43 +89,13 @@ export default function LocationsPage() {
             gap: 16,
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <div
-              style={{
-                width: 42,
-                height: 42,
-                borderRadius: 14,
-                background: `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 4px 12px rgba(67, 24, 255, 0.3)',
-              }}
-            >
-              <MapPin style={{ width: 20, height: 20, color: '#fff' }} />
+          <div className="flex items-center gap-3.5">
+            <div className="h-icon-box h-icon-box-purple">
+              <MapPin size={24} />
             </div>
             <div>
-              <h1
-                style={{
-                  fontSize: 22,
-                  fontWeight: 700,
-                  color: H.navy,
-                  margin: 0,
-                  lineHeight: 1.2,
-                }}
-              >
-                {t('locations.title')}
-              </h1>
-              <p
-                style={{
-                  fontSize: 13,
-                  color: H.gray,
-                  margin: 0,
-                  marginTop: 2,
-                }}
-              >
-                {t('locations.subtitle')}
-              </p>
+              <h1 className="h-title">{t('locations.title')}</h1>
+              <span className="h-subtitle">{t('locations.subtitle')}</span>
             </div>
           </div>
 
@@ -151,22 +121,8 @@ export default function LocationsPage() {
             {/* Create */}
             <Link
               href="/admin/locations/new"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 7,
-                height: 40,
-                padding: '0 20px',
-                borderRadius: 49,
-                background: `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`,
-                color: '#fff',
-                fontSize: 13,
-                fontWeight: 700,
-                fontFamily: H.font,
-                textDecoration: 'none',
-                boxShadow: '0 4px 12px rgba(67, 24, 255, 0.3)',
-                transition: 'all 0.15s ease',
-              }}
+              className="h-btn h-btn-primary h-btn-sm"
+              style={{ borderRadius: 49, textDecoration: 'none' }}
             >
               <Plus style={{ width: 16, height: 16 }} />
               {t('locations.addCity')}

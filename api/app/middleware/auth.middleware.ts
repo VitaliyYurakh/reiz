@@ -21,11 +21,17 @@ const auth = async (req: Request, res: Response, next: NextFunction) => {
                 role: true,
                 permissions: true,
                 isActive: true,
+                tokenVersion: true,
             },
         });
 
         if (!user || !user.isActive) {
             return res.status(StatusCodes.UNAUTHORIZED).json({msg: 'Account deactivated'});
+        }
+
+        // Reject tokens issued before a logout/password change (tokenVersion mismatch)
+        if (typeof decoded.tv === 'number' && decoded.tv !== user.tokenVersion) {
+            return res.status(StatusCodes.UNAUTHORIZED).json({msg: 'Token revoked'});
         }
 
         res.locals.user = user;

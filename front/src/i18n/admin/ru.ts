@@ -74,6 +74,15 @@ export const ru: AdminTranslations = {
     unavailable: 'Недоступно',
     new_: 'Новые',
     active_: 'Активных',
+    accessDenied: 'Доступ запрещён',
+    noAccess: 'У вас нет доступа к этой странице',
+  },
+
+  /* ── Notifications ── */
+  notification: {
+    newRequest: 'Новая заявка',
+    plannedService: 'Запланированный сервис',
+    overdueReturn: 'Просроченный возврат',
   },
 
   /* ── TopBar ── */
@@ -112,6 +121,30 @@ export const ru: AdminTranslations = {
     overdue: 'Просроченные',
     vsPrevMonth: 'vs пред. месяц',
     available: 'свободно',
+    revenueTitle: 'Доход',
+    period7d: '7 дн',
+    period30d: '30 дн',
+    period90d: '90 дн',
+    incomeLabel: 'Доход',
+    expenseLabel: 'Расходы',
+    netLabel: 'Чистыми',
+    noDataForPeriod: 'Нет данных за этот период',
+    fleetTitle: 'Загрузка автопарка',
+    allSegments: 'Все',
+    utilization: 'загрузка',
+    occupied: 'Занятые',
+    free: 'Свободные',
+    noDataForSegment: 'Нет данных для этого сегмента',
+    statsTitle: 'Показатели',
+    confirmedReservations: 'Подтвержд. брони',
+    requestsThisMonth: 'Заявки за месяц',
+    completedRentals: 'Завершено аренд',
+    totalClients: 'Всего клиентов',
+    overdueTitle: 'Просроченные аренды',
+    noOverdue: 'Нет просроченных',
+    allRentalsOk: 'Все аренды в порядке',
+    overdueDays: '{days} дн.',
+    showAll: 'Показать все ({count})',
   },
 
   /* ── Requests ── */
@@ -188,6 +221,7 @@ export const ru: AdminTranslations = {
     pickupLocationLabel: 'Место получения',
     returnLocationLabel: 'Место возврата',
     autoCreateClient: 'Авто-создание из заявки',
+    clientIdHint: 'Необязательное. Оставьте пустым — клиент создастся автоматически из данных заявки. Или укажите существующий ID из раздела «Клиенты».',
     statusChangeFailed: 'Ошибка при смене статуса',
     fillRequired: 'Заполните обязательные поля (авто, даты)',
     approveError: 'Ошибка при одобрении заявки',
@@ -411,6 +445,10 @@ export const ru: AdminTranslations = {
     emptyTitle: 'Аренд не найдено',
     emptyFilter: 'Попробуйте изменить фильтр',
     emptyDefault: 'Активные аренды появятся здесь',
+    justNow: 'только что',
+    minutesAgo: '{n} мин назад',
+    hoursAgo: '{n} ч назад',
+    daysAgo: '{n} дн назад',
   },
 
   /* ── Rental Detail ── */
@@ -560,6 +598,9 @@ export const ru: AdminTranslations = {
     deleteBtn: 'Удалить',
     createError: 'Ошибка при создании авто',
     deleteError: 'Ошибка удаления',
+    searchCount: '{found} из {total}',
+    seats: '{n} мест',
+    carFallback: 'Авто #{id}',
   },
 
   /* ── Clients ── */
@@ -769,6 +810,7 @@ export const ru: AdminTranslations = {
     noCars: 'Нет автомобилей',
     clickForDetails: 'Нажмите для подробностей',
     conflict: 'Конфликт',
+    km: 'км',
   },
 
   /* ── Pricing ── */

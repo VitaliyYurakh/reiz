@@ -334,21 +334,8 @@ export default function NewClientPage() {
             {duplicates.length === 1 && (
               <Link
                 href={`/admin/clients/${duplicates[0].id}`}
-                style={{
-                  padding: '8px 16px',
-                  borderRadius: 10,
-                  border: 'none',
-                  background: `linear-gradient(135deg, ${H.purple}, ${H.purpleLight})`,
-                  color: '#fff',
-                  fontSize: 13,
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  fontFamily: H.font,
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                }}
+                className="h-btn h-btn-primary h-btn-sm"
+                style={{ textDecoration: 'none' }}
               >
                 <Users size={14} />
                 {t('newClient.openExisting')}
@@ -604,23 +591,7 @@ export default function NewClientPage() {
           <button
             type="submit"
             disabled={saving}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              padding: '10px 24px',
-              borderRadius: 12,
-              border: 'none',
-              background: `linear-gradient(135deg, ${H.purple}, ${H.purpleLight})`,
-              color: '#fff',
-              fontSize: 14,
-              fontWeight: 600,
-              cursor: saving ? 'not-allowed' : 'pointer',
-              opacity: saving ? 0.7 : 1,
-              fontFamily: H.font,
-              boxShadow: '0 4px 14px rgba(67, 24, 255, 0.25)',
-              transition: 'opacity 0.15s',
-            }}
+            className="h-btn h-btn-primary"
           >
             <Save size={16} />
             {saving ? t('common.saving') : t('common.save')}

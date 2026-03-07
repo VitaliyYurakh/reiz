@@ -116,8 +116,8 @@ export default function ClientsPage() {
           background: H.white,
           borderRadius: 20,
           boxShadow: H.shadow,
-          padding: '20px 24px',
-          marginBottom: 20,
+          padding: '20px 28px',
+          marginBottom: 24,
         }}
       >
         {/* Row 1: Title + actions */}
@@ -129,43 +129,13 @@ export default function ClientsPage() {
             gap: 16,
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <div
-              style={{
-                width: 42,
-                height: 42,
-                borderRadius: 14,
-                background: `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 4px 12px rgba(67, 24, 255, 0.3)',
-              }}
-            >
-              <Users style={{ width: 20, height: 20, color: '#fff' }} />
+          <div className="flex items-center gap-3.5">
+            <div className="h-icon-box h-icon-box-purple">
+              <Users size={24} />
             </div>
             <div>
-              <h1
-                style={{
-                  fontSize: 22,
-                  fontWeight: 700,
-                  color: H.navy,
-                  margin: 0,
-                  lineHeight: 1.2,
-                }}
-              >
-                {t('clients.title')}
-              </h1>
-              <p
-                style={{
-                  fontSize: 13,
-                  color: H.gray,
-                  margin: 0,
-                  marginTop: 2,
-                }}
-              >
-                {t('clients.subtitle')}
-              </p>
+              <h1 className="h-title">{t('clients.title')}</h1>
+              <span className="h-subtitle">{t('clients.subtitle')}</span>
             </div>
           </div>
 
@@ -222,22 +192,8 @@ export default function ClientsPage() {
             {/* Create */}
             <Link
               href="/admin/clients/new"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 7,
-                height: 40,
-                padding: '0 20px',
-                borderRadius: 49,
-                background: `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`,
-                color: '#fff',
-                fontSize: 13,
-                fontWeight: 700,
-                fontFamily: H.font,
-                textDecoration: 'none',
-                boxShadow: '0 4px 12px rgba(67, 24, 255, 0.3)',
-                transition: 'all 0.15s ease',
-              }}
+              className="h-btn h-btn-primary h-btn-sm"
+              style={{ borderRadius: 49, textDecoration: 'none' }}
             >
               <Plus style={{ width: 16, height: 16 }} />
               {t('clients.create')}
@@ -299,23 +255,8 @@ export default function ClientsPage() {
           <button
             type="button"
             onClick={handleSearch}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 6,
-              height: 40,
-              padding: '0 20px',
-              borderRadius: 49,
-              border: 'none',
-              background: H.navy,
-              color: isDark ? '#1A2332' : '#fff',
-              fontSize: 13,
-              fontWeight: 700,
-              fontFamily: H.font,
-              cursor: 'pointer',
-              boxShadow: isDark ? '0 2px 8px rgba(0,0,0,0.3)' : '0 2px 8px rgba(43, 54, 116, 0.25)',
-              transition: 'all 0.15s ease',
-            }}
+            className="h-btn h-btn-primary h-btn-sm"
+            style={{ borderRadius: 49 }}
           >
             <Search style={{ width: 13, height: 13 }} />
             {t('clients.find')}

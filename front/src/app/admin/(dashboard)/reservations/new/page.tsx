@@ -595,12 +595,7 @@ export default function NewReservationPage() {
           <button
             type="submit"
             disabled={saving}
-            className="w-full flex items-center justify-center gap-3 rounded-2xl text-[16px] font-bold text-white tracking-wide transition-all active:scale-[0.97] disabled:opacity-50"
-            style={{
-              padding: '16px 0',
-              background: 'linear-gradient(135deg, #43A047 0%, #2E7D32 100%)',
-              boxShadow: '0 6px 20px rgba(67,160,71,0.35), 0 2px 6px rgba(0,0,0,0.08)',
-            }}
+            className="ios-btn ios-btn-success w-full text-[16px] py-4 rounded-2xl"
           >
             {saving ? <Loader2 className="h-5 w-5 animate-spin" /> : <Save className="h-5 w-5" />}
             {saving ? t('common.saving') : t('newReservation.submit')}

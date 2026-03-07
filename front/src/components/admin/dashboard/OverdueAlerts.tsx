@@ -3,6 +3,7 @@
 import { AlertTriangle, Clock, CheckCircle2 } from 'lucide-react';
 import type { OverdueData } from '@/lib/api/admin';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 
 interface OverdueAlertsProps {
   data: OverdueData | null;
@@ -10,6 +11,7 @@ interface OverdueAlertsProps {
 
 export function OverdueAlerts({ data }: OverdueAlertsProps) {
   const { theme } = useAdminTheme();
+  const { t } = useAdminLocale();
   const isDark = theme === 'dark';
   const count = data?.count ?? 0;
   const items = data?.items ?? [];
@@ -17,7 +19,7 @@ export function OverdueAlerts({ data }: OverdueAlertsProps) {
   return (
     <div className="ios-card !py-3 flex h-full flex-col">
       <div className="mb-2 flex items-center gap-2">
-        <p className="text-sm font-semibold text-card-foreground">Просроченные аренды</p>
+        <p className="text-sm font-semibold text-card-foreground">{t('dashboard.overdueTitle')}</p>
         {count > 0 && (
           <span
             className="inline-flex items-center rounded-md px-2 py-0.5 text-xs font-bold"
@@ -39,8 +41,8 @@ export function OverdueAlerts({ data }: OverdueAlertsProps) {
           >
             <CheckCircle2 className="h-6 w-6" style={{ color: isDark ? '#4ADE80' : '#16A34A' }} />
           </div>
-          <p className="text-sm font-medium" style={{ color: isDark ? '#4ADE80' : '#15803D' }}>Нет просроченных</p>
-          <p className="text-xs text-muted-foreground">Все аренды в порядке</p>
+          <p className="text-sm font-medium" style={{ color: isDark ? '#4ADE80' : '#15803D' }}>{t('dashboard.noOverdue')}</p>
+          <p className="text-xs text-muted-foreground">{t('dashboard.allRentalsOk')}</p>
         </div>
       ) : (
         <div className="flex-1 space-y-2">
@@ -74,7 +76,7 @@ export function OverdueAlerts({ data }: OverdueAlertsProps) {
                 }}
               >
                 <Clock className="h-3 w-3" style={{ color: isDark ? '#FCA5A5' : '#B91C1C' }} />
-                <span className="text-xs font-bold" style={{ color: isDark ? '#FCA5A5' : '#B91C1C' }}>{item.overdueDays} дн.</span>
+                <span className="text-xs font-bold" style={{ color: isDark ? '#FCA5A5' : '#B91C1C' }}>{t('dashboard.overdueDays', { days: String(item.overdueDays) })}</span>
               </div>
             </div>
           ))}
@@ -83,7 +85,7 @@ export function OverdueAlerts({ data }: OverdueAlertsProps) {
               href="/admin/rentals"
               className="block pt-2 text-center text-xs font-medium text-primary hover:underline"
             >
-              Показать все ({count})
+              {t('dashboard.showAll', { count: String(count) })}
             </a>
           )}
         </div>

@@ -82,13 +82,13 @@ const startServer = async () => {
         });
         app.use('/api/feedback', feedbackLimiter);
 
+        // Protected static files: client documents — require auth (MUST be before public /static)
+        app.use('/static/client-documents', auth, express.static(path.join(pathToUploads, 'client-documents')));
+        app.use('/static/documents', auth, express.static(path.join(pathToUploads, 'documents')));
+
         // Static files: public uploads (car photos) — no auth
         const publicUploadsPath = path.join(pathToUploads);
         app.use('/static', express.static(publicUploadsPath));
-
-        // Protected static files: client documents — require auth
-        app.use('/static/client-documents', auth, express.static(path.join(pathToUploads, 'client-documents')));
-        app.use('/static/documents', auth, express.static(path.join(pathToUploads, 'documents')));
 
         // CSRF protection (must be after cookieParser)
         app.use('/api', csrfProtection);

@@ -18,6 +18,7 @@ import {
   Car,
 } from 'lucide-react';
 import type { ThemeTokens } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import type { Interval } from './calendar-types';
 import { TYPE_STYLES, fmtDate, fmtMoney } from './calendar-types';
 import { StatusBadge } from './StatusBadge';
@@ -39,6 +40,7 @@ export function IntervalDetailModal({
   onNavigate: (path: string) => void;
   H: ThemeTokens;
 }) {
+  const { t } = useAdminLocale();
   const style = TYPE_STYLES[interval.type] ?? TYPE_STYLES.rental;
   const navPath =
     interval.type === 'reservation'
@@ -94,7 +96,7 @@ export function IntervalDetailModal({
                 fontFamily: H.font,
               }}
             >
-              {style.label} #{interval.id}
+              {t(style.labelKey)} #{interval.id}
             </span>
             {interval.status && <StatusBadge status={interval.status} H={H} />}
           </div>
@@ -151,11 +153,11 @@ export function IntervalDetailModal({
               {/* Client */}
               {detail.client && (
                 <>
-                  <DetailRow icon={User} label="Клиент" H={H}>
+                  <DetailRow icon={User} label={t('calendar.client')} H={H}>
                     {detail.client.firstName} {detail.client.lastName}
                   </DetailRow>
                   {detail.client.phone && (
-                    <DetailRow icon={Phone} label="Телефон" H={H}>
+                    <DetailRow icon={Phone} label={t('calendar.phone')} H={H}>
                       <a
                         href={`tel:${detail.client.phone}`}
                         style={{ color: H.blue, textDecoration: 'none' }}
@@ -174,7 +176,7 @@ export function IntervalDetailModal({
 
               {/* Car */}
               {detail.car && (
-                <DetailRow icon={Car} label="Автомобиль" H={H}>
+                <DetailRow icon={Car} label={t('calendar.car')} H={H}>
                   {detail.car.brand} {detail.car.model}
                   {detail.car.plateNumber && (
                     <span
@@ -196,45 +198,45 @@ export function IntervalDetailModal({
               )}
 
               {/* Dates */}
-              <DetailRow icon={Clock} label="Период" H={H}>
+              <DetailRow icon={Clock} label={t('calendar.period')} H={H}>
                 {fmtDate(detail.pickupDate || detail.startDate)} —{' '}
                 {fmtDate(detail.returnDate || detail.endDate)}
               </DetailRow>
 
               {/* Locations */}
               {detail.pickupLocation && (
-                <DetailRow icon={MapPin} label="Выдача" H={H}>
+                <DetailRow icon={MapPin} label={t('calendar.pickupLocation')} H={H}>
                   {detail.pickupLocation}
                 </DetailRow>
               )}
               {detail.returnLocation && (
-                <DetailRow icon={MapPin} label="Возврат" H={H}>
+                <DetailRow icon={MapPin} label={t('calendar.returnLocation')} H={H}>
                   {detail.returnLocation}
                 </DetailRow>
               )}
 
               {/* Contract */}
               {detail.contractNumber && (
-                <DetailRow icon={FileText} label="Номер договора" H={H}>
+                <DetailRow icon={FileText} label={t('calendar.contractNumber')} H={H}>
                   {detail.contractNumber}
                 </DetailRow>
               )}
 
               {/* Odometer */}
               {detail.pickupOdometer && (
-                <DetailRow icon={Gauge} label="Пробег (выдача)" H={H}>
-                  {detail.pickupOdometer.toLocaleString()} км
+                <DetailRow icon={Gauge} label={t('calendar.odometerPickup')} H={H}>
+                  {detail.pickupOdometer.toLocaleString()} {t('calendar.km')}
                 </DetailRow>
               )}
               {detail.returnOdometer && (
-                <DetailRow icon={Gauge} label="Пробег (возврат)" H={H}>
-                  {detail.returnOdometer.toLocaleString()} км
+                <DetailRow icon={Gauge} label={t('calendar.odometerReturn')} H={H}>
+                  {detail.returnOdometer.toLocaleString()} {t('calendar.km')}
                 </DetailRow>
               )}
 
               {/* Coverage */}
               {detail.coveragePackage && (
-                <DetailRow icon={Shield} label="Страховка" H={H}>
+                <DetailRow icon={Shield} label={t('calendar.insurance')} H={H}>
                   {detail.coveragePackage.name}
                   <span
                     style={{
@@ -243,14 +245,14 @@ export function IntervalDetailModal({
                       color: H.gray,
                     }}
                   >
-                    (залог {detail.coveragePackage.depositPercent}%)
+                    ({t('calendar.deposit')} {detail.coveragePackage.depositPercent}%)
                   </span>
                 </DetailRow>
               )}
 
               {/* Deposit */}
               {detail.depositAmount > 0 && (
-                <DetailRow icon={DollarSign} label="Залог" H={H}>
+                <DetailRow icon={DollarSign} label={t('calendar.deposit')} H={H}>
                   {fmtMoney(detail.depositAmount, detail.depositCurrency)}
                   {detail.depositReturned && (
                     <span
@@ -261,7 +263,7 @@ export function IntervalDetailModal({
                         fontWeight: 600,
                       }}
                     >
-                      Возвращён
+                      {t('calendar.depositReturned')}
                     </span>
                   )}
                 </DetailRow>
@@ -283,7 +285,7 @@ export function IntervalDetailModal({
                       gap: 6,
                     }}
                   >
-                    <Hash style={{ width: 12, height: 12 }} /> Доп. услуги
+                    <Hash style={{ width: 12, height: 12 }} /> {t('calendar.addOns')}
                   </div>
                   {(
                     detail.reservationAddOns ||
@@ -301,7 +303,7 @@ export function IntervalDetailModal({
                       }}
                     >
                       <span style={{ color: H.navy }}>
-                        {a.addOn?.name || 'Услуга'} &times; {a.quantity}
+                        {a.addOn?.name || t('calendar.addOns')} &times; {a.quantity}
                       </span>
                       <span style={{ fontWeight: 600, color: H.navy }}>
                         {fmtMoney(a.totalMinor, a.currency)}
@@ -315,32 +317,32 @@ export function IntervalDetailModal({
               {interval.type === 'service' && (
                 <>
                   {detail.type && (
-                    <DetailRow icon={Wrench} label="Тип" H={H}>
+                    <DetailRow icon={Wrench} label={t('calendar.serviceType')} H={H}>
                       {detail.type}
                     </DetailRow>
                   )}
                   {detail.description && (
-                    <DetailRow icon={FileText} label="Описание" H={H}>
+                    <DetailRow icon={FileText} label={t('calendar.serviceDescription')} H={H}>
                       {detail.description}
                     </DetailRow>
                   )}
                   {detail.vendor && (
-                    <DetailRow icon={User} label="Подрядчик" H={H}>
+                    <DetailRow icon={User} label={t('calendar.serviceVendor')} H={H}>
                       {detail.vendor}
                     </DetailRow>
                   )}
                   {detail.costMinor != null && detail.costMinor > 0 && (
-                    <DetailRow icon={DollarSign} label="Стоимость" H={H}>
+                    <DetailRow icon={DollarSign} label={t('calendar.serviceCost')} H={H}>
                       {fmtMoney(detail.costMinor, detail.currency)}
                     </DetailRow>
                   )}
                   {detail.odometer && (
-                    <DetailRow icon={Gauge} label="Пробег" H={H}>
-                      {detail.odometer.toLocaleString()} км
+                    <DetailRow icon={Gauge} label={t('calendar.serviceOdometer')} H={H}>
+                      {detail.odometer.toLocaleString()} {t('calendar.km')}
                     </DetailRow>
                   )}
                   {detail.notes && (
-                    <DetailRow icon={FileText} label="Заметки" H={H}>
+                    <DetailRow icon={FileText} label={t('calendar.serviceNotes')} H={H}>
                       {detail.notes}
                     </DetailRow>
                   )}
@@ -362,7 +364,7 @@ export function IntervalDetailModal({
                 fontFamily: H.font,
               }}
             >
-              Не удалось загрузить данные
+              {t('calendar.loadError')}
             </div>
           )}
         </div>
@@ -383,7 +385,7 @@ export function IntervalDetailModal({
             onClick={onClose}
             className="cal-btn-secondary"
           >
-            Закрыть
+            {t('calendar.close')}
           </button>
           <button
             type="button"
@@ -391,7 +393,7 @@ export function IntervalDetailModal({
             className="cal-btn-primary"
           >
             <ExternalLink style={{ width: 14, height: 14 }} />
-            Открыть
+            {t('calendar.open')}
           </button>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import {Router} from 'express';
 
 import {rentalController, inspectionController, fineController} from '../controllers';
-import {auth, multer, requirePermission} from '../middleware';
+import {auth, multer, validateImageFile, requirePermission} from '../middleware';
 
 const router = Router();
 
@@ -18,7 +18,7 @@ router.post('/:id/extend', auth, requirePermission('rentals', 'full'), rentalCon
 router.get('/:rentalId/inspection', auth, requirePermission('rentals', 'view'), inspectionController.getByRental);
 router.post('/:rentalId/inspection', auth, requirePermission('rentals', 'full'), inspectionController.create);
 router.patch('/:rentalId/inspection/:inspId', auth, requirePermission('rentals', 'full'), inspectionController.update);
-router.post('/:rentalId/inspection/:inspId/photo', auth, requirePermission('rentals', 'full'), multer, inspectionController.addPhoto);
+router.post('/:rentalId/inspection/:inspId/photo', auth, requirePermission('rentals', 'full'), multer, validateImageFile, inspectionController.addPhoto);
 router.delete('/:rentalId/inspection/:inspId/photo/:photoId', auth, requirePermission('rentals', 'full'), inspectionController.deletePhoto);
 router.post('/:rentalId/inspection/:inspId/complete', auth, requirePermission('rentals', 'full'), inspectionController.complete);
 

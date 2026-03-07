@@ -194,12 +194,15 @@ class RentalRequestService {
                 resolvedClientId = client.id;
             }
 
-            // Check if client is blocked
+            // Check if client exists and is not blocked
             const clientRecord = await tx.client.findUnique({
                 where: {id: resolvedClientId},
                 select: {isBlocked: true, blockReason: true, firstName: true, lastName: true},
             });
-            if (clientRecord?.isBlocked) {
+            if (!clientRecord) {
+                throw new Error(`Клієнта з ID ${resolvedClientId} not found в системі. Залиште поле порожнім — клієнт буде створений автоматично з даних заявки, або вкажіть існуючий ID з розділу «Клієнти».`);
+            }
+            if (clientRecord.isBlocked) {
                 const name = `${clientRecord.firstName} ${clientRecord.lastName}`.trim();
                 const reason = clientRecord.blockReason ? `: ${clientRecord.blockReason}` : '';
                 throw new Error(`Клієнт "${name}" заблокований${reason}. Зніміть блокування перед схваленням.`);

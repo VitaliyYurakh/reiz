@@ -74,6 +74,15 @@ export const ro: AdminTranslations = {
         unavailable: 'Indisponibil',
         new_: 'Nou',
         active_: 'activ',
+        accessDenied: 'Acces interzis',
+        noAccess: 'Nu aveți acces la această pagină',
+    },
+
+    /* ── Notifications ── */
+    notification: {
+        newRequest: 'Cerere nouă',
+        plannedService: 'Service planificat',
+        overdueReturn: 'Returnare întârziată',
     },
 
     /* ── TopBar ── */
@@ -112,6 +121,30 @@ export const ro: AdminTranslations = {
         overdue: 'Restante',
         vsPrevMonth: 'față de luna anterioară',
         available: 'disponibil',
+        revenueTitle: 'Venituri',
+        period7d: '7z',
+        period30d: '30z',
+        period90d: '90z',
+        incomeLabel: 'Venituri',
+        expenseLabel: 'Cheltuieli',
+        netLabel: 'Net',
+        noDataForPeriod: 'Nu sunt date pentru această perioadă',
+        fleetTitle: 'Utilizare flotă',
+        allSegments: 'Toate',
+        utilization: 'utilizare',
+        occupied: 'Ocupate',
+        free: 'Libere',
+        noDataForSegment: 'Nu sunt date pentru acest segment',
+        statsTitle: 'Indicatori',
+        confirmedReservations: 'Rezervări confirmate',
+        requestsThisMonth: 'Cereri luna aceasta',
+        completedRentals: 'Închirieri finalizate',
+        totalClients: 'Total clienți',
+        overdueTitle: 'Închirieri restante',
+        noOverdue: 'Fără restanțe',
+        allRentalsOk: 'Toate închirierile sunt în regulă',
+        overdueDays: '{days} z.',
+        showAll: 'Afișează tot ({count})',
     },
 
     /* ── Requests ── */
@@ -188,6 +221,7 @@ export const ro: AdminTranslations = {
         pickupLocationLabel: 'Locul preluării',
         returnLocationLabel: 'Locul returnării',
         autoCreateClient: 'Creare automată din cerere',
+        clientIdHint: 'Opțional. Lăsați gol — clientul va fi creat automat din datele cererii. Sau introduceți un ID existent din secțiunea «Clienți».',
         statusChangeFailed: 'Eroare la schimbarea statusului',
         fillRequired: 'Completați câmpurile obligatorii (mașină, date)',
         approveError: 'Eroare la aprobarea cererii',
@@ -411,6 +445,10 @@ export const ro: AdminTranslations = {
         emptyTitle: 'Nu s-au găsit închirieri',
         emptyFilter: 'Încercați să schimbați filtrul',
         emptyDefault: 'Închirierile active vor apărea aici',
+        justNow: 'chiar acum',
+        minutesAgo: 'acum {n} min',
+        hoursAgo: 'acum {n} h',
+        daysAgo: 'acum {n} zile',
     },
 
     /* ── Rental Detail ── */
@@ -560,6 +598,9 @@ export const ro: AdminTranslations = {
         deleteBtn: 'Șterge',
         createError: 'Eroare la crearea mașinii',
         deleteError: 'Eroare la ștergere',
+        searchCount: '{found} din {total}',
+        seats: '{n} locuri',
+        carFallback: 'Mașină #{id}',
     },
 
     /* ── Clients ── */
@@ -769,6 +810,7 @@ export const ro: AdminTranslations = {
         noCars: 'Fără mașini',
         clickForDetails: 'Apăsați pentru detalii',
         conflict: 'Conflict',
+        km: 'km',
     },
 
     /* ── Pricing ── */

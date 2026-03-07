@@ -200,6 +200,7 @@ body {
     padding-right: 24px;
     font-size: 13px;
     font-weight: 600;
+    color: #FFFFFF !important;
     transition: all 150ms;
     cursor: pointer;
     border: none;
@@ -265,6 +266,24 @@ body {
 .ios-btn-destructive:disabled {
     background: rgba(255, 59, 48, 0.30);
     color: rgba(255, 255, 255, 0.70);
+}
+
+/* Success (teal, same as primary) */
+.ios-btn-success {
+    background: linear-gradient(to right, #26C6DA, #00ACC1);
+    color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0, 172, 193, 0.25);
+}
+.ios-btn-success:hover {
+    box-shadow: 0 2px 8px rgba(0, 172, 193, 0.35);
+}
+.ios-btn-success:active {
+    transform: scale(0.98);
+}
+.ios-btn-success:disabled {
+    background: linear-gradient(to right, #80DEEA, #80DEEA);
+    color: rgba(255, 255, 255, 0.70);
+    box-shadow: none;
 }
 
 /* Warning (filled orange) */
@@ -454,6 +473,7 @@ body {
 .h-icon-box-orange  { background: linear-gradient(135deg, #FFB547, #FF9500); }
 .h-icon-box-gray    { background: linear-gradient(135deg, #A3AED0, #8B97C0); }
 .h-icon-box-red     { background: linear-gradient(135deg, #EE5D50, #E53935); }
+.h-icon-box-cyan    { background: linear-gradient(135deg, #26C6DA, #00ACC1); }
 
 /* ── Title / Subtitle ── */
 .h-title {
@@ -488,6 +508,7 @@ body {
     border: none;
     font-size: 14px;
     font-weight: 600;
+    color: #FFFFFF !important;
     cursor: pointer;
     font-family: 'DM Sans', sans-serif;
     transition: all 0.2s;
@@ -497,21 +518,21 @@ body {
     cursor: not-allowed;
 }
 .h-btn-primary {
-    background: linear-gradient(135deg, #4318FF, #868CFF);
-    color: #FFFFFF;
-    box-shadow: 0 4px 12px rgba(67, 24, 255, 0.25);
+    background: linear-gradient(to right, #26C6DA, #00ACC1);
+    color: #FFFFFF !important;
+    box-shadow: 0 2px 8px rgba(0, 172, 193, 0.25);
 }
 .h-btn-primary:hover {
-    box-shadow: 0 6px 16px rgba(67, 24, 255, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 172, 193, 0.35);
 }
 .h-btn-danger {
     background: #EE5D50;
     color: #FFFFFF;
 }
 .h-btn-outline {
-    background: #FFFFFF;
-    color: var(--color-h-gray);
-    border: 1px solid var(--color-h-border);
+    background: #718096;
+    color: #FFFFFF;
+    border: none;
 }
 .h-btn-sm {
     padding: 9px 18px;
@@ -1229,10 +1250,11 @@ body {
     color: var(--color-h-gray);
 }
 
-/* ── Cancel button (header toggle) ── */
+/* ── Cancel / secondary button ── */
 .h-btn-cancel {
-    background: var(--color-h-bg);
-    color: var(--color-h-navy);
+    background: #718096;
+    color: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* ── Header badge with 44px icon ── */
@@ -1357,9 +1379,9 @@ body {
 }
 
 [data-theme="dark"] .h-btn-outline {
-    background: #1E293B;
-    border-color: #2D3748;
-    color: #718096;
+    background: #4A5568;
+    border: none;
+    color: #FFFFFF;
 }
 
 [data-theme="dark"] .h-action-btn {
@@ -1431,8 +1453,8 @@ body {
 }
 
 [data-theme="dark"] .h-btn-cancel {
-    background: #1E293B;
-    color: #E2E8F0;
+    background: #4A5568;
+    color: #FFFFFF;
 }
 
 [data-theme="dark"] .h-shimmer {

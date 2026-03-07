@@ -2,9 +2,11 @@
 
 import { AlertTriangle } from 'lucide-react';
 import type { ThemeTokens } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { TYPE_STYLES } from './calendar-types';
 
 export function CalendarLegend({ H }: { H: ThemeTokens }) {
+  const { t } = useAdminLocale();
   return (
     <div
       style={{
@@ -36,7 +38,7 @@ export function CalendarLegend({ H }: { H: ThemeTokens }) {
               background: ts.gradient,
             }}
           />
-          <span>{ts.label}</span>
+          <span>{t(ts.labelKey)}</span>
         </div>
       ))}
       <div style={{ width: 1, height: 14, background: H.grayLight }} />
@@ -52,7 +54,7 @@ export function CalendarLegend({ H }: { H: ThemeTokens }) {
             boxShadow: `0 0 4px ${H.green}50`,
           }}
         />
-        <span>Доступен</span>
+        <span>{t('calendar.available')}</span>
       </div>
       <div
         style={{ display: 'flex', alignItems: 'center', gap: 6 }}
@@ -66,14 +68,14 @@ export function CalendarLegend({ H }: { H: ThemeTokens }) {
             boxShadow: `0 0 4px ${H.red}50`,
           }}
         />
-        <span>Недоступен</span>
+        <span>{t('calendar.unavailable')}</span>
       </div>
       <div style={{ width: 1, height: 14, background: H.grayLight }} />
       <div
         style={{ display: 'flex', alignItems: 'center', gap: 6 }}
       >
         <AlertTriangle style={{ width: 12, height: 12, color: H.red }} />
-        <span>Конфликт</span>
+        <span>{t('calendar.conflict')}</span>
       </div>
     </div>
   );

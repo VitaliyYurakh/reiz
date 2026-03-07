@@ -3,6 +3,7 @@ import {AccessDenied, CarNotFoundError, logger} from '../utils';
 import {Request, Response} from 'express';
 import {carService} from '../services';
 import {CarPhotoDto, CountingRuleDto, CreateCarDto, TariffDto, UpdateCarDto} from '../types';
+import logAudit from '../middleware/audit.middleware';
 
 class CarController {
     async getAll(req: Request, res: Response) {
@@ -36,6 +37,7 @@ class CarController {
             const {data}: {data: CreateCarDto} = req.body;
             const car = await carService.createOne(data);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: car.id, action: 'CREATE', after: car, req});
             return res.status(StatusCodes.OK).json({car});
         } catch (error) {
             console.log(error);
@@ -53,8 +55,10 @@ class CarController {
         try {
             const {data}: {data: UpdateCarDto} = req.body;
             const {id} = req.params;
+            const before = await carService.getOne(parseInt(id));
             const car = await carService.updateOne(parseInt(id), data);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: parseInt(id), action: 'UPDATE', before, after: car, req});
             return res.status(StatusCodes.OK).json({car});
         } catch (error) {
             logger.error(error);
@@ -78,6 +82,7 @@ class CarController {
 
             await carService.updateRentalTariff(parseInt(id), data);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: parseInt(id), action: 'UPDATE', after: {tariff: data}, req});
             return res.status(StatusCodes.OK).json();
         } catch (error) {
             logger.error(error);
@@ -96,11 +101,15 @@ class CarController {
 
     async addCarPreviewPhoto(req: Request, res: Response) {
         try {
+            if (!req.file) {
+                return res.status(StatusCodes.BAD_REQUEST).json({msg: 'File is required'});
+            }
             const file = req.file.filename;
             const {id} = req.params;
 
             const url = await carService.addCarPreviewPhoto(parseInt(id), file);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: parseInt(id), action: 'UPDATE', after: {previewPhoto: url}, req});
             return res.status(StatusCodes.OK).json({url});
         } catch (error) {
             logger.error(error);
@@ -119,6 +128,9 @@ class CarController {
 
     async addCarPhoto(req: Request, res: Response) {
         try {
+            if (!req.file) {
+                return res.status(StatusCodes.BAD_REQUEST).json({msg: 'File is required'});
+            }
             const {type, alt}: Omit<CarPhotoDto, 'url'> = req.body;
             const file = req.file.filename;
             const {id} = req.params;
@@ -129,6 +141,7 @@ class CarController {
                 alt,
             });
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'CarPhoto', entityId: parseInt(id), action: 'CREATE', after: {type, alt, url}, req});
             return res.status(StatusCodes.OK).json({url});
         } catch (error) {
             logger.error(error);
@@ -151,6 +164,7 @@ class CarController {
             const {id} = req.params;
             await carService.updateCountingRule(parseInt(id), data);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: parseInt(id), action: 'UPDATE', after: {countingRule: data}, req});
             return res.status(StatusCodes.OK).json();
         } catch (error) {
             logger.error(error);
@@ -175,6 +189,7 @@ class CarController {
 
             await carService.updatePhotoCar(parseInt(photoId), alt);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'CarPhoto', entityId: parseInt(photoId), action: 'UPDATE', after: {alt}, req});
             return res.status(StatusCodes.OK).json();
         } catch (error) {
             logger.error(error);
@@ -197,6 +212,7 @@ class CarController {
 
             await carService.deleteCarPhoto(parseInt(photoId as string));
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'CarPhoto', entityId: parseInt(photoId as string), action: 'DELETE', req});
             return res.status(StatusCodes.OK).json();
         } catch (error) {
             logger.error(error);
@@ -240,8 +256,10 @@ class CarController {
     async deleteOne(req: Request, res: Response) {
         try {
             const {id} = req.params;
+            const before = await carService.getOne(parseInt(id));
             await carService.deleteOne(parseInt(id));
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: parseInt(id), action: 'DELETE', before, req});
             return res.status(StatusCodes.OK).json();
         } catch (error) {
             logger.error(error);

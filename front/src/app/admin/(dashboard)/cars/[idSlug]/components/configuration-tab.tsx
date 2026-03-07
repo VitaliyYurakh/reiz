@@ -33,22 +33,8 @@ export function ConfigurationTab({
           <button
             type="button"
             onClick={onOpenAddModal}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              borderRadius: 49,
-              padding: '10px 22px',
-              fontSize: 13,
-              fontWeight: 700,
-              border: 'none',
-              cursor: 'pointer',
-              background: H.bg,
-              color: H.navy,
-              transition: 'background 0.15s',
-            }}
-            onMouseEnter={(e) => { (e.currentTarget.style.background = H.grayLight); }}
-            onMouseLeave={(e) => { (e.currentTarget.style.background = H.bg); }}
+            className="h-btn h-btn-primary h-btn-sm"
+            style={{ borderRadius: 49 }}
           >
             <Plus style={{ width: 15, height: 15 }} /> Добавить
           </button>

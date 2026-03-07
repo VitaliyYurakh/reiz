@@ -242,32 +242,15 @@ export function ConfigurationModal({
           <button
             type="button"
             onClick={onClose}
-            style={{
-              borderRadius: 49,
-              padding: '10px 24px',
-              fontSize: 14,
-              fontWeight: 700,
-              border: 'none',
-              background: H.bg,
-              color: H.navy,
-              cursor: 'pointer',
-            }}
+            className="h-btn h-btn-cancel"
+            style={{ borderRadius: 49 }}
           >
             Отмена
           </button>
           <button
             type="submit"
-            style={{
-              borderRadius: 49,
-              padding: '10px 24px',
-              fontSize: 14,
-              fontWeight: 700,
-              border: 'none',
-              background: `linear-gradient(135deg, ${H.purpleLight} 0%, ${H.purple} 100%)`,
-              color: '#fff',
-              cursor: 'pointer',
-              boxShadow: '0 4px 12px rgba(67, 24, 255, 0.25)',
-            }}
+            className="h-btn h-btn-primary"
+            style={{ borderRadius: 49 }}
           >
             Добавить
           </button>

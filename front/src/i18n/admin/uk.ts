@@ -72,6 +72,15 @@ export const uk = {
     unavailable: 'Недоступно',
     new_: 'Нові',
     active_: 'Активних',
+    accessDenied: 'Доступ заборонено',
+    noAccess: 'У вас немає доступу до цієї сторінки',
+  },
+
+  /* ── Notifications ── */
+  notification: {
+    newRequest: 'Нова заявка',
+    plannedService: 'Запланований сервіс',
+    overdueReturn: 'Прострочене повернення',
   },
 
   /* ── TopBar ── */
@@ -110,6 +119,34 @@ export const uk = {
     overdue: 'Прострочені',
     vsPrevMonth: 'vs пред. місяць',
     available: 'вільно',
+    // RevenueChart
+    revenueTitle: 'Дохід',
+    period7d: '7 дн',
+    period30d: '30 дн',
+    period90d: '90 дн',
+    incomeLabel: 'Дохід',
+    expenseLabel: 'Витрати',
+    netLabel: 'Чисті',
+    noDataForPeriod: 'Немає даних за цей період',
+    // FleetUtilizationChart
+    fleetTitle: 'Завантаження автопарку',
+    allSegments: 'Усі',
+    utilization: 'завантаження',
+    occupied: 'Зайняті',
+    free: 'Вільні',
+    noDataForSegment: 'Немає даних для цього сегмента',
+    // QuickStatsGrid
+    statsTitle: 'Показники',
+    confirmedReservations: 'Підтверджені бронювання',
+    requestsThisMonth: 'Заявки за місяць',
+    completedRentals: 'Завершені оренди',
+    totalClients: 'Усього клієнтів',
+    // OverdueAlerts
+    overdueTitle: 'Прострочені оренди',
+    noOverdue: 'Немає прострочених',
+    allRentalsOk: 'Усі оренди в порядку',
+    overdueDays: '{days} дн.',
+    showAll: 'Показати всі ({count})',
   },
 
   /* ── Requests ── */
@@ -186,6 +223,7 @@ export const uk = {
     pickupLocationLabel: 'Місце отримання',
     returnLocationLabel: 'Місце повернення',
     autoCreateClient: 'Авто-створення із заявки',
+    clientIdHint: 'Необов\'язкове. Залиште порожнім — клієнт створиться автоматично з даних заявки. Або вкажіть існуючий ID з розділу «Клієнти».',
     statusChangeFailed: 'Помилка при зміні статусу',
     fillRequired: "Заповніть обов'язкові поля (авто, дати)",
     approveError: 'Помилка при схваленні заявки',
@@ -409,6 +447,10 @@ export const uk = {
     emptyTitle: 'Оренд не знайдено',
     emptyFilter: 'Спробуйте змінити фільтр',
     emptyDefault: 'Активні оренди з\'являться тут',
+    justNow: 'щойно',
+    minutesAgo: '{n} хв тому',
+    hoursAgo: '{n} год тому',
+    daysAgo: '{n} дн тому',
   },
 
   /* ── Rental Detail ── */
@@ -574,6 +616,9 @@ export const uk = {
     deleteBtn: 'Видалити',
     createError: 'Помилка при створенні авто',
     deleteError: 'Помилка видалення',
+    searchCount: '{found} з {total}',
+    seats: '{n} місць',
+    carFallback: 'Авто #{id}',
   },
 
   /* ── Clients ── */
@@ -783,6 +828,7 @@ export const uk = {
     noCars: 'Немає автомобілів',
     clickForDetails: 'Натисніть для подробиць',
     conflict: 'Конфлікт',
+    km: 'км',
   },
 
   /* ── Pricing ── */

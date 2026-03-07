@@ -134,27 +134,8 @@ export function CoverageSection({
             setShowCreate(!showCreate);
             if (!showCreate) setCreateForm({ ...emptyCoverage });
           }}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            height: 40,
-            borderRadius: 49,
-            border: 'none',
-            padding: '0 22px',
-            fontSize: 13,
-            fontWeight: 700,
-            fontFamily: H.font,
-            cursor: 'pointer',
-            transition: 'all 0.2s',
-            ...(showCreate
-              ? { background: H.bg, color: H.gray }
-              : {
-                  background: `linear-gradient(135deg, ${H.purpleLight}, ${H.purple})`,
-                  color: '#fff',
-                  boxShadow: '0 4px 12px rgba(67,24,255,0.25)',
-                }),
-          }}
+          className={showCreate ? 'h-btn h-btn-cancel h-btn-sm' : 'h-btn h-btn-primary h-btn-sm'}
+          style={{ borderRadius: 49 }}
         >
           {showCreate ? (
             <>
@@ -261,20 +242,8 @@ export function CoverageSection({
               type="button"
               onClick={handleCreate}
               disabled={creating}
-              style={{
-                height: 40,
-                borderRadius: 49,
-                border: 'none',
-                padding: '0 28px',
-                fontSize: 13,
-                fontWeight: 700,
-                fontFamily: H.font,
-                background: `linear-gradient(135deg, ${H.purpleLight}, ${H.purple})`,
-                color: '#fff',
-                cursor: creating ? 'not-allowed' : 'pointer',
-                opacity: creating ? 0.6 : 1,
-                boxShadow: '0 4px 12px rgba(67,24,255,0.25)',
-              }}
+              className="h-btn h-btn-primary h-btn-sm"
+              style={{ borderRadius: 49 }}
             >
               {creating ? 'Сохранение...' : 'Создать'}
             </button>
@@ -451,17 +420,9 @@ export function CoverageSection({
                     <button
                       type="button"
                       onClick={cancelEdit}
+                      className="h-btn h-btn-cancel h-btn-sm"
                       style={{
-                        height: 36,
                         borderRadius: 49,
-                        border: 'none',
-                        padding: '0 20px',
-                        fontSize: 13,
-                        fontWeight: 600,
-                        fontFamily: H.font,
-                        background: H.bg,
-                        color: H.gray,
-                        cursor: 'pointer',
                       }}
                     >
                       Отмена
@@ -470,19 +431,8 @@ export function CoverageSection({
                       type="button"
                       onClick={() => handleSave(cp.id)}
                       disabled={saving}
-                      style={{
-                        height: 36,
-                        borderRadius: 49,
-                        border: 'none',
-                        padding: '0 20px',
-                        fontSize: 13,
-                        fontWeight: 700,
-                        fontFamily: H.font,
-                        background: `linear-gradient(135deg, ${H.purpleLight}, ${H.purple})`,
-                        color: '#fff',
-                        cursor: saving ? 'not-allowed' : 'pointer',
-                        opacity: saving ? 0.6 : 1,
-                      }}
+                      className="h-btn h-btn-primary h-btn-sm"
+                      style={{ borderRadius: 49 }}
                     >
                       {saving ? 'Сохранение...' : 'Сохранить'}
                     </button>

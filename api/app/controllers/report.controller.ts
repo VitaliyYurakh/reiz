@@ -70,7 +70,11 @@ class ReportController {
 
     async notifications(req: Request, res: Response) {
         try {
-            const data = await reportService.getNotifications();
+            const user = res.locals.user;
+            const data = await reportService.getNotifications(
+                (user.permissions as Record<string, string>) || {},
+                user.role,
+            );
 
             return res.status(StatusCodes.OK).json(data);
         } catch (error) {
@@ -83,7 +87,12 @@ class ReportController {
     async search(req: Request, res: Response) {
         try {
             const q = (req.query.q as string) || '';
-            const data = await reportService.search(q);
+            const user = res.locals.user;
+            const data = await reportService.search(
+                q,
+                (user.permissions as Record<string, string>) || {},
+                user.role,
+            );
 
             return res.status(StatusCodes.OK).json(data);
         } catch (error) {

@@ -4,6 +4,7 @@ import { useEffect, useState, useMemo, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { adminApiClient } from '@/lib/api/admin';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import type { Interval, CalendarData } from './components/calendar-types';
 import {
   DAY_MS,
@@ -23,6 +24,7 @@ import { IntervalDetailModal } from './components/IntervalDetailModal';
 export default function CalendarPage() {
   const router = useRouter();
   const { H } = useAdminTheme();
+  const { locale } = useAdminLocale();
   const today = useMemo(() => startOfDay(new Date()), []);
 
   /* Dynamic "now" line — updates every 60 seconds */
@@ -207,7 +209,7 @@ export default function CalendarPage() {
     const groups: { label: string; span: number }[] = [];
     let prev = '';
     for (const d of dateColumns) {
-      const label = fmtMonth(d);
+      const label = fmtMonth(d, locale);
       if (label === prev) {
         groups[groups.length - 1].span++;
       } else {
@@ -216,7 +218,7 @@ export default function CalendarPage() {
       }
     }
     return groups;
-  }, [dateColumns]);
+  }, [dateColumns, locale]);
 
   const fetchData = useCallback(async () => {
     setLoading(true);

@@ -14,6 +14,20 @@ import {
 import { getAdminNotifications, globalSearch, type AdminNotification, type SearchResult } from '@/lib/api/admin';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { useAdminAuth } from '@/context/AdminAuthContext';
+
+const NOTIF_MODULE_MAP: Record<string, string> = {
+  request: 'requests',
+  service: 'service',
+  overdue: 'rentals',
+};
+
+const SEARCH_MODULE_MAP: Record<string, string> = {
+  client: 'clients',
+  car: 'cars',
+  request: 'requests',
+  rental: 'rentals',
+};
 
 type Rates = {
   USD_UAH: number;
@@ -62,6 +76,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
   const router = useRouter();
   const { t, locale } = useAdminLocale();
   const { theme, toggleTheme, H: TH } = useAdminTheme();
+  const { hasPermission } = useAdminAuth();
   const isDark = theme === 'dark';
   const TYPE_CONFIG = getTypeConfig(isDark);
   const SEARCH_TYPE_CONFIG = getSearchTypeConfig(isDark);
@@ -69,6 +84,10 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
   const [rates, setRates] = useState<Rates | null>(null);
   const [notifications, setNotifications] = useState<AdminNotification[]>([]);
   const [notifCount, setNotifCount] = useState(0);
+
+  // Filter notifications by user permissions (defense-in-depth)
+  const filteredNotifications = notifications.filter((n) => hasPermission(NOTIF_MODULE_MAP[n.type]));
+  const filteredNotifCount = filteredNotifications.length;
 
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
@@ -270,7 +289,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
                 >
                   {t('topbar.searching')}
                 </div>
-              ) : searchResults.length === 0 ? (
+              ) : searchResults.filter((r) => hasPermission(SEARCH_MODULE_MAP[r.type])).length === 0 ? (
                 <div
                   style={{
                     padding: '20px 16px',
@@ -282,7 +301,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
                   {t('topbar.noResults')}
                 </div>
               ) : (
-                searchResults.map((r) => {
+                searchResults.filter((r) => hasPermission(SEARCH_MODULE_MAP[r.type])).map((r) => {
                   const cfg = SEARCH_TYPE_CONFIG[r.type];
                   const Icon = cfg.icon;
                   return (
@@ -514,7 +533,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
             }}
           >
             <Bell size={20} />
-            {notifCount > 0 && (
+            {filteredNotifCount > 0 && (
               <span
                 style={{
                   position: 'absolute',
@@ -533,7 +552,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
                   lineHeight: 1,
                 }}
               >
-                {notifCount > 9 ? '9+' : notifCount}
+                {filteredNotifCount > 9 ? '9+' : filteredNotifCount}
               </span>
             )}
           </button>
@@ -561,7 +580,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
             }}
           >
             {t('topbar.notifications')}
-            {notifCount > 0 && (
+            {filteredNotifCount > 0 && (
               <span
                 style={{
                   marginLeft: '8px',
@@ -578,7 +597,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
                   padding: '0 6px',
                 }}
               >
-                {notifCount}
+                {filteredNotifCount}
               </span>
             )}
           </DropdownMenuLabel>
@@ -586,7 +605,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
           <DropdownMenuSeparator style={{ margin: 0, background: isDark ? 'rgba(255,255,255,0.08)' : '#F4F7FE' }} />
 
           <div style={{ maxHeight: '320px', overflowY: 'auto', padding: '4px 0' }}>
-            {notifications.length === 0 ? (
+            {filteredNotifications.length === 0 ? (
               <div
                 style={{
                   padding: '24px 16px',
@@ -598,7 +617,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
                 {t('topbar.noNotifications')}
               </div>
             ) : (
-              notifications.map((n) => {
+              filteredNotifications.map((n) => {
                 const cfg = TYPE_CONFIG[n.type];
                 const Icon = cfg.icon;
                 return (
@@ -637,7 +656,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
                           lineHeight: '18px',
                         }}
                       >
-                        {n.title}
+                        {t(n.title)}
                       </div>
                       <div
                         style={{

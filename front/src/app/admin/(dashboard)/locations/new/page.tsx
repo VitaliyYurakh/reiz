@@ -193,20 +193,7 @@ export default function NewCityPage() {
         <button
           onClick={handleSave}
           disabled={saving}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            padding: '12px 28px',
-            borderRadius: 12,
-            border: 'none',
-            background: `linear-gradient(135deg, ${H.purple}, #7551FF)`,
-            color: '#fff',
-            fontWeight: 600,
-            fontSize: 14,
-            cursor: saving ? 'wait' : 'pointer',
-            opacity: saving ? 0.6 : 1,
-          }}
+          className="h-btn h-btn-primary"
         >
           <Save size={16} />
           {saving ? t('common.saving') : t('common.save')}

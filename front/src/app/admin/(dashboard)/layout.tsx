@@ -30,6 +30,7 @@ import { cn } from '@/lib/cn';
 import { TopBar } from '@/components/admin/TopBar';
 import { useAdminLocale, type AdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { useAdminAuth } from '@/context/AdminAuthContext';
 
 interface NavItem {
   href: string;
@@ -95,6 +96,18 @@ const LOCALE_LABELS: Record<AdminLocale, string> = {
 
 const LOCALE_ORDER: AdminLocale[] = ['uk', 'en', 'ru'];
 
+/* Route → required permission module mapping */
+function getRequiredModule(path: string): string | null {
+  for (const group of NAV_GROUPS) {
+    for (const item of group.items) {
+      if (path === item.href || path.startsWith(`${item.href}/`)) {
+        return item.module || null;
+      }
+    }
+  }
+  return null;
+}
+
 export default function DashboardLayout({
   children,
 }: {
@@ -104,12 +117,11 @@ export default function DashboardLayout({
   const router = useRouter();
   const { t, locale, setLocale } = useAdminLocale();
   const { theme, toggleTheme, mounted } = useAdminTheme();
+  const { setAuth, hasPermission, userRole, userPermissions } = useAdminAuth();
   const isDark = theme === 'dark';
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [newRequestsCount, setNewRequestsCount] = useState(0);
-  const [userRole, setUserRole] = useState('admin');
-  const [userPermissions, setUserPermissions] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -121,8 +133,7 @@ export default function DashboardLayout({
         const meRes = await adminApi.get('/auth/me');
         const user = meRes.data.user;
         if (user) {
-          setUserRole(user.role || 'admin');
-          setUserPermissions(user.permissions || {});
+          setAuth(user.role || 'admin', user.permissions || {});
         }
 
         setIsAuthorized(true);
@@ -131,7 +142,7 @@ export default function DashboardLayout({
       }
     };
     checkAuth();
-  }, [router]);
+  }, [router, setAuth]);
 
   // Poll new requests count every 30s
   const fetchBadges = useCallback(() => {
@@ -164,6 +175,40 @@ export default function DashboardLayout({
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
         <div className="h-8 w-8 animate-spin rounded-full border-4 border-muted border-t-primary" />
+      </div>
+    );
+  }
+
+  /* Route-level permission guard */
+  const requiredModule = getRequiredModule(pathname);
+  if (requiredModule && !hasPermission(requiredModule)) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
+        <div className="text-center" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <div style={{
+            width: 64, height: 64, borderRadius: 20,
+            background: 'linear-gradient(135deg, #FF5252 0%, #D32F2F 100%)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            margin: '0 auto 16px',
+          }}>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <h2 style={{ fontSize: 20, fontWeight: 700, color: isDark ? '#E2E8F0' : '#2B3674', marginBottom: 8 }}>
+            {t('common.accessDenied')}
+          </h2>
+          <p style={{ fontSize: 14, color: isDark ? '#718096' : '#A3AED0', marginBottom: 24 }}>
+            {t('common.noAccess')}
+          </p>
+          <button
+            type="button"
+            onClick={() => router.push('/admin/dashboard')}
+            className="h-btn h-btn-primary"
+          >
+            {t('common.back')}
+          </button>
+        </div>
       </div>
     );
   }
@@ -288,7 +333,7 @@ export default function DashboardLayout({
                         <Link
                           href={item.href}
                           className={cn(
-                            'flex items-center gap-3 rounded-xl px-3 text-[13px] transition-all duration-150',
+                            'flex w-full items-center gap-3 rounded-xl px-3 text-[13px] transition-all duration-150',
                             isActive
                               ? isDark
                                 ? 'bg-[#1E293B] font-semibold'

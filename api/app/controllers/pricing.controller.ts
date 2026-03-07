@@ -2,6 +2,7 @@ import {StatusCodes} from 'http-status-codes';
 import {logger} from '../utils';
 import {Request, Response} from 'express';
 import pricingService from '../services/pricing.service';
+import logAudit from '../middleware/audit.middleware';
 
 class PricingController {
     // --- Rate Plans ---
@@ -22,6 +23,7 @@ class PricingController {
         try {
             const ratePlan = await pricingService.createRatePlan(req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'RatePlan', entityId: ratePlan.id, action: 'CREATE', after: ratePlan, req});
             return res.status(StatusCodes.CREATED).json({ratePlan});
         } catch (error) {
             logger.error(error);
@@ -35,6 +37,7 @@ class PricingController {
             const {id} = req.params;
             const ratePlan = await pricingService.updateRatePlan(parseInt(id), req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'RatePlan', entityId: parseInt(id), action: 'UPDATE', after: ratePlan, req});
             return res.status(StatusCodes.OK).json({ratePlan});
         } catch (error) {
             logger.error(error);
@@ -48,6 +51,7 @@ class PricingController {
             const {id} = req.params;
             await pricingService.softDeleteRatePlan(parseInt(id));
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'RatePlan', entityId: parseInt(id), action: 'DELETE', req});
             return res.status(StatusCodes.OK).json({msg: 'Rate plan deleted'});
         } catch (error) {
             logger.error(error);
@@ -74,6 +78,7 @@ class PricingController {
         try {
             const addOn = await pricingService.createAddOn(req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'AddOn', entityId: addOn.id, action: 'CREATE', after: addOn, req});
             return res.status(StatusCodes.CREATED).json({addOn});
         } catch (error) {
             logger.error(error);
@@ -87,6 +92,7 @@ class PricingController {
             const {id} = req.params;
             const addOn = await pricingService.updateAddOn(parseInt(id), req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'AddOn', entityId: parseInt(id), action: 'UPDATE', after: addOn, req});
             return res.status(StatusCodes.OK).json({addOn});
         } catch (error) {
             logger.error(error);
@@ -100,6 +106,7 @@ class PricingController {
             const {id} = req.params;
             await pricingService.softDeleteAddOn(parseInt(id));
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'AddOn', entityId: parseInt(id), action: 'DELETE', req});
             return res.status(StatusCodes.OK).json({msg: 'Add-on deleted'});
         } catch (error) {
             logger.error(error);
@@ -126,6 +133,7 @@ class PricingController {
         try {
             const coveragePackage = await pricingService.createCoveragePackage(req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'CoveragePackage', entityId: coveragePackage.id, action: 'CREATE', after: coveragePackage, req});
             return res.status(StatusCodes.CREATED).json({coveragePackage});
         } catch (error) {
             logger.error(error);
@@ -139,6 +147,7 @@ class PricingController {
             const {id} = req.params;
             const coveragePackage = await pricingService.updateCoveragePackage(parseInt(id), req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'CoveragePackage', entityId: parseInt(id), action: 'UPDATE', after: coveragePackage, req});
             return res.status(StatusCodes.OK).json({coveragePackage});
         } catch (error) {
             logger.error(error);
@@ -152,6 +161,7 @@ class PricingController {
             const {id} = req.params;
             await pricingService.softDeleteCoveragePackage(parseInt(id));
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'CoveragePackage', entityId: parseInt(id), action: 'DELETE', req});
             return res.status(StatusCodes.OK).json({msg: 'Coverage package deleted'});
         } catch (error) {
             logger.error(error);

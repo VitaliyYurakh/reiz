@@ -5,6 +5,7 @@ import { adminApiClient } from '@/lib/api/admin';
 import { IosSelect } from '@/components/admin/IosSelect';
 import { Plus, Pencil, Trash2, X, Check, Package } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import type { AddOn } from './pricing-types';
 import { PRICING_MODES, PRICING_MODE_LABELS, formatMoney } from './pricing-types';
 import { HInput, HLabel, HToggle, StatusBadge, ActionButton } from './PricingUI';
@@ -35,6 +36,7 @@ export function AddOnsSection({
   onRefresh: () => void;
 }) {
   const { H, theme } = useAdminTheme();
+  const { t } = useAdminLocale();
   const isDark = theme === 'dark';
   const [showCreate, setShowCreate] = useState(false);
   const [createForm, setCreateForm] = useState<AddOnFormData>({
@@ -139,27 +141,8 @@ export function AddOnsSection({
             setShowCreate(!showCreate);
             if (!showCreate) setCreateForm({ ...emptyAddOn });
           }}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            height: 40,
-            borderRadius: 49,
-            border: 'none',
-            padding: '0 22px',
-            fontSize: 13,
-            fontWeight: 700,
-            fontFamily: H.font,
-            cursor: 'pointer',
-            transition: 'all 0.2s',
-            ...(showCreate
-              ? { background: H.bg, color: H.gray }
-              : {
-                  background: `linear-gradient(135deg, ${H.purpleLight}, ${H.purple})`,
-                  color: '#fff',
-                  boxShadow: '0 4px 12px rgba(67,24,255,0.25)',
-                }),
-          }}
+          className={showCreate ? 'h-btn h-btn-outline h-btn-sm' : 'h-btn h-btn-primary h-btn-sm'}
+          style={{ borderRadius: 49 }}
         >
           {showCreate ? (
             <>
@@ -224,7 +207,7 @@ export function AddOnsSection({
                 }
                 options={PRICING_MODES.map((m) => ({
                   value: m,
-                  label: PRICING_MODE_LABELS[m] || m,
+                  label: t(PRICING_MODE_LABELS[m] ?? m),
                 }))}
               />
             </div>
@@ -277,20 +260,8 @@ export function AddOnsSection({
               type="button"
               onClick={handleCreate}
               disabled={creating}
-              style={{
-                height: 40,
-                borderRadius: 49,
-                border: 'none',
-                padding: '0 28px',
-                fontSize: 13,
-                fontWeight: 700,
-                fontFamily: H.font,
-                background: `linear-gradient(135deg, ${H.purpleLight}, ${H.purple})`,
-                color: '#fff',
-                cursor: creating ? 'not-allowed' : 'pointer',
-                opacity: creating ? 0.6 : 1,
-                boxShadow: '0 4px 12px rgba(67,24,255,0.25)',
-              }}
+              className="h-btn h-btn-primary h-btn-sm"
+              style={{ borderRadius: 49 }}
             >
               {creating ? 'Сохранение...' : 'Создать'}
             </button>
@@ -437,7 +408,7 @@ export function AddOnsSection({
                         }
                         options={PRICING_MODES.map((m) => ({
                           value: m,
-                          label: PRICING_MODE_LABELS[m] || m,
+                          label: t(PRICING_MODE_LABELS[m] ?? m),
                         }))}
                       />
                     </td>
@@ -554,7 +525,7 @@ export function AddOnsSection({
                           color: H.purple,
                         }}
                       >
-                        {PRICING_MODE_LABELS[ao.pricingMode] || ao.pricingMode}
+                        {t(PRICING_MODE_LABELS[ao.pricingMode] ?? ao.pricingMode)}
                       </span>
                     </td>
                     <td

@@ -2,6 +2,7 @@ import {StatusCodes} from 'http-status-codes';
 import {logger} from '../utils';
 import {Request, Response} from 'express';
 import cityService from '../services/city.service';
+import logAudit from '../middleware/audit.middleware';
 
 class CityController {
     async getAll(req: Request, res: Response) {
@@ -41,6 +42,7 @@ class CityController {
         try {
             const city = await cityService.create(req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'City', entityId: city.id, action: 'CREATE', after: city, req});
             return res.status(StatusCodes.CREATED).json({city});
         } catch (error) {
             logger.error(error);
@@ -52,8 +54,10 @@ class CityController {
     async update(req: Request, res: Response) {
         try {
             const {id} = req.params;
+            const before = await cityService.getOne(parseInt(id));
             const city = await cityService.update(parseInt(id), req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'City', entityId: parseInt(id), action: 'UPDATE', before, after: city, req});
             return res.status(StatusCodes.OK).json({city});
         } catch (error) {
             logger.error(error);
@@ -65,8 +69,10 @@ class CityController {
     async delete(req: Request, res: Response) {
         try {
             const {id} = req.params;
+            const before = await cityService.getOne(parseInt(id));
             await cityService.delete(parseInt(id));
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'City', entityId: parseInt(id), action: 'DELETE', before, req});
             return res.status(StatusCodes.OK).json({msg: 'City deleted'});
         } catch (error) {
             logger.error(error);
@@ -95,6 +101,7 @@ class CityController {
             const cityId = parseInt(req.params.id);
             const location = await cityService.createLocation(cityId, req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'Location', entityId: location.id, action: 'CREATE', after: location, req});
             return res.status(StatusCodes.CREATED).json({location});
         } catch (error) {
             logger.error(error);
@@ -109,6 +116,7 @@ class CityController {
             const locId = parseInt(req.params.locId);
             const location = await cityService.updateLocation(cityId, locId, req.body);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'Location', entityId: locId, action: 'UPDATE', after: location, req});
             return res.status(StatusCodes.OK).json({location});
         } catch (error) {
             logger.error(error);
@@ -123,6 +131,7 @@ class CityController {
             const locId = parseInt(req.params.locId);
             await cityService.deleteLocation(cityId, locId);
 
+            logAudit({actorId: res.locals.user?.id, entityType: 'Location', entityId: locId, action: 'DELETE', req});
             return res.status(StatusCodes.OK).json({msg: 'Location deleted'});
         } catch (error) {
             logger.error(error);

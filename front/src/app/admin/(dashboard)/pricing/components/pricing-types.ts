@@ -40,18 +40,18 @@ export interface CoveragePackage {
 
 export type TabKey = 'ratePlans' | 'addOns' | 'coveragePackages';
 
-export const TABS: { key: TabKey; label: string; icon: typeof DollarSign }[] = [
-  { key: 'ratePlans', label: 'Тарифы', icon: Tag },
-  { key: 'addOns', label: 'Доп. услуги', icon: Package },
-  { key: 'coveragePackages', label: 'Покрытие', icon: Shield },
+export const TABS: { key: TabKey; labelKey: string; icon: typeof DollarSign }[] = [
+  { key: 'ratePlans', labelKey: 'pricing.tabRatePlans', icon: Tag },
+  { key: 'addOns', labelKey: 'pricing.tabAddOns', icon: Package },
+  { key: 'coveragePackages', labelKey: 'pricing.tabCoverage', icon: Shield },
 ];
 
 export const PRICING_MODES = ['PER_DAY', 'ONE_TIME', 'MANUAL_QTY'] as const;
 
 export const PRICING_MODE_LABELS: Record<string, string> = {
-  PER_DAY: 'За день',
-  ONE_TIME: 'Разово',
-  MANUAL_QTY: 'За кол-во',
+  PER_DAY: 'pricing.modePerDay',
+  ONE_TIME: 'pricing.modeOneTime',
+  MANUAL_QTY: 'pricing.modeManualQty',
 };
 
 export { fmtMoney as formatMoney } from '@/app/admin/lib/format';

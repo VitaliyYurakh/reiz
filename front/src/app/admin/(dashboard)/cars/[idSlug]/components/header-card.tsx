@@ -117,17 +117,9 @@ export function HeaderCard({
           <button
             type="button"
             onClick={onToggleAvailable}
+            className="h-btn h-btn-sm"
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
               borderRadius: 49,
-              padding: '10px 20px',
-              fontSize: 13,
-              fontWeight: 700,
-              border: 'none',
-              cursor: 'pointer',
-              transition: 'all 0.15s',
               background: isAvailable ? H.greenBg : H.redBg,
               color: isAvailable ? H.green : H.red,
             }}
@@ -145,23 +137,8 @@ export function HeaderCard({
           <button
             type="button"
             onClick={onOpenSettings}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              borderRadius: 49,
-              padding: '10px 20px',
-              fontSize: 13,
-              fontWeight: 700,
-              border: 'none',
-              cursor: 'pointer',
-              background: `linear-gradient(135deg, ${H.purpleLight} 0%, ${H.purple} 100%)`,
-              color: '#fff',
-              boxShadow: '0 4px 12px rgba(67, 24, 255, 0.25)',
-              transition: 'all 0.15s',
-            }}
-            onMouseEnter={(e) => { (e.currentTarget.style.boxShadow = '0 6px 20px rgba(67, 24, 255, 0.35)'); }}
-            onMouseLeave={(e) => { (e.currentTarget.style.boxShadow = '0 4px 12px rgba(67, 24, 255, 0.25)'); }}
+            className="h-btn h-btn-primary h-btn-sm"
+            style={{ borderRadius: 49 }}
           >
             <Settings style={{ width: 15, height: 15 }} />
             Редактировать

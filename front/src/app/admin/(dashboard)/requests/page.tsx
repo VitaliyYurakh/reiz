@@ -36,7 +36,7 @@ interface RentalRequest {
 export default function RequestsPage() {
   const router = useRouter();
   const { t } = useAdminLocale();
-  const { theme } = useAdminTheme();
+  const { theme, H } = useAdminTheme();
   const isDark = theme === 'dark';
   const [items, setItems] = useState<RentalRequest[]>([]);
   const [total, setTotal] = useState(0);
@@ -120,18 +120,15 @@ export default function RequestsPage() {
   return (
     <div>
       {/* ── Page header ── */}
-      <div className="mb-6 rounded-2xl px-8 py-6" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : '#FFFFFF' }}>
+      <div className="mb-6 rounded-[20px] px-7 py-5" style={{ boxShadow: H.shadow, backgroundColor: isDark ? '#1A2332' : '#FFFFFF' }}>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div
-              className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7C4DFF] to-[#651FFF]"
-              style={{ boxShadow: '0 4px 12px rgba(124,77,255,0.3)' }}
-            >
-              <ClipboardList className="h-6 w-6 text-white" />
+          <div className="flex items-center gap-3.5">
+            <div className="h-icon-box h-icon-box-purple">
+              <ClipboardList size={24} />
             </div>
             <div>
               <div className="flex items-center gap-3">
-                <h1 className="text-[18px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('requests.title')}</h1>
+                <h1 className="h-title">{t('requests.title')}</h1>
                 {newCount > 0 && (
                   <span
                     className="inline-flex h-6 items-center gap-1 rounded-full px-2.5 text-[11px] font-bold text-white"
@@ -141,15 +138,13 @@ export default function RequestsPage() {
                   </span>
                 )}
               </div>
-              <p className="mt-0.5 text-[13px]" style={{ color: isDark ? '#718096' : '#90A4AE' }}>
-                {t('requests.subtitle')}
-              </p>
+              <span className="h-subtitle">{t('requests.subtitle')}</span>
             </div>
           </div>
           <Link
             href="/admin/requests/new"
-            className="inline-flex h-10 items-center gap-2.5 rounded-xl bg-gradient-to-r from-[#26C6DA] to-[#00ACC1] text-[13px] font-semibold text-white shadow-sm transition-all hover:shadow-md active:scale-[0.98]"
-            style={{ paddingLeft: 28, paddingRight: 28 }}
+            className="ios-btn ios-btn-primary"
+            style={{ textDecoration: 'none' }}
           >
             <Plus className="h-4 w-4" />
             <span>{t('requests.create')}</span>

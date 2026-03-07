@@ -5,6 +5,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { Car } from 'lucide-react';
 import { getFleetUtilization, getSegments, type FleetUtilizationData } from '@/lib/api/admin';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 
 interface SegmentOption {
   id: number;
@@ -23,6 +24,7 @@ function getDateRange(days: number) {
 
 export function FleetUtilizationChart() {
   const { theme } = useAdminTheme();
+  const { t } = useAdminLocale();
   const isDark = theme === 'dark';
   const [data, setData] = useState<FleetUtilizationData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -51,8 +53,8 @@ export function FleetUtilizationChart() {
 
   const utilization = data?.averageUtilizationPercent ?? 0;
   const pieData = [
-    { name: 'Зайняті', value: utilization },
-    { name: 'Вільні', value: 100 - utilization },
+    { name: t('dashboard.occupied'), value: utilization },
+    { name: t('dashboard.free'), value: 100 - utilization },
   ];
   const topCars = data?.cars.slice(0, 5) ?? [];
 
@@ -62,14 +64,14 @@ export function FleetUtilizationChart() {
 
   return (
     <div className="ios-card !py-3 flex h-full flex-col">
-      <p className="mb-2 text-sm font-semibold text-card-foreground">Загрузка автопарка</p>
+      <p className="mb-2 text-sm font-semibold text-card-foreground">{t('dashboard.fleetTitle')}</p>
 
       {/* Segment filter — segmented control */}
       <div
         className="ios-segmented mb-2"
         style={{ display: 'flex', width: '100%' }}
       >
-        {[{ id: null, name: 'Все' }, ...segments].map((seg) => (
+        {[{ id: null, name: t('dashboard.allSegments') }, ...segments].map((seg) => (
           <button
             key={seg.id ?? 'all'}
             type="button"
@@ -109,7 +111,7 @@ export function FleetUtilizationChart() {
             </ResponsiveContainer>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <span className="text-xl font-bold text-card-foreground">{utilization}%</span>
-              <span className="text-[11px] text-muted-foreground">загрузка</span>
+              <span className="text-[11px] text-muted-foreground">{t('dashboard.utilization')}</span>
             </div>
           </div>
 
@@ -148,7 +150,7 @@ export function FleetUtilizationChart() {
             </div>
           ) : (
             <div className="mt-4 flex flex-1 items-center justify-center">
-              <p className="text-xs text-muted-foreground">Нет данных для этого сегмента</p>
+              <p className="text-xs text-muted-foreground">{t('dashboard.noDataForSegment')}</p>
             </div>
           )}
         </>

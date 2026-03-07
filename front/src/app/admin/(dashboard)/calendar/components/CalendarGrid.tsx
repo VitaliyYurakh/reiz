@@ -9,6 +9,7 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import type { ThemeTokens } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import type { Interval, CarRow } from './calendar-types';
 import {
   CELL_W,
@@ -74,6 +75,7 @@ export function CalendarGrid({
   onBarLeave: () => void;
   onBarClick: (interval: Interval) => void;
 }) {
+  const { locale, t } = useAdminLocale();
   if (fetchError && !data) {
     return (
       <div
@@ -100,7 +102,7 @@ export function CalendarGrid({
             margin: 0,
           }}
         >
-          Не удалось загрузить данные календаря
+          {t('calendar.loadError')}
         </p>
         <button
           type="button"
@@ -108,7 +110,7 @@ export function CalendarGrid({
           className="cal-btn-primary"
           style={{ fontSize: 12, padding: '8px 20px' }}
         >
-          Повторить
+          {t('calendar.retry')}
         </button>
       </div>
     );
@@ -190,7 +192,7 @@ export function CalendarGrid({
               }}
             >
               <Car style={{ width: 12, height: 12 }} />
-              Автомобиль
+              {t('calendar.carColumn')}
             </div>
             {/* Summary label */}
             <div
@@ -204,7 +206,7 @@ export function CalendarGrid({
                 borderTop: `1px solid ${H.grayLight}`,
               }}
             >
-              Занято
+              {t('calendar.occupied')}
             </div>
           </div>
 
@@ -283,7 +285,7 @@ export function CalendarGrid({
                         fontFamily: H.font,
                       }}
                     >
-                      {fmtWeekday(d)}
+                      {fmtWeekday(d, locale)}
                     </span>
                     <span
                       style={{
@@ -474,7 +476,7 @@ export function CalendarGrid({
                       : `0 0 6px ${H.red}50`,
                   }}
                   title={
-                    row.car.isAvailable ? 'Доступен' : 'Недоступен'
+                    row.car.isAvailable ? t('calendar.available') : t('calendar.unavailable')
                   }
                 />
 
@@ -745,8 +747,8 @@ export function CalendarGrid({
             }}
           >
             {carSearch.trim()
-              ? 'Автомобиль не найден'
-              : 'Нет автомобилей'}
+              ? t('calendar.carNotFound')
+              : t('calendar.noCars')}
           </div>
         )}
       </div>

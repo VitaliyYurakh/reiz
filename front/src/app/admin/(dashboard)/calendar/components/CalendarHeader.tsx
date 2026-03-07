@@ -11,6 +11,7 @@ import {
   ScanSearch,
 } from 'lucide-react';
 import type { ThemeTokens } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { TYPE_STYLES, PERIOD_OPTIONS, DAY_MS } from './calendar-types';
 
 export function CalendarHeader({
@@ -54,13 +55,14 @@ export function CalendarHeader({
   onCheckOutChange: (v: string) => void;
   availCount: { available: number; total: number } | null;
 }) {
+  const { t } = useAdminLocale();
   return (
     <div
       style={{
         background: H.white,
         borderRadius: 20,
-        padding: '20px 24px',
-        marginBottom: 16,
+        padding: '20px 28px',
+        marginBottom: 24,
         boxShadow: H.shadow,
       }}
     >
@@ -75,50 +77,13 @@ export function CalendarHeader({
       >
         {/* Title */}
         <div style={{ marginRight: 'auto' }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 10,
-            }}
-          >
-            <div
-              style={{
-                width: 36,
-                height: 36,
-                borderRadius: 12,
-                background: `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <CalendarDays
-                style={{ width: 18, height: 18, color: '#fff' }}
-              />
+          <div className="flex items-center gap-3.5">
+            <div className="h-icon-box h-icon-box-purple">
+              <CalendarDays size={24} />
             </div>
             <div>
-              <h1
-                style={{
-                  fontSize: 18,
-                  fontWeight: 700,
-                  color: H.navy,
-                  margin: 0,
-                  lineHeight: 1.2,
-                }}
-              >
-                Календарь
-              </h1>
-              <p
-                style={{
-                  fontSize: 12,
-                  color: H.gray,
-                  margin: 0,
-                  fontWeight: 500,
-                }}
-              >
-                {rangeLabel}
-              </p>
+              <h1 className="h-title">{t('calendar.title')}</h1>
+              <span className="h-subtitle">{rangeLabel}</span>
             </div>
           </div>
         </div>
@@ -141,7 +106,7 @@ export function CalendarHeader({
             type="text"
             value={carSearch}
             onChange={(e) => onCarSearchChange(e.target.value)}
-            placeholder="Поиск авто…"
+            placeholder={t('calendar.searchCar')}
             style={{
               height: 40,
               width: 180,
@@ -188,7 +153,7 @@ export function CalendarHeader({
           >
             {PERIOD_OPTIONS.map((opt) => (
               <option key={opt.v} value={opt.v}>
-                {opt.l}
+                {t(opt.labelKey)}
               </option>
             ))}
           </select>
@@ -228,24 +193,10 @@ export function CalendarHeader({
           <button
             type="button"
             onClick={onGoToday}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              height: 32,
-              padding: '0 16px',
-              borderRadius: 49,
-              border: 'none',
-              background: H.navy,
-              color: H.white,
-              fontSize: 12,
-              fontWeight: 700,
-              fontFamily: H.font,
-              cursor: 'pointer',
-              transition: 'all 0.15s ease',
-              boxShadow: '0 2px 8px rgba(43, 54, 116, 0.25)',
-            }}
+            className="h-btn h-btn-primary h-btn-sm"
+            style={{ borderRadius: 49, height: 32 }}
           >
-            Сегодня
+            {t('calendar.today')}
           </button>
           <button
             type="button"
@@ -334,7 +285,7 @@ export function CalendarHeader({
                   transition: 'background 0.2s',
                 }}
               />
-              {ts.label}
+              {t(ts.labelKey)}
             </button>
           );
         })}
@@ -366,7 +317,7 @@ export function CalendarHeader({
             }}
           >
             <ScanSearch style={{ width: 14, height: 14 }} />
-            Проверить доступность
+            {t('calendar.checkAvailability')}
           </button>
         </div>
       </div>
@@ -393,7 +344,7 @@ export function CalendarHeader({
               fontFamily: H.font,
             }}
           >
-            Выдача
+            {t('calendar.pickup')}
           </label>
           <input
             type="date"
@@ -421,7 +372,7 @@ export function CalendarHeader({
               fontFamily: H.font,
             }}
           >
-            Возврат
+            {t('calendar.return_')}
           </label>
           <input
             type="date"
@@ -457,7 +408,7 @@ export function CalendarHeader({
                   new Date(checkIn).getTime()) /
                   DAY_MS,
               )}{' '}
-              дн.
+              {t('common.days')}
             </div>
           )}
 
@@ -485,7 +436,7 @@ export function CalendarHeader({
                 }}
               >
                 <Check style={{ width: 14, height: 14 }} />
-                {availCount.available} из {availCount.total} доступно
+                {t('calendar.availableOf', { available: String(availCount.available), total: String(availCount.total) })}
               </div>
             </div>
           )}

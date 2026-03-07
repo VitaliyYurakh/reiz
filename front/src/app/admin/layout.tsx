@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { AdminLocaleProvider } from '@/context/AdminLocaleContext';
 import { AdminThemeProvider } from '@/context/AdminThemeContext';
+import { AdminAuthProvider } from '@/context/AdminAuthContext';
 import './globals.css';
 
 export const metadata = {
@@ -11,7 +12,9 @@ export const metadata = {
 export default function AdminLayout({ children }: { children: ReactNode }) {
     return (
         <AdminLocaleProvider>
-            <AdminThemeProvider>{children}</AdminThemeProvider>
+            <AdminThemeProvider>
+                <AdminAuthProvider>{children}</AdminAuthProvider>
+            </AdminThemeProvider>
         </AdminLocaleProvider>
     );
 }

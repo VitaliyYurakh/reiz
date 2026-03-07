@@ -74,6 +74,15 @@ export const pl: AdminTranslations = {
     unavailable: 'Niedostępny',
     new_: 'Nowe',
     active_: 'aktywne',
+    accessDenied: 'Brak dostępu',
+    noAccess: 'Nie masz dostępu do tej strony',
+  },
+
+  /* ── Notifications ── */
+  notification: {
+    newRequest: 'Nowe zapytanie',
+    plannedService: 'Zaplanowany serwis',
+    overdueReturn: 'Zaległy zwrot',
   },
 
   /* ── TopBar ── */
@@ -112,6 +121,30 @@ export const pl: AdminTranslations = {
     overdue: 'Zaległe',
     vsPrevMonth: 'vs poprz. miesiąc',
     available: 'dostępne',
+    revenueTitle: 'Przychód',
+    period7d: '7 dn',
+    period30d: '30 dn',
+    period90d: '90 dn',
+    incomeLabel: 'Przychód',
+    expenseLabel: 'Wydatki',
+    netLabel: 'Netto',
+    noDataForPeriod: 'Brak danych za ten okres',
+    fleetTitle: 'Wykorzystanie floty',
+    allSegments: 'Wszystkie',
+    utilization: 'wykorzystanie',
+    occupied: 'Zajęte',
+    free: 'Wolne',
+    noDataForSegment: 'Brak danych dla tego segmentu',
+    statsTitle: 'Wskaźniki',
+    confirmedReservations: 'Potwierdzone rezerwacje',
+    requestsThisMonth: 'Wnioski w tym miesiącu',
+    completedRentals: 'Zakończone wynajmy',
+    totalClients: 'Łącznie klientów',
+    overdueTitle: 'Zaległe wynajmy',
+    noOverdue: 'Brak zaległości',
+    allRentalsOk: 'Wszystkie wynajmy w porządku',
+    overdueDays: '{days} dn.',
+    showAll: 'Pokaż wszystkie ({count})',
   },
 
   /* ── Requests ── */
@@ -188,6 +221,7 @@ export const pl: AdminTranslations = {
     pickupLocationLabel: 'Miejsce odbioru',
     returnLocationLabel: 'Miejsce zwrotu',
     autoCreateClient: 'Utwórz automatycznie z zapytania',
+    clientIdHint: 'Opcjonalne. Pozostaw puste — klient zostanie utworzony automatycznie z danych zapytania. Lub podaj istniejące ID z sekcji «Klienci».',
     statusChangeFailed: 'Nie udało się zmienić statusu',
     fillRequired: 'Wypełnij wymagane pola (samochód, daty)',
     approveError: 'Nie udało się zatwierdzić zapytania',
@@ -411,6 +445,10 @@ export const pl: AdminTranslations = {
     emptyTitle: 'Nie znaleziono wynajmów',
     emptyFilter: 'Spróbuj zmienić filtr',
     emptyDefault: 'Aktywne wynajmy pojawią się tutaj',
+    justNow: 'właśnie teraz',
+    minutesAgo: '{n} min temu',
+    hoursAgo: '{n} godz. temu',
+    daysAgo: '{n} dn. temu',
   },
 
   /* ── Rental Detail ── */
@@ -560,6 +598,9 @@ export const pl: AdminTranslations = {
     deleteBtn: 'Usuń',
     createError: 'Błąd tworzenia samochodu',
     deleteError: 'Błąd usuwania',
+    searchCount: '{found} z {total}',
+    seats: '{n} miejsc',
+    carFallback: 'Auto #{id}',
   },
 
   /* ── Clients ── */
@@ -769,6 +810,7 @@ export const pl: AdminTranslations = {
     noCars: 'Brak samochodów',
     clickForDetails: 'Kliknij, aby zobaczyć szczegóły',
     conflict: 'Konflikt',
+    km: 'km',
   },
 
   /* ── Pricing ── */

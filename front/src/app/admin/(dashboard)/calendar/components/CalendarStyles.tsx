@@ -46,18 +46,18 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         padding: 10px 24px;
         border-radius: 49px;
         border: none;
-        background: linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%);
+        background: linear-gradient(to right, #26C6DA, #00ACC1);
         color: #fff;
         font-size: 13px;
         font-weight: 700;
         font-family: ${H.font};
         cursor: pointer;
-        box-shadow: 0 4px 12px rgba(67, 24, 255, 0.3);
+        box-shadow: 0 2px 8px rgba(0, 172, 193, 0.25);
         transition: all 0.2s;
       }
       .cal-btn-primary:hover {
         transform: translateY(-1px);
-        box-shadow: 0 6px 16px rgba(67, 24, 255, 0.4);
+        box-shadow: 0 4px 12px rgba(0, 172, 193, 0.35);
       }
       .cal-btn-secondary {
         padding: 10px 24px;

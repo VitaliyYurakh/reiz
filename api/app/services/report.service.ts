@@ -101,7 +101,7 @@ class ReportService {
         };
     }
 
-    async getRevenue(from: Date, to: Date) {
+    async getRevenue(from: string, to: string) {
         const fromDate = new Date(from);
         const toDate = new Date(to);
 
@@ -149,7 +149,7 @@ class ReportService {
         };
     }
 
-    async getFleetUtilization(from: Date, to: Date, segmentId?: number) {
+    async getFleetUtilization(from: string, to: string, segmentId?: number) {
         const fromDate = new Date(from);
         const toDate = new Date(to);
 
@@ -239,51 +239,64 @@ class ReportService {
         };
     }
 
-    async getNotifications() {
+    private hasAccess(permissions: Record<string, string>, role: string, module: string): boolean {
+        if (role === 'admin') return true;
+        const level = permissions[module] || 'none';
+        return level === 'view' || level === 'full';
+    }
+
+    async getNotifications(permissions: Record<string, string>, role: string) {
         const now = new Date();
         const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
         const threeDaysFromNow = new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000);
 
+        const canSeeRequests = this.hasAccess(permissions, role, 'requests');
+        const canSeeService = this.hasAccess(permissions, role, 'service');
+        const canSeeRentals = this.hasAccess(permissions, role, 'rentals');
+
         const [newRequests, upcomingService, overdueRentals] = await Promise.all([
-            // New rental requests (last 7 days)
-            prisma.rentalRequest.findMany({
-                where: {
-                    status: 'new',
-                    createdAt: {gte: sevenDaysAgo},
-                },
-                take: 10,
-                orderBy: {createdAt: 'desc'},
-                include: {
-                    client: {select: {firstName: true, lastName: true}},
-                    car: {select: {brand: true, model: true}},
-                },
-            }),
+            canSeeRequests
+                ? prisma.rentalRequest.findMany({
+                      where: {
+                          status: 'new',
+                          createdAt: {gte: sevenDaysAgo},
+                      },
+                      take: 10,
+                      orderBy: {createdAt: 'desc'},
+                      include: {
+                          client: {select: {firstName: true, lastName: true}},
+                          car: {select: {brand: true, model: true}},
+                      },
+                  })
+                : Promise.resolve([]),
 
-            // Service events starting in the next 3 days
-            prisma.serviceEvent.findMany({
-                where: {
-                    startDate: {gte: now, lte: threeDaysFromNow},
-                },
-                take: 10,
-                orderBy: {startDate: 'asc'},
-                include: {
-                    car: {select: {brand: true, model: true, plateNumber: true}},
-                },
-            }),
+            canSeeService
+                ? prisma.serviceEvent.findMany({
+                      where: {
+                          startDate: {gte: now, lte: threeDaysFromNow},
+                      },
+                      take: 10,
+                      orderBy: {startDate: 'asc'},
+                      include: {
+                          car: {select: {brand: true, model: true, plateNumber: true}},
+                      },
+                  })
+                : Promise.resolve([]),
 
-            // Overdue rentals
-            prisma.rental.findMany({
-                where: {
-                    status: 'active',
-                    returnDate: {lt: now},
-                },
-                take: 10,
-                orderBy: {returnDate: 'asc'},
-                include: {
-                    client: {select: {firstName: true, lastName: true}},
-                    car: {select: {brand: true, model: true, plateNumber: true}},
-                },
-            }),
+            canSeeRentals
+                ? prisma.rental.findMany({
+                      where: {
+                          status: 'active',
+                          returnDate: {lt: now},
+                      },
+                      take: 10,
+                      orderBy: {returnDate: 'asc'},
+                      include: {
+                          client: {select: {firstName: true, lastName: true}},
+                          car: {select: {brand: true, model: true, plateNumber: true}},
+                      },
+                  })
+                : Promise.resolve([]),
         ]);
 
         const items: Array<{
@@ -297,28 +310,27 @@ class ReportService {
         for (const r of newRequests) {
             const client = r.client
                 ? `${r.client.firstName} ${r.client.lastName}`.trim()
-                : 'Клиент';
-            const car = r.car ? `${r.car.brand} ${r.car.model}` : 'Авто';
+                : 'Client';
+            const car = r.car ? `${r.car.brand} ${r.car.model}` : 'Car';
             items.push({
                 id: `request-${r.id}`,
                 type: 'request',
-                title: 'Новая заявка',
+                title: 'notification.newRequest',
                 message: `${car} — ${client}`,
                 createdAt: r.createdAt.toISOString(),
             });
         }
 
         for (const s of upcomingService) {
-            const car = s.car ? `${s.car.brand} ${s.car.model}` : 'Авто';
+            const car = s.car ? `${s.car.brand} ${s.car.model}` : 'Car';
             const daysUntil = Math.ceil(
                 (s.startDate.getTime() - now.getTime()) / (24 * 60 * 60 * 1000),
             );
-            const when = daysUntil === 0 ? 'сегодня' : daysUntil === 1 ? 'завтра' : `через ${daysUntil} дн.`;
             items.push({
                 id: `service-${s.id}`,
                 type: 'service',
-                title: 'Плановый сервис',
-                message: `${car} — ${when}`,
+                title: 'notification.plannedService',
+                message: `${car} — ${daysUntil}d`,
                 createdAt: s.startDate.toISOString(),
             });
         }
@@ -326,16 +338,16 @@ class ReportService {
         for (const r of overdueRentals) {
             const client = r.client
                 ? `${r.client.firstName} ${r.client.lastName}`.trim()
-                : 'Клиент';
-            const car = r.car ? `${r.car.brand} ${r.car.model}` : 'Авто';
+                : 'Client';
+            const car = r.car ? `${r.car.brand} ${r.car.model}` : 'Car';
             const overdueDays = Math.ceil(
                 (now.getTime() - r.returnDate.getTime()) / (24 * 60 * 60 * 1000),
             );
             items.push({
                 id: `overdue-${r.id}`,
                 type: 'overdue',
-                title: 'Просрочен возврат',
-                message: `${car} — ${client} (${overdueDays} дн.)`,
+                title: 'notification.overdueReturn',
+                message: `${car} — ${client} (${overdueDays}d)`,
                 createdAt: r.returnDate.toISOString(),
             });
         }
@@ -377,82 +389,95 @@ class ReportService {
         };
     }
 
-    async search(query: string) {
+    async search(query: string, permissions: Record<string, string> = {}, role = 'manager') {
         const q = query.trim();
         if (q.length < 2) return {results: []};
 
         const contains = (field: string) => ({[field]: {contains: q, mode: 'insensitive' as const}});
 
+        const canSeeClients = this.hasAccess(permissions, role, 'clients');
+        const canSeeCars = this.hasAccess(permissions, role, 'cars');
+        const canSeeRequests = this.hasAccess(permissions, role, 'requests');
+        const canSeeRentals = this.hasAccess(permissions, role, 'rentals');
+
         const [clients, cars, requests, rentals] = await Promise.all([
-            prisma.client.findMany({
-                where: {
-                    deletedAt: null,
-                    OR: [
-                        contains('firstName'),
-                        contains('lastName'),
-                        contains('phone'),
-                        contains('email'),
-                    ],
-                },
-                select: {id: true, firstName: true, lastName: true, phone: true, email: true},
-                take: 5,
-                orderBy: {lastName: 'asc'},
-            }),
+            canSeeClients
+                ? prisma.client.findMany({
+                      where: {
+                          deletedAt: null,
+                          OR: [
+                              contains('firstName'),
+                              contains('lastName'),
+                              contains('phone'),
+                              contains('email'),
+                          ],
+                      },
+                      select: {id: true, firstName: true, lastName: true, phone: true, email: true},
+                      take: 5,
+                      orderBy: {lastName: 'asc'},
+                  })
+                : Promise.resolve([]),
 
-            prisma.car.findMany({
-                where: {
-                    OR: [
-                        contains('brand'),
-                        contains('model'),
-                        contains('plateNumber'),
-                        contains('VIN'),
-                    ],
-                },
-                select: {id: true, brand: true, model: true, plateNumber: true},
-                take: 5,
-                orderBy: {brand: 'asc'},
-            }),
+            canSeeCars
+                ? prisma.car.findMany({
+                      where: {
+                          OR: [
+                              contains('brand'),
+                              contains('model'),
+                              contains('plateNumber'),
+                              contains('VIN'),
+                          ],
+                      },
+                      select: {id: true, brand: true, model: true, plateNumber: true},
+                      take: 5,
+                      orderBy: {brand: 'asc'},
+                  })
+                : Promise.resolve([]),
 
-            prisma.rentalRequest.findMany({
-                where: {
-                    OR: [
-                        contains('firstName'),
-                        contains('lastName'),
-                        contains('phone'),
-                        contains('email'),
-                        {client: {OR: [contains('firstName'), contains('lastName')]}},
-                    ],
-                },
-                select: {
-                    id: true,
-                    status: true,
-                    createdAt: true,
-                    firstName: true,
-                    lastName: true,
-                    car: {select: {brand: true, model: true}},
-                },
-                take: 5,
-                orderBy: {createdAt: 'desc'},
-            }),
+            canSeeRequests
+                ? prisma.rentalRequest.findMany({
+                      where: {
+                          OR: [
+                              contains('firstName'),
+                              contains('lastName'),
+                              contains('phone'),
+                              contains('email'),
+                              {client: {OR: [contains('firstName'), contains('lastName')]}},
+                          ],
+                      },
+                      select: {
+                          id: true,
+                          status: true,
+                          createdAt: true,
+                          firstName: true,
+                          lastName: true,
+                          car: {select: {brand: true, model: true}},
+                      },
+                      take: 5,
+                      orderBy: {createdAt: 'desc'},
+                  })
+                : Promise.resolve([]),
 
-            prisma.rental.findMany({
-                where: {
-                    OR: [
-                        contains('contractNumber'),
-                        {client: {OR: [contains('firstName'), contains('lastName'), contains('phone')]}},
-                        {car: {OR: [contains('brand'), contains('model'), contains('plateNumber')]}},
-                    ],
-                },
-                select: {
-                    id: true,
-                    status: true,
-                    contractNumber: true,
-                    client: {select: {firstName: true, lastName: true}},
-                    car: {select: {brand: true, model: true}},
-                },
-                take: 5,
-                orderBy: {createdAt: 'desc'},
-            }),
+            canSeeRentals
+                ? prisma.rental.findMany({
+                      where: {
+                          OR: [
+                              contains('contractNumber'),
+                              {client: {OR: [contains('firstName'), contains('lastName'), contains('phone')]}},
+                              {car: {OR: [contains('brand'), contains('model'), contains('plateNumber')]}},
+                          ],
+                      },
+                      select: {
+                          id: true,
+                          status: true,
+                          contractNumber: true,
+                          client: {select: {firstName: true, lastName: true}},
+                          car: {select: {brand: true, model: true}},
+                      },
+                      take: 5,
+                      orderBy: {createdAt: 'desc'},
+                  })
+                : Promise.resolve([]),
         ]);
 
         const results: Array<{id: number; type: string; title: string; subtitle: string}> = [];

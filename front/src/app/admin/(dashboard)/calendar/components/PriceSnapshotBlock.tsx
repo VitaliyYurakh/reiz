@@ -2,8 +2,10 @@
 
 import { DollarSign } from 'lucide-react';
 import type { ThemeTokens } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 
 export function PriceSnapshotBlock({ ps, H }: { ps: any; H: ThemeTokens }) {
+  const { t } = useAdminLocale();
   const days = ps.totalDays;
   const rental = ps.baseAmount ?? ps.baseRentalCost;
   const insurance = ps.insuranceCost;
@@ -76,7 +78,7 @@ export function PriceSnapshotBlock({ ps, H }: { ps: any; H: ThemeTokens }) {
           gap: 6,
         }}
       >
-        <DollarSign style={{ width: 12, height: 12 }} /> Стоимость
+        <DollarSign style={{ width: 12, height: 12 }} /> {t('calendar.priceTitle')}
       </div>
       <div
         style={{
@@ -87,34 +89,34 @@ export function PriceSnapshotBlock({ ps, H }: { ps: any; H: ThemeTokens }) {
       >
         {(ps.ratePlanName ?? ps.name) != null && (
           <Line
-            label="Тарифный план"
+            label={t('calendar.ratePlanName')}
             value={String(ps.ratePlanName ?? ps.name)}
           />
         )}
         {ps.dailyRate != null && (
-          <Line label="Тариф / сутки" value={`${ps.dailyRate} ${cur}`} />
+          <Line label={t('calendar.dailyRate')} value={`${ps.dailyRate} ${cur}`} />
         )}
-        {days != null && <Line label="Кол-во дней" value={String(days)} />}
+        {days != null && <Line label={t('calendar.totalDays')} value={String(days)} />}
         {rental != null && (
-          <Line label="Аренда" value={`${rental} ${cur}`} />
+          <Line label={t('calendar.rental')} value={`${rental} ${cur}`} />
         )}
         {insurance != null && Number(insurance) > 0 && (
-          <Line label="Страховка" value={`${insurance} ${cur}`} />
+          <Line label={t('calendar.insuranceCost')} value={`${insurance} ${cur}`} />
         )}
         {extras != null && Number(extras) > 0 && (
-          <Line label="Доп. услуги" value={`${extras} ${cur}`} />
+          <Line label={t('calendar.extrasCost')} value={`${extras} ${cur}`} />
         )}
         {delivery != null && Number(delivery) > 0 && (
-          <Line label="Доставка" value={`${delivery} ${cur}`} />
+          <Line label={t('calendar.deliveryCost')} value={`${delivery} ${cur}`} />
         )}
         {disc != null && Number(disc) > 0 && (
-          <Line label="Скидка" value={`-${disc} ${cur}`} green />
+          <Line label={t('calendar.discount')} value={`-${disc} ${cur}`} green />
         )}
         {deposit != null && (
-          <Line label="Залог" value={`${deposit} ${cur}`} />
+          <Line label={t('calendar.depositAmount')} value={`${deposit} ${cur}`} />
         )}
         {total != null && (
-          <Line label="Итого" value={`${total} ${cur}`} bold border />
+          <Line label={t('calendar.totalCost')} value={`${total} ${cur}`} bold border />
         )}
       </div>
     </div>

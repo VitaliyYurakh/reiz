@@ -1,6 +1,7 @@
 'use client';
 
 import type { ThemeTokens } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import type { Interval } from './calendar-types';
 import { TYPE_STYLES } from './calendar-types';
 import { StatusBadge } from './StatusBadge';
@@ -12,6 +13,7 @@ export function CalendarTooltip({
   tooltip: { x: number; y: number; interval: Interval };
   H: ThemeTokens;
 }) {
+  const { t } = useAdminLocale();
   return (
     <div
       style={{
@@ -53,8 +55,8 @@ export function CalendarTooltip({
             color: H.navy,
           }}
         >
-          {TYPE_STYLES[tooltip.interval.type]?.label ??
-            tooltip.interval.type}{' '}
+          {t(TYPE_STYLES[tooltip.interval.type]?.labelKey ??
+            tooltip.interval.type)}{' '}
           #{tooltip.interval.id}
         </span>
       </div>
@@ -77,12 +79,10 @@ export function CalendarTooltip({
           margin: '0 0 2px',
         }}
       >
-        {new Date(tooltip.interval.startDate).toLocaleDateString('ru')}
+        {new Date(tooltip.interval.startDate).toLocaleDateString()}
         {' — '}
         {tooltip.interval.endDate
-          ? new Date(tooltip.interval.endDate).toLocaleDateString(
-              'ru',
-            )
+          ? new Date(tooltip.interval.endDate).toLocaleDateString()
           : '...'}
       </p>
       {tooltip.interval.status && (
@@ -98,7 +98,7 @@ export function CalendarTooltip({
           fontStyle: 'italic',
         }}
       >
-        Нажмите для подробностей
+        {t('calendar.clickForDetails')}
       </p>
     </div>
   );

@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
 import { DollarSign } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import type { TabKey, RatePlan, AddOn, CoveragePackage } from './components/pricing-types';
 import { TABS } from './components/pricing-types';
 import { RatePlansSection } from './components/RatePlansSection';
@@ -12,6 +13,7 @@ import { CoverageSection } from './components/CoverageSection';
 
 export default function PricingPage() {
   const { H } = useAdminTheme();
+  const { t } = useAdminLocale();
   const [activeTab, setActiveTab] = useState<TabKey>('ratePlans');
   const [ratePlans, setRatePlans] = useState<RatePlan[]>([]);
   const [addOns, setAddOns] = useState<AddOn[]>([]);
@@ -37,7 +39,7 @@ export default function PricingPage() {
       }
     } catch (err) {
       console.error(err);
-      setError('Не удалось загрузить данные');
+      setError(t('pricing.loadError'));
     } finally {
       setLoading(false);
     }
@@ -58,9 +60,9 @@ export default function PricingPage() {
         style={{
           background: H.white,
           borderRadius: 20,
-          padding: '20px 24px',
+          padding: '20px 28px',
           boxShadow: H.shadow,
-          marginBottom: 20,
+          marginBottom: 24,
         }}
       >
         {/* Row 1: Title + tabs */}
@@ -73,43 +75,13 @@ export default function PricingPage() {
             gap: 16,
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <div
-              style={{
-                width: 42,
-                height: 42,
-                borderRadius: 14,
-                background: `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 4px 12px rgba(67, 24, 255, 0.3)',
-              }}
-            >
-              <DollarSign style={{ width: 20, height: 20, color: '#fff' }} />
+          <div className="flex items-center gap-3.5">
+            <div className="h-icon-box h-icon-box-purple">
+              <DollarSign size={24} />
             </div>
             <div>
-              <h1
-                style={{
-                  fontSize: 22,
-                  fontWeight: 700,
-                  color: H.navy,
-                  margin: 0,
-                  lineHeight: 1.2,
-                }}
-              >
-                Ценообразование
-              </h1>
-              <p
-                style={{
-                  fontSize: 13,
-                  color: H.gray,
-                  margin: 0,
-                  marginTop: 2,
-                }}
-              >
-                Управление тарифами, доп. услугами и покрытием
-              </p>
+              <h1 className="h-title">{t('pricing.pageTitle')}</h1>
+              <span className="h-subtitle">{t('pricing.pageSubtitle')}</span>
             </div>
           </div>
 
@@ -156,7 +128,7 @@ export default function PricingPage() {
                   }}
                 >
                   <TabIcon style={{ width: 15, height: 15 }} />
-                  {tab.label}
+                  {t(tab.labelKey)}
                 </button>
               );
             })}

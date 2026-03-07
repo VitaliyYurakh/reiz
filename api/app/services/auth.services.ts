@@ -18,7 +18,7 @@ class AuthService {
     }
 
     async loginUser(email: string, pass: string) {
-        const user = await prisma.user.findFirst({where: {email}});
+        const user = await prisma.user.findFirst({where: {email}, select: {id: true, pass: true, tokenVersion: true}});
 
         if (!user) {
             throw new UserNotFoundError();
@@ -36,7 +36,7 @@ class AuthService {
             await prisma.user.update({where: {id: user.id}, data: {pass: newHash}});
         }
 
-        const token = jwt.sign({id: user.id}, SECRET, {algorithm: 'HS256', expiresIn: '24h'});
+        const token = jwt.sign({id: user.id, tv: user.tokenVersion}, SECRET, {algorithm: 'HS256', expiresIn: '24h'});
 
         return token;
     }

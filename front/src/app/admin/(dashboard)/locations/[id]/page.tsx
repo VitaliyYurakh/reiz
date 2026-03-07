@@ -329,20 +329,7 @@ export default function CityDetailPage() {
         <button
           onClick={handleSaveCity}
           disabled={saving}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            padding: '12px 28px',
-            borderRadius: 12,
-            border: 'none',
-            background: `linear-gradient(135deg, ${H.purple}, #7551FF)`,
-            color: '#fff',
-            fontWeight: 600,
-            fontSize: 14,
-            cursor: saving ? 'wait' : 'pointer',
-            opacity: saving ? 0.6 : 1,
-          }}
+          className="h-btn h-btn-primary"
         >
           <Save size={16} />
           {saving ? t('common.saving') : t('common.save')}
@@ -357,19 +344,7 @@ export default function CityDetailPage() {
           </h2>
           <button
             onClick={openAddLocation}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 6,
-              padding: '8px 16px',
-              borderRadius: 10,
-              border: `1px solid ${H.purple}`,
-              background: 'transparent',
-              color: H.purple,
-              fontWeight: 600,
-              fontSize: 13,
-              cursor: 'pointer',
-            }}
+            className="h-btn h-btn-primary h-btn-sm"
           >
             <Plus size={14} />
             {t('locations.addLocation')}
@@ -565,35 +540,14 @@ export default function CityDetailPage() {
             <div style={{ display: 'flex', gap: 12, justifyContent: 'flex-end' }}>
               <button
                 onClick={() => setLocModal(false)}
-                style={{
-                  padding: '10px 20px',
-                  borderRadius: 10,
-                  border: `1px solid ${H.grayLight}`,
-                  background: H.white,
-                  fontSize: 14,
-                  cursor: 'pointer',
-                  fontWeight: 500,
-                }}
+                className="h-btn h-btn-cancel"
               >
                 {t('common.cancel')}
               </button>
               <button
                 onClick={handleSaveLocation}
                 disabled={locSaving}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  padding: '10px 20px',
-                  borderRadius: 10,
-                  border: 'none',
-                  background: `linear-gradient(135deg, ${H.purple}, #7551FF)`,
-                  color: '#fff',
-                  fontSize: 14,
-                  cursor: locSaving ? 'wait' : 'pointer',
-                  fontWeight: 600,
-                  opacity: locSaving ? 0.6 : 1,
-                }}
+                className="h-btn h-btn-primary"
               >
                 <Check size={14} />
                 {locSaving ? t('common.saving') : t('common.save')}
