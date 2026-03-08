@@ -119,8 +119,9 @@ export function HeaderCard({
             className="h-btn h-btn-sm"
             style={{
               borderRadius: 49,
-              background: isAvailable ? H.greenBg : H.redBg,
-              color: isAvailable ? H.green : H.red,
+              background: isAvailable ? '#22c55e' : '#ef4444',
+              color: '#fff',
+              fontWeight: 700,
             }}
           >
             <div
@@ -128,7 +129,7 @@ export function HeaderCard({
                 width: 8,
                 height: 8,
                 borderRadius: '50%',
-                background: isAvailable ? H.green : H.red,
+                background: '#fff',
               }}
             />
             {isAvailable ? 'Доступно' : 'Недоступно'}
