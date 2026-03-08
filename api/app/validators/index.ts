@@ -118,6 +118,7 @@ export const updateCarSchema = z.object({
         yearOfManufacture: z.number().int().min(1900).max(2100).optional(),
         color: z.string().max(50).optional(),
         segmentIds: z.array(z.number().int().positive()).optional(),
+        isAvailable: z.boolean().optional(),
         description: z.string().max(5000).optional(),
         engineVolume: z.string().max(20).optional(),
         engineType: z.string().max(50).optional(),
