@@ -247,12 +247,17 @@ export default function CarEditPage() {
       yearOfManufacture: Number(data.yearOfManufacture),
       segmentIds,
     };
+    if (!segmentIds.length) {
+      alert('Оберіть хоча б один сегмент');
+      return;
+    }
     try {
       await updateCar(id, reqData);
       setIsSettingsModalOpen(false);
       await loadData();
-    } catch (e) {
-      alert(String(e));
+    } catch (e: any) {
+      const msg = e?.response?.data?.errors?.join(', ') || e?.response?.data?.msg || String(e);
+      alert('Помилка: ' + msg);
     }
   };
 
