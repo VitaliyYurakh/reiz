@@ -3,11 +3,10 @@
 import React from 'react';
 import { ArrowLeft, Settings } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
-import type { Car, Segment } from '@/types/cars';
+import type { Car } from '@/types/cars';
 
 interface HeaderCardProps {
   car: Car;
-  segmentInfo: Segment | null;
   displayName: string;
   isAvailable: boolean;
   onToggleAvailable: () => void;
@@ -17,7 +16,6 @@ interface HeaderCardProps {
 
 export function HeaderCard({
   car,
-  segmentInfo,
   displayName,
   isAvailable,
   onToggleAvailable,
@@ -94,8 +92,9 @@ export function HeaderCard({
                   {car.yearOfManufacture} г.
                 </span>
               )}
-              {segmentInfo && (
+              {car.segment?.map((seg) => (
                 <span
+                  key={seg.id}
                   style={{
                     display: 'inline-block',
                     background: 'linear-gradient(135deg, rgba(134,140,255,0.12) 0%, rgba(67,24,255,0.12) 100%)',
@@ -106,9 +105,9 @@ export function HeaderCard({
                     color: H.purple,
                   }}
                 >
-                  {segmentInfo.name}
+                  {seg.name}
                 </span>
-              )}
+              ))}
             </div>
           </div>
         </div>
@@ -155,10 +154,9 @@ export function HeaderCard({
 
 interface InfoGridProps {
   car: Car;
-  segmentInfo: Segment | null;
 }
 
-export function InfoGrid({ car, segmentInfo }: InfoGridProps) {
+export function InfoGrid({ car }: InfoGridProps) {
   const { H } = useAdminTheme();
 
   const items = [
@@ -168,7 +166,7 @@ export function InfoGrid({ car, segmentInfo }: InfoGridProps) {
     { label: 'VIN', value: car.VIN },
     { label: 'Год', value: car.yearOfManufacture },
     { label: 'Цвет', value: car.color },
-    { label: 'Сегмент', value: segmentInfo?.name },
+    { label: 'Сегменти', value: car.segment?.map((s) => s.name).join(', ') },
   ];
 
   return (

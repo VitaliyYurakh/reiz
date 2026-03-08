@@ -237,7 +237,7 @@ export default function CarEditPage() {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
     const data = Object.fromEntries(formData.entries());
-    const segmentId = data.segmentId;
+    const segmentIds = formData.getAll('segmentIds').map(Number);
     const reqData: any = {
       brand: data.brand,
       model: data.model,
@@ -245,8 +245,8 @@ export default function CarEditPage() {
       VIN: data.VIN,
       color: data.color,
       yearOfManufacture: Number(data.yearOfManufacture),
+      segmentIds,
     };
-    if (segmentId) reqData.segmentIds = [Number(segmentId)];
     try {
       await updateCar(id, reqData);
       setIsSettingsModalOpen(false);
@@ -279,7 +279,6 @@ export default function CarEditPage() {
       {/* Header Card */}
       <HeaderCard
         car={car}
-        segmentInfo={segmentInfo}
         displayName={displayName}
         isAvailable={isAvailable}
         onToggleAvailable={handleToggleAvailable}
@@ -288,7 +287,7 @@ export default function CarEditPage() {
       />
 
       {/* Info Grid */}
-      <InfoGrid car={car} segmentInfo={segmentInfo} />
+      <InfoGrid car={car} />
 
       {/* Tabs */}
       <Tabs defaultValue="media" className="w-full">
@@ -410,7 +409,6 @@ export default function CarEditPage() {
         <SettingsModal
           car={car}
           segments={segments}
-          segmentInfo={segmentInfo}
           onClose={() => setIsSettingsModalOpen(false)}
           onSubmit={handleSettingsSubmit}
         />

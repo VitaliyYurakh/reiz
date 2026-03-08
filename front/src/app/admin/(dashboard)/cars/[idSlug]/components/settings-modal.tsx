@@ -9,12 +9,11 @@ import { HModalOverlay, HModalField } from './ui-primitives';
 interface SettingsModalProps {
   car: Car;
   segments: Segment[];
-  segmentInfo: Segment | null;
   onClose: () => void;
   onSubmit: (e: React.FormEvent) => void;
 }
 
-export function SettingsModal({ car, segments, segmentInfo, onClose, onSubmit }: SettingsModalProps) {
+export function SettingsModal({ car, segments, onClose, onSubmit }: SettingsModalProps) {
   const { H } = useAdminTheme();
 
   return (
@@ -62,35 +61,53 @@ export function SettingsModal({ car, segments, segmentInfo, onClose, onSubmit }:
           <HModalField label="Цвет" name="color" defaultValue={car.color || ''} />
           <div>
             <label style={{ display: 'block', fontSize: 12, fontWeight: 500, color: H.gray, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>
-              Сегмент
+              Сегменти
             </label>
-            <select
-              name="segmentId"
-              defaultValue={segmentInfo?.id || ''}
-              style={{
-                width: '100%',
-                height: 44,
-                borderRadius: 16,
-                border: 'none',
-                background: H.bg,
-                padding: '0 16px',
-                fontSize: 14,
-                fontWeight: 500,
-                color: H.navy,
-                fontFamily: H.font,
-                outline: 'none',
-                appearance: 'none',
-                cursor: 'pointer',
-                backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23A3AED0' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e\")",
-                backgroundPosition: 'right 12px center',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: '1.25em 1.25em',
-              }}
-            >
-              {segments.map((s) => (
-                <option key={s.id} value={s.id}>{s.name}</option>
-              ))}
-            </select>
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 8,
+              background: H.bg,
+              borderRadius: 16,
+              padding: '12px 16px',
+            }}>
+              {segments.map((s) => {
+                const isActive = car.segment?.some((cs) => cs.id === s.id);
+                return (
+                  <label
+                    key={s.id}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 6,
+                      padding: '6px 14px',
+                      borderRadius: 49,
+                      fontSize: 13,
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      userSelect: 'none',
+                      fontFamily: H.font,
+                      color: H.navy,
+                      transition: 'all 0.15s',
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      name="segmentIds"
+                      value={s.id}
+                      defaultChecked={isActive}
+                      style={{
+                        width: 16,
+                        height: 16,
+                        accentColor: H.navy,
+                        cursor: 'pointer',
+                      }}
+                    />
+                    {s.name}
+                  </label>
+                );
+              })}
+            </div>
           </div>
         </div>
         <div className="flex gap-3 justify-end" style={{ marginTop: 28 }}>
