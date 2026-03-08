@@ -10,35 +10,23 @@ const getLocaleFromPath = (pathname: string): Locale => {
   return isLocale(seg ?? "") ? (seg as Locale) : defaultLocale;
 };
 
-const stripLocaleFromPath = (pathname: string) => {
-  const seg = pathname.split("/")[1];
-  if (!isLocale(seg ?? "")) return pathname;
-  const rest = "/" + pathname.split("/").slice(2).join("/");
-  return rest === "/" ? "/" : rest;
-};
-
-const withLocale = (pathname: string, locale: Locale) => {
-  if (locale === defaultLocale) return pathname;
-  return `/${locale}${pathname === "/" ? "" : pathname}`;
-};
-
 export default function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  const pathLocale = getLocaleFromPath(pathname);
   const cookieLocale = request.cookies.get(LOCALE_COOKIE)?.value;
-  if (isLocale(cookieLocale ?? "")) {
-    const pathname = request.nextUrl.pathname;
-    const pathLocale = getLocaleFromPath(pathname);
-    if (pathLocale !== cookieLocale) {
-      const basePath = stripLocaleFromPath(pathname);
-      const nextPath = withLocale(basePath, cookieLocale as Locale);
-      if (nextPath !== pathname) {
-        const url = request.nextUrl.clone();
-        url.pathname = nextPath;
-        return NextResponse.redirect(url);
-      }
-    }
+
+  const response = intlMiddleware(request);
+
+  // URL locale takes priority — update cookie to match
+  if (pathLocale !== cookieLocale) {
+    response.cookies.set(LOCALE_COOKIE, pathLocale, {
+      path: "/",
+      maxAge: 31536000,
+      sameSite: "lax",
+    });
   }
 
-  return intlMiddleware(request);
+  return response;
 }
 
 export const config = {
