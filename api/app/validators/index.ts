@@ -111,12 +111,12 @@ export const createCarSchema = z.object({
 
 export const updateCarSchema = z.object({
     data: z.object({
-        brand: z.string().min(1).max(100).optional(),
-        model: z.string().min(1).max(100).optional(),
-        plateNumber: z.string().min(1).max(20).optional(),
-        VIN: z.string().min(1).max(50).optional(),
+        brand: z.string().max(100).optional(),
+        model: z.string().max(100).optional(),
+        plateNumber: z.string().max(20).optional(),
+        VIN: z.string().max(50).optional(),
         yearOfManufacture: z.number().int().min(1900).max(2100).optional(),
-        color: z.string().min(1).max(50).optional(),
+        color: z.string().max(50).optional(),
         segmentIds: z.array(z.number().int().positive()).optional(),
         description: z.string().max(5000).optional(),
         engineVolume: z.string().max(20).optional(),
