@@ -33,12 +33,14 @@ export function UserModal({
     return defaults;
   });
   const [saving, setSaving] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const setPerm = (module: string, level: PermLevel) => {
     setPermissions((prev) => ({ ...prev, [module]: level }));
   };
 
   const handleSave = async () => {
+    setErrorMsg('');
     if (!email.trim()) return;
     if (isNew && !password.trim()) return;
     setSaving(true);
@@ -52,7 +54,12 @@ export function UserModal({
       onClose();
     } catch (err: any) {
       console.error(err);
-      alert(err?.response?.data?.msg || t('settings.saveError'));
+      const data = err?.response?.data;
+      if (data?.errors && Array.isArray(data.errors)) {
+        setErrorMsg(data.errors.join('\n'));
+      } else {
+        setErrorMsg(data?.msg || t('settings.saveError'));
+      }
     } finally {
       setSaving(false);
     }
@@ -104,6 +111,9 @@ export function UserModal({
                 onChange={(e) => setPassword(e.target.value)}
                 className="h-input"
               />
+              <p className="text-[11px] mt-1" style={{ color: 'var(--color-h-gray, #90A4AE)' }}>
+                {t('settings.passwordHint')}
+              </p>
             </div>
           )}
 
@@ -174,6 +184,12 @@ export function UserModal({
             )}
           </div>
         </div>
+
+        {errorMsg && (
+          <div className="mt-3 rounded-lg px-3 py-2 text-[13px] shrink-0" style={{ backgroundColor: 'rgba(239,83,80,0.1)', color: '#EF5350', whiteSpace: 'pre-line' }}>
+            {errorMsg}
+          </div>
+        )}
 
         <div className="mt-4 flex justify-end gap-2.5 shrink-0 pt-3" style={{ borderTop: '1px solid var(--color-h-border, #eee)' }}>
           <button type="button" onClick={onClose} className="h-btn h-btn-outline">

@@ -1162,6 +1162,7 @@ export const ro: AdminTranslations = {
         editUser: 'Editează utilizator',
         nameLabel: 'Nume',
         passwordLabel: 'Parolă',
+        passwordHint: 'Min. 8 caractere, literă mare și mică, cifră',
         permissionsLabel: 'Acces la module',
         accessFull: 'Complet',
         accessView: 'Vizualizare',

@@ -1162,6 +1162,7 @@ export const ru: AdminTranslations = {
     editUser: 'Редактирование пользователя',
     nameLabel: 'Имя',
     passwordLabel: 'Пароль',
+    passwordHint: 'Мин. 8 символов, заглавная и строчная буква, цифра',
     permissionsLabel: 'Доступ к модулям',
     accessFull: 'Полный',
     accessView: 'Просмотр',

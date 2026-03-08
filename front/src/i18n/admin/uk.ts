@@ -1180,6 +1180,7 @@ export const uk = {
     editUser: 'Редагування користувача',
     nameLabel: "Ім'я",
     passwordLabel: 'Пароль',
+    passwordHint: 'Мін. 8 символів, велика та мала літера, цифра',
     permissionsLabel: 'Доступ до модулів',
     accessFull: 'Повний',
     accessView: 'Перегляд',

@@ -1162,6 +1162,7 @@ export const pl: AdminTranslations = {
     editUser: 'Edytuj użytkownika',
     nameLabel: 'Nazwa',
     passwordLabel: 'Hasło',
+    passwordHint: 'Min. 8 znaków, duża i mała litera, cyfra',
     permissionsLabel: 'Dostęp do modułów',
     accessFull: 'Pełny',
     accessView: 'Podgląd',
