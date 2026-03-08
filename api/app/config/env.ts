@@ -6,7 +6,7 @@ import {z} from 'zod';
 const envSchema = z.object({
     // ── Required ──
     DATABASE_URL: z.string().min(1, 'DATABASE_URL is required'),
-    SECRET: z.string().min(1, 'SECRET is required'),
+    SECRET: z.string().min(32, 'SECRET must be at least 32 characters'),
 
     // ── Optional with defaults ──
     PORT: z.coerce.number().int().positive().default(3000),
