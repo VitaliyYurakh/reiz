@@ -667,7 +667,7 @@ export default function ReservationDetailPage() {
                             </thead>
                             <tbody>
                                 {r.transactions.map(tx => {
-                                    const isIn = tx.direction === 'IN';
+                                    const isIn = tx.direction === 'in';
                                     return (
                                         <tr key={tx.id} className="border-b border-border hover:bg-muted/30">
                                             <td className="px-4 py-2.5 font-medium">{tx.id}</td>

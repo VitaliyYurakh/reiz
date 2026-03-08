@@ -101,7 +101,7 @@ class FineService {
             // Create the payment transaction
             const transaction = await tx.transaction.create({
                 data: {
-                    type: 'fine_payment',
+                    type: 'FINE_PAYMENT',
                     accountId: transactionData.accountId,
                     direction: 'in',
                     amountMinor: transactionData.amountMinor,

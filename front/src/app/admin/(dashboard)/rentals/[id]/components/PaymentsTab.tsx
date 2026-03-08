@@ -34,7 +34,7 @@ export function PaymentsTab({ transactions }: { transactions: Transaction[] }) {
                 </thead>
                 <tbody>
                     {transactions.map((tx) => {
-                        const isIn = tx.direction === 'IN';
+                        const isIn = tx.direction === 'in';
                         return (
                             <tr key={tx.id} className="border-b border-border last:border-b-0 hover:bg-muted/30 transition-colors">
                                 <td className="px-4 py-2.5 font-medium text-foreground">{tx.id}</td>

@@ -255,7 +255,7 @@ class RentalService {
                 if (depositAccountId) {
                     depositTransaction = await tx.transaction.create({
                         data: {
-                            type: 'deposit_returned',
+                            type: 'DEPOSIT_RETURNED',
                             accountId: depositAccountId,
                             direction: 'out',
                             amountMinor: rental.depositAmount,

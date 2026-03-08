@@ -108,7 +108,7 @@ const CURRENCIES = ['UAH', 'USD', 'EUR', 'ILS'] as const;
 const initialCreateForm: CreateTransactionForm = {
   type: 'PAYMENT',
   accountId: '',
-  direction: 'IN',
+  direction: 'in',
   amount: '',
   currency: 'ILS',
   amountUah: '',
@@ -203,7 +203,17 @@ export default function FinancePage() {
   const totalPages = Math.ceil(total / limit);
 
   const updateCreateField = (key: keyof CreateTransactionForm, value: string) => {
-    setCreateForm((prev) => ({ ...prev, [key]: value }));
+    setCreateForm((prev) => {
+      const next = { ...prev, [key]: value };
+      // Auto-sync amountUah when currency is UAH
+      if (key === 'currency' && value === 'UAH') {
+        next.amountUah = next.amount;
+      }
+      if (key === 'amount' && prev.currency === 'UAH') {
+        next.amountUah = value;
+      }
+      return next;
+    });
   };
 
   const resetCreateForm = () => {
@@ -227,7 +237,7 @@ export default function FinancePage() {
     setSaving(true);
     try {
       const res = await adminApiClient.patch(`/finance/account/${accountId}`, editForm);
-      setAccounts((prev) => prev.map((a) => (a.id === accountId ? { ...a, ...res.data } : a)));
+      setAccounts((prev) => prev.map((a) => (a.id === accountId ? { ...a, ...res.data.account } : a)));
       setEditingAccountId(null);
     } catch (err) {
       console.error(err);
@@ -266,13 +276,22 @@ export default function FinancePage() {
     }
 
     try {
+      const amountMinor = Math.round(amountVal * 100);
+      const amountUahMinor = createForm.currency === 'UAH'
+        ? amountMinor
+        : Math.round(amountUahVal * 100);
+      const fxRate = createForm.currency === 'UAH'
+        ? 1.0
+        : amountUahMinor / amountMinor;
+
       const body: Record<string, unknown> = {
         type: createForm.type,
         accountId: parseInt(createForm.accountId),
         direction: createForm.direction,
-        amountMinor: Math.round(amountVal * 100),
+        amountMinor,
         currency: createForm.currency,
-        amountUahMinor: Math.round(amountUahVal * 100),
+        fxRate: Math.round(fxRate * 10000) / 10000,
+        amountUahMinor,
       };
       if (createForm.description.trim()) body.description = createForm.description.trim();
       if (createForm.clientId.trim()) body.clientId = parseInt(createForm.clientId);
@@ -283,6 +302,7 @@ export default function FinancePage() {
       setShowCreateForm(false);
       setPage(1);
       fetchBalances();
+      fetchTransactions();
     } catch (err: any) {
       const message =
         err?.response?.data?.message ||
@@ -456,8 +476,8 @@ export default function FinancePage() {
                   value={createForm.direction}
                   onChange={(v) => updateCreateField('direction', v)}
                   options={[
-                    { value: 'IN', label: t('finance.directionIn') },
-                    { value: 'OUT', label: t('finance.directionOut') },
+                    { value: 'in', label: t('finance.directionIn') },
+                    { value: 'out', label: t('finance.directionOut') },
                   ]}
                   className="w-full text-sm"
                 />
@@ -486,7 +506,14 @@ export default function FinancePage() {
                 />
               </div>
               <div>
-                <label className="h-label">{t('finance.amountUah')} <span className="h-required">*</span></label>
+                <label className="h-label">
+                  {t('finance.amountUah')} <span className="h-required">*</span>
+                  {createForm.currency !== 'UAH' && createForm.amount && createForm.amountUah && (
+                    <span className="ml-2 text-xs font-normal text-h-gray">
+                      (×{(parseFloat(createForm.amountUah) / parseFloat(createForm.amount) || 0).toFixed(2)})
+                    </span>
+                  )}
+                </label>
                 <input
                   type="number"
                   required
@@ -495,7 +522,8 @@ export default function FinancePage() {
                   placeholder="0.00"
                   value={createForm.amountUah}
                   onChange={(e) => updateCreateField('amountUah', e.target.value)}
-                  className="h-input"
+                  readOnly={createForm.currency === 'UAH'}
+                  className={`h-input ${createForm.currency === 'UAH' ? 'opacity-60' : ''}`}
                 />
               </div>
               <div>
@@ -590,7 +618,7 @@ export default function FinancePage() {
                 </tr>
               ) : (
                 transactions.map((tx) => {
-                  const isIn = tx.direction === 'IN';
+                  const isIn = tx.direction === 'in';
                   return (
                     <tr key={tx.id} className="h-tr">
                       <td className="h-td h-td-gray text-xs font-semibold">

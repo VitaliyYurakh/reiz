@@ -53,14 +53,22 @@ export const createClientSchema = z.object({
 });
 
 // ── Finance ──
+const TRANSACTION_TYPES = [
+    'PAYMENT', 'DEPOSIT_RECEIVED', 'DEPOSIT_RETURNED', 'REFUND',
+    'FINE_PAYMENT', 'SERVICE_COST', 'ADDON_PAYMENT', 'EXTENSION_PAYMENT',
+] as const;
+
+const ACCOUNT_TYPES = ['CASH', 'BANK_ACCOUNT', 'BANK_CARD'] as const;
+const CURRENCIES = ['UAH', 'USD', 'EUR', 'ILS'] as const;
+
 export const createTransactionSchema = z.object({
-    type: z.string().min(1),
+    type: z.enum(TRANSACTION_TYPES, {message: 'Invalid transaction type'}),
     accountId: z.number().int().positive(),
-    direction: z.string().min(1),
+    direction: z.string().transform((v) => v.toLowerCase()).pipe(z.enum(['in', 'out'], {message: 'Direction must be in or out'})),
     amountMinor: z.number().int().positive('Amount must be positive'),
-    currency: z.string().length(3, 'Currency must be a 3-letter code'),
-    fxRate: z.number().optional(),
-    amountUahMinor: z.number().int(),
+    currency: z.enum(CURRENCIES, {message: 'Currency must be UAH, USD, EUR or ILS'}),
+    fxRate: z.number().positive().optional(),
+    amountUahMinor: z.number().int().positive('UAH amount must be positive'),
     description: z.string().max(500).optional(),
     clientId: z.number().int().positive().optional(),
     rentalId: z.number().int().positive().optional(),
@@ -70,9 +78,16 @@ export const createTransactionSchema = z.object({
 
 export const createAccountSchema = z.object({
     name: z.string().min(1, 'Account name is required'),
-    type: z.string().min(1, 'Account type is required'),
-    currency: z.string().length(3).optional().default('UAH'),
+    type: z.enum(ACCOUNT_TYPES, {message: 'Account type must be CASH, BANK_ACCOUNT or BANK_CARD'}),
+    currency: z.enum(CURRENCIES).optional().default('UAH'),
     isActive: z.boolean().optional().default(true),
+});
+
+export const updateAccountSchema = z.object({
+    name: z.string().min(1).optional(),
+    type: z.enum(ACCOUNT_TYPES).optional(),
+    currency: z.enum(CURRENCIES).optional(),
+    isActive: z.boolean().optional(),
 });
 
 // ── Document ──

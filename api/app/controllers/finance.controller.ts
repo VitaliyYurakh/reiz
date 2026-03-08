@@ -3,7 +3,7 @@ import {Request, Response} from 'express';
 import financeService from '../services/finance.service';
 import {parseId, parseOptionalId, parsePagination} from '../utils';
 import logAudit from '../middleware/audit.middleware';
-import {createTransactionSchema, createAccountSchema, validate} from '../validators';
+import {createTransactionSchema, createAccountSchema, updateAccountSchema, validate} from '../validators';
 
 class FinanceController {
     // --- Accounts ---
@@ -15,7 +15,7 @@ class FinanceController {
 
     async getAccountBalances(req: Request, res: Response) {
         const balances = await financeService.getAccountBalances();
-        return res.status(StatusCodes.OK).json({balances});
+        return res.status(StatusCodes.OK).json(balances);
     }
 
     async createAccount(req: Request, res: Response) {
@@ -28,7 +28,8 @@ class FinanceController {
 
     async updateAccount(req: Request, res: Response) {
         const {id} = req.params;
-        const account = await financeService.updateAccount(parseId(id), req.body);
+        const data = validate(updateAccountSchema, req.body);
+        const account = await financeService.updateAccount(parseId(id), data);
 
         logAudit({actorId: res.locals.user?.id, entityType: 'Account', entityId: parseId(id), action: 'UPDATE', after: account, req});
         return res.status(StatusCodes.OK).json({account});

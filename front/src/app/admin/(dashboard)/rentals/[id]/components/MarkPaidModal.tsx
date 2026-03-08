@@ -25,7 +25,7 @@ export function MarkPaidModal({
     const [loadingAccounts, setLoadingAccounts] = useState(true);
 
     useEffect(() => {
-        adminApiClient.get('/account')
+        adminApiClient.get('/finance/account')
             .then((res) => {
                 const active = (res.data.accounts || []).filter((a: Account) => a.isActive);
                 setAccounts(active);
