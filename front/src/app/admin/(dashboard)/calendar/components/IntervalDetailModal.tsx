@@ -21,6 +21,7 @@ import type { ThemeTokens } from '@/context/AdminThemeContext';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import type { Interval } from './calendar-types';
 import { TYPE_STYLES, fmtDate, fmtMoney } from './calendar-types';
+import { fmtDateTime } from '@/app/admin/lib/format';
 import { StatusBadge } from './StatusBadge';
 import { DetailRow } from './DetailRow';
 import { PriceSnapshotBlock } from './PriceSnapshotBlock';
@@ -199,8 +200,8 @@ export function IntervalDetailModal({
 
               {/* Dates */}
               <DetailRow icon={Clock} label={t('calendar.period')} H={H}>
-                {fmtDate(detail.pickupDate || detail.startDate)} —{' '}
-                {fmtDate(detail.returnDate || detail.endDate)}
+                {fmtDateTime(detail.pickupDate || detail.startDate)} —{' '}
+                {fmtDateTime(detail.returnDate || detail.endDate)}
               </DetailRow>
 
               {/* Locations */}
