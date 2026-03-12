@@ -100,7 +100,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="h-login-btn"
+            className="h-login-btn text-white"
           >
             <LogIn size={18} />
             {loading ? t('login.submitting') : t('login.submit')}
