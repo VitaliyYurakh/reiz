@@ -1,4 +1,4 @@
-import {prisma, MS_PER_DAY, ReservationStatus} from '../utils';
+import {prisma, MS_PER_DAY, ReservationStatus, BadRequestError, ConflictError, NotFoundError} from '../utils';
 import {PriceSnapshot} from '../types/dto.types';
 import availabilityService from './availability.service';
 import {formatConflicts} from './availability.service';
@@ -152,9 +152,7 @@ class ReservationService {
                 );
 
                 if (!availability.available) {
-                    throw new Error(
-                        formatConflicts(availability.conflicts),
-                    );
+                    throw new ConflictError(formatConflicts(availability.conflicts));
                 }
             }
 
@@ -204,18 +202,18 @@ class ReservationService {
         });
 
         if (!reservation) {
-            throw new Error(`Reservation with id ${id} not found`);
+            throw new NotFoundError(`Reservation with id ${id} not found`);
         }
 
         if (reservation.status !== ReservationStatus.CONFIRMED) {
-            throw new Error(`Бронювання повинно мати статус "підтверджено". Поточний статус: ${reservation.status}`);
+            throw new BadRequestError(`Бронювання повинно мати статус "підтверджено". Поточний статус: ${reservation.status}`);
         }
 
         // Check if client is blocked
         if (reservation.client?.isBlocked) {
             const name = `${reservation.client.firstName} ${reservation.client.lastName}`.trim();
             const reason = reservation.client.blockReason ? `: ${reservation.client.blockReason}` : '';
-            throw new Error(`Клієнт "${name}" заблокований${reason}. Видача неможлива.`);
+            throw new BadRequestError(`Клієнт "${name}" заблокований${reason}. Видача неможлива.`);
         }
 
         // Warn if driver license is expired or expiring during rental
@@ -224,7 +222,7 @@ class ReservationService {
             const expiry = new Date(reservation.client.driverLicenseExpiry);
             const returnDate = new Date(reservation.returnDate);
             if (expiry < new Date()) {
-                throw new Error(
+                throw new BadRequestError(
                     `Посвідчення водія клієнта прострочене (закінчилось ${expiry.toLocaleDateString('uk-UA')}). Видача неможлива.`,
                 );
             }
@@ -242,7 +240,7 @@ class ReservationService {
 
         if (today < pickupDay) {
             const fmtDt = pickupDate.toLocaleDateString('uk-UA', {day: '2-digit', month: '2-digit', year: 'numeric'});
-            throw new Error(`Видача можлива не раніше дати бронювання: ${fmtDt}`);
+            throw new BadRequestError(`Видача можлива не раніше дати бронювання: ${fmtDt}`);
         }
 
         return await prisma.$transaction(async (tx) => {
@@ -255,9 +253,7 @@ class ReservationService {
             );
 
             if (!availability.available) {
-                throw new Error(
-                    formatConflicts(availability.conflicts),
-                );
+                throw new ConflictError(formatConflicts(availability.conflicts));
             }
             // Update reservation status
             const updatedReservation = await tx.reservation.update({
