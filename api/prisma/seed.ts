@@ -4,12 +4,14 @@ import {seedCities, seedPickupLocations, popularCitySlugs} from './seed-cities';
 const prisma = new PrismaClient();
 
 async function main() {
+    // bcrypt hash of 'admin123' — update: always resets the password when seed runs
+    const adminHash = '$2b$12$J9eS8tRZSHlOVUvpBQP1wuw9KBqDRW3v5VqZQhiq9Xy4G23oKCsam';
     await prisma.user.upsert({
         where: {email: 'admin@example.com'},
-        update: {},
+        update: {pass: adminHash},
         create: {
             email: 'admin@example.com',
-            pass: '0d5ddaeacb40e93eaee8f31a684d2abaa630ed1420164646f8085c2070c73c400ae507c3d773b5904371a99be1af678a50e27fdb2e052cebdcda90bad5785361',
+            pass: adminHash,
             role: 'admin',
         },
     });
