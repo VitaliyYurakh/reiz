@@ -278,7 +278,7 @@ class ReservationService {
                     pickupOdometer: pickupData.pickupOdometer || null,
                     contractNumber: pickupData.contractNumber || null,
                     priceSnapshot: (reservation.priceSnapshot ?? {}) as any,
-                    depositAmount: (reservation.priceSnapshot as PriceSnapshot)?.depositAmount || 0,
+                    depositAmount: Math.round((reservation.priceSnapshot as PriceSnapshot)?.depositAmount || 0),
                     // Copy add-ons from reservation to rental
                     rentalAddOns: reservation.reservationAddOns.length > 0
                         ? {

@@ -45,6 +45,12 @@ const globalErrorHandler = (err: Error, _req: Request, res: Response, _next: Nex
         return res.status(StatusCodes.NOT_FOUND).json({msg: 'Record not found'});
     }
 
+    // Prisma validation error (e.g. Float provided for Int field) → 400
+    if (err.constructor?.name === 'PrismaClientValidationError') {
+        logger.error({err, requestId: res.locals.requestId}, 'Prisma validation error');
+        return res.status(StatusCodes.BAD_REQUEST).json({msg: err.message});
+    }
+
     logger.error({err, requestId: res.locals.requestId}, 'Unhandled error');
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
 };
