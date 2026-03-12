@@ -108,6 +108,7 @@ export const pl: AdminTranslations = {
     submit: 'Zaloguj się',
     submitting: 'Logowanie...',
     error: 'Nieprawidłowy email lub hasło',
+    networkError: 'Serwer niedostępny. Spróbuj ponownie później.',
     footer: 'REIZ Wynajem Samochodów · Panel Administracyjny',
   },
 

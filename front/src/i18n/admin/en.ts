@@ -108,6 +108,7 @@ export const en: AdminTranslations = {
     submit: 'Sign in',
     submitting: 'Signing in...',
     error: 'Invalid email or password',
+    networkError: 'Server unavailable. Please try again later.',
     footer: 'REIZ Car Rental · Admin Panel',
   },
 

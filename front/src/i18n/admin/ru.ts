@@ -108,6 +108,7 @@ export const ru: AdminTranslations = {
     submit: 'Войти',
     submitting: 'Вход...',
     error: 'Неверный email или пароль',
+    networkError: 'Сервер недоступен. Попробуйте позже.',
     footer: 'REIZ Car Rental · Admin Panel',
   },
 

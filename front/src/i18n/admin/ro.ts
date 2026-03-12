@@ -108,6 +108,7 @@ export const ro: AdminTranslations = {
         submit: 'Autentificare',
         submitting: 'Se autentifică...',
         error: 'Email sau parolă incorectă',
+        networkError: 'Server indisponibil. Încercați mai târziu.',
         footer: 'REIZ Închirieri Auto · Panou Admin',
     },
 

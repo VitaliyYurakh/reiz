@@ -106,6 +106,7 @@ export const uk = {
     submit: 'Увійти',
     submitting: 'Вхід...',
     error: 'Невірний email або пароль',
+    networkError: 'Сервер недоступний. Спробуйте пізніше.',
     footer: 'REIZ Car Rental · Admin Panel',
   },
 
