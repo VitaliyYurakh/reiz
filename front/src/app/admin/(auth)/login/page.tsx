@@ -28,9 +28,11 @@ export default function LoginPage() {
       // Token is set as httpOnly cookie by the server
       router.push('/admin/dashboard');
     } catch (err: any) {
-      const msg = err?.response
-        ? (err.response.data?.msg || err.response.data?.message || t('login.error'))
-        : t('login.networkError');
+      const status = err?.response?.status;
+      const serverMsg = err?.response?.data?.msg || err?.response?.data?.message;
+      const msg = status
+        ? `[${status}] ${serverMsg || t('login.error')}`
+        : `[network] ${t('login.networkError')}`;
       setError(msg);
     } finally {
       setLoading(false);
