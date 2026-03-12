@@ -33,9 +33,9 @@ class CarService {
         const newCar = await prisma.car.create({
             data: {
                 ...rest,
-                segment: {
-                    connect: segmentIds ? segmentIds.map((sid) => ({id: sid})) : [{id: 1}],
-                },
+                ...(segmentIds && segmentIds.length > 0 && {
+                    segment: {connect: segmentIds.map((sid) => ({id: sid}))},
+                }),
             },
         });
 
