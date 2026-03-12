@@ -17,7 +17,8 @@ services:
         volumes:
             - ./api/uploads:/usr/src/app/uploads
         depends_on:
-            - postgres
+            postgres:
+                condition: service_healthy
         networks:
             - reiz
 
@@ -49,6 +50,11 @@ services:
             POSTGRES_DB: reiz
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres_dev
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U postgres -d reiz"]
+            interval: 5s
+            timeout: 5s
+            retries: 10
         networks:
             - reiz
     
