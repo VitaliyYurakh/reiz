@@ -1009,6 +1009,13 @@ export const en: AdminTranslations = {
     viewTitle: 'View',
     deleteConfirm: 'Delete service event?',
     pagination: 'Page {page} of {pages}',
+    photosLabel: 'Photo report',
+    uploadPhoto: 'Add photo',
+    noPhotos: 'No photos yet',
+    photoBefore: 'Before',
+    photoAfter: 'After',
+    photoReceipt: 'Receipt',
+    photoOther: 'Other',
   },
 
   /* ── Reports ── */

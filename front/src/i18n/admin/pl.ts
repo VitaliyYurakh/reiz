@@ -1009,6 +1009,13 @@ export const pl: AdminTranslations = {
     viewTitle: 'Podgląd',
     deleteConfirm: 'Usunąć zdarzenie serwisowe?',
     pagination: 'Strona {page} z {pages}',
+    photosLabel: 'Raport fotograficzny',
+    uploadPhoto: 'Dodaj zdjęcie',
+    noPhotos: 'Brak zdjęć',
+    photoBefore: 'Przed',
+    photoAfter: 'Po',
+    photoReceipt: 'Paragon',
+    photoOther: 'Inne',
   },
 
   /* ── Reports ── */

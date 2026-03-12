@@ -1027,6 +1027,13 @@ export const uk = {
     viewTitle: 'Переглянути',
     deleteConfirm: 'Видалити подію сервісу?',
     pagination: 'Стор. {page} з {pages}',
+    photosLabel: 'Фото звіт',
+    uploadPhoto: 'Додати фото',
+    noPhotos: 'Фото ще не додано',
+    photoBefore: 'До',
+    photoAfter: 'Після',
+    photoReceipt: 'Чек',
+    photoOther: 'Інше',
   },
 
   /* ── Reports ── */

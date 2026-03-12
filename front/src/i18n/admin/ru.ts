@@ -1009,6 +1009,13 @@ export const ru: AdminTranslations = {
     viewTitle: 'Просмотр',
     deleteConfirm: 'Удалить событие сервиса?',
     pagination: 'Стр. {page} из {pages}',
+    photosLabel: 'Фото отчёт',
+    uploadPhoto: 'Добавить фото',
+    noPhotos: 'Фото ещё не добавлены',
+    photoBefore: 'До',
+    photoAfter: 'После',
+    photoReceipt: 'Чек',
+    photoOther: 'Другое',
   },
 
   /* ── Reports ── */

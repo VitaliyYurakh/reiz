@@ -28,6 +28,7 @@ class ServiceEventService {
                 orderBy: {startDate: 'desc'},
                 include: {
                     car: {select: {id: true, brand: true, model: true, plateNumber: true}},
+                    photos: {orderBy: {createdAt: 'asc'}},
                 },
             }),
             prisma.serviceEvent.count({where}),
@@ -41,8 +42,19 @@ class ServiceEventService {
             where: {id},
             include: {
                 car: {select: {id: true, brand: true, model: true, plateNumber: true}},
+                photos: {orderBy: {createdAt: 'asc'}},
             },
         });
+    }
+
+    async addPhoto(serviceEventId: number, url: string, label?: string) {
+        return await prisma.serviceEventPhoto.create({
+            data: {serviceEventId, url, label: label || null},
+        });
+    }
+
+    async deletePhoto(id: number) {
+        return await prisma.serviceEventPhoto.delete({where: {id}});
     }
 
     async create(data: {

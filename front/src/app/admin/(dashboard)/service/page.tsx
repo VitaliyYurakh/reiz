@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { adminApiClient, getAllCars } from '@/lib/api/admin';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { IosSelect } from '@/components/admin/IosSelect';
@@ -26,6 +26,9 @@ import {
   FileText,
   MapPin,
   Clock,
+  Camera,
+  Upload,
+  ZoomIn,
 } from 'lucide-react';
 
 /* ── Types ── */
@@ -35,6 +38,13 @@ interface ServiceEventCar {
   brand: string;
   model: string;
   plateNumber: string;
+}
+
+interface ServiceEventPhoto {
+  id: number;
+  url: string;
+  label: string | null;
+  createdAt: string;
 }
 
 interface ServiceEvent {
@@ -49,7 +59,11 @@ interface ServiceEvent {
   vendor: string | null;
   notes: string | null;
   car: ServiceEventCar;
+  photos: ServiceEventPhoto[];
 }
+
+const PHOTO_LABELS = ['before', 'after', 'receipt', 'other'] as const;
+type PhotoLabel = typeof PHOTO_LABELS[number];
 
 interface CarOption {
   id: number;
@@ -139,6 +153,10 @@ export default function ServicePage() {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editForm, setEditForm] = useState<FormData>({ ...EMPTY_FORM });
   const [detailEvent, setDetailEvent] = useState<ServiceEvent | null>(null);
+  const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
+  const [uploadingPhoto, setUploadingPhoto] = useState(false);
+  const [photoLabel, setPhotoLabel] = useState<PhotoLabel>('before');
+  const photoInputRef = useRef<HTMLInputElement>(null);
 
   /* Fetch cars list */
   useEffect(() => {
@@ -162,7 +180,7 @@ export default function ServicePage() {
     try {
       const params = new URLSearchParams({ page: String(page), limit: String(limit) });
       const res = await adminApiClient.get(`/service-event?${params}`);
-      setItems(res.data.items);
+      setItems(res.data.items.map((ev: any) => ({ ...ev, photos: ev.photos ?? [] })));
       setTotal(res.data.total);
     } catch (err) {
       console.error(err);
@@ -280,6 +298,40 @@ export default function ServicePage() {
       await fetchData();
     } catch (err) {
       console.error('Delete failed', err);
+    }
+  };
+
+  /* ── Photos ── */
+
+  const handlePhotoUpload = async (file: File) => {
+    if (!detailEvent) return;
+    setUploadingPhoto(true);
+    try {
+      const fd = new FormData();
+      fd.append('photo', file);
+      fd.append('label', photoLabel);
+      const res = await adminApiClient.post(`/service-event/${detailEvent.id}/photo`, fd, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      const newPhoto: ServiceEventPhoto = res.data.photo;
+      setDetailEvent((prev) => prev ? { ...prev, photos: [...prev.photos, newPhoto] } : prev);
+      setItems((prev) => prev.map((ev) => ev.id === detailEvent.id ? { ...ev, photos: [...ev.photos, newPhoto] } : ev));
+    } catch (err) {
+      console.error('Photo upload failed', err);
+    } finally {
+      setUploadingPhoto(false);
+    }
+  };
+
+  const handlePhotoDelete = async (photoId: number) => {
+    if (!detailEvent) return;
+    if (!confirm('Видалити фото?')) return;
+    try {
+      await adminApiClient.delete(`/service-event/${detailEvent.id}/photo/${photoId}`);
+      setDetailEvent((prev) => prev ? { ...prev, photos: prev.photos.filter((p) => p.id !== photoId) } : prev);
+      setItems((prev) => prev.map((ev) => ev.id === detailEvent.id ? { ...ev, photos: ev.photos.filter((p) => p.id !== photoId) } : ev));
+    } catch (err) {
+      console.error('Photo delete failed', err);
     }
   };
 
@@ -796,7 +848,7 @@ export default function ServicePage() {
             onClick={() => setDetailEvent(null)}
           >
             <div
-              className="h-card w-full max-w-lg p-0 overflow-hidden"
+              className="h-card w-full max-w-lg p-0 overflow-hidden flex flex-col max-h-[90vh]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
@@ -818,7 +870,7 @@ export default function ServicePage() {
               </div>
 
               {/* Body */}
-              <div className="px-6 py-5 space-y-4">
+              <div className="px-6 py-5 space-y-4 overflow-y-auto flex-1">
 
                 {/* Car */}
                 <div className="flex items-start gap-3">
@@ -922,6 +974,91 @@ export default function ServicePage() {
                     </div>
                   </div>
                 )}
+
+                {/* Photos */}
+                <div className="border-t border-h-border pt-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2 text-[13px] font-semibold text-h-navy">
+                      <Camera size={15} className="text-h-gray" />
+                      {t('service.photosLabel')}
+                      {ev.photos.length > 0 && (
+                        <span className="h-badge h-badge-sm h-badge-gray">{ev.photos.length}</span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <select
+                        className="h-input text-xs py-1 px-2 h-auto"
+                        value={photoLabel}
+                        onChange={(e) => setPhotoLabel(e.target.value as PhotoLabel)}
+                        style={{ height: 30, fontSize: 12, paddingTop: 4, paddingBottom: 4 }}
+                      >
+                        <option value="before">{t('service.photoBefore')}</option>
+                        <option value="after">{t('service.photoAfter')}</option>
+                        <option value="receipt">{t('service.photoReceipt')}</option>
+                        <option value="other">{t('service.photoOther')}</option>
+                      </select>
+                      <button
+                        type="button"
+                        disabled={uploadingPhoto}
+                        onClick={() => photoInputRef.current?.click()}
+                        className="h-btn h-btn-secondary"
+                        style={{ padding: '4px 10px', fontSize: 12, height: 30 }}
+                      >
+                        {uploadingPhoto ? '...' : <><Upload size={13} /> {t('service.uploadPhoto')}</>}
+                      </button>
+                      <input
+                        ref={photoInputRef}
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) handlePhotoUpload(file);
+                          e.target.value = '';
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {ev.photos.length === 0 ? (
+                    <div className="text-center py-4 text-h-gray text-[13px]">
+                      {t('service.noPhotos')}
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-3 gap-2">
+                      {ev.photos.map((photo) => (
+                        <div key={photo.id} className="relative group rounded-lg overflow-hidden border border-h-border aspect-square bg-h-bg">
+                          <img
+                            src={photo.url}
+                            alt={photo.label || ''}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100">
+                            <button
+                              type="button"
+                              onClick={() => setLightboxUrl(photo.url)}
+                              className="w-7 h-7 rounded-full bg-white/90 flex items-center justify-center text-h-navy hover:bg-white"
+                            >
+                              <ZoomIn size={13} />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handlePhotoDelete(photo.id)}
+                              className="w-7 h-7 rounded-full bg-white/90 flex items-center justify-center text-red-500 hover:bg-white"
+                            >
+                              <Trash2 size={13} />
+                            </button>
+                          </div>
+                          {photo.label && (
+                            <div className="absolute bottom-0 left-0 right-0 text-[10px] text-white bg-black/50 text-center py-0.5">
+                              {t(`service.photo${photo.label.charAt(0).toUpperCase()}${photo.label.slice(1)}`) || photo.label}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Footer */}
@@ -946,6 +1083,29 @@ export default function ServicePage() {
           </div>
         );
       })()}
+
+      {/* Lightbox */}
+      {lightboxUrl && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+          style={{ background: 'rgba(0,0,0,0.85)' }}
+          onClick={() => setLightboxUrl(null)}
+        >
+          <img
+            src={lightboxUrl}
+            alt=""
+            className="max-w-full max-h-full rounded-lg shadow-2xl object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            type="button"
+            onClick={() => setLightboxUrl(null)}
+            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white"
+          >
+            <X size={20} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

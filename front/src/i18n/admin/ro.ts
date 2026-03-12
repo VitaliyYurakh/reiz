@@ -1009,6 +1009,13 @@ export const ro: AdminTranslations = {
         viewTitle: 'Vizualizare',
         deleteConfirm: 'Ștergeți evenimentul service?',
         pagination: 'Pagina {page} din {pages}',
+        photosLabel: 'Raport foto',
+        uploadPhoto: 'Adaugă foto',
+        noPhotos: 'Nicio fotografie',
+        photoBefore: 'Înainte',
+        photoAfter: 'După',
+        photoReceipt: 'Chitanță',
+        photoOther: 'Altele',
     },
 
     /* ── Reports ── */
