@@ -556,11 +556,25 @@ model ServiceEvent {
   createdAt     DateTime  @default(now()) @map("created_at")
   updatedAt     DateTime  @updatedAt @map("updated_at")
 
-  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+  car    Car                  @relation(fields: [carId], references: [id], onDelete: Cascade)
+  photos ServiceEventPhoto[]
 
   @@index([carId, startDate, endDate])
   @@index([blocksBooking])
   @@map("service_event")
+}
+
+model ServiceEventPhoto {
+  id             Int          @id @default(autoincrement())
+  serviceEventId Int          @map("service_event_id")
+  url            String
+  label          String?
+  createdAt      DateTime     @default(now()) @map("created_at")
+
+  serviceEvent ServiceEvent @relation(fields: [serviceEventId], references: [id], onDelete: Cascade)
+
+  @@index([serviceEventId])
+  @@map("service_event_photo")
 }
 
 // --- Finance ---

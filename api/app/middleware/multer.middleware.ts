@@ -116,6 +116,9 @@ const clientDocStorage = multer.diskStorage({
 
 export const documentUpload = multer({storage: clientDocStorage, fileFilter: docFilter, limits: {fileSize: MAX_FILE_SIZE}}).single('document');
 
+// Service event photo upload: field name 'photo', saved to main uploads dir
+export const servicePhotoUpload = multer({storage, fileFilter, limits: {fileSize: MAX_FILE_SIZE}}).single('photo');
+
 /** Magic-byte validation middlewares — use AFTER multer in the route chain */
 export const validateImageFile = validateFileType(ALLOWED_IMAGE_TYPES);
 export const validateDocFile = validateFileType(ALLOWED_DOC_TYPES);
