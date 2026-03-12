@@ -124,9 +124,7 @@ export function intervalCols(
   totalDays: number,
 ) {
   const s = startOfDay(new Date(interval.startDate));
-  const e = interval.endDate
-    ? startOfDay(new Date(interval.endDate))
-    : addDays(s, 1);
+  const eRaw = interval.endDate ? new Date(interval.endDate) : addDays(s, 1);
 
   const colStart = Math.max(
     0,
@@ -134,7 +132,7 @@ export function intervalCols(
   );
   const colEnd = Math.min(
     totalDays,
-    Math.round((e.getTime() - rangeStart.getTime()) / DAY_MS),
+    Math.ceil((eRaw.getTime() - rangeStart.getTime()) / DAY_MS),
   );
   const span = colEnd - colStart;
 
