@@ -1006,6 +1006,7 @@ export const ro: AdminTranslations = {
         cancelTitle: 'Anulează',
         editTitle: 'Editează',
         deleteTitle: 'Șterge',
+        viewTitle: 'Vizualizare',
         deleteConfirm: 'Ștergeți evenimentul service?',
         pagination: 'Pagina {page} din {pages}',
     },

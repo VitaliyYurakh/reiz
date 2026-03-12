@@ -1006,6 +1006,7 @@ export const en: AdminTranslations = {
     cancelTitle: 'Cancel',
     editTitle: 'Edit',
     deleteTitle: 'Delete',
+    viewTitle: 'View',
     deleteConfirm: 'Delete service event?',
     pagination: 'Page {page} of {pages}',
   },

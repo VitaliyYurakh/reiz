@@ -1024,6 +1024,7 @@ export const uk = {
     cancelTitle: 'Скасувати',
     editTitle: 'Редагувати',
     deleteTitle: 'Видалити',
+    viewTitle: 'Переглянути',
     deleteConfirm: 'Видалити подію сервісу?',
     pagination: 'Стор. {page} з {pages}',
   },

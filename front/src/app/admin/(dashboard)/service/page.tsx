@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient, getAllCars } from '@/lib/api/admin';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { IosSelect } from '@/components/admin/IosSelect';
-import { fmtMoney as formatMoney, fmtDate } from '@/app/admin/lib/format';
+import { fmtMoney as formatMoney, fmtDate, fmtDateTime } from '@/app/admin/lib/format';
 import {
   ChevronLeft,
   ChevronRight,
@@ -20,6 +20,12 @@ import {
   ClipboardCheck,
   Settings2,
   AlertTriangle,
+  Eye,
+  Calendar,
+  DollarSign,
+  FileText,
+  MapPin,
+  Clock,
 } from 'lucide-react';
 
 /* ── Types ── */
@@ -132,6 +138,7 @@ export default function ServicePage() {
 
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editForm, setEditForm] = useState<FormData>({ ...EMPTY_FORM });
+  const [detailEvent, setDetailEvent] = useState<ServiceEvent | null>(null);
 
   /* Fetch cars list */
   useEffect(() => {
@@ -694,6 +701,14 @@ export default function ServicePage() {
                         <div className="flex gap-1">
                           <button
                             type="button"
+                            title={t('service.viewTitle')}
+                            onClick={() => setDetailEvent(ev)}
+                            className="h-action-btn"
+                          >
+                            <Eye size={15} />
+                          </button>
+                          <button
+                            type="button"
                             title={t('service.editTitle')}
                             onClick={() => startEditing(ev)}
                             className="h-action-btn"
@@ -761,6 +776,176 @@ export default function ServicePage() {
           </div>
         )}
       </div>
+
+      {/* ── Detail Modal ── */}
+      {detailEvent && (() => {
+        const ev = detailEvent;
+        const badgeClass = TYPE_BADGE_CLASS[ev.type] || TYPE_BADGE_CLASS.OTHER;
+        const icon = TYPE_ICONS[ev.type];
+        const typeLabel = t(TYPE_LABEL_KEYS[ev.type]) || ev.type;
+        const car = ev.car ? `${ev.car.brand} ${ev.car.model}` : '—';
+        const durationMs = ev.endDate
+          ? new Date(ev.endDate).getTime() - new Date(ev.startDate).getTime()
+          : null;
+        const durationDays = durationMs != null ? Math.ceil(durationMs / 86400000) : null;
+
+        return (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ background: 'rgba(0,0,0,0.45)' }}
+            onClick={() => setDetailEvent(null)}
+          >
+            <div
+              className="h-card w-full max-w-lg p-0 overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-h-border">
+                <div className="flex items-center gap-3">
+                  <span className={`h-badge ${badgeClass} text-sm px-3 py-1`}>
+                    {icon}
+                    {typeLabel}
+                  </span>
+                  <span className="text-h-gray text-sm">#{ev.id}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setDetailEvent(null)}
+                  className="h-action-btn"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Body */}
+              <div className="px-6 py-5 space-y-4">
+
+                {/* Car */}
+                <div className="flex items-start gap-3">
+                  <div className="h-icon-box h-icon-box-sm bg-h-bg! text-h-gray! mt-0.5 shrink-0">
+                    <Car size={15} />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-h-gray mb-0.5">{t('service.thCar')}</div>
+                    <div className="font-semibold text-h-navy text-[14px]">{car}</div>
+                    {ev.car?.plateNumber && (
+                      <div className="text-[12px] text-h-gray">{ev.car.plateNumber}</div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Period */}
+                <div className="flex items-start gap-3">
+                  <div className="h-icon-box h-icon-box-sm bg-h-bg! text-h-gray! mt-0.5 shrink-0">
+                    <Calendar size={15} />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-h-gray mb-0.5">{t('service.thStart')} — {t('service.thEnd')}</div>
+                    <div className="font-medium text-h-navy text-[13px]">
+                      {fmtDateTime(ev.startDate)}
+                      {ev.endDate && <> — {fmtDateTime(ev.endDate)}</>}
+                    </div>
+                    {durationDays != null && (
+                      <div className="text-[12px] text-h-gray mt-0.5">
+                        {durationDays} {durationDays === 1 ? 'день' : durationDays < 5 ? 'дні' : 'днів'}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Blocks booking */}
+                <div className="flex items-center gap-3">
+                  <div className="h-icon-box h-icon-box-sm bg-h-bg! text-h-gray! shrink-0">
+                    <Clock size={15} />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-h-gray mb-0.5">{t('service.blocksBooking')}</div>
+                    {ev.blocksBooking ? (
+                      <span className="h-badge h-badge-sm h-badge-red">{t('common.yes')}</span>
+                    ) : (
+                      <span className="h-badge h-badge-sm h-badge-gray">{t('common.no')}</span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Cost + Vendor */}
+                {(ev.costMinor != null || ev.vendor) && (
+                  <div className="flex items-start gap-3">
+                    <div className="h-icon-box h-icon-box-sm bg-h-bg! text-h-gray! mt-0.5 shrink-0">
+                      <DollarSign size={15} />
+                    </div>
+                    <div>
+                      {ev.costMinor != null && ev.currency && (
+                        <>
+                          <div className="text-[11px] text-h-gray mb-0.5">{t('service.costLabel2')}</div>
+                          <div className="font-semibold text-h-navy text-[14px]">
+                            {formatMoney(ev.costMinor, ev.currency)}
+                          </div>
+                        </>
+                      )}
+                      {ev.vendor && (
+                        <div className="text-[12px] text-h-gray mt-0.5">
+                          <MapPin size={11} className="inline mr-1" />
+                          {ev.vendor}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* Description */}
+                {ev.description && (
+                  <div className="flex items-start gap-3">
+                    <div className="h-icon-box h-icon-box-sm bg-h-bg! text-h-gray! mt-0.5 shrink-0">
+                      <FileText size={15} />
+                    </div>
+                    <div>
+                      <div className="text-[11px] text-h-gray mb-0.5">{t('service.descriptionLabel')}</div>
+                      <div className="text-[13px] text-h-navy leading-relaxed whitespace-pre-wrap">
+                        {ev.description}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Notes */}
+                {ev.notes && (
+                  <div className="flex items-start gap-3">
+                    <div className="h-icon-box h-icon-box-sm bg-h-bg! text-h-gray! mt-0.5 shrink-0">
+                      <FileText size={15} />
+                    </div>
+                    <div>
+                      <div className="text-[11px] text-h-gray mb-0.5">{t('service.notesLabel')}</div>
+                      <div className="text-[13px] text-h-gray leading-relaxed whitespace-pre-wrap">
+                        {ev.notes}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Footer */}
+              <div className="px-6 py-4 border-t border-h-border flex justify-end gap-2">
+                <button
+                  type="button"
+                  onClick={() => { setDetailEvent(null); startEditing(ev); }}
+                  className="h-btn h-btn-secondary"
+                >
+                  <Pencil size={15} />
+                  {t('service.editTitle')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDetailEvent(null)}
+                  className="h-btn h-btn-primary"
+                >
+                  {t('common.close')}
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }
