@@ -1,4 +1,11 @@
-import { Merriweather } from "next/font/google";
+import { Inter, Merriweather } from "next/font/google";
+
+export const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-inter-base",
+  fallback: ["Arial", "sans-serif"],
+  display: "swap",
+});
 import localFont from "next/font/local";
 
 export const merriweather = Merriweather({

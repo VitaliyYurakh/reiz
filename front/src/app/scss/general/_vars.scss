@@ -2,7 +2,7 @@
 
 :root {
   // --------------- fonts ---------------
-  --font-inter: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-inter: -apple-system, BlinkMacSystemFont, var(--font-inter-base), sans-serif;
 
   // --------------- default global variables ---------------
   --frame-width: 1920;
