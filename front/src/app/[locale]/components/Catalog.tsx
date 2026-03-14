@@ -122,6 +122,17 @@ export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
         [catalogFilters],
     );
 
+    useEffect(() => {
+        if (sessionStorage.getItem("scrollToCatalog") === "1") {
+            sessionStorage.removeItem("scrollToCatalog");
+            const el = document.getElementById("catalog");
+            if (el) {
+                const offset = el.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top: offset, behavior: "smooth" });
+            }
+        }
+    }, []);
+
     const themeColorMeta = useRef<HTMLMetaElement | null>(null);
     useEffect(() => {
         themeColorMeta.current = document.querySelector(

@@ -40,7 +40,7 @@ export default function Header({
   useThemeColorOnOpen(mobileMenuOpen);
 
   const isActive = (href: string) =>
-    stripLocale(pathname) === stripLocale(href.split("#")[0]);
+    stripLocale(pathname) === stripLocale(href);
 
   const setMenuOpen = useCallback((open: boolean) => {
     setMobileMenuOpen(open);
@@ -141,9 +141,7 @@ export default function Header({
   // biome-ignore lint/correctness/useExhaustiveDependencies: 11
   useEffect(() => {
     setMenuOpen(false);
-    if (!window.location.hash) {
-      window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0);
   }, [pathname, setMenuOpen]);
 
   const links = [
@@ -151,14 +149,14 @@ export default function Header({
     {
       label: asideT("cars_title"),
       subLinks: [
-        { href: "/rental/kyiv#catalog", label: asideT("cars_link1") },
-        { href: "/rental/lviv#catalog", label: asideT("cars_link2") },
-        { href: "/rental/odesa#catalog", label: asideT("cars_link4") },
-        { href: "/rental/kharkiv#catalog", label: asideT("cars_link6") },
-        { href: "/rental/dnipro#catalog", label: asideT("cars_link5") },
-        { href: "/rental/zaporizhzhia#catalog", label: asideT("cars_link15") },
-        { href: "/rental/boryspil#catalog", label: asideT("cars_link16") },
-        { href: "/rental/bukovel#catalog", label: asideT("cars_link7") },
+        { href: "/rental/kyiv", label: asideT("cars_link1"), scrollToCatalog: true },
+        { href: "/rental/lviv", label: asideT("cars_link2"), scrollToCatalog: true },
+        { href: "/rental/odesa", label: asideT("cars_link4"), scrollToCatalog: true },
+        { href: "/rental/kharkiv", label: asideT("cars_link6"), scrollToCatalog: true },
+        { href: "/rental/dnipro", label: asideT("cars_link5"), scrollToCatalog: true },
+        { href: "/rental/zaporizhzhia", label: asideT("cars_link15"), scrollToCatalog: true },
+        { href: "/rental/boryspil", label: asideT("cars_link16"), scrollToCatalog: true },
+        { href: "/rental/bukovel", label: asideT("cars_link7"), scrollToCatalog: true },
       ],
     },
     { href: "/insurance", label: asideT("insurance") },
@@ -254,6 +252,7 @@ export default function Header({
                                     }
                                     key={sublink.label}
                                     href={sublink.href}
+                                    onClick={sublink.scrollToCatalog ? () => sessionStorage.setItem("scrollToCatalog", "1") : undefined}
                                   >
                                     {sublink.label}
                                   </Link>

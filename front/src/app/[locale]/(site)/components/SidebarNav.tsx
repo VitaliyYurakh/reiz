@@ -26,14 +26,14 @@ export default function SidebarNav() {
     {
       label: t("nav.cars_title"),
       subLinks: [
-        { href: "/rental/kyiv", label: t("nav.cars_link1") },
-        { href: "/rental/lviv", label: t("nav.cars_link2") },
-        { href: "/rental/odesa", label: t("nav.cars_link4") },
-        { href: "/rental/dnipro", label: t("nav.cars_link5") },
-        { href: "/rental/kharkiv", label: t("nav.cars_link6") },
-        { href: "/rental/zaporizhzhia", label: t("nav.cars_link15") },
-        { href: "/rental/boryspil", label: t("nav.cars_link16") },
-        { href: "/rental/bukovel", label: t("nav.cars_link7") },
+        { href: "/rental/kyiv", label: t("nav.cars_link1"), scrollToCatalog: true },
+        { href: "/rental/lviv", label: t("nav.cars_link2"), scrollToCatalog: true },
+        { href: "/rental/odesa", label: t("nav.cars_link4"), scrollToCatalog: true },
+        { href: "/rental/dnipro", label: t("nav.cars_link5"), scrollToCatalog: true },
+        { href: "/rental/kharkiv", label: t("nav.cars_link6"), scrollToCatalog: true },
+        { href: "/rental/zaporizhzhia", label: t("nav.cars_link15"), scrollToCatalog: true },
+        { href: "/rental/boryspil", label: t("nav.cars_link16"), scrollToCatalog: true },
+        { href: "/rental/bukovel", label: t("nav.cars_link7"), scrollToCatalog: true },
       ],
     },
     { href: "/insurance", label: t("nav.insurance") },
@@ -122,7 +122,11 @@ export default function SidebarNav() {
                       data-content="1"
                     >
                       {link.subLinks?.map((sublink) => (
-                        <Link href={sublink.href} key={sublink.label}>
+                        <Link
+                          href={sublink.href}
+                          key={sublink.label}
+                          onClick={sublink.scrollToCatalog ? () => sessionStorage.setItem("scrollToCatalog", "1") : undefined}
+                        >
                           {sublink.label}
                         </Link>
                       ))}
