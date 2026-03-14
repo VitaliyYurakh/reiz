@@ -2,7 +2,7 @@ import { Inter, Merriweather } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-inter-base",
+  variable: "--font-inter",
   fallback: ["Arial", "sans-serif"],
   display: "swap",
 });

@@ -1,9 +1,6 @@
 @use "../mixins/breakpoint" as *;
 
 :root {
-  // --------------- fonts ---------------
-  --font-inter: -apple-system, BlinkMacSystemFont, var(--font-inter-base), sans-serif;
-
   // --------------- default global variables ---------------
   --frame-width: 1920;
   --rem-function: 16px;
