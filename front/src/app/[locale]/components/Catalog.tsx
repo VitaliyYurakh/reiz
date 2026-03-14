@@ -126,31 +126,27 @@ export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
         if (sessionStorage.getItem("scrollToCatalog") !== "1") return;
         sessionStorage.removeItem("scrollToCatalog");
 
-        const scrollToCatalog = () => {
-            const el = document.querySelector<HTMLElement>(".catalog-section__box");
-            if (!el) return;
-            const targetPosition = el.getBoundingClientRect().top + window.scrollY - 100;
-            const startPosition = window.scrollY;
-            const distance = targetPosition - startPosition;
-            const duration = 1200;
-            let startTime: number | null = null;
+        const section = document.querySelector(".catalog-section__box");
+        if (!section) return;
 
-            const easeInOutCubic = (t: number) =>
-                t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        const targetPosition = section.getBoundingClientRect().top + window.scrollY - 100;
+        const startPosition = window.scrollY;
+        const distance = targetPosition - startPosition;
+        const duration = 1200;
+        let startTime: number | null = null;
 
-            const animation = (currentTime: number) => {
-                if (startTime === null) startTime = currentTime;
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
-                if (elapsed < duration) requestAnimationFrame(animation);
-            };
+        const easeInOutCubic = (t: number) =>
+            t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-            requestAnimationFrame(animation);
+        const animation = (currentTime: number) => {
+            if (startTime === null) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+            if (elapsed < duration) requestAnimationFrame(animation);
         };
 
-        // Delay to ensure Header's scrollTo(0,0) runs first
-        setTimeout(scrollToCatalog, 50);
+        requestAnimationFrame(animation);
     }, []);
 
     const themeColorMeta = useRef<HTMLMetaElement | null>(null);

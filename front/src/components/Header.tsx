@@ -141,7 +141,9 @@ export default function Header({
   // biome-ignore lint/correctness/useExhaustiveDependencies: 11
   useEffect(() => {
     setMenuOpen(false);
-    window.scrollTo(0, 0);
+    if (sessionStorage.getItem("scrollToCatalog") !== "1") {
+      window.scrollTo(0, 0);
+    }
   }, [pathname, setMenuOpen]);
 
   const links = [
