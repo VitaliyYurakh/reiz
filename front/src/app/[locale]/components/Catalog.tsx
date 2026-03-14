@@ -125,9 +125,9 @@ export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
     useEffect(() => {
         if (sessionStorage.getItem("scrollToCatalog") === "1") {
             sessionStorage.removeItem("scrollToCatalog");
-            const el = document.getElementById("catalog");
+            const el = document.querySelector(".catalog-section__box");
             if (el) {
-                const offset = el.getBoundingClientRect().top + window.scrollY - 80;
+                const offset = el.getBoundingClientRect().top + window.scrollY - 100;
                 window.scrollTo({ top: offset, behavior: "smooth" });
             }
         }
