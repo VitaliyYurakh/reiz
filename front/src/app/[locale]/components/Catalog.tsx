@@ -123,14 +123,34 @@ export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
     );
 
     useEffect(() => {
-        if (sessionStorage.getItem("scrollToCatalog") === "1") {
-            sessionStorage.removeItem("scrollToCatalog");
-            const el = document.querySelector(".catalog-section__box");
-            if (el) {
-                const offset = el.getBoundingClientRect().top + window.scrollY - 100;
-                window.scrollTo({ top: offset, behavior: "smooth" });
-            }
-        }
+        if (sessionStorage.getItem("scrollToCatalog") !== "1") return;
+        sessionStorage.removeItem("scrollToCatalog");
+
+        const scrollToCatalog = () => {
+            const el = document.querySelector<HTMLElement>(".catalog-section__box");
+            if (!el) return;
+            const targetPosition = el.getBoundingClientRect().top + window.scrollY - 100;
+            const startPosition = window.scrollY;
+            const distance = targetPosition - startPosition;
+            const duration = 1200;
+            let startTime: number | null = null;
+
+            const easeInOutCubic = (t: number) =>
+                t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+            const animation = (currentTime: number) => {
+                if (startTime === null) startTime = currentTime;
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+                if (elapsed < duration) requestAnimationFrame(animation);
+            };
+
+            requestAnimationFrame(animation);
+        };
+
+        // Delay to ensure Header's scrollTo(0,0) runs first
+        setTimeout(scrollToCatalog, 50);
     }, []);
 
     const themeColorMeta = useRef<HTMLMetaElement | null>(null);
