@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/request";
 import LocationMapLink from "./LocationMapLink";
 import HeroBookButton from "./HeroBookButton";
+import ScrollToCatalogButton from "./ScrollToCatalogButton";
 
 export default async function HeroSection() {
   const t = await getTranslations("homePage.hero");
@@ -84,14 +85,14 @@ export default async function HeroSection() {
                 <span>{t("address_link")}</span>
               </LocationMapLink>
 
-              <a href="#catalog" className="down-btn">
+              <ScrollToCatalogButton className="down-btn">
                 <i className="sprite">
                   <svg width="16" height="22">
                     <use href="/img/sprite/sprite.svg#arrow" />
                   </svg>
                 </i>
                 {t("down_button")}
-              </a>
+              </ScrollToCatalogButton>
             </div>
 
             <div className="hero-section__content">

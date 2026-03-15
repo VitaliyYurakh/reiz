@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/request";
 import LocationMapLink from "@/app/[locale]/components/LocationMapLink";
 import HeroBookButton from "@/app/[locale]/components/HeroBookButton";
+import ScrollToCatalogButton from "@/app/[locale]/components/ScrollToCatalogButton";
 import { getCityPickupLocations } from "@/data/cities";
 import type { CityConfig, CityLocalizedData } from "@/data/cities";
 import type { Locale } from "@/i18n/request";
@@ -108,14 +109,14 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
                 <span>{cityData.address}</span>
               </LocationMapLink>
 
-              <a href="#catalog" className="down-btn">
+              <ScrollToCatalogButton className="down-btn">
                 <i className="sprite">
                   <svg width="16" height="22">
                     <use href="/img/sprite/sprite.svg#arrow" />
                   </svg>
                 </i>
                 {t("down_button")}
-              </a>
+              </ScrollToCatalogButton>
             </div>
 
             <div className="hero-section__content">
