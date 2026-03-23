@@ -1605,14 +1605,14 @@
         {
           "city": "Kyiv",
           "address": "Velyka Zhytomyrska St., 6/11, Kyiv",
-          "phone": "+380 63 547 11 86",
+          "phone": "Temporarily not accepting calls",
           "hours": "Mon–Sun 08:30–20:30",
           "email": "info@reiz.com.ua"
         },
         {
           "city": "Lviv",
           "address": "Liubinska St., 168, Lviv",
-          "phone": "+380 63 547 11 86",
+          "phone": "Temporarily not accepting calls",
           "hours": "Mon–Sun 08:30–20:30",
           "email": "info@reiz.com.ua"
         }
@@ -1650,12 +1650,12 @@
     },
     "contacts": {
       "phone_title": "Office phone",
-      "phone_number": "+380 63 547 11 86",
+      "phone_number": "—",
       "working_hours": "Open 09:00–22:00,\nseven days a week"
     },
     "address": {
       "title": "Office address",
-      "text": "DANYLO HALYTSKYI INTERNATIONAL AIRPORT LVIV"
+      "text": "Danylo Halytskyi International Airport Lviv"
     },
     "payments": {
       "title": "We accept"
@@ -1666,6 +1666,18 @@
     "accordion": {
       "rental": "Rental",
       "company": "Company"
+    },
+    "links_title": "Quick Links",
+    "subscribe": {
+      "title": "Subscribe",
+      "description": "Want to be notified about our services. Just sign up and we'll send you a notification by email.",
+      "placeholder": "Email Address"
+    },
+    "contact_cards": {
+      "call": "Call us",
+      "phone": "Temporarily not accepting calls",
+      "write": "Write to us",
+      "email": "info@reiz.com.ua"
     },
     "bottom": {
       "copyright": "© 2025 Reiz. All rights reserved.",
@@ -1810,6 +1822,7 @@
     "nextMonth": "Next month"
   },
   "carRentModal": {
+    "unavailable": "Online booking for all cars on the REIZ website is temporarily suspended. We apologize for the inconvenience.",
     "breadcrumbs": {
       "home": "Home",
       "cars": "Cars"

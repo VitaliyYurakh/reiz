@@ -6,7 +6,7 @@ import { LANGUAGE_TAG } from "@/i18n/locale-config";
 import type { Locale } from "@/i18n/request";
 import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
-import { inter, merriweather, kyivType } from "@/fonts";
+import { inter, merriweather, kyivType, outfit } from "@/fonts";
 import Script from "next/script";
 import ThemeColorProvider from "@/components/ThemeColorProvider";
 import LocalePreferenceSync from "@/components/LocalePreferenceSync";
@@ -108,7 +108,7 @@ export default async function RootLayout({
 
       </head>
       <body
-        className={`${inter.variable} ${merriweather.variable} ${kyivType.variable}`}
+        className={`${inter.variable} ${merriweather.variable} ${kyivType.variable} ${outfit.variable}`}
       >
         <noscript>
           <iframe

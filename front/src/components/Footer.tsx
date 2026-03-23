@@ -3,6 +3,7 @@ import UiImage from "@/components/ui/UiImage";
 import { Link } from "@/i18n/request";
 import { SOCIAL_LINKS } from "@/config/social";
 import FooterAccordion from "@/components/FooterAccordion";
+import FooterSubscribe from "@/components/FooterSubscribe";
 
 type FooterProps = {
   addressText?: string;
@@ -16,159 +17,156 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
   const addressLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
   const facebookLink = SOCIAL_LINKS.facebook;
   const youtubeLink = SOCIAL_LINKS.youtube;
+
   return (
     <footer className="footer">
-      <div className="container">
-        <div className="footer__box">
-          <div className="footer__top">
-            <div className="footer__col">
-              <Link href="/" className="logo">
+      {/* Contact cards bar — rounded container */}
+      <div className="footer__contacts">
+        <div className="container">
+          <div className="footer__contacts-grid">
+            <span className="footer__contact-card">
+              <span className="footer__contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M14.05 6A5 5 0 0118 10m-3.95-8a9 9 0 018 7.94m0 7v3a2 2 0 01-2 2h-.19a19.79 19.79 0 01-8.63-3.07 19.52 19.52 0 01-6-6 19.82 19.82 0 01-3.11-8.69A2 2 0 013.93 2h3.18a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 16.92z" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+              <span className="footer__contact-text">
+                <span className="footer__contact-title">
+                  {t("contact_cards.call")}
+                </span>
+                <span className="footer__contact-value">{t("contact_cards.phone")}</span>
+              </span>
+            </span>
+
+            <a
+              href={`mailto:${t("contact_cards.email")}`}
+              className="footer__contact-card"
+            >
+              <span className="footer__contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path d="M22,8.32V18a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V8.69L4,9.78l7.52,4.1A1,1,0,0,0,12,14a1,1,0,0,0,.5-.14L20,9.49Z" fill="#fff"/>
+                  <path d="M22,6h0L20,7.18l-8,4.67L4,7.5,2,6.4V6A2,2,0,0,1,4,4H20A2,2,0,0,1,22,6Z" fill="#fff"/>
+                </svg>
+              </span>
+              <span className="footer__contact-text">
+                <span className="footer__contact-title">
+                  {t("contact_cards.write")}
+                </span>
+                <span className="footer__contact-value">
+                  {t("contact_cards.email")}
+                </span>
+              </span>
+            </a>
+
+            <a
+              href={addressLink}
+              className="footer__contact-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="footer__contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0Z" stroke="#fff" strokeWidth="2"/>
+                  <circle cx="12" cy="10" r="3" stroke="#fff" strokeWidth="2"/>
+                </svg>
+              </span>
+              <span className="footer__contact-text">
+                <span className="footer__contact-title">
+                  {t("address.title")}
+                </span>
+                <span className="footer__contact-value">{address}</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main footer body */}
+      <div className="footer__body">
+        <div className="container">
+          <div className="footer__main">
+            {/* Brand column */}
+            <div className="footer__brand">
+              <Link href="/" className="footer__logo">
                 REIZ
               </Link>
-              <span className="footer__name">{t("tagline")}</span>
-              <p>{description}</p>
-
-              <nav className="footer-nav">
-                <ul className="footer-nav__list">
-                  <li className="footer-nav__item">
-                    <Link href="/">{t("nav.home")}</Link>
-                  </li>
-                  <li className="footer-nav__item">
-                    <Link href="/#catalog">{t("nav.cars")}</Link>
-                  </li>
-                  <li className="footer-nav__item">
-                    <Link href="/business">{t("nav.business")}</Link>
-                  </li>
-                  <li className="footer-nav__item">
-                    <Link href="/invest">{t("nav.invest")}</Link>
-                  </li>
-                  <li className="footer-nav__item">
-                    <Link href="/blog">{t("nav.blog")}</Link>
-                  </li>
-                  <li className="footer-nav__item">
-                    <Link href="/about">{t("nav.about")}</Link>
-                  </li>
-                  <li className="footer-nav__item">
-                    <Link href="/contacts">{t("nav.contacts")}</Link>
-                  </li>
-                  <li className="footer-nav__item">
-                    <Link href="/insurance">{t("nav.insurance")}</Link>
-                  </li>
-                  <li className="footer-nav__item">
-                    <Link href="/faq">{t("nav.faq")}</Link>
-                  </li>
-                  <li className="footer-nav__item">
-                    <Link href="/certificate">{t("nav.certificate")}</Link>
-                  </li>
-                </ul>
-              </nav>
+              <p className="footer__desc">{description}</p>
+              <div className="footer__messengers">
+                <a
+                  href={SOCIAL_LINKS.whatsapp}
+                  aria-label="WhatsApp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <UiImage
+                    width={22}
+                    height={22}
+                    src="/img/icons/whatsapp.svg"
+                    alt="WhatsApp"
+                  />
+                </a>
+                <a
+                  href={SOCIAL_LINKS.telegram}
+                  aria-label="Telegram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <UiImage
+                    width={22}
+                    height={22}
+                    src="/img/icons/telegram.svg"
+                    alt="Telegram"
+                  />
+                </a>
+                <a
+                  href={SOCIAL_LINKS.viber}
+                  aria-label="Viber"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <UiImage
+                    width={22}
+                    height={22}
+                    src="/img/icons/viber-color.svg"
+                    alt="Viber"
+                  />
+                </a>
+              </div>
             </div>
 
-            <div className="footer__wrapp">
-              <div
-                className="footer__info"
-                data-title={t("contacts.phone_title")}
-              >
-                <div className="footer__social">
-                  <a href="tel:+380635471186" className="footer__phone-btn"> +380 63 547 11 86 </a>
-                  <a
-                    href={SOCIAL_LINKS.whatsapp}
-                    aria-label="REIZ WhatsApp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="default">
-                      <UiImage
-                        width={26}
-                        height={26}
-                        src="/img/icons/whatsapp.svg"
-                        alt="WhatsApp"
-                      />
-                    </span>
-                    <span className="hover">
-                      <UiImage
-                        width={26}
-                        height={26}
-                        src="/img/icons/whatsapp-hover.svg"
-                        alt="WhatsApp"
-                      />
-                    </span>
-                  </a>
+            {/* Quick Links column */}
+            <div className="footer__nav-col">
+              <h3 className="footer__col-title">{t("links_title")}</h3>
+              <ul className="footer__nav-list">
+                <li>
+                  <Link href="/about">{t("nav.about")}</Link>
+                </li>
+                <li>
+                  <Link href="/#catalog">{t("nav.cars")}</Link>
+                </li>
+                <li>
+                  <Link href="/business">{t("nav.business")}</Link>
+                </li>
+                <li>
+                  <Link href="/contacts">{t("nav.contacts")}</Link>
+                </li>
+                <li>
+                  <Link href="/blog">{t("nav.blog")}</Link>
+                </li>
+              </ul>
+            </div>
 
-                  <a
-                    href={SOCIAL_LINKS.telegram}
-                    aria-label="REIZ Telegram"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="default">
-                      <UiImage
-                        width={26}
-                        height={26}
-                        src="/img/icons/telegram.svg"
-                        alt="Telegram"
-                      />
-                    </span>
-                    <span className="hover">
-                      <UiImage
-                        width={26}
-                        height={26}
-                        src="/img/icons/telegram-hover.svg"
-                        alt="Telegram"
-                      />
-                    </span>
-                  </a>
-
-                  <a
-                    href={SOCIAL_LINKS.viber}
-                    aria-label="REIZ Viber"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="default">
-                      <UiImage
-                        width={26}
-                        height={26}
-                        src="/img/icons/viber-color.svg"
-                        alt="Viber"
-                      />
-                    </span>
-                    <span className="hover">
-                      <UiImage
-                        width={26}
-                        height={26}
-                        src="/img/icons/viber-hover.svg"
-                        alt="Viber"
-                      />
-                    </span>
-                  </a>
-                </div>
-                <p>{t("contacts.working_hours")}</p>
-              </div>
-
-              <a
-                href={addressLink}
-                className="footer__adress"
-                data-title={t("address.title")}
-                aria-label={t("address.title")}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>{address}</span>
-              </a>
-
-              <span className="footer__rate">
-                <UiImage
-                  width={130}
-                  height={58}
-                  src="/img/icons/google.svg"
-                  alt="REIZ Rental Cars rating"
-                />
-              </span>
+            {/* Subscribe column */}
+            <div className="footer__subscribe">
+              <h3 className="footer__col-title">{t("subscribe.title")}</h3>
+              <p className="footer__subscribe-desc">
+                {t("subscribe.description")}
+              </p>
+              <FooterSubscribe placeholder={t("subscribe.placeholder")} />
             </div>
           </div>
 
-          {/* Mobile accordion navigation — visible only on mobile via CSS */}
+          {/* Mobile accordion navigation */}
           <div className="footer__mobile-nav">
             <FooterAccordion title={t("accordion.rental")}>
               <ul>
@@ -207,13 +205,14 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
             </FooterAccordion>
           </div>
 
+          {/* Payment & Social cards */}
           <div className="footer__middle">
             <ul className="footer__list" data-title={t("payments.title")}>
               <li className="footer__item">
                 <span className="footer__link ms">
                   <i className="sprite" aria-hidden="true">
                     <svg width="42" height="26">
-                      <use href="/img/sprite/sprite.svg?ver=15#mastercard"></use>
+                      <use href="/img/sprite/sprite.svg?ver=15#mastercard" />
                     </svg>
                   </i>
                   <span>MASTERCARD</span>
@@ -223,7 +222,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 <span className="footer__link visa">
                   <i className="sprite" aria-hidden="true">
                     <svg width="60" height="19">
-                      <use href="/img/sprite/sprite.svg?ver=14#visa"></use>
+                      <use href="/img/sprite/sprite.svg?ver=14#visa" />
                     </svg>
                   </i>
                   <span>VISA</span>
@@ -233,7 +232,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 <span className="footer__link pay">
                   <i className="sprite" aria-hidden="true">
                     <svg width="70" height="22">
-                      <use href="/img/sprite/sprite.svg?ver=14#payment"></use>
+                      <use href="/img/sprite/sprite.svg?ver=14#payment" />
                     </svg>
                   </i>
                   <span>UNIONPAY</span>
@@ -251,16 +250,8 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                     rel="noopener noreferrer"
                   >
                     <i className="sprite" aria-hidden="true">
-                      <svg
-                        width="28"
-                        height="28"
-                        aria-hidden="true"
-                        focusable="false"
-                      >
-                        <use
-                          href="/img/sprite/sprite.svg?ver=14#facebook"
-                          xlinkHref="/img/sprite/sprite.svg?ver=14#facebook"
-                        />
+                      <svg width="28" height="28">
+                        <use href="/img/sprite/sprite.svg?ver=14#facebook" />
                       </svg>
                     </i>
                     <span>FACEBOOK</span>
@@ -268,16 +259,8 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 ) : (
                   <span className="footer__link">
                     <i className="sprite" aria-hidden="true">
-                      <svg
-                        width="28"
-                        height="28"
-                        aria-hidden="true"
-                        focusable="false"
-                      >
-                        <use
-                          href="/img/sprite/sprite.svg?ver=14#facebook"
-                          xlinkHref="/img/sprite/sprite.svg?ver=14#facebook"
-                        />
+                      <svg width="28" height="28">
+                        <use href="/img/sprite/sprite.svg?ver=14#facebook" />
                       </svg>
                     </i>
                     <span>FACEBOOK</span>
@@ -294,16 +277,8 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                   rel="noopener noreferrer"
                 >
                   <i className="sprite" aria-hidden="true">
-                    <svg
-                      width="28"
-                      height="28"
-                      aria-hidden="true"
-                      focusable="false"
-                    >
-                      <use
-                        href="/img/sprite/sprite.svg?ver=14#instagram"
-                        xlinkHref="/img/sprite/sprite.svg?ver=14#instagram"
-                      />
+                    <svg width="28" height="28">
+                      <use href="/img/sprite/sprite.svg?ver=14#instagram" />
                     </svg>
                   </i>
                   <span>INSTAGRAM</span>
@@ -320,16 +295,8 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                     rel="noopener noreferrer"
                   >
                     <i className="sprite" aria-hidden="true">
-                      <svg
-                        width="28"
-                        height="28"
-                        aria-hidden="true"
-                        focusable="false"
-                      >
-                        <use
-                          href="/img/sprite/sprite.svg?ver=14#youtube"
-                          xlinkHref="/img/sprite/sprite.svg?ver=14#youtube"
-                        />
+                      <svg width="28" height="28">
+                        <use href="/img/sprite/sprite.svg?ver=14#youtube" />
                       </svg>
                     </i>
                     <span>YOUTUBE</span>
@@ -337,16 +304,8 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 ) : (
                   <span className="footer__link red">
                     <i className="sprite" aria-hidden="true">
-                      <svg
-                        width="28"
-                        height="28"
-                        aria-hidden="true"
-                        focusable="false"
-                      >
-                        <use
-                          href="/img/sprite/sprite.svg?ver=14#youtube"
-                          xlinkHref="/img/sprite/sprite.svg?ver=14#youtube"
-                        />
+                      <svg width="28" height="28">
+                        <use href="/img/sprite/sprite.svg?ver=14#youtube" />
                       </svg>
                     </i>
                     <span>YOUTUBE</span>

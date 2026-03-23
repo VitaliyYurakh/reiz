@@ -1604,14 +1604,14 @@
         {
           "city": "Kijow",
           "address": "ul. Wielka Zytomierska 6/11, Kijow",
-          "phone": "+380 63 547 11 86",
+          "phone": "Tymczasowo nie przyjmujemy połączeń",
           "hours": "Pon.–Niedz. 08:30–20:30",
           "email": "info@reiz.com.ua"
         },
         {
           "city": "Lwow",
           "address": "ul. Lubinska 168, Lwow",
-          "phone": "+380 63 547 11 86",
+          "phone": "Tymczasowo nie przyjmujemy połączeń",
           "hours": "Pon.–Niedz. 08:30–20:30",
           "email": "info@reiz.com.ua"
         }
@@ -1649,12 +1649,12 @@
     },
     "contacts": {
       "phone_title": "Telefon biura",
-      "phone_number": "+380 63 547 11 86",
+      "phone_number": "—",
       "working_hours": "Czynne 09:00–22:00,\nsiedem dni w tygodniu"
     },
     "address": {
       "title": "Adres biura",
-      "text": "MIEDZYNARODOWY PORT LOTNICZY IM. DANYLA HALICKIEGO WE LWOWIE"
+      "text": "Międzynarodowy Port Lotniczy im. Danyła Halickiego we Lwowie"
     },
     "payments": {
       "title": "Akceptujemy"
@@ -1665,6 +1665,18 @@
     "accordion": {
       "rental": "Wynajem",
       "company": "Firma"
+    },
+    "links_title": "Szybkie linki",
+    "subscribe": {
+      "title": "Subskrybuj",
+      "description": "Chcesz być na bieżąco z naszymi usługami? Zapisz się, a wyślemy Ci powiadomienie e-mailem.",
+      "placeholder": "Adres e-mail"
+    },
+    "contact_cards": {
+      "call": "Zadzwoń do nas",
+      "phone": "Tymczasowo nie przyjmujemy połączeń",
+      "write": "Napisz do nas",
+      "email": "info@reiz.com.ua"
     },
     "bottom": {
       "copyright": "© 2025 Reiz. Wszelkie prawa zastrzezone.",
@@ -1809,6 +1821,7 @@
     "nextMonth": "Nastepny miesiac"
   },
   "carRentModal": {
+    "unavailable": "Rezerwacja online wszystkich samochodów na stronie REIZ jest tymczasowo wstrzymana. Przepraszamy za niedogodności.",
     "breadcrumbs": {
       "home": "Strona glowna",
       "cars": "Samochody"

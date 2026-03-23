@@ -1,7 +1,11 @@
 @use "../mixins/breakpoint" as *;
 
+$footer-accent: #214230;
+$footer-text-muted: #6b6b6b;
+$footer-border: rgba(0, 0, 0, 0.1);
+
 .footer-acc {
-  border-bottom: 1px solid var(--cl-d);
+  border-bottom: 1px solid $footer-border;
 
   &__btn {
     display: flex;
@@ -16,7 +20,7 @@
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--cl-a);
+    color: $footer-accent;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -30,11 +34,10 @@
     &::after {
       content: "";
       position: absolute;
-      background: var(--cl-c);
+      background: $footer-text-muted;
       transition: transform 0.3s ease;
     }
 
-    // horizontal line
     &::before {
       top: 50%;
       left: 0;
@@ -43,7 +46,6 @@
       transform: translateY(-50%);
     }
 
-    // vertical line (rotates to 0 when open)
     &::after {
       left: 50%;
       top: 0;
@@ -76,13 +78,13 @@
       a {
         font-size: 13px;
         font-weight: 400;
-        color: var(--cl-o);
+        color: $footer-text-muted;
         text-decoration: none;
         transition: color 0.2s ease;
         line-height: 1.4;
 
         &:active {
-          color: var(--cl-a);
+          color: $footer-accent;
         }
       }
     }

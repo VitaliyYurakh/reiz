@@ -1,4 +1,4 @@
-import { Inter, Merriweather } from "next/font/google";
+import { Inter, Merriweather, Outfit } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -14,6 +14,13 @@ export const merriweather = Merriweather({
   style: "italic",
   variable: "--font-merriweather",
   fallback: ["Georgia", "serif"],
+  display: "swap",
+});
+
+export const outfit = Outfit({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-outfit",
+  fallback: ["Arial", "sans-serif"],
   display: "swap",
 });
 
