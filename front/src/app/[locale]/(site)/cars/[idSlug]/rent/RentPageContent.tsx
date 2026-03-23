@@ -105,6 +105,28 @@ export default function RentPageContent({
   initialEndDate,
 }: RentPageContentProps) {
   const t = useTranslations("carRentPage");
+  const tModal = useTranslations("carRentModal");
+  const slug = createCarIdSlug(car);
+
+  // ── Temporary stub: booking suspended ──
+  return (
+    <section style={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ textAlign: "center", maxWidth: 440, padding: "40px 20px" }}>
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#b0b0b0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        <p style={{ fontSize: 16, lineHeight: 1.6, margin: "16px 0", color: "#333" }}>
+          {tModal("unavailable")}
+        </p>
+        <Link href={`/cars/${slug}`} className="main-button" style={{ display: "inline-block", minWidth: 160 }}>
+          OK
+        </Link>
+      </div>
+    </section>
+  );
+  // ── End temporary stub ──
   const { open: openDatePicker } = useCarModal("rangeDateTimePicker");
   const { open: openManagerModal } = useSideBarModal(
     "managerWillContactYouModal",
