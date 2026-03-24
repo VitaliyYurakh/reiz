@@ -1604,14 +1604,14 @@
         {
           "city": "Kyiv",
           "address": "Str. Velyka Zhytomyrska, 6/11, Kyiv",
-          "phone": "Temporar nu acceptăm apeluri",
+          "phone": "+380 73 992 88 38",
           "hours": "Luni–Duminică 08:30–20:30",
           "email": "info@reiz.com.ua"
         },
         {
           "city": "Lviv",
           "address": "Str. Liubinska, 168, Lviv",
-          "phone": "Temporar nu acceptăm apeluri",
+          "phone": "+380 73 992 88 38",
           "hours": "Luni–Duminică 08:30–20:30",
           "email": "info@reiz.com.ua"
         }
@@ -1674,7 +1674,7 @@
     },
     "contact_cards": {
       "call": "Sunați-ne",
-      "phone": "Temporar nu acceptăm apeluri",
+      "phone": "+380 73 992 88 38",
       "write": "Scrieți-ne",
       "email": "info@reiz.com.ua"
     },

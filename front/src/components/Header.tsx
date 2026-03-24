@@ -14,7 +14,7 @@ import { usePathname } from "next/navigation";
 import { stripLocale } from "@/lib/utils/functions";
 import { useCatalogFilters } from "@/context/CatalogFiltersContext";
 import { useThemeColorOnOpen } from "@/hooks/useThemeColorOnOpen";
-import { SOCIAL_LINKS } from "@/config/social";
+import { SOCIAL_LINKS, PHONE_NUMBER, PHONE_DISPLAY } from "@/config/social";
 
 type HeaderProps = {
   mode?: boolean;
@@ -272,33 +272,24 @@ export default function Header({
                   </nav>
 
                   <div className="header__links">
-                    <span className="tel-link">
-                      —
-                    </span>
-                    <a
-                      href={SOCIAL_LINKS.whatsapp}
-                      className="header__link"
-                      aria-label="REIZ в WhatsApp"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <a href={`tel:${PHONE_NUMBER}`} className="tel-link">
+                      {PHONE_DISPLAY}
+                    </a>
+                    <span
+                      className="header__link header__link--disabled"
+                      aria-label="WhatsApp temporarily unavailable"
+                      title="WhatsApp temporarily unavailable"
+                      style={{ opacity: 0.4, cursor: "default" }}
                     >
                       <span className="default">
                         <UiImage
                           width={26}
                           height={26}
                           src="/img/icons/whatsapp.svg"
-                          alt="REIZ в WhatsApp"
+                          alt="WhatsApp temporarily unavailable"
                         />
                       </span>
-                      <span className="hover">
-                        <UiImage
-                          width={26}
-                          height={26}
-                          src="/img/icons/whatsapp-hover.svg"
-                          alt="REIZ в WhatsApp"
-                        />
-                      </span>
-                    </a>
+                    </span>
                     <a
                       href={SOCIAL_LINKS.telegram}
                       className="header__link"

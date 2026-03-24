@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import Icon from "@/components/Icon";
 import { SideBarModalSpec } from "@/components/modals/index";
-import { SOCIAL_LINKS } from "@/config/social";
+import { SOCIAL_LINKS, PHONE_NUMBER } from "@/config/social";
 
 export default function BookingContactModal({
   close,
@@ -17,9 +17,8 @@ export default function BookingContactModal({
   const t = useTranslations("bookingContactModal");
 
   const telegramLink = SOCIAL_LINKS.telegram;
-  const whatsappLink = SOCIAL_LINKS.whatsapp;
   const viberLink = SOCIAL_LINKS.viber;
-  const phoneNumber = "#";
+  const phoneLink = `tel:${PHONE_NUMBER}`;
 
   return (
     <div
@@ -57,11 +56,10 @@ export default function BookingContactModal({
             />
             Telegram
           </a>
-          <a
-            href={whatsappLink}
+          <span
             className="booking-contact-modal__btn booking-contact-modal__btn--whatsapp"
-            target="_blank"
-            rel="noopener noreferrer"
+            style={{ opacity: 0.4, cursor: "default" }}
+            title="WhatsApp temporarily unavailable"
           >
             <img
               src="/img/icons/whatsapp.svg"
@@ -71,7 +69,7 @@ export default function BookingContactModal({
               aria-hidden="true"
             />
             WhatsApp
-          </a>
+          </span>
           <a
             href={viberLink}
             className="booking-contact-modal__btn booking-contact-modal__btn--viber"
@@ -88,7 +86,7 @@ export default function BookingContactModal({
             Viber
           </a>
           <a
-            href={phoneNumber}
+            href={phoneLink}
             className="booking-contact-modal__btn booking-contact-modal__btn--phone"
           >
             <img

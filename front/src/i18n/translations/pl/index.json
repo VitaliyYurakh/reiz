@@ -1604,14 +1604,14 @@
         {
           "city": "Kijow",
           "address": "ul. Wielka Zytomierska 6/11, Kijow",
-          "phone": "Tymczasowo nie przyjmujemy połączeń",
+          "phone": "+380 73 992 88 38",
           "hours": "Pon.–Niedz. 08:30–20:30",
           "email": "info@reiz.com.ua"
         },
         {
           "city": "Lwow",
           "address": "ul. Lubinska 168, Lwow",
-          "phone": "Tymczasowo nie przyjmujemy połączeń",
+          "phone": "+380 73 992 88 38",
           "hours": "Pon.–Niedz. 08:30–20:30",
           "email": "info@reiz.com.ua"
         }
@@ -1674,7 +1674,7 @@
     },
     "contact_cards": {
       "call": "Zadzwoń do nas",
-      "phone": "Tymczasowo nie przyjmujemy połączeń",
+      "phone": "+380 73 992 88 38",
       "write": "Napisz do nas",
       "email": "info@reiz.com.ua"
     },

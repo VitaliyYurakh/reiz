@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import UiImage from "@/components/ui/UiImage";
-import { SOCIAL_LINKS } from "@/config/social";
+import { SOCIAL_LINKS, PHONE_NUMBER } from "@/config/social";
 import { Link } from "@/i18n/request";
 import { useTranslations } from "next-intl";
 
@@ -54,7 +54,7 @@ export default function MobileBottomBar() {
       className={cn("mobile-bar", !visible && "mobile-bar--hidden")}
       aria-label={t("aria_label")}
     >
-      <span className="mobile-bar__item" style={{ cursor: "default" }}>
+      <a href={`tel:${PHONE_NUMBER}`} className="mobile-bar__item">
         <UiImage
           width={22}
           height={22}
@@ -62,7 +62,7 @@ export default function MobileBottomBar() {
           alt=""
         />
         <span>{t("call")}</span>
-      </span>
+      </a>
 
       <Link href="/#catalog" className="mobile-bar__item">
         <svg
@@ -98,7 +98,7 @@ export default function MobileBottomBar() {
       </a>
 
       <a
-        href={SOCIAL_LINKS.whatsapp}
+        href={SOCIAL_LINKS.viber}
         className="mobile-bar__item"
         target="_blank"
         rel="noopener noreferrer"
@@ -106,10 +106,10 @@ export default function MobileBottomBar() {
         <UiImage
           width={22}
           height={22}
-          src="/img/icons/whatsapp.svg"
+          src="/img/icons/viber-color.svg"
           alt=""
         />
-        <span>WhatsApp</span>
+        <span>Viber</span>
       </a>
     </nav>
   );

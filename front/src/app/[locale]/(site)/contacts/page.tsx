@@ -106,20 +106,19 @@ export default async function ContactsPage() {
                 </div>
 
                 <div className="contacts-section__messengers">
-                  <a
-                    href={SOCIAL_LINKS.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <span
                     className="contacts-section__messenger"
+                    style={{ opacity: 0.4, cursor: "default" }}
+                    title="WhatsApp temporarily unavailable"
                   >
                     <UiImage
                       width={26}
                       height={26}
                       src="/img/icons/whatsapp.svg"
-                      alt="WhatsApp"
+                      alt="WhatsApp temporarily unavailable"
                     />
                     WhatsApp
-                  </a>
+                  </span>
                   <a
                     href={SOCIAL_LINKS.telegram}
                     target="_blank"

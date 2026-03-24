@@ -1605,14 +1605,14 @@
         {
           "city": "Kyiv",
           "address": "Velyka Zhytomyrska St., 6/11, Kyiv",
-          "phone": "Temporarily not accepting calls",
+          "phone": "+380 73 992 88 38",
           "hours": "Mon–Sun 08:30–20:30",
           "email": "info@reiz.com.ua"
         },
         {
           "city": "Lviv",
           "address": "Liubinska St., 168, Lviv",
-          "phone": "Temporarily not accepting calls",
+          "phone": "+380 73 992 88 38",
           "hours": "Mon–Sun 08:30–20:30",
           "email": "info@reiz.com.ua"
         }
@@ -1675,7 +1675,7 @@
     },
     "contact_cards": {
       "call": "Call us",
-      "phone": "Temporarily not accepting calls",
+      "phone": "+380 73 992 88 38",
       "write": "Write to us",
       "email": "info@reiz.com.ua"
     },
