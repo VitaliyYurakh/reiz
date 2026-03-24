@@ -173,7 +173,7 @@ export default function CarRentModal({
   const hasDiscount = discountPercent > 0;
   const depositAmount = Math.max(
     (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100),
-    100,
+    120,
   );
 
   const extrasPerDay = useMemo(() => {

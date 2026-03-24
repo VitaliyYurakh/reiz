@@ -91,7 +91,7 @@ export default function CarCard({ car }: CarCardProps) {
   const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
   const hasDiscount = discountPercent > 0;
 
-  const depositAmount = Math.max(baseDeposit * (1 - depositPercent / 100), 100);
+  const depositAmount = Math.max(baseDeposit * (1 - depositPercent / 100), 120);
   const rentalCost = hasDates ? dailyPrice * totalDays : 0;
 
   const carIdSlug = useMemo(() => createCarIdSlug(car), [car]);

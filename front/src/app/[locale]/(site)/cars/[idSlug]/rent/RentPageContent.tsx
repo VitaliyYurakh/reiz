@@ -272,7 +272,7 @@ export default function RentPageContent({
 
   const depositAmount = Math.max(
     (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100),
-    100,
+    120,
   );
 
   const extrasPerDay = useMemo(() => {

@@ -190,7 +190,7 @@ export default function CarAside({ car }: { car: Car }) {
     const daily = Math.round(
       dailyBeforeDiscount * (1 - discountPercent / 100),
     );
-    const deposit = Math.max((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100), 100);
+    const deposit = Math.max((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100), 120);
     const total = daily * totalDays;
     return {
       dailyBeforeDiscount,
