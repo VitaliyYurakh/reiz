@@ -20,10 +20,10 @@ type UpdateCarDto = {
     segmentIds?: number[];
     description?: string;
     engineVolume?: string;
-    engineType?: string;
-    transmission?: string;
+    engineType?: Record<string, string>;
+    transmission?: Record<string, string>;
     fuelConsumption?: string;
-    driveType?: string;
+    driveType?: Record<string, string>;
     seats?: number;
     discount?: number;
     configuration?: string;
