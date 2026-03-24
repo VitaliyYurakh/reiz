@@ -275,21 +275,21 @@ export default function Header({
                     <a href={`tel:${PHONE_NUMBER}`} className="tel-link">
                       {PHONE_DISPLAY}
                     </a>
-                    <span
-                      className="header__link header__link--disabled"
-                      aria-label="WhatsApp temporarily unavailable"
-                      title="WhatsApp temporarily unavailable"
-                      style={{ opacity: 0.4, cursor: "default" }}
+                    <button
+                      type="button"
+                      className="header__link"
+                      aria-label="WhatsApp"
+                      onClick={() => alert(headerT("whatsapp_unavailable"))}
                     >
                       <span className="default">
                         <UiImage
                           width={26}
                           height={26}
                           src="/img/icons/whatsapp.svg"
-                          alt="WhatsApp temporarily unavailable"
+                          alt="WhatsApp"
                         />
                       </span>
-                    </span>
+                    </button>
                     <a
                       href={SOCIAL_LINKS.telegram}
                       className="header__link"

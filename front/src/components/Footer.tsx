@@ -4,6 +4,7 @@ import { Link } from "@/i18n/request";
 import { SOCIAL_LINKS, PHONE_NUMBER, PHONE_DISPLAY } from "@/config/social";
 import FooterAccordion from "@/components/FooterAccordion";
 import FooterSubscribe from "@/components/FooterSubscribe";
+import WhatsAppUnavailable from "@/components/WhatsAppUnavailable";
 
 type FooterProps = {
   addressText?: string;
@@ -92,18 +93,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
               </Link>
               <p className="footer__desc">{description}</p>
               <div className="footer__messengers">
-                <span
-                  aria-label="WhatsApp temporarily unavailable"
-                  title="WhatsApp temporarily unavailable"
-                  style={{ opacity: 0.4, cursor: "default" }}
-                >
-                  <UiImage
-                    width={22}
-                    height={22}
-                    src="/img/icons/whatsapp.svg"
-                    alt="WhatsApp temporarily unavailable"
-                  />
-                </span>
+                <WhatsAppUnavailable message={t("whatsapp_unavailable")} size={22} />
                 <a
                   href={SOCIAL_LINKS.telegram}
                   aria-label="Telegram"

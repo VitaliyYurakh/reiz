@@ -41,7 +41,8 @@
     "call": "Apel",
     "currency": "Moneda",
     "open_menu": "Deschide meniu",
-    "close_menu": "Închide meniu"
+    "close_menu": "Închide meniu",
+    "whatsapp_unavailable": "WhatsApp este temporar indisponibil"
   },
   "homePage": {
     "advantages": {
@@ -1630,7 +1631,8 @@
       "success": "Mesajul dumneavoastră a fost trimis cu succes!",
       "error": "Trimiterea mesajului a eșuat. Vă rugăm să încercați din nou.",
       "submitting": "Se trimite..."
-    }
+    },
+    "whatsapp_unavailable": "WhatsApp este temporar indisponibil"
   },
   "footer": {
     "tagline": "ÎNCHIRIERE AUTO ÎN UCRAINA",
@@ -1678,6 +1680,7 @@
       "write": "Scrieți-ne",
       "email": "info@reiz.com.ua"
     },
+    "whatsapp_unavailable": "WhatsApp este temporar indisponibil",
     "bottom": {
       "copyright": "© 2025 Reiz. Toate drepturile rezervate.",
       "privacy": "Politica de confidențialitate",
@@ -2142,7 +2145,8 @@
     "buttons": {
       "phone": "Sună-ne"
     },
-    "terms": "Deschiși zilnic 9:00 – 21:00 · Răspundem în 15 minute"
+    "terms": "Deschiși zilnic 9:00 – 21:00 · Răspundem în 15 minute",
+    "whatsapp_unavailable": "WhatsApp este temporar indisponibil"
   },
   "blogLvivTravel": {
     "meta": {

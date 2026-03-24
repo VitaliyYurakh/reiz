@@ -56,10 +56,10 @@ export default function BookingContactModal({
             />
             Telegram
           </a>
-          <span
+          <button
+            type="button"
             className="booking-contact-modal__btn booking-contact-modal__btn--whatsapp"
-            style={{ opacity: 0.4, cursor: "default" }}
-            title="WhatsApp temporarily unavailable"
+            onClick={() => alert(t("whatsapp_unavailable"))}
           >
             <img
               src="/img/icons/whatsapp.svg"
@@ -69,7 +69,7 @@ export default function BookingContactModal({
               aria-hidden="true"
             />
             WhatsApp
-          </span>
+          </button>
           <a
             href={viberLink}
             className="booking-contact-modal__btn booking-contact-modal__btn--viber"

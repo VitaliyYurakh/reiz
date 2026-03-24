@@ -187,7 +187,8 @@ $footer-border: rgba(0, 0, 0, 0.1);
     gap: 12px;
     margin-top: 8px;
 
-    a {
+    a,
+    button {
       width: 46px;
       height: 46px;
       border-radius: 50%;
@@ -197,6 +198,9 @@ $footer-border: rgba(0, 0, 0, 0.1);
       justify-content: center;
       transition: all 0.3s;
       -webkit-tap-highlight-color: transparent;
+      background: none;
+      padding: 0;
+      cursor: pointer;
 
       img {
         width: 22px;

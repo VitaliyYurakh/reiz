@@ -41,7 +41,8 @@
     "call": "Zadzwon",
     "currency": "Waluta",
     "open_menu": "Otworz menu",
-    "close_menu": "Zamknij menu"
+    "close_menu": "Zamknij menu",
+    "whatsapp_unavailable": "WhatsApp jest tymczasowo niedostępny"
   },
   "homePage": {
     "advantages": {
@@ -1630,7 +1631,8 @@
       "success": "Twoja wiadomosc zostala wyslana pomyslnie!",
       "error": "Nie udalo sie wyslac wiadomosci. Sprobuj ponownie.",
       "submitting": "Wysylanie..."
-    }
+    },
+    "whatsapp_unavailable": "WhatsApp jest tymczasowo niedostępny"
   },
   "footer": {
     "tagline": "WYNAJEM SAMOCHODOW NA UKRAINIE",
@@ -1678,6 +1680,7 @@
       "write": "Napisz do nas",
       "email": "info@reiz.com.ua"
     },
+    "whatsapp_unavailable": "WhatsApp jest tymczasowo niedostępny",
     "bottom": {
       "copyright": "© 2025 Reiz. Wszelkie prawa zastrzezone.",
       "privacy": "Polityka prywatnosci",
@@ -2142,7 +2145,8 @@
     "buttons": {
       "phone": "Zadzwoń"
     },
-    "terms": "Pracujemy codziennie od 9:00 do 21:00 · Odpowiadamy w ciągu 15 minut"
+    "terms": "Pracujemy codziennie od 9:00 do 21:00 · Odpowiadamy w ciągu 15 minut",
+    "whatsapp_unavailable": "WhatsApp jest tymczasowo niedostępny"
   },
   "blogLvivTravel": {
     "meta": {

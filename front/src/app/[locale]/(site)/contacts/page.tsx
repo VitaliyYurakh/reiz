@@ -8,6 +8,7 @@ import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import ContactsForm from "@/app/[locale]/(site)/contacts/components/ContactsForm";
 import { SOCIAL_LINKS } from "@/config/social";
+import WhatsAppUnavailable from "@/components/WhatsAppUnavailable";
 
 
 export function generateStaticParams() {
@@ -106,19 +107,9 @@ export default async function ContactsPage() {
                 </div>
 
                 <div className="contacts-section__messengers">
-                  <span
-                    className="contacts-section__messenger"
-                    style={{ opacity: 0.4, cursor: "default" }}
-                    title="WhatsApp temporarily unavailable"
-                  >
-                    <UiImage
-                      width={26}
-                      height={26}
-                      src="/img/icons/whatsapp.svg"
-                      alt="WhatsApp temporarily unavailable"
-                    />
+                  <WhatsAppUnavailable message={t("whatsapp_unavailable")} size={26} className="contacts-section__messenger">
                     WhatsApp
-                  </span>
+                  </WhatsAppUnavailable>
                   <a
                     href={SOCIAL_LINKS.telegram}
                     target="_blank"

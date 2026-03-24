@@ -41,7 +41,8 @@
     "call": "Позвонить",
     "currency": "Валюта",
     "open_menu": "Открыть меню",
-    "close_menu": "Закрыть меню"
+    "close_menu": "Закрыть меню",
+    "whatsapp_unavailable": "WhatsApp временно недоступен"
   },
   "homePage": {
     "advantages": {
@@ -1627,7 +1628,8 @@
       "success": "Ваше сообщение успешно отправлено",
       "error": "Не удалось отправить сообщение. Попробуйте еще раз.",
       "submitting": "Отправляем..."
-    }
+    },
+    "whatsapp_unavailable": "WhatsApp временно недоступен"
   },
   "footer": {
     "tagline": "CAR RENTAL IN UKRAINE",
@@ -1675,6 +1677,7 @@
       "write": "Напишите нам",
       "email": "info@reiz.com.ua"
     },
+    "whatsapp_unavailable": "WhatsApp временно недоступен",
     "bottom": {
       "copyright": "© 2025 Reiz. Все права защищены",
       "privacy": "Политика конфенденциальносити",
@@ -2139,7 +2142,8 @@
     "buttons": {
       "phone": "Позвонить"
     },
-    "terms": "Работаем ежедневно с 9:00 до 21:00 · Отвечаем в течение 15 минут"
+    "terms": "Работаем ежедневно с 9:00 до 21:00 · Отвечаем в течение 15 минут",
+    "whatsapp_unavailable": "WhatsApp временно недоступен"
   },
   "blogLvivTravel": {
     "meta": {
