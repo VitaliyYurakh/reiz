@@ -60,7 +60,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     logo: `${baseUrl}/img/og/home-square.webp`,
     image: `${baseUrl}/img/og/home.webp`,
     description: descriptions[locale],
-    telephone: "+380635471186",
+    telephone: "",
     email: "info@reiz.com.ua",
     priceRange: "$$",
     currenciesAccepted: "UAH, USD, EUR",

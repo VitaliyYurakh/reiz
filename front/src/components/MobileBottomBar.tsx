@@ -54,7 +54,7 @@ export default function MobileBottomBar() {
       className={cn("mobile-bar", !visible && "mobile-bar--hidden")}
       aria-label={t("aria_label")}
     >
-      <a href="tel:+380635471186" className="mobile-bar__item">
+      <span className="mobile-bar__item" style={{ cursor: "default" }}>
         <UiImage
           width={22}
           height={22}
@@ -62,7 +62,7 @@ export default function MobileBottomBar() {
           alt=""
         />
         <span>{t("call")}</span>
-      </a>
+      </span>
 
       <Link href="/#catalog" className="mobile-bar__item">
         <svg

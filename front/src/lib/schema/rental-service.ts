@@ -62,7 +62,7 @@ export function generateRentalServiceSchema({
       },
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+380635471186",
+        telephone: "",
         contactType: "customer service",
         availableLanguage: ["Ukrainian", "Russian", "English", "Polish"],
       },

@@ -61,7 +61,7 @@
     gap: clamp(20px, 2.5vw, 34px);
     padding: 20px;
     border-radius: 16px;
-    background: #f3f3f3;
+    background: #f2f2f2;
   }
 
   [data-tab-content="1"] {
@@ -198,7 +198,7 @@
   }
 
   .single-form {
-    background: #f3f3f3;
+    background: #f2f2f2;
   }
 
   @include small-tablet {

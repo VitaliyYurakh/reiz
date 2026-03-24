@@ -208,15 +208,15 @@ export default function Header({
               </svg>
             </Link>
 
-            <a
-              href="tel:+380635471186"
+            <span
               className="phone-link"
               aria-label={headerT("call")}
+              style={{ cursor: "default" }}
             >
               <i className="sprite">
                 <Icon id={"phone"} width={34} height={34} />
               </i>
-            </a>
+            </span>
 
             <div className={cn("mobile", mobileMenuOpen && "active")}>
               <div className="mobile__box">
@@ -272,9 +272,9 @@ export default function Header({
                   </nav>
 
                   <div className="header__links">
-                    <a href="tel:+380635471186" className="tel-link">
-                      +38 (063) 547 11 86
-                    </a>
+                    <span className="tel-link">
+                      —
+                    </span>
                     <a
                       href={SOCIAL_LINKS.whatsapp}
                       className="header__link"

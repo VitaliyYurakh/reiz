@@ -426,7 +426,7 @@ export default function CarRentModal({
 
   return (
     <div
-      className={`rent-modal modal slide-step-${step} ${!isClosing ? "active" : ""}`}
+      className={`rent-modal modal ${!isClosing ? "active" : ""}`}
       style={
         !isClosing
           ? { opacity: 1, display: "flex", transition: "200ms" }
@@ -434,142 +434,40 @@ export default function CarRentModal({
       }
       data-popup="rent"
     >
-      <button className="close modal__close" onClick={close} aria-label="Close">
-        <svg width="24" height="24">
-          <use href="/img/sprite/sprite.svg#close"></use>
+      <div
+        style={{
+          background: "#fff",
+          borderRadius: "24px",
+          padding: "48px 32px",
+          maxWidth: "440px",
+          width: "90%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          gap: "16px",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+          margin: "auto",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#b0b0b0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
         </svg>
-      </button>
-
-      <div className="modal__box car-rental-modal-box">
-        <span className="modal-step__title">{t("title")}</span>
-        <form className="modal__content" onSubmit={handleSubmit}>
-          <div className="order-form">
-            <LocationSelect
-              placeholder={t("personal.pickupPlaceholder")}
-              containerClassName={clsx("order", {
-                "custom-select--error": invalidFields.has("pickupLocation"),
-              })}
-              value={formState.pickupLocation}
-              onChange={handleSelectChange("pickupLocation")}
-              containerRef={setFieldRef("pickupLocation")}
-              locale={locale}
-              locationType="pickup"
-            />
-            <LocationSelect
-              placeholder={t("personal.returnPlaceholder")}
-              containerClassName={clsx("order", {
-                "custom-select--error": invalidFields.has("returnLocation"),
-              })}
-              value={formState.returnLocation}
-              onChange={handleSelectChange("returnLocation")}
-              containerRef={setFieldRef("returnLocation")}
-              locale={locale}
-              locationType="return"
-            />
-            <label className="order-form__label" onClick={handleSelectDates}>
-              <span className="order-form__icon">
-                <svg width="21" height="21">
-                  <use href="/img/sprite/sprite.svg#car"></use>
-                </svg>
-              </span>
-              <input
-                type="text"
-                name="date"
-                id="date"
-                readOnly
-                value={renderRangeLabel()}
-              />
-
-              <div className="arrow-down">
-                <svg width="6" height="3">
-                  <use href="/img/sprite/sprite.svg#arrow-d"></use>
-                </svg>
-              </div>
-            </label>
-
-            <button
-              className="main-button"
-              type="button"
-              onClick={handleNextStep}
-            >
-              {t("orderForm.submit")}
-            </button>
-          </div>
-
-          <div className="modal__steps">
-            <StepOne
-              formState={formState}
-              invalidFields={invalidFields}
-              formError={formError}
-              step={step}
-              totalDays={totalDays}
-              formResetKey={formResetKey}
-              locale={locale}
-              close={close}
-              handleInputChange={handleInputChange}
-              handleSelectChange={handleSelectChange}
-              handlePhoneChange={handlePhoneChange}
-              handleSelectDates={handleSelectDates}
-              handleNextStep={handleNextStep}
-              setFieldRef={setFieldRef}
-              renderRangeLabel={renderRangeLabel}
-            />
-            <StepTwo
-              formState={formState}
-              formError={formError}
-              feedback={feedback}
-              step={step}
-              isSubmitting={isSubmitting}
-              selectedPlan={selectedPlan}
-              selectedExtras={selectedExtras}
-              carCountingRules={data.car.carCountingRule}
-              baseDailyPrice={baseDailyPrice}
-              discountPercent={discountPercent}
-              setStep={setStep}
-              setSelectedPlanId={setSelectedPlanId}
-              toggleExtra={toggleExtra}
-              handleInputChange={handleInputChange}
-            />
-          </div>
-        </form>
-
-        <PricingSummary
-          carName={carName}
-          previewUrl={data.car.previewUrl}
-          selectedDate={selectedDate}
-          pickupLocation={formState.pickupLocation}
-          returnLocation={formState.returnLocation}
-          totalDays={totalDays}
-          dailyPrice={dailyPrice}
-          dailyPriceBeforeDiscount={dailyPriceBeforeDiscount}
-          hasDiscount={hasDiscount}
-          depositAmount={depositAmount}
-          totalCost={totalCost}
-          selectedExtras={selectedExtras}
-        />
+        <p style={{ fontSize: "16px", lineHeight: 1.6, margin: 0, color: "#333" }}>
+          {t("unavailable")}
+        </p>
+        <button
+          className="main-button"
+          type="button"
+          onClick={close}
+          style={{ marginTop: "8px", minWidth: "160px" }}
+        >
+          OK
+        </button>
       </div>
-
-      {/* Driver service tooltip rendered via portal */}
-      {isMounted &&
-        createPortal(
-          <Tooltip
-            id="driver-service-tooltip-modal"
-            place="top"
-            positionStrategy="fixed"
-            variant="light"
-            opacity={1}
-            border="1px solid #D6D6D6"
-            style={{ zIndex: 9999, borderRadius: "16px", maxWidth: "300px" }}
-          >
-            <div
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: tooltip content
-              dangerouslySetInnerHTML={{
-                __html: t.raw("addOns.options.driverService.tooltip"),
-              }}
-            />
-          </Tooltip>,
-          document.body
-        )}
     </div>
   );
 }

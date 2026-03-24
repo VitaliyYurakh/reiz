@@ -166,9 +166,9 @@ export default async function BusinessPage() {
                 className="business-hero__cta business-hero__cta--primary"
               />
               {heroSecondaryCta ? (
-                <a className="business-hero__cta business-hero__cta--secondary" href="tel:+380635471186">
+                <span className="business-hero__cta business-hero__cta--secondary">
                   {heroSecondaryCta}
-                </a>
+                </span>
               ) : null}
             </div>
           </div>

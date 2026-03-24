@@ -83,12 +83,12 @@ export default async function ContactsPage() {
                     {office.address}
                   </a>
 
-                  <a href="tel:+380635471186" className="contacts-section__detail">
+                  <span className="contacts-section__detail">
                     <i className="sprite">
                       <Icon id="tel" width={17} height={17} />
                     </i>
                     {office.phone}
-                  </a>
+                  </span>
 
                   <span className="contacts-section__detail">
                     <i className="sprite">

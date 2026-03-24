@@ -19,7 +19,7 @@ export default function BookingContactModal({
   const telegramLink = SOCIAL_LINKS.telegram;
   const whatsappLink = SOCIAL_LINKS.whatsapp;
   const viberLink = SOCIAL_LINKS.viber;
-  const phoneNumber = "tel:+380964441454";
+  const phoneNumber = "#";
 
   return (
     <div

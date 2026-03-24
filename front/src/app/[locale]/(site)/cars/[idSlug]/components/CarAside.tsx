@@ -456,7 +456,7 @@ export default function CarAside({ car }: { car: Car }) {
               variant="light"
               opacity={1}
               border="1px solid #dedede"
-              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#f3f3f3" }}
+              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#f2f2f2" }}
             >
               {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <1> */}
               <div dangerouslySetInnerHTML={{ __html: t("tooltips.club") }} />
@@ -468,7 +468,7 @@ export default function CarAside({ car }: { car: Car }) {
               variant="light"
               opacity={1}
               border="1px solid #dedede"
-              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#f3f3f3" }}
+              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#f2f2f2" }}
             >
               {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <2> */}
               <div dangerouslySetInnerHTML={{ __html: t("tooltips.deposit") }} />
@@ -480,7 +480,7 @@ export default function CarAside({ car }: { car: Car }) {
               variant="light"
               opacity={1}
               border="1px solid #dedede"
-              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#f3f3f3" }}
+              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#f2f2f2" }}
             >
               <div
                 // biome-ignore lint/security/noDangerouslySetInnerHtml: <3>

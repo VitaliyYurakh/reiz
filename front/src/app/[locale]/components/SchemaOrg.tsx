@@ -82,7 +82,7 @@ export default async function SchemaOrg({
     logo: `${SITE_ORIGIN}/img/og/home-square.webp`,
     image: `${SITE_ORIGIN}/img/og/home.webp`,
     description: localizedIntro,
-    telephone: "+380635471186",
+    telephone: "",
     email: "info@reiz.com.ua",
     priceRange: "$$",
     currenciesAccepted: "UAH, USD, EUR",
