@@ -183,11 +183,14 @@ export default function CarAside({ car }: { car: Car }) {
   const pricing = useMemo(() => {
     if (!activeTariff) return { dailyBeforeDiscount: 0, daily: 0, deposit: 0, total: 0, club: 0, hasDiscount: false };
     const baseDaily = activeTariff.dailyPrice;
-    const dailyBeforeDiscount = baseDaily * (1 + pricePercent / 100);
+    const pFixed = selectedPlan?.priceFixed ?? null;
+    const dailyBeforeDiscount = pFixed != null
+      ? baseDaily + pFixed
+      : baseDaily * (1 + pricePercent / 100);
     const daily = Math.round(
       dailyBeforeDiscount * (1 - discountPercent / 100),
     );
-    const deposit = (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100);
+    const deposit = Math.max((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100), 100);
     const total = daily * totalDays;
     return {
       dailyBeforeDiscount,
@@ -290,7 +293,9 @@ export default function CarAside({ car }: { car: Car }) {
 
         <ul className="single-form__list">
           {car.rentalTariff.map((el) => {
-            const priceBeforeDiscount = el.dailyPrice * (1 + (selectedPlan?.pricePercent || 0) / 100);
+            const priceBeforeDiscount = selectedPlan?.priceFixed != null
+              ? el.dailyPrice + selectedPlan.priceFixed
+              : el.dailyPrice * (1 + (selectedPlan?.pricePercent || 0) / 100);
             const finalPrice = Math.round(priceBeforeDiscount * (1 - discountPercent / 100));
 
             return (

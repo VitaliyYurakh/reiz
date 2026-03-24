@@ -262,14 +262,18 @@ export default function RentPageContent({
   const pricePercent = selectedPlan?.pricePercent ?? 0;
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
-  const dailyPriceBeforeDiscount =
-    (activeTariff?.dailyPrice ?? baseDailyPrice) * (1 + pricePercent / 100);
+  const basePrice = activeTariff?.dailyPrice ?? baseDailyPrice;
+  const dailyPriceBeforeDiscount = selectedPlan?.priceFixed != null
+    ? basePrice + selectedPlan!.priceFixed!
+    : basePrice * (1 + pricePercent / 100);
   const discountPercent = car.discount ?? 0;
   const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
   const hasDiscount = discountPercent > 0;
 
-  const depositAmount =
-    (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100);
+  const depositAmount = Math.max(
+    (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100),
+    100,
+  );
 
   const extrasPerDay = useMemo(() => {
     return Array.from(selectedExtras).reduce((sum, id) => {

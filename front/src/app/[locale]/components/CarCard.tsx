@@ -83,12 +83,15 @@ export default function CarCard({ car }: CarCardProps) {
   const pricePercent = selectedPlan?.pricePercent ?? 0;
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
-  const dailyPriceBeforeDiscount = baseDailyPrice * (1 + pricePercent / 100);
+  const priceFixed = selectedPlan?.priceFixed ?? null;
+  const dailyPriceBeforeDiscount = priceFixed != null
+    ? baseDailyPrice + priceFixed
+    : baseDailyPrice * (1 + pricePercent / 100);
   const discountPercent = car.discount ?? 0;
   const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
   const hasDiscount = discountPercent > 0;
 
-  const depositAmount = baseDeposit * (1 - depositPercent / 100);
+  const depositAmount = Math.max(baseDeposit * (1 - depositPercent / 100), 100);
   const rentalCost = hasDates ? dailyPrice * totalDays : 0;
 
   const carIdSlug = useMemo(() => createCarIdSlug(car), [car]);
@@ -312,7 +315,9 @@ export default function CarCard({ car }: CarCardProps) {
         {hasDates ? null : (
           <ul className="car-card__list">
             {sortedTariffs.map((tariff, index) => {
-              const priceBeforeDiscount = tariff.dailyPrice * (1 + (selectedPlan?.pricePercent ?? 0) / 100);
+              const priceBeforeDiscount = selectedPlan?.priceFixed != null
+                ? tariff.dailyPrice + selectedPlan.priceFixed
+                : tariff.dailyPrice * (1 + (selectedPlan?.pricePercent ?? 0) / 100);
               const finalPrice = Math.round(priceBeforeDiscount * (1 - discountPercent / 100));
 
               return (

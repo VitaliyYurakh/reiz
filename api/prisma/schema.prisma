@@ -97,10 +97,11 @@ model RentalTariff {
 }
 
 model CarCountingRule {
-  id             Int @id @default(autoincrement())
-  pricePercent   Int @map("price_percent")
-  depositPercent Int @map("deposit_percent")
-  carId          Int @map("car_id")
+  id             Int  @id @default(autoincrement())
+  pricePercent   Int  @map("price_percent")
+  depositPercent Int  @map("deposit_percent")
+  priceFixed     Int? @map("price_fixed")
+  carId          Int  @map("car_id")
 
   Car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
 }
