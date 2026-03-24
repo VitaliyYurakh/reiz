@@ -142,7 +142,7 @@ export const updateCarSchema = z.object({
         driveType: z.record(z.string(), z.string()).optional(),
         seats: z.number().int().min(1).max(100).optional(),
         discount: z.number().nullable().optional(),
-        configuration: z.string().max(200).optional(),
+        configuration: z.array(z.record(z.string(), z.string())).optional(),
         alt: z.string().max(500).optional(),
         isNew: z.boolean().optional(),
     }),

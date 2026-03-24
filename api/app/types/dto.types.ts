@@ -26,7 +26,7 @@ type UpdateCarDto = {
     driveType?: Record<string, string>;
     seats?: number;
     discount?: number;
-    configuration?: string;
+    configuration?: Record<string, string>[];
     alt?: string;
     isNew?: boolean;
 };
