@@ -83,9 +83,12 @@ export default function CarCard({ car }: CarCardProps) {
   const pricePercent = selectedPlan?.pricePercent ?? 0;
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
-  const priceFixed = selectedPlan?.priceFixed ?? null;
-  const dailyPriceBeforeDiscount = priceFixed != null
-    ? baseDailyPrice + priceFixed
+  const is30Plus = totalDays >= 30;
+  const pFixed30 = selectedPlan?.priceFixed30 ?? null;
+  const pFixed = selectedPlan?.priceFixed ?? null;
+  const surchargePerDay = is30Plus && pFixed30 != null ? pFixed30 / 30 : (pFixed ?? 0);
+  const dailyPriceBeforeDiscount = pFixed != null || pFixed30 != null
+    ? baseDailyPrice + surchargePerDay
     : baseDailyPrice * (1 + pricePercent / 100);
   const discountPercent = car.discount ?? 0;
   const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
@@ -315,8 +318,12 @@ export default function CarCard({ car }: CarCardProps) {
         {hasDates ? null : (
           <ul className="car-card__list">
             {sortedTariffs.map((tariff, index) => {
-              const priceBeforeDiscount = selectedPlan?.priceFixed != null
-                ? tariff.dailyPrice + selectedPlan.priceFixed
+              const is30 = tariff.minDays >= 30;
+              const pf30t = selectedPlan?.priceFixed30 ?? null;
+              const pft = selectedPlan?.priceFixed ?? null;
+              const sc = is30 && pf30t != null ? pf30t / 30 : (pft ?? 0);
+              const priceBeforeDiscount = pft != null || pf30t != null
+                ? tariff.dailyPrice + sc
                 : tariff.dailyPrice * (1 + (selectedPlan?.pricePercent ?? 0) / 100);
               const finalPrice = Math.round(priceBeforeDiscount * (1 - discountPercent / 100));
 

@@ -42,6 +42,7 @@ type CountingRuleDto = {
     pricePercent: number;
     depositPercent: number;
     priceFixed?: number | null;
+    priceFixed30?: number | null;
 };
 
 type CarPhotoDto = {

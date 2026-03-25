@@ -191,6 +191,7 @@ export default function CarEditPage() {
         pricePercent: r.pricePercent,
         depositPercent: r.depositPercent,
         priceFixed: r.priceFixed ?? null,
+        priceFixed30: r.priceFixed30 ?? null,
       }));
       await updateCountingRules(id, rulesToSend);
       await loadData();

@@ -164,9 +164,12 @@ export default function CarRentModal({
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
   const baseDailyPrice = activeTariff?.dailyPrice ?? 0;
-  const priceFixed = selectedPlan?.priceFixed ?? null;
-  const dailyPriceBeforeDiscount = priceFixed != null
-    ? baseDailyPrice + priceFixed
+  const is30Plus = totalDays >= 30;
+  const pFixed30 = selectedPlan?.priceFixed30 ?? null;
+  const pFixed = selectedPlan?.priceFixed ?? null;
+  const surchargePerDay = is30Plus && pFixed30 != null ? pFixed30 / 30 : (pFixed ?? 0);
+  const dailyPriceBeforeDiscount = pFixed != null || pFixed30 != null
+    ? baseDailyPrice + surchargePerDay
     : baseDailyPrice * (1 + pricePercent / 100);
   const discountPercent = data.car.discount ?? 0;
   const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));

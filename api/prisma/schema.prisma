@@ -101,6 +101,7 @@ model CarCountingRule {
   pricePercent   Int  @map("price_percent")
   depositPercent Int  @map("deposit_percent")
   priceFixed     Int? @map("price_fixed")
+  priceFixed30   Int? @map("price_fixed_30")
   carId          Int  @map("car_id")
 
   Car Car @relation(fields: [carId], references: [id], onDelete: Cascade)

@@ -47,10 +47,10 @@ export function PricingTab({
 }: PricingTabProps) {
   const { H } = useAdminTheme();
 
-  const updateRule = (index: number, field: 'priceFixed' | 'pricePercent' | 'depositPercent', value: string) => {
+  const updateRule = (index: number, field: 'priceFixed' | 'priceFixed30' | 'pricePercent' | 'depositPercent', value: string) => {
     const next = [...countingRules];
-    if (field === 'priceFixed') {
-      next[index] = { ...next[index], priceFixed: value === '' ? null : Number(value) };
+    if (field === 'priceFixed' || field === 'priceFixed30') {
+      next[index] = { ...next[index], [field]: value === '' ? null : Number(value) };
     } else {
       next[index] = { ...next[index], [field]: Number(value) || 0 };
     }
@@ -112,11 +112,19 @@ export function PricingTab({
                   }}>
                     {label}
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                     <HInput
                       label="Надбавка (USD/день)"
                       value={rule.priceFixed != null ? String(rule.priceFixed) : ''}
                       onChange={(v) => updateRule(idx, 'priceFixed', v)}
+                      type="number"
+                      placeholder={isBase ? '0' : 'Ціна'}
+                      disabled={isBase}
+                    />
+                    <HInput
+                      label="30+ днів (USD/міс)"
+                      value={rule.priceFixed30 != null ? String(rule.priceFixed30) : ''}
+                      onChange={(v) => updateRule(idx, 'priceFixed30', v)}
                       type="number"
                       placeholder={isBase ? '0' : 'Ціна'}
                       disabled={isBase}
@@ -138,9 +146,11 @@ export function PricingTab({
                       disabled={isBase}
                     />
                   </div>
-                  {!isBase && rule.priceFixed != null && (
+                  {!isBase && (rule.priceFixed != null || rule.priceFixed30 != null) && (
                     <p style={{ fontSize: 11, color: H.gray, marginTop: 8 }}>
-                      Фікс. надбавка {rule.priceFixed} USD/день (% ігнорується)
+                      {rule.priceFixed != null && `1–29 днів: +${rule.priceFixed} USD/день`}
+                      {rule.priceFixed != null && rule.priceFixed30 != null && ' · '}
+                      {rule.priceFixed30 != null && `30+ днів: ${rule.priceFixed30} USD/міс`}
                     </p>
                   )}
                 </div>

@@ -183,15 +183,29 @@ export default function CarAside({ car }: { car: Car }) {
   const pricing = useMemo(() => {
     if (!activeTariff) return { dailyBeforeDiscount: 0, daily: 0, deposit: 0, total: 0, club: 0, hasDiscount: false };
     const baseDaily = activeTariff.dailyPrice;
+    const is30Plus = totalDays >= 30;
+    const pFixed30 = selectedPlan?.priceFixed30 ?? null;
     const pFixed = selectedPlan?.priceFixed ?? null;
-    const dailyBeforeDiscount = pFixed != null
-      ? baseDaily + pFixed
+
+    let coverageSurcharge: number;
+    if (is30Plus && pFixed30 != null) {
+      coverageSurcharge = Math.ceil(totalDays / 30) * pFixed30;
+    } else if (pFixed != null) {
+      coverageSurcharge = pFixed * totalDays;
+    } else {
+      coverageSurcharge = 0;
+    }
+
+    const dailyBeforeDiscount = pFixed != null || pFixed30 != null
+      ? baseDaily + (is30Plus && pFixed30 != null ? pFixed30 / 30 : (pFixed ?? 0))
       : baseDaily * (1 + pricePercent / 100);
     const daily = Math.round(
       dailyBeforeDiscount * (1 - discountPercent / 100),
     );
     const deposit = Math.max((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100), 120);
-    const total = daily * totalDays;
+    const total = is30Plus && pFixed30 != null
+      ? Math.round((baseDaily * totalDays + coverageSurcharge) * (1 - discountPercent / 100))
+      : daily * totalDays;
     return {
       dailyBeforeDiscount,
       daily,
@@ -206,6 +220,7 @@ export default function CarAside({ car }: { car: Car }) {
     discountPercent,
     depositPercent,
     totalDays,
+    selectedPlan,
   ]);
 
   const dailyPriceBeforeDiscount = pricing.dailyBeforeDiscount;
@@ -293,8 +308,12 @@ export default function CarAside({ car }: { car: Car }) {
 
         <ul className="single-form__list">
           {car.rentalTariff.map((el) => {
-            const priceBeforeDiscount = selectedPlan?.priceFixed != null
-              ? el.dailyPrice + selectedPlan.priceFixed
+            const is30 = el.minDays >= 30;
+            const pf30 = selectedPlan?.priceFixed30 ?? null;
+            const pf = selectedPlan?.priceFixed ?? null;
+            const surcharge = is30 && pf30 != null ? pf30 / 30 : (pf ?? 0);
+            const priceBeforeDiscount = pf != null || pf30 != null
+              ? el.dailyPrice + surcharge
               : el.dailyPrice * (1 + (selectedPlan?.pricePercent || 0) / 100);
             const finalPrice = Math.round(priceBeforeDiscount * (1 - discountPercent / 100));
 
