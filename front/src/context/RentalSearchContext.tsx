@@ -72,7 +72,7 @@ function RentalSearchInnerProvider({ children }: ProviderProps) {
     const diffTime =
       Math.abs(dateRange.end.getTime() - dateRange.start.getTime()) -
       3600 * 1000;
-    const days = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+    const days = Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)), 1);
     return Number.isFinite(days) && days > 0 ? days : 0;
   }, [dateRange.end, dateRange.start]);
 

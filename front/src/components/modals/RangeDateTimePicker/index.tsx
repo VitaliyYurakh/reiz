@@ -113,6 +113,25 @@ const DatePicker: React.FC<DatePickerProps> = ({
     return nd.getTime() < today.getTime();
   };
 
+  const isToday = (d: Date | null) => {
+    if (!d) return false;
+    return (
+      d.getFullYear() === today.getFullYear() &&
+      d.getMonth() === today.getMonth() &&
+      d.getDate() === today.getDate()
+    );
+  };
+
+  const getFilteredTime = (date: Date | null) => {
+    if (!date || !isToday(date)) return availableTime;
+    const now = new Date();
+    const nowMinutes = now.getHours() * 60 + now.getMinutes();
+    return availableTime.filter((t) => {
+      const [h, m] = t.split(":").map(Number);
+      return h * 60 + m >= nowMinutes;
+    });
+  };
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -176,7 +195,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     if (!startDate || !endDate) return 0;
     const diffTime =
       Math.abs(endDate.getTime() - startDate.getTime()) - 3600 * 1000; // 1 hour included
-    return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+    return Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)), 1);
   }, [startDate, endDate]);
 
   const renderMonth = (date: Date) => {
@@ -368,7 +387,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                 }}
                 disabled={!startDate}
                 variant={"left"}
-                options={availableTime.map((el) => ({ label: el, value: el }))}
+                options={getFilteredTime(startDate).map((el) => ({ label: el, value: el }))}
               />
             </div>
             <div className={`${styles.dateInfo} ${styles.durationInfo}`}>
@@ -400,7 +419,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                 }}
                 disabled={!endDate}
                 variant={"right"}
-                options={availableTime.map((el) => ({ label: el, value: el }))}
+                options={getFilteredTime(endDate).map((el) => ({ label: el, value: el }))}
               />
             </div>
           </div>

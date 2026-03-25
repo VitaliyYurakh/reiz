@@ -160,7 +160,7 @@ export default function CarAside({ car }: { car: Car }) {
         selectedDate.endDate.getTime() - selectedDate.startDate.getTime(),
       ) -
       3600 * 1000; // 1 hour included
-    return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+    return Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)), 1);
   }, [selectedDate.startDate, selectedDate.endDate]);
 
   const activeTariff = useMemo(() => {

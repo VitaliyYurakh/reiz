@@ -237,7 +237,7 @@ export default function RentPageContent({
         selectedDate.endDate.getTime() - selectedDate.startDate.getTime(),
       ) -
       3600 * 1000;
-    return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+    return Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)), 1);
   }, [selectedDate.endDate, selectedDate.startDate]);
 
   const selectedPlan: CarCountingRule | undefined = useMemo(() => {
