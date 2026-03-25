@@ -139,13 +139,22 @@ const DatePicker: React.FC<DatePickerProps> = ({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const getDefaultHourForDate = (d: Date): { hours: number; minutes: number } => {
+    if (!isToday(d)) return { hours: 10, minutes: 0 };
+    const filtered = getFilteredTime(d);
+    if (filtered.length === 0) return { hours: 23, minutes: 30 };
+    const [h, m] = filtered[0].split(":").map(Number);
+    return { hours: h, minutes: m };
+  };
+
   const handleDateClick = (_day: Date) => {
+    const { hours, minutes } = getDefaultHourForDate(_day);
     const day = new Date(
       _day.getFullYear(),
       _day.getMonth(),
       _day.getDate(),
-      10,
-      0,
+      hours,
+      minutes,
       0,
       0,
     );
