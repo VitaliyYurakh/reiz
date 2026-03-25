@@ -122,7 +122,7 @@ export function PricingTab({
                       disabled={isBase}
                     />
                     <HInput
-                      label="30+ днів (USD/міс)"
+                      label="29+ днів (USD/міс)"
                       value={rule.priceFixed30 != null ? String(rule.priceFixed30) : ''}
                       onChange={(v) => updateRule(idx, 'priceFixed30', v)}
                       type="number"
@@ -150,7 +150,7 @@ export function PricingTab({
                     <p style={{ fontSize: 11, color: H.gray, marginTop: 8 }}>
                       {rule.priceFixed != null && `1–29 днів: +${rule.priceFixed} USD/день`}
                       {rule.priceFixed != null && rule.priceFixed30 != null && ' · '}
-                      {rule.priceFixed30 != null && `30+ днів: ${rule.priceFixed30} USD/міс`}
+                      {rule.priceFixed30 != null && `29+ днів: ${rule.priceFixed30} USD/міс`}
                     </p>
                   )}
                 </div>

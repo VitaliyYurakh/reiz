@@ -83,7 +83,7 @@ export default function CarCard({ car }: CarCardProps) {
   const pricePercent = selectedPlan?.pricePercent ?? 0;
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
-  const is30Plus = totalDays >= 30;
+  const is30Plus = totalDays >= 29;
   const pFixed30 = selectedPlan?.priceFixed30 ?? null;
   const pFixed = selectedPlan?.priceFixed ?? null;
   const surchargePerDay = is30Plus && pFixed30 != null ? pFixed30 / 30 : (pFixed ?? 0);
@@ -318,7 +318,7 @@ export default function CarCard({ car }: CarCardProps) {
         {hasDates ? null : (
           <ul className="car-card__list">
             {sortedTariffs.map((tariff, index) => {
-              const is30 = tariff.minDays >= 30;
+              const is30 = tariff.minDays >= 29;
               const pf30t = selectedPlan?.priceFixed30 ?? null;
               const pft = selectedPlan?.priceFixed ?? null;
               const sc = is30 && pf30t != null ? pf30t / 30 : (pft ?? 0);

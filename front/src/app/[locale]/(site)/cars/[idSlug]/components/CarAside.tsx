@@ -183,7 +183,7 @@ export default function CarAside({ car }: { car: Car }) {
   const pricing = useMemo(() => {
     if (!activeTariff) return { dailyBeforeDiscount: 0, daily: 0, deposit: 0, total: 0, club: 0, hasDiscount: false };
     const baseDaily = activeTariff.dailyPrice;
-    const is30Plus = totalDays >= 30;
+    const is30Plus = totalDays >= 29;
     const pFixed30 = selectedPlan?.priceFixed30 ?? null;
     const pFixed = selectedPlan?.priceFixed ?? null;
 
@@ -308,7 +308,7 @@ export default function CarAside({ car }: { car: Car }) {
 
         <ul className="single-form__list">
           {car.rentalTariff.map((el) => {
-            const is30 = el.minDays >= 30;
+            const is30 = el.minDays >= 29;
             const pf30 = selectedPlan?.priceFixed30 ?? null;
             const pf = selectedPlan?.priceFixed ?? null;
             const surcharge = is30 && pf30 != null ? pf30 / 30 : (pf ?? 0);

@@ -242,7 +242,7 @@ export default function RentPageContent({
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
   const basePrice = activeTariff?.dailyPrice ?? baseDailyPrice;
-  const is30Plus = totalDays >= 30;
+  const is30Plus = totalDays >= 29;
   const pFixed30 = selectedPlan?.priceFixed30 ?? null;
   const pFixed = selectedPlan?.priceFixed ?? null;
   const surchargePerDay = is30Plus && pFixed30 != null ? pFixed30 / 30 : (pFixed ?? 0);
