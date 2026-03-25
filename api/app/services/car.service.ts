@@ -157,6 +157,8 @@ class CarService {
             throw new CarNotFoundError();
         }
 
+        await prisma.carCountingRule.deleteMany({where: {carId}});
+
         await Promise.all(countingRulesDto.map(async (countingRuleDto) => {
             await prisma.carCountingRule.create({
                 data: {

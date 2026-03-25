@@ -1,10 +1,16 @@
 'use client';
 
 import React from 'react';
-import { DollarSign, Sparkles, Tag } from 'lucide-react';
+import { DollarSign, Shield, Sparkles, Tag } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
-import type { RentalTariff, Segment } from '@/types/cars';
+import type { CarCountingRule, RentalTariff, Segment } from '@/types/cars';
 import { HCard, HSaveButton, HInput, HTariffField } from './ui-primitives';
+
+const COVERAGE_LABELS: Record<number, string> = {
+  0: 'Без покриття',
+  50: '50% покриття',
+  100: '100% покриття',
+};
 
 interface PricingTabProps {
   tariffs: RentalTariff[];
@@ -18,6 +24,9 @@ interface PricingTabProps {
   onChangeDiscount: (val: string) => void;
   isNew: boolean;
   onToggleNew: () => void;
+  countingRules: CarCountingRule[];
+  setCountingRules: (rules: CarCountingRule[]) => void;
+  onSaveCoverage: () => void;
 }
 
 export function PricingTab({
@@ -32,8 +41,21 @@ export function PricingTab({
   onChangeDiscount,
   isNew,
   onToggleNew,
+  countingRules,
+  setCountingRules,
+  onSaveCoverage,
 }: PricingTabProps) {
   const { H } = useAdminTheme();
+
+  const updateRule = (index: number, field: 'priceFixed' | 'pricePercent' | 'depositPercent', value: string) => {
+    const next = [...countingRules];
+    if (field === 'priceFixed') {
+      next[index] = { ...next[index], priceFixed: value === '' ? null : Number(value) };
+    } else {
+      next[index] = { ...next[index], [field]: Number(value) || 0 };
+    }
+    setCountingRules(next);
+  };
 
   return (
     <div className="space-y-5">
@@ -61,6 +83,69 @@ export function PricingTab({
             onChange={() => {}}
             disabled
           />
+        </div>
+      </HCard>
+
+      <HCard
+        title="Покриття (страховка)"
+        subtitle="Надбавка за день та зниження застави"
+        icon={Shield}
+        footer={<HSaveButton onClick={onSaveCoverage} saved={saving === 'coverage'} />}
+      >
+        <div className="space-y-4">
+          {countingRules
+            .sort((a, b) => a.depositPercent - b.depositPercent)
+            .map((rule, idx) => {
+              const label = COVERAGE_LABELS[rule.depositPercent] ?? `${rule.depositPercent}%`;
+              const isBase = rule.depositPercent === 0;
+              return (
+                <div key={rule.id ?? idx} style={{
+                  padding: '16px 20px',
+                  borderRadius: 16,
+                  background: H.bg,
+                }}>
+                  <p style={{
+                    fontSize: 13,
+                    fontWeight: 700,
+                    color: H.navy,
+                    marginBottom: 12,
+                  }}>
+                    {label}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <HInput
+                      label="Надбавка (USD/день)"
+                      value={rule.priceFixed != null ? String(rule.priceFixed) : ''}
+                      onChange={(v) => updateRule(idx, 'priceFixed', v)}
+                      type="number"
+                      placeholder={isBase ? '0' : 'Ціна'}
+                      disabled={isBase}
+                    />
+                    <HInput
+                      label="Надбавка (%)"
+                      value={String(rule.pricePercent)}
+                      onChange={(v) => updateRule(idx, 'pricePercent', v)}
+                      type="number"
+                      placeholder="0"
+                      disabled={isBase}
+                    />
+                    <HInput
+                      label="Зниження застави (%)"
+                      value={String(rule.depositPercent)}
+                      onChange={(v) => updateRule(idx, 'depositPercent', v)}
+                      type="number"
+                      placeholder="0"
+                      disabled={isBase}
+                    />
+                  </div>
+                  {!isBase && rule.priceFixed != null && (
+                    <p style={{ fontSize: 11, color: H.gray, marginTop: 8 }}>
+                      Фікс. надбавка {rule.priceFixed} USD/день (% ігнорується)
+                    </p>
+                  )}
+                </div>
+              );
+            })}
         </div>
       </HCard>
 

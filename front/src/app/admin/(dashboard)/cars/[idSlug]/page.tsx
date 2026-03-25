@@ -12,8 +12,9 @@ import {
   updateCar,
   updatePhoto,
   updateRentalTariffs,
+  updateCountingRules,
 } from '@/lib/api/admin';
-import { Car, RentalTariff, Segment } from '@/types/cars';
+import { Car, CarCountingRule, RentalTariff, Segment } from '@/types/cars';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { Camera, DollarSign, Info, List } from 'lucide-react';
 import { normalizeMultiLang, type LangCode, type MultiLang } from './components/constants';
@@ -45,6 +46,7 @@ export default function CarEditPage() {
   const [currentDiscount, setCurrentDiscount] = useState<number | null>(null);
   const [isNew, setIsNew] = useState<boolean>(false);
   const [isAvailable, setIsAvailable] = useState<boolean>(false);
+  const [countingRules, setCountingRules] = useState<CarCountingRule[]>([]);
   const [saving, setSaving] = useState<string | null>(null);
 
   const loadData = async () => {
@@ -71,6 +73,7 @@ export default function CarEditPage() {
     });
     setTariffs(data.rentalTariff || []);
     setDeposit(data.rentalTariff?.[0]?.deposit || 0);
+    setCountingRules(data.carCountingRule || []);
     try {
       const parsedConfig = data.configuration || [];
       setConfigurationList(parsedConfig.map((item: any) => normalizeMultiLang(item)));
@@ -177,6 +180,21 @@ export default function CarEditPage() {
       await updateRentalTariffs(id, tariffsToSend);
       await loadData();
       showSaved('tariffs');
+    } catch (e) {
+      alert(String(e));
+    }
+  };
+
+  const handleSaveCoverage = async () => {
+    try {
+      const rulesToSend = countingRules.map((r) => ({
+        pricePercent: r.pricePercent,
+        depositPercent: r.depositPercent,
+        priceFixed: r.priceFixed ?? null,
+      }));
+      await updateCountingRules(id, rulesToSend);
+      await loadData();
+      showSaved('coverage');
     } catch (e) {
       alert(String(e));
     }
@@ -392,6 +410,9 @@ export default function CarEditPage() {
             onChangeDiscount={handleChangeDiscount}
             isNew={isNew}
             onToggleNew={handleToggleNew}
+            countingRules={countingRules}
+            setCountingRules={setCountingRules}
+            onSaveCoverage={handleSaveCoverage}
           />
         </TabsContent>
 

@@ -73,6 +73,10 @@ export const updateRentalTariffs = async (id: number, tariffs: any[]) => {
     return adminApi.patch(`/car/${id}/tariff`, {data: tariffs});
 };
 
+export const updateCountingRules = async (id: number, rules: { pricePercent: number; depositPercent: number; priceFixed?: number | null }[]) => {
+    return adminApi.patch(`/car/${id}/rule`, {data: rules});
+};
+
 export interface ConfigurationOption {
     uk: string;
     ru: string;
