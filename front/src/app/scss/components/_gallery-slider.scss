@@ -42,45 +42,41 @@
     }
   }
 
-  .slider {
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 
-    &-controls {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      border-radius: 0 0 16px 16px;
-      height: 51px;
-      border-color: #d8d8d8;
-      justify-content: flex-end;
-      display: flex;
-      align-items: center;
-      width: 100%;
-
-      @include small-tablet {
-        border-radius: 0 0 22px 22px;
-      }
+    &:hover {
+      background: #fff;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+      color: #000;
     }
 
-    &-btn {
-      width: 60px;
-      background: transparent;
-      border-color: #d8d8d8;
-      .sprite {
-        color: #d8d8d8;
-      }
+    &--prev {
+      left: 12px;
+    }
 
-      &.prev{
-        width: 59.5px;
-        border-left: solid 1px #d8d8d8;
-      }
+    &--next {
+      right: 12px;
+    }
 
-      &:hover {
-        background: var(--cl-b);
-
-        .sprite {
-          color: var(--cl-a);
-        }
-      }
+    @include small-tablet {
+      width: 44px;
+      height: 44px;
     }
   }
 }

@@ -150,28 +150,26 @@ export default function CarGallerySlider({
         ))}
       </Swiper>
 
-      <div className="slider-controls">
-        <button
-          className="slider-btn prev"
-          onClick={() => swiperControl?.slidePrev()}
-          type="button"
-          aria-label={prevSlideLabel}
-        >
-          <span className="sprite">
-            <Icon id="arrow-d2" width={12} height={7} />
-          </span>
-        </button>
-        <button
-          className="slider-btn next"
-          onClick={() => swiperControl?.slideNext()}
-          type="button"
-          aria-label={nextSlideLabel}
-        >
-          <span className="sprite">
-            <Icon id="arrow-d2" width={12} height={7} />
-          </span>
-        </button>
-      </div>
+      <button
+        className="gallery-slider__arrow gallery-slider__arrow--prev"
+        onClick={() => swiperControl?.slidePrev()}
+        type="button"
+        aria-label={prevSlideLabel}
+      >
+        <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+          <path d="M8.5 1L1.5 8L8.5 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
+      <button
+        className="gallery-slider__arrow gallery-slider__arrow--next"
+        onClick={() => swiperControl?.slideNext()}
+        type="button"
+        aria-label={nextSlideLabel}
+      >
+        <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+          <path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
     </div>
   );
 }
