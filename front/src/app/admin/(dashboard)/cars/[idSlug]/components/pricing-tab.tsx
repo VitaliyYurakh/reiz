@@ -114,7 +114,7 @@ export function PricingTab({
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
                     <HInput
-                      label="Надбавка (EUR/день)"
+                      label="Надбавка (USD/день)"
                       value={rule.priceFixed != null ? String(rule.priceFixed) : ''}
                       onChange={(v) => updateRule(idx, 'priceFixed', v)}
                       type="number"
@@ -122,7 +122,7 @@ export function PricingTab({
                       disabled={isBase}
                     />
                     <HInput
-                      label="29+ днів (EUR/міс)"
+                      label="29+ днів (USD/міс)"
                       value={rule.priceFixed30 != null ? String(rule.priceFixed30) : ''}
                       onChange={(v) => updateRule(idx, 'priceFixed30', v)}
                       type="number"
@@ -146,7 +146,7 @@ export function PricingTab({
                       disabled={isBase}
                     />
                     <HInput
-                      label="Застава (EUR)"
+                      label="Застава (USD)"
                       value={rule.depositFixed != null ? String(rule.depositFixed) : ''}
                       onChange={(v) => updateRule(idx, 'depositFixed', v)}
                       type="number"
