@@ -1791,7 +1791,7 @@
     },
     "tooltips": {
       "club": "Preț club pentru clienții fideli Reiz.<br/>Contactați managerul pentru detalii.",
-      "deposit": "Doriți să reduceți depozitul?<br/>Alegeți un pachet de acoperire:<br/>50% — depozitul se înjumătățește<br/>100% — fără depozit necesar",
+      "deposit": "Doriți să reduceți depozitul?<br/>Alegeți un pachet de acoperire:<br/>50% — depozitul se înjumătățește<br/>100% — spălare gratuită inclusă în tarif<br/><i>*depozitul acoperă doar amenzile și alimentarea cu combustibil</i>",
       "overdrive": "{price} USD pentru fiecare km suplimentar."
     }
   },

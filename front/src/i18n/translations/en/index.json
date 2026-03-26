@@ -1792,7 +1792,7 @@
     },
     "tooltips": {
       "club": "Club price for Reiz loyal customers.<br/>Ask your manager for details.",
-      "deposit": "Want to lower the deposit?<br/>Choose a coverage package:<br/>50% — deposit is halved<br/>100% — no deposit required",
+      "deposit": "Want to lower the deposit?<br/>Choose a coverage package:<br/>50% — deposit is halved<br/>100% — free car wash included in the rate<br/><i>*deposit only covers fines and fuel refill</i>",
       "overdrive": "{price} USD for each additional km."
     }
   },
