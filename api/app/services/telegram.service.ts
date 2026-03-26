@@ -8,8 +8,8 @@ interface TelegramMessage {
 }
 
 interface ExchangeRates {
+    eur: number;
     uah: number;
-    usd: number;
 }
 
 /**
@@ -48,7 +48,7 @@ class TelegramService {
 
         try {
             // Fetch rates from exchangerate API (free, no key required)
-            const response = await fetch('https://api.exchangerate-api.com/v4/latest/EUR');
+            const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
 
             if (!response.ok) {
                 throw new Error(`Exchange rate API error: ${response.status}`);
@@ -56,36 +56,32 @@ class TelegramService {
 
             const data = await response.json();
 
-            const uahRate = data.rates.UAH || 44.5;
-            const usdRate = data.rates.USD || 1.08;
+            const eurRate = data.rates.EUR || 0.85;
+            const uahRate = data.rates.UAH || 41.5;
 
             this.cachedRates = {
+                eur: parseFloat(eurRate.toFixed(4)),
                 uah: parseFloat(uahRate.toFixed(2)),
-                usd: parseFloat(usdRate.toFixed(4)),
             };
             this.lastFetchTime = now;
 
-            logger.info(`Exchange rates updated: 1 EUR = ${this.cachedRates.uah} UAH, ${this.cachedRates.usd} USD`);
+            logger.info(`Exchange rates updated: 1 USD = ${this.cachedRates.eur} EUR, ${this.cachedRates.uah} UAH`);
 
             return this.cachedRates;
         } catch (error) {
             logger.error(`Failed to fetch exchange rates: ${error.message}`);
 
             // Return fallback rates if API fails
-            return this.cachedRates || { uah: 44.5, usd: 1.08 };
+            return this.cachedRates || { eur: 0.85, uah: 41.5 };
         }
     }
 
-    private async formatPrice(eurAmount: number): Promise<string> {
+    /** Format USD amount with EUR and UAH conversions */
+    private async formatPrice(amount: number): Promise<string> {
         const rates = await this.getExchangeRates();
-        const usd = Math.round(eurAmount * rates.usd);
-        const uah = Math.round(eurAmount * rates.uah);
-        return `$${usd} (€${eurAmount} / ₴${uah})`;
-    }
-
-    private async toUsd(eurAmount: number): Promise<number> {
-        const rates = await this.getExchangeRates();
-        return Math.round(eurAmount * rates.usd);
+        const eur = Math.round(amount * rates.eur);
+        const uah = Math.round(amount * rates.uah);
+        return `$${amount} (€${eur} / ₴${uah})`;
     }
 
     async sendMessage(text: string): Promise<boolean> {
@@ -180,14 +176,12 @@ class TelegramService {
             const days = data.totalDays || 1;
             message += `\n💰 <b>Вартість:</b>\n`;
 
-            // Base rental
+            // Base rental (prices already in USD)
             const baseDailyPrice = breakdown.baseDailyPrice || breakdown.dailyPrice;
-            const baseDaily$ = await this.toUsd(baseDailyPrice);
             if (days > 1) {
-                const baseTotal$ = baseDaily$ * days;
-                message += `  • Оренда: $${baseDaily$}/день × ${days} дн. = $${baseTotal$}\n`;
+                message += `  • Оренда: $${baseDailyPrice}/день × ${days} дн. = $${baseDailyPrice * days}\n`;
             } else {
-                message += `  • Оренда: $${baseDaily$}/день\n`;
+                message += `  • Оренда: $${baseDailyPrice}/день\n`;
             }
 
             // Coverage surcharge
@@ -196,9 +190,8 @@ class TelegramService {
                 const surchargePerDay = breakdown.dailyPrice - baseDailyPrice;
 
                 if (depositPercent > 0 && surchargePerDay > 0) {
-                    const surcharge$ = await this.toUsd(surchargePerDay);
-                    message += `  • Покриття ${depositPercent}%: +$${surcharge$}/день`;
-                    if (days > 1) message += ` × ${days} дн. = +$${surcharge$ * days}`;
+                    message += `  • Покриття ${depositPercent}%: +$${surchargePerDay}/день`;
+                    if (days > 1) message += ` × ${days} дн. = +$${surchargePerDay * days}`;
                     message += `\n`;
                 } else if (depositPercent > 0) {
                     message += `  • Покриття ${depositPercent}%: включено\n`;
@@ -218,14 +211,12 @@ class TelegramService {
 
                 for (const extra of data.selectedExtras) {
                     const name = extrasMap[extra.id] || extra.id;
-                    const price$ = await this.toUsd(extra.price);
-                    const cost$ = await this.toUsd(extra.cost);
                     if (extra.isPerDay && days > 1) {
-                        message += `  • ${name}: $${price$}/день × ${days} дн. = $${cost$}\n`;
+                        message += `  • ${name}: $${extra.price}/день × ${days} дн. = $${extra.cost}\n`;
                     } else if (extra.isPerDay) {
-                        message += `  • ${name}: $${price$}/день\n`;
+                        message += `  • ${name}: $${extra.price}/день\n`;
                     } else {
-                        message += `  • ${name}: $${cost$}\n`;
+                        message += `  • ${name}: $${extra.cost}\n`;
                     }
                 }
             }
