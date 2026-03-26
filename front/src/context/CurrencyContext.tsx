@@ -21,10 +21,10 @@ type ExchangeRates = {
 type CurrencyContextValue = {
   currency: Currency;
   setCurrency: (currency: Currency) => void;
-  convert: (amountUSD: number) => number;
+  convert: (amountEUR: number) => number;
   convertToUSD: (amount: number) => number;
-  formatPrice: (amountUSD: number, showDecimals?: boolean) => string;
-  formatDeposit: (amountUSD: number) => string;
+  formatPrice: (amountEUR: number, showDecimals?: boolean) => string;
+  formatDeposit: (amountEUR: number) => string;
   getCurrencySymbol: () => string;
   isLoading: boolean;
 };
@@ -180,39 +180,40 @@ export function CurrencyProvider({ children }: ProviderProps) {
     saveCurrency(newCurrency);
   }, []);
 
-  // Конвертація з USD в обрану валюту
+  // Конвертація з EUR (базова валюта тарифів) в обрану валюту
   const convert = useCallback(
-    (amountUSD: number): number => {
-      if (!rates || currency === "USD") {
-        return amountUSD;
+    (amountEUR: number): number => {
+      if (!rates || currency === "EUR") {
+        return amountEUR;
       }
 
       if (currency === "UAH") {
-        return amountUSD * rates.USD_UAH;
+        return amountEUR * rates.EUR_UAH;
       }
 
-      if (currency === "EUR") {
-        return amountUSD * rates.USD_EUR;
+      if (currency === "USD") {
+        // USD_EUR = USD_UAH / EUR_UAH, тому EUR→USD = amount / USD_EUR
+        return amountEUR / rates.USD_EUR;
       }
 
-      return amountUSD;
+      return amountEUR;
     },
     [currency, rates]
   );
 
-  // Зворотня конвертація: з поточної валюти в USD
+  // Зворотня конвертація: з поточної валюти в EUR
   const convertToUSD = useCallback(
     (amount: number): number => {
-      if (!rates || currency === "USD") {
+      if (!rates || currency === "EUR") {
         return amount;
       }
 
       if (currency === "UAH") {
-        return amount / rates.USD_UAH;
+        return amount / rates.EUR_UAH;
       }
 
-      if (currency === "EUR") {
-        return amount / rates.USD_EUR;
+      if (currency === "USD") {
+        return amount * rates.USD_EUR;
       }
 
       return amount;
@@ -299,7 +300,7 @@ export function useCurrencySafe() {
   const ctx = useContext(CurrencyContext);
 
   const fallback: CurrencyContextValue = useMemo(() => ({
-    currency: "USD",
+    currency: "EUR",
     setCurrency: () => {},
     convert: (amount: number) => amount,
     convertToUSD: (amount: number) => amount,
@@ -307,12 +308,12 @@ export function useCurrencySafe() {
       const formatted = showDecimals
         ? amount.toLocaleString("uk-UA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
         : Math.round(amount).toLocaleString("uk-UA");
-      return `${formatted} USD`;
+      return `${formatted} EUR`;
     },
     formatDeposit: (amount: number) => {
-      return `${Math.round(amount).toLocaleString("uk-UA")} USD`;
+      return `${Math.round(amount).toLocaleString("uk-UA")} EUR`;
     },
-    getCurrencySymbol: () => "$",
+    getCurrencySymbol: () => "€",
     isLoading: false,
   }), []);
 
