@@ -12,6 +12,15 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
+            - name: Clean old source on server
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USER }}
+                  key: ${{ secrets.SSH_KEY }}
+                  script: |
+                      rm -rf /opt/reiz/front/src /opt/reiz/api/app /opt/reiz/api/prisma
+
             - name: Copy files to server
               uses: appleboy/scp-action@v0.1.7
               with:
