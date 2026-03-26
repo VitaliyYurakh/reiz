@@ -78,9 +78,14 @@ class TelegramService {
 
     private async formatPrice(eurAmount: number): Promise<string> {
         const rates = await this.getExchangeRates();
-        const uah = Math.round(eurAmount * rates.uah);
         const usd = Math.round(eurAmount * rates.usd);
-        return `€${eurAmount} (₴${uah} / $${usd})`;
+        const uah = Math.round(eurAmount * rates.uah);
+        return `$${usd} (€${eurAmount} / ₴${uah})`;
+    }
+
+    private async toUsd(eurAmount: number): Promise<number> {
+        const rates = await this.getExchangeRates();
+        return Math.round(eurAmount * rates.usd);
     }
 
     async sendMessage(text: string): Promise<boolean> {
@@ -177,11 +182,12 @@ class TelegramService {
 
             // Base rental
             const baseDailyPrice = breakdown.baseDailyPrice || breakdown.dailyPrice;
-            if (baseDailyPrice && days > 1) {
-                const baseTotal = baseDailyPrice * days;
-                message += `  • Оренда: €${baseDailyPrice}/день × ${days} дн. = €${baseTotal}\n`;
-            } else if (baseDailyPrice) {
-                message += `  • Оренда: €${baseDailyPrice}/день\n`;
+            const baseDaily$ = await this.toUsd(baseDailyPrice);
+            if (days > 1) {
+                const baseTotal$ = baseDaily$ * days;
+                message += `  • Оренда: $${baseDaily$}/день × ${days} дн. = $${baseTotal$}\n`;
+            } else {
+                message += `  • Оренда: $${baseDaily$}/день\n`;
             }
 
             // Coverage surcharge
@@ -190,9 +196,9 @@ class TelegramService {
                 const surchargePerDay = breakdown.dailyPrice - baseDailyPrice;
 
                 if (depositPercent > 0 && surchargePerDay > 0) {
-                    const surchargeTotal = surchargePerDay * days;
-                    message += `  • Покриття ${depositPercent}%: +€${surchargePerDay}/день`;
-                    if (days > 1) message += ` × ${days} дн. = +€${surchargeTotal}`;
+                    const surcharge$ = await this.toUsd(surchargePerDay);
+                    message += `  • Покриття ${depositPercent}%: +$${surcharge$}/день`;
+                    if (days > 1) message += ` × ${days} дн. = +$${surcharge$ * days}`;
                     message += `\n`;
                 } else if (depositPercent > 0) {
                     message += `  • Покриття ${depositPercent}%: включено\n`;
@@ -212,30 +218,33 @@ class TelegramService {
 
                 for (const extra of data.selectedExtras) {
                     const name = extrasMap[extra.id] || extra.id;
+                    const price$ = await this.toUsd(extra.price);
+                    const cost$ = await this.toUsd(extra.cost);
                     if (extra.isPerDay && days > 1) {
-                        message += `  • ${name}: €${extra.price}/день × ${days} дн. = €${extra.cost}\n`;
+                        message += `  • ${name}: $${price$}/день × ${days} дн. = $${cost$}\n`;
                     } else if (extra.isPerDay) {
-                        message += `  • ${name}: €${extra.price}/день\n`;
+                        message += `  • ${name}: $${price$}/день\n`;
                     } else {
-                        message += `  • ${name}: €${extra.cost}\n`;
+                        message += `  • ${name}: $${cost$}\n`;
                     }
                 }
             }
 
-            // Total with conversion
+            // Total with full conversion
             if (breakdown.totalCost) {
                 const formattedPrice = await this.formatPrice(breakdown.totalCost);
                 message += `\n<b>📊 ВСЬОГО: ${formattedPrice}</b>\n`;
             }
 
-            // Deposit with conversion
+            // Deposit with full conversion
             if (breakdown.depositAmount) {
                 const formattedPrice = await this.formatPrice(breakdown.depositAmount);
                 message += `🔒 <b>Застава:</b> ${formattedPrice}\n`;
             }
         } else if (data.totalCost) {
             // Fallback for old format
-            message += `\n💰 <b>Сума:</b> €${data.totalCost}\n`;
+            const formattedPrice = await this.formatPrice(data.totalCost);
+            message += `\n💰 <b>Сума:</b> ${formattedPrice}\n`;
         }
 
         if (data.comment) {
