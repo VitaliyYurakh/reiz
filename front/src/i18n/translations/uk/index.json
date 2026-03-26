@@ -1791,10 +1791,10 @@
       "exact": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "more": "{count, plural, one {Більше {count} доби} few {Більше {count} діб} many {Більше {count} діб} other {Більше {count} діб}}",
       "range": "{min} — {max} діб",
-      "pricePerDay": "{price} USD/доба"
+      "pricePerDay": "{price}/доба"
     },
     "depositLabel": "Застава",
-    "currency": "{value} USD",
+    "currency": "{value}",
     "totalPriceLabel": "Підсумкова вартість",
     "clubPriceLabel": "Клубна ціна",
     "actions": {

@@ -1760,10 +1760,10 @@
       "exact": "{count, plural, one {{count} dzien} few {{count} dni} many {{count} dni} other {{count} dni}}",
       "more": "{count, plural, one {Ponad {count} dzien} few {Ponad {count} dni} many {Ponad {count} dni} other {Ponad {count} dni}}",
       "range": "{min} — {max} dni",
-      "pricePerDay": "{price} USD/dzien"
+      "pricePerDay": "{price}/dzien"
     },
     "depositLabel": "Kaucja",
-    "currency": "{value} USD",
+    "currency": "{value}",
     "totalPriceLabel": "Koszt calkowity",
     "clubPriceLabel": "Cena klubowa",
     "actions": {

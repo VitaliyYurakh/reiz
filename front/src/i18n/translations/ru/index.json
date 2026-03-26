@@ -1757,10 +1757,10 @@
       "exact": "{count, plural, one {{count} сутки} few {{count} суток} many {{count} суток} other {{count} суток}}",
       "more": "{count, plural, one {Более {count} суток} few {Более {count} суток} many {Более {count} суток} other {Более {count} суток}}",
       "range": "{min} — {max} суток",
-      "pricePerDay": "{price} USD/сутки"
+      "pricePerDay": "{price}/сутки"
     },
     "depositLabel": "Залог",
-    "currency": "{value} USD",
+    "currency": "{value}",
     "totalPriceLabel": "Итоговая стоимость",
     "clubPriceLabel": "Клубная цена",
     "actions": {

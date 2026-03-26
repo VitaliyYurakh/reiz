@@ -1760,10 +1760,10 @@
       "exact": "{count, plural, one {{count} zi} few {{count} zile} other {{count} zile}}",
       "more": "{count, plural, one {Mai mult de {count} zi} few {Mai mult de {count} zile} other {Mai mult de {count} zile}}",
       "range": "{min} — {max} zile",
-      "pricePerDay": "{price} USD/zi"
+      "pricePerDay": "{price}/zi"
     },
     "depositLabel": "Depozit",
-    "currency": "{value} USD",
+    "currency": "{value}",
     "totalPriceLabel": "Cost total",
     "clubPriceLabel": "Preț club",
     "actions": {

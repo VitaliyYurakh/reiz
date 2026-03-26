@@ -1761,10 +1761,10 @@
       "exact": "{count, plural, one {{count} day} other {{count} days}}",
       "more": "{count, plural, one {More than {count} day} other {More than {count} days}}",
       "range": "{min} — {max} days",
-      "pricePerDay": "{price} USD/day"
+      "pricePerDay": "{price}/day"
     },
     "depositLabel": "Deposit",
-    "currency": "{value} USD",
+    "currency": "{value}",
     "totalPriceLabel": "Total cost",
     "clubPriceLabel": "Club price",
     "actions": {

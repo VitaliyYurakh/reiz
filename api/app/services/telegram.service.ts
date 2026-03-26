@@ -56,25 +56,23 @@ class TelegramService {
 
             const data = await response.json();
 
-            // Apply 2% margin to protect business from rate fluctuations
-            const MARGIN = 1.02;
-            const baseUahRate = data.rates.UAH || 44.5;
-            const baseUsdRate = data.rates.USD || 1.08;
+            const uahRate = data.rates.UAH || 44.5;
+            const usdRate = data.rates.USD || 1.08;
 
             this.cachedRates = {
-                uah: parseFloat((baseUahRate * MARGIN).toFixed(2)),
-                usd: parseFloat((baseUsdRate * MARGIN).toFixed(4)),
+                uah: parseFloat(uahRate.toFixed(2)),
+                usd: parseFloat(usdRate.toFixed(4)),
             };
             this.lastFetchTime = now;
 
-            logger.info(`Exchange rates updated (with 2% margin): 1 EUR = ${this.cachedRates.uah} UAH (base: ${baseUahRate}), ${this.cachedRates.usd} USD (base: ${baseUsdRate})`);
+            logger.info(`Exchange rates updated: 1 EUR = ${this.cachedRates.uah} UAH, ${this.cachedRates.usd} USD`);
 
             return this.cachedRates;
         } catch (error) {
             logger.error(`Failed to fetch exchange rates: ${error.message}`);
 
-            // Return fallback rates if API fails (also with margin)
-            return this.cachedRates || { uah: 45.4, usd: 1.10 };
+            // Return fallback rates if API fails
+            return this.cachedRates || { uah: 44.5, usd: 1.08 };
         }
     }
 
