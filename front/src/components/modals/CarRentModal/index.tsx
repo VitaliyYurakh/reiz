@@ -375,6 +375,7 @@ export default function CarRentModal({
           selectedExtras: extrasDetails,
           totalDays: totalDays,
           priceBreakdown: {
+            baseDailyPrice: baseDailyPrice,
             dailyPrice: dailyPrice,
             rentalCost: rentalCost,
             extrasCost: extrasTotal,

@@ -17,6 +17,7 @@ interface BookingRequestData {
   selectedExtras?: any;
   totalDays?: number;
   priceBreakdown?: {
+    baseDailyPrice: number;
     dailyPrice: number;
     rentalCost: number;
     extrasCost: number;

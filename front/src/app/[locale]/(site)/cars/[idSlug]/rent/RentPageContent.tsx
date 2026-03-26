@@ -420,6 +420,7 @@ export default function RentPageContent({
           selectedExtras: extrasDetails,
           totalDays: totalDays,
           priceBreakdown: {
+            baseDailyPrice: basePrice,
             dailyPrice: dailyPrice,
             rentalCost: rentalCost,
             extrasCost: extrasTotal,

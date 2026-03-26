@@ -172,23 +172,32 @@ class TelegramService {
         // Detailed price breakdown
         if (data.priceBreakdown) {
             const breakdown = data.priceBreakdown;
-            message += `\n💰 <b>Розклад вартості:</b>\n`;
+            const days = data.totalDays || 1;
+            message += `\n💰 <b>Вартість:</b>\n`;
 
-            // Rental cost with daily rate
-            if (breakdown.dailyPrice && data.totalDays) {
-                const formattedDaily = await this.formatPrice(breakdown.dailyPrice);
-                const formattedRental = await this.formatPrice(breakdown.rentalCost);
-                message += `  • Оренда: ${formattedDaily}/день × ${data.totalDays} дн. = ${formattedRental}\n`;
-            } else if (breakdown.rentalCost) {
-                const formattedPrice = await this.formatPrice(breakdown.rentalCost);
-                message += `  • Оренда авто: ${formattedPrice}\n`;
+            // Base rental
+            const baseDailyPrice = breakdown.baseDailyPrice || breakdown.dailyPrice;
+            if (baseDailyPrice && days > 1) {
+                const baseTotal = baseDailyPrice * days;
+                message += `  • Оренда: €${baseDailyPrice}/день × ${days} дн. = €${baseTotal}\n`;
+            } else if (baseDailyPrice) {
+                message += `  • Оренда: €${baseDailyPrice}/день\n`;
             }
 
-            // Insurance/coverage info
+            // Coverage surcharge
             if (data.selectedPlan && typeof data.selectedPlan === 'object') {
                 const depositPercent = data.selectedPlan.depositPercent;
-                if (depositPercent != null && depositPercent > 0) {
-                    message += `  • Покриття: застава ${depositPercent}%\n`;
+                const surchargePerDay = breakdown.dailyPrice - baseDailyPrice;
+
+                if (depositPercent > 0 && surchargePerDay > 0) {
+                    const surchargeTotal = surchargePerDay * days;
+                    message += `  • Покриття ${depositPercent}%: +€${surchargePerDay}/день`;
+                    if (days > 1) message += ` × ${days} дн. = +€${surchargeTotal}`;
+                    message += `\n`;
+                } else if (depositPercent > 0) {
+                    message += `  • Покриття ${depositPercent}%: включено\n`;
+                } else {
+                    message += `  • Без покриття (повна застава)\n`;
                 }
             }
 
@@ -203,22 +212,26 @@ class TelegramService {
 
                 for (const extra of data.selectedExtras) {
                     const name = extrasMap[extra.id] || extra.id;
-                    const suffix = extra.isPerDay ? ` (×${extra.quantity} дн.)` : '';
-                    const formattedPrice = await this.formatPrice(extra.cost);
-                    message += `  • ${name}${suffix}: ${formattedPrice}\n`;
+                    if (extra.isPerDay && days > 1) {
+                        message += `  • ${name}: €${extra.price}/день × ${days} дн. = €${extra.cost}\n`;
+                    } else if (extra.isPerDay) {
+                        message += `  • ${name}: €${extra.price}/день\n`;
+                    } else {
+                        message += `  • ${name}: €${extra.cost}\n`;
+                    }
                 }
             }
 
-            // Total
+            // Total with conversion
             if (breakdown.totalCost) {
                 const formattedPrice = await this.formatPrice(breakdown.totalCost);
-                message += `\n<b>📊 ВСЬОГО:</b> ${formattedPrice}\n`;
+                message += `\n<b>📊 ВСЬОГО: ${formattedPrice}</b>\n`;
             }
 
-            // Deposit
+            // Deposit with conversion
             if (breakdown.depositAmount) {
                 const formattedPrice = await this.formatPrice(breakdown.depositAmount);
-                message += `<b>🔒 Застава:</b> ${formattedPrice}\n`;
+                message += `🔒 <b>Застава:</b> ${formattedPrice}\n`;
             }
         } else if (data.totalCost) {
             // Fallback for old format
