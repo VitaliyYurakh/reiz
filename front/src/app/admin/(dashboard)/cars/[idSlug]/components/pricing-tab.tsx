@@ -47,9 +47,9 @@ export function PricingTab({
 }: PricingTabProps) {
   const { H } = useAdminTheme();
 
-  const updateRule = (index: number, field: 'priceFixed' | 'priceFixed30' | 'pricePercent' | 'depositPercent', value: string) => {
+  const updateRule = (index: number, field: 'priceFixed' | 'priceFixed30' | 'pricePercent' | 'depositPercent' | 'depositFixed', value: string) => {
     const next = [...countingRules];
-    if (field === 'priceFixed' || field === 'priceFixed30') {
+    if (field === 'priceFixed' || field === 'priceFixed30' || field === 'depositFixed') {
       next[index] = { ...next[index], [field]: value === '' ? null : Number(value) };
     } else {
       next[index] = { ...next[index], [field]: Number(value) || 0 };
@@ -112,9 +112,9 @@ export function PricingTab({
                   }}>
                     {label}
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
                     <HInput
-                      label="Надбавка (USD/день)"
+                      label="Надбавка (EUR/день)"
                       value={rule.priceFixed != null ? String(rule.priceFixed) : ''}
                       onChange={(v) => updateRule(idx, 'priceFixed', v)}
                       type="number"
@@ -122,7 +122,7 @@ export function PricingTab({
                       disabled={isBase}
                     />
                     <HInput
-                      label="29+ днів (USD/міс)"
+                      label="29+ днів (EUR/міс)"
                       value={rule.priceFixed30 != null ? String(rule.priceFixed30) : ''}
                       onChange={(v) => updateRule(idx, 'priceFixed30', v)}
                       type="number"
@@ -144,6 +144,13 @@ export function PricingTab({
                       type="number"
                       placeholder="0"
                       disabled={isBase}
+                    />
+                    <HInput
+                      label="Застава (EUR)"
+                      value={rule.depositFixed != null ? String(rule.depositFixed) : ''}
+                      onChange={(v) => updateRule(idx, 'depositFixed', v)}
+                      type="number"
+                      placeholder="Авто"
                     />
                   </div>
                   {!isBase && (rule.priceFixed != null || rule.priceFixed30 != null) && (

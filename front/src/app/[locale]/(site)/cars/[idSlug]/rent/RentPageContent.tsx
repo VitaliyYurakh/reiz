@@ -248,10 +248,9 @@ export default function RentPageContent({
   const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
   const hasDiscount = discountPercent > 0;
 
-  const depositAmount = Math.max(
-    (activeTariff?.deposit ?? 0) * (1 - depositPercent / 100),
-    120,
-  );
+  const depositAmount = selectedPlan?.depositFixed != null
+    ? selectedPlan.depositFixed
+    : Math.max((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100), 120);
 
   const extrasPerDay = useMemo(() => {
     return Array.from(selectedExtras).reduce((sum, id) => {

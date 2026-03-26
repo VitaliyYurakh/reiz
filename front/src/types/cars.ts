@@ -15,6 +15,7 @@ export interface CarCountingRule {
   pricePercent: number;
   priceFixed: number | null;
   priceFixed30: number | null;
+  depositFixed: number | null;
 }
 
 export interface RentalTariff {

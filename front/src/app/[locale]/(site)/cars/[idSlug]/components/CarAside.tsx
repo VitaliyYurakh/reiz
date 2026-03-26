@@ -197,7 +197,9 @@ export default function CarAside({ car }: { car: Car }) {
     const daily = Math.round(
       dailyBeforeDiscount * (1 - discountPercent / 100),
     );
-    const deposit = Math.max((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100), 120);
+    const deposit = selectedPlan?.depositFixed != null
+      ? selectedPlan.depositFixed
+      : Math.max((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100), 120);
     const total = is30Plus && pFixed30 != null
       ? Math.round((baseDaily * totalDays + coverageSurcharge) * (1 - discountPercent / 100))
       : daily * totalDays;

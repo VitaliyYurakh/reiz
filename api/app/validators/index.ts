@@ -163,6 +163,7 @@ export const countingRuleSchema = z.object({
         depositPercent: z.number().min(0),
         priceFixed: z.number().min(0).nullable().optional(),
         priceFixed30: z.number().min(0).nullable().optional(),
+        depositFixed: z.number().min(0).nullable().optional(),
     })),
 });
 
