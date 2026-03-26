@@ -138,9 +138,15 @@ function fmtMoney(val: number | undefined | null) {
 
 function daysBetween(a: string | null, b: string | null): number | null {
   if (!a || !b) return null;
-  const ms = Math.abs(new Date(b).getTime() - new Date(a).getTime());
-  const days = Math.ceil(ms / 86_400_000) + 1;
-  return days > 0 ? days : 0;
+  const start = new Date(a);
+  const end = new Date(b);
+  const startDay = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+  const endDay = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+  const calendarDays = Math.round((endDay.getTime() - startDay.getTime()) / 86_400_000);
+  const startMin = start.getHours() * 60 + start.getMinutes();
+  const endMin = end.getHours() * 60 + end.getMinutes();
+  const overtime = endMin - startMin > 120 ? 1 : 0;
+  return Math.max(calendarDays + overtime, 1);
 }
 
 function getInitials(name: string) {
