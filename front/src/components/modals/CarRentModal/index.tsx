@@ -26,6 +26,7 @@ import {
   DEFAULT_FORM_STATE,
   EMAIL_PATTERN,
   formatFull,
+  calcRentalDays,
 } from "./types";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
@@ -135,12 +136,7 @@ export default function CarRentModal({
 
   const totalDays = useMemo(() => {
     if (!selectedDate.startDate || !selectedDate.endDate) return 0;
-    const diffTime =
-      Math.abs(
-        selectedDate.endDate.getTime() - selectedDate.startDate.getTime(),
-      ) -
-      3600 * 1000;
-    return Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)), 1);
+    return calcRentalDays(selectedDate.startDate, selectedDate.endDate);
   }, [selectedDate.endDate, selectedDate.startDate]);
 
   const selectedPlan: CarCountingRule | undefined = useMemo(() => {
@@ -339,10 +335,6 @@ export default function CarRentModal({
       setFormError(null);
       setFeedback("");
       try {
-        // Calculate detailed pricing breakdown
-        const baseRentalCost = baseDailyPrice * totalDays;
-        const insuranceCost = pricePercent > 0 ? (dailyPrice - baseDailyPrice) * totalDays : 0;
-
         // Calculate extras with details
         const extrasDetails = Array.from(selectedExtras).map((id) => {
           const extra = EXTRAS_BY_ID[id];
@@ -383,8 +375,8 @@ export default function CarRentModal({
           selectedExtras: extrasDetails,
           totalDays: totalDays,
           priceBreakdown: {
-            baseRentalCost: baseRentalCost,
-            insuranceCost: insuranceCost,
+            dailyPrice: dailyPrice,
+            rentalCost: rentalCost,
             extrasCost: extrasTotal,
             totalCost: totalCost,
             depositAmount: depositAmount,
@@ -416,10 +408,10 @@ export default function CarRentModal({
       selectedPlan,
       selectedExtras,
       totalDays,
-      baseDailyPrice,
       dailyPrice,
-      pricePercent,
+      rentalCost,
       extrasTotal,
+      totalCost,
       depositAmount,
       t,
       close,

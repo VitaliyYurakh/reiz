@@ -23,7 +23,7 @@ import PricingSummaryPanel from "@/app/[locale]/(site)/cars/[idSlug]/rent/compon
 import FormFeedback from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/FormFeedback";
 import { useSideBarModal } from "@/components/modals";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
-import { formatFull } from "@/lib/utils/date-format";
+import { formatFull, calcRentalDays } from "@/lib/utils/date-format";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useRentalSearchOptional } from "@/context/RentalSearchContext";
 import { submitBookingRequest } from "@/lib/api/feedback";
@@ -211,12 +211,7 @@ export default function RentPageContent({
 
   const totalDays = useMemo(() => {
     if (!selectedDate.startDate || !selectedDate.endDate) return 0;
-    const diffTime =
-      Math.abs(
-        selectedDate.endDate.getTime() - selectedDate.startDate.getTime(),
-      ) -
-      3600 * 1000;
-    return Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)), 1);
+    return calcRentalDays(selectedDate.startDate, selectedDate.endDate);
   }, [selectedDate.endDate, selectedDate.startDate]);
 
   const selectedPlan: CarCountingRule | undefined = useMemo(() => {
@@ -384,12 +379,6 @@ export default function RentPageContent({
       setFormError(null);
       setFeedback("");
       try {
-        // Calculate detailed pricing breakdown (same as CarRentModal)
-        const baseDailyPrice = activeTariff?.dailyPrice ?? 0;
-        const pricePercent = selectedPlan?.pricePercent ?? 0;
-        const baseRentalCost = baseDailyPrice * totalDays;
-        const insuranceCost = pricePercent > 0 ? (dailyPrice - baseDailyPrice) * totalDays : 0;
-
         // Calculate extras with details
         const extrasDetails = Array.from(selectedExtras).map((id) => {
           const extra = EXTRAS_BY_ID[id];
@@ -431,8 +420,8 @@ export default function RentPageContent({
           selectedExtras: extrasDetails,
           totalDays: totalDays,
           priceBreakdown: {
-            baseRentalCost: baseRentalCost,
-            insuranceCost: insuranceCost,
+            dailyPrice: dailyPrice,
+            rentalCost: rentalCost,
             extrasCost: extrasTotal,
             totalCost: totalCost,
             depositAmount: depositAmount,
@@ -465,6 +454,7 @@ export default function RentPageContent({
       totalDays,
       activeTariff,
       dailyPrice,
+      rentalCost,
       extrasTotal,
       totalCost,
       depositAmount,

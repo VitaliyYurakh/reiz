@@ -139,6 +139,13 @@ class TelegramService {
             });
         };
 
+        const formatTime = (date: Date) => {
+            const d = new Date(date);
+            const hh = String(d.getHours()).padStart(2, '0');
+            const mm = String(d.getMinutes()).padStart(2, '0');
+            return `${hh}:${mm}`;
+        };
+
         let message = `🚗 <b>Нова Заявка на Оренду</b>\n\n`;
         message += `👤 <b>Клієнт:</b> ${escapeHtml(data.firstName)} ${escapeHtml(data.lastName)}\n`;
         message += `📞 <b>Телефон:</b> ${escapeHtml(data.phone)}\n`;
@@ -157,8 +164,8 @@ class TelegramService {
         }
         message += `\n`;
 
-        message += `📍 <b>Взяття:</b> ${escapeHtml(data.pickupLocation)}\n`;
-        message += `📍 <b>Повернення:</b> ${escapeHtml(data.returnLocation)}\n`;
+        message += `📍 <b>Взяття:</b> ${escapeHtml(data.pickupLocation)}, ${formatDate(data.startDate)} о ${formatTime(data.startDate)}\n`;
+        message += `📍 <b>Повернення:</b> ${escapeHtml(data.returnLocation)}, ${formatDate(data.endDate)} о ${formatTime(data.endDate)}\n`;
 
         if (data.flightNumber) {
             message += `✈️ <b>Рейс:</b> ${escapeHtml(data.flightNumber)}\n`;
@@ -169,27 +176,22 @@ class TelegramService {
             const breakdown = data.priceBreakdown;
             message += `\n💰 <b>Розклад вартості:</b>\n`;
 
-            // Base rental cost
-            if (breakdown.baseRentalCost) {
-                const formattedPrice = await this.formatPrice(breakdown.baseRentalCost);
+            // Rental cost with daily rate
+            if (breakdown.dailyPrice && data.totalDays) {
+                const formattedDaily = await this.formatPrice(breakdown.dailyPrice);
+                const formattedRental = await this.formatPrice(breakdown.rentalCost);
+                message += `  • Оренда: ${formattedDaily}/день × ${data.totalDays} дн. = ${formattedRental}\n`;
+            } else if (breakdown.rentalCost) {
+                const formattedPrice = await this.formatPrice(breakdown.rentalCost);
                 message += `  • Оренда авто: ${formattedPrice}\n`;
             }
 
-            // Insurance cost
-            if (breakdown.insuranceCost && breakdown.insuranceCost > 0) {
-                let insuranceLabel = '';
-                if (data.selectedPlan && typeof data.selectedPlan === 'object') {
-                    const depositPercent = data.selectedPlan.depositPercent;
-                    if (depositPercent === 50) {
-                        insuranceLabel = ' (застава 50%)';
-                    } else if (depositPercent === 100) {
-                        insuranceLabel = ' (застава 100%)';
-                    } else if (depositPercent > 0) {
-                        insuranceLabel = ` (застава ${depositPercent}%)`;
-                    }
+            // Insurance/coverage info
+            if (data.selectedPlan && typeof data.selectedPlan === 'object') {
+                const depositPercent = data.selectedPlan.depositPercent;
+                if (depositPercent != null && depositPercent > 0) {
+                    message += `  • Покриття: застава ${depositPercent}%\n`;
                 }
-                const formattedPrice = await this.formatPrice(breakdown.insuranceCost);
-                message += `  • Страховка${insuranceLabel}: ${formattedPrice}\n`;
             }
 
             // Extras breakdown

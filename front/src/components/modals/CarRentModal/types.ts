@@ -1,4 +1,4 @@
-export { formatFull, formatTime } from "@/lib/utils/date-format";
+export { formatFull, formatTime, calcRentalDays } from "@/lib/utils/date-format";
 
 export type ExtraDefinition = {
   id: "additionalDriver" | "childSeat" | "borderCrossing" | "driverService";

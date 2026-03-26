@@ -12,3 +12,22 @@ export const formatTime = (d: Date): string => {
   const mm = String(d.getMinutes()).padStart(2, "0");
   return `${hh}:${mm}`;
 };
+
+/**
+ * Count rental days between two dates.
+ * Base = calendar days (date difference ignoring time).
+ * If return time exceeds pickup time by more than 2 hours → +1 day.
+ */
+export const calcRentalDays = (start: Date, end: Date): number => {
+  const s = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+  const e = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+  const calendarDays = Math.round(
+    (e.getTime() - s.getTime()) / (1000 * 60 * 60 * 24),
+  );
+
+  const startMinutes = start.getHours() * 60 + start.getMinutes();
+  const endMinutes = end.getHours() * 60 + end.getMinutes();
+  const overtime = endMinutes - startMinutes > 120 ? 1 : 0;
+
+  return Math.max(calendarDays + overtime, 1);
+};

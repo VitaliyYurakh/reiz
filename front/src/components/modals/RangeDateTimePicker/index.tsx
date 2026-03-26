@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { calcRentalDays } from "@/lib/utils/date-format";
 
 import Icon from "@/components/Icon";
 import CustomSelect2 from "@/app/[locale]/(site)/cars/[idSlug]/components/CustomSelect2";
@@ -202,9 +203,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
   const durationInDays = useMemo(() => {
     if (!startDate || !endDate) return 0;
-    const diffTime =
-      Math.abs(endDate.getTime() - startDate.getTime()) - 3600 * 1000; // 1 hour included
-    return Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)), 1);
+    return calcRentalDays(startDate, endDate);
   }, [startDate, endDate]);
 
   const renderMonth = (date: Date) => {
