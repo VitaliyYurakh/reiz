@@ -347,8 +347,10 @@ body:has(.contacts-hero-bg) {
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.5);
     background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     transition:
       transform 0.3s ease,
       border-color 0.3s ease,
