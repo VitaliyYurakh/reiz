@@ -188,7 +188,8 @@
     height: 80vh;
     min-height: 480px;
     max-height: 620px;
-    background-image: url("/img/hero/hero-mobile.webp");
+    background-image: url("/img/hero/contacts-hero-mobile.webp");
+    background-position: center 58%;
   }
 
   &__overlay {
@@ -269,8 +270,8 @@ body:has(.contacts-hero-bg) {
 
   @include mobile {
     position: relative;
-    gap: 0;
-    padding-top: var(--contacts-mobile-hero-slot);
+    gap: 24px;
+    min-height: calc(80vh - var(--header-height) - 20px);
   }
 
 }
@@ -286,12 +287,8 @@ body:has(.contacts-hero-bg) {
   }
 
   @include mobile {
-    position: absolute;
-    top: 2px;
-    left: 0;
-    right: 0;
-    gap: 0;
-    height: calc(var(--contacts-mobile-hero-slot) - 12px);
+    gap: 16px;
+    padding-top: 10px;
     z-index: 1;
   }
 }
@@ -401,7 +398,7 @@ body:has(.contacts-hero-bg) {
     grid-template-columns: 1fr;
     gap: 12px;
     margin-top: 0;
-    padding-top: var(--contacts-mobile-cards-offset);
+    padding-top: 0;
   }
 
   &__item {
