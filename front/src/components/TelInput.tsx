@@ -10,13 +10,16 @@ type TelInputProps = {
     onChange?: (value: string) => void;
     className?: string;
     placeholder?: string;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+} & Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    "className" | "defaultValue" | "onChange" | "placeholder"
+>;
 
 export default function TelInput({
                                      name,
                                      defaultValue,
                                      onChange,
-                                     className,
+                                     className = "",
                                      placeholder = "+380 ...",
                                      ...props
                                  }: TelInputProps) {

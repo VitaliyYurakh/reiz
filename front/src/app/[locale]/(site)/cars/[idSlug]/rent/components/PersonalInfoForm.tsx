@@ -90,7 +90,6 @@ export default function PersonalInfoForm({
       >
         <TelInput
           key={formResetKey}
-          // @ts-expect-error
           onChange={handlePhoneChange}
           name="step_phone"
           id="step_phone"

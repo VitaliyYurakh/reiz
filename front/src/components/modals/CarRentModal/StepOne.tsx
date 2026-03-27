@@ -113,7 +113,6 @@ export default function StepOne({
             >
               <TelInput
                 key={formResetKey}
-                // @ts-expect-error
                 onChange={handlePhoneChange}
                 name="step_phone"
                 id="step_phone"
