@@ -37,6 +37,7 @@ export default function TelInput({
             initialCountry: "ua",
             separateDialCode: true,
             nationalMode: false,
+            useFullscreenPopup: false,
         });
 
         const handleChange = () => {

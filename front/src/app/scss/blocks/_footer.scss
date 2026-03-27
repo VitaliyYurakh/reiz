@@ -124,6 +124,10 @@ $footer-border: rgba(0, 0, 0, 0.1);
   &__body {
     background: $footer-bg;
     padding-top: 80px;
+
+    @include mobile {
+      padding-top: 32px;
+    }
   }
 
   &__main {

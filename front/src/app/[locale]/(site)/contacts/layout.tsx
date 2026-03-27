@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import SiteShell from "../components/SiteShell";
 import ContactsClientProvider from "@/app/[locale]/(site)/contacts/components/modals/ContactsClientProvider";
 import ContactsHeroBg from "@/app/[locale]/(site)/contacts/components/ContactsHero";
+import ContactsThemeColor from "@/app/[locale]/(site)/contacts/components/ContactsThemeColor";
 
 export default function ContactsLayout({ children }: { children: ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export default function ContactsLayout({ children }: { children: ReactNode }) {
       additionalChildren={<ContactsHeroBg />}
       mode={false}
     >
+      <ContactsThemeColor />
       <ContactsClientProvider>{children}</ContactsClientProvider>
     </SiteShell>
   );

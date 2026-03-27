@@ -7,11 +7,13 @@ export default function WhatsAppUnavailable({
   size = 22,
   className,
   children,
+  hideIcon = false,
 }: {
   message: string;
   size?: number;
   className?: string;
   children?: React.ReactNode;
+  hideIcon?: boolean;
 }) {
   return (
     <button
@@ -20,7 +22,14 @@ export default function WhatsAppUnavailable({
       className={className}
       aria-label="WhatsApp"
     >
-      <UiImage width={size} height={size} src="/img/icons/whatsapp.svg" alt="WhatsApp" />
+      {!hideIcon && (
+        <UiImage
+          width={size}
+          height={size}
+          src="/img/icons/whatsapp.svg"
+          alt="WhatsApp"
+        />
+      )}
       {children}
     </button>
   );
