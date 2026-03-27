@@ -1,8 +1,8 @@
 @use "../../mixins/breakpoint" as *;
 
 .contacts-section {
-  --contacts-mobile-hero-slot: 285px;
-  --contacts-mobile-cards-offset: 152px;
+  --contacts-mobile-hero-zone-extra: 220px;
+  --contacts-mobile-cards-offset: 300px;
 
   position: relative;
   z-index: 2;
@@ -69,22 +69,22 @@
       margin-bottom: -20px;
 
       @include mobile {
-        margin-top: 30px;
+        margin-top: 12px;
         margin-bottom: 0;
       }
     }
 
     .blog-hero__title {
-      font-family: var(--font-inter), Arial, sans-serif;
-      font-weight: 400;
-      font-size: clamp(28px, 2.7941vw, 38px);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
+      font-family: var(--font-outfit), sans-serif;
+      font-weight: 700;
+      font-size: clamp(34px, 3.0882vw, 42px);
+      line-height: 1.25;
+      letter-spacing: 0;
       color: #fff;
       margin: 0;
 
       @include small-tablet {
-        font-size: clamp(22px, 6vw, 28px);
+        font-size: clamp(30px, 8.5vw, 42px);
       }
     }
 
@@ -136,6 +136,7 @@
     margin-top: calc((var(--header-height) + 20px) * -1);
     padding-top: calc(var(--header-height) + 20px);
   }
+
 }
 
 .contacts-mobile-breadcrumbs {
@@ -185,9 +186,9 @@
   background: url("/img/hero/hero-desktop.webp") center / cover no-repeat;
 
   @include mobile {
-    height: 80vh;
-    min-height: 480px;
-    max-height: 620px;
+    height: calc(80vh + 25px);
+    min-height: 505px;
+    max-height: 645px;
     background-image: url("/img/hero/contacts-hero-mobile.webp");
     background-position: center 58%;
   }
@@ -270,10 +271,25 @@ body:has(.contacts-hero-bg) {
 
   @include mobile {
     position: relative;
-    gap: 24px;
-    min-height: calc(80vh - var(--header-height) - 20px);
+    justify-content: flex-start;
+    gap: 0;
+    min-height: calc(
+      80vh - var(--header-height) - 20px + var(--contacts-mobile-hero-zone-extra)
+    );
   }
 
+}
+
+.contacts-hero-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts-cards-wrap {
+  @include mobile {
+    margin-top: auto;
+    padding-top: var(--contacts-mobile-cards-offset);
+  }
 }
 
 // ─── Hero text content ────────────────────────────────────
@@ -288,7 +304,7 @@ body:has(.contacts-hero-bg) {
 
   @include mobile {
     gap: 16px;
-    padding-top: 10px;
+    padding-top: 0;
     z-index: 1;
   }
 }
@@ -309,7 +325,7 @@ body:has(.contacts-hero-bg) {
   margin-top: 0;
 
   @include mobile {
-    margin-top: 30px;
+    margin-top: 18px;
   }
 
   &__btn {
@@ -369,15 +385,15 @@ body:has(.contacts-hero-bg) {
     .contacts-hero-cta__btn {
       width: fit-content;
       min-width: initial;
-      height: 44px;
-      padding: 12px 22px;
-      border-radius: 22px;
-      gap: 10px;
-      font-size: 13px;
+      height: 48px;
+      padding: 12px 26px;
+      border-radius: 24px;
+      gap: 11px;
+      font-size: 14px;
 
       img {
-        width: 22px;
-        height: 22px;
+        width: 24px;
+        height: 24px;
       }
     }
   }
