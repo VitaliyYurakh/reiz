@@ -1,14 +1,12 @@
 import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
-import UiImage from "@/components/ui/UiImage";
 import Icon from "@/components/Icon";
+import { SOCIAL_LINKS } from "@/config/social";
 import { type Locale, locales } from "@/i18n/request";
 import type { Metadata } from "next";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import ContactsForm from "@/app/[locale]/(site)/contacts/components/ContactsForm";
-import { SOCIAL_LINKS } from "@/config/social";
-import WhatsAppUnavailable from "@/components/WhatsAppUnavailable";
 
 
 export function generateStaticParams() {
@@ -29,7 +27,6 @@ export default async function ContactsPage() {
   setRequestLocale(locale);
   const t = await getTranslations("contactsPage");
 
-  const officesTitle = t("officesSection.title");
   const offices = t.raw("officesSection.offices") as Array<{
     city: string;
     address: string;
@@ -38,10 +35,7 @@ export default async function ContactsPage() {
     email: string;
   }>;
 
-  const mapLink = (address: string | undefined) =>
-    address
-      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
-      : "https://www.google.com/maps";
+  const firstOffice = offices[0];
 
   return (
     <div className="contacts-section__inner">
@@ -53,123 +47,76 @@ export default async function ContactsPage() {
         ]}
       />
 
-      <div className="cert__breadcrumb">
-        <span className="cert__marker" />
-        <span className="cert__breadcrumb-text">{t("hero.pretitle")}</span>
-      </div>
-
-      <div className="blog-hero">
-        <h1 className="blog-hero__title">{t("hero.title")}</h1>
-      </div>
-
-      <div className="contacts-section__content">
-        <div className="contacts-section__offices-block">
-          <h2 className="pretitle">{officesTitle}</h2>
-
-          <div className="contacts-section__offices-grid">
-            {offices.map((office, index) => (
-              <div className="contacts-section__card" key={index}>
-                <p className="contacts-section__city">{office.city}</p>
-
-                <div className="contacts-section__details">
-                  <a
-                    href={mapLink(office.address)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contacts-section__detail"
-                  >
-                    <i className="sprite">
-                      <Icon id="geo-alt" width={17} height={17} />
-                    </i>
-                    {office.address}
-                  </a>
-
-                  <span className="contacts-section__detail">
-                    <i className="sprite">
-                      <Icon id="tel" width={17} height={17} />
-                    </i>
-                    {office.phone}
-                  </span>
-
-                  <span className="contacts-section__detail">
-                    <i className="sprite">
-                      <Icon id="clock-alt" width={17} height={17} />
-                    </i>
-                    {office.hours}
-                  </span>
-
-                  <a href="mailto:info@reiz.com.ua" className="contacts-section__detail">
-                    <i className="sprite">
-                      <Icon id="mail" width={17} height={17} />
-                    </i>
-                    {office.email}
-                  </a>
-                </div>
-
-                <div className="contacts-section__messengers">
-                  <WhatsAppUnavailable message={t("whatsapp_unavailable")} size={26} className="contacts-section__messenger">
-                    WhatsApp
-                  </WhatsAppUnavailable>
-                  <a
-                    href={SOCIAL_LINKS.telegram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contacts-section__messenger"
-                  >
-                    <UiImage
-                      width={26}
-                      height={26}
-                      src="/img/icons/telegram.svg"
-                      alt="Telegram"
-                    />
-                    Telegram
-                  </a>
-                  <a
-                    href={SOCIAL_LINKS.viber}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contacts-section__messenger"
-                  >
-                    <UiImage
-                      width={26}
-                      height={26}
-                      src="/img/icons/viber-color.svg"
-                      alt="Viber"
-                    />
-                    Viber
-                  </a>
-                  <a
-                    href={SOCIAL_LINKS.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contacts-section__messenger"
-                  >
-                    <UiImage
-                      width={26}
-                      height={26}
-                      src="/img/icons/instagram-color.svg"
-                      alt="Instagram"
-                    />
-                    Instagram
-                  </a>
-                </div>
-
-                <a
-                  href={mapLink(office.address)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contacts-section__map-link"
-                >
-                  <Icon id="geo-alt" width={15} height={15} />
-                  {t("officesSection.mapButton")}
-                </a>
-              </div>
-            ))}
+      {/* Hero zone: same height as sidebar, cards align to bottom */}
+      <div className="contacts-hero-zone">
+        <div className="contacts-hero-content">
+          <div className="cert__breadcrumb">
+            <span className="cert__marker" />
+            <span className="cert__breadcrumb-text">{t("hero.pretitle")}</span>
           </div>
+
+          <div className="blog-hero">
+            <h1 className="blog-hero__title">{t("hero.title")} <span>{t("hero.titleAccent")}</span></h1>
+          </div>
+
         </div>
 
-        <div className="contacts-section__form-block">
-          <h2 className="pretitle">{t("form.title")}</h2>
+        {/* Info cards */}
+        <div className="contacts-cards">
+          <a href={`mailto:${firstOffice.email}`} className="contacts-cards__item">
+            <div className="contacts-cards__icon">
+              <Icon id="email-fill" />
+            </div>
+            <h3 className="contacts-cards__title">{t("cards.email")}</h3>
+            <p className="contacts-cards__text">
+              {firstOffice.email}
+            </p>
+            <div className="contacts-cards__watermark">
+              <Icon id="email-fill" />
+            </div>
+          </a>
+
+          <div className="contacts-cards__item">
+            <div className="contacts-cards__icon">
+              <Icon id="location-fill" />
+            </div>
+            <h3 className="contacts-cards__title">{t("cards.address")}</h3>
+            <p className="contacts-cards__text">{firstOffice.address}</p>
+            <div className="contacts-cards__watermark">
+              <Icon id="location-fill" />
+            </div>
+          </div>
+
+          <div className="contacts-cards__item">
+            <div className="contacts-cards__icon">
+              <Icon id="clock-alt" />
+            </div>
+            <h3 className="contacts-cards__title">{t("cards.hours")}</h3>
+            <p className="contacts-cards__text">{firstOffice.hours}</p>
+            <div className="contacts-cards__watermark">
+              <Icon id="clock-alt" />
+            </div>
+          </div>
+
+          <a href={`tel:${firstOffice.phone.replace(/\s/g, "")}`} className="contacts-cards__item contacts-cards__item--accent">
+            <div className="contacts-cards__icon">
+              <Icon id="phone-fill" />
+            </div>
+            <h3 className="contacts-cards__title">{t("cards.phone")}</h3>
+            <p className="contacts-cards__text">
+              {firstOffice.phone}
+            </p>
+            <div className="contacts-cards__watermark">
+              <Icon id="phone-fill" />
+            </div>
+          </a>
+        </div>
+      </div>{/* end contacts-hero-zone */}
+
+      {/* Form section */}
+      <div className="contacts-bottom">
+        <div className="contacts-bottom__form">
+          <h2 className="contacts-bottom__heading">{t("form.title")}</h2>
           <ContactsForm />
         </div>
       </div>

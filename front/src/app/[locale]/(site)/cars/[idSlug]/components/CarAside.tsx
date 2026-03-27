@@ -492,7 +492,7 @@ export default function CarAside({ car }: { car: Car }) {
               style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#f2f2f2" }}
             >
               {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <2> */}
-              <div dangerouslySetInnerHTML={{ __html: t("tooltips.deposit") }} />
+              <div dangerouslySetInnerHTML={{ __html: t.raw("tooltips.deposit") }} />
             </Tooltip>
             <Tooltip
               id="overdrive-tooltip"

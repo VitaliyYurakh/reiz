@@ -1592,8 +1592,17 @@
       "lang": "pl"
     },
     "hero": {
-      "pretitle": "KONTAKT",
-      "title": "Skontaktuj sie z REIZ — Wynajem samochodow we Lwowie"
+      "pretitle": "SKONTAKTUJ SIE Z NAMI",
+      "title": "Kontakt",
+      "titleAccent": "z nami",
+      "rentNow": "Wynajmij",
+      "subtitle": "Nie wahaj się — napisz do nas wiadomość."
+    },
+    "cards": {
+      "email": "Napisz do nas",
+      "address": "Obsługa",
+      "hours": "Godziny otwarcia",
+      "phone": "Zadzwon do nas"
     },
     "breadcrumbs": {
       "home": "Strona glowna",
@@ -1603,15 +1612,8 @@
       "title": "NASZE BIURA",
       "offices": [
         {
-          "city": "Kijow",
-          "address": "ul. Wielka Zytomierska 6/11, Kijow",
-          "phone": "+380 73 992 88 38",
-          "hours": "Pon.–Niedz. 08:30–20:30",
-          "email": "info@reiz.com.ua"
-        },
-        {
           "city": "Lwow",
-          "address": "ul. Lubinska 168, Lwow",
+          "address": "Lwów i dostawa w całej Ukrainie",
           "phone": "+380 73 992 88 38",
           "hours": "Pon.–Niedz. 08:30–20:30",
           "email": "info@reiz.com.ua"
@@ -1620,11 +1622,12 @@
       "mapButton": "Pokaż na mapie"
     },
     "form": {
-      "title": "JESTESMY GOTOWI ODPOWIEDZIEC NA WSZYSTKIE TWOJE PYTANIA",
+      "title": "Skontaktuj się z nami",
       "placeholders": {
         "name": "Twoje imie",
         "email": "E-mail",
         "phone": "Telefon",
+        "subject": "Temat",
         "message": "Wiadomosc"
       },
       "submit": "WYSLIJ ZGLOSZENIE",

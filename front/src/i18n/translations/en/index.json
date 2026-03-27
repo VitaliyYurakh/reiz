@@ -1593,8 +1593,17 @@
       "lang": "en"
     },
     "hero": {
-      "pretitle": "CONTACTS",
-      "title": "Contact REIZ — Car Rental in Lviv"
+      "pretitle": "GET IN TOUCH",
+      "title": "Contact",
+      "titleAccent": "Us",
+      "rentNow": "Rent Now",
+      "subtitle": "Don't hesitate and send us a message."
+    },
+    "cards": {
+      "email": "Email us",
+      "address": "Service Area",
+      "hours": "Opening Hours",
+      "phone": "Call us"
     },
     "breadcrumbs": {
       "home": "Home",
@@ -1604,15 +1613,8 @@
       "title": "OUR OFFICES",
       "offices": [
         {
-          "city": "Kyiv",
-          "address": "Velyka Zhytomyrska St., 6/11, Kyiv",
-          "phone": "+380 73 992 88 38",
-          "hours": "Mon–Sun 08:30–20:30",
-          "email": "info@reiz.com.ua"
-        },
-        {
           "city": "Lviv",
-          "address": "Liubinska St., 168, Lviv",
+          "address": "Lviv & delivery across Ukraine",
           "phone": "+380 73 992 88 38",
           "hours": "Mon–Sun 08:30–20:30",
           "email": "info@reiz.com.ua"
@@ -1621,11 +1623,12 @@
       "mapButton": "Show on map"
     },
     "form": {
-      "title": "WE'RE READY TO ANSWER ALL YOUR QUESTIONS",
+      "title": "Get In Touch",
       "placeholders": {
         "name": "Your name",
         "email": "Email",
         "phone": "Phone",
+        "subject": "Subject",
         "message": "Message"
       },
       "submit": "SEND REQUEST",

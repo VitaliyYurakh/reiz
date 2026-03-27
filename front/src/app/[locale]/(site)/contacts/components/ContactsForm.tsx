@@ -3,11 +3,14 @@
 import { type FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 import { submitContactRequest } from "@/lib/api/feedback";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
 
 export default function ContactsForm() {
   const t = useTranslations("contactsPage");
   const [feedback, setFeedback] = useState<"success" | "error" | "">("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [phone, setPhone] = useState("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,11 +23,12 @@ export default function ContactsForm() {
       await submitContactRequest({
         name: formData.get("name") as string,
         email: formData.get("mail") as string,
-        phone: formData.get("phone") as string,
+        phone,
         message: formData.get("mess") as string,
       });
       setFeedback("success");
       (e.target as HTMLFormElement).reset();
+      setPhone("");
     } catch (error) {
       console.error(error);
       setFeedback("error");
@@ -54,11 +58,21 @@ export default function ContactsForm() {
         />
       </label>
       <label className="main-form__label">
-        <input
-          type="tel"
-          name="phone"
-          id="phone"
+        <PhoneInput
+          defaultCountry="ua"
+          value={phone}
+          onChange={setPhone}
           placeholder={t("form.placeholders.phone")}
+          className="contacts-phone-input"
+          inputClassName="contacts-phone-input__field"
+        />
+      </label>
+      <label className="main-form__label">
+        <input
+          type="text"
+          name="subject"
+          id="subject"
+          placeholder={t("form.placeholders.subject")}
           className="main-form__input"
         />
       </label>

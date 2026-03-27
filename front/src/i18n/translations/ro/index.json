@@ -1592,8 +1592,17 @@
       "lang": "ro"
     },
     "hero": {
-      "pretitle": "CONTACTE",
-      "title": "Contactează REIZ — Închiriere auto în Lviv"
+      "pretitle": "CONTACTAȚI-NE",
+      "title": "Contacte",
+      "titleAccent": "REIZ",
+      "rentNow": "Închiriază",
+      "subtitle": "Nu ezitați — trimiteți-ne un mesaj."
+    },
+    "cards": {
+      "email": "Scrieți-ne",
+      "address": "Deservire",
+      "hours": "Program de lucru",
+      "phone": "Sunați-ne"
     },
     "breadcrumbs": {
       "home": "Acasă",
@@ -1603,15 +1612,8 @@
       "title": "BIROURILE NOASTRE",
       "offices": [
         {
-          "city": "Kyiv",
-          "address": "Str. Velyka Zhytomyrska, 6/11, Kyiv",
-          "phone": "+380 73 992 88 38",
-          "hours": "Luni–Duminică 08:30–20:30",
-          "email": "info@reiz.com.ua"
-        },
-        {
           "city": "Lviv",
-          "address": "Str. Liubinska, 168, Lviv",
+          "address": "Lviv și livrare în toată Ucraina",
           "phone": "+380 73 992 88 38",
           "hours": "Luni–Duminică 08:30–20:30",
           "email": "info@reiz.com.ua"
@@ -1620,11 +1622,12 @@
       "mapButton": "Arată pe hartă"
     },
     "form": {
-      "title": "SUNTEM GATA SĂ RĂSPUNDEM LA TOATE ÎNTREBĂRILE DUMNEAVOASTRĂ",
+      "title": "Contactați-ne",
       "placeholders": {
         "name": "Numele dumneavoastră",
         "email": "Email",
         "phone": "Telefon",
+        "subject": "Subiect",
         "message": "Mesaj"
       },
       "submit": "TRIMITE CEREREA",
