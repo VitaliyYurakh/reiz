@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { updateThemeColorMeta } from "@/lib/theme-color";
 
-const DARK = "#000000";
+const DARK = "#999999";
 const LIGHT = "#ffffff";
 
 export default function ContactsThemeColor() {
