@@ -87,7 +87,7 @@ export default async function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/img/hero/hero-desktop.webp"
+          href="/img/hero/reiz-1-3-desktop.webp"
           type="image/webp"
           media="(min-width: 1025px)"
           fetchPriority="high"

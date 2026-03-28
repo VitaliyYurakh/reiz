@@ -30,10 +30,10 @@ export default async function HeroSection() {
               />
               {/* Desktop hero image - LCP critical */}
               <UiImage
-                src="/img/hero/hero-desktop.webp"
+                src="/img/hero/reiz-1-3-desktop.webp"
                 alt={t("hero_image_alt")}
-                width={2500}
-                height={1685}
+                width={2400}
+                height={1639}
                 hero
                 quality={100}
                 sizes="100vw"
