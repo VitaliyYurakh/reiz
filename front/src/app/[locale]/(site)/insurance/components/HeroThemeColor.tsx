@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { updateThemeColorMeta } from "@/lib/theme-color";
 
 const DARK = "#000000";
-const LIGHT = "#f1f0eb";
+const LIGHT = "#ffffff";
 
 export default function HeroThemeColor() {
   const ref = useRef<HTMLDivElement>(null);
