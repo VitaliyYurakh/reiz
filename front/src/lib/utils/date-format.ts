@@ -1,3 +1,10 @@
+/** "D mon" — e.g. "29 мар", locale-aware short month */
+export const formatShort = (d: Date, locale: string): string => {
+  const day = d.getDate();
+  const month = d.toLocaleDateString(locale, { month: "short" }).replace(".", "");
+  return `${day} ${month}`;
+};
+
 /** "DD.MM.YYYY" — e.g. "05.03.2026" */
 export const formatFull = (d: Date): string => {
   const dd = String(d.getDate()).padStart(2, "0");

@@ -40,12 +40,16 @@ $gray-text-color: #888;
 .header {
   display: flex; justify-content: space-between; align-items: center;
   margin-bottom: 32px;
+  position: relative;
 
   h3 {
     font-size: 20px;
     text-align: center;
-    flex-grow: 1;
     color: #000;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
 
     @include mobile { display: none; }
   }
@@ -203,7 +207,7 @@ $gray-text-color: #888;
     height: 50px;
     border: 1px solid #D6D6D6;
     border-radius: 20px;
-    font-weight: 590;
+    font-weight: 400;
     line-height: 17px;
     display: flex; align-items: center; justify-content: center;
     color: #000000;

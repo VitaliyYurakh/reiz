@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { Tooltip } from "react-tooltip";
@@ -11,7 +11,7 @@ import { useSideBarModal } from "@/components/modals";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useRentalSearch, type CoverageOption } from "@/context/RentalSearchContext";
-import { formatFull, calcRentalDays } from "@/lib/utils/date-format";
+import { formatFull, formatShort, calcRentalDays } from "@/lib/utils/date-format";
 
 const COVERAGE_TO_PLAN_INDEX: Record<CoverageOption, number> = {
   deposit: 0,
@@ -35,6 +35,7 @@ export default function CarAside({ car }: { car: Car }) {
     "managerWillContactYouModal",
   );
   const t = useTranslations("carAside");
+  const locale = useLocale();
   const { formatPrice, formatDeposit } = useCurrency();
 
   // Get context values
@@ -229,8 +230,8 @@ export default function CarAside({ car }: { car: Car }) {
 
   const dateRangeLabel = useMemo(
     () =>
-      `${formatFull(selectedDate.startDate)} ${t("rangeSeparator")} ${formatFull(selectedDate.endDate)}`,
-    [selectedDate.endDate, selectedDate.startDate, t],
+      `${formatShort(selectedDate.startDate, locale)} - ${formatShort(selectedDate.endDate, locale)}`,
+    [selectedDate.endDate, selectedDate.startDate, locale],
   );
   const formatTariffRange = (minDays: number, maxDays: number) => {
     if (minDays === maxDays) {
@@ -269,13 +270,17 @@ export default function CarAside({ car }: { car: Car }) {
             })
           }
         >
-          <input
-            type="text"
-            value={dateRangeLabel}
-            readOnly={true}
-          />
-          <span className="selectedDays">
-            {t("selectedDays", { count: totalDays })}
+          <span className="single-form__date-left">
+            <svg className="single-form__calendar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <use href="/img/sprite/sprite.svg#calendar" />
+            </svg>
+            <span>{t("selectedDays", { count: totalDays })}</span>
+          </span>
+          <span className="single-form__date-right">
+            <span>{dateRangeLabel}</span>
+            <svg width="10" height="10" viewBox="0 0 8 5" aria-hidden="true">
+              <use href="/img/sprite/sprite.svg#arrow-d" />
+            </svg>
           </span>
         </label>
 
@@ -349,24 +354,6 @@ export default function CarAside({ car }: { car: Car }) {
         </span>
         <span className="single-form__value single-form__value--nowrap">
           {formatDeposit(depositAmount)}
-        </span>
-      </div>
-      <div className="single-form__info mode">
-        <span className="single-form__name">
-          {t("clubPriceLabel")}
-          <span
-            role="button"
-            tabIndex={0}
-            aria-label={t("clubPriceLabel")}
-            style={{ cursor: "pointer" }}
-            className="single-form__label"
-            data-tooltip-id="my-tooltip"
-          >
-            i
-          </span>
-        </span>
-        <span className="single-form__value">
-          <span className="text-strong">{formatPrice(clubPrice)}</span>
         </span>
       </div>
       <div className="single-form__info">

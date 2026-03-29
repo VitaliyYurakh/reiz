@@ -1794,7 +1794,7 @@
     },
     "tooltips": {
       "club": "Cena klubowa dla lojalnych klientow Reiz.<br/>Zapytaj menedzera o szczegoly.",
-      "deposit": "Chcesz obnizyc kaucje?<br/>Wybierz pakiet ochrony:<br/>50% — kaucja o polowe mniejsza<br/>100% — bezplatne mycie w cenie<br/><i>*kaucja tylko na pokrycie mandatow i tankowania</i>",
+      "deposit": "Chcesz obnizyc kaucje?<br/>Wybierz pakiet ochrony:<br/>50% — kaucja o polowe mniejsza<br/>100% — bezplatne mycie w cenie<br/>*kaucja tylko na pokrycie mandatow i tankowania",
       "overdrive": "{price} USD za kazdy dodatkowy km."
     }
   },
