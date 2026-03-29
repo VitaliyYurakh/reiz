@@ -14,5 +14,5 @@ export const SOCIAL_LINKS: {
   whatsapp: null,
   telegram: "https://t.me/+380739928838",
   youtube: null,
-  viber: "viber://chat?number=%2B380739928838",
+  viber: "viber://add?number=380739928838",
 };
