@@ -158,7 +158,7 @@ export default async function TermsPage() {
             <UiImage
               width={1000}
               height={440}
-              src="/img/terms/payment-methods.jpg"
+              src="/img/terms/payment-methods.webp"
               alt={t("images.paymentAlt")}
               quality={100}
             />
