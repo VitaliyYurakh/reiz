@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
 import Icon from "@/components/Icon";
 
-const DEFAULT_MAP_QUERY = "Lviv+International+Airport+LWO";
+const DEFAULT_MAP_QUERY = "Lviv";
 const DESKTOP_BREAKPOINT = 1025;
 const ANIMATION_DURATION = 600;
 
@@ -19,7 +19,7 @@ type LocationMapLinkProps = {
 export default function LocationMapLink({
   children,
   className,
-  title = "Lviv International Airport",
+  title = "Lviv",
   mapQuery,
   "aria-label": ariaLabel,
 }: LocationMapLinkProps) {
