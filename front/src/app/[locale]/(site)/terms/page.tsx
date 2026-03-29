@@ -37,6 +37,7 @@ export default async function TermsPage() {
   const locale = await getLocale() as Locale;
   setRequestLocale(locale);
   const t = await getTranslations("termsPage");
+  const termsImagesVersion = "20260329";
 
   const uaItems = t.raw("termsList.citizensUA.items") as string[];
   const frItems = t.raw("termsList.foreignCitizens.items") as string[];
@@ -81,7 +82,7 @@ export default async function TermsPage() {
                 <UiImage
                   width={480}
                   height={270}
-                  src="/img/terms/age-requirement.webp"
+                  src={`/img/terms/age-requirement.webp?v=${termsImagesVersion}`}
                   alt={t("images.ageAlt")}
                   sizePreset="card"
                 />
@@ -96,7 +97,7 @@ export default async function TermsPage() {
                 <UiImage
                   width={480}
                   height={270}
-                  src="/img/terms/driving-experience.webp"
+                  src={`/img/terms/driving-experience.webp?v=${termsImagesVersion}`}
                   alt={t("images.experienceAlt")}
                   sizePreset="card"
                 />
@@ -158,7 +159,7 @@ export default async function TermsPage() {
             <UiImage
               width={1000}
               height={440}
-              src="/img/terms/payment-methods.webp"
+              src={`/img/terms/payment-methods.webp?v=${termsImagesVersion}`}
               alt={t("images.paymentAlt")}
               quality={100}
             />
