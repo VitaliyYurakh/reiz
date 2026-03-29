@@ -48,7 +48,13 @@
   &__inner {
     display: flex;
     flex-direction: column;
-    gap: clamp(60px, 6.6176vw, 90px);
+    gap: clamp(48px, 4.6324vw, 63px);
+
+    .terms-hero-group {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(48px, 4.6324vw, 63px);
+    }
 
     .cert__breadcrumb {
       display: flex;
@@ -125,6 +131,12 @@
 
     @include mobile {
       gap: 40px;
+    }
+  }
+
+  .terms-anchors {
+    @include for-tablet {
+      margin-block: clamp(12px, 1.9853vw, 27px);
     }
   }
 

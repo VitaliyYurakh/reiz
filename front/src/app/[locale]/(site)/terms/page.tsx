@@ -53,14 +53,16 @@ export default async function TermsPage() {
         ]}
       />
 
-      <div className="cert__breadcrumb">
-        <span className="cert__marker" />
-        <span className="cert__breadcrumb-text">{t("hero.pretitle")}</span>
-      </div>
+      <div className="terms-hero-group">
+        <div className="cert__breadcrumb">
+          <span className="cert__marker" />
+          <span className="cert__breadcrumb-text">{t("hero.pretitle")}</span>
+        </div>
 
-      <div className="terms-hero">
-        <h1 className="blog-hero__title">{t("hero.title")}</h1>
-        <p className="terms-hero__subtitle">{t("hero.subtitle")}</p>
+        <div className="blog-hero terms-hero">
+          <h1 className="blog-hero__title">{t("hero.title")}</h1>
+          <p className="terms-hero__subtitle">{t("hero.subtitle")}</p>
+        </div>
       </div>
 
       <SectionNav
@@ -156,7 +158,7 @@ export default async function TermsPage() {
             <UiImage
               width={1000}
               height={440}
-              src="/img/terms/payment-methods.webp"
+              src="/img/terms/payment-methods.jpg"
               alt={t("images.paymentAlt")}
               quality={100}
             />
@@ -201,7 +203,7 @@ export default async function TermsPage() {
           </div>
         </div>
 
-        <LoyaltySection />
+        {/* <LoyaltySection /> */}
         <AddOnsSection />
         <OneWaySection />
         <MileageSection />

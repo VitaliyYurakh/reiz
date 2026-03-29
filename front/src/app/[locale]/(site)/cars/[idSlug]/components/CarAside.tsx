@@ -339,7 +339,7 @@ export default function CarAside({ car }: { car: Car }) {
       </div>
 
       <div className="single-form__info">
-        <span className="single-form__name">
+        <span className="single-form__name" style={{ fontWeight: 700, color: '#000' }}>
           {t("depositLabel")}
           <span
             role="button"
@@ -353,11 +353,11 @@ export default function CarAside({ car }: { car: Car }) {
           </span>
         </span>
         <span className="single-form__value single-form__value--nowrap">
-          {formatDeposit(depositAmount)}
+          <span className="text-strong">{formatDeposit(depositAmount)}</span>
         </span>
       </div>
       <div className="single-form__info">
-        <span className="single-form__name">
+        <span className="single-form__name" style={{ fontWeight: 700, color: '#000' }}>
           {t("totalPriceLabel")}
         </span>
         <span className="single-form__value">
