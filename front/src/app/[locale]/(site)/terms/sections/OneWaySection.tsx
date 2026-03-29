@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import CurrencyPrice from "@/components/CurrencyPrice";
 
 export default async function OneWaySection() {
   const t = await getTranslations("termsPage.sections.oneWay");
@@ -15,7 +16,9 @@ export default async function OneWaySection() {
           <div className="terms-menu__row">
             <span className="terms-menu__name">{t("menuName")}</span>
             <span className="terms-menu__dots" />
-            <span className="terms-menu__price">{t("menuPrice")}</span>
+            <span className="terms-menu__price">
+              <CurrencyPrice value={t("menuPrice")} />
+            </span>
           </div>
           <p className="terms-menu__desc">{t("menuDesc")}</p>
         </div>

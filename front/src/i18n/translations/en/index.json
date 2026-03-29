@@ -1255,10 +1255,10 @@
   "termsPage": {
     "meta": {
       "title": "Car Rental Terms Lviv — Requirements & Documents",
-      "description": "Transparent car rental conditions in Lviv: age 21+, 2+ years experience ✓ No deposit ✓ Required documents list ✓ Free delivery",
+      "description": "Transparent car rental conditions in Lviv: age 21+, 2+ years experience ✓ No deposit ✓ Required documents list ✓ Mileage, delivery and return terms",
       "canonical": "https://reiz.com.ua/en/terms",
       "og_title": "Car Rental Terms Lviv — Requirements & Documents | REIZ",
-      "og_description": "Transparent car rental conditions in Lviv: age 21+, 2+ years experience ✓ No deposit ✓ Required documents list ✓ Free delivery",
+      "og_description": "Transparent car rental conditions in Lviv: age 21+, 2+ years experience ✓ No deposit ✓ Required documents list ✓ Mileage, delivery and return terms",
       "og_url": "https://reiz.com.ua/en/terms",
       "og_image": "https://reiz.com.ua/img/og/terms.webp",
       "lang": "en"
@@ -1329,7 +1329,7 @@
         },
         {
           "id": "one-way",
-          "label": "One-Way"
+          "label": "Other city"
         },
         {
           "id": "mileage",
@@ -1402,83 +1402,65 @@
       },
       "addOns": {
         "title": "Add-on services",
-        "subtitle": "Choose the options you need when booking or picking up the car.",
-        "perDay": "USD/day",
+        "subtitle": "Optional extras you can add to the rental if needed.",
+        "perDay": "/day",
         "byFact": "actual cost",
+        "free": "free",
         "items": [
           {
-            "name": "Wi-Fi router",
-            "description": "Unlimited 4G mobile internet on the road",
-            "priceShort": "5",
-            "priceLong": "5"
-          },
-          {
             "name": "Additional driver",
-            "description": "Adding a second driver to the rental agreement",
-            "priceShort": "5",
-            "priceLong": "5"
+            "description": "A second driver can be added to the agreement at no extra charge after document verification",
+            "priceShort": "free",
+            "priceLong": "free"
           },
           {
-            "name": "Booster seat",
-            "description": "For children weighing 15–36 kg (approximately 4–12 years)",
-            "priceShort": "4",
-            "priceLong": "4"
+            "name": "Young driver",
+            "description": "By special approval for drivers under 21 with less than 3 years of experience",
+            "priceShort": "18",
+            "priceLong": "18"
           },
           {
-            "name": "Child seat",
-            "description": "For children weighing 9–18 kg (approximately 1–4 years)",
-            "priceShort": "4",
-            "priceLong": "4"
-          },
-          {
-            "name": "Infant seat",
-            "description": "For children up to 13 kg (up to ~1 year)",
-            "priceShort": "4",
-            "priceLong": "4"
-          },
-          {
-            "name": "Full tank",
-            "description": "Car is provided with a full tank. If returned with less fuel — a fuel charge + service fee applies",
-            "priceShort": "actual cost",
-            "priceLong": "actual cost"
+            "name": "Additional equipment",
+            "description": "GPS, child seat, ski rack and other accessories on request",
+            "priceShort": "12",
+            "priceLong": "12"
           }
         ]
       },
       "oneWay": {
-        "title": "One-Way service",
-        "text": "A convenient option for intercity trips: pick up the car in one location and return it in another. The service cost depends on the route and vehicle class — the exact amount will be confirmed by a manager when booking.",
-        "menuName": "One-Way",
-        "menuPrice": "$100 – 250",
-        "menuDesc": "Depends on route and vehicle class"
+        "title": "Pick-up / return in another city",
+        "text": "Available on request. The fee is calculated from the route mileage between cities.",
+        "menuName": "Another city",
+        "menuPrice": "88 USD / 100 km",
+        "menuDesc": "For pick-up or return outside the rental city"
       },
       "mileage": {
         "title": "Mileage terms",
-        "subtitle": "Daily mileage limit is 300 km, calculated cumulatively for the entire rental period, but no more than 4,500 km per month.\nIn case of exceeding the limit, each kilometer is charged additionally according to company rates.",
+        "subtitle": "The rental includes 300 km per day.\nA fixed overage fee applies beyond the limit, and unlimited mileage is available as an option.",
         "bannerValue": "300 km",
         "bannerLabel": "daily mileage limit",
-        "overageTitle": "Overage charge",
-        "perKm": "USD / km",
-        "note": "Need a higher limit or unlimited mileage? Contact our manager.",
+        "overageTitle": "Mileage overage",
+        "note": "If you expect long routes, add unlimited mileage when booking.",
+        "free": "free",
         "rates": [
           {
-            "segment": "Economy",
-            "pricePerKm": "0.12"
+            "segment": "Over 300 km/day",
+            "price": "23 USD / 100 km"
+          }
+        ],
+        "unlimitedTitle": "Unlimited mileage",
+        "unlimitedRates": [
+          {
+            "segment": "1 day",
+            "price": "29 USD / day"
           },
           {
-            "segment": "Business",
-            "pricePerKm": "0.30"
+            "segment": "2–7 days",
+            "price": "18 USD / day"
           },
           {
-            "segment": "SUVs",
-            "pricePerKm": "0.30"
-          },
-          {
-            "segment": "Premium",
-            "pricePerKm": "0.70"
-          },
-          {
-            "segment": "Minivans",
-            "pricePerKm": "0.50"
+            "segment": "8+ days",
+            "price": "free"
           }
         ]
       },
@@ -1514,8 +1496,9 @@
       "driver": {
         "title": "Who can drive",
         "items": [
-          "Only the person named in the rental agreement is authorized to drive. Transferring the vehicle to unauthorized persons is prohibited.",
-          "If multiple drivers are planned — use the «Additional driver» service. Each driver will be added to the agreement upon providing documents."
+          "Only drivers listed in the rental agreement are allowed to drive. Transferring the vehicle to unauthorized persons is prohibited.",
+          "Additional driver is added free of charge after document verification.",
+          "By special approval, drivers under 21 with less than 3 years of experience incur an 18 USD/day surcharge."
         ]
       },
       "delivery": {
@@ -1524,46 +1507,40 @@
         "deliveryTitle": "Pick-up",
         "deliveryItems": [
           {
-            "name": "At the rental office",
-            "price": "free",
-            "desc": "during business hours"
-          },
-          {
-            "name": "At the client's address",
-            "price": "from 15 USD",
-            "desc": "depending on distance"
+            "name": "City delivery",
+            "price": "18 USD",
+            "desc": "free for rentals from 351 USD"
           },
           {
             "name": "After hours",
-            "price": "surcharge 20 USD"
+            "price": "35 USD",
+            "desc": "outside Mon-Sun 9:00–20:00"
           }
         ],
         "returnTitle": "Return",
         "returnItems": [
           {
-            "name": "At the rental office",
-            "price": "free",
-            "desc": "during business hours"
-          },
-          {
-            "name": "At address",
-            "price": "from 15 USD"
+            "name": "Another city",
+            "price": "88 USD / 100 km",
+            "desc": "for return or pick-up outside the rental city"
           },
           {
             "name": "After hours",
-            "price": "surcharge 20 USD"
+            "price": "35 USD",
+            "desc": "outside Mon-Sun 9:00–20:00"
           }
         ],
         "washName": "Car wash",
         "washPrice": "25 USD",
         "washDesc": "If the car is returned in a dirty condition",
-        "note": "The car is provided with a full tank. Upon return the tank must be refilled to the same level, otherwise the fuel cost + service fee will be deducted from the deposit."
+        "note": "The car is provided with a full tank. Returning it with a completely empty tank costs 117 USD; smaller fuel shortages are charged proportionally."
       },
       "territory": {
         "title": "Usage territory",
         "items": [
           "The vehicle may be used throughout Ukraine, except for temporarily occupied territories and combat zones.",
-          "Travel outside Ukraine is possible only with prior written approval from REIZ. The list of permitted countries can be clarified when booking."
+          "Crossing the state border is possible only with prior written approval from REIZ.",
+          "Cross-border fee: +175 USD per border crossing and +18 USD for each day outside Ukraine."
         ]
       },
       "cancellation": {

@@ -1,4 +1,6 @@
 import { getTranslations } from "next-intl/server";
+import CurrencyPrice from "@/components/CurrencyPrice";
+import { CurrencyText } from "@/components/CurrencyPrice";
 
 type MenuItem = { name: string; price: string; desc?: string };
 
@@ -23,9 +25,15 @@ export default async function DeliverySection() {
                 <div className="terms-menu__row">
                   <span className="terms-menu__name">{item.name}</span>
                   <span className="terms-menu__dots" />
-                  <span className="terms-menu__price">{item.price}</span>
+                  <span className="terms-menu__price">
+                    <CurrencyPrice value={item.price} />
+                  </span>
                 </div>
-                {item.desc && <p className="terms-menu__desc">{item.desc}</p>}
+                {item.desc && (
+                  <p className="terms-menu__desc">
+                    <CurrencyText text={item.desc} />
+                  </p>
+                )}
               </div>
             ))}
           </div>
@@ -39,9 +47,15 @@ export default async function DeliverySection() {
                 <div className="terms-menu__row">
                   <span className="terms-menu__name">{item.name}</span>
                   <span className="terms-menu__dots" />
-                  <span className="terms-menu__price">{item.price}</span>
+                  <span className="terms-menu__price">
+                    <CurrencyPrice value={item.price} />
+                  </span>
                 </div>
-                {item.desc && <p className="terms-menu__desc">{item.desc}</p>}
+                {item.desc && (
+                  <p className="terms-menu__desc">
+                    <CurrencyText text={item.desc} />
+                  </p>
+                )}
               </div>
             ))}
           </div>
@@ -53,7 +67,9 @@ export default async function DeliverySection() {
               <div className="terms-menu__row">
                 <span className="terms-menu__name">{t("washName")}</span>
                 <span className="terms-menu__dots" />
-                <span className="terms-menu__price">{t("washPrice")}</span>
+                <span className="terms-menu__price">
+                  <CurrencyPrice value={t("washPrice")} />
+                </span>
               </div>
               <p className="terms-menu__desc">{t("washDesc")}</p>
             </div>
@@ -61,7 +77,9 @@ export default async function DeliverySection() {
         </div>
       </div>
 
-      <p className="terms-block__note">{t("note")}</p>
+      <p className="terms-block__note">
+        <CurrencyText text={t("note")} />
+      </p>
     </section>
   );
 }

@@ -1254,10 +1254,10 @@
   "termsPage": {
     "meta": {
       "title": "Condiții de închiriere auto Lviv — Cerințe și documente",
-      "description": "Condiții transparente de închiriere auto în Lviv: vârstă 21+, 2+ ani experiență ✓ Fără depozit ✓ Lista documentelor necesare ✓ Livrare gratuită",
+      "description": "Condiții transparente de închiriere auto în Lviv: vârstă 21+, 2+ ani experiență ✓ Fără depozit ✓ Lista documentelor necesare ✓ Kilometraj, livrare și returnare",
       "canonical": "https://reiz.com.ua/ro/terms",
       "og_title": "Condiții de închiriere auto Lviv — Cerințe și documente | REIZ",
-      "og_description": "Condiții transparente de închiriere auto în Lviv: vârstă 21+, 2+ ani experiență ✓ Fără depozit ✓ Lista documentelor necesare ✓ Livrare gratuită",
+      "og_description": "Condiții transparente de închiriere auto în Lviv: vârstă 21+, 2+ ani experiență ✓ Fără depozit ✓ Lista documentelor necesare ✓ Kilometraj, livrare și returnare",
       "og_url": "https://reiz.com.ua/ro/terms",
       "og_image": "https://reiz.com.ua/img/og/terms.webp",
       "lang": "ro"
@@ -1328,7 +1328,7 @@
         },
         {
           "id": "one-way",
-          "label": "One-Way"
+          "label": "Alt oraș"
         },
         {
           "id": "mileage",
@@ -1401,83 +1401,65 @@
       },
       "addOns": {
         "title": "Servicii suplimentare",
-        "subtitle": "Alegeți opțiunile necesare la rezervare sau la ridicarea mașinii.",
-        "perDay": "USD/zi",
+        "subtitle": "Opțiuni pe care le puteți adăuga la închiriere, dacă aveți nevoie.",
+        "perDay": "/zi",
         "byFact": "cost efectiv",
+        "free": "gratuit",
         "items": [
           {
-            "name": "Router Wi-Fi",
-            "description": "Internet mobil 4G nelimitat în călătorie",
-            "priceShort": "5",
-            "priceLong": "5"
-          },
-          {
             "name": "Șofer suplimentar",
-            "description": "Adăugarea unui al doilea șofer în contractul de închiriere",
-            "priceShort": "5",
-            "priceLong": "5"
+            "description": "Al doilea șofer este adăugat gratuit în contract după verificarea documentelor",
+            "priceShort": "gratuit",
+            "priceLong": "gratuit"
           },
           {
-            "name": "Scaun înălțător",
-            "description": "Pentru copii cu greutatea de 15–36 kg (aproximativ 4–12 ani)",
-            "priceShort": "4",
-            "priceLong": "4"
+            "name": "Șofer tânăr",
+            "description": "Prin aprobare specială pentru șoferi sub 21 de ani cu experiență de până la 3 ani",
+            "priceShort": "18",
+            "priceLong": "18"
           },
           {
-            "name": "Scaun auto copii",
-            "description": "Pentru copii cu greutatea de 9–18 kg (aproximativ 1–4 ani)",
-            "priceShort": "4",
-            "priceLong": "4"
-          },
-          {
-            "name": "Scaun pentru bebeluși",
-            "description": "Pentru copii până la 13 kg (până la ~1 an)",
-            "priceShort": "4",
-            "priceLong": "4"
-          },
-          {
-            "name": "Rezervor plin",
-            "description": "Mașina este furnizată cu rezervorul plin. Dacă este returnată cu mai puțin combustibil — se aplică taxa pentru combustibil + taxa de serviciu",
-            "priceShort": "cost efectiv",
-            "priceLong": "cost efectiv"
+            "name": "Echipament suplimentar",
+            "description": "Navigator, scaun pentru copii, suport pentru schiuri și alte accesorii la cerere",
+            "priceShort": "12",
+            "priceLong": "12"
           }
         ]
       },
       "oneWay": {
-        "title": "Serviciul One-Way",
-        "text": "O opțiune convenabilă pentru călătoriile între orașe: ridică mașina dintr-o locație și returneaz-o în alta. Costul serviciului depinde de traseu și clasa vehiculului — suma exactă va fi confirmată de manager la rezervare.",
-        "menuName": "One-Way",
-        "menuPrice": "$100 – 250",
-        "menuDesc": "Depinde de traseu și clasa vehiculului"
+        "title": "Predare / returnare în alt oraș",
+        "text": "Disponibil la cerere, cu confirmare prealabilă. Costul se calculează în funcție de kilometrajul traseului dintre orașe.",
+        "menuName": "Alt oraș",
+        "menuPrice": "88 USD / 100 km",
+        "menuDesc": "Pentru predare sau returnare în afara orașului de închiriere"
       },
       "mileage": {
         "title": "Condiții de kilometraj",
-        "subtitle": "Limita zilnică de kilometraj — 300 km, calculată cumulativ pe toată perioada de închiriere, dar nu mai mult de 4500 km pe lună.\nÎn caz de depășire, fiecare kilometru este taxat suplimentar conform tarifelor companiei.",
+        "subtitle": "În prețul închirierii sunt incluși 300 km pe zi.\nPeste limită se aplică o taxă fixă, iar kilometrajul nelimitat este disponibil ca opțiune separată.",
         "bannerValue": "300 km",
         "bannerLabel": "limita zilnică de kilometraj",
-        "overageTitle": "Taxă pentru depășire",
-        "perKm": "USD / km",
-        "note": "Aveți nevoie de o limită mai mare sau de kilometraj nelimitat? Contactați managerul.",
+        "overageTitle": "Depășirea limitei de kilometraj",
+        "note": "Dacă planificați trasee lungi, adăugați kilometraj nelimitat încă din momentul rezervării.",
+        "free": "gratuit",
         "rates": [
           {
-            "segment": "Economic",
-            "pricePerKm": "0.12"
+            "segment": "Peste 300 km/zi",
+            "price": "23 USD / 100 km"
+          }
+        ],
+        "unlimitedTitle": "Kilometraj nelimitat",
+        "unlimitedRates": [
+          {
+            "segment": "1 zi",
+            "price": "29 USD / zi"
           },
           {
-            "segment": "Business",
-            "pricePerKm": "0.30"
+            "segment": "2–7 zile",
+            "price": "18 USD / zi"
           },
           {
-            "segment": "SUV-uri",
-            "pricePerKm": "0.30"
-          },
-          {
-            "segment": "Premium",
-            "pricePerKm": "0.70"
-          },
-          {
-            "segment": "Microbuze",
-            "pricePerKm": "0.50"
+            "segment": "De la 8 zile",
+            "price": "gratuit"
           }
         ]
       },
@@ -1513,8 +1495,9 @@
       "driver": {
         "title": "Cine poate conduce",
         "items": [
-          "Dreptul de a conduce îl are exclusiv persoana menționată în contract. Transferul conducerii către persoane neautorizate este interzis.",
-          "Dacă mai mulți șoferi intenționează să conducă — folosiți serviciul «Șofer suplimentar». Fiecare șofer va fi adăugat în contract după prezentarea documentelor."
+          "Poate conduce doar șoferul menționat în contract. Transferul conducerii către persoane neautorizate este interzis.",
+          "Șoferul suplimentar este adăugat gratuit după verificarea documentelor.",
+          "Prin aprobare specială, pentru șoferii sub 21 de ani cu experiență de până la 3 ani se aplică o taxă de 18 USD/zi."
         ]
       },
       "delivery": {
@@ -1523,46 +1506,40 @@
         "deliveryTitle": "Predare",
         "deliveryItems": [
           {
-            "name": "La punctul de închiriere",
-            "price": "gratuit",
-            "desc": "în programul de lucru"
-          },
-          {
-            "name": "La adresa clientului",
-            "price": "de la 15 USD",
-            "desc": "în funcție de distanță"
+            "name": "Livrare în oraș",
+            "price": "18 USD",
+            "desc": "gratuit pentru închirieri de la 351 USD"
           },
           {
             "name": "În afara programului",
-            "price": "suprataxă 20 USD"
+            "price": "35 USD",
+            "desc": "în afara programului Luni–Duminică 9:00–20:00"
           }
         ],
         "returnTitle": "Returnare",
         "returnItems": [
           {
-            "name": "La punctul de închiriere",
-            "price": "gratuit",
-            "desc": "în programul de lucru"
-          },
-          {
-            "name": "La adresă",
-            "price": "de la 15 USD"
+            "name": "În alt oraș",
+            "price": "88 USD / 100 km",
+            "desc": "pentru returnare sau predare în afara orașului de închiriere"
           },
           {
             "name": "În afara programului",
-            "price": "suprataxă 20 USD"
+            "price": "35 USD",
+            "desc": "în afara programului Luni–Duminică 9:00–20:00"
           }
         ],
         "washName": "Spălarea mașinii",
         "washPrice": "25 USD",
         "washDesc": "În cazul returnării mașinii în stare murdară",
-        "note": "Mașina este furnizată cu rezervorul plin. La returnare, rezervorul trebuie alimentat la același nivel, altfel costul combustibilului + taxa de serviciu vor fi reținute din depozit."
+        "note": "Mașina este furnizată cu rezervorul plin. Returnarea cu rezervorul complet gol costă 117 USD; pentru o lipsă mai mică de combustibil, suma se calculează proporțional."
       },
       "territory": {
         "title": "Teritoriul de utilizare",
         "items": [
           "Vehiculul poate fi utilizat pe întreg teritoriul Ucrainei, cu excepția teritoriilor temporar ocupate și a zonelor de conflict.",
-          "Deplasarea în afara Ucrainei este posibilă doar cu acordul scris prealabil al REIZ. Lista țărilor permise poate fi clarificată la rezervare."
+          "Trecerea frontierei de stat este posibilă doar cu acordul scris prealabil al REIZ.",
+          "Taxa pentru ieșirea în străinătate: +175 USD pentru fiecare trecere de frontieră și +18 USD pentru fiecare zi petrecută în afara Ucrainei."
         ]
       },
       "cancellation": {

@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { CurrencyText } from "@/components/CurrencyPrice";
 
 export default async function DriverSection() {
   const t = await getTranslations("termsPage.sections.driver");
@@ -12,7 +13,9 @@ export default async function DriverSection() {
 
       <ul className="terms-block__list">
         {items.map((item, i) => (
-          <li key={i}>{item}</li>
+          <li key={i}>
+            <CurrencyText text={item} />
+          </li>
         ))}
       </ul>
     </section>

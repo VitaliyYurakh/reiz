@@ -1,10 +1,13 @@
 import { getTranslations } from "next-intl/server";
+import CurrencyPrice from "@/components/CurrencyPrice";
 
-type Rate = { segment: string; pricePerKm: string };
+type Rate = { segment: string; price: string };
 
 export default async function MileageSection() {
   const t = await getTranslations("termsPage.sections.mileage");
   const rates = t.raw("rates") as Rate[];
+  const unlimitedRates = t.raw("unlimitedRates") as Rate[];
+  const free = t("free");
 
   return (
     <section className="terms-block" id="mileage">
@@ -36,7 +39,24 @@ export default async function MileageSection() {
                 <span className="terms-menu__name">{row.segment}</span>
                 <span className="terms-menu__dots" />
                 <span className="terms-menu__price">
-                  {row.pricePerKm} {t("perKm")}
+                  <CurrencyPrice value={row.price} free={free} />
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h3 className="terms-block__label">{t("unlimitedTitle")}</h3>
+        <div className="terms-menu" style={{ marginTop: 12 }}>
+          {unlimitedRates.map((row) => (
+            <div className="terms-menu__item" key={row.segment}>
+              <div className="terms-menu__row">
+                <span className="terms-menu__name">{row.segment}</span>
+                <span className="terms-menu__dots" />
+                <span className="terms-menu__price">
+                  <CurrencyPrice value={row.price} free={free} />
                 </span>
               </div>
             </div>

@@ -1254,10 +1254,10 @@
   "termsPage": {
     "meta": {
       "title": "Warunki wynajmu samochodow Lwow — Wymagania i dokumenty",
-      "description": "Przejrzyste warunki wynajmu samochodow we Lwowie: wiek 21+, 2+ lata doswiadczenia. Bez kaucji. Lista wymaganych dokumentow. Bezplatna dostawa.",
+      "description": "Przejrzyste warunki wynajmu samochodow we Lwowie: wiek 21+, 2+ lata doswiadczenia. Bez kaucji. Lista wymaganych dokumentow. Zasady przebiegu, podstawienia i zwrotu.",
       "canonical": "https://reiz.com.ua/pl/terms",
       "og_title": "Warunki wynajmu samochodow Lwow — Wymagania i dokumenty | REIZ",
-      "og_description": "Przejrzyste warunki wynajmu samochodow we Lwowie: wiek 21+, 2+ lata doswiadczenia. Bez kaucji. Lista wymaganych dokumentow. Bezplatna dostawa.",
+      "og_description": "Przejrzyste warunki wynajmu samochodow we Lwowie: wiek 21+, 2+ lata doswiadczenia. Bez kaucji. Lista wymaganych dokumentow. Zasady przebiegu, podstawienia i zwrotu.",
       "og_url": "https://reiz.com.ua/pl/terms",
       "og_image": "https://reiz.com.ua/img/og/terms.webp",
       "lang": "pl"
@@ -1328,7 +1328,7 @@
         },
         {
           "id": "one-way",
-          "label": "One-Way"
+          "label": "Inne miasto"
         },
         {
           "id": "mileage",
@@ -1401,83 +1401,65 @@
       },
       "addOns": {
         "title": "Usługi dodatkowe",
-        "subtitle": "Wybierz potrzebne opcje podczas rezerwacji lub przy odbiorze samochodu.",
-        "perDay": "USD/dobę",
+        "subtitle": "Opcje, które można dodać do wynajmu w razie potrzeby.",
+        "perDay": "/dobę",
         "byFact": "wg kosztów",
+        "free": "bezpłatnie",
         "items": [
           {
-            "name": "Router Wi-Fi",
-            "description": "Nielimitowany internet mobilny 4G w podróży",
-            "priceShort": "5",
-            "priceLong": "5"
-          },
-          {
             "name": "Dodatkowy kierowca",
-            "description": "Wpisanie drugiego kierowcy do umowy wynajmu",
-            "priceShort": "5",
-            "priceLong": "5"
+            "description": "Bezpłatne dopisanie drugiego kierowcy do umowy po weryfikacji dokumentów",
+            "priceShort": "bezpłatnie",
+            "priceLong": "bezpłatnie"
           },
           {
-            "name": "Fotelik podwyższający",
-            "description": "Dla dzieci o wadze 15–36 kg (ok. 4–12 lat)",
-            "priceShort": "4",
-            "priceLong": "4"
+            "name": "Młody kierowca",
+            "description": "Po indywidualnej zgodzie dla kierowców poniżej 21 lat i ze stażem do 3 lat",
+            "priceShort": "18",
+            "priceLong": "18"
           },
           {
-            "name": "Fotelik dziecięcy",
-            "description": "Dla dzieci o wadze 9–18 kg (ok. 1–4 lata)",
-            "priceShort": "4",
-            "priceLong": "4"
-          },
-          {
-            "name": "Fotelik dla niemowląt",
-            "description": "Dla dzieci do 13 kg (do ~1 roku)",
-            "priceShort": "4",
-            "priceLong": "4"
-          },
-          {
-            "name": "Pełny bak",
-            "description": "Auto wydawane z pełnym bakiem. W przypadku zwrotu z mniejszym poziomem — dopłata za paliwo + opłata serwisowa",
-            "priceShort": "wg kosztów",
-            "priceLong": "wg kosztów"
+            "name": "Dodatkowe wyposażenie",
+            "description": "Nawigacja, fotelik dziecięcy, bagażnik na narty i inne akcesoria na życzenie",
+            "priceShort": "12",
+            "priceLong": "12"
           }
         ]
       },
       "oneWay": {
-        "title": "Usługa One-Way",
-        "text": "Wygodna opcja na podróże między miastami: odbierz samochód w jednej lokalizacji i zwróć w innej. Koszt usługi zależy od trasy i klasy pojazdu — dokładną kwotę potwierdzi menedżer przy rezerwacji.",
-        "menuName": "One-Way",
-        "menuPrice": "$100 – 250",
-        "menuDesc": "Zależy od trasy i klasy pojazdu"
+        "title": "Podstawienie / zwrot w innym mieście",
+        "text": "Usługa dostępna po wcześniejszym uzgodnieniu. Koszt liczony jest od kilometrażu trasy między miastami.",
+        "menuName": "Inne miasto",
+        "menuPrice": "88 USD / 100 km",
+        "menuDesc": "Dla podstawienia lub zwrotu auta poza miastem wynajmu"
       },
       "mileage": {
         "title": "Warunki przebiegu",
-        "subtitle": "Dzienny limit przebiegu — 300 km, liczony łącznie za cały okres wynajmu, ale nie więcej niż 4500 km miesięcznie.\nW przypadku przekroczenia limitu każdy kilometr jest płatny dodatkowo zgodnie z taryfami firmy.",
+        "subtitle": "W cenie wynajmu jest 300 km na dobę.\nPo przekroczeniu limitu obowiązuje stała dopłata, a dodatkowo dostępna jest opcja nielimitowanego przebiegu.",
         "bannerValue": "300 km",
         "bannerLabel": "dzienny limit przebiegu",
-        "overageTitle": "Dopłata za przekroczenie limitu",
-        "perKm": "USD / km",
-        "note": "Potrzebujesz wyższego limitu lub nieograniczonego przebiegu? Skontaktuj się z menedżerem.",
+        "overageTitle": "Przekroczenie limitu przebiegu",
+        "note": "Jeśli planujesz długie trasy, dodaj nielimitowany przebieg już przy rezerwacji.",
+        "free": "bezpłatnie",
         "rates": [
           {
-            "segment": "Ekonomiczny",
-            "pricePerKm": "0.12"
+            "segment": "Powyżej 300 km/dobę",
+            "price": "23 USD / 100 km"
+          }
+        ],
+        "unlimitedTitle": "Nielimitowany przebieg",
+        "unlimitedRates": [
+          {
+            "segment": "1 doba",
+            "price": "29 USD / dobę"
           },
           {
-            "segment": "Biznesowy",
-            "pricePerKm": "0.30"
+            "segment": "2–7 dób",
+            "price": "18 USD / dobę"
           },
           {
-            "segment": "SUV",
-            "pricePerKm": "0.30"
-          },
-          {
-            "segment": "Premium",
-            "pricePerKm": "0.70"
-          },
-          {
-            "segment": "Minibusy",
-            "pricePerKm": "0.50"
+            "segment": "Od 8 dób",
+            "price": "bezpłatnie"
           }
         ]
       },
@@ -1513,8 +1495,9 @@
       "driver": {
         "title": "Kto może prowadzić",
         "items": [
-          "Prowadzić pojazd ma prawo wyłącznie osoba wskazana w umowie. Przekazanie kierowania osobom nieupoważnionym jest zabronione.",
-          "Jeśli kilku kierowców planuje prowadzić — skorzystaj z usługi «Dodatkowy kierowca». Każdy kierowca zostanie wpisany do umowy po okazaniu dokumentów."
+          "Prowadzić pojazd może wyłącznie kierowca wskazany w umowie. Przekazanie kierowania osobom nieupoważnionym jest zabronione.",
+          "Dodatkowy kierowca jest dopisywany bezpłatnie po weryfikacji dokumentów.",
+          "Po indywidualnej zgodzie dla kierowców poniżej 21 lat i ze stażem do 3 lat obowiązuje dopłata 18 USD/dobę."
         ]
       },
       "delivery": {
@@ -1523,46 +1506,40 @@
         "deliveryTitle": "Wydanie",
         "deliveryItems": [
           {
-            "name": "W punkcie wynajmu",
-            "price": "bezpłatnie",
-            "desc": "w godzinach pracy"
-          },
-          {
-            "name": "Pod adres klienta",
-            "price": "od 15 USD",
-            "desc": "w zależności od odległości"
+            "name": "Dostawa po mieście",
+            "price": "18 USD",
+            "desc": "bezpłatnie przy wartości wynajmu od 351 USD"
           },
           {
             "name": "Poza godzinami pracy",
-            "price": "dopłata 20 USD"
+            "price": "35 USD",
+            "desc": "poza grafikiem Pn–Nd 9:00–20:00"
           }
         ],
         "returnTitle": "Zwrot",
         "returnItems": [
           {
-            "name": "W punkcie wynajmu",
-            "price": "bezpłatnie",
-            "desc": "w godzinach pracy"
-          },
-          {
-            "name": "Pod adres",
-            "price": "od 15 USD"
+            "name": "W innym mieście",
+            "price": "88 USD / 100 km",
+            "desc": "dla zwrotu lub podstawienia poza miastem wynajmu"
           },
           {
             "name": "Poza godzinami pracy",
-            "price": "dopłata 20 USD"
+            "price": "35 USD",
+            "desc": "poza grafikiem Pn–Nd 9:00–20:00"
           }
         ],
         "washName": "Mycie samochodu",
         "washPrice": "25 USD",
         "washDesc": "W przypadku zwrotu auta w zabrudzonym stanie",
-        "note": "Auto wydawane jest z pełnym bakiem. Przy zwrocie bak musi być zatankowany do tego samego poziomu, w przeciwnym razie z kaucji zostanie potrącony koszt paliwa + opłata serwisowa."
+        "note": "Auto wydawane jest z pełnym bakiem. Zwrot z całkowicie pustym bakiem kosztuje 117 USD; przy mniejszym braku paliwa kwota naliczana jest proporcjonalnie."
       },
       "territory": {
         "title": "Terytorium użytkowania",
         "items": [
           "Samochód może być używany na całym terytorium Ukrainy z wyjątkiem tymczasowo okupowanych terytoriów i stref działań wojennych.",
-          "Wyjazd poza Ukrainę możliwy wyłącznie za uprzednią pisemną zgodą REIZ. Listę dozwolonych krajów można uzyskać przy rezerwacji."
+          "Przekroczenie granicy państwowej jest możliwe wyłącznie po wcześniejszym pisemnym uzgodnieniu z REIZ.",
+          "Opłata za wyjazd za granicę: +175 USD za każde przekroczenie granicy oraz +18 USD za każdą dobę pobytu poza Ukrainą."
         ]
       },
       "cancellation": {

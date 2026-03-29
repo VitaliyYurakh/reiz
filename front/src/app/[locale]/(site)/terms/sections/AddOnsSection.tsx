@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import CurrencyPrice from "@/components/CurrencyPrice";
 
 type AddOn = {
   name: string;
@@ -11,13 +12,7 @@ export default async function AddOnsSection() {
   const t = await getTranslations("termsPage.sections.addOns");
   const items = t.raw("items") as AddOn[];
   const perDay = t("perDay");
-  const byFact = t("byFact");
-
-  function formatPrice(short: string, long: string) {
-    if (short === byFact) return byFact;
-    if (short === long) return `${short} ${perDay}`;
-    return `${short} / ${long} ${perDay}`;
-  }
+  const free = t("free");
 
   return (
     <section className="terms-block" id="services">
@@ -33,7 +28,12 @@ export default async function AddOnsSection() {
               <span className="terms-menu__name">{item.name}</span>
               <span className="terms-menu__dots" />
               <span className="terms-menu__price">
-                {formatPrice(item.priceShort, item.priceLong)}
+                <AddOnPrice
+                  priceShort={item.priceShort}
+                  priceLong={item.priceLong}
+                  perDay={perDay}
+                  free={free}
+                />
               </span>
             </div>
             <p className="terms-menu__desc">{item.description}</p>
@@ -41,5 +41,34 @@ export default async function AddOnsSection() {
         ))}
       </div>
     </section>
+  );
+}
+
+function AddOnPrice({
+  priceShort,
+  priceLong,
+  perDay,
+  free,
+}: { priceShort: string; priceLong: string; perDay: string; free: string }) {
+  if (priceShort === free) return <>{free}</>;
+
+  const shortNum = Number.parseInt(priceShort);
+  const longNum = Number.parseInt(priceLong);
+
+  if (Number.isNaN(shortNum)) return <>{priceShort}</>;
+
+  if (shortNum === longNum) {
+    return (
+      <>
+        <CurrencyPrice value={`${shortNum} USD`} /> {perDay}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <CurrencyPrice value={`${shortNum} USD`} /> /{" "}
+      <CurrencyPrice value={`${longNum} USD`} /> {perDay}
+    </>
   );
 }

@@ -82,7 +82,7 @@ export default async function TermsPage() {
                 <UiImage
                   width={480}
                   height={270}
-                  src={`/img/terms/age-requirement.webp?v=${termsImagesVersion}`}
+                  src={`/img/terms/woman-sitting-car.webp?v=${termsImagesVersion}`}
                   alt={t("images.ageAlt")}
                   sizePreset="card"
                 />
@@ -116,7 +116,7 @@ export default async function TermsPage() {
                 <UiImage
                   width={480}
                   height={270}
-                  src="/img/terms/documents-ukraine.webp"
+                  src="/img/terms/motherland-monument.webp"
                   alt={t("images.uaAlt")}
                   sizePreset="card"
                 />
