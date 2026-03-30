@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import UiImage from "@/components/ui/UiImage";
 import Icon from "@/components/Icon";
+import HomeIcon from "@/components/HomeIcon";
 import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
-import { type Locale, locales } from "@/i18n/request";
+import { Link, type Locale, locales } from "@/i18n/request";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
@@ -55,14 +56,36 @@ export default async function TermsPage() {
       />
 
       <div className="terms-hero-group">
-        <div className="cert__breadcrumb">
-          <span className="cert__marker" />
-          <span className="cert__breadcrumb-text">{t("hero.pretitle")}</span>
-        </div>
+        <div className="terms-hero-top">
+          <div className="terms-hero-content">
+            <nav
+              className="terms-mobile-breadcrumbs"
+              aria-label={t("breadcrumbs.current")}
+            >
+              <Link
+                href={getDefaultPath("home")}
+                className="terms-mobile-breadcrumbs__link terms-mobile-breadcrumbs__home"
+              >
+                <HomeIcon />
+              </Link>
+              <span className="terms-mobile-breadcrumbs__dot" />
+              <span className="terms-mobile-breadcrumbs__current">
+                {t("breadcrumbs.current")}
+              </span>
+            </nav>
 
-        <div className="blog-hero terms-hero">
-          <h1 className="blog-hero__title">{t("hero.title")}</h1>
-          <p className="terms-hero__subtitle">{t("hero.subtitle")}</p>
+            <div className="cert__breadcrumb">
+              <span className="cert__marker" />
+              <span className="cert__breadcrumb-text">
+                {t("hero.pretitle")}
+              </span>
+            </div>
+
+            <div className="blog-hero terms-hero">
+              <h1 className="blog-hero__title">{t("hero.title")}</h1>
+              <p className="terms-hero__subtitle">{t("hero.subtitle")}</p>
+            </div>
+          </div>
         </div>
       </div>
 

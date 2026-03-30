@@ -22,6 +22,7 @@ import PersonalInfoForm from "@/app/[locale]/(site)/cars/[idSlug]/rent/component
 import PricingSummaryPanel from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/PricingSummaryPanel";
 import FormFeedback from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/FormFeedback";
 import { useSideBarModal } from "@/components/modals";
+import HomeIcon from "@/components/HomeIcon";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { formatFull, calcRentalDays } from "@/lib/utils/date-format";
 import { useCurrency } from "@/context/CurrencyContext";
@@ -479,7 +480,7 @@ export default function RentPageContent({
             data-aos-delay="400"
           >
             <li>
-              <Link href="/">{t("breadcrumbs.home")}</Link>
+              <Link href="/"><HomeIcon className="breadcrumbs__home-icon" /></Link>
             </li>
             <li>
               <Link href="/#catalog">{t("breadcrumbs.cars")}</Link>

@@ -20,6 +20,10 @@
     flex-direction: column;
     gap: clamp(16px, 1.4706vw, 20px);
     max-width: 800px;
+
+    @include mobile {
+      margin-top: 12px;
+    }
   }
 
   .main-title {
@@ -54,6 +58,26 @@
       display: flex;
       flex-direction: column;
       gap: clamp(48px, 4.6324vw, 63px);
+
+      @include mobile {
+        gap: 0;
+      }
+    }
+
+    .terms-hero-top {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .terms-hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(48px, 4.6324vw, 63px);
+
+      @include mobile {
+        gap: 16px;
+        padding-top: 0;
+      }
     }
 
     .cert__breadcrumb {
@@ -214,5 +238,54 @@
 
   @include tablet {
     padding-top: 25px;
+  }
+
+  @include mobile {
+    padding-top: 0;
+  }
+}
+
+.terms-mobile-breadcrumbs {
+  display: none;
+
+  @include mobile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--cl-brown);
+  }
+
+  &__dot {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  &__line {
+    width: 42px;
+    height: 1px;
+    flex-shrink: 0;
+    background: currentColor;
+    opacity: 0.8;
+  }
+
+  &__link,
+  &__current {
+    font-family: var(--font-inter), Arial, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1;
+    color: currentColor;
+  }
+
+  &__home {
+    display: flex;
+    align-items: center;
+
+    path {
+      fill: currentColor;
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
 import Icon from "@/components/Icon";
+import HomeIcon from "@/components/HomeIcon";
 import { SOCIAL_LINKS } from "@/config/social";
 import { Link, type Locale, locales } from "@/i18n/request";
 import type { Metadata } from "next";
@@ -56,13 +57,11 @@ export default async function ContactsPage() {
               className="contacts-mobile-breadcrumbs"
               aria-label={t("breadcrumbs.current")}
             >
-              <span className="contacts-mobile-breadcrumbs__dot" />
-              <span className="contacts-mobile-breadcrumbs__line" />
               <Link
                 href={getDefaultPath("home")}
-                className="contacts-mobile-breadcrumbs__link"
+                className="contacts-mobile-breadcrumbs__link contacts-mobile-breadcrumbs__home"
               >
-                {t("breadcrumbs.home")}
+                <HomeIcon />
               </Link>
               <span className="contacts-mobile-breadcrumbs__dot" />
               <span className="contacts-mobile-breadcrumbs__current">

@@ -1,10 +1,11 @@
-import UiImage from "@/components/ui/UiImage";
-import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
-import { type Locale, locales, Link } from "@/i18n/request";
 import type { Metadata } from "next";
+import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
+import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
+import HomeIcon from "@/components/HomeIcon";
+import UiImage from "@/components/ui/UiImage";
+import { Link, type Locale, locales } from "@/i18n/request";
 import { getDefaultPath } from "@/lib/seo";
 import { getStaticPageMetadata } from "@/lib/seo-sync";
-import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 
 type Post = {
   title: string;
@@ -14,7 +15,6 @@ type Post = {
   image?: string;
   slug?: string;
 };
-
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -30,7 +30,7 @@ export async function generateMetadata({
 }
 
 export default async function BlogPage() {
-  const locale = await getLocale() as Locale;
+  const locale = (await getLocale()) as Locale;
   setRequestLocale(locale);
   const t = await getTranslations("blogPage");
   const posts = t.raw("posts") as Post[];
@@ -46,25 +46,47 @@ export default async function BlogPage() {
         ]}
       />
 
-      {/* 1. Breadcrumb line - using cert classes from certificate-section.scss */}
-      <div
-        className="cert__breadcrumb"
-        data-aos="fade-up"
-        data-aos-duration={800}
-      >
-        <span className="cert__marker" />
-        <span className="cert__breadcrumb-text">{t("pretitle")}</span>
-      </div>
+      <div className="blog-hero-group">
+        <div className="blog-hero-top">
+          <div className="blog-hero-content">
+            <nav
+              className="blog-mobile-breadcrumbs"
+              aria-label={t("breadcrumbs.current")}
+            >
+              <Link
+                href={getDefaultPath("home")}
+                className="blog-mobile-breadcrumbs__link blog-mobile-breadcrumbs__home"
+              >
+                <HomeIcon />
+              </Link>
+              <span className="blog-mobile-breadcrumbs__dot" />
+              <span className="blog-mobile-breadcrumbs__current">
+                {t("breadcrumbs.current")}
+              </span>
+            </nav>
 
-      {/* 2. Hero */}
-      <div
-        className="blog-hero"
-        data-aos="fade-up"
-        data-aos-duration={800}
-        data-aos-delay={100}
-      >
-        <h1 className="blog-hero__title">{t("hero.title")}</h1>
-        <p className="blog-hero__subtitle">{t("hero.subtitle")}</p>
+            {/* 1. Breadcrumb line - using cert classes from certificate-section.scss */}
+            <div
+              className="cert__breadcrumb"
+              data-aos="fade-up"
+              data-aos-duration={800}
+            >
+              <span className="cert__marker" />
+              <span className="cert__breadcrumb-text">{t("pretitle")}</span>
+            </div>
+
+            {/* 2. Hero */}
+            <div
+              className="blog-hero"
+              data-aos="fade-up"
+              data-aos-duration={800}
+              data-aos-delay={100}
+            >
+              <h1 className="blog-hero__title">{t("hero.title")}</h1>
+              <p className="blog-hero__subtitle">{t("hero.subtitle")}</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* 3. Blog posts list */}

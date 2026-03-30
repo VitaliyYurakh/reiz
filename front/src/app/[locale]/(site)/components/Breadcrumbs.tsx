@@ -1,6 +1,7 @@
 import { getLocale } from "next-intl/server";
 import { Link } from "@/i18n/request";
 import { defaultLocale, locales, type Locale } from "@/i18n/request";
+import HomeIcon from "@/components/HomeIcon";
 
 type Crumb = { name?: string; href: string };
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://reiz.com.ua/";
@@ -65,7 +66,13 @@ export default async function Breadcrumbs({
           {items.map((it, i) => (
             <li key={it.name}>
               {i < items.length - 1 ? (
-                <Link href={it.href}>{it.name}</Link>
+                <Link href={it.href}>
+                  {i === 0 ? (
+                    <HomeIcon className="breadcrumbs__home-icon" />
+                  ) : (
+                    it.name
+                  )}
+                </Link>
               ) : (
                 it.name
               )}

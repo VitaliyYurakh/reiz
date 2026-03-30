@@ -33,4 +33,18 @@
         }
     }
   }
+
+  &__home-icon {
+    display: inline-block;
+    vertical-align: middle;
+    transition: fill 0.3s;
+
+    path {
+      fill: var(--cl-s);
+    }
+  }
+
+  li:first-of-type a:hover &__home-icon path {
+    fill: var(--cl-a);
+  }
 }

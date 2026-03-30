@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import Icon from "@/components/Icon";
+import HomeIcon from "@/components/HomeIcon";
 import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
 import { type Locale, locales } from "@/i18n/request";
 import { Link } from "@/i18n/request";
@@ -93,6 +94,22 @@ export default async function InsurancePage() {
           className="insurance-section__mob-hero-img"
         />
         <div className="insurance-section__mob-hero-content">
+          <nav
+            className="insurance-mobile-breadcrumbs"
+            aria-label={t("breadcrumbs.current")}
+          >
+            <Link
+              href={getDefaultPath("home")}
+              className="insurance-mobile-breadcrumbs__link insurance-mobile-breadcrumbs__home"
+            >
+              <HomeIcon />
+            </Link>
+            <span className="insurance-mobile-breadcrumbs__dot" />
+            <span className="insurance-mobile-breadcrumbs__current">
+              {t("breadcrumbs.current")}
+            </span>
+          </nav>
+
           <h1 className="insurance-section__mob-hero-title">
             {t("hero.title")}
           </h1>

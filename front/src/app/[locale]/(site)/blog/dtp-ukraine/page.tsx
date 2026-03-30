@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { type Locale, locales, defaultLocale, Link } from "@/i18n/request";
 import { buildHreflangMap, OG_LOCALE, getOgAlternateLocales } from "@/i18n/locale-config";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
+import HomeIcon from "@/components/HomeIcon";
 import UiImage from "@/components/ui/UiImage";
 import ArticleFaq from "./ArticleFaq";
 
@@ -75,7 +76,7 @@ export default async function DtpUkrainePage() {
       />
 
       <nav className="article__breadcrumb" aria-label={t("breadcrumbs.nav_label")}>
-        <Link href="/" className="article__breadcrumb-home">{t("breadcrumbs.home")}</Link>
+        <Link href="/" className="article__breadcrumb-home"><HomeIcon className="breadcrumbs__home-icon" /></Link>
         <span className="article__breadcrumb-sep" aria-hidden="true">&mdash;</span>
         <Link href="/blog" className="article__breadcrumb-parent">{t("breadcrumbs.blog")}</Link>
         <span className="article__breadcrumb-sep" aria-hidden="true">&mdash;</span>

@@ -152,6 +152,60 @@
       rgba(0, 0, 0, 0.3) 35%,
       transparent 60%
     );
+
+    @include mobile {
+      padding-top: calc(var(--header-height) + 56px);
+    }
+  }
+
+  .insurance-mobile-breadcrumbs {
+    display: none;
+
+    @include mobile {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: calc(var(--header-height) + 20px);
+      left: var(--container-offset);
+      gap: 14px;
+      color: #fff;
+      text-align: left;
+      z-index: 2;
+    }
+
+    &__dot {
+      width: 5px;
+      height: 5px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    &__line {
+      width: 42px;
+      height: 1px;
+      flex-shrink: 0;
+      background: currentColor;
+      opacity: 0.8;
+    }
+
+    &__link,
+    &__current {
+      font-family: var(--font-inter), Arial, sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 1;
+      color: currentColor;
+    }
+
+    &__home {
+      display: flex;
+      align-items: center;
+
+      path {
+        fill: currentColor;
+      }
+    }
   }
 
   &__mob-hero-title {

@@ -21,6 +21,16 @@
         flex-direction: column;
         gap: clamp(45px, 5vw, 68px);
 
+        .faq-hero-group {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(48px, 4.6324vw, 63px);
+
+            @include mobile {
+                gap: 16px;
+            }
+        }
+
         .cert__breadcrumb {
             display: flex;
             align-items: center;
@@ -230,5 +240,46 @@
 
     @include tablet {
         padding-top: 25px;
+    }
+
+    @include mobile {
+        padding-top: 0;
+    }
+}
+
+.faq-mobile-breadcrumbs {
+    display: none;
+
+    @include mobile {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--cl-brown);
+    }
+
+    &__dot {
+        width: 5px;
+        height: 5px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: currentColor;
+    }
+
+    &__link,
+    &__current {
+        font-family: var(--font-inter), Arial, sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1;
+        color: currentColor;
+    }
+
+    &__home {
+        display: flex;
+        align-items: center;
+
+        path {
+            fill: currentColor;
+        }
     }
 }

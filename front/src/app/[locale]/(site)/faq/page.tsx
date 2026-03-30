@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
-import { type Locale, locales } from "@/i18n/request";
-import { getDefaultPath } from "@/lib/seo";
-import { getStaticPageMetadata } from "@/lib/seo-sync";
+import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import AccordionGroup from "@/components/AccordionGroup";
+import HomeIcon from "@/components/HomeIcon";
 import JsonLd from "@/components/JsonLd";
-
+import { Link, type Locale, locales } from "@/i18n/request";
+import { getDefaultPath } from "@/lib/seo";
+import { getStaticPageMetadata } from "@/lib/seo-sync";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -27,7 +27,7 @@ type FaqItem = {
 };
 
 export default async function FaqPage() {
-  const locale = await getLocale() as Locale;
+  const locale = (await getLocale()) as Locale;
   setRequestLocale(locale);
   const t = await getTranslations("faqPage");
 
@@ -52,13 +52,31 @@ export default async function FaqPage() {
           ]}
         />
 
-        <div className="cert__breadcrumb">
-          <span className="cert__marker" />
-          <span className="cert__breadcrumb-text">{t("pretitle")}</span>
-        </div>
+        <div className="faq-hero-group">
+          <nav
+            className="faq-mobile-breadcrumbs"
+            aria-label={t("breadcrumbs.current")}
+          >
+            <Link
+              href={getDefaultPath("home")}
+              className="faq-mobile-breadcrumbs__link faq-mobile-breadcrumbs__home"
+            >
+              <HomeIcon />
+            </Link>
+            <span className="faq-mobile-breadcrumbs__dot" />
+            <span className="faq-mobile-breadcrumbs__current">
+              {t("breadcrumbs.current")}
+            </span>
+          </nav>
 
-        <div className="blog-hero">
-          <h1 className="blog-hero__title">{t("main_title")}</h1>
+          <div className="cert__breadcrumb">
+            <span className="cert__marker" />
+            <span className="cert__breadcrumb-text">{t("pretitle")}</span>
+          </div>
+
+          <div className="blog-hero">
+            <h1 className="blog-hero__title">{t("main_title")}</h1>
+          </div>
         </div>
 
         <AccordionGroup

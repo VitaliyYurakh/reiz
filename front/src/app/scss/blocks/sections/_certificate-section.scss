@@ -57,6 +57,10 @@
   @include tablet {
     padding-top: 25px;
   }
+
+  @include mobile {
+    padding-top: 0;
+  }
 }
 
 // =============================================================================
@@ -92,6 +96,21 @@
 
   @include mobile {
     gap: 40px;
+  }
+
+  &__hero-group {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(60px, 6.6176vw, 90px);
+
+    @include for-tablet {
+      gap: clamp(48px, 4.6324vw, 63px);
+    }
+
+    @include mobile {
+      gap: 16px;
+    }
   }
 
   // ---------------------------------------------------------------------------
@@ -149,6 +168,10 @@
     flex-direction: column;
     gap: clamp(16px, 1.4706vw, 20px);
     max-width: 700px;
+
+    @include mobile {
+      margin-top: 12px;
+    }
   }
 
   &__hero-title {
@@ -286,6 +309,51 @@
       // Final payment block - reduced gap from terms
       margin-top: 0;
       gap: clamp(16px, 1.4706vw, 20px);
+    }
+  }
+}
+
+.cert-mobile-breadcrumbs {
+  display: none;
+
+  @include mobile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--cl-brown);
+  }
+
+  &__dot {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  &__line {
+    width: 42px;
+    height: 1px;
+    flex-shrink: 0;
+    background: currentColor;
+    opacity: 0.8;
+  }
+
+  &__link,
+  &__current {
+    font-family: var(--font-inter), Arial, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1;
+    color: currentColor;
+  }
+
+  &__home {
+    display: flex;
+    align-items: center;
+
+    path {
+      fill: currentColor;
     }
   }
 }

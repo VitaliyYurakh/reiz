@@ -173,6 +173,15 @@
     line-height: 1;
     color: currentColor;
   }
+
+  &__home {
+    display: flex;
+    align-items: center;
+
+    path {
+      fill: currentColor;
+    }
+  }
 }
 
 // ─── Hero background (absolutely positioned, full-width) ──
