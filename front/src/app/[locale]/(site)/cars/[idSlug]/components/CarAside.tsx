@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
 import { Tooltip } from "react-tooltip";
 import { useCarModal } from "@/app/[locale]/(site)/cars/[idSlug]/components/modals";
@@ -17,6 +17,14 @@ const COVERAGE_TO_PLAN_INDEX: Record<CoverageOption, number> = {
   deposit: 0,
   coverage50: 1,
   coverage100: 2,
+};
+
+const tooltipStyle: CSSProperties & Record<"--rt-color-dark", string> = {
+  zIndex: 9999,
+  borderRadius: "16px",
+  backgroundColor: "#21262D",
+  color: "#FFFFFF",
+  "--rt-color-dark": "#21262D",
 };
 
 const getPlanIdForCoverage = (
@@ -461,10 +469,9 @@ export default function CarAside({ car }: { car: Car }) {
               id="my-tooltip"
               place="top"
               positionStrategy="fixed"
-              variant="light"
+              variant="dark"
               opacity={1}
-              border="1px solid #dedede"
-              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#fff" }}
+              style={tooltipStyle}
             >
               {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <1> */}
               <div dangerouslySetInnerHTML={{ __html: t("tooltips.club") }} />
@@ -473,10 +480,9 @@ export default function CarAside({ car }: { car: Car }) {
               id="deposit-tooltip"
               place="top"
               positionStrategy="fixed"
-              variant="light"
+              variant="dark"
               opacity={1}
-              border="1px solid #dedede"
-              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#fff" }}
+              style={tooltipStyle}
             >
               {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <2> */}
               <div dangerouslySetInnerHTML={{ __html: t.raw("tooltips.deposit") }} />
@@ -485,10 +491,9 @@ export default function CarAside({ car }: { car: Car }) {
               id="overdrive-tooltip"
               place="top"
               positionStrategy="fixed"
-              variant="light"
+              variant="dark"
               opacity={1}
-              border="1px solid #dedede"
-              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#fff" }}
+              style={tooltipStyle}
             >
               <div
                 // biome-ignore lint/security/noDangerouslySetInnerHtml: <3>

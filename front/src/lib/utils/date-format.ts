@@ -1,7 +1,33 @@
+const getDayMonthParts = (
+  date: Date,
+  locale: string,
+  month: "short" | "long",
+) => {
+  const parts = new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month,
+  }).formatToParts(date);
+
+  const day = parts.find((part) => part.type === "day")?.value ?? String(date.getDate());
+  const monthValue =
+    parts.find((part) => part.type === "month")?.value ??
+    date.toLocaleDateString(locale, { month });
+
+  return {
+    day,
+    month: month === "short" ? monthValue.replace(/\.$/, "") : monthValue,
+  };
+};
+
 /** "D mon" — e.g. "29 мар", locale-aware short month */
 export const formatShort = (d: Date, locale: string): string => {
-  const day = d.getDate();
-  const month = d.toLocaleDateString(locale, { month: "short" }).replace(".", "");
+  const { day, month } = getDayMonthParts(d, locale, "short");
+  return `${day} ${month}`;
+};
+
+/** "D month" — e.g. "29 марта", locale-aware long month */
+export const formatLong = (d: Date, locale: string): string => {
+  const { day, month } = getDayMonthParts(d, locale, "long");
   return `${day} ${month}`;
 };
 

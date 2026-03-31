@@ -118,7 +118,7 @@
           "range2": "3 – 7 діб",
           "range3": "8 – 29 діб",
           "range4": "29+ діб",
-          "perDay": "доба"
+          "perDay": "добу"
         },
         "features": {
           "engine": "Двигун",
@@ -1753,8 +1753,8 @@
     "tariffs": {
       "exact": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "more": "{count, plural, one {Більше {count} доби} few {Більше {count} діб} many {Більше {count} діб} other {Більше {count} діб}}",
-      "range": "{min} — {max} діб",
-      "pricePerDay": "{price}/доба"
+      "range": "{min} — {max} {max, plural, one {доба} few {доби} many {діб} other {діб}}",
+      "pricePerDay": "{price}/добу"
     },
     "depositLabel": "Застава",
     "currency": "{value}",
@@ -1857,19 +1857,19 @@
       },
       "included": "Включено у вартість",
       "depositReduction": "Застава зменшена на {percent}%",
-      "pricePerDay": "{formattedPrice}/доба"
+      "pricePerDay": "{formattedPrice}/добу"
     },
     "addOns": {
       "title": "Доповнення",
       "options": {
         "additionalDriver": {
           "label": "Додатковий водій",
-          "price": "{formattedPrice}/доба",
+          "price": "{formattedPrice}/добу",
           "summary": "Додатковий водій"
         },
         "childSeat": {
           "label": "Дитяче автокрісло",
-          "price": "{formattedPrice}/доба",
+          "price": "{formattedPrice}/добу",
           "summary": "Дитяче автокрісло"
         },
         "borderCrossing": {
@@ -1907,7 +1907,7 @@
       "durationLabel": "Тривалість оренди",
       "durationValue": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "rateLabel": "Тариф",
-      "pricePerDay": "{formattedPrice}/доба",
+      "pricePerDay": "{formattedPrice}/добу",
       "addOnsLabel": "Доповнення",
       "depositLabel": "Поворотна застава",
       "totalLabel": "Разом до сплати",
@@ -1926,8 +1926,8 @@
   },
   "carRentPage": {
     "meta": {
-      "title": "Забронювати {carName} — від {price}$/доба",
-      "description": "Оформіть оренду {carName} онлайн. Від {price}$/доба, страховка включена, подача за адресою 24/7."
+      "title": "Забронювати {carName} — від {price}$/добу",
+      "description": "Оформіть оренду {carName} онлайн. Від {price}$/добу, страховка включена, подача за адресою 24/7."
     },
     "breadcrumbs": {
       "home": "Головна",
@@ -1985,12 +1985,12 @@
       "options": {
         "additionalDriver": {
           "label": "Додатковий водій",
-          "price": "{formattedPrice}/доба",
+          "price": "{formattedPrice}/добу",
           "summary": "Додатковий водій"
         },
         "childSeat": {
           "label": "Дитяче автокрісло",
-          "price": "{formattedPrice}/доба",
+          "price": "{formattedPrice}/добу",
           "summary": "Дитяче автокрісло"
         },
         "borderCrossing": {
@@ -2026,7 +2026,7 @@
       "durationLabel": "Тривалість оренди",
       "durationValue": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "rateLabel": "Тариф",
-      "pricePerDay": "{formattedPrice}/доба",
+      "pricePerDay": "{formattedPrice}/добу",
       "addOnsLabel": "Доповнення",
       "depositLabel": "Поворотна застава",
       "totalLabel": "Разом до сплати",

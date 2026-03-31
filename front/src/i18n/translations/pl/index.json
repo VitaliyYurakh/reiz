@@ -107,7 +107,7 @@
       },
       "catalog_list": {
         "badges": {
-          "withDeposit": "Z kaucja",
+          "withDeposit": "Z kaucją",
           "coverage50": "Pokrycie 50%",
           "coverage100": "Pokrycie 100%",
           "available": "Dostepny teraz",
@@ -118,7 +118,7 @@
           "range2": "3 – 7 dni",
           "range3": "8 – 29 dni",
           "range4": "29+ dni",
-          "perDay": "za dzien"
+          "perDay": "dobę"
         },
         "features": {
           "engine": "Silnik",
@@ -1687,7 +1687,7 @@
       "cars": "Samochody"
     },
     "meta": {
-      "title": "Wynajem {brand} {model} we Lwowie — od {price}$/dzien",
+      "title": "Wynajem {brand} {model} we Lwowie — od {price}$/dobę",
       "description": "Wynajem {carName} we Lwowie. {specsText}{seats, plural, one {{seats} miejsce} few {{seats} miejsca} many {{seats} miejsc} other {{seats} miejsc}}. Dostawa na lotnisko i po miescie 24/7."
     },
     "title": "Wynajem {brand} {model} {year} na Ukrainie",
@@ -1717,17 +1717,17 @@
   "carAside": {
     "rentalPeriodTitle": "Okres wynajmu \"{brand} {model} {year}\"",
     "rangeSeparator": "do",
-    "selectedDays": "{count, plural, one {{count} dzien} few {{count} dni} many {{count} dni} other {{count} dni}}",
+    "selectedDays": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
     "rentalCostTitle": "Koszt wynajmu",
     "plans": {
-      "withDeposit": "Z kaucja",
+      "withDeposit": "Z kaucją",
       "coverage": "Pokrycie {percent}%"
     },
     "tariffs": {
-      "exact": "{count, plural, one {{count} dzien} few {{count} dni} many {{count} dni} other {{count} dni}}",
-      "more": "{count, plural, one {Ponad {count} dzien} few {Ponad {count} dni} many {Ponad {count} dni} other {Ponad {count} dni}}",
+      "exact": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
+      "more": "{count, plural, one {Ponad {count} dzień} few {Ponad {count} dni} many {Ponad {count} dni} other {Ponad {count} dni}}",
       "range": "{min} — {max} dni",
-      "pricePerDay": "{price}/dzien"
+      "pricePerDay": "{price}/dobę"
     },
     "depositLabel": "Kaucja",
     "currency": "{value}",
@@ -1784,8 +1784,8 @@
       "timeLabel": "Godzina zwrotu"
     },
     "notSelected": "...",
-    "duration": "{count, plural, one {{count} dzien} few {{count} dni} many {{count} dni} other {{count} dni}}",
-    "confirm": "Potwierdz",
+    "duration": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
+    "confirm": "Potwierdź",
     "close": "Zamknij",
     "prevMonth": "Poprzedni miesiac",
     "nextMonth": "Nastepny miesiac"
@@ -1817,7 +1817,7 @@
       "pickupPlaceholder": "Miejsce odbioru",
       "returnPlaceholder": "Miejsce zwrotu",
       "datesLabel": "Daty wynajmu",
-      "selectedDays": "{count, plural, one {{count} dzien} few {{count} dni} many {{count} dni} other {{count} dni}}",
+      "selectedDays": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
       "flightNumber": "Numer lotu",
       "flightOptional": "Opcjonalnie"
     },
@@ -1825,24 +1825,24 @@
       "title": "Ubezpieczenie",
       "infoTitle": "Ubezpieczenie",
       "packages": {
-        "withDeposit": "Z kaucja",
+        "withDeposit": "Z kaucją",
         "coverage": "Pokrycie {percent}%"
       },
       "included": "W cenie",
-      "depositReduction": "Kaucja obnizona o {percent}%",
-      "pricePerDay": "{formattedPrice}/dzien"
+      "depositReduction": "Kaucja obniżona o {percent}%",
+      "pricePerDay": "{formattedPrice}/dobę"
     },
     "addOns": {
       "title": "Dodatki",
       "options": {
         "additionalDriver": {
           "label": "Dodatkowy kierowca",
-          "price": "{formattedPrice}/dzien",
+          "price": "{formattedPrice}/dobę",
           "summary": "Dodatkowy kierowca"
         },
         "childSeat": {
           "label": "Fotelik dzieciecy",
-          "price": "{formattedPrice}/dzien",
+          "price": "{formattedPrice}/dobę",
           "summary": "Fotelik dzieciecy"
         },
         "borderCrossing": {
@@ -1852,9 +1852,9 @@
         },
         "driverService": {
           "label": "Usluga kierowcy",
-          "price": "{formattedPrice}/dzien roboczy",
+          "price": "{formattedPrice}/dzień roboczy",
           "summary": "Usluga kierowcy",
-          "tooltip": "<span class=\"text-strong\">Co obejmuje dzien roboczy kierowcy?</span><br/>Godziny pracy: 9:00–18:00<br/>8 godzin pracy + 1 godzina przerwy na lunch (przerwa nie jest wliczana do czasu pracy)."
+          "tooltip": "<span class=\"text-strong\">Co obejmuje dzień roboczy kierowcy?</span><br/>Godziny pracy: 9:00–18:00<br/>8 godzin pracy + 1 godzina przerwy na lunch (przerwa nie jest wliczana do czasu pracy)."
         }
       },
       "noneSelected": "Nie wybrano dodatkow"
@@ -1878,9 +1878,9 @@
       "pickupLabel": "Odbior pojazdu",
       "returnLabel": "Zwrot pojazdu",
       "durationLabel": "Czas trwania wynajmu",
-      "durationValue": "{count, plural, one {{count} dzien} few {{count} dni} many {{count} dni} other {{count} dni}}",
+      "durationValue": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
       "rateLabel": "Stawka wynajmu",
-      "pricePerDay": "{formattedPrice}/dzien",
+      "pricePerDay": "{formattedPrice}/dobę",
       "addOnsLabel": "Dodatki",
       "depositLabel": "Kaucja zwrotna",
       "totalLabel": "Do zaplaty",
@@ -1899,8 +1899,8 @@
   },
   "carRentPage": {
     "meta": {
-      "title": "Rezerwacja {carName} — od {price}$/dzien",
-      "description": "Zarezerwuj {carName} online. Od {price}$/dzien, ubezpieczenie w cenie, dostawa 24/7."
+      "title": "Rezerwacja {carName} — od {price}$/dobę",
+      "description": "Zarezerwuj {carName} online. Od {price}$/dobę, ubezpieczenie w cenie, dostawa 24/7."
     },
     "breadcrumbs": {
       "home": "Strona glowna",
@@ -1958,12 +1958,12 @@
       "options": {
         "additionalDriver": {
           "label": "Dodatkowy kierowca",
-          "price": "{formattedPrice}/dzien",
+          "price": "{formattedPrice}/dobę",
           "summary": "Dodatkowy kierowca"
         },
         "childSeat": {
           "label": "Fotelik dzieciecy",
-          "price": "{formattedPrice}/dzien",
+          "price": "{formattedPrice}/dobę",
           "summary": "Fotelik dzieciecy"
         },
         "borderCrossing": {
@@ -1973,9 +1973,9 @@
         },
         "driverService": {
           "label": "Usluga kierowcy",
-          "price": "{formattedPrice}/dzien roboczy",
+          "price": "{formattedPrice}/dzień roboczy",
           "summary": "Usluga kierowcy",
-          "tooltip": "<span class=\"text-strong\">Co obejmuje dzien roboczy kierowcy?</span><br/>Godziny pracy: 9:00–18:00<br/>8 godzin pracy + 1 godzina przerwy na lunch (przerwa nie jest wliczana do czasu pracy)."
+          "tooltip": "<span class=\"text-strong\">Co obejmuje dzień roboczy kierowcy?</span><br/>Godziny pracy: 9:00–18:00<br/>8 godzin pracy + 1 godzina przerwy na lunch (przerwa nie jest wliczana do czasu pracy)."
         }
       },
       "noneSelected": "Nie wybrano dodatkow"
@@ -1997,9 +1997,9 @@
       "pickupLabel": "Odbior pojazdu",
       "returnLabel": "Zwrot pojazdu",
       "durationLabel": "Czas trwania wynajmu",
-      "durationValue": "{count, plural, one {{count} dzien} few {{count} dni} many {{count} dni} other {{count} dni}}",
+      "durationValue": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
       "rateLabel": "Stawka wynajmu",
-      "pricePerDay": "{formattedPrice}/dzien",
+      "pricePerDay": "{formattedPrice}/dobę",
       "addOnsLabel": "Dodatki",
       "depositLabel": "Kaucja zwrotna",
       "totalLabel": "Do zaplaty",

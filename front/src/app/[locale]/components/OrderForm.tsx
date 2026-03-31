@@ -5,15 +5,14 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/i18n/request";
 
 import { useRentalSearch } from "@/context/RentalSearchContext";
+import { formatShort } from "@/lib/utils/date-format";
 
 import LocationSelect from "./LocationSelect";
 
 const formatDateWithTime = (date: Date, locale: string) => {
-  const day = date.getDate();
-  const month = new Intl.DateTimeFormat(locale, { month: "short" }).format(date);
   const hours = String(date.getHours()).padStart(2, "0");
   const minutes = String(date.getMinutes()).padStart(2, "0");
-  return `${day} ${month} ${hours}:${minutes}`;
+  return `${formatShort(date, locale)} ${hours}:${minutes}`;
 };
 
 type OrderFormProps = {

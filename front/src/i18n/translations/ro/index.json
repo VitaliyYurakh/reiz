@@ -118,7 +118,7 @@
           "range2": "3 – 7 zile",
           "range3": "8 – 29 zile",
           "range4": "29+ zile",
-          "perDay": "pe zi"
+          "perDay": "zi"
         },
         "features": {
           "engine": "Motor",

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { calcRentalDays } from "@/lib/utils/date-format";
+import { calcRentalDays, formatLong } from "@/lib/utils/date-format";
 
 import Icon from "@/components/Icon";
 import CustomSelect2 from "@/app/[locale]/(site)/cars/[idSlug]/components/CustomSelect2";
@@ -51,12 +51,8 @@ const formatHoursMinutes = (date: Date | null): string => {
 };
 
 const formatDate = (date: Date, locale: string): string => {
-  const day = date.getDate();
-  const monthName = date.toLocaleDateString(locale, { month: "long" });
   const weekdayName = date.toLocaleDateString(locale, { weekday: "short" });
-  const capitalize = (value: string) =>
-    value.charAt(0).toUpperCase() + value.slice(1);
-  return `${day} ${capitalize(monthName)}, ${capitalize(weekdayName)}`;
+  return `${formatLong(date, locale)}, ${weekdayName}`;
 };
 
 const formatDateWithTime = (date: Date, locale: string): string => {

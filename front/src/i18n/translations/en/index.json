@@ -118,7 +118,7 @@
           "range2": "3 – 7 days",
           "range3": "8 – 29 days",
           "range4": "29+ days",
-          "perDay": "per day"
+          "perDay": "day"
         },
         "features": {
           "engine": "Engine",
