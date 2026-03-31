@@ -1,5 +1,6 @@
 import type { Car } from "@/types/cars";
 import type { Locale } from "@/i18n/request";
+import { PHONE_NUMBER } from "@/config/social";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 
@@ -62,7 +63,7 @@ export function generateRentalServiceSchema({
       },
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+380739928838",
+        telephone: PHONE_NUMBER,
         contactType: "customer service",
         availableLanguage: ["Ukrainian", "Russian", "English", "Polish"],
       },

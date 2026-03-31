@@ -1,6 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { defaultLocale, locales, type Locale } from "@/i18n/request";
 import { LANGUAGE_TAG, LOCALE_AREA } from "@/i18n/locale-config";
+import { PHONE_NUMBER } from "@/config/social";
 
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 const SITE_NAME = "REIZ";
@@ -82,7 +83,7 @@ export default async function SchemaOrg({
     logo: `${SITE_ORIGIN}/img/og/home-square.webp`,
     image: `${SITE_ORIGIN}/img/og/home.webp`,
     description: localizedIntro,
-    telephone: "",
+    telephone: PHONE_NUMBER,
     email: "info@reiz.com.ua",
     priceRange: "$$",
     currenciesAccepted: "UAH, USD, EUR",

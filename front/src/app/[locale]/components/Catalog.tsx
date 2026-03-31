@@ -156,7 +156,7 @@ export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
         if (!themeColorMeta.current) {
             themeColorMeta.current = document.createElement("meta");
             themeColorMeta.current.setAttribute("name", "theme-color");
-            themeColorMeta.current.setAttribute("content", "#000");
+            themeColorMeta.current.setAttribute("content", "#999999");
             document.head.appendChild(themeColorMeta.current);
         }
     }, []);
@@ -169,7 +169,7 @@ export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
             if (window.scrollY > 100) {
                 themeColorMeta.current.setAttribute("content", "#ffffff");
             } else {
-                themeColorMeta.current.setAttribute("content", "#000");
+                themeColorMeta.current.setAttribute("content", "#999999");
             }
         };
         window.addEventListener("scroll", handleScroll, {passive: true});

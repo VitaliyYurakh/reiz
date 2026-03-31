@@ -106,6 +106,7 @@
             width: 100%;
             display: flex;
             height: 100%;
+            position: relative;
 
             img,
             picture {
@@ -128,6 +129,22 @@
 
                 @include for-mobile {
                     display: block;
+                }
+            }
+
+            .hero-section__mobile-overlay {
+                display: block;
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.4) 0%,
+                    rgba(0, 0, 0, 0.35) 70%,
+                    rgba(0, 0, 0, 0.55) 100%
+                );
+
+                @include for-mobile {
+                    display: none;
                 }
             }
         }
@@ -254,6 +271,25 @@
             color: var(--cl-b);
         }
 
+        .hero-section__mobile-title {
+            font-family: var(--font-outfit), sans-serif;
+            font-weight: 700;
+            font-size: clamp(34px, 3.0882vw, 42px);
+            line-height: 1.25;
+            letter-spacing: 0;
+            color: #fff;
+            margin: 0;
+
+            @include small-tablet {
+                font-size: clamp(30px, 8.5vw, 42px);
+            }
+        }
+
+        .hero-section__mobile-title-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
         .main-button {
             border-color: var(--col-c);
             border-radius: 20px;
@@ -264,6 +300,14 @@
 
         @include for-mobile {
             display: none;
+        }
+
+        @include mobile {
+            gap: 37px;
+
+            .contacts-hero-cta {
+                margin-top: 0;
+            }
         }
     }
 
@@ -320,9 +364,45 @@
 
     @include mobile {
         padding-top: calc(var(--header-height) + 37px);
+    }
+}
+
+body:has(.hero-section) {
+    @include tablet {
+        .header:not(.mode):not(.sticky):not(.open-menu) {
+            background: transparent;
+
+            .container::before {
+                border-bottom-color: rgba(255, 255, 255, 0.15);
+                border-bottom-width: 0.5px;
+            }
+
+            .logo {
+                color: var(--cl-b);
+                border-left-color: rgba(255, 255, 255, 0.15);
+            }
+
+            .burger {
+                color: var(--cl-b);
+            }
+
+            .phone-link {
+                border-left-color: rgba(255, 255, 255, 0.15);
+
+                .sprite {
+                    color: var(--cl-b);
+                }
+            }
+        }
+    }
+}
+
+// Keep original mobile block for order-form styles
+.hero-section {
+    @include mobile {
 
         .order-form {
-            margin-top: 240px;
+            margin-top: 185px;
             display: flex;
             flex-direction: column;
             gap: 10px;

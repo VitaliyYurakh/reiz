@@ -1,14 +1,17 @@
-import UiImage from "@/components/ui/UiImage";
-import OrderForm from "./OrderForm";
-import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
 import { getTranslations } from "next-intl/server";
+import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
+import UiImage from "@/components/ui/UiImage";
+import WhatsAppUnavailable from "@/components/WhatsAppUnavailable";
+import { SOCIAL_LINKS } from "@/config/social";
 import { Link } from "@/i18n/request";
-import LocationMapLink from "./LocationMapLink";
 import HeroBookButton from "./HeroBookButton";
+import LocationMapLink from "./LocationMapLink";
+import OrderForm from "./OrderForm";
 import ScrollToCatalogButton from "./ScrollToCatalogButton";
 
 export default async function HeroSection() {
   const t = await getTranslations("homePage.hero");
+  const footerT = await getTranslations("footer");
 
   return (
     <section className="hero-section">
@@ -18,10 +21,10 @@ export default async function HeroSection() {
             <li className="swiper-slide">
               {/* Mobile hero image - LCP critical */}
               <UiImage
-                src="/img/hero/hero-mobile.webp"
+                src="/img/cars/home%20page2.1.webp"
                 alt={t("hero_image_alt")}
-                width={1024}
-                height={1670}
+                width={1500}
+                height={2250}
                 hero
                 quality={75}
                 sizes="100vw"
@@ -40,6 +43,7 @@ export default async function HeroSection() {
                 className="hero-image-desktop"
                 fetchPriority="high"
               />
+              <div className="hero-section__mobile-overlay" />
             </li>
           </ul>
         </div>
@@ -96,13 +100,47 @@ export default async function HeroSection() {
             </div>
 
             <div className="hero-section__content">
-              <h2 className="h2">{t("secondary_title")}</h2>
-              <Link
-                href="/invest"
-                className="main-button main-button--transparent"
-              >
-                {t("secondary_button")}
-              </Link>
+              <h2 className="h2 hero-section__mobile-title">
+                <Link
+                  href="/cars/24-hyundai-elantra-2025"
+                  className="hero-section__mobile-title-link"
+                >
+                  {t("mobile_title")}
+                </Link>
+              </h2>
+              <div className="contacts-hero-cta">
+                <WhatsAppUnavailable
+                  message={footerT("whatsapp_unavailable")}
+                  className="contacts-hero-cta__btn contacts-hero-cta__btn--outline"
+                  hideIcon
+                >
+                  <UiImage
+                    width={28}
+                    height={28}
+                    src="/img/icons/whatsapp.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <span>WhatsApp</span>
+                </WhatsAppUnavailable>
+
+                <a
+                  href={SOCIAL_LINKS.telegram}
+                  className="contacts-hero-cta__btn contacts-hero-cta__btn--outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Telegram"
+                >
+                  <UiImage
+                    width={28}
+                    height={28}
+                    src="/img/icons/telegram.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <span>Telegram</span>
+                </a>
+              </div>
             </div>
 
             <OrderForm />

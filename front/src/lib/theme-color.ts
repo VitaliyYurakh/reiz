@@ -1,6 +1,6 @@
 const HOME_PATHS = ["/", "/ru", "/en"];
 const INVEST_PATHS = ["/invest", "/ru/invest", "/en/invest"];
-const HOME_THEME_COLOR = "#000000";
+const HOME_THEME_COLOR = "#999999";
 const INVEST_THEME_COLOR = "#ffffff";
 const DEFAULT_THEME_COLOR = "#ffffff";
 const MENU_THEME_COLOR = "#ffffff";

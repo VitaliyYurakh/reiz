@@ -184,6 +184,7 @@
       "book_button": "REZERVĂ O MAȘINĂ",
       "down_button": "MERGI LA CATALOGUL DE MAȘINI",
       "intro": "REIZ oferă închiriere auto în Lviv cu vehicule noi, servicii premium, tarife corecte și livrare la adresa ta la o oră convenabilă.",
+      "mobile_title": "Închiriere de la $33/zi",
       "pretitle": "BINE AȚI VENIT LA REIZ",
       "secondary_button": "Află mai multe",
       "secondary_title": "LISTEAZĂ-ȚI MAȘINA",
@@ -192,7 +193,6 @@
     },
     "hero_slider_image_alt": "Închiriere auto în Lviv — Mercedes CLE | REIZ Rental Cars",
     "meta": {
-      "canonical": "https://reiz.com.ua/ro/",
       "description": "Închiriere auto în Lviv de la REIZ. Formalități în 15 minute, contract oficial. Livrare la aeroport, gară și în oraș. Clasă economică, business și premium.",
       "lang": "ro",
       "og_description": "Închiriere auto în Lviv de la REIZ. Formalități în 15 minute, contract oficial. Livrare la aeroport, gară și în oraș. Clasă economică, business și premium.",
@@ -239,7 +239,6 @@
     "meta": {
       "title": "Întrebări frecvente despre închiriere auto în Lviv",
       "description": "Răspunsuri la întrebările populare: cum închiriezi o mașină, ce documente sunt necesare, cât costă, poți călători în străinătate ✓ Informații detaliate de la experți",
-      "canonical": "https://reiz.com.ua/ro/faq",
       "og_title": "Întrebări frecvente despre închiriere auto în Lviv",
       "og_description": "Răspunsuri la întrebările populare: cum închiriezi o mașină, ce documente sunt necesare, cât costă, poți călători în străinătate ✓ Informații detaliate de la experți",
       "og_image": "https://reiz.com.ua/img/og/faq.webp",
@@ -340,7 +339,6 @@
     "meta": {
       "title": "Asigurare auto pentru închiriere în Lviv",
       "description": "Asigurare auto de închiriere: CASCO și răspundere civilă, asistență rutieră 24/7, mașină de înlocuire la nevoie. Condiții transparente, fără taxe ascunse.",
-      "canonical": "https://reiz.com.ua/ro/insurance",
       "og_title": "Asigurare Auto Închiriere Lviv — Protecție și Siguranță | REIZ",
       "og_description": "Asigurare auto de închiriere: CASCO și răspundere civilă, asistență rutieră 24/7, mașină de înlocuire la nevoie. Condiții transparente, fără taxe ascunse.",
       "og_image": "https://reiz.com.ua/img/og/insurance.webp",
@@ -483,7 +481,6 @@
     "meta": {
       "title": "Închiriere auto pentru companii — corporate",
       "description": "Închiriere auto corporativă în Ucraina: sedanuri, crossovere și microbuze. Facturare cu TVA, asigurare, contract, suport 24/7. Condiții pentru companii.",
-      "canonical": "https://reiz.com.ua/ro/business/",
       "og_title": "REIZ pentru Business — închiriere auto corporativă cu TVA",
       "og_description": "Tarife flexibile pentru companii, acoperire completă de asigurare și suport 24/7. Un singur contract — totul inclus.",
       "og_image": "https://reiz.com.ua/img/og/business.webp",
@@ -853,10 +850,8 @@
     "meta": {
       "title": "Blog despre închiriere auto — Sfaturi utile și ghiduri",
       "description": "Articole utile despre închirierea auto: cum să închiriezi o mașină, documente, rute în Ucraina de Vest, sfaturi pentru începători ✓ Recomandări de la experții REIZ",
-      "canonical": "https://reiz.com.ua/ro/blog/",
       "og_title": "Blog despre închiriere auto — Sfaturi utile și ghiduri | REIZ",
       "og_description": "Articole utile despre închirierea auto: cum să închiriezi o mașină, documente, rute în Ucraina de Vest, sfaturi pentru începători ✓ Recomandări de la experții REIZ",
-      "og_url": "https://reiz.com.ua/ro/blog/",
       "og_image": "https://reiz.com.ua/img/og/blog.webp",
       "lang": "ro"
     },
@@ -917,10 +912,8 @@
     "meta": {
       "title": "Despre închirierea auto în Lviv",
       "description": "REIZ — serviciu modern de închiriere auto în Lviv ✓ Flotă nouă ✓ Echipă profesionistă ✓ Condiții transparente ✓ Peste 50 de clienți mulțumiți ✓ Suport 24/7",
-      "canonical": "https://reiz.com.ua/ro/about/",
       "og_title": "Despre REIZ — Închiriere auto de încredere în Lviv din 2023",
       "og_description": "REIZ — serviciu modern de închiriere auto în Lviv ✓ Flotă nouă ✓ Echipă profesionistă ✓ Condiții transparente ✓ Peste 50 de clienți mulțumiți ✓ Suport 24/7",
-      "og_url": "https://reiz.com.ua/ro/about/",
       "og_image": "https://reiz.com.ua/img/og/about.webp",
       "lang": "ro"
     },
@@ -987,12 +980,10 @@
     "meta": {
       "title": "Certificat cadou pentru închiriere auto",
       "description": "Dăruiește experiența: certificat REIZ 100$–5000$, pe email în 5 minute sau card fizic. Lviv.",
-      "canonical": "https://reiz.com.ua/ro/certificate",
       "og_title": "Certificate cadou REIZ — închiriere auto în Lviv",
       "og_description": "Dăruiește închirierea auto: alege suma certificatului, format electronic sau fizic. Emis în 5 minute.",
       "og_image": "https://reiz.com.ua/img/og/certificate.webp",
       "og_locale": "ro_MD",
-      "og_url": "https://reiz.com.ua/ro/certificate",
       "lang": "ro"
     },
     "breadcrumbs": {
@@ -1114,7 +1105,6 @@
     "meta": {
       "title": "Listează-ți mașina pentru închiriere în Lviv",
       "description": "Listează-ți mașina în Lviv cu REIZ: acord oficial, plăți lunare, întreținere și monitorizare 24/7. Verifică cerințele și trimite o cerere.",
-      "canonical": "https://reiz.com.ua/ro/invest",
       "og_title": "Listează-ți mașina pentru închiriere în Lviv",
       "og_description": "Predă mașina ta la REIZ și câștigă venit pasiv. Acord, plăți, service și control total.",
       "og_image": "https://reiz.com.ua/img/og/invest.webp",
@@ -1255,10 +1245,8 @@
     "meta": {
       "title": "Condiții de închiriere auto Lviv — Cerințe și documente",
       "description": "Condiții transparente de închiriere auto în Lviv: vârstă 21+, 2+ ani experiență ✓ Fără depozit ✓ Lista documentelor necesare ✓ Kilometraj, livrare și returnare",
-      "canonical": "https://reiz.com.ua/ro/terms",
       "og_title": "Condiții de închiriere auto Lviv — Cerințe și documente | REIZ",
       "og_description": "Condiții transparente de închiriere auto în Lviv: vârstă 21+, 2+ ani experiență ✓ Fără depozit ✓ Lista documentelor necesare ✓ Kilometraj, livrare și returnare",
-      "og_url": "https://reiz.com.ua/ro/terms",
       "og_image": "https://reiz.com.ua/img/og/terms.webp",
       "lang": "ro"
     },
@@ -1562,7 +1550,6 @@
     "meta": {
       "title": "Contacte închiriere auto în Lviv",
       "description": "Birou în Lviv, telefon de rezervări, program de lucru ✓ Livrare mașină la adresă sau aeroport ✓ Deschis 24/7 ✓ Răspundem la toate întrebările",
-      "canonical": "https://reiz.com.ua/ro/contacts",
       "og_title": "Contacte închiriere auto în Lviv",
       "og_description": "Birou în Lviv, telefon de rezervări, program de lucru ✓ Livrare mașină la adresă sau aeroport ✓ Deschis 24/7 ✓ Răspundem la toate întrebările",
       "og_image": "https://reiz.com.ua/img/og/contacts.webp",

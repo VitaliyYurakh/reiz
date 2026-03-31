@@ -72,7 +72,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#000",
+  themeColor: "#999999",
 };
 
 export default async function RootLayout({
@@ -96,7 +96,7 @@ export default async function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/img/hero/hero-mobile.webp"
+          href="/img/cars/home%20page2.1.webp"
           type="image/webp"
           media="(max-width: 1024px)"
           fetchPriority="high"

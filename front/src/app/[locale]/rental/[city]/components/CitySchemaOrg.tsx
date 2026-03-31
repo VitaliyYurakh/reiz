@@ -2,6 +2,7 @@ import type { CityConfig } from "@/data/cities";
 import type { Locale } from "@/i18n/request";
 import { defaultLocale } from "@/i18n/request";
 import type { CityFAQFormatted } from "@/data/cityContent";
+import { PHONE_NUMBER } from "@/config/social";
 
 type Props = {
   city: CityConfig;
@@ -60,7 +61,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     logo: `${baseUrl}/img/og/home-square.webp`,
     image: `${baseUrl}/img/og/home.webp`,
     description: descriptions[locale],
-    telephone: "",
+    telephone: PHONE_NUMBER,
     email: "info@reiz.com.ua",
     priceRange: "$$",
     currenciesAccepted: "UAH, USD, EUR",

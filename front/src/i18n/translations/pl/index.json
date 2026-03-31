@@ -184,6 +184,7 @@
       "book_button": "ZAREZERWUJ SAMOCHOD",
       "down_button": "PRZEJDZ DO KATALOGU SAMOCHODOW",
       "intro": "REIZ oferuje wynajem samochodow we Lwowie z nowymi pojazdami, usluga premium, uczciwymi stawkami i dostawa pod Twoj adres o wygodnej porze.",
+      "mobile_title": "Wynajem od $33/dzień",
       "pretitle": "WITAMY W REIZ",
       "secondary_button": "Dowiedz sie wiecej",
       "secondary_title": "ODDAJ SAMOCHOD",
@@ -192,7 +193,6 @@
     },
     "hero_slider_image_alt": "Wynajem samochodow we Lwowie — Mercedes CLE | REIZ Rental Cars",
     "meta": {
-      "canonical": "https://reiz.com.ua/pl/",
       "description": "Wynajem samochodow we Lwowie od REIZ. 15-minutowe formalnosci, oficjalna umowa. Dostawa na lotnisko, dworzec i po miescie. Klasa ekonom, biznes i premium.",
       "lang": "pl",
       "og_description": "Wynajem samochodow we Lwowie od REIZ. 15-minutowe formalnosci, oficjalna umowa. Dostawa na lotnisko, dworzec i po miescie. Klasa ekonom, biznes i premium.",
@@ -239,7 +239,6 @@
     "meta": {
       "title": "FAQ o wynajmie samochodow we Lwowie",
       "description": "Odpowiedzi na popularne pytania: jak wynajac samochod, jakie dokumenty sa potrzebne, ile to kosztuje, czy mozna jechac za granice. Informacje od ekspertow REIZ.",
-      "canonical": "https://reiz.com.ua/pl/faq",
       "og_title": "FAQ o wynajmie samochodow we Lwowie",
       "og_description": "Odpowiedzi na popularne pytania: jak wynajac samochod, jakie dokumenty sa potrzebne, ile to kosztuje, czy mozna jechac za granice. Informacje od ekspertow REIZ.",
       "og_image": "https://reiz.com.ua/img/og/faq.webp",
@@ -340,7 +339,6 @@
     "meta": {
       "title": "Ubezpieczenie wynajmu samochodow we Lwowie",
       "description": "Ubezpieczenie wynajmu samochodow: AC i OC, pomoc drogowa 24/7, samochod zastepezy w razie potrzeby. Przejrzyste warunki, brak ukrytych oplat.",
-      "canonical": "https://reiz.com.ua/pl/insurance",
       "og_title": "Ubezpieczenie wynajmu samochodow Lwow — Ochrona i Bezpieczenstwo | REIZ",
       "og_description": "Ubezpieczenie wynajmu samochodow: AC i OC, pomoc drogowa 24/7, samochod zastepczy w razie potrzeby. Przejrzyste warunki, brak ukrytych oplat.",
       "og_image": "https://reiz.com.ua/img/og/insurance.webp",
@@ -483,7 +481,6 @@
     "meta": {
       "title": "Wynajem samochodow dla firm — wynajem korporacyjny",
       "description": "Korporacyjny wynajem samochodow na Ukrainie: sedany, crossovery i minivany. Faktury VAT, ubezpieczenie, umowa, wsparcie 24/7. Indywidualne warunki dla firm.",
-      "canonical": "https://reiz.com.ua/pl/business/",
       "og_title": "REIZ dla biznesu — korporacyjny wynajem samochodow z VAT",
       "og_description": "Elastyczne stawki firmowe, pelne pokrycie ubezpieczeniowe i wsparcie 24/7. Jedna umowa — wszystko w cenie.",
       "og_image": "https://reiz.com.ua/img/og/business.webp",
@@ -853,10 +850,8 @@
     "meta": {
       "title": "Blog o wynajmie samochodow — Przydatne wskazowki i poradniki",
       "description": "Pomocne artykuly o wynajmie samochodow: jak wynajac samochod, dokumenty, trasy po Zachodniej Ukrainie, porady dla poczatkujacych. Rekomendacje ekspertow REIZ.",
-      "canonical": "https://reiz.com.ua/pl/blog/",
       "og_title": "Blog o wynajmie samochodow — Przydatne wskazowki i poradniki | REIZ",
       "og_description": "Pomocne artykuly o wynajmie samochodow: jak wynajac samochod, dokumenty, trasy po Zachodniej Ukrainie, porady dla poczatkujacych. Rekomendacje ekspertow REIZ.",
-      "og_url": "https://reiz.com.ua/pl/blog/",
       "og_image": "https://reiz.com.ua/img/og/blog.webp",
       "lang": "pl"
     },
@@ -917,10 +912,8 @@
     "meta": {
       "title": "O wynajmie samochodow we Lwowie",
       "description": "REIZ — nowoczesna usluga wynajmu samochodow we Lwowie. Nowa flota. Profesjonalny zespol. Przejrzyste warunki. Ponad 50 zadowolonych klientow. Wsparcie 24/7.",
-      "canonical": "https://reiz.com.ua/pl/about/",
       "og_title": "O REIZ — Niezawodny wynajem samochodow we Lwowie od 2023",
       "og_description": "REIZ — nowoczesna usluga wynajmu samochodow we Lwowie. Nowa flota. Profesjonalny zespol. Przejrzyste warunki. Ponad 50 zadowolonych klientow. Wsparcie 24/7.",
-      "og_url": "https://reiz.com.ua/pl/about/",
       "og_image": "https://reiz.com.ua/img/og/about.webp",
       "lang": "pl"
     },
@@ -987,12 +980,10 @@
     "meta": {
       "title": "Bon podarunkowy na wynajem samochodu",
       "description": "Podaruj przezycie: certyfikat REIZ 100–5000 $, e-mail w 5 minut lub karta fizyczna. Lwow.",
-      "canonical": "https://reiz.com.ua/pl/certificate",
       "og_title": "Bony podarunkowe REIZ — wynajem samochodow we Lwowie",
       "og_description": "Podaruj wynajem samochodu: wybierz kwote certyfikatu, format elektroniczny lub fizyczny. Wystawienie w 5 minut.",
       "og_image": "https://reiz.com.ua/img/og/certificate.webp",
       "og_locale": "pl_PL",
-      "og_url": "https://reiz.com.ua/pl/certificate",
       "lang": "pl"
     },
     "breadcrumbs": {
@@ -1114,7 +1105,6 @@
     "meta": {
       "title": "Oddaj samochod na wynajem we Lwowie",
       "description": "Oddaj samochod we Lwowie z REIZ: oficjalna umowa, miesieczne wyplaty, serwis i monitoring 24/7. Sprawdz wymagania i zloz wniosek.",
-      "canonical": "https://reiz.com.ua/pl/invest",
       "og_title": "Oddaj samochod na wynajem we Lwowie",
       "og_description": "Przekaz swoj samochod REIZ i zarabiaj pasywny dochod. Umowa, wyplaty, serwis i pelna kontrola.",
       "og_image": "https://reiz.com.ua/img/og/invest.webp",
@@ -1255,10 +1245,8 @@
     "meta": {
       "title": "Warunki wynajmu samochodow Lwow — Wymagania i dokumenty",
       "description": "Przejrzyste warunki wynajmu samochodow we Lwowie: wiek 21+, 2+ lata doswiadczenia. Bez kaucji. Lista wymaganych dokumentow. Zasady przebiegu, podstawienia i zwrotu.",
-      "canonical": "https://reiz.com.ua/pl/terms",
       "og_title": "Warunki wynajmu samochodow Lwow — Wymagania i dokumenty | REIZ",
       "og_description": "Przejrzyste warunki wynajmu samochodow we Lwowie: wiek 21+, 2+ lata doswiadczenia. Bez kaucji. Lista wymaganych dokumentow. Zasady przebiegu, podstawienia i zwrotu.",
-      "og_url": "https://reiz.com.ua/pl/terms",
       "og_image": "https://reiz.com.ua/img/og/terms.webp",
       "lang": "pl"
     },
@@ -1562,7 +1550,6 @@
     "meta": {
       "title": "Kontakt wynajmu samochodow we Lwowie",
       "description": "Biuro we Lwowie, telefon rezerwacyjny, godziny otwarcia. Dostawa samochodu pod adres lub na lotnisko. Czynne 24/7. Odpowiadamy na wszystkie pytania.",
-      "canonical": "https://reiz.com.ua/pl/contacts",
       "og_title": "Kontakt wynajmu samochodow we Lwowie",
       "og_description": "Biuro we Lwowie, telefon rezerwacyjny, godziny otwarcia. Dostawa samochodu pod adres lub na lotnisko. Czynne 24/7. Odpowiadamy na wszystkie pytania.",
       "og_image": "https://reiz.com.ua/img/og/contacts.webp",
