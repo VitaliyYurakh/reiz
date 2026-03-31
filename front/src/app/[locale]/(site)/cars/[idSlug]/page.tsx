@@ -156,6 +156,7 @@ export default async function CarPage({
                     </h2>
 
                     <p
+                        className="single-section__description"
                         // biome-ignore lint/security/noDangerouslySetInnerHtml: <1>
                         dangerouslySetInnerHTML={{
                             __html: localizedDescription,
@@ -376,6 +377,24 @@ export default async function CarPage({
                         <CarClientProvider>
                             <CarAside car={{...car, description: null}}/>
                         </CarClientProvider>
+
+                        {localizedDescription ? (
+                            <div className="single-section__mobile-description">
+                                <h2 className="single-section__mobile-description-title">
+                                    {t("specifications.descriptionTitle", {
+                                        carName: carDisplayName,
+                                    })}
+                                </h2>
+
+                                <div
+                                    className="single-section__mobile-description-content"
+                                    // biome-ignore lint/security/noDangerouslySetInnerHtml: <1>
+                                    dangerouslySetInnerHTML={{
+                                        __html: localizedDescription,
+                                    }}
+                                />
+                            </div>
+                        ) : null}
 
                     </div>
                 </div>
