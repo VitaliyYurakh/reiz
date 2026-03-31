@@ -7,7 +7,7 @@
 
   // Mobile: add a little extra space so the last block doesn't sit under the footer
   @include small-tablet {
-    padding-bottom: calc(var(--default-padding) + 20px);
+    padding-bottom: calc(var(--default-padding) + 20px + env(safe-area-inset-bottom, 0px));
   }
 
   .breadcrumbs {
