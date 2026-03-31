@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import cn from "classnames";
+import CatalogLink from "@/components/CatalogLink";
 import UiImage from "@/components/ui/UiImage";
 import { SOCIAL_LINKS, PHONE_NUMBER } from "@/config/social";
-import { Link } from "@/i18n/request";
 import { useTranslations } from "next-intl";
 
 export default function MobileBottomBar() {
@@ -64,7 +64,7 @@ export default function MobileBottomBar() {
         <span>{t("call")}</span>
       </a>
 
-      <Link href="/#catalog" className="mobile-bar__item">
+      <CatalogLink className="mobile-bar__item">
         <svg
           width={22}
           height={22}
@@ -80,7 +80,7 @@ export default function MobileBottomBar() {
           <path d="m21 21-4.35-4.35" />
         </svg>
         <span>{t("cars")}</span>
-      </Link>
+      </CatalogLink>
 
       <a
         href={SOCIAL_LINKS.telegram}

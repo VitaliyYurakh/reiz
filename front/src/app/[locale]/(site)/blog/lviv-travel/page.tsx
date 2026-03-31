@@ -73,7 +73,7 @@ export default async function LvivTravelPage() {
 
       {/* Breadcrumb line */}
       <nav className="article__breadcrumb" aria-label={t("breadcrumbs.nav_label")}>
-        <Link href="/" className="article__breadcrumb-home"><HomeIcon className="breadcrumbs__home-icon" /></Link>
+        <Link href="/" className="article__breadcrumb-home"><HomeIcon className="breadcrumbs__home-icon" /><span className="breadcrumbs__home-text">{t("breadcrumbs.home")}</span></Link>
         <span className="article__breadcrumb-sep" aria-hidden="true">&mdash;</span>
         <Link href="/blog" className="article__breadcrumb-parent">{t("breadcrumbs.blog")}</Link>
         <span className="article__breadcrumb-sep" aria-hidden="true">&mdash;</span>

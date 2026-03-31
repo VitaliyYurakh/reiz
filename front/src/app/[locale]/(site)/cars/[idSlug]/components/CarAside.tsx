@@ -278,8 +278,8 @@ export default function CarAside({ car }: { car: Car }) {
           </span>
           <span className="single-form__date-right">
             <span>{dateRangeLabel}</span>
-            <svg width="10" height="10" viewBox="0 0 8 5" aria-hidden="true">
-              <use href="/img/sprite/sprite.svg#arrow-d" />
+            <svg width="12" height="7" viewBox="0 0 12 7" fill="currentColor" aria-hidden="true">
+              <use href="/img/sprite/sprite.svg#arrow-d2" />
             </svg>
           </span>
         </label>
@@ -464,7 +464,7 @@ export default function CarAside({ car }: { car: Car }) {
               variant="light"
               opacity={1}
               border="1px solid #dedede"
-              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#f2f2f2" }}
+              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#fff" }}
             >
               {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <1> */}
               <div dangerouslySetInnerHTML={{ __html: t("tooltips.club") }} />
@@ -476,7 +476,7 @@ export default function CarAside({ car }: { car: Car }) {
               variant="light"
               opacity={1}
               border="1px solid #dedede"
-              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#f2f2f2" }}
+              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#fff" }}
             >
               {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <2> */}
               <div dangerouslySetInnerHTML={{ __html: t.raw("tooltips.deposit") }} />
@@ -488,7 +488,7 @@ export default function CarAside({ car }: { car: Car }) {
               variant="light"
               opacity={1}
               border="1px solid #dedede"
-              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#f2f2f2" }}
+              style={{ zIndex: 9999, borderRadius: "16px", backgroundColor: "#fff" }}
             >
               <div
                 // biome-ignore lint/security/noDangerouslySetInnerHtml: <3>

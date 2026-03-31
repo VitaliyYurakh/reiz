@@ -3,13 +3,18 @@ import type {Metadata, Viewport} from "next";
 import AOSProvider from "@/components/AOSProvider";
 import { getLocale } from "next-intl/server";
 import { LANGUAGE_TAG } from "@/i18n/locale-config";
-import type { Locale } from "@/i18n/request";
+import { defaultLocale, locales, type Locale } from "@/i18n/request";
 import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
 import { inter, merriweather, kyivType, outfit } from "@/fonts";
 import Script from "next/script";
 import ThemeColorProvider from "@/components/ThemeColorProvider";
 import LocalePreferenceSync from "@/components/LocalePreferenceSync";
+import LocaleHistoryGuard from "@/components/LocaleHistoryGuard";
+import {
+  LOCALE_SWITCH_HISTORY_KEY,
+  LOCALE_SWITCH_HISTORY_TTL_MS,
+} from "@/lib/utils/localeHistory";
 
 const SITE_ORIGIN = "https://reiz.com.ua";
 const SITE_NAME = "REIZ";
@@ -75,6 +80,98 @@ export const viewport: Viewport = {
   themeColor: "#999999",
 };
 
+const localeHistoryGuardInlineScript = `
+(() => {
+  const KEY = ${JSON.stringify(LOCALE_SWITCH_HISTORY_KEY)};
+  const TTL = ${LOCALE_SWITCH_HISTORY_TTL_MS};
+  const LOCALES = ${JSON.stringify(locales)};
+  const DEFAULT_LOCALE = ${JSON.stringify(defaultLocale)};
+
+  const clearMarker = () => {
+    try {
+      sessionStorage.removeItem(KEY);
+    } catch {}
+  };
+
+  const getNavigationType = () => {
+    const entry = performance.getEntriesByType("navigation")[0];
+    return entry && "type" in entry ? entry.type : null;
+  };
+
+  const isAdminPath = (pathname) =>
+    pathname === "/admin" || pathname.startsWith("/admin/");
+
+  const getLocaleFromPath = (pathname) => {
+    const seg = pathname.split("/")[1];
+    return LOCALES.includes(seg) ? seg : DEFAULT_LOCALE;
+  };
+
+  const stripLocaleFromPath = (pathname) => {
+    const parts = pathname.split("/");
+    if (!LOCALES.includes(parts[1])) {
+      return pathname || "/";
+    }
+
+    const pathWithoutLocale = "/" + parts.slice(2).join("/");
+    return pathWithoutLocale === "/"
+      ? "/"
+      : pathWithoutLocale.replace(/\\/{2,}/g, "/");
+  };
+
+  const buildLocalizedHref = (pathname, search, hash, locale) => {
+    const pathWithoutLocale = stripLocaleFromPath(pathname);
+    const localizedPath =
+      locale === DEFAULT_LOCALE
+        ? pathWithoutLocale || "/"
+        : \`/\${locale}\${pathWithoutLocale === "/" ? "" : pathWithoutLocale}\`;
+
+    return \`\${(localizedPath.replace(/\\/{2,}/g, "/") || "/")}\${search}\${hash}\`;
+  };
+
+  const redirectIfNeeded = (allowClientPopstate) => {
+    try {
+      const raw = sessionStorage.getItem(KEY);
+      if (!raw) return;
+
+      const parsed = JSON.parse(raw);
+      const locale =
+        typeof parsed?.locale === "string" && LOCALES.includes(parsed.locale)
+          ? parsed.locale
+          : null;
+
+      if (!locale || typeof parsed?.createdAt !== "number") {
+        clearMarker();
+        return;
+      }
+
+      if (Date.now() - parsed.createdAt > TTL) {
+        clearMarker();
+        return;
+      }
+
+      if (!allowClientPopstate && getNavigationType() !== "back_forward") {
+        return;
+      }
+
+      const { pathname, search, hash } = window.location;
+      if (isAdminPath(pathname) || getLocaleFromPath(pathname) === locale) {
+        return;
+      }
+
+      document.documentElement.style.visibility = "hidden";
+      window.location.replace(buildLocalizedHref(pathname, search, hash, locale));
+    } catch {}
+  };
+
+  const handleInitialCheck = () => redirectIfNeeded(false);
+  const handlePopState = () => redirectIfNeeded(true);
+
+  handleInitialCheck();
+  window.addEventListener("pageshow", handleInitialCheck);
+  window.addEventListener("popstate", handlePopState);
+})();
+`;
+
 export default async function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
@@ -82,6 +179,11 @@ export default async function RootLayout({
   return (
     <html lang={LANGUAGE_TAG[locale as Locale] ?? locale} className="page">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: localeHistoryGuardInlineScript,
+          }}
+        />
         {/* Preload LCP hero images - CRITICAL for performance */}
         {/* Desktop hero - matches current LCP image */}
         <link
@@ -119,6 +221,7 @@ export default async function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        <LocaleHistoryGuard />
         <LocalePreferenceSync />
         {children}
         <ThemeColorProvider />

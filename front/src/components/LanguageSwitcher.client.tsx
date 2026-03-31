@@ -1,27 +1,19 @@
 "use client";
 
-import React, {
-  Children,
-  cloneElement,
-  isValidElement,
-  useCallback,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { getPathname, type Locale, usePathname } from "@/i18n/request";
+import { LOCALE_SWITCH_HISTORY_KEY } from "@/lib/utils/localeHistory";
+import Link from "next/link";
+import { useLocale } from "next-intl";
+import { useSearchParams } from "next/navigation";
+import React, { useCallback, useEffect, useId, useRef, useState } from "react";
 
 type Props = {
-  children: React.ReactNode;
-  locales: string[];
-  defaultLocale: string;
+  locales: readonly Locale[];
+  defaultLocale: Locale;
   labels: Record<string, string>;
 };
 
 export default function LanguageSwitcherClient({
-  children,
   locales,
   defaultLocale,
   labels,
@@ -29,16 +21,10 @@ export default function LanguageSwitcherClient({
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const listboxId = useId();
-  const router = useRouter();
-
   const pathname = usePathname() || "/";
+  const currentLocale = useLocale() as Locale;
   const searchParams = useSearchParams();
   const [hash, setHash] = useState<string>("");
-
-  const currentLocale = useMemo(() => {
-    const seg = pathname.split("/")[1];
-    return locales.includes(seg) ? seg : defaultLocale;
-  }, [pathname, locales, defaultLocale]);
 
   const currentLabel = labels[currentLocale] ?? labels[defaultLocale];
 
@@ -83,45 +69,51 @@ export default function LanguageSwitcherClient({
     [open],
   );
 
-  const onListClick: React.MouseEventHandler<HTMLUListElement> = (e) => {
-    e.stopPropagation();
-    const option = (e.target as HTMLElement).closest("[data-locale]");
-    const nextLocale = option?.getAttribute("data-locale");
-    if (!nextLocale) return;
+  const buildLocalizedHref = useCallback(
+    (nextLocale: Locale) => {
+      const queryString = searchParams.toString();
+      const href = `${pathname}${queryString ? `?${queryString}` : ""}${hash}`;
+      return getPathname({
+        href,
+        locale: nextLocale,
+      });
+    },
+    [hash, pathname, searchParams],
+  );
 
-    document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
+  const createLocaleClickHandler = useCallback(
+    (nextLocale: Locale) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+      event.stopPropagation();
 
-    const a = (e.target as HTMLElement).closest("a");
-    if (a) {
-      e.preventDefault();
-      const href = a.getAttribute("href");
-      if (href) {
+      if (nextLocale === currentLocale) {
+        event.preventDefault();
         setOpen(false);
-        router.replace(href);
+        return;
       }
-    }
-  };
 
-  const enhancedChildren = Children.map(children, (child) => {
-    if (!isValidElement(child)) return child;
-    const childLocale = (child.props as any)["data-locale"];
-    const isActive = childLocale === currentLocale;
+      const isModifiedClick =
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey;
 
-    const nextClass = [
-      "option",
-      // @ts-ignore
-      child.props.className,
-      isActive ? "active" : "",
-    ]
-      .filter(Boolean)
-      .join(" ");
+      if (isModifiedClick) {
+        return;
+      }
 
-    return cloneElement(child as any, {
-      className: nextClass,
-      role: "option",
-      "aria-selected": isActive,
-    });
-  });
+      document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
+      sessionStorage.setItem(
+        LOCALE_SWITCH_HISTORY_KEY,
+        JSON.stringify({
+          locale: nextLocale,
+          createdAt: Date.now(),
+        }),
+      );
+      setOpen(false);
+    },
+    [currentLocale],
+  );
 
   return (
     <div className="custom-select choice lang2" ref={rootRef}>
@@ -152,10 +144,31 @@ export default function LanguageSwitcherClient({
         className={`options-container ${open ? "active" : ""}`}
         role="listbox"
         aria-label="Language"
-        onClick={onListClick}
         tabIndex={-1}
       >
-        {enhancedChildren}
+        {locales.map((locale) => {
+          const isActive = locale === currentLocale;
+          const href = buildLocalizedHref(locale);
+
+          return (
+            <li
+              key={locale}
+              data-locale={locale}
+              className={`option ${isActive ? "active" : ""}`}
+              role="option"
+              aria-selected={isActive}
+            >
+              <Link
+                href={href}
+                replace
+                className="option-text"
+                onClick={createLocaleClickHandler(locale)}
+              >
+                {labels[locale]}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

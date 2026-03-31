@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import UiImage from "@/components/ui/UiImage";
 import { Link } from "@/i18n/request";
+import CatalogLink from "@/components/CatalogLink";
 import { SOCIAL_LINKS, PHONE_NUMBER, PHONE_DISPLAY } from "@/config/social";
 import FooterAccordion from "@/components/FooterAccordion";
 import FooterSubscribe from "@/components/FooterSubscribe";
@@ -131,7 +132,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                   <Link href="/about">{t("nav.about")}</Link>
                 </li>
                 <li>
-                  <Link href="/#catalog">{t("nav.cars")}</Link>
+                  <CatalogLink>{t("nav.cars")}</CatalogLink>
                 </li>
                 <li>
                   <Link href="/business">{t("nav.business")}</Link>
@@ -160,7 +161,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
             <FooterAccordion title={t("accordion.rental")}>
               <ul>
                 <li>
-                  <Link href="/#catalog">{t("nav.cars")}</Link>
+                  <CatalogLink>{t("nav.cars")}</CatalogLink>
                 </li>
                 <li>
                   <Link href="/business">{t("nav.business")}</Link>

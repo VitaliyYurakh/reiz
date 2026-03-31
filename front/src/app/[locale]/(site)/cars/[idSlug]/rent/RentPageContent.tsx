@@ -21,6 +21,7 @@ import AddOnsSection from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/A
 import PersonalInfoForm from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/PersonalInfoForm";
 import PricingSummaryPanel from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/PricingSummaryPanel";
 import FormFeedback from "@/app/[locale]/(site)/cars/[idSlug]/rent/components/FormFeedback";
+import CatalogLink from "@/components/CatalogLink";
 import { useSideBarModal } from "@/components/modals";
 import HomeIcon from "@/components/HomeIcon";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
@@ -480,10 +481,10 @@ export default function RentPageContent({
             data-aos-delay="400"
           >
             <li>
-              <Link href="/"><HomeIcon className="breadcrumbs__home-icon" /></Link>
+              <Link href="/"><HomeIcon className="breadcrumbs__home-icon" /><span className="breadcrumbs__home-text">{t("breadcrumbs.home")}</span></Link>
             </li>
             <li>
-              <Link href="/#catalog">{t("breadcrumbs.cars")}</Link>
+              <CatalogLink>{t("breadcrumbs.cars")}</CatalogLink>
             </li>
             <li>
               <Link href={`/cars/${createCarIdSlug(car)}`}>

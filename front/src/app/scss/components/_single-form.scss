@@ -378,9 +378,10 @@
     align-items: center;
     gap: 8px;
     font-weight: 400;
+    color: var(--cl-a);
 
     svg {
-      fill: var(--cl-a);
+      fill: currentColor;
     }
   }
 

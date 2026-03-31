@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import HomeIcon from "@/components/HomeIcon";
+import CatalogLink from "@/components/CatalogLink";
 import {Link, type Locale, defaultLocale} from "@/i18n/request";
 import {
   OG_LOCALE,
@@ -328,10 +329,10 @@ export default async function CarPage({
                             data-aos-delay="400"
                         >
                             <li>
-                                <Link href="/"><HomeIcon className="breadcrumbs__home-icon" /></Link>
+                                <Link href="/"><HomeIcon className="breadcrumbs__home-icon" /><span className="breadcrumbs__home-text">{t("breadcrumbs.home")}</span></Link>
                             </li>
                             <li>
-                                <Link href="/#catalog">{t("breadcrumbs.cars")}</Link>
+                                <CatalogLink>{t("breadcrumbs.cars")}</CatalogLink>
                             </li>
                             <li aria-current="page">
                                 {car.brand} {car.model} {car.yearOfManufacture}

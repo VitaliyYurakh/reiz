@@ -68,7 +68,10 @@ export default async function Breadcrumbs({
               {i < items.length - 1 ? (
                 <Link href={it.href}>
                   {i === 0 ? (
-                    <HomeIcon className="breadcrumbs__home-icon" />
+                    <>
+                      <HomeIcon className="breadcrumbs__home-icon" />
+                      <span className="breadcrumbs__home-text">{it.name}</span>
+                    </>
                   ) : (
                     it.name
                   )}
