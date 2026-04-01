@@ -62,17 +62,7 @@ export default async function CertificatePage() {
             </span>
           </nav>
 
-          {/* 1. Breadcrumb line */}
-          <div
-            className="cert__breadcrumb"
-            data-aos="fade-up"
-            data-aos-duration={800}
-          >
-            <span className="cert__marker" />
-            <span className="cert__breadcrumb-text">{t("pretitle")}</span>
-          </div>
-
-          {/* 2. Hero */}
+          {/* Hero */}
           <div
             className="cert__hero"
             data-aos="fade-up"

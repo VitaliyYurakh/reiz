@@ -1,13 +1,13 @@
 @use "../mixins/breakpoint" as *;
 
 .rental-section--business {
-  margin-top: -20px;
+  margin-top: 0;
   padding-top: 0;
   background: #fff;
 }
 
 .rental-section--business .rental-section__inner {
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 .business-hero {

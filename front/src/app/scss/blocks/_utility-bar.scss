@@ -1,0 +1,155 @@
+@use "../mixins/breakpoint" as *;
+
+.utility-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 50px;
+  gap: 20px;
+  border-radius: 50px;
+  background: linear-gradient(to right, transparent 0%, #f2f2f2 51%);
+  padding: 0 20px;
+
+  @include tablet {
+    display: none;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__link {
+    display: flex;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    background: none;
+    border: none;
+    padding: 0;
+    position: relative;
+
+    img {
+      transition: all 0.3s;
+      width: 26px;
+      height: 26px;
+    }
+
+    span {
+      display: flex;
+    }
+
+    @media (hover: hover) {
+      .hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      .default {
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover {
+        .default {
+          opacity: 0;
+        }
+
+        .hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .custom-select.lang2 {
+      width: 90px !important;
+      min-width: 90px !important;
+      padding: 0 !important;
+
+      .select-field {
+        justify-content: flex-end !important;
+        width: 100% !important;
+        padding: 0 !important;
+      }
+
+      .options-container {
+        width: auto !important;
+        min-width: 100% !important;
+        left: auto !important;
+        right: 0 !important;
+
+        .option-text {
+          text-align: left;
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    .custom-select {
+      .select-text {
+        color: var(--cl-a) !important;
+      }
+
+      .select-field * {
+        color: var(--cl-a) !important;
+      }
+
+      .arrow-down {
+        color: var(--cl-a) !important;
+      }
+
+      .options-container {
+        top: calc(100% + 4px);
+        border-radius: 16px;
+      }
+    }
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--cl-a);
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  // Dark background pages: dark gradient + light text
+  .hero-section &,
+  .contacts-section & {
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 51%);
+    .utility-bar__controls {
+      .custom-select {
+        .select-text,
+        .arrow-down {
+          color: var(--cl-b) !important;
+        }
+
+        .select-field * {
+          color: var(--cl-b) !important;
+        }
+      }
+    }
+
+    .utility-bar__profile {
+      color: var(--cl-b);
+    }
+  }
+}

@@ -60,6 +60,10 @@ export default function Header({
   };
 
   useEffect(() => {
+    // Only run scroll hide/show on tablet/mobile where header is visible
+    const isDesktop = window.matchMedia('(min-width: 1025px)').matches;
+    if (isDesktop) return;
+
     const SCROLL_THRESHOLD = 15; // Larger threshold to prevent flickering
     let isHeaderVisible = true;
     let lastDirection: 'up' | 'down' | null = null;

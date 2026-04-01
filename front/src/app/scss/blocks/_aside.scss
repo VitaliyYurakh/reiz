@@ -93,17 +93,15 @@
     ul {
       @include for-tablet {
         @media (max-height: 850px) {
-          gap: 1.8dvh;
+          gap: max(1.8dvh, 16px);
         }
       }
 
       @include for-tablet {
         @media (max-height: 750px) {
-          gap: 1.5dvh;
+          gap: max(1.5dvh, 14px);
         }
       }
-
-
     }
 
     @include for-tablet {

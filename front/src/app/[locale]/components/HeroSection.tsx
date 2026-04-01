@@ -4,6 +4,7 @@ import UiImage from "@/components/ui/UiImage";
 import WhatsAppUnavailable from "@/components/WhatsAppUnavailable";
 import { SOCIAL_LINKS } from "@/config/social";
 import { Link } from "@/i18n/request";
+import UtilityBar from "@/components/UtilityBar";
 import HeroBookButton from "./HeroBookButton";
 import LocationMapLink from "./LocationMapLink";
 import OrderForm from "./OrderForm";
@@ -54,18 +55,7 @@ export default async function HeroSection() {
           <SidebarNav />
 
           <div className="hero-section__inner">
-            <div className="hero-section__top">
-              <p className="pretitle">{t("pretitle")}</p>
-              <span className="hero-section__date">
-                <i className="sprite">
-                  <svg width="24" height="24">
-                    <use href="/img/sprite/sprite.svg#time" />
-                  </svg>
-                </i>
-                {t("availability")}
-              </span>
-            </div>
-
+            <UtilityBar />
             <div className="editor">
               <h1 className="title">{t("title")}</h1>
               <p>{t("intro")}</p>

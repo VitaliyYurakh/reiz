@@ -24,6 +24,11 @@
 
   --header-height: 56px;
   --header-offset: 56px;
+
+  @include for-tablet {
+    --header-height: 0px;
+    --header-offset: 0px;
+  }
   --btn-size: clamp(40px, 6.52vw, 57px);
 
   // --------------- default scroll variables ---------------

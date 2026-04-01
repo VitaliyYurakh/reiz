@@ -3,6 +3,7 @@ import clsx from "classnames";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
+import UtilityBar from "@/components/UtilityBar";
 
 type Props = {
   children: ReactNode;
@@ -30,9 +31,12 @@ export default function SiteShell({
         <section className={clsx("site-section", sectionClass)}>
           {additionalChildren}
           <div className="container">
-            <div className={sectionBoxClass}>
+            <div className={clsx("site-box", sectionBoxClass)}>
               <SidebarNav />
-              {children}
+              <div>
+                <UtilityBar />
+                {children}
+              </div>
             </div>
           </div>
         </section>

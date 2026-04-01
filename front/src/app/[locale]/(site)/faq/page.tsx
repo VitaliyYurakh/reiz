@@ -69,11 +69,6 @@ export default async function FaqPage() {
             </span>
           </nav>
 
-          <div className="cert__breadcrumb">
-            <span className="cert__marker" />
-            <span className="cert__breadcrumb-text">{t("pretitle")}</span>
-          </div>
-
           <div className="blog-hero">
             <h1 className="blog-hero__title">{t("main_title")}</h1>
           </div>

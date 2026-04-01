@@ -41,11 +41,6 @@ export default async function AboutPage() {
         ]}
       />
 
-      <div className="cert__breadcrumb">
-        <span className="cert__marker" />
-        <span className="cert__breadcrumb-text">{t("pretitle")}</span>
-      </div>
-
       <div className="blog-hero">
         <h1 className="blog-hero__title">{t("mainTitle")}</h1>
       </div>

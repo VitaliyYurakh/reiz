@@ -90,6 +90,10 @@
     flex-direction: column;
     gap: clamp(16px, 1.4706vw, 20px);
     max-width: 800px;
+
+    @include for-tablet {
+      margin-top: 30px;
+    }
   }
 
   .blog-hero__title {

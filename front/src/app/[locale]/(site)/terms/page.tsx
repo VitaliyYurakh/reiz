@@ -74,13 +74,6 @@ export default async function TermsPage() {
               </span>
             </nav>
 
-            <div className="cert__breadcrumb">
-              <span className="cert__marker" />
-              <span className="cert__breadcrumb-text">
-                {t("hero.pretitle")}
-              </span>
-            </div>
-
             <div className="blog-hero terms-hero">
               <h1 className="blog-hero__title">{t("hero.title")}</h1>
               <p className="terms-hero__subtitle">{t("hero.subtitle")}</p>

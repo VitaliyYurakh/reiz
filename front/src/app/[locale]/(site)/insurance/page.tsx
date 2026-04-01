@@ -120,11 +120,6 @@ export default async function InsurancePage() {
         </div>
       </div>
 
-      <div className="cert__breadcrumb">
-        <span className="cert__marker" />
-        <span className="cert__breadcrumb-text">{t("pretitle")}</span>
-      </div>
-
       <div className="blog-hero insurance-section__desktop-hero">
         <h1 className="blog-hero__title">{t("hero.title")}</h1>
       </div>

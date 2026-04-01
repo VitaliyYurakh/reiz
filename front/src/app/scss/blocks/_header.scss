@@ -10,6 +10,10 @@
   transition: background 0.6s ease, transform 0.6s ease;
   will-change: transform;
 
+  @include for-tablet {
+    display: none;
+  }
+
   .container{
     &::before{
        border-bottom: 1px solid rgba(255, 255, 255, 0.283);

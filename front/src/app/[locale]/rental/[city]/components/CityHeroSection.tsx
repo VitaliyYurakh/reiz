@@ -6,6 +6,7 @@ import { Link } from "@/i18n/request";
 import LocationMapLink from "@/app/[locale]/components/LocationMapLink";
 import HeroBookButton from "@/app/[locale]/components/HeroBookButton";
 import ScrollToCatalogButton from "@/app/[locale]/components/ScrollToCatalogButton";
+import UtilityBar from "@/components/UtilityBar";
 import { getCityPickupLocations } from "@/data/cities";
 import type { CityConfig, CityLocalizedData } from "@/data/cities";
 import type { Locale } from "@/i18n/request";
@@ -67,19 +68,7 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
           <SidebarNav />
 
           <div className="hero-section__inner">
-            <div className="hero-section__top">
-              {/* Динамічний pretitle для міста */}
-              <p className="pretitle">{cityData.sectionWelcome}</p>
-              <span className="hero-section__date">
-                <i className="sprite">
-                  <svg width="24" height="24">
-                    <use href="/img/sprite/sprite.svg#time" />
-                  </svg>
-                </i>
-                {t("availability")}
-              </span>
-            </div>
-
+            <UtilityBar />
             <div className="editor">
               {/* Динамічний H1 для міста */}
               <h1 className="title">{cityData.h1}</h1>
