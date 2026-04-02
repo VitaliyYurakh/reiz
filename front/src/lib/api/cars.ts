@@ -6,7 +6,7 @@ const isDev = process.env.NODE_ENV === "development";
 export async function fetchCars(): Promise<Car[]> {
   try {
     const res = await fetch(`${API_URL}/car`, {
-      ...(isDev ? { cache: "no-store" as const } : { next: { revalidate: 10 } }),
+      ...(isDev ? { cache: "no-store" as const } : { next: { revalidate: 60, tags: ["cars"] } }),
       headers: { Accept: "application/json" },
     });
 
@@ -25,7 +25,7 @@ export async function fetchCars(): Promise<Car[]> {
 
 export async function fetchCar(id: number): Promise<Car | null> {
   const res = await fetch(`${API_URL}/car/${id}`, {
-    ...(isDev ? { cache: "no-store" as const } : { next: { revalidate: 10 } }),
+    ...(isDev ? { cache: "no-store" as const } : { next: { revalidate: 60, tags: ["cars", `car-${id}`] } }),
     headers: { Accept: "application/json" },
   });
 

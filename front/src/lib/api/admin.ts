@@ -36,8 +36,29 @@ export const createCar = async (data: Partial<Car> = {}): Promise<Car> => {
 
 export const updateCar = async (id: number, data: Partial<Car>): Promise<Car> => {
     const res = await adminApi.patch(`/car/${id}`, {data});
+    // Revalidate ISR cache for this car and car list
+    revalidateCar(id);
     return res.data;
 };
+
+export async function revalidateCar(id: number): Promise<void> {
+    try {
+        await Promise.all([
+            fetch('/api/revalidate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tag: `car-${id}` }),
+            }),
+            fetch('/api/revalidate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tag: 'cars' }),
+            }),
+        ]);
+    } catch {
+        // Silent fail — cache will expire naturally
+    }
+}
 
 export const deleteCar = async (id: number): Promise<void> => {
     await adminApi.delete(`/car/${id}`);
