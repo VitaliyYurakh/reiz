@@ -1717,7 +1717,7 @@
       "mileageLimitValue": "{limit} km",
       "mileageCharge": "Opłata za przebieg",
       "mileageChargeValue": "{price} USD za każdy dodatkowy km",
-      "readPolicy": "Zapoznaj się z warunkami wynajmu"
+      "readPolicy": "Polityka wynajmu {carName}"
     },
     "specifications": {
       "descriptionTitle": "Opis samochodu",

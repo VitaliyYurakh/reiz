@@ -1718,7 +1718,7 @@
       "mileageLimitValue": "{limit} км",
       "mileageCharge": "Плата за пробег",
       "mileageChargeValue": "{price} USD за каждый лишний км",
-      "readPolicy": "Ознакомьтесь с условиями аренды"
+      "readPolicy": "Политика аренды {carName}"
     },
     "specifications": {
       "descriptionTitle": "Описание автомобиля",

@@ -1718,7 +1718,7 @@
       "mileageLimitValue": "{limit} km",
       "mileageCharge": "Mileage charge",
       "mileageChargeValue": "{price} USD per extra km",
-      "readPolicy": "Read rental policy"
+      "readPolicy": "Rental policy {carName}"
     },
     "specifications": {
       "descriptionTitle": "Car description",

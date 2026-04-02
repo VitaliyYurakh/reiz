@@ -1785,7 +1785,7 @@
       "driverAgeValue": "{age} ani ({experience}+ ani experiență)",
       "mileageCharge": "Taxă kilometraj",
       "mileageChargeValue": "{price} USD per km suplimentar",
-      "readPolicy": "Citiți condițiile de închiriere",
+      "readPolicy": "Politica de închiriere {carName}",
       "mileageLimit": "Limita de kilometraj (1 zi)",
       "mileageLimitValue": "{limit} km"
     },

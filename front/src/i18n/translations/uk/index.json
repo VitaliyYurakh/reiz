@@ -1744,7 +1744,7 @@
       "mileageLimitValue": "{limit} км",
       "mileageCharge": "Плата за пробіг",
       "mileageChargeValue": "{price} USD за кожен зайвий км",
-      "readPolicy": "Ознайомтесь з умовами оренди"
+      "readPolicy": "Політика оренди {carName}"
     },
     "specifications": {
       "descriptionTitle": "Опис автомобіля",

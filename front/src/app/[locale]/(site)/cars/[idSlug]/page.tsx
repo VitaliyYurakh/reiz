@@ -241,7 +241,7 @@ export default async function CarPage({
                     <RentalPolicyButton
                         car={car}
                         carName={carDisplayName}
-                        label={t("rentalConditions.readPolicy")}
+                        label={t("rentalConditions.readPolicy", { carName: carDisplayName })}
                     />
                 </div>
             ),
