@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { Car } from "@/types/cars";
 import RentalPolicyModal from "./RentalPolicyModal";
 
@@ -12,6 +13,7 @@ interface Props {
 
 export default function RentalPolicyButton({ car, carName, label }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations("rentalPolicyModal");
 
   return (
     <>
@@ -27,6 +29,7 @@ export default function RentalPolicyButton({ car, carName, label }: Props) {
         carName={carName}
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
+        t={t}
       />
     </>
   );

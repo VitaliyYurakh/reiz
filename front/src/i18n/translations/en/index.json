@@ -2420,7 +2420,9 @@
     "title": "Rental Policy",
     "km": "km",
     "mileage": {
-      "title": "Mileage",
+      "title": "Mileage policy",
+      "subtitle": "Contact the manager for mileage policy details",
+      "limitsTitle": "Mileage limits",
       "perDay": "Per day",
       "perWeek": "Per week",
       "perMonth": "Per month",
@@ -2447,7 +2449,8 @@
     "deposit": {
       "title": "Deposit Policy",
       "refundable": "Refundable deposit",
-      "noDeposit": "No deposit"
+      "noDeposit": "No deposit",
+      "note": "With full coverage (100%), the deposit is only 100–200 USD depending on the vehicle. This amount is a security hold used exclusively to cover possible traffic fines, fuel shortages, or a smoke-damaged interior — things not covered by insurance. This is not a deductible and does not apply to accident cases."
     },
     "youngDriver": {
       "title": "Young Driver Surcharge",

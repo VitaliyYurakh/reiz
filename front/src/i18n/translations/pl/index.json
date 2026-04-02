@@ -2419,7 +2419,9 @@
     "title": "Polityka wynajmu",
     "km": "km",
     "mileage": {
-      "title": "Przebieg",
+      "title": "Polityka przebiegu",
+      "subtitle": "Skontaktuj się z menedżerem w sprawie polityki przebiegu",
+      "limitsTitle": "Ograniczenia przebiegu",
       "perDay": "Na dobę",
       "perWeek": "Na tydzień",
       "perMonth": "Na miesiąc",
@@ -2446,7 +2448,8 @@
     "deposit": {
       "title": "Polityka depozytowa",
       "refundable": "Kaucja zwrotna",
-      "noDeposit": "Bez kaucji"
+      "noDeposit": "Bez kaucji",
+      "note": "Przy pełnym ubezpieczeniu (100%) kaucja wynosi jedynie 100–200 USD w zależności od samochodu. Kwota ta jest gwarancyjna i służy wyłącznie do pokrycia ewentualnych mandatów drogowych, braków paliwa lub zadymionego wnętrza — czyli tego, co nie jest objęte ubezpieczeniem. To nie jest franszyza i nie dotyczy wypadków drogowych."
     },
     "youngDriver": {
       "title": "Dopłata za młodego kierowcę",

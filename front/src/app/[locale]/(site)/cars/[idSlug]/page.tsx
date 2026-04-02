@@ -214,7 +214,7 @@ export default async function CarPage({
                                 <Icon id={"calendar-rental"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.minRental")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.minRentalValue", { days: minRentalDays })}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.minRentalValue", { days: minRentalDays })}{minRentalDays >= 2 && <Icon id="warning-triangle" width={16} height={16} className="rental-conditions__warning" />}</span>
                         </li>
                         <li className="rental-conditions__item">
                             <span className="rental-conditions__icon sprite">
@@ -235,7 +235,7 @@ export default async function CarPage({
                                 <Icon id={"plus-circle"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.mileageCharge")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.mileageChargeValue", { price: overmileagePrice })}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.mileageChargeValue", { price: overmileagePrice })} <Icon id="warning-triangle" width={16} height={16} className="rental-conditions__warning" /></span>
                         </li>
                     </ul>
                     <RentalPolicyButton

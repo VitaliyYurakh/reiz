@@ -2471,7 +2471,9 @@
     "title": "Politica de închiriere",
     "km": "km",
     "mileage": {
-      "title": "Kilometraj",
+      "title": "Politica de kilometraj",
+      "subtitle": "Contactați managerul pentru detalii despre politica de kilometraj",
+      "limitsTitle": "Limitele de kilometraj",
       "perDay": "Pe zi",
       "perWeek": "Pe săptămână",
       "perMonth": "Pe lună",
@@ -2498,7 +2500,8 @@
     "deposit": {
       "title": "Politica de depozit",
       "refundable": "Depozit rambursabil",
-      "noDeposit": "Fără depozit"
+      "noDeposit": "Fără depozit",
+      "note": "Cu acoperire completă (100%), depozitul este de doar 100–200 USD în funcție de vehicul. Această sumă este o garanție folosită exclusiv pentru acoperirea eventualelor amenzi de circulație, lipsă de combustibil sau interior afumat — lucruri care nu sunt acoperite de asigurare. Aceasta nu este o franciză și nu se aplică în cazul accidentelor."
     },
     "youngDriver": {
       "title": "Suprataxă tânăr șofer",
