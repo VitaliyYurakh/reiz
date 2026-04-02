@@ -157,8 +157,8 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose }: Pro
               </h4>
               <p className="rental-policy-modal__text">
                 {t("youngDriver.text", {
-                  age: car.youngerDriverAge,
-                  fee: car.youngerDriverSurcharge,
+                  age: car.youngerDriverAge ?? 0,
+                  fee: car.youngerDriverSurcharge ?? 0,
                 })}
               </p>
             </section>
