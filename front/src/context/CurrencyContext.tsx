@@ -36,8 +36,8 @@ const CURRENCY_STORAGE_KEY = "reiz_currency";
 const RATES_STORAGE_KEY = "reiz_rates";
 const RATES_TIMESTAMP_KEY = "reiz_rates_timestamp";
 
-// Кеш на клієнті (12 годин)
-const CLIENT_CACHE_DURATION = 12 * 60 * 60 * 1000;
+// Кеш на клієнті (2 години)
+const CLIENT_CACHE_DURATION = 2 * 60 * 60 * 1000;
 
 // Fallback курси
 const FALLBACK_RATES: ExchangeRates = {

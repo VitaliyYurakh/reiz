@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 import Icon from "@/components/Icon";
+import { CurrencyText } from "@/components/CurrencyPrice";
+import { useCurrency } from "@/context/CurrencyContext";
 import type { Car } from "@/types/cars";
 
 interface Props {
@@ -24,6 +26,8 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
       };
     }
   }, [isOpen]);
+
+  const { formatPrice, formatDeposit } = useCurrency();
 
   if (!isOpen) return null;
 
@@ -116,7 +120,7 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                       <Icon id="plus-circle" width={22} height={22} />
                     </span>
                     <span className="rpm__label">{t("mileage.overcharge")}</span>
-                    <span className="rpm__value">{overmileagePrice} USD/{t("km")}</span>
+                    <span className="rpm__value">{formatPrice(overmileagePrice, true)}/{t("km")}</span>
                   </li>
                 )}
               </ul>
@@ -178,12 +182,12 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                 <span className="rpm__label">{t("deposit.refundable")}</span>
                 <span className="rpm__value">
                   {minDeposit === maxDeposit
-                    ? (baseDeposit === 0 ? t("deposit.noDeposit") : `${baseDeposit} USD`)
-                    : `${minDeposit} – ${maxDeposit} USD`}
+                    ? (baseDeposit === 0 ? t("deposit.noDeposit") : formatDeposit(baseDeposit))
+                    : `${formatDeposit(minDeposit)} – ${formatDeposit(maxDeposit)}`}
                 </span>
               </li>
             </ul>
-            <p className="rpm__text" style={{ marginTop: 14 }}>{t("deposit.note")}</p>
+            <p className="rpm__text" style={{ marginTop: 14 }}><CurrencyText text={t("deposit.note")} /></p>
           </section>
 
           {/* Young Driver Surcharge */}
@@ -191,10 +195,10 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
             <section className="rpm__section">
               <h4 className="rpm__heading">{t("youngDriver.title")}</h4>
               <p className="rpm__text">
-                {t("youngDriver.text", {
+                <CurrencyText text={t("youngDriver.text", {
                   age: car.youngerDriverAge ?? 0,
                   fee: car.youngerDriverSurcharge ?? 0,
-                })}
+                })} />
               </p>
             </section>
           )}
@@ -212,7 +216,7 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                         <Icon id="geo-alt" width={22} height={22} />
                       </span>
                       <span className="rpm__label">{t("crossBorder.fee")}</span>
-                      <span className="rpm__value">{car.crossBorderFee} USD</span>
+                      <span className="rpm__value">{formatPrice(car.crossBorderFee ?? 0)}</span>
                     </li>
                   )}
                   {(car.crossBorderDailyFee ?? 0) > 0 && (
@@ -221,7 +225,7 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                         <Icon id="geo-alt" width={22} height={22} />
                       </span>
                       <span className="rpm__label">{t("crossBorder.dailyFee")}</span>
-                      <span className="rpm__value">{car.crossBorderDailyFee} USD/{t("crossBorder.day")}</span>
+                      <span className="rpm__value">{formatPrice(car.crossBorderDailyFee ?? 0)}/{t("crossBorder.day")}</span>
                     </li>
                   )}
                   {car.allowedCountries && car.allowedCountries.length > 0 && (
@@ -260,7 +264,7 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                       <Icon id="cancel-circle" width={22} height={22} />
                     </span>
                     <span className="rpm__label">{t("lateReturn.fee")}</span>
-                    <span className="rpm__value">{car.lateReturnFeePerHour} USD/{t("lateReturn.hour")}</span>
+                    <span className="rpm__value">{formatPrice(car.lateReturnFeePerHour ?? 0)}/{t("lateReturn.hour")}</span>
                   </li>
                 )}
               </ul>
@@ -297,7 +301,7 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                       <Icon id="credit-card" width={22} height={22} />
                     </span>
                     <span className="rpm__label">{t("rules.cleaningFee")}</span>
-                    <span className="rpm__value">{car.cleaningFee} USD</span>
+                    <span className="rpm__value">{formatPrice(car.cleaningFee ?? 0)}</span>
                   </li>
                 )}
               </ul>

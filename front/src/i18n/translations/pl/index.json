@@ -40,6 +40,7 @@
   "header": {
     "call": "Zadzwon",
     "currency": "Waluta",
+    "currencyDisclaimer": "Ceny w {currency} są orientacyjne. Płatność w USD.",
     "open_menu": "Otworz menu",
     "close_menu": "Zamknij menu",
     "whatsapp_unavailable": "WhatsApp jest tymczasowo niedostępny"
@@ -1702,7 +1703,7 @@
       "deliveryValue": "Po mieście — bezpłatnie od {threshold} USD",
       "deposit": "Kaucja zwrotna",
       "depositValue": "Od {amount} USD",
-      "depositRange": "Od {min} do {max} USD",
+      "depositRange": "Od {min} USD do {max} USD",
       "cancellation": "Anulowanie",
       "cancellationValue": "Bezpłatnie do {hours} godz. przed odbiorem",
       "cancellationFree": "Bezpłatnie",
@@ -2449,7 +2450,7 @@
       "title": "Polityka depozytowa",
       "refundable": "Kaucja zwrotna",
       "noDeposit": "Bez kaucji",
-      "note": "Przy pełnym ubezpieczeniu (100%) kaucja wynosi jedynie 100–200 USD w zależności od samochodu. Kwota ta jest gwarancyjna i służy wyłącznie do pokrycia ewentualnych mandatów drogowych, braków paliwa lub zadymionego wnętrza — czyli tego, co nie jest objęte ubezpieczeniem. To nie jest franszyza i nie dotyczy wypadków drogowych."
+      "note": "Przy pełnym ubezpieczeniu (100%) kaucja wynosi jedynie 100 USD – 200 USD w zależności od samochodu. Kwota ta jest gwarancyjna i służy wyłącznie do pokrycia ewentualnych mandatów drogowych, braków paliwa lub zadymionego wnętrza — czyli tego, co nie jest objęte ubezpieczeniem. To nie jest franszyza i nie dotyczy wypadków drogowych."
     },
     "youngDriver": {
       "title": "Dopłata za młodego kierowcę",

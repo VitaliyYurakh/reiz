@@ -8,6 +8,7 @@ import {
   buildHreflangMap,
   getOgAlternateLocales,
 } from "@/i18n/locale-config";
+import { CurrencyText } from "@/components/CurrencyPrice";
 import CarAside from "@/app/[locale]/(site)/cars/[idSlug]/components/CarAside";
 import CarGallerySlider from "@/app/[locale]/(site)/cars/[idSlug]/components/CarSlider";
 import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/modals/CarClientProvider";
@@ -182,14 +183,14 @@ export default async function CarPage({
                                 <Icon id={"geo-alt"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.delivery")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.deliveryValue", { threshold: freeDeliveryThreshold })}</span>
+                            <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.deliveryValue", { threshold: freeDeliveryThreshold })} /></span>
                         </li>
                         <li className="rental-conditions__item">
                             <span className="rental-conditions__icon sprite">
                                 <Icon id={"shield-deposit"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.deposit")}</span>
-                            <span className="rental-conditions__value">{minDeposit === maxDeposit ? t("rentalConditions.depositValue", { amount: minDeposit }) : t("rentalConditions.depositRange", { min: minDeposit, max: maxDeposit })}</span>
+                            <span className="rental-conditions__value"><CurrencyText text={minDeposit === maxDeposit ? t("rentalConditions.depositValue", { amount: minDeposit }) : t("rentalConditions.depositRange", { min: minDeposit, max: maxDeposit })} /></span>
                         </li>
                         <li className="rental-conditions__item">
                             <span className="rental-conditions__icon sprite">
@@ -235,7 +236,7 @@ export default async function CarPage({
                                 <Icon id={"plus-circle"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.mileageCharge")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.mileageChargeValue", { price: overmileagePrice })} <Icon id="warning-triangle" width={16} height={16} className="rental-conditions__warning" /></span>
+                            <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.mileageChargeValue", { price: overmileagePrice })} /> <Icon id="warning-triangle" width={16} height={16} className="rental-conditions__warning" /></span>
                         </li>
                     </ul>
                     <RentalPolicyButton

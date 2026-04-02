@@ -40,6 +40,7 @@
   "header": {
     "call": "Apel",
     "currency": "Moneda",
+    "currencyDisclaimer": "Prețurile în {currency} sunt aproximative. Plata în USD.",
     "open_menu": "Deschide meniu",
     "close_menu": "Închide meniu",
     "whatsapp_unavailable": "WhatsApp este temporar indisponibil"
@@ -1772,7 +1773,7 @@
       "deliveryValue": "În oraș — gratuită de la {threshold} USD",
       "deposit": "Depozit rambursabil",
       "depositValue": "De la {amount} USD",
-      "depositRange": "De la {min} la {max} USD",
+      "depositRange": "De la {min} USD la {max} USD",
       "cancellation": "Anulare",
       "cancellationValue": "Gratuită cu {hours}h înainte de ridicare",
       "cancellationFree": "Gratuită",
@@ -2501,7 +2502,7 @@
       "title": "Politica de depozit",
       "refundable": "Depozit rambursabil",
       "noDeposit": "Fără depozit",
-      "note": "Cu acoperire completă (100%), depozitul este de doar 100–200 USD în funcție de vehicul. Această sumă este o garanție folosită exclusiv pentru acoperirea eventualelor amenzi de circulație, lipsă de combustibil sau interior afumat — lucruri care nu sunt acoperite de asigurare. Aceasta nu este o franciză și nu se aplică în cazul accidentelor."
+      "note": "Cu acoperire completă (100%), depozitul este de doar 100 USD – 200 USD în funcție de vehicul. Această sumă este o garanție folosită exclusiv pentru acoperirea eventualelor amenzi de circulație, lipsă de combustibil sau interior afumat — lucruri care nu sunt acoperite de asigurare. Aceasta nu este o franciză și nu se aplică în cazul accidentelor."
     },
     "youngDriver": {
       "title": "Suprataxă tânăr șofer",

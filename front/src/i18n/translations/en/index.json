@@ -40,6 +40,7 @@
   "header": {
     "call": "Call",
     "currency": "Currency",
+    "currencyDisclaimer": "Prices in {currency} are approximate. Payment in USD.",
     "open_menu": "Open menu",
     "close_menu": "Close menu",
     "whatsapp_unavailable": "WhatsApp is temporarily unavailable"
@@ -1703,7 +1704,7 @@
       "deliveryValue": "City delivery — free from {threshold} USD",
       "deposit": "Refundable deposit",
       "depositValue": "From {amount} USD",
-      "depositRange": "From {min} to {max} USD",
+      "depositRange": "From {min} USD to {max} USD",
       "cancellation": "Cancellation",
       "cancellationValue": "Free up to {hours}h before pickup",
       "cancellationFree": "Free",
@@ -2450,7 +2451,7 @@
       "title": "Deposit Policy",
       "refundable": "Refundable deposit",
       "noDeposit": "No deposit",
-      "note": "With full coverage (100%), the deposit is only 100–200 USD depending on the vehicle. This amount is a security hold used exclusively to cover possible traffic fines, fuel shortages, or a smoke-damaged interior — things not covered by insurance. This is not a deductible and does not apply to accident cases."
+      "note": "With full coverage (100%), the deposit is only 100 USD – 200 USD depending on the vehicle. This amount is a security hold used exclusively to cover possible traffic fines, fuel shortages, or a smoke-damaged interior — things not covered by insurance. This is not a deductible and does not apply to accident cases."
     },
     "youngDriver": {
       "title": "Young Driver Surcharge",
