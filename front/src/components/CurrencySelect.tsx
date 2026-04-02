@@ -91,7 +91,6 @@ export default function CurrencySelect({
         className="select-text"
         id={`${listboxId}-label`}
         onClick={() => setOpen((v) => !v)}
-        title={currency !== "USD" ? t("currencyDisclaimer", { currency }) : undefined}
       >
         {t("currency")}:
       </span>
@@ -144,11 +143,6 @@ export default function CurrencySelect({
           </li>
         ))}
       </ul>
-      {currency !== "USD" && (
-        <span className="currency-disclaimer">
-          {t("currencyDisclaimer", { currency })}
-        </span>
-      )}
     </div>
   );
 }
