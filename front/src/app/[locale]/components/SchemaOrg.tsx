@@ -22,8 +22,12 @@ export default async function SchemaOrg({
 
   const homeUrl = buildHomeUrl(locale);
   const websiteId = buildId(homeUrl, "website");
+  const webPageId = buildId(homeUrl, "webpage");
   const companyId = buildId(homeUrl, "company");
+  const primaryImageId = buildId(homeUrl, "primaryimage");
+  const primaryImageUrl = `${SITE_ORIGIN}/img/og/home-audi-q8-og.webp`;
   const languageTags = locales.map((loc) => LANGUAGE_TAG[loc]);
+  const localeLanguageTag = LANGUAGE_TAG[locale];
 
   const localizedTitle = t("meta.title");
   const localizedOgTitle = t("meta.og_title");
@@ -58,6 +62,9 @@ export default async function SchemaOrg({
     name: siteDisplayName,
     alternateName: alternateNames,
     url: homeUrl,
+    image: {
+      "@id": primaryImageId,
+    },
     description: localizedDescription,
     inLanguage: languageTags,
     publisher: {
@@ -73,6 +80,38 @@ export default async function SchemaOrg({
     },
   };
 
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": webPageId,
+    url: homeUrl,
+    name: localizedTitle,
+    description: localizedDescription,
+    isPartOf: {
+      "@id": websiteId,
+    },
+    about: {
+      "@id": companyId,
+    },
+    primaryImageOfPage: {
+      "@id": primaryImageId,
+    },
+    inLanguage: localeLanguageTag,
+  };
+
+  const primaryImageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": primaryImageId,
+    url: primaryImageUrl,
+    contentUrl: primaryImageUrl,
+    width: 1200,
+    height: 697,
+    caption: localizedOgTitle,
+    representativeOfPage: true,
+    inLanguage: localeLanguageTag,
+  };
+
   const companyJsonLd = {
     "@context": "https://schema.org",
     "@type": "CarRental",
@@ -81,8 +120,13 @@ export default async function SchemaOrg({
     alternateName: SITE_NAME,
     url: homeUrl,
     logo: `${SITE_ORIGIN}/img/og/home-square.webp`,
-    image: `${SITE_ORIGIN}/img/og/home.webp`,
+    image: {
+      "@id": primaryImageId,
+    },
     description: localizedIntro,
+    mainEntityOfPage: {
+      "@id": webPageId,
+    },
     telephone: PHONE_NUMBER,
     email: "info@reiz.com.ua",
     priceRange: "$$",
@@ -142,6 +186,16 @@ export default async function SchemaOrg({
         type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: true
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: true
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: true
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(primaryImageJsonLd) }}
       />
       <script
         type="application/ld+json"

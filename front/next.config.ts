@@ -126,6 +126,35 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      {
+        // Keep homepage hero images available on-site, but out of search indexes.
+        source: "/img/cars/home%20page2.1.webp",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex",
+          },
+        ],
+      },
+      {
+        // Some proxies normalize the URL path before matching.
+        source: "/img/cars/home page2.1.webp",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex",
+          },
+        ],
+      },
+      {
+        source: "/img/hero/reiz-4-1-desktop.webp",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex",
+          },
+        ],
+      },
     ];
 
     // Cache headers only in production — in dev they block HMR

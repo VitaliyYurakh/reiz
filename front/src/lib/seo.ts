@@ -43,6 +43,10 @@ const ROUTES: Record<RouteKey, string> = {
   terms: "/terms",
 };
 
+const OG_IMAGE_DIMENSIONS: Partial<Record<RouteKey, { width: number; height: number }>> = {
+  home: { width: 1200, height: 697 },
+};
+
 export const ROUTE_MAP: Record<RouteKey, Record<Locale, string>> =
   Object.fromEntries(
     Object.entries(ROUTES).map(([key, path]) => [
@@ -84,6 +88,10 @@ export async function getPageMetadata({
   );
 
   const ogImage = toAbsolute(t("meta.og_image"));
+  const ogImageDimensions = OG_IMAGE_DIMENSIONS[routeKey] ?? {
+    width: 1200,
+    height: 630,
+  };
   const ogLocale = OG_LOCALE[locale];
   const ogAlternateLocales = getOgAlternateLocales(locale);
 
@@ -99,7 +107,7 @@ export async function getPageMetadata({
       siteName: "REIZ",
       title: t("meta.og_title"),
       description: t("meta.og_description"),
-      images: [{ url: ogImage, width: 1200, height: 630 }],
+      images: [{ url: ogImage, ...ogImageDimensions }],
       url: toAbsolute(rawPathname),
       locale: ogLocale,
       alternateLocale: ogAlternateLocales,
