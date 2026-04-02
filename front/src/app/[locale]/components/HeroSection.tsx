@@ -58,7 +58,7 @@ export default async function HeroSection() {
             <UtilityBar />
             <div className="editor">
               <h1 className="title">{t("title")}</h1>
-              <p>{t("intro")}</p>
+              <p className="hero-section__intro">{t("intro")}</p>
               <HeroBookButton className="hero-book-btn">
                 {t("book_button")}
               </HeroBookButton>

@@ -20,9 +20,17 @@ export default function UtilityBar() {
         >
           <span className="default">
             <UiImage
-              width={26}
-              height={26}
+              width={28}
+              height={28}
               src="/img/icons/whatsapp.svg"
+              alt="WhatsApp"
+            />
+          </span>
+          <span className="hover">
+            <UiImage
+              width={28}
+              height={28}
+              src="/img/icons/whatsapp-hover.svg"
               alt="WhatsApp"
             />
           </span>
@@ -36,16 +44,16 @@ export default function UtilityBar() {
         >
           <span className="default">
             <UiImage
-              width={26}
-              height={26}
+              width={28}
+              height={28}
               src="/img/icons/telegram.svg"
               alt="REIZ в Telegram"
             />
           </span>
           <span className="hover">
             <UiImage
-              width={26}
-              height={26}
+              width={28}
+              height={28}
               src="/img/icons/telegram-hover.svg"
               alt="REIZ в Telegram"
             />
@@ -60,16 +68,16 @@ export default function UtilityBar() {
         >
           <span className="default">
             <UiImage
-              width={26}
-              height={26}
+              width={28}
+              height={28}
               src="/img/icons/instagram-color.svg"
               alt="REIZ в Instagram"
             />
           </span>
           <span className="hover">
             <UiImage
-              width={26}
-              height={26}
+              width={28}
+              height={28}
               src="/img/icons/instagram-hover.svg"
               alt="REIZ в Instagram"
             />

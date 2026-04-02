@@ -73,7 +73,7 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
               {/* Динамічний H1 для міста */}
               <h1 className="title">{cityData.h1}</h1>
               {/* Динамічний підзаголовок для міста */}
-              <p>{cityData.subtitle}</p>
+              <p className="hero-section__intro">{cityData.subtitle}</p>
               <HeroBookButton className="hero-book-btn">
                 {t("book_button")}
               </HeroBookButton>

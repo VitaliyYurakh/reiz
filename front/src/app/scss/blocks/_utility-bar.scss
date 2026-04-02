@@ -4,11 +4,12 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 50px;
-  gap: 20px;
-  border-radius: 50px;
+  width: 100%;
+  height: 60px;
+  gap: 32px;
+  border-radius: 60px;
   background: linear-gradient(to right, transparent 0%, #f2f2f2 51%);
-  padding: 0 20px;
+  padding: 0 10px 0 32px;
 
   @include tablet {
     display: none;
@@ -18,6 +19,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    flex: 0 0 auto;
   }
 
   &__link {
@@ -32,8 +34,8 @@
 
     img {
       transition: all 0.3s;
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
     }
 
     span {
@@ -69,16 +71,17 @@
   &__controls {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
+    flex: 0 0 auto;
 
     .custom-select.lang2 {
-      width: 90px !important;
-      min-width: 90px !important;
+      width: auto !important;
+      min-width: max-content !important;
       padding: 0 !important;
 
       .select-field {
-        justify-content: flex-end !important;
-        width: 100% !important;
+        justify-content: flex-start !important;
+        width: auto !important;
         padding: 0 !important;
       }
 
@@ -96,6 +99,10 @@
     }
 
     .custom-select {
+      width: auto;
+      min-width: max-content;
+      flex: 0 0 auto;
+
       .select-text {
         color: var(--cl-a) !important;
       }
@@ -119,12 +126,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
     color: var(--cl-a);
     transition: opacity 0.3s;
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
 
     &:hover {
       opacity: 0.6;

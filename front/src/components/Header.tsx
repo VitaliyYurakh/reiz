@@ -293,6 +293,14 @@ export default function Header({
                           alt="WhatsApp"
                         />
                       </span>
+                      <span className="hover">
+                        <UiImage
+                          width={26}
+                          height={26}
+                          src="/img/icons/whatsapp-hover.svg"
+                          alt="WhatsApp"
+                        />
+                      </span>
                     </button>
                     <a
                       href={SOCIAL_LINKS.telegram}

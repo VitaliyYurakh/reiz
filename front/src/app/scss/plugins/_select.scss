@@ -324,12 +324,14 @@
     display: flex;
     align-items: center;
     gap: 3px;
+    cursor: pointer;
 
     .select-text {
       font-weight: 400;
       font-size: 14px;
       transition: all 0.3s;
       color: var(--cl-b);
+      cursor: pointer;
     }
 
     .select-field {
