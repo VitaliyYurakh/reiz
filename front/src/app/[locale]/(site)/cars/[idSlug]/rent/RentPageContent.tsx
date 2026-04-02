@@ -201,6 +201,7 @@ export default function RentPageContent({
       {
         startDate: selectedDate.startDate,
         endDate: selectedDate.endDate,
+        minRentalDays: car.minRentalDays ?? 1,
       },
       (res) => {
         setSelectedDate({

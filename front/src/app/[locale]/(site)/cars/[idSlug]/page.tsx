@@ -13,6 +13,7 @@ import CarGallerySlider from "@/app/[locale]/(site)/cars/[idSlug]/components/Car
 import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/modals/CarClientProvider";
 import ThemeColorSetter from "@/app/[locale]/(site)/cars/[idSlug]/components/ThemeColorSetter";
 import CarTabs from "@/app/[locale]/(site)/cars/[idSlug]/components/CarTabs";
+import RentalPolicyButton from "@/app/[locale]/(site)/cars/[idSlug]/components/RentalPolicyButton";
 import {fetchCar} from "@/lib/api/cars";
 import {getTranslations} from "next-intl/server";
 import {LocalizedText, localized} from "@/types/cars";
@@ -144,12 +145,28 @@ export default async function CarPage({
         console.error("Error parsing description JSON:", e);
     }
 
-    const driverAge = car.segment?.[0]?.driverAge ?? 21;
-    const driverExperience = car.segment?.[0]?.experience ?? 2;
-    const overmileagePrice = car.segment?.[0]?.overmileagePrice ?? 0;
-    const minDeposit = car.rentalTariff.length > 0
+    const driverAge = car.driverAge ?? car.segment?.[0]?.driverAge ?? 21;
+    const driverExperience = car.driverExperience ?? car.segment?.[0]?.experience ?? 2;
+    const overmileagePrice = car.overmileagePrice ?? car.segment?.[0]?.overmileagePrice ?? 0;
+    const baseDeposit = car.rentalTariff.length > 0
         ? Math.min(...car.rentalTariff.map((t_) => t_.deposit))
         : 0;
+    const sortedRules = [...(car.carCountingRule || [])].sort(
+        (a, b) => a.depositPercent - b.depositPercent,
+    );
+    const depositValues = sortedRules.map((rule) =>
+        rule.depositFixed != null
+            ? rule.depositFixed
+            : Math.max(Math.round(baseDeposit * (1 - rule.depositPercent / 100)), 0),
+    );
+    if (depositValues.length === 0) depositValues.push(baseDeposit);
+    const minDeposit = Math.min(...depositValues);
+    const maxDeposit = Math.max(...depositValues, baseDeposit);
+    const freeDeliveryThreshold = car.freeDeliveryThreshold ?? 351;
+    const cancellationHours = car.cancellationHours ?? 24;
+    const carPaymentMethods = car.paymentMethods;
+    const minRentalDays = car.minRentalDays ?? 1;
+    const dailyMileageLimit = car.dailyMileageLimit ?? 300;
 
     const tabsNav = [
         {
@@ -165,28 +182,28 @@ export default async function CarPage({
                                 <Icon id={"geo-alt"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.delivery")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.deliveryValue")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.deliveryValue", { threshold: freeDeliveryThreshold })}</span>
                         </li>
                         <li className="rental-conditions__item">
                             <span className="rental-conditions__icon sprite">
                                 <Icon id={"shield-deposit"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.deposit")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.depositValue", { amount: minDeposit })}</span>
+                            <span className="rental-conditions__value">{minDeposit === maxDeposit ? t("rentalConditions.depositValue", { amount: minDeposit }) : t("rentalConditions.depositRange", { min: minDeposit, max: maxDeposit })}</span>
                         </li>
                         <li className="rental-conditions__item">
                             <span className="rental-conditions__icon sprite">
                                 <Icon id={"cancel-circle"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.cancellation")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.cancellationValue")}</span>
+                            <span className="rental-conditions__value">{cancellationHours ? t("rentalConditions.cancellationValue", { hours: cancellationHours }) : t("rentalConditions.cancellationFree")}</span>
                         </li>
                         <li className="rental-conditions__item">
                             <span className="rental-conditions__icon sprite">
                                 <Icon id={"credit-card"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.payment")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.paymentValue")}</span>
+                            <span className="rental-conditions__value">{carPaymentMethods || t("rentalConditions.paymentValue")}</span>
                         </li>
 
                         <li className="rental-conditions__section-title">
@@ -197,7 +214,7 @@ export default async function CarPage({
                                 <Icon id={"calendar-rental"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.minRental")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.minRentalValue")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.minRentalValue", { days: minRentalDays })}</span>
                         </li>
                         <li className="rental-conditions__item">
                             <span className="rental-conditions__icon sprite">
@@ -211,7 +228,7 @@ export default async function CarPage({
                                 <Icon id={"mileage"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.mileageLimit")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.mileageLimitValue")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.mileageLimitValue", { limit: dailyMileageLimit })}</span>
                         </li>
                         <li className="rental-conditions__item">
                             <span className="rental-conditions__icon sprite">
@@ -221,6 +238,11 @@ export default async function CarPage({
                             <span className="rental-conditions__value">{t("rentalConditions.mileageChargeValue", { price: overmileagePrice })}</span>
                         </li>
                     </ul>
+                    <RentalPolicyButton
+                        car={car}
+                        carName={carDisplayName}
+                        label={t("rentalConditions.readPolicy")}
+                    />
                 </div>
             ),
         },

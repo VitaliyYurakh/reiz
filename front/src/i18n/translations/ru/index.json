@@ -1700,20 +1700,22 @@
     "rentalConditions": {
       "title": "Условия аренды",
       "delivery": "Доставка",
-      "deliveryValue": "По городу — от 18 USD, бесплатно от 351 USD",
+      "deliveryValue": "По городу — бесплатно от {threshold} USD",
       "deposit": "Возвращаемый депозит",
       "depositValue": "От {amount} USD",
+      "depositRange": "От {min} до {max} USD",
       "cancellation": "Отмена",
-      "cancellationValue": "Бесплатно за 24 ч до подачи",
+      "cancellationValue": "Бесплатно за {hours} ч до подачи",
+      "cancellationFree": "Бесплатно",
       "payment": "Условия оплаты",
       "paymentValue": "Наличные, банковская карта, онлайн",
       "restrictionsTitle": "Ограничения",
       "minRental": "Минимальный срок аренды",
-      "minRentalValue": "1 сутки",
+      "minRentalValue": "{days} сутки",
       "driverAge": "Минимальный возраст водителя",
       "driverAgeValue": "{age} лет ({experience}+ лет вождения)",
       "mileageLimit": "Ограничение пробега (1 день)",
-      "mileageLimitValue": "300 км",
+      "mileageLimitValue": "{limit} км",
       "mileageCharge": "Плата за пробег",
       "mileageChargeValue": "{price} USD за каждый лишний км",
       "readPolicy": "Ознакомьтесь с условиями аренды"
@@ -1810,6 +1812,7 @@
     "notSelected": "...",
     "duration": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
     "confirm": "Подтвердить",
+    "minRentalWarning": "Минимальный срок аренды — {days, plural, one {{days} сутки} few {{days} суток} many {{days} суток} other {{days} суток}}",
     "close": "Закрыть",
     "prevMonth": "Предыдущий месяц",
     "nextMonth": "Следующий месяц"
@@ -2411,6 +2414,77 @@
         "question": "Сколько времени есть для уведомления страховой?",
         "answer": "Обычно страховую компанию необходимо уведомить в течение трёх рабочих дней после ДТП."
       }
+    }
+  },
+  "rentalPolicyModal": {
+    "title": "Политика аренды",
+    "km": "км",
+    "mileage": {
+      "title": "Пробег",
+      "perDay": "В сутки",
+      "perWeek": "В неделю",
+      "perMonth": "В месяц",
+      "unlimited": "Без ограничений пробега",
+      "overcharge": "Перепробег"
+    },
+    "fuel": {
+      "title": "Топливная политика",
+      "fullToFull": "Транспортное средство должно быть возвращено с тем же уровнем топлива, с которым его получил арендатор при доставке.",
+      "sameLevel": "Верните авто с тем же уровнем топлива, что и при получении.",
+      "prepaid": "Топливо оплачивается заранее. Возвращайте авто с любым уровнем топлива.",
+      "included": "Стоимость топлива включена в цену аренды."
+    },
+    "rental": {
+      "title": "Арендная политика",
+      "minDays": "Минимальный срок аренды",
+      "maxDays": "Максимальный срок аренды",
+      "days": "дней",
+      "driverAge": "Возраст водителя",
+      "driverAgeValue": "мин. {age} лет",
+      "experience": "Опыт вождения",
+      "experienceValue": "{years} лет"
+    },
+    "deposit": {
+      "title": "Депозитная политика",
+      "refundable": "Возвращаемый депозит",
+      "noDeposit": "Без депозита"
+    },
+    "youngDriver": {
+      "title": "Доплата за молодого водителя",
+      "text": "Водители до {age} лет оплачивают дополнительно {fee} USD/день."
+    },
+    "crossBorder": {
+      "title": "Выезд за границу",
+      "allowed": "Разрешено",
+      "notAllowed": "Выезд за пределы страны запрещен",
+      "fee": "Плата за выезд",
+      "dailyFee": "Плата за день за границей",
+      "day": "день",
+      "countries": "Разрешенные страны"
+    },
+    "lateReturn": {
+      "title": "Задержка возврата",
+      "grace": "Льготный период",
+      "min": "мин",
+      "fee": "Плата за задержку",
+      "hour": "ч"
+    },
+    "rules": {
+      "title": "Правила",
+      "pets": "Животные",
+      "smoking": "Курение",
+      "allowed": "Разрешено",
+      "notAllowed": "Запрещено",
+      "cleaningFee": "Штраф за уборку"
+    },
+    "cancellation": {
+      "title": "Отмена",
+      "hoursValue": "Бесплатно за {hours} ч до подачи",
+      "free": "Бесплатно"
+    },
+    "payment": {
+      "title": "Условия оплаты",
+      "default": "Наличные, банковская карта, онлайн"
     }
   }
 }

@@ -599,6 +599,27 @@
       }
     }
   }
+
+  &__policy-btn {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--cl-a);
+    border: 1px solid #e0e0e0;
+    border-radius: 999px;
+    padding: 10px 24px;
+    margin-top: 20px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    @include hover {
+      border-color: var(--cl-a);
+      background: var(--cl-a);
+      color: var(--cl-b);
+    }
+  }
 }
 
 .equipment-list {

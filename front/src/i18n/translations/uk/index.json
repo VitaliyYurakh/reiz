@@ -1726,20 +1726,22 @@
     "rentalConditions": {
       "title": "Умови оренди",
       "delivery": "Доставка",
-      "deliveryValue": "По місту — від 18 USD, безкоштовно від 351 USD",
+      "deliveryValue": "По місту — безкоштовно від {threshold} USD",
       "deposit": "Поворотний депозит",
       "depositValue": "Від {amount} USD",
+      "depositRange": "Від {min} до {max} USD",
       "cancellation": "Скасування",
-      "cancellationValue": "Безкоштовно за 24 год до подачі",
+      "cancellationValue": "Безкоштовно за {hours} год до подачі",
+      "cancellationFree": "Безкоштовно",
       "payment": "Умови оплати",
       "paymentValue": "Готівка, банківська картка, онлайн",
       "restrictionsTitle": "Обмеження",
       "minRental": "Мінімальний термін оренди",
-      "minRentalValue": "1 доба",
+      "minRentalValue": "{days} доба",
       "driverAge": "Мінімальний вік водія",
       "driverAgeValue": "{age} років ({experience}+ років водіння)",
       "mileageLimit": "Обмеження пробігу (1 доба)",
-      "mileageLimitValue": "300 км",
+      "mileageLimitValue": "{limit} км",
       "mileageCharge": "Плата за пробіг",
       "mileageChargeValue": "{price} USD за кожен зайвий км",
       "readPolicy": "Ознайомтесь з умовами оренди"
@@ -1836,6 +1838,7 @@
     "notSelected": "...",
     "duration": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
     "confirm": "Підтвердити",
+    "minRentalWarning": "Мінімальний термін оренди — {days, plural, one {{days} доба} few {{days} доби} many {{days} діб} other {{days} діб}}",
     "close": "Закрити",
     "prevMonth": "Попередній місяць",
     "nextMonth": "Наступний місяць"
@@ -2437,6 +2440,77 @@
         "question": "Скільки часу є для повідомлення страхової?",
         "answer": "Зазвичай страхову компанію потрібно повідомити протягом трьох робочих днів після ДТП."
       }
+    }
+  },
+  "rentalPolicyModal": {
+    "title": "Політика оренди",
+    "km": "км",
+    "mileage": {
+      "title": "Пробіг",
+      "perDay": "На добу",
+      "perWeek": "На тиждень",
+      "perMonth": "На місяць",
+      "unlimited": "Без обмежень пробігу",
+      "overcharge": "Перепробіг"
+    },
+    "fuel": {
+      "title": "Паливна політика",
+      "fullToFull": "Транспортний засіб повинно бути повернуто з тим же рівнем пального, з яким його отримав орендар при доставці.",
+      "sameLevel": "Поверніть авто з тим же рівнем пального, що й при отриманні.",
+      "prepaid": "Паливо оплачується заздалегідь. Повертайте авто з будь-яким рівнем пального.",
+      "included": "Вартість пального включена в ціну оренди."
+    },
+    "rental": {
+      "title": "Орендна політика",
+      "minDays": "Мінімальний термін оренди",
+      "maxDays": "Максимальний термін оренди",
+      "days": "днів",
+      "driverAge": "Вік водія",
+      "driverAgeValue": "мін. {age} років",
+      "experience": "Досвід водіння",
+      "experienceValue": "{years} років"
+    },
+    "deposit": {
+      "title": "Депозитна політика",
+      "refundable": "Поворотний депозит",
+      "noDeposit": "Без депозиту"
+    },
+    "youngDriver": {
+      "title": "Доплата за молодого водія",
+      "text": "Водії до {age} років сплачують додатково {fee} USD/день."
+    },
+    "crossBorder": {
+      "title": "Виїзд за кордон",
+      "allowed": "Дозволено",
+      "notAllowed": "Виїзд за межі країни заборонено",
+      "fee": "Плата за виїзд",
+      "dailyFee": "Плата за день за кордоном",
+      "day": "день",
+      "countries": "Дозволені країни"
+    },
+    "lateReturn": {
+      "title": "Затримка повернення",
+      "grace": "Пільговий період",
+      "min": "хв",
+      "fee": "Плата за затримку",
+      "hour": "год"
+    },
+    "rules": {
+      "title": "Правила",
+      "pets": "Тварини",
+      "smoking": "Куріння",
+      "allowed": "Дозволено",
+      "notAllowed": "Заборонено",
+      "cleaningFee": "Штраф за прибирання"
+    },
+    "cancellation": {
+      "title": "Скасування",
+      "hoursValue": "Безкоштовно за {hours} год до подачі",
+      "free": "Безкоштовно"
+    },
+    "payment": {
+      "title": "Умови оплати",
+      "default": "Готівка, банківська картка, онлайн"
     }
   }
 }

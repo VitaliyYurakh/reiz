@@ -59,6 +59,31 @@ model Car {
   isAvailable       Boolean @default(false) @map("is_available")
   alt               String  @default("image")
 
+  deliveryPrice         Int?    @map("delivery_price")
+  freeDeliveryThreshold Int?    @map("free_delivery_threshold")
+  cancellationHours     Int?    @map("cancellation_hours")
+  paymentMethods        String? @map("payment_methods")
+  minRentalDays         Int?    @map("min_rental_days")
+  dailyMileageLimit     Int?    @map("daily_mileage_limit")
+  overmileagePrice      Float?  @map("overmileage_price")
+  driverAge             Int?    @map("driver_age")
+  driverExperience      Int?    @map("driver_experience")
+  fuelPolicy            String? @map("fuel_policy")
+  weeklyMileageLimit    Int?    @map("weekly_mileage_limit")
+  monthlyMileageLimit   Int?    @map("monthly_mileage_limit")
+  unlimitedMileage      Boolean @default(false) @map("unlimited_mileage")
+  maxRentalDays         Int?    @map("max_rental_days")
+  allowCrossBorder      Boolean @default(false) @map("allow_cross_border")
+  crossBorderFee        Int?    @map("cross_border_fee")
+  crossBorderDailyFee   Int?    @map("cross_border_daily_fee")
+  allowedCountries      Json?   @map("allowed_countries")
+  lateReturnGraceMin    Int?    @map("late_return_grace_min")
+  lateReturnFeePerHour  Float?  @map("late_return_fee_per_hour")
+  youngerDriverAge      Int?    @map("younger_driver_age")
+  youngerDriverSurcharge Float? @map("younger_driver_surcharge")
+  petAllowed            Boolean @default(false) @map("pet_allowed")
+  cleaningFee           Int?    @map("cleaning_fee")
+
   rentalTariff    RentalTariff[]
   carPhoto        CarPhoto[]
   carCountingRule CarCountingRule[]

@@ -12,6 +12,7 @@ import styles from "./DatePicker.module.scss";
 export type RangeDateTimePickerData = {
   startDate: Date | null;
   endDate: Date | null;
+  minRentalDays?: number;
 };
 
 export type RangeDateTimePickerResult = {
@@ -23,6 +24,7 @@ interface DatePickerProps {
   close: () => void;
   data: RangeDateTimePickerData;
   runCallback: (result: RangeDateTimePickerResult) => void;
+  minRentalDays?: number;
 }
 
 const generateMonthGrid = (date: Date) => {
@@ -74,7 +76,9 @@ const DatePicker: React.FC<DatePickerProps> = ({
   close,
   data,
   runCallback,
+  minRentalDays: minRentalDaysProp = 1,
 }) => {
+  const minRentalDays = data.minRentalDays ?? minRentalDaysProp;
   const locale = useLocale();
   const t = useTranslations("rangeDateTimePicker");
 
@@ -201,6 +205,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
     if (!startDate || !endDate) return 0;
     return calcRentalDays(startDate, endDate);
   }, [startDate, endDate]);
+
+  const isBelowMinDays = durationInDays > 0 && durationInDays < minRentalDays;
 
   const renderMonth = (date: Date) => {
     const grid = generateMonthGrid(date);
@@ -450,14 +456,20 @@ const DatePicker: React.FC<DatePickerProps> = ({
           </div>
         </div>
 
+        {isBelowMinDays && (
+          <div style={{ textAlign: 'center', color: '#e53935', fontSize: 14, fontWeight: 600, padding: '8px 16px' }}>
+            {t("minRentalWarning", { days: minRentalDays })}
+          </div>
+        )}
+
         <button
           className={styles.confirmButton}
           onClick={() => {
-            if (!startDate || !endDate) return;
+            if (!startDate || !endDate || isBelowMinDays) return;
             runCallback({ startDate, endDate });
             close();
           }}
-          disabled={!startDate || !endDate}
+          disabled={!startDate || !endDate || isBelowMinDays}
         >
           {t("confirm")}
         </button>

@@ -47,6 +47,31 @@ export default function CarEditPage() {
   const [isNew, setIsNew] = useState<boolean>(false);
   const [isAvailable, setIsAvailable] = useState<boolean>(false);
   const [countingRules, setCountingRules] = useState<CarCountingRule[]>([]);
+  const [rentalConditions, setRentalConditions] = useState({
+    freeDeliveryThreshold: 0,
+    cancellationHours: 24,
+    paymentMethods: '',
+    minRentalDays: 1,
+    dailyMileageLimit: 300,
+    overmileagePrice: 0,
+    driverAge: 21,
+    driverExperience: 2,
+    fuelPolicy: 'full_to_full',
+    weeklyMileageLimit: 0,
+    monthlyMileageLimit: 0,
+    unlimitedMileage: false,
+    maxRentalDays: 0,
+    allowCrossBorder: false,
+    crossBorderFee: 0,
+    crossBorderDailyFee: 0,
+    allowedCountries: '',
+    lateReturnGraceMin: 0,
+    lateReturnFeePerHour: 0,
+    youngerDriverAge: 0,
+    youngerDriverSurcharge: 0,
+    petAllowed: false,
+    cleaningFee: 0,
+  });
   const [saving, setSaving] = useState<string | null>(null);
 
   const loadData = async () => {
@@ -83,6 +108,31 @@ export default function CarEditPage() {
     setCurrentDiscount(data.discount || null);
     setIsNew(data.isNew || false);
     setIsAvailable(data.isAvailable || false);
+    setRentalConditions({
+      freeDeliveryThreshold: data.freeDeliveryThreshold ?? 0,
+      cancellationHours: data.cancellationHours ?? 24,
+      paymentMethods: data.paymentMethods ?? '',
+      minRentalDays: data.minRentalDays ?? 1,
+      dailyMileageLimit: data.dailyMileageLimit ?? 300,
+      overmileagePrice: data.overmileagePrice ?? data.segment?.[0]?.overmileagePrice ?? 0,
+      driverAge: data.driverAge ?? data.segment?.[0]?.driverAge ?? 21,
+      driverExperience: data.driverExperience ?? data.segment?.[0]?.experience ?? 2,
+      fuelPolicy: data.fuelPolicy ?? 'full_to_full',
+      weeklyMileageLimit: data.weeklyMileageLimit ?? 0,
+      monthlyMileageLimit: data.monthlyMileageLimit ?? 0,
+      unlimitedMileage: data.unlimitedMileage ?? false,
+      maxRentalDays: data.maxRentalDays ?? 0,
+      allowCrossBorder: data.allowCrossBorder ?? false,
+      crossBorderFee: data.crossBorderFee ?? 0,
+      crossBorderDailyFee: data.crossBorderDailyFee ?? 0,
+      allowedCountries: (data.allowedCountries ?? []).join(', '),
+      lateReturnGraceMin: data.lateReturnGraceMin ?? 0,
+      lateReturnFeePerHour: data.lateReturnFeePerHour ?? 0,
+      youngerDriverAge: data.youngerDriverAge ?? 0,
+      youngerDriverSurcharge: data.youngerDriverSurcharge ?? 0,
+      petAllowed: data.petAllowed ?? false,
+      cleaningFee: data.cleaningFee ?? 0,
+    });
   };
 
   useEffect(() => {
@@ -197,6 +247,40 @@ export default function CarEditPage() {
       await updateCountingRules(id, rulesToSend);
       await loadData();
       showSaved('coverage');
+    } catch (e) {
+      alert(String(e));
+    }
+  };
+
+  const handleSaveRentalConditions = async () => {
+    try {
+      await updateCar(id, {
+        freeDeliveryThreshold: Number(rentalConditions.freeDeliveryThreshold) || 0,
+        cancellationHours: Number(rentalConditions.cancellationHours) || 0,
+        paymentMethods: rentalConditions.paymentMethods || null,
+        minRentalDays: Number(rentalConditions.minRentalDays) || 1,
+        dailyMileageLimit: Number(rentalConditions.dailyMileageLimit) || 0,
+        overmileagePrice: Number(rentalConditions.overmileagePrice) || 0,
+        driverAge: Number(rentalConditions.driverAge) || 21,
+        driverExperience: Number(rentalConditions.driverExperience) || 2,
+        fuelPolicy: rentalConditions.fuelPolicy || null,
+        weeklyMileageLimit: Number(rentalConditions.weeklyMileageLimit) || null,
+        monthlyMileageLimit: Number(rentalConditions.monthlyMileageLimit) || null,
+        unlimitedMileage: rentalConditions.unlimitedMileage,
+        maxRentalDays: Number(rentalConditions.maxRentalDays) || null,
+        allowCrossBorder: rentalConditions.allowCrossBorder,
+        crossBorderFee: Number(rentalConditions.crossBorderFee) || null,
+        crossBorderDailyFee: Number(rentalConditions.crossBorderDailyFee) || null,
+        allowedCountries: rentalConditions.allowedCountries ? rentalConditions.allowedCountries.split(',').map((s: string) => s.trim()).filter(Boolean) : null,
+        lateReturnGraceMin: Number(rentalConditions.lateReturnGraceMin) || null,
+        lateReturnFeePerHour: Number(rentalConditions.lateReturnFeePerHour) || null,
+        youngerDriverAge: Number(rentalConditions.youngerDriverAge) || null,
+        youngerDriverSurcharge: Number(rentalConditions.youngerDriverSurcharge) || null,
+        petAllowed: rentalConditions.petAllowed,
+        cleaningFee: Number(rentalConditions.cleaningFee) || null,
+      });
+      await loadData();
+      showSaved('rentalConditions');
     } catch (e) {
       alert(String(e));
     }
@@ -415,6 +499,9 @@ export default function CarEditPage() {
             countingRules={countingRules}
             setCountingRules={setCountingRules}
             onSaveCoverage={handleSaveCoverage}
+            rentalConditions={rentalConditions}
+            setRentalConditions={setRentalConditions}
+            onSaveRentalConditions={handleSaveRentalConditions}
           />
         </TabsContent>
 

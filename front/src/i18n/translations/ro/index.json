@@ -1769,23 +1769,25 @@
     "rentalConditions": {
       "title": "Condiții de închiriere",
       "delivery": "Livrare",
-      "deliveryValue": "În oraș — de la 18 USD, gratuită de la 351 USD",
+      "deliveryValue": "În oraș — gratuită de la {threshold} USD",
       "deposit": "Depozit rambursabil",
       "depositValue": "De la {amount} USD",
+      "depositRange": "De la {min} la {max} USD",
       "cancellation": "Anulare",
-      "cancellationValue": "Gratuită cu 24h înainte de ridicare",
+      "cancellationValue": "Gratuită cu {hours}h înainte de ridicare",
+      "cancellationFree": "Gratuită",
       "payment": "Condiții de plată",
       "paymentValue": "Numerar, card bancar, online",
       "restrictionsTitle": "Restricții",
       "minRental": "Perioada minimă de închiriere",
-      "minRentalValue": "1 zi",
+      "minRentalValue": "{days} zi",
       "driverAge": "Vârsta minimă a șoferului",
       "driverAgeValue": "{age} ani ({experience}+ ani experiență)",
       "mileageCharge": "Taxă kilometraj",
       "mileageChargeValue": "{price} USD per km suplimentar",
       "readPolicy": "Citiți condițiile de închiriere",
       "mileageLimit": "Limita de kilometraj (1 zi)",
-      "mileageLimitValue": "300 km"
+      "mileageLimitValue": "{limit} km"
     },
     "specificationsTitle": "Specificații {carName}"
   },
@@ -1861,6 +1863,7 @@
     "notSelected": "...",
     "duration": "{count, plural, one {{count} zi} few {{count} zile} other {{count} zile}}",
     "confirm": "Confirmă",
+    "minRentalWarning": "Perioada minimă de închiriere este de {days, plural, one {{days} zi} other {{days} zile}}",
     "close": "Închide",
     "prevMonth": "Luna anterioară",
     "nextMonth": "Luna următoare"
@@ -2462,6 +2465,77 @@
         "question": "Cât timp ai la dispoziție pentru a anunța asigurătorul?",
         "answer": "De obicei, compania de asigurări trebuie anunțată în termen de trei zile lucrătoare de la accident."
       }
+    }
+  },
+  "rentalPolicyModal": {
+    "title": "Politica de închiriere",
+    "km": "km",
+    "mileage": {
+      "title": "Kilometraj",
+      "perDay": "Pe zi",
+      "perWeek": "Pe săptămână",
+      "perMonth": "Pe lună",
+      "unlimited": "Kilometraj nelimitat",
+      "overcharge": "Depășire kilometraj"
+    },
+    "fuel": {
+      "title": "Politica de combustibil",
+      "fullToFull": "Vehiculul trebuie returnat cu același nivel de combustibil cu care a fost livrat chiriașului.",
+      "sameLevel": "Returnați mașina cu același nivel de combustibil ca la ridicare.",
+      "prepaid": "Combustibilul este preplătit. Returnați mașina cu orice nivel de combustibil.",
+      "included": "Costul combustibilului este inclus în prețul închirierii."
+    },
+    "rental": {
+      "title": "Politica de închiriere",
+      "minDays": "Perioada minimă de închiriere",
+      "maxDays": "Perioada maximă de închiriere",
+      "days": "zile",
+      "driverAge": "Vârsta șoferului",
+      "driverAgeValue": "min. {age} ani",
+      "experience": "Experiență de conducere",
+      "experienceValue": "{years} ani"
+    },
+    "deposit": {
+      "title": "Politica de depozit",
+      "refundable": "Depozit rambursabil",
+      "noDeposit": "Fără depozit"
+    },
+    "youngDriver": {
+      "title": "Suprataxă tânăr șofer",
+      "text": "Șoferii sub {age} ani plătesc suplimentar {fee} USD/zi."
+    },
+    "crossBorder": {
+      "title": "Călătorii transfrontaliere",
+      "allowed": "Permis",
+      "notAllowed": "Călătoriile transfrontaliere nu sunt permise",
+      "fee": "Taxă transfrontalieră",
+      "dailyFee": "Taxă zilnică în străinătate",
+      "day": "zi",
+      "countries": "Țări permise"
+    },
+    "lateReturn": {
+      "title": "Returnare întârziată",
+      "grace": "Perioadă de grație",
+      "min": "min",
+      "fee": "Taxă de întârziere",
+      "hour": "oră"
+    },
+    "rules": {
+      "title": "Reguli",
+      "pets": "Animale",
+      "smoking": "Fumatul",
+      "allowed": "Permis",
+      "notAllowed": "Interzis",
+      "cleaningFee": "Taxă de curățenie"
+    },
+    "cancellation": {
+      "title": "Anulare",
+      "hoursValue": "Gratuită cu {hours}h înainte de ridicare",
+      "free": "Gratuită"
+    },
+    "payment": {
+      "title": "Condiții de plată",
+      "default": "Numerar, card bancar, online"
     }
   }
 }

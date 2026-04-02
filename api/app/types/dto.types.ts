@@ -29,6 +29,30 @@ type UpdateCarDto = {
     configuration?: Record<string, string>[];
     alt?: string;
     isNew?: boolean;
+    deliveryPrice?: number | null;
+    freeDeliveryThreshold?: number | null;
+    cancellationHours?: number | null;
+    paymentMethods?: string | null;
+    minRentalDays?: number | null;
+    dailyMileageLimit?: number | null;
+    overmileagePrice?: number | null;
+    driverAge?: number | null;
+    driverExperience?: number | null;
+    fuelPolicy?: string | null;
+    weeklyMileageLimit?: number | null;
+    monthlyMileageLimit?: number | null;
+    unlimitedMileage?: boolean;
+    maxRentalDays?: number | null;
+    allowCrossBorder?: boolean;
+    crossBorderFee?: number | null;
+    crossBorderDailyFee?: number | null;
+    allowedCountries?: string[] | null;
+    lateReturnGraceMin?: number | null;
+    lateReturnFeePerHour?: number | null;
+    youngerDriverAge?: number | null;
+    youngerDriverSurcharge?: number | null;
+    petAllowed?: boolean;
+    cleaningFee?: number | null;
 };
 
 type TariffDto = {

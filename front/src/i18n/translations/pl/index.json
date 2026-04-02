@@ -1699,20 +1699,22 @@
     "rentalConditions": {
       "title": "Warunki wynajmu",
       "delivery": "Dostawa",
-      "deliveryValue": "Po mieście — od 18 USD, bezpłatnie od 351 USD",
+      "deliveryValue": "Po mieście — bezpłatnie od {threshold} USD",
       "deposit": "Kaucja zwrotna",
       "depositValue": "Od {amount} USD",
+      "depositRange": "Od {min} do {max} USD",
       "cancellation": "Anulowanie",
-      "cancellationValue": "Bezpłatnie do 24 godz. przed odbiorem",
+      "cancellationValue": "Bezpłatnie do {hours} godz. przed odbiorem",
+      "cancellationFree": "Bezpłatnie",
       "payment": "Warunki płatności",
       "paymentValue": "Gotówka, karta bankowa, online",
       "restrictionsTitle": "Ograniczenia",
       "minRental": "Minimalny okres wynajmu",
-      "minRentalValue": "1 doba",
+      "minRentalValue": "{days} doba",
       "driverAge": "Minimalny wiek kierowcy",
       "driverAgeValue": "{age} lat ({experience}+ lat doświadczenia)",
       "mileageLimit": "Limit przebiegu (1 doba)",
-      "mileageLimitValue": "300 km",
+      "mileageLimitValue": "{limit} km",
       "mileageCharge": "Opłata za przebieg",
       "mileageChargeValue": "{price} USD za każdy dodatkowy km",
       "readPolicy": "Zapoznaj się z warunkami wynajmu"
@@ -1809,6 +1811,7 @@
     "notSelected": "...",
     "duration": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
     "confirm": "Potwierdź",
+    "minRentalWarning": "Minimalny okres wynajmu to {days, plural, one {{days} doba} few {{days} doby} many {{days} dób} other {{days} dób}}",
     "close": "Zamknij",
     "prevMonth": "Poprzedni miesiac",
     "nextMonth": "Nastepny miesiac"
@@ -2410,6 +2413,77 @@
         "question": "Ile czasu jest na powiadomienie ubezpieczyciela?",
         "answer": "Zazwyczaj ubezpieczyciela nalezy powiadomic w ciagu trzech dni roboczych po wypadku."
       }
+    }
+  },
+  "rentalPolicyModal": {
+    "title": "Polityka wynajmu",
+    "km": "km",
+    "mileage": {
+      "title": "Przebieg",
+      "perDay": "Na dobę",
+      "perWeek": "Na tydzień",
+      "perMonth": "Na miesiąc",
+      "unlimited": "Bez limitu przebiegu",
+      "overcharge": "Dodatkowy przebieg"
+    },
+    "fuel": {
+      "title": "Polityka paliwowa",
+      "fullToFull": "Pojazd musi zostać zwrócony z tym samym poziomem paliwa, z jakim został przekazany najemcy.",
+      "sameLevel": "Zwróć samochód z tym samym poziomem paliwa co przy odbiorze.",
+      "prepaid": "Paliwo jest opłacone z góry. Zwróć samochód z dowolnym poziomem paliwa.",
+      "included": "Koszt paliwa jest wliczony w cenę wynajmu."
+    },
+    "rental": {
+      "title": "Polityka wynajmu",
+      "minDays": "Minimalny okres wynajmu",
+      "maxDays": "Maksymalny okres wynajmu",
+      "days": "dni",
+      "driverAge": "Wiek kierowcy",
+      "driverAgeValue": "min. {age} lat",
+      "experience": "Doświadczenie w prowadzeniu",
+      "experienceValue": "{years} lat"
+    },
+    "deposit": {
+      "title": "Polityka depozytowa",
+      "refundable": "Kaucja zwrotna",
+      "noDeposit": "Bez kaucji"
+    },
+    "youngDriver": {
+      "title": "Dopłata za młodego kierowcę",
+      "text": "Kierowcy poniżej {age} lat płacą dodatkowo {fee} USD/dzień."
+    },
+    "crossBorder": {
+      "title": "Podróże transgraniczne",
+      "allowed": "Dozwolone",
+      "notAllowed": "Podróże transgraniczne nie są dozwolone",
+      "fee": "Opłata za przekroczenie granicy",
+      "dailyFee": "Opłata dzienna za granicą",
+      "day": "dzień",
+      "countries": "Dozwolone kraje"
+    },
+    "lateReturn": {
+      "title": "Opóźniony zwrot",
+      "grace": "Okres karencji",
+      "min": "min",
+      "fee": "Opłata za opóźnienie",
+      "hour": "godz"
+    },
+    "rules": {
+      "title": "Regulamin",
+      "pets": "Zwierzęta",
+      "smoking": "Palenie",
+      "allowed": "Dozwolone",
+      "notAllowed": "Niedozwolone",
+      "cleaningFee": "Opłata za sprzątanie"
+    },
+    "cancellation": {
+      "title": "Anulowanie",
+      "hoursValue": "Bezpłatnie do {hours} godz. przed odbiorem",
+      "free": "Bezpłatnie"
+    },
+    "payment": {
+      "title": "Warunki płatności",
+      "default": "Gotówka, karta bankowa, online"
     }
   }
 }

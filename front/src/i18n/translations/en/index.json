@@ -1700,20 +1700,22 @@
     "rentalConditions": {
       "title": "Rental Conditions",
       "delivery": "Delivery",
-      "deliveryValue": "City delivery — from 18 USD, free from 351 USD",
+      "deliveryValue": "City delivery — free from {threshold} USD",
       "deposit": "Refundable deposit",
       "depositValue": "From {amount} USD",
+      "depositRange": "From {min} to {max} USD",
       "cancellation": "Cancellation",
-      "cancellationValue": "Free up to 24h before pickup",
+      "cancellationValue": "Free up to {hours}h before pickup",
+      "cancellationFree": "Free",
       "payment": "Payment",
       "paymentValue": "Cash, bank card, online",
       "restrictionsTitle": "Restrictions",
       "minRental": "Minimum rental period",
-      "minRentalValue": "1 day",
+      "minRentalValue": "{days} day",
       "driverAge": "Minimum driver age",
       "driverAgeValue": "{age} years ({experience}+ years driving)",
       "mileageLimit": "Mileage limit (1 day)",
-      "mileageLimitValue": "300 km",
+      "mileageLimitValue": "{limit} km",
       "mileageCharge": "Mileage charge",
       "mileageChargeValue": "{price} USD per extra km",
       "readPolicy": "Read rental policy"
@@ -1810,6 +1812,7 @@
     "notSelected": "...",
     "duration": "{count, plural, one {{count} day} other {{count} days}}",
     "confirm": "Confirm",
+    "minRentalWarning": "Minimum rental period is {days, plural, one {{days} day} other {{days} days}}",
     "close": "Close",
     "prevMonth": "Previous month",
     "nextMonth": "Next month"
@@ -2411,6 +2414,77 @@
         "question": "How much time do you have to notify the insurance company?",
         "answer": "Usually, the insurance company must be notified within three business days after the accident."
       }
+    }
+  },
+  "rentalPolicyModal": {
+    "title": "Rental Policy",
+    "km": "km",
+    "mileage": {
+      "title": "Mileage",
+      "perDay": "Per day",
+      "perWeek": "Per week",
+      "perMonth": "Per month",
+      "unlimited": "Unlimited mileage",
+      "overcharge": "Overmileage"
+    },
+    "fuel": {
+      "title": "Fuel Policy",
+      "fullToFull": "The vehicle must be returned with the same fuel level as when it was delivered to the renter.",
+      "sameLevel": "Return the car with the same fuel level as at pickup.",
+      "prepaid": "Fuel is prepaid. Return the car with any fuel level.",
+      "included": "Fuel cost is included in the rental price."
+    },
+    "rental": {
+      "title": "Rental Policy",
+      "minDays": "Minimum rental period",
+      "maxDays": "Maximum rental period",
+      "days": "days",
+      "driverAge": "Driver age",
+      "driverAgeValue": "min. {age} years",
+      "experience": "Driving experience",
+      "experienceValue": "{years} years"
+    },
+    "deposit": {
+      "title": "Deposit Policy",
+      "refundable": "Refundable deposit",
+      "noDeposit": "No deposit"
+    },
+    "youngDriver": {
+      "title": "Young Driver Surcharge",
+      "text": "Drivers under {age} pay an additional {fee} USD/day."
+    },
+    "crossBorder": {
+      "title": "Cross-Border Travel",
+      "allowed": "Allowed",
+      "notAllowed": "Cross-border travel is not permitted",
+      "fee": "Cross-border fee",
+      "dailyFee": "Daily fee abroad",
+      "day": "day",
+      "countries": "Allowed countries"
+    },
+    "lateReturn": {
+      "title": "Late Return",
+      "grace": "Grace period",
+      "min": "min",
+      "fee": "Late return fee",
+      "hour": "h"
+    },
+    "rules": {
+      "title": "Rules",
+      "pets": "Pets",
+      "smoking": "Smoking",
+      "allowed": "Allowed",
+      "notAllowed": "Not allowed",
+      "cleaningFee": "Cleaning fee"
+    },
+    "cancellation": {
+      "title": "Cancellation",
+      "hoursValue": "Free up to {hours}h before pickup",
+      "free": "Free"
+    },
+    "payment": {
+      "title": "Payment",
+      "default": "Cash, bank card, online"
     }
   }
 }

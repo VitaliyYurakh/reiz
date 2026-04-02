@@ -270,7 +270,7 @@ export default function CarAside({ car }: { car: Car }) {
         <label
           className="single-form__label"
           onClick={() =>
-            openDateSelect(selectedDate, (res) => {
+            openDateSelect({ ...selectedDate, minRentalDays: car.minRentalDays ?? 1 }, (res) => {
               setSelectedDate({
                 startDate: res.startDate,
                 endDate: res.endDate,
@@ -419,13 +419,13 @@ export default function CarAside({ car }: { car: Car }) {
           <span className="single-form__quest">
             <span className="text-strong">{t("requirements.age.title")}</span>
             {t("requirements.age.value", {
-              age: car.segment?.[0]?.driverAge ?? 21,
+              age: car.driverAge ?? car.segment?.[0]?.driverAge ?? 21,
             })}
           </span>
           <span className="single-form__quest">
             <span className="text-strong">{t("requirements.experience.title")}</span>
             {t("requirements.experience.value", {
-              years: car.segment?.[0]?.experience ?? 2,
+              years: car.driverExperience ?? car.segment?.[0]?.experience ?? 2,
             })}
           </span>
           <span className="single-form__quest">
@@ -443,10 +443,14 @@ export default function CarAside({ car }: { car: Car }) {
               </span>
             </span>
             {t("requirements.mileage.value", {
-              limit: Math.min(
-                totalDays * 300,
-                Math.floor(totalDays / 30) * 4500 + Math.min((totalDays % 30) * 300, 4500),
-              ),
+              limit: (() => {
+                const daily = car.dailyMileageLimit ?? 300;
+                const monthly = daily * 30;
+                return Math.min(
+                  totalDays * daily,
+                  Math.floor(totalDays / 30) * monthly + Math.min((totalDays % 30) * daily, monthly),
+                );
+              })(),
             })}
           </span>
         </div>
