@@ -1,6 +1,54 @@
 @use "../../mixins/breakpoint" as *;
 @use "../../mixins/disable-mob-hover" as *;
 
+.single-section__breadcrumb-row {
+  margin-top: -80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+
+  @include tablet {
+    margin-top: 0;
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 5px;
+  }
+
+  .breadcrumbs {
+    @include for-mobile {
+      position: relative;
+      z-index: 1;
+      width: fit-content;
+      padding-left: 67px;
+
+      &::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 100%;
+        background: var(--cl-a);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        pointer-events: none;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        border: 1px solid var(--cl-mm);
+        top: 50%;
+        pointer-events: none;
+        transform: translateY(-50%);
+        width: 40px;
+        left: 17px;
+      }
+    }
+  }
+}
+
 .single-section {
   padding: clamp(15px, 1.6176vw, 22px) 0 var(--default-padding);
   margin-bottom: 0;
@@ -8,39 +56,6 @@
   // Mobile: add a little extra space so the last block doesn't sit under the footer
   @include small-tablet {
     padding-bottom: calc(var(--default-padding) + 20px + env(safe-area-inset-bottom, 0px));
-  }
-
-  .breadcrumbs {
-    @include for-mobile{
-    position: relative;
-    z-index: 1;
-    width: fit-content;
-    padding-left: 67px;
-
-    &::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 100%;
-      background: var(--cl-a);
-      position: absolute;
-      top: 50%;
-      left: 0;
-      pointer-events: none;
-      transform: translateY(-50%);
-    }
-
-    &:after {
-      position: absolute;
-      content: "";
-      border: 1px solid var(--cl-mm);
-      top: 50%;
-      pointer-events: none;
-      transform: translateY(-50%);
-      width: 40px;
-      left: 17px;
-    }
-  }
   }
 
   &__box {

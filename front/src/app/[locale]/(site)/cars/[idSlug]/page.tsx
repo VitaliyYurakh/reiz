@@ -315,32 +315,34 @@ export default async function CarPage({
     };
 
     return (
-        <section className="single-section">
+        <>
             <JsonLd data={vehicleSchema} />
             <JsonLd data={productSchema} />
             <JsonLd data={breadcrumbSchema} />
             <ThemeColorSetter />
+            <div className="container single-section__breadcrumb-row">
+                <nav aria-label="Breadcrumb">
+                    <ul
+                        className="breadcrumbs"
+                        data-aos="fade-right"
+                        data-aos-duration="900"
+                        data-aos-delay="400"
+                    >
+                        <li>
+                            <Link href="/"><HomeIcon className="breadcrumbs__home-icon" /><span className="breadcrumbs__home-text">{t("breadcrumbs.home")}</span></Link>
+                        </li>
+                        <li>
+                            <CatalogLink>{t("breadcrumbs.cars")}</CatalogLink>
+                        </li>
+                        <li aria-current="page">
+                            {car.brand} {car.model} {car.yearOfManufacture}
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <section className="single-section">
             <div className="container">
                 <div className="single-section__box">
-                    <nav aria-label="Breadcrumb">
-                        <ul
-                            className="breadcrumbs"
-                            data-aos="fade-right"
-                            data-aos-duration="900"
-                            data-aos-delay="400"
-                        >
-                            <li>
-                                <Link href="/"><HomeIcon className="breadcrumbs__home-icon" /><span className="breadcrumbs__home-text">{t("breadcrumbs.home")}</span></Link>
-                            </li>
-                            <li>
-                                <CatalogLink>{t("breadcrumbs.cars")}</CatalogLink>
-                            </li>
-                            <li aria-current="page">
-                                {car.brand} {car.model} {car.yearOfManufacture}
-                            </li>
-                        </ul>
-                    </nav>
-
                     <div className="single-section__inner">
                         <h1
                             className="main-title"
@@ -400,5 +402,6 @@ export default async function CarPage({
                 </div>
             </div>
         </section>
+        </>
     );
 }

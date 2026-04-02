@@ -8,7 +8,7 @@ export default function CarsLayout({ children }: { children: ReactNode }) {
     <>
       <Header mode />
       <main className={"main"}>
-        <div className="container">
+        <div className="container" style={{ paddingTop: 20 }}>
           <UtilityBar />
         </div>
         {children}
