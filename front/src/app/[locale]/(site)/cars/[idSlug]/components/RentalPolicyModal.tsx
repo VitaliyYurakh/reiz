@@ -9,7 +9,7 @@ interface Props {
   carName: string;
   isOpen: boolean;
   onClose: () => void;
-  t: (key: string, values?: Record<string, unknown>) => string;
+  t: ReturnType<typeof import("next-intl").useTranslations>;
 }
 
 export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: Props) {
