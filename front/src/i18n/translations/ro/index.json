@@ -640,7 +640,7 @@
       ]
     },
     "cases": {
-      "title": "CU CINE LUCRĂM",
+      "title": "Cu cine lucrăm",
       "items": [
         {
           "title": "Companii IT și startup-uri",
@@ -791,10 +791,26 @@
       "title": "De ce închiriere, nu cumpărare",
       "subtitle": "Comparați costurile — și vedeți diferența",
       "cols": [
-        { "value": "100% TVA", "label": "în credit fiscal", "desc": "Fiecare plată reduce obligațiile fiscale" },
-        { "value": "0 lei", "label": "amortizare", "desc": "Mașina nu este în bilanț — fără uzură, fără contabilitate" },
-        { "value": "OPEX", "label": "în loc de CAPEX", "desc": "Păstrați capitalul de lucru pentru creșterea afacerii" },
-        { "value": "de la 30 zile", "label": "termene flexibile", "desc": "Închiriere de la o lună cu posibilitate de prelungire" }
+        {
+          "value": "100% TVA",
+          "label": "în credit fiscal",
+          "desc": "Fiecare plată reduce obligațiile fiscale"
+        },
+        {
+          "value": "0 lei",
+          "label": "amortizare",
+          "desc": "Mașina nu este în bilanț — fără uzură, fără contabilitate"
+        },
+        {
+          "value": "OPEX",
+          "label": "în loc de CAPEX",
+          "desc": "Păstrați capitalul de lucru pentru creșterea afacerii"
+        },
+        {
+          "value": "de la 30 zile",
+          "label": "termene flexibile",
+          "desc": "Închiriere de la o lună cu posibilitate de prelungire"
+        }
       ],
       "cta": "Calculați economia"
     },
@@ -802,37 +818,73 @@
       "title": "Mașina nu este în bilanțul dvs.",
       "subtitle": "Mai puține riscuri, mai puțină contabilitate, mai multă liniște",
       "cards": [
-        { "title": "Nu este proprietatea companiei dvs.", "text": "Mașina este înregistrată pe REIZ și nu face parte din activele dvs. O utilizați în baza unui contract de închiriere — fără înregistrare în bilanț, fără amortizare." },
-        { "title": "Scrisoare de garanție în loc de depozit", "text": "Pentru clienții corporativi putem lucra cu scrisoare de garanție fără înghețarea fondurilor — în baza contractului și după acordul condițiilor." }
+        {
+          "title": "Nu este proprietatea companiei dvs.",
+          "text": "Mașina este înregistrată pe REIZ și nu face parte din activele dvs. O utilizați în baza unui contract de închiriere — fără înregistrare în bilanț, fără amortizare."
+        },
+        {
+          "title": "Scrisoare de garanție în loc de depozit",
+          "text": "Pentru clienții corporativi putem lucra cu scrisoare de garanție fără înghețarea fondurilor — în baza contractului și după acordul condițiilor."
+        }
       ]
     },
     "fleet": {
       "title": "Ne ocupăm de tot",
       "subtitle": "Concentrați-vă pe afacere — noi vom avea grijă de flotă",
       "cards": [
-        { "title": "Service și întreținere", "text": "Întreținere planificată, schimbul sezonier al anvelopelor, reparații — organizăm și plătim. Dacă mașina se strică — oferim o mașină de schimb în 24 de ore." },
-        { "title": "Asigurare CASCO + RCA", "text": "Acoperire completă inclusă în prețul închirierii. Gestionarea accidentelor — pe noi." },
-        { "title": "O singură factură pe lună", "text": "Fără deranj cu zeci de chitanțe. O factură, o plată, 100% TVA deductibil." }
-      ]
-    },
-    "cases": {
-      "title": "Cu cine lucrăm",
-      "items": [
-        { "title": "Companii IT și startup-uri", "text": "Închiriere auto pentru echipe de dezvoltatori, manageri și întâlniri cu clienții.", "photo": "/img/business/client-consultation.webp" },
-        { "title": "Organizații internaționale", "text": "Transport pentru misiuni diplomatice și umanitare, ambasade și reprezentanțe.", "photo": "/img/business/corporate-driver.webp" },
-        { "title": "Companii de construcții", "text": "SUV-uri și microbuze pentru transportul specialiștilor și coordonarea șantierelor.", "photo": "/img/business/construction-team.webp" },
-        { "title": "Companii de logistică și comerț", "text": "Flotă pentru reprezentanți de vânzări, curierat și deplasări regionale.", "photo": "/img/business/logistics-delivery.webp" }
+        {
+          "title": "Service și întreținere",
+          "text": "Întreținere planificată, schimbul sezonier al anvelopelor, reparații — organizăm și plătim. Dacă mașina se strică — oferim o mașină de schimb în 24 de ore."
+        },
+        {
+          "title": "Asigurare CASCO + RCA",
+          "text": "Acoperire completă inclusă în prețul închirierii. Gestionarea accidentelor — pe noi."
+        },
+        {
+          "title": "O singură factură pe lună",
+          "text": "Fără deranj cu zeci de chitanțe. O factură, o plată, 100% TVA deductibil."
+        }
       ]
     },
     "vehicles": {
       "title": "Flotă pentru orice sarcină",
       "subtitle": "De la furgonete de livrare la sedanuri executive",
       "tabs": [
-        { "key": "commercial", "label": "Comerciale", "title": "Econom și confort", "text": "Skoda Octavia, Renault Megane, Peugeot 308. Mașini fiabile pentru nevoile zilnice ale afacerii.", "cta": "Obțineți lista mașinilor disponibile" },
-        { "key": "executive", "label": "Executive", "title": "Clasa business", "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. Pentru management, întâlniri și transferuri.", "cta": "Obțineți lista mașinilor disponibile" },
-        { "key": "suv", "label": "SUV", "title": "SUV-uri și crossovere", "text": "Toyota RAV4, Hyundai Tucson, Mitsubishi Outlander. Pentru vizite pe teren și drumuri dificile.", "cta": "Obțineți lista mașinilor disponibile" },
-        { "key": "cross-border", "label": "Cross-Border", "title": "Călătorii internaționale", "text": "Trecere transparentă a frontierelor UE fără comisioane ascunse. Posibilitate de a lăsa mașina în Polonia sau altă țară.", "cta": "Aflați condițiile" },
-        { "key": "vans", "label": "Furgonete și cargo", "title": "Furgonete și cargo", "text": "Renault Master, Mercedes Sprinter și altele. Ideale pentru logistică, livrări și echipe mobile.", "cta": "Obțineți lista mașinilor disponibile" }
+        {
+          "key": "commercial",
+          "label": "Comerciale",
+          "title": "Econom și confort",
+          "text": "Skoda Octavia, Renault Megane, Peugeot 308. Mașini fiabile pentru nevoile zilnice ale afacerii.",
+          "cta": "Obțineți lista mașinilor disponibile"
+        },
+        {
+          "key": "executive",
+          "label": "Executive",
+          "title": "Clasa business",
+          "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. Pentru management, întâlniri și transferuri.",
+          "cta": "Obțineți lista mașinilor disponibile"
+        },
+        {
+          "key": "suv",
+          "label": "SUV",
+          "title": "SUV-uri și crossovere",
+          "text": "Toyota RAV4, Hyundai Tucson, Mitsubishi Outlander. Pentru vizite pe teren și drumuri dificile.",
+          "cta": "Obțineți lista mașinilor disponibile"
+        },
+        {
+          "key": "cross-border",
+          "label": "Cross-Border",
+          "title": "Călătorii internaționale",
+          "text": "Trecere transparentă a frontierelor UE fără comisioane ascunse. Posibilitate de a lăsa mașina în Polonia sau altă țară.",
+          "cta": "Aflați condițiile"
+        },
+        {
+          "key": "vans",
+          "label": "Furgonete și cargo",
+          "title": "Furgonete și cargo",
+          "text": "Renault Master, Mercedes Sprinter și altele. Ideale pentru logistică, livrări și echipe mobile.",
+          "cta": "Obțineți lista mașinilor disponibile"
+        }
       ]
     },
     "finalCta": {
@@ -1692,11 +1744,12 @@
     },
     "title": "Închiriază {brand} {model} {year} în Ucraina",
     "tabs": {
-      "specifications": "Specificații",
-      "equipment": "Dotări"
+      "specifications": "Informații",
+      "equipment": "Dotări",
+      "description": "Descriere"
     },
     "specifications": {
-      "descriptionTitle": "Descriere și specificații „{carName}”",
+      "descriptionTitle": "Descrierea mașinii",
       "engine": "Motor",
       "transmission": "Transmisie",
       "fuelConsumption": "Consum de combustibil",
@@ -1712,7 +1765,29 @@
       "ariaLabel": "Galerie foto {brand} {model}",
       "prevSlide": "Slide-ul anterior",
       "nextSlide": "Slide-ul următor"
-    }
+    },
+    "rentalConditions": {
+      "title": "Condiții de închiriere",
+      "delivery": "Livrare",
+      "deliveryValue": "În oraș — de la 18 USD, gratuită de la 351 USD",
+      "deposit": "Depozit rambursabil",
+      "depositValue": "De la {amount} USD",
+      "cancellation": "Anulare",
+      "cancellationValue": "Gratuită cu 24h înainte de ridicare",
+      "payment": "Condiții de plată",
+      "paymentValue": "Numerar, card bancar, online",
+      "restrictionsTitle": "Restricții",
+      "minRental": "Perioada minimă de închiriere",
+      "minRentalValue": "1 zi",
+      "driverAge": "Vârsta minimă a șoferului",
+      "driverAgeValue": "{age} ani ({experience}+ ani experiență)",
+      "mileageCharge": "Taxă kilometraj",
+      "mileageChargeValue": "{price} USD per km suplimentar",
+      "readPolicy": "Citiți condițiile de închiriere",
+      "mileageLimit": "Limita de kilometraj (1 zi)",
+      "mileageLimitValue": "300 km"
+    },
+    "specificationsTitle": "Specificații {carName}"
   },
   "carAside": {
     "rentalPeriodTitle": "Perioada de închiriere „{brand} {model} {year}”",

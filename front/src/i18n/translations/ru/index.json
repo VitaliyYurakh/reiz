@@ -1693,11 +1693,33 @@
     },
     "title": "Аренда {brand} {model} {year} в Украине",
     "tabs": {
-      "specifications": "Характеристики",
-      "equipment": "Комплектация"
+      "specifications": "Информация",
+      "equipment": "Комплектация",
+      "description": "Описание"
+    },
+    "rentalConditions": {
+      "title": "Условия аренды",
+      "delivery": "Доставка",
+      "deliveryValue": "По городу — от 18 USD, бесплатно от 351 USD",
+      "deposit": "Возвращаемый депозит",
+      "depositValue": "От {amount} USD",
+      "cancellation": "Отмена",
+      "cancellationValue": "Бесплатно за 24 ч до подачи",
+      "payment": "Условия оплаты",
+      "paymentValue": "Наличные, банковская карта, онлайн",
+      "restrictionsTitle": "Ограничения",
+      "minRental": "Минимальный срок аренды",
+      "minRentalValue": "1 сутки",
+      "driverAge": "Минимальный возраст водителя",
+      "driverAgeValue": "{age} лет ({experience}+ лет вождения)",
+      "mileageLimit": "Ограничение пробега (1 день)",
+      "mileageLimitValue": "300 км",
+      "mileageCharge": "Плата за пробег",
+      "mileageChargeValue": "{price} USD за каждый лишний км",
+      "readPolicy": "Ознакомьтесь с условиями аренды"
     },
     "specifications": {
-      "descriptionTitle": "Описание и характеристики \"{carName}\"",
+      "descriptionTitle": "Описание автомобиля",
       "engine": "Двигатель",
       "transmission": "Трансмиссия",
       "fuelConsumption": "Расход топлива",
@@ -1707,6 +1729,7 @@
       "seats": "{count, plural, one {{count} место} few {{count} места} many {{count} мест} other {{count} мест}}",
       "year": "Год выпуска"
     },
+    "specificationsTitle": "Характеристики {carName}",
     "equipmentTitle": "Комплектация \"{carName}\"",
     "imageAlt": "Аренда {brand} {model} во Львове",
     "gallery": {

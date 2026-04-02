@@ -61,7 +61,7 @@
   &__box {
     display: flex;
     flex-direction: column;
-    gap: clamp(31px, 2.5vw, 34px);
+    gap: 24px;
   }
 
   &__info {
@@ -70,13 +70,48 @@
     gap: clamp(20px, 2.9412vw, 40px);
   }
 
+  &__car-description {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 14px;
+
+    p {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 160%;
+      color: #484848;
+      margin: 0;
+    }
+  }
+
+  &__specs-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__specs-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 35px;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+
+    @include small-tablet {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+
   &__tabs {
     display: flex;
     flex-direction: column;
     gap: clamp(20px, 2.5vw, 34px);
-    padding: 20px;
-    border-radius: 16px;
-    background: #f2f2f2;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
   }
 
   &__mobile-description {
@@ -106,9 +141,9 @@
 
       p {
         font-weight: 400;
-        font-size: 14px;
-        line-height: 143%;
-        color: #5e5e5e;
+        font-size: 15px;
+        line-height: 160%;
+        color: #484848;
 
         @include tablet {
           line-height: 157%;
@@ -117,18 +152,6 @@
       }
     }
 
-    .table-info {
-      margin-top: 5px;
-      margin-left: -20px;
-      width: calc(100% + 40px);
-      margin-bottom: -20px;
-
-      @include tablet {
-        margin-bottom: 0;
-        margin-top: -5px;
-        order: -1;
-      }
-    }
   }
 
   &__nav {
@@ -150,14 +173,14 @@
     font-weight: 500;
     font-size: 14px;
     text-align: center;
-    color: var(--cl-a);
+    color: #000000;
     width: fit-content;
     padding: 5px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 38px;
-    border: 1px solid var(--cl-d);
+    border: 1px solid #e0e0e0;
     border-radius: 12px;
     transition: all 0.3s;
     min-width: 155px;
@@ -276,7 +299,8 @@
     &__nav {
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-auto-columns: 1fr;
+      grid-auto-flow: column;
       gap: 0;
       padding: 4px;
       border-radius: 999px;
@@ -489,6 +513,94 @@
   }
 }
 
+.rental-conditions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &__section-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 35px;
+    color: #000000;
+    padding: 0 0 12px;
+    margin-top: 24px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include small-tablet {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-top: 1px solid #eeeeee;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: #555555;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &__label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--col-a);
+    min-width: 460px;
+
+    @include small-tablet {
+      min-width: 0;
+    }
+  }
+
+  &__value {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  &__link {
+    padding-top: 16px;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--cl-a);
+      border: 1px solid #e0e0e0;
+      border-radius: 999px;
+      padding: 8px 20px;
+      transition: all 0.3s;
+
+      @include hover {
+        border-color: var(--cl-a);
+        background: var(--cl-a);
+        color: var(--cl-b);
+      }
+    }
+  }
+}
+
 .equipment-list {
   display: flex;
   flex-wrap: wrap;
@@ -500,9 +612,10 @@
   &__item {
     display: flex;
     align-items: center;
-    background-color: #e0e0e0;
+    background-color: #f7f7f7;
+    border: none;
     padding: 6px 12px;
-    border-radius: 12px;
+    border-radius: 999px;
     font-size: 14px;
     gap: 3px;
   }

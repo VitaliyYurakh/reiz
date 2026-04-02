@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: var(--cl-b);
+  background: var(--col-b);
 
   @include small-tablet {
     padding: 15px;
@@ -210,7 +210,7 @@
 
       @include hover {
         background: var(--col-a);
-        color: var(--cl-b);
+        color: var(--col-b);
       }
     }
 

@@ -1692,11 +1692,33 @@
     },
     "title": "Wynajem {brand} {model} {year} na Ukrainie",
     "tabs": {
-      "specifications": "Specyfikacja",
-      "equipment": "Wyposazenie"
+      "specifications": "Informacje",
+      "equipment": "Wyposażenie",
+      "description": "Opis"
+    },
+    "rentalConditions": {
+      "title": "Warunki wynajmu",
+      "delivery": "Dostawa",
+      "deliveryValue": "Po mieście — od 18 USD, bezpłatnie od 351 USD",
+      "deposit": "Kaucja zwrotna",
+      "depositValue": "Od {amount} USD",
+      "cancellation": "Anulowanie",
+      "cancellationValue": "Bezpłatnie do 24 godz. przed odbiorem",
+      "payment": "Warunki płatności",
+      "paymentValue": "Gotówka, karta bankowa, online",
+      "restrictionsTitle": "Ograniczenia",
+      "minRental": "Minimalny okres wynajmu",
+      "minRentalValue": "1 doba",
+      "driverAge": "Minimalny wiek kierowcy",
+      "driverAgeValue": "{age} lat ({experience}+ lat doświadczenia)",
+      "mileageLimit": "Limit przebiegu (1 doba)",
+      "mileageLimitValue": "300 km",
+      "mileageCharge": "Opłata za przebieg",
+      "mileageChargeValue": "{price} USD za każdy dodatkowy km",
+      "readPolicy": "Zapoznaj się z warunkami wynajmu"
     },
     "specifications": {
-      "descriptionTitle": "Opis i specyfikacja \"{carName}\"",
+      "descriptionTitle": "Opis samochodu",
       "engine": "Silnik",
       "transmission": "Skrzynia",
       "fuelConsumption": "Zuzycie paliwa",
@@ -1706,7 +1728,8 @@
       "seats": "{count, plural, one {{count} miejsce} few {{count} miejsca} many {{count} miejsc} other {{count} miejsc}}",
       "year": "Rok produkcji"
     },
-    "equipmentTitle": "Wyposazenie \"{carName}\"",
+    "specificationsTitle": "Specyfikacja {carName}",
+    "equipmentTitle": "Wyposażenie \"{carName}\"",
     "imageAlt": "Wynajem {brand} {model} we Lwowie",
     "gallery": {
       "ariaLabel": "Galeria zdjęć {brand} {model}",

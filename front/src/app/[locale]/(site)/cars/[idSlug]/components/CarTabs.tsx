@@ -24,8 +24,8 @@ export default function CarTabs({ items }: Props) {
   // Read hash on mount
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hash = window.location.hash;
-      if (hash.toLowerCase() === EQUIPMENT_HASH.toLowerCase()) {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === EQUIPMENT_HASH.toLowerCase()) {
         setDefaultValue(EQUIPMENT_TAB);
       }
     }
@@ -38,10 +38,8 @@ export default function CarTabs({ items }: Props) {
       const search = window.location.search || "";
 
       if (value === EQUIPMENT_TAB) {
-        // Set #Equipment for equipment tab
         history.replaceState(null, "", `${pathname}${search}${EQUIPMENT_HASH}`);
       } else {
-        // Remove hash for other tabs
         history.replaceState(null, "", `${pathname}${search}`);
       }
     },

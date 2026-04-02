@@ -1719,11 +1719,33 @@
     },
     "title": "Оренда {brand} {model} {year} в Україні",
     "tabs": {
-      "specifications": "Характеристики",
-      "equipment": "Комплектація"
+      "specifications": "Інформація",
+      "equipment": "Комплектація",
+      "description": "Опис"
+    },
+    "rentalConditions": {
+      "title": "Умови оренди",
+      "delivery": "Доставка",
+      "deliveryValue": "По місту — від 18 USD, безкоштовно від 351 USD",
+      "deposit": "Поворотний депозит",
+      "depositValue": "Від {amount} USD",
+      "cancellation": "Скасування",
+      "cancellationValue": "Безкоштовно за 24 год до подачі",
+      "payment": "Умови оплати",
+      "paymentValue": "Готівка, банківська картка, онлайн",
+      "restrictionsTitle": "Обмеження",
+      "minRental": "Мінімальний термін оренди",
+      "minRentalValue": "1 доба",
+      "driverAge": "Мінімальний вік водія",
+      "driverAgeValue": "{age} років ({experience}+ років водіння)",
+      "mileageLimit": "Обмеження пробігу (1 доба)",
+      "mileageLimitValue": "300 км",
+      "mileageCharge": "Плата за пробіг",
+      "mileageChargeValue": "{price} USD за кожен зайвий км",
+      "readPolicy": "Ознайомтесь з умовами оренди"
     },
     "specifications": {
-      "descriptionTitle": "Опис та характеристики \"{carName}\"",
+      "descriptionTitle": "Опис автомобіля",
       "engine": "Двигун",
       "transmission": "Трансмісія",
       "fuelConsumption": "Витрата пального",
@@ -1733,6 +1755,7 @@
       "seats": "{count, plural, one {{count} місце} few {{count} місця} many {{count} місць} other {{count} місця}}",
       "year": "Рік випуску"
     },
+    "specificationsTitle": "Характеристики {carName}",
     "equipmentTitle": "Комплектація \"{carName}\"",
     "imageAlt": "Оренда {brand} {model} у Львові",
     "gallery": {

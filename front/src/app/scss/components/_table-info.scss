@@ -2,16 +2,17 @@
 
 .table-info {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  border-top: 1px solid var(--cl-d);
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  border-top: none;
 
   &__item {
-    border-right: 1px solid var(--cl-d);
+    border: 1px solid #e8e8e8;
+    border-radius: 16px;
     gap: 8px;
     display: flex;
     flex-direction: column;
-    padding: 10px 25px 13px;
+    padding: 18px 20px;
 
     img {
       width: 23px;
@@ -47,17 +48,6 @@
       }
     }
 
-    @include for-mobile {
-      &:nth-child(3),
-      &:nth-child(6) {
-        border-right: none;
-      }
-
-      &:nth-child(n + 4) {
-        border-top: 1px solid var(--cl-d);
-      }
-    }
-
     @include mobile {
       display: grid;
       grid-template-columns: auto 1fr;
@@ -65,52 +55,35 @@
       height: 100px;
       align-items: center;
       padding-right: 5px;
-
-      &:nth-child(2),&:nth-child(4),
-      &:nth-child(6) {
-        border-right: none;
-      }
-
-      &:nth-child(n + 3) {
-        border-top: 1px solid var(--cl-d);
-      }
     }
   }
 
   &__name {
     font-weight: 400;
-    font-size: clamp(13px, 1.0294vw, 14px);
-    color: var(--cl-i);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #7c7c7c;
     margin-bottom: 1px;
 
     @include small-tablet {
       color: #838383;
     }
 
-    @include mobile{
+    @include mobile {
       line-height: 110%;
       align-self: end;
     }
   }
 
   &__value {
-    ;
     font-weight: 400;
     font-size: 16px;
     color: var(--cl-a);
 
-    @include tablet {
-      ;
-      font-weight: 500;
-    }
-
-    @include mobile{
+    @include mobile {
       align-self: start;
     }
-  }
-
-  @include tablet {
-    border-bottom: 1px solid var(--cl-d);
   }
 
   @include mobile {

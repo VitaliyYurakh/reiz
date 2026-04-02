@@ -1693,11 +1693,33 @@
     },
     "title": "Rent {brand} {model} {year} in Ukraine",
     "tabs": {
-      "specifications": "Specifications",
-      "equipment": "Equipment"
+      "specifications": "Information",
+      "equipment": "Equipment",
+      "description": "Description"
+    },
+    "rentalConditions": {
+      "title": "Rental Conditions",
+      "delivery": "Delivery",
+      "deliveryValue": "City delivery — from 18 USD, free from 351 USD",
+      "deposit": "Refundable deposit",
+      "depositValue": "From {amount} USD",
+      "cancellation": "Cancellation",
+      "cancellationValue": "Free up to 24h before pickup",
+      "payment": "Payment",
+      "paymentValue": "Cash, bank card, online",
+      "restrictionsTitle": "Restrictions",
+      "minRental": "Minimum rental period",
+      "minRentalValue": "1 day",
+      "driverAge": "Minimum driver age",
+      "driverAgeValue": "{age} years ({experience}+ years driving)",
+      "mileageLimit": "Mileage limit (1 day)",
+      "mileageLimitValue": "300 km",
+      "mileageCharge": "Mileage charge",
+      "mileageChargeValue": "{price} USD per extra km",
+      "readPolicy": "Read rental policy"
     },
     "specifications": {
-      "descriptionTitle": "Description and specifications \"{carName}\"",
+      "descriptionTitle": "Car description",
       "engine": "Engine",
       "transmission": "Transmission",
       "fuelConsumption": "Fuel consumption",
@@ -1707,6 +1729,7 @@
       "seats": "{count, plural, one {{count} seat} other {{count} seats}}",
       "year": "Year of manufacture"
     },
+    "specificationsTitle": "Specifications {carName}",
     "equipmentTitle": "Equipment \"{carName}\"",
     "imageAlt": "Rent {brand} {model} in Lviv",
     "gallery": {

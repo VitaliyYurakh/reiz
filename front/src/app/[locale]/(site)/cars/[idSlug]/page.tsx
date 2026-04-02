@@ -144,88 +144,81 @@ export default async function CarPage({
         console.error("Error parsing description JSON:", e);
     }
 
+    const driverAge = car.segment?.[0]?.driverAge ?? 21;
+    const driverExperience = car.segment?.[0]?.experience ?? 2;
+    const overmileagePrice = car.segment?.[0]?.overmileagePrice ?? 0;
+    const minDeposit = car.rentalTariff.length > 0
+        ? Math.min(...car.rentalTariff.map((t_) => t_.deposit))
+        : 0;
+
     const tabsNav = [
         {
             label: t("tabs.specifications"),
             content: (
                 <div className="editor">
-                    <h2>
-                        {t("specifications.descriptionTitle", {
-                            carName: carDisplayName,
-                        })}
-                    </h2>
-
-                    <p
-                        className="single-section__description"
-                        // biome-ignore lint/security/noDangerouslySetInnerHtml: <1>
-                        dangerouslySetInnerHTML={{
-                            __html: localizedDescription,
-                        }}
-                    />
-
-                    <ul className="table-info">
-                        <li className="table-info__item">
-              <span className="sprite">
-                <Icon id={"engine"} width={26} height={26}/>
-              </span>
-                            <span className="table-info__name">
-                {t("specifications.engine")}
-              </span>
-                            <span className="table-info__value">{formatEngine(car.engineVolume, car.engineType, locale)}</span>
+                    <ul className="rental-conditions">
+                        <li className="rental-conditions__section-title">
+                            {t("rentalConditions.title")}
                         </li>
-                        <li className="table-info__item">
-              <span className="sprite">
-                <Icon id={"gearbox"} width={26} height={26}/>
-              </span>
-                            <span className="table-info__name">
-                {t("specifications.transmission")}
-              </span>
-                            <span className="table-info__value">
-                {localized(car.transmission, locale) || "-"}
-              </span>
+                        <li className="rental-conditions__item">
+                            <span className="rental-conditions__icon sprite">
+                                <Icon id={"geo-alt"} width={22} height={22}/>
+                            </span>
+                            <span className="rental-conditions__label">{t("rentalConditions.delivery")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.deliveryValue")}</span>
                         </li>
-                        <li className="table-info__item">
-              <span className="sprite">
-                <Icon id={"fuel"} width={26} height={26}/>
-              </span>
-                            <span className="table-info__name">
-                {t("specifications.fuelConsumption")}
-              </span>
-                            <span className="table-info__value">
-                {car.fuelConsumption || "-"}
-              </span>
+                        <li className="rental-conditions__item">
+                            <span className="rental-conditions__icon sprite">
+                                <Icon id={"shield-deposit"} width={22} height={22}/>
+                            </span>
+                            <span className="rental-conditions__label">{t("rentalConditions.deposit")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.depositValue", { amount: minDeposit })}</span>
+                        </li>
+                        <li className="rental-conditions__item">
+                            <span className="rental-conditions__icon sprite">
+                                <Icon id={"cancel-circle"} width={22} height={22}/>
+                            </span>
+                            <span className="rental-conditions__label">{t("rentalConditions.cancellation")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.cancellationValue")}</span>
+                        </li>
+                        <li className="rental-conditions__item">
+                            <span className="rental-conditions__icon sprite">
+                                <Icon id={"credit-card"} width={22} height={22}/>
+                            </span>
+                            <span className="rental-conditions__label">{t("rentalConditions.payment")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.paymentValue")}</span>
                         </li>
 
-                        <li className="table-info__item">
-              <span className="sprite">
-                <Icon id={"drivetrain"} width={26} height={26}/>
-              </span>
-                            <span className="table-info__name">
-                {t("specifications.driveType")}
-              </span>
-                            <span className="table-info__value">
-                {localized(car.driveType, locale) || "-"}
-              </span>
+                        <li className="rental-conditions__section-title">
+                            {t("rentalConditions.restrictionsTitle")}
                         </li>
-                        <li className="table-info__item">
-              <span className="sprite">
-                <Icon id={"seats"} width={26} height={26}/>
-              </span>
-                            <span className="table-info__name">
-                {t("specifications.seatsLabel")}
-              </span>
-                            <span className="table-info__value">
-                {t("specifications.seats", {count: car.seats ?? 0})}
-              </span>
+                        <li className="rental-conditions__item">
+                            <span className="rental-conditions__icon sprite">
+                                <Icon id={"calendar-rental"} width={22} height={22}/>
+                            </span>
+                            <span className="rental-conditions__label">{t("rentalConditions.minRental")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.minRentalValue")}</span>
                         </li>
-                        <li className="table-info__item">
-              <span className="sprite">
-                <Icon id={"calendar-detail"} width={26} height={26}/>
-              </span>
-                            <span className="table-info__name">
-                {t("specifications.year")}
-              </span>
-                            <span className="table-info__value">{car.yearOfManufacture}</span>
+                        <li className="rental-conditions__item">
+                            <span className="rental-conditions__icon sprite">
+                                <Icon id={"t-person-key"} width={22} height={22}/>
+                            </span>
+                            <span className="rental-conditions__label">{t("rentalConditions.driverAge")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.driverAgeValue", { age: driverAge, experience: driverExperience })}</span>
+                        </li>
+                        <li className="rental-conditions__item">
+                            <span className="rental-conditions__icon sprite">
+                                <Icon id={"mileage"} width={22} height={22}/>
+                            </span>
+                            <span className="rental-conditions__label">{t("rentalConditions.mileageLimit")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.mileageLimitValue")}</span>
+                        </li>
+                        <li className="rental-conditions__item">
+                            <span className="rental-conditions__icon sprite">
+                                <Icon id={"plus-circle"} width={22} height={22}/>
+                            </span>
+                            <span className="rental-conditions__label">{t("rentalConditions.mileageCharge")}</span>
+                            <span className="rental-conditions__value">{t("rentalConditions.mileageChargeValue", { price: overmileagePrice })}</span>
                         </li>
                     </ul>
                 </div>
@@ -383,9 +376,7 @@ export default async function CarPage({
                         {localizedDescription ? (
                             <div className="single-section__mobile-description">
                                 <h2 className="single-section__mobile-description-title">
-                                    {t("specifications.descriptionTitle", {
-                                        carName: carDisplayName,
-                                    })}
+                                    {t("specifications.descriptionTitle")}
                                 </h2>
 
                                 <div
@@ -399,6 +390,54 @@ export default async function CarPage({
                         ) : null}
 
                     </div>
+
+                    <div className="single-section__specs-block">
+                        <h2 className="single-section__specs-title">{t("specificationsTitle", { carName: carDisplayName })}</h2>
+                        <ul className="table-info">
+                            <li className="table-info__item">
+                                <span className="sprite"><Icon id={"engine"} width={26} height={26}/></span>
+                                <span className="table-info__name">{t("specifications.engine")}</span>
+                                <span className="table-info__value">{formatEngine(car.engineVolume, car.engineType, locale)}</span>
+                            </li>
+                            <li className="table-info__item">
+                                <span className="sprite"><Icon id={"gearbox"} width={26} height={26}/></span>
+                                <span className="table-info__name">{t("specifications.transmission")}</span>
+                                <span className="table-info__value">{localized(car.transmission, locale) || "-"}</span>
+                            </li>
+                            <li className="table-info__item">
+                                <span className="sprite"><Icon id={"fuel"} width={26} height={26}/></span>
+                                <span className="table-info__name">{t("specifications.fuelConsumption")}</span>
+                                <span className="table-info__value">{car.fuelConsumption || "-"}</span>
+                            </li>
+                            <li className="table-info__item">
+                                <span className="sprite"><Icon id={"drivetrain"} width={26} height={26}/></span>
+                                <span className="table-info__name">{t("specifications.driveType")}</span>
+                                <span className="table-info__value">{localized(car.driveType, locale) || "-"}</span>
+                            </li>
+                            <li className="table-info__item">
+                                <span className="sprite"><Icon id={"seats"} width={26} height={26}/></span>
+                                <span className="table-info__name">{t("specifications.seatsLabel")}</span>
+                                <span className="table-info__value">{t("specifications.seats", {count: car.seats ?? 0})}</span>
+                            </li>
+                            <li className="table-info__item">
+                                <span className="sprite"><Icon id={"calendar-detail"} width={26} height={26}/></span>
+                                <span className="table-info__name">{t("specifications.year")}</span>
+                                <span className="table-info__value">{car.yearOfManufacture}</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {localizedDescription ? (
+                        <div className="single-section__car-description">
+                            <h2 className="single-section__specs-title">{t("specifications.descriptionTitle")}</h2>
+                            <p
+                                // biome-ignore lint/security/noDangerouslySetInnerHtml: <1>
+                                dangerouslySetInnerHTML={{
+                                    __html: localizedDescription,
+                                }}
+                            />
+                        </div>
+                    ) : null}
                 </div>
             </div>
         </section>
