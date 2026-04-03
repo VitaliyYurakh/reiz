@@ -35,6 +35,7 @@ services:
             DATABASE_URL: postgresql://postgres:postgres_dev@postgres:5432/reiz
             AUTH_SECRET: ${AUTH_SECRET}
             AUTH_TRUST_HOST: "true"
+            AUTH_URL: https://reiz.com.ua
             GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
             GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
             SERVICE_SECRET: ${SERVICE_SECRET}
