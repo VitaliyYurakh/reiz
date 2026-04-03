@@ -8,8 +8,7 @@ import { Link } from "@/i18n/request";
 const BACK_HREF = "/";
 
 const NAV_ITEMS = [
-  { key: "overview", href: "/account" },
-  { key: "profile", href: "/account/profile" },
+  { key: "profile", href: "/account" },
   { key: "bookings", href: "/account/bookings" },
   { key: "history", href: "/account/history" },
   { key: "favorites", href: "/account/favorites" },
@@ -25,9 +24,6 @@ export default function AccountSidebar() {
 
   return (
     <nav className="account-sidebar">
-      <Link href={BACK_HREF} className="account-sidebar__back">
-        ← На сайт
-      </Link>
       <ul className="account-sidebar__list">
         {NAV_ITEMS.map(({ key, href }) => {
           const isActive =

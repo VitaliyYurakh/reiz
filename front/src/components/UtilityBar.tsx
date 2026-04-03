@@ -122,11 +122,19 @@ export default function UtilityBar() {
             className="utility-bar__profile"
             aria-label="My Account"
           >
-            <svg width={32} height={32} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="16" cy="16" r="15.5" stroke="currentColor" />
-              <circle cx="16" cy="13" r="4.5" stroke="currentColor" />
-              <path d="M8 25.5C8 25.5 10 21 16 21C22 21 24 25.5 24 25.5" stroke="currentColor" strokeLinecap="round" />
-            </svg>
+            {session.user?.image ? (
+              <img
+                src={session.user.image}
+                alt={session.user.name || ""}
+                className="utility-bar__avatar"
+              />
+            ) : (
+              <svg width={32} height={32} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="15.5" stroke="currentColor" />
+                <circle cx="16" cy="13" r="4.5" stroke="currentColor" />
+                <path d="M8 25.5C8 25.5 10 21 16 21C22 21 24 25.5 24 25.5" stroke="currentColor" strokeLinecap="round" />
+              </svg>
+            )}
           </Link>
         ) : (
           <button
