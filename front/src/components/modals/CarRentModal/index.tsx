@@ -10,6 +10,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { useSession } from "next-auth/react";
 import { createPortal } from "react-dom";
 import { Tooltip } from "react-tooltip";
 import {
@@ -48,6 +49,7 @@ export default function CarRentModal({
   const tAside = useTranslations("carAside");
   const { open: openDatePicker } = useCarModal("rangeDateTimePicker");
   const locale = useLocale() as Locale;
+  const { data: session } = useSession();
 
   const [step, setStep] = useState<1 | 2>(1);
   const [formState, setFormState] = useState<FormState>(() => ({
@@ -75,6 +77,27 @@ export default function CarRentModal({
 
   useEffect(() => {
     setIsMounted(true);
+
+    // Pre-fill form with user data if logged in
+    if (session?.user) {
+      const nameParts = (session.user.name || "").split(" ");
+      setFormState((prev) => ({
+        ...prev,
+        firstName: nameParts[0] || prev.firstName,
+        lastName: nameParts.slice(1).join(" ") || prev.lastName,
+        email: session.user.email || prev.email,
+      }));
+
+      fetch("/api/auth/profile")
+        .then((res) => (res.ok ? res.json() : null))
+        .then((profile) => {
+          if (profile?.phone) {
+            setFormState((prev) => ({ ...prev, phone: profile.phone }));
+            setFormResetKey((v) => v + 1);
+          }
+        })
+        .catch(() => {});
+    }
   }, []);
 
   useEffect(() => {

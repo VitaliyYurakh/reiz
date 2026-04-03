@@ -1011,6 +1011,13 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   min-width: 345px;
 
+  @include tablet {
+    flex-direction: column;
+    min-width: auto;
+    align-items: center;
+    text-align: center;
+  }
+
   &__left {
     display: flex;
     flex-direction: column;
@@ -1018,6 +1025,11 @@
     text-align: center;
     padding-right: 24px;
     min-width: 150px;
+
+    @include tablet {
+      padding-right: 0;
+      padding-bottom: 20px;
+    }
   }
 
   &__right {
@@ -1026,6 +1038,16 @@
     gap: 0;
     border-left: 1px solid #ebebeb;
     padding-left: 24px;
+
+    @include tablet {
+      border-left: none;
+      border-top: 1px solid #ebebeb;
+      padding-left: 0;
+      padding-top: 16px;
+      flex-direction: row;
+      gap: 24px;
+      justify-content: center;
+    }
   }
 
   &__avatar-wrap {
@@ -1075,6 +1097,11 @@
     color: #222;
     margin-bottom: 2px;
     white-space: nowrap;
+
+    @include tablet {
+      white-space: normal;
+      font-size: 20px;
+    }
   }
 
   &__location {
@@ -1084,11 +1111,21 @@
 
   &__stat {
     padding: 10px 0;
+
+    @include tablet {
+      padding: 0;
+      text-align: center;
+    }
   }
 
   &__stat-divider {
     height: 1px;
     background: #ebebeb;
+
+    @include tablet {
+      width: 1px;
+      height: 40px;
+    }
   }
 
   &__stat-value {
@@ -1732,6 +1769,42 @@
     padding-top: 0;
   }
 
+  .profile-card {
+    min-width: auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__left {
+      padding-right: 0;
+      padding-bottom: 20px;
+    }
+
+    &__right {
+      border-left: none;
+      border-top: 1px solid #ebebeb;
+      padding-left: 0;
+      padding-top: 16px;
+      flex-direction: row;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    &__name {
+      white-space: normal;
+    }
+
+    &__stat {
+      text-align: center;
+    }
+
+    &__stat-divider {
+      width: 1px;
+      height: 40px;
+    }
+  }
+
   .account-page {
     &__title {
       font-size: 22px;
@@ -1789,6 +1862,37 @@
   .profile-card {
     min-width: auto;
     width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__left {
+      padding-right: 0;
+      padding-bottom: 20px;
+    }
+
+    &__right {
+      border-left: none;
+      border-top: 1px solid #ebebeb;
+      padding-left: 0;
+      padding-top: 16px;
+      flex-direction: row;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    &__name {
+      white-space: normal;
+    }
+
+    &__stat {
+      text-align: center;
+    }
+
+    &__stat-divider {
+      width: 1px;
+      height: 40px;
+    }
   }
 
   .account-overview-favorites {
@@ -1842,8 +1946,12 @@
   }
 
   .profile-card {
-    padding: 20px;
+    flex-direction: column;
+    padding: 24px 20px;
     border-radius: 20px;
+    min-width: auto;
+    align-items: center;
+    text-align: center;
 
     &__avatar {
       width: 80px;
@@ -1852,6 +1960,7 @@
 
     &__name {
       font-size: 18px;
+      white-space: normal;
     }
 
     &__stat-value {
@@ -1863,11 +1972,27 @@
     }
 
     &__left {
-      padding-right: 16px;
+      padding-right: 0;
+      padding-bottom: 20px;
     }
 
     &__right {
-      padding-left: 16px;
+      border-left: none;
+      border-top: 1px solid #ebebeb;
+      padding-left: 0;
+      padding-top: 16px;
+      flex-direction: row;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    &__stat {
+      text-align: center;
+    }
+
+    &__stat-divider {
+      width: 1px;
+      height: 40px;
     }
   }
 
