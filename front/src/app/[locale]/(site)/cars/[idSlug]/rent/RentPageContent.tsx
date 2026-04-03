@@ -168,6 +168,17 @@ export default function RentPageContent({
       initial.firstName = nameParts[0] || "";
       initial.lastName = nameParts.slice(1).join(" ") || "";
       initial.email = session.user.email || "";
+
+      // Fetch phone from customer profile
+      fetch("/api/auth/profile")
+        .then((res) => res.ok ? res.json() : null)
+        .then((profile) => {
+          if (profile?.phone) {
+            setFormState((prev) => ({ ...prev, phone: profile.phone }));
+            setFormResetKey((v) => v + 1);
+          }
+        })
+        .catch(() => {});
     }
 
     setFormState(initial);
