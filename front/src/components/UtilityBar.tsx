@@ -5,9 +5,12 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import UiImage from "@/components/ui/UiImage";
 import { useTranslations } from "next-intl";
 import { SOCIAL_LINKS } from "@/config/social";
+import { useSession } from "next-auth/react";
+import { Link } from "@/i18n/request";
 
 export default function UtilityBar() {
   const headerT = useTranslations("header");
+  const { data: session } = useSession();
 
   return (
     <div className="utility-bar">
@@ -90,17 +93,17 @@ export default function UtilityBar() {
         <CurrencySelect />
       </div>
 
-      <button
-        type="button"
+      <Link
+        href={session ? "/account" : "/auth/login"}
         className="utility-bar__profile"
-        aria-label="Profile"
+        aria-label={session ? "My Account" : "Sign In"}
       >
         <svg width={32} height={32} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="16" cy="16" r="15.5" stroke="currentColor" />
           <circle cx="16" cy="13" r="4.5" stroke="currentColor" />
           <path d="M8 25.5C8 25.5 10 21 16 21C22 21 24 25.5 24 25.5" stroke="currentColor" strokeLinecap="round" />
         </svg>
-      </button>
+      </Link>
     </div>
   );
 }
