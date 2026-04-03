@@ -1684,3 +1684,296 @@
     }
   }
 }
+
+// ══════════════════════════════════════
+// ── MOBILE ADAPTATIONS ──
+// ══════════════════════════════════════
+
+@include tablet {
+  .account-layout {
+    padding-top: 0;
+    padding-bottom: 40px;
+
+    &__topbar {
+      padding: 12px 16px;
+    }
+
+    &__back {
+      font-size: 12px;
+      padding: 6px 14px;
+    }
+
+    &__container {
+      padding: 0 16px;
+    }
+  }
+
+  .account-sidebar {
+    &__list {
+      margin-top: 20px;
+    }
+  }
+
+  .account-header {
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+    &__title {
+      font-size: 22px;
+    }
+  }
+
+  .account-profile-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .account-profile-info {
+    padding-top: 0;
+  }
+
+  .account-page {
+    &__title {
+      font-size: 22px;
+    }
+
+    &__welcome {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .profile-form {
+    &__row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .account-overview-favorites {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .privacy-card {
+    padding: 16px;
+    gap: 14px;
+
+    &__icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    &__title {
+      font-size: 16px;
+    }
+  }
+}
+
+@include small-tablet {
+  .account-layout {
+    &__container {
+      padding: 0 16px;
+    }
+  }
+
+  .account-header {
+    margin-top: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .account-profile-row {
+    gap: 20px;
+  }
+
+  .profile-card {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .account-overview-favorites {
+    grid-template-columns: 1fr;
+  }
+
+  .account-favorites-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-page__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .privacy-actions {
+    &__confirm-btns {
+      flex-direction: column;
+    }
+
+    &__confirm-yes,
+    &__confirm-no {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@include mobile {
+  .account-layout {
+    &__topbar {
+      padding: 8px 12px;
+    }
+
+    &__container {
+      padding: 0 12px;
+    }
+  }
+
+  .account-header {
+    margin-top: 12px;
+    margin-bottom: 16px;
+
+    &__title {
+      font-size: 20px;
+    }
+  }
+
+  .account-edit-btn {
+    padding: 6px 16px;
+    font-size: 13px;
+  }
+
+  .profile-card {
+    padding: 20px;
+    border-radius: 20px;
+
+    &__avatar {
+      width: 80px;
+      height: 80px;
+    }
+
+    &__name {
+      font-size: 18px;
+    }
+
+    &__stat-value {
+      font-size: 16px;
+    }
+
+    &__stat-label {
+      font-size: 9px;
+    }
+
+    &__left {
+      padding-right: 16px;
+    }
+
+    &__right {
+      padding-left: 16px;
+    }
+  }
+
+  .account-profile-info__item {
+    font-size: 13px;
+    gap: 8px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .account-card {
+    padding: 16px;
+    border-radius: 12px;
+
+    &__header {
+      gap: 12px;
+    }
+
+    &__image {
+      width: 72px;
+      height: 48px;
+    }
+
+    &__title {
+      font-size: 15px;
+    }
+  }
+
+  .account-quick-link {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .account-overview-section__title {
+    font-size: 18px;
+  }
+
+  .account-past-rental {
+    min-width: 110px;
+
+    &__icon {
+      width: 80px;
+      height: 80px;
+    }
+
+    &__name {
+      font-size: 12px;
+    }
+  }
+
+  .avatar-upload {
+    &__preview {
+      width: 64px;
+      height: 64px;
+    }
+
+    &__img {
+      width: 64px;
+      height: 64px;
+    }
+
+    &__placeholder {
+      width: 64px;
+      height: 64px;
+      font-size: 24px;
+    }
+
+    &__btn {
+      font-size: 13px;
+      padding: 6px 14px;
+    }
+  }
+
+  .langs-modal {
+    max-height: 95vh;
+    border-radius: 16px;
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__search {
+      height: 44px;
+    }
+
+    &__item {
+      padding: 14px 0;
+      font-size: 15px;
+    }
+  }
+
+  .profile-form__langs-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .profile-form__langs-list {
+    font-size: 13px;
+  }
+
+  .account-notifications__item {
+    font-size: 14px;
+    padding: 16px 0;
+  }
+}
