@@ -37,6 +37,8 @@ model Client {
   lastName  String  @map("last_name")
   phone     String
   email     String?
+  address   String?
+  city      String?
   country   String  @default("UA")
   isBlocked Boolean @default(false) @map("is_blocked")
   deletedAt DateTime? @map("deleted_at")
