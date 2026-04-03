@@ -1768,7 +1768,7 @@
     "requirements": {
       "age": {
         "title": "Ваш возраст",
-        "value": "{age}+ лет"
+        "value": "{age, plural, one {#+ год} few {#+ года} other {#+ лет}}"
       },
       "experience": {
         "title": "Опыт вождения",
@@ -2443,9 +2443,9 @@
       "maxDays": "Максимальный срок аренды",
       "days": "дней",
       "driverAge": "Возраст водителя",
-      "driverAgeValue": "мин. {age} лет",
+      "driverAgeValue": "мин. {age, plural, one {# год} few {# года} other {# лет}}",
       "experience": "Опыт вождения",
-      "experienceValue": "{years} лет"
+      "experienceValue": "{years, plural, one {# год} few {# года} other {# лет}}"
     },
     "deposit": {
       "title": "Депозитная политика",

@@ -1766,11 +1766,11 @@
     "conditionsTitle": "Warunki wynajmu \"{brand} {model} {year}\"",
     "requirements": {
       "age": {
-        "title": "Twoj wiek",
+        "title": "Twój wiek",
         "value": "{age}+ lat"
       },
       "experience": {
-        "title": "Doswiadczenie w prowadzeniu",
+        "title": "Doświadczenie w prowadzeniu",
         "value": "Od {years} lat prowadzenia"
       },
       "mileage": {
@@ -2444,7 +2444,7 @@
       "driverAge": "Wiek kierowcy",
       "driverAgeValue": "min. {age} lat",
       "experience": "Doświadczenie w prowadzeniu",
-      "experienceValue": "{years} lat"
+      "experienceValue": "{years, plural, one {# rok} few {# lata} other {# lat}}"
     },
     "deposit": {
       "title": "Polityka depozytowa",

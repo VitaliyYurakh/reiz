@@ -1740,7 +1740,7 @@
       "minRental": "Мінімальний термін оренди",
       "minRentalValue": "{days} доба",
       "driverAge": "Мінімальний вік водія",
-      "driverAgeValue": "{age} років ({experience}+ років водіння)",
+      "driverAgeValue": "{age, plural, one {# рік} few {# роки} other {# років}} ({experience}+ {experience, plural, one {рік} few {роки} other {років}} водіння)",
       "mileageLimit": "Обмеження пробігу (1 доба)",
       "mileageLimitValue": "{limit} км",
       "mileageCharge": "Плата за пробіг",
@@ -1794,7 +1794,7 @@
     "requirements": {
       "age": {
         "title": "Ваш вік",
-        "value": "{age}+ років"
+        "value": "{age, plural, one {#+ рік} few {#+ роки} other {#+ років}}"
       },
       "experience": {
         "title": "Досвід водіння",
@@ -2469,9 +2469,9 @@
       "maxDays": "Максимальний термін оренди",
       "days": "днів",
       "driverAge": "Вік водія",
-      "driverAgeValue": "мін. {age} років",
+      "driverAgeValue": "мін. {age, plural, one {# рік} few {# роки} other {# років}}",
       "experience": "Досвід водіння",
-      "experienceValue": "{years} років"
+      "experienceValue": "{years, plural, one {# рік} few {# роки} other {# років}}"
     },
     "deposit": {
       "title": "Депозитна політика",
