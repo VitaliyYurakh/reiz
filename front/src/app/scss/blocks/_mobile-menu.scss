@@ -123,18 +123,41 @@
         .header {
             &__choice {
                 width: 100%;
-                justify-content: space-between;
+                justify-content: stretch;
                 gap: 8px;
 
+                &-auth {
+                    display: none;
+
+                    @include tablet {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 30px;
+                        padding: 0 12px;
+                        border-radius: 20px;
+                        background: #f2f2f2;
+                        font-size: 13px;
+                        font-weight: 500;
+                        color: var(--cl-a);
+                        text-decoration: none;
+                        white-space: nowrap;
+                        flex: 1 1 0;
+                        transition: background 0.2s ease;
+
+                        &:active {
+                            background: #e5e5e5;
+                        }
+                    }
+                }
+
                 .choice {
-                    width: calc(50% - 4px);
                     justify-content: center;
                     height: 30px;
-                    padding: 0;
+                    padding: 0 12px;
                     border-radius: 20px;
-                    justify-content: center;
                     background: #f2f2f2;
-                    width: 100%;
+                    flex: 1 1 0;
                     border: 0.5px solid transparent;
                     border-bottom: none;
 

@@ -198,6 +198,10 @@
     font-weight: 500;
     transition: opacity 0.2s;
 
+    @include tablet {
+      display: none;
+    }
+
     .sprite {
       width: 22px;
       height: 22px;

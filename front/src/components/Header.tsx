@@ -241,6 +241,13 @@ export default function Header({
                 <div className="header__choice">
                   <LanguageSwitcher />
                   <CurrencySelect />
+                  <Link
+                    href={session ? "/account" : "/auth/login"}
+                    className="header__choice-auth"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {session ? accountT("my_account") : accountT("login")}
+                  </Link>
                 </div>
 
                 <div className="header__wrapper">
