@@ -133,13 +133,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
     async jwt({ token, user, account }) {
       if (user) {
-        // On initial sign-in, load clientId
+        // On initial sign-in, load clientId and picture
         const customerAccount = await prisma.customerAccount.findUnique({
           where: { email: token.email! },
         });
         if (customerAccount) {
           token.clientId = customerAccount.clientId;
           token.sub = customerAccount.id;
+        }
+        if (user.image) {
+          token.picture = user.image;
         }
       }
       return token;
@@ -149,6 +152,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (token.clientId) {
         session.user.clientId = token.clientId as number;
         session.user.id = token.sub!;
+      }
+      if (token.picture) {
+        session.user.image = token.picture as string;
       }
       return session;
     },
