@@ -3,7 +3,8 @@ www.reiz.com.ua {
 }
 
 reiz.com.ua {
-  # Next.js API routes (currency rates)
+  # Next.js API routes (Auth.js + currency rates)
+  reverse_proxy /api/auth/* web:8080
   reverse_proxy /api/rates web:8080
 
   # Express backend API
