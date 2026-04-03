@@ -2492,7 +2492,7 @@
     }
   },
   "account": {
-    "login": { "title": "Zaloguj się", "subtitle": "Zaloguj się, aby zarządzać rezerwacjami", "google": "Zaloguj przez Google", "or": "lub", "submit": "Zaloguj się", "loading": "Ładowanie...", "no_account": "Nie masz konta?", "register_link": "Zarejestruj się" },
+    "login": { "title": "Zaloguj się", "modal_title": "Zaloguj się lub zarejestruj", "subtitle": "Zaloguj się, aby zarządzać rezerwacjami", "google": "Zaloguj przez Google", "or": "lub", "submit": "Zaloguj się", "loading": "Ładowanie...", "no_account": "Nie masz konta?", "register_link": "Zarejestruj się" },
     "register": { "title": "Rejestracja", "subtitle": "Utwórz konto do szybkiej rezerwacji", "google": "Zarejestruj przez Google", "submit": "Zarejestruj się", "loading": "Ładowanie...", "have_account": "Masz już konto?", "login_link": "Zaloguj się", "consent": "Zgadzam się z polityką prywatności" },
     "fields": { "email": "Email", "email_placeholder": "your@email.com", "password": "Hasło", "password_placeholder": "Minimum 8 znaków", "first_name": "Imię", "first_name_placeholder": "Twoje imię", "last_name": "Nazwisko", "last_name_placeholder": "Twoje nazwisko", "phone": "Telefon", "phone_placeholder": "+48" },
     "errors": { "all_fields_required": "Wypełnij wszystkie pola", "password_too_short": "Hasło musi mieć co najmniej 8 znaków", "email_exists": "Ten email jest już zarejestrowany", "invalid_credentials": "Nieprawidłowy email lub hasło" },

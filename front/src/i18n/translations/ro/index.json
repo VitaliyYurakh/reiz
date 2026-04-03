@@ -2544,7 +2544,7 @@
     }
   },
   "account": {
-    "login": { "title": "Autentificare", "subtitle": "Conectați-vă pentru a gestiona rezervările", "google": "Conectare cu Google", "or": "sau", "submit": "Autentificare", "loading": "Se încarcă...", "no_account": "Nu aveți cont?", "register_link": "Înregistrare" },
+    "login": { "title": "Autentificare", "modal_title": "Conectați-vă sau înregistrați-vă", "subtitle": "Conectați-vă pentru a gestiona rezervările", "google": "Conectare cu Google", "or": "sau", "submit": "Autentificare", "loading": "Se încarcă...", "no_account": "Nu aveți cont?", "register_link": "Înregistrare" },
     "register": { "title": "Înregistrare", "subtitle": "Creați un cont pentru rezervări rapide", "google": "Înregistrare cu Google", "submit": "Înregistrare", "loading": "Se încarcă...", "have_account": "Aveți deja cont?", "login_link": "Autentificare", "consent": "Sunt de acord cu politica de confidențialitate" },
     "fields": { "email": "Email", "email_placeholder": "your@email.com", "password": "Parolă", "password_placeholder": "Minimum 8 caractere", "first_name": "Prenume", "first_name_placeholder": "Prenumele dvs.", "last_name": "Nume", "last_name_placeholder": "Numele dvs.", "phone": "Telefon", "phone_placeholder": "+40" },
     "errors": { "all_fields_required": "Completați toate câmpurile", "password_too_short": "Parola trebuie să aibă cel puțin 8 caractere", "email_exists": "Acest email este deja înregistrat", "invalid_credentials": "Email sau parolă incorectă" },

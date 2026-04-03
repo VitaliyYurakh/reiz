@@ -2495,6 +2495,7 @@
   "account": {
     "login": {
       "title": "Sign In",
+      "modal_title": "Sign in or sign up",
       "subtitle": "Sign in to manage your bookings",
       "google": "Sign in with Google",
       "or": "or",
