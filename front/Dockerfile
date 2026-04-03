@@ -17,7 +17,7 @@ COPY . .
 RUN npx prisma generate
 
 # Auth.js needs these at build time for static pages
-ARG NEXT_PUBLIC_BASE_URL=https://reiz.com.ua
+ARG NEXT_PUBLIC_BASE_URL=https://reiz.com.ua/
 ARG NEXT_PUBLIC_API_URL=http://api:3000/api
 ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
