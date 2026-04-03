@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import CurrencySelect from "@/components/CurrencySelect";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import UiImage from "@/components/ui/UiImage";
@@ -8,102 +10,143 @@ import { SOCIAL_LINKS } from "@/config/social";
 import { useSession } from "next-auth/react";
 import { Link } from "@/i18n/request";
 
+const LoginModal = dynamic(
+  () => import("@/components/modals/LoginModal"),
+  { ssr: false },
+);
+
 export default function UtilityBar() {
   const headerT = useTranslations("header");
   const { data: session } = useSession();
+  const [showLogin, setShowLogin] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  function openLogin() {
+    setShowLogin(true);
+    setIsClosing(false);
+  }
+
+  function closeLogin() {
+    setIsClosing(true);
+    setTimeout(() => {
+      setShowLogin(false);
+      setIsClosing(false);
+    }, 250);
+  }
 
   return (
-    <div className="utility-bar">
-      <div className="utility-bar__links">
-        <button
-          type="button"
-          className="utility-bar__link"
-          aria-label="WhatsApp"
-          onClick={() => alert(headerT("whatsapp_unavailable"))}
-        >
-          <span className="default">
-            <UiImage
-              width={28}
-              height={28}
-              src="/img/icons/whatsapp.svg"
-              alt="WhatsApp"
-            />
-          </span>
-          <span className="hover">
-            <UiImage
-              width={28}
-              height={28}
-              src="/img/icons/whatsapp-hover.svg"
-              alt="WhatsApp"
-            />
-          </span>
-        </button>
-        <a
-          href={SOCIAL_LINKS.telegram}
-          className="utility-bar__link"
-          aria-label="REIZ в Telegram"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="default">
-            <UiImage
-              width={28}
-              height={28}
-              src="/img/icons/telegram.svg"
-              alt="REIZ в Telegram"
-            />
-          </span>
-          <span className="hover">
-            <UiImage
-              width={28}
-              height={28}
-              src="/img/icons/telegram-hover.svg"
-              alt="REIZ в Telegram"
-            />
-          </span>
-        </a>
-        <a
-          href={SOCIAL_LINKS.instagram}
-          className="utility-bar__link"
-          aria-label="REIZ в Instagram"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="default">
-            <UiImage
-              width={28}
-              height={28}
-              src="/img/icons/instagram-color.svg"
-              alt="REIZ в Instagram"
-            />
-          </span>
-          <span className="hover">
-            <UiImage
-              width={28}
-              height={28}
-              src="/img/icons/instagram-hover.svg"
-              alt="REIZ в Instagram"
-            />
-          </span>
-        </a>
+    <>
+      <div className="utility-bar">
+        <div className="utility-bar__links">
+          <button
+            type="button"
+            className="utility-bar__link"
+            aria-label="WhatsApp"
+            onClick={() => alert(headerT("whatsapp_unavailable"))}
+          >
+            <span className="default">
+              <UiImage
+                width={28}
+                height={28}
+                src="/img/icons/whatsapp.svg"
+                alt="WhatsApp"
+              />
+            </span>
+            <span className="hover">
+              <UiImage
+                width={28}
+                height={28}
+                src="/img/icons/whatsapp-hover.svg"
+                alt="WhatsApp"
+              />
+            </span>
+          </button>
+          <a
+            href={SOCIAL_LINKS.telegram}
+            className="utility-bar__link"
+            aria-label="REIZ в Telegram"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="default">
+              <UiImage
+                width={28}
+                height={28}
+                src="/img/icons/telegram.svg"
+                alt="REIZ в Telegram"
+              />
+            </span>
+            <span className="hover">
+              <UiImage
+                width={28}
+                height={28}
+                src="/img/icons/telegram-hover.svg"
+                alt="REIZ в Telegram"
+              />
+            </span>
+          </a>
+          <a
+            href={SOCIAL_LINKS.instagram}
+            className="utility-bar__link"
+            aria-label="REIZ в Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="default">
+              <UiImage
+                width={28}
+                height={28}
+                src="/img/icons/instagram-color.svg"
+                alt="REIZ в Instagram"
+              />
+            </span>
+            <span className="hover">
+              <UiImage
+                width={28}
+                height={28}
+                src="/img/icons/instagram-hover.svg"
+                alt="REIZ в Instagram"
+              />
+            </span>
+          </a>
+        </div>
+
+        <div className="utility-bar__controls">
+          <LanguageSwitcher />
+          <CurrencySelect />
+        </div>
+
+        {session ? (
+          <Link
+            href="/account"
+            className="utility-bar__profile"
+            aria-label="My Account"
+          >
+            <svg width={32} height={32} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="15.5" stroke="currentColor" />
+              <circle cx="16" cy="13" r="4.5" stroke="currentColor" />
+              <path d="M8 25.5C8 25.5 10 21 16 21C22 21 24 25.5 24 25.5" stroke="currentColor" strokeLinecap="round" />
+            </svg>
+          </Link>
+        ) : (
+          <button
+            type="button"
+            className="utility-bar__profile"
+            aria-label="Sign In"
+            onClick={openLogin}
+          >
+            <svg width={32} height={32} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="15.5" stroke="currentColor" />
+              <circle cx="16" cy="13" r="4.5" stroke="currentColor" />
+              <path d="M8 25.5C8 25.5 10 21 16 21C22 21 24 25.5 24 25.5" stroke="currentColor" strokeLinecap="round" />
+            </svg>
+          </button>
+        )}
       </div>
 
-      <div className="utility-bar__controls">
-        <LanguageSwitcher />
-        <CurrencySelect />
-      </div>
-
-      <Link
-        href={session ? "/account" : "/auth/login"}
-        className="utility-bar__profile"
-        aria-label={session ? "My Account" : "Sign In"}
-      >
-        <svg width={32} height={32} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="16" cy="16" r="15.5" stroke="currentColor" />
-          <circle cx="16" cy="13" r="4.5" stroke="currentColor" />
-          <path d="M8 25.5C8 25.5 10 21 16 21C22 21 24 25.5 24 25.5" stroke="currentColor" strokeLinecap="round" />
-        </svg>
-      </Link>
-    </div>
+      {showLogin && (
+        <LoginModal isClosing={isClosing} onClose={closeLogin} />
+      )}
+    </>
   );
 }
