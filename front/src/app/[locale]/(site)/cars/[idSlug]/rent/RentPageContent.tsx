@@ -12,6 +12,7 @@ import {
   useState,
 } from "react";
 
+import { useSession } from "next-auth/react";
 import { useCarModal } from "@/app/[locale]/(site)/cars/[idSlug]/components/modals";
 import UtilityBar from "@/components/UtilityBar";
 import LocationSelect from "@/app/[locale]/components/LocationSelect";
@@ -109,6 +110,7 @@ export default function RentPageContent({
 }: RentPageContentProps) {
   const t = useTranslations("carRentPage");
 
+  const { data: session } = useSession();
   const { open: openDatePicker } = useCarModal("rangeDateTimePicker");
   const { open: openManagerModal } = useSideBarModal(
     "managerWillContactYouModal",
@@ -158,13 +160,23 @@ export default function RentPageContent({
   }, [car.carCountingRule, initialPlanId]);
 
   useEffect(() => {
-    setFormState({ ...DEFAULT_FORM_STATE });
+    const initial = { ...DEFAULT_FORM_STATE };
+
+    // Pre-fill from session if user is logged in
+    if (session?.user) {
+      const nameParts = (session.user.name || "").split(" ");
+      initial.firstName = nameParts[0] || "";
+      initial.lastName = nameParts.slice(1).join(" ") || "";
+      initial.email = session.user.email || "";
+    }
+
+    setFormState(initial);
     setSelectedExtras(new Set());
     setFeedback("");
     setFormError(null);
     setFormResetKey((value) => value + 1);
     setInvalidFields(new Set());
-  }, []);
+  }, [session]);
 
   const setFieldRef = useCallback(
     (field: keyof FormState) => (node: HTMLElement | null) => {
