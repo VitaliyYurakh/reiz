@@ -2491,5 +2491,20 @@
       "title": "Условия оплаты",
       "default": "Наличные, банковская карта, онлайн"
     }
+  },
+  "account": {
+    "login": { "title": "Войти", "subtitle": "Войдите, чтобы управлять бронированиями", "google": "Войти через Google", "or": "или", "submit": "Войти", "loading": "Загрузка...", "no_account": "Нет аккаунта?", "register_link": "Зарегистрироваться" },
+    "register": { "title": "Регистрация", "subtitle": "Создайте аккаунт для быстрого бронирования", "google": "Зарегистрироваться через Google", "submit": "Зарегистрироваться", "loading": "Загрузка...", "have_account": "Уже есть аккаунт?", "login_link": "Войти", "consent": "Я согласен с политикой конфиденциальности" },
+    "fields": { "email": "Email", "email_placeholder": "your@email.com", "password": "Пароль", "password_placeholder": "Минимум 8 символов", "first_name": "Имя", "first_name_placeholder": "Ваше имя", "last_name": "Фамилия", "last_name_placeholder": "Ваша фамилия", "phone": "Телефон", "phone_placeholder": "+380" },
+    "errors": { "all_fields_required": "Заполните все поля", "password_too_short": "Пароль должен быть не менее 8 символов", "email_exists": "Этот email уже зарегистрирован", "invalid_credentials": "Неверный email или пароль" },
+    "nav": { "overview": "Обзор", "profile": "Профиль", "bookings": "Бронирования", "history": "История", "favorites": "Избранное", "notifications": "Уведомления", "privacy": "Конфиденциальность", "logout": "Выйти" },
+    "overview": { "title": "Мой кабинет", "welcome": "Добро пожаловать, {name}!", "no_bookings": "У вас нет активных бронирований", "upcoming_trip": "Ближайшая поездка" },
+    "profile": { "title": "Профиль", "save": "Сохранить", "saved": "Сохранено!" },
+    "bookings": { "title": "Активные бронирования", "empty": "Нет активных бронирований", "pickup": "Получение", "return": "Возврат", "status": "Статус" },
+    "history": { "title": "История", "empty": "История пуста", "tab_reservations": "Бронирования", "tab_rentals": "Аренды" },
+    "favorites": { "title": "Избранное", "empty": "У вас нет избранных авто", "remove": "Удалить" },
+    "notifications": { "title": "Уведомления", "email_deals": "Акции и скидки", "email_reminders": "Напоминания о бронировании", "email_receipts": "Квитанции и счета", "saved": "Сохранено!" },
+    "privacy": { "title": "Конфиденциальность и данные", "export_title": "Экспорт данных", "export_desc": "Скачайте все ваши данные в формате JSON", "export_btn": "Скачать данные", "delete_title": "Удаление аккаунта", "delete_desc": "Это действие необратимо. Все ваши данные будут удалены.", "delete_btn": "Удалить аккаунт", "delete_confirm": "Вы уверены? Это нельзя отменить.", "delete_yes": "Да, удалить", "delete_cancel": "Отмена" },
+    "header": { "my_account": "Мой кабинет", "login": "Войти" }
   }
 }

@@ -95,6 +95,9 @@ model Car {
   rentals        Rental[]
   ratePlans      RatePlan[]
   serviceEvents  ServiceEvent[]
+
+  // Customer cabinet relations
+  favorites Favorite[]
 }
 
 model Segment {
@@ -249,6 +252,11 @@ model Client {
   reservations   Reservation[]
   rentals        Rental[]
   transactions   Transaction[]
+
+  // Customer cabinet relations
+  customerAccount        CustomerAccount?
+  favorites              Favorite[]
+  notificationPreference NotificationPreference?
 
   @@index([phone])
   @@index([email])
@@ -778,4 +786,54 @@ model PickupLocation {
   @@unique([cityId, slug])
   @@index([cityId])
   @@map("pickup_location")
+}
+
+// ============================================================
+// CUSTOMER CABINET MODELS
+// ============================================================
+
+model CustomerAccount {
+  id            String    @id @default(cuid())
+  clientId      Int       @unique @map("client_id")
+  email         String    @unique
+  passwordHash  String?   @map("password_hash")
+  googleId      String?   @unique @map("google_id")
+  emailVerified DateTime? @map("email_verified")
+  avatarUrl     String?   @map("avatar_url")
+  isActive      Boolean   @default(true) @map("is_active")
+  deletedAt     DateTime? @map("deleted_at")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  client Client @relation(fields: [clientId], references: [id])
+
+  @@index([email])
+  @@index([googleId])
+  @@map("customer_account")
+}
+
+model Favorite {
+  id        Int      @id @default(autoincrement())
+  clientId  Int      @map("client_id")
+  carId     Int      @map("car_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  car    Car    @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@unique([clientId, carId])
+  @@index([clientId])
+  @@map("favorite")
+}
+
+model NotificationPreference {
+  id             Int     @id @default(autoincrement())
+  clientId       Int     @unique @map("client_id")
+  emailDeals     Boolean @default(true) @map("email_deals")
+  emailReminders Boolean @default(true) @map("email_reminders")
+  emailReceipts  Boolean @default(true) @map("email_receipts")
+
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@map("notification_preference")
 }

@@ -2542,5 +2542,20 @@
       "title": "Condiții de plată",
       "default": "Numerar, card bancar, online"
     }
+  },
+  "account": {
+    "login": { "title": "Autentificare", "subtitle": "Conectați-vă pentru a gestiona rezervările", "google": "Conectare cu Google", "or": "sau", "submit": "Autentificare", "loading": "Se încarcă...", "no_account": "Nu aveți cont?", "register_link": "Înregistrare" },
+    "register": { "title": "Înregistrare", "subtitle": "Creați un cont pentru rezervări rapide", "google": "Înregistrare cu Google", "submit": "Înregistrare", "loading": "Se încarcă...", "have_account": "Aveți deja cont?", "login_link": "Autentificare", "consent": "Sunt de acord cu politica de confidențialitate" },
+    "fields": { "email": "Email", "email_placeholder": "your@email.com", "password": "Parolă", "password_placeholder": "Minimum 8 caractere", "first_name": "Prenume", "first_name_placeholder": "Prenumele dvs.", "last_name": "Nume", "last_name_placeholder": "Numele dvs.", "phone": "Telefon", "phone_placeholder": "+40" },
+    "errors": { "all_fields_required": "Completați toate câmpurile", "password_too_short": "Parola trebuie să aibă cel puțin 8 caractere", "email_exists": "Acest email este deja înregistrat", "invalid_credentials": "Email sau parolă incorectă" },
+    "nav": { "overview": "Prezentare", "profile": "Profil", "bookings": "Rezervări", "history": "Istoric", "favorites": "Favorite", "notifications": "Notificări", "privacy": "Confidențialitate", "logout": "Deconectare" },
+    "overview": { "title": "Contul meu", "welcome": "Bun venit, {name}!", "no_bookings": "Nu aveți rezervări active", "upcoming_trip": "Următoarea călătorie" },
+    "profile": { "title": "Profil", "save": "Salvare", "saved": "Salvat!" },
+    "bookings": { "title": "Rezervări active", "empty": "Nicio rezervare activă", "pickup": "Ridicare", "return": "Returnare", "status": "Status" },
+    "history": { "title": "Istoric", "empty": "Istoricul este gol", "tab_reservations": "Rezervări", "tab_rentals": "Închirieri" },
+    "favorites": { "title": "Favorite", "empty": "Nu aveți mașini favorite", "remove": "Eliminare" },
+    "notifications": { "title": "Notificări", "email_deals": "Oferte și reduceri", "email_reminders": "Memento-uri de rezervare", "email_receipts": "Chitanțe și facturi", "saved": "Salvat!" },
+    "privacy": { "title": "Confidențialitate și date", "export_title": "Export date", "export_desc": "Descărcați datele personale în format JSON", "export_btn": "Descărcare date", "delete_title": "Ștergere cont", "delete_desc": "Această acțiune este ireversibilă. Toate datele vor fi șterse.", "delete_btn": "Șterge contul", "delete_confirm": "Sunteți sigur? Nu se poate anula.", "delete_yes": "Da, șterge", "delete_cancel": "Anulare" },
+    "header": { "my_account": "Contul meu", "login": "Autentificare" }
   }
 }

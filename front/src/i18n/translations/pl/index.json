@@ -2490,5 +2490,20 @@
       "title": "Warunki płatności",
       "default": "Gotówka, karta bankowa, online"
     }
+  },
+  "account": {
+    "login": { "title": "Zaloguj się", "subtitle": "Zaloguj się, aby zarządzać rezerwacjami", "google": "Zaloguj przez Google", "or": "lub", "submit": "Zaloguj się", "loading": "Ładowanie...", "no_account": "Nie masz konta?", "register_link": "Zarejestruj się" },
+    "register": { "title": "Rejestracja", "subtitle": "Utwórz konto do szybkiej rezerwacji", "google": "Zarejestruj przez Google", "submit": "Zarejestruj się", "loading": "Ładowanie...", "have_account": "Masz już konto?", "login_link": "Zaloguj się", "consent": "Zgadzam się z polityką prywatności" },
+    "fields": { "email": "Email", "email_placeholder": "your@email.com", "password": "Hasło", "password_placeholder": "Minimum 8 znaków", "first_name": "Imię", "first_name_placeholder": "Twoje imię", "last_name": "Nazwisko", "last_name_placeholder": "Twoje nazwisko", "phone": "Telefon", "phone_placeholder": "+48" },
+    "errors": { "all_fields_required": "Wypełnij wszystkie pola", "password_too_short": "Hasło musi mieć co najmniej 8 znaków", "email_exists": "Ten email jest już zarejestrowany", "invalid_credentials": "Nieprawidłowy email lub hasło" },
+    "nav": { "overview": "Przegląd", "profile": "Profil", "bookings": "Rezerwacje", "history": "Historia", "favorites": "Ulubione", "notifications": "Powiadomienia", "privacy": "Prywatność", "logout": "Wyloguj" },
+    "overview": { "title": "Moje konto", "welcome": "Witaj, {name}!", "no_bookings": "Nie masz aktywnych rezerwacji", "upcoming_trip": "Nadchodząca podróż" },
+    "profile": { "title": "Profil", "save": "Zapisz", "saved": "Zapisano!" },
+    "bookings": { "title": "Aktywne rezerwacje", "empty": "Brak aktywnych rezerwacji", "pickup": "Odbiór", "return": "Zwrot", "status": "Status" },
+    "history": { "title": "Historia", "empty": "Historia jest pusta", "tab_reservations": "Rezerwacje", "tab_rentals": "Wynajmy" },
+    "favorites": { "title": "Ulubione", "empty": "Nie masz ulubionych samochodów", "remove": "Usuń" },
+    "notifications": { "title": "Powiadomienia", "email_deals": "Promocje i zniżki", "email_reminders": "Przypomnienia o rezerwacji", "email_receipts": "Rachunki i faktury", "saved": "Zapisano!" },
+    "privacy": { "title": "Prywatność i dane", "export_title": "Eksport danych", "export_desc": "Pobierz swoje dane w formacie JSON", "export_btn": "Pobierz dane", "delete_title": "Usunięcie konta", "delete_desc": "Ta akcja jest nieodwracalna. Wszystkie dane zostaną usunięte.", "delete_btn": "Usuń konto", "delete_confirm": "Czy na pewno? Tego nie można cofnąć.", "delete_yes": "Tak, usuń", "delete_cancel": "Anuluj" },
+    "header": { "my_account": "Moje konto", "login": "Zaloguj się" }
   }
 }

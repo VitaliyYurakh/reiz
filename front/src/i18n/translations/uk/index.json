@@ -2517,5 +2517,107 @@
       "title": "Умови оплати",
       "default": "Готівка, банківська картка, онлайн"
     }
+  },
+  "account": {
+    "login": {
+      "title": "Увійти",
+      "subtitle": "Увійдіть, щоб керувати бронюваннями",
+      "google": "Увійти через Google",
+      "or": "або",
+      "submit": "Увійти",
+      "loading": "Завантаження...",
+      "no_account": "Немає акаунту?",
+      "register_link": "Зареєструватися"
+    },
+    "register": {
+      "title": "Реєстрація",
+      "subtitle": "Створіть акаунт для швидкого бронювання",
+      "google": "Зареєструватися через Google",
+      "submit": "Зареєструватися",
+      "loading": "Завантаження...",
+      "have_account": "Вже є акаунт?",
+      "login_link": "Увійти",
+      "consent": "Я погоджуюся з політикою конфіденційності"
+    },
+    "fields": {
+      "email": "Email",
+      "email_placeholder": "your@email.com",
+      "password": "Пароль",
+      "password_placeholder": "Мінімум 8 символів",
+      "first_name": "Ім'я",
+      "first_name_placeholder": "Ваше ім'я",
+      "last_name": "Прізвище",
+      "last_name_placeholder": "Ваше прізвище",
+      "phone": "Телефон",
+      "phone_placeholder": "+380"
+    },
+    "errors": {
+      "all_fields_required": "Заповніть усі поля",
+      "password_too_short": "Пароль має бути не менше 8 символів",
+      "email_exists": "Цей email вже зареєстрований",
+      "invalid_credentials": "Невірний email або пароль"
+    },
+    "nav": {
+      "overview": "Огляд",
+      "profile": "Профіль",
+      "bookings": "Бронювання",
+      "history": "Історія",
+      "favorites": "Обране",
+      "notifications": "Сповіщення",
+      "privacy": "Конфіденційність",
+      "logout": "Вийти"
+    },
+    "overview": {
+      "title": "Мій кабінет",
+      "welcome": "Вітаємо, {name}!",
+      "no_bookings": "У вас немає активних бронювань",
+      "upcoming_trip": "Наступна поїздка"
+    },
+    "profile": {
+      "title": "Профіль",
+      "save": "Зберегти",
+      "saved": "Збережено!"
+    },
+    "bookings": {
+      "title": "Активні бронювання",
+      "empty": "Немає активних бронювань",
+      "pickup": "Отримання",
+      "return": "Повернення",
+      "status": "Статус"
+    },
+    "history": {
+      "title": "Історія",
+      "empty": "Історія порожня",
+      "tab_reservations": "Бронювання",
+      "tab_rentals": "Оренди"
+    },
+    "favorites": {
+      "title": "Обране",
+      "empty": "У вас немає обраних авто",
+      "remove": "Видалити"
+    },
+    "notifications": {
+      "title": "Сповіщення",
+      "email_deals": "Акції та знижки",
+      "email_reminders": "Нагадування про бронювання",
+      "email_receipts": "Квитанції та рахунки",
+      "saved": "Збережено!"
+    },
+    "privacy": {
+      "title": "Конфіденційність та дані",
+      "export_title": "Експорт даних",
+      "export_desc": "Завантажте всі ваші персональні дані у форматі JSON",
+      "export_btn": "Завантажити дані",
+      "delete_title": "Видалення акаунту",
+      "delete_desc": "Ця дія незворотна. Всі ваші дані будуть видалені.",
+      "delete_btn": "Видалити акаунт",
+      "delete_confirm": "Ви впевнені? Цю дію неможливо скасувати.",
+      "delete_yes": "Так, видалити",
+      "delete_cancel": "Скасувати"
+    },
+    "header": {
+      "my_account": "Мій кабінет",
+      "login": "Увійти"
+    }
   }
 }

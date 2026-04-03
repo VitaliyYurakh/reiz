@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import SideBarClientProvider from "@/components/modals/SideBarClientProvider";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { RentalSearchProvider } from "@/context/RentalSearchContext";
+import { SessionProvider } from "next-auth/react";
 
 
 export function generateStaticParams(): { locale: Locale }[] {
@@ -24,12 +25,14 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(resolvedLocale);
 
   return (
-    <NextIntlClientProvider locale={resolvedLocale}>
-      <CurrencyProvider>
-        <RentalSearchProvider>
-          <SideBarClientProvider>{children}</SideBarClientProvider>
-        </RentalSearchProvider>
-      </CurrencyProvider>
-    </NextIntlClientProvider>
+    <SessionProvider>
+      <NextIntlClientProvider locale={resolvedLocale}>
+        <CurrencyProvider>
+          <RentalSearchProvider>
+            <SideBarClientProvider>{children}</SideBarClientProvider>
+          </RentalSearchProvider>
+        </CurrencyProvider>
+      </NextIntlClientProvider>
+    </SessionProvider>
   );
 }

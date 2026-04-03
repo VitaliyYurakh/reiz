@@ -2491,5 +2491,107 @@
       "title": "Payment",
       "default": "Cash, bank card, online"
     }
+  },
+  "account": {
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Sign in to manage your bookings",
+      "google": "Sign in with Google",
+      "or": "or",
+      "submit": "Sign In",
+      "loading": "Loading...",
+      "no_account": "Don't have an account?",
+      "register_link": "Sign Up"
+    },
+    "register": {
+      "title": "Sign Up",
+      "subtitle": "Create an account for fast booking",
+      "google": "Sign up with Google",
+      "submit": "Sign Up",
+      "loading": "Loading...",
+      "have_account": "Already have an account?",
+      "login_link": "Sign In",
+      "consent": "I agree to the privacy policy"
+    },
+    "fields": {
+      "email": "Email",
+      "email_placeholder": "your@email.com",
+      "password": "Password",
+      "password_placeholder": "Minimum 8 characters",
+      "first_name": "First Name",
+      "first_name_placeholder": "Your first name",
+      "last_name": "Last Name",
+      "last_name_placeholder": "Your last name",
+      "phone": "Phone",
+      "phone_placeholder": "+380"
+    },
+    "errors": {
+      "all_fields_required": "Please fill in all fields",
+      "password_too_short": "Password must be at least 8 characters",
+      "email_exists": "This email is already registered",
+      "invalid_credentials": "Invalid email or password"
+    },
+    "nav": {
+      "overview": "Overview",
+      "profile": "Profile",
+      "bookings": "Bookings",
+      "history": "History",
+      "favorites": "Favorites",
+      "notifications": "Notifications",
+      "privacy": "Privacy",
+      "logout": "Sign Out"
+    },
+    "overview": {
+      "title": "My Account",
+      "welcome": "Welcome, {name}!",
+      "no_bookings": "You have no active bookings",
+      "upcoming_trip": "Upcoming Trip"
+    },
+    "profile": {
+      "title": "Profile",
+      "save": "Save",
+      "saved": "Saved!"
+    },
+    "bookings": {
+      "title": "Active Bookings",
+      "empty": "No active bookings",
+      "pickup": "Pickup",
+      "return": "Return",
+      "status": "Status"
+    },
+    "history": {
+      "title": "History",
+      "empty": "No history yet",
+      "tab_reservations": "Reservations",
+      "tab_rentals": "Rentals"
+    },
+    "favorites": {
+      "title": "Favorites",
+      "empty": "You have no favorite cars yet",
+      "remove": "Remove"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "email_deals": "Deals & discounts",
+      "email_reminders": "Booking reminders",
+      "email_receipts": "Receipts & invoices",
+      "saved": "Saved!"
+    },
+    "privacy": {
+      "title": "Privacy & Data",
+      "export_title": "Export Data",
+      "export_desc": "Download all your personal data as JSON",
+      "export_btn": "Download Data",
+      "delete_title": "Delete Account",
+      "delete_desc": "This action is irreversible. All your data will be deleted.",
+      "delete_btn": "Delete Account",
+      "delete_confirm": "Are you sure? This cannot be undone.",
+      "delete_yes": "Yes, Delete",
+      "delete_cancel": "Cancel"
+    },
+    "header": {
+      "my_account": "My Account",
+      "login": "Sign In"
+    }
   }
 }
