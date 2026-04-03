@@ -220,7 +220,18 @@ export default function Header({
               className="header-account-link"
               aria-label={session ? accountT("my_account") : accountT("login")}
             >
-              <Icon id="user" width={22} height={22} />
+              {session?.user?.image ? (
+                <img
+                  src={session.user.image}
+                  alt=""
+                  className="header-account-link__avatar"
+                  width={22}
+                  height={22}
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <Icon id="user" width={22} height={22} />
+              )}
               <span className="header-account-link__text">
                 {session ? accountT("my_account") : accountT("login")}
               </span>

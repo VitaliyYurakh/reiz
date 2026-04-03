@@ -46,7 +46,7 @@ export default function ProfileCard({ profile, bookingsCount = 0 }: ProfileCardP
       <div className="profile-card__left">
         <div className="profile-card__avatar-wrap">
           {avatar ? (
-            <img src={avatar} alt={name} className="profile-card__avatar" />
+            <img src={avatar} alt={name} className="profile-card__avatar" referrerPolicy="no-referrer" />
           ) : (
             <div className="profile-card__avatar profile-card__avatar--placeholder">
               {firstName.charAt(0).toUpperCase()}
