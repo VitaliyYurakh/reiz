@@ -13,6 +13,7 @@ import {
 } from "react";
 
 import { useCarModal } from "@/app/[locale]/(site)/cars/[idSlug]/components/modals";
+import UtilityBar from "@/components/UtilityBar";
 import LocationSelect from "@/app/[locale]/components/LocationSelect";
 import { Link } from "@/i18n/request";
 import type { Car, CarCountingRule } from "@/types/cars";
@@ -474,7 +475,7 @@ export default function RentPageContent({
   return (
     <section className="rent-page">
       <div className="container">
-        <div className="rent-page__surface">
+        <div className="rent-page__top-bar">
           <ul
             className="breadcrumbs"
             data-aos="fade-right"
@@ -494,6 +495,9 @@ export default function RentPageContent({
             </li>
             <li>{t("breadcrumbs.booking")}</li>
           </ul>
+          <UtilityBar />
+        </div>
+        <div className="rent-page__surface">
           <div className="rent-page__main">
             <form className="rent-page__form-card" onSubmit={handleSubmit}>
               <div className="rent-page__search">

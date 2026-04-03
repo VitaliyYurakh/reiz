@@ -4,6 +4,19 @@ $rental-error-color: #d24b4b;
 $rental-success-color: #2f8f5b;
 
 .rent-page {
+  &__top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @include tablet {
+      padding-top: 15px;
+      padding-bottom: 5px;
+    }
+  }
+
   &__surface {
     display: flex;
     flex-direction: column;

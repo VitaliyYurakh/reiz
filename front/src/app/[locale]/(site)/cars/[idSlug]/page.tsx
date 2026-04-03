@@ -22,6 +22,7 @@ import {createCarIdSlug, parseCarIdFromSlug} from "@/lib/utils/carSlug";
 import {formatEngine} from "@/lib/utils/catalog-utils";
 import { notFound, permanentRedirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
+import UtilityBar from "@/components/UtilityBar";
 import { generateVehicleSchema, generateProductSchema } from "@/lib/schema/vehicle";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
@@ -355,6 +356,7 @@ export default async function CarPage({
                         </li>
                     </ul>
                 </nav>
+                <UtilityBar />
             </div>
             <section className="single-section">
             <div className="container">
