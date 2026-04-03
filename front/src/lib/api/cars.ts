@@ -1,11 +1,11 @@
 import type { Car } from "@/types/cars";
-import {API_URL} from "@/config/environment";
+import {API_URL_SERVER} from "@/config/environment";
 
 const isDev = process.env.NODE_ENV === "development";
 
 export async function fetchCars(): Promise<Car[]> {
   try {
-    const res = await fetch(`${API_URL}/car`, {
+    const res = await fetch(`${API_URL_SERVER}/car`, {
       ...(isDev ? { cache: "no-store" as const } : { next: { revalidate: 60, tags: ["cars"] } }),
       headers: { Accept: "application/json" },
     });
@@ -24,7 +24,7 @@ export async function fetchCars(): Promise<Car[]> {
 }
 
 export async function fetchCar(id: number): Promise<Car | null> {
-  const res = await fetch(`${API_URL}/car/${id}`, {
+  const res = await fetch(`${API_URL_SERVER}/car/${id}`, {
     ...(isDev ? { cache: "no-store" as const } : { next: { revalidate: 60, tags: ["cars", `car-${id}`] } }),
     headers: { Accept: "application/json" },
   });
@@ -48,7 +48,7 @@ export async function fetchCar(id: number): Promise<Car | null> {
  * - Filters out invalid/test cars
  */
 export async function fetchCarsForSitemap(): Promise<Car[]> {
-  const res = await fetch(`${API_URL}/car`, {
+  const res = await fetch(`${API_URL_SERVER}/car`, {
     cache: "no-store", // Always fresh data for sitemap
     headers: { Accept: "application/json" },
   });

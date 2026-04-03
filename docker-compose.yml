@@ -39,7 +39,7 @@ services:
             GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
             GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
             SERVICE_SECRET: ${SERVICE_SECRET}
-            NEXT_PUBLIC_API_URL: http://api:3000/api
+            API_URL_INTERNAL: http://api:3000/api
             NEXT_PUBLIC_BASE_URL: https://reiz.com.ua/
         expose:
             - "8080"

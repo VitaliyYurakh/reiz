@@ -2,7 +2,7 @@
 
 import { auth } from "@/auth";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
+const API_URL = process.env.API_URL_INTERNAL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
 const SERVICE_SECRET = process.env.SERVICE_SECRET || "";
 
 async function customerFetch(
