@@ -1780,7 +1780,8 @@
     },
     "links": {
       "conditions": "Dowiedz sie wiecej o warunkach",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "rentalPolicy": "Polityka wynajmu {carName}"
     },
     "tooltips": {
       "club": "Cena klubowa dla lojalnych klientow Reiz.<br/>Zapytaj menedzera o szczegoly.",

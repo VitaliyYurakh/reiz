@@ -1832,7 +1832,8 @@
     },
     "links": {
       "conditions": "Află mai multe despre condiții",
-      "faq": "Întrebări frecvente"
+      "faq": "Întrebări frecvente",
+      "rentalPolicy": "Politica de închiriere {carName}"
     },
     "tooltips": {
       "club": "Preț club pentru clienții fideli Reiz.<br/>Contactați managerul pentru detalii.",

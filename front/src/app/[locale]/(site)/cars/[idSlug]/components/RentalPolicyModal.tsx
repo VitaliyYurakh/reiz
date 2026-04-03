@@ -452,7 +452,7 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
           font-size: 14px;
           line-height: 1.5;
           color: #5e5e5e;
-          min-width: 320px;
+          flex: 1;
         }
         .rpm__value {
           font-weight: 400;
@@ -473,14 +473,25 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
         .rpm__text--success { color: #16a34a; font-weight: 600; }
         .rpm__text--warning { color: #dc2626; font-weight: 600; }
 
-        @media (max-width: 640px) {
-          .rpm-overlay { padding-top: 40px; }
-          .rpm { max-height: calc(100vh - 60px); border-radius: 12px; }
+        @media (max-width: 768px) {
+          .rpm-overlay {
+            padding: 0;
+            align-items: flex-end;
+            animation: rpmFadeIn 0.2s ease;
+          }
+          .rpm {
+            max-width: 100%;
+            max-height: 100%;
+            height: 100%;
+            border-radius: 0;
+            animation: rpmSlideUp 0.35s ease;
+          }
+          @keyframes rpmSlideUp { from { transform: translateY(100%) } to { transform: translateY(0) } }
           .rpm__header { padding: 14px 16px; }
           .rpm__body { padding: 0 10px 10px; }
           .rpm__body-inner { padding: 16px; max-height: 100%; }
           .rpm__heading { font-size: 18px; }
-          .rpm__label { min-width: 140px; }
+          .rpm__label { min-width: 0; }
         }
       `}</style>
     </div>

@@ -25,6 +25,7 @@ const tooltipStyle: CSSProperties & Record<"--rt-color-dark", string> = {
   backgroundColor: "#21262D",
   color: "#FFFFFF",
   "--rt-color-dark": "#21262D",
+  maxWidth: "min(90vw, 400px)",
 };
 
 const getPlanIdForCoverage = (
@@ -456,7 +457,7 @@ export default function CarAside({ car }: { car: Car }) {
         </div>
 
         <div className="single-form__links">
-        <Link href="/terms" className="main-button main-button--black">
+          <Link href="/terms" className="main-button main-button--black">
             {t("links.conditions")}
           </Link>
           <Link href="/faq" className="main-button main-button--black">

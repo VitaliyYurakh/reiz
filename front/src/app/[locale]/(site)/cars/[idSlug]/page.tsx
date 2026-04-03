@@ -236,8 +236,8 @@ export default async function CarPage({
                             <span className="rental-conditions__icon sprite">
                                 <Icon id={"plus-circle"} width={22} height={22}/>
                             </span>
-                            <span className="rental-conditions__label">{t("rentalConditions.mileageCharge")}</span>
-                            <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.mileageChargeValue", { price: overmileagePrice })} /> <Icon id="warning-triangle" width={16} height={16} className="rental-conditions__warning" /></span>
+                            <span className="rental-conditions__label">{t("rentalConditions.mileageCharge")} <Icon id="warning-triangle" width={16} height={16} className="rental-conditions__warning" /></span>
+                            <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.mileageChargeValue", { price: overmileagePrice })} /></span>
                         </li>
                     </ul>
                     <RentalPolicyButton
@@ -397,22 +397,6 @@ export default async function CarPage({
                         <CarClientProvider>
                             <CarAside car={{...car, description: null}}/>
                         </CarClientProvider>
-
-                        {localizedDescription ? (
-                            <div className="single-section__mobile-description">
-                                <h2 className="single-section__mobile-description-title">
-                                    {t("specifications.descriptionTitle")}
-                                </h2>
-
-                                <div
-                                    className="single-section__mobile-description-content"
-                                    // biome-ignore lint/security/noDangerouslySetInnerHtml: <1>
-                                    dangerouslySetInnerHTML={{
-                                        __html: localizedDescription,
-                                    }}
-                                />
-                            </div>
-                        ) : null}
 
                     </div>
 

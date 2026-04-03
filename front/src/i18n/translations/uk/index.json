@@ -1770,14 +1770,14 @@
   "carAside": {
     "rentalPeriodTitle": "Період оренди “{brand} {model} {year}”",
     "rangeSeparator": "до",
-    "selectedDays": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
+    "selectedDays": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
     "rentalCostTitle": "Вартість оренди",
     "plans": {
       "withDeposit": "З заставою",
       "coverage": "Покриття {percent}%"
     },
     "tariffs": {
-      "exact": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
+      "exact": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "more": "{count, plural, one {Більше {count} доби} few {Більше {count} діб} many {Більше {count} діб} other {Більше {count} діб}}",
       "range": "{min} — {max} {max, plural, one {доба} few {доби} many {діб} other {діб}}",
       "pricePerDay": "{price}/добу"
@@ -1801,13 +1801,14 @@
         "value": "Від {years} років стажу"
       },
       "mileage": {
-        "title": "Обмеження пробігу ({count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}})",
+        "title": "Обмеження пробігу ({count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}})",
         "value": "{limit} км"
       }
     },
     "links": {
       "conditions": "Дізнатися більше про умови",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "rentalPolicy": "Політика оренди {carName}"
     },
     "tooltips": {
       "club": "Клубна ціна для постійних клієнтів Reiz.<br/>Подробиці уточнюйте у менеджера.",
@@ -1837,7 +1838,7 @@
       "timeLabel": "Час повернення"
     },
     "notSelected": "...",
-    "duration": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
+    "duration": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
     "confirm": "Підтвердити",
     "minRentalWarning": "Мінімальний термін оренди — {days, plural, one {{days} доба} few {{days} доби} many {{days} діб} other {{days} діб}}",
     "close": "Закрити",
@@ -1871,7 +1872,7 @@
       "pickupPlaceholder": "Місце подачі",
       "returnPlaceholder": "Місце повернення",
       "datesLabel": "Дати оренди",
-      "selectedDays": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
+      "selectedDays": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "flightNumber": "Номер рейсу",
       "flightOptional": "Необов'язково"
     },
@@ -1932,7 +1933,7 @@
       "pickupLabel": "Отримання автомобіля",
       "returnLabel": "Повернення автомобіля",
       "durationLabel": "Тривалість оренди",
-      "durationValue": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
+      "durationValue": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "rateLabel": "Тариф",
       "pricePerDay": "{formattedPrice}/добу",
       "addOnsLabel": "Доповнення",
@@ -2051,7 +2052,7 @@
       "pickupLabel": "Отримання автомобіля",
       "returnLabel": "Повернення автомобіля",
       "durationLabel": "Тривалість оренди",
-      "durationValue": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
+      "durationValue": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
       "rateLabel": "Тариф",
       "pricePerDay": "{formattedPrice}/добу",
       "addOnsLabel": "Доповнення",

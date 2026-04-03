@@ -286,6 +286,7 @@
       font-size: 14px;
       text-transform: none;
     }
+
   }
 
   &__top {
@@ -312,6 +313,10 @@
         @include for-tablet {
           margin-bottom: 26px;
         }
+
+        @include tablet {
+          margin-bottom: 15px;
+        }
       }
 
       &__title {
@@ -326,12 +331,14 @@
             margin-top: 0;
             padding: 6px 0 26px;
           }
+
+          @include tablet {
+            display: none;
+          }
         }
 
         @include tablet {
-          display: flex;
-          align-items: center;
-          height: 62px;
+          display: none;
         }
       }
     }
@@ -365,6 +372,10 @@
       cursor: pointer;
       font-size: 16px;
       color: var(--cl-a);
+
+      @include tablet {
+        font-weight: 500;
+      }
     }
   }
 
@@ -373,6 +384,10 @@
     align-items: center;
     gap: 8px;
     font-weight: 400;
+
+    @include tablet {
+      font-weight: 500;
+    }
   }
 
   &__date-right {
@@ -381,6 +396,10 @@
     gap: 8px;
     font-weight: 400;
     color: var(--cl-a);
+
+    @include tablet {
+      font-weight: 500;
+    }
 
     svg {
       fill: currentColor;
@@ -394,12 +413,7 @@
 
   @include small-tablet {
     &__top .single-form__title:first-of-type {
-      display: block;
-      height: auto;
-      min-height: 0;
-      margin-top: 0;
-      padding: 5px 0 20px;
-      line-height: 133%;
+      display: none;
     }
 
     &__btns + &__bottom {

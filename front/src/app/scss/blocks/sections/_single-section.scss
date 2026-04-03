@@ -231,6 +231,22 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
+
+      .single-section__info {
+        display: contents;
+      }
+
+      .gallery-slider {
+        order: 1;
+      }
+
+      .single-form {
+        order: 2;
+      }
+
+      .single-section__tabs {
+        order: 3;
+      }
     }
 
     @include mobile {
@@ -315,7 +331,7 @@
     }
 
     &__btn {
-      height: 44px;
+      height: 40px;
       min-width: 0;
       width: 100%;
       border-radius: 999px;
@@ -544,6 +560,12 @@
     gap: 12px;
     padding: 14px 0;
     border-top: 1px solid #eeeeee;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: 24px 1fr 55%;
+      align-items: start;
+    }
   }
 
   &__icon {
@@ -554,6 +576,10 @@
     width: 24px;
     height: 24px;
     color: #555555;
+
+    @include tablet {
+      margin-top: 1px;
+    }
 
     svg {
       width: 22px;
@@ -567,9 +593,18 @@
     line-height: 1.5;
     color: var(--col-a);
     min-width: 460px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 
-    @include small-tablet {
+    @include tablet {
       min-width: 0;
+      display: inline;
+
+      .rental-conditions__warning {
+        display: inline;
+        vertical-align: middle;
+      }
     }
   }
 
@@ -581,6 +616,14 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    white-space: nowrap;
+
+    @include tablet {
+      display: inline;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
   }
 
   &__warning {
@@ -613,7 +656,12 @@
   &__policy-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     width: fit-content;
+
+    @include tablet {
+      width: 100%;
+    }
     font-weight: 600;
     font-size: 14px;
     color: #1359ba;

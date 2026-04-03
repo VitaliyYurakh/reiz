@@ -1781,7 +1781,8 @@
     },
     "links": {
       "conditions": "Learn more about terms",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "rentalPolicy": "Rental policy {carName}"
     },
     "tooltips": {
       "club": "Club price for Reiz loyal customers.<br/>Ask your manager for details.",
