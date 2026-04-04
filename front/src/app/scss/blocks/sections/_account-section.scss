@@ -493,15 +493,23 @@
 .account-profile-info {
   display: flex;
   flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
   gap: 16px;
   padding-top: 12px;
 
   &__item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
     font-size: 15px;
     color: #222;
+
+    span {
+      min-width: 0;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
 
     svg {
       flex-shrink: 0;
@@ -973,6 +981,7 @@
   display: flex;
   align-items: center;
   gap: 0;
+  width: 100%;
   padding: 24px;
   border: 1px solid #ebebeb;
   border-radius: 20px;
@@ -987,9 +996,10 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 160px;
     padding-right: 24px;
-    min-width: 150px;
-    flex-shrink: 0;
+    min-width: 0;
+    flex: 0 1 160px;
   }
 
   &__right {
@@ -998,6 +1008,7 @@
     gap: 0;
     border-left: 1px solid #ebebeb;
     padding-left: 24px;
+    flex: 1 1 0;
     min-width: 0;
   }
 
@@ -1633,10 +1644,13 @@
 .account-profile-col {
   display: flex;
   flex-direction: column;
+  flex: 0 1 320px;
+  width: min(100%, 320px);
   min-width: 0;
 
   @include tablet {
     width: 100%;
+    flex-basis: auto;
   }
 }
 
