@@ -1,7 +1,12 @@
 import type { ReactNode } from "react";
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { getTranslations } from "next-intl/server";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 import AccountSidebar from "@/components/account/AccountSidebar";
 import Header from "@/components/Header";
 import UtilityBar from "@/components/UtilityBar";
