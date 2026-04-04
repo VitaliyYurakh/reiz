@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale, getLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
-import { Link, type Locale, locales } from "@/i18n/request";
+import { Link, defaultLocale, type Locale, locales } from "@/i18n/request";
 import RegisterForm from "./RegisterForm";
 import type { Metadata } from "next";
 
@@ -18,10 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function RegisterPage() {
-  const session = await auth();
-  if (session) redirect("/account");
-
   const locale = (await getLocale()) as Locale;
+  const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
+  const session = await auth();
+  if (session) redirect(`${localePrefix}/account`);
+
   setRequestLocale(locale);
   const t = await getTranslations("account");
 

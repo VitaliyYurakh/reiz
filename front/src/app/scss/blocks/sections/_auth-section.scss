@@ -1,6 +1,18 @@
 @use "../../mixins/breakpoint" as *;
 @use "../../mixins/disable-mob-hover" as *;
 
+.auth-standalone {
+  display: block;
+  min-height: 100dvh;
+  background: #111;
+}
+
+body:has(.auth-standalone) {
+  padding-top: 0;
+  background: #111;
+  grid-template-rows: 1fr;
+}
+
 // ── Login Modal (overlay) ──
 .login-modal-overlay {
   position: fixed;
@@ -49,6 +61,7 @@
     justify-content: center;
     color: #222;
     cursor: pointer;
+    text-decoration: none;
     transition: background 0.2s;
 
     &:hover {
@@ -65,6 +78,96 @@
       height: 36px;
       width: auto;
     }
+  }
+
+  &--page {
+    box-sizing: border-box;
+    width: min(calc(100% - 24px), 560px);
+    max-width: 560px;
+    max-height: none;
+    overflow: visible;
+    border-radius: 24px;
+    padding: 26px 22px 24px;
+
+    .login-modal__form,
+    .login-modal__divider,
+    .login-modal__google,
+    .login-modal__footer {
+      width: min(100%, 392px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .login-modal__form {
+      gap: 12px;
+    }
+
+    .login-modal__field input {
+      height: 50px;
+      border-radius: 999px;
+      padding: 0 20px;
+      font-size: 15px;
+      border-color: #b9b9b9;
+    }
+
+    .login-modal__submit,
+    .login-modal__google {
+      height: 52px;
+      border-radius: 999px;
+      font-size: 15px;
+    }
+
+    .login-modal__divider {
+      margin: 20px auto;
+
+      span {
+        font-size: 13px;
+      }
+    }
+
+    .login-modal__footer {
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    @include mobile {
+      width: min(calc(100% - 16px), 560px);
+      border-radius: 24px;
+      padding: 28px 18px 24px;
+
+      .login-modal__form,
+      .login-modal__divider,
+      .login-modal__google,
+      .login-modal__footer {
+        width: 100%;
+      }
+
+      .login-modal__field input,
+      .login-modal__submit,
+      .login-modal__google {
+        height: 52px;
+      }
+    }
+  }
+
+  &__logo--page {
+    margin-bottom: 16px;
+
+    img {
+      width: 170px;
+      height: auto;
+    }
+  }
+
+  &__title--page {
+    max-width: 392px;
+    margin: 0 auto 18px;
+    font-size: clamp(18px, 2.4vw, 24px);
+    line-height: 1.12;
+  }
+
+  &__footer--page {
+    color: #6e6e6e;
   }
 
   &__title {
@@ -260,8 +363,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100dvh - var(--header-height, 80px) - 200px);
-  padding: clamp(40px, 5vw, 80px) var(--container-offset);
+  min-height: 100dvh;
+  padding: 24px 16px;
+  background: #f5f3ee;
+
+  &--login {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #1a1f22;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -32px;
+      z-index: -2;
+      background:
+        linear-gradient(rgba(20, 24, 27, 0.24), rgba(20, 24, 27, 0.38)),
+        url("/img/hero/reiz-4-0-desktop.webp") center / cover no-repeat;
+      filter: blur(14px) brightness(1.06);
+      transform: scale(1.08);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at top center, rgba(255, 255, 255, 0.14), transparent 40%),
+        linear-gradient(rgba(20, 24, 27, 0.06), rgba(20, 24, 27, 0.22));
+    }
+  }
 
   &__logo {
     display: none;

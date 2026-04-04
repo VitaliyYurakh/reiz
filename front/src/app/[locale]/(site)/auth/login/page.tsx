@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { getTranslations, setRequestLocale, getLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
-import { Link, type Locale, locales } from "@/i18n/request";
+import { Link, defaultLocale, type Locale, locales } from "@/i18n/request";
 import LoginForm from "./LoginForm";
 import type { Metadata } from "next";
 
@@ -12,46 +13,41 @@ export function generateStaticParams() {
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("account");
   return {
-    title: t("login.title"),
+    title: t("login.modal_title"),
     robots: { index: false },
   };
 }
 
 export default async function LoginPage() {
-  const session = await auth();
-  if (session) redirect("/account");
-
   const locale = (await getLocale()) as Locale;
+  const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
+  const session = await auth();
+  if (session) redirect(`${localePrefix}/account`);
+
   setRequestLocale(locale);
   const t = await getTranslations("account");
 
   return (
-    <div className="auth-page">
-      <div className="auth-page__card">
-        <div className="auth-page__logo">
-          <svg width="200" height="60" viewBox="0 0 973 443" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Reiz Car Rental">
-            <path d="M666.14 66.64L664.37 65.24C664.177 65.0873 663.969 64.9597 663.75 64.86C638 52.57 610.95 43.56 582.18 34.19C566.833 29.19 553.583 25.4334 542.43 22.92C524.803 18.94 508.813 16 494.46 14.1C477.66 11.8734 459.84 10.7033 441 10.59C415.18 10.4433 390.877 11.8834 368.09 14.91C348.59 17.4967 329.913 20.6334 312.06 24.32C294.16 28.0134 277.943 32.2034 263.41 36.89C259.39 38.19 251.59 42.38 250.92 47.17C250.28 51.81 255.94 55.88 259.73 57.53C262.617 58.7967 266.713 60.11 272.02 61.47C279.2 63.31 285.86 64.8234 292 66.01C306.693 68.8567 324.113 71.5733 344.26 74.16C365.747 76.92 390.28 79.15 417.86 80.85C420.77 81.03 423.34 81.45 427.4 81.92C427.44 82.78C426.373 83 425.257 83.1167 424.09 83.13C395.79 83.47 375.587 83.47 363.48 83.13C344.317 82.1934 324.31 80.82C312.73 80.0267 299.727 78.7167 285.3 76.89C267.05 74.58 234.07 70.44 208.34 68.26C183.74 66.17 159.2 66.07 135.01 67.52C107.43 69.17 79.87 73.04 52.4 76.35C40.64 77.7633 29.11 78.1 17.81 77.36C16.51 77.27 15.24 76.78 13.95 76.21C14.32 74.56C23.27 74.74 30.07 74.61 38.87 73.66C57.65 71.6333 79.5433 67.6034 104.55 61.57C126.403 56.3034 141.533 52.5067 149.94 50.18C171.293 44.2667 198.463 37.0267 231.45 28.46C243.397 25.36 257.16 22.0434 272.74 18.51C278.527 17.1967 290.537 14.9167 308.77 11.67C334.623 7.0767 362.173 3.63669 391.42 1.35002C400.78 0.620021 410.44 0.550015 419.2 0C430.32 -0.419998C457.96 -0.593332 484.603 1.37667 510.25 5.49001C529.563 8.59001 549.233 13.3667 569.26 19.82C583.107 24.28 599.7 30.76 619.04 39.26C639.48 49.48C652.007 56.1934 658.74 59.81 659.68 60.33C662.827 62.0767 665.067 64.1033 666.4 66.41Z" fill="#214230"/>
-            <path d="M972.93 144.04C972.53 144.5C953.3 134.82 931.67 126.82 911.55 119.74C864.27 103.09 813.06 92.98 763 87.74C748.24 86.1934 731.217 84.92 711.93 83.92C679.763 82.2667 646.537 81.6633 612.25 82.11C594.37 82.35 568.87 82.8367 535.75 83.57C514.443 84.0434 484.333 83.9667 445.42 83.3401C444.83 81.92C500.84 77.62 557.81 72.57 613.5 70.2C633.227 69.36 650.01 68.98 663.85 69.06C667.16 68.7801C668.59 68.4501 670.06 69.09 671.98 69.1C722.36 69.4067 771.613 74.4767 819.74 84.31C836.467 87.73 852.73 91.8 868.53 96.52C882.117 100.58 898.147 106.387 916.62 113.94C933.96 121.033 951.503 129.96 969.25 140.72C970.797 141.66 972.023 142.767 972.93 144.04Z" fill="#214230"/>
-            <path d="M0.42 141.01C1.80667 133.177 3.83001 125.617 6.49001 118.33C11.3967 104.897 20.41 95.68 33.53 90.68C37.4167 89.2 43.6967 87.8433 52.37 86.61C70.03 84.0967 90.5733 82.7567 114 82.5901C134.813 82.4434 149.563 82.5367 158.25 82.87C161.183 82.9767 177.113 83.8467 206.04 85.48C206.9 86.44C177.31 87.76 148.62 89.77 120.45 93.13C98.09 95.8 76.57 100.51 56.49 106.96C50.81 108.787 43.82 111.553 35.52 115.26C26.0534 119.487 17.3234 125.15 9.33003 132.25C6.25003 134.99 3.81005 138.13 1.03005 141.31C0.42 141.01Z" fill="#214230"/>
-            <g transform="translate(57, 161)">
-              <path d="M77.55 181 42.09 127.32h-9.4v53.68H0V41h51.7c30.16 0 48.88 16.07 48.88 42.09 0 20.36-10.87 34.78-29.46 40.62l40.35 57.29H77.55ZM32.7 100.81h15.63c15.23 0 19.87-8.63 19.87-18.8 0-10.17-4.64-18.11-19.87-18.11H32.7v36.9Z" fill="#214230"/>
-              <path d="M184.33 181h-72.78V41h72.78V63.83H144.7v34.35h36.87v22.83H144.7v37.16h39.63V181Z" fill="#214230"/>
-              <path d="M219.16 181V41h32.7v140h-32.7Z" fill="#214230"/>
-              <path d="M329.6 181h-68.84v-17l62.51-100.17h-62.51V41h100.91v17.34l-62.11 99.83h63.18V181h-33.14Z" fill="#214230"/>
-            </g>
+    <div className="auth-page auth-page--login">
+      <div className="login-modal login-modal--page">
+        <Link href="/" className="login-modal__close" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
+        </Link>
+        <div className="login-modal__logo login-modal__logo--page">
+          <Image
+            src="/img/icons/reiz-logo.svg"
+            alt="Reiz Car Rental"
+            width={973}
+            height={443}
+            priority
+          />
         </div>
-        <h1 className="auth-page__title">{t("login.title")}</h1>
-        <p className="auth-page__subtitle">{t("login.subtitle")}</p>
-
+        <h1 className="login-modal__title login-modal__title--page">
+          {t("login.modal_title")}
+        </h1>
         <LoginForm />
-
-        <p className="auth-page__footer">
-          {t("login.no_account")}{" "}
-          <Link href="/auth/register" className="auth-page__link">
-            {t("login.register_link")}
-          </Link>
-        </p>
       </div>
     </div>
   );
