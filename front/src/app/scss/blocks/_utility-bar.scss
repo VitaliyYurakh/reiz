@@ -42,6 +42,17 @@
       display: flex;
     }
 
+    @media (hover: none) {
+      .hover {
+        display: none !important;
+      }
+
+      &:active {
+        opacity: 0.5;
+        transform: scale(0.92);
+      }
+    }
+
     @media (hover: hover) {
       .hover {
         position: absolute;
