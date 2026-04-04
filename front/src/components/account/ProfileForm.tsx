@@ -203,7 +203,7 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
           name="drivingSince"
           label={t("profile.driving_since")}
           placeholder={t("profile.select_year")}
-          defaultValue={profile?.drivingSince || ""}
+          defaultValue={profile?.drivingSince ? String(profile.drivingSince) : ""}
           options={years.map((y) => ({ value: String(y), label: String(y) }))}
         />
         <CustomSelect
