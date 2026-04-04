@@ -10,6 +10,7 @@ import { Link } from "@/i18n/request";
 import ProfileCard from "@/components/account/ProfileCard";
 import { ProfileEditButton, ProfileEditWrapper } from "@/components/account/ProfileSection";
 import LanguagesSelect from "@/components/account/LanguagesSelect";
+import StackedPhotoCard from "@/components/account/StackedPhotoCard";
 
 export default async function AccountPage() {
   const session = await auth();
@@ -39,7 +40,47 @@ export default async function AccountPage() {
 
       {/* Profile card + info */}
       <div className="account-profile-row">
-        <ProfileCard profile={profile} bookingsCount={totalRentals} />
+        <div className="account-profile-col">
+          <ProfileCard profile={profile} bookingsCount={totalRentals} />
+
+          {/* Stacked photo cards — Airbnb style */}
+          {(() => {
+            const tripPhotos = (completedRentals || [])
+              .slice(0, 3)
+              .map((r: any) => {
+                const photo = r.car?.carPhoto?.[0]?.url || r.car?.previewUrl;
+                return photo
+                  ? `${process.env.NEXT_PUBLIC_BASE_URL || "/"}static/${photo}`
+                  : null;
+              })
+              .filter(Boolean) as string[];
+
+            const favPhotos = (favorites || [])
+              .slice(0, 3)
+              .map((f: any) => {
+                const photo = f.car?.carPhoto?.[0]?.url || f.car?.previewUrl;
+                return photo
+                  ? `${process.env.NEXT_PUBLIC_BASE_URL || "/"}static/${photo}`
+                  : null;
+              })
+              .filter(Boolean) as string[];
+
+            return (
+              <div className="account-stacked-grid">
+                <StackedPhotoCard
+                  href="/account/history"
+                  label={t("nav.history")}
+                  photos={tripPhotos}
+                />
+                <StackedPhotoCard
+                  href="/account/favorites"
+                  label={t("nav.favorites")}
+                  photos={favPhotos}
+                />
+              </div>
+            );
+          })()}
+        </div>
 
         <div className="account-profile-info">
           <div className="account-profile-info__item">

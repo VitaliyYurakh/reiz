@@ -24,7 +24,7 @@ export default async function AccountLayout({
 
   return (
     <>
-      <Header mode={false} />
+      <Header mode />
       <main className="account-layout">
         <div className="account-layout__topbar">
           <Link href="/" className="account-layout__back">{t("back_to_site")}</Link>

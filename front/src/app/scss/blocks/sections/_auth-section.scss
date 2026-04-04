@@ -263,6 +263,10 @@
   min-height: calc(100dvh - var(--header-height, 80px) - 200px);
   padding: clamp(40px, 5vw, 80px) var(--container-offset);
 
+  &__logo {
+    display: none;
+  }
+
   &__card {
     width: 100%;
     max-width: 480px;
@@ -301,6 +305,56 @@
       text-decoration: underline;
     }
   }
+
+  // ── Mobile: fullscreen clean login (як login-modal) ──
+  @include tablet {
+    min-height: 100dvh;
+    padding: 60px 24px 40px;
+    align-items: flex-start;
+    background: #fff;
+
+    &__logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+
+      svg {
+        width: 160px;
+        height: auto;
+      }
+    }
+
+    &__card {
+      max-width: 100%;
+      border-radius: 24px;
+      padding: clamp(28px, 4vw, 48px);
+      box-shadow: 0 12px 60px rgba(0, 0, 0, 0.2);
+      background: #fff;
+    }
+
+    &__title {
+      font-size: 22px;
+      font-weight: 600;
+      text-align: center;
+      color: #222;
+    }
+
+    &__subtitle {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #717171;
+    }
+
+    &__footer {
+      color: #717171;
+    }
+
+    &__link {
+      color: #222;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
 }
 
 .auth-form {
@@ -323,6 +377,15 @@
     @include hover {
       background: var(--cl-f, #f9fafb);
       border-color: var(--cl-g, #6b7280);
+    }
+
+    @include tablet {
+      height: 56px;
+      border-radius: 50px;
+      font-size: 16px;
+      border-color: #ddd;
+      color: #222;
+      background: #fff;
     }
   }
 
@@ -351,6 +414,10 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    @include tablet {
+      gap: 12px;
+    }
   }
 
   &__row {
@@ -372,6 +439,10 @@
       font-size: 13px;
       font-weight: 500;
       color: var(--cl-b, #1a1a1a);
+
+      @include tablet {
+        display: none;
+      }
     }
 
     input {
@@ -392,6 +463,26 @@
       &::placeholder {
         color: var(--cl-g, #6b7280);
         opacity: 0.6;
+      }
+
+      @include tablet {
+        height: 52px;
+        border-radius: 50px;
+        padding: 0 20px;
+        font-size: 16px;
+        border-color: #b0b0b0;
+        color: #222;
+        background: #fff;
+
+        &:focus {
+          border-color: #222;
+          box-shadow: 0 0 0 2px rgba(34, 34, 34, 0.1);
+        }
+
+        &::placeholder {
+          color: #b0b0b0;
+          opacity: 1;
+        }
       }
     }
   }
@@ -420,9 +511,20 @@
     border: 1px solid #fecaca;
     border-radius: 8px;
     padding: 10px 14px;
+
+    @include tablet {
+      border-radius: 50px;
+      padding: 12px 20px;
+      background: #fff8f6;
+      border-color: #f0c9be;
+      color: #c13515;
+    }
   }
 
   &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 48px;
     background: var(--cl-a, #2563eb);
@@ -442,5 +544,14 @@
       opacity: 0.6;
       cursor: not-allowed;
     }
+
+    @include tablet {
+      height: 52px;
+      border-radius: 50px;
+      font-size: 16px;
+      background: #214230;
+      color: #fff;
+    }
   }
 }
+
