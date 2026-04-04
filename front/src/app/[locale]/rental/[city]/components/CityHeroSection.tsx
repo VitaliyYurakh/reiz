@@ -7,6 +7,8 @@ import LocationMapLink from "@/app/[locale]/components/LocationMapLink";
 import HeroBookButton from "@/app/[locale]/components/HeroBookButton";
 import ScrollToCatalogButton from "@/app/[locale]/components/ScrollToCatalogButton";
 import UtilityBar from "@/components/UtilityBar";
+import WhatsAppUnavailable from "@/components/WhatsAppUnavailable";
+import { SOCIAL_LINKS } from "@/config/social";
 import { getCityPickupLocations } from "@/data/cities";
 import type { CityConfig, CityLocalizedData } from "@/data/cities";
 import type { Locale } from "@/i18n/request";
@@ -19,6 +21,7 @@ type Props = {
 
 export default async function CityHeroSection({ city, cityData, locale }: Props) {
   const t = await getTranslations("homePage.hero");
+  const footerT = await getTranslations("footer");
   const pickupLocations = getCityPickupLocations(city.slug, locale);
   const defaultPickupLocation =
     (city.slug === "bukovel"
@@ -36,12 +39,12 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
             <li className="swiper-slide">
               {/* Mobile hero image - LCP critical */}
               <UiImage
-                src="/img/hero/hero-mobile.webp"
+                src="/img/cars/home%20page2.1.webp"
                 alt={`${cityData.h1} — Mercedes CLE | REIZ Rental Cars`}
-                width={1024}
-                height={1670}
+                width={1500}
+                height={2250}
                 hero
-                quality={70}
+                quality={75}
                 sizes="100vw"
                 className="hero-image-mobile"
                 fetchPriority="high"
@@ -58,6 +61,7 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
                 className="hero-image-desktop"
                 fetchPriority="high"
               />
+              <div className="hero-section__mobile-overlay" />
             </li>
           </ul>
         </div>
@@ -109,13 +113,47 @@ export default async function CityHeroSection({ city, cityData, locale }: Props)
             </div>
 
             <div className="hero-section__content">
-              <h2 className="h2">{t("secondary_title")}</h2>
-              <Link
-                href="/invest"
-                className="main-button main-button--transparent"
-              >
-                {t("secondary_button")}
-              </Link>
+              <h2 className="h2 hero-section__mobile-title">
+                <Link
+                  href="/cars/24-hyundai-elantra-2025"
+                  className="hero-section__mobile-title-link"
+                >
+                  {t("mobile_title")}
+                </Link>
+              </h2>
+              <div className="contacts-hero-cta">
+                <WhatsAppUnavailable
+                  message={footerT("whatsapp_unavailable")}
+                  className="contacts-hero-cta__btn contacts-hero-cta__btn--outline"
+                  hideIcon
+                >
+                  <UiImage
+                    width={28}
+                    height={28}
+                    src="/img/icons/whatsapp.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <span>WhatsApp</span>
+                </WhatsAppUnavailable>
+
+                <a
+                  href={SOCIAL_LINKS.telegram}
+                  className="contacts-hero-cta__btn contacts-hero-cta__btn--outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Telegram"
+                >
+                  <UiImage
+                    width={28}
+                    height={28}
+                    src="/img/icons/telegram.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <span>Telegram</span>
+                </a>
+              </div>
             </div>
 
             <OrderForm defaultPickupLocation={defaultPickupLocation} />
