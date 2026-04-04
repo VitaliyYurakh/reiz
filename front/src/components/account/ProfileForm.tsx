@@ -201,7 +201,7 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
           </button>
           {languages.length > 0 && (
             <span className="profile-form__langs-list">
-              {languages.map((key) => t(`languages.${key}`)).join(", ")}
+              {languages.map((key) => t(`languages.${key}` as any)).join(", ")}
             </span>
           )}
         </div>
@@ -240,17 +240,17 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
                 </div>
                 <div className="langs-modal__list">
                   {LANGUAGE_KEYS
-                    .filter((key) => t(`languages.${key}`).toLowerCase().includes(langSearch.toLowerCase()))
+                    .filter((key) => t(`languages.${key}` as any).toLowerCase().includes(langSearch.toLowerCase()))
                     .sort((a, b) => {
                       const aSelected = languages.includes(a);
                       const bSelected = languages.includes(b);
                       if (aSelected && !bSelected) return -1;
                       if (!aSelected && bSelected) return 1;
-                      return t(`languages.${a}`).localeCompare(t(`languages.${b}`));
+                      return t(`languages.${a}` as any).localeCompare(t(`languages.${b}` as any));
                     })
                     .map((key) => (
                       <label key={key} className="langs-modal__item">
-                        <span>{t(`languages.${key}`)}</span>
+                        <span>{t(`languages.${key}` as any)}</span>
                         <input
                           type="checkbox"
                           checked={languages.includes(key)}
