@@ -55,13 +55,13 @@ export default async function AccountPage() {
             </svg>
             <span>{profile?.phone || "—"}</span>
           </div>
-          <LanguagesSelect />
+          <LanguagesSelect languages={profile?.languages} />
           <div className="account-profile-info__item account-profile-info__item--verified">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#008a05" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
               <polyline points="22 4 12 14.01 9 11.01" />
             </svg>
-            <span>Особистість підтверджена</span>
+            <span>{t("profile.identity_verified")}</span>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@ export default async function AccountPage() {
             {activeRental ? (
               <div className="account-card account-card--accent">
                 <h3 className="account-card__label">
-                  {t("bookings.status")}: Active
+                  {t("bookings.status")}: {t("bookings.status_active")}
                 </h3>
                 <p className="account-card__title">
                   {activeRental.car?.brand} {activeRental.car?.model}

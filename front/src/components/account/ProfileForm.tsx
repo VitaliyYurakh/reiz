@@ -5,24 +5,24 @@ import { useTranslations } from "next-intl";
 import { updateProfile } from "@/lib/api/customer";
 import CustomSelect from "./CustomSelect";
 
-const ALL_LANGUAGES = [
-  "Амслен", "Бразильський жестовий", "Британський жестовий",
-  "Азербайджанська", "Албанська", "Англійська", "Арабська",
-  "Вірменська", "Африкаанс", "Баскська", "Білоруська",
-  "Бенгальська", "Бірманська", "Болгарська", "Боснійська",
-  "Угорська", "В'єтнамська", "Галісійська", "Грецька",
-  "Грузинська", "Гуджараті", "Данська", "Зулу", "Іврит",
-  "Індонезійська", "Ірландська", "Ісландська", "Іспанська",
-  "Італійська", "Каннада", "Каталонська", "Киргизька",
-  "Китайська", "Корейська", "Коса", "Кхмерська", "Лаоська",
-  "Латвійська", "Литовська", "Македонська", "Малайська",
-  "Мальтійська", "Німецька", "Нідерландська", "Норвезька",
-  "Панджабі", "Перська", "Польська", "Португальська",
-  "Румунська", "Російська", "Сербська", "Словацька",
-  "Словенська", "Суахілі", "Тагальська", "Тайська",
-  "Тамільська", "Телугу", "Турецька", "Українська", "Урду",
-  "Філіппінська", "Фінська", "Французька", "Гінді",
-  "Хорватська", "Чеська", "Шведська", "Естонська", "Японська",
+const LANGUAGE_KEYS = [
+  "amslen", "brazilian_sign", "british_sign",
+  "azerbaijani", "albanian", "english", "arabic",
+  "armenian", "afrikaans", "basque", "belarusian",
+  "bengali", "burmese", "bulgarian", "bosnian",
+  "hungarian", "vietnamese", "galician", "greek",
+  "georgian", "gujarati", "danish", "zulu", "hebrew",
+  "indonesian", "irish", "icelandic", "spanish",
+  "italian", "kannada", "catalan", "kyrgyz",
+  "chinese", "korean", "xhosa", "khmer", "lao",
+  "latvian", "lithuanian", "macedonian", "malay",
+  "maltese", "german", "dutch", "norwegian",
+  "punjabi", "persian", "polish", "portuguese",
+  "romanian", "russian", "serbian", "slovak",
+  "slovenian", "swahili", "tagalog", "thai",
+  "tamil", "telugu", "turkish", "ukrainian", "urdu",
+  "filipino", "finnish", "french", "hindi",
+  "croatian", "czech", "swedish", "estonian", "japanese",
 ];
 
 const STORAGE_KEY = "reiz_user_languages";
@@ -36,14 +36,20 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
   const t = useTranslations("account");
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [error, setError] = useState(false);
   const [languages, setLanguages] = useState<string[]>([]);
   const [langModalOpen, setLangModalOpen] = useState(false);
   const [langSearch, setLangSearch] = useState("");
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) setLanguages(JSON.parse(saved));
-  }, []);
+    if (profile?.languages && Array.isArray(profile.languages) && profile.languages.length > 0) {
+      setLanguages(profile.languages);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(profile.languages));
+    } else {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) setLanguages(JSON.parse(stored));
+    }
+  }, [profile]);
 
   function toggleLang(lang: string) {
     setLanguages((prev) => {
@@ -61,13 +67,21 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
     setSaved(false);
 
     const fd = new FormData(e.currentTarget);
-    const data: Record<string, string> = {};
+    const data: Record<string, any> = {};
     for (const [key, value] of fd.entries()) {
       data[key] = value as string;
     }
+    data.languages = languages;
 
-    await updateProfile(data);
+    const result = await updateProfile(data);
     setSaving(false);
+
+    if (result === null) {
+      setError(true);
+      setTimeout(() => setError(false), 3000);
+      return;
+    }
+
     setSaved(true);
     setTimeout(() => {
       setSaved(false);
@@ -120,18 +134,18 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
 
       <div className="profile-form__row">
         <div className="profile-form__field">
-          <label htmlFor="city">Місто</label>
+          <label htmlFor="city">{t("profile.city")}</label>
           <input
             id="city"
             name="city"
             type="text"
             autoComplete="address-level2"
             defaultValue={profile?.city || ""}
-            placeholder="Київ"
+            placeholder={t("profile.city_placeholder")}
           />
         </div>
         <div className="profile-form__field">
-          <label htmlFor="country">Країна</label>
+          <label htmlFor="country">{t("profile.country")}</label>
           <input
             id="country"
             name="country"
@@ -144,29 +158,29 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
       </div>
 
       <div className="profile-form__field">
-        <label htmlFor="address">Адреса</label>
+        <label htmlFor="address">{t("profile.address")}</label>
         <input
           id="address"
           name="address"
           type="text"
           autoComplete="street-address"
           defaultValue={profile?.address || ""}
-          placeholder="Вулиця, будинок, квартира"
+          placeholder={t("profile.address_placeholder")}
         />
       </div>
 
       <div className="profile-form__row">
         <CustomSelect
           name="drivingSince"
-          label="Рік отримання водійських прав"
-          placeholder="Оберіть рік"
+          label={t("profile.driving_since")}
+          placeholder={t("profile.select_year")}
           defaultValue={profile?.drivingSince || ""}
           options={years.map((y) => ({ value: String(y), label: String(y) }))}
         />
         <CustomSelect
           name="dateOfBirth"
-          label="Рік народження водія"
-          placeholder="Оберіть рік"
+          label={t("profile.date_of_birth")}
+          placeholder={t("profile.select_year")}
           defaultValue={profile?.dateOfBirth ? String(new Date(profile.dateOfBirth).getFullYear()) : ""}
           options={Array.from({ length: currentYear - 1940 + 1 }, (_, i) => ({
             value: String(currentYear - 18 - i),
@@ -176,18 +190,18 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
       </div>
 
       <div className="profile-form__section">
-        <label className="profile-form__section-label">Мови, на яких ви розмовляєте</label>
+        <label className="profile-form__section-label">{t("profile.languages_label")}</label>
         <div className="profile-form__langs-row">
           <button
             type="button"
             onClick={() => setLangModalOpen(true)}
             className="profile-form__langs-btn"
           >
-            {languages.length > 0 ? "Змінити мови" : "Додати мови"}
+            {languages.length > 0 ? t("profile.change_languages") : t("profile.add_languages")}
           </button>
           {languages.length > 0 && (
             <span className="profile-form__langs-list">
-              {languages.join(", ")}
+              {languages.map((key) => t(`languages.${key}`)).join(", ")}
             </span>
           )}
         </div>
@@ -211,7 +225,7 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
               </div>
 
               <div className="langs-modal__body">
-                <h3 className="langs-modal__title">Мови, на яких ви розмовляєте</h3>
+                <h3 className="langs-modal__title">{t("profile.languages_label")}</h3>
                 <div className="langs-modal__search">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#717171" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="11" cy="11" r="8" />
@@ -219,28 +233,28 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
                   </svg>
                   <input
                     type="text"
-                    placeholder="Пошук мови"
+                    placeholder={t("profile.language_search")}
                     value={langSearch}
                     onChange={(e) => setLangSearch(e.target.value)}
                   />
                 </div>
                 <div className="langs-modal__list">
-                  {ALL_LANGUAGES
-                    .filter((l) => l.toLowerCase().includes(langSearch.toLowerCase()))
+                  {LANGUAGE_KEYS
+                    .filter((key) => t(`languages.${key}`).toLowerCase().includes(langSearch.toLowerCase()))
                     .sort((a, b) => {
                       const aSelected = languages.includes(a);
                       const bSelected = languages.includes(b);
                       if (aSelected && !bSelected) return -1;
                       if (!aSelected && bSelected) return 1;
-                      return 0;
+                      return t(`languages.${a}`).localeCompare(t(`languages.${b}`));
                     })
-                    .map((lang) => (
-                      <label key={lang} className="langs-modal__item">
-                        <span>{lang}</span>
+                    .map((key) => (
+                      <label key={key} className="langs-modal__item">
+                        <span>{t(`languages.${key}`)}</span>
                         <input
                           type="checkbox"
-                          checked={languages.includes(lang)}
-                          onChange={() => toggleLang(lang)}
+                          checked={languages.includes(key)}
+                          onChange={() => toggleLang(key)}
                           className="langs-modal__checkbox"
                         />
                       </label>
@@ -254,7 +268,7 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
                   className="langs-modal__save"
                   onClick={() => setLangModalOpen(false)}
                 >
-                  Зберегти
+                  {t("profile.save_languages")}
                 </button>
               </div>
             </div>
@@ -263,7 +277,7 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
       </div>
 
       <button type="submit" className="profile-form__submit" disabled={saving}>
-        {saved ? "✓ " + t("profile.saved") : saving ? "..." : t("profile.save")}
+        {error ? t("profile.error") : saved ? "✓ " + t("profile.saved") : saving ? "..." : t("profile.save")}
       </button>
     </form>
   );

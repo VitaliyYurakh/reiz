@@ -1,6 +1,7 @@
 "use server";
 
 import { auth } from "@/auth";
+import { revalidatePath } from "next/cache";
 
 const API_URL = process.env.API_URL_INTERNAL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
 const SERVICE_SECRET = process.env.SERVICE_SECRET || "";
@@ -50,10 +51,16 @@ export async function getProfile() {
 }
 
 export async function updateProfile(data: Record<string, unknown>) {
-  return customerFetch("/profile", {
+  const result = await customerFetch("/profile", {
     method: "PUT",
     body: JSON.stringify(data),
   });
+
+  if (result !== null) {
+    revalidatePath("/account");
+  }
+
+  return result;
 }
 
 export async function getReservations(status?: string) {

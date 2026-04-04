@@ -12,6 +12,8 @@ class CustomerService {
                 phone: true,
                 email: true,
                 dateOfBirth: true,
+                drivingSince: true,
+                languages: true,
                 driverLicenseNo: true,
                 driverLicenseExpiry: true,
                 passportNo: true,
@@ -32,6 +34,8 @@ class CustomerService {
         city?: string;
         country?: string;
         dateOfBirth?: string;
+        drivingSince?: string;
+        languages?: string[];
     }) {
         const updateData: any = {};
         if (data.firstName !== undefined) updateData.firstName = data.firstName;
@@ -41,7 +45,15 @@ class CustomerService {
         if (data.address !== undefined) updateData.address = data.address;
         if (data.city !== undefined) updateData.city = data.city;
         if (data.country !== undefined) updateData.country = data.country;
-        if (data.dateOfBirth !== undefined) updateData.dateOfBirth = new Date(data.dateOfBirth);
+        if (data.dateOfBirth !== undefined) {
+            updateData.dateOfBirth = data.dateOfBirth ? new Date(data.dateOfBirth) : null;
+        }
+        if (data.drivingSince !== undefined) {
+            updateData.drivingSince = data.drivingSince ? parseInt(data.drivingSince, 10) : null;
+        }
+        if (data.languages !== undefined) {
+            updateData.languages = data.languages;
+        }
 
         return prisma.client.update({
             where: {id: clientId},

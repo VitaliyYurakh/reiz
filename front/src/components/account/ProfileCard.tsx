@@ -1,14 +1,25 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
 
 interface ProfileCardProps {
   profile: any;
   bookingsCount?: number;
 }
 
+function pluralize(n: number, one: string, few: string, many: string): string {
+  const abs = Math.abs(n) % 100;
+  const lastDigit = abs % 10;
+  if (abs > 10 && abs < 20) return many;
+  if (lastDigit > 1 && lastDigit < 5) return few;
+  if (lastDigit === 1) return one;
+  return many;
+}
+
 export default function ProfileCard({ profile, bookingsCount = 0 }: ProfileCardProps) {
   const { data: session } = useSession();
+  const t = useTranslations("account.card");
   const name = profile
     ? `${profile.firstName} ${profile.lastName}`
     : session?.user?.name || "";
@@ -27,18 +38,17 @@ export default function ProfileCard({ profile, bookingsCount = 0 }: ProfileCardP
   const diffMonths = Math.floor(diffDays / 30);
   const diffYears = Math.floor(diffDays / 365);
 
-  let timeLabel: string;
+  let timeUnit: string;
   let timeValue: number;
   if (diffYears >= 1) {
     timeValue = diffYears;
-    timeLabel = diffYears === 1 ? "рік" : diffYears < 5 ? "роки" : "років";
+    timeUnit = pluralize(diffYears, t("year_one"), t("year_few"), t("year_many"));
   } else if (diffMonths >= 1) {
     timeValue = diffMonths;
-    timeLabel = diffMonths === 1 ? "місяць" : diffMonths < 5 ? "місяці" : "місяців";
+    timeUnit = pluralize(diffMonths, t("month_one"), t("month_few"), t("month_many"));
   } else {
     timeValue = Math.max(diffDays, 1);
-    const d = timeValue;
-    timeLabel = d === 1 ? "день" : (d >= 2 && d <= 4) ? "дні" : "днів";
+    timeUnit = pluralize(timeValue, t("day_one"), t("day_few"), t("day_many"));
   }
 
   return (
@@ -60,20 +70,20 @@ export default function ProfileCard({ profile, bookingsCount = 0 }: ProfileCardP
       <div className="profile-card__right">
         <div className="profile-card__stat">
           <span className="profile-card__stat-value">{bookingsCount}</span>
-          <span className="profile-card__stat-label">поїздок</span>
+          <span className="profile-card__stat-label">{t("trips")}</span>
         </div>
         <div className="profile-card__stat-divider" />
         <div className="profile-card__stat">
           <span className="profile-card__stat-value">
             {profile?.rating ? `${(profile.rating / 10).toFixed(1)}★` : "—"}
           </span>
-          <span className="profile-card__stat-label">Рейтинг</span>
+          <span className="profile-card__stat-label">{t("rating")}</span>
         </div>
         <div className="profile-card__stat-divider" />
         <div className="profile-card__stat">
           <span className="profile-card__stat-value">{timeValue}</span>
           <span className="profile-card__stat-label">
-            {timeLabel} з REIZ
+            {t("time_with_reiz", { value: timeValue, unit: timeUnit })}
           </span>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import ProfileForm from "./ProfileForm";
 
 export function ProfileEditButton() {
+  const t = useTranslations("account.profile");
   return (
     <button
       type="button"
@@ -14,12 +15,13 @@ export function ProfileEditButton() {
         window.dispatchEvent(new CustomEvent("open-profile-edit"));
       }}
     >
-      Редагувати
+      {t("edit")}
     </button>
   );
 }
 
 function AvatarUpload({ profile }: { profile: any }) {
+  const t = useTranslations("account.profile");
   const { data: session } = useSession();
   const fileRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -55,7 +57,7 @@ function AvatarUpload({ profile }: { profile: any }) {
           <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
           <circle cx="12" cy="13" r="4" />
         </svg>
-        Змінити фото
+        {t("change_photo")}
       </button>
       <input
         ref={fileRef}

@@ -227,6 +227,8 @@ model Client {
   phone               String
   email               String?
   dateOfBirth         DateTime? @map("date_of_birth")
+  drivingSince        Int?      @map("driving_since")
+  languages           Json?
   driverLicenseNo     String?   @map("driver_license_no")
   driverLicenseExpiry DateTime? @map("driver_license_exp")
   passportNo          String?   @map("passport_no")
