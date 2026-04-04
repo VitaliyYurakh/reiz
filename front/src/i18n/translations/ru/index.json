@@ -2524,7 +2524,7 @@
     },
     "card": {
       "trips": "поездок",
-      "rating": "Рейтинг",
+      "discount": "Моя скидка",
       "time_with_reiz": "{value} {unit} с REIZ",
       "year_one": "год",
       "year_few": "года",
@@ -2544,7 +2544,7 @@
     "favorites": { "title": "Избранное", "empty": "У вас нет избранных авто", "remove": "Удалить" },
     "notifications": { "title": "Уведомления", "email_deals": "Акции и скидки", "email_reminders": "Напоминания о бронировании", "email_receipts": "Квитанции и счета", "saved": "Сохранено!" },
     "privacy": { "title": "Конфиденциальность и данные", "export_title": "Экспорт данных", "export_desc": "Скачайте все ваши данные в формате JSON", "export_btn": "Скачать данные", "delete_title": "Удаление аккаунта", "delete_desc": "Это действие необратимо. Все ваши данные будут удалены.", "delete_btn": "Удалить аккаунт", "delete_confirm": "Вы уверены? Это нельзя отменить.", "delete_yes": "Да, удалить", "delete_cancel": "Отмена" },
-    "header": { "my_account": "Мой кабинет", "login": "Войти" },
+    "header": { "my_account": "Мой кабинет", "login": "Войти", "login_to_account": "Войти в личный кабинет" },
     "languages": {
       "amslen": "Амслен",
       "brazilian_sign": "Бразильский жестовый",

@@ -10,6 +10,7 @@ import { Link } from "@/i18n/request";
 
 export default function UtilityBar() {
   const headerT = useTranslations("header");
+  const accountT = useTranslations("account.header");
   const { data: session } = useSession();
 
   return (
@@ -97,19 +98,30 @@ export default function UtilityBar() {
         <Link
           href="/account"
           className="utility-bar__profile"
-          aria-label="My Account"
+          aria-label={accountT("my_account")}
         >
-          <svg width={32} height={32} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="15.5" stroke="currentColor" />
-            <circle cx="16" cy="13" r="4.5" stroke="currentColor" />
-            <path d="M8 25.5C8 25.5 10 21 16 21C22 21 24 25.5 24 25.5" stroke="currentColor" strokeLinecap="round" />
-          </svg>
+          {session.user?.image ? (
+            <img
+              src={session.user.image}
+              alt=""
+              className="utility-bar__avatar"
+              width={36}
+              height={36}
+              referrerPolicy="no-referrer"
+            />
+          ) : (
+            <svg width={32} height={32} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="15.5" stroke="currentColor" />
+              <circle cx="16" cy="13" r="4.5" stroke="currentColor" />
+              <path d="M8 25.5C8 25.5 10 21 16 21C22 21 24 25.5 24 25.5" stroke="currentColor" strokeLinecap="round" />
+            </svg>
+          )}
         </Link>
       ) : (
         <Link
           href="/auth/login"
           className="utility-bar__profile"
-          aria-label="Sign In"
+          aria-label={accountT("login")}
         >
           <svg width={32} height={32} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="16" cy="16" r="15.5" stroke="currentColor" />

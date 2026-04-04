@@ -2581,7 +2581,7 @@
     },
     "card": {
       "trips": "trips",
-      "rating": "Rating",
+      "discount": "My discount",
       "time_with_reiz": "{value} {unit} with REIZ",
       "year_one": "year",
       "year_few": "years",
@@ -2636,7 +2636,8 @@
     },
     "header": {
       "my_account": "My Account",
-      "login": "Sign In"
+      "login": "Sign In",
+      "login_to_account": "Sign in to personal account"
     },
     "languages": {
       "amslen": "Amslen",

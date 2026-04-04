@@ -75,9 +75,9 @@ export default function ProfileCard({ profile, bookingsCount = 0 }: ProfileCardP
         <div className="profile-card__stat-divider" />
         <div className="profile-card__stat">
           <span className="profile-card__stat-value">
-            {profile?.rating ? `${(profile.rating / 10).toFixed(1)}★` : "—"}
+            {profile?.discount ? `${profile.discount}%` : "—"}
           </span>
-          <span className="profile-card__stat-label">{t("rating")}</span>
+          <span className="profile-card__stat-label">{t("discount")}</span>
         </div>
         <div className="profile-card__stat-divider" />
         <div className="profile-card__stat">

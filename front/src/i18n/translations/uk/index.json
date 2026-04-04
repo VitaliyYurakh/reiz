@@ -2607,7 +2607,7 @@
     },
     "card": {
       "trips": "поїздок",
-      "rating": "Рейтинг",
+      "discount": "Моя знижка",
       "time_with_reiz": "{value} {unit} з REIZ",
       "year_one": "рік",
       "year_few": "роки",
@@ -2662,7 +2662,8 @@
     },
     "header": {
       "my_account": "Мій кабінет",
-      "login": "Увійти"
+      "login": "Увійти",
+      "login_to_account": "Увійти до особистого кабінету"
     },
     "languages": {
       "amslen": "Амслен",

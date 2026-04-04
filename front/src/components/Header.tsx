@@ -39,6 +39,9 @@ export default function Header({
   const { data: session } = useSession();
   const accountT = useTranslations("account.header");
   const headerInMode = mode || catalogFilters?.filtersOpen || false;
+  const mobileAuthLabel = session
+    ? accountT("my_account")
+    : accountT("login_to_account");
 
   useThemeColorOnOpen(mobileMenuOpen);
 
@@ -252,13 +255,6 @@ export default function Header({
                 <div className="header__choice">
                   <LanguageSwitcher />
                   <CurrencySelect />
-                  <Link
-                    href={session ? "/account" : "/auth/login"}
-                    className="header__choice-auth"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {session ? accountT("my_account") : accountT("login")}
-                  </Link>
                 </div>
 
                 <div className="header__wrapper">
@@ -306,6 +302,51 @@ export default function Header({
                       )}
                     </ul>
                   </nav>
+
+                  <Link
+                    href={session ? "/account" : "/auth/login"}
+                    className={cn(
+                      "header__mobile-auth",
+                      !session && "header__mobile-auth--guest",
+                      session?.user?.image && "header__mobile-auth--with-avatar",
+                    )}
+                    aria-label={mobileAuthLabel}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span
+                      className={cn(
+                        "header__mobile-auth-icon",
+                        session?.user?.image && "header__mobile-auth-icon--avatar",
+                      )}
+                    >
+                      {session?.user?.image ? (
+                        <img
+                          src={session.user.image}
+                          alt=""
+                          className="header__mobile-auth-avatar"
+                          width={40}
+                          height={40}
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <svg
+                          width={16}
+                          height={16}
+                          viewBox="0 0 19 19"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M9.5 10.25c1.797 0 3.431.52 4.633 1.254.6.366 1.114.798 1.484 1.268.364.46.633 1.013.633 1.603 0 .634-.308 1.133-.752 1.49-.42.337-.974.56-1.563.716-1.184.313-2.763.419-4.435.419-1.672 0-3.251-.105-4.435-.419-.589-.155-1.143-.379-1.563-.716-.444-.357-.752-.856-.752-1.49 0-.59.268-1.142.633-1.604.37-.469.883-.9 1.484-1.268 1.202-.732 2.837-1.253 4.633-1.253ZM9.5 2a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Z"
+                          />
+                        </svg>
+                      )}
+                    </span>
+                    <span className="header__mobile-auth-text">
+                      {mobileAuthLabel}
+                    </span>
+                  </Link>
 
                   <div className="header__links">
                     <a href={`tel:${PHONE_NUMBER}`} className="tel-link">
