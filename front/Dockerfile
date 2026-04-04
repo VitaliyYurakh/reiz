@@ -19,8 +19,10 @@ RUN npx prisma generate
 # Auth.js needs these at build time for static pages
 ARG NEXT_PUBLIC_BASE_URL=https://reiz.com.ua/
 ARG NEXT_PUBLIC_API_URL=https://reiz.com.ua/api
+ARG NEXT_PUBLIC_TURNSTILE_SITE_KEY
 ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_TURNSTILE_SITE_KEY=$NEXT_PUBLIC_TURNSTILE_SITE_KEY
 
 RUN --mount=type=cache,target=/app/.next/cache \
     npm run build

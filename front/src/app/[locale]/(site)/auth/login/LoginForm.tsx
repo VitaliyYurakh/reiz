@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, defaultLocale, useRouter } from "@/i18n/request";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { loginWithCredentials } from "../actions";
 
 export default function LoginForm() {
@@ -12,6 +13,7 @@ export default function LoginForm() {
   const router = useRouter();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const turnstileRef = useRef<TurnstileInstance>(null);
   const accountHref = locale === defaultLocale ? "/account" : `/${locale}/account`;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -25,6 +27,7 @@ export default function LoginForm() {
     if (result.error) {
       setError(t(`errors.${result.error}` as any));
       setLoading(false);
+      turnstileRef.current?.reset();
       return;
     }
 
@@ -61,6 +64,12 @@ export default function LoginForm() {
             placeholder={t("fields.password_placeholder")}
           />
         </div>
+
+        <Turnstile
+          ref={turnstileRef}
+          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          options={{ theme: "light", size: "normal" }}
+        />
 
         {error && <p className="login-modal__error">{error}</p>}
 

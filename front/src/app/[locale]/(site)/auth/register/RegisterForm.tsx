@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { registerUser } from "../actions";
 
 export default function RegisterForm() {
@@ -11,6 +12,7 @@ export default function RegisterForm() {
   const router = useRouter();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -23,6 +25,7 @@ export default function RegisterForm() {
     if (result.error) {
       setError(t(`errors.${result.error}` as any));
       setLoading(false);
+      turnstileRef.current?.reset();
       return;
     }
 
@@ -67,6 +70,16 @@ export default function RegisterForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="auth-form__fields">
+        {/* Honeypot field — hidden from real users, bots fill it */}
+        <input
+          type="text"
+          name="website"
+          autoComplete="off"
+          tabIndex={-1}
+          aria-hidden="true"
+          style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+        />
+
         <div className="auth-form__row">
           <div className="auth-form__field">
             <label htmlFor="firstName">{t("fields.first_name")}</label>
@@ -128,12 +141,19 @@ export default function RegisterForm() {
             minLength={8}
             placeholder={t("fields.password_placeholder")}
           />
+          <small className="auth-form__hint">{t("fields.password_hint")}</small>
         </div>
 
         <label className="auth-form__consent">
           <input type="checkbox" name="consent" required />
           <span>{t("register.consent")}</span>
         </label>
+
+        <Turnstile
+          ref={turnstileRef}
+          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          options={{ theme: "light", size: "normal" }}
+        />
 
         {error && <p className="auth-form__error">{error}</p>}
 

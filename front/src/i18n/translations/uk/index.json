@@ -2550,13 +2550,21 @@
       "last_name": "Прізвище",
       "last_name_placeholder": "Ваше прізвище",
       "phone": "Телефон",
-      "phone_placeholder": "+380"
+      "phone_placeholder": "+380",
+      "password_hint": "Мінімум 8 символів, великі, малі літери та цифра"
     },
     "errors": {
       "all_fields_required": "Заповніть усі поля",
       "password_too_short": "Пароль має бути не менше 8 символів",
+      "password_too_weak": "Пароль має містити великі, малі літери та цифру",
       "email_exists": "Цей email вже зареєстрований",
-      "invalid_credentials": "Невірний email або пароль"
+      "registration_failed": "Помилка реєстрації. Спробуйте ще раз або увійдіть",
+      "invalid_credentials": "Невірний email або пароль",
+      "too_many_requests": "Забагато спроб. Спробуйте пізніше",
+      "captcha_required": "Пройдіть перевірку безпеки",
+      "captcha_failed": "Перевірка безпеки не пройдена. Спробуйте ще раз",
+      "consent_required": "Необхідно погодитися з політикою конфіденційності",
+      "account_locked": "Акаунт тимчасово заблоковано. Спробуйте через 15 хвилин"
     },
     "nav": {
       "overview": "Огляд",

@@ -27,6 +27,8 @@ services:
         build:
             context: ./front
             dockerfile: Dockerfile
+            args:
+                NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY}
         image: my-next-app:latest
         environment:
             NODE_ENV: production
@@ -41,6 +43,8 @@ services:
             SERVICE_SECRET: ${SERVICE_SECRET}
             API_URL_INTERNAL: http://api:3000/api
             NEXT_PUBLIC_BASE_URL: https://reiz.com.ua/
+            NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+            TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY}
         expose:
             - "8080"
         restart: always

@@ -2524,13 +2524,21 @@
       "last_name": "Last Name",
       "last_name_placeholder": "Your last name",
       "phone": "Phone",
-      "phone_placeholder": "+380"
+      "phone_placeholder": "+380",
+      "password_hint": "At least 8 characters, uppercase, lowercase, and a digit"
     },
     "errors": {
       "all_fields_required": "Please fill in all fields",
       "password_too_short": "Password must be at least 8 characters",
+      "password_too_weak": "Password must include uppercase, lowercase letters and a digit",
       "email_exists": "This email is already registered",
-      "invalid_credentials": "Invalid email or password"
+      "registration_failed": "Registration failed. Please try again or sign in",
+      "invalid_credentials": "Invalid email or password",
+      "too_many_requests": "Too many attempts. Please try again later",
+      "captcha_required": "Please complete the security check",
+      "captcha_failed": "Security check failed. Please try again",
+      "consent_required": "You must agree to the privacy policy",
+      "account_locked": "Account temporarily locked. Try again in 15 minutes"
     },
     "nav": {
       "overview": "Overview",
