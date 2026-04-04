@@ -5,6 +5,30 @@ import { useTranslations } from "next-intl";
 
 const STORAGE_KEY = "reiz_user_languages";
 
+const LEGACY_NAME_TO_KEY: Record<string, string> = {
+  "Амслен": "amslen", "Бразильський жестовий": "brazilian_sign", "Британський жестовий": "british_sign",
+  "Азербайджанська": "azerbaijani", "Албанська": "albanian", "Англійська": "english", "Арабська": "arabic",
+  "Вірменська": "armenian", "Африкаанс": "afrikaans", "Баскська": "basque", "Білоруська": "belarusian",
+  "Бенгальська": "bengali", "Бірманська": "burmese", "Болгарська": "bulgarian", "Боснійська": "bosnian",
+  "Угорська": "hungarian", "В'єтнамська": "vietnamese", "Галісійська": "galician", "Грецька": "greek",
+  "Грузинська": "georgian", "Гуджараті": "gujarati", "Данська": "danish", "Зулу": "zulu", "Іврит": "hebrew",
+  "Індонезійська": "indonesian", "Ірландська": "irish", "Ісландська": "icelandic", "Іспанська": "spanish",
+  "Італійська": "italian", "Каннада": "kannada", "Каталонська": "catalan", "Киргизька": "kyrgyz",
+  "Китайська": "chinese", "Корейська": "korean", "Коса": "xhosa", "Кхмерська": "khmer", "Лаоська": "lao",
+  "Латвійська": "latvian", "Литовська": "lithuanian", "Македонська": "macedonian", "Малайська": "malay",
+  "Мальтійська": "maltese", "Німецька": "german", "Нідерландська": "dutch", "Норвезька": "norwegian",
+  "Панджабі": "punjabi", "Перська": "persian", "Польська": "polish", "Португальська": "portuguese",
+  "Румунська": "romanian", "Російська": "russian", "Сербська": "serbian", "Словацька": "slovak",
+  "Словенська": "slovenian", "Суахілі": "swahili", "Тагальська": "tagalog", "Тайська": "thai",
+  "Тамільська": "tamil", "Телугу": "telugu", "Турецька": "turkish", "Українська": "ukrainian", "Урду": "urdu",
+  "Філіппінська": "filipino", "Фінська": "finnish", "Французька": "french", "Гінді": "hindi",
+  "Хорватська": "croatian", "Чеська": "czech", "Шведська": "swedish", "Естонська": "estonian", "Японська": "japanese",
+};
+
+function migrateLanguages(langs: string[]): string[] {
+  return langs.map((l) => LEGACY_NAME_TO_KEY[l] || l);
+}
+
 interface LanguagesSelectProps {
   languages?: unknown;
 }
@@ -15,12 +39,16 @@ export default function LanguagesSelect({ languages }: LanguagesSelectProps) {
   const [selected, setSelected] = useState<string[]>([]);
 
   useEffect(() => {
+    let langs: string[] = [];
     if (languages && Array.isArray(languages) && languages.length > 0) {
-      setSelected(languages);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(languages));
+      langs = migrateLanguages(languages);
     } else {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) setSelected(JSON.parse(saved));
+      if (saved) langs = migrateLanguages(JSON.parse(saved));
+    }
+    setSelected(langs);
+    if (langs.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(langs));
     }
   }, [languages]);
 
