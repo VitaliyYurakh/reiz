@@ -1,18 +1,47 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
-import { useTranslations } from "next-intl";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
+import { signIn } from "next-auth/react";
+import { useLocale, useTranslations } from "next-intl";
+import { useRef, useState } from "react";
+import { defaultLocale, useRouter } from "@/i18n/request";
 import { registerUser } from "../actions";
 
 export default function RegisterForm() {
   const t = useTranslations("account");
+  const locale = useLocale();
   const router = useRouter();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const turnstileRef = useRef<TurnstileInstance>(null);
+  const accountHref =
+    locale === defaultLocale ? "/account" : `/${locale}/account`;
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
+
+  function getErrorMessage(errorCode: string) {
+    switch (errorCode) {
+      case "all_fields_required":
+        return t("errors.all_fields_required");
+      case "password_too_short":
+        return t("errors.password_too_short");
+      case "password_too_weak":
+        return t("errors.password_too_weak");
+      case "email_exists":
+        return t("errors.email_exists");
+      case "registration_failed":
+        return t("errors.registration_failed");
+      case "too_many_requests":
+        return t("errors.too_many_requests");
+      case "captcha_required":
+        return t("errors.captcha_required");
+      case "captcha_failed":
+        return t("errors.captcha_failed");
+      case "consent_required":
+        return t("errors.consent_required");
+      default:
+        return t("errors.registration_failed");
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -23,7 +52,7 @@ export default function RegisterForm() {
     const result = await registerUser(formData);
 
     if (result.error) {
-      setError(t(`errors.${result.error}` as any));
+      setError(getErrorMessage(result.error));
       setLoading(false);
       turnstileRef.current?.reset();
       return;
@@ -34,15 +63,122 @@ export default function RegisterForm() {
   }
 
   async function handleGoogleSignIn() {
-    await signIn("google", { callbackUrl: "/account" });
+    await signIn("google", { callbackUrl: accountHref });
   }
 
   return (
-    <div className="auth-form">
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="login-modal__form login-modal__form--register login-modal__form--register-clean"
+      >
+        {/* Honeypot field - hidden from real users, bots fill it */}
+        <input
+          type="text"
+          name="website"
+          autoComplete="off"
+          tabIndex={-1}
+          aria-hidden="true"
+          style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+        />
+
+        <div className="login-modal__row login-modal__row--register">
+          <div className="login-modal__field">
+            <input
+              id="firstName"
+              name="firstName"
+              type="text"
+              autoComplete="given-name"
+              required
+              placeholder={t("fields.first_name_placeholder")}
+            />
+          </div>
+
+          <div className="login-modal__field">
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              autoComplete="family-name"
+              required
+              placeholder={t("fields.last_name_placeholder")}
+            />
+          </div>
+        </div>
+
+        <div className="login-modal__field">
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            placeholder={t("fields.email_placeholder")}
+          />
+        </div>
+
+        <div className="login-modal__field">
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            required
+            placeholder={t("fields.phone_placeholder")}
+          />
+        </div>
+
+        <div className="login-modal__field">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="new-password"
+            required
+            minLength={8}
+            placeholder={t("fields.password_placeholder")}
+          />
+          <small className="login-modal__hint">
+            {t("fields.password_hint")}
+          </small>
+        </div>
+
+        <label className="login-modal__consent login-modal__consent--register-clean">
+          <input type="checkbox" name="consent" required />
+          <span>{t("register.consent")}</span>
+        </label>
+
+        <div className="login-modal__captcha">
+          <Turnstile
+            ref={turnstileRef}
+            siteKey={turnstileSiteKey}
+            options={{ theme: "light", size: "normal" }}
+          />
+        </div>
+
+        {error && (
+          <p className="login-modal__error login-modal__error--register">
+            {error}
+          </p>
+        )}
+
+        <button
+          type="submit"
+          className="login-modal__submit"
+          disabled={loading}
+        >
+          {loading ? t("register.loading") : t("register.submit")}
+        </button>
+      </form>
+
+      <div className="login-modal__divider">
+        <span>{t("login.or")}</span>
+      </div>
+
       <button
         type="button"
         onClick={handleGoogleSignIn}
-        className="auth-form__google-btn"
+        className="login-modal__google"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
           <path
@@ -64,107 +200,6 @@ export default function RegisterForm() {
         </svg>
         {t("register.google")}
       </button>
-
-      <div className="auth-form__divider">
-        <span>{t("login.or")}</span>
-      </div>
-
-      <form onSubmit={handleSubmit} className="auth-form__fields">
-        {/* Honeypot field — hidden from real users, bots fill it */}
-        <input
-          type="text"
-          name="website"
-          autoComplete="off"
-          tabIndex={-1}
-          aria-hidden="true"
-          style={{ position: "absolute", left: "-9999px", opacity: 0 }}
-        />
-
-        <div className="auth-form__row">
-          <div className="auth-form__field">
-            <label htmlFor="firstName">{t("fields.first_name")}</label>
-            <input
-              id="firstName"
-              name="firstName"
-              type="text"
-              autoComplete="given-name"
-              required
-              placeholder={t("fields.first_name_placeholder")}
-            />
-          </div>
-
-          <div className="auth-form__field">
-            <label htmlFor="lastName">{t("fields.last_name")}</label>
-            <input
-              id="lastName"
-              name="lastName"
-              type="text"
-              autoComplete="family-name"
-              required
-              placeholder={t("fields.last_name_placeholder")}
-            />
-          </div>
-        </div>
-
-        <div className="auth-form__field">
-          <label htmlFor="email">{t("fields.email")}</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            required
-            placeholder={t("fields.email_placeholder")}
-          />
-        </div>
-
-        <div className="auth-form__field">
-          <label htmlFor="phone">{t("fields.phone")}</label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            required
-            placeholder={t("fields.phone_placeholder")}
-          />
-        </div>
-
-        <div className="auth-form__field">
-          <label htmlFor="password">{t("fields.password")}</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            autoComplete="new-password"
-            required
-            minLength={8}
-            placeholder={t("fields.password_placeholder")}
-          />
-          <small className="auth-form__hint">{t("fields.password_hint")}</small>
-        </div>
-
-        <label className="auth-form__consent">
-          <input type="checkbox" name="consent" required />
-          <span>{t("register.consent")}</span>
-        </label>
-
-        <Turnstile
-          ref={turnstileRef}
-          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-          options={{ theme: "light", size: "normal" }}
-        />
-
-        {error && <p className="auth-form__error">{error}</p>}
-
-        <button
-          type="submit"
-          className="auth-form__submit"
-          disabled={loading}
-        >
-          {loading ? t("register.loading") : t("register.submit")}
-        </button>
-      </form>
-    </div>
+    </>
   );
 }
