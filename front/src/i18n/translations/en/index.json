@@ -1739,6 +1739,14 @@
       "ariaLabel": "Photo gallery of {brand} {model}",
       "prevSlide": "Previous slide",
       "nextSlide": "Next slide"
+    },
+    "actions": {
+      "share": "Copy link",
+      "copied": "Link copied",
+      "share_tooltip": "Copy short link",
+      "share_copied_tooltip": "Link copied to clipboard",
+      "favorite_add": "Add to favorites",
+      "favorite_remove": "Remove from favorites"
     }
   },
   "carAside": {
@@ -2616,8 +2624,8 @@
       "title": "Favorites",
       "empty": "You have no favorite cars yet",
       "remove": "Remove",
-      "add_tooltip": "Add to favorites",
-      "remove_tooltip": "Remove from favorites",
+      "add_tooltip": "Add this car to your wishlist",
+      "remove_tooltip": "Remove this car from your wishlist",
       "perDay": "day"
     },
     "notifications": {

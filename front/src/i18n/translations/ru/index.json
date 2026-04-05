@@ -1739,6 +1739,14 @@
       "ariaLabel": "Галерея фото {brand} {model}",
       "prevSlide": "Предыдущий слайд",
       "nextSlide": "Следующий слайд"
+    },
+    "actions": {
+      "share": "Скопировать ссылку",
+      "copied": "Ссылка скопирована",
+      "share_tooltip": "Скопировать короткую ссылку",
+      "share_copied_tooltip": "Ссылка скопирована в буфер обмена",
+      "favorite_add": "Добавить в избранное",
+      "favorite_remove": "Удалить из избранного"
     }
   },
   "carAside": {
@@ -2541,7 +2549,7 @@
     },
     "bookings": { "title": "Активные бронирования", "empty": "Нет активных бронирований", "pickup": "Получение", "return": "Возврат", "status": "Статус", "status_active": "Активная" },
     "history": { "title": "История", "empty": "История пуста", "tab_reservations": "Бронирования", "tab_rentals": "Аренды" },
-    "favorites": { "title": "Избранное", "empty": "У вас нет избранных авто", "remove": "Удалить", "add_tooltip": "Добавить в избранное", "remove_tooltip": "Удалить из избранного", "perDay": "день" },
+    "favorites": { "title": "Избранное", "empty": "У вас нет избранных авто", "remove": "Удалить", "add_tooltip": "Добавить этот автомобиль в ваш список желаний", "remove_tooltip": "Удалить этот автомобиль из вашего списка желаний", "perDay": "день" },
     "notifications": { "title": "Уведомления", "email_deals": "Акции и скидки", "email_reminders": "Напоминания о бронировании", "email_receipts": "Квитанции и счета", "saved": "Сохранено!" },
     "privacy": { "title": "Конфиденциальность и данные", "export_title": "Экспорт данных", "export_desc": "Скачайте все ваши данные в формате JSON", "export_btn": "Скачать данные", "delete_title": "Удаление аккаунта", "delete_desc": "Это действие необратимо. Все ваши данные будут удалены.", "delete_btn": "Удалить аккаунт", "delete_confirm": "Вы уверены? Это нельзя отменить.", "delete_yes": "Да, удалить", "delete_cancel": "Отмена" },
     "header": { "my_account": "Мой кабинет", "login": "Войти", "login_to_account": "Войти в личный кабинет" },

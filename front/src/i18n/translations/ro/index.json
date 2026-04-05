@@ -1767,6 +1767,14 @@
       "prevSlide": "Slide-ul anterior",
       "nextSlide": "Slide-ul următor"
     },
+    "actions": {
+      "share": "Copiază linkul",
+      "copied": "Link copiat",
+      "share_tooltip": "Copiază linkul scurt",
+      "share_copied_tooltip": "Link copiat în clipboard",
+      "favorite_add": "Adaugă la favorite",
+      "favorite_remove": "Elimină din favorite"
+    },
     "rentalConditions": {
       "title": "Condiții de închiriere",
       "delivery": "Livrare",
@@ -2554,7 +2562,7 @@
     "card": { "trips": "călătorii", "discount": "Reducerea mea", "time_with_reiz": "{value} {unit} cu REIZ", "year_one": "an", "year_few": "ani", "year_many": "ani", "month_one": "lună", "month_few": "luni", "month_many": "luni", "day_one": "zi", "day_few": "zile", "day_many": "zile" },
     "bookings": { "title": "Rezervări active", "empty": "Nicio rezervare activă", "pickup": "Ridicare", "return": "Returnare", "status": "Status" },
     "history": { "title": "Istoric", "empty": "Istoricul este gol", "tab_reservations": "Rezervări", "tab_rentals": "Închirieri" },
-    "favorites": { "title": "Favorite", "empty": "Nu aveți mașini favorite", "remove": "Eliminare", "add_tooltip": "Adaugă la favorite", "remove_tooltip": "Elimină din favorite", "perDay": "zi" },
+    "favorites": { "title": "Favorite", "empty": "Nu aveți mașini favorite", "remove": "Eliminare", "add_tooltip": "Adaugă acest automobil în lista ta de dorințe", "remove_tooltip": "Elimină acest automobil din lista ta de dorințe", "perDay": "zi" },
     "notifications": { "title": "Notificări", "email_deals": "Oferte și reduceri", "email_reminders": "Memento-uri de rezervare", "email_receipts": "Chitanțe și facturi", "saved": "Salvat!" },
     "privacy": { "title": "Confidențialitate și date", "export_title": "Export date", "export_desc": "Descărcați datele personale în format JSON", "export_btn": "Descărcare date", "delete_title": "Ștergere cont", "delete_desc": "Această acțiune este ireversibilă. Toate datele vor fi șterse.", "delete_btn": "Șterge contul", "delete_confirm": "Sunteți sigur? Nu se poate anula.", "delete_yes": "Da, șterge", "delete_cancel": "Anulare" },
     "header": { "my_account": "Contul meu", "login": "Autentificare", "login_to_account": "Autentifică-te în contul personal" }

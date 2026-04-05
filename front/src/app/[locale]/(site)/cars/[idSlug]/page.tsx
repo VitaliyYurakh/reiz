@@ -15,9 +15,10 @@ import CarClientProvider from "@/app/[locale]/(site)/cars/[idSlug]/components/mo
 import ThemeColorSetter from "@/app/[locale]/(site)/cars/[idSlug]/components/ThemeColorSetter";
 import CarTabs from "@/app/[locale]/(site)/cars/[idSlug]/components/CarTabs";
 import RentalPolicyButton from "@/app/[locale]/(site)/cars/[idSlug]/components/RentalPolicyButton";
+import ShareButton from "@/app/[locale]/(site)/cars/[idSlug]/components/ShareButton";
 import {fetchCar} from "@/lib/api/cars";
 import {getTranslations} from "next-intl/server";
-import {LocalizedText, localized} from "@/types/cars";
+import { type LocalizedText, localized } from "@/types/cars";
 import {createCarIdSlug, parseCarIdFromSlug} from "@/lib/utils/carSlug";
 import {formatEngine} from "@/lib/utils/catalog-utils";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -268,6 +269,11 @@ export default async function CarPage({
     ];
 
     const imageAlt = t("imageAlt", { brand: car.brand ?? "", model: car.model ?? "" });
+    const pageTitle = t("title", {
+        brand: car.brand || "",
+        model: car.model || "",
+        year: car.yearOfManufacture || "",
+    });
 
     const PCImages = car.carPhoto
         .filter((image) => image.type === "PC")
@@ -370,13 +376,22 @@ export default async function CarPage({
                                 data-aos-duration="900"
                                 data-aos-delay="450"
                             >
-                                {t("title", {
-                                    brand: car.brand || "",
-                                    model: car.model || "",
-                                    year: car.yearOfManufacture || "",
-                                })}
+                                {pageTitle}
                             </h1>
-                            <FavoriteToggle carId={car.id} className="single-section__favorite" />
+                            <div className="single-section__actions">
+                                <ShareButton
+                                    shareLabel={t("actions.share")}
+                                    copiedLabel={t("actions.copied")}
+                                    tooltipLabel={t("actions.share_tooltip")}
+                                    copiedTooltipLabel={t("actions.share_copied_tooltip")}
+                                />
+                                <FavoriteToggle
+                                    carId={car.id}
+                                    className="single-section__favorite single-section__action-button"
+                                    addTooltipLabel={t("actions.favorite_add")}
+                                    removeTooltipLabel={t("actions.favorite_remove")}
+                                />
+                            </div>
                         </div>
 
                         <div className="single-section__info">

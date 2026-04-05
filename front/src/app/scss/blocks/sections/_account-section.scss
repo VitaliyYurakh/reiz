@@ -1435,6 +1435,17 @@
 
 // ── Favorite toggle button ──
 .favorite-toggle {
+  --favorite-tooltip-left: 50%;
+  --favorite-tooltip-top: auto;
+  --favorite-tooltip-bottom: calc(100% + 12px);
+  --favorite-tooltip-transform-hidden: translate(-50%, 6px) scale(0.96);
+  --favorite-tooltip-transform-visible: translate(-50%, 0) scale(1);
+  --favorite-tooltip-transform-origin: bottom center;
+  --favorite-tooltip-arrow-left: 50%;
+  --favorite-tooltip-arrow-top: auto;
+  --favorite-tooltip-arrow-bottom: -8px;
+  --favorite-tooltip-arrow-transform: translateX(-50%) rotate(45deg);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1446,6 +1457,62 @@
   color: #717171;
   cursor: pointer;
   transition: color 0.15s, transform 0.15s;
+  isolation: isolate;
+
+  &__tooltip {
+    display: block;
+    position: absolute;
+    left: var(--favorite-tooltip-left);
+    top: var(--favorite-tooltip-top);
+    bottom: var(--favorite-tooltip-bottom);
+    z-index: 3;
+    width: max-content;
+    max-width: min(220px, calc(100vw - 32px));
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #141414 0%, #050505 100%);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.15;
+    white-space: normal;
+    text-align: center;
+    text-wrap: balance;
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.2)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.14));
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: var(--favorite-tooltip-transform-hidden);
+    transform-origin: var(--favorite-tooltip-transform-origin);
+    transition:
+      opacity 0.18s ease,
+      transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0.18s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: var(--favorite-tooltip-arrow-left);
+      top: var(--favorite-tooltip-arrow-top);
+      bottom: var(--favorite-tooltip-arrow-bottom);
+      width: 12px;
+      height: 12px;
+      background: inherit;
+      border-radius: 2px;
+      transform: var(--favorite-tooltip-arrow-transform);
+    }
+  }
+
+  &:hover .favorite-toggle__tooltip,
+  &:focus-visible .favorite-toggle__tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover .favorite-toggle__tooltip,
+  &:focus-visible .favorite-toggle__tooltip {
+    transform: var(--favorite-tooltip-transform-visible);
+  }
 
   @include hover {
     color: #ff385c;

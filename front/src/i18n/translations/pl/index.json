@@ -1738,6 +1738,14 @@
       "ariaLabel": "Galeria zdjęć {brand} {model}",
       "prevSlide": "Poprzedni slajd",
       "nextSlide": "Następny slajd"
+    },
+    "actions": {
+      "share": "Skopiuj link",
+      "copied": "Link skopiowano",
+      "share_tooltip": "Skopiuj krótki link",
+      "share_copied_tooltip": "Link skopiowano do schowka",
+      "favorite_add": "Dodaj do ulubionych",
+      "favorite_remove": "Usuń z ulubionych"
     }
   },
   "carAside": {
@@ -2502,7 +2510,7 @@
     "card": { "trips": "podróży", "discount": "Moja zniżka", "time_with_reiz": "{value} {unit} z REIZ", "year_one": "rok", "year_few": "lata", "year_many": "lat", "month_one": "miesiąc", "month_few": "miesiące", "month_many": "miesięcy", "day_one": "dzień", "day_few": "dni", "day_many": "dni" },
     "bookings": { "title": "Aktywne rezerwacje", "empty": "Brak aktywnych rezerwacji", "pickup": "Odbiór", "return": "Zwrot", "status": "Status" },
     "history": { "title": "Historia", "empty": "Historia jest pusta", "tab_reservations": "Rezerwacje", "tab_rentals": "Wynajmy" },
-    "favorites": { "title": "Ulubione", "empty": "Nie masz ulubionych samochodów", "remove": "Usuń", "add_tooltip": "Dodaj do ulubionych", "remove_tooltip": "Usuń z ulubionych", "perDay": "dzień" },
+    "favorites": { "title": "Ulubione", "empty": "Nie masz ulubionych samochodów", "remove": "Usuń", "add_tooltip": "Dodaj ten samochód do swojej listy życzeń", "remove_tooltip": "Usuń ten samochód ze swojej listy życzeń", "perDay": "dzień" },
     "notifications": { "title": "Powiadomienia", "email_deals": "Promocje i zniżki", "email_reminders": "Przypomnienia o rezerwacji", "email_receipts": "Rachunki i faktury", "saved": "Zapisano!" },
     "privacy": { "title": "Prywatność i dane", "export_title": "Eksport danych", "export_desc": "Pobierz swoje dane w formacie JSON", "export_btn": "Pobierz dane", "delete_title": "Usunięcie konta", "delete_desc": "Ta akcja jest nieodwracalna. Wszystkie dane zostaną usunięte.", "delete_btn": "Usuń konto", "delete_confirm": "Czy na pewno? Tego nie można cofnąć.", "delete_yes": "Tak, usuń", "delete_cancel": "Anuluj" },
     "header": { "my_account": "Moje konto", "login": "Zaloguj się", "login_to_account": "Zaloguj się do konta osobistego" }

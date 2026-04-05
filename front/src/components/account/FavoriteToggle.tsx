@@ -1,18 +1,24 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { useFavorites } from "@/context/FavoritesContext";
+import { type MouseEvent, useState } from "react";
 import { useSideBarModal } from "@/components/modals";
+import { useFavorites } from "@/context/FavoritesContext";
 
 interface FavoriteToggleProps {
   carId: number;
   className?: string;
+  showTooltip?: boolean;
+  addTooltipLabel?: string;
+  removeTooltipLabel?: string;
 }
 
 export default function FavoriteToggle({
   carId,
   className = "",
+  showTooltip = true,
+  addTooltipLabel,
+  removeTooltipLabel,
 }: FavoriteToggleProps) {
   const t = useTranslations("account.favorites");
   const { isFavorited, toggle, isAuthenticated } = useFavorites();
@@ -20,8 +26,11 @@ export default function FavoriteToggle({
   const [loading, setLoading] = useState(false);
 
   const favorited = isFavorited(carId);
+  const tooltipLabel = favorited
+    ? (removeTooltipLabel ?? t("remove_tooltip"))
+    : (addTooltipLabel ?? t("add_tooltip"));
 
-  async function handleClick(e: React.MouseEvent) {
+  async function handleClick(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     e.stopPropagation();
 
@@ -44,16 +53,20 @@ export default function FavoriteToggle({
       onClick={handleClick}
       className={`favorite-toggle ${favorited ? "favorite-toggle--active" : ""} ${className}`}
       disabled={loading}
-      title={favorited ? t("remove_tooltip") : t("add_tooltip")}
-      aria-label={favorited ? t("remove_tooltip") : t("add_tooltip")}
+      aria-label={tooltipLabel}
     >
+      {showTooltip ? (
+        <span className="favorite-toggle__tooltip" aria-hidden="true">
+          {tooltipLabel}
+        </span>
+      ) : null}
       <svg
         width="22"
         height="22"
         viewBox="0 0 24 24"
         fill={favorited ? "currentColor" : "none"}
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
