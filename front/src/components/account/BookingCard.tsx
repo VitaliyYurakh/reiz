@@ -62,7 +62,7 @@ export default function BookingCard({ booking }: BookingCardProps) {
 
   const dateRange = `${fmtDate(pickupDate)} — ${fmtDate(returnDate)}`;
 
-  const statusKey = `status_${booking.status || booking._type}`;
+  const statusKey = `status_${booking.status || booking._type}` as any;
   const statusLabel = t.has(statusKey)
     ? t(statusKey)
     : (booking.status || booking._type);

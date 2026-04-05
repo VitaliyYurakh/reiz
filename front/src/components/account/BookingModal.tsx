@@ -44,7 +44,7 @@ export default function BookingModal({ booking, onClose }: BookingModalProps) {
     ? `${window.location.origin}${locale === "uk" ? "" : `/${locale}`}/cars/${car.id}`
     : null;
 
-  const statusKey = `status_${booking.status || booking._type}`;
+  const statusKey = `status_${booking.status || booking._type}` as any;
   const statusLabel = t.has(statusKey)
     ? t(statusKey)
     : (booking.status || booking._type);
