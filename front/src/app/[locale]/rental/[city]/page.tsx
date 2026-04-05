@@ -106,7 +106,7 @@ export async function generateMetadata({
       siteName: "REIZ",
       title: metaTitle,
       description: cityData.ogDescription,
-      images: [{ url: `${baseUrl}/img/og/home.webp`, width: 1200, height: 630 }],
+      images: [{ url: `${baseUrl}/img/og/home-audi-q8-og.webp`, width: 1200, height: 630 }],
       url: canonical,
       locale: ogLocale,
       alternateLocale: ogAlternateLocales,
@@ -115,7 +115,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: metaTitle,
       description: cityData.ogDescription,
-      images: [`${baseUrl}/img/og/home.webp`],
+      images: [`${baseUrl}/img/og/home-audi-q8-og.webp`],
     },
   };
 }

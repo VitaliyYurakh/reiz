@@ -59,7 +59,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     alternateName: `REIZ RENTAL CARS ${city.name}`,
     url: getPageUrl(),
     logo: `${baseUrl}/img/og/home-square.webp`,
-    image: `${baseUrl}/img/og/home.webp`,
+    image: `${baseUrl}/img/og/home-audi-q8-og.webp`,
     description: descriptions[locale],
     telephone: PHONE_NUMBER,
     email: "info@reiz.com.ua",
