@@ -13,6 +13,20 @@ import {
 class FeedbackService {
     async createBookingRequest(data: BookingRequestDto) {
         try {
+            // If clientId provided, fetch client profile
+            let client: any = null;
+            if (data.clientId) {
+                client = await prisma.client.findUnique({
+                    where: {id: data.clientId, deletedAt: null},
+                    select: {
+                        id: true, firstName: true, lastName: true, phone: true, email: true,
+                        driverLicenseNo: true, driverLicenseExpiry: true,
+                        dateOfBirth: true, drivingSince: true,
+                        totalCompletedRentals: true, loyaltyTier: true, rating: true,
+                    },
+                });
+            }
+
             const bookingRequest = await prisma.bookingRequest.create({
                 data: {
                     firstName: data.firstName,
@@ -26,6 +40,7 @@ class FeedbackService {
                     flightNumber: data.flightNumber,
                     comment: data.comment,
                     carId: data.carId,
+                    clientId: client?.id || null,
                     carDetails: data.carDetails,
                     selectedPlan: data.selectedPlan,
                     selectedExtras: data.selectedExtras,
@@ -52,6 +67,7 @@ class FeedbackService {
                     selectedExtras: data.selectedExtras,
                     totalDays: data.totalDays,
                     priceBreakdown: data.priceBreakdown,
+                    clientProfile: client,
                 });
                 const sent = await telegramService.sendMessage(message);
 

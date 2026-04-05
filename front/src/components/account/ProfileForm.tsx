@@ -218,6 +218,28 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
         />
       </div>
 
+      <div className="profile-form__row">
+        <div className="profile-form__field">
+          <label htmlFor="driverLicenseNo">{t("profile.driver_license")}</label>
+          <input
+            id="driverLicenseNo"
+            name="driverLicenseNo"
+            type="text"
+            defaultValue={profile?.driverLicenseNo || ""}
+            placeholder={t("profile.driver_license_placeholder")}
+          />
+        </div>
+        <div className="profile-form__field">
+          <label htmlFor="driverLicenseExpiry">{t("profile.license_expiry")}</label>
+          <input
+            id="driverLicenseExpiry"
+            name="driverLicenseExpiry"
+            type="date"
+            defaultValue={profile?.driverLicenseExpiry ? new Date(profile.driverLicenseExpiry).toISOString().split("T")[0] : ""}
+          />
+        </div>
+      </div>
+
       <div className="profile-form__section">
         <label className="profile-form__section-label">{t("profile.languages_label")}</label>
         <div className="profile-form__langs-row">

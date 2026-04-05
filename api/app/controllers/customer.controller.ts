@@ -70,6 +70,38 @@ class CustomerController {
         res.json(data);
     }
 
+    async requestCancellation(req: Request, res: Response) {
+        const clientId = res.locals.clientId;
+        const reservationId = Number(req.params.id);
+        if (isNaN(reservationId)) {
+            return res.status(StatusCodes.BAD_REQUEST).json({msg: 'Invalid reservation id'});
+        }
+        try {
+            const result = await customerService.requestCancellation(clientId, reservationId, req.body.reason);
+            res.json(result);
+        } catch (e: any) {
+            res.status(StatusCodes.BAD_REQUEST).json({msg: e.message});
+        }
+    }
+
+    async getBookingHistory(req: Request, res: Response) {
+        const clientId = res.locals.clientId;
+        const filter = req.query.filter as string | undefined;
+        const page = Math.max(1, parseInt(req.query.page as string) || 1);
+        const limit = Math.min(50, Math.max(1, parseInt(req.query.limit as string) || 20));
+        const data = await customerService.getBookingHistory(clientId, filter, page, limit);
+        res.json(data);
+    }
+
+    async getStats(req: Request, res: Response) {
+        const clientId = res.locals.clientId;
+        const data = await customerService.getStats(clientId);
+        if (!data) {
+            return res.status(StatusCodes.NOT_FOUND).json({msg: 'Client not found'});
+        }
+        res.json(data);
+    }
+
     async exportData(req: Request, res: Response) {
         const clientId = res.locals.clientId;
         const data = await customerService.exportData(clientId);

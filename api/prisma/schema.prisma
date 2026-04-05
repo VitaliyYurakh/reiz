@@ -164,6 +164,7 @@ model BookingRequest {
   flightNumber    String?  @map("flight_number")
   comment         String?
   carId           Int?     @map("car_id")
+  clientId        Int?     @map("client_id")
   carDetails      Json?    @map("car_details")
   selectedPlan    Json?    @map("selected_plan")
   selectedExtras  Json?    @map("selected_extras")
@@ -173,6 +174,7 @@ model BookingRequest {
   createdAt       DateTime @default(now()) @map("created_at")
 
   // CRM relation
+  client        Client?        @relation(fields: [clientId], references: [id])
   rentalRequest RentalRequest?
 }
 
@@ -243,17 +245,21 @@ model Client {
   source              String?
   isBlocked           Boolean   @default(false) @map("is_blocked")
   blockReason         String?   @map("block_reason")
-  blockedAt           DateTime? @map("blocked_at")
-  deletedAt           DateTime? @map("deleted_at")
+  blockedAt             DateTime? @map("blocked_at")
+  loyaltyTier           String?   @map("loyalty_tier")
+  totalCompletedRentals Int       @default(0) @map("total_completed_rentals")
+  totalSpentMinor       Int       @default(0) @map("total_spent_minor")
+  deletedAt             DateTime? @map("deleted_at")
   createdAt           DateTime  @default(now()) @map("created_at")
   updatedAt           DateTime  @updatedAt @map("updated_at")
 
   ratingAuthor   User?             @relation("RatingAuthor", fields: [ratingAuthorId], references: [id])
-  documents      ClientDocument[]
-  rentalRequests RentalRequest[]
-  reservations   Reservation[]
-  rentals        Rental[]
-  transactions   Transaction[]
+  documents       ClientDocument[]
+  bookingRequests BookingRequest[]
+  rentalRequests  RentalRequest[]
+  reservations    Reservation[]
+  rentals         Rental[]
+  transactions    Transaction[]
 
   // Customer cabinet relations
   customerAccount        CustomerAccount?
@@ -399,9 +405,11 @@ model Reservation {
   deliveryFee      Int    @default(0) @map("delivery_fee")
   deliveryCurrency String @default("UAH") @map("delivery_currency")
 
-  cancelReason String?   @map("cancel_reason")
-  cancelledAt  DateTime? @map("cancelled_at")
-  noShowAt     DateTime? @map("no_show_at")
+  cancelReason              String?   @map("cancel_reason")
+  cancelledAt               DateTime? @map("cancelled_at")
+  noShowAt                  DateTime? @map("no_show_at")
+  cancellationRequestedAt   DateTime? @map("cancellation_requested_at")
+  cancellationRequestReason String?   @map("cancellation_request_reason")
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -464,8 +472,10 @@ model Rental {
   depositCurrency String  @default("UAH") @map("deposit_currency")
   depositReturned Boolean @default(false) @map("deposit_returned")
 
-  cancelReason String? @map("cancel_reason")
-  notes        String?
+  cancelReason              String?   @map("cancel_reason")
+  cancellationRequestedAt   DateTime? @map("cancellation_requested_at")
+  cancellationRequestReason String?   @map("cancellation_request_reason")
+  notes                     String?
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")

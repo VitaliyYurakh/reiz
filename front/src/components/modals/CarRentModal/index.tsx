@@ -390,6 +390,7 @@ export default function CarRentModal({
           flightNumber: formState.flightNumber,
           comment: formState.comment,
           carId: data.car.id,
+          clientId: (session?.user as any)?.clientId || undefined,
           carDetails: {
             brand: data.car.brand,
             model: data.car.model,

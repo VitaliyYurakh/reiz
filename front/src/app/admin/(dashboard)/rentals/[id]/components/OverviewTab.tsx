@@ -289,6 +289,22 @@ export function OverviewTab({ rental }: { rental: Rental }) {
                 </div>
             )}
 
+            {/* Client cancellation request */}
+            {rental.cancellationRequestedAt && (
+                <div className="rounded-2xl bg-[#FF9500]/10 p-5">
+                    <div className="flex items-center gap-2 text-sm font-medium text-[#FF9500]">
+                        <AlertTriangle className="h-4 w-4" />
+                        Клієнт запросив скасування оренди
+                    </div>
+                    <p className="mt-1 text-sm text-[#FF9500]/80">
+                        {new Date(rental.cancellationRequestedAt).toLocaleString('uk-UA')}
+                    </p>
+                    {rental.cancellationRequestReason && (
+                        <p className="mt-2 text-sm text-foreground">{rental.cancellationRequestReason}</p>
+                    )}
+                </div>
+            )}
+
             {/* Cancel reason */}
             {rental.cancelReason && (
                 <div className="rounded-2xl bg-[#FF3B30]/10 p-5">

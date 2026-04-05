@@ -393,7 +393,7 @@ class ClientService {
     }
 
     async getHistory(id: number) {
-        const [rentals, reservations, rentalRequests] = await Promise.all([
+        const [rentals, reservations, rentalRequests, clientStats] = await Promise.all([
             prisma.rental.findMany({
                 where: {clientId: id},
                 orderBy: {createdAt: 'desc'},
@@ -401,6 +401,10 @@ class ClientService {
                     car: {select: {id: true, brand: true, model: true, plateNumber: true}},
                     fines: true,
                     transactions: true,
+                    rentalAddOns: {
+                        include: {addOn: {select: {name: true, nameLocalized: true}}},
+                    },
+                    rentalExtensions: true,
                 },
             }),
             prisma.reservation.findMany({
@@ -408,6 +412,10 @@ class ClientService {
                 orderBy: {createdAt: 'desc'},
                 include: {
                     car: {select: {id: true, brand: true, model: true, plateNumber: true}},
+                    reservationAddOns: {
+                        include: {addOn: {select: {name: true, nameLocalized: true}}},
+                    },
+                    transactions: true,
                 },
             }),
             prisma.rentalRequest.findMany({
@@ -417,9 +425,17 @@ class ClientService {
                     car: {select: {id: true, brand: true, model: true, plateNumber: true}},
                 },
             }),
+            prisma.client.findUnique({
+                where: {id},
+                select: {
+                    totalCompletedRentals: true,
+                    totalSpentMinor: true,
+                    loyaltyTier: true,
+                },
+            }),
         ]);
 
-        return {rentals, reservations, rentalRequests};
+        return {rentals, reservations, rentalRequests, clientStats};
     }
 }
 

@@ -433,6 +433,7 @@ export default function RentPageContent({
           flightNumber: formState.flightNumber,
           comment: formState.comment,
           carId: car.id,
+          clientId: (session?.user as any)?.clientId || undefined,
           carDetails: {
             brand: car.brand,
             model: car.model,

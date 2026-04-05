@@ -12,7 +12,10 @@ class RentalService {
         const skip = (page - 1) * limit;
 
         const where: any = {};
-        if (status) {
+        if (status === 'cancellation_requested') {
+            where.cancellationRequestedAt = {not: null};
+            where.status = 'active';
+        } else if (status) {
             where.status = status;
         }
 
@@ -216,6 +219,20 @@ class RentalService {
                     });
                 }
             }
+
+            // Increment client loyalty counters
+            const totalPaid = await tx.transaction.aggregate({
+                where: {rentalId: id, direction: 'in'},
+                _sum: {amountMinor: true},
+            });
+
+            await tx.client.update({
+                where: {id: rental.clientId},
+                data: {
+                    totalCompletedRentals: {increment: 1},
+                    totalSpentMinor: {increment: totalPaid._sum.amountMinor || 0},
+                },
+            });
 
             return {
                 rental: updatedRental,

@@ -239,7 +239,49 @@ class TelegramService {
         }
 
         if (data.comment) {
-            message += `\n💬 <b>Коментар:</b> ${escapeHtml(data.comment)}`;
+            message += `\n💬 <b>Коментар:</b> ${escapeHtml(data.comment)}\n`;
+        }
+
+        // Client profile info (if authenticated)
+        if (data.clientProfile) {
+            const cp = data.clientProfile;
+            message += `\n👤 <b>Зареєстрований клієнт</b> (ID: ${cp.id})\n`;
+
+            if (cp.driverLicenseNo) {
+                message += `🪪 Посвідчення: ${escapeHtml(cp.driverLicenseNo)}`;
+                if (cp.driverLicenseExpiry) {
+                    message += ` (до ${new Date(cp.driverLicenseExpiry).toLocaleDateString('uk-UA')})`;
+                }
+                message += '\n';
+            } else {
+                message += '⚠️ Посвідчення: <i>не заповнено</i>\n';
+            }
+
+            if (cp.dateOfBirth) {
+                const age = Math.floor((Date.now() - new Date(cp.dateOfBirth).getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+                message += `🎂 Вік: ${age} років\n`;
+            }
+
+            if (cp.drivingSince) {
+                const exp = new Date().getFullYear() - cp.drivingSince;
+                message += `🚗 Стаж: ${exp} р. (з ${cp.drivingSince})\n`;
+            }
+
+            if (cp.totalCompletedRentals > 0) {
+                message += `📊 Оренд: ${cp.totalCompletedRentals}\n`;
+            }
+
+            if (cp.loyaltyTier) {
+                message += `⭐ Рівень: ${cp.loyaltyTier}\n`;
+            }
+
+            const profileFields = [cp.driverLicenseNo, cp.driverLicenseExpiry, cp.dateOfBirth, cp.drivingSince];
+            const filled = profileFields.filter(Boolean).length;
+            if (filled < profileFields.length) {
+                message += `📋 Профіль: ${filled}/${profileFields.length} заповнено\n`;
+            } else {
+                message += '✅ Профіль повністю заповнений\n';
+            }
         }
 
         return message;

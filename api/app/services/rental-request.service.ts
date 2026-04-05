@@ -287,6 +287,7 @@ class RentalRequestService {
                 source: 'website',
                 status: 'new',
                 bookingRequestId: bookingRequest.id,
+                clientId: bookingRequest.clientId,
                 carId: bookingRequest.carId,
                 firstName: bookingRequest.firstName,
                 lastName: bookingRequest.lastName,

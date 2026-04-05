@@ -88,6 +88,7 @@ type BookingRequestDto = {
     flightNumber?: string;
     comment?: string;
     carId?: number;
+    clientId?: number;
     carDetails?: any;
     selectedPlan?: any;
     selectedExtras?: any;

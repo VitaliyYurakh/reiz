@@ -403,6 +403,17 @@ export default function ReservationDetailPage() {
                 </div>
             )}
 
+            {/* ── Client cancellation request ── */}
+            {(r as any).cancellationRequestedAt && (
+                <div className="mt-4 rounded-lg border border-orange-200 bg-orange-50 p-4 dark:border-orange-500/30 dark:bg-orange-500/10">
+                    <p className="text-sm font-medium text-orange-800 dark:text-orange-300">❌ Клієнт запросив скасування бронювання</p>
+                    <p className="mt-1 text-xs text-orange-600 dark:text-orange-400/70">{fmtDateTime((r as any).cancellationRequestedAt)}</p>
+                    {(r as any).cancellationRequestReason && (
+                        <p className="mt-2 text-sm text-orange-700 dark:text-orange-400">{(r as any).cancellationRequestReason}</p>
+                    )}
+                </div>
+            )}
+
             {/* ── Cancel / No-show info ── */}
             {r.cancelReason && (
                 <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-500/30 dark:bg-red-500/10">

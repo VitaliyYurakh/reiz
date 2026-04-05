@@ -12,6 +12,9 @@ router.put('/profile', customerController.updateProfile);
 
 router.get('/reservations', customerController.getReservations);
 router.get('/rentals', customerController.getRentals);
+router.get('/booking-history', customerController.getBookingHistory);
+router.get('/stats', customerController.getStats);
+router.post('/reservations/:id/request-cancel', customerController.requestCancellation);
 
 router.get('/favorites', customerController.getFavorites);
 router.post('/favorites/:carId', customerController.addFavorite);

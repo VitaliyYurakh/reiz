@@ -544,6 +544,7 @@ export const bookingRequestSchema = z.object({
     flightNumber: z.string().max(50).optional(),
     comment: z.string().max(5000).optional(),
     carId: z.number().int().positive().optional(),
+    clientId: z.number().int().positive().optional(),
     carDetails: z.any().optional(),
     selectedPlan: z.any().optional(),
     selectedExtras: z.any().optional(),

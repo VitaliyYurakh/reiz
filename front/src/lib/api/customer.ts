@@ -73,6 +73,41 @@ export async function getRentals(status?: string) {
   return (await customerFetch(`/rentals${qs}`)) || [];
 }
 
+export async function getBookingHistory(
+  filter?: "active" | "history" | "cancelled",
+  page = 1,
+  limit = 20,
+) {
+  const params = new URLSearchParams();
+  if (filter) params.set("filter", filter);
+  if (page > 1) params.set("page", String(page));
+  if (limit !== 20) params.set("limit", String(limit));
+  const qs = params.toString() ? `?${params.toString()}` : "";
+  return (
+    (await customerFetch(`/booking-history${qs}`)) || {
+      items: [],
+      total: 0,
+      page: 1,
+      limit: 20,
+      totalPages: 0,
+    }
+  );
+}
+
+export async function getCustomerStats() {
+  return await customerFetch("/stats");
+}
+
+export async function requestCancellation(
+  reservationId: number,
+  reason?: string,
+) {
+  return customerFetch(`/reservations/${reservationId}/request-cancel`, {
+    method: "POST",
+    body: JSON.stringify({ reason }),
+  });
+}
+
 export async function getFavorites() {
   return (await customerFetch("/favorites")) || [];
 }
