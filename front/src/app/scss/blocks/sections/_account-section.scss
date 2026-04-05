@@ -1435,7 +1435,6 @@
 
 // ── Favorite toggle button ──
 .favorite-toggle {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1448,51 +1447,9 @@
   cursor: pointer;
   transition: color 0.15s, transform 0.15s;
 
-  // Custom tooltip
-  &::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    right: calc(100% + 10px);
-    top: 50%;
-    transform: translateY(-50%);
-    white-space: nowrap;
-    background: #222;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.3;
-    padding: 8px 14px;
-    border-radius: 10px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s;
-    z-index: 10;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-  }
-
-  // Arrow
-  &::before {
-    content: "";
-    position: absolute;
-    right: calc(100% + 4px);
-    top: 50%;
-    transform: translateY(-50%);
-    border: 5px solid transparent;
-    border-left-color: #222;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s;
-    z-index: 10;
-  }
-
   @include hover {
     color: #ff385c;
     transform: scale(1.1);
-
-    &::after,
-    &::before {
-      opacity: 1;
-    }
   }
 
   &--active {
@@ -1502,14 +1459,6 @@
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
-
-  // On mobile — hide tooltip (touch devices don't need hover tooltips)
-  @include mobile {
-    &::after,
-    &::before {
-      display: none;
-    }
   }
 }
 
