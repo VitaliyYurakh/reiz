@@ -3,7 +3,13 @@ www.reiz.com.ua {
 }
 
 reiz.com.ua {
-  # Next.js API routes (Auth.js + currency rates)
+  # Express backend admin auth (login/logout/check/me) — must come before NextAuth catch-all
+  reverse_proxy /api/auth/login api:3000
+  reverse_proxy /api/auth/logout api:3000
+  reverse_proxy /api/auth/check api:3000
+  reverse_proxy /api/auth/me api:3000
+
+  # Next.js Auth.js routes (Google OAuth, session, CSRF, etc.)
   reverse_proxy /api/auth/* web:8080
   reverse_proxy /api/rates web:8080
 
