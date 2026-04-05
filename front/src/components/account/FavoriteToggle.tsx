@@ -20,6 +20,7 @@ export default function FavoriteToggle({
   const [loading, setLoading] = useState(false);
 
   const favorited = isFavorited(carId);
+  const label = favorited ? t("remove_tooltip") : t("add_tooltip");
 
   async function handleClick(e: React.MouseEvent) {
     e.preventDefault();
@@ -44,8 +45,8 @@ export default function FavoriteToggle({
       onClick={handleClick}
       className={`favorite-toggle ${favorited ? "favorite-toggle--active" : ""} ${className}`}
       disabled={loading}
-      title={favorited ? t("remove_tooltip") : t("add_tooltip")}
-      aria-label={favorited ? t("remove_tooltip") : t("add_tooltip")}
+      aria-label={label}
+      data-tooltip={label}
     >
       <svg
         width="22"
