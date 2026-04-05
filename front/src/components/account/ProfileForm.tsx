@@ -220,17 +220,17 @@ export default function ProfileForm({ profile, onSaved }: ProfileFormProps) {
 
       <div className="profile-form__row">
         <div className="profile-form__field">
-          <label htmlFor="driverLicenseNo">{t("profile.driver_license")}</label>
+          <label htmlFor="driverLicenseNo">{t("profile.driver_license" as any)}</label>
           <input
             id="driverLicenseNo"
             name="driverLicenseNo"
             type="text"
             defaultValue={profile?.driverLicenseNo || ""}
-            placeholder={t("profile.driver_license_placeholder")}
+            placeholder={t("profile.driver_license_placeholder" as any)}
           />
         </div>
         <div className="profile-form__field">
-          <label htmlFor="driverLicenseExpiry">{t("profile.license_expiry")}</label>
+          <label htmlFor="driverLicenseExpiry">{t("profile.license_expiry" as any)}</label>
           <input
             id="driverLicenseExpiry"
             name="driverLicenseExpiry"
