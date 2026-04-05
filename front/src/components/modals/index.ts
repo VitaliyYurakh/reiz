@@ -33,6 +33,11 @@ export type SideBarModalSpec = {
     isClosing: boolean;
     callback?: (result: { ok: boolean }) => void;
   };
+  loginRequired: {
+    data: {};
+    isClosing: boolean;
+    callback?: () => void;
+  };
 };
 
 export const { Provider: SideBarModalProvider, useModal: useSideBarModal } =

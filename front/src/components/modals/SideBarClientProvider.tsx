@@ -19,6 +19,11 @@ const BookingContactModal = dynamic(
   { ssr: false }
 );
 
+const LoginRequiredModal = dynamic(
+  () => import("@/components/modals/LoginRequiredModal"),
+  { ssr: false }
+);
+
 export default function SideBarClientProvider({
   children,
 }: {
@@ -32,6 +37,7 @@ export default function SideBarClientProvider({
         managerWillContactYouModal: (props: any) => (
           <ManagerWillContactYouModal {...props} />
         ),
+        loginRequired: (props: any) => <LoginRequiredModal {...props} />,
       }}
     >
       {children}

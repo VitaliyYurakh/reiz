@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { removeFavorite } from "@/lib/api/customer";
+import { useCurrency } from "@/context/CurrencyContext";
 import { Link } from "@/i18n/request";
 
 interface FavoritesListProps {
@@ -13,6 +14,7 @@ interface FavoritesListProps {
 export default function FavoritesList({ favorites: initial }: FavoritesListProps) {
   const t = useTranslations("account.favorites");
   const router = useRouter();
+  const { formatPrice } = useCurrency();
   const [favorites, setFavorites] = useState(initial);
 
   async function handleRemove(carId: number) {
@@ -52,7 +54,7 @@ export default function FavoritesList({ favorites: initial }: FavoritesListProps
               </Link>
               {tariff && (
                 <p className="account-favorite-card__price">
-                  ${tariff.dailyPrice}/day
+                  {formatPrice(tariff.dailyPrice)}/{t("perDay")}
                 </p>
               )}
             </div>

@@ -1,44 +1,41 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { addFavorite, removeFavorite } from "@/lib/api/customer";
+import { useTranslations } from "next-intl";
+import { useFavorites } from "@/context/FavoritesContext";
+import { useSideBarModal } from "@/components/modals";
 
 interface FavoriteToggleProps {
   carId: number;
-  isFavorited?: boolean;
-  isAuthenticated?: boolean;
   className?: string;
 }
 
 export default function FavoriteToggle({
   carId,
-  isFavorited = false,
-  isAuthenticated = false,
   className = "",
 }: FavoriteToggleProps) {
-  const router = useRouter();
-  const [favorited, setFavorited] = useState(isFavorited);
+  const t = useTranslations("account.favorites");
+  const { isFavorited, toggle, isAuthenticated } = useFavorites();
+  const { open } = useSideBarModal("loginRequired");
   const [loading, setLoading] = useState(false);
+
+  const favorited = isFavorited(carId);
 
   async function handleClick(e: React.MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
 
     if (!isAuthenticated) {
-      router.push("/auth/login");
+      open({});
       return;
     }
 
     setLoading(true);
-    if (favorited) {
-      await removeFavorite(carId);
-      setFavorited(false);
-    } else {
-      await addFavorite(carId);
-      setFavorited(true);
+    try {
+      await toggle(carId);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (
@@ -47,7 +44,8 @@ export default function FavoriteToggle({
       onClick={handleClick}
       className={`favorite-toggle ${favorited ? "favorite-toggle--active" : ""} ${className}`}
       disabled={loading}
-      aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
+      title={favorited ? t("remove_tooltip") : t("add_tooltip")}
+      aria-label={favorited ? t("remove_tooltip") : t("add_tooltip")}
     >
       <svg
         width="22"

@@ -23,6 +23,7 @@ import {formatEngine} from "@/lib/utils/catalog-utils";
 import { notFound, permanentRedirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import UtilityBar from "@/components/UtilityBar";
+import FavoriteToggle from "@/components/account/FavoriteToggle";
 import { generateVehicleSchema, generateProductSchema } from "@/lib/schema/vehicle";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
@@ -362,18 +363,21 @@ export default async function CarPage({
             <div className="container">
                 <div className="single-section__box">
                     <div className="single-section__inner">
-                        <h1
-                            className="main-title"
-                            data-aos="fade-right"
-                            data-aos-duration="900"
-                            data-aos-delay="450"
-                        >
-                            {t("title", {
-                                brand: car.brand || "",
-                                model: car.model || "",
-                                year: car.yearOfManufacture || "",
-                            })}
-                        </h1>
+                        <div className="single-section__title-row">
+                            <h1
+                                className="main-title"
+                                data-aos="fade-right"
+                                data-aos-duration="900"
+                                data-aos-delay="450"
+                            >
+                                {t("title", {
+                                    brand: car.brand || "",
+                                    model: car.model || "",
+                                    year: car.yearOfManufacture || "",
+                                })}
+                            </h1>
+                            <FavoriteToggle carId={car.id} className="single-section__favorite" />
+                        </div>
 
                         <div className="single-section__info">
                             <CarGallerySlider

@@ -2502,7 +2502,9 @@
       "submit": "Sign In",
       "loading": "Loading...",
       "no_account": "Don't have an account?",
-      "register_link": "Sign Up"
+      "register_link": "Sign Up",
+      "favorites_modal_title": "Log in to save favorites",
+      "favorites_modal_subtitle": "Sign in to save cars and track the best deals"
     },
     "register": {
       "title": "Sign Up",
@@ -2613,7 +2615,10 @@
     "favorites": {
       "title": "Favorites",
       "empty": "You have no favorite cars yet",
-      "remove": "Remove"
+      "remove": "Remove",
+      "add_tooltip": "Add to favorites",
+      "remove_tooltip": "Remove from favorites",
+      "perDay": "day"
     },
     "notifications": {
       "title": "Notifications",

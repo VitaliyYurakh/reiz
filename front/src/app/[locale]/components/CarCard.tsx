@@ -14,6 +14,7 @@ import { Link } from "@/i18n/request";
 import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { formatEngine } from "@/lib/utils/catalog-utils";
 import UiImage from "@/components/ui/UiImage";
+import FavoriteToggle from "@/components/account/FavoriteToggle";
 
 type CarCardProps = {
   car: Car;
@@ -217,15 +218,18 @@ export default function CarCard({ car }: CarCardProps) {
 
   return (
     <li className={compactBadges ? "car-card car-card--compact-badges" : "car-card"}>
-      <Link href={carDetailsLink} className="car-card__image">
-        <UiImage
-          width={450}
-          height={252}
-          src={`${BASE_URL}static/${encodeURI(car.previewUrl ?? "")}`}
-          alt={tCatalog("imageAlt", { brand: car.brand ?? "", model: car.model ?? "" })}
-          sizePreset="card"
-        />
-      </Link>
+      <div className="car-card__image-wrapper">
+        <Link href={carDetailsLink} className="car-card__image">
+          <UiImage
+            width={450}
+            height={252}
+            src={`${BASE_URL}static/${encodeURI(car.previewUrl ?? "")}`}
+            alt={tCatalog("imageAlt", { brand: car.brand ?? "", model: car.model ?? "" })}
+            sizePreset="card"
+          />
+        </Link>
+        <FavoriteToggle carId={car.id} className="car-card__favorite" />
+      </div>
 
       <div className="car-card__box">
         <div className="car-card__top" ref={topRef}>

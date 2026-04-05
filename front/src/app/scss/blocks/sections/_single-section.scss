@@ -214,17 +214,29 @@
       clamp(400px, 31.6176vw, 430px);
     gap: 20px clamp(20px, 2.9412vw, 40px);
 
-    .main-title {
-      margin-bottom: clamp(11px, 1.1029vw, 15px);
+    .single-section__title-row {
       grid-column: 1/-1;
-      font-weight: 400;
-      font-size: clamp(25px, 2.2794vw, 31px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: clamp(11px, 1.1029vw, 15px);
 
-      @include small-tablet {
-        font-weight: 600;
-        line-height: 132%;
-        color: #212529;
+      .main-title {
+        margin-bottom: 0;
+        font-weight: 400;
+        font-size: clamp(25px, 2.2794vw, 31px);
+
+        @include small-tablet {
+          font-weight: 600;
+          line-height: 132%;
+          color: #212529;
+        }
       }
+    }
+
+    .single-section__favorite {
+      flex-shrink: 0;
     }
 
     @include tablet {

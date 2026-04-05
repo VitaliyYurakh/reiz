@@ -2528,7 +2528,9 @@
       "submit": "Увійти",
       "loading": "Завантаження...",
       "no_account": "Немає акаунту?",
-      "register_link": "Зареєструватися"
+      "register_link": "Зареєструватися",
+      "favorites_modal_title": "Увійдіть, щоб зберігати обране",
+      "favorites_modal_subtitle": "Авторизуйтесь, щоб додавати авто в обране та відстежувати пропозиції"
     },
     "register": {
       "title": "Реєстрація",
@@ -2639,7 +2641,10 @@
     "favorites": {
       "title": "Обране",
       "empty": "У вас немає обраних авто",
-      "remove": "Видалити"
+      "remove": "Видалити",
+      "add_tooltip": "Додати в обране",
+      "remove_tooltip": "Видалити з обраного",
+      "perDay": "день"
     },
     "notifications": {
       "title": "Сповіщення",
