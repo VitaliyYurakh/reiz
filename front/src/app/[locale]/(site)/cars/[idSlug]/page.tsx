@@ -171,6 +171,24 @@ export default async function CarPage({
     const carPaymentMethods = car.paymentMethods;
     const minRentalDays = car.minRentalDays ?? 1;
     const dailyMileageLimit = car.dailyMileageLimit ?? 300;
+    const deliveryPrice = car.deliveryPrice ?? 0;
+
+    // Extra services data
+    const unlimitedMileagePrice1Day = car.unlimitedMileagePrice1Day;
+    const unlimitedMileagePrice2to7 = car.unlimitedMileagePrice2to7;
+    const unlimitedMileageFreeFromDays = car.unlimitedMileageFreeFromDays ?? 8;
+    const intercityDeliveryPrice = car.intercityDeliveryPrice;
+    const carWashPrice = car.carWashPrice;
+    const emptyTankFee = car.emptyTankFee;
+    const additionalDriverFee = car.additionalDriverFee;
+    const equipmentRentalPrice = car.equipmentRentalPrice;
+    const afterHoursServiceFee = car.afterHoursServiceFee;
+    const workingHoursStart = car.workingHoursStart ?? '09:00';
+    const workingHoursEnd = car.workingHoursEnd ?? '20:00';
+    const youngerDriverAge = car.youngerDriverAge;
+    const youngerDriverSurcharge = car.youngerDriverSurcharge;
+
+    const hasExtraServices = car.allowCrossBorder || unlimitedMileagePrice1Day || intercityDeliveryPrice || carWashPrice || emptyTankFee || additionalDriverFee != null || equipmentRentalPrice || afterHoursServiceFee || (youngerDriverAge && youngerDriverSurcharge) || deliveryPrice;
 
     const tabsNav = [
         {
@@ -241,7 +259,104 @@ export default async function CarPage({
                             <span className="rental-conditions__label">{t("rentalConditions.mileageCharge")} <Icon id="warning-triangle" width={16} height={16} className="rental-conditions__warning" /></span>
                             <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.mileageChargeValue", { price: overmileagePrice })} /></span>
                         </li>
+                        {unlimitedMileageFreeFromDays > 0 && unlimitedMileagePrice1Day != null && (
+                            <li className="rental-conditions__item">
+                                <span className="rental-conditions__icon sprite">
+                                    <Icon id={"mileage"} width={22} height={22}/>
+                                </span>
+                                <span className="rental-conditions__label">{t("rentalConditions.unlimitedMileage")}</span>
+                                <span className="rental-conditions__value">{t("rentalConditions.unlimitedMileageFreeShort", { freeFrom: unlimitedMileageFreeFromDays })}</span>
+                            </li>
+                        )}
                     </ul>
+                    {hasExtraServices && (
+                        <ul className="rental-conditions">
+                            <li className="rental-conditions__section-title">
+                                {t("rentalConditions.extraServicesTitle")}
+                            </li>
+                            {car.allowCrossBorder && car.crossBorderFee != null && car.crossBorderDailyFee != null && (
+                                <li className="rental-conditions__item">
+                                    <span className="rental-conditions__icon sprite">
+                                        <Icon id={"geo-alt"} width={22} height={22}/>
+                                    </span>
+                                    <span className="rental-conditions__label">{t("rentalConditions.crossBorder")}</span>
+                                    <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.crossBorderValue", { fee: car.crossBorderFee, dailyFee: car.crossBorderDailyFee })} /></span>
+                                </li>
+                            )}
+                            {intercityDeliveryPrice != null && intercityDeliveryPrice > 0 && (
+                                <li className="rental-conditions__item">
+                                    <span className="rental-conditions__icon sprite">
+                                        <Icon id={"geo-alt"} width={22} height={22}/>
+                                    </span>
+                                    <span className="rental-conditions__label">{t("rentalConditions.intercityDelivery")}</span>
+                                    <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.intercityDeliveryValue", { price: intercityDeliveryPrice })} /></span>
+                                </li>
+                            )}
+                            {carWashPrice != null && carWashPrice > 0 && (
+                                <li className="rental-conditions__item">
+                                    <span className="rental-conditions__icon sprite">
+                                        <Icon id={"plus-circle"} width={22} height={22}/>
+                                    </span>
+                                    <span className="rental-conditions__label">{t("rentalConditions.carWash")}</span>
+                                    <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.carWashValue", { price: carWashPrice })} /></span>
+                                </li>
+                            )}
+                            {emptyTankFee != null && emptyTankFee > 0 && (
+                                <li className="rental-conditions__item">
+                                    <span className="rental-conditions__icon sprite">
+                                        <Icon id={"plus-circle"} width={22} height={22}/>
+                                    </span>
+                                    <span className="rental-conditions__label">{t("rentalConditions.emptyTank")}</span>
+                                    <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.emptyTankValue", { price: emptyTankFee })} /></span>
+                                </li>
+                            )}
+                            {additionalDriverFee != null && (
+                                <li className="rental-conditions__item">
+                                    <span className="rental-conditions__icon sprite">
+                                        <Icon id={"t-person-key"} width={22} height={22}/>
+                                    </span>
+                                    <span className="rental-conditions__label">{t("rentalConditions.additionalDriver")}</span>
+                                    <span className="rental-conditions__value">{additionalDriverFee === 0 ? t("rentalConditions.additionalDriverFree") : <CurrencyText text={t("rentalConditions.additionalDriverValue", { price: additionalDriverFee })} />}</span>
+                                </li>
+                            )}
+                            {deliveryPrice > 0 && (
+                                <li className="rental-conditions__item">
+                                    <span className="rental-conditions__icon sprite">
+                                        <Icon id={"geo-alt"} width={22} height={22}/>
+                                    </span>
+                                    <span className="rental-conditions__label">{t("rentalConditions.cityDelivery")}</span>
+                                    <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.cityDeliveryValue", { price: deliveryPrice, threshold: freeDeliveryThreshold })} /></span>
+                                </li>
+                            )}
+                            {youngerDriverAge != null && youngerDriverAge > 0 && youngerDriverSurcharge != null && youngerDriverSurcharge > 0 && (
+                                <li className="rental-conditions__item">
+                                    <span className="rental-conditions__icon sprite">
+                                        <Icon id={"t-person-key"} width={22} height={22}/>
+                                    </span>
+                                    <span className="rental-conditions__label">{t("rentalConditions.youngDriver", { age: youngerDriverAge, experience: driverExperience })}</span>
+                                    <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.youngDriverValue", { price: youngerDriverSurcharge })} /></span>
+                                </li>
+                            )}
+                            {equipmentRentalPrice != null && equipmentRentalPrice > 0 && (
+                                <li className="rental-conditions__item">
+                                    <span className="rental-conditions__icon sprite">
+                                        <Icon id={"plus-circle"} width={22} height={22}/>
+                                    </span>
+                                    <span className="rental-conditions__label">{t("rentalConditions.equipment")}</span>
+                                    <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.equipmentValue", { price: equipmentRentalPrice })} /></span>
+                                </li>
+                            )}
+                            {afterHoursServiceFee != null && afterHoursServiceFee > 0 && (
+                                <li className="rental-conditions__item">
+                                    <span className="rental-conditions__icon sprite">
+                                        <Icon id={"plus-circle"} width={22} height={22}/>
+                                    </span>
+                                    <span className="rental-conditions__label">{t("rentalConditions.afterHours")}</span>
+                                    <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.afterHoursValue", { price: afterHoursServiceFee, start: workingHoursStart, end: workingHoursEnd })} /></span>
+                                </li>
+                            )}
+                        </ul>
+                    )}
                     <RentalPolicyButton
                         car={car}
                         carName={carDisplayName}

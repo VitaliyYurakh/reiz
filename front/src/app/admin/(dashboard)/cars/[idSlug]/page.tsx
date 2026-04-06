@@ -71,6 +71,25 @@ export default function CarEditPage() {
     youngerDriverSurcharge: 0,
     petAllowed: false,
     cleaningFee: 0,
+    unlimitedMileagePrice1Day: 0,
+    unlimitedMileagePrice2to7: 0,
+    unlimitedMileageFreeFromDays: 0,
+    intercityDeliveryPrice: 0,
+    carWashPrice: 0,
+    emptyTankFee: 0,
+    additionalDriverFee: 0,
+    equipmentRentalPrice: 0,
+    afterHoursServiceFee: 0,
+    workingHoursStart: '',
+    workingHoursEnd: '',
+    damageTiresFee: 0,
+    damageGlassChipFee: 0,
+    damageLostKeysFee: 0,
+    damageBrokenGlassFee: 0,
+    damageTotalLossPercent: 0,
+    damageScratchesFee: 0,
+    damageSmokingFee: 0,
+    depositMultiplier: 0,
   });
   const [saving, setSaving] = useState<string | null>(null);
 
@@ -132,6 +151,25 @@ export default function CarEditPage() {
       youngerDriverSurcharge: data.youngerDriverSurcharge ?? 0,
       petAllowed: data.petAllowed ?? false,
       cleaningFee: data.cleaningFee ?? 0,
+      unlimitedMileagePrice1Day: data.unlimitedMileagePrice1Day ?? 0,
+      unlimitedMileagePrice2to7: data.unlimitedMileagePrice2to7 ?? 0,
+      unlimitedMileageFreeFromDays: data.unlimitedMileageFreeFromDays ?? 0,
+      intercityDeliveryPrice: data.intercityDeliveryPrice ?? 0,
+      carWashPrice: data.carWashPrice ?? 0,
+      emptyTankFee: data.emptyTankFee ?? 0,
+      additionalDriverFee: data.additionalDriverFee ?? 0,
+      equipmentRentalPrice: data.equipmentRentalPrice ?? 0,
+      afterHoursServiceFee: data.afterHoursServiceFee ?? 0,
+      workingHoursStart: data.workingHoursStart ?? '',
+      workingHoursEnd: data.workingHoursEnd ?? '',
+      damageTiresFee: data.damageTiresFee ?? 0,
+      damageGlassChipFee: data.damageGlassChipFee ?? 0,
+      damageLostKeysFee: data.damageLostKeysFee ?? 0,
+      damageBrokenGlassFee: data.damageBrokenGlassFee ?? 0,
+      damageTotalLossPercent: data.damageTotalLossPercent ?? 0,
+      damageScratchesFee: data.damageScratchesFee ?? 0,
+      damageSmokingFee: data.damageSmokingFee ?? 0,
+      depositMultiplier: data.depositMultiplier ?? 0,
     });
   };
 
@@ -227,7 +265,10 @@ export default function CarEditPage() {
   const handleSaveTariffs = async () => {
     const tariffsToSend = tariffs.map((t) => ({ ...t, deposit: Number(deposit) }));
     try {
-      await updateRentalTariffs(id, tariffsToSend);
+      await Promise.all([
+        updateRentalTariffs(id, tariffsToSend),
+        updateCar(id, { overmileagePrice: Number(rentalConditions.overmileagePrice) || 0 }),
+      ]);
       await loadData();
       showSaved('tariffs');
     } catch (e) {
@@ -278,6 +319,25 @@ export default function CarEditPage() {
         youngerDriverSurcharge: Number(rentalConditions.youngerDriverSurcharge) || null,
         petAllowed: rentalConditions.petAllowed,
         cleaningFee: Number(rentalConditions.cleaningFee) || null,
+        unlimitedMileagePrice1Day: Number(rentalConditions.unlimitedMileagePrice1Day) || null,
+        unlimitedMileagePrice2to7: Number(rentalConditions.unlimitedMileagePrice2to7) || null,
+        unlimitedMileageFreeFromDays: Number(rentalConditions.unlimitedMileageFreeFromDays) || null,
+        intercityDeliveryPrice: Number(rentalConditions.intercityDeliveryPrice) || null,
+        carWashPrice: Number(rentalConditions.carWashPrice) || null,
+        emptyTankFee: Number(rentalConditions.emptyTankFee) || null,
+        additionalDriverFee: Number(rentalConditions.additionalDriverFee) || null,
+        equipmentRentalPrice: Number(rentalConditions.equipmentRentalPrice) || null,
+        afterHoursServiceFee: Number(rentalConditions.afterHoursServiceFee) || null,
+        workingHoursStart: rentalConditions.workingHoursStart || null,
+        workingHoursEnd: rentalConditions.workingHoursEnd || null,
+        damageTiresFee: Number(rentalConditions.damageTiresFee) || null,
+        damageGlassChipFee: Number(rentalConditions.damageGlassChipFee) || null,
+        damageLostKeysFee: Number(rentalConditions.damageLostKeysFee) || null,
+        damageBrokenGlassFee: Number(rentalConditions.damageBrokenGlassFee) || null,
+        damageTotalLossPercent: Number(rentalConditions.damageTotalLossPercent) || null,
+        damageScratchesFee: Number(rentalConditions.damageScratchesFee) || null,
+        damageSmokingFee: Number(rentalConditions.damageSmokingFee) || null,
+        depositMultiplier: Number(rentalConditions.depositMultiplier) || null,
       });
       await loadData();
       showSaved('rentalConditions');

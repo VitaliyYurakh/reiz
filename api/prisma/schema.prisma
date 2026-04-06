@@ -84,6 +84,29 @@ model Car {
   petAllowed            Boolean @default(false) @map("pet_allowed")
   cleaningFee           Int?    @map("cleaning_fee")
 
+  // Additional services
+  unlimitedMileagePrice1Day  Float?  @map("unlimited_mileage_price_1day")
+  unlimitedMileagePrice2to7  Float?  @map("unlimited_mileage_price_2to7")
+  unlimitedMileageFreeFromDays Int?  @map("unlimited_mileage_free_from_days")
+  intercityDeliveryPrice     Float?  @map("intercity_delivery_price")
+  carWashPrice               Float?  @map("car_wash_price")
+  emptyTankFee               Float?  @map("empty_tank_fee")
+  additionalDriverFee        Float?  @map("additional_driver_fee")
+  equipmentRentalPrice       Float?  @map("equipment_rental_price")
+  afterHoursServiceFee       Float?  @map("after_hours_service_fee")
+  workingHoursStart          String? @map("working_hours_start")
+  workingHoursEnd            String? @map("working_hours_end")
+
+  // Damage fees
+  damageTiresFee             Float?  @map("damage_tires_fee")
+  damageGlassChipFee         Float?  @map("damage_glass_chip_fee")
+  damageLostKeysFee          Float?  @map("damage_lost_keys_fee")
+  damageBrokenGlassFee       Float?  @map("damage_broken_glass_fee")
+  damageTotalLossPercent     Float?  @map("damage_total_loss_percent")
+  damageScratchesFee         Float?  @map("damage_scratches_fee")
+  damageSmokingFee           Float?  @map("damage_smoking_fee")
+  depositMultiplier          Float?  @map("deposit_multiplier")
+
   rentalTariff    RentalTariff[]
   carPhoto        CarPhoto[]
   carCountingRule CarCountingRule[]

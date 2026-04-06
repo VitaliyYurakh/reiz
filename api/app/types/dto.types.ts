@@ -53,6 +53,25 @@ type UpdateCarDto = {
     youngerDriverSurcharge?: number | null;
     petAllowed?: boolean;
     cleaningFee?: number | null;
+    unlimitedMileagePrice1Day?: number | null;
+    unlimitedMileagePrice2to7?: number | null;
+    unlimitedMileageFreeFromDays?: number | null;
+    intercityDeliveryPrice?: number | null;
+    carWashPrice?: number | null;
+    emptyTankFee?: number | null;
+    additionalDriverFee?: number | null;
+    equipmentRentalPrice?: number | null;
+    afterHoursServiceFee?: number | null;
+    workingHoursStart?: string | null;
+    workingHoursEnd?: string | null;
+    damageTiresFee?: number | null;
+    damageGlassChipFee?: number | null;
+    damageLostKeysFee?: number | null;
+    damageBrokenGlassFee?: number | null;
+    damageTotalLossPercent?: number | null;
+    damageScratchesFee?: number | null;
+    damageSmokingFee?: number | null;
+    depositMultiplier?: number | null;
 };
 
 type TariffDto = {

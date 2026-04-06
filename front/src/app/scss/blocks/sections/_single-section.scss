@@ -829,6 +829,18 @@
     }
   }
 
+  &__sub {
+    grid-column: 2 / -1;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555555;
+    padding: 2px 0 0;
+
+    span {
+      display: block;
+    }
+  }
+
   &__warning {
     color: #e5a118;
     flex-shrink: 0;

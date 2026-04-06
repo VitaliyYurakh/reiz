@@ -308,6 +308,111 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
             </section>
           )}
 
+          {/* Extra Services */}
+          {(() => {
+            const ovP = overmileagePrice;
+            const ulP1 = car.unlimitedMileagePrice1Day;
+            const ulP2 = car.unlimitedMileagePrice2to7;
+            const ulFree = car.unlimitedMileageFreeFromDays ?? 8;
+            const icP = car.intercityDeliveryPrice;
+            const cwP = car.carWashPrice;
+            const etF = car.emptyTankFee;
+            const adF = car.additionalDriverFee;
+            const dlP = car.deliveryPrice ?? 0;
+            const fthr = car.freeDeliveryThreshold ?? 351;
+            const yAge = car.youngerDriverAge ?? 0;
+            const ySur = car.youngerDriverSurcharge ?? 0;
+            const yExp = car.driverExperience ?? car.segment?.[0]?.experience ?? 2;
+            const eqP = car.equipmentRentalPrice;
+            const ahF = car.afterHoursServiceFee;
+            const whS = car.workingHoursStart ?? '09:00';
+            const whE = car.workingHoursEnd ?? '20:00';
+            const hasAny = ovP > 0 || ulP1 != null || icP != null || cwP != null || etF != null || adF != null || dlP > 0 || (yAge > 0 && ySur > 0) || eqP != null || ahF != null;
+            if (!hasAny) return null;
+            return (
+              <section className="rpm__section">
+                <h4 className="rpm__heading">{t("extras.title")}</h4>
+                <ul className="rpm__list">
+                  {dailyMileage > 0 && ovP > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="mileage" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("extras.overmileage")}</span>
+                      <span className="rpm__value">{t("extras.overmileageValue", { limit: dailyMileage, price: Math.round(ovP * 100) })}</span>
+                    </li>
+                  )}
+                  {ulP1 != null && ulP2 != null && (
+                    <li className="rpm__item" style={{ flexWrap: 'wrap' }}>
+                      <span className="rpm__icon sprite"><Icon id="mileage" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("extras.unlimitedMileage")}</span>
+                      <span className="rpm__value" style={{ whiteSpace: 'normal' }}>{t("extras.unlimitedMileageValue", { price1Day: ulP1, price2to7: ulP2, freeFrom: ulFree })}</span>
+                    </li>
+                  )}
+                  {icP != null && icP > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="geo-alt" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("extras.intercityDelivery")}</span>
+                      <span className="rpm__value">{t("extras.intercityDeliveryValue", { price: icP })}</span>
+                    </li>
+                  )}
+                  {cwP != null && cwP > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="plus-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("extras.carWash")}</span>
+                      <span className="rpm__value">{formatPrice(cwP)}</span>
+                    </li>
+                  )}
+                  {etF != null && etF > 0 && (
+                    <li className="rpm__item" style={{ flexWrap: 'wrap' }}>
+                      <span className="rpm__icon sprite"><Icon id="plus-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("extras.emptyTank")}</span>
+                      <span className="rpm__value">{formatPrice(etF)}</span>
+                    </li>
+                  )}
+                  {adF != null && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="t-person-key" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("extras.additionalDriver")}</span>
+                      <span className="rpm__value">{adF === 0 ? t("extras.free") : formatPrice(adF)}</span>
+                    </li>
+                  )}
+                  {dlP > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="geo-alt" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("extras.cityDelivery")}</span>
+                      <span className="rpm__value">{t("extras.cityDeliveryValue", { price: dlP, threshold: fthr })}</span>
+                    </li>
+                  )}
+                  {yAge > 0 && ySur > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="t-person-key" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("extras.youngDriver", { age: yAge, experience: yExp })}</span>
+                      <span className="rpm__value">{formatPrice(ySur)}{t("extras.perDay")}</span>
+                    </li>
+                  )}
+                  {eqP != null && eqP > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="plus-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("extras.equipment")}</span>
+                      <span className="rpm__value">{formatPrice(eqP)}{t("extras.perDay")}</span>
+                    </li>
+                  )}
+                  {ahF != null && ahF > 0 && (
+                    <li className="rpm__item" style={{ flexWrap: 'wrap' }}>
+                      <span className="rpm__icon sprite"><Icon id="plus-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("extras.afterHours")}</span>
+                      <span className="rpm__value">{formatPrice(ahF)}</span>
+                    </li>
+                  )}
+                </ul>
+                {ahF != null && ahF > 0 && (
+                  <p className="rpm__text" style={{ marginTop: 8, color: '#6b7280', fontSize: 13 }}>
+                    {t("extras.afterHoursSchedule", { start: whS, end: whE })}
+                  </p>
+                )}
+              </section>
+            );
+          })()}
+
           {/* Payment */}
           <section className="rpm__section">
             <h4 className="rpm__heading">{t("payment.title")}</h4>
@@ -315,6 +420,100 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
               {car.paymentMethods || t("payment.default")}
             </p>
           </section>
+
+          {/* Damages */}
+          {(() => {
+            const tires = car.damageTiresFee;
+            const chip = car.damageGlassChipFee;
+            const keys = car.damageLostKeysFee;
+            const glass = car.damageBrokenGlassFee;
+            const totalPct = car.damageTotalLossPercent;
+            const scratch = car.damageScratchesFee;
+            const smoke = car.damageSmokingFee;
+            const hasDamages = tires || chip || keys || glass || totalPct || scratch || smoke;
+            if (!hasDamages) return null;
+            return (
+              <section className="rpm__section">
+                <h4 className="rpm__heading">{t("damages.title")}</h4>
+                <ul className="rpm__list">
+                  {tires != null && tires > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="cancel-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("damages.tires")}</span>
+                      <span className="rpm__value">{formatPrice(tires)}{t("damages.perUnit")}</span>
+                    </li>
+                  )}
+                  {chip != null && chip > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="cancel-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("damages.glassChip")}</span>
+                      <span className="rpm__value">{formatPrice(chip)}{t("damages.perChip")}</span>
+                    </li>
+                  )}
+                  {keys != null && keys > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="cancel-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("damages.lostKeys")}</span>
+                      <span className="rpm__value">{formatPrice(keys)}</span>
+                    </li>
+                  )}
+                  <li className="rpm__item">
+                    <span className="rpm__icon sprite"><Icon id="cancel-circle" width={22} height={22} /></span>
+                    <span className="rpm__label">{t("damages.lostAccessories")}</span>
+                    <span className="rpm__value">{t("damages.lostAccessoriesValue")}</span>
+                  </li>
+                  {glass != null && glass > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="cancel-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("damages.brokenGlass")}</span>
+                      <span className="rpm__value">{formatPrice(glass)}</span>
+                    </li>
+                  )}
+                  {totalPct != null && totalPct > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="cancel-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("damages.totalLoss")}</span>
+                      <span className="rpm__value">{t("damages.totalLossValue", { percent: totalPct })}</span>
+                    </li>
+                  )}
+                  {scratch != null && scratch > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="cancel-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("damages.scratches")}</span>
+                      <span className="rpm__value">{formatPrice(scratch)}{t("damages.perElement")}</span>
+                    </li>
+                  )}
+                  {smoke != null && smoke > 0 && (
+                    <li className="rpm__item">
+                      <span className="rpm__icon sprite"><Icon id="cancel-circle" width={22} height={22} /></span>
+                      <span className="rpm__label">{t("damages.smoking")}</span>
+                      <span className="rpm__value">{formatPrice(smoke)}</span>
+                    </li>
+                  )}
+                </ul>
+                <p className="rpm__text" style={{ marginTop: 14 }}>{t("damages.coverageNote")}</p>
+              </section>
+            );
+          })()}
+
+          {/* Deposit multiplier */}
+          {(car.depositMultiplier ?? 0) > 0 && (
+            <section className="rpm__section">
+              <h4 className="rpm__heading">{t("depositMultiplier.title", { multiplier: car.depositMultiplier ?? 1.5 })}</h4>
+              <ul className="rpm__list">
+                <li className="rpm__item">
+                  <span className="rpm__icon sprite"><Icon id="shield-deposit" width={22} height={22} /></span>
+                  <span className="rpm__label">{t("depositMultiplier.youngDriver")}</span>
+                  <span className="rpm__value">x{car.depositMultiplier ?? 1.5}</span>
+                </li>
+                <li className="rpm__item">
+                  <span className="rpm__icon sprite"><Icon id="shield-deposit" width={22} height={22} /></span>
+                  <span className="rpm__label">{t("depositMultiplier.crossBorder")}</span>
+                  <span className="rpm__value">x{car.depositMultiplier ?? 1.5}</span>
+                </li>
+              </ul>
+            </section>
+          )}
           </div>
         </div>
       </div>

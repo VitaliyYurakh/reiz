@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ClipboardList, DollarSign, Globe, Shield, Sparkles, Tag } from 'lucide-react';
+import { AlertTriangle, ClipboardList, DollarSign, Globe, PackagePlus, Shield, Sparkles, Tag } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import type { CarCountingRule, RentalTariff, Segment } from '@/types/cars';
 import { HCard, HSaveButton, HInput, HTariffField } from './ui-primitives';
@@ -36,6 +36,25 @@ interface RentalConditionsState {
   youngerDriverSurcharge: number;
   petAllowed: boolean;
   cleaningFee: number;
+  unlimitedMileagePrice1Day: number;
+  unlimitedMileagePrice2to7: number;
+  unlimitedMileageFreeFromDays: number;
+  intercityDeliveryPrice: number;
+  carWashPrice: number;
+  emptyTankFee: number;
+  additionalDriverFee: number;
+  equipmentRentalPrice: number;
+  afterHoursServiceFee: number;
+  workingHoursStart: string;
+  workingHoursEnd: string;
+  damageTiresFee: number;
+  damageGlassChipFee: number;
+  damageLostKeysFee: number;
+  damageBrokenGlassFee: number;
+  damageTotalLossPercent: number;
+  damageScratchesFee: number;
+  damageSmokingFee: number;
+  depositMultiplier: number;
 }
 
 interface PricingTabProps {
@@ -464,6 +483,189 @@ export function PricingTab({
               placeholder="0"
             />
             <p style={{ fontSize: 11, color: H.gray, marginTop: 4 }}>0 = не відображається на сайті</p>
+          </div>
+        </div>
+      </HCard>
+
+      <HCard
+        title="Додаткові послуги"
+        subtitle="Безлімітний пробіг, мийка, доставка між містами тощо"
+        icon={PackagePlus}
+        footer={<HSaveButton onClick={onSaveRentalConditions} saved={saving === 'rentalConditions'} />}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="col-span-full">
+            <p style={{ fontSize: 13, fontWeight: 700, color: H.navy, marginBottom: 8 }}>
+              Безлімітний пробіг (ціна за добу)
+            </p>
+          </div>
+          <HInput
+            label="1 доба (USD/доба)"
+            value={String(rentalConditions.unlimitedMileagePrice1Day)}
+            onChange={(v) => setRentalConditions({ ...rentalConditions, unlimitedMileagePrice1Day: Number(v) || 0 })}
+            type="number"
+            placeholder="29"
+          />
+          <HInput
+            label="2–7 діб (USD/доба)"
+            value={String(rentalConditions.unlimitedMileagePrice2to7)}
+            onChange={(v) => setRentalConditions({ ...rentalConditions, unlimitedMileagePrice2to7: Number(v) || 0 })}
+            type="number"
+            placeholder="17"
+          />
+          <div>
+            <HInput
+              label="Безкоштовно від (днів)"
+              value={String(rentalConditions.unlimitedMileageFreeFromDays)}
+              onChange={(v) => setRentalConditions({ ...rentalConditions, unlimitedMileageFreeFromDays: Number(v) || 0 })}
+              type="number"
+              placeholder="8"
+            />
+            <p style={{ fontSize: 11, color: H.gray, marginTop: 4 }}>0 = не відображається</p>
+          </div>
+          <div>
+            <HInput
+              label="Подача між містами (USD/100 км)"
+              value={String(rentalConditions.intercityDeliveryPrice)}
+              onChange={(v) => setRentalConditions({ ...rentalConditions, intercityDeliveryPrice: Number(v) || 0 })}
+              type="number"
+              placeholder="86"
+            />
+            <p style={{ fontSize: 11, color: H.gray, marginTop: 4 }}>0 = не відображається</p>
+          </div>
+          <div>
+            <HInput
+              label="Мийка авто (USD)"
+              value={String(rentalConditions.carWashPrice)}
+              onChange={(v) => setRentalConditions({ ...rentalConditions, carWashPrice: Number(v) || 0 })}
+              type="number"
+              placeholder="17"
+            />
+            <p style={{ fontSize: 11, color: H.gray, marginTop: 4 }}>0 = не відображається</p>
+          </div>
+          <div>
+            <HInput
+              label="Повернення з порожнім баком (USD)"
+              value={String(rentalConditions.emptyTankFee)}
+              onChange={(v) => setRentalConditions({ ...rentalConditions, emptyTankFee: Number(v) || 0 })}
+              type="number"
+              placeholder="115"
+            />
+            <p style={{ fontSize: 11, color: H.gray, marginTop: 4 }}>0 = не відображається</p>
+          </div>
+          <div>
+            <HInput
+              label="Додатковий водій (USD)"
+              value={String(rentalConditions.additionalDriverFee)}
+              onChange={(v) => setRentalConditions({ ...rentalConditions, additionalDriverFee: Number(v) || 0 })}
+              type="number"
+              placeholder="0"
+            />
+            <p style={{ fontSize: 11, color: H.gray, marginTop: 4 }}>0 = безкоштовно</p>
+          </div>
+          <div>
+            <HInput
+              label="Додаткове устаткування (USD/доба)"
+              value={String(rentalConditions.equipmentRentalPrice)}
+              onChange={(v) => setRentalConditions({ ...rentalConditions, equipmentRentalPrice: Number(v) || 0 })}
+              type="number"
+              placeholder="11"
+            />
+            <p style={{ fontSize: 11, color: H.gray, marginTop: 4 }}>Навігатор, дитяче крісло тощо</p>
+          </div>
+          <div>
+            <HInput
+              label="Подача в неробочий час (USD)"
+              value={String(rentalConditions.afterHoursServiceFee)}
+              onChange={(v) => setRentalConditions({ ...rentalConditions, afterHoursServiceFee: Number(v) || 0 })}
+              type="number"
+              placeholder="34"
+            />
+            <p style={{ fontSize: 11, color: H.gray, marginTop: 4 }}>0 = не відображається</p>
+          </div>
+          <HInput
+            label="Початок роботи"
+            value={rentalConditions.workingHoursStart}
+            onChange={(v) => setRentalConditions({ ...rentalConditions, workingHoursStart: v })}
+            placeholder="09:00"
+          />
+          <HInput
+            label="Кінець роботи"
+            value={rentalConditions.workingHoursEnd}
+            onChange={(v) => setRentalConditions({ ...rentalConditions, workingHoursEnd: v })}
+            placeholder="20:00"
+          />
+        </div>
+      </HCard>
+
+      <HCard
+        title="У випадку пошкоджень"
+        subtitle="Штрафи та завдаток"
+        icon={AlertTriangle}
+        footer={<HSaveButton onClick={onSaveRentalConditions} saved={saving === 'rentalConditions'} />}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <HInput
+            label="Пошкоджено шини/диски (USD/шт)"
+            value={String(rentalConditions.damageTiresFee)}
+            onChange={(v) => setRentalConditions({ ...rentalConditions, damageTiresFee: Number(v) || 0 })}
+            type="number"
+            placeholder="172"
+          />
+          <HInput
+            label="Скол на склі (USD/скол)"
+            value={String(rentalConditions.damageGlassChipFee)}
+            onChange={(v) => setRentalConditions({ ...rentalConditions, damageGlassChipFee: Number(v) || 0 })}
+            type="number"
+            placeholder="115"
+          />
+          <HInput
+            label="Втрата ключів/документів (USD)"
+            value={String(rentalConditions.damageLostKeysFee)}
+            onChange={(v) => setRentalConditions({ ...rentalConditions, damageLostKeysFee: Number(v) || 0 })}
+            type="number"
+            placeholder="458"
+          />
+          <HInput
+            label="Розбите скло (USD)"
+            value={String(rentalConditions.damageBrokenGlassFee)}
+            onChange={(v) => setRentalConditions({ ...rentalConditions, damageBrokenGlassFee: Number(v) || 0 })}
+            type="number"
+            placeholder="458"
+          />
+          <div>
+            <HInput
+              label="Тотальне ДТП/викрадення (%)"
+              value={String(rentalConditions.damageTotalLossPercent)}
+              onChange={(v) => setRentalConditions({ ...rentalConditions, damageTotalLossPercent: Number(v) || 0 })}
+              type="number"
+              placeholder="20"
+            />
+            <p style={{ fontSize: 11, color: H.gray, marginTop: 4 }}>% від вартості авто</p>
+          </div>
+          <HInput
+            label="Подряпини (USD/елемент)"
+            value={String(rentalConditions.damageScratchesFee)}
+            onChange={(v) => setRentalConditions({ ...rentalConditions, damageScratchesFee: Number(v) || 0 })}
+            type="number"
+            placeholder="287"
+          />
+          <HInput
+            label="Прокурений салон (USD)"
+            value={String(rentalConditions.damageSmokingFee)}
+            onChange={(v) => setRentalConditions({ ...rentalConditions, damageSmokingFee: Number(v) || 0 })}
+            type="number"
+            placeholder="458"
+          />
+          <div>
+            <HInput
+              label="Множник завдатку"
+              value={String(rentalConditions.depositMultiplier)}
+              onChange={(v) => setRentalConditions({ ...rentalConditions, depositMultiplier: Number(v) || 0 })}
+              type="number"
+              placeholder="1.5"
+            />
+            <p style={{ fontSize: 11, color: H.gray, marginTop: 4 }}>Молодий водій / кордон (0 = не відображається)</p>
           </div>
         </div>
       </HCard>
