@@ -250,7 +250,11 @@ export default async function CarPage({
                                 <Icon id={"mileage"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.mileageLimit")}</span>
-                            <span className="rental-conditions__value">{t("rentalConditions.mileageLimitValue", { limit: dailyMileageLimit })}</span>
+                            <span className="rental-conditions__value">
+                                {car.unlimitedMileageFreeFromDays != null && unlimitedMileageFreeFromDays > 0
+                                    ? t("rentalConditions.mileageLimitWithUnlimited", { limit: dailyMileageLimit, freeFrom: unlimitedMileageFreeFromDays })
+                                    : t("rentalConditions.mileageLimitValue", { limit: dailyMileageLimit })}
+                            </span>
                         </li>
                         <li className="rental-conditions__item">
                             <span className="rental-conditions__icon sprite">
@@ -259,15 +263,6 @@ export default async function CarPage({
                             <span className="rental-conditions__label">{t("rentalConditions.mileageCharge")} <Icon id="warning-triangle" width={16} height={16} className="rental-conditions__warning" /></span>
                             <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.mileageChargeValue", { price: overmileagePrice })} /></span>
                         </li>
-                        {car.unlimitedMileageFreeFromDays != null && unlimitedMileageFreeFromDays > 0 && (
-                            <li className="rental-conditions__item">
-                                <span className="rental-conditions__icon sprite">
-                                    <Icon id={"mileage"} width={22} height={22}/>
-                                </span>
-                                <span className="rental-conditions__label">{t("rentalConditions.unlimitedMileage")}</span>
-                                <span className="rental-conditions__value">{t("rentalConditions.unlimitedMileageFreeShort", { freeFrom: unlimitedMileageFreeFromDays })}</span>
-                            </li>
-                        )}
                     </ul>
                     {hasExtraServices && (
                         <ul className="rental-conditions">

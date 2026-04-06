@@ -1717,6 +1717,7 @@
       "driverAgeValue": "{age} лет ({experience}+ лет вождения)",
       "mileageLimit": "Ограничение пробега (1 день)",
       "mileageLimitValue": "{limit} км",
+      "mileageLimitWithUnlimited": "{limit} км / от {freeFrom} дней — без ограничений",
       "mileageCharge": "Плата за пробег",
       "mileageChargeValue": "{price} USD за каждый лишний км",
       "readPolicy": "Политика аренды {carName}",

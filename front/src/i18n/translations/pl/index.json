@@ -1716,6 +1716,7 @@
       "driverAgeValue": "{age} lat ({experience}+ lat doświadczenia)",
       "mileageLimit": "Limit przebiegu (1 doba)",
       "mileageLimitValue": "{limit} km",
+      "mileageLimitWithUnlimited": "{limit} km / od {freeFrom} dni — bez ograniczeń",
       "mileageCharge": "Opłata za przebieg",
       "mileageChargeValue": "{price} USD za każdy dodatkowy km",
       "readPolicy": "Polityka wynajmu {carName}",

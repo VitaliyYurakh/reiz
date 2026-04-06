@@ -1743,6 +1743,7 @@
       "driverAgeValue": "{age, plural, one {# рік} few {# роки} other {# років}} ({experience}+ {experience, plural, one {рік} few {роки} other {років}} водіння)",
       "mileageLimit": "Обмеження пробігу (1 доба)",
       "mileageLimitValue": "{limit} км",
+      "mileageLimitWithUnlimited": "{limit} км / від {freeFrom} днів — без обмежень",
       "mileageCharge": "Плата за пробіг",
       "mileageChargeValue": "{price} USD за кожен зайвий км",
       "readPolicy": "Політика оренди {carName}",

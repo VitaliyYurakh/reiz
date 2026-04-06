@@ -1717,6 +1717,7 @@
       "driverAgeValue": "{age} years ({experience}+ years driving)",
       "mileageLimit": "Mileage limit (1 day)",
       "mileageLimitValue": "{limit} km",
+      "mileageLimitWithUnlimited": "{limit} km / from {freeFrom} days — unlimited",
       "mileageCharge": "Mileage charge",
       "mileageChargeValue": "{price} USD per extra km",
       "readPolicy": "Rental policy {carName}",

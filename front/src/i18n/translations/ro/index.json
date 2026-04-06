@@ -1797,6 +1797,7 @@
       "readPolicy": "Politica de închiriere {carName}",
       "mileageLimit": "Limita de kilometraj (1 zi)",
       "mileageLimitValue": "{limit} km",
+      "mileageLimitWithUnlimited": "{limit} km / de la {freeFrom} zile — nelimitat",
       "extraServicesTitle": "Servicii suplimentare",
       "crossBorder": "Traversarea frontierei de stat",
       "crossBorderValue": "+{fee} USD per traversare, și +{dailyFee} USD per zi în străinătate",
