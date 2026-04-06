@@ -168,6 +168,15 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                 <span className="rpm__label">{t("rental.experience")}</span>
                 <span className="rpm__value">{t("rental.experienceValue", { years: driverExp })}</span>
               </li>
+              {dailyMileage > 0 && overmileagePrice > 0 && (
+                <li className="rpm__item">
+                  <span className="rpm__icon sprite">
+                    <Icon id="mileage" width={22} height={22} />
+                  </span>
+                  <span className="rpm__label">{t("extras.overmileage")}</span>
+                  <span className="rpm__value">{t("extras.overmileageValue", { limit: dailyMileage, price: Math.round(overmileagePrice * 100) })}</span>
+                </li>
+              )}
             </ul>
           </section>
 
@@ -327,19 +336,12 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
             const ahF = car.afterHoursServiceFee;
             const whS = car.workingHoursStart ?? '09:00';
             const whE = car.workingHoursEnd ?? '20:00';
-            const hasAny = ovP > 0 || ulP1 != null || icP != null || cwP != null || etF != null || adF != null || dlP > 0 || (yAge > 0 && ySur > 0) || eqP != null || ahF != null;
+            const hasAny = ulP1 != null || icP != null || cwP != null || etF != null || adF != null || dlP > 0 || (yAge > 0 && ySur > 0) || eqP != null || ahF != null;
             if (!hasAny) return null;
             return (
               <section className="rpm__section">
                 <h4 className="rpm__heading">{t("extras.title")}</h4>
                 <ul className="rpm__list">
-                  {dailyMileage > 0 && ovP > 0 && (
-                    <li className="rpm__item">
-                      <span className="rpm__icon sprite"><Icon id="mileage" width={22} height={22} /></span>
-                      <span className="rpm__label">{t("extras.overmileage")}</span>
-                      <span className="rpm__value">{t("extras.overmileageValue", { limit: dailyMileage, price: Math.round(ovP * 100) })}</span>
-                    </li>
-                  )}
                   {ulP1 != null && ulP2 != null && (
                     <li className="rpm__item" style={{ flexWrap: 'wrap' }}>
                       <span className="rpm__icon sprite"><Icon id="mileage" width={22} height={22} /></span>
