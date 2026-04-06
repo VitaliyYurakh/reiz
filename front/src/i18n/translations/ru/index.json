@@ -47,7 +47,7 @@
   },
   "homePage": {
     "advantages": {
-      "item1_text": "Бесплатная доставка машины в любую точку города.",
+      "item1_text": "Доставка машины в любую точку города.",
       "item1_title": "Подача авто 24/7 ",
       "item2_text": "Честные цены без доплат, сюрпризов. Всё прозрачно.",
       "item2_title": "Без скрытых платежей ",
@@ -1498,7 +1498,7 @@
           {
             "name": "По городу",
             "price": "18 USD",
-            "desc": "бесплатно при стоимости аренды от 351 USD"
+            "desc": "при стоимости аренды от 351 USD"
           },
           {
             "name": "В нерабочее время",
@@ -1701,7 +1701,7 @@
     "rentalConditions": {
       "title": "Условия аренды",
       "delivery": "Доставка",
-      "deliveryValue": "По городу — бесплатно от {threshold} USD",
+      "deliveryValue": "По городу — от {threshold} USD",
       "deposit": "Возвращаемый депозит",
       "depositValue": "От {amount} USD",
       "depositRange": "От {min} USD до {max} USD",

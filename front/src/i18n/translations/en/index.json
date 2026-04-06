@@ -47,7 +47,7 @@
   },
   "homePage": {
     "advantages": {
-      "item1_text": "Free delivery anywhere in the city — at any time.",
+      "item1_text": "Delivery anywhere in the city — at any time.",
       "item1_title": "Delivery 24/7",
       "item2_text": "Honest pricing with zero surprises. Transparent terms.",
       "item2_title": "No hidden fees",
@@ -1498,7 +1498,7 @@
           {
             "name": "City delivery",
             "price": "18 USD",
-            "desc": "free for rentals from 351 USD"
+            "desc": "for rentals from 351 USD"
           },
           {
             "name": "After hours",
@@ -1701,7 +1701,7 @@
     "rentalConditions": {
       "title": "Rental Conditions",
       "delivery": "Delivery",
-      "deliveryValue": "City delivery — free from {threshold} USD",
+      "deliveryValue": "City delivery — from {threshold} USD",
       "deposit": "Refundable deposit",
       "depositValue": "From {amount} USD",
       "depositRange": "From {min} USD to {max} USD",
