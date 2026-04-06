@@ -2489,7 +2489,9 @@
       "perWeek": "На тиждень",
       "perMonth": "На місяць",
       "unlimited": "Без обмежень пробігу",
-      "overcharge": "Перепробіг"
+      "overcharge": "Перепробіг",
+      "unlimitedFrom": "Безлімітний пробіг",
+      "unlimitedFromValue": "від {freeFrom} днів — без обмежень"
     },
     "fuel": {
       "title": "Паливна політика",

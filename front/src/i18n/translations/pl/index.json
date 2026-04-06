@@ -2462,7 +2462,9 @@
       "perWeek": "Na tydzień",
       "perMonth": "Na miesiąc",
       "unlimited": "Bez limitu przebiegu",
-      "overcharge": "Dodatkowy przebieg"
+      "overcharge": "Dodatkowy przebieg",
+      "unlimitedFrom": "Nielimitowany przebieg",
+      "unlimitedFromValue": "od {freeFrom} dni — bez ograniczeń"
     },
     "fuel": {
       "title": "Polityka paliwowa",

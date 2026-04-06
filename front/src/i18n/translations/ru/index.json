@@ -2463,7 +2463,9 @@
       "perWeek": "В неделю",
       "perMonth": "В месяц",
       "unlimited": "Без ограничений пробега",
-      "overcharge": "Перепробег"
+      "overcharge": "Перепробег",
+      "unlimitedFrom": "Безлимитный пробег",
+      "unlimitedFromValue": "от {freeFrom} дней — без ограничений"
     },
     "fuel": {
       "title": "Топливная политика",

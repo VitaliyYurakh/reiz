@@ -2463,7 +2463,9 @@
       "perWeek": "Per week",
       "perMonth": "Per month",
       "unlimited": "Unlimited mileage",
-      "overcharge": "Overmileage"
+      "overcharge": "Overmileage",
+      "unlimitedFrom": "Unlimited mileage",
+      "unlimitedFromValue": "from {freeFrom} days — unlimited"
     },
     "fuel": {
       "title": "Fuel Policy",

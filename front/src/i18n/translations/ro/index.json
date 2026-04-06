@@ -2514,7 +2514,9 @@
       "perWeek": "Pe săptămână",
       "perMonth": "Pe lună",
       "unlimited": "Kilometraj nelimitat",
-      "overcharge": "Depășire kilometraj"
+      "overcharge": "Depășire kilometraj",
+      "unlimitedFrom": "Kilometraj nelimitat",
+      "unlimitedFromValue": "de la {freeFrom} zile — nelimitat"
     },
     "fuel": {
       "title": "Politica de combustibil",

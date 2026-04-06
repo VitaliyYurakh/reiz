@@ -107,13 +107,23 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                   <span className="rpm__label">{t("mileage.perWeek")}</span>
                   <span className="rpm__value">{weeklyMileage.toLocaleString()} {t("km")}</span>
                 </li>
-                <li className="rpm__item">
-                  <span className="rpm__icon sprite">
-                    <Icon id="calendar-rental" width={22} height={22} />
-                  </span>
-                  <span className="rpm__label">{t("mileage.perMonth")}</span>
-                  <span className="rpm__value">{monthlyMileage.toLocaleString()} {t("km")}</span>
-                </li>
+                {(car.unlimitedMileageFreeFromDays ?? 0) > 0 ? (
+                  <li className="rpm__item">
+                    <span className="rpm__icon sprite">
+                      <Icon id="calendar-rental" width={22} height={22} />
+                    </span>
+                    <span className="rpm__label">{t("mileage.unlimitedFrom")}</span>
+                    <span className="rpm__value">{t("mileage.unlimitedFromValue", { freeFrom: car.unlimitedMileageFreeFromDays })}</span>
+                  </li>
+                ) : (
+                  <li className="rpm__item">
+                    <span className="rpm__icon sprite">
+                      <Icon id="calendar-rental" width={22} height={22} />
+                    </span>
+                    <span className="rpm__label">{t("mileage.perMonth")}</span>
+                    <span className="rpm__value">{monthlyMileage.toLocaleString()} {t("km")}</span>
+                  </li>
+                )}
                 {overmileagePrice > 0 && (
                   <li className="rpm__item">
                     <span className="rpm__icon sprite">
