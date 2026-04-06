@@ -113,7 +113,7 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                       <Icon id="calendar-rental" width={22} height={22} />
                     </span>
                     <span className="rpm__label">{t("mileage.unlimitedFrom")}</span>
-                    <span className="rpm__value">{t("mileage.unlimitedFromValue", { freeFrom: car.unlimitedMileageFreeFromDays })}</span>
+                    <span className="rpm__value">{t("mileage.unlimitedFromValue", { freeFrom: car.unlimitedMileageFreeFromDays ?? 8 })}</span>
                   </li>
                 ) : (
                   <li className="rpm__item">
