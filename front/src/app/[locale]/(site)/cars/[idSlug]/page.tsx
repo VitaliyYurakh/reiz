@@ -188,7 +188,7 @@ export default async function CarPage({
     const youngerDriverAge = car.youngerDriverAge;
     const youngerDriverSurcharge = car.youngerDriverSurcharge;
 
-    const hasExtraServices = car.allowCrossBorder || unlimitedMileagePrice1Day || intercityDeliveryPrice || carWashPrice || emptyTankFee || additionalDriverFee != null || equipmentRentalPrice || afterHoursServiceFee || (youngerDriverAge && youngerDriverSurcharge) || deliveryPrice;
+    const hasExtraServices = !!(car.allowCrossBorder || unlimitedMileagePrice1Day || intercityDeliveryPrice || carWashPrice || emptyTankFee || additionalDriverFee != null || equipmentRentalPrice || afterHoursServiceFee || (youngerDriverAge && youngerDriverSurcharge) || deliveryPrice);
 
     const tabsNav = [
         {
