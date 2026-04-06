@@ -259,7 +259,7 @@ export default async function CarPage({
                             <span className="rental-conditions__label">{t("rentalConditions.mileageCharge")} <Icon id="warning-triangle" width={16} height={16} className="rental-conditions__warning" /></span>
                             <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.mileageChargeValue", { price: overmileagePrice })} /></span>
                         </li>
-                        {unlimitedMileageFreeFromDays > 0 && unlimitedMileagePrice1Day != null && (
+                        {car.unlimitedMileageFreeFromDays != null && unlimitedMileageFreeFromDays > 0 && (
                             <li className="rental-conditions__item">
                                 <span className="rental-conditions__icon sprite">
                                     <Icon id={"mileage"} width={22} height={22}/>
