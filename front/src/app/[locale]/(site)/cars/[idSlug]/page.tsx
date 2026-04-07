@@ -400,14 +400,23 @@ export default async function CarPage({
                         </div>
 
                         <div className="single-section__info">
-                            <CarGallerySlider
-                                group={"1"}
-                                pcItems={PCImages}
-                                mobileItems={mobileImages}
-                                ariaLabel={t("gallery.ariaLabel", { brand: car.brand ?? "", model: car.model ?? "" })}
-                                prevSlideLabel={t("gallery.prevSlide")}
-                                nextSlideLabel={t("gallery.nextSlide")}
-                            />
+                            <div className="single-section__gallery-wrap">
+                                <CarGallerySlider
+                                    group={"1"}
+                                    pcItems={PCImages}
+                                    mobileItems={mobileImages}
+                                    ariaLabel={t("gallery.ariaLabel", { brand: car.brand ?? "", model: car.model ?? "" })}
+                                    prevSlideLabel={t("gallery.prevSlide")}
+                                    nextSlideLabel={t("gallery.nextSlide")}
+                                />
+                                <FavoriteToggle
+                                    carId={car.id}
+                                    className="single-section__favorite single-section__favorite--gallery"
+                                    showTooltip={false}
+                                    addTooltipLabel={t("actions.favorite_add")}
+                                    removeTooltipLabel={t("actions.favorite_remove")}
+                                />
+                            </div>
 
                             <CarTabs
                                 items={tabsNav.map((nav, i) => ({
