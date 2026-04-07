@@ -72,9 +72,9 @@ export async function generateMetadata({
     const metaCitySlug = citySlug || "lviv";
     const metaCity = activeCities.find((c) => c.city.slug === metaCitySlug);
     const metaLocation = metaCity
-        ? (locale === 'uk' ? (metaCity.city.nameLocativeUk || `у ${metaCity.city.nameUk}`)
-           : locale === 'ru' ? (metaCity.city.nameLocativeRu || `в ${metaCity.city.nameRu}`)
-           : (metaCity.city.nameLocativeEn || `in ${metaCity.city.nameEn}`))
+        ? (locale === 'uk' ? `у ${metaCity.city.nameLocativeUk || metaCity.city.nameUk}`
+           : locale === 'ru' ? `в ${metaCity.city.nameLocativeRu || metaCity.city.nameRu}`
+           : `in ${metaCity.city.nameLocativeEn || metaCity.city.nameEn}`)
         : (locale === 'uk' ? 'у Львові' : locale === 'ru' ? 'во Львове' : 'in Lviv');
 
     const title = t("meta.title", {
@@ -319,9 +319,9 @@ export default async function CarPage({
         const ca = (car.cityAvailability ?? []).find((c) => c.city.slug === slug);
         if (!ca) return locale === 'uk' ? 'у Львові' : locale === 'ru' ? 'во Львове' : 'in Lviv';
         const city = ca.city;
-        return locale === 'uk' ? (city.nameLocativeUk || `у ${city.nameUk}`)
-             : locale === 'ru' ? (city.nameLocativeRu || `в ${city.nameRu}`)
-             : (city.nameLocativeEn || `in ${city.nameEn}`);
+        return locale === 'uk' ? `у ${city.nameLocativeUk || city.nameUk}`
+             : locale === 'ru' ? `в ${city.nameLocativeRu || city.nameRu}`
+             : `in ${city.nameLocativeEn || city.nameEn}`;
     };
     const cityLocative = getCityLocative(citySlug);
 
