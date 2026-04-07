@@ -71,8 +71,9 @@ export async function generateMetadata({
     const activeCities = (car.cityAvailability ?? []) as { city: { slug: string; nameLocativeUk?: string; nameLocativeRu?: string; nameLocativeEn?: string; nameUk: string; nameRu: string; nameEn: string } }[];
     const metaCitySlug = citySlug || "lviv";
     const metaCity = activeCities.find((c) => c.city.slug === metaCitySlug);
+    const ukPre = (name: string) => /^[аоуеєиіїюяАОУЕЄИІЇЮЯ]/.test(name) ? 'в' : 'у';
     const metaLocation = metaCity
-        ? (locale === 'uk' ? `у ${metaCity.city.nameLocativeUk || metaCity.city.nameUk}`
+        ? (locale === 'uk' ? (() => { const loc = metaCity.city.nameLocativeUk || metaCity.city.nameUk; return `${ukPre(loc)} ${loc}`; })()
            : locale === 'ru' ? `в ${metaCity.city.nameLocativeRu || metaCity.city.nameRu}`
            : `in ${metaCity.city.nameLocativeEn || metaCity.city.nameEn}`)
         : (locale === 'uk' ? 'у Львові' : locale === 'ru' ? 'во Львове' : 'in Lviv');
@@ -314,14 +315,19 @@ export default async function CarPage({
     ];
 
     // Determine city name for title (locative form)
+    // Ukrainian: "у" before consonants, "в" before vowels (а,о,у,е,є,и,і,ї,ю,я)
+    const ukPreposition = (name: string) => /^[аоуеєиіїюяАОУЕЄИІЇЮЯ]/.test(name) ? 'в' : 'у';
     const getCityLocative = (slug: string | undefined) => {
-        if (!slug) slug = "lviv"; // default to Lviv (homepage city)
+        if (!slug) slug = "lviv";
         const ca = (car.cityAvailability ?? []).find((c) => c.city.slug === slug);
         if (!ca) return locale === 'uk' ? 'у Львові' : locale === 'ru' ? 'во Львове' : 'in Lviv';
         const city = ca.city;
-        return locale === 'uk' ? `у ${city.nameLocativeUk || city.nameUk}`
-             : locale === 'ru' ? `в ${city.nameLocativeRu || city.nameRu}`
-             : `in ${city.nameLocativeEn || city.nameEn}`;
+        if (locale === 'uk') {
+            const loc = city.nameLocativeUk || city.nameUk;
+            return `${ukPreposition(loc)} ${loc}`;
+        }
+        if (locale === 'ru') return `в ${city.nameLocativeRu || city.nameRu}`;
+        return `in ${city.nameLocativeEn || city.nameEn}`;
     };
     const cityLocative = getCityLocative(citySlug);
 
