@@ -107,7 +107,7 @@ export default function CarCard({ car, citySlug }: CarCardProps) {
   const carIdSlug = useMemo(() => createCarIdSlug(car), [car]);
 
   // Link to car details page (for image and name)
-  const carDetailsLink = `/cars/${carIdSlug}`;
+  const carDetailsLink = citySlug ? `/cars/${carIdSlug}?city=${citySlug}` : `/cars/${carIdSlug}`;
 
   // Link to booking page with dates (for button when dates are selected)
   const bookingLink = useMemo(() => {
@@ -115,6 +115,7 @@ export default function CarCard({ car, citySlug }: CarCardProps) {
     if (startDate) params.set("startDate", startDate.toISOString());
     if (endDate) params.set("endDate", endDate.toISOString());
     if (selectedPlan?.id) params.set("planId", String(selectedPlan.id));
+    if (citySlug) params.set("city", citySlug);
 
     const query = params.toString();
     return `/cars/${carIdSlug}/rent${query ? `?${query}` : ""}`;

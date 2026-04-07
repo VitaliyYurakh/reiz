@@ -112,10 +112,13 @@ export async function generateMetadata({
 
 export default async function CarPage({
                                           params,
+                                          searchParams,
                                       }: {
     params: Promise<{ idSlug: string; locale: Locale }>;
+    searchParams: Promise<{ city?: string }>;
 }) {
     const {idSlug, locale} = await params;
+    const { city: citySlug } = await searchParams;
     const carId = parseCarIdFromSlug(idSlug);
     if (carId === null) {
         notFound();
@@ -168,15 +171,23 @@ export default async function CarPage({
     const maxDeposit = Math.max(...depositValues, baseDeposit);
     const freeDeliveryThreshold = car.freeDeliveryThreshold ?? 351;
 
-    // Determine home city (deliveryFee=0) for delivery info
+    // Determine delivery info based on city context
     const activeCities = (car.cityAvailability ?? []).filter((ca) => ca.isActive);
     const homeCity = activeCities.find((ca) => ca.deliveryFee === 0 && ca.minRentalDays === 1);
     const homeCityName = homeCity
         ? (locale === 'uk' ? homeCity.city.nameUk : locale === 'ru' ? homeCity.city.nameRu : homeCity.city.nameEn)
         : null;
+    // If user came from a city page, find that city's availability
+    const viewingCity = citySlug
+        ? activeCities.find((ca) => ca.city.slug === citySlug)
+        : null;
 
     let deliveryText: string;
-    if (homeCityName) {
+    if (viewingCity && viewingCity.deliveryFee > 0 && homeCityName) {
+        // User is viewing from another city (e.g. Bukovel) — show delivery from home city
+        deliveryText = t("rentalConditions.deliveryFromCity", { city: homeCityName, price: viewingCity.deliveryFee });
+    } else if (homeCityName) {
+        // Home city or no city context — free at office
         deliveryText = t("rentalConditions.deliveryFreeAtOffice", { city: homeCityName });
     } else {
         deliveryText = t("rentalConditions.deliveryValue", { threshold: freeDeliveryThreshold });

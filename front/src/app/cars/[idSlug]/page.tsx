@@ -17,11 +17,14 @@ export async function generateMetadata({
 
 export default async function CarPageDefault({
   params,
+  searchParams,
 }: {
   params: Promise<{ idSlug: string }>;
+  searchParams: Promise<{ city?: string }>;
 }) {
   const { idSlug } = await params;
   return CarPage({
     params: Promise.resolve({ idSlug, locale: defaultLocale }),
+    searchParams,
   });
 }
