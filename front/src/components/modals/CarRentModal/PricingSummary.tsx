@@ -18,6 +18,7 @@ type PricingSummaryProps = {
   dailyPriceBeforeDiscount: number;
   hasDiscount: boolean;
   depositAmount: number;
+  deliveryFee: number;
   totalCost: number;
   selectedExtras: Set<ExtraId>;
 };
@@ -33,6 +34,7 @@ export default function PricingSummary({
   dailyPriceBeforeDiscount,
   hasDiscount,
   depositAmount,
+  deliveryFee,
   totalCost,
   selectedExtras,
 }: PricingSummaryProps) {
@@ -125,6 +127,14 @@ export default function PricingSummary({
             );
           })}
         </li>
+        {deliveryFee > 0 && (
+          <li className="modal__item mode">
+            <div className="modal__item-wrapp">
+              <span className="modal__name">{t("summary.deliveryLabel")}</span>
+              <span className="modal__value">{formatPrice(deliveryFee)}</span>
+            </div>
+          </li>
+        )}
         <li className="modal__item">
           <span className="modal__name">{t("summary.depositLabel")}</span>
           <span className="modal__value">

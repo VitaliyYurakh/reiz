@@ -21,6 +21,7 @@ interface PricingSummaryPanelProps {
   totalDays: number;
   dailyPrice: number;
   depositAmount: number;
+  deliveryFee: number;
   totalCost: number;
   selectedExtras: Set<ExtraDefinition["id"]>;
   extraDefinitions: readonly ExtraDefinition[];
@@ -35,6 +36,7 @@ export default function PricingSummaryPanel({
   totalDays,
   dailyPrice,
   depositAmount,
+  deliveryFee,
   totalCost,
   selectedExtras,
   extraDefinitions,
@@ -134,6 +136,18 @@ export default function PricingSummaryPanel({
             );
           })}
         </li>
+        {deliveryFee > 0 && (
+          <li className="rent-page__summary-item rent-page__summary-item--mode">
+            <div className="rent-page__summary-item-wrapper">
+              <span className="rent-page__summary-name">
+                {t("summary.deliveryLabel")}
+              </span>
+              <span className="rent-page__summary-value">
+                {formatPrice(deliveryFee)}
+              </span>
+            </div>
+          </li>
+        )}
         <li className="rent-page__summary-item">
           <span className="rent-page__summary-name">
             {t("summary.depositLabel")}

@@ -62,6 +62,7 @@ export default function CarRentModal({
     () => new Set(["additionalDriver"]),
   );
   const [formResetKey, setFormResetKey] = useState(0);
+  const [pickupCitySlug, setPickupCitySlug] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<"" | "success" | "error">("");
   const [formError, setFormError] = useState<string | null>(null);
@@ -224,8 +225,16 @@ export default function CarRentModal({
     return extrasPerDay * totalDays + extrasOneTime;
   }, [extrasOneTime, extrasPerDay, totalDays]);
 
+  const deliveryFee = useMemo(() => {
+    if (!pickupCitySlug || !data.car.cityAvailability) return 0;
+    const cityAvail = data.car.cityAvailability.find(
+      (ca) => ca.city.slug === pickupCitySlug && ca.isActive
+    );
+    return cityAvail?.deliveryFee ?? 0;
+  }, [pickupCitySlug, data.car.cityAvailability]);
+
   const rentalCost = totalDays > 0 ? dailyPrice * totalDays : 0;
-  const totalCost = rentalCost + extrasTotal;
+  const totalCost = rentalCost + extrasTotal + deliveryFee;
 
   const carName = useMemo(() => {
     return `${data.car.brand ?? ""} ${data.car.model ?? ""} ${
@@ -248,8 +257,11 @@ export default function CarRentModal({
   );
 
   const handleSelectChange = useCallback(
-    (field: "pickupLocation" | "returnLocation") => (value: string) => {
+    (field: "pickupLocation" | "returnLocation") => (value: string, citySlug?: string) => {
       setFormState((prev) => ({ ...prev, [field]: value }));
+      if (field === "pickupLocation" && citySlug) {
+        setPickupCitySlug(citySlug);
+      }
       if (formError) setFormError(null);
       clearFieldError(field);
     },
@@ -408,6 +420,7 @@ export default function CarRentModal({
             dailyPrice: dailyPrice,
             rentalCost: rentalCost,
             extrasCost: extrasTotal,
+            deliveryFee: deliveryFee,
             totalCost: totalCost,
             depositAmount: depositAmount,
           },
@@ -441,6 +454,7 @@ export default function CarRentModal({
       dailyPrice,
       rentalCost,
       extrasTotal,
+      deliveryFee,
       totalCost,
       depositAmount,
       t,
@@ -574,6 +588,7 @@ export default function CarRentModal({
           dailyPriceBeforeDiscount={dailyPriceBeforeDiscount}
           hasDiscount={hasDiscount}
           depositAmount={depositAmount}
+          deliveryFee={deliveryFee}
           totalCost={totalCost}
           selectedExtras={selectedExtras}
         />
