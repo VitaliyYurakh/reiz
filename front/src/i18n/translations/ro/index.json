@@ -1779,6 +1779,7 @@
       "title": "Condiții de închiriere",
       "delivery": "Livrare",
       "deliveryValue": "În oraș — gratuită de la {threshold} USD",
+      "deliveryFreeAtOffice": "Gratuit la birou ({city})",
       "deliveryFromCity": "Livrare din {city} — {price} USD",
       "deliveryFree": "Livrare gratuită",
       "deliveryFreeFromCity": "Livrare gratuită din {city}",

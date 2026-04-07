@@ -1702,6 +1702,7 @@
       "title": "Условия аренды",
       "delivery": "Доставка",
       "deliveryValue": "По городу — от {threshold} USD",
+      "deliveryFreeAtOffice": "Бесплатно в офисе (г.{city})",
       "deliveryFromCity": "Доставка из г.{city} — {price} USD",
       "deliveryFree": "Бесплатная доставка",
       "deliveryFreeFromCity": "Бесплатная доставка из г.{city}",

@@ -1728,6 +1728,7 @@
       "title": "Умови оренди",
       "delivery": "Доставка",
       "deliveryValue": "По місту — від {threshold} USD",
+      "deliveryFreeAtOffice": "Безкоштовно в офісі (м.{city})",
       "deliveryFromCity": "Доставка з м.{city} — {price} USD",
       "deliveryFree": "Безкоштовна доставка",
       "deliveryFreeFromCity": "Безкоштовна доставка з м.{city}",

@@ -1701,6 +1701,7 @@
       "title": "Warunki wynajmu",
       "delivery": "Dostawa",
       "deliveryValue": "Po mieście — bezpłatnie od {threshold} USD",
+      "deliveryFreeAtOffice": "Bezpłatnie w biurze ({city})",
       "deliveryFromCity": "Dostawa z {city} — {price} USD",
       "deliveryFree": "Bezpłatna dostawa",
       "deliveryFreeFromCity": "Bezpłatna dostawa z {city}",
