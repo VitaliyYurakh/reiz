@@ -167,6 +167,33 @@ export default async function CarPage({
     const minDeposit = Math.min(...depositValues);
     const maxDeposit = Math.max(...depositValues, baseDeposit);
     const freeDeliveryThreshold = car.freeDeliveryThreshold ?? 351;
+
+    // Determine home city and build delivery info from cityAvailability
+    const activeCities = (car.cityAvailability ?? []).filter((ca) => ca.isActive);
+    const homeCity = activeCities.find((ca) => ca.deliveryFee === 0 && ca.minRentalDays === 1);
+    const homeCityName = homeCity
+        ? (locale === 'uk' ? homeCity.city.nameUk : locale === 'ru' ? homeCity.city.nameRu : homeCity.city.nameEn)
+        : null;
+    // Cities with delivery fee (not home)
+    const deliveryCities = activeCities
+        .filter((ca) => ca.deliveryFee > 0 || ca.minRentalDays > 1)
+        .sort((a, b) => a.deliveryFee - b.deliveryFee);
+
+    let deliveryText: string;
+    if (homeCityName && deliveryCities.length > 0) {
+        // Has home city + other cities with fees — show "Delivery from City — price USD"
+        const cheapest = deliveryCities[0];
+        if (cheapest.deliveryFee > 0) {
+            deliveryText = t("rentalConditions.deliveryFromCity", { city: homeCityName, price: cheapest.deliveryFee });
+        } else {
+            deliveryText = t("rentalConditions.deliveryFreeFromCity", { city: homeCityName });
+        }
+    } else if (homeCityName) {
+        deliveryText = t("rentalConditions.deliveryFreeFromCity", { city: homeCityName });
+    } else {
+        deliveryText = t("rentalConditions.deliveryValue", { threshold: freeDeliveryThreshold });
+    }
+
     const cancellationHours = car.cancellationHours ?? 24;
     const carPaymentMethods = car.paymentMethods;
     const minRentalDays = car.minRentalDays ?? 1;
@@ -187,7 +214,7 @@ export default async function CarPage({
                                 <Icon id={"geo-alt"} width={22} height={22}/>
                             </span>
                             <span className="rental-conditions__label">{t("rentalConditions.delivery")}</span>
-                            <span className="rental-conditions__value"><CurrencyText text={t("rentalConditions.deliveryValue", { threshold: freeDeliveryThreshold })} /></span>
+                            <span className="rental-conditions__value"><CurrencyText text={deliveryText} /></span>
                         </li>
                         <li className="rental-conditions__item">
                             <span className="rental-conditions__icon sprite">
