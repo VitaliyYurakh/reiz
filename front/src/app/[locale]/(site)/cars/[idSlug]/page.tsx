@@ -37,10 +37,13 @@ const toAbsolute = (value: string) => {
 
 export async function generateMetadata({
     params,
+    searchParams,
 }: {
     params: Promise<{ idSlug: string; locale: Locale }>;
+    searchParams: Promise<{ city?: string }>;
 }): Promise<Metadata> {
     const { idSlug, locale } = await params;
+    const { city: citySlug } = await searchParams;
     const carId = parseCarIdFromSlug(idSlug);
     if (carId === null) return {};
 
@@ -64,11 +67,22 @@ export async function generateMetadata({
     const specsText = specs ? `${specs}, ` : "";
     const seats = car.seats || 5;
 
+    // City locative for meta title
+    const activeCities = (car.cityAvailability ?? []) as { city: { slug: string; nameLocativeUk?: string; nameLocativeRu?: string; nameLocativeEn?: string; nameUk: string; nameRu: string; nameEn: string } }[];
+    const metaCitySlug = citySlug || "lviv";
+    const metaCity = activeCities.find((c) => c.city.slug === metaCitySlug);
+    const metaLocation = metaCity
+        ? (locale === 'uk' ? (metaCity.city.nameLocativeUk || `у ${metaCity.city.nameUk}`)
+           : locale === 'ru' ? (metaCity.city.nameLocativeRu || `в ${metaCity.city.nameRu}`)
+           : (metaCity.city.nameLocativeEn || `in ${metaCity.city.nameEn}`))
+        : (locale === 'uk' ? 'у Львові' : locale === 'ru' ? 'во Львове' : 'in Lviv');
+
     const title = t("meta.title", {
       brand,
       model,
       price,
       year,
+      location: metaLocation,
     });
     const description = t("meta.description", {
       carName,
@@ -299,11 +313,24 @@ export default async function CarPage({
         },
     ];
 
+    // Determine city name for title (locative form)
+    const getCityLocative = (slug: string | undefined) => {
+        if (!slug) slug = "lviv"; // default to Lviv (homepage city)
+        const ca = (car.cityAvailability ?? []).find((c) => c.city.slug === slug);
+        if (!ca) return locale === 'uk' ? 'у Львові' : locale === 'ru' ? 'во Львове' : 'in Lviv';
+        const city = ca.city;
+        return locale === 'uk' ? (city.nameLocativeUk || `у ${city.nameUk}`)
+             : locale === 'ru' ? (city.nameLocativeRu || `в ${city.nameRu}`)
+             : (city.nameLocativeEn || `in ${city.nameEn}`);
+    };
+    const cityLocative = getCityLocative(citySlug);
+
     const imageAlt = t("imageAlt", { brand: car.brand ?? "", model: car.model ?? "" });
     const pageTitle = t("title", {
         brand: car.brand || "",
         model: car.model || "",
         year: car.yearOfManufacture || "",
+        location: cityLocative,
     });
 
     const PCImages = car.carPhoto

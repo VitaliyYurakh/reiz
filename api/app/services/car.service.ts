@@ -26,7 +26,7 @@ class CarService {
                 cityAvailability: {
                     where: {isActive: true},
                     include: {
-                        city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true}},
+                        city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true, nameLocativeUk: true, nameLocativeRu: true, nameLocativeEn: true}},
                     },
                 },
             },
@@ -43,7 +43,7 @@ class CarService {
                 segment: true,
                 cityAvailability: {
                     include: {
-                        city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true}},
+                        city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true, nameLocativeUk: true, nameLocativeRu: true, nameLocativeEn: true}},
                     },
                 },
             },

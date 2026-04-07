@@ -6,12 +6,15 @@ import { defaultLocale } from "@/i18n/request";
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ idSlug: string }>;
+  searchParams: Promise<{ city?: string }>;
 }): Promise<Metadata> {
   const { idSlug } = await params;
   return generateLocalizedMetadata({
     params: Promise.resolve({ idSlug, locale: defaultLocale }),
+    searchParams,
   });
 }
 

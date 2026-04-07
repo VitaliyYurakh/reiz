@@ -1688,10 +1688,10 @@
       "cars": "Samochody"
     },
     "meta": {
-      "title": "Wynajem {brand} {model} we Lwowie — od {price}$/dobę",
+      "title": "Wynajem {brand} {model} {location} — od {price}$/dobę",
       "description": "Wynajem {carName} we Lwowie. {specsText}{seats, plural, one {{seats} miejsce} few {{seats} miejsca} many {{seats} miejsc} other {{seats} miejsc}}. Dostawa na lotnisko i po miescie 24/7."
     },
-    "title": "Wynajem {brand} {model} {year} na Ukrainie",
+    "title": "Wynajem {brand} {model} {year} {location}",
     "tabs": {
       "specifications": "Informacje",
       "equipment": "Wyposażenie",

@@ -1689,10 +1689,10 @@
       "cars": "Cars"
     },
     "meta": {
-      "title": "Rent {brand} {model} in Lviv — from {price}$/day",
+      "title": "Rent {brand} {model} {location} — from {price}$/day",
       "description": "Rent {carName} in Lviv. {specsText}{seats, plural, one {{seats} seat} other {{seats} seats}}. Delivery to the airport and around the city 24/7."
     },
-    "title": "Rent {brand} {model} {year} in Ukraine",
+    "title": "Rent {brand} {model} {year} {location}",
     "tabs": {
       "specifications": "Information",
       "equipment": "Equipment",

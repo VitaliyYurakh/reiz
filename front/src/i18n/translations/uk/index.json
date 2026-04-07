@@ -1715,10 +1715,10 @@
       "cars": "Автомобілі"
     },
     "meta": {
-      "title": "Оренда {brand} {model} у Львові — прокат без застави",
+      "title": "Оренда {brand} {model} {location} — прокат без застави",
       "description": "Прокат {carName} у Львові від REIZ. {specsText}{seats, plural, one {{seats} місце} few {{seats} місця} many {{seats} місць} other {{seats} місця}}. Подача в аеропорт та по місту 24/7. Офіційний договір."
     },
-    "title": "Оренда {brand} {model} {year} в Україні",
+    "title": "Оренда {brand} {model} {year} {location}",
     "tabs": {
       "specifications": "Інформація",
       "equipment": "Комплектація",

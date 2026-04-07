@@ -62,6 +62,9 @@ export interface CarCityAvailability {
     nameUk: string;
     nameRu: string;
     nameEn: string;
+    nameLocativeUk?: string;
+    nameLocativeRu?: string;
+    nameLocativeEn?: string;
   };
 }
 

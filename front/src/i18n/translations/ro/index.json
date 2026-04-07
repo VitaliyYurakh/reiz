@@ -1740,10 +1740,10 @@
       "cars": "Mașini"
     },
     "meta": {
-      "title": "Închiriază {brand} {model} în Lviv — de la {price}$/zi",
+      "title": "Închiriază {brand} {model} {location} — de la {price}$/zi",
       "description": "Închiriază {carName} în Lviv. {specsText}{seats, plural, one {{seats} loc} few {{seats} locuri} other {{seats} locuri}}. Livrare la aeroport și în oraș 24/7."
     },
-    "title": "Închiriază {brand} {model} {year} în Ucraina",
+    "title": "Închiriază {brand} {model} {year} {location}",
     "tabs": {
       "specifications": "Informații",
       "equipment": "Dotări",
