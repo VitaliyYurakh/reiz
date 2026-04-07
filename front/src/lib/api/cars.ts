@@ -3,9 +3,12 @@ import {API_URL_SERVER} from "@/config/environment";
 
 const isDev = process.env.NODE_ENV === "development";
 
-export async function fetchCars(): Promise<Car[]> {
+export async function fetchCars(citySlug?: string): Promise<Car[]> {
   try {
-    const res = await fetch(`${API_URL_SERVER}/car`, {
+    const url = citySlug
+      ? `${API_URL_SERVER}/car?citySlug=${encodeURIComponent(citySlug)}`
+      : `${API_URL_SERVER}/car`;
+    const res = await fetch(url, {
       ...(isDev ? { cache: "no-store" as const } : { next: { revalidate: 60, tags: ["cars"] } }),
       headers: { Accept: "application/json" },
     });

@@ -135,7 +135,7 @@ export default async function CityRentalPage({
     notFound();
   }
 
-  const cars = await fetchCars();
+  const cars = await fetchCars(citySlug);
   const faqSections = getCityFAQ(cityConfig, locale);
   const footerAddress = getCityFooterAddress(cityConfig, locale);
   const footerDescription = cityData.footerDescription;
@@ -156,7 +156,7 @@ export default async function CityRentalPage({
       <main className="main">
         <CitySchemaOrg city={cityConfig} locale={locale} faqSections={faqSections} />
         <CityHeroSection city={cityConfig} cityData={cityData} locale={locale} />
-        <Catalog cars={cars} sectionTitle={cityData.sectionCars} />
+        <Catalog cars={cars} sectionTitle={cityData.sectionCars} citySlug={citySlug} />
         <Advantages />
         <Rent />
         <CityEditorSection city={cityConfig} locale={locale} />

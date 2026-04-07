@@ -200,6 +200,15 @@ export const tariffSchema = z.object({
     })),
 });
 
+export const carCityAvailabilitySchema = z.object({
+    data: z.array(z.object({
+        cityId: z.number().int().positive(),
+        deliveryFee: z.number().int().min(0).default(0),
+        minRentalDays: z.number().int().min(1).default(1),
+        isActive: z.boolean(),
+    })),
+});
+
 export const countingRuleSchema = z.object({
     data: z.array(z.object({
         pricePercent: z.number().min(0),

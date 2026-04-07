@@ -3,11 +3,12 @@ import {Request, Response} from 'express';
 import {carService} from '../services';
 import {parseId} from '../utils';
 import logAudit from '../middleware/audit.middleware';
-import {createCarSchema, updateCarSchema, tariffSchema, countingRuleSchema, validate} from '../validators';
+import {createCarSchema, updateCarSchema, tariffSchema, countingRuleSchema, carCityAvailabilitySchema, validate} from '../validators';
 
 class CarController {
     async getAll(req: Request, res: Response) {
-        const cars = await carService.getAll();
+        const citySlug = req.query.citySlug as string | undefined;
+        const cars = await carService.getAll(citySlug);
         return res.status(StatusCodes.OK).json({cars});
     }
 
@@ -100,6 +101,21 @@ class CarController {
         await carService.deleteCarPhoto(parseId(photoId as string));
 
         logAudit({actorId: res.locals.user?.id, entityType: 'CarPhoto', entityId: parseId(photoId as string), action: 'DELETE', req});
+        return res.status(StatusCodes.OK).json();
+    }
+
+    async getCityAvailability(req: Request, res: Response) {
+        const {id} = req.params;
+        const availability = await carService.getCityAvailability(parseId(id));
+        return res.status(StatusCodes.OK).json({availability});
+    }
+
+    async updateCityAvailability(req: Request, res: Response) {
+        const {data} = validate(carCityAvailabilitySchema, req.body);
+        const {id} = req.params;
+        await carService.updateCityAvailability(parseId(id), data);
+
+        logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: parseId(id), action: 'UPDATE', after: {cityAvailability: data}, req});
         return res.status(StatusCodes.OK).json();
     }
 

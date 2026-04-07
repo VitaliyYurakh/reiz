@@ -16,7 +16,7 @@ import {
 } from '@/lib/api/admin';
 import { Car, CarCountingRule, RentalTariff, Segment } from '@/types/cars';
 import { useAdminTheme } from '@/context/AdminThemeContext';
-import { Camera, DollarSign, Info, List } from 'lucide-react';
+import { Camera, DollarSign, Info, List, MapPin } from 'lucide-react';
 import { normalizeMultiLang, type LangCode, type MultiLang } from './components/constants';
 import { HeaderCard, InfoGrid } from './components/header-card';
 import { MediaTab } from './components/media-tab';
@@ -25,6 +25,7 @@ import { PricingTab } from './components/pricing-tab';
 import { ConfigurationTab } from './components/configuration-tab';
 import { SettingsModal } from './components/settings-modal';
 import { ConfigurationModal } from './components/configuration-modal';
+import { CitiesTab } from './components/cities-tab';
 
 export default function CarEditPage() {
   const params = useParams();
@@ -477,6 +478,7 @@ export default function CarEditPage() {
               { value: 'details', icon: Info, label: 'Описание' },
               { value: 'pricing', icon: DollarSign, label: 'Цены' },
               { value: 'config', icon: List, label: 'Комплектация' },
+              { value: 'cities', icon: MapPin, label: 'Мiста' },
             ].map((tab) => (
               <TabsTrigger
                 key={tab.value}
@@ -575,6 +577,14 @@ export default function CarEditPage() {
               setNewConfigItem({ uk: '', ru: '', en: '', pl: '', ro: '' });
               setIsConfigModalOpen(true);
             }}
+          />
+        </TabsContent>
+
+        <TabsContent value="cities" className="mt-5">
+          <CitiesTab
+            carId={id}
+            saving={saving}
+            onSaved={showSaved}
           />
         </TabsContent>
       </Tabs>

@@ -8,6 +8,11 @@ const router = Router();
 // Public read endpoints
 router.get('/', carController.getAll);
 router.get('/configuration-options', auth, requirePermission('cars', 'view'), carController.getConfigurationOptions);
+
+// City availability (must be before /:id)
+router.get('/:id/city-availability', auth, requirePermission('cars', 'view'), carController.getCityAvailability);
+router.put('/:id/city-availability', auth, requirePermission('cars', 'full'), carController.updateCityAvailability);
+
 router.get('/:id', carController.getOne);
 
 // Protected mutation endpoints

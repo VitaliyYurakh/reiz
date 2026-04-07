@@ -4,13 +4,31 @@ import {CreateCarDto, UpdateCarDto, CarPhotoDto, CountingRuleDto, TariffDto} fro
 import {Language} from '../types/dto.types';
 
 class CarService {
-    async getAll() {
+    async getAll(citySlug?: string) {
+        const where: any = {};
+
+        if (citySlug) {
+            where.cityAvailability = {
+                some: {
+                    isActive: true,
+                    city: {slug: citySlug, isActive: true},
+                },
+            };
+        }
+
         return await prisma.car.findMany({
+            where,
             include: {
                 carPhoto: true,
                 carCountingRule: {orderBy: {depositPercent: 'asc'}},
                 rentalTariff: true,
                 segment: true,
+                cityAvailability: {
+                    where: {isActive: true},
+                    include: {
+                        city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true}},
+                    },
+                },
             },
         });
     }
@@ -23,8 +41,37 @@ class CarService {
                 carCountingRule: {orderBy: {depositPercent: 'asc'}},
                 rentalTariff: true,
                 segment: true,
+                cityAvailability: {
+                    include: {
+                        city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true}},
+                    },
+                },
             },
         });
+    }
+
+    async getCityAvailability(carId: number) {
+        return prisma.carCityAvailability.findMany({
+            where: {carId},
+            include: {
+                city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true, isActive: true}},
+            },
+        });
+    }
+
+    async updateCityAvailability(carId: number, availability: {cityId: number; deliveryFee: number; minRentalDays: number; isActive: boolean}[]) {
+        const car = await prisma.car.findUnique({where: {id: carId}});
+        if (!car) throw new CarNotFoundError();
+
+        await prisma.$transaction(
+            availability.map((item) =>
+                prisma.carCityAvailability.upsert({
+                    where: {carId_cityId: {carId, cityId: item.cityId}},
+                    create: {carId, cityId: item.cityId, deliveryFee: item.deliveryFee, minRentalDays: item.minRentalDays, isActive: item.isActive},
+                    update: {deliveryFee: item.deliveryFee, minRentalDays: item.minRentalDays, isActive: item.isActive},
+                })
+            )
+        );
     }
 
     async createOne(car: CreateCarDto) {

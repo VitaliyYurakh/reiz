@@ -119,6 +119,9 @@ model Car {
   ratePlans      RatePlan[]
   serviceEvents  ServiceEvent[]
 
+  // City availability
+  cityAvailability CarCityAvailability[]
+
   // Customer cabinet relations
   favorites Favorite[]
 }
@@ -798,6 +801,7 @@ model City {
   updatedAt       DateTime @updatedAt @map("updated_at")
 
   pickupLocations PickupLocation[]
+  carAvailability CarCityAvailability[]
 
   @@index([isActive])
   @@map("city")
@@ -821,6 +825,25 @@ model PickupLocation {
   @@unique([cityId, slug])
   @@index([cityId])
   @@map("pickup_location")
+}
+
+model CarCityAvailability {
+  id            Int      @id @default(autoincrement())
+  carId         Int      @map("car_id")
+  cityId        Int      @map("city_id")
+  deliveryFee   Int      @default(0) @map("delivery_fee")
+  minRentalDays Int      @default(1) @map("min_rental_days")
+  isActive      Boolean  @default(true) @map("is_active")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  car  Car  @relation(fields: [carId], references: [id], onDelete: Cascade)
+  city City @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  @@unique([carId, cityId])
+  @@index([cityId, isActive])
+  @@index([carId])
+  @@map("car_city_availability")
 }
 
 // ============================================================

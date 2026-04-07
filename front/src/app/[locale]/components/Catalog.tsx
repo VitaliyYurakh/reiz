@@ -89,9 +89,11 @@ type CatalogProps = {
     cars: Car[];
     // Опціональний заголовок секції для міських сторінок
     sectionTitle?: string;
+    // Slug міста для бейджів доставки на картках
+    citySlug?: string;
 };
 
-export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
+export default function Catalog({cars: rawCars, sectionTitle, citySlug}: CatalogProps) {
     const cars = useMemo(
         () => rawCars.filter((c) => c.rentalTariff?.length > 0 && c.brand),
         [rawCars],
@@ -727,7 +729,7 @@ export default function Catalog({cars: rawCars, sectionTitle}: CatalogProps) {
                             data-aos-delay="300"
                         >
                             {sortedCars.length > 0
-                                ? sortedCars.map((car) => <CarCard key={car.id} car={car}/>)
+                                ? sortedCars.map((car) => <CarCard key={car.id} car={car} citySlug={citySlug}/>)
                                 : t("catalog_list.empty")}
                         </ul>
                     </div>

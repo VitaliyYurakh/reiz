@@ -534,6 +534,36 @@
       }
     }
 
+    &--min-days {
+      color: #2563EB;
+      font-weight: 500;
+
+      &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 100%;
+        background: #2563EB;
+        display: block;
+        flex-shrink: 0;
+      }
+    }
+
+    &--delivery {
+      color: #7C3AED;
+      font-weight: 500;
+
+      &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 100%;
+        background: #7C3AED;
+        display: block;
+        flex-shrink: 0;
+      }
+    }
+
     @include tablet {
       font-size: 12px;
       padding: 3px 8px;

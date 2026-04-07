@@ -376,4 +376,27 @@ export const deleteUser = async (id: number) => {
   await adminApi.delete(`/user/${id}`);
 };
 
+// ── Car City Availability ──
+
+export const getCarCityAvailability = async (carId: number) => {
+  const res = await adminApi.get(`/car/${carId}/city-availability`);
+  return res.data.availability as {
+    id: number;
+    carId: number;
+    cityId: number;
+    deliveryFee: number;
+    minRentalDays: number;
+    isActive: boolean;
+    city: { id: number; slug: string; nameUk: string; nameRu: string; nameEn: string; isActive: boolean };
+  }[];
+};
+
+export const updateCarCityAvailability = async (
+  carId: number,
+  data: { cityId: number; deliveryFee: number; minRentalDays: number; isActive: boolean }[]
+) => {
+  const res = await adminApi.put(`/car/${carId}/city-availability`, { data });
+  return res.data;
+};
+
 export default adminApi;

@@ -18,6 +18,7 @@ import FavoriteToggle from "@/components/account/FavoriteToggle";
 
 type CarCardProps = {
   car: Car;
+  citySlug?: string;
 };
 
 const COVERAGE_PLAN_INDEX: Record<CoverageOption, number> = {
@@ -45,7 +46,7 @@ const selectPlan = (plans: CarCountingRule[], coverageKey: CoverageOption) => {
   return plans[index] ?? plans[0];
 };
 
-export default function CarCard({ car }: CarCardProps) {
+export default function CarCard({ car, citySlug }: CarCardProps) {
   const locale = useLocale();
   const tCatalog = useTranslations("homePage.catalog_aside.catalog_list");
   const { coverageOption, setCoverageOption, startDate, endDate, totalDays } =
@@ -58,6 +59,11 @@ export default function CarCard({ car }: CarCardProps) {
   const [compactBadges, setCompactBadges] = useState(false);
 
   const hasDates = Boolean(startDate && endDate && totalDays > 0);
+
+  const cityAvail = useMemo(() => {
+    if (!citySlug || !car.cityAvailability) return null;
+    return car.cityAvailability.find((ca) => ca.city.slug === citySlug) ?? null;
+  }, [citySlug, car.cityAvailability]);
 
   const sortedTariffs = useMemo(() => {
     return [...car.rentalTariff].sort((a, b) => a.minDays - b.minDays);
@@ -266,6 +272,20 @@ export default function CarCard({ car }: CarCardProps) {
             )}
             {car.isNew && (
               <span className="car-card__badge car-card__badge--new">NEW</span>
+            )}
+            {cityAvail && cityAvail.minRentalDays > 1 && (
+              <span className="car-card__badge car-card__badge--min-days">
+                {locale === 'uk' ? `від ${cityAvail.minRentalDays} днів` :
+                 locale === 'ru' ? `от ${cityAvail.minRentalDays} дней` :
+                 `from ${cityAvail.minRentalDays} days`}
+              </span>
+            )}
+            {cityAvail && cityAvail.deliveryFee > 0 && (
+              <span className="car-card__badge car-card__badge--delivery">
+                {locale === 'uk' ? `Доставка: ${formatPrice(cityAvail.deliveryFee)}` :
+                 locale === 'ru' ? `Доставка: ${formatPrice(cityAvail.deliveryFee)}` :
+                 `Delivery: ${formatPrice(cityAvail.deliveryFee)}`}
+              </span>
             )}
             {car.discount && car.discount > 0 && (
               <span className="car-card__badge car-card__badge--discount">

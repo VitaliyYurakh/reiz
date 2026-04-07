@@ -50,6 +50,21 @@ export function localized(obj: LocalizedText | null | undefined, locale: string)
   return (obj as unknown as Record<string, string>)[locale] || obj.en || obj.uk || '';
 }
 
+export interface CarCityAvailability {
+  carId: number;
+  cityId: number;
+  deliveryFee: number;
+  minRentalDays: number;
+  isActive: boolean;
+  city: {
+    id: number;
+    slug: string;
+    nameUk: string;
+    nameRu: string;
+    nameEn: string;
+  };
+}
+
 export interface Car {
   id: number;
   brand: string | null;
@@ -118,4 +133,5 @@ export interface Car {
   carCountingRule: CarCountingRule[];
   rentalTariff: RentalTariff[];
   segment: Segment[];
+  cityAvailability?: CarCityAvailability[];
 }
