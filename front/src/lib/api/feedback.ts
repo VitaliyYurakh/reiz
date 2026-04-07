@@ -23,6 +23,7 @@ interface BookingRequestData {
     rentalCost: number;
     extrasCost: number;
     deliveryFee?: number;
+    returnFee?: number;
     totalCost: number;
     depositAmount: number;
   };

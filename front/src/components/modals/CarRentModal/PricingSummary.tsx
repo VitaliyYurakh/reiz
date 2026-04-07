@@ -19,6 +19,8 @@ type PricingSummaryProps = {
   hasDiscount: boolean;
   depositAmount: number;
   deliveryFee: number;
+  returnFee: number;
+  returnFeeUnknown: boolean;
   totalCost: number;
   selectedExtras: Set<ExtraId>;
 };
@@ -35,6 +37,8 @@ export default function PricingSummary({
   hasDiscount,
   depositAmount,
   deliveryFee,
+  returnFee,
+  returnFeeUnknown,
   totalCost,
   selectedExtras,
 }: PricingSummaryProps) {
@@ -127,12 +131,26 @@ export default function PricingSummary({
             );
           })}
         </li>
-        {deliveryFee > 0 && (
+        {(deliveryFee > 0 || returnFee > 0 || returnFeeUnknown) && (
           <li className="modal__item mode">
-            <div className="modal__item-wrapp">
-              <span className="modal__name">{t("summary.deliveryLabel")}</span>
-              <span className="modal__value">{formatPrice(deliveryFee)}</span>
-            </div>
+            {deliveryFee > 0 && (
+              <div className="modal__item-wrapp">
+                <span className="modal__name">{t("summary.pickupDeliveryLabel")}</span>
+                <span className="modal__value">{formatPrice(deliveryFee)}</span>
+              </div>
+            )}
+            {returnFee > 0 && (
+              <div className="modal__item-wrapp">
+                <span className="modal__name">{t("summary.returnDeliveryLabel")}</span>
+                <span className="modal__value">{formatPrice(returnFee)}</span>
+              </div>
+            )}
+            {returnFeeUnknown && (
+              <div className="modal__item-wrapp">
+                <span className="modal__name">{t("summary.returnDeliveryLabel")}</span>
+                <span className="modal__value" style={{fontSize: 12}}>{t("summary.returnDeliveryUnknown")}</span>
+              </div>
+            )}
           </li>
         )}
         <li className="modal__item">

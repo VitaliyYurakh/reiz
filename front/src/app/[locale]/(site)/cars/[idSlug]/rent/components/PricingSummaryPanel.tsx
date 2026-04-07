@@ -22,6 +22,8 @@ interface PricingSummaryPanelProps {
   dailyPrice: number;
   depositAmount: number;
   deliveryFee: number;
+  returnFee: number;
+  returnFeeUnknown: boolean;
   totalCost: number;
   selectedExtras: Set<ExtraDefinition["id"]>;
   extraDefinitions: readonly ExtraDefinition[];
@@ -37,6 +39,8 @@ export default function PricingSummaryPanel({
   dailyPrice,
   depositAmount,
   deliveryFee,
+  returnFee,
+  returnFeeUnknown,
   totalCost,
   selectedExtras,
   extraDefinitions,
@@ -136,16 +140,38 @@ export default function PricingSummaryPanel({
             );
           })}
         </li>
-        {deliveryFee > 0 && (
+        {(deliveryFee > 0 || returnFee > 0 || returnFeeUnknown) && (
           <li className="rent-page__summary-item rent-page__summary-item--mode">
-            <div className="rent-page__summary-item-wrapper">
-              <span className="rent-page__summary-name">
-                {t("summary.deliveryLabel")}
-              </span>
-              <span className="rent-page__summary-value">
-                {formatPrice(deliveryFee)}
-              </span>
-            </div>
+            {deliveryFee > 0 && (
+              <div className="rent-page__summary-item-wrapper">
+                <span className="rent-page__summary-name">
+                  {t("summary.pickupDeliveryLabel")}
+                </span>
+                <span className="rent-page__summary-value">
+                  {formatPrice(deliveryFee)}
+                </span>
+              </div>
+            )}
+            {returnFee > 0 && (
+              <div className="rent-page__summary-item-wrapper">
+                <span className="rent-page__summary-name">
+                  {t("summary.returnDeliveryLabel")}
+                </span>
+                <span className="rent-page__summary-value">
+                  {formatPrice(returnFee)}
+                </span>
+              </div>
+            )}
+            {returnFeeUnknown && (
+              <div className="rent-page__summary-item-wrapper">
+                <span className="rent-page__summary-name">
+                  {t("summary.returnDeliveryLabel")}
+                </span>
+                <span className="rent-page__summary-value" style={{fontSize: 12}}>
+                  {t("summary.returnDeliveryUnknown")}
+                </span>
+              </div>
+            )}
           </li>
         )}
         <li className="rent-page__summary-item">
