@@ -100,6 +100,14 @@ export function CitiesTab({ carId, saving, onSaved }: CitiesTabProps) {
   };
 
   const enabledCount = rows.filter((r) => r.enabled).length;
+  const allEnabled = rows.length > 0 && enabledCount === rows.length;
+
+  const toggleAll = () => {
+    const newEnabled = !allEnabled;
+    setRows((prev) =>
+      prev.map((r) => ({ ...r, enabled: newEnabled }))
+    );
+  };
 
   if (loading) {
     return (
@@ -140,7 +148,28 @@ export function CitiesTab({ carId, saving, onSaved }: CitiesTabProps) {
             letterSpacing: '0.5px',
           }}
         >
-          <div />
+          <button
+            onClick={toggleAll}
+            title={allEnabled ? 'Зняти всі' : 'Вибрати всі'}
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: 8,
+              border: `2px solid ${allEnabled ? H.purple : H.grayLight}`,
+              background: allEnabled ? H.purple : 'transparent',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.2s ease',
+            }}
+          >
+            {allEnabled && (
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 7L6 10L11 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            )}
+          </button>
           <div>Мiсто</div>
           <div>Доставка ($)</div>
           <div>Мiн. днiв</div>
