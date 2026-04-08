@@ -102,7 +102,7 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
   const ogLocale = OG_LOCALE[locale];
   const ogAlternateLocales = getOgAlternateLocales(locale);
   const ogImage = toAbsolute(
-    (meta.og_image || "https://reiz.com.ua/img/og/home-audi-q8-og.webp") as string,
+    (meta.og_image || "https://reiz.com.ua/img/og/home-square.jpg") as string,
   );
 
   const languages = buildHreflangMap(

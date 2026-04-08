@@ -25,7 +25,7 @@ export default async function SchemaOrg({
   const webPageId = buildId(homeUrl, "webpage");
   const companyId = buildId(homeUrl, "company");
   const primaryImageId = buildId(homeUrl, "primaryimage");
-  const primaryImageUrl = `${SITE_ORIGIN}/img/og/home-audi-q8-og.webp`;
+  const primaryImageUrl = `${SITE_ORIGIN}/img/og/home-square.jpg`;
   const languageTags = locales.map((loc) => LANGUAGE_TAG[loc]);
   const localeLanguageTag = LANGUAGE_TAG[locale];
 
@@ -106,7 +106,7 @@ export default async function SchemaOrg({
     url: primaryImageUrl,
     contentUrl: primaryImageUrl,
     width: 1200,
-    height: 697,
+    height: 1200,
     caption: localizedOgTitle,
     representativeOfPage: true,
     inLanguage: localeLanguageTag,
@@ -119,7 +119,7 @@ export default async function SchemaOrg({
     name: siteDisplayName,
     alternateName: SITE_NAME,
     url: homeUrl,
-    logo: `${SITE_ORIGIN}/img/og/home-square.webp`,
+    logo: `${SITE_ORIGIN}/img/og/home-square.jpg`,
     image: {
       "@id": primaryImageId,
     },

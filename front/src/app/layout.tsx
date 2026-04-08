@@ -40,9 +40,9 @@ export const metadata: Metadata = {
       "Прокат авто по Україні. Нові машини, подача 24/7, безкоштовна доставка. Київ, Львів, Одеса, Дніпро та інші міста.",
     images: [
       {
-        url: `${SITE_ORIGIN}/img/og/home-audi-q8-og.webp`,
+        url: `${SITE_ORIGIN}/img/og/home-square.jpg`,
         width: 1200,
-        height: 697,
+        height: 1200,
         alt: "REIZ — Оренда авто в Україні",
       },
     ],
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "Оренда авто в Україні без застави | REIZ",
     description:
       "Прокат авто по Україні: нові машини, подача 24/7, безкоштовна доставка по місту.",
-    images: [`${SITE_ORIGIN}/img/og/home-audi-q8-og.webp`],
+    images: [`${SITE_ORIGIN}/img/og/home-square.jpg`],
   },
   robots: {
     index: true,
