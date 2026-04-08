@@ -25,9 +25,14 @@ const nextConfig: NextConfig = {
         destination: "https://reiz.com.ua/:path*",
         permanent: true,
       },
-      // Legacy /uk/ URLs → root (Ukrainian is default locale at /)
+      // Legacy /uk/ and /ua/ URLs → root (Ukrainian is default locale at /)
       {
         source: "/uk/:path*",
+        destination: "/:path*",
+        permanent: true,
+      },
+      {
+        source: "/ua/:path*",
         destination: "/:path*",
         permanent: true,
       },
