@@ -32,17 +32,14 @@ export default async function SchemaOrg({
   const localizedTitle = t("meta.title");
   const localizedOgTitle = t("meta.og_title");
   const localizedDescription = t("meta.description");
-  const localizedHeroTitle = t("hero.title");
   const localizedIntro = t("hero.intro");
 
-  const siteDisplayName = `${SITE_NAME} - ${localizedHeroTitle}`;
   const alternateNames = Array.from(
     new Set(
       [
-        SITE_NAME,
-        localizedTitle,
-        localizedOgTitle,
-        `${SITE_NAME} RENTAL CARS`,
+        `${SITE_NAME} Rental Cars`,
+        `${SITE_NAME} Car Rental`,
+        "reiz.com.ua",
       ].filter(Boolean),
     ),
   );
@@ -59,7 +56,7 @@ export default async function SchemaOrg({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": websiteId,
-    name: siteDisplayName,
+    name: SITE_NAME,
     alternateName: alternateNames,
     url: homeUrl,
     image: {
@@ -116,8 +113,8 @@ export default async function SchemaOrg({
     "@context": "https://schema.org",
     "@type": "CarRental",
     "@id": companyId,
-    name: siteDisplayName,
-    alternateName: SITE_NAME,
+    name: SITE_NAME,
+    alternateName: alternateNames,
     url: homeUrl,
     logo: `${SITE_ORIGIN}/img/og/home-square.jpg`,
     image: {
