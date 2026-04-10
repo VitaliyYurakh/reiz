@@ -11,6 +11,7 @@ import {
 import type { Messages, NamespaceKeys, NestedKeyOf } from "use-intl/core";
 
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+const SITE_NAME = "REIZ";
 
 const toAbsolute = (value: string) => {
   if (!value) return value;
@@ -28,6 +29,7 @@ export type RouteKey =
   | "faq"
   | "insurance"
   | "invest"
+  | "partners"
   | "terms";
 
 const ROUTES: Record<RouteKey, string> = {
@@ -40,6 +42,7 @@ const ROUTES: Record<RouteKey, string> = {
   faq: "/faq",
   insurance: "/insurance",
   invest: "/invest",
+  partners: "/partners",
   terms: "/terms",
 };
 
@@ -104,7 +107,7 @@ export async function getPageMetadata({
     },
     openGraph: {
       type: "website",
-      siteName: "REIZ",
+      siteName: SITE_NAME,
       title: t("meta.og_title"),
       description: t("meta.og_description"),
       images: [{ url: ogImage, ...ogImageDimensions }],

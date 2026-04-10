@@ -5,6 +5,7 @@ import { PHONE_NUMBER } from "@/config/social";
 
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 const SITE_NAME = "REIZ";
+const SITE_ALTERNATE_NAMES = ["REIZ Rental", "REIZ RENTAL CARS"] as const;
 
 const buildHomeUrl = (locale: Locale) =>
   locale === defaultLocale ? SITE_ORIGIN : `${SITE_ORIGIN}/${locale}`;
@@ -34,15 +35,7 @@ export default async function SchemaOrg({
   const localizedDescription = t("meta.description");
   const localizedIntro = t("hero.intro");
 
-  const alternateNames = Array.from(
-    new Set(
-      [
-        `${SITE_NAME} Rental Cars`,
-        `${SITE_NAME} Car Rental`,
-        "reiz.com.ua",
-      ].filter(Boolean),
-    ),
-  );
+  const alternateNames = Array.from(new Set(SITE_ALTERNATE_NAMES));
 
   const catalogHeading = t("catalog_aside.catalog_content.heading");
   const offerCategoryKeys = ["category1", "category2", "category3", "category4"] as const;

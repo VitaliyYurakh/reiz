@@ -114,7 +114,8 @@ export function generateVehicleSchema({
         .split("T")[0],
       seller: {
         "@type": "Organization",
-        name: "REIZ RENTAL CARS",
+        name: "REIZ",
+        alternateName: ["REIZ Rental", "REIZ RENTAL CARS"],
         url: BASE,
       },
     };

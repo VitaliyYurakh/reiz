@@ -41,6 +41,7 @@ const translations: Record<Locale, Record<string, any>> = {
 } satisfies Record<Locale, Record<string, any>>;
 
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+const SITE_NAME = "REIZ";
 
 const toAbsolute = (value: string) => {
   if (!value) return value;
@@ -58,6 +59,7 @@ export type PageKey =
   | "faqPage"
   | "insurancePage"
   | "investPage"
+  | "partnersPage"
   | "termsPage";
 
 const ROUTES: Record<PageKey, string> = {
@@ -70,6 +72,7 @@ const ROUTES: Record<PageKey, string> = {
   faqPage: "/faq",
   insurancePage: "/insurance",
   investPage: "/invest",
+  partnersPage: "/partners",
   termsPage: "/terms",
 };
 
@@ -119,7 +122,7 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
     },
     openGraph: {
       type: "website",
-      siteName: "REIZ",
+      siteName: SITE_NAME,
       title: (meta.og_title || meta.title) as string,
       description: (meta.og_description || meta.description) as string,
       images: [{ url: ogImage, width: 1200, height: 630 }],

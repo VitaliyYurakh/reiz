@@ -50,7 +50,8 @@ export function generateRentalServiceSchema({
     url: canonicalUrl,
     provider: {
       "@type": "Organization",
-      name: "REIZ RENTAL CARS",
+      name: "REIZ",
+      alternateName: ["REIZ Rental", "REIZ RENTAL CARS"],
       url: BASE,
       logo: `${BASE}/img/logo.svg`,
       address: {

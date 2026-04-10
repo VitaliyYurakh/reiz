@@ -56,7 +56,10 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     "@type": "CarRental",
     "@id": `${getPageUrl()}#localbusiness`,
     name: `REIZ ${city.name}`,
-    alternateName: `REIZ RENTAL CARS ${city.name}`,
+    alternateName: [
+      `REIZ Rental ${city.name}`,
+      `REIZ RENTAL CARS ${city.name}`,
+    ],
     url: getPageUrl(),
     logo: `${baseUrl}/img/og/home-square.jpg`,
     image: `${baseUrl}/img/og/home-square.jpg`,
