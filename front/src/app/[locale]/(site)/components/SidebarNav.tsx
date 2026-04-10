@@ -18,8 +18,10 @@ export default function SidebarNav() {
     "managerWillContactYouModal",
   );
 
+  const normalizeHref = (href: string) => href.split("#")[0]?.split("?")[0] || "/";
+
   const isActive = (href: string) =>
-    stripLocale(pathname) === stripLocale(href);
+    stripLocale(pathname) === stripLocale(normalizeHref(href));
 
   const navLinks = [
     { href: "/", label: t("nav.home") },
@@ -27,7 +29,7 @@ export default function SidebarNav() {
       label: t("nav.cars_title"),
       subLinks: [
         { href: "/rental/kyiv", label: t("nav.cars_link1"), scrollToCatalog: true },
-        { href: "/rental/lviv", label: t("nav.cars_link2"), scrollToCatalog: true },
+        { href: "/#catalog", label: t("nav.cars_link2"), scrollToCatalog: true },
         { href: "/rental/odesa", label: t("nav.cars_link4"), scrollToCatalog: true },
         { href: "/rental/dnipro", label: t("nav.cars_link5"), scrollToCatalog: true },
         { href: "/rental/kharkiv", label: t("nav.cars_link6"), scrollToCatalog: true },

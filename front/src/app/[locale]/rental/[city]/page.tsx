@@ -50,7 +50,7 @@ export async function generateStaticParams(): Promise<PageParams[]> {
   const params: PageParams[] = [];
 
   for (const locale of locales) {
-    for (const slug of getAllCitySlugs()) {
+    for (const slug of getAllCitySlugs().filter((citySlug) => citySlug !== "lviv")) {
       params.push({ locale, city: slug });
     }
   }

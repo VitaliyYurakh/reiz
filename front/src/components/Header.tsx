@@ -45,8 +45,10 @@ export default function Header({
 
   useThemeColorOnOpen(mobileMenuOpen);
 
+  const normalizeHref = (href: string) => href.split("#")[0]?.split("?")[0] || "/";
+
   const isActive = (href: string) =>
-    stripLocale(pathname) === stripLocale(href);
+    stripLocale(pathname) === stripLocale(normalizeHref(href));
 
   const setMenuOpen = useCallback((open: boolean) => {
     setMobileMenuOpen(open);
@@ -162,7 +164,7 @@ export default function Header({
       label: asideT("cars_title"),
       subLinks: [
         { href: "/rental/kyiv", label: asideT("cars_link1"), scrollToCatalog: true },
-        { href: "/rental/lviv", label: asideT("cars_link2"), scrollToCatalog: true },
+        { href: "/#catalog", label: asideT("cars_link2"), scrollToCatalog: true },
         { href: "/rental/odesa", label: asideT("cars_link4"), scrollToCatalog: true },
         { href: "/rental/kharkiv", label: asideT("cars_link6"), scrollToCatalog: true },
         { href: "/rental/dnipro", label: asideT("cars_link5"), scrollToCatalog: true },

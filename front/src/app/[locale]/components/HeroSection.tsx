@@ -13,6 +13,7 @@ import ScrollToCatalogButton from "./ScrollToCatalogButton";
 export default async function HeroSection() {
   const t = await getTranslations("homePage.hero");
   const footerT = await getTranslations("footer");
+  const heroImageAlt = `${t("title")} | REIZ`;
 
   return (
     <section className="hero-section">
@@ -22,20 +23,26 @@ export default async function HeroSection() {
             <li className="swiper-slide">
               {/* Mobile hero image - LCP critical */}
               <UiImage
-                src="/img/cars/home%20page2.1.webp"
-                alt={t("hero_image_alt")}
-                width={1500}
-                height={2250}
+                src="/img/cars/20260410-audi%20q8.webp"
+                alt={heroImageAlt}
+                width={1440}
+                height={1440}
                 hero
                 quality={75}
                 sizes="100vw"
                 className="hero-image-mobile"
                 fetchPriority="high"
+                style={{
+                  objectPosition: "8% center",
+                  height: "100%",
+                  transform: "translateY(-6%) scale(1.1)",
+                  transformOrigin: "center center",
+                }}
               />
               {/* Desktop hero image - LCP critical */}
               <UiImage
                 src="/img/hero/reiz-4-1-desktop.webp"
-                alt={t("hero_image_alt")}
+                alt={heroImageAlt}
                 width={2400}
                 height={1578}
                 hero

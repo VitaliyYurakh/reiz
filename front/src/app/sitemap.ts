@@ -35,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   // City rental pages
-  const citySlugs = getAllCitySlugs();
+  const citySlugs = getAllCitySlugs().filter((citySlug) => citySlug !== "lviv");
   for (const citySlug of citySlugs) {
     const languages = buildHreflangMap(`/rental/${citySlug}`, abs);
 

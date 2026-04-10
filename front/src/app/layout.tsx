@@ -184,6 +184,10 @@ export default async function RootLayout({
             __html: localeHistoryGuardInlineScript,
           }}
         />
+        <link
+          rel="image_src"
+          href={`${SITE_ORIGIN}/img/og/home-square.jpg`}
+        />
         {/* Preload LCP hero images - CRITICAL for performance */}
         {/* Desktop hero - matches current LCP image */}
         <link
@@ -198,7 +202,7 @@ export default async function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/img/cars/home%20page2.1.webp"
+          href="/img/cars/20260410-audi%20q8.webp"
           type="image/webp"
           media="(max-width: 1024px)"
           fetchPriority="high"
