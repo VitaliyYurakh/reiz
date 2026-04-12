@@ -1,8 +1,10 @@
-www.reiz.com.ua {
-  redir https://reiz.com.ua{uri} permanent
+{
+  servers {
+    trusted_proxies static private_ranges
+  }
 }
 
-reiz.com.ua {
+:80 {
   # Express backend admin auth (login/logout/check/me) — must come before NextAuth catch-all
   reverse_proxy /api/auth/login api:3000
   reverse_proxy /api/auth/logout api:3000
