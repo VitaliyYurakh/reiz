@@ -879,14 +879,16 @@
         "excerpt": "Poznaj trase, ktora oferuje ekscytujaca przygode drogowa i szanse na odkrycie kultury i krajobrazow kraju.",
         "date": "17.04.2025",
         "imgAlt": "Panorama zabytow Ukrainy o zachodzie slonca — trasa podrozy samochodem",
-        "image": "/img/blog/Ukraineblog.webp"
+        "image": "/img/blog/Ukraineblog.webp",
+        "slug": "ukraine-road-trip"
       },
       {
         "title": "Najlepsze aplikacje nawigacyjne na Ukrainie",
         "excerpt": "Ukraina to miejsce, gdzie technologia jest czescia codziennego zycia mieszkancow i odwiedzajacych. Recenzujemy najpopularniejsze aplikacje, ktore pomagaja poruszac sie po miastach i autostradach.",
         "date": "17.04.2025",
         "imgAlt": "Ikona nawigacji GPS — przeglad popularnych aplikacji nawigacyjnych na Ukrainie",
-        "image": "/img/blog/NAV.webp"
+        "image": "/img/blog/NAV.webp",
+        "slug": "navigation-apps-ukraine"
       },
       {
         "title": "Podroz samochodem po Lwowie i obwodzie lwowskim",
@@ -901,7 +903,8 @@
         "excerpt": "Poznaj kilka szybkich sposobow na dokonanie platnosci z minimalnymi problemami.",
         "date": "17.04.2025",
         "imgAlt": "Znak parkingowy przy budynku w miescie — jak zaplacic za parking na Ukrainie",
-        "image": "/img/blog/parking.webp"
+        "image": "/img/blog/parking.webp",
+        "slug": "parking-payment-ukraine"
       }
     ],
     "cta": {
@@ -2461,6 +2464,319 @@
         "question": "Ile czasu jest na powiadomienie ubezpieczyciela?",
         "answer": "Zazwyczaj ubezpieczyciela nalezy powiadomic w ciagu trzech dni roboczych po wypadku."
       }
+    }
+  },
+  "blogUkraineRoadTrip": {
+    "meta": {
+      "title": "Trasa podrozy samochodem po Ukrainie | REIZ",
+      "description": "Gotowa 7-dniowa trasa road-tripu po Ukrainie od REIZ: Lwow, Kamieniec Podolski, Human, Kijow, Czerniowce. Co zobaczyc, jak zaplanowac i dlaczego wynajem auta to najlepszy wybor.",
+      "og_title": "Trasa podrozy samochodem po Ukrainie | REIZ",
+      "og_description": "Gotowa 7-dniowa trasa road-tripu po Ukrainie od REIZ: Lwow, Kamieniec Podolski, Human, Kijow, Czerniowce. Co zobaczyc, jak zaplanowac i dlaczego wynajem auta to najlepszy wybor."
+    },
+    "breadcrumbs": {
+      "home": "Strona glowna",
+      "blog": "Artykuly",
+      "current": "Trasa po Ukrainie autem",
+      "nav_label": "Nawigacja po stronie"
+    },
+    "title": "Trasa podrozy samochodem po Ukrainie",
+    "hero_alt": "Panorama zabytow Ukrainy o zachodzie slonca — trasa podrozy samochodem",
+    "intro": {
+      "p1": "Ukraine najlepiej odkrywac zza kierownicy. Waskie brukowane uliczki Lwowa, barok Kamienca Podolskiego, dendropark Sofiivka w Humaniu, swiatla Kijowa i austriacki szarm Czerniowiec — to wszystko mozna zobaczyc w ciagu jednego tygodnia, jesli prowadzisz samochod.",
+      "p2": "Zespol REIZ Car Rental przygotowal sprawdzona trase na 7 dni z zachodu na wschod i z powrotem. Pasuje zarowno dla tych, ktorzy po raz pierwszy planuja road-trip po Ukrainie, jak i dla doswiadczonych podroznikow, chcacych polaczyc znane miasta z mniej turystycznymi miejscami.",
+      "p3": "W artykule — co zobaczyc w kazdym miescie, ile czasu zaplanowac, jak organizowac noclegi i dlaczego samochod to optymalny srodek transportu."
+    },
+    "routes": {
+      "route1": {
+        "title": "Dzien 1–2. Lwow — serce Zachodniej Ukrainy",
+        "locations": "Start: Lwow.",
+        "vibe": "Kawiarnie, Ratusz, Wysoki Zamek, Cmentarz Lyczakowski.",
+        "p1": "Rozpocznij trase od Lwowa — miasta, gdzie za kazdym zakretem kryje sie historia. Przejdz sie po Rynku, wejdz na Ratusz, wypij kawe przy Ormianskiej i odwiedz nekropolie Lyczakowska. Wieczorem — restauracja z lokalna kuchnia i lwowska czekolada na deser.",
+        "insight_title": "Co warto uwzglednic",
+        "insight_time": "Na Lwow zaplanuj minimum 2 pelne dni. Stare Miasto obchodzi sie pieszo, ale do wyjazdow poza centrum (skansen Szewczenkiwskyj Haj, zamki obwodu lwowskiego) potrzebny jest samochod.",
+        "why_car": "Samochod daje niezaleznosc od rozkladu komunikacji miejskiej i pozwala wieczorem wyjechac do jednego z zamkow Zlotej Podkowy.",
+        "rental_title": "Rada REIZ:",
+        "rental_text": "Wynajmij auto od razu we Lwowie — nasze biuro jest blisko centrum, wiec odbierzesz samochod w dniu przyjazdu."
+      },
+      "route2": {
+        "title": "Dzien 3. Kamieniec Podolski — miasto-twierdza",
+        "locations": "Lwow → Kamieniec Podolski (ok. 4 h).",
+        "vibe": "Barok, kanion Smotrycza, Stara Forteca, balony o wschodzie slonca.",
+        "p1": "Kamieniec Podolski robi wrazenie od razu: miasto polozone jest na skalistej wyspie, ktora ze wszystkich stron otacza rzeka Smotrycz. Odwiedz Stara Forteca, spaceruj barokowymi uliczkami, a o swicie zamow lot balonem — to najbardziej efektowny widok na kanion.",
+        "insight_title": "Porady",
+        "insight_time": "Optymalnie — przyjechac wieczorem, przenocowac na starym miescie i obejsc forteca o swicie, kiedy turystow jest malo.",
+        "why_car": "Niektore punkty widokowe kanionu i pobliski Chocim (tez forteca nad Dniestrem) wygodnie odwiedzi sie tylko wlasnym srodkiem transportu.",
+        "rental_title": "Lifehack:",
+        "rental_text": "Polacz Kamieniec i Chocim w jednym dniu — dziela ich tylko 25 km, a dostaniesz dwie forteci zamiast jednej."
+      },
+      "route3": {
+        "title": "Dzien 4. Human — dendropark Sofiivka",
+        "locations": "Kamieniec Podolski → Human (ok. 4 h).",
+        "vibe": "Park, wodospady, groty, jeziora.",
+        "p1": "Glownym celem jest dendrologiczny park Sofiivka, jeden z najpiekniejszych w Europie. Kaskady jezior, groty, sztuczne wodospady i tysiace gatunkow roslin. Zaplanuj przynajmniej 3 godziny na spacer, bo park jest ogromny. Po parku — lokalne kawiarnie w centrum Humania z kuchnia podolska.",
+        "insight_title": "Co warto wiedziec",
+        "insight_time": "Najlepiej wejsc do parku rano, zeby zdazyc zobaczyc wszystko przy lagodnym swietle. Bilet wstepu kup online wczesniej, zwlaszcza w weekendy.",
+        "why_car": "Human jest kompaktowym miastem, ale na trasie sprawdza sie jako wygodny punkt posredni. Bez samochodu dojazd tutaj zajmuje duzo czasu i wymaga przesiadek.",
+        "rental_title": "Rada REIZ:",
+        "rental_text": "Przed wyjazdem z Humania zatankuj do pelna — nastepna duza stacja pojawi sie dopiero na rogatkach obwodu kijowskiego."
+      },
+      "route4": {
+        "title": "Dzien 5–6. Kijow — stolica",
+        "locations": "Human → Kijow (ok. 3 h).",
+        "vibe": "Lawra Peczerska, Chreszczatyk, Podol, Zejscie Andrzejowskie.",
+        "p1": "Na stolice zaplanuj 2 dni: Lawra Kijowsko-Peczerska i Palac Maryjski, Sobor Swietej Zofii, Majdan, Chreszczatyk, Zejscie Andrzejowskie i Podol — to minimum. Zostaw wieczor na bulwar Dniepru i swiatla mostow nad rzeka.",
+        "insight_title": "Kijow autem",
+        "insight_time": "Centrum Kijowa ma duzo platnych parkingow i zatloczonych ulic w godzinach szczytu. Najlepiej — zaparkowac przy hotelu i poruszac sie po centrum pieszo lub metrem.",
+        "why_car": "Samochod przyda sie do wyjazdow poza miasto: Mieziryria, Pyrohiw, Bucza, a takze do dlugiego przejazdu do ostatniego punktu trasy.",
+        "rental_title": "Lifehack:",
+        "rental_text": "Wybierz hotel z wlasnym parkingiem — w centrum zaoszczedzi ci to nawet 300 UAH dziennie na platnych strefach."
+      },
+      "route5": {
+        "title": "Dzien 7. Czerniowce — maly Wieden",
+        "locations": "Kijow → Czerniowce (ok. 8 h).",
+        "vibe": "Rezydencja Metropolitow, bruk, architektura austro-wegierska.",
+        "p1": "Ostatni punkt to Czerniowce. To jedno z najbardziej klimatycznych miast Ukrainy: architektura austro-wegierska, Rezydencja Metropolitow Bukowinskich (obiekt UNESCO), plac Tureckiej Studni i Uniwersytet na wzgorzu. Tutaj czuc Europe Srodkowa.",
+        "insight_title": "Porady",
+        "insight_time": "Wyjazd z Kijowa zaplanuj rano i zarezerwuj caly dzien na droge. Nocleg w Czerniowcach, nastepnego dnia — powrot do Lwowa (jeszcze ok. 4 godzin).",
+        "why_car": "Czerniowce sa kompaktowe, ale wlasnie droga z Kijowa na Bukowine daje poczucie prawdziwego road-tripu — zmieniajace sie krajobrazy, postoje w wioskach i przydrozne kawiarnie.",
+        "rental_title": "Rada REIZ:",
+        "rental_text": "Jesli masz malo czasu — zdaj auto w jednym z naszych partnerskich biur w Czerniowcach i wracaj pociagiem. Szczegoly ustal z menedzerem."
+      }
+    },
+    "tips": {
+      "title": "Ogolne porady na podroz",
+      "intro": "Przed wyjazdem uwzglednij kilka waznych rzeczy:",
+      "list": {
+        "item1": "Zarezerwuj nocleg wczesniej — zwlaszcza latem i w weekendy.",
+        "item2": "Sciagnij mapy offline Google Maps i Waze — w niektorych regionach zasieg bywa niestabilny.",
+        "item3": "Trzymaj dokumenty samochodu i polisy ubezpieczeniowe razem, w teczce lub koszulce.",
+        "item4": "Planuj postoje na stacjach co 250–300 km — glowne trasy maja gesta siec stacji paliw.",
+        "item5": "Uwzglednij stan drog: glowne trasy sa w dobrym stanie, ale niektore drogi regionalne moga miec dziury — nie spiesz sie."
+      }
+    },
+    "rental_box": {
+      "title": "Wynajem auta w REIZ",
+      "text": "W REIZ mozesz wynajac samochod we Lwowie na cala trase. Oferujemy pelny bak, calodobowe wsparcie, ubezpieczenie i opcje zdania auta w innym miescie po osobnej umowie. To optymalny wybor do podrozy po Ukrainie."
+    },
+    "conclusion": {
+      "title": "Podsumowanie",
+      "p1": "Road-trip po Ukrainie to wolnosc wyboru tempa, trasy i postojow. W 7 dni zobaczysz zupelnie rozne regiony kraju: od galicyjskiego Lwowa po bukowinskie Czerniowce, od podolskich forteci po Kijow.",
+      "p2": "Zespol REIZ pomoze dobrac auto, podpowie trase i przygotuje samochod do dalekiej podrozy. Pozostaje tylko wsiasc za kierownice i ruszyc.",
+      "cta": "ZOBACZ AUTA"
+    }
+  },
+  "blogNavigationAppsUkraine": {
+    "meta": {
+      "title": "Najlepsze aplikacje nawigacyjne na Ukrainie: Google Maps, Waze i inne | REIZ",
+      "description": "Przeglad najlepszych aplikacji nawigacyjnych do podrozy po Ukrainie: Google Maps, Waze, Apple Maps, 2GIS, OsmAnd. Plusy, minusy i kiedy ktorej uzywac.",
+      "og_title": "Najlepsze aplikacje nawigacyjne na Ukrainie: Google Maps, Waze i inne | REIZ",
+      "og_description": "Przeglad najlepszych aplikacji nawigacyjnych do podrozy po Ukrainie: Google Maps, Waze, Apple Maps, 2GIS, OsmAnd. Plusy, minusy i kiedy ktorej uzywac."
+    },
+    "breadcrumbs": {
+      "home": "Strona glowna",
+      "blog": "Artykuly",
+      "current": "Najlepsze aplikacje nawigacyjne",
+      "nav_label": "Nawigacja po stronie"
+    },
+    "title": "Najlepsze aplikacje nawigacyjne na Ukrainie",
+    "hero_alt": "Ikona nawigacji GPS — przeglad popularnych aplikacji nawigacyjnych na Ukrainie",
+    "intro": {
+      "p1": "Nawigacja to obowiazkowy towarzysz kazdej podrozy po Ukrainie. Tymczasowe remonty drog, objazdy, nowe wezly i po prostu nieznana trasa — wszystko to sprawia, ze dobra nawigacja jest kluczowa, szczegolnie dla turystow i kierowcow wynajetych aut.",
+      "p2": "W tym artykule zespol REIZ Car Rental zebral piec najlepszych aplikacji do nawigacji po Ukrainie — z ich plusami, minusami i wskazowkami, kiedy ktora uzywac."
+    },
+    "apps": {
+      "google_maps": {
+        "title": "1. Google Maps",
+        "description": "Najpopularniejsza nawigacja na swiecie — i na Ukrainie tez. Szczegolowe mapy miast i wsi, informacje o ruchu w czasie rzeczywistym, duza baza miejsc (restauracje, stacje paliw, hotele), opinie uzytkownikow.",
+        "pros_title": "Zalety:",
+        "pros": {
+          "item1": "Maksymalne pokrycie calej Ukrainy",
+          "item2": "Informacje o ruchu i wypadkach w czasie rzeczywistym",
+          "item3": "Mapy offline dla stref bez internetu",
+          "item4": "Street View dla wiekszosci miast",
+          "item5": "Integracja z wyszukiwarka Google — latwe szukanie adresow"
+        },
+        "when": "Uniwersalny wybor na codzien. Idealny dla turystow, ktorzy planuja trasy wczesniej."
+      },
+      "waze": {
+        "title": "2. Waze",
+        "description": "Nawigacja spolecznosciowa, w ktorej trasa budowana jest na podstawie danych od innych kierowcow: wypadki, fotoradary, korki, patrole, dziury. Ukraina ma jedna z najbardziej aktywnych spolecznosci Waze.",
+        "pros_title": "Zalety:",
+        "pros": {
+          "item1": "Zgloszenia na zywo od innych kierowcow",
+          "item2": "Ostrzezenia o fotoradarach",
+          "item3": "Objazdy korkow w czasie rzeczywistym",
+          "item4": "Najlepszy wybor w duzych miastach (Kijow, Lwow, Dniepr)",
+          "item5": "Prosta integracja z CarPlay i Android Auto"
+        },
+        "when": "Kiedy jedziesz zatloczonym miastem lub trasa i chcesz unikac korkow oraz fotoradarow."
+      },
+      "apple_maps": {
+        "title": "3. Apple Maps",
+        "description": "Standardowa nawigacja iPhone'a. W ciagu ostatnich kilku lat Apple powaznie odswiezyla mapy Ukrainy: poprawiona szczegolowosc, dodane informacje o ruchu, pojawily sie detale ulic dla Kijowa i Lwowa.",
+        "pros_title": "Zalety:",
+        "pros": {
+          "item1": "Integracja z iPhone i CarPlay bez dodatkowych instalacji",
+          "item2": "Prywatnosc — Apple nie zapisuje historii wyszukiwania",
+          "item3": "Ladny interfejs z czysta mapa",
+          "item4": "Informacje o ruchu w duzych miastach"
+        },
+        "when": "Dla uzytkownikow iPhone, ktorzy chca prostej i estetycznej nawigacji bez zbednych funkcji."
+      },
+      "two_gis": {
+        "title": "4. 2GIS",
+        "description": "Szczegolowy miejski informator z nawigacja. Szczegolnie mocny w duzych miastach: znajdziesz nie tylko miejsce, ale konkretne pietro, wejscie, godziny otwarcia i telefon. Dziala offline po pobraniu miasta.",
+        "pros_title": "Zalety:",
+        "pros": {
+          "item1": "Pelna praca offline po pobraniu",
+          "item2": "Szczegolowe plany galerii handlowych, biurowcow, targow",
+          "item3": "Telefon i godziny otwarcia kazdego miejsca",
+          "item4": "Bezplatny, bez reklam w trakcie nawigacji"
+        },
+        "when": "Do szczegolowego wyszukiwania adresow w miastach — zwlaszcza gdy musisz znalezc konkretny biuro, restauracje lub sklep."
+      },
+      "osmand": {
+        "title": "5. OsmAnd",
+        "description": "Nawigacja oparta na OpenStreetMap — idealna do off-roadu, trasy gorskich i wsi, gdzie komercyjne mapy bywaja niepelne. W pelni offline, obsluguje sciezki turystyczne, trasy rowerowe a nawet szlaki piesze w Karpatach.",
+        "pros_title": "Zalety:",
+        "pros": {
+          "item1": "Pelna praca offline bez ograniczen",
+          "item2": "Szczegolowe mapy Karpat i wsi",
+          "item3": "Obsluga trackow GPX",
+          "item4": "Ustawienia trasy dla samochodu, roweru lub pieszo"
+        },
+        "when": "Do wyjazdow w gory, lasy lub odlegle wsie, gdzie inne nawigacje traca sygnal."
+      }
+    },
+    "comparison": {
+      "title": "Ktora nawigacje wybrac?",
+      "intro": "Krotka sciaga, jaka aplikacje zainstalowac w zaleznosci od celu:",
+      "list": {
+        "item1": "Do codziennego uzytku — Google Maps",
+        "item2": "Do miejskiego ruchu — Waze",
+        "item3": "Do szukania konkretnych miejsc — 2GIS",
+        "item4": "Do tras gorskich i Karpat — OsmAnd",
+        "item5": "Dla uzytkownikow iPhone — Apple Maps jako baza"
+      }
+    },
+    "tourist_tips": {
+      "title": "Porady dla turystow",
+      "intro": "Kilka praktycznych wskazowek, ktore ulatwia nawigacje:",
+      "list": {
+        "item1": "Pobierz mapy offline — w niektorych regionach zasieg bywa niestabilny.",
+        "item2": "Kup ukrainska karte SIM z internetem mobilnym od razu po przyjezdzie.",
+        "item3": "Laduj telefon w drodze — auto REIZ ma porty USB i uchwyt na telefon.",
+        "item4": "Uzywaj kilku aplikacji rownoczesnie: Google Maps do trasy, Waze do fotoradarow.",
+        "item5": "Sprawdz trase przed wyjazdem — aplikacje czasem sugeruja drogi gorskie lub gruntowe."
+      }
+    },
+    "rental_box": {
+      "title": "Wynajmij auto w REIZ",
+      "text": "Nasze samochody sa wyposazone w wygodne uchwyty na telefon i porty USB, zebys mogl uzywac dowolnej nawigacji bez problemow. Wiekszosc modeli obsluguje Apple CarPlay i Android Auto — idealnie dla Google Maps i Waze na duzym ekranie."
+    },
+    "conclusion": {
+      "title": "Podsumowanie",
+      "p1": "Zadna aplikacja nie obsluguje wszystkich sytuacji, ale odpowiednia kombinacja pozwoli ci pewnie jechac po Ukrainie. Google Maps + Waze — optymalny zestaw bazowy. Do wyjazdow w Karpaty lub regiony odlegle dodaj OsmAnd.",
+      "p2": "Zespol REIZ Car Rental zyczy ci udanych drog — i zawsze chetnie podpowie najlepsza trase."
+    }
+  },
+  "blogParkingPaymentUkraine": {
+    "meta": {
+      "title": "Jak zaplacic za parking na Ukrainie: przewodnik dla turystow | REIZ",
+      "description": "Pelny przewodnik dla turystow o platnosci za parking na Ukrainie: gotowka, SMS, aplikacje, karta bankowa. Rodzaje stref parkingowych, kary i przydatne porady.",
+      "og_title": "Jak zaplacic za parking na Ukrainie: przewodnik dla turystow | REIZ",
+      "og_description": "Pelny przewodnik dla turystow o platnosci za parking na Ukrainie: gotowka, SMS, aplikacje, karta bankowa. Rodzaje stref parkingowych, kary i przydatne porady."
+    },
+    "breadcrumbs": {
+      "home": "Strona glowna",
+      "blog": "Artykuly",
+      "current": "Platnosc za parking",
+      "nav_label": "Nawigacja po stronie"
+    },
+    "title": "Jak turysta placi za parking na Ukrainie",
+    "hero_alt": "Znak parkingowy przy budynku w miescie — jak zaplacic za parking na Ukrainie",
+    "intro": {
+      "p1": "System parkowania w ukrainskich miastach rozni sie od europejskiego, ale zrozumiesz go w kilka minut. W duzych miastach — Kijowie, Lwowie, Odessie, Dnieprze, Charkowie — dzialaja platne strefy regulowane przez wladze miasta. W srednich miastach platnych parkingow jest mniej, a niekiedy w ogole nie ma.",
+      "p2": "W tym artykule zespol REIZ Car Rental wyjasnia, jak rozpoznac typ strefy parkingowej, jakie metody platnosci sa dostepne i co zrobic, jesli auto zostanie odholowane."
+    },
+    "zones": {
+      "title": "Rodzaje stref parkingowych",
+      "intro": "Na Ukrainie istnieja trzy glowne rodzaje stref:",
+      "paid": {
+        "title": "Parkingi platne",
+        "text": "Oznaczone niebieskim znakiem 'P' z napisem 'platny' lub tablica informacyjna z taryfa. W Kijowie i Lwowie obowiazuja taryfy strefowe: centrum jest drozsze niz peryferia. Platnosc — godzinowa."
+      },
+      "free": {
+        "title": "Parkingi bezplatne",
+        "text": "Oznaczone zwyklym niebieskim znakiem 'P'. Czesto przy supermarketach, centrach handlowych lub na ulicach osiedlowych. W weekendy i w nocy (zwykle 20:00–08:00) czesc platnych stref staje sie bezplatna."
+      },
+      "prohibited": {
+        "title": "Strefy zakazu parkowania",
+        "text": "Oznaczone okraglym czerwonym znakiem z przekreslona litera 'P' lub znakiem zakazu zatrzymywania. Takie strefy sa przy skrzyzowaniach, przystankach komunikacji miejskiej, mostach. Parkowanie tutaj gwarantuje odholowanie auta."
+      }
+    },
+    "payment_methods": {
+      "title": "Metody platnosci za parking",
+      "intro": "Na Ukrainie dostepnych jest kilka metod platnosci — wybierz te, ktora jest ci najwygodniejsza:",
+      "cash": {
+        "title": "1. Gotowka do parkingowego",
+        "text": "Na niektorych parkingach wciaz obecni sa parkingowi — im mozna zaplacic gotowka. Zawsze bierz pokwitowanie: to twoj dowod platnosci w razie sporu.",
+        "note": "Ta metoda stopniowo znika — w wiekszosci stref sa teraz parkomaty lub platnosc bezgotowkowa."
+      },
+      "sms": {
+        "title": "2. Platnosc SMS",
+        "text": "Jedna z najprostszych metod: wysylasz SMS z kodem strefy na krotki numer — i parking jest oplacony. Kod strefy jest na znaku lub parkomacie. Oplata schodzi z konta operatora komorkowego.",
+        "example": "Przyklad: w Kijowie wysylasz kod strefy na krotki numer operatora. W odpowiedzi przychodzi potwierdzenie z oplaconym czasem."
+      },
+      "apps": {
+        "title": "3. Aplikacje mobilne",
+        "text": "Najwygodniejsza metoda dla turystow — aplikacje miast lub uniwersalne serwisy. Zainstaluj aplikacje, przypisz karte, wybierz strefe i czas — gotowe.",
+        "list": {
+          "item1": "Kyiv Digital — oficjalna aplikacja Kijowa z platnoscia za parking",
+          "item2": "Lviv Parking — do parkingow we Lwowie",
+          "item3": "EasyPay — uniwersalna platforma z platnoscia w calej Ukrainie",
+          "item4": "Park UA — obejmuje strefy wielu miast"
+        }
+      },
+      "parkomats": {
+        "title": "4. Parkomaty",
+        "text": "W centrach duzych miast sa nowoczesne parkomaty z dotykowym ekranem. Przyjmuja karty bankowe i gotowke. Po oplaceniu — wydrukuj pokwitowanie i polóz je za szyba."
+      },
+      "card": {
+        "title": "5. Platnosc karta bankowa",
+        "text": "Wiekszosc nowoczesnych parkomatow i aplikacji akceptuje Visa i Mastercard, w tym karty zagraniczne. To wygodne dla turystow, ktorzy nie maja jeszcze ukrainskiej karty SIM do platnosci SMS."
+      }
+    },
+    "evacuation": {
+      "title": "Co zrobic, gdy auto zostanie odholowane",
+      "text": "Jesli wrociles na parking i nie znalazles auta — najpierw upewnij sie, ze nie zostalo skradzione: zadzwon pod 102 lub sprawdz oficjalny serwis miasta. Najczesciej auto trafia na parking depozytowy.",
+      "steps": {
+        "step1": "Zadzwon do miejskiej sluzby parkingowej — numer znajdziesz na stronie urzedu miasta lub w oficjalnej aplikacji.",
+        "step2": "Dowiedz sie, na ktory parking depozytowy przewieziono twoje auto.",
+        "step3": "Wez ze soba paszport, dokumenty auta i prawo jazdy.",
+        "step4": "Oplac holowanie i mandat — wtedy odbierzesz samochod."
+      },
+      "rental_note": "Jesli prowadzisz wynajmowane auto REIZ — natychmiast powiadom menedzera. Pomozemy zalatwic sprawe na parkingu depozytowym i przygotowac niezbedne dokumenty."
+    },
+    "tips": {
+      "title": "Przydatne porady dla turystow",
+      "intro": "Kilka praktycznych rad, ktore zaoszczedza ci nerwow i pieniedzy:",
+      "list": {
+        "item1": "Uwaznie czytaj znaki: ukrainskie znaki parkingowe moga miec dodatkowe tabliczki z godzinami i wyjatkami.",
+        "item2": "Wieczorem i w nocy wiele platnych stref staje sie bezplatnych — jest to oznaczone na znaku.",
+        "item3": "W weekendy (sobota i niedziela) w niektorych miastach oplata nie jest pobierana.",
+        "item4": "Nigdy nie zostawiaj cennych rzeczy na widoku — nawet w strefie platnej.",
+        "item5": "Zachowuj pokwitowanie lub zrzut ekranu z platnosci — to twoj dowod w sytuacji spornej."
+      }
+    },
+    "rental_box": {
+      "title": "Wynajem auta w REIZ",
+      "text": "Przy wynajmie auta w REIZ opowiadamy o specyfice parkowania we Lwowie i innych miastach, ktore planujesz odwiedzic. Nasi menedzerowie sa zawsze na linii, jesli pojawia sie pytania na miejscu."
+    },
+    "conclusion": {
+      "title": "Podsumowanie",
+      "p1": "Platnosc za parking na Ukrainie jest prostsza, niz mogloby sie wydawac. Aplikacje mobilne, parkomaty z platnoscia karta i serwisy SMS sprawiaja, ze proces jest przyjazny dla turystow. Najwazniejsze — uwaznie czytac znaki i zachowywac dowody platnosci.",
+      "p2": "Zespol REIZ Car Rental zyczy ci przyjemnej podrozy po Ukrainie — i bezproblemowego parkowania w kazdym miescie."
     }
   },
   "rentalPolicyModal": {

@@ -931,14 +931,16 @@
         "excerpt": "Explorează un traseu care oferă o aventură captivantă pe șosea și șansa de a descoperi cultura și peisajele țării.",
         "date": "17.04.2025",
         "imgAlt": "Panorama obiectivelor turistice ale Ucrainei la apus — traseu de road-trip",
-        "image": "/img/blog/Ukraineblog.webp"
+        "image": "/img/blog/Ukraineblog.webp",
+        "slug": "ukraine-road-trip"
       },
       {
         "title": "Cele mai bune aplicații de navigație în Ucraina",
         "excerpt": "Ucraina este un loc unde tehnologia face parte din viața de zi cu zi pentru localnici și vizitatori. Analizăm cele mai populare aplicații care te ajută să navighezi în orașe și pe autostrăzi cu ușurință.",
         "date": "17.04.2025",
         "imgAlt": "Pictogramă navigator GPS — recenzie a aplicațiilor de navigație populare în Ucraina",
-        "image": "/img/blog/NAV.webp"
+        "image": "/img/blog/NAV.webp",
+        "slug": "navigation-apps-ukraine"
       },
       {
         "title": "Road trip prin Lviv și regiunea Lviv",
@@ -953,7 +955,8 @@
         "excerpt": "Descoperă câteva modalități rapide de a efectua plata cu efort minim.",
         "date": "17.04.2025",
         "imgAlt": "Semn de parcare lângă o clădire urbană — cum plătești parcarea în Ucraina",
-        "image": "/img/blog/parking.webp"
+        "image": "/img/blog/parking.webp",
+        "slug": "parking-payment-ukraine"
       }
     ],
     "cta": {
@@ -2513,6 +2516,319 @@
         "question": "Cât timp ai la dispoziție pentru a anunța asigurătorul?",
         "answer": "De obicei, compania de asigurări trebuie anunțată în termen de trei zile lucrătoare de la accident."
       }
+    }
+  },
+  "blogUkraineRoadTrip": {
+    "meta": {
+      "title": "Traseu de road-trip prin Ucraina cu mașina | REIZ",
+      "description": "Un traseu gata pregătit de 7 zile prin Ucraina de la REIZ: Lviv, Kamianets-Podilskyi, Uman, Kiev, Cernăuți. Ce să vezi, cum să planifici și de ce o mașină închiriată este cea mai bună alegere.",
+      "og_title": "Traseu de road-trip prin Ucraina cu mașina | REIZ",
+      "og_description": "Un traseu gata pregătit de 7 zile prin Ucraina de la REIZ: Lviv, Kamianets-Podilskyi, Uman, Kiev, Cernăuți. Ce să vezi, cum să planifici și de ce o mașină închiriată este cea mai bună alegere."
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "blog": "Articole",
+      "current": "Traseu prin Ucraina cu mașina",
+      "nav_label": "Navigare pe pagină"
+    },
+    "title": "Traseu de road-trip prin Ucraina cu mașina",
+    "hero_alt": "Panorama obiectivelor turistice ale Ucrainei la apus — traseu de road-trip",
+    "intro": {
+      "p1": "Ucraina este o țară pe care o descoperi cel mai bine de la volan. Străduțele pietruite din Lviv, barocul din Kamianets-Podilskyi, parcul Sofiivka din Uman, luminile Kievului și șarmul austriac al Cernăuțiului — toate acestea pot fi văzute într-o singură săptămână, dacă ești la volan.",
+      "p2": "Echipa REIZ Car Rental a pregătit un traseu testat de 7 zile, dinspre vest spre est și înapoi. Funcționează atât pentru cei care își planifică primul road-trip prin Ucraina, cât și pentru călătorii experimentați care vor să îmbine orașele cunoscute cu locuri mai puțin turistice.",
+      "p3": "În articol vei găsi ce să vezi în fiecare oraș, cât timp să aloci, cum să organizezi cazarea și de ce tocmai mașina este modul optim de a te deplasa."
+    },
+    "routes": {
+      "route1": {
+        "title": "Ziua 1–2. Lviv — inima Ucrainei de Vest",
+        "locations": "Start: Lviv.",
+        "vibe": "Cafenele, Primăria, Castelul Înalt, Cimitirul Lychakiv.",
+        "p1": "Începe traseul din Lviv — un oraș în care la fiecare colț te întâmpină istoria. Plimbă-te prin Piața Rynok, urcă pe Primărie, bea o cafea pe strada Virmenska și vizitează necropola Lychakiv. Seara — un restaurant cu bucătărie locală și ciocolată de Lviv la desert.",
+        "insight_title": "Ce trebuie să ai în vedere",
+        "insight_time": "Planifică minimum 2 zile complete pentru Lviv. Orașul Vechi se parcurge pe jos, dar pentru excursii în afara centrului (muzeul în aer liber Shevchenkivskyi Hai, castelele regiunii Lviv) ai nevoie de mașină.",
+        "why_car": "Mașina îți oferă independența de orarul transportului public și îți permite să ajungi seara la unul dintre castelele Potcoavei de Aur, dacă îți dorești.",
+        "rental_title": "Sfat REIZ:",
+        "rental_text": "Închiriază mașina direct din Lviv — biroul nostru este aproape de centru, astfel încât o poți prelua în ziua sosirii."
+      },
+      "route2": {
+        "title": "Ziua 3. Kamianets-Podilskyi — orașul-cetate",
+        "locations": "Lviv → Kamianets-Podilskyi (≈ 4 h).",
+        "vibe": "Baroc, canionul Smotrych, Cetatea Veche, baloane cu aer cald la răsărit.",
+        "p1": "Kamianets-Podilskyi impresionează din primul moment: orașul este așezat pe o insulă stâncoasă înconjurată din toate părțile de râul Smotrych. Vizitează Cetatea Veche, plimbă-te pe străduțele baroce, iar dimineața devreme rezervă un zbor cu balonul — este cea mai spectaculoasă priveliște a canionului.",
+        "insight_title": "Sfaturi",
+        "insight_time": "Optim — să ajungi seara, să înnoptezi în orașul vechi și să înconjori cetatea la răsărit, când turiștii sunt puțini.",
+        "why_car": "Unele puncte de belvedere ale canionului și apropiatul Hotin (tot o cetate pe Nistru) sunt accesibile comod doar cu propriul mijloc de transport.",
+        "rental_title": "Lifehack:",
+        "rental_text": "Combină Kamianets și Hotin într-o singură zi — sunt la doar 25 km distanță și vei avea două cetăți în loc de una."
+      },
+      "route3": {
+        "title": "Ziua 4. Uman — parcul Sofiivka",
+        "locations": "Kamianets-Podilskyi → Uman (≈ 4 h).",
+        "vibe": "Parc, cascade, grote, lacuri.",
+        "p1": "Obiectivul principal este parcul dendrologic Sofiivka, unul dintre cele mai frumoase din Europa. Cascade de lacuri, grote, cascade artificiale și mii de specii de plante. Planifică minimum 3 ore de plimbare pentru că parcul este enorm. După parc — cafenele locale în centrul Umanului cu bucătărie podoliană.",
+        "insight_title": "Ce trebuie să știi",
+        "insight_time": "Cel mai bine intri în parc dimineața, ca să vezi totul la lumină blândă. Cumpără biletul online din timp, mai ales în weekend.",
+        "why_car": "Uman este un oraș compact, dar pe acest traseu funcționează perfect ca punct intermediar. Fără mașină, ajungerea aici presupune mai multe transbordări.",
+        "rental_title": "Sfat REIZ:",
+        "rental_text": "Înainte de plecarea din Uman, alimentează rezervorul complet — următoarea stație mare apare abia la apropierea de regiunea Kievului."
+      },
+      "route4": {
+        "title": "Ziua 5–6. Kievul — capitala",
+        "locations": "Uman → Kiev (≈ 3 h).",
+        "vibe": "Lavra Pecerska, Hreșciatik, Podol, Coborârea Andriivskyi.",
+        "p1": "Alocă 2 zile pentru capitală: Lavra Pecerska și Palatul Mariinskyi, Catedrala Sfânta Sofia, Maidanul, Hreșciatik, Coborârea Andriivskyi și Podol — acesta este minimul. Lasă o seară pentru faleza Niprului și luminile podurilor peste râu.",
+        "insight_title": "Kievul cu mașina",
+        "insight_time": "Centrul Kievului are multe parcări cu plată și străzi aglomerate la orele de vârf. Optim — parchează lângă hotel și deplasează-te prin centru pe jos sau cu metroul.",
+        "why_car": "Mașina îți va fi utilă pentru excursii în afara orașului: Mejygirea, muzeul în aer liber Pyrohiv, Bucha, precum și pentru drumul lung către ultimul punct al traseului.",
+        "rental_title": "Lifehack:",
+        "rental_text": "Alege un hotel cu parcare proprie — în centru poți economisi până la 300 UAH pe zi față de zonele cu plată."
+      },
+      "route5": {
+        "title": "Ziua 7. Cernăuți — mica Vienă",
+        "locations": "Kiev → Cernăuți (≈ 8 h).",
+        "vibe": "Reședința Mitropoliților, pavaj, arhitectură austro-ungară.",
+        "p1": "Ultima oprire sunt Cernăuții. Este unul dintre cele mai atmosferice orașe ale Ucrainei: arhitectură austro-ungară, Reședința Mitropoliților Bucovineni (obiectiv UNESCO), piața Fântânii Turcești, Universitatea de pe deal. Aici simți Europa Centrală.",
+        "insight_title": "Sfaturi",
+        "insight_time": "Plecarea din Kiev planifică-o dimineața și alocă o zi întreagă pentru drum. Înnoptezi în Cernăuți; a doua zi — întoarcere spre Lviv (încă ≈ 4 ore).",
+        "why_car": "Cernăuții sunt compacți, dar tocmai drumul de la Kiev spre Bucovina îți oferă senzația unui road-trip adevărat — cu peisaje schimbătoare, opriri în sate și cafenele de pe marginea drumului.",
+        "rental_title": "Sfat REIZ:",
+        "rental_text": "Dacă ai timp puțin — predă mașina la unul dintre birourile partenere din Cernăuți și întoarce-te cu trenul. Discută detaliile cu managerul."
+      }
+    },
+    "tips": {
+      "title": "Sfaturi generale pentru călătorie",
+      "intro": "Înainte de plecare, ia în considerare câteva lucruri importante:",
+      "list": {
+        "item1": "Rezervă cazarea din timp — mai ales vara și în weekend.",
+        "item2": "Descarcă hărți offline Google Maps și Waze — în unele regiuni semnalul este instabil.",
+        "item3": "Ține documentele mașinii și polițele de asigurare împreună, într-un dosar sau mapă.",
+        "item4": "Planifică opriri de alimentare la fiecare 250–300 km: principalele autostrăzi au o rețea densă de benzinării.",
+        "item5": "Ține cont de starea drumurilor: șoselele principale sunt în stare bună, dar unele drumuri regionale pot avea gropi — nu te grăbi."
+      }
+    },
+    "rental_box": {
+      "title": "Închiriere auto la REIZ",
+      "text": "La REIZ poți închiria o mașină din Lviv pentru întregul traseu. Oferim plin de combustibil, asistență 24/7, asigurare și — printr-o înțelegere separată — posibilitatea de a preda mașina în alt oraș. Este alegerea optimă pentru o călătorie prin Ucraina."
+    },
+    "conclusion": {
+      "title": "Concluzie",
+      "p1": "Un road-trip prin Ucraina înseamnă libertatea de a-ți alege ritmul, traseul și opririle. În 7 zile vei vedea regiuni complet diferite ale țării: de la Lvivul galițian la Cernăuții bucovineni, de la cetățile Podoliei la Kiev.",
+      "p2": "Echipa REIZ te ajută să alegi mașina potrivită, îți sugerează traseul și pregătește vehiculul pentru drumul lung. Nu îți rămâne decât să te urci la volan și să pornești.",
+      "cta": "VEZI MAȘINILE"
+    }
+  },
+  "blogNavigationAppsUkraine": {
+    "meta": {
+      "title": "Cele mai bune aplicații de navigație în Ucraina: Google Maps, Waze și altele | REIZ",
+      "description": "Ghid despre cele mai bune aplicații de navigație pentru călătorii prin Ucraina: Google Maps, Waze, Apple Maps, 2GIS, OsmAnd. Avantaje, dezavantaje și când să folosești fiecare.",
+      "og_title": "Cele mai bune aplicații de navigație în Ucraina: Google Maps, Waze și altele | REIZ",
+      "og_description": "Ghid despre cele mai bune aplicații de navigație pentru călătorii prin Ucraina: Google Maps, Waze, Apple Maps, 2GIS, OsmAnd. Avantaje, dezavantaje și când să folosești fiecare."
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "blog": "Articole",
+      "current": "Top aplicații de navigație",
+      "nav_label": "Navigare pe pagină"
+    },
+    "title": "Cele mai bune aplicații de navigație în Ucraina",
+    "hero_alt": "Pictogramă navigator GPS — recenzie a aplicațiilor de navigație populare în Ucraina",
+    "intro": {
+      "p1": "O aplicație de navigație bună este tovarășul obligatoriu al oricărei călătorii prin Ucraina. Lucrările temporare la drumuri, ocolirile, noile noduri rutiere și pur și simplu traseele necunoscute fac o navigație de calitate esențială — mai ales pentru turiști și pentru șoferii de mașini închiriate.",
+      "p2": "În acest articol echipa REIZ Car Rental a adunat cinci dintre cele mai bune aplicații de navigație pentru Ucraina — cu avantajele, dezavantajele și recomandările despre când să folosești fiecare."
+    },
+    "apps": {
+      "google_maps": {
+        "title": "1. Google Maps",
+        "description": "Cea mai populară aplicație de navigație din lume — și din Ucraina. Hărți detaliate ale orașelor și satelor, informații despre trafic în timp real, o bază mare de locații (restaurante, benzinării, hoteluri), recenzii ale utilizatorilor.",
+        "pros_title": "Avantaje:",
+        "pros": {
+          "item1": "Acoperire maximă în întreaga Ucraina",
+          "item2": "Informații în timp real despre trafic și accidente",
+          "item3": "Hărți offline pentru zonele fără conexiune",
+          "item4": "Street View pentru majoritatea orașelor",
+          "item5": "Integrare cu căutarea Google — găsești ușor orice adresă"
+        },
+        "when": "Opțiunea universală pentru fiecare zi. Ideală pentru turiștii care își planifică traseele din timp."
+      },
+      "waze": {
+        "title": "2. Waze",
+        "description": "O aplicație de navigație socială: traseul se construiește pe baza datelor de la alți șoferi — accidente, radare, ambuteiaje, patrule, gropi. În Ucraina funcționează una dintre cele mai active comunități Waze.",
+        "pros_title": "Avantaje:",
+        "pros": {
+          "item1": "Raportări live de la alți șoferi",
+          "item2": "Alerte despre radarele de viteză",
+          "item3": "Ocoliri în timp real ale ambuteiajelor",
+          "item4": "Cea mai bună opțiune pentru orașele mari (Kiev, Lviv, Nipru)",
+          "item5": "Integrare simplă cu CarPlay și Android Auto"
+        },
+        "when": "Când conduci într-un oraș aglomerat sau pe autostradă și vrei să eviți ambuteiaje și radare."
+      },
+      "apple_maps": {
+        "title": "3. Apple Maps",
+        "description": "Aplicația implicită de navigație pe iPhone. În ultimii ani Apple a actualizat serios hărțile Ucrainei: nivel de detaliu îmbunătățit, informații despre trafic, detalii stradale pentru Kiev și Lviv.",
+        "pros_title": "Avantaje:",
+        "pros": {
+          "item1": "Integrare cu iPhone și CarPlay fără instalări suplimentare",
+          "item2": "Confidențialitate — Apple nu salvează istoricul căutărilor",
+          "item3": "Interfață frumoasă, cu hartă curată",
+          "item4": "Informații despre trafic în marile orașe"
+        },
+        "when": "Pentru utilizatorii de iPhone care vor o aplicație simplă și îngrijită, fără funcții inutile."
+      },
+      "two_gis": {
+        "title": "4. 2GIS",
+        "description": "Un ghid urban detaliat cu navigație. Deosebit de puternic în orașele mari: găsești nu doar locația, ci și etajul exact, intrarea, programul și numărul de telefon. Funcționează offline după descărcarea orașului.",
+        "pros_title": "Avantaje:",
+        "pros": {
+          "item1": "Funcționare complet offline după descărcare",
+          "item2": "Planuri detaliate pentru mall-uri, centre de afaceri, piețe",
+          "item3": "Număr de telefon și program pentru orice locație",
+          "item4": "Gratuit, fără reclame în timpul navigației"
+        },
+        "when": "Pentru căutări detaliate de adrese în orașe — mai ales când trebuie să găsești un birou, restaurant sau magazin anume."
+      },
+      "osmand": {
+        "title": "5. OsmAnd",
+        "description": "O aplicație de navigație bazată pe OpenStreetMap — ideală pentru off-road, trasee montane și sate unde hărțile comerciale pot fi incomplete. Complet offline, cu suport pentru trasee turistice, piste de biciclete și chiar poteci de drumeție în Carpați.",
+        "pros_title": "Avantaje:",
+        "pros": {
+          "item1": "Funcționare offline completă, fără limite",
+          "item2": "Hărți detaliate ale Carpaților și satelor",
+          "item3": "Suport pentru trackuri GPX",
+          "item4": "Profile de traseu pentru mașină, bicicletă sau pe jos"
+        },
+        "when": "Pentru călătorii în munți, zone forestiere sau sate izolate unde alte aplicații pierd semnalul."
+      }
+    },
+    "comparison": {
+      "title": "Ce aplicație să alegi?",
+      "intro": "Un scurt ghid despre ce să instalezi în funcție de scop:",
+      "list": {
+        "item1": "Pentru uz zilnic — Google Maps",
+        "item2": "Pentru traficul urban — Waze",
+        "item3": "Pentru găsirea unor locații specifice — 2GIS",
+        "item4": "Pentru trasee montane și Carpați — OsmAnd",
+        "item5": "Pentru utilizatorii de iPhone — Apple Maps ca variantă de bază"
+      }
+    },
+    "tourist_tips": {
+      "title": "Sfaturi pentru turiști",
+      "intro": "Câteva recomandări practice care îți vor ușura navigarea:",
+      "list": {
+        "item1": "Descarcă hărți offline — în unele regiuni semnalul este instabil.",
+        "item2": "Cumpără o cartelă SIM ucraineană cu internet mobil imediat după sosire.",
+        "item3": "Încarcă telefonul în timpul drumului — mașinile REIZ au porturi USB și suport pentru telefon.",
+        "item4": "Folosește mai multe aplicații în paralel: Google Maps pentru traseu, Waze pentru radare.",
+        "item5": "Verifică traseul înainte de plecare — uneori aplicațiile sugerează drumuri montane sau neasfaltate."
+      }
+    },
+    "rental_box": {
+      "title": "Închiriază o mașină la REIZ",
+      "text": "Mașinile noastre sunt dotate cu suporturi comode pentru telefon și porturi USB, astfel încât să poți folosi orice aplicație de navigație fără probleme. Majoritatea modelelor acceptă Apple CarPlay și Android Auto — ideal pentru Google Maps și Waze pe ecran mare."
+    },
+    "conclusion": {
+      "title": "Concluzie",
+      "p1": "Nicio aplicație nu acoperă toate situațiile, dar combinația potrivită îți va permite să conduci cu încredere prin Ucraina. Google Maps + Waze reprezintă setul de bază optim. Pentru călătoriile în Carpați sau în regiuni izolate adaugă OsmAnd.",
+      "p2": "Echipa REIZ Car Rental îți urează drumuri bune — și este oricând gata să îți sugereze cel mai bun traseu."
+    }
+  },
+  "blogParkingPaymentUkraine": {
+    "meta": {
+      "title": "Cum plătești parcarea în Ucraina: ghid pentru turiști | REIZ",
+      "description": "Ghid complet pentru turiști despre plata parcării în Ucraina: numerar, SMS, aplicații, card bancar. Tipuri de zone de parcare, amenzi și sfaturi utile.",
+      "og_title": "Cum plătești parcarea în Ucraina: ghid pentru turiști | REIZ",
+      "og_description": "Ghid complet pentru turiști despre plata parcării în Ucraina: numerar, SMS, aplicații, card bancar. Tipuri de zone de parcare, amenzi și sfaturi utile."
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "blog": "Articole",
+      "current": "Plata parcării",
+      "nav_label": "Navigare pe pagină"
+    },
+    "title": "Cum plătești parcarea în Ucraina ca turist",
+    "hero_alt": "Semn de parcare lângă o clădire urbană — cum plătești parcarea în Ucraina",
+    "intro": {
+      "p1": "Sistemul de parcare din orașele ucrainene diferă de cel european, dar îl vei înțelege în câteva minute. În orașele mari — Kiev, Lviv, Odesa, Nipru, Harkov — funcționează zone cu plată reglementate de autoritățile locale. În orașele mijlocii parcările cu plată sunt mai puține, iar pe alocuri lipsesc complet.",
+      "p2": "În acest articol echipa REIZ Car Rental îți explică cum să recunoști tipul zonei de parcare, ce metode de plată sunt disponibile și ce să faci dacă mașina îți este ridicată."
+    },
+    "zones": {
+      "title": "Tipuri de zone de parcare",
+      "intro": "În Ucraina există trei tipuri principale de zone:",
+      "paid": {
+        "title": "Parcări cu plată",
+        "text": "Marcate cu un semn albastru 'P' cu mențiunea 'plătită' sau un panou informativ cu tariful. În Kiev și Lviv tarifele sunt zonale: centrul costă mai mult decât periferia. Plata este orară."
+      },
+      "free": {
+        "title": "Parcări gratuite",
+        "text": "Marcate cu un semn albastru 'P' fără inscripții suplimentare. Se găsesc adesea lângă supermarketuri, centre comerciale sau pe străzile rezidențiale. În weekend și pe timpul nopții (de obicei 20:00–08:00) o parte din zonele cu plată devin gratuite."
+      },
+      "prohibited": {
+        "title": "Zone unde parcarea este interzisă",
+        "text": "Marcate cu un semn rotund roșu cu litera 'P' tăiată sau cu semnul 'oprirea interzisă'. Astfel de zone se află lângă intersecții, stații de transport public, poduri. Parcarea aici garantează ridicarea mașinii."
+      }
+    },
+    "payment_methods": {
+      "title": "Metode de plată a parcării",
+      "intro": "În Ucraina sunt disponibile mai multe metode de plată — alege-o pe cea mai convenabilă pentru tine:",
+      "cash": {
+        "title": "1. Numerar către paznicul de parcare",
+        "text": "În unele parcări mai există paznici — le poți plăti în numerar. Ia întotdeauna chitanța: este dovada ta de plată în caz de dispută.",
+        "note": "Această metodă dispare treptat — în majoritatea zonelor sunt acum parcometre sau plată fără numerar."
+      },
+      "sms": {
+        "title": "2. Plată prin SMS",
+        "text": "Una dintre cele mai simple metode: trimiți un SMS cu codul zonei la un număr scurt — și parcarea este plătită. Codul zonei este afișat pe semn sau pe parcometru. Plata se deduce din contul de mobil.",
+        "example": "Exemplu: în Kiev trimiți codul zonei la numărul scurt al operatorului. Primești confirmarea cu timpul plătit."
+      },
+      "apps": {
+        "title": "3. Aplicații mobile",
+        "text": "Cea mai convenabilă metodă pentru turiști — aplicațiile orașelor sau serviciile universale. Instalează aplicația, asociază un card, alege zona și durata — gata.",
+        "list": {
+          "item1": "Kyiv Digital — aplicația oficială a Kievului cu plata parcării",
+          "item2": "Lviv Parking — pentru parcările din Lviv",
+          "item3": "EasyPay — platformă universală cu plata în toată Ucraina",
+          "item4": "Park UA — acoperă zone din multe orașe"
+        }
+      },
+      "parkomats": {
+        "title": "4. Parcometre",
+        "text": "În centrele orașelor mari sunt instalate parcometre moderne cu ecran tactil. Acceptă carduri bancare și numerar. După plată — tipărește chitanța și așaz-o pe bord, sub parbriz."
+      },
+      "card": {
+        "title": "5. Plata cu card bancar",
+        "text": "Majoritatea parcometrelor moderne și a aplicațiilor acceptă Visa și Mastercard, inclusiv carduri străine. Este comod pentru turiștii care încă nu au o cartelă SIM ucraineană pentru plata prin SMS."
+      }
+    },
+    "evacuation": {
+      "title": "Ce să faci dacă mașina îți este ridicată",
+      "text": "Dacă te-ai întors la locul de parcare și nu ai găsit mașina — asigură-te mai întâi că nu a fost furată: sună la 102 sau verifică serviciul oficial al orașului. Cel mai adesea mașina ajunge în parcarea de depozit.",
+      "steps": {
+        "step1": "Sună la serviciul de parcare al orașului — numărul îl găsești pe site-ul primăriei sau în aplicația oficială.",
+        "step2": "Află adresa parcării de depozit unde a fost dusă mașina.",
+        "step3": "Ia cu tine pașaportul, documentele mașinii și permisul de conducere.",
+        "step4": "Plătește serviciul de ridicare și amenda — abia apoi îți vei recupera mașina."
+      },
+      "rental_note": "Dacă conduci o mașină închiriată de la REIZ, anunță imediat managerul. Te vom ajuta să rezolvi situația la parcarea de depozit și să pregătești documentele necesare."
+    },
+    "tips": {
+      "title": "Sfaturi utile pentru turiști",
+      "intro": "Câteva sfaturi practice care îți vor economisi nervi și bani:",
+      "list": {
+        "item1": "Citește cu atenție indicatoarele: semnele de parcare ucrainene pot avea tăblițe suplimentare cu ore și excepții.",
+        "item2": "Seara și noaptea multe zone cu plată devin gratuite — acest lucru este menționat pe semn.",
+        "item3": "În weekend (sâmbătă și duminică) în unele orașe plata nu se percepe.",
+        "item4": "Nu lăsa niciodată obiecte de valoare la vedere — nici măcar într-o zonă cu plată.",
+        "item5": "Păstrează chitanța sau captura de ecran a plății — este dovada ta într-o situație de dispută."
+      }
+    },
+    "rental_box": {
+      "title": "Închirierea mașinii la REIZ",
+      "text": "Când închiriezi o mașină la REIZ, îți explicăm particularitățile parcării din Lviv și din celelalte orașe pe care le plănuiești să le vizitezi. Managerii noștri sunt mereu la telefon dacă apar întrebări la fața locului."
+    },
+    "conclusion": {
+      "title": "Concluzie",
+      "p1": "Plata parcării în Ucraina este mai simplă decât pare la prima vedere. Aplicațiile mobile, parcometrele cu plată prin card și serviciile SMS fac procesul prietenos pentru turiști. Important este să fii atent la indicatoare și să păstrezi dovada plății.",
+      "p2": "Echipa REIZ Car Rental îți urează o călătorie plăcută prin Ucraina — și o parcare fără probleme în orice oraș."
     }
   },
   "rentalPolicyModal": {

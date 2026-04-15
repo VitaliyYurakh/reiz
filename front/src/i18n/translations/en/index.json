@@ -880,14 +880,16 @@
         "excerpt": "Explore a route that offers a thrilling road adventure and a chance to discover the country's culture and landscapes.",
         "date": "17.04.2025",
         "imgAlt": "Panorama of Ukraine's landmarks at sunset — road-trip route",
-        "image": "/img/blog/Ukraineblog.webp"
+        "image": "/img/blog/Ukraineblog.webp",
+        "slug": "ukraine-road-trip"
       },
       {
         "title": "Top navigation apps in Ukraine",
         "excerpt": "Ukraine is a place where tech is part of daily life for locals and visitors. We review the most popular apps that help you navigate cities and highways with ease.",
         "date": "17.04.2025",
         "imgAlt": "GPS navigator icon — review of popular navigation apps in Ukraine",
-        "image": "/img/blog/NAV.webp"
+        "image": "/img/blog/NAV.webp",
+        "slug": "navigation-apps-ukraine"
       },
       {
         "title": "Road trip around Lviv and Lviv Oblast",
@@ -902,7 +904,8 @@
         "excerpt": "Learn several quick ways to make the payment with minimal fuss.",
         "date": "17.04.2025",
         "imgAlt": "Parking sign near a city building — how to pay for parking in Ukraine",
-        "image": "/img/blog/parking.webp"
+        "image": "/img/blog/parking.webp",
+        "slug": "parking-payment-ukraine"
       }
     ],
     "cta": {
@@ -2462,6 +2465,319 @@
         "question": "How much time do you have to notify the insurance company?",
         "answer": "Usually, the insurance company must be notified within three business days after the accident."
       }
+    }
+  },
+  "blogUkraineRoadTrip": {
+    "meta": {
+      "title": "Road-trip route across Ukraine by car | REIZ",
+      "description": "A ready 7-day road-trip route across Ukraine from REIZ: Lviv, Kamianets-Podilskyi, Uman, Kyiv, Chernivtsi. What to see, how to plan, and why a rental car is the best choice.",
+      "og_title": "Road-trip route across Ukraine by car | REIZ",
+      "og_description": "A ready 7-day road-trip route across Ukraine from REIZ: Lviv, Kamianets-Podilskyi, Uman, Kyiv, Chernivtsi. What to see, how to plan, and why a rental car is the best choice."
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Blog",
+      "current": "Ukraine road trip",
+      "nav_label": "Page navigation"
+    },
+    "title": "Road-trip route across Ukraine by car",
+    "hero_alt": "Panorama of Ukraine's landmarks at sunset — road-trip route",
+    "intro": {
+      "p1": "Ukraine is a country best discovered from behind the wheel. The narrow cobbled streets of Lviv, the baroque of Kamianets-Podilskyi, Sofiivka Park in Uman, the lights of Kyiv, and the Austrian charm of Chernivtsi — you can see it all in a single week if you're driving.",
+      "p2": "The REIZ Car Rental team has put together a tested 7-day route from west to east and back. It works for first-time road-trippers in Ukraine and for seasoned travelers who want to combine famous cities with lesser-known spots.",
+      "p3": "In this article you'll find what to see in each city, how much time to plan, how to handle overnights, and why a car is the ideal way to get around."
+    },
+    "routes": {
+      "route1": {
+        "title": "Day 1–2. Lviv — the heart of Western Ukraine",
+        "locations": "Start: Lviv.",
+        "vibe": "Coffee houses, the Town Hall, the High Castle, Lychakiv Cemetery.",
+        "p1": "Start your route in Lviv — a city where history waits around every corner. Walk through Rynok Square, climb the Town Hall tower, have coffee on Virmenska Street, and visit the Lychakiv necropolis. In the evening, try a restaurant with local cuisine and Lviv chocolate for dessert.",
+        "insight_title": "What to plan for",
+        "insight_time": "Plan at least 2 full days for Lviv. The Old Town is walkable, but you'll want a car for trips outside the center (Shevchenkivskyi Hai open-air museum, the castles of the Lviv region).",
+        "why_car": "A car frees you from public-transport schedules and lets you drive out to one of the Golden Horseshoe castles in the evening on a whim.",
+        "rental_title": "REIZ tip:",
+        "rental_text": "Rent your car right in Lviv — our office is close to the center, so you can pick up the vehicle the day you arrive."
+      },
+      "route2": {
+        "title": "Day 3. Kamianets-Podilskyi — the fortress city",
+        "locations": "Lviv → Kamianets-Podilskyi (~4 h).",
+        "vibe": "Baroque, the Smotrych canyon, the Old Fortress, sunrise hot-air balloons.",
+        "p1": "Kamianets-Podilskyi makes an immediate impression: the town sits on a rocky island wrapped on every side by the Smotrych River. Visit the Old Fortress, stroll the baroque streets, and if you get up early, book a hot-air balloon flight — it's the most dramatic view of the canyon.",
+        "insight_title": "Tips",
+        "insight_time": "The best approach is to arrive in the evening, spend the night in the old town, and walk around the fortress at dawn before the crowds arrive.",
+        "why_car": "Some canyon viewpoints and nearby Khotyn (another fortress on the Dniester) are really only reachable with your own vehicle.",
+        "rental_title": "Life hack:",
+        "rental_text": "Combine Kamianets and Khotyn in a single day — they're just 25 km apart, and you'll get two fortresses instead of one."
+      },
+      "route3": {
+        "title": "Day 4. Uman — Sofiivka Park",
+        "locations": "Kamianets-Podilskyi → Uman (~4 h).",
+        "vibe": "Park, waterfalls, grottoes, lakes.",
+        "p1": "The main goal is Sofiivka arboretum — one of the most beautiful parks in Europe. Cascading lakes, grottoes, artificial waterfalls, and thousands of plant species. Plan at least 3 hours for the walk because the park is huge. Afterwards, try the local cafes in central Uman for Podillia-style food.",
+        "insight_title": "What to know",
+        "insight_time": "It's best to enter the park in the morning when the light is softest. Buy tickets online in advance, especially on weekends.",
+        "why_car": "Uman is a compact town, but on this route it works as a convenient midway stop. Without a car you'd need several transfers to get here.",
+        "rental_title": "REIZ tip:",
+        "rental_text": "Fill up the tank before leaving Uman — the next large gas station only appears as you approach the Kyiv region."
+      },
+      "route4": {
+        "title": "Day 5–6. Kyiv — the capital",
+        "locations": "Uman → Kyiv (~3 h).",
+        "vibe": "Pechersk Lavra, Khreshchatyk, Podil, Andriivskyi descent.",
+        "p1": "Plan 2 days for the capital: the Pechersk Lavra and Mariinskyi Palace, St. Sophia's Cathedral, Maidan, Khreshchatyk, Andriivskyi descent, and Podil — that's the minimum. Save an evening for the Dnipro embankment and the lights of the bridges over the river.",
+        "insight_title": "Kyiv with a car",
+        "insight_time": "Central Kyiv has many paid parking zones and heavy traffic at rush hour. The best approach is to park near your hotel and use the metro or walk downtown.",
+        "why_car": "You'll want a car for day-trips outside the city — Mezhyhirya, Pyrohiv open-air museum, Bucha — and for the long leg to the final stop of the route.",
+        "rental_title": "Life hack:",
+        "rental_text": "Choose a hotel with its own parking — in the center it can save you up to 300 UAH a day compared to paid zones."
+      },
+      "route5": {
+        "title": "Day 7. Chernivtsi — little Vienna",
+        "locations": "Kyiv → Chernivtsi (~8 h).",
+        "vibe": "The Metropolitans' Residence, cobblestones, Austro-Hungarian architecture.",
+        "p1": "The final stop is Chernivtsi — one of Ukraine's most atmospheric cities: Austro-Hungarian architecture, the Residence of the Bukovinian Metropolitans (a UNESCO site), Turetska Krynytsia Square, and the University on the hill. Central Europe is palpable here.",
+        "insight_title": "Tips",
+        "insight_time": "Plan to leave Kyiv in the morning and budget the whole day for the drive. Spend the night in Chernivtsi; the next day, head back to Lviv (another ~4 hours).",
+        "why_car": "Chernivtsi itself is compact, but the drive from Kyiv to Bukovyna is what really gives you the road-trip feeling — shifting landscapes, stops in villages, and roadside cafes.",
+        "rental_title": "REIZ tip:",
+        "rental_text": "Short on time? Drop the car at one of our partner offices in Chernivtsi and take the train back. Check the details with your manager."
+      }
+    },
+    "tips": {
+      "title": "General travel tips",
+      "intro": "A few important things to sort out before you leave:",
+      "list": {
+        "item1": "Book accommodation ahead of time — especially in summer and on weekends.",
+        "item2": "Download Google Maps and Waze offline maps — signal can be patchy in some regions.",
+        "item3": "Keep your car documents and insurance papers together in a folder or pouch.",
+        "item4": "Plan fuel stops every 250–300 km; the main highways have a dense gas-station network.",
+        "item5": "Expect mixed road quality: the main routes are in good shape, but some regional roads can be rough — don't rush."
+      }
+    },
+    "rental_box": {
+      "title": "Car rental at REIZ",
+      "text": "At REIZ you can rent a car in Lviv for the entire route. We provide a full tank, 24/7 support, insurance, and — by separate arrangement — the option to drop the car in another city. It's the ideal choice for a trip across Ukraine."
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "p1": "A Ukrainian road trip means the freedom to choose your own pace, route, and stops. In 7 days you'll see completely different regions: from Galician Lviv to Bukovinian Chernivtsi, from the fortresses of Podillia to Kyiv.",
+      "p2": "The REIZ team will help you pick the right car, suggest a route, and prepare the vehicle for the long drive. All you have to do is get behind the wheel and go.",
+      "cta": "VIEW CARS"
+    }
+  },
+  "blogNavigationAppsUkraine": {
+    "meta": {
+      "title": "Top navigation apps in Ukraine: Google Maps, Waze & more | REIZ",
+      "description": "A guide to the best navigation apps for driving in Ukraine: Google Maps, Waze, Apple Maps, 2GIS, OsmAnd. Pros, cons, and when to use each.",
+      "og_title": "Top navigation apps in Ukraine: Google Maps, Waze & more | REIZ",
+      "og_description": "A guide to the best navigation apps for driving in Ukraine: Google Maps, Waze, Apple Maps, 2GIS, OsmAnd. Pros, cons, and when to use each."
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Blog",
+      "current": "Top navigation apps",
+      "nav_label": "Page navigation"
+    },
+    "title": "Top navigation apps in Ukraine",
+    "hero_alt": "GPS navigator icon — review of popular navigation apps in Ukraine",
+    "intro": {
+      "p1": "A good navigation app is an essential companion on any trip in Ukraine. Road repairs, detours, new interchanges, and simply unfamiliar routes make reliable navigation critical — especially for tourists and people driving rental cars.",
+      "p2": "In this article the REIZ Car Rental team has gathered the five best navigation apps for Ukraine — with their strengths, weaknesses, and advice on when to use which."
+    },
+    "apps": {
+      "google_maps": {
+        "title": "1. Google Maps",
+        "description": "The world's most popular navigation app — and the go-to in Ukraine too. Detailed city and village maps, live traffic, a huge database of places (restaurants, gas stations, hotels) and user reviews.",
+        "pros_title": "Pros:",
+        "pros": {
+          "item1": "Maximum coverage across Ukraine",
+          "item2": "Real-time traffic and accident information",
+          "item3": "Offline maps for areas with no connection",
+          "item4": "Street View for most cities",
+          "item5": "Integration with Google Search — easy address lookups"
+        },
+        "when": "An all-purpose option for everyday use. Ideal for tourists who plan their routes in advance."
+      },
+      "waze": {
+        "title": "2. Waze",
+        "description": "A social navigation app: routes are built using data from other drivers — accidents, speed cameras, traffic jams, police patrols, potholes. Ukraine has one of the most active Waze communities.",
+        "pros_title": "Pros:",
+        "pros": {
+          "item1": "Live reports from other drivers",
+          "item2": "Speed camera alerts",
+          "item3": "Real-time rerouting around traffic jams",
+          "item4": "The best choice for big cities (Kyiv, Lviv, Dnipro)",
+          "item5": "Easy CarPlay and Android Auto integration"
+        },
+        "when": "When you're driving in a busy city or on the highway and want to avoid jams and speed cameras."
+      },
+      "apple_maps": {
+        "title": "3. Apple Maps",
+        "description": "The default iPhone navigation app. Over the past few years Apple has seriously upgraded its Ukraine maps: improved detail, added traffic info, and added street-level detail for Kyiv and Lviv.",
+        "pros_title": "Pros:",
+        "pros": {
+          "item1": "Integrates with iPhone and CarPlay out of the box",
+          "item2": "Privacy-friendly — Apple doesn't save your search history",
+          "item3": "Clean, attractive map interface",
+          "item4": "Traffic information in major cities"
+        },
+        "when": "For iPhone users who want a simple, tidy navigator without extra features."
+      },
+      "two_gis": {
+        "title": "4. 2GIS",
+        "description": "A detailed city directory with navigation. Especially strong in big cities: you'll find not just a venue but the specific floor, entrance, opening hours, and phone number. Works offline once a city is downloaded.",
+        "pros_title": "Pros:",
+        "pros": {
+          "item1": "Fully offline once a city is downloaded",
+          "item2": "Detailed plans for malls, business centers, markets",
+          "item3": "Phone number and hours for any venue",
+          "item4": "Free, with no in-navigation ads"
+        },
+        "when": "For detailed address lookups in cities — especially when you need to find a specific office, restaurant, or store."
+      },
+      "osmand": {
+        "title": "5. OsmAnd",
+        "description": "An OpenStreetMap-based navigator, ideal for off-road driving, mountain routes, and villages where commercial maps may be incomplete. Fully offline, with support for hiking tracks, cycling routes, and even walking trails in the Carpathians.",
+        "pros_title": "Pros:",
+        "pros": {
+          "item1": "Full offline operation, no limits",
+          "item2": "Detailed Carpathian and village maps",
+          "item3": "GPX track support",
+          "item4": "Route profiles for car, bike, or on foot"
+        },
+        "when": "For trips into the mountains, forests, or remote villages where other apps lose signal."
+      }
+    },
+    "comparison": {
+      "title": "Which navigator should you choose?",
+      "intro": "A quick cheat sheet for what to install based on your needs:",
+      "list": {
+        "item1": "For everyday use — Google Maps",
+        "item2": "For city traffic — Waze",
+        "item3": "For finding specific venues — 2GIS",
+        "item4": "For mountain routes and the Carpathians — OsmAnd",
+        "item5": "For iPhone users — Apple Maps as a baseline"
+      }
+    },
+    "tourist_tips": {
+      "title": "Tips for tourists",
+      "intro": "A few practical recommendations to make navigation easier:",
+      "list": {
+        "item1": "Download offline maps — signal can be unstable in some regions.",
+        "item2": "Pick up a Ukrainian SIM card with mobile data as soon as you arrive.",
+        "item3": "Charge your phone on the go — REIZ rental cars have USB ports and phone holders.",
+        "item4": "Use several apps in parallel: Google Maps for routing, Waze for camera alerts.",
+        "item5": "Double-check the route before you set off — apps sometimes suggest mountain or dirt roads."
+      }
+    },
+    "rental_box": {
+      "title": "Rent a car at REIZ",
+      "text": "Our cars come with convenient phone holders and USB ports so you can use any navigation app without hassle. Most models support Apple CarPlay and Android Auto — perfect for Google Maps and Waze on the big screen."
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "p1": "No single app covers every situation, but the right combination will let you drive confidently across Ukraine. Google Maps + Waze is the ideal baseline. Add OsmAnd for trips into the Carpathians or remote regions.",
+      "p2": "The REIZ Car Rental team wishes you smooth roads — and we're always ready to suggest the best route."
+    }
+  },
+  "blogParkingPaymentUkraine": {
+    "meta": {
+      "title": "How to pay for parking in Ukraine: a tourist's guide | REIZ",
+      "description": "A full guide for tourists on paying for parking in Ukraine: cash, SMS, apps, and bank card. Parking zone types, fines, and useful tips.",
+      "og_title": "How to pay for parking in Ukraine: a tourist's guide | REIZ",
+      "og_description": "A full guide for tourists on paying for parking in Ukraine: cash, SMS, apps, and bank card. Parking zone types, fines, and useful tips."
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Blog",
+      "current": "Parking payment",
+      "nav_label": "Page navigation"
+    },
+    "title": "How to pay for parking in Ukraine as a tourist",
+    "hero_alt": "Parking sign near a city building — how to pay for parking in Ukraine",
+    "intro": {
+      "p1": "The parking system in Ukrainian cities is different from the European one, but you'll pick it up in minutes. Large cities — Kyiv, Lviv, Odesa, Dnipro, Kharkiv — have paid zones regulated by the local authorities. Mid-sized cities have fewer paid lots, and some have none at all.",
+      "p2": "In this article the REIZ Car Rental team explains how to recognize parking zone types, what payment options are available, and what to do if your car gets towed."
+    },
+    "zones": {
+      "title": "Parking zone types",
+      "intro": "There are three main zone types in Ukraine:",
+      "paid": {
+        "title": "Paid parking",
+        "text": "Marked with a blue 'P' sign labeled 'paid' or an information board with the rate. In Kyiv and Lviv rates are zonal — the center costs more than the outskirts. Payment is hourly."
+      },
+      "free": {
+        "title": "Free parking",
+        "text": "Marked with a plain blue 'P' sign. Often near supermarkets, shopping centers, or on residential streets. On weekends and at night (usually 20:00–08:00) some paid zones become free."
+      },
+      "prohibited": {
+        "title": "No-parking zones",
+        "text": "Marked with a round red sign with a crossed-out 'P' or a 'no stopping' sign. These are located near intersections, public transport stops, and bridges. Parking here will get your car towed."
+      }
+    },
+    "payment_methods": {
+      "title": "Parking payment methods",
+      "intro": "Ukraine offers several ways to pay — pick whichever is easiest for you:",
+      "cash": {
+        "title": "1. Cash to an attendant",
+        "text": "Some lots still have human attendants you can pay in cash. Always take the receipt — it's your proof of payment if there's a dispute.",
+        "note": "This method is gradually disappearing — most zones now have parking meters or cashless payment."
+      },
+      "sms": {
+        "title": "2. SMS payment",
+        "text": "One of the easiest options: send an SMS with the zone code to a short number, and your parking is paid. The zone code is posted on the sign or the meter. The charge is deducted from your mobile account.",
+        "example": "Example: in Kyiv, send the zone code to your mobile operator's short number. You'll receive a confirmation with the paid time."
+      },
+      "apps": {
+        "title": "3. Mobile apps",
+        "text": "The most convenient option for tourists — city-specific or universal apps. Install the app, link a card, select the zone and duration — done.",
+        "list": {
+          "item1": "Kyiv Digital — Kyiv's official app with parking payment",
+          "item2": "Lviv Parking — for parking lots in Lviv",
+          "item3": "EasyPay — universal platform with payment across Ukraine",
+          "item4": "Park UA — covers zones in many cities"
+        }
+      },
+      "parkomats": {
+        "title": "4. Parking meters",
+        "text": "Modern touch-screen parking meters are installed in the centers of large cities. They accept bank cards and cash. After paying, print the receipt and place it behind your windshield."
+      },
+      "card": {
+        "title": "5. Bank card payment",
+        "text": "Most modern parking meters and apps accept Visa and Mastercard, including foreign cards. This is handy for tourists who don't yet have a Ukrainian SIM for SMS payments."
+      }
+    },
+    "evacuation": {
+      "title": "What to do if your car gets towed",
+      "text": "If you come back to find your car gone, first make sure it wasn't stolen: call 102 or check the city's official service. Most of the time the car ends up in an impound lot.",
+      "steps": {
+        "step1": "Call the city parking service — find the number on the city hall website or the official app.",
+        "step2": "Find out which impound lot your car was taken to.",
+        "step3": "Bring your passport, car documents, and driver's license.",
+        "step4": "Pay the towing fee and fine — then you can collect the car."
+      },
+      "rental_note": "If you're driving a REIZ rental car, let your manager know right away. We'll help you deal with the impound lot and prepare the paperwork."
+    },
+    "tips": {
+      "title": "Useful tips for tourists",
+      "intro": "A few practical tips that will save you time and money:",
+      "list": {
+        "item1": "Read signs carefully: Ukrainian parking signs can have supplementary plates with hours and exceptions.",
+        "item2": "In the evening and at night many paid zones become free — this is noted on the sign.",
+        "item3": "On weekends (Saturday and Sunday) some cities don't charge for parking at all.",
+        "item4": "Never leave valuables in plain sight — even in a paid zone.",
+        "item5": "Keep a receipt or screenshot of your payment — it's your proof if there's a dispute."
+      }
+    },
+    "rental_box": {
+      "title": "Car rental at REIZ",
+      "text": "When you rent a car at REIZ, we brief you on parking specifics in Lviv and any other cities you plan to visit. Our managers are always on call if questions come up on the spot."
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "p1": "Paying for parking in Ukraine is easier than it looks. Mobile apps, card-enabled meters, and SMS services make the process tourist-friendly. The key is to pay attention to signs and keep proof of payment.",
+      "p2": "The REIZ Car Rental team wishes you a pleasant trip across Ukraine — and trouble-free parking in every city."
     }
   },
   "rentalPolicyModal": {
