@@ -34,6 +34,29 @@ const isLegacyLvivRentalPath = (pathname: string) => {
 
 export default function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+
+  // Admin area: gate at the edge by checking for the presence of the `token`
+  // cookie. This is NOT full auth — the API validates the JWT on every /api
+  // request, and the dashboard layout re-checks via /auth/me. The goal here
+  // is to stop unauthenticated browsers from loading the admin HTML shell
+  // at all, so they don't see a flash of dashboard UI before the client
+  // redirects them (audit H-6).
+  if (pathname.startsWith("/admin")) {
+    const isLoginPage =
+      pathname === "/admin/login" || pathname.startsWith("/admin/login/");
+    if (!isLoginPage) {
+      const token = request.cookies.get("token")?.value;
+      if (!token) {
+        const redirectUrl = request.nextUrl.clone();
+        redirectUrl.pathname = "/admin/login";
+        redirectUrl.search = "";
+        return NextResponse.redirect(redirectUrl);
+      }
+    }
+    // Admin has no i18n — bypass intl middleware entirely.
+    return NextResponse.next();
+  }
+
   const pathLocale = getLocaleFromPath(pathname);
   const cookieLocale = request.cookies.get(LOCALE_COOKIE)?.value;
 
@@ -57,5 +80,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next|_vercel|api|admin|.*\\..*).*)"],
+  matcher: ["/((?!_next|_vercel|api|.*\\..*).*)"],
 };
