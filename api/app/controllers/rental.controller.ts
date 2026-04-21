@@ -9,8 +9,9 @@ class RentalController {
     async getAll(req: Request, res: Response) {
         const {page, limit} = parsePagination(req.query);
         const status = req.query.status as string | undefined;
+        const search = req.query.search as string | undefined;
 
-        const result = await rentalService.getAll({page, limit, status});
+        const result = await rentalService.getAll({page, limit, status, search});
         return res.status(StatusCodes.OK).json(result);
     }
 

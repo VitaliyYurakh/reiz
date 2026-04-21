@@ -8,13 +8,28 @@ class ReservationService {
         page: number;
         limit: number;
         status?: string;
+        search?: string;
     }) {
-        const {page, limit, status} = params;
+        const {page, limit, status, search} = params;
         const skip = (page - 1) * limit;
 
         const where: any = {};
         if (status) {
             where.status = status;
+        }
+
+        const trimmed = search?.trim();
+        if (trimmed) {
+            // Case-insensitive OR over client and car identifiers (audit H-7).
+            // Reservation has no contractNumber — that's set at Rental pickup.
+            where.OR = [
+                {client: {firstName: {contains: trimmed, mode: 'insensitive'}}},
+                {client: {lastName: {contains: trimmed, mode: 'insensitive'}}},
+                {client: {phone: {contains: trimmed, mode: 'insensitive'}}},
+                {car: {brand: {contains: trimmed, mode: 'insensitive'}}},
+                {car: {model: {contains: trimmed, mode: 'insensitive'}}},
+                {car: {plateNumber: {contains: trimmed, mode: 'insensitive'}}},
+            ];
         }
 
         const [items, total] = await Promise.all([

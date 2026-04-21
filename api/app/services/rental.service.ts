@@ -7,8 +7,9 @@ class RentalService {
         page: number;
         limit: number;
         status?: string;
+        search?: string;
     }) {
-        const {page, limit, status} = params;
+        const {page, limit, status, search} = params;
         const skip = (page - 1) * limit;
 
         const where: any = {};
@@ -17,6 +18,20 @@ class RentalService {
             where.status = 'active';
         } else if (status) {
             where.status = status;
+        }
+
+        const trimmed = search?.trim();
+        if (trimmed) {
+            // Case-insensitive OR over contract, client, and car identifiers (audit H-7).
+            where.OR = [
+                {contractNumber: {contains: trimmed, mode: 'insensitive'}},
+                {client: {firstName: {contains: trimmed, mode: 'insensitive'}}},
+                {client: {lastName: {contains: trimmed, mode: 'insensitive'}}},
+                {client: {phone: {contains: trimmed, mode: 'insensitive'}}},
+                {car: {brand: {contains: trimmed, mode: 'insensitive'}}},
+                {car: {model: {contains: trimmed, mode: 'insensitive'}}},
+                {car: {plateNumber: {contains: trimmed, mode: 'insensitive'}}},
+            ];
         }
 
         const [items, total] = await Promise.all([
