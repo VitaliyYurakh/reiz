@@ -34,6 +34,10 @@ import { useAdminLocale, type AdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { useAdminAuth } from '@/context/AdminAuthContext';
 
+// Admin pages fetch live CRM state client-side with cookies — never let
+// Next.js statically pre-render this shell (audit M-8).
+export const dynamic = 'force-dynamic';
+
 interface NavItem {
   href: string;
   labelKey: string;

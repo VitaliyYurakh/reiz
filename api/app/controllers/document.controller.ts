@@ -25,6 +25,17 @@ class DocumentController {
         const {id} = req.params;
         const {filePath, fileName, mimeType} = await documentService.download(parseId(id));
 
+        // Audit every document access so there is a forensic trail of who
+        // downloaded what and when (audit M-13). The rentals:view permission
+        // is already enforced by the route middleware.
+        logAudit({
+            actorId: res.locals.user?.id,
+            entityType: 'Document',
+            entityId: parseId(id),
+            action: 'DOWNLOAD',
+            req,
+        });
+
         const safeFileName = fileName.replace(/[^\w.\-]/g, '_');
         res.setHeader('Content-Disposition', `attachment; filename="${safeFileName}"`);
         res.setHeader('Content-Type', mimeType);

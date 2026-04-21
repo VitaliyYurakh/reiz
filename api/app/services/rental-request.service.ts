@@ -135,7 +135,15 @@ class RentalRequestService {
             // Fetch request and check status
             const req = await tx.rentalRequest.findUnique({where: {id}});
             if (!req) throw new Error('Rental request not found');
-            if (req.status === RentalRequestStatus.APPROVED) throw new Error('Request is already approved');
+            // Only 'new' or 'in_review' requests can be approved (audit M-12).
+            // Previously only APPROVED was blocked, which let a manager approve
+            // an already-rejected or cancelled request and create a duplicate
+            // reservation out of a closed lead.
+            // NOTE: using string literals because RentalRequestStatus enum in
+            // utils/constants.ts is out of sync with actual DB values.
+            if (req.status !== 'new' && req.status !== 'in_review') {
+                throw new Error(`Cannot approve request in status "${req.status}" — expected new or in_review`);
+            }
 
             // Check for conflicts INSIDE the transaction to prevent race conditions
             const availability = await availabilityService.checkCarAvailability(
