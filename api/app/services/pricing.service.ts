@@ -54,7 +54,10 @@ class PricingService {
             });
 
             if (tariff) {
-                dailyRateMinor = tariff.dailyPrice;
+                // Legacy RentalTariff.dailyPrice stores value in MAIN units (USD dollars),
+                // while dailyRateMinor is expected in MINOR units (cents). Multiply by 100.
+                // This mirrors seed.ts which generates RatePlan.dailyPrice as tariff.dailyPrice * 100.
+                dailyRateMinor = tariff.dailyPrice * 100;
             }
         }
 
