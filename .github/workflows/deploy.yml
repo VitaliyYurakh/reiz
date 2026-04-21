@@ -49,7 +49,9 @@ jobs:
                       GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}
                       NEXT_PUBLIC_TURNSTILE_SITE_KEY=${{ secrets.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
                       TURNSTILE_SECRET_KEY=${{ secrets.TURNSTILE_SECRET_KEY }}
+                      POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
                       EOF
+                      chmod 600 .env
 
             - name: Deploy via SSH
               uses: appleboy/ssh-action@v1.0.3
