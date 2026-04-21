@@ -87,8 +87,12 @@ class NotificationService {
         let errorMessage: string | null = null;
         let sentAt: Date | null = null;
 
-        // Send via channel
-        if (template.channel === 'telegram') {
+        // Send via channel. Compare case-insensitively: the DB (seed + admin UI)
+        // stores channel as 'TELEGRAM', the old code only matched lowercase 'telegram'
+        // and therefore every templated notification since launch silently fell into
+        // the unsupported-channel branch (audit H-2: notification_log=0 on prod).
+        const channelUpper = template.channel.toUpperCase();
+        if (channelUpper === 'TELEGRAM') {
             const sent = await telegramService.sendMessage(renderedBody);
             if (sent) {
                 status = 'sent';

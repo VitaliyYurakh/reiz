@@ -97,9 +97,11 @@ export const generateDocumentSchema = z.object({
 });
 
 // ── Notification ──
+// TELEGRAM is the channel actually wired up in notification.service (see H-2).
+// EMAIL/SMS/PUSH are placeholders kept for forward compatibility.
 export const createTemplateSchema = z.object({
     code: z.string().min(1).max(100),
-    channel: z.enum(['EMAIL', 'SMS', 'PUSH']),
+    channel: z.enum(['TELEGRAM', 'EMAIL', 'SMS', 'PUSH']),
     subject: z.string().max(500).optional(),
     bodyTemplate: z.string().min(1).max(10000),
     isActive: z.boolean().optional().default(true),
