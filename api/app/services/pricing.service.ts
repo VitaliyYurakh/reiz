@@ -28,7 +28,23 @@ class PricingService {
             orderBy: {dailyPrice: 'asc'},
         });
 
-        // Fallback to legacy rental tariff if no rate plan found
+        // Always look up the legacy RentalTariff — we need `tariff.deposit`
+        // as the base security deposit (a per-car fixed figure stored in main
+        // USD units, e.g. 920 for a Kia Sportage). RatePlan carries only the
+        // daily price, so this lookup is the single source of truth for the
+        // deposit regardless of which pricing source wins the rate below.
+        const tariff = await prisma.rentalTariff.findFirst({
+            where: {
+                carId,
+                minDays: {lte: totalDays},
+                OR: [
+                    {maxDays: {gte: totalDays}},
+                    {maxDays: 0}, // 0 means unlimited
+                ],
+            },
+            orderBy: {minDays: 'asc'},
+        });
+
         let dailyRateMinor = 0;
         let ratePlanId: number | null = null;
         let ratePlanName: string | null = null;
@@ -39,32 +55,23 @@ class PricingService {
             ratePlanId = ratePlan.id;
             ratePlanName = ratePlan.name;
             rateCurrency = ratePlan.currency;
-        } else {
-            // Fallback: find from old rental tariffs
-            const tariff = await prisma.rentalTariff.findFirst({
-                where: {
-                    carId,
-                    minDays: {lte: totalDays},
-                    OR: [
-                        {maxDays: {gte: totalDays}},
-                        {maxDays: 0}, // 0 means unlimited
-                    ],
-                },
-                orderBy: {minDays: 'asc'},
-            });
-
-            if (tariff) {
-                // Legacy RentalTariff.dailyPrice stores value in MAIN units (USD dollars),
-                // while dailyRateMinor is expected in MINOR units (cents). Multiply by 100.
-                // This mirrors seed.ts which generates RatePlan.dailyPrice as tariff.dailyPrice * 100.
-                dailyRateMinor = tariff.dailyPrice * 100;
-            }
+        } else if (tariff) {
+            // Legacy RentalTariff.dailyPrice stores value in MAIN units (USD
+            // dollars); dailyRateMinor is expected in MINOR units (cents).
+            dailyRateMinor = tariff.dailyPrice * 100;
         }
 
         const rentalTotal = dailyRateMinor * totalDays;
 
-        // Coverage package
-        let depositPercent = 100;
+        // Coverage package. Despite the misleading seed names ("Basic" = 100,
+        // "Full" = 0) the real semantic in production is: depositPercent is the
+        // level of insurance coverage. Higher coverage → lower refundable
+        // deposit. Zero coverage → full deposit. This matches both the public
+        // booking UI (front/.../CarAside.tsx) and the actual admin-configured
+        // CarCountingRule rows.
+        //
+        // Default if no package selected: 0 (no coverage → full deposit).
+        let depositPercent = 0;
         let coveragePackageName: string | null = null;
         if (coveragePackageId) {
             const coveragePackage = await prisma.coveragePackage.findUnique({
@@ -76,8 +83,26 @@ class PricingService {
             }
         }
 
-        // Calculate deposit based on the coverage package deposit percent and rental total
-        const depositAmount = Math.round((rentalTotal * depositPercent) / 100);
+        // Deposit resolution matches public site (`CarAside`):
+        // 1) If there's a CarCountingRule for this car with matching
+        //    depositPercent AND depositFixed is set — use that fixed amount.
+        //    This is how admins override the formula for premium coverage
+        //    (e.g. Kia Sportage 100% coverage → $200 fixed).
+        // 2) Otherwise scale the base security deposit inversely:
+        //       deposit = tariff.deposit * (100 - depositPercent) / 100
+        //    so 0% coverage = full deposit, 100% coverage = 0.
+        // 3) Fall back to 0 if no tariff found.
+        let depositAmount = 0;
+        if (tariff) {
+            const countingRule = await prisma.carCountingRule.findFirst({
+                where: {carId, depositPercent},
+            });
+            if (countingRule?.depositFixed != null) {
+                depositAmount = countingRule.depositFixed * 100;
+            } else {
+                depositAmount = Math.round((tariff.deposit * 100 * (100 - depositPercent)) / 100);
+            }
+        }
 
         // Add-ons
         const addOnBreakdown: Array<{
