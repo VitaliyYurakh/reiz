@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toast, toastError } from '@/lib/toast';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -207,6 +209,7 @@ export default function ClientDetailPage() {
   const params = useParams();
   const router = useRouter();
   const { t } = useAdminLocale();
+  const confirm = useConfirm();
   const id = params.id as string;
 
   const [client, setClient] = useState<Client | null>(null);
@@ -265,9 +268,9 @@ export default function ClientDetailPage() {
       await adminApiClient.patch(`/client/${id}`, form);
       await fetchClient();
       setEditing(false);
+      toast.success(t('clientDetail.saveSuccess') ?? 'Збережено');
     } catch (err) {
-      console.error(err);
-      alert(t('clientDetail.saveError'));
+      toastError(err, t('clientDetail.saveError'));
     } finally {
       setSaving(false);
     }
@@ -287,21 +290,24 @@ export default function ClientDetailPage() {
       });
       await fetchClient();
     } catch (err) {
-      console.error(err);
-      alert(t('clientDetail.ratingError'));
+      toastError(err, t('clientDetail.ratingError'));
     } finally {
       setSavingRating(false);
     }
   };
 
   const handleDeleteDocument = async (docId: number) => {
-    if (!confirm(t('clientDetail.deleteDocConfirm'))) return;
+    const ok = await confirm({
+      title: t('clientDetail.deleteDocConfirm'),
+      confirmLabel: t('common.delete') ?? 'Видалити',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await adminApiClient.delete(`/client/${id}/document/${docId}`);
       await fetchClient();
     } catch (err) {
-      console.error(err);
-      alert(t('clientDetail.deleteDocError'));
+      toastError(err, t('clientDetail.deleteDocError'));
     }
   };
 
@@ -314,21 +320,23 @@ export default function ClientDetailPage() {
       setBlockReasonInput('');
       await fetchClient();
     } catch (err) {
-      console.error(err);
-      alert(t('clientDetail.blockError'));
+      toastError(err, t('clientDetail.blockError'));
     } finally {
       setBlockLoading(false);
     }
   };
 
   const handleUnblock = async () => {
-    if (!confirm(t('clientDetail.unblockConfirm'))) return;
+    const ok = await confirm({
+      title: t('clientDetail.unblockConfirm'),
+      confirmLabel: t('clientDetail.unblockBtn') ?? 'Розблокувати',
+    });
+    if (!ok) return;
     try {
       await adminApiClient.post(`/client/${id}/unblock`);
       await fetchClient();
     } catch (err) {
-      console.error(err);
-      alert(t('clientDetail.unblockError'));
+      toastError(err, t('clientDetail.unblockError'));
     }
   };
 
@@ -842,8 +850,7 @@ function DocumentsTab({
       setUploadType('OTHER');
       onRefresh();
     } catch (err) {
-      console.error(err);
-      alert(t('clientDetail.uploadDocError'));
+      toastError(err, t('clientDetail.uploadDocError'));
     } finally {
       setUploading(false);
     }
