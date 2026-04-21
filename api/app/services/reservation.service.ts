@@ -297,6 +297,10 @@ class ReservationService {
                     contractNumber: pickupData.contractNumber || null,
                     priceSnapshot: (reservation.priceSnapshot ?? {}) as any,
                     depositAmount: Math.round((reservation.priceSnapshot as PriceSnapshot)?.depositAmount || 0),
+                    // Inherit the snapshot's currency instead of relying on the Prisma
+                    // default 'UAH' — otherwise a USD booking shows "164 UAH" in the
+                    // rental detail because the raw number is right but the unit is wrong.
+                    depositCurrency: ((reservation.priceSnapshot as PriceSnapshot)?.currency as string | undefined) || 'UAH',
                     // Copy add-ons from reservation to rental
                     rentalAddOns: reservation.reservationAddOns.length > 0
                         ? {

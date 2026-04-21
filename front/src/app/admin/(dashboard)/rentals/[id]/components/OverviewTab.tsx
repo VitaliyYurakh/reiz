@@ -212,9 +212,11 @@ export function OverviewTab({ rental }: { rental: Rental }) {
                 const snap = rental.priceSnapshot as Record<string, unknown>;
                 const PRICE_LABELS: Record<string, string> = {
                     dailyRate: t('rentalDetail.priceDailyRate'),
+                    dailyRateMinor: t('rentalDetail.priceDailyRate'),
                     totalDays: t('rentalDetail.priceTotalDays'),
                     baseAmount: t('rentalDetail.priceBaseAmount'),
                     baseRentalCost: t('rentalDetail.priceRental'),
+                    rentalTotal: t('rentalDetail.priceRental'),
                     insuranceCost: t('rentalDetail.priceInsurance'),
                     addOnsTotal: t('rentalDetail.priceAddOns'),
                     extrasCost: t('rentalDetail.priceAddOns'),
@@ -223,32 +225,51 @@ export function OverviewTab({ rental }: { rental: Rental }) {
                     depositAmount: t('rentalDetail.priceDeposit'),
                     total: t('rentalDetail.totalLabel'),
                     totalCost: t('rentalDetail.totalLabel'),
-                    currency: t('common.currency'),
+                    grandTotal: t('rentalDetail.totalLabel'),
                     ratePlanName: t('rentalDetail.priceRatePlan'),
                     coverageName: t('rentalDetail.priceCoverage'),
+                    coveragePackageName: t('rentalDetail.priceCoverage'),
                     depositPercent: t('rentalDetail.priceDepositPercent'),
                     name: t('rentalDetail.priceRatePlan'),
                 };
-                const SKIP_KEYS = new Set(['approvedAt', 'pickupDate', 'returnDate', 'createdAt', 'updatedAt']);
-                const TOTAL_KEYS = new Set(['total', 'totalCost']);
-                const entries = Object.entries(snap).filter(([k]) => !SKIP_KEYS.has(k));
+                // Hide timestamps, internal IDs already rendered elsewhere (carId,
+                // ratePlanId, coveragePackageId) and containers rendered by their
+                // own UI (add-ons list, currency label).
+                const SKIP_KEYS = new Set([
+                    'approvedAt', 'pickupDate', 'returnDate', 'createdAt', 'updatedAt',
+                    'carId', 'ratePlanId', 'coveragePackageId', 'currency', 'addOns',
+                ]);
+                // Monetary fields stored as minor units (cents). pricingService
+                // returns all money in minor; legacy websiteSnapshots used `dailyRate`
+                // as main units — keep that one in PLAIN_NUMBER_KEYS.
+                const MINOR_MONEY_KEYS = new Set([
+                    'grandTotal', 'rentalTotal', 'addOnsTotal', 'deliveryFee',
+                    'depositAmount', 'dailyRateMinor', 'baseRentalCost',
+                    'insuranceCost', 'extrasCost', 'total', 'totalCost', 'totalMinor',
+                    'baseAmount',
+                ]);
+                const PERCENT_KEYS = new Set(['depositPercent']);
+                const PLAIN_NUMBER_KEYS = new Set(['totalDays', 'dailyRate']);
+                const TOTAL_KEYS = new Set(['total', 'totalCost', 'grandTotal']);
+
+                const entries = Object.entries(snap)
+                    .filter(([k, v]) => !SKIP_KEYS.has(k) && !Array.isArray(v));
                 if (entries.length === 0) return null;
 
                 const totalEntry = entries.find(([k]) => TOTAL_KEYS.has(k));
                 const otherEntries = entries.filter(([k]) => !TOTAL_KEYS.has(k));
 
+                const currency = (snap.currency as string) || 'USD';
                 const formatVal = (key: string, val: unknown): string => {
                     if (val == null) return '—';
-                    if (key === 'currency') return String(val);
-                    if (key === 'depositPercent') return `${val}%`;
-                    if (key === 'totalDays') return String(val);
+                    if (PERCENT_KEYS.has(key)) return `${val}%`;
+                    if (PLAIN_NUMBER_KEYS.has(key)) return String(val);
+                    if (typeof val === 'string') return val;
                     if (typeof val === 'number') {
-                        const cur = (snap.currency as string) || 'USD';
-                        return `${val.toLocaleString('ru')} ${cur}`;
-                    }
-                    if (typeof val === 'string' && !isNaN(Number(val))) {
-                        const cur = (snap.currency as string) || 'USD';
-                        return `${Number(val).toLocaleString('ru')} ${cur}`;
+                        if (MINOR_MONEY_KEYS.has(key)) {
+                            return `${(val / 100).toLocaleString('uk-UA', {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${currency}`;
+                        }
+                        return `${val.toLocaleString('uk-UA')} ${currency}`;
                     }
                     return String(val);
                 };
@@ -260,14 +281,18 @@ export function OverviewTab({ rental }: { rental: Rental }) {
                             {t('rentalDetail.cost')}
                         </div>
                         <div className="space-y-2">
-                            {otherEntries.map(([key, value]) => (
-                                <div key={key} className="flex items-center justify-between text-sm">
-                                    <span className="text-muted-foreground">{PRICE_LABELS[key] || key}</span>
-                                    <span className="font-medium text-card-foreground">
-                                        {formatVal(key, value)}
-                                    </span>
-                                </div>
-                            ))}
+                            {otherEntries.map(([key, value]) => {
+                                const label = PRICE_LABELS[key]
+                                    || key.replace(/([A-Z])/g, ' $1').replace(/^./, c => c.toUpperCase()).trim();
+                                return (
+                                    <div key={key} className="flex items-center justify-between text-sm">
+                                        <span className="text-muted-foreground">{label}</span>
+                                        <span className="font-medium text-card-foreground">
+                                            {formatVal(key, value)}
+                                        </span>
+                                    </div>
+                                );
+                            })}
                             {totalEntry && (
                                 <div className="flex items-center justify-between text-sm border-t border-border pt-2 mt-2">
                                     <span className="font-semibold text-foreground">{t('rentalDetail.totalLabel')}</span>
