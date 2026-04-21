@@ -14,6 +14,8 @@ import {
   updateRentalTariffs,
   updateCountingRules,
 } from '@/lib/api/admin';
+import { toast, toastError } from '@/lib/toast';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { Car, CarCountingRule, RentalTariff, Segment } from '@/types/cars';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { Camera, DollarSign, Info, List, MapPin } from 'lucide-react';
@@ -31,12 +33,14 @@ export default function CarEditPage() {
   const params = useParams();
   const router = useRouter();
   const { H } = useAdminTheme();
+  const confirm = useConfirm();
   const id = Number(params.idSlug);
 
   const [car, setCar] = useState<Car | null>(null);
   const [segments, setSegments] = useState<Segment[]>([]);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
+  const [editingAlt, setEditingAlt] = useState<{ photoId: number; value: string } | null>(null);
   const [activeLang, setActiveLang] = useState<LangCode>('uk');
   const [description, setDescription] = useState<MultiLang>({ uk: '', ru: '', en: '', pl: '', ro: '' });
   const [attributes, setAttributes] = useState<any>({});
@@ -192,29 +196,47 @@ export default function CarEditPage() {
         await addPhoto(id, formData);
       }
       await loadData();
+      toast.success('Фото завантажено');
     } catch (e) {
-      alert('Ошибка загрузки фото: ' + e);
+      toastError(e, 'Помилка завантаження фото');
     }
   };
 
   const handleDeletePhoto = async (photoId: number) => {
-    if (!confirm('Удалить фото?')) return;
+    const ok = await confirm({
+      title: 'Видалити фото?',
+      message: 'Цю дію не можна скасувати.',
+      confirmLabel: 'Видалити',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await deletePhoto(id, photoId);
       await loadData();
+      toast.success('Фото видалено');
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося видалити фото');
     }
   };
 
-  const handleEditPhotoAlt = async (photoId: number, currentAlt: string = '') => {
-    const alt = prompt(`Текущий alt: ${currentAlt}`, currentAlt);
-    if (!alt) return;
+  const handleEditPhotoAlt = (photoId: number, currentAlt: string = '') => {
+    setEditingAlt({ photoId, value: currentAlt });
+  };
+
+  const submitEditAlt = async () => {
+    if (!editingAlt) return;
+    const alt = editingAlt.value.trim();
+    if (!alt) {
+      toast.error('Alt не може бути порожнім');
+      return;
+    }
     try {
-      await updatePhoto(id, { photoId, alt });
+      await updatePhoto(id, { photoId: editingAlt.photoId, alt });
+      setEditingAlt(null);
       await loadData();
+      toast.success('Alt оновлено');
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося оновити alt');
     }
   };
 
@@ -230,7 +252,7 @@ export default function CarEditPage() {
       await loadData();
       showSaved('description');
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося зберегти опис');
     }
   };
 
@@ -240,7 +262,7 @@ export default function CarEditPage() {
       await loadData();
       showSaved('attributes');
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося зберегти характеристики');
     }
   };
 
@@ -265,15 +287,15 @@ export default function CarEditPage() {
 
   const handleSaveTariffs = async () => {
     const tariffsToSend = tariffs.map((t) => ({ ...t, deposit: Number(deposit) }));
+    // Sequential (audit M-14): if overmileagePrice update fails, don't persist tariffs
+    // at a different price expectation. Tariffs second because they are the bigger op.
     try {
-      await Promise.all([
-        updateRentalTariffs(id, tariffsToSend),
-        updateCar(id, { overmileagePrice: Number(rentalConditions.overmileagePrice) || 0 }),
-      ]);
+      await updateCar(id, { overmileagePrice: Number(rentalConditions.overmileagePrice) || 0 });
+      await updateRentalTariffs(id, tariffsToSend);
       await loadData();
       showSaved('tariffs');
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося зберегти тарифи');
     }
   };
 
@@ -290,7 +312,7 @@ export default function CarEditPage() {
       await loadData();
       showSaved('coverage');
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося зберегти правила покриття');
     }
   };
 
@@ -343,7 +365,7 @@ export default function CarEditPage() {
       await loadData();
       showSaved('rentalConditions');
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося зберегти умови оренди');
     }
   };
 
@@ -354,8 +376,9 @@ export default function CarEditPage() {
       await updateCar(id, { configuration: newList });
       setIsConfigModalOpen(false);
       await loadData();
+      toast.success('Комплектацію додано');
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося зберегти комплектацію');
     }
   };
 
@@ -365,7 +388,7 @@ export default function CarEditPage() {
       await updateCar(id, { configuration: newList });
       await loadData();
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося видалити пункт комплектації');
     }
   };
 
@@ -376,7 +399,7 @@ export default function CarEditPage() {
       await updateCar(id, { discount: discountValue });
       await loadData();
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося змінити знижку');
     }
   };
 
@@ -385,7 +408,7 @@ export default function CarEditPage() {
       await updateCar(id, { isNew: !isNew });
       await loadData();
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося оновити позначку "новинка"');
     }
   };
 
@@ -394,7 +417,7 @@ export default function CarEditPage() {
       await updateCar(id, { isAvailable: !isAvailable });
       await loadData();
     } catch (e) {
-      alert(String(e));
+      toastError(e, 'Не вдалося оновити доступність');
     }
   };
 
@@ -413,16 +436,22 @@ export default function CarEditPage() {
       segmentIds,
     };
     if (!segmentIds.length) {
-      alert('Оберіть хоча б один сегмент');
+      toast.error('Оберіть хоча б один сегмент');
       return;
     }
     try {
       await updateCar(id, reqData);
       setIsSettingsModalOpen(false);
       await loadData();
-    } catch (e: any) {
-      const msg = e?.response?.data?.errors?.join(', ') || e?.response?.data?.msg || String(e);
-      alert('Помилка: ' + msg);
+      toast.success('Дані авто збережено');
+    } catch (e: unknown) {
+      const errData = (e as { response?: { data?: { errors?: string[] } } })?.response?.data;
+      const msg = errData?.errors?.length ? errData.errors.join(', ') : undefined;
+      if (msg) {
+        toast.error(msg);
+      } else {
+        toastError(e, 'Помилка збереження');
+      }
     }
   };
 
@@ -608,6 +637,100 @@ export default function CarEditPage() {
         newConfigItem={newConfigItem}
         setNewConfigItem={setNewConfigItem}
       />
+
+      {/* Edit Photo Alt Modal — replaces legacy window.prompt */}
+      {editingAlt && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            background: 'rgba(27, 37, 89, 0.4)',
+            backdropFilter: 'blur(6px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontFamily: H.font,
+          }}
+          onClick={(e) => { if (e.target === e.currentTarget) setEditingAlt(null); }}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') setEditingAlt(null);
+            if (e.key === 'Enter') submitEditAlt();
+          }}
+        >
+          <div
+            style={{
+              background: H.white,
+              borderRadius: 16,
+              padding: 24,
+              width: 'min(440px, calc(100vw - 32px))',
+              boxShadow: H.shadowMd,
+            }}
+          >
+            <h3 style={{ fontSize: 17, fontWeight: 700, margin: 0, color: H.navyDark }}>
+              Редагувати alt фото
+            </h3>
+            <p style={{ fontSize: 13, color: H.gray, marginTop: 6, marginBottom: 16 }}>
+              Текст для атрибуту alt (SEO та accessibility).
+            </p>
+            <input
+              type="text"
+              autoFocus
+              value={editingAlt.value}
+              onChange={(e) => setEditingAlt({ ...editingAlt, value: e.target.value })}
+              style={{
+                width: '100%',
+                height: 40,
+                padding: '0 14px',
+                borderRadius: 10,
+                border: `1px solid ${H.grayLight}`,
+                fontSize: 14,
+                background: H.bg,
+                color: H.navy,
+                outline: 'none',
+                fontFamily: H.font,
+              }}
+            />
+            <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end', marginTop: 20 }}>
+              <button
+                type="button"
+                onClick={() => setEditingAlt(null)}
+                style={{
+                  borderRadius: 49,
+                  padding: '9px 18px',
+                  fontSize: 13,
+                  fontWeight: 700,
+                  border: 'none',
+                  background: H.bg,
+                  color: H.navy,
+                  cursor: 'pointer',
+                }}
+              >
+                Скасувати
+              </button>
+              <button
+                type="button"
+                onClick={submitEditAlt}
+                style={{
+                  borderRadius: 49,
+                  padding: '9px 18px',
+                  fontSize: 13,
+                  fontWeight: 700,
+                  border: 'none',
+                  background: `linear-gradient(135deg, ${H.purpleLight} 0%, ${H.purple} 100%)`,
+                  color: '#fff',
+                  boxShadow: '0 4px 12px rgba(67, 24, 255, 0.25)',
+                  cursor: 'pointer',
+                }}
+              >
+                Зберегти
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
