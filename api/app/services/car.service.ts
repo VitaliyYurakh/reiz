@@ -140,26 +140,25 @@ class CarService {
             throw new CarNotFoundError();
         }
 
-        for await (const tariff of tariffs) {
-            const oldTariff = await prisma.rentalTariff.findFirst({
-                where: {minDays: tariff.minDays, maxDays: tariff.maxDays, carId},
-            });
-
-            if (!oldTariff) {
-                await prisma.rentalTariff.create({
-                    data: {
-                        ...tariff,
-                        carId: car.id,
+        // Atomic upsert of all tariffs using the @@unique([minDays, maxDays, carId])
+        // compound key. Before the transaction, the loop could partially succeed —
+        // a mid-iteration failure left the car with a mix of old and new prices
+        // (audit H-5).
+        await prisma.$transaction(
+            tariffs.map((tariff) =>
+                prisma.rentalTariff.upsert({
+                    where: {
+                        minDays_maxDays_carId: {
+                            minDays: tariff.minDays,
+                            maxDays: tariff.maxDays,
+                            carId,
+                        },
                     },
-                });
-                continue;
-            }
-
-            await prisma.rentalTariff.update({
-                where: {id: oldTariff.id},
-                data: tariff,
-            });
-        }
+                    create: {...tariff, carId},
+                    update: tariff,
+                })
+            )
+        );
     }
 
     async addCarPreviewPhoto(carId: number, url: string) {
@@ -205,16 +204,19 @@ class CarService {
             throw new CarNotFoundError();
         }
 
-        await prisma.carCountingRule.deleteMany({where: {carId}});
-
-        await Promise.all(countingRulesDto.map(async (countingRuleDto) => {
-            await prisma.carCountingRule.create({
-                data: {
-                    ...countingRuleDto,
-                    carId: car.id,
-                },
-            });
-        }))
+        // Atomic replace: deleteMany + createMany in a single transaction.
+        // Before this, a failure between deleteMany and the parallel creates
+        // left the car with zero counting rules (audit H-4).
+        // CarCountingRule has no business-level unique key, so full-replace is
+        // the only correct semantics here — but it MUST be atomic.
+        await prisma.$transaction(async (tx) => {
+            await tx.carCountingRule.deleteMany({where: {carId}});
+            if (countingRulesDto.length > 0) {
+                await tx.carCountingRule.createMany({
+                    data: countingRulesDto.map((rule) => ({...rule, carId: car.id})),
+                });
+            }
+        });
     }
 
     async updatePhotoCar(carPhotoId: number, alt: string) {
