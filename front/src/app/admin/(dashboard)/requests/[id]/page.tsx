@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
 import { BASE_URL } from '@/config/environment';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -373,8 +374,7 @@ export default function RequestDetailPage() {
       await adminApiClient.patch(`/rental-request/${id}`, { status: 'in_review' });
       await fetchRequest();
     } catch (err) {
-      console.error(err);
-      alert(t('requestDetail.statusChangeFailed'));
+      toastError(err, t('requestDetail.statusChangeFailed'));
     } finally {
       setActionLoading(false);
     }

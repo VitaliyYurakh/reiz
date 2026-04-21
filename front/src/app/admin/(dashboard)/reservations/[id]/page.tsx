@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient, getAllCars } from '@/lib/api/admin';
+import { toast } from '@/lib/toast';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { cn } from '@/lib/cn';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -91,6 +93,7 @@ export default function ReservationDetailPage() {
     const params = useParams();
     const router = useRouter();
     const { t } = useAdminLocale();
+    const confirm = useConfirm();
     const id = params.id as string;
 
     const [reservation, setReservation] = useState<Reservation | null>(null);
@@ -267,7 +270,9 @@ export default function ReservationDetailPage() {
             if (contractNumber) body.contractNumber = contractNumber;
             const res = await adminApiClient.post(`/reservation/${id}/pickup`, body);
             setShowPickupForm(false);
-            if (res.data.warnings?.length) alert(t('reservationDetail.warnings') + '\n' + res.data.warnings.join('\n'));
+            if (res.data.warnings?.length) {
+                toast.warning(res.data.warnings.join('\n'), { description: t('reservationDetail.warnings') });
+            }
             if (res.data.rental?.id) router.push(`/admin/rentals/${res.data.rental.id}`);
             else await fetchReservation();
         } catch (err: any) {
@@ -298,7 +303,8 @@ export default function ReservationDetailPage() {
     };
 
     const handleReactivate = async () => {
-        if (!confirm(t('reservationDetail.restore') + '?')) return;
+        const ok = await confirm({ title: t('reservationDetail.restore') + '?' });
+        if (!ok) return;
         setActionLoading(true);
         try {
             await adminApiClient.post(`/reservation/${id}/reactivate`);

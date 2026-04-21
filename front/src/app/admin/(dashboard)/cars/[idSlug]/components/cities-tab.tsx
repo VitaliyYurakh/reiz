@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { MapPin, Save, Truck } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
+import { toastError } from '@/lib/toast';
 import { HCard, HSaveButton } from './ui-primitives';
 import {
   getCities,
@@ -95,7 +96,7 @@ export function CitiesTab({ carId, saving, onSaved }: CitiesTabProps) {
       await updateCarCityAvailability(carId, data);
       onSaved('cities');
     } catch (e) {
-      alert('Помилка збереження: ' + e);
+      toastError(e, 'Помилка збереження міст');
     }
   };
 

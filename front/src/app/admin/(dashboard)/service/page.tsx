@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { adminApiClient, getAllCars } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { IosSelect } from '@/components/admin/IosSelect';
 import { fmtMoney as formatMoney, fmtDate, fmtDateTime } from '@/app/admin/lib/format';
@@ -139,6 +141,7 @@ function toDatetimeLocal(iso: string | null): string {
 
 export default function ServicePage() {
   const { t } = useAdminLocale();
+  const confirm = useConfirm();
   const [items, setItems] = useState<ServiceEvent[]>([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
@@ -292,12 +295,17 @@ export default function ServicePage() {
   /* ── Delete ── */
 
   const handleDelete = async (id: number) => {
-    if (!confirm(t('service.deleteConfirm'))) return;
+    const ok = await confirm({
+      title: t('service.deleteConfirm'),
+      confirmLabel: t('common.delete') ?? 'Видалити',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await adminApiClient.delete(`/service-event/${id}`);
       await fetchData();
     } catch (err) {
-      console.error('Delete failed', err);
+      toastError(err, 'Не вдалося видалити подію сервісу');
     }
   };
 
@@ -325,13 +333,18 @@ export default function ServicePage() {
 
   const handlePhotoDelete = async (photoId: number) => {
     if (!detailEvent) return;
-    if (!confirm('Видалити фото?')) return;
+    const ok = await confirm({
+      title: 'Видалити фото?',
+      confirmLabel: 'Видалити',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await adminApiClient.delete(`/service-event/${detailEvent.id}/photo/${photoId}`);
       setDetailEvent((prev) => prev ? { ...prev, photos: prev.photos.filter((p) => p.id !== photoId) } : prev);
       setItems((prev) => prev.map((ev) => ev.id === detailEvent.id ? { ...ev, photos: ev.photos.filter((p) => p.id !== photoId) } : ev));
     } catch (err) {
-      console.error('Photo delete failed', err);
+      toastError(err, 'Не вдалося видалити фото');
     }
   };
 

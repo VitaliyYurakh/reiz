@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createCar, deleteCar, getAllCars } from '@/lib/api/admin';
+import { toast, toastError } from '@/lib/toast';
 import { Car } from '@/types/cars';
 import { BASE_URL } from '@/config/environment';
 import {
@@ -48,7 +49,7 @@ export default function CarListPage() {
       const newCar = await createCar({});
       router.push(`/admin/cars/${newCar.id}`);
     } catch (e) {
-      alert(t('cars.createError'));
+      toastError(e, t('cars.createError'));
     }
   };
 
@@ -57,8 +58,9 @@ export default function CarListPage() {
       await deleteCar(id);
       setCars((prev) => prev.filter((c) => c.id !== id));
       setDeleteConfirm(null);
+      toast.success(t('cars.deleteSuccess') ?? 'Авто видалено');
     } catch (e) {
-      alert(t('cars.deleteError'));
+      toastError(e, t('cars.deleteError'));
     }
   };
 
