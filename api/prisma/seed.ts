@@ -4,11 +4,14 @@ import {seedCities, seedPickupLocations, popularCitySlugs} from './seed-cities';
 const prisma = new PrismaClient();
 
 async function main() {
-    // bcrypt hash of 'admin123' — update: always resets the password when seed runs
+    // Initial bcrypt hash of 'admin123' — USED ONLY WHEN CREATING A FRESH RECORD.
+    // NEVER put `pass` into the `update` branch — it will overwrite the production
+    // password on every seed run (audit finding C-2). Password rotation is handled
+    // exclusively through the admin API / manual SQL on prod.
     const adminHash = '$2b$12$J9eS8tRZSHlOVUvpBQP1wuw9KBqDRW3v5VqZQhiq9Xy4G23oKCsam';
     await prisma.user.upsert({
         where: {email: 'admin@example.com'},
-        update: {pass: adminHash},
+        update: {}, // idempotent — do not touch existing admin's pass/role/permissions
         create: {
             email: 'admin@example.com',
             pass: adminHash,
