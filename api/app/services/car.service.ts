@@ -77,38 +77,39 @@ class CarService {
     async createOne(car: CreateCarDto) {
         const {segmentIds, ...rest} = car;
 
-        const newCar = await prisma.car.create({
-            data: {
-                ...rest,
-                ...(segmentIds && segmentIds.length > 0 && {
-                    segment: {connect: segmentIds.map((sid) => ({id: sid}))},
-                }),
-            },
+        // Atomic create: Car + default RentalTariff rows + default CarCountingRule rows.
+        // Before the transaction, updateRentalTariff/updateCountingRule were called
+        // without await and without transaction — a failure on either left the Car
+        // in the DB without pricing data (audit H-3).
+        return await prisma.$transaction(async (tx) => {
+            const newCar = await tx.car.create({
+                data: {
+                    ...rest,
+                    ...(segmentIds && segmentIds.length > 0 && {
+                        segment: {connect: segmentIds.map((sid) => ({id: sid}))},
+                    }),
+                },
+            });
+
+            await tx.rentalTariff.createMany({
+                data: [
+                    {dailyPrice: 0, deposit: 0, minDays: 1, maxDays: 2, carId: newCar.id},
+                    {dailyPrice: 0, deposit: 0, minDays: 3, maxDays: 7, carId: newCar.id},
+                    {dailyPrice: 0, deposit: 0, minDays: 8, maxDays: 29, carId: newCar.id},
+                    {dailyPrice: 0, deposit: 0, minDays: 30, maxDays: 0, carId: newCar.id},
+                ],
+            });
+
+            await tx.carCountingRule.createMany({
+                data: [
+                    {pricePercent: 0, depositPercent: 0, carId: newCar.id},
+                    {pricePercent: 12, depositPercent: 50, carId: newCar.id},
+                    {pricePercent: 36, depositPercent: 100, carId: newCar.id},
+                ],
+            });
+
+            return newCar;
         });
-
-        this.updateRentalTariff(newCar.id, [
-            {dailyPrice: 0, deposit: 0, minDays: 1, maxDays: 2},
-            {dailyPrice: 0, deposit: 0, minDays: 3, maxDays: 7},
-            {dailyPrice: 0, deposit: 0, minDays: 8, maxDays: 29},
-            {dailyPrice: 0, deposit: 0, minDays: 30, maxDays: 0},
-        ]);
-
-        this.updateCountingRule(newCar.id, [
-            {
-                "pricePercent": 0,
-                "depositPercent": 0,
-            },
-            {
-                "pricePercent": 12,
-                "depositPercent": 50,
-            },
-            {
-                "pricePercent": 36,
-                "depositPercent": 100,
-            }
-        ])
-
-        return newCar;
     }
 
     async updateOne(id: number, carDto: UpdateCarDto) {
