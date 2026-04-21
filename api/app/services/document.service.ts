@@ -78,8 +78,22 @@ class DocumentService {
 
         const filePath = path.join(docsDir, fileName);
 
-        // Generate actual PDF
-        await this.generatePdf(filePath, type, rental);
+        // Cleanup helper: best-effort unlink; safe to call even if file doesn't exist.
+        const cleanupFile = async () => {
+            try {
+                await fs.promises.unlink(filePath);
+            } catch {
+                // File may not exist (generatePdf failed before stream opened) — ignore.
+            }
+        };
+
+        // Phase 1: generate the PDF on disk. If this fails, remove any partial file.
+        try {
+            await this.generatePdf(filePath, type, rental);
+        } catch (err) {
+            await cleanupFile();
+            throw err;
+        }
 
         const dataSnapshot = {
             rental: {
@@ -110,16 +124,23 @@ class DocumentService {
             generatedAt: new Date().toISOString(),
         };
 
-        return await prisma.document.create({
-            data: {
-                type,
-                rentalId,
-                fileUrl,
-                fileName,
-                templateVersion: '1.0.0',
-                dataSnapshot,
-            },
-        });
+        // Phase 2: persist the DB record. If this fails, the PDF on disk becomes
+        // orphaned — unlink it so the filesystem doesn't leak.
+        try {
+            return await prisma.document.create({
+                data: {
+                    type,
+                    rentalId,
+                    fileUrl,
+                    fileName,
+                    templateVersion: '1.0.0',
+                    dataSnapshot,
+                },
+            });
+        } catch (err) {
+            await cleanupFile();
+            throw err;
+        }
     }
 
     private async generatePdf(filePath: string, type: string, rental: any): Promise<void> {
