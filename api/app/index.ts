@@ -8,7 +8,7 @@ import rateLimit from 'express-rate-limit';
 import crypto from 'node:crypto';
 import {logger, prisma} from './utils';
 import {router} from './routers';
-import {auth, csrfProtection, globalErrorHandler} from './middleware';
+import {auth, csrfProtection, globalErrorHandler, requirePermission} from './middleware';
 import {requestContext} from './config/request-context';
 import path from 'node:path';
 
@@ -73,9 +73,21 @@ const startServer = async () => {
         });
         app.use('/api/feedback', feedbackLimiter);
 
-        // Protected static files: client documents — require auth (MUST be before public /static)
-        app.use('/static/client-documents', auth, express.static(path.join(pathToUploads, 'client-documents')));
-        app.use('/static/documents', auth, express.static(path.join(pathToUploads, 'documents')));
+        // Protected static files — require auth AND the specific module permission.
+        // Must be registered BEFORE the public /static mount so more-specific paths win.
+        // express.static runs only if auth + requirePermission both pass.
+        app.use(
+            '/static/client-documents',
+            auth,
+            requirePermission('clients', 'view'),
+            express.static(path.join(pathToUploads, 'client-documents'))
+        );
+        app.use(
+            '/static/documents',
+            auth,
+            requirePermission('rentals', 'view'),
+            express.static(path.join(pathToUploads, 'documents'))
+        );
 
         // Static files: public uploads (car photos) — no auth
         const publicUploadsPath = path.join(pathToUploads);
