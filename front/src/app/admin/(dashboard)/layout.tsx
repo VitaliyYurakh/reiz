@@ -27,7 +27,9 @@ import {
   Sun,
 } from 'lucide-react';
 import { cn } from '@/lib/cn';
+import { Toaster } from 'sonner';
 import { TopBar } from '@/components/admin/TopBar';
+import { ConfirmProvider } from '@/components/admin/ConfirmProvider';
 import { useAdminLocale, type AdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { useAdminAuth } from '@/context/AdminAuthContext';
@@ -253,6 +255,7 @@ export default function DashboardLayout({
   } as React.CSSProperties : {};
 
   return (
+    <ConfirmProvider>
     <div className={cn('fixed inset-0 z-50 flex transition-colors duration-300', isDark ? 'bg-[#111827]' : 'bg-[#F0F4F8]')} data-theme={theme} style={themeVars}>
       {/* ── Sidebar ── */}
       <aside
@@ -506,5 +509,7 @@ export default function DashboardLayout({
         <div className="px-8 py-6">{children}</div>
       </main>
     </div>
+    <Toaster richColors position="top-right" theme={isDark ? 'dark' : 'light'} closeButton />
+    </ConfirmProvider>
   );
 }
