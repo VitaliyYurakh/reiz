@@ -20,6 +20,11 @@ const startServer = async () => {
         const port = env.PORT;
         const pathToUploads = path.resolve('./uploads/');
 
+        // Caddy sits in front as a single reverse proxy; X-Forwarded-For is trusted.
+        // Required so req.ip, express-rate-limit and audit_log.ip_address reflect the
+        // real client IP instead of Caddy's Docker-bridge address.
+        app.set('trust proxy', 1);
+
         // Security headers
         app.use(helmet());
 
