@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { getUsers, deleteUser } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { Users, Plus, Pencil, Trash2, Key } from 'lucide-react';
 import { UserModal } from '@/app/admin/(dashboard)/settings/components/UserModal';
@@ -39,9 +40,8 @@ export function TeamTab() {
       await deleteUser(deleteTarget.id);
       setDeleteTarget(null);
       fetchUsers();
-    } catch (err: any) {
-      console.error(err);
-      alert(err?.response?.data?.msg || 'Error');
+    } catch (err) {
+      toastError(err, t('settings.saveError') ?? 'Error');
     } finally {
       setDeleting(false);
     }

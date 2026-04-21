@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { changeUserPassword } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X, Save } from 'lucide-react';
 import type { TeamUser } from '@/app/admin/(dashboard)/settings/components/types';
@@ -23,9 +24,8 @@ export function PasswordModal({
     try {
       await changeUserPassword(user.id, password);
       onClose();
-    } catch (err: any) {
-      console.error(err);
-      alert(err?.response?.data?.msg || t('settings.saveError'));
+    } catch (err) {
+      toastError(err, t('settings.saveError'));
     } finally {
       setSaving(false);
     }

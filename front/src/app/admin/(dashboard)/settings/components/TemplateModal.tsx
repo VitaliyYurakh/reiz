@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X, Save } from 'lucide-react';
 import { Toggle } from '@/app/admin/(dashboard)/settings/components/Toggle';
@@ -48,9 +49,8 @@ export function TemplateModal({
       }
       onSaved();
       onClose();
-    } catch (err: any) {
-      console.error(err);
-      alert(err?.response?.data?.msg || t('settings.saveError'));
+    } catch (err) {
+      toastError(err, t('settings.saveError'));
     } finally {
       setSaving(false);
     }
