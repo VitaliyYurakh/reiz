@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X } from 'lucide-react';
 import type { Fine, Account } from './rental-detail-types';
@@ -49,8 +50,7 @@ export function MarkPaidModal({
             });
             onPaid();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.finePayError'));
+            toastError(err, t('rentalDetail.finePayError'));
         } finally {
             setLoading(false);
         }

@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { cn } from '@/lib/cn';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import {
@@ -25,6 +27,7 @@ export function FinesTab({
     onRefresh: () => void;
 }) {
     const { t } = useAdminLocale();
+    const confirm = useConfirm();
     const [showCreate, setShowCreate] = useState(false);
     const [payTarget, setPayTarget] = useState<Fine | null>(null);
     const [deleting, setDeleting] = useState<number | null>(null);
@@ -40,14 +43,18 @@ export function FinesTab({
     };
 
     const handleDelete = async (fineId: number) => {
-        if (!confirm(t('rentalDetail.confirmDeleteFine'))) return;
+        const ok = await confirm({
+            title: t('rentalDetail.confirmDeleteFine'),
+            confirmLabel: t('common.delete') ?? 'Видалити',
+            danger: true,
+        });
+        if (!ok) return;
         setDeleting(fineId);
         try {
             await adminApiClient.delete(`/rental/${rentalId}/fine/${fineId}`);
             onRefresh();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.fineDeleteError'));
+            toastError(err, t('rentalDetail.fineDeleteError'));
         } finally {
             setDeleting(null);
         }

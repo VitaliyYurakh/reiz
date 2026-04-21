@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { cn } from '@/lib/cn';
 import { BASE_URL } from '@/config/environment';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
@@ -27,6 +29,7 @@ export function InspectionsTab({
     onRefresh: () => void;
 }) {
     const { t } = useAdminLocale();
+    const confirm = useConfirm();
     const [showCreate, setShowCreate] = useState(false);
     const [uploadTarget, setUploadTarget] = useState<number | null>(null);
     const [completing, setCompleting] = useState<number | null>(null);
@@ -43,22 +46,25 @@ export function InspectionsTab({
             await adminApiClient.post(`/rental/${rentalId}/inspection/${inspId}/complete`);
             onRefresh();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.inspectionCompleteError'));
+            toastError(err, t('rentalDetail.inspectionCompleteError'));
         } finally {
             setCompleting(null);
         }
     };
 
     const handleDeletePhoto = async (inspId: number, photoId: number) => {
-        if (!confirm(t('rentalDetail.confirmDeletePhoto'))) return;
+        const ok = await confirm({
+            title: t('rentalDetail.confirmDeletePhoto'),
+            confirmLabel: t('common.delete') ?? 'Видалити',
+            danger: true,
+        });
+        if (!ok) return;
         setDeletingPhoto(photoId);
         try {
             await adminApiClient.delete(`/rental/${rentalId}/inspection/${inspId}/photo/${photoId}`);
             onRefresh();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.photoDeleteError'));
+            toastError(err, t('rentalDetail.photoDeleteError'));
         } finally {
             setDeletingPhoto(null);
         }

@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { BASE_URL } from '@/config/environment';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import {
@@ -23,6 +25,7 @@ export function DocumentsTab({
     onRefresh: () => void;
 }) {
     const { t } = useAdminLocale();
+    const confirm = useConfirm();
     const [generating, setGenerating] = useState(false);
     const [genType, setGenType] = useState('RENTAL_CONTRACT');
     const [showGenerate, setShowGenerate] = useState(false);
@@ -43,22 +46,25 @@ export function DocumentsTab({
             });
             setShowGenerate(false);
             onRefresh();
-        } catch (err: any) {
-            console.error(err);
-            alert(err?.response?.data?.msg || t('rentalDetail.docGenerateError'));
+        } catch (err) {
+            toastError(err, t('rentalDetail.docGenerateError'));
         } finally {
             setGenerating(false);
         }
     };
 
     const handleDelete = async (docId: number) => {
-        if (!confirm(t('rentalDetail.confirmDeleteDoc'))) return;
+        const ok = await confirm({
+            title: t('rentalDetail.confirmDeleteDoc'),
+            confirmLabel: t('common.delete') ?? 'Видалити',
+            danger: true,
+        });
+        if (!ok) return;
         try {
             await adminApiClient.delete(`/document/${docId}`);
             onRefresh();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.docDeleteError'));
+            toastError(err, t('rentalDetail.docDeleteError'));
         }
     };
 

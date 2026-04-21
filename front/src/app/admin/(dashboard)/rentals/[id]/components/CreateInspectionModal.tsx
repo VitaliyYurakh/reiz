@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
 import { cn } from '@/lib/cn';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X } from 'lucide-react';
@@ -36,8 +37,7 @@ export function CreateInspectionModal({
             });
             onCreated();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.inspectionCreateError'));
+            toastError(err, t('rentalDetail.inspectionCreateError'));
         } finally {
             setLoading(false);
         }

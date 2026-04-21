@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X } from 'lucide-react';
 import { FINE_TYPE_KEYS } from './rental-detail-constants';
@@ -50,8 +51,7 @@ export function CreateFineModal({
             });
             onCreated();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.fineCreateError'));
+            toastError(err, t('rentalDetail.fineCreateError'));
         } finally {
             setLoading(false);
         }

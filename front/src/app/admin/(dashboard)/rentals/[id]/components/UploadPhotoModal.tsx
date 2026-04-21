@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X, ImagePlus } from 'lucide-react';
 
@@ -45,8 +46,7 @@ export function UploadPhotoModal({
             }
             onUploaded();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.photoUploadError'));
+            toastError(err, t('rentalDetail.photoUploadError'));
         } finally {
             setLoading(false);
         }
