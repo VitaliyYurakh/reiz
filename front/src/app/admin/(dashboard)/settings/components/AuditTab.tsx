@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useCallback, Fragment } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import {
   ChevronDown,
   ChevronLeft,

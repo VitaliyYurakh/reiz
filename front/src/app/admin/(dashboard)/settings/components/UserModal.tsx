@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { createUser, updateUser } from '@/lib/api/admin';
-import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X, Save } from 'lucide-react';
 import { Toggle } from '@/app/admin/(dashboard)/settings/components/Toggle';
 import { PERMISSION_MODULES } from '@/app/admin/(dashboard)/settings/components/types';

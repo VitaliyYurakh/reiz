@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { User } from 'lucide-react';
 import type { UserProfile } from '@/app/admin/(dashboard)/settings/components/types';
 

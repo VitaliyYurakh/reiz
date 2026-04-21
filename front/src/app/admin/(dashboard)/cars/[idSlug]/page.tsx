@@ -15,7 +15,8 @@ import {
   updateCountingRules,
 } from '@/lib/api/admin';
 import { toast, toastError } from '@/lib/toast';
-import { logError } from '@/lib/log';import { useConfirm } from '@/components/admin/ConfirmProvider';
+import { logError } from '@/lib/log';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { Car, CarCountingRule, RentalTariff, Segment } from '@/types/cars';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { Camera, DollarSign, Info, List, MapPin } from 'lucide-react';

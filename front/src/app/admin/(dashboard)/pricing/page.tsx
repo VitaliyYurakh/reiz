@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { logError } from '@/lib/log';import { DollarSign } from 'lucide-react';
+import { logError } from '@/lib/log';
+import { DollarSign } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import type { TabKey, RatePlan, AddOn, CoveragePackage } from './components/pricing-types';

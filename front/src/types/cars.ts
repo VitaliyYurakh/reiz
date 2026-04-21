@@ -76,7 +76,9 @@ export interface Car {
   VIN: string | null;
   yearOfManufacture: number | null;
   color: string | null;
-  description: string | null;
+  // Prisma Json? column. Legacy rows contain a stringified JSON literal;
+  // new writes store a LocalizedText object directly (audit M-9).
+  description: string | LocalizedText | null;
   previewUrl: string | null;
   engineVolume: string | null;
   engineType: LocalizedText | null;

@@ -29,7 +29,10 @@ services:
             dockerfile: Dockerfile
             args:
                 NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-        image: my-next-app:latest
+        # NEVER change this tag back to a generic name like my-next-app:latest —
+        # the merent.ge deploy shares the same Docker host and collides with
+        # any non-namespaced tag, replacing this service with merent's frontend.
+        image: reiz-web:latest
         environment:
             NODE_ENV: production
             HOSTNAME: 0.0.0.0

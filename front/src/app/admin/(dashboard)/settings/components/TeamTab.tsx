@@ -3,7 +3,8 @@
 import { useEffect, useState, useCallback } from 'react';
 import { getUsers, deleteUser } from '@/lib/api/admin';
 import { toastError } from '@/lib/toast';
-import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { Users, Plus, Pencil, Trash2, Key } from 'lucide-react';
 import { UserModal } from '@/app/admin/(dashboard)/settings/components/UserModal';
 import { PasswordModal } from '@/app/admin/(dashboard)/settings/components/PasswordModal';

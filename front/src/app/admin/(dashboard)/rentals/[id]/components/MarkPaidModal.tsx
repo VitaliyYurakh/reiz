@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
 import { toastError } from '@/lib/toast';
-import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X } from 'lucide-react';
 import type { Fine, Account } from './rental-detail-types';
 import { fmtMoney } from './rental-detail-helpers';

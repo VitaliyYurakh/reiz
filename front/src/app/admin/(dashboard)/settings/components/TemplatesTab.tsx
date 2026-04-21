@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';
+import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { Bell, Plus, Pencil, MessageSquare } from 'lucide-react';
 import { Toggle } from '@/app/admin/(dashboard)/settings/components/Toggle';
 import { TemplateModal } from '@/app/admin/(dashboard)/settings/components/TemplateModal';
