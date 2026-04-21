@@ -309,6 +309,12 @@ export const pickupReservationSchema = z.object({
     depositAccountId: z.number().int().positive().optional(),
     depositFxRate: z.number().positive().optional(),
     skipDeposit: z.boolean().optional(),
+    // Optional live-recomputed price snapshot. When a pricing rule changes
+    // (deposit formula, etc.) the reservation's frozen priceSnapshot may no
+    // longer reflect what the admin sees on-screen. The UI passes the fresh
+    // snapshot so the rental and its PAYMENT / DEPOSIT_RECEIVED transactions
+    // are created against current numbers rather than stale ones.
+    priceSnapshot: z.any().optional(),
 });
 
 export const cancelReservationSchema = z.object({

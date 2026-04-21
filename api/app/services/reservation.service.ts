@@ -214,6 +214,7 @@ class ReservationService {
         depositFxRate?: number;
         skipDeposit?: boolean;
         userId?: number;
+        priceSnapshot?: Record<string, unknown>;
     }) {
         const reservation = await prisma.reservation.findUnique({
             where: {id},
@@ -283,6 +284,15 @@ class ReservationService {
                 data: {status: ReservationStatus.PICKED_UP},
             });
 
+            // Resolve the effective priceSnapshot used for the rental + its
+            // PAYMENT/DEPOSIT_RECEIVED transactions. If the admin's UI sends a
+            // freshly recomputed snapshot in the pickup body, trust it — this
+            // is how we absorb pricing-formula changes without forcing the
+            // admin to re-save every open reservation.
+            const effectiveSnapshot: Record<string, unknown> = (pickupData.priceSnapshot
+                ?? (reservation.priceSnapshot as Record<string, unknown> | null)
+                ?? {}) as Record<string, unknown>;
+
             // Create rental from reservation
             const rental = await tx.rental.create({
                 data: {
@@ -295,12 +305,12 @@ class ReservationService {
                     returnLocation: reservation.returnLocation,
                     pickupOdometer: pickupData.pickupOdometer || null,
                     contractNumber: pickupData.contractNumber || null,
-                    priceSnapshot: (reservation.priceSnapshot ?? {}) as any,
-                    depositAmount: Math.round((reservation.priceSnapshot as PriceSnapshot)?.depositAmount || 0),
+                    priceSnapshot: effectiveSnapshot as any,
+                    depositAmount: Math.round(Number((effectiveSnapshot as {depositAmount?: unknown}).depositAmount) || 0),
                     // Inherit the snapshot's currency instead of relying on the Prisma
                     // default 'UAH' — otherwise a USD booking shows "164 UAH" in the
                     // rental detail because the raw number is right but the unit is wrong.
-                    depositCurrency: ((reservation.priceSnapshot as PriceSnapshot)?.currency as string | undefined) || 'UAH',
+                    depositCurrency: ((effectiveSnapshot as {currency?: unknown}).currency as string | undefined) || 'UAH',
                     // Copy add-ons from reservation to rental
                     rentalAddOns: reservation.reservationAddOns.length > 0
                         ? {
@@ -326,11 +336,10 @@ class ReservationService {
             // dashboard and the rental's Payments tab reflect the cash received
             // at pickup. Runs in the same Prisma transaction — if any step fails
             // the entire pickup rolls back, keeping bookkeeping consistent.
-            // PriceSnapshot.grandTotal is produced by pricingService but not yet
-            // in the canonical type; use a narrow local cast instead of touching
-            // the shared dto.types.ts (keeps the audit branch focused).
-            const ps = (reservation.priceSnapshot ?? {}) as PriceSnapshot & {grandTotal?: number};
-            const currency = ps.currency || 'UAH';
+            // Read the same effectiveSnapshot used for the rental record so
+            // the transactions match what we just persisted on the rental.
+            const ps = effectiveSnapshot as PriceSnapshot & {grandTotal?: number};
+            const currency = (ps.currency as string) || 'UAH';
             const grandTotal = Math.round(Number(ps.grandTotal) || 0);
             const depositAmount = Math.round(Number(ps.depositAmount) || 0);
 

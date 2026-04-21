@@ -288,6 +288,11 @@ export default function ReservationDetailPage() {
             }
             if (pickupSkipPayment) body.skipPayment = true;
             if (pickupSkipDeposit) body.skipDeposit = true;
+            // Forward the live-recomputed price so the rental + its
+            // transactions match the numbers the admin sees on-screen,
+            // even if the reservation's stored priceSnapshot is stale
+            // (e.g. after a pricing rule change).
+            if (price) body.priceSnapshot = price;
             const res = await adminApiClient.post(`/reservation/${id}/pickup`, body);
             setShowPickupForm(false);
             if (res.data.warnings?.length) {
@@ -780,7 +785,11 @@ export default function ReservationDetailPage() {
 
                     {/* Pickup inline form */}
                     {showPickupForm && (() => {
-                        const ps = (reservation?.priceSnapshot ?? {}) as { grandTotal?: number; depositAmount?: number; currency?: string };
+                        // Prefer the live-recomputed price (kept fresh by recalcPrice
+                        // on edit / date change / coverage change). Fall back to the
+                        // reservation's frozen priceSnapshot when the live calc has
+                        // not produced a value yet.
+                        const ps = (price ?? reservation?.priceSnapshot ?? {}) as { grandTotal?: number; depositAmount?: number; currency?: string };
                         const grandTotal = Math.round(ps.grandTotal ?? 0);
                         const depositAmount = Math.round(ps.depositAmount ?? 0);
                         const currency = ps.currency || 'UAH';
