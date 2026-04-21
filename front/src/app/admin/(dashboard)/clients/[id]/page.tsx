@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
 import { toast, toastError } from '@/lib/toast';
-import { useConfirm } from '@/components/admin/ConfirmProvider';
+import { logError } from '@/lib/log';import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -248,7 +248,7 @@ export default function ClientDetailPage() {
       setRatingValue(data.rating ?? 0);
       setRatingReason(data.ratingReason ?? '');
     } catch (err: any) {
-      console.error(err);
+      logError(err);
       setError(err?.response?.status === 404 ? t('clientDetail.notFound') : t('clientDetail.loadError'));
     } finally {
       setLoading(false);

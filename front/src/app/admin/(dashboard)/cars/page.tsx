@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createCar, deleteCar, getAllCars } from '@/lib/api/admin';
 import { toast, toastError } from '@/lib/toast';
-import { Car } from '@/types/cars';
+import { logError } from '@/lib/log';import { Car } from '@/types/cars';
 import { BASE_URL } from '@/config/environment';
 import {
   Plus,
@@ -34,7 +34,7 @@ export default function CarListPage() {
       const data = await getAllCars();
       setCars(data.cars);
     } catch (e) {
-      console.error(e);
+      logError(e);
     } finally {
       setLoading(false);
     }

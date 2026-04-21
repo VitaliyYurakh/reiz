@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { cn } from '@/lib/cn';
+import { logError } from '@/lib/log';import { cn } from '@/lib/cn';
 import {
   ChevronLeft,
   ChevronRight,
@@ -87,7 +87,7 @@ export default function ReservationsPage() {
       setItems(res.data.items);
       setTotal(res.data.total);
     } catch (err) {
-      console.error(err);
+      logError(err);
     } finally {
       setLoading(false);
     }

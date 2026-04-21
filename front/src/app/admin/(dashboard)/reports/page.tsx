@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { BarChart3 } from 'lucide-react';
 import { getDefaultFrom, getDefaultTo } from './components/helpers';
@@ -37,12 +37,12 @@ export default function ReportsPage() {
     adminApiClient
       .get('/report/dashboard')
       .then((r) => setDashboard(r.data))
-      .catch(console.error)
+      .catch(logError)
       .finally(() => setLoadingDashboard(false));
     adminApiClient
       .get('/report/overdue')
       .then((r) => setOverdue(r.data))
-      .catch(console.error)
+      .catch(logError)
       .finally(() => setLoadingOverdue(false));
   }, []);
 
@@ -54,7 +54,7 @@ export default function ReportsPage() {
       );
       setRevenue(res.data);
     } catch (e) {
-      console.error(e);
+      logError(e);
     } finally {
       setLoadingRevenue(false);
     }
@@ -68,7 +68,7 @@ export default function ReportsPage() {
       );
       setFleet(res.data);
     } catch (e) {
-      console.error(e);
+      logError(e);
     } finally {
       setLoadingFleet(false);
     }

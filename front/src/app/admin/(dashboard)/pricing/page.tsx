@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { DollarSign } from 'lucide-react';
+import { logError } from '@/lib/log';import { DollarSign } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import type { TabKey, RatePlan, AddOn, CoveragePackage } from './components/pricing-types';
@@ -38,7 +38,7 @@ export default function PricingPage() {
         setCoveragePackages(res.data.coveragePackages);
       }
     } catch (err) {
-      console.error(err);
+      logError(err);
       setError(t('pricing.loadError'));
     } finally {
       setLoading(false);

@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef } from 'react';
 import { adminApiClient, checkClientDuplicates, type DuplicateClient } from '@/lib/api/admin';
-import { useRouter } from 'next/navigation';
+import { logError } from '@/lib/log';import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Save, AlertTriangle, Users, ExternalLink } from 'lucide-react';
 import { IosSelect } from '@/components/admin/IosSelect';
@@ -140,7 +140,7 @@ export default function NewClientPage() {
         setError(err.response.data.msg);
         return;
       }
-      console.error(err);
+      logError(err);
       const message =
         err?.response?.data?.msg ||
         err?.response?.data?.message ||

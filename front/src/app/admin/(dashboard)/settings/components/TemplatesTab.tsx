@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { Bell, Plus, Pencil, MessageSquare } from 'lucide-react';
 import { Toggle } from '@/app/admin/(dashboard)/settings/components/Toggle';
 import { TemplateModal } from '@/app/admin/(dashboard)/settings/components/TemplateModal';
@@ -21,7 +21,7 @@ export function TemplatesTab() {
       const res = await adminApiClient.get('/notification/template');
       setTemplates(res.data.templates);
     } catch (err) {
-      console.error(err);
+      logError(err);
     } finally {
       setLoading(false);
     }
@@ -36,7 +36,7 @@ export function TemplatesTab() {
       await adminApiClient.patch(`/notification/template/${tpl.id}`, { isActive: !tpl.isActive });
       await fetchTemplates();
     } catch (err) {
-      console.error(err);
+      logError(err);
     }
   };
 

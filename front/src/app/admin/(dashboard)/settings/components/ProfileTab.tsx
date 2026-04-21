@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { User } from 'lucide-react';
 import type { UserProfile } from '@/app/admin/(dashboard)/settings/components/types';
 
@@ -15,7 +15,7 @@ export function ProfileTab() {
     adminApiClient
       .get('/auth/me')
       .then((res) => setUser(res.data.user))
-      .catch(console.error)
+      .catch(logError)
       .finally(() => setLoading(false));
   }, []);
 

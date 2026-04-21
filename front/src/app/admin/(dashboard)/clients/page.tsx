@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
 import {
   ChevronLeft,
   ChevronRight,
@@ -89,7 +89,7 @@ export default function ClientsPage() {
       setItems(res.data.items);
       setTotal(res.data.total);
     } catch (err) {
-      console.error(err);
+      logError(err);
     } finally {
       setLoading(false);
     }

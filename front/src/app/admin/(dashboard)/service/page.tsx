@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { adminApiClient, getAllCars } from '@/lib/api/admin';
 import { toastError } from '@/lib/toast';
-import { useConfirm } from '@/components/admin/ConfirmProvider';
+import { logError } from '@/lib/log';import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { IosSelect } from '@/components/admin/IosSelect';
 import { fmtMoney as formatMoney, fmtDate, fmtDateTime } from '@/app/admin/lib/format';
@@ -174,7 +174,7 @@ export default function ServicePage() {
           }))
         )
       )
-      .catch((err) => console.error('Failed to load cars', err));
+      .catch((err) => logError(err, 'service: load cars'));
   }, []);
 
   /* Fetch service events */
@@ -186,7 +186,7 @@ export default function ServicePage() {
       setItems(res.data.items.map((ev: any) => ({ ...ev, photos: ev.photos ?? [] })));
       setTotal(res.data.total);
     } catch (err) {
-      console.error(err);
+      logError(err);
     } finally {
       setLoading(false);
     }
@@ -226,7 +226,7 @@ export default function ServicePage() {
       setShowCreate(false);
       await fetchData();
     } catch (err) {
-      console.error('Create failed', err);
+      logError(err, 'service: create');
     } finally {
       setSaving(false);
     }
@@ -286,7 +286,7 @@ export default function ServicePage() {
       setEditingId(null);
       await fetchData();
     } catch (err) {
-      console.error('Edit failed', err);
+      logError(err, 'service: edit');
     } finally {
       setSaving(false);
     }
@@ -325,7 +325,7 @@ export default function ServicePage() {
       setDetailEvent((prev) => prev ? { ...prev, photos: [...prev.photos, newPhoto] } : prev);
       setItems((prev) => prev.map((ev) => ev.id === detailEvent.id ? { ...ev, photos: [...ev.photos, newPhoto] } : ev));
     } catch (err) {
-      console.error('Photo upload failed', err);
+      logError(err, 'service: photo upload');
     } finally {
       setUploadingPhoto(false);
     }

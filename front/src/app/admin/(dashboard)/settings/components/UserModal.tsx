@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { createUser, updateUser } from '@/lib/api/admin';
-import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X, Save } from 'lucide-react';
 import { Toggle } from '@/app/admin/(dashboard)/settings/components/Toggle';
 import { PERMISSION_MODULES } from '@/app/admin/(dashboard)/settings/components/types';
@@ -53,7 +53,7 @@ export function UserModal({
       onSaved();
       onClose();
     } catch (err: any) {
-      console.error(err);
+      logError(err);
       const data = err?.response?.data;
       if (data?.errors && Array.isArray(data.errors)) {
         setErrorMsg(data.errors.join('\n'));

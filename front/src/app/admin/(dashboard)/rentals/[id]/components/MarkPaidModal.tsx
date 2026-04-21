@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
 import { toastError } from '@/lib/toast';
-import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { logError } from '@/lib/log';import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X } from 'lucide-react';
 import type { Fine, Account } from './rental-detail-types';
 import { fmtMoney } from './rental-detail-helpers';
@@ -32,7 +32,7 @@ export function MarkPaidModal({
                 setAccounts(active);
                 if (active.length > 0) setAccountId(String(active[0].id));
             })
-            .catch(console.error)
+            .catch(logError)
             .finally(() => setLoadingAccounts(false));
     }, []);
 

@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
 import { toastError } from '@/lib/toast';
-import { BASE_URL } from '@/config/environment';
+import { logError } from '@/lib/log';import { BASE_URL } from '@/config/environment';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -357,7 +357,7 @@ export default function RequestDetailPage() {
       setApprovePickupLocation(data.pickupLocation ?? '');
       setApproveReturnLocation(data.returnLocation ?? '');
     } catch (err: unknown) {
-      console.error(err);
+      logError(err);
       setError(t('common.errorOccurred'));
     } finally {
       setLoading(false);
@@ -402,7 +402,7 @@ export default function RequestDetailPage() {
       await adminApiClient.post(`/rental-request/${id}/approve`, body);
       router.push('/admin/requests');
     } catch (err: any) {
-      console.error(err);
+      logError(err);
       setApproveError(err?.response?.data?.msg || t('requestDetail.approveError'));
       setActionLoading(false);
     }
@@ -422,7 +422,7 @@ export default function RequestDetailPage() {
       });
       router.push('/admin/requests');
     } catch (err) {
-      console.error(err);
+      logError(err);
       setRejectError(t('requestDetail.rejectError'));
       setActionLoading(false);
     }

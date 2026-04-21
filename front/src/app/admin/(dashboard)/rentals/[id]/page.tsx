@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
 import { toastError } from '@/lib/toast';
-import { cn } from '@/lib/cn';
+import { logError } from '@/lib/log';import { cn } from '@/lib/cn';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
@@ -86,7 +86,7 @@ export default function RentalDetailPage() {
             const res = await adminApiClient.get(`/rental/${id}`);
             setRental(res.data.rental);
         } catch (err: unknown) {
-            console.error(err);
+            logError(err);
             setError(t('rentalDetail.loadError'));
         } finally {
             setLoading(false);
@@ -98,7 +98,7 @@ export default function RentalDetailPage() {
             const res = await adminApiClient.get(`/rental/${id}`);
             setRental(res.data.rental);
         } catch (err) {
-            console.error(err);
+            logError(err);
         }
     }, [id]);
 

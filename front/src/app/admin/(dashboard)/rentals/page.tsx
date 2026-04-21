@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
-import { cn } from '@/lib/cn';
+import { logError } from '@/lib/log';import { cn } from '@/lib/cn';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { fmtDateShort as fmtDate } from '@/app/admin/lib/format';
@@ -90,7 +90,7 @@ export default function RentalsPage() {
       setItems(res.data.items);
       setTotal(res.data.total);
     } catch (err) {
-      console.error(err);
+      logError(err);
     } finally {
       setLoading(false);
     }
