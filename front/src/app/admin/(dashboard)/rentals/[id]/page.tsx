@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
 import { cn } from '@/lib/cn';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -114,8 +115,7 @@ export default function RentalDetailPage() {
             setShowCompleteModal(false);
             await fetchRental();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.completeError'));
+            toastError(err, t('rentalDetail.completeError'));
         } finally {
             setActionLoading(false);
         }
@@ -128,8 +128,7 @@ export default function RentalDetailPage() {
             setShowExtendModal(false);
             await fetchRental();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.extendError'));
+            toastError(err, t('rentalDetail.extendError'));
         } finally {
             setActionLoading(false);
         }
@@ -142,8 +141,7 @@ export default function RentalDetailPage() {
             setShowCancelModal(false);
             await fetchRental();
         } catch (err) {
-            console.error(err);
-            alert(t('rentalDetail.cancelError'));
+            toastError(err, t('rentalDetail.cancelError'));
         } finally {
             setActionLoading(false);
         }
