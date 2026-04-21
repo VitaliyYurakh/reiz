@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { Plus, Pencil, Trash2, X, Shield, DollarSign } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import type { CoveragePackage } from './pricing-types';
@@ -32,6 +34,7 @@ export function CoverageSection({
 }) {
   const { H, theme } = useAdminTheme();
   const isDark = theme === 'dark';
+  const confirm = useConfirm();
   const [showCreate, setShowCreate] = useState(false);
   const [createForm, setCreateForm] = useState<CoverageFormData>({
     ...emptyCoverage,
@@ -57,7 +60,7 @@ export function CoverageSection({
       setShowCreate(false);
       onRefresh();
     } catch (err) {
-      console.error(err);
+      toastError(err, 'Помилка');
     } finally {
       setCreating(false);
     }
@@ -90,19 +93,24 @@ export function CoverageSection({
       setEditingId(null);
       onRefresh();
     } catch (err) {
-      console.error(err);
+      toastError(err, 'Помилка');
     } finally {
       setSaving(false);
     }
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm('Удалить пакет покрытия?')) return;
+    const ok = await confirm({
+      title: 'Видалити пакет покриття?',
+      confirmLabel: 'Видалити',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await adminApiClient.delete(`/pricing/coverage-package/${id}`);
       onRefresh();
     } catch (err) {
-      console.error(err);
+      toastError(err, 'Не вдалося видалити пакет');
     }
   };
 

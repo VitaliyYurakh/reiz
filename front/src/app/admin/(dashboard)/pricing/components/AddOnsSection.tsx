@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
+import { toastError } from '@/lib/toast';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { IosSelect } from '@/components/admin/IosSelect';
 import { Plus, Pencil, Trash2, X, Check, Package } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
@@ -38,6 +40,7 @@ export function AddOnsSection({
   const { H, theme } = useAdminTheme();
   const { t } = useAdminLocale();
   const isDark = theme === 'dark';
+  const confirm = useConfirm();
   const [showCreate, setShowCreate] = useState(false);
   const [createForm, setCreateForm] = useState<AddOnFormData>({
     ...emptyAddOn,
@@ -62,7 +65,7 @@ export function AddOnsSection({
       setShowCreate(false);
       onRefresh();
     } catch (err) {
-      console.error(err);
+      toastError(err, 'Помилка');
     } finally {
       setCreating(false);
     }
@@ -97,19 +100,24 @@ export function AddOnsSection({
       setEditingId(null);
       onRefresh();
     } catch (err) {
-      console.error(err);
+      toastError(err, 'Помилка');
     } finally {
       setSaving(false);
     }
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm('Удалить доп. услугу?')) return;
+    const ok = await confirm({
+      title: 'Видалити додаткову послугу?',
+      confirmLabel: 'Видалити',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await adminApiClient.delete(`/pricing/add-on/${id}`);
       onRefresh();
     } catch (err) {
-      console.error(err);
+      toastError(err, 'Не вдалося видалити послугу');
     }
   };
 

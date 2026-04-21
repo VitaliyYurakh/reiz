@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { adminApiClient, getAllCars } from '@/lib/api/admin';
+import { toast, toastError } from '@/lib/toast';
+import { useConfirm } from '@/components/admin/ConfirmProvider';
 import { IosSelect } from '@/components/admin/IosSelect';
 import { Plus, Pencil, Trash2, X, Check, Tag, Car, Calendar } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
@@ -40,6 +42,7 @@ export function RatePlansSection({
 }) {
   const { H, theme } = useAdminTheme();
   const isDark = theme === 'dark';
+  const confirm = useConfirm();
   const [showCreate, setShowCreate] = useState(false);
   const [createForm, setCreateForm] = useState<RatePlanFormData>({
     ...emptyRatePlan,
@@ -81,11 +84,11 @@ export function RatePlansSection({
       Number(createForm.maxDays) !== 0 &&
       Number(createForm.minDays) > Number(createForm.maxDays)
     ) {
-      alert('Мін. дні не можуть перевищувати макс. дні (0 = необмежено)');
+      toast.error('Мін. дні не можуть перевищувати макс. дні (0 = необмежено)');
       return;
     }
     if (Number(createForm.dailyPrice) <= 0) {
-      alert('Добова ціна має бути більше 0');
+      toast.error('Добова ціна має бути більше 0');
       return;
     }
     setCreating(true);
@@ -103,7 +106,7 @@ export function RatePlansSection({
       setShowCreate(false);
       onRefresh();
     } catch (err) {
-      console.error(err);
+      toastError(err, 'Не вдалося створити тариф');
     } finally {
       setCreating(false);
     }
@@ -149,19 +152,24 @@ export function RatePlansSection({
       setEditingId(null);
       onRefresh();
     } catch (err) {
-      console.error(err);
+      toastError(err, 'Не вдалося зберегти тариф');
     } finally {
       setSaving(false);
     }
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm('Удалить тариф?')) return;
+    const ok = await confirm({
+      title: 'Видалити тариф?',
+      confirmLabel: 'Видалити',
+      danger: true,
+    });
+    if (!ok) return;
     try {
       await adminApiClient.delete(`/pricing/rate-plan/${id}`);
       onRefresh();
     } catch (err) {
-      console.error(err);
+      toastError(err, 'Не вдалося видалити тариф');
     }
   };
 
