@@ -248,7 +248,10 @@ export default function CarEditPage() {
 
   const handleSaveDescription = async () => {
     try {
-      await updateCar(id, { description: JSON.stringify(description) });
+      // Description is a multilingual object — store it as JSON directly,
+      // not as a stringified primitive (audit M-9). The public car page
+      // already handles both formats, so this is safe for existing records.
+      await updateCar(id, { description });
       await loadData();
       showSaved('description');
     } catch (e) {

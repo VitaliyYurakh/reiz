@@ -138,7 +138,10 @@ export const updateCarSchema = z.object({
         color: z.string().max(50).optional(),
         segmentIds: z.array(z.number().int().positive()).optional(),
         isAvailable: z.boolean().optional(),
-        description: z.string().max(5000).optional(),
+        // Accept either a legacy stringified JSON (existing records) or the
+        // structured multilingual object that the admin UI now sends directly
+        // (audit M-9). The Prisma column type is Json? so both fit.
+        description: z.union([z.string().max(5000), z.record(z.string(), z.string())]).optional(),
         engineVolume: z.string().max(20).optional(),
         engineType: z.record(z.string(), z.string()).optional(),
         transmission: z.record(z.string(), z.string()).optional(),
