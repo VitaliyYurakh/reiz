@@ -56,8 +56,12 @@ class ClientController {
         const {id} = req.params;
         const before = await clientService.getOne(parseId(id));
 
-        const {firstName, lastName, middleName, phone, email, dateOfBirth, passportNo, driverLicenseNo, driverLicenseExpiry, nationalId, address, city, country, source, notes, preferredLanguage} = req.body;
-        const updateData = {firstName, lastName, middleName, phone, email, dateOfBirth, passportNo, driverLicenseNo, driverLicenseExpiry, nationalId, address, city, country, source, notes, preferredLanguage};
+        // `preferredLanguage` is intentionally NOT destructured here: Client model has
+        // no such column (audit H-14). Including it caused Prisma to throw on every
+        // update request that carried the field. Language preference, if ever needed,
+        // belongs in the existing `languages Json?` column — handled separately.
+        const {firstName, lastName, middleName, phone, email, dateOfBirth, passportNo, driverLicenseNo, driverLicenseExpiry, nationalId, address, city, country, source, notes} = req.body;
+        const updateData = {firstName, lastName, middleName, phone, email, dateOfBirth, passportNo, driverLicenseNo, driverLicenseExpiry, nationalId, address, city, country, source, notes};
 
         const client = await clientService.update(parseId(id), updateData);
 

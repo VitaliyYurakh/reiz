@@ -43,7 +43,9 @@ class InspectionService {
                 type: data.type,
                 inspectorId: data.inspectorId || null,
                 odometer: data.odometer || null,
-                fuelLevel: data.fuelLevel || null,
+                // Nullish coalescing so 0 (legitimate empty-tank reading) is preserved
+                // rather than coerced to null (audit H-12).
+                fuelLevel: data.fuelLevel ?? null,
                 cleanlinessOk: data.cleanlinessOk !== undefined ? data.cleanlinessOk : true,
                 checklist: data.checklist || null,
                 damages: data.damages || null,

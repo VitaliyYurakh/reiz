@@ -177,10 +177,15 @@ class RentalService {
             const drivenKm = data.returnOdometer - rental.pickupOdometer;
             overmileageKm = Math.max(0, drivenKm - rental.allowedMileage);
 
-            if (overmileageKm > 0 && rental.car.segment.length > 0) {
-                // Use the first segment's overmileage price
-                const overmileagePrice = rental.car.segment[0].overmileagePrice;
-                overmileageFee = Math.round(overmileageKm * overmileagePrice);
+            if (overmileageKm > 0) {
+                // Prefer per-car override, fall back to first segment's legacy rate
+                // (audit H-13). Many-to-many segment order is non-deterministic, so
+                // relying on segment[0] alone was effectively random.
+                const overmileagePrice =
+                    rental.car.overmileagePrice ?? rental.car.segment[0]?.overmileagePrice;
+                if (overmileagePrice != null) {
+                    overmileageFee = Math.round(overmileageKm * overmileagePrice);
+                }
             }
         }
 

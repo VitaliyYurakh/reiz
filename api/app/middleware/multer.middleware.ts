@@ -54,8 +54,12 @@ export const validateFileType = (allowedTypes: string[]) => {
             }
 
             next();
-        } catch {
-            next();
+        } catch (err) {
+            // Do not silently pass through (audit H-11): an exception in file-type
+            // detection previously left the uploaded file on disk AND treated it as
+            // validated. Remove the file and forward the error to the global handler.
+            fs.unlink(req.file.path, () => {});
+            next(err);
         }
     };
 };

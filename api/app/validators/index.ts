@@ -36,6 +36,9 @@ export const changePasswordSchema = z.object({
 });
 
 // ── Client ──
+// preferredLanguage is not a column on Client (audit H-14); it used to pass
+// through here and then crash Prisma on create. If language preference becomes
+// a real feature, use the existing Client.languages Json? column.
 export const createClientSchema = z.object({
     firstName: z.string().min(1, 'First name is required'),
     lastName: z.string().min(1, 'Last name is required'),
@@ -49,7 +52,6 @@ export const createClientSchema = z.object({
     address: z.string().optional(),
     source: z.string().optional(),
     notes: z.string().optional(),
-    preferredLanguage: z.string().optional(),
 });
 
 // ── Finance ──
