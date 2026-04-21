@@ -207,6 +207,13 @@ class ReservationService {
     async pickup(id: number, pickupData: {
         pickupOdometer?: number;
         contractNumber?: string;
+        paymentAccountId?: number;
+        paymentFxRate?: number;
+        skipPayment?: boolean;
+        depositAccountId?: number;
+        depositFxRate?: number;
+        skipDeposit?: boolean;
+        userId?: number;
     }) {
         const reservation = await prisma.reservation.findUnique({
             where: {id},
@@ -311,7 +318,93 @@ class ReservationService {
                 },
             });
 
-            return {reservation: updatedReservation, rental, warnings};
+            // Auto-create PAYMENT + DEPOSIT_RECEIVED transactions so the Revenue
+            // dashboard and the rental's Payments tab reflect the cash received
+            // at pickup. Runs in the same Prisma transaction — if any step fails
+            // the entire pickup rolls back, keeping bookkeeping consistent.
+            // PriceSnapshot.grandTotal is produced by pricingService but not yet
+            // in the canonical type; use a narrow local cast instead of touching
+            // the shared dto.types.ts (keeps the audit branch focused).
+            const ps = (reservation.priceSnapshot ?? {}) as PriceSnapshot & {grandTotal?: number};
+            const currency = ps.currency || 'UAH';
+            const grandTotal = Math.round(Number(ps.grandTotal) || 0);
+            const depositAmount = Math.round(Number(ps.depositAmount) || 0);
+
+            const resolveAccount = async (
+                provided: number | undefined,
+                label: string,
+            ): Promise<number> => {
+                if (provided) {
+                    const acc = await tx.account.findUnique({where: {id: provided}});
+                    if (!acc || !acc.isActive) {
+                        throw new BadRequestError(`${label}: рахунок #${provided} не активний або не існує.`);
+                    }
+                    return acc.id;
+                }
+                const defaultAccount = await tx.account.findFirst({
+                    where: {currency, isActive: true},
+                    orderBy: {id: 'asc'},
+                });
+                if (!defaultAccount) {
+                    throw new BadRequestError(
+                        `${label}: немає активного рахунку у валюті ${currency}. Створіть його у /admin/finance перед видачею.`,
+                    );
+                }
+                return defaultAccount.id;
+            };
+
+            const transactions: unknown[] = [];
+
+            if (!pickupData.skipPayment && grandTotal > 0) {
+                const accountId = await resolveAccount(pickupData.paymentAccountId, 'Оплата оренди');
+                const fx = pickupData.paymentFxRate ?? (currency === 'UAH' ? 1.0 : 1.0);
+                const amountUahMinor = currency === 'UAH' ? grandTotal : Math.round(grandTotal * fx);
+                const paymentTx = await tx.transaction.create({
+                    data: {
+                        type: 'PAYMENT',
+                        accountId,
+                        direction: 'in',
+                        amountMinor: grandTotal,
+                        currency,
+                        fxRate: fx,
+                        amountUahMinor,
+                        description: `Оплата оренди авто при видачі (оренда #${rental.id})`,
+                        clientId: reservation.clientId,
+                        rentalId: rental.id,
+                        reservationId: id,
+                        createdByUserId: pickupData.userId ?? null,
+                    },
+                });
+                transactions.push(paymentTx);
+            }
+
+            if (!pickupData.skipDeposit && depositAmount > 0) {
+                const accountId = await resolveAccount(
+                    pickupData.depositAccountId ?? pickupData.paymentAccountId,
+                    'Застава',
+                );
+                const fx = pickupData.depositFxRate ?? pickupData.paymentFxRate ?? 1.0;
+                const amountUahMinor = currency === 'UAH' ? depositAmount : Math.round(depositAmount * fx);
+                const depositTx = await tx.transaction.create({
+                    data: {
+                        type: 'DEPOSIT_RECEIVED',
+                        accountId,
+                        direction: 'in',
+                        amountMinor: depositAmount,
+                        currency,
+                        fxRate: fx,
+                        amountUahMinor,
+                        description: `Застава при видачі (оренда #${rental.id})`,
+                        clientId: reservation.clientId,
+                        rentalId: rental.id,
+                        reservationId: id,
+                        createdByUserId: pickupData.userId ?? null,
+                    },
+                });
+                transactions.push(depositTx);
+            }
+
+            return {reservation: updatedReservation, rental, transactions, warnings};
         });
     }
 

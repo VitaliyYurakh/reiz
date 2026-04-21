@@ -299,6 +299,16 @@ export const updateReservationSchema = z.object({
 export const pickupReservationSchema = z.object({
     pickupOdometer: z.number().int().min(0).optional(),
     contractNumber: z.string().max(100).optional(),
+    // Payment auto-capture. If omitted, service picks the first active account
+    // matching priceSnapshot.currency. skipPayment=true records pickup without
+    // creating the PAYMENT Transaction (client pays later).
+    paymentAccountId: z.number().int().positive().optional(),
+    paymentFxRate: z.number().positive().optional(),
+    skipPayment: z.boolean().optional(),
+    // Deposit auto-capture. Defaults to paymentAccountId if omitted. Same semantics.
+    depositAccountId: z.number().int().positive().optional(),
+    depositFxRate: z.number().positive().optional(),
+    skipDeposit: z.boolean().optional(),
 });
 
 export const cancelReservationSchema = z.object({

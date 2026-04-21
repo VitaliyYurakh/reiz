@@ -48,7 +48,10 @@ class ReservationController {
         const {id} = req.params;
         const data = validate(pickupReservationSchema, req.body);
         const before = await reservationService.getOne(parseId(id));
-        const result = await reservationService.pickup(parseId(id), data);
+        const result = await reservationService.pickup(parseId(id), {
+            ...data,
+            userId: res.locals.user?.id,
+        });
 
         logAudit({actorId: res.locals.user?.id, entityType: 'Reservation', entityId: parseId(id), action: 'STATUS_CHANGE', before, after: result, req});
         return res.status(StatusCodes.OK).json(result);

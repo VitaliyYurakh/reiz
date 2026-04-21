@@ -108,6 +108,11 @@ export default function ReservationDetailPage() {
     const [showPickupForm, setShowPickupForm] = useState(false);
     const [pickupOdometer, setPickupOdometer] = useState('');
     const [contractNumber, setContractNumber] = useState('');
+    const [pickupAccountId, setPickupAccountId] = useState<string>('');
+    const [pickupFxRate, setPickupFxRate] = useState<string>('1');
+    const [pickupSkipPayment, setPickupSkipPayment] = useState(false);
+    const [pickupSkipDeposit, setPickupSkipDeposit] = useState(false);
+    const [pickupAccounts, setPickupAccounts] = useState<Array<{id: number; name: string; type: string; currency: string; isActive: boolean}>>([]);
 
     // Cancel form
     const [showCancelForm, setShowCancelForm] = useState(false);
@@ -178,6 +183,10 @@ export default function ReservationDetailPage() {
     useEffect(() => {
         adminApiClient.get('/pricing/coverage-package').then(r => setPackages(r.data.coveragePackages)).catch(() => {});
         adminApiClient.get('/pricing/add-on').then(r => setAvailableAddOns(r.data.addOns)).catch(() => {});
+        adminApiClient.get('/finance/account').then(r => {
+            const active = (r.data.accounts || []).filter((a: {isActive: boolean}) => a.isActive);
+            setPickupAccounts(active);
+        }).catch(() => {});
     }, []);
 
     /* ── Price calculation ── */
@@ -268,6 +277,17 @@ export default function ReservationDetailPage() {
             const body: Record<string, unknown> = {};
             if (pickupOdometer) body.pickupOdometer = Number(pickupOdometer);
             if (contractNumber) body.contractNumber = contractNumber;
+            if (pickupAccountId) {
+                body.paymentAccountId = Number(pickupAccountId);
+                body.depositAccountId = Number(pickupAccountId);
+            }
+            const fx = Number(pickupFxRate);
+            if (fx && fx > 0 && fx !== 1) {
+                body.paymentFxRate = fx;
+                body.depositFxRate = fx;
+            }
+            if (pickupSkipPayment) body.skipPayment = true;
+            if (pickupSkipDeposit) body.skipDeposit = true;
             const res = await adminApiClient.post(`/reservation/${id}/pickup`, body);
             setShowPickupForm(false);
             if (res.data.warnings?.length) {
@@ -759,7 +779,15 @@ export default function ReservationDetailPage() {
                     )}
 
                     {/* Pickup inline form */}
-                    {showPickupForm && (
+                    {showPickupForm && (() => {
+                        const ps = (reservation?.priceSnapshot ?? {}) as { grandTotal?: number; depositAmount?: number; currency?: string };
+                        const grandTotal = Math.round(ps.grandTotal ?? 0);
+                        const depositAmount = Math.round(ps.depositAmount ?? 0);
+                        const currency = ps.currency || 'UAH';
+                        const matchingAccounts = pickupAccounts.filter(a => a.currency === currency);
+                        const showFx = currency !== 'UAH';
+                        const fmtAmt = (minor: number) => `${(minor / 100).toLocaleString('uk-UA')} ${currency}`;
+                        return (
                         <div className="ios-card">
                             <div className="flex items-center gap-2.5">
                                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#34C759]/15 text-[#34C759]">
@@ -777,6 +805,77 @@ export default function ReservationDetailPage() {
                                     <input value={contractNumber} onChange={e => setContractNumber(e.target.value)} placeholder={t('reservationDetail.optional')} className="mt-1.5 block w-full ios-input text-sm" />
                                 </label>
                             </div>
+
+                            {/* Payment section — auto-creates PAYMENT + DEPOSIT_RECEIVED transactions */}
+                            <div className="mt-6 rounded-xl border border-border bg-muted/30 p-4">
+                                <h4 className="text-sm font-semibold text-foreground">Оплата при видачі</h4>
+                                <div className="mt-2 flex flex-wrap gap-2 text-xs">
+                                    <span className="inline-flex items-center gap-1 rounded-lg bg-blue-100 dark:bg-blue-500/15 px-2.5 py-1 font-semibold text-blue-700 dark:text-blue-300">
+                                        Оренда: {fmtAmt(grandTotal)}
+                                    </span>
+                                    {depositAmount > 0 && (
+                                        <span className="inline-flex items-center gap-1 rounded-lg bg-purple-100 dark:bg-purple-500/15 px-2.5 py-1 font-semibold text-purple-700 dark:text-purple-300">
+                                            Застава: {fmtAmt(depositAmount)}
+                                        </span>
+                                    )}
+                                </div>
+                                <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                                    <label className="block">
+                                        <span className="text-sm font-medium text-muted-foreground">Рахунок</span>
+                                        <select
+                                            value={pickupAccountId}
+                                            onChange={e => setPickupAccountId(e.target.value)}
+                                            className="mt-1.5 block w-full ios-select text-sm"
+                                        >
+                                            <option value="">
+                                                {matchingAccounts.length === 0
+                                                    ? `⚠ Немає активного рахунку в ${currency}`
+                                                    : `Авто: перший активний (${currency})`}
+                                            </option>
+                                            {matchingAccounts.map(a => (
+                                                <option key={a.id} value={a.id}>{a.name} ({a.type})</option>
+                                            ))}
+                                            {pickupAccounts.filter(a => a.currency !== currency).length > 0 && (
+                                                <optgroup label="Інша валюта (потрібен курс)">
+                                                    {pickupAccounts.filter(a => a.currency !== currency).map(a => (
+                                                        <option key={a.id} value={a.id}>{a.name} · {a.currency}</option>
+                                                    ))}
+                                                </optgroup>
+                                            )}
+                                        </select>
+                                    </label>
+                                    {showFx && (
+                                        <label className="block">
+                                            <span className="text-sm font-medium text-muted-foreground">Курс {currency}→UAH</span>
+                                            <input
+                                                type="number"
+                                                step="0.0001"
+                                                min="0"
+                                                value={pickupFxRate}
+                                                onChange={e => setPickupFxRate(e.target.value)}
+                                                placeholder="1.0000"
+                                                className="mt-1.5 block w-full ios-input text-sm"
+                                            />
+                                            <span className="mt-1 block text-[11px] text-muted-foreground">
+                                                Використовується для запису сум у гривневому еквіваленті (для звітів).
+                                            </span>
+                                        </label>
+                                    )}
+                                </div>
+                                <div className="mt-4 flex flex-col gap-2">
+                                    <label className="flex items-center gap-2 text-sm text-muted-foreground">
+                                        <input type="checkbox" checked={pickupSkipPayment} onChange={e => setPickupSkipPayment(e.target.checked)} />
+                                        <span>Не фіксувати оплату оренди (клієнт заплатить пізніше)</span>
+                                    </label>
+                                    {depositAmount > 0 && (
+                                        <label className="flex items-center gap-2 text-sm text-muted-foreground">
+                                            <input type="checkbox" checked={pickupSkipDeposit} onChange={e => setPickupSkipDeposit(e.target.checked)} />
+                                            <span>Не фіксувати заставу</span>
+                                        </label>
+                                    )}
+                                </div>
+                            </div>
+
                             <div className="mt-5 flex gap-3">
                                 <button type="button" onClick={handlePickup} disabled={actionLoading} className="ios-btn ios-btn-primary text-sm">
                                     {actionLoading && <Loader2 className="h-4 w-4 animate-spin" />} {t('reservationDetail.confirmIssue')}
@@ -785,7 +884,8 @@ export default function ReservationDetailPage() {
                                     className="ios-btn ios-btn-ghost text-sm">{t('common.cancel')}</button>
                             </div>
                         </div>
-                    )}
+                        );
+                    })()}
 
                     {/* Cancel form */}
                     {showCancelForm && (

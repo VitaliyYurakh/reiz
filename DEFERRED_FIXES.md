@@ -63,6 +63,26 @@ shapes.
 
 ## C. Product / feature gaps surfaced by the audit
 
+### C-0. PARTIALLY CLOSED — Auto-transactions on pickup
+
+Previously no `Transaction` records were created when a rental was picked up;
+the Revenue dashboard block was always zero for that reason. Closed in a
+follow-up feature PR: `reservationService.pickup` now creates
+`PAYMENT` + `DEPOSIT_RECEIVED` transactions in the same Prisma `$transaction`
+as the Rental, with the admin choosing the account (or auto-defaulting to
+the first active account in the snapshot's currency) and supplying an FX
+rate when the rental currency is not UAH. `skipPayment` / `skipDeposit`
+flags cover the "client pays later" case.
+
+Still not automated and left here for a future PR:
+- Refund flow when a pickup is reverted (admin currently resolves manually
+  in `/admin/finance`).
+- Auto-transaction for Fine creation (intentional design choice — fines
+  are billed via `markPaid`, which already creates a Transaction).
+- Historic backfill of the 2 existing picked-up rentals that predate the
+  feature. Those have Rentals without matching `PAYMENT` rows; admin can
+  add them manually through `/admin/finance → + Нова транзакція`.
+
 ### C-1. Notification templates exist but are never auto-fired (new finding N-1)
 
 Seed defines 8 templates (`NEW_REQUEST`, `REQUEST_APPROVED`,
