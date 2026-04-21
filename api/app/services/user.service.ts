@@ -41,18 +41,27 @@ class UserService {
     }
 
     async update(id: number, data: {name?: string; role?: string; permissions?: any; isActive?: boolean}) {
+        // Deactivating an account must also invalidate all its existing sessions.
+        // auth.middleware rejects tokens whose `tv` claim does not match tokenVersion,
+        // so incrementing it here immediately revokes every outstanding JWT.
+        const tokenVersionBump =
+            data.isActive === false ? {tokenVersion: {increment: 1}} : {};
+
         return prisma.user.update({
             where: {id},
-            data,
+            data: {...data, ...tokenVersionBump},
             select: this.selectWithoutPass,
         });
     }
 
     async changePassword(id: number, newPassword: string) {
         const hashedPassword = await createHashedPassword(newPassword);
+        // Bump tokenVersion so any session still holding an old JWT is logged out
+        // (audit H-1). Without this, an attacker whose creds were compromised
+        // kept admin access for up to 24h after the password change.
         return prisma.user.update({
             where: {id},
-            data: {pass: hashedPassword},
+            data: {pass: hashedPassword, tokenVersion: {increment: 1}},
             select: this.selectWithoutPass,
         });
     }
