@@ -190,7 +190,7 @@ export function PricingTab({
                       disabled={isBase}
                     />
                     <HInput
-                      label="Зниження застави (%)"
+                      label="Покриття (%)"
                       value={String(rule.depositPercent)}
                       onChange={(v) => updateRule(idx, 'depositPercent', v)}
                       type="number"
