@@ -60,22 +60,22 @@ async function main() {
         await prisma.coveragePackage.createMany({
             data: [
                 {
-                    name: 'Basic',
-                    nameLocalized: {uk: 'З заставою', ru: 'С залогом', en: 'With Deposit'},
-                    depositPercent: 100,
-                    description: 'Full deposit required',
+                    name: 'Без покриття',
+                    nameLocalized: {uk: 'Без покриття', ru: 'Без покрытия', en: 'No Coverage'},
+                    depositPercent: 0,
+                    description: 'Full refundable deposit required, no insurance coverage',
                 },
                 {
-                    name: 'Medium',
+                    name: 'Покриття 50%',
                     nameLocalized: {uk: 'Покриття 50%', ru: 'Покрытие 50%', en: '50% Coverage'},
                     depositPercent: 50,
-                    description: 'Half deposit, partial coverage',
+                    description: 'Half insurance coverage, reduced deposit',
                 },
                 {
-                    name: 'Full',
+                    name: 'Покриття 100%',
                     nameLocalized: {uk: 'Покриття 100%', ru: 'Покрытие 100%', en: 'Full Coverage'},
-                    depositPercent: 0,
-                    description: 'No deposit, full insurance coverage',
+                    depositPercent: 100,
+                    description: 'Full insurance coverage, minimal fixed deposit',
                 },
             ],
         });

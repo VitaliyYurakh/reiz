@@ -69,8 +69,10 @@ async function main() {
     const car2 = cars[1] || cars[0];
     const car3 = cars[2] || cars[0];
     const cashAccount = accounts[0];
-    const basicCoverage = coveragePackages.find((c) => c.name === 'Basic') || coveragePackages[0];
-    const fullCoverage = coveragePackages.find((c) => c.name === 'Full') || coveragePackages[0];
+    // Resolve by semantic (depositPercent), not by legacy name.
+    // depositPercent=0 → no coverage (full deposit); depositPercent=100 → full coverage.
+    const basicCoverage = coveragePackages.find((c) => c.depositPercent === 0) || coveragePackages[0];
+    const fullCoverage = coveragePackages.find((c) => c.depositPercent === 100) || coveragePackages[0];
 
     // ── 4. Completed rental #1 — with fines and add-ons ──
     const res1 = await prisma.reservation.create({
