@@ -427,8 +427,9 @@ export default function ReservationDetailPage() {
 
             {/* ── Rental link ── */}
             {r.rental && (
-                <div className="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-3 dark:border-blue-500/30 dark:bg-blue-500/10">
-                    <Link href={`/admin/rentals/${r.rental.id}`} className="text-sm font-medium text-blue-700 hover:underline dark:text-blue-300">
+                <div className="mt-4 ios-card !py-3">
+                    <Link href={`/admin/rentals/${r.rental.id}`} className="flex items-center gap-2 text-sm font-medium text-foreground hover:opacity-70">
+                        <KeyRound className="h-4 w-4 text-muted-foreground" />
                         {t('reservationDetail.goToRental')}{r.rental.id} {r.rental.contractNumber ? `(${r.rental.contractNumber})` : ''}
                     </Link>
                 </div>
@@ -436,27 +437,27 @@ export default function ReservationDetailPage() {
 
             {/* ── Client cancellation request ── */}
             {(r as any).cancellationRequestedAt && (
-                <div className="mt-4 rounded-lg border border-orange-200 bg-orange-50 p-4 dark:border-orange-500/30 dark:bg-orange-500/10">
-                    <p className="text-sm font-medium text-orange-800 dark:text-orange-300">❌ Клієнт запросив скасування бронювання</p>
-                    <p className="mt-1 text-xs text-orange-600 dark:text-orange-400/70">{fmtDateTime((r as any).cancellationRequestedAt)}</p>
+                <div className="mt-4 ios-card">
+                    <p className="text-sm font-medium text-foreground">Клієнт запросив скасування бронювання</p>
+                    <p className="mt-1 text-xs text-muted-foreground">{fmtDateTime((r as any).cancellationRequestedAt)}</p>
                     {(r as any).cancellationRequestReason && (
-                        <p className="mt-2 text-sm text-orange-700 dark:text-orange-400">{(r as any).cancellationRequestReason}</p>
+                        <p className="mt-2 text-sm text-foreground/80">{(r as any).cancellationRequestReason}</p>
                     )}
                 </div>
             )}
 
             {/* ── Cancel / No-show info ── */}
             {r.cancelReason && (
-                <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-500/30 dark:bg-red-500/10">
-                    <p className="text-sm font-medium text-red-800 dark:text-red-300">{t('reservationDetail.cancelReasonLabel')}</p>
-                    <p className="mt-1 text-sm text-red-700 dark:text-red-400">{r.cancelReason}</p>
-                    {r.cancelledAt && <p className="mt-1 text-xs text-red-500 dark:text-red-400/70">{t('reservations.mapCancelled')}: {fmtDateTime(r.cancelledAt)}</p>}
+                <div className="mt-4 ios-card">
+                    <p className="text-sm font-medium text-foreground">{t('reservationDetail.cancelReasonLabel')}</p>
+                    <p className="mt-1 text-sm text-foreground/80">{r.cancelReason}</p>
+                    {r.cancelledAt && <p className="mt-1 text-xs text-muted-foreground">{t('reservations.mapCancelled')}: {fmtDateTime(r.cancelledAt)}</p>}
                 </div>
             )}
             {r.noShowAt && (
-                <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-500/30 dark:bg-red-500/10">
-                    <p className="text-sm font-medium text-red-800 dark:text-red-300">{t('reservations.mapNoShow')}</p>
-                    <p className="mt-1 text-xs text-red-500 dark:text-red-400/70">{t('reservationDetail.recordedAt')} {fmtDateTime(r.noShowAt)}</p>
+                <div className="mt-4 ios-card">
+                    <p className="text-sm font-medium text-foreground">{t('reservations.mapNoShow')}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">{t('reservationDetail.recordedAt')} {fmtDateTime(r.noShowAt)}</p>
                 </div>
             )}
 
@@ -741,7 +742,7 @@ export default function ReservationDetailPage() {
             {isConfirmed && !editing && (
                 <div className="mt-8 space-y-5">
                     {pickupTooEarly && (
-                        <div className="flex items-center gap-3 rounded-2xl bg-[#FF9500]/10 px-5 py-3.5 text-sm font-medium text-[#FF9500]">
+                        <div className="ios-card !py-3 flex items-center gap-2 text-sm text-muted-foreground">
                             <Calendar className="h-4 w-4 shrink-0" />
                             {t('reservationDetail.issueAvailableFrom', { date: fmtDate(r.pickupDate) })} {t('reservationDetail.issueTooEarly')}
                         </div>
@@ -754,9 +755,7 @@ export default function ReservationDetailPage() {
                                 className="group flex items-center gap-3 ios-card px-5 py-4 text-left transition-all hover:bg-muted/30 active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed"
                                 disabled={actionLoading || !canPickup}
                                 title={pickupTooEarly ? t('reservationDetail.issueAvailableFrom', { date: fmtDate(r.pickupDate) }) : undefined}>
-                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#34C759]/15 text-[#34C759]">
-                                    <KeyRound className="h-5 w-5" />
-                                </div>
+                                <KeyRound className="h-5 w-5 shrink-0 text-muted-foreground" />
                                 <div><p className="text-sm font-semibold text-foreground">{t('reservationDetail.issueCar')}</p>
                                     <p className="text-xs text-muted-foreground">{t('reservationDetail.issueDescription')}</p></div>
                             </button>
@@ -764,9 +763,7 @@ export default function ReservationDetailPage() {
                                 onClick={() => { setShowCancelForm(true); setShowPickupForm(false); setShowNoShowConfirm(false); setActionError(null); }}
                                 className="group flex items-center gap-3 ios-card px-5 py-4 text-left transition-all hover:bg-muted/30 active:scale-[0.98] disabled:opacity-40"
                                 disabled={actionLoading}>
-                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF3B30]/15 text-[#FF3B30]">
-                                    <XCircle className="h-5 w-5" />
-                                </div>
+                                <XCircle className="h-5 w-5 shrink-0 text-muted-foreground" />
                                 <div><p className="text-sm font-semibold text-foreground">{t('reservationDetail.cancelRes')}</p>
                                     <p className="text-xs text-muted-foreground">{t('reservationDetail.cancelDescription')}</p></div>
                             </button>
@@ -774,9 +771,7 @@ export default function ReservationDetailPage() {
                                 onClick={() => { setShowNoShowConfirm(true); setShowPickupForm(false); setShowCancelForm(false); setActionError(null); }}
                                 className="group flex items-center gap-3 ios-card px-5 py-4 text-left transition-all hover:bg-muted/30 active:scale-[0.98] disabled:opacity-40"
                                 disabled={actionLoading}>
-                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF9500]/15 text-[#FF9500]">
-                                    <UserX className="h-5 w-5" />
-                                </div>
+                                <UserX className="h-5 w-5 shrink-0 text-muted-foreground" />
                                 <div><p className="text-sm font-semibold text-foreground">{t('reservationDetail.noShow')}</p>
                                     <p className="text-xs text-muted-foreground">{t('reservationDetail.noShowDescription')}</p></div>
                             </button>
@@ -798,13 +793,10 @@ export default function ReservationDetailPage() {
                         const fmtAmt = (minor: number) => `${(minor / 100).toLocaleString('uk-UA')} ${currency}`;
                         return (
                         <div className="ios-card">
-                            <div className="flex items-center gap-2.5">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#34C759]/15 text-[#34C759]">
-                                    <KeyRound className="h-4 w-4" />
-                                </div>
-                                <h3 className="text-base font-semibold text-foreground">{t('reservationDetail.issueFormTitle')}</h3>
-                            </div>
-                            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                            <h3 className="text-base font-semibold text-foreground">{t('reservationDetail.issueFormTitle')}</h3>
+
+                            {/* Core pickup fields */}
+                            <div className="mt-5 grid gap-5 sm:grid-cols-2">
                                 <label className="block">
                                     <span className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground"><Gauge className="h-3.5 w-3.5" /> {t('reservationDetail.mileage')}</span>
                                     <input type="number" value={pickupOdometer} onChange={e => setPickupOdometer(e.target.value)} placeholder={t('reservationDetail.optional')} className="mt-1.5 block w-full ios-input text-sm" />
@@ -815,20 +807,22 @@ export default function ReservationDetailPage() {
                                 </label>
                             </div>
 
-                            {/* Payment section — auto-creates PAYMENT + DEPOSIT_RECEIVED transactions */}
-                            <div className="mt-6 rounded-xl border border-border bg-muted/30 p-4">
-                                <h4 className="text-sm font-semibold text-foreground">Оплата при видачі</h4>
-                                <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                                    <span className="inline-flex items-center gap-1 rounded-lg bg-blue-100 dark:bg-blue-500/15 px-2.5 py-1 font-semibold text-blue-700 dark:text-blue-300">
-                                        Оренда: {fmtAmt(grandTotal)}
-                                    </span>
-                                    {depositAmount > 0 && (
-                                        <span className="inline-flex items-center gap-1 rounded-lg bg-purple-100 dark:bg-purple-500/15 px-2.5 py-1 font-semibold text-purple-700 dark:text-purple-300">
-                                            Застава: {fmtAmt(depositAmount)}
-                                        </span>
-                                    )}
+                            {/* ─ Payment section ─ auto-creates PAYMENT + DEPOSIT_RECEIVED */}
+                            <div className="mt-6 border-t border-border/50 pt-5">
+                                <div className="flex items-baseline justify-between">
+                                    <h4 className="text-sm font-semibold text-foreground">Оплата при видачі</h4>
+                                    <div className="text-xs text-muted-foreground">
+                                        Оренда <span className="text-foreground font-medium">{fmtAmt(grandTotal)}</span>
+                                        {depositAmount > 0 && (
+                                            <>
+                                                <span className="mx-2">·</span>
+                                                Застава <span className="text-foreground font-medium">{fmtAmt(depositAmount)}</span>
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
-                                <div className="mt-4 grid gap-4 sm:grid-cols-2">
+
+                                <div className="mt-4 grid gap-5 sm:grid-cols-2">
                                     <label className="block">
                                         <span className="text-sm font-medium text-muted-foreground">Рахунок</span>
                                         <select
@@ -838,7 +832,7 @@ export default function ReservationDetailPage() {
                                         >
                                             <option value="">
                                                 {matchingAccounts.length === 0
-                                                    ? `⚠ Немає активного рахунку в ${currency}`
+                                                    ? `Немає активного рахунку в ${currency}`
                                                     : `Авто: перший активний (${currency})`}
                                             </option>
                                             {matchingAccounts.map(a => (
@@ -866,11 +860,12 @@ export default function ReservationDetailPage() {
                                                 className="mt-1.5 block w-full ios-input text-sm"
                                             />
                                             <span className="mt-1 block text-[11px] text-muted-foreground">
-                                                Використовується для запису сум у гривневому еквіваленті (для звітів).
+                                                Для запису в гривневому еквіваленті (звіти).
                                             </span>
                                         </label>
                                     )}
                                 </div>
+
                                 <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 10 }}>
                                     <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', fontSize: 13, color: 'var(--color-muted-foreground, #6b7280)' }}>
                                         <input
@@ -895,7 +890,7 @@ export default function ReservationDetailPage() {
                                 </div>
                             </div>
 
-                            <div className="mt-5 flex gap-3">
+                            <div className="mt-6 flex gap-3">
                                 <button type="button" onClick={handlePickup} disabled={actionLoading} className="ios-btn ios-btn-primary text-sm">
                                     {actionLoading && <Loader2 className="h-4 w-4 animate-spin" />} {t('reservationDetail.confirmIssue')}
                                 </button>
@@ -909,14 +904,9 @@ export default function ReservationDetailPage() {
                     {/* Cancel form */}
                     {showCancelForm && (
                         <div className="ios-card">
-                            <div className="flex items-center gap-2.5">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FF3B30]/15 text-[#FF3B30]">
-                                    <XCircle className="h-4 w-4" />
-                                </div>
-                                <h3 className="text-base font-semibold text-foreground">{t('reservationDetail.cancelFormTitle')}</h3>
-                            </div>
+                            <h3 className="text-base font-semibold text-foreground">{t('reservationDetail.cancelFormTitle')}</h3>
                             <label className="mt-5 block">
-                                <span className="text-sm font-medium text-muted-foreground">{t('reservationDetail.cancelReason')} <span className="text-[#FF3B30]">*</span></span>
+                                <span className="text-sm font-medium text-muted-foreground">{t('reservationDetail.cancelReason')} <span className="text-muted-foreground">*</span></span>
                                 <textarea value={cancelReason} onChange={e => setCancelReason(e.target.value)} placeholder={t('reservationDetail.cancelPlaceholder')} rows={3} className="mt-1.5 block w-full ios-input text-sm resize-none" />
                             </label>
                             <div className="mt-5 flex gap-3">
@@ -932,12 +922,7 @@ export default function ReservationDetailPage() {
                     {/* No-show confirm */}
                     {showNoShowConfirm && (
                         <div className="ios-card">
-                            <div className="flex items-center gap-2.5">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FF9500]/15 text-[#FF9500]">
-                                    <UserX className="h-4 w-4" />
-                                </div>
-                                <h3 className="text-base font-semibold text-foreground">{t('reservationDetail.noShowFormTitle')}</h3>
-                            </div>
+                            <h3 className="text-base font-semibold text-foreground">{t('reservationDetail.noShowFormTitle')}</h3>
                             <p className="mt-3 text-sm text-muted-foreground">{t('reservationDetail.noShowDescription')}</p>
                             <div className="mt-5 flex gap-3">
                                 <button type="button" onClick={handleNoShow} disabled={actionLoading} className="ios-btn ios-btn-destructive text-sm">
