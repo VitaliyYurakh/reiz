@@ -795,21 +795,27 @@ export default function ReservationDetailPage() {
                         <div className="ios-card">
                             <h3 className="text-base font-semibold text-foreground">{t('reservationDetail.issueFormTitle')}</h3>
 
-                            {/* Core pickup fields */}
+                            {/* Core pickup fields — use div+block wrappers instead of
+                                <label> because admin-global CSS on <label> was
+                                collapsing the children to a single line. */}
                             <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                                <label className="block">
-                                    <span className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground"><Gauge className="h-3.5 w-3.5" /> {t('reservationDetail.mileage')}</span>
-                                    <input type="number" value={pickupOdometer} onChange={e => setPickupOdometer(e.target.value)} placeholder={t('reservationDetail.optional')} className="mt-1.5 block w-full ios-input text-sm" />
-                                </label>
-                                <label className="block">
-                                    <span className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground"><StickyNote className="h-3.5 w-3.5" /> {t('reservationDetail.contractNumber')}</span>
-                                    <input value={contractNumber} onChange={e => setContractNumber(e.target.value)} placeholder={t('reservationDetail.optional')} className="mt-1.5 block w-full ios-input text-sm" />
-                                </label>
+                                <div>
+                                    <label htmlFor="pickup-odometer" className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+                                        <Gauge className="h-3.5 w-3.5" /> {t('reservationDetail.mileage')}
+                                    </label>
+                                    <input id="pickup-odometer" type="number" value={pickupOdometer} onChange={e => setPickupOdometer(e.target.value)} placeholder={t('reservationDetail.optional')} style={{ display: 'block', width: '100%', marginTop: 6 }} className="ios-input text-sm" />
+                                </div>
+                                <div>
+                                    <label htmlFor="pickup-contract" className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+                                        <StickyNote className="h-3.5 w-3.5" /> {t('reservationDetail.contractNumber')}
+                                    </label>
+                                    <input id="pickup-contract" value={contractNumber} onChange={e => setContractNumber(e.target.value)} placeholder={t('reservationDetail.optional')} style={{ display: 'block', width: '100%', marginTop: 6 }} className="ios-input text-sm" />
+                                </div>
                             </div>
 
                             {/* ─ Payment section ─ auto-creates PAYMENT + DEPOSIT_RECEIVED */}
                             <div className="mt-6 border-t border-border/50 pt-5">
-                                <div className="flex items-baseline justify-between">
+                                <div className="flex items-baseline justify-between flex-wrap gap-2">
                                     <h4 className="text-sm font-semibold text-foreground">Оплата при видачі</h4>
                                     <div className="text-xs text-muted-foreground">
                                         Оренда <span className="text-foreground font-medium">{fmtAmt(grandTotal)}</span>
@@ -823,12 +829,14 @@ export default function ReservationDetailPage() {
                                 </div>
 
                                 <div className="mt-4 grid gap-5 sm:grid-cols-2">
-                                    <label className="block">
-                                        <span className="text-sm font-medium text-muted-foreground">Рахунок</span>
+                                    <div>
+                                        <label htmlFor="pickup-account" className="block text-sm font-medium text-muted-foreground">Рахунок</label>
                                         <select
+                                            id="pickup-account"
                                             value={pickupAccountId}
                                             onChange={e => setPickupAccountId(e.target.value)}
-                                            className="mt-1.5 block w-full ios-select text-sm"
+                                            style={{ display: 'block', width: '100%', marginTop: 6 }}
+                                            className="ios-select text-sm"
                                         >
                                             <option value="">
                                                 {matchingAccounts.length === 0
@@ -846,23 +854,25 @@ export default function ReservationDetailPage() {
                                                 </optgroup>
                                             )}
                                         </select>
-                                    </label>
+                                    </div>
                                     {showFx && (
-                                        <label className="block">
-                                            <span className="text-sm font-medium text-muted-foreground">Курс {currency}→UAH</span>
+                                        <div>
+                                            <label htmlFor="pickup-fx" className="block text-sm font-medium text-muted-foreground">Курс {currency}→UAH</label>
                                             <input
+                                                id="pickup-fx"
                                                 type="number"
                                                 step="0.0001"
                                                 min="0"
                                                 value={pickupFxRate}
                                                 onChange={e => setPickupFxRate(e.target.value)}
                                                 placeholder="1.0000"
-                                                className="mt-1.5 block w-full ios-input text-sm"
+                                                style={{ display: 'block', width: '100%', marginTop: 6 }}
+                                                className="ios-input text-sm"
                                             />
-                                            <span className="mt-1 block text-[11px] text-muted-foreground">
+                                            <p className="mt-1 text-[11px] text-muted-foreground">
                                                 Для запису в гривневому еквіваленті (звіти).
-                                            </span>
-                                        </label>
+                                            </p>
+                                        </div>
                                     )}
                                 </div>
 
