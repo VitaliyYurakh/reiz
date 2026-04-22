@@ -552,7 +552,7 @@ export default function ReservationDetailPage() {
                         <div className="sm:col-span-2">
                             <label className="block text-sm font-medium text-foreground mb-1">{t('reservationDetail.coverageLabel')}</label>
                             <IosSelect value={form.coveragePackageId} onChange={v => set('coveragePackageId', v)}
-                                options={[{ value: '', label: `— ${t('reservationDetail.noCoverage')} —` }, ...packages.map(p => ({ value: String(p.id), label: `${p.name} (${t('reservationDetail.deposit')} ${p.depositPercent}%)` }))]}
+                                options={[{ value: '', label: `— ${t('reservationDetail.noCoverage')} —` }, ...packages.map(p => ({ value: String(p.id), label: `${p.name} (${t('reservationDetail.coverage')} ${p.depositPercent}%)` }))]}
                                 placeholder={`— ${t('reservationDetail.noCoverage')} —`} className="w-full text-sm" />
                         </div>
                         <div>
@@ -570,7 +570,7 @@ export default function ReservationDetailPage() {
                     <div className="space-y-2">
                         <div className="flex items-center justify-between text-sm">
                             <span className="text-muted-foreground">{t('reservationDetail.coveragePackage')}</span>
-                            <span className="font-medium">{r.coveragePackage ? `${r.coveragePackage.name} (${t('reservationDetail.deposit')} ${r.coveragePackage.depositPercent}%)` : '—'}</span>
+                            <span className="font-medium">{r.coveragePackage ? `${r.coveragePackage.name} (${t('reservationDetail.coverage')} ${r.coveragePackage.depositPercent}%)` : '—'}</span>
                         </div>
                         {r.deliveryFee != null && r.deliveryFee > 0 && (
                             <div className="flex items-center justify-between text-sm">
@@ -681,7 +681,7 @@ export default function ReservationDetailPage() {
                             )}
                             {p.depositAmount > 0 && (
                                 <div className="flex justify-between text-muted-foreground">
-                                    <span>{t('reservationDetail.deposit')} ({p.depositPercent}%)</span>
+                                    <span>{t('reservationDetail.deposit')} ({t('reservationDetail.coverage')} {p.depositPercent}%)</span>
                                     <span>{fmtMoney(p.depositAmount, p.currency)}</span>
                                 </div>
                             )}

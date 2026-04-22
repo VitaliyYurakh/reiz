@@ -378,7 +378,7 @@ export default function NewReservationPage() {
                 onChange={(v) => set('coveragePackageId', v)}
                 options={[
                   { value: '', label: t('newReservation.noCoverage') },
-                  ...packages.map(p => ({ value: String(p.id), label: `${p.name} (${t('newReservation.deposit')} ${p.depositPercent}%)` })),
+                  ...packages.map(p => ({ value: String(p.id), label: `${p.name} (${t('newReservation.coverage')} ${p.depositPercent}%)` })),
                 ]}
                 placeholder={t('newReservation.noCoverage')}
                 className="w-full text-[13px]"
@@ -573,7 +573,7 @@ export default function NewReservationPage() {
               </div>
               {price.depositAmount > 0 && (
                 <div className="flex justify-between text-[12px]">
-                  <span style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{t('newReservation.deposit')} ({price.depositPercent}%)</span>
+                  <span style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{t('newReservation.deposit')} ({t('newReservation.coverage')} {price.depositPercent}%)</span>
                   <span style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{fmtMoney(price.depositAmount, price.currency)}</span>
                 </div>
               )}
