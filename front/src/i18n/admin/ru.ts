@@ -512,7 +512,7 @@ export const ru: AdminTranslations = {
     priceDeposit: 'Залог',
     priceRatePlan: 'Тарифный план',
     priceCoverage: 'Покрытие',
-    priceDepositPercent: 'Залог (%)',
+    priceDepositPercent: 'Покрытие (%)',
     newInspection: 'Новый осмотр',
     inspectionType: 'Тип осмотра',
     inspectionPickup: 'Выдача',

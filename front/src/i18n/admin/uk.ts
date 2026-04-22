@@ -523,7 +523,7 @@ export const uk = {
     priceDeposit: 'Застава',
     priceRatePlan: 'Тарифний план',
     priceCoverage: 'Покриття',
-    priceDepositPercent: 'Застава (%)',
+    priceDepositPercent: 'Покриття (%)',
     // Inspections
     newInspection: 'Новий огляд',
     inspectionType: 'Тип огляду',

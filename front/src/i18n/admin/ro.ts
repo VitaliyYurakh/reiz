@@ -512,7 +512,7 @@ export const ro: AdminTranslations = {
         priceDeposit: 'Depozit',
         priceRatePlan: 'Plan tarifar',
         priceCoverage: 'Acoperire',
-        priceDepositPercent: 'Depozit (%)',
+        priceDepositPercent: 'Acoperire (%)',
         newInspection: 'Inspecție nouă',
         inspectionType: 'Tip inspecție',
         inspectionPickup: 'Preluare',

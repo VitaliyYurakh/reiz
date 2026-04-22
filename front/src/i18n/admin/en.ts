@@ -512,7 +512,7 @@ export const en: AdminTranslations = {
     priceDeposit: 'Deposit',
     priceRatePlan: 'Rate plan',
     priceCoverage: 'Coverage',
-    priceDepositPercent: 'Deposit (%)',
+    priceDepositPercent: 'Coverage (%)',
     newInspection: 'New inspection',
     inspectionType: 'Inspection type',
     inspectionPickup: 'Pickup',

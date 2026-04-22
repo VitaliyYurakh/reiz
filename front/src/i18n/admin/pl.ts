@@ -512,7 +512,7 @@ export const pl: AdminTranslations = {
     priceDeposit: 'Kaucja',
     priceRatePlan: 'Plan taryfowy',
     priceCoverage: 'Ubezpieczenie',
-    priceDepositPercent: 'Kaucja (%)',
+    priceDepositPercent: 'Ochrona (%)',
     newInspection: 'Nowa inspekcja',
     inspectionType: 'Typ inspekcji',
     inspectionPickup: 'Odbiór',
