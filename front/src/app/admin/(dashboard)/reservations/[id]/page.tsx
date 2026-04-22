@@ -871,14 +871,24 @@ export default function ReservationDetailPage() {
                                         </label>
                                     )}
                                 </div>
-                                <div className="mt-4 flex flex-col gap-2">
-                                    <label className="flex items-center gap-2 text-sm text-muted-foreground">
-                                        <input type="checkbox" checked={pickupSkipPayment} onChange={e => setPickupSkipPayment(e.target.checked)} />
+                                <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                                    <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', fontSize: 13, color: 'var(--color-muted-foreground, #6b7280)' }}>
+                                        <input
+                                            type="checkbox"
+                                            checked={pickupSkipPayment}
+                                            onChange={e => setPickupSkipPayment(e.target.checked)}
+                                            style={{ width: 16, height: 16, flexShrink: 0, margin: 0 }}
+                                        />
                                         <span>Не фіксувати оплату оренди (клієнт заплатить пізніше)</span>
                                     </label>
                                     {depositAmount > 0 && (
-                                        <label className="flex items-center gap-2 text-sm text-muted-foreground">
-                                            <input type="checkbox" checked={pickupSkipDeposit} onChange={e => setPickupSkipDeposit(e.target.checked)} />
+                                        <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', fontSize: 13, color: 'var(--color-muted-foreground, #6b7280)' }}>
+                                            <input
+                                                type="checkbox"
+                                                checked={pickupSkipDeposit}
+                                                onChange={e => setPickupSkipDeposit(e.target.checked)}
+                                                style={{ width: 16, height: 16, flexShrink: 0, margin: 0 }}
+                                            />
                                             <span>Не фіксувати заставу</span>
                                         </label>
                                     )}
