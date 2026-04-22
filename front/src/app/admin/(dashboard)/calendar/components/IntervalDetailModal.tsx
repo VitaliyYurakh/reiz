@@ -239,15 +239,6 @@ export function IntervalDetailModal({
               {detail.coveragePackage && (
                 <DetailRow icon={Shield} label={t('calendar.insurance')} H={H}>
                   {detail.coveragePackage.name}
-                  <span
-                    style={{
-                      marginLeft: 4,
-                      fontSize: 11,
-                      color: H.gray,
-                    }}
-                  >
-                    ({t('calendar.coverage')} {detail.coveragePackage.depositPercent}%)
-                  </span>
                 </DetailRow>
               )}
 

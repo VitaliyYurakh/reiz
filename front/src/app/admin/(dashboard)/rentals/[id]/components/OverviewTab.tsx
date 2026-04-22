@@ -233,11 +233,13 @@ export function OverviewTab({ rental }: { rental: Rental }) {
                     name: t('rentalDetail.priceRatePlan'),
                 };
                 // Hide timestamps, internal IDs already rendered elsewhere (carId,
-                // ratePlanId, coveragePackageId) and containers rendered by their
-                // own UI (add-ons list, currency label).
+                // ratePlanId, coveragePackageId), containers rendered by their own
+                // UI (add-ons list, currency label), and depositPercent — the
+                // coverage package name already embeds the % ("Покриття 100%").
                 const SKIP_KEYS = new Set([
                     'approvedAt', 'pickupDate', 'returnDate', 'createdAt', 'updatedAt',
                     'carId', 'ratePlanId', 'coveragePackageId', 'currency', 'addOns',
+                    'depositPercent',
                 ]);
                 // Monetary fields stored as minor units (cents). pricingService
                 // returns all money in minor; legacy websiteSnapshots used `dailyRate`
