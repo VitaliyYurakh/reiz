@@ -1,32 +1,32 @@
--- Rename coverage packages to match the real semantic of depositPercent
+-- Rename coverage packages to match the real semantic of deposit_percent
 -- (which is the coverage level, not deposit %).
--- Safe to re-run — UPDATEs are idempotent, INSERT uses ON CONFLICT guard via WHERE NOT EXISTS.
+-- Safe to re-run — UPDATEs are idempotent, INSERT guarded by WHERE NOT EXISTS.
 
 BEGIN;
 
 -- 0% coverage → "Без покриття"
-UPDATE "CoveragePackage"
+UPDATE coverage_package
 SET name = 'Без покриття'
-WHERE "depositPercent" = 0 AND "deletedAt" IS NULL;
+WHERE deposit_percent = 0 AND deleted_at IS NULL;
 
 -- 100% coverage → "Покриття 100%"
-UPDATE "CoveragePackage"
+UPDATE coverage_package
 SET name = 'Покриття 100%'
-WHERE "depositPercent" = 100 AND "deletedAt" IS NULL;
+WHERE deposit_percent = 100 AND deleted_at IS NULL;
 
 -- Ensure a 50% coverage package exists
-INSERT INTO "CoveragePackage" (name, "nameLocalized", "depositPercent", description, "isActive", "createdAt", "updatedAt")
-SELECT 'Покриття 50%', NULL, 50, NULL, true, NOW(), NOW()
+INSERT INTO coverage_package (name, name_localized, deposit_percent, description, is_active, created_at)
+SELECT 'Покриття 50%', NULL, 50, 'Половинне покриття, зменшена застава', true, NOW()
 WHERE NOT EXISTS (
-    SELECT 1 FROM "CoveragePackage"
-    WHERE "depositPercent" = 50 AND "deletedAt" IS NULL
+    SELECT 1 FROM coverage_package
+    WHERE deposit_percent = 50 AND deleted_at IS NULL
 );
 
--- Also rename any existing 50% row (in case one already exists with another name)
-UPDATE "CoveragePackage"
+-- Rename any existing 50% row (in case one already exists with another name)
+UPDATE coverage_package
 SET name = 'Покриття 50%'
-WHERE "depositPercent" = 50 AND "deletedAt" IS NULL;
+WHERE deposit_percent = 50 AND deleted_at IS NULL;
 
-SELECT id, name, "depositPercent", "isActive" FROM "CoveragePackage" WHERE "deletedAt" IS NULL ORDER BY "depositPercent";
+SELECT id, name, deposit_percent, is_active FROM coverage_package WHERE deleted_at IS NULL ORDER BY deposit_percent;
 
 COMMIT;
