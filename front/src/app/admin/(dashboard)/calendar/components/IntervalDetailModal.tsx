@@ -246,7 +246,7 @@ export function IntervalDetailModal({
                       color: H.gray,
                     }}
                   >
-                    ({t('calendar.deposit')} {detail.coveragePackage.depositPercent}%)
+                    ({t('calendar.coverage')} {detail.coveragePackage.depositPercent}%)
                   </span>
                 </DetailRow>
               )}

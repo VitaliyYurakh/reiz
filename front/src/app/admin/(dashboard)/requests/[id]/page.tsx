@@ -212,7 +212,7 @@ function WebsiteSnapshotCard({ snapshot, t, H, isDark }: { snapshot: Record<stri
         )}
         {selectedPlan?.depositPercent != null && (
           <span className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12px] font-semibold" style={{ backgroundColor: isDark ? '#2D2047' : '#EDE7F6', color: isDark ? H.purpleLight : '#5E35B1' }}>
-            {t('requestDetail.deposit')} {selectedPlan.depositPercent}%
+            {t('requestDetail.coverage')} {selectedPlan.depositPercent}%
           </span>
         )}
       </div>

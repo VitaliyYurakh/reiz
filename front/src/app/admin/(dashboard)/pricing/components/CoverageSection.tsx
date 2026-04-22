@@ -198,7 +198,7 @@ export function CoverageSection({
               />
             </div>
             <div>
-              <HLabel>Залог (%)</HLabel>
+              <HLabel>Покрытие (%)</HLabel>
               <HInput
                 type="number"
                 value={createForm.depositPercent}
@@ -382,7 +382,7 @@ export function CoverageSection({
                     />
                   </div>
                   <div>
-                    <HLabel>Залог (%)</HLabel>
+                    <HLabel>Покрытие (%)</HLabel>
                     <HInput
                       type="number"
                       value={editForm.depositPercent}
@@ -556,7 +556,7 @@ export function CoverageSection({
                       fontFamily: H.font,
                     }}
                   >
-                    Залог: {cp.depositPercent}%
+                    Покрытие: {cp.depositPercent}%
                   </span>
                 </div>
 
