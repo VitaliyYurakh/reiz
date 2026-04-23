@@ -11,8 +11,11 @@ import {
   Search,
   ClipboardList,
   Inbox,
+  CheckCircle2,
 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { toast, toastError } from '@/lib/toast';
+import { PartnerBadge } from '@/components/admin/PartnerBadge';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
@@ -30,12 +33,19 @@ interface RentalRequest {
   returnDate: string | null;
   createdAt: string;
   client: { id: number; firstName: string; lastName: string; phone: string } | null;
-  car: { id: number; brand: string; model: string; plateNumber: string } | null;
+  car: {
+    id: number;
+    brand: string;
+    model: string;
+    plateNumber: string;
+    partner?: { id: number; fullName: string; companyName: string | null } | null;
+  } | null;
   assignedTo: { id: number; email: string } | null;
 }
 
 export default function RequestsPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { t } = useAdminLocale();
   const { theme, H } = useAdminTheme();
   const isDark = theme === 'dark';
@@ -43,7 +53,7 @@ export default function RequestsPage() {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [statusFilter, setStatusFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState(() => searchParams.get('status') ?? '');
   const [searchInput, setSearchInput] = useState('');
   const [search, setSearch] = useState('');
   const limit = 20;
@@ -117,6 +127,62 @@ export default function RequestsPage() {
     if (statusFilter === 'new') return total;
     return items.filter((r) => r.status === 'new').length;
   }, [items, total, statusFilter]);
+
+  const [quickApproveLoading, setQuickApproveLoading] = useState<number | null>(null);
+  const [quickApproveError, setQuickApproveError] = useState<{ id: number; msg: string } | null>(null);
+
+  // Inline quick-approve. Eligible only when the request is `new`, has a
+  // pickup+return date, and a car is already attached. Saves Anna ~6 clicks
+  // per straightforward booking.
+  const handleQuickApprove = async (e: React.MouseEvent, r: RentalRequest) => {
+    e.stopPropagation();
+    if (!r.car || !r.pickupDate || !r.returnDate) return;
+    setQuickApproveLoading(r.id);
+    setQuickApproveError(null);
+
+    // Build URL for direct fetch — bypass adminApiClient / toast system that
+    // have repeatedly lost error details.
+    const apiBase = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api').replace(/\/$/, '');
+    const url = `${apiBase}/rental-request/${r.id}/approve`;
+
+    try {
+      const fetchRes = await window.fetch(url, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          carId: r.car.id,
+          pickupDate: new Date(r.pickupDate).toISOString(),
+          returnDate: new Date(r.returnDate).toISOString(),
+        }),
+      });
+
+      const bodyText = await fetchRes.text();
+      console.log('[quick-approve] status:', fetchRes.status, 'body:', bodyText);
+
+      if (!fetchRes.ok) {
+        let detail = bodyText;
+        try {
+          const parsed = JSON.parse(bodyText);
+          detail = parsed?.msg || parsed?.message || bodyText;
+        } catch { /* not JSON */ }
+        const msg = `[${fetchRes.status}] ${detail || fetchRes.statusText || 'no details'}`;
+        setQuickApproveError({ id: r.id, msg });
+        try { toast.error(msg); } catch { /* sonner may not be ready */ }
+        return;
+      }
+
+      try { toast.success(`Заявку #${r.id} схвалено`); } catch { /* ignore */ }
+      await fetchData();
+    } catch (err: any) {
+      const msg = `Мережева помилка: ${err?.message || String(err) || 'unknown'}`;
+      console.error('[quick-approve] network error', err);
+      setQuickApproveError({ id: r.id, msg });
+      try { toast.error(msg); } catch { /* ignore */ }
+    } finally {
+      setQuickApproveLoading(null);
+    }
+  };
 
   return (
     <div>
@@ -195,6 +261,32 @@ export default function RequestsPage() {
         </div>
       </div>
 
+      {/* ── Quick-approve error banner ── */}
+      {quickApproveError && (
+        <div
+          className="mb-4 rounded-xl border-2 p-3 flex items-start justify-between gap-3"
+          style={{
+            borderColor: '#EE5D50',
+            background: 'rgba(238,93,80,0.08)',
+            color: '#C62828',
+          }}
+        >
+          <div className="text-sm font-mono break-all flex-1">
+            <div className="text-[10px] uppercase tracking-wider opacity-70 mb-1">
+              Помилка схвалення заявки #{quickApproveError.id}
+            </div>
+            <div className="font-semibold">{quickApproveError.msg}</div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setQuickApproveError(null)}
+            className="text-xs opacity-60 hover:opacity-100"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       {/* ── Table ── */}
       <div className="ios-table-wrap" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
         {loading ? (
@@ -234,6 +326,7 @@ export default function RequestsPage() {
                   <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 140, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thPeriod')}</th>
                   <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 76, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thSource')}</th>
                   <th className="border-b px-4 py-2 text-right text-[11px] font-semibold uppercase tracking-wider" style={{ width: 90, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thCreated')}</th>
+                  <th className="border-b px-2 py-2" style={{ width: 40, borderColor: isDark ? '#2D3748' : '#ECEFF1' }}></th>
                 </tr>
               </thead>
               <tbody>
@@ -254,8 +347,9 @@ export default function RequestsPage() {
                       className={cn(
                         'cursor-pointer border-b transition-colors',
                         isDark ? 'border-[#1E293B] hover:bg-[#1E293B]' : 'border-[#F0F4F8] hover:bg-[#F7F9FB]',
-                        isNew && (isDark ? 'bg-[#2D1B69]/40' : 'bg-[#F5F0FF]/40'),
+                        isNew && (isDark ? 'bg-[#4A2B99]/25' : 'bg-[#EDE7F6]'),
                       )}
+                      style={isNew ? { borderLeft: '3px solid #7C4DFF' } : undefined}
                     >
                       <td className="px-4 py-2.5 text-[13px] font-semibold whitespace-nowrap" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>#{r.id}</td>
                       <td className="px-4 py-2.5">
@@ -270,8 +364,11 @@ export default function RequestsPage() {
                       <td className="px-4 py-2.5 text-[13px] font-medium truncate max-w-[160px]" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{name}</td>
                       <td className="px-4 py-2.5 text-[12px] whitespace-nowrap" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{phone}</td>
                       <td className="px-4 py-2.5 whitespace-nowrap">
-                        <span className="text-[13px]" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{carName}</span>
-                        {plate && <span className="ml-1.5 text-[11px]" style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{plate}</span>}
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className="text-[13px]" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{carName}</span>
+                          {plate && <span className="text-[11px]" style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{plate}</span>}
+                          <PartnerBadge partner={r.car?.partner} />
+                        </div>
                       </td>
                       <td className="px-4 py-2.5 text-[12px] whitespace-nowrap" style={{ color: isDark ? '#90A4AE' : '#607D8B' }}>
                         {r.pickupDate ? `${fmtDate(r.pickupDate)} → ${fmtDate(r.returnDate)}` : '—'}
@@ -282,6 +379,23 @@ export default function RequestsPage() {
                         </span>
                       </td>
                       <td className="px-4 py-2.5 text-right text-[12px] whitespace-nowrap" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{timeAgo(r.createdAt)}</td>
+                      <td className="px-2 py-2.5">
+                        {isNew && r.car && r.pickupDate && r.returnDate && (
+                          <button
+                            type="button"
+                            onClick={(e) => handleQuickApprove(e, r)}
+                            disabled={quickApproveLoading === r.id}
+                            title="Швидке схвалення (авто й дати з заявки)"
+                            className="flex h-7 w-7 items-center justify-center rounded-full transition-colors"
+                            style={{
+                              background: quickApproveError?.id === r.id ? '#EE5D50' : '#01B574',
+                              color: '#fff',
+                            }}
+                          >
+                            <CheckCircle2 size={14} />
+                          </button>
+                        )}
+                      </td>
                     </tr>
                   );
                 })}

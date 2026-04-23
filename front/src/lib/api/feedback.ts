@@ -146,3 +146,33 @@ export async function submitBusinessRequest(data: BusinessRequestData): Promise<
 
   return res.json();
 }
+
+interface ComplaintRequestData {
+  category: 'DEPOSIT' | 'DAMAGE' | 'FINE' | 'SERVICE' | 'GDPR' | 'OTHER';
+  priority?: 'low' | 'normal' | 'high' | 'urgent';
+  subject: string;
+  initialMessage: string;
+  contactName?: string;
+  contactEmail?: string;
+  contactPhone?: string;
+  rentalId?: number;
+  clientId?: number;
+}
+
+export async function submitComplaint(data: ComplaintRequestData): Promise<{complaint: {id: number; ticketNumber: string}}> {
+  const res = await fetch(`${API_URL}/public/complaint`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`Submit complaint failed: ${res.status} ${res.statusText} ${text}`);
+  }
+
+  return res.json();
+}

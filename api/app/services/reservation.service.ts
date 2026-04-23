@@ -40,7 +40,12 @@ class ReservationService {
                 orderBy: {createdAt: 'desc'},
                 include: {
                     client: {select: {id: true, firstName: true, lastName: true, phone: true}},
-                    car: {select: {id: true, brand: true, model: true, plateNumber: true}},
+                    car: {
+                        select: {
+                            id: true, brand: true, model: true, plateNumber: true,
+                            partner: {select: {id: true, fullName: true, companyName: true}},
+                        },
+                    },
                     coveragePackage: {select: {id: true, name: true, depositPercent: true}},
                 },
             }),
@@ -60,6 +65,7 @@ class ReservationService {
                         carPhoto: true,
                         rentalTariff: true,
                         segment: true,
+                        partner: {select: {id: true, fullName: true, companyName: true}},
                     },
                 },
                 coveragePackage: true,

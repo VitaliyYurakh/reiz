@@ -108,9 +108,9 @@
       },
       "catalog_list": {
         "badges": {
-          "withDeposit": "Z kaucją",
-          "coverage50": "Pokrycie 50%",
-          "coverage100": "Pokrycie 100%",
+          "withDeposit": "Pełna kaucja",
+          "coverage50": "Kaucja zmniejszona o 50%",
+          "coverage100": "Bez kaucji",
           "available": "Dostepny teraz",
           "contact": "Niedostępny"
         },
@@ -1787,8 +1787,11 @@
     "selectedDays": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
     "rentalCostTitle": "Koszt wynajmu",
     "plans": {
-      "withDeposit": "Z kaucją",
-      "coverage": "Pokrycie {percent}%"
+      "withDeposit": "Pełna kaucja",
+      "coverage": "Kaucja zmniejszona o {percent}%",
+      "fullDeposit": "Pełna kaucja",
+      "reducedDeposit": "Kaucja zmniejszona o {percent}%",
+      "zeroDeposit": "Bez kaucji"
     },
     "tariffs": {
       "exact": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
@@ -1894,8 +1897,11 @@
       "title": "Ubezpieczenie",
       "infoTitle": "Ubezpieczenie",
       "packages": {
-        "withDeposit": "Z kaucją",
-        "coverage": "Pokrycie {percent}%"
+        "withDeposit": "Pełna kaucja",
+        "coverage": "Kaucja zmniejszona o {percent}%",
+        "fullDeposit": "Pełna kaucja",
+        "reducedDeposit": "Kaucja zmniejszona o {percent}%",
+        "zeroDeposit": "Bez kaucji"
       },
       "included": "W cenie",
       "depositReduction": "Kaucja obniżona o {percent}%",
@@ -2891,7 +2897,7 @@
       "scratches": "Rysy na elementach nadwozia",
       "perElement": "/element",
       "smoking": "Palenie w kabinie",
-      "coverageNote": "Przy wynajmie z podstawowym ubezpieczeniem, aby zredukować odpowiedzialność do 0, wybierz pełne pokrycie (100%)."
+      "coverageNote": "Zmniejszenie kaucji o 100% = brak kaucji. To NIE pokrywa Twojej odpowiedzialności w razie wypadku — wymagane jest osobne ubezpieczenie OC."
     },
     "depositMultiplier": {
       "title": "Kaucja zwiększa się {multiplier}x, jeśli",
@@ -2904,11 +2910,11 @@
     "register": { "title": "Rejestracja", "subtitle": "Utwórz konto do szybkiej rezerwacji", "google": "Zarejestruj przez Google", "submit": "Zarejestruj się", "loading": "Ładowanie...", "have_account": "Masz już konto?", "login_link": "Zaloguj się", "consent": "Zgadzam się z polityką prywatności" },
     "fields": { "email": "Email", "email_placeholder": "your@email.com", "password": "Hasło", "password_placeholder": "Minimum 8 znaków", "first_name": "Imię", "first_name_placeholder": "Twoje imię", "last_name": "Nazwisko", "last_name_placeholder": "Twoje nazwisko", "phone": "Telefon", "phone_placeholder": "+48", "password_hint": "Minimum 8 znaków, wielkie, małe litery i cyfra" },
     "errors": { "all_fields_required": "Wypełnij wszystkie pola", "password_too_short": "Hasło musi mieć co najmniej 8 znaków", "password_too_weak": "Hasło musi zawierać wielkie, małe litery i cyfrę", "email_exists": "Ten email jest już zarejestrowany", "registration_failed": "Błąd rejestracji. Spróbuj ponownie lub zaloguj się", "invalid_credentials": "Nieprawidłowy email lub hasło", "too_many_requests": "Zbyt wiele prób. Spróbuj później", "captcha_required": "Przejdź weryfikację bezpieczeństwa", "captcha_failed": "Weryfikacja bezpieczeństwa nie powiodła się. Spróbuj ponownie", "consent_required": "Musisz zaakceptować politykę prywatności", "account_locked": "Konto tymczasowo zablokowane. Spróbuj za 15 minut" },
-    "nav": { "overview": "Przegląd", "profile": "Profil", "bookings": "Rezerwacje", "history": "Historia rezerwacji", "favorites": "Ulubione", "notifications": "Powiadomienia", "privacy": "Prywatność", "logout": "Wyloguj" },
+    "nav": { "overview": "Przegląd", "profile": "Profil", "bookings": "Rezerwacje", "history": "Historia rezerwacji", "complaints": "Skargi", "favorites": "Ulubione", "notifications": "Powiadomienia", "privacy": "Prywatność", "logout": "Wyloguj" },
     "overview": { "title": "Moje konto", "welcome": "Witaj, {name}!", "no_bookings": "Nie masz aktywnych rezerwacji", "upcoming_trip": "Nadchodząca podróż" },
     "profile": { "title": "Profil", "save": "Zapisz", "saved": "Zapisano!" },
     "card": { "trips": "podróży", "discount": "Moja zniżka", "time_with_reiz": "{value} {unit} z REIZ", "year_one": "rok", "year_few": "lata", "year_many": "lat", "month_one": "miesiąc", "month_few": "miesiące", "month_many": "miesięcy", "day_one": "dzień", "day_few": "dni", "day_many": "dni" },
-    "bookings": { "title": "Aktywne rezerwacje", "empty": "Brak aktywnych rezerwacji", "pickup": "Odbiór", "return": "Zwrot", "status": "Status", "status_active": "Aktywna", "status_confirmed": "Potwierdzona", "status_pending": "Oczekuje", "status_completed": "Zakończona", "status_cancelled": "Anulowana", "status_no_show": "Nieobecność", "status_picked_up": "Wydano", "status_reservation": "Rezerwacja", "status_rental": "Wynajem", "daily_rate": "Stawka/dzień", "total_paid": "Zapłacono", "deposit": "Kaucja", "deposit_returned": "Zwrócona", "deposit_held": "Zatrzymana", "fines": "Kary", "add_ons": "Usługi dodatkowe", "extensions": "Przedłużenia", "show_details": "Pokaż szczegóły", "hide_details": "Ukryj szczegóły", "paid": "Opłacono", "per_day": "dzień", "request_cancel": "Poproś o anulowanie", "cancel_reason_placeholder": "Powód anulowania (opcjonalnie)", "send_request": "Wyślij prośbę", "cancel_back": "Wstecz", "cancel_requested": "Prośba o anulowanie wysłana", "cancel_request_sent": "Prośba wysłana. Skontaktujemy się z Tobą.", "view_car": "Zobacz samochód", "link_copied": "Link skopiowany" },
+    "bookings": { "title": "Aktywne rezerwacje", "empty": "Brak aktywnych rezerwacji", "pickup": "Odbiór", "return": "Zwrot", "status": "Status", "status_active": "Aktywna", "status_confirmed": "Potwierdzona", "status_pending": "Oczekuje", "status_completed": "Zakończona", "status_cancelled": "Anulowana", "status_no_show": "Nieobecność", "status_picked_up": "Wydano", "status_reservation": "Rezerwacja", "status_rental": "Wynajem", "daily_rate": "Stawka/dzień", "total_paid": "Zapłacono", "deposit": "Kaucja", "deposit_returned": "Zwrócona", "deposit_held": "Zatrzymana", "fines": "Kary", "add_ons": "Usługi dodatkowe", "extensions": "Przedłużenia", "show_details": "Pokaż szczegóły", "hide_details": "Ukryj szczegóły", "paid": "Opłacono", "per_day": "dzień", "rebook": "Zarezerwuj ponownie", "view_inspection": "Zobacz przeglądy", "request_cancel": "Poproś o anulowanie", "cancel_reason_placeholder": "Powód anulowania (opcjonalnie)", "send_request": "Wyślij prośbę", "cancel_back": "Wstecz", "cancel_requested": "Prośba o anulowanie wysłana", "cancel_request_sent": "Prośba wysłana. Skontaktujemy się z Tobą.", "view_car": "Zobacz samochód", "link_copied": "Link skopiowany" },
     "history": { "title": "Historia rezerwacji", "empty": "Historia jest pusta", "tab_reservations": "Rezerwacje", "tab_rentals": "Wynajmy", "completed_rentals": "Ukończonych wynajmów", "cancelled_title": "Anulowane rezerwacje", "total_spent": "Łączna kwota", "member_since": "Klient od" },
     "favorites": { "title": "Ulubione", "empty": "Nie masz ulubionych samochodów", "remove": "Usuń", "add_tooltip": "Dodaj ten samochód do swojej listy życzeń", "remove_tooltip": "Usuń ten samochód ze swojej listy życzeń", "perDay": "dzień" },
     "notifications": { "title": "Powiadomienia", "email_deals": "Promocje i zniżki", "email_reminders": "Przypomnienia o rezerwacji", "email_receipts": "Rachunki i faktury", "saved": "Zapisano!" },

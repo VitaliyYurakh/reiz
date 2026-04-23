@@ -24,7 +24,12 @@ class RentalRequestService {
                 orderBy: {createdAt: 'desc'},
                 include: {
                     client: {select: {id: true, firstName: true, lastName: true, phone: true}},
-                    car: {select: {id: true, brand: true, model: true, plateNumber: true}},
+                    car: {
+                        select: {
+                            id: true, brand: true, model: true, plateNumber: true,
+                            partner: {select: {id: true, fullName: true, companyName: true}},
+                        },
+                    },
                     assignedTo: {select: {id: true, email: true}},
                 },
             }),
@@ -44,6 +49,7 @@ class RentalRequestService {
                         carPhoto: true,
                         rentalTariff: true,
                         segment: true,
+                        partner: {select: {id: true, fullName: true, companyName: true}},
                     },
                 },
                 bookingRequest: true,

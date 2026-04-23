@@ -987,6 +987,40 @@
     }
   }
 
+  &__rebook-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #f0f0f0;
+    background: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: #00838f;
+    cursor: pointer;
+
+    &:hover {
+      background: #e0f7fa;
+    }
+  }
+
+  &__inspection-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #f0f0f0;
+    background: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: #455a64;
+    cursor: pointer;
+
+    &:hover {
+      background: #f5f5f5;
+    }
+  }
+
   &__cancel-form {
     padding: 12px;
     border-top: 1px solid #f0f0f0;

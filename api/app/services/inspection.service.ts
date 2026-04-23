@@ -93,6 +93,29 @@ class InspectionService {
     }
 
     async complete(id: number) {
+        // Enforce evidence minimums before allowing an inspection to be closed.
+        // Without these, a disputed deposit deduction has no defensible basis.
+        const MIN_PHOTOS_PICKUP = 4;
+        const MIN_PHOTOS_RETURN = 8;
+
+        const inspection = await prisma.inspection.findUnique({
+            where: {id},
+            include: {photos: {select: {id: true}}},
+        });
+        if (!inspection) throw new Error(`Inspection ${id} not found`);
+
+        const required = inspection.type === 'RETURN' ? MIN_PHOTOS_RETURN : MIN_PHOTOS_PICKUP;
+        if (inspection.photos.length < required) {
+            const err: any = new Error(
+                `Inspection ${inspection.type} requires at least ${required} photos (currently ${inspection.photos.length}).`,
+            );
+            err.status = 400;
+            err.code = 'INSUFFICIENT_PHOTOS';
+            err.required = required;
+            err.current = inspection.photos.length;
+            throw err;
+        }
+
         return await prisma.inspection.update({
             where: {id},
             data: {completedAt: new Date()},

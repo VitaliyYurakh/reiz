@@ -1,9 +1,10 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { getBookingHistory, getCustomerStats } from "@/lib/api/customer";
 import BookingCard from "@/components/account/BookingCard";
 
 export default async function HistoryPage() {
   const t = await getTranslations("account");
+  const locale = await getLocale();
 
   const [history, cancelled, stats] = await Promise.all([
     getBookingHistory("history"),
@@ -43,7 +44,7 @@ export default async function HistoryPage() {
           <div className="history-stats__item">
             <span className="history-stats__number">
               {stats.memberSince
-                ? new Date(stats.memberSince).toLocaleDateString("uk-UA", {
+                ? new Date(stats.memberSince).toLocaleDateString(locale, {
                     month: "short",
                     year: "numeric",
                   })

@@ -42,7 +42,12 @@ class RentalService {
                 orderBy: {createdAt: 'desc'},
                 include: {
                     client: {select: {id: true, firstName: true, lastName: true, phone: true}},
-                    car: {select: {id: true, brand: true, model: true, plateNumber: true}},
+                    car: {
+                        select: {
+                            id: true, brand: true, model: true, plateNumber: true,
+                            partner: {select: {id: true, fullName: true, companyName: true}},
+                        },
+                    },
                 },
             }),
             prisma.rental.count({where}),
@@ -61,6 +66,7 @@ class RentalService {
                         carPhoto: true,
                         rentalTariff: true,
                         segment: true,
+                        partner: {select: {id: true, fullName: true, companyName: true}},
                     },
                 },
                 reservation: {

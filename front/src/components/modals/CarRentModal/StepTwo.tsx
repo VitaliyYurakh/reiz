@@ -85,10 +85,12 @@ export default function StepTwo({
                   />
                   <span className="custom-checkbox__content">
                     {plan.depositPercent === 0
-                      ? t("insurance.packages.withDeposit")
-                      : t("insurance.packages.coverage", {
-                          percent: plan.depositPercent,
-                        })}
+                      ? t("insurance.packages.fullDeposit")
+                      : plan.depositPercent >= 100
+                        ? t("insurance.packages.zeroDeposit")
+                        : t("insurance.packages.reducedDeposit", {
+                            percent: plan.depositPercent,
+                          })}
                     <span>
                       {plan.depositPercent === 0
                         ? t("insurance.included")

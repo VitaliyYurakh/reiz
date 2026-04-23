@@ -18,6 +18,9 @@ import reportController from './report.controller';
 import calendarController from './calendar.controller';
 import cityController from './city.controller';
 import userController from './user.controller';
+import complaintController from './complaint.controller';
+import fxRateController from './fx-rate.controller';
+import partnerController from './partner.controller';
 
 export {
     authController,
@@ -40,4 +43,7 @@ export {
     calendarController,
     cityController,
     userController,
+    complaintController,
+    fxRateController,
+    partnerController,
 };

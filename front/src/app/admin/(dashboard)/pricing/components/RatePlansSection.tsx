@@ -193,7 +193,7 @@ export function RatePlansSection({
             margin: 0,
           }}
         >
-          Тарифы
+          Тарифи
         </h2>
         <button
           type="button"
@@ -206,11 +206,11 @@ export function RatePlansSection({
         >
           {showCreate ? (
             <>
-              <X style={{ width: 15, height: 15 }} /> Отмена
+              <X style={{ width: 15, height: 15 }} /> Скасувати
             </>
           ) : (
             <>
-              <Plus style={{ width: 15, height: 15 }} /> Добавить
+              <Plus style={{ width: 15, height: 15 }} /> Додати
             </>
           )}
         </button>
@@ -236,7 +236,7 @@ export function RatePlansSection({
               marginBottom: 20,
             }}
           >
-            Новый тариф
+            Новий тариф
           </h3>
           <div
             style={{
@@ -246,14 +246,14 @@ export function RatePlansSection({
             }}
           >
             <div>
-              <HLabel>Название</HLabel>
+              <HLabel>Назва</HLabel>
               <HInput
                 type="text"
                 value={createForm.name}
                 onChange={(e) =>
                   setCreateForm({ ...createForm, name: e.target.value })
                 }
-                placeholder="Название тарифа"
+                placeholder="Назва тарифу"
               />
             </div>
             <div>
@@ -265,7 +265,7 @@ export function RatePlansSection({
                 onChange={(v) =>
                   setCreateForm({ ...createForm, carId: v ? Number(v) : '' })
                 }
-                placeholder="-- Выберите авто --"
+                placeholder="— Оберіть авто —"
                 options={cars.map((c) => ({
                   value: String(c.id),
                   label: `${c.brand} ${c.model} (${c.plateNumber})`,
@@ -273,7 +273,7 @@ export function RatePlansSection({
               />
             </div>
             <div>
-              <HLabel>Мин. дней</HLabel>
+              <HLabel>Мін. днів</HLabel>
               <HInput
                 type="number"
                 value={createForm.minDays}
@@ -288,7 +288,7 @@ export function RatePlansSection({
               />
             </div>
             <div>
-              <HLabel>Макс. дней</HLabel>
+              <HLabel>Макс. днів</HLabel>
               <HInput
                 type="number"
                 value={createForm.maxDays}
@@ -303,7 +303,7 @@ export function RatePlansSection({
               />
             </div>
             <div>
-              <HLabel>Цена/день</HLabel>
+              <HLabel>Ціна/день</HLabel>
               <HInput
                 type="number"
                 value={createForm.dailyPrice}
@@ -335,7 +335,7 @@ export function RatePlansSection({
                 onChange={(v) =>
                   setCreateForm({ ...createForm, isActive: v })
                 }
-                label="Активен"
+                label="Активний"
               />
             </div>
           </div>
@@ -353,7 +353,7 @@ export function RatePlansSection({
               className="h-btn h-btn-primary h-btn-sm"
               style={{ borderRadius: 49 }}
             >
-              {creating ? 'Сохранение...' : 'Создать'}
+              {creating ? 'Збереження…' : 'Створити'}
             </button>
           </div>
         </div>
@@ -382,7 +382,7 @@ export function RatePlansSection({
                 borderBottom: `1px solid ${H.grayLight}`,
               }}
             >
-              {['#', 'Название', 'Авто', 'Дни', 'Цена/день', 'Статус', ''].map(
+              {['#', 'Назва', 'Авто', 'Дні', 'Ціна/день', 'Статус', ''].map(
                 (h, i) => (
                   <th
                     key={i}
@@ -461,7 +461,7 @@ export function RatePlansSection({
                         margin: 0,
                       }}
                     >
-                      Тарифов не найдено
+                      Тарифів не знайдено
                     </p>
                   </div>
                 </td>
@@ -617,13 +617,13 @@ export function RatePlansSection({
                           icon={Check}
                           onClick={() => handleSave(rp.id)}
                           disabled={saving}
-                          title="Сохранить"
+                          title="Зберегти"
                           variant="success"
                         />
                         <ActionButton
                           icon={X}
                           onClick={cancelEdit}
-                          title="Отмена"
+                          title="Скасувати"
                         />
                       </div>
                     </td>
@@ -755,12 +755,12 @@ export function RatePlansSection({
                         <ActionButton
                           icon={Pencil}
                           onClick={() => startEdit(rp)}
-                          title="Редактировать"
+                          title="Редагувати"
                         />
                         <ActionButton
                           icon={Trash2}
                           onClick={() => handleDelete(rp.id)}
-                          title="Удалить"
+                          title="Видалити"
                           variant="danger"
                         />
                       </div>

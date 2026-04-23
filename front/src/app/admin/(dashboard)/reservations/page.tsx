@@ -17,6 +17,7 @@ import Link from 'next/link';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { fmtDateShort as fmtDate } from '@/app/admin/lib/format';
+import { PartnerBadge } from '@/components/admin/PartnerBadge';
 
 interface Reservation {
   id: number;
@@ -27,7 +28,13 @@ interface Reservation {
   returnLocation: string;
   createdAt: string;
   client: { id: number; firstName: string; lastName: string; phone: string } | null;
-  car: { id: number; brand: string; model: string; plateNumber: string } | null;
+  car: {
+    id: number;
+    brand: string;
+    model: string;
+    plateNumber: string;
+    partner?: { id: number; fullName: string; companyName: string | null } | null;
+  } | null;
   coveragePackage: { id: number; name: string } | null;
 }
 
@@ -255,8 +262,11 @@ export default function ReservationsPage() {
                       <td className="px-4 py-2.5 text-[13px] font-medium truncate max-w-[160px]" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{name}</td>
                       <td className="px-4 py-2.5 text-[12px] whitespace-nowrap" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{phone}</td>
                       <td className="px-4 py-2.5 whitespace-nowrap">
-                        <span className="text-[13px]" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{carName}</span>
-                        {plate && <span className="ml-1.5 text-[11px]" style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{plate}</span>}
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className="text-[13px]" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{carName}</span>
+                          {plate && <span className="text-[11px]" style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{plate}</span>}
+                          <PartnerBadge partner={r.car?.partner} />
+                        </div>
                       </td>
                       <td className="px-4 py-2.5 text-[12px] whitespace-nowrap" style={{ color: isDark ? '#90A4AE' : '#607D8B' }}>
                         {fmtDate(r.pickupDate)} → {fmtDate(r.returnDate)}

@@ -26,6 +26,12 @@ export interface CarSegment {
     name: string;
 }
 
+export interface RentalPartner {
+    id: number;
+    fullName: string;
+    companyName: string | null;
+}
+
 export interface RentalCar {
     id: number;
     brand: string;
@@ -35,6 +41,7 @@ export interface RentalCar {
     carPhoto: CarPhoto[];
     rentalTariff: RentalTariff[];
     segment: CarSegment[];
+    partner?: RentalPartner | null;
 }
 
 export interface AddOn {

@@ -438,6 +438,7 @@ export default function CarEditPage() {
       color: data.color,
       yearOfManufacture: Number(data.yearOfManufacture),
       segmentIds,
+      partnerId: data.partnerId ? Number(data.partnerId) : null,
     };
     if (!segmentIds.length) {
       toast.error('Оберіть хоча б один сегмент');

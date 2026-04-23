@@ -25,7 +25,7 @@ export default function BookingModal({ booking, onClose }: BookingModalProps) {
   );
 
   const fmtDate = (d: Date) =>
-    d.toLocaleDateString("uk-UA", {
+    d.toLocaleDateString(locale, {
       day: "numeric",
       month: "short",
       year: "numeric",

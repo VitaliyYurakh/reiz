@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { auth } from "@/auth";
 import {
   getProfile,
@@ -15,6 +15,7 @@ import ProfileCompletionBanner from "@/components/account/ProfileCompletionBanne
 export default async function AccountPage() {
   const session = await auth();
   const t = await getTranslations("account");
+  const locale = await getLocale();
 
   const [profile, reservations, activeRentals, completedRentals, favorites, stats] =
     await Promise.all([
@@ -94,7 +95,7 @@ export default async function AccountPage() {
                 : null;
               const pickup = new Date(activeRental.pickupDate);
               const ret = new Date(activeRental.returnDate);
-              const fmtD = (d: Date) => d.toLocaleDateString("uk-UA", { day: "numeric", month: "short" });
+              const fmtD = (d: Date) => d.toLocaleDateString(locale, { day: "numeric", month: "short" });
 
               return (
                 <Link href="/account/bookings" className="active-booking-card">
@@ -138,7 +139,7 @@ export default async function AccountPage() {
                 : null;
               const pickup = new Date(upcomingBooking.pickupDate);
               const ret = new Date(upcomingBooking.returnDate);
-              const fmtD = (d: Date) => d.toLocaleDateString("uk-UA", { day: "numeric", month: "short" });
+              const fmtD = (d: Date) => d.toLocaleDateString(locale, { day: "numeric", month: "short" });
 
               return (
                 <Link href="/account/bookings" className="active-booking-card">

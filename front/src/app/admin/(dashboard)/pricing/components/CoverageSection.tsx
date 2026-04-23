@@ -134,7 +134,7 @@ export function CoverageSection({
             margin: 0,
           }}
         >
-          Покрытие
+          Покриття
         </h2>
         <button
           type="button"
@@ -147,11 +147,11 @@ export function CoverageSection({
         >
           {showCreate ? (
             <>
-              <X style={{ width: 15, height: 15 }} /> Отмена
+              <X style={{ width: 15, height: 15 }} /> Скасувати
             </>
           ) : (
             <>
-              <Plus style={{ width: 15, height: 15 }} /> Добавить
+              <Plus style={{ width: 15, height: 15 }} /> Додати
             </>
           )}
         </button>
@@ -177,7 +177,7 @@ export function CoverageSection({
               marginBottom: 20,
             }}
           >
-            Новый пакет покрытия
+            Новий пакет покриття
           </h3>
           <div
             style={{
@@ -187,18 +187,18 @@ export function CoverageSection({
             }}
           >
             <div>
-              <HLabel>Название</HLabel>
+              <HLabel>Назва</HLabel>
               <HInput
                 type="text"
                 value={createForm.name}
                 onChange={(e) =>
                   setCreateForm({ ...createForm, name: e.target.value })
                 }
-                placeholder="Название пакета"
+                placeholder="Назва пакета"
               />
             </div>
             <div>
-              <HLabel>Покрытие (%)</HLabel>
+              <HLabel>Покриття (%)</HLabel>
               <HInput
                 type="number"
                 value={createForm.depositPercent}
@@ -221,12 +221,12 @@ export function CoverageSection({
                 onChange={(v) =>
                   setCreateForm({ ...createForm, isActive: v })
                 }
-                label="Активен"
+                label="Активний"
               />
             </div>
           </div>
           <div style={{ marginTop: 16 }}>
-            <HLabel>Описание</HLabel>
+            <HLabel>Опис</HLabel>
             <HTextarea
               value={createForm.description}
               onChange={(e) =>
@@ -235,7 +235,7 @@ export function CoverageSection({
                   description: e.target.value,
                 })
               }
-              placeholder="Описание пакета покрытия"
+              placeholder="Опис пакета покриття"
               rows={2}
             />
           </div>
@@ -253,7 +253,7 @@ export function CoverageSection({
               className="h-btn h-btn-primary h-btn-sm"
               style={{ borderRadius: 49 }}
             >
-              {creating ? 'Сохранение...' : 'Создать'}
+              {creating ? 'Збереження…' : 'Створити'}
             </button>
           </div>
         </div>
@@ -340,7 +340,7 @@ export function CoverageSection({
                 margin: 0,
               }}
             >
-              Пакетов покрытия не найдено
+              Пакетів покриття не знайдено
             </p>
           </div>
         </div>
@@ -372,7 +372,7 @@ export function CoverageSection({
                   }}
                 >
                   <div>
-                    <HLabel>Название</HLabel>
+                    <HLabel>Назва</HLabel>
                     <HInput
                       type="text"
                       value={editForm.name}
@@ -382,7 +382,7 @@ export function CoverageSection({
                     />
                   </div>
                   <div>
-                    <HLabel>Покрытие (%)</HLabel>
+                    <HLabel>Покриття (%)</HLabel>
                     <HInput
                       type="number"
                       value={editForm.depositPercent}
@@ -399,7 +399,7 @@ export function CoverageSection({
                     />
                   </div>
                   <div>
-                    <HLabel>Описание</HLabel>
+                    <HLabel>Опис</HLabel>
                     <HTextarea
                       value={editForm.description}
                       onChange={(e) =>
@@ -408,7 +408,7 @@ export function CoverageSection({
                           description: e.target.value,
                         })
                       }
-                      placeholder="Описание"
+                      placeholder="Опис"
                     />
                   </div>
                   <HToggle
@@ -416,7 +416,7 @@ export function CoverageSection({
                     onChange={(v) =>
                       setEditForm({ ...editForm, isActive: v })
                     }
-                    label="Активен"
+                    label="Активний"
                   />
                   <div
                     style={{
@@ -433,7 +433,7 @@ export function CoverageSection({
                         borderRadius: 49,
                       }}
                     >
-                      Отмена
+                      Скасувати
                     </button>
                     <button
                       type="button"
@@ -442,7 +442,7 @@ export function CoverageSection({
                       className="h-btn h-btn-primary h-btn-sm"
                       style={{ borderRadius: 49 }}
                     >
-                      {saving ? 'Сохранение...' : 'Сохранить'}
+                      {saving ? 'Збереження…' : 'Зберегти'}
                     </button>
                   </div>
                 </div>
@@ -522,12 +522,12 @@ export function CoverageSection({
                     <ActionButton
                       icon={Pencil}
                       onClick={() => startEdit(cp)}
-                      title="Редактировать"
+                      title="Редагувати"
                     />
                     <ActionButton
                       icon={Trash2}
                       onClick={() => handleDelete(cp.id)}
-                      title="Удалить"
+                      title="Видалити"
                       variant="danger"
                     />
                   </div>
@@ -556,7 +556,7 @@ export function CoverageSection({
                       fontFamily: H.font,
                     }}
                   >
-                    Покрытие: {cp.depositPercent}%
+                    Покриття: {cp.depositPercent}%
                   </span>
                 </div>
 

@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { key: "profile", href: "/account" },
   { key: "bookings", href: "/account/bookings" },
   { key: "history", href: "/account/history" },
+  { key: "complaints", href: "/account/complaints" },
   { key: "favorites", href: "/account/favorites" },
   { key: "notifications", href: "/account/notifications" },
   { key: "privacy", href: "/account/privacy" },

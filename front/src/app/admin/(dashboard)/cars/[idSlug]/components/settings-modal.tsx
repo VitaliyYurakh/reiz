@@ -1,13 +1,21 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import type { Car, Segment } from '@/types/cars';
 import { HModalOverlay, HModalField } from './ui-primitives';
+import { adminApiClient } from '@/lib/api/admin';
+import { logError } from '@/lib/log';
+
+interface PartnerOption {
+  id: number;
+  fullName: string;
+  companyName: string | null;
+}
 
 interface SettingsModalProps {
-  car: Car;
+  car: Car & { partnerId?: number | null };
   segments: Segment[];
   onClose: () => void;
   onSubmit: (e: React.FormEvent) => void;
@@ -15,6 +23,18 @@ interface SettingsModalProps {
 
 export function SettingsModal({ car, segments, onClose, onSubmit }: SettingsModalProps) {
   const { H } = useAdminTheme();
+  const [partners, setPartners] = useState<PartnerOption[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await adminApiClient.get('/partner?isActive=true');
+        setPartners(res.data.items);
+      } catch (err) {
+        logError(err);
+      }
+    })();
+  }, []);
 
   return (
     <HModalOverlay onClose={onClose}>
@@ -22,10 +42,9 @@ export function SettingsModal({ car, segments, onClose, onSubmit }: SettingsModa
         onSubmit={onSubmit}
         style={{
           width: '100%',
-          maxWidth: 480,
           borderRadius: 20,
           background: H.white,
-          padding: 32,
+          padding: 24,
           boxShadow: H.shadowMd,
           fontFamily: H.font,
         }}
@@ -53,12 +72,48 @@ export function SettingsModal({ car, segments, onClose, onSubmit }: SettingsModa
           </button>
         </div>
         <div className="space-y-4">
-          <HModalField label="Марка" name="brand" defaultValue={car.brand || ''} />
-          <HModalField label="Модель" name="model" defaultValue={car.model || ''} />
-          <HModalField label="Номер" name="plateNumber" defaultValue={car.plateNumber || ''} />
-          <HModalField label="VIN" name="VIN" defaultValue={car.VIN || ''} />
-          <HModalField label="Год выпуска" name="yearOfManufacture" defaultValue={String(car.yearOfManufacture || '')} />
-          <HModalField label="Цвет" name="color" defaultValue={car.color || ''} />
+          {/* 2-column grid — fields fit on ~3 rows instead of 6 */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <HModalField label="Марка" name="brand" defaultValue={car.brand || ''} />
+            <HModalField label="Модель" name="model" defaultValue={car.model || ''} />
+            <HModalField label="Номер" name="plateNumber" defaultValue={car.plateNumber || ''} />
+            <HModalField label="VIN" name="VIN" defaultValue={car.VIN || ''} />
+            <HModalField label="Год выпуска" name="yearOfManufacture" defaultValue={String(car.yearOfManufacture || '')} />
+            <HModalField label="Цвет" name="color" defaultValue={car.color || ''} />
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: 12, fontWeight: 500, color: H.gray, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>
+              Партнер (власник авто)
+            </label>
+            <select
+              name="partnerId"
+              defaultValue={car.partnerId ? String(car.partnerId) : ''}
+              style={{
+                width: '100%',
+                padding: '12px 16px',
+                borderRadius: 16,
+                background: H.bg,
+                border: 'none',
+                fontSize: 14,
+                fontFamily: H.font,
+                color: H.navy,
+                outline: 'none',
+                cursor: 'pointer',
+              }}
+            >
+              <option value="">— Reiz (власне авто) —</option>
+              {partners.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.companyName || p.fullName}
+                </option>
+              ))}
+            </select>
+            <p style={{ fontSize: 11, color: H.gray, marginTop: 6 }}>
+              Якщо авто належить партнеру — звіт по комісії автоматично потрапить у його статемент.
+            </p>
+          </div>
+
           <div>
             <label style={{ display: 'block', fontSize: 12, fontWeight: 500, color: H.gray, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>
               Сегменти

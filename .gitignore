@@ -239,3 +239,8 @@ vite.config.ts.timestamp-*
 
 # Claude Code temporary files
 .claude/
+# Dev-only seed and cleanup scripts — MUST NOT be deployed to prod.
+# Run locally via `npx tsx api/prisma/seed-demo-*.ts` against dev DB only.
+api/prisma/seed-demo-*.ts
+api/prisma/cleanup-*.ts
+api/scripts/e2e-*.ts

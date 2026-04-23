@@ -11,13 +11,14 @@ import {
   X,
   Wallet,
   CreditCard,
-  TrendingUp,
-  TrendingDown,
+  ArrowDownLeft,
+  ArrowUpRight,
   Receipt,
   Pencil,
   Check,
 } from 'lucide-react';
 import { IosSelect } from '@/components/admin/IosSelect';
+import { EntitySearch } from '@/components/admin/EntitySearch';
 import { fmtMoney, fmtDateTime } from '@/app/admin/lib/format';
 
 /* ── Types ── */
@@ -66,6 +67,16 @@ interface CreateTransactionForm {
   description: string;
   clientId: string;
   rentalId: string;
+  fineId: string;
+}
+
+interface OpenFine {
+  id: number;
+  type: string;
+  description: string;
+  amountMinor: number;
+  currency: string;
+  rental: {id: number; contractNumber: string; clientId: number | null} | null;
 }
 
 interface AccountBalance {
@@ -116,6 +127,7 @@ const initialCreateForm: CreateTransactionForm = {
   description: '',
   clientId: '',
   rentalId: '',
+  fineId: '',
 };
 
 function formatMoney(minor: number, currency?: string) {
@@ -144,7 +156,7 @@ export default function FinancePage() {
   const [page, setPage] = useState(1);
   const [loadingAccounts, setLoadingAccounts] = useState(true);
   const [loadingTx, setLoadingTx] = useState(true);
-  const limit = 20;
+  const limit = 50;
 
   const [balances, setBalances] = useState<Map<number, AccountBalance>>(new Map());
   const [filterAccountId, setFilterAccountId] = useState<number | null>(null);
@@ -156,6 +168,7 @@ export default function FinancePage() {
   const [createForm, setCreateForm] = useState<CreateTransactionForm>(initialCreateForm);
   const [creating, setCreating] = useState(false);
   const [createError, setCreateError] = useState<string | null>(null);
+  const [openFines, setOpenFines] = useState<OpenFine[]>([]);
 
   const fetchBalances = useCallback(async () => {
     try {
@@ -184,6 +197,19 @@ export default function FinancePage() {
     fetchBalances();
   }, [fetchBalances]);
 
+  // Load open fines when FINE_PAYMENT is selected
+  useEffect(() => {
+    if (createForm.type !== 'FINE_PAYMENT' || openFines.length > 0) return;
+    (async () => {
+      try {
+        const res = await adminApiClient.get('/finance/fine/open');
+        setOpenFines(res.data.fines);
+      } catch (err) {
+        logError(err);
+      }
+    })();
+  }, [createForm.type, openFines.length]);
+
   const fetchTransactions = useCallback(async () => {
     setLoadingTx(true);
     try {
@@ -203,6 +229,8 @@ export default function FinancePage() {
 
   const totalPages = Math.ceil(total / limit);
 
+  const [fxRate, setFxRate] = useState<{ rate: number; source: string } | null>(null);
+
   const updateCreateField = (key: keyof CreateTransactionForm, value: string) => {
     setCreateForm((prev) => {
       const next = { ...prev, [key]: value };
@@ -216,6 +244,41 @@ export default function FinancePage() {
       return next;
     });
   };
+
+  // Auto-fill FX rate from НБУ when currency or amount changes (and ≠ UAH).
+  // Skip if user already typed a UAH amount manually.
+  useEffect(() => {
+    if (!showCreateForm) return;
+    const cur = createForm.currency;
+    if (cur === 'UAH' || !createForm.amount) {
+      setFxRate(null);
+      return;
+    }
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await adminApiClient.get(`/finance/fx-rate?currency=${cur}`);
+        if (cancelled) return;
+        const r = res.data;
+        setFxRate({ rate: r.rate, source: r.source });
+        // If user hasn't manually edited UAH yet (or it's empty), prefill it.
+        const expected = (parseFloat(createForm.amount) * r.rate).toFixed(2);
+        setCreateForm((prev) => {
+          if (prev.amountUah && Math.abs(parseFloat(prev.amountUah) - parseFloat(expected)) < 0.01) {
+            return prev;
+          }
+          if (!prev.amountUah) {
+            return { ...prev, amountUah: expected };
+          }
+          return prev;
+        });
+      } catch (err) {
+        if (!cancelled) setFxRate(null);
+        logError(err);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [createForm.currency, createForm.amount, showCreateForm]);
 
   const resetCreateForm = () => {
     setCreateForm(initialCreateForm);
@@ -297,6 +360,7 @@ export default function FinancePage() {
       if (createForm.description.trim()) body.description = createForm.description.trim();
       if (createForm.clientId.trim()) body.clientId = parseInt(createForm.clientId);
       if (createForm.rentalId.trim()) body.rentalId = parseInt(createForm.rentalId);
+      if (createForm.fineId.trim()) body.fineId = parseInt(createForm.fineId);
 
       await adminApiClient.post('/finance/transaction', body);
       resetCreateForm();
@@ -343,9 +407,9 @@ export default function FinancePage() {
         </button>
       </div>
 
-      {/* Account Cards */}
+      {/* Account Cards — compact single row */}
       {!loadingAccounts && accounts.length > 0 && (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-3.5 mb-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 mb-6">
           {accounts.map((a) => {
             const style = ACCOUNT_STYLE[a.type.toLowerCase()] || { icon: CreditCard, tint: 'h-icon-box-tint-purple' };
             const Icon = style.icon;
@@ -360,12 +424,13 @@ export default function FinancePage() {
               <div
                 key={a.id}
                 className={`h-account-card ${!a.isActive ? 'h-account-card-inactive' : ''} ${isSelected ? 'h-account-card-selected' : ''}`}
+                style={{ padding: '12px 14px', gap: 10 }}
                 onClick={() => handleCardClick(a.id)}
               >
-                {/* Header: icon + name + edit */}
-                <div className="h-account-card-header">
-                  <div className={style.tint}>
-                    <Icon size={20} />
+                {/* Header: compact */}
+                <div className="h-account-card-header" style={{ gap: 10 }}>
+                  <div className={style.tint} style={{ width: 32, height: 32 }}>
+                    <Icon size={16} />
                   </div>
                   <div className="flex-1 min-w-0">
                     {isEditing ? (
@@ -378,8 +443,16 @@ export default function FinancePage() {
                       />
                     ) : (
                       <>
-                        <p className="text-sm font-semibold text-h-navy m-0">{a.name}</p>
-                        <p className="text-xs text-h-gray m-0">
+                        <p
+                          className="m-0 truncate text-h-navy"
+                          style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.2 }}
+                        >
+                          {a.name}
+                        </p>
+                        <p
+                          className="m-0 truncate text-h-gray"
+                          style={{ fontSize: 10, lineHeight: 1.2, marginTop: 1 }}
+                        >
                           {t(ACCOUNT_TYPE_LABEL_KEYS[a.type]) || a.type} · {a.currency}
                         </p>
                       </>
@@ -388,46 +461,56 @@ export default function FinancePage() {
                   {isEditing ? (
                     <div className="flex gap-1">
                       <button type="button" className="h-account-card-edit" style={{ opacity: 1 }} onClick={(e) => handleEditSave(e, a.id)} disabled={saving}>
-                        <Check size={16} />
+                        <Check size={14} />
                       </button>
                       <button type="button" className="h-account-card-edit" style={{ opacity: 1 }} onClick={handleEditCancel}>
-                        <X size={16} />
+                        <X size={14} />
                       </button>
                     </div>
                   ) : (
                     <button type="button" className="h-account-card-edit" onClick={(e) => handleEditClick(e, a)}>
-                      <Pencil size={14} />
+                      <Pencil size={12} />
                     </button>
                   )}
                 </div>
 
                 {/* Balance */}
-                <div className={`h-account-balance ${balanceClass}`}>
+                <div className={balanceClass} style={{ fontSize: 15, fontWeight: 700, letterSpacing: '-0.01em', lineHeight: 1.15 }}>
                   {symbol} {formatMoney(balanceVal, a.currency)}
                 </div>
 
-                {/* IN / OUT flows */}
-                <div className="h-account-flow">
-                  <span className="h-account-flow-in">↑ {formatMoney(bal?.totalIn ?? 0, a.currency)}</span>
-                  <span className="h-account-flow-out">↓ {formatMoney(bal?.totalOut ?? 0, a.currency)}</span>
+                {/* IN / OUT — compact inline */}
+                <div className="flex items-center gap-3 text-[10.5px] font-semibold">
+                  <span className="inline-flex items-center gap-1" style={{ color: 'var(--color-h-green)' }}>
+                    <ArrowDownLeft size={10} strokeWidth={2.5} />
+                    {formatMoney(bal?.totalIn ?? 0, a.currency)}
+                  </span>
+                  <span className="inline-flex items-center gap-1" style={{ color: 'var(--color-h-red)' }}>
+                    <ArrowUpRight size={10} strokeWidth={2.5} />
+                    {formatMoney(bal?.totalOut ?? 0, a.currency)}
+                  </span>
                 </div>
 
-                {/* Footer: status + toggle */}
-                <div className="h-account-footer">
-                  <span className={`h-account-status ${a.isActive ? 'h-account-status-active' : 'h-account-status-inactive'}`}>
-                    {a.isActive ? t('finance.active') : t('finance.inactive')}
-                  </span>
-                  {isEditing && (
-                    <label className="flex items-center gap-2 text-xs text-h-gray cursor-pointer" onClick={(e) => e.stopPropagation()}>
-                      <input
-                        type="checkbox"
-                        checked={editForm.isActive}
-                        onChange={(e) => setEditForm((f) => ({ ...f, isActive: e.target.checked }))}
-                      />
-                      {t('finance.active')}
-                    </label>
-                  )}
-                </div>
+                {/* Footer only when inactive or editing */}
+                {(!a.isActive || isEditing) && (
+                  <div className="h-account-footer">
+                    {!a.isActive && (
+                      <span className="h-account-status h-account-status-inactive">
+                        {t('finance.inactive')}
+                      </span>
+                    )}
+                    {isEditing && (
+                      <label className="flex items-center gap-2 text-xs text-h-gray cursor-pointer ml-auto" onClick={(e) => e.stopPropagation()}>
+                        <input
+                          type="checkbox"
+                          checked={editForm.isActive}
+                          onChange={(e) => setEditForm((f) => ({ ...f, isActive: e.target.checked }))}
+                        />
+                        {t('finance.active')}
+                      </label>
+                    )}
+                  </div>
+                )}
               </div>
             );
           })}
@@ -514,6 +597,19 @@ export default function FinancePage() {
                       (×{(parseFloat(createForm.amountUah) / parseFloat(createForm.amount) || 0).toFixed(2)})
                     </span>
                   )}
+                  {fxRate && createForm.currency !== 'UAH' && (
+                    <span
+                      className="ml-2 text-xs font-normal"
+                      style={{
+                        color: fxRate.source === 'NBU' ? 'var(--color-h-green)'
+                          : fxRate.source === 'stale' ? 'var(--color-h-orange)'
+                            : 'var(--color-h-gray)',
+                      }}
+                      title={fxRate.source === 'NBU' ? 'Курс НБУ на сьогодні' : fxRate.source === 'stale' ? 'НБУ недоступний — використано останній курс' : 'Ручний курс'}
+                    >
+                      [{fxRate.source} ×{fxRate.rate.toFixed(4)}]
+                    </span>
+                  )}
                 </label>
                 <input
                   type="number"
@@ -539,26 +635,45 @@ export default function FinancePage() {
               </div>
               <div>
                 <label className="h-label">{t('finance.clientId')}</label>
-                <input
-                  type="number"
-                  min="1"
-                  placeholder={t('finance.optionalPlaceholder')}
+                <EntitySearch
+                  entity="client"
                   value={createForm.clientId}
-                  onChange={(e) => updateCreateField('clientId', e.target.value)}
-                  className="h-input"
+                  onChange={(v) => updateCreateField('clientId', v)}
+                  placeholder={t('finance.optionalPlaceholder')}
+                  className="w-full text-sm"
                 />
               </div>
               <div>
                 <label className="h-label">{t('finance.rentalId')}</label>
-                <input
-                  type="number"
-                  min="1"
-                  placeholder={t('finance.optionalPlaceholder')}
+                <EntitySearch
+                  entity="rental"
                   value={createForm.rentalId}
-                  onChange={(e) => updateCreateField('rentalId', e.target.value)}
-                  className="h-input"
+                  onChange={(v) => updateCreateField('rentalId', v)}
+                  placeholder={t('finance.optionalPlaceholder')}
+                  className="w-full text-sm"
                 />
               </div>
+              {createForm.type === 'FINE_PAYMENT' && (
+                <div>
+                  <label className="h-label">
+                    {t('finance.fineLink') || 'Штраф'} <span className="h-required">*</span>
+                  </label>
+                  <IosSelect
+                    required
+                    value={createForm.fineId}
+                    onChange={(v) => updateCreateField('fineId', v)}
+                    options={openFines.map((f) => ({
+                      value: String(f.id),
+                      label: `#${f.id} · ${f.type} · ${(f.amountMinor / 100).toFixed(2)} ${f.currency}${f.rental ? ` · ${f.rental.contractNumber}` : ''}`,
+                    }))}
+                    placeholder={openFines.length === 0 ? 'Немає відкритих штрафів' : '— Оберіть штраф —'}
+                    className="w-full text-sm"
+                  />
+                  <p className="text-xs text-h-gray mt-1">
+                    Штраф автоматично буде позначено як сплачений після створення транзакції.
+                  </p>
+                </div>
+              )}
             </div>
             <div className="flex justify-end mt-4">
               <button
@@ -590,29 +705,26 @@ export default function FinancePage() {
           <table className="h-table">
             <thead>
               <tr>
-                <th className="h-th">{t('finance.thId')}</th>
-                <th className="h-th">{t('finance.thDirection')}</th>
+                <th className="h-th" style={{ width: 60 }}>{t('finance.thId')}</th>
                 <th className="h-th">{t('finance.thType')}</th>
-                <th className="h-th">{t('finance.thAmount')}</th>
+                <th className="h-th" style={{ textAlign: 'right' }}>{t('finance.thAmount')}</th>
                 <th className="h-th">{t('finance.thAccount')}</th>
-                <th className="h-th">{t('finance.thClient')}</th>
                 <th className="h-th">{t('finance.thRental')}</th>
-                <th className="h-th">{t('finance.thDescription')}</th>
-                <th className="h-th">{t('finance.thDate')}</th>
+                <th className="h-th" style={{ textAlign: 'right' }}>{t('finance.thDate')}</th>
               </tr>
             </thead>
             <tbody>
               {loadingTx ? (
                 Array.from({ length: 5 }).map((_, i) => (
                   <tr key={i}>
-                    <td colSpan={9} className="px-4 py-3.5">
+                    <td colSpan={6} className="px-4 py-3.5">
                       <div className="h-shimmer" />
                     </td>
                   </tr>
                 ))
               ) : transactions.length === 0 ? (
                 <tr>
-                  <td colSpan={9} className="h-empty">
+                  <td colSpan={6} className="h-empty">
                     <Receipt size={32} className="h-empty-icon" />
                     <p className="text-sm text-h-gray">{t('finance.emptyTitle')}</p>
                   </td>
@@ -620,30 +732,49 @@ export default function FinancePage() {
               ) : (
                 transactions.map((tx) => {
                   const isIn = tx.direction === 'in';
+                  const DirIcon = isIn ? ArrowDownLeft : ArrowUpRight;
                   return (
-                    <tr key={tx.id} className="h-tr">
+                    <tr
+                      key={tx.id}
+                      className="h-tr"
+                      style={{ borderLeft: `3px solid ${isIn ? '#01B574' : '#EE5D50'}` }}
+                    >
                       <td className="h-td h-td-gray text-xs font-semibold">
                         {tx.id}
                       </td>
                       <td className="h-td">
-                        <span className={`h-badge h-badge-sm ${isIn ? 'h-badge-in' : 'h-badge-out'}`}>
-                          {isIn ? <TrendingDown size={12} /> : <TrendingUp size={12} />}
-                          {isIn ? 'IN' : 'OUT'}
-                        </span>
+                        <div className="flex items-center gap-2.5">
+                          <span
+                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
+                            style={{
+                              background: isIn ? 'rgba(1,181,116,0.1)' : 'rgba(238,93,80,0.1)',
+                              color: isIn ? '#01B574' : '#EE5D50',
+                            }}
+                          >
+                            <DirIcon size={14} strokeWidth={2.5} />
+                          </span>
+                          <div className="min-w-0">
+                            <div className="text-sm font-medium text-h-navy">
+                              {t(TYPE_LABEL_KEYS[tx.type]) || tx.type}
+                            </div>
+                            {tx.description && (
+                              <div className="mt-0.5 truncate text-xs text-h-gray max-w-[280px]">
+                                {tx.description}
+                              </div>
+                            )}
+                          </div>
+                        </div>
                       </td>
-                      <td className="h-td text-xs">
-                        <span className="h-type-badge">
-                          {t(TYPE_LABEL_KEYS[tx.type]) || tx.type}
-                        </span>
-                      </td>
-                      <td className="h-td">
+                      <td className="h-td whitespace-nowrap" style={{ textAlign: 'right' }}>
                         <div className={isIn ? 'h-money-green' : 'h-money-red'}>
-                          {isIn ? '+' : '-'}{formatMoney(tx.amountMinor, tx.currency)}
+                          {isIn ? '+' : '−'}{formatMoney(tx.amountMinor, tx.currency)}
                         </div>
                         {tx.amountUahMinor != null && tx.currency !== 'UAH' && (
-                          <div className="h-money-sub">
-                            {formatMoney(tx.amountUahMinor, 'UAH')}
-                            {tx.fxRate != null && ` (×${tx.fxRate})`}
+                          <div
+                            className="h-money-sub"
+                            title={tx.fxRate != null ? `FX ×${tx.fxRate}` : undefined}
+                          >
+                            ≈ {formatMoney(tx.amountUahMinor, 'UAH')}
                           </div>
                         )}
                       </td>
@@ -651,29 +782,36 @@ export default function FinancePage() {
                         {tx.account?.name || '—'}
                       </td>
                       <td className="h-td text-xs">
-                        {tx.client ? (
+                        {tx.rental ? (
+                          <div className="flex flex-col">
+                            <a
+                              href={`/admin/rentals/${tx.rental.id}`}
+                              className="h-link font-mono text-[11px]"
+                            >
+                              {tx.rental.contractNumber}
+                            </a>
+                            {tx.client && (
+                              <a
+                                href={`/admin/clients/${tx.client.id}`}
+                                className="h-link text-[11px] text-h-gray"
+                                style={{ fontWeight: 400 }}
+                              >
+                                {tx.client.firstName} {tx.client.lastName}
+                              </a>
+                            )}
+                          </div>
+                        ) : tx.client ? (
                           <a
                             href={`/admin/clients/${tx.client.id}`}
                             className="h-link"
                           >
                             {tx.client.firstName} {tx.client.lastName}
                           </a>
-                        ) : '—'}
+                        ) : (
+                          <span className="text-h-gray">—</span>
+                        )}
                       </td>
-                      <td className="h-td h-td-mono h-td-gray">
-                        {tx.rental ? (
-                          <a
-                            href={`/admin/rentals/${tx.rental.id}`}
-                            className="h-link"
-                          >
-                            {tx.rental.contractNumber}
-                          </a>
-                        ) : '—'}
-                      </td>
-                      <td className="h-td h-td-gray h-td-truncate">
-                        {tx.description || '—'}
-                      </td>
-                      <td className="h-td h-td-gray text-xs whitespace-nowrap">
+                      <td className="h-td h-td-gray text-xs whitespace-nowrap" style={{ textAlign: 'right' }}>
                         {fmtDateTime(tx.createdAt)}
                       </td>
                     </tr>

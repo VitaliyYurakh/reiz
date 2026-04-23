@@ -3,32 +3,61 @@
 import { type FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 import TelInput from "@/components/TelInput";
-import { submitContactRequest } from "@/lib/api/feedback";
+import { submitContactRequest, submitComplaint } from "@/lib/api/feedback";
+
+const CATEGORY_OPTIONS = [
+  { value: "OTHER", label: "Загальне питання" },
+  { value: "DEPOSIT", label: "Спір по заставі" },
+  { value: "DAMAGE", label: "Пошкодження авто" },
+  { value: "FINE", label: "Спір по штрафу" },
+  { value: "SERVICE", label: "Якість сервісу" },
+  { value: "GDPR", label: "Персональні дані / GDPR" },
+] as const;
 
 export default function ContactsForm() {
   const t = useTranslations("contactsPage");
   const [feedback, setFeedback] = useState<"success" | "error" | "">("");
+  const [ticketNumber, setTicketNumber] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [phone, setPhone] = useState("");
   const [phoneInputKey, setPhoneInputKey] = useState(0);
+  const [category, setCategory] = useState<string>("OTHER");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
+    const name = (formData.get("name") as string) || "";
+    const email = (formData.get("mail") as string) || "";
+    const subject = (formData.get("subject") as string) || `Звернення від ${name || "клієнта"}`;
+    const message = (formData.get("mess") as string) || "";
+
     setIsSubmitting(true);
     setFeedback("");
+    setTicketNumber(null);
 
     try {
-      await submitContactRequest({
-        name: formData.get("name") as string,
-        email: formData.get("mail") as string,
-        phone,
-        message: formData.get("mess") as string,
-      });
+      // Open a tracked Complaint for the dispute / support categories so it
+      // gets a ticket number, SLA timer, and shows up in the admin queue.
+      // Plain "OTHER" still goes through the legacy contact-request path
+      // (managers' email inbox) for now.
+      if (category !== "OTHER") {
+        const res = await submitComplaint({
+          category: category as any,
+          subject: subject || `[${category}] звернення`,
+          initialMessage: message || `(порожнє повідомлення)`,
+          contactName: name || undefined,
+          contactEmail: email || undefined,
+          contactPhone: phone || undefined,
+        });
+        setTicketNumber(res.complaint.ticketNumber);
+      } else {
+        await submitContactRequest({ name, email, phone, message });
+      }
       setFeedback("success");
       e.currentTarget.reset();
       setPhone("");
+      setCategory("OTHER");
       setPhoneInputKey((prev) => prev + 1);
     } catch (error) {
       console.error(error);
@@ -69,6 +98,18 @@ export default function ContactsForm() {
         />
       </label>
       <label className="main-form__label">
+        <select
+          name="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="main-form__input"
+        >
+          {CATEGORY_OPTIONS.map((opt) => (
+            <option key={opt.value} value={opt.value}>{opt.label}</option>
+          ))}
+        </select>
+      </label>
+      <label className="main-form__label">
         <input
           type="text"
           name="subject"
@@ -88,7 +129,9 @@ export default function ContactsForm() {
 
       {feedback === "success" && (
         <div className="form-feedback form-feedback--success" style={{ marginBottom: "1rem", color: "green" }}>
-          {t("form.success") || "Your message has been sent successfully!"}
+          {ticketNumber
+            ? `Ваше звернення зареєстровано: ${ticketNumber}`
+            : t("form.success") || "Your message has been sent successfully!"}
         </div>
       )}
       {feedback === "error" && (
