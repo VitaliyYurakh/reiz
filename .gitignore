@@ -244,3 +244,6 @@ vite.config.ts.timestamp-*
 api/prisma/seed-demo-*.ts
 api/prisma/cleanup-*.ts
 api/scripts/e2e-*.ts
+
+# Local SEO audit artefacts (GSC exports, never commit)
+_audit/

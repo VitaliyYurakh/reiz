@@ -1,3 +1,5 @@
+import { readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
 import type { MetadataRoute } from "next";
 import { ROUTE_MAP, type RouteKey } from "@/lib/seo";
 import { defaultLocale } from "@/i18n/request";
@@ -15,6 +17,20 @@ const DEFAULT_IMAGE = abs("/img/og/home-square.jpg");
 const BLOG_ARTICLE_IMAGES: Record<string, string> = {
   "/blog/lviv-travel": abs("/img/blog/synevir-lake.webp"),
 };
+
+// Auto-discover all blog articles from the filesystem.
+// Filters out non-article files like layout.tsx / page.tsx (the index).
+function getBlogArticleSlugs(): string[] {
+  const blogDir = join(process.cwd(), "src/app/[locale]/(site)/blog");
+  try {
+    return readdirSync(blogDir).filter((entry) => {
+      const full = join(blogDir, entry);
+      return statSync(full).isDirectory();
+    });
+  } catch {
+    return [];
+  }
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
@@ -84,8 +100,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("Failed to fetch cars for sitemap:", error);
   }
 
-  // Blog articles
-  const blogArticles = ["/blog/lviv-travel"];
+  // Blog articles — auto-discovered from filesystem so new articles get indexed
+  // without anyone remembering to update this file.
+  const blogArticles = getBlogArticleSlugs().map((slug) => `/blog/${slug}`);
   for (const articlePath of blogArticles) {
     const languages = buildHreflangMap(articlePath, abs);
     entries.push({

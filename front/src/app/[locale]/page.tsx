@@ -10,21 +10,18 @@ import EditorSection from "@/app/[locale]/components/EditorSection";
 import Footer from "@/components/Footer";
 import { CatalogFiltersProvider } from "@/context/CatalogFiltersContext";
 import { fetchCars } from "@/lib/api/cars";
-import { getPageMetadata } from "@/lib/seo";
+import { getStaticPageMetadata } from "@/lib/seo-sync";
 import type { Locale } from "@/i18n/request";
 import { setRequestLocale } from "next-intl/server";
 
-export async function generateMetadata({
+// Sync metadata so <title> lands in the initial HTML — see lib/seo-sync.ts.
+// Async getPageMetadata streams later, which crawlers (and OG scrapers) miss.
+export function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
-  return getPageMetadata({
-    routeKey: "home",
-    ns: "homePage",
-    locale,
-  });
+  return params.then(({ locale }) => getStaticPageMetadata("homePage", locale));
 }
 
 export default async function Home({

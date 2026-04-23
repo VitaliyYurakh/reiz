@@ -41,6 +41,25 @@ export function generateRentalServiceSchema({
     ro: `Rezervați ${carName} online. Serviciu premium, asigurare inclusă, livrare 24/7.`,
   };
 
+  // Localized postal address — Cyrillic looks broken to international searchers in rich snippets.
+  const addressByLocale: Record<Locale, { street: string; city: string; region: string }> = {
+    uk: { street: "вул. Любінська, 168", city: "Львів", region: "Львівська область" },
+    ru: { street: "ул. Любинская, 168", city: "Львов", region: "Львовская область" },
+    en: { street: "168 Lyubinska St", city: "Lviv", region: "Lviv Oblast" },
+    pl: { street: "ul. Lubinska 168", city: "Lwów", region: "Obwód lwowski" },
+    ro: { street: "Str. Liubinska 168", city: "Lviv", region: "Regiunea Lviv" },
+  };
+  const addr = addressByLocale[locale];
+
+  // Localized areaServed.City name
+  const cityServedByLocale: Record<Locale, string> = {
+    uk: "Львів",
+    ru: "Львов",
+    en: "Lviv",
+    pl: "Lwów",
+    ro: "Lviv",
+  };
+
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -56,9 +75,9 @@ export function generateRentalServiceSchema({
       logo: `${BASE}/img/logo.svg`,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "вул. Любінська, 168",
-        addressLocality: "Львів",
-        addressRegion: "Львівська область",
+        streetAddress: addr.street,
+        addressLocality: addr.city,
+        addressRegion: addr.region,
         postalCode: "79000",
         addressCountry: "UA",
       },
@@ -71,7 +90,7 @@ export function generateRentalServiceSchema({
     },
     areaServed: {
       "@type": "City",
-      name: "Lviv",
+      name: cityServedByLocale[locale],
       containedInPlace: {
         "@type": "Country",
         name: "Ukraine",
@@ -91,12 +110,12 @@ export function generateRentalServiceSchema({
   if (minPrice !== null) {
     schema.offers = {
       "@type": "Offer",
-      priceCurrency: "USD",
+      priceCurrency: "EUR",
       price: minPrice.toString(),
       priceSpecification: {
         "@type": "UnitPriceSpecification",
         price: minPrice.toString(),
-        priceCurrency: "USD",
+        priceCurrency: "EUR",
         unitText: "DAY",
       },
       availability: "https://schema.org/InStock",

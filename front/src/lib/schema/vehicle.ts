@@ -103,7 +103,7 @@ export function generateVehicleSchema({
   if (minPrice !== null) {
     schema.offers = {
       "@type": "AggregateOffer",
-      priceCurrency: "USD",
+      priceCurrency: "EUR",
       lowPrice: minPrice.toString(),
       highPrice: maxPrice?.toString(),
       offerCount: prices.length,
@@ -206,7 +206,7 @@ export function generateProductSchema({
     schema.offers = {
       "@type": "Offer",
       url: canonicalUrl,
-      priceCurrency: "USD",
+      priceCurrency: "EUR",
       price: minPrice.toString(),
       availability: "https://schema.org/InStock",
       priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)

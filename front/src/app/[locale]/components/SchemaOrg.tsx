@@ -43,6 +43,22 @@ export default async function SchemaOrg({
     t(`catalog_aside.${key}`),
   );
 
+  // Build FAQPage from homePage.faq (3 groups × 3 items = 9 Q&A pairs).
+  // Lets AI engines (Google AI Overviews, ChatGPT, Perplexity) extract direct
+  // answers for queries like "ліміт пробігу оренди авто Львів".
+  const faqGroupKeys = ["group1", "group2", "group3"] as const;
+  const faqItemKeys = ["item1", "item2", "item3"] as const;
+  const faqQuestions = faqGroupKeys.flatMap((group) =>
+    faqItemKeys.map((item) => ({
+      "@type": "Question" as const,
+      name: t(`faq.${group}_${item}_question`),
+      acceptedAnswer: {
+        "@type": "Answer" as const,
+        text: t(`faq.${group}_${item}_answer`),
+      },
+    })),
+  );
+
   const { city, region, country } = LOCALE_AREA[locale];
 
   const websiteJsonLd = {
@@ -170,6 +186,12 @@ export default async function SchemaOrg({
     },
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqQuestions,
+  };
+
   return (
     <>
       <script
@@ -191,6 +213,11 @@ export default async function SchemaOrg({
         type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: true
         dangerouslySetInnerHTML={{ __html: JSON.stringify(companyJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: true
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
     </>
   );

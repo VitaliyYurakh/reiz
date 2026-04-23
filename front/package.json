@@ -10,7 +10,8 @@
     "start": "next start -p 2912",
     "lint": "biome check",
     "format": "biome format --write --fix",
-    "build:icons": "node scripts/build-icons.mjs"
+    "build:icons": "node scripts/build-icons.mjs",
+    "postinstall": "prisma generate --schema=prisma/schema.prisma"
   },
   "dependencies": {
     "@fancyapps/ui": "^6.0.34",

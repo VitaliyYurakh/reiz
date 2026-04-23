@@ -8,6 +8,28 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: ["AdsBot-Google", "AdsBot-Google-Mobile"],
         allow: "/",
       },
+      // Explicit allow for AI search/answer engines so they can cite us
+      // in ChatGPT, Claude, Perplexity, Gemini, Copilot answers.
+      // Source: ai-seo skill (Princeton GEO study, KDD 2024).
+      {
+        userAgent: [
+          "GPTBot",
+          "ChatGPT-User",
+          "OAI-SearchBot",
+          "ClaudeBot",
+          "anthropic-ai",
+          "Claude-Web",
+          "PerplexityBot",
+          "Perplexity-User",
+          "Google-Extended",
+          "Applebot-Extended",
+          "Bytespider",
+          "Amazonbot",
+          "DuckAssistBot",
+        ],
+        allow: "/",
+        disallow: ["/admin", "/dashboard", "/api/auth", "/auth/login", "/auth/register"],
+      },
       {
         userAgent: "*",
         allow: "/",
@@ -15,17 +37,18 @@ export default function robots(): MetadataRoute.Robots {
           // Private areas
           "/admin",
           "/dashboard",
-          "/login",
           "/api/auth",
-          // Deleted/non-existent car pages
-          "/cars/1-bmw-x3-2023",
-          "/ru/cars/1-bmw-x3-2023",
-          "/en/cars/1-bmw-x3-2023",
-          "/cars/5-1111-232323-7777",
-          "/ru/cars/5-1111-232323-7777",
-          "/en/cars/5-1111-232323-7777",
-          "/pl/cars/1-bmw-x3-2023",
-          "/pl/cars/5-1111-232323-7777",
+          // Auth flow (login/register) — not useful in search
+          "/auth/login",
+          "/auth/register",
+          "/ru/auth/login",
+          "/ru/auth/register",
+          "/en/auth/login",
+          "/en/auth/register",
+          "/pl/auth/login",
+          "/pl/auth/register",
+          "/ro/auth/login",
+          "/ro/auth/register",
         ],
       },
     ],

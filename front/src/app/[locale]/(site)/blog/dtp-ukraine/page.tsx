@@ -4,6 +4,7 @@ import { type Locale, locales, defaultLocale, Link } from "@/i18n/request";
 import { buildHreflangMap, OG_LOCALE, getOgAlternateLocales } from "@/i18n/locale-config";
 import Breadcrumbs from "@/app/[locale]/(site)/components/Breadcrumbs";
 import HomeIcon from "@/components/HomeIcon";
+import JsonLd from "@/components/JsonLd";
 import UiImage from "@/components/ui/UiImage";
 import ArticleFaq from "./ArticleFaq";
 
@@ -64,8 +65,39 @@ export default async function DtpUkrainePage() {
     { title: t("faq.q4.question"), content: t("faq.q4.answer") },
   ];
 
+  // HowTo schema — lets AI engines extract step-by-step instructions
+  // for queries like "що робити при ДТП в Україні".
+  const stepKeys = ["step1", "step2", "step3", "step4", "step5", "step6", "step7", "step8"] as const;
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: t("title"),
+    description: t("intro"),
+    image: `${BASE}/img/blog/road%20accidentua.webp`,
+    step: stepKeys.map((key, idx) => ({
+      "@type": "HowToStep",
+      position: idx + 1,
+      name: t(`steps.${key}.title`),
+      text: t(`steps.${key}.text`),
+      url: `${BASE}/blog/dtp-ukraine#${key}`,
+    })),
+  };
+
+  // FAQPage schema for the in-article Q&A block.
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((f) => ({
+      "@type": "Question",
+      name: f.title,
+      acceptedAnswer: { "@type": "Answer", text: f.content },
+    })),
+  };
+
   return (
     <article className="article-section__inner" aria-labelledby="article-title">
+      <JsonLd data={howToJsonLd} />
+      <JsonLd data={faqJsonLd} />
       <Breadcrumbs
         mode="JsonLd"
         items={[

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Catalog from "@/app/[locale]/components/Catalog";
@@ -66,6 +66,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, city: citySlug } = await params;
 
+  // Lviv lives at the root (homepage IS the Lviv pillar) — never expose /rental/lviv.
+  if (citySlug === "lviv") {
+    permanentRedirect(locale === defaultLocale ? "/" : `/${locale}`);
+  }
+
   const cityConfig = getCityBySlug(citySlug);
   const cityData = getCityLocalizedData(citySlug, locale);
 
@@ -126,6 +131,11 @@ export default async function CityRentalPage({
   params: Promise<PageParams>;
 }) {
   const { city: citySlug, locale } = await params;
+
+  // Lviv lives at the root (homepage IS the Lviv pillar) — never expose /rental/lviv.
+  if (citySlug === "lviv") {
+    permanentRedirect(locale === defaultLocale ? "/" : `/${locale}`);
+  }
 
   const cityConfig = getCityBySlug(citySlug);
   const cityData = getCityLocalizedData(citySlug, locale);
