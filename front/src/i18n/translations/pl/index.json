@@ -1,7 +1,7 @@
 {
   "aside": {
     "brand": "REIZ",
-    "cta_button": "ZAMOW ODDZWONIENIE",
+    "cta_button": "ZAMÓW ODDZWONIENIE",
     "controls": {
       "expand": "Rozwin podmenu",
       "collapse": "Zwin podmenu"
@@ -30,31 +30,31 @@
       "certificates": "BONY PODARUNKOWE",
       "contacts": "KONTAKT",
       "faq": "FAQ",
-      "home": "STRONA GLOWNA",
+      "home": "STRONA GŁÓWNA",
       "insurance": "UBEZPIECZENIE",
-      "invest": "ODDAJ SAMOCHOD",
+      "invest": "ODDAJ SAMOCHÓD",
       "terms": "WARUNKI WYNAJMU"
     },
-    "subtitle": "WYNAJEM SAMOCHODOW NA UKRAINIE"
+    "subtitle": "WYNAJEM SAMOCHODÓW NA UKRAINIE"
   },
   "header": {
-    "call": "Zadzwon",
+    "call": "Zadzwoń",
     "currency": "Waluta",
     "currencyDisclaimer": "Ceny w {currency} są orientacyjne. Płatność w USD.",
-    "open_menu": "Otworz menu",
+    "open_menu": "Otwórz menu",
     "close_menu": "Zamknij menu",
     "whatsapp_unavailable": "WhatsApp jest tymczasowo niedostępny"
   },
   "homePage": {
     "advantages": {
-      "item1_text": "Bezplatna dostawa w dowolne miejsce w miescie — o kazdej porze.",
+      "item1_text": "Bezpłatna dostawa w dowolne miejsce w mieście — o każdej porze.",
       "item1_title": "Dostawa 24/7",
       "item2_text": "Uczciwe ceny bez niespodzianek. Przejrzyste warunki.",
-      "item2_title": "Brak ukrytych oplat",
-      "item3_text": "Wynajem z profesjonalnym kierowca — wygodnie i bezpiecznie.",
-      "item3_title": "Usluga szofera",
-      "item4_text": "Indywidualne oferty dla stalych klientow.",
-      "item4_title": "Lojalnosc i rabaty"
+      "item2_title": "Brak ukrytych opłat",
+      "item3_text": "Wynajem z profesjonalnym kierowcą — wygodnie i bezpiecznie.",
+      "item3_title": "Usługa szofera",
+      "item4_text": "Indywidualne oferty dla stałych klientów.",
+      "item4_title": "Lojalność i rabaty"
     },
     "catalog_aside": {
       "category1": "Ekonomiczny",
@@ -85,25 +85,25 @@
         "select_model_placeholder": "Model",
         "show_button_count": 0,
         "show_button_suffix": "Samochody",
-        "show_button_text": "Pokaz",
+        "show_button_text": "Pokaż",
         "subtitle_count": 1,
         "subtitle_text": "Filtry"
       },
       "open_box": {
         "filter_button_count": 1,
         "filter_button_text": "Filtry",
-        "sort_option1": "Cena: od najnizszej",
-        "sort_option2": "Cena: od najwyzszej",
+        "sort_option1": "Cena: od najniższej",
+        "sort_option2": "Cena: od najwyższej",
         "sort_option3": "Domyslnie",
         "sort_placeholder_icon": ""
       },
-      "submit": "ZAMOW ODDZWONIENIE",
-      "top_text": "WYBIERZ SAMOCHOD",
+      "submit": "ZAMÓW ODDZWONIENIE",
+      "top_text": "WYBIERZ SAMOCHÓD",
       "catalog_content": {
         "heading": "Flota REIZ: od komfortu do klasy premium",
         "pretitle": "SAMOCHODY REIZ",
-        "sort_option1": "Cena: od najnizszej",
-        "sort_option2": "Cena: od najwyzszej",
+        "sort_option1": "Cena: od najniższej",
+        "sort_option2": "Cena: od najwyższej",
         "sort_placeholder": "Domyslnie"
       },
       "catalog_list": {
@@ -135,213 +135,213 @@
           "totalLabel": "Razem"
         },
         "actions": {
-          "details": "Szczegoly",
+          "details": "Szczegóły",
           "book": "Zarezerwuj"
         },
-        "empty": "Brak dostepnych samochodow",
+        "empty": "Brak dostepnych samochodów",
         "imageAlt": "Wynajem {brand} {model} we Lwowie"
       }
     },
     "editor_block": {
-      "title": "Wynajem samochodow we Lwowie od REIZ: Przejrzyscie, Rzetelnie i z Dbalocia o Detale",
-      "text": "<div class='editor_text'>W REIZ nie tylko wydajemy kluczyki — zapewniamy Twoja mobilnosc. Oferujemy bezproblemowa dostawe samochodow w calem Lwowie i mozemy przetransportowac pojazd w dowolne miejsce na Ukrainie na zyczenie.<br/><br/>Nasza flota jest dobrana tak, aby spelniac kazda potrzebe: prestizowe modele <span class='text-strong'>premium</span> dla biznesu, wytrzymale <span class='text-strong'>SUV-y</span> na gorskie przygody i przestronne <span class='text-strong'>minibusy</span> na rodzinne wycieczki. Nawet jesli szukasz <span class='text-strong'>opcji ekonomicznej</span>, stawiamy na nowsze modele, ktore oferuja poziom komfortu i bezpieczenstwa znacznie powyzej standardu.</div><h2 class='editor_title'>Plany wynajmu: Wybierz swoj rytm</h2><h3 class='editor_title'>Wynajem dzienny: Przetestuj zanim zdecydujesz</h3><div class='editor_text'>Stawka dzienna to idealny test bez zobowiazan. Wez samochod na 24 godziny i sprawdz, jak radzi sobie na lwowskim bruku i na autostradzie. Czy latwo sie parkuje? Czy walizki sie mieszcza? Czy podoba Ci sie dzwiek silnika? Jeden dzien zwykle wystarczy, aby zdecydowac, czy przedluzyc na miesiac, czy przesiasc sie do innej klasy. Wielu naszych klientow bierze samochod na dzien, zeby go przetestowac przed weekendowym wyjazdem w Karpaty — strome podjazdy do Slawska czy krete drogi do Bukowelu szybko pokaza, czy to odpowiedni samochod na urlop.</div><h3 class='editor_title'>Tygodniowy wypad</h3><div class='editor_text'>Wynajem tygodniowy to najlepsza rownowaga miedzy cena a wolnoscia. Jedna stala stawka, siedem dni i zero czekania na taxi. Tydzien daje elastycznosc, by laczyc sprawy sluzbowe z wypoczynkiem: zwiedzanie zamkow regionu lwowskiego, trasy winne czy wypady w gory. Daje wiecej czasu na oswojenie sie z samochodem niz wynajem dzienny, a przedluzenie rezerwacji jest proste, jesli zdecydujesz sie zostac dluzej.</div><h3 class='editor_title'>Wynajem miesieeczny: Rozwiazanie na dlugi pobyt</h3><div class='editor_text'>Idealny na projekty, podroze sluzbowe lub przeprowadzke. Otrzymujesz znacznie nizsza stawke dzienna i jedna, przewidywalna platnosc. Ten format jest stworzony do regularnych podrozy sluzbowych: dojazdy Lwow–Kijow czy wizyty u klientow w Tarnopolu, Iwano-Frankiwsku i Rownem. Jeden samochod pokrywa wszystko — dojazdy do biura, spotkania, transport pudelek czy odbior partnerow. Plany sie zmienily? Przedluzenie terminu lub zmiana samochodu to zadna trudnosc.</div><h3 class='editor_title'>Subskrypcja dlugoterminowa (3+ miesiace)</h3><div class='editor_text'>Zapomnij o klopotach z kupnem, sprzedaza i utrzymaniem pojazdu. Wynajem dlugoterminowy (od 3 do 12+ miesiecy) daje Ci samochod osobisty ze stalym miesieecznym budzetem. To wygodne i ekonomiczne. Masz samochod gotowy do codziennych zadan i podrozy miedzy miastami bez martwienia sie o amortyzacje czy koszty serwisu. Mozesz planowac budzet na miesiace do przodu, a jesli Twoje potrzeby sie zmienia — np. potrzebujesz SUV-a na zime zamiast sedana — zamienimy model.</div><h2 class='editor_title'>Wkrotce: Klasa ekonomiczna</h2><div class='editor_text'>Uslyszelismy Was i sie rozszerzamy! Juz wkrotce otworzymy rezerwacje na ekonomiczne, zwrotne samochody juz od 20$/dzien. Chcesz byc pierwszym, ktory sie dowie? Zostaw zgloszenie, a powiadomimy Cie, gdy flota Economy bedzie gotowa. W miedzy czasie sprawdz nasze oferty specjalne klasy Comfort — mozesz znalezc wyzszy poziom bezpieczenstwa i wyposazenia w cenie, ktora Cie zaskoczy.</div><h2 class='editor_title'>Dlaczego warto wybrac REIZ?</h2><div class='editor_text'><ul><li>Bezproblemowa rezerwacja: Nasza strona jest stworzona dla ludzi — szybkie filtry, prawdziwe zdjecia i dokladne specyfikacje.</li><li>Blyskawiczna obsluga: Szanujemy Twoj czas; rezerwacja zajmuje zaledwie kilka minut.</li><li>Elastyczna dostawa: Przywozimy samochod do Ciebie — lotnisko LWO, dworzec kolejowy, hotel lub dowolny adres w miescie.</li><li>Brak ukrytych oplat: Cena, ktora widzisz, to cena, ktora placisz. Zadnych niespodzianek przy platnosci.</li><li>Pelna elastycznosc: Chcesz przedluzyc? Zamienic samochod? Ulatwiamy to.</li><li>Niezawodna flota: Jestesmy obsesyjnie dbali o serwis. Czyste wnetrza, terminowy serwis i opony sezonowe sa standardem.</li><li>Wsparcie 24/7: Prawdziwi ludzie, gotowi pomoc w jezyku UA, EN, RU lub HE.</li><li>Cala Ukraina: Nie konczymy na granicach miasta. Dostawa i zwrot miedzy miastami sa dostepne na zyczenie.</li></ul></div><h2 class='editor_title'>Dodatkowe uslugi</h2><h3 class='editor_title'>Bez kaucji / Obnizona kaucja</h3><div class='editor_text'>Wiemy, ze wysoka kaucja nie zawsze jest wygodna. Oferujemy opcje wynajmu bez kaucji lub z 50% obnizka dla wybranych modeli. Kwalifikowalnosc zalezy od doswiadczenia za kierownica i klasy samochodu — wszystkie szczegoly sa jasno widoczne podczas rezerwacji.</div><h3 class='editor_title'>Usluga szofera</h3><div class='editor_text'>Chcesz wygode bez prowadzenia? Zarezerwuj samochod z profesjonalnym kierowca. Zajmiemy sie transferem z lotniska, dowozem do hotelu czy logistyka biznesowa, a Ty sie zrelaksujesz.</div><h3 class='editor_title'>Dostawa i zwrot</h3><div class='editor_text'>We Lwowie: Bezplatnie. Dostarczamy do centrum, kazdej dzielnicy, dworca kolejowego i lotniska bez dodatkowych kosztow (klient pokrywa jedynie parking lotniskowy).<br/>Poza Lwowem: Wycena na podstawie kilometrow. Dostarczamy w dowolne miejsce na Ukrainie.<br/>Zwroty: Bezplatne w granicach miasta.</div><h3 class='editor_title'>Przydatne dodatki</h3><div class='editor_text'><ul><li>Nawigacja: Wszystkie samochody maja Apple CarPlay i Android Auto. Podlacz telefon i korzystaj z ulubionych map.</li><li>Foteliki dzieciece: Dostepne na zyczenie dla kazdego wieku.</li><li>Przekraczanie granic: Mozliwe po wczesniejszym uzgodnieniu (zajmujemy sie dokumentami i ubezpieczeniem).</li><li>Nieograniczony przebieg: Dostepny dla wielu modeli — sprawdz znacznik \"Nieograniczony\" podczas rezerwacji.</li></ul></div><h3 class='editor_title'>Stan: Nieskazitelny i gotowy</h3><div class='editor_text'>Jestesmy dumni ze stanu naszej floty. Twoje bezpieczenstwo to nasza obsesja.<br/><br/>Kontrola przed jazda: Hamulce, swiatla, cisnienie w oponach, plyny — kazdy samochod przechodzi scisla liste kontrolna zanim trafi do Ciebie.<br/><br/>Czystosc: Dostarczamy samochody swieze. Pranie suche/mokre wnetrza i umyte nadwozie to standard. Glebokie czyszczenie jest wykonywane w razie potrzeby.<br/><br/>Konserwacja: Trzymamy sie harmonogramu. Oryginalne czesci, partnerskie centra serwisowe i zero opoznien w konserwacji.</div><h2 class='editor_title'>Wskazowki bezpieczenstwa na drodze</h2><div class='editor_text'>Kiedy jestes za kierownica, bezpieczenstwo jest w Twoich rekach. Oto kilka przyjaznych przypomnien, aby podroz przebiegla gladko:</div><h3 class='editor_title'>Zasada 3 sekund</h3><div class='editor_text'>Utrzymuj dystans. Wybierz punkt orientacyjny (znak lub slup) na drodze. Gdy samochod przed Toba go minie, licz \"raz-dwa-trzy\". Jesli miniesz punkt zanim skonczysz liczyc, cofnij sie troche. Ten odstep to Twoj czas reakcji.</div><h3 class='editor_title'>Zmiana pasa</h3><div class='editor_text'><ul><li>Sprawdzaj martwe strefy: Lusterka sa swietne, ale szybkie spojrzenie przez ramie jest lepsze.</li><li>Sygnalizuj wczesnie: Poinformuj innych, co zamierzasz zrobic, zanim zaczniesz skrecac kierownica.</li><li>Badz plynny: Jeden manewr, jeden pas. Nie przeskakuj przez kilka pasow na raz.</li><li>Uwazaj na jednosladowce: Skutery i motocykle latwo moga sie ukryc w martwych strefach.</li></ul></div><h3 class='editor_title'>Czytaj znaki</h3><div class='editor_text'>Znaki drogowe to jezyk drogi. Jesli skrzyzowanie wyglada myrlaco lub przegapisz znak, lepiej zwolnij i zastanow sie, niz sie spieszyc.</div><h3 class='editor_title'>Zero tolerancji</h3><div class='editor_text'>Jestesmy w tym surowi: Jazda pod wplywem alkoholu jest zabroniona. REIZ stosuje polityke zerowej tolerancji wobec alkoholu. Chodzi o Twoje bezpieczenstwo i bezpieczenstwo wszystkich wokol.</div>",
-      "show_more_button": "POKAZ WIECEJ",
-      "show_less_button": "POKAZ MNIEJ"
+      "title": "Wynajem samochodów we Lwowie od REIZ: Przejrzyście, Rzetelnie i z Dbałością o Detale",
+      "text": "<div class='editor_text'>W REIZ nie tylko wydajemy kluczyki — zapewniamy Twoją mobilność. Oferujemy bezproblemową dostawę samochodów w całym Lwowie i możemy przetransportować pojazd w dowolne miejsce na Ukrainie na życzenie.<br/><br/>Nasza flota jest dobrana tak, aby spełniać każdą potrzebę: prestiżowe modele <span class='text-strong'>premium</span> dla biznesu, wytrzymałe <span class='text-strong'>SUV-y</span> na górskie przygody i przestronne <span class='text-strong'>minibusy</span> na rodzinne wycieczki. Nawet jeśli szukasz <span class='text-strong'>opcji ekonomicznej</span>, stawiamy na nowsze modele, które oferują poziom komfortu i bezpieczeństwa znacznie powyżej standardu.</div><h2 class='editor_title'>Plany wynajmu: Wybierz swój rytm</h2><h3 class='editor_title'>Wynajem dzienny: Przetestuj zanim zdecydujesz</h3><div class='editor_text'>Stawka dzienna to idealny test bez zobowiązań. Weź samochód na 24 godziny i sprawdź, jak radzi sobie na lwowskim bruku i na autostradzie. Czy łatwo się parkuje? Czy walizki się mieszczą? Czy podoba Ci się dźwięk silnika? Jeden dzień zwykle wystarczy, aby zdecydować, czy przedłużyć na miesiąc, czy przesiąść się do innej klasy. Wielu naszych klientów bierze samochód na dzień, żeby go przetestować przed weekendowym wyjazdem w Karpaty — strome podjazdy do Sławska czy kręte drogi do Bukowelu szybko pokażą, czy to odpowiedni samochód na urlop.</div><h3 class='editor_title'>Tygodniowy wypad</h3><div class='editor_text'>Wynajem tygodniowy to najlepsza równowaga między ceną a wolnością. Jedna stała stawka, siedem dni i zero czekania na taxi. Tydzień daje elastyczność, by łączyć sprawy służbowe z wypoczynkiem: zwiedzanie zamków regionu lwowskiego, trasy winne czy wypady w góry. Daje więcej czasu na oswojenie się z samochodem niż wynajem dzienny, a przedłużenie rezerwacji jest proste, jeśli zdecydujesz się zostać dłużej.</div><h3 class='editor_title'>Wynajem miesięczny: Rozwiązanie na długi pobyt</h3><div class='editor_text'>Idealny na projekty, podróże służbowe lub przeprowadzkę. Otrzymujesz znacznie niższą stawkę dzienną i jedną, przewidywalną płatność. Ten format jest stworzony do regularnych podróży służbowych: dojazdy Lwów–Kijów czy wizyty u klientów w Tarnopolu, Iwano-Frankiwsku i Równem. Jeden samochód pokrywa wszystko — dojazdy do biura, spotkania, transport pudełek czy odbiór partnerów. Plany się zmieniły? Przedłużenie terminu lub zmiana samochodu to żadna trudność.</div><h3 class='editor_title'>Subskrypcja długoterminowa (3+ miesiące)</h3><div class='editor_text'>Zapomnij o kłopotach z kupnem, sprzedażą i utrzymaniem pojazdu. Wynajem długoterminowy (od 3 do 12+ miesięcy) daje Ci samochód osobisty ze stałym miesięcznym budżetem. To wygodne i ekonomiczne. Masz samochód gotowy do codziennych zadań i podróży między miastami bez martwienia się o amortyzację czy koszty serwisu. Możesz planować budżet na miesiące do przodu, a jeśli Twoje potrzeby się zmienią — np. potrzebujesz SUV-a na zimę zamiast sedana — zamienimy model.</div><h2 class='editor_title'>Wkrótce: Klasa ekonomiczna</h2><div class='editor_text'>Usłyszeliśmy Was i się rozszerzamy! Już wkrótce otworzymy rezerwacje na ekonomiczne, zwrotne samochody już od 20$/dzień. Chcesz być pierwszym, który się dowie? Zostaw zgłoszenie, a powiadomimy Cię, gdy flota Economy będzie gotowa. W międzyczasie sprawdź nasze oferty specjalne klasy Comfort — możesz znaleźć wyższy poziom bezpieczeństwa i wyposażenia w cenie, która Cię zaskoczy.</div><h2 class='editor_title'>Dlaczego warto wybrać REIZ?</h2><div class='editor_text'><ul><li>Bezproblemowa rezerwacja: Nasza strona jest stworzona dla ludzi — szybkie filtry, prawdziwe zdjęcia i dokładne specyfikacje.</li><li>Błyskawiczna obsługa: Szanujemy Twój czas; rezerwacja zajmuje zaledwie kilka minut.</li><li>Elastyczna dostawa: Przywozimy samochód do Ciebie — lotnisko LWO, dworzec kolejowy, hotel lub dowolny adres w mieście.</li><li>Brak ukrytych opłat: Cena, która widzisz, to cena, która płacisz. Żadnych niespodzianek przy płatności.</li><li>Pełna elastyczność: Chcesz przedłużyć? Zamienić samochód? Ułatwiamy to.</li><li>Niezawodna flota: Jesteśmy obsesyjnie zadbani o serwis. Czyste wnętrza, terminowy serwis i opony sezonowe są standardem.</li><li>Wsparcie 24/7: Prawdziwi ludzie, gotowi pomóc w języku UA, EN, RU lub HE.</li><li>Cała Ukraina: Nie kończymy na granicach miasta. Dostawa i zwrot między miastami są dostępne na życzenie.</li></ul></div><h2 class='editor_title'>Dodatkowe usługi</h2><h3 class='editor_title'>Bez kaucji / Obniżona kaucja</h3><div class='editor_text'>Wiemy, że wysoka kaucja nie zawsze jest wygodna. Oferujemy opcje wynajmu bez kaucji lub z 50% obniżką dla wybranych modeli. Kwalifikowalność zależy od doświadczenia za kierownicą i klasy samochodu — wszystkie szczegóły są jasno widoczne podczas rezerwacji.</div><h3 class='editor_title'>Usługa szofera</h3><div class='editor_text'>Chcesz wygodę bez prowadzenia? Zarezerwuj samochód z profesjonalnym kierowcą. Zajmiemy się transferem z lotniska, dowozem do hotelu czy logistyką biznesową, a Ty się zrelaksujesz.</div><h3 class='editor_title'>Dostawa i zwrot</h3><div class='editor_text'>We Lwowie: Bezpłatnie. Dostarczamy do centrum, każdej dzielnicy, dworca kolejowego i lotniska bez dodatkowych kosztów (klient pokrywa jedynie parking lotniskowy).<br/>Poza Lwowem: Wycena na podstawie kilometrów. Dostarczamy w dowolne miejsce na Ukrainie.<br/>Zwroty: Bezpłatne w granicach miasta.</div><h3 class='editor_title'>Przydatne dodatki</h3><div class='editor_text'><ul><li>Nawigacja: Wszystkie samochody mają Apple CarPlay i Android Auto. Podłącz telefon i korzystaj z ulubionych map.</li><li>Foteliki dziecięce: Dostępne na życzenie dla każdego wieku.</li><li>Przekraczanie granic: Możliwe po wcześniejszym uzgodnieniu (zajmujemy się dokumentami i ubezpieczeniem).</li><li>Nieograniczony przebieg: Dostępny dla wielu modeli — sprawdź znacznik \"Nieograniczony\" podczas rezerwacji.</li></ul></div><h3 class='editor_title'>Stan: Nieskazitelny i gotowy</h3><div class='editor_text'>Jesteśmy dumni ze stanu naszej floty. Twoje bezpieczeństwo to nasza obsesja.<br/><br/>Kontrola przed jazdą: Hamulce, światła, ciśnienie w oponach, płyny — każdy samochód przechodzi ścisłą listę kontrolną zanim trafi do Ciebie.<br/><br/>Czystość: Dostarczamy samochody świeże. Pranie suche/mokre wnętrza i umyte nadwozie to standard. Głębokie czyszczenie jest wykonywane w razie potrzeby.<br/><br/>Konserwacja: Trzymamy się harmonogramu. Oryginalne części, partnerskie centra serwisowe i zero opóźnień w konserwacji.</div><h2 class='editor_title'>Wskazówki bezpieczeństwa na drodze</h2><div class='editor_text'>Kiedy jesteś za kierownicą, bezpieczeństwo jest w Twoich rękach. Oto kilka przyjaznych przypomnień, aby podróż przebiegała gładko:</div><h3 class='editor_title'>Zasada 3 sekund</h3><div class='editor_text'>Utrzymuj dystans. Wybierz punkt orientacyjny (znak lub słup) na drodze. Gdy samochód przed Tobą go minie, licz \"raz-dwa-trzy\". Jeśli miniesz punkt zanim skończysz liczyć, cofnij się trochę. Ten odstęp to Twój czas reakcji.</div><h3 class='editor_title'>Zmiana pasa</h3><div class='editor_text'><ul><li>Sprawdzaj martwe strefy: Lusterka są świetne, ale szybkie spojrzenie przez ramię jest lepsze.</li><li>Sygnalizuj wcześnie: Poinformuj innych, co zamierzasz zrobić, zanim zaczniesz skręcać kierownicą.</li><li>Bądź płynny: Jeden manewr, jeden pas. Nie przeskakuj przez kilka pasów na raz.</li><li>Uważaj na jednośladowce: Skutery i motocykle łatwo mogą się ukryć w martwych strefach.</li></ul></div><h3 class='editor_title'>Czytaj znaki</h3><div class='editor_text'>Znaki drogowe to język drogi. Jeśli skrzyżowanie wygląda myląco lub przegapisz znak, lepiej zwolnij i zastanów się, niż się spieszyć.</div><h3 class='editor_title'>Zero tolerancji</h3><div class='editor_text'>Jesteśmy w tym surowi: Jazda pod wpływem alkoholu jest zabroniona. REIZ stosuje politykę zerowej tolerancji wobec alkoholu. Chodzi o Twoje bezpieczeństwo i bezpieczeństwo wszystkich wokół.</div>",
+      "show_more_button": "POKAŻ WIĘCEJ",
+      "show_less_button": "POKAŻ MNIEJ"
     },
     "faq": {
-      "group1_item1_answer": "Lwow ma wiele stref platnego parkowania i parkow miejskich. Zawsze parkuj w oznaczonych liniach lub na strzezonych parkingach, sprawdzaj znaki drogowe i parkometry oraz zachowuj paragony. Nieprawidlowe parkowanie skutkuje mandatami, ktore ponosi najemca. W miejscach o ograniczonej liczbie miejsc parkingowych korzystaj z parkow w centrach handlowych lub hotelach. Warto zainstalowac aplikacje miejskie do platnosci za parking i nawigacji po strefach. Przed zostawieniem samochodu na noc sprawdz lokalne przepisy dotyczace parkowania na podworku/ulicy, aby uniknac odholowania.",
-      "group1_item1_question": "Gdzie zaparkowac wynajety samochod we Lwowie i jak uniknac mandatow?",
-      "group1_item2_answer": "Zapewniamy dostawe/zwrot pod dowolny adres we Lwowie i spotykamy sie na terminalu LWO o umowionej godzinie. Za wczesne/pozne godziny i czas oczekiwania moga byc naliczane dodatkowe oplaty, cena koncowa zalezy od odleglosci. Dostawa miedzymiastowa na terenie Ukrainy jest rowniez dostepna na zyczenie. Aby zapewnic terminowa obsluge, rezerwuj z wyprzedzeniem i podaj dane lotu/hotelu. Chcesz przyspieszyc proces? Zarezerwuj online na REIZ Rental Cars — to wygodniejsze i gwarantuje Twoja stawke.",
+      "group1_item1_answer": "Lwów ma wiele stref płatnego parkowania i parków miejskich. Zawsze parkuj w oznaczonych liniach lub na strzezonych parkingach, sprawdzaj znaki drogowe i parkometry oraz zachowuj paragony. Nieprawidlowe parkowanie skutkuje mandatami, które ponosi najemca. W miejscach o ograniczonej liczbie miejsc parkingowych korzystaj z parków w centrach handlowych lub hotelach. Warto zainstalować aplikacje miejskie do płatności za parking i nawigacji po strefach. Przed zostawieniem samochodu na noc sprawdz lokalne przepisy dotyczace parkowania na podworku/ulicy, aby uniknąć odholowania.",
+      "group1_item1_question": "Gdzie zaparkować wynajęty samochód we Lwowie i jak uniknąć mandatów?",
+      "group1_item2_answer": "Zapewniamy dostawe/zwrot pod dowolny adres we Lwowie i spotykamy się na terminalu LWO o umowionej godzinie. Za wczesne/pozne godziny i czas oczekiwania mogą być naliczane dodatkowe opłaty, cena końcowa zalezy od odległości. Dostawa międzymiastowa na terenie Ukrainy jest również dostepna na życzenie. Aby zapewnić terminowa obsługę, rezerwuj z wyprzedzeniem i podaj dane lotu/hotelu. Chcesz przyspieszyć proces? Zarezerwuj online na REIZ Rental Cars — to wygodniejsze i gwarantuje Twoja stawke.",
       "group1_item2_question": "Dostawa samochodu pod adres i na lotnisko we Lwowie (LWO): warunki i ceny",
-      "group1_item3_answer": "Dzienny limit przebiegu — 300 km na dobe, ale nie wiecej niz 4500 km miesiecznie. To wystarcza na trasy biznesowe i turystyczne wokol Lwowa i regionu. Przekroczenie limitu jest naliczane wg stalej stawki za kilometr zgodnie z cennikiem. Jesli potrzebujesz wiecej — skontaktuj sie z menedzerem.",
-      "group1_item3_question": "Czy jest limit przejechanych kilometrow i jak zarezerwowac podroz po Ukrainie bez ograniczen?",
+      "group1_item3_answer": "Dzienny limit przebiegu — 300 km na dobe, ale nie więcej niz 4500 km miesięcznie. To wystarcza na trasy biznesowe i turystyczne wokol Lwowa i regionu. Przekroczenie limitu jest naliczane wg stałej stawki za kilometr zgodnie z cennikiem. Jesli potrzebujesz więcej — skontaktuj się z menedżerem.",
+      "group1_item3_question": "Czy jest limit przejechanych kilometrów i jak zarezerwować podróż po Ukrainie bez ograniczen?",
       "group1_pretitle": "Informacje praktyczne",
-      "group2_item1_answer": "Wynajem obejmuje obowiazkowe ubezpieczenie OC i standardowe Casco z franszyza. OC pokrywa szkody osob trzecich, Casco pokrywa szkody pojazdu wynajmowanego powyzej franszyny. Niektore przypadki (np. szyby/opony) moga miec specjalne warunki — prosimy o wyjasnienie podczas rezerwacji w sekcji \"Ubezpieczenie\". W przypadku wypadku nalezy natychmiast udokumentowac zdarzenie i wezwac policje. Rozszerzone pokrycie zmniejsza ryzyko i pomaga szybciej zamknac sprawe.",
+      "group2_item1_answer": "Wynajem obejmuje obowiazkowe ubezpieczenie OC i standardowe Casco z franszyza. OC pokrywa szkody osob trzecich, Casco pokrywa szkody pojazdu wynajmowanego powyżej franszyny. Niektore przypadki (np. szyby/opony) mogą mieć specjalne warunki — prosimy o wyjasnienie podczas rezerwacji w sekcji \"Ubezpieczenie\". W przypadku wypadku nalezy natychmiast udokumentować zdarzenie i wezwać policje. Rozszerzone pokrycie zmniejsza ryzyko i pomaga szybciej zamknąć sprawe.",
       "group2_item1_question": "Co obejmuje ubezpieczenie i jak pomaga na drodze? (OC/Casco)",
-      "group2_item2_answer": "Franszyza to maksymalna kwota, ktora placisz w przypadku szkody; ubezpieczenie pokrywa reszte. Kaucja to kwota zablokowana na Twojej karcie podczas wynajmu, zwykle rowna franszynie. Przyklad: szkoda = 50 000 UAH, franszyza/kaucja = 20 000 UAH — Twoja odpowiedzialnosc to 20 000 UAH, reszte pokrywa ubezpieczenie. Kaucja jest zwalniana po zwrocie nieuszkodzonego samochodu; czas zwrotu zalezy od banku i zwykle trwa kilka dni.",
-      "group2_item2_question": "Franszyza a kaucja: jaka jest roznica i jakie ryzyko ponosisz?",
-      "group2_item3_answer": "Wynajem bez kaucji nie jest mozliwy.<p>Domyslnie blokowana jest kaucja rowna franszynie (zalezy od klasy samochodu). Mozesz zmniejszyc swoja odpowiedzialnosc wybierajac:</p><ul><li>-50% kaucji/franszyny (CDW);</li><li>-100% kaucji/\"zerowa odpowiedzialnosc\" (SCDW) za szkody/kradziez.</li></ul><p><span class=\"text-strong\">Wazne:</span> nawet przy \"zerowej odpowiedzialnosci\" obowiazuje blokada <span class=\"text-strong\">200–300 $</span> (w zaleznosci od modelu) na:</p><ul><li>mandaty i oplaty drogowe,</li><li>brakujace paliwo,</li><li>mycie samochodu/czyszczenie wnetrza,</li><li>zgubione kluczyki.</li></ul><p>Ta blokada nie dotyczy szkod i jest zwracana po rozliczeniu ewentualnych naleznosci. Wybierz odpowiedni pakiet podczas rezerwacji — podpowiemy najlepsza opcje na wynajem we Lwowie i podroze po Ukrainie.</p>",
-      "group2_item3_question": "Czy moge wynajac bez kaucji i jak dziala \"zerowa odpowiedzialnosc\"?",
+      "group2_item2_answer": "Franszyza to maksymalna kwota, która płacisz w przypadku szkody; ubezpieczenie pokrywa reszte. Kaucja to kwota zablokowana na Twojej karcie podczas wynajmu, zwykle równa franszynie. Przyklad: szkoda = 50 000 UAH, franszyza/kaucja = 20 000 UAH — Twoja odpowiedzialność to 20 000 UAH, reszte pokrywa ubezpieczenie. Kaucja jest zwalniana po zwrocie nieuszkodzonego samochodu; czas zwrotu zalezy od banku i zwykle trwa kilka dni.",
+      "group2_item2_question": "Franszyza a kaucja: jaka jest różnica i jakie ryzyko ponosisz?",
+      "group2_item3_answer": "Wynajem bez kaucji nie jest możliwy.<p>Domyslnie blokowana jest kaucja równa franszynie (zalezy od klasy samochodu). Możesz zmniejszyc swoja odpowiedzialność wybierając:</p><ul><li>-50% kaucji/franszyny (CDW);</li><li>-100% kaucji/\"zerowa odpowiedzialność\" (SCDW) za szkody/kradziez.</li></ul><p><span class=\"text-strong\">Wazne:</span> nawet przy \"zerowej odpowiedzialności\" obowiazuje blokada <span class=\"text-strong\">200–300 $</span> (w zależności od modelu) na:</p><ul><li>mandaty i opłaty drogowe,</li><li>brakujace paliwo,</li><li>mycie samochodu/czyszczenie wnętrza,</li><li>zgubione kluczyki.</li></ul><p>Ta blokada nie dotyczy szkod i jest zwracana po rozliczeniu ewentualnych należności. Wybierz odpowiedni pakiet podczas rezerwacji — podpowiemy najlepsza opcje na wynajem we Lwowie i podróże po Ukrainie.</p>",
+      "group2_item3_question": "Czy mogę wynająć bez kaucji i jak dziala \"zerowa odpowiedzialność\"?",
       "group2_pretitle": "Ubezpieczenie i kaucja",
-      "group3_item1_answer": "Podstawowe wymagania: od 21 lat z co najmniej 2-letnim doswiadczeniem w prowadzeniu. Dla samochodow klasy biznes/premium: 23–25 lat i co najmniej 5 lat doswiadczenia. Jesli nie speniasz w pelni wymagan, dostepny jest program \"mlody kierowca\" za dodatkowa oplata. Wszyscy kierowcy musza byc wpisani do umowy wynajmu: przygotuj dokumenty i podaj dane dodatkowego kierowcy z wyprzedzeniem, aby uniknac odmowy przy odbiorze.",
-      "group3_item1_question": "Minimalny wiek i doswiadczenie w prowadzeniu do wynajmu we Lwowie i na Ukrainie",
-      "group3_item2_answer": "Jazda po Ukrainie jest nieograniczona, ale wyjazd za granice jest mozliwy jedynie za pisemna zgoda firmy i z ubezpieczeniem \"Zielona Karta\". Potrzebny jest czas na przygotowanie dokumentow i sprawdzenie trasy/granic. Przekroczenie granicy bez zgody jest zabronione, uniewaznia ubezpieczenie i grozi karami. Planujesz zagraniczna podroz? Poinformuj nas z wyprzedzeniem — sprawdzimy wymagania, przygotujemy dokumenty i doradzimy w kwestii czasu.",
-      "group3_item2_question": "Czy moge jechac za granice wynajmowanym samochodem?",
-      "group3_item3_answer": "Tylko kierowcy wpisani do umowy maja prawo prowadzic samochod. Przekazywanie samochodu osobom trzecim, uzywanie go jako taxi, carsharingu lub uslug kurierskich jest zabronione i uniewaznia ubezpieczenie. Potrzebujesz drugiego kierowcy? Dodaj go do umowy — to legalne i bezpieczne. Naruszenia skutkuja karami umownymi i pelna odpowiedzialnoscia finansowa w przypadku incydentu.",
+      "group3_item1_answer": "Podstawowe wymagania: od 21 lat z co najmniej 2-letnim doświadczeniem w prowadzeniu. Dla samochodów klasy biznes/premium: 23–25 lat i co najmniej 5 lat doświadczenia. Jesli nie speniasz w pelni wymagan, dostepny jest program \"mlody kierowca\" za dodatkowa opłata. Wszyscy kierowcy musza być wpisani do umowy wynajmu: przygotuj dokumenty i podaj dane dodatkowego kierowcy z wyprzedzeniem, aby uniknąć odmowy przy odbiorze.",
+      "group3_item1_question": "Minimalny wiek i doświadczenie w prowadzeniu do wynajmu we Lwowie i na Ukrainie",
+      "group3_item2_answer": "Jazda po Ukrainie jest nieograniczona, ale wyjazd za granice jest możliwy jedynie za pisemna zgoda firmy i z ubezpieczeniem \"Zielona Karta\". Potrzebny jest czas na przygotowanie dokumentów i sprawdzenie trasy/granic. Przekroczenie granicy bez zgody jest zabronione, uniewaznia ubezpieczenie i grozi karami. Planujesz zagraniczna podróż? Poinformuj nas z wyprzedzeniem — sprawdzimy wymagania, przygotujemy dokumenty i doradzimy w kwestii czasu.",
+      "group3_item2_question": "Czy mogę jechać za granice wynajmowanym samochodem?",
+      "group3_item3_answer": "Tylko kierowcy wpisani do umowy mają prawo prowadzić samochód. Przekazywanie samochodu osobom trzecim, uzywanie go jako taxi, carsharingu lub usług kurierskich jest zabronione i uniewaznia ubezpieczenie. Potrzebujesz drugiego kierowcy? Dodaj go do umowy — to legalne i bezpieczne. Naruszenia skutkuja karami umownymi i pelna odpowiedzialnością finansowa w przypadku incydentu.",
       "group3_item3_question": "Przekazanie samochodu osobom trzecim i uzywanie go jako taxi/carsharingu: co jest zabronione",
       "group3_pretitle": "Ograniczenia i zakazy",
-      "group4_item1_answer": "Przyjmujemy platnosci gotowka (UAH, USD, EUR), kartami Visa/Mastercard, przelewem bankowym oraz — po wczesniejszym uzgodnieniu — kryptowaluta (USDT/USDC). Platnosci walutowe/krypto sa przeliczane po kursie firmy w momencie transakcji; moga obowiazywac oplaty bankowe i sieciowe. Platnosci dostepne we Lwowie i przy dostawie na terenie Ukrainy. Kaucja jest blokowana na karcie najemcy przy odbiorze i zwalniana po zwrocie nieuszkodzonego samochodu. Czas zwrotu zalezy od banku (zwykle kilka dni roboczych). Dla firm — wystawiamy faktury i dokumenty zamkniecia.",
-      "group4_item1_question": "Jakie metody platnosci sa dostepne i jak pobierana jest kaucja?",
-      "group4_item2_answer": "Wymagane: paszport/dowod osobisty, prawo jazdy kategorii B (minimum 2 lata) oraz karta bankowa na nazwisko najemcy. Obcokrajowcom zalecamy posiadanie Miedzynarodowego Prawa Jazdy (IDP) wraz z krajowym — ulatwia to weryfikacje. Jesli planujesz wynajem we Lwowie w weekendy lub swieta, rezerwuj z wyprzedzeniem — sprawdzanie dokumentow jest szybsze, a wybor samochodow szerszy (patrz \"Ograniczenia i zakazy\").",
-      "group4_item2_question": "Jakie dokumenty sa wymagane do wynajmu we Lwowie: dla mieszkancow i cudzoziemcow?",
-      "group4_item3_answer": "Samochody sa wydawane z pelnym bakiem i musza byc zwracane zatankowane do pelna. W przeciwnym razie naliczane jest brakujace paliwo i oplata za tankowanie wg stawek firmy. Zatankuj przed zwrotem, zachowaj paragon — unikniesz pytan przy przekazaniu. Dla planujacych aktywne wycieczki po Lwowie z wczesnymi wyjazdami/poznymi powrotami, zaplanuj tankowanie i czas z wyprzedzeniem.",
-      "group4_item3_question": "Polityka paliwowa \"pelny do pelnego\": jak zwrocic samochod bez dodatkowych oplat",
-      "group4_pretitle": "Platnosci i dokumentacja",
+      "group4_item1_answer": "Przyjmujemy płatności gotowka (UAH, USD, EUR), kartami Visa/Mastercard, przelewem bankowym oraz — po wczesniejszym uzgodnieniu — kryptowaluta (USDT/USDC). Płatności walutowe/krypto są przeliczane po kursie firmy w momencie transakcji; mogą obowiązywać opłaty bankowe i sieciowe. Płatności dostepne we Lwowie i przy dostawie na terenie Ukrainy. Kaucja jest blokowana na karcie najemcy przy odbiorze i zwalniana po zwrocie nieuszkodzonego samochodu. Czas zwrotu zalezy od banku (zwykle kilka dni roboczych). Dla firm — wystawiamy faktury i dokumenty zamkniecia.",
+      "group4_item1_question": "Jakie metody płatności są dostepne i jak pobierana jest kaucja?",
+      "group4_item2_answer": "Wymagane: paszport/dowod osobisty, prawo jazdy kategorii B (minimum 2 lata) oraz karta bankowa na nazwisko najemcy. Obcokrajowcom zalecamy posiadanie Miedzynarodowego Prawa Jazdy (IDP) wraz z krajowym — ułatwia to weryfikacje. Jesli planujesz wynajem we Lwowie w weekendy lub święta, rezerwuj z wyprzedzeniem — sprawdzanie dokumentów jest szybsze, a wybór samochodów szerszy (patrz \"Ograniczenia i zakazy\").",
+      "group4_item2_question": "Jakie dokumenty są wymagane do wynajmu we Lwowie: dla mieszkańców i cudzoziemców?",
+      "group4_item3_answer": "Samochody są wydawane z pelnym bakiem i musza być zwracane zatankowane do pelna. W przeciwnym razie naliczane jest brakujace paliwo i opłata za tankowanie wg stawek firmy. Zatankuj przed zwrotem, zachowaj paragon — unikniesz pytan przy przekazaniu. Dla planujacych aktywne wycieczki po Lwowie z wczesnymi wyjazdami/poznymi powrotami, zaplanuj tankowanie i czas z wyprzedzeniem.",
+      "group4_item3_question": "Polityka paliwowa \"pelny do pelnego\": jak zwrócić samochód bez dodatkowych opłat",
+      "group4_pretitle": "Płatności i dokumentacja",
       "title": "Czesto zadawane pytania"
     },
     "hero": {
       "address_link": "Lwów • dostawa auta po mieście",
       "availability": "ODPOWIADAMY 09:00–22:00",
-      "book_button": "ZAREZERWUJ SAMOCHOD",
-      "down_button": "PRZEJDZ DO KATALOGU SAMOCHODOW",
-      "intro": "REIZ oferuje wynajem samochodow we Lwowie z nowymi pojazdami, usluga premium, uczciwymi stawkami i dostawa pod Twoj adres o wygodnej porze.",
+      "book_button": "ZAREZERWUJ SAMOCHÓD",
+      "down_button": "PRZEJDŹ DO KATALOGU SAMOCHODÓW",
+      "intro": "REIZ oferuje wynajem samochodów we Lwowie z nowymi pojazdami, usługa premium, uczciwymi stawkami i dostawa pod Twój adres o wygodnej porze.",
       "mobile_title": "Wynajem od $33/dzień",
       "pretitle": "WITAMY W REIZ",
-      "secondary_button": "Dowiedz sie wiecej",
-      "secondary_title": "ODDAJ SAMOCHOD",
-      "title": "Wynajem samochodow we Lwowie",
+      "secondary_button": "Dowiedz się więcej",
+      "secondary_title": "ODDAJ SAMOCHÓD",
+      "title": "Wynajem samochodów we Lwowie",
       "hero_image_alt": "Wynajem samochodów Lwów — Mercedes CLE w Karpatach | REIZ"
     },
-    "hero_slider_image_alt": "Wynajem samochodow we Lwowie — Mercedes CLE | REIZ Rental Cars",
+    "hero_slider_image_alt": "Wynajem samochodów we Lwowie — Mercedes CLE | REIZ Rental Cars",
     "meta": {
-      "description": "Wynajem samochodow we Lwowie od REIZ. 15-minutowe formalnosci, oficjalna umowa. Dostawa na lotnisko, dworzec i po miescie. Klasa ekonom, biznes i premium.",
+      "description": "Wynajem samochodów we Lwowie od REIZ. 15-minutowe formalności, oficjalna umowa. Dostawa na lotnisko, dworzec i po mieście. Klasa ekonom, biznes i premium.",
       "lang": "pl",
-      "og_description": "Wynajem samochodow we Lwowie od REIZ. 15-minutowe formalnosci, oficjalna umowa. Dostawa na lotnisko, dworzec i po miescie. Klasa ekonom, biznes i premium.",
+      "og_description": "Wynajem samochodów we Lwowie od REIZ. 15-minutowe formalności, oficjalna umowa. Dostawa na lotnisko, dworzec i po mieście. Klasa ekonom, biznes i premium.",
       "og_image": "https://reiz.com.ua/img/og/home-square.jpg",
       "og_locale": "pl_PL",
-      "og_title": "Wynajem Samochodow Lwow | Rezerwacja w 15 Minut 24/7 | REIZ",
+      "og_title": "Wynajem Samochodów Lwów | Rezerwacja w 15 Minut 24/7 | REIZ",
       "page": "home",
-      "title": "Wynajem Samochodow Lwow | Rezerwacja w 15 Minut 24/7"
+      "title": "Wynajem Samochodów Lwów | Rezerwacja w 15 Minut 24/7"
     },
     "order_form": {
       "date_placeholder": "Wybierz daty",
-      "pickup_option1": "Kijow, Lotnisko Boryspol, Terminal 3B",
-      "pickup_option2": "Kijow, Lotnisko Zhuliany, Terminal 2A",
-      "pickup_option3": "Lwow, Miedzynarodowy Port Lotniczy im. D. Halickiego, T1",
-      "return_option1": "Kijow, Lotnisko Boryspol, Terminal 3B",
-      "return_option2": "Kijow, Lotnisko Zhuliany, Terminal 2A",
-      "return_option3": "Lwow, Miedzynarodowy Port Lotniczy im. D. Halickiego, T1",
+      "pickup_option1": "Kijów, Lotnisko Boryspol, Terminal 3B",
+      "pickup_option2": "Kijów, Lotnisko Zhuliany, Terminal 2A",
+      "pickup_option3": "Lwów, Międzynarodowy Port Lotniczy im. D. Halickiego, T1",
+      "return_option1": "Kijów, Lotnisko Boryspol, Terminal 3B",
+      "return_option2": "Kijów, Lotnisko Zhuliany, Terminal 2A",
+      "return_option3": "Lwów, Międzynarodowy Port Lotniczy im. D. Halickiego, T1",
       "submit": "SZUKAJ"
     },
     "rent": {
-      "card1_button": "DOWIEDZ SIE WIECEJ",
-      "card1_image_alt": "Oddaj samochod we Lwowie — kontrola 24/7, do 3500 USD miesiecznie, podzial 70/30",
-      "card1_point1": "Podzial przychodow:<br/>70/30 — wlasciciel/wynajem",
+      "card1_button": "DOWIEDZ SIĘ WIĘCEJ",
+      "card1_image_alt": "Oddaj samochód we Lwowie — kontrola 24/7, do 3500 USD miesięcznie, podział 70/30",
+      "card1_point1": "Podział przychodów:<br/>70/30 — właściciel/wynajem",
       "card1_point2": "Dochod:<br /> od 250 do 3500 USD — zalezy od modelu.",
-      "card1_point3": "Kontrola w czasie rzeczywistym<br/>Sledz swoj samochod 24/7 przez GPS i aplikacje — pelna przejrzystosc.",
-      "card1_title": "ODDAJ SAMOCHOD",
-      "card2_button": "SZCZEGOLY",
-      "card2_image_alt": "Warunki wynajmu samochodow we Lwowie — REIZ",
+      "card1_point3": "Kontrola w czasie rzeczywistym<br/>Śledź swój samochód 24/7 przez GPS i aplikacje — pelna przejrzystość.",
+      "card1_title": "ODDAJ SAMOCHÓD",
+      "card2_button": "SZCZEGÓŁY",
+      "card2_image_alt": "Warunki wynajmu samochodów we Lwowie — REIZ",
       "card2_title": "WARUNKI WYNAJMU",
-      "card3_button": "SZCZEGOLY",
-      "card3_image_alt": "FAQ o wynajmie samochodow we Lwowie — REIZ",
+      "card3_button": "SZCZEGÓŁY",
+      "card3_image_alt": "FAQ o wynajmie samochodów we Lwowie — REIZ",
       "card3_title": "FAQ"
     },
     "reviews_block": {
       "google_aria": "Opinie Google",
       "google_label": "Opinie Google",
-      "subtitle": "Wysoka ocena i zaufanie klientow na calym swiecie",
-      "title": "Dlaczego warto wynajac samochod u nas?",
+      "subtitle": "Wysoka ocena i zaufanie klientów na calym świecie",
+      "title": "Dlaczego warto wynająć samochód u nas?",
       "trustpilot_aria": "Opinie Trustpilot",
       "trustpilot_label": "TrustPilot"
     }
   },
   "faqPage": {
     "meta": {
-      "title": "FAQ o wynajmie samochodow we Lwowie",
-      "description": "Odpowiedzi na popularne pytania: jak wynajac samochod, jakie dokumenty sa potrzebne, ile to kosztuje, czy mozna jechac za granice. Informacje od ekspertow REIZ.",
-      "og_title": "FAQ o wynajmie samochodow we Lwowie",
-      "og_description": "Odpowiedzi na popularne pytania: jak wynajac samochod, jakie dokumenty sa potrzebne, ile to kosztuje, czy mozna jechac za granice. Informacje od ekspertow REIZ.",
+      "title": "FAQ o wynajmie samochodów we Lwowie",
+      "description": "Odpowiedzi na popularne pytania: jak wynająć samochód, jakie dokumenty są potrzebne, ile to kosztuje, czy można jechać za granice. Informacje od ekspertów REIZ.",
+      "og_title": "FAQ o wynajmie samochodów we Lwowie",
+      "og_description": "Odpowiedzi na popularne pytania: jak wynająć samochód, jakie dokumenty są potrzebne, ile to kosztuje, czy można jechać za granice. Informacje od ekspertów REIZ.",
       "og_image": "https://reiz.com.ua/img/og/faq.webp",
       "lang": "pl"
     },
     "pretitle": "FAQ",
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "current": "FAQ"
     },
-    "main_title": "Czesto zadawane pytania o wynajmie samochodow",
+    "main_title": "Czesto zadawane pytania o wynajmie samochodów",
     "faq_title": "FAQ",
-    "faq_pretitle": "Znajdz odpowiedzi na czesto zadawane pytania o wynajmie samochodow z REIZ.",
+    "faq_pretitle": "Znajdz odpowiedzi na czesto zadawane pytania o wynajmie samochodów z REIZ.",
     "questions": [
       {
-        "question": "CZY MOGE WYNAJAC SAMOCHOD NA NOC?",
-        "answer": "Tak, nocny odbior i zwrot sa dostepne 24/7. Mozesz rozpoczac lub zakonczyc wynajem pozna noca lub wczesnym rankiem — prosimy o uzgodnienie dokladnej godziny z menedzerem z wyprzedzeniem. Nocna dostawa/zwrot moze obejmowac dodatkowa oplate za usluge pozagodzinowa."
+        "question": "CZY MOGĘ WYNAJĄĆ SAMOCHÓD NA NOC?",
+        "answer": "Tak, nocny odbior i zwrot są dostepne 24/7. Możesz rozpocząć lub zakonczyc wynajem pozna noca lub wczesnym rankiem — prosimy o uzgodnienie dokladnej godziny z menedżerem z wyprzedzeniem. Nocna dostawa/zwrot może obejmować dodatkowa opłatę za usługę pozagodzinowa."
       },
       {
-        "question": "CZY MOGE WYNAJAC SAMOCHOD NA DLUZEJ NIZ MIESIAC?",
-        "answer": "Tak. Wynajem dlugoterminowy (30+ dni) wiaze sie z obnizycznymi stawkami i platnoscia miesieczna. Planowa konserwacja jest po naszej stronie. Zapytaj menedzera o indywidualna wycene."
+        "question": "CZY MOGĘ WYNAJĄĆ SAMOCHÓD NA DLUZEJ NIZ MIESIĄC?",
+        "answer": "Tak. Wynajem długoterminowy (30+ dni) wiąże się z obnizycznymi stawkami i płatnością miesięczna. Planowa konserwacja jest po naszej stronie. Zapytaj menedżera o indywidualna wycene."
       },
       {
-        "question": "JAKI JEST MINIMALNY WIEK I DOSWIADCZENIE W PROWADZENIU?",
-        "answer": "Zwykle od 21 lat i ponad 2 lata doswiadczenia w prowadzeniu. Dla crossoverow i klasy premium wymagania sa wyzsze — od 25 lat. Jesli nie speniasz wymagan wiekowych/doswiadczenia, moze obowiazywac oplata za Mlodego Kierowce."
+        "question": "JAKI JEST MINIMALNY WIEK I DOŚWIADCZENIE W PROWADZENIU?",
+        "answer": "Zwykle od 21 lat i ponad 2 lata doświadczenia w prowadzeniu. Dla crossoverów i klasy premium wymagania są wyższe — od 25 lat. Jesli nie speniasz wymagan wiekowych/doświadczenia, może obowiązywać opłata za Mlodego Kierowce."
       },
       {
-        "question": "CZY MUSZE TANKOWAC PIERWSZEGO DNIA?",
-        "answer": "Stosujemy polityke \"Pelny do pelnego\": otrzymujesz samochod z pelnym bakiem i zwracasz go pelny. Jesli tankowanie przed zwrotem nie jest mozliwe, dostepna jest opcja przedplaconego paliwa."
+        "question": "CZY MUSZĘ TANKOWAĆ PIERWSZEGO DNIA?",
+        "answer": "Stosujemy polityke \"Pelny do pelnego\": otrzymujesz samochód z pelnym bakiem i zwracasz go pelny. Jesli tankowanie przed zwrotem nie jest możliwe, dostepna jest opcja przedplaconego paliwa."
       },
       {
-        "question": "MIALEM WYPADEK — CO POWINIENEM ZROBIC?",
-        "answer": "Zadbaj o bezpieczenstwo, zadzwon do nas (dzialamy 24/7) i na policje (102), nie opuszczaj miejsca zdarzenia. Zrob zdjecia/wideo i, jesli to mozliwe, wypelnij europejskie oswiadczenie o wypadku. Twoja odpowiedzialnosc zalezy od wybranego pokrycia (CDW/SCDW). Szczegoly w sekcji Ubezpieczenie."
+        "question": "MIALEM WYPADEK — CO POWINIENEM ZROBIĆ?",
+        "answer": "Zadbaj o bezpieczeństwo, zadzwoń do nas (dzialamy 24/7) i na policje (102), nie opuszczaj miejsca zdarzenia. Zrob zdjecia/wideo i, jesli to możliwe, wypełnij europejskie oswiadczenie o wypadku. Twoja odpowiedzialność zalezy od wybranego pokrycia (CDW/SCDW). Szczegóły w sekcji Ubezpieczenie."
       },
       {
-        "question": "JAKIE DOKUMENTY SA POTRZEBNE DO WYNAJMU SAMOCHODU?",
-        "answer": "Paszport, wazne prawo jazdy i karta bankowa. Zagraniczni kierowcy moga potrzebowac Miedzynarodowego Prawa Jazdy (IDP) uzupelniajaco do krajowego."
+        "question": "JAKIE DOKUMENTY SĄ POTRZEBNE DO WYNAJMU SAMOCHODU?",
+        "answer": "Paszport, wazne prawo jazdy i karta bankowa. Zagraniczni kierowcy mogą potrzebować Miedzynarodowego Prawa Jazdy (IDP) uzupelniajaco do krajowego."
       },
       {
-        "question": "JAK MOGE ZAPLACIC ZA WYNAJEM?",
-        "answer": "Karta Visa/Mastercard (w tym Apple Pay/Google Pay) lub gotowka. Kaucja jest preautoryzowana na karcie lub pobierana gotowka i zwracana po zamknieciu wszystkich naleznosci."
+        "question": "JAK MOGĘ ZAPŁACIĆ ZA WYNAJEM?",
+        "answer": "Karta Visa/Mastercard (w tym Apple Pay/Google Pay) lub gotowka. Kaucja jest preautoryzowana na karcie lub pobierana gotowka i zwracana po zamknieciu wszystkich należności."
       },
       {
-        "question": "CZY MOGE DODAC DODATKOWEGO KIEROWCE?",
-        "answer": "Tak, jesli jego dane zostana dodane do umowy i przedstawione zostaną dokumenty. Wymagania dotyczace wieku i doswiadczenia sa takie same jak dla glownego kierowcy."
+        "question": "CZY MOGĘ DODAC DODATKOWEGO KIEROWCE?",
+        "answer": "Tak, jesli jego dane zostana dodane do umowy i przedstawione zostaną dokumenty. Wymagania dotyczace wieku i doświadczenia są takie same jak dla głównego kierowcy."
       },
       {
         "question": "CZY WOLNO PALIC W SAMOCHODZIE?",
-        "answer": "Nie, palenie jest zabronione. Naruszenie grozi mandatem i oplata za czyszczenie wnetrza zgodnie z warunkami wynajmu."
+        "answer": "Nie, palenie jest zabronione. Naruszenie grozi mandatem i opłata za czyszczenie wnętrza zgodnie z warunkami wynajmu."
       },
       {
         "question": "JAK POBIERANA JEST KAUCJA ZABEZPIECZAJACA?",
         "answer": "Zwykle poprzez preautoryzacje karty lub gotowka po uzgodnieniu. Kwota zalezy od klasy samochodu i wybranego pokrycia ubezpieczeniowego."
       },
       {
-        "question": "CZY MOGE ODEBRAC W KIJOWIE I ZWROCIC W INNYM MIESCIE?",
-        "answer": "Tak, zwroty jednokierunkowe sa dostepne za oplate za transfer miedzymiastowy. Trasa i czas musza byc uzgodnione z wyprzedzeniem."
+        "question": "CZY MOGĘ ODEBRAC W KIJOWIE I ZWRÓCIĆ W INNYM MIEŚCIE?",
+        "answer": "Tak, zwroty jednokierunkowe są dostepne za opłatę za transfer międzymiastowy. Trasa i czas musza być uzgodnione z wyprzedzeniem."
       },
       {
-        "question": "CZY JEST LIMIT PRZEJECHANYCH KILOMETROW?",
-        "answer": "Dzienny limit przebiegu — 300 km na dobe, ale nie wiecej niz 4500 km miesiecznie. Nadmiarowe kilometry sa naliczane za km. Jesli potrzebujesz wiekszego przebiegu — skontaktuj sie z menedzerem."
+        "question": "CZY JEST LIMIT PRZEJECHANYCH KILOMETRÓW?",
+        "answer": "Dzienny limit przebiegu — 300 km na dobe, ale nie więcej niz 4500 km miesięcznie. Nadmiarowe kilometry są naliczane za km. Jesli potrzebujesz wiekszego przebiegu — skontaktuj się z menedżerem."
       },
       {
         "question": "CZY DOSTARCZACIE POD ADRES I NA LOTNISKO WE LWOWIE (LWO)?",
-        "answer": "Tak. Mozemy dostarczyc pod Twoj adres w miescie i spotkac sie na lotnisku. Cena zalezy od strefy i pory dnia. Dostawa miedzymiastowa dostepna na zyczenie."
+        "answer": "Tak. Możemy dostarczyć pod Twój adres w mieście i spotkać się na lotnisku. Cena zalezy od strefy i pory dnia. Dostawa międzymiastowa dostepna na życzenie."
       },
       {
-        "question": "CZY DOSTEPNE SA FOTELIKI/PODKLADKI DLA DZIECI?",
-        "answer": "Tak, na wczesniejsze zgloszenie. Opcje sa dostepne dla roznych grup wiekowych. Moze obowiazywac niewielka dodatkowa oplata — sprawdz przy rezerwacji."
+        "question": "CZY DOSTEPNE SĄ FOTELIKI/PODKLADKI DLA DZIECI?",
+        "answer": "Tak, na wcześniejsze zgłoszenie. Opcje są dostepne dla różnych grup wiekowych. Może obowiązywać niewielka dodatkowa opłata — sprawdz przy rezerwacji."
       },
       {
-        "question": "CZY MOGE PODROZOWAC ZE ZWIERZETAMI?",
-        "answer": "Tak, pod warunkiem zachowania czystosci (uzyj transportera lub pokrowca). Za silne zabrudzenia lub zapachy moze byc naliczona dodatkowa oplata za czyszczenie."
+        "question": "CZY MOGĘ PODRÓŻOWAĆ ZE ZWIERZETAMI?",
+        "answer": "Tak, pod warunkiem zachowania czystości (uzyj transportera lub pokrowca). Za silne zabrudzenia lub zapachy może być naliczona dodatkowa opłata za czyszczenie."
       },
       {
-        "question": "JAKIE SA ZASADY ANULOWANIA/PRZESUNIĘCIA REZERWACJI?",
-        "answer": "Bezplatne anulowanie jest dostepne z wyprzedzeniem w okreslonym oknie czasowym (zwykle 24–48 godzin). Pozne anulowanie lub niestawienie sie moze wiazac sie z oplata. Zmiana dat jest mozliwa w zaleznosci od dostepnosci."
+        "question": "JAKIE SĄ ZASADY ANULOWANIA/PRZESUNIĘCIA REZERWACJI?",
+        "answer": "Bezpłatne anulowanie jest dostepne z wyprzedzeniem w okreslonym oknie czasowym (zwykle 24–48 godzin). Pozne anulowanie lub niestawienie się może wiązać się z opłata. Zmiana dat jest możliwa w zależności od dostępności."
       },
       {
-        "question": "W JAKIM STANIE POWINIENEM ZWROCIC SAMOCHOD?",
-        "answer": "Takim, w jakim go otrzymalem: sprawny technicznie, czysty i z pelnym bakiem. Silne zabrudzenie moze wymagac platnego mycia/detailingu. Sprawdz, czy nie zostawiles rzeczy osobistych."
+        "question": "W JAKIM STANIE POWINIENEM ZWRÓCIĆ SAMOCHÓD?",
+        "answer": "Takim, w jakim go otrzymalem: sprawny technicznie, czysty i z pelnym bakiem. Silne zabrudzenie może wymagać płatnego mycia/detailingu. Sprawdz, czy nie zostawiles rzeczy osobistych."
       },
       {
-        "question": "JAK SA ROZLICZANE MANDATY, OPLATY DROGOWE I PARKINGOWE?",
-        "answer": "Naleznosci powstale podczas wynajmu sa rozliczane po zakonczeniu podrozy. W razie potrzeby moga byc potracone z kaucji. Termin ostatecznego rozliczenia zalezy od danych z organow i banku."
+        "question": "JAK SĄ ROZLICZANE MANDATY, OPŁATY DROGOWE I PARKINGOWE?",
+        "answer": "Należności powstale podczas wynajmu są rozliczane po zakonczeniu podróży. W razie potrzeby mogą być potracone z kaucji. Termin ostatecznego rozliczenia zalezy od danych z organów i banku."
       },
       {
         "question": "CZY POTRZEBUJE MIEDZYNARODOWEGO PRAWA JAZDY?",
-        "answer": "Zagraniczni kierowcy moga potrzebowac IDP uzupelniajaco do krajowego prawa jazdy (szczegolnie jesli nie jest w alfabecie lacinskim). Mieszkancy Ukrainy potrzebuja krajowego prawa jazdy obowiazujacego formatu."
+        "answer": "Zagraniczni kierowcy mogą potrzebować IDP uzupelniajaco do krajowego prawa jazdy (szczególnie jesli nie jest w alfabecie lacinskim). Mieszkancy Ukrainy potrzebuja krajowego prawa jazdy obowiazujacego formatu."
       },
       {
-        "question": "JAKIE KLASY SAMOCHODOW SA DOSTEPNE I JAKIE SA ORIENTACYJNE CENY?",
-        "answer": "Dostepne sa klasy ekonomiczna, standardowa, crossovery i premium. Cena zalezy od klasy, czasu wynajmu i sezonu. Im dluzszy wynajem, tym nizsza stawka dzienna. Aktualne ceny sprawdz we flocie lub u menedzera."
+        "question": "JAKIE KLASY SAMOCHODÓW SĄ DOSTEPNE I JAKIE SĄ ORIENTACYJNE CENY?",
+        "answer": "Dostepne są klasy ekonomiczna, standardowa, crossovery i premium. Cena zalezy od klasy, czasu wynajmu i sezonu. Im dluzszy wynajem, tym niższa stawka dzienna. Aktualne ceny sprawdz we flocie lub u menedżera."
       }
     ]
   },
   "insurancePage": {
     "meta": {
-      "title": "Ubezpieczenie wynajmu samochodow we Lwowie",
-      "description": "Ubezpieczenie wynajmu samochodow: AC i OC, pomoc drogowa 24/7, samochod zastepezy w razie potrzeby. Przejrzyste warunki, brak ukrytych oplat.",
-      "og_title": "Ubezpieczenie wynajmu samochodow Lwow — Ochrona i Bezpieczenstwo | REIZ",
-      "og_description": "Ubezpieczenie wynajmu samochodow: AC i OC, pomoc drogowa 24/7, samochod zastepczy w razie potrzeby. Przejrzyste warunki, brak ukrytych oplat.",
+      "title": "Ubezpieczenie wynajmu samochodów we Lwowie",
+      "description": "Ubezpieczenie wynajmu samochodów: AC i OC, pomoc drogowa 24/7, samochód zastepezy w razie potrzeby. Przejrzyste warunki, brak ukrytych opłat.",
+      "og_title": "Ubezpieczenie wynajmu samochodów Lwów — Ochrona i Bezpieczeństwo | REIZ",
+      "og_description": "Ubezpieczenie wynajmu samochodów: AC i OC, pomoc drogowa 24/7, samochód zastepczy w razie potrzeby. Przejrzyste warunki, brak ukrytych opłat.",
       "og_image": "https://reiz.com.ua/img/og/insurance.webp",
       "lang": "pl"
     },
@@ -349,13 +349,13 @@
       "heroAlt": "Trojkat ostrzegawczy za samochodem na poboczu — ubezpieczenie wynajmu"
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "current": "Ubezpieczenie"
     },
     "pretitle": "UBEZPIECZENIE",
     "hero": {
       "title": "Ubezpieczenie wynajmowanego samochodu",
-      "text": "Przy wyborze samochodu na wynajem warto zaplanowac ewentualne problemy na drodze. Nasze pakiety ubezpieczeniowe pomagaja ograniczyc ryzyko i chronic przed dodatkowymi wydatkami.",
+      "text": "Przy wyborze samochodu na wynajem warto zaplanować ewentualne problemy na drodze. Nasze pakiety ubezpieczeniowe pomagają ograniczyc ryzyko i chronić przed dodatkowymi wydatkami.",
       "cta": "UZYSKAJ KONSULTACJE",
       "imageAlt": "Znak ostrzegawczy przy samochodzie — ubezpieczenie wynajmu REIZ"
     },
@@ -365,8 +365,8 @@
       "labels": {
         "coverageLevel": "Poziom pokrycia",
         "deposit": "Kaucja",
-        "driverLiabilityAccident": "Odpowiedzialnosc kierowcy (wypadek)",
-        "theftTotalLoss": "Odpowiedzialnosc za kradziez / szkode calkowita",
+        "driverLiabilityAccident": "Odpowiedzialność kierowcy (wypadek)",
+        "theftTotalLoss": "Odpowiedzialność za kradziez / szkodę całkowita",
         "tyresGlass": "Uszkodzenie opon / szyb",
         "carWashIncluded": "Mycie samochodu w cenie"
       },
@@ -375,57 +375,57 @@
           "name": "Standard",
           "type": "CDW",
           "deposit": "Pelna kaucja",
-          "driverLiabilityAccident": "Do wysokosci kaucji",
-          "theftTotalLoss": "10% wartosci pojazdu"
+          "driverLiabilityAccident": "Do wysokości kaucji",
+          "theftTotalLoss": "10% wartości pojazdu"
         },
         "comfort": {
           "name": "Komfort",
           "type": "SCDW",
           "deposit": "50% kaucji Standard",
           "driverLiabilityAccident": "50% kaucji Standard",
-          "theftTotalLoss": "5% wartosci pojazdu"
+          "theftTotalLoss": "5% wartości pojazdu"
         },
         "premium": {
           "name": "Premium",
           "type": "SCDW + TP",
           "deposit": "200–300 $ — pobierana wyłącznie w przypadku mandatów lub braku paliwa",
-          "driverLiabilityAccident": "Brak odpowiedzialnosci",
-          "theftTotalLoss": "Brak odpowiedzialnosci"
+          "driverLiabilityAccident": "Brak odpowiedzialności",
+          "theftTotalLoss": "Brak odpowiedzialności"
         }
       }
     },
     "eligibility": {
       "title": "WARUNKI ROZSZERZONEGO POKRYCIA",
       "items": [
-        "Kierowcy w wieku 25+ z co najmniej 4-letnim doswiadczeniem.",
-        "Okres wynajmu musi wynosic od 3 dni.",
-        "Osoba wskazana w umowie wynajmu musi byc ta, ktora prowadzi.",
-        "W przypadku wypadku nalezy powiadomic firme w ciagu godziny i wezwac policje."
+        "Kierowcy w wieku 25+ z co najmniej 4-letnim doświadczeniem.",
+        "Okres wynajmu musi wynosić od 3 dni.",
+        "Osoba wskazana w umowie wynajmu musi być ta, która prowadzi.",
+        "W przypadku wypadku nalezy powiadomić firme w ciągu godziny i wezwać policje."
       ]
     },
     "exclusions": {
       "title": "WYLACZENIA I ZAKAZY",
       "items": [
-        "Jazda pod wplywem alkoholu lub narkotykow.",
+        "Jazda pod wplywem alkoholu lub narkotyków.",
         "Dopuszczenie nieautoryzowanego kierowcy. Osoby trzecie za kierownica.",
         "Kradziez czesci zewnetrznych, takich jak lusterka lub wycieraczki.",
         "Opuszczenie miejsca wypadku.",
-        "Uzytkowanie samochodu w celach komercyjnych (taxi, podnajem). Surowo zabronione.",
-        "Uszkodzenie wnetrza pojazdu."
+        "Użytkowanie samochodu w celach komercyjnych (taxi, podnajem). Surowo zabronione.",
+        "Uszkodzenie wnętrza pojazdu."
       ]
     },
     "downloads": {
       "title": "DO POBRANIA",
-      "note": "PELNA LISTE OGRANICZEN I PRZYPADKOW NIEUBEZPIECZONYCH MOZESZ SPRAWDZIC W DOKUMENCIE",
+      "note": "PELNA LISTE OGRANICZEN I PRZYPADKOW NIEUBEZPIECZONYCH MOŻESZ SPRAWDZIĆ W DOKUMENCIE",
       "file": {
         "title": "WARUNKI UBEZPIECZENIA",
-        "meta": "Pelne szczegoly",
+        "meta": "Pelne szczegóły",
         "href": "/insurance"
       }
     },
     "breach": {
-      "title": "NARUSZENIE WARUNKOW WYNAJMU",
-      "text": "Wiele sytuacji zwiazanych z niezgodnoscia z umowa wynajmu oznacza, ze rozszerzone ubezpieczenie nie pokryje szkody. Nawet z pelna ochrona najemca musi przestrzegac zasad firmy."
+      "title": "NARUSZENIE WARUNKÓW WYNAJMU",
+      "text": "Wiele sytuacji zwiazanych z niezgodnością z umowa wynajmu oznacza, ze rozszerzone ubezpieczenie nie pokryje szkody. Nawet z pelna ochrona najemca musi przestrzegać zasad firmy."
     },
     "explainer": {
       "title": "CZYM JEST DODATKOWE UBEZPIECZENIE?",
@@ -475,14 +475,14 @@
       "text": "Przy odbiorze samochodu każdy klient otrzymuje osobisty numer asystenta, pod który można dzwonić całodobowo w razie awarii, wypadku lub jakiejkolwiek sytuacji awaryjnej."
     },
     "cta": {
-      "requestCall": "ZAMOW ODDZWONIENIE"
+      "requestCall": "ZAMÓW ODDZWONIENIE"
     }
   },
   "businessPage": {
     "meta": {
-      "title": "Wynajem samochodow dla firm — wynajem korporacyjny",
-      "description": "Korporacyjny wynajem samochodow na Ukrainie: sedany, crossovery i minivany. Faktury VAT, ubezpieczenie, umowa, wsparcie 24/7. Indywidualne warunki dla firm.",
-      "og_title": "REIZ dla biznesu — korporacyjny wynajem samochodow z VAT",
+      "title": "Wynajem samochodów dla firm — wynajem korporacyjny",
+      "description": "Korporacyjny wynajem samochodów na Ukrainie: sedany, crossovery i minivany. Faktury VAT, ubezpieczenie, umowa, wsparcie 24/7. Indywidualne warunki dla firm.",
+      "og_title": "REIZ dla biznesu — korporacyjny wynajem samochodów z VAT",
       "og_description": "Elastyczne stawki firmowe, pelne pokrycie ubezpieczeniowe i wsparcie 24/7. Jedna umowa — wszystko w cenie.",
       "og_image": "https://reiz.com.ua/img/og/business.webp",
       "og_locale": "pl_PL",
@@ -490,33 +490,33 @@
       "page": "business"
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "current": "Wynajem dla firm"
     },
     "pretitle": "WYNAJEM KORPORACYJNY",
     "hero": {
       "title": "Wynajem aut dla firm w Ukrainie",
-      "text": "Usluga premium dla firm: faktury VAT, dlugoterminowe stawki i pelna kontrola floty.",
+      "text": "Usługa premium dla firm: faktury VAT, długoterminowe stawki i pelna kontrola floty.",
       "features": [
         "Rozliczenie z VAT",
-        "Nizsze stawki od 30 dni",
-        "Sledzenie floty w panelu"
+        "Niższe stawki od 30 dni",
+        "Śledzenie floty w panelu"
       ],
       "cta": "OTRZYMAJ OFERTĘ",
       "ctaPrimary": "Otrzymaj ofertę",
-      "ctaSecondary": "Zadzwon"
+      "ctaSecondary": "Zadzwoń"
     },
     "slider": {
       "ariaLabel": "Korzysci korporacyjne",
       "items": [
         {
           "title": "Specjalne stawki",
-          "text": "Indywidualne warunki i stale stawki na Twoja flote i przebieg.",
+          "text": "Indywidualne warunki i stałe stawki na Twoja flote i przebieg.",
           "pagination": "1–8"
         },
         {
           "title": "Fakturowanie VAT",
-          "text": "Platnosc bezgotowkowa i komplet dokumentow zamkniecia.",
+          "text": "Płatność bezgotówkowa i komplet dokumentów zamkniecia.",
           "pagination": "2–8"
         },
         {
@@ -526,17 +526,17 @@
         },
         {
           "title": "Ubezpieczenie CDW/SCDW",
-          "text": "Pelne pokrycie ubezpieczeniowe na caly okres wynajmu, wsparcie w razie wypadku.",
+          "text": "Pelne pokrycie ubezpieczeniowe na cały okres wynajmu, wsparcie w razie wypadku.",
           "pagination": "4–8"
         },
         {
-          "title": "Umowy dlugoterminowe",
-          "text": "Nizsze stawki od 30 dni. Elastyczne warunki 30/60/90+ dni.",
+          "title": "Umowy długoterminowe",
+          "text": "Niższe stawki od 30 dni. Elastyczne warunki 30/60/90+ dni.",
           "pagination": "5–8"
         },
         {
           "title": "Dostawa i zastepstwo",
-          "text": "Dostawa/zwrot pod drzwi. Samochod zastepczy w razie awarii.",
+          "text": "Dostawa/zwrot pod drzwi. Samochód zastepczy w razie awarii.",
           "pagination": "6–8"
         },
         {
@@ -545,23 +545,23 @@
           "pagination": "7–8"
         },
         {
-          "title": "Osobisty menedzer",
+          "title": "Osobisty menedżer",
           "text": "Jeden punkt kontaktowy: koordynacja, raportowanie i SLA serwisowe.",
           "pagination": "8–8"
         }
       ],
       "controls": {
         "prev": "Poprzedni slajd",
-        "next": "Nastepny slajd"
+        "next": "Następny slajd"
       }
     },
     "whyUs": {
       "title": "DLACZEGO FIRMY NAS WYBIERAJA",
-      "text": "Wybierz krotko- lub dlugoterminowy wynajem korporacyjny z platnoscia bezgotowkowa i fakturowaniem VAT. Zajmiemy sie umowa, dokumentacja, ubezpieczeniem i utrzymaniem floty.",
+      "text": "Wybierz krótko- lub długoterminowy wynajem korporacyjny z płatnością bezgotówkową i fakturowaniem VAT. Zajmiemy się umową, dokumentacją, ubezpieczeniem i utrzymaniem floty.",
       "items": [
-        "Stawki korporacyjne i indywidualne warunki dla podmiotow prawnych",
+        "Stawki korporacyjne i indywidualne warunki dla podmiotów prawnych",
         "Pelne pokrycie ubezpieczeniowe, planowe przeglady i wymiana opon sezonowych",
-        "Dostawa/zwrot pod drzwi, samochod zastepczy w razie potrzeby",
+        "Dostawa/zwrot pod drzwi, samochód zastepczy w razie potrzeby",
         "Terminowe raporty i akty — bez zbednej biurokracji"
       ]
     },
@@ -571,17 +571,17 @@
         {
           "icon": "t-steering",
           "title": "Nowe serwisowane auta",
-          "text": "Flota z lat 2023–2025. Kazdy samochod przechodzi regularne przeglady i kontrole przed wydaniem."
+          "text": "Flota z lat 2023–2025. Każdy samochód przechodzi regularne przeglady i kontrole przed wydaniem."
         },
         {
           "icon": "t-insurance",
           "title": "Pelne ubezpieczenie",
-          "text": "Pokrycie CDW / SCDW na caly okres wynajmu. Pomoc w razie wypadku."
+          "text": "Pokrycie CDW / SCDW na cały okres wynajmu. Pomoc w razie wypadku."
         },
         {
           "icon": "t-contract",
-          "title": "Platnosc z VAT",
-          "text": "Platnosc bezgotowkowa, dokumenty zamykajace, faktury — wszystko dla ksiegowosci."
+          "title": "Płatność z VAT",
+          "text": "Płatność bezgotówkowa, dokumenty zamykajace, faktury — wszystko dla księgowości."
         },
         {
           "icon": "t-services",
@@ -590,12 +590,12 @@
         },
         {
           "icon": "t-return",
-          "title": "Samochod zastepczy",
-          "text": "Bezplatna wymiana auta w przypadku awarii lub planowego serwisu."
+          "title": "Samochód zastepczy",
+          "text": "Bezpłatna wymiana auta w przypadku awarii lub planowego serwisu."
         },
         {
           "icon": "t-person-key",
-          "title": "Osobisty menedzer",
+          "title": "Osobisty menedżer",
           "text": "Jeden punkt kontaktu: koordynacja, raportowanie, dokumenty i SLA serwisowe."
         }
       ]
@@ -607,35 +607,35 @@
           "value": "business",
           "label": "Dla biznesu",
           "title": "Dla malego i sredniego biznesu",
-          "text": "Elastyczne warunki wynajmu samochodow, ktore pomoga Twojej firmie sprawnie rozwiazywac zadania logistyczne.",
+          "text": "Elastyczne warunki wynajmu samochodów, które pomoga Twojej firmie sprawnie rozwiązywać zadania logistyczne.",
           "cta": "OTRZYMAJ OFERTE"
         },
         {
           "value": "corporate",
           "label": "Dla korporacji",
-          "title": "Dla duzych korporacji i fleet management",
-          "text": "Efektywne zarzadzanie flota korporacyjna: wynajem, serwis, ubezpieczenie i wymiana pojazdow.",
+          "title": "Dla dużych korporacji i fleet management",
+          "text": "Efektywne zarzadzanie flota korporacyjna: wynajem, serwis, ubezpieczenie i wymiana pojazdów.",
           "cta": "OTRZYMAJ OFERTE"
         },
         {
           "value": "missions",
-          "label": "Misje miedzynarodowe",
-          "title": "Wsparcie misji miedzynarodowych i dyplomatycznych",
-          "text": "Wspieramy projekty dyplomatyczne i humanitarne, zapewniajac nowoczesne i niezawodne pojazdy.",
+          "label": "Misje międzynarodowe",
+          "title": "Wsparcie misji międzynarodowych i dyplomatycznych",
+          "text": "Wspieramy projekty dyplomatyczne i humanitarne, zapewniając nowoczesne i niezawodne pojazdy.",
           "cta": "OTRZYMAJ OFERTE"
         },
         {
           "value": "construction",
           "label": "Projekty budowlane",
-          "title": "Transport dla projektow budowlanych",
-          "text": "Swiadczymy uslugi wynajmu samochodow do transportu sprzetu i specjalistow.",
+          "title": "Transport dla projektów budowlanych",
+          "text": "Swiadczymy usługi wynajmu samochodów do transportu sprzetu i specjalistów.",
           "cta": "OTRZYMAJ OFERTE"
         },
         {
           "value": "fleet",
           "label": "Fleet Management",
           "title": "Pelny outsourcing floty",
-          "text": "Zajmujemy sie calym cyklem: dobor pojazdow, ubezpieczenie, serwis, sezonowa wymiana opon i samochody zastepcze.",
+          "text": "Zajmujemy się calym cyklem: dobor pojazdów, ubezpieczenie, serwis, sezonowa wymiana opon i samochody zastepcze.",
           "cta": "OTRZYMAJ OFERTE"
         }
       ]
@@ -670,49 +670,49 @@
       "label": "Krok",
       "items": [
         {
-          "title": "Wybierz samochod",
-          "text": "Przejrzyj katalog lub skontaktuj sie z menedzerem — dobierzemy samochod do Twoich potrzeb.",
+          "title": "Wybierz samochód",
+          "text": "Przejrzyj katalog lub skontaktuj się z menedżerem — dobierzemy samochód do Twoich potrzeb.",
           "photo": "/img/business/choose-car.webp"
         },
         {
           "title": "Wyslij dokumenty",
-          "text": "W ciagu godziny od otrzymania dokumentow firmy wysylamy fakture i umowe.",
+          "text": "W ciągu godziny od otrzymania dokumentów firmy wysylamy fakture i umowe.",
           "photo": "/img/business/document-review.webp"
         },
         {
           "title": "Podpisz umowe",
-          "text": "Wyslij skany podpisanych dokumentow lub odwiedz nasze biuro, aby obejrzec samochody.",
+          "text": "Wyslij skany podpisanych dokumentów lub odwiedz nasze biuro, aby obejrzeć samochody.",
           "photo": "/img/business/contract-signing.webp"
         },
         {
           "title": "Korzystaj z samochodu",
-          "text": "Dostarczymy samochod pod Twoj adres w najkrotszym czasie. Na zyczenie zapewnimy kierowce.",
+          "text": "Dostarczymy samochód pod Twój adres w najkrotszym czasie. Na życzenie zapewnimy kierowce.",
           "photo": "/img/business/driving-experience.webp"
         }
       ]
     },
     "compare": {
-      "title": "WYBIERZ SWOJ FORMAT",
+      "title": "WYBIERZ SWÓJ FORMAT",
       "items": [
         {
           "badge": "Maly biznes",
-          "title": "Wynajem krotkoterminowy",
-          "text": "Idealny do jednorazowych projektow, delegacji i zadan sezonowych — od 1 do 29 dni.",
+          "title": "Wynajem krótkoterminowy",
+          "text": "Idealny do jednorazowych projektów, delegacji i zadan sezonowych — od 1 do 29 dni.",
           "items": [
             "Od 1 samochodu bez zobowiazan",
             "Pelne ubezpieczenie CDW/SCDW",
-            "Platnosc z VAT, dokumenty zamykajace",
+            "Płatność z VAT, dokumenty zamykajace",
             "Dostawa pod adres"
           ],
           "cta": "OTRZYMAJ OFERTE"
         },
         {
           "badge": "Korporacje",
-          "title": "Wynajem dlugoterminowy",
-          "text": "Dla stalych potrzeb — fleet management, obnizione stawki i pelna obsluga od 30 dni.",
+          "title": "Wynajem długoterminowy",
+          "text": "Dla stałych potrzeb — fleet management, obnizione stawki i pelna obsługa od 30 dni.",
           "items": [
             "Obnizione stawki od 30 dni",
-            "Bezplatny samochod zastepczy",
+            "Bezpłatny samochód zastepczy",
             "Osobisty manager i SLA",
             "Sezonowa wymiana opon w cenie"
           ],
@@ -721,52 +721,52 @@
       ]
     },
     "ctaBanner": {
-      "title": "Dla potrzeb dlugoterminowych — szczegolnie korzystne warunki",
-      "text": "Zostaw zapytanie, skontaktujemy sie wkrotce.",
+      "title": "Dla potrzeb długoterminowych — szczególnie korzystne warunki",
+      "text": "Zostaw zapytanie, skontaktujemy się wkrotce.",
       "cta": "OTRZYMAJ OFERTE",
       "imageAlt": "Samochód premium dla biznesu — wynajem korporacyjny REIZ"
     },
     "howItWorks": {
       "title": "JAK TO DZIALA",
       "steps": [
-        "Zapytanie — zostaw swoje dane kontaktowe, liczbe samochodow, klase i daty.",
+        "Zapytanie — zostaw swoje dane kontaktowe, liczbe samochodów, klase i daty.",
         "Oferta handlowa — uzgadniamy stawke, limit przebiegu i warunki ubezpieczenia.",
-        "Formalnosci — podpisujemy umowe, wystawiamy fakture, przygotowujemy akty/listy przewozowe.",
-        "Dostawa samochodu — dostarczamy pod Twoj adres, instruujemy kierowcow i przekazujemy szybki przewodnik."
+        "Formalności — podpisujemy umowe, wystawiamy fakture, przygotowujemy akty/listy przewozowe.",
+        "Dostawa samochodu — dostarczamy pod Twój adres, instruujemy kierowców i przekazujemy szybki przewodnik."
       ]
     },
     "tariffs": {
       "title": "STAWKI I WARUNKI",
       "items": [
-        "Nizsza stawka dzienna od wynajmu 30-dniowego i dla flot od 3 samochodow",
+        "Niższa stawka dzienna od wynajmu 30-dniowego i dla flot od 3 samochodów",
         "Ograniczony/nieograniczony przebieg — wg ustalen",
         "Ubezpieczenie CDW/SCDW, franszyza zalezy od klasy samochodu",
         "Dostawa/zwrot: biuro, lotnisko lub wskazana lokalizacja"
       ],
-      "note": "Popros o indywidualna wycene — przygotujemy oferte dopasowana do Twoich tras i harmonogramow."
+      "note": "Popros o indywidualna wycene — przygotujemy oferte dopasowana do Twoich tras i harmonogramów."
     },
     "documents": {
       "title": "DOKUMENTY",
       "items": [
         "Dane firmy i umowa",
         "Prawo jazdy pracownika i paszport/dowod osobisty",
-        "Pelnomocnictwo/notatka sluzbowa do odbioru samochodu (jesli wymagane)"
+        "Pelnomocnictwo/notatka służbowa do odbioru samochodu (jesli wymagane)"
       ]
     },
     "driverRequirements": {
-      "title": "WYMAGANIA DLA KIEROWCOW",
+      "title": "WYMAGANIA DLA KIEROWCÓW",
       "items": [
         "Wiek 21+",
-        "Doswiadczenie w prowadzeniu od 2 lat (wyzsze dla klasy premium)",
-        "Przestrzeganie warunkow umowy i przepisow ruchu drogowego"
+        "Doświadczenie w prowadzeniu od 2 lat (wyższe dla klasy premium)",
+        "Przestrzeganie warunków umowy i przepisów ruchu drogowego"
       ]
     },
     "downloads": {
       "title": "DO POBRANIA",
-      "note": "DOKUMENTY, KTORE MOGA BYC POTRZEBNE",
+      "note": "DOKUMENTY, KTÓRE MOGĄ BYĆ POTRZEBNE",
       "file": {
         "title": "WARUNKI WYNAJMU",
-        "meta": "Pelne szczegoly",
+        "meta": "Pelne szczegóły",
         "href": "/terms"
       }
     },
@@ -786,34 +786,34 @@
       }
     },
     "cta": {
-      "requestCall": "ZAMOW ODDZWONIENIE"
+      "requestCall": "ZAMÓW ODDZWONIENIE"
     },
     "benefit": {
       "title": "Dlaczego wynajem, a nie zakup",
-      "subtitle": "Porownaj koszty — i zobacz roznice",
+      "subtitle": "Porownaj koszty — i zobacz różnice",
       "cols": [
-        { "value": "100% VAT", "label": "w kredycie podatkowym", "desc": "Kazda platnosc zmniejsza Twoje zobowiazania podatkowe" },
-        { "value": "0 zl", "label": "na amortyzacje", "desc": "Auto nie na bilansie — brak zuzycia, brak ksiegowania" },
-        { "value": "OPEX", "label": "zamiast CAPEX", "desc": "Zachowujesz kapital obrotowy na rozwoj biznesu" },
-        { "value": "od 30 dni", "label": "elastyczne terminy", "desc": "Wynajem od miesiaca z mozliwoscia przedluzenia" }
+        { "value": "100% VAT", "label": "w kredycie podatkowym", "desc": "Każda płatność zmniejsza Twoje zobowiazania podatkowe" },
+        { "value": "0 zl", "label": "na amortyzacje", "desc": "Auto nie na bilansie — brak zuzycia, brak księgowania" },
+        { "value": "OPEX", "label": "zamiast CAPEX", "desc": "Zachowujesz kapital obrotowy na rozwój biznesu" },
+        { "value": "od 30 dni", "label": "elastyczne terminy", "desc": "Wynajem od miesiąca z możliwością przedłużenia" }
       ],
-      "cta": "Oblicz oszczednosci"
+      "cta": "Oblicz oszczędności"
     },
     "legal": {
       "title": "Auto nie na Twoim bilansie",
-      "subtitle": "Mniej ryzyka, mniej ksiegowania, wiecej spokoju",
+      "subtitle": "Mniej ryzyka, mniej księgowania, więcej spokoju",
       "cards": [
-        { "title": "Nie jest majatkiem Twojej firmy", "text": "Auto jest zarejestrowane na REIZ i nie wchodzi w sklad Twoich aktywow. Korzystasz z niego na podstawie umowy najmu — bez wprowadzania na bilans, bez amortyzacji." },
-        { "title": "List gwarancyjny zamiast depozytu", "text": "Dla klientow korporacyjnych mozemy pracowac na podstawie listu gwarancyjnego bez zamrazania srodkow — po uzgodnieniu warunkow." }
+        { "title": "Nie jest majatkiem Twojej firmy", "text": "Auto jest zarejestrowane na REIZ i nie wchodzi w sklad Twoich aktywów. Korzystasz z niego na podstawie umowy najmu — bez wprowadzania na bilans, bez amortyzacji." },
+        { "title": "List gwarancyjny zamiast depozytu", "text": "Dla klientów korporacyjnych możemy pracować na podstawie listu gwarancyjnego bez zamrazania środków — po uzgodnieniu warunków." }
       ]
     },
     "fleet": {
-      "title": "Zajmujemy sie wszystkim",
-      "subtitle": "Skup sie na biznesie — my zadbamy o flote",
+      "title": "Zajmujemy się wszystkim",
+      "subtitle": "Skup się na biznesie — my zadbamy o flote",
       "cards": [
-        { "title": "Serwis i przeglady", "text": "Planowe przeglady, sezonowa wymiana opon, naprawy — organizujemy i oplacamy. Jesli auto sie zepsuje — dostarczamy zastepczy w ciagu doby." },
-        { "title": "Ubezpieczenie AC + OC", "text": "Pelne pokrycie juz w cenie wynajmu. Obsluga wypadkow i szkod — po naszej stronie." },
-        { "title": "Jedna faktura miesiecznie", "text": "Zadnego zamieszania z dziesiiatkami paragonow. Jedna faktura, jedna platnosc, 100% VAT do odliczenia." }
+        { "title": "Serwis i przeglady", "text": "Planowe przeglady, sezonowa wymiana opon, naprawy — organizujemy i oplacamy. Jesli auto się zepsuje — dostarczamy zastepczy w ciągu doby." },
+        { "title": "Ubezpieczenie AC + OC", "text": "Pelne pokrycie już w cenie wynajmu. Obsługa wypadków i szkod — po naszej stronie." },
+        { "title": "Jedna faktura miesięcznie", "text": "Zadnego zamieszania z dziesiiatkami paragonów. Jedna faktura, jedna płatność, 100% VAT do odliczenia." }
       ]
     },
     "cases": {
@@ -826,22 +826,22 @@
       ]
     },
     "vehicles": {
-      "title": "Flota na kazde zadanie",
+      "title": "Flota na każde zadanie",
       "subtitle": "Od furgonetki dostawczej po limuzyne na spotkania",
       "tabs": [
         { "key": "commercial", "label": "Komercyjne", "title": "Ekonom i komfort", "text": "Skoda Octavia, Renault Megane, Peugeot 308. Niezawodne auta do codziennych potrzeb biznesowych.", "cta": "Otrzymaj listę dostępnych aut" },
-        { "key": "executive", "label": "Reprezentacyjne", "title": "Klasa biznes", "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. Dla zarzadu, spotkan i transferow.", "cta": "Otrzymaj listę dostępnych aut" },
+        { "key": "executive", "label": "Reprezentacyjne", "title": "Klasa biznes", "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. Dla zarzadu, spotkan i transferów.", "cta": "Otrzymaj listę dostępnych aut" },
         { "key": "suv", "label": "SUV", "title": "SUV i crossovery", "text": "Toyota RAV4, Hyundai Tucson, Mitsubishi Outlander. Na wyjazdy terenowe i trudne drogi.", "cta": "Otrzymaj listę dostępnych aut" },
-        { "key": "cross-border", "label": "Cross-Border", "title": "Wyjazd za granice", "text": "Przejrzyste przekraczanie granic UE bez ukrytych oplat. Mozliwosc zostawienia auta w Polsce lub innym kraju.", "cta": "Poznaj warunki" },
-        { "key": "vans", "label": "Furgony i ciezarowe", "title": "Furgony i ciezarowe", "text": "Renault Master, Mercedes Sprinter i inne. Idealne do logistyki, dostaw i ekip mobilnych.", "cta": "Otrzymaj listę dostępnych aut" }
+        { "key": "cross-border", "label": "Cross-Border", "title": "Wyjazd za granice", "text": "Przejrzyste przekraczanie granic UE bez ukrytych opłat. Możliwość zostawienia auta w Polsce lub innym kraju.", "cta": "Poznaj warunki" },
+        { "key": "vans", "label": "Furgony i ciężarowe", "title": "Furgony i ciężarowe", "text": "Renault Master, Mercedes Sprinter i inne. Idealne do logistyki, dostaw i ekip mobilnych.", "cta": "Otrzymaj listę dostępnych aut" }
       ]
     },
     "finalCta": {
-      "title": "Gotowy zoptymalizowac flote?",
-      "subtitle": "Zostaw zgloszenie — menedzer przygotuje indywidualna oferte dla Twojej firmy.",
+      "title": "Gotowy zoptymalizować flote?",
+      "subtitle": "Zostaw zgłoszenie — menedżer przygotuje indywidualna oferte dla Twojej firmy.",
       "features": [
         "Szybka ocena potrzeb w 15–30 minut",
-        "Przejrzysty harmonogram platnosci i warunki",
+        "Przejrzysty harmonogram płatności i warunki",
         "Umowa i ochrona ubezpieczeniowa od pierwszego dnia"
       ],
       "cta": "Uzyskaj oferte"
@@ -849,91 +849,91 @@
   },
   "blogPage": {
     "meta": {
-      "title": "Blog o wynajmie samochodow — Przydatne wskazowki i poradniki",
-      "description": "Pomocne artykuly o wynajmie samochodow: jak wynajac samochod, dokumenty, trasy po Zachodniej Ukrainie, porady dla poczatkujacych. Rekomendacje ekspertow REIZ.",
-      "og_title": "Blog o wynajmie samochodow — Przydatne wskazowki i poradniki | REIZ",
-      "og_description": "Pomocne artykuly o wynajmie samochodow: jak wynajac samochod, dokumenty, trasy po Zachodniej Ukrainie, porady dla poczatkujacych. Rekomendacje ekspertow REIZ.",
+      "title": "Blog o wynajmie samochodów — Przydatne wskazowki i poradniki",
+      "description": "Pomocne artykuly o wynajmie samochodów: jak wynająć samochód, dokumenty, trasy po Zachodniej Ukrainie, porady dla poczatkujacych. Rekomendacje ekspertów REIZ.",
+      "og_title": "Blog o wynajmie samochodów — Przydatne wskazowki i poradniki | REIZ",
+      "og_description": "Pomocne artykuly o wynajmie samochodów: jak wynająć samochód, dokumenty, trasy po Zachodniej Ukrainie, porady dla poczatkujacych. Rekomendacje ekspertów REIZ.",
       "og_image": "https://reiz.com.ua/img/og/blog.webp",
       "lang": "pl"
     },
     "pretitle": "BLOG",
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "current": "Blog"
     },
     "mainTitle": "Blog REIZ",
     "hero": {
-      "title": "Blog REIZ — informacje o wynajmie samochodow",
-      "subtitle": "Odkryj informacje o wynajmie samochodow: przydatne porady, przewodniki i historie. Dowiedz sie wiecej o podrozowaniu po Ukrainie, zasadach wynajmu i naszych uslugach."
+      "title": "Blog REIZ — informacje o wynajmie samochodów",
+      "subtitle": "Odkryj informacje o wynajmie samochodów: przydatne porady, przewodniki i historie. Dowiedz się więcej o podrozowaniu po Ukrainie, zasadach wynajmu i naszych usługach."
     },
     "posts": [
       {
-        "title": "Co robic po wypadku drogowym na Ukrainie: przewodnik krok po kroku od REIZ",
-        "excerpt": "Prosta lista kontrolna: co robic po wypadku na Ukrainie, jak prawidlowo udokumentowac zdarzenie, kogo powiadomic i jakie dokumenty bedzie wymagal ubezpieczyciel.",
+        "title": "Co robić po wypadku drogowym na Ukrainie: przewodnik krok po kroku od REIZ",
+        "excerpt": "Prosta lista kontrolna: co robić po wypadku na Ukrainie, jak prawidlowo udokumentować zdarzenie, kogo powiadomić i jakie dokumenty będzie wymagal ubezpieczyciel.",
         "date": "17.04.2025",
-        "imgAlt": "Samochod z trojkatem ostrzegawczym na drodze — artykul o wypadkach drogowych na Ukrainie",
+        "imgAlt": "Samochód z trojkatem ostrzegawczym na drodze — artykul o wypadkach drogowych na Ukrainie",
         "image": "/img/blog/road%20accident.webp"
       },
       {
-        "title": "Trasa podrozy samochodem po Ukrainie",
-        "excerpt": "Poznaj trase, ktora oferuje ekscytujaca przygode drogowa i szanse na odkrycie kultury i krajobrazow kraju.",
+        "title": "Trasa podróży samochodem po Ukrainie",
+        "excerpt": "Poznaj trase, która oferuje ekscytujaca przygode drogowa i szanse na odkrycie kultury i krajobrazów kraju.",
         "date": "17.04.2025",
-        "imgAlt": "Panorama zabytow Ukrainy o zachodzie slonca — trasa podrozy samochodem",
+        "imgAlt": "Panorama zabytków Ukrainy o zachodzie slonca — trasa podróży samochodem",
         "image": "/img/blog/Ukraineblog.webp",
         "slug": "ukraine-road-trip"
       },
       {
         "title": "Najlepsze aplikacje nawigacyjne na Ukrainie",
-        "excerpt": "Ukraina to miejsce, gdzie technologia jest czescia codziennego zycia mieszkancow i odwiedzajacych. Recenzujemy najpopularniejsze aplikacje, ktore pomagaja poruszac sie po miastach i autostradach.",
+        "excerpt": "Ukraina to miejsce, gdzie technologia jest czescia codziennego życia mieszkańców i odwiedzajacych. Recenzujemy najpopularniejsze aplikacje, które pomagają poruszać się po miastach i autostradach.",
         "date": "17.04.2025",
         "imgAlt": "Ikona nawigacji GPS — przeglad popularnych aplikacji nawigacyjnych na Ukrainie",
         "image": "/img/blog/NAV.webp",
         "slug": "navigation-apps-ukraine"
       },
       {
-        "title": "Podroz samochodem po Lwowie i obwodzie lwowskim",
-        "excerpt": "Odkryj Lwow i jego region samochodem — od uroczych ulic Starego Miasta po zamki, jeziora i Karpaty. Wygodna trasa, by zobaczyc najwazniejsze miejsca bez pospieehu.",
+        "title": "Podróż samochodem po Lwowie i obwodzie lwowskim",
+        "excerpt": "Odkryj Lwów i jego region samochodem — od uroczych ulic Starego Miasta po zamki, jeziora i Karpaty. Wygodna trasa, by zobaczyc najważniejsze miejsca bez pospieehu.",
         "date": "17.04.2025",
         "imgAlt": "Panorama Lwowa i zabytki — trasa po obwodzie lwowskim",
         "image": "/img/blog/lvivblog.webp",
         "slug": "lviv-travel"
       },
       {
-        "title": "Jak zaplacic za parking na Ukrainie jako turysta?",
-        "excerpt": "Poznaj kilka szybkich sposobow na dokonanie platnosci z minimalnymi problemami.",
+        "title": "Jak zapłacić za parking na Ukrainie jako turysta?",
+        "excerpt": "Poznaj kilka szybkich sposobów na dokonanie płatności z minimalnymi problemami.",
         "date": "17.04.2025",
-        "imgAlt": "Znak parkingowy przy budynku w miescie — jak zaplacic za parking na Ukrainie",
+        "imgAlt": "Znak parkingowy przy budynku w mieście — jak zapłacić za parking na Ukrainie",
         "image": "/img/blog/parking.webp",
         "slug": "parking-payment-ukraine"
       }
     ],
     "cta": {
-      "requestCall": "ZAMOW ODDZWONIENIE",
+      "requestCall": "ZAMÓW ODDZWONIENIE",
       "readArticle": "CZYTAJ ARTYKUL"
     }
   },
   "aboutPage": {
     "meta": {
-      "title": "O wynajmie samochodow we Lwowie",
-      "description": "REIZ — nowoczesna usluga wynajmu samochodow we Lwowie. Nowa flota. Profesjonalny zespol. Przejrzyste warunki. Ponad 50 zadowolonych klientow. Wsparcie 24/7.",
-      "og_title": "O REIZ — Niezawodny wynajem samochodow we Lwowie od 2023",
-      "og_description": "REIZ — nowoczesna usluga wynajmu samochodow we Lwowie. Nowa flota. Profesjonalny zespol. Przejrzyste warunki. Ponad 50 zadowolonych klientow. Wsparcie 24/7.",
+      "title": "O wynajmie samochodów we Lwowie",
+      "description": "REIZ — nowoczesna usługa wynajmu samochodów we Lwowie. Nowa flota. Profesjonalny zespol. Przejrzyste warunki. Ponad 50 zadowolonych klientów. Wsparcie 24/7.",
+      "og_title": "O REIZ — Niezawodny wynajem samochodów we Lwowie od 2023",
+      "og_description": "REIZ — nowoczesna usługa wynajmu samochodów we Lwowie. Nowa flota. Profesjonalny zespol. Przejrzyste warunki. Ponad 50 zadowolonych klientów. Wsparcie 24/7.",
       "og_image": "https://reiz.com.ua/img/og/about.webp",
       "lang": "pl"
     },
     "pretitle": "O NAS",
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "current": "O nas"
     },
-    "mainTitle": "O REIZ — Usluga wynajmu samochodow we Lwowie",
+    "mainTitle": "O REIZ — Usługa wynajmu samochodów we Lwowie",
     "mission": {
       "title": "NASZA MISJA",
-      "text": "ROBIMY WYNAJEM SAMOCHODOW TAKIM, JAKI POWINIEN BYC: UCZCIWY, STYLOWY, ZYWY"
+      "text": "ROBIMY WYNAJEM SAMOCHODÓW TAKIM, JAKI POWINIEN BYĆ: UCZCIWY, STYLOWY, ŻYWY"
     },
     "brand": {
       "title": "REIZ",
-      "imageAlt": "Logo REIZ na fasadzie budynku — marka wynajmu samochodow"
+      "imageAlt": "Logo REIZ na fasadzie budynku — marka wynajmu samochodów"
     },
     "team": {
       "items": [
@@ -963,11 +963,11 @@
       "items": [
         {
           "value": "10",
-          "label": "Samochodow dostepnych<br />do wynajmu"
+          "label": "Samochodów dostepnych<br />do wynajmu"
         },
         {
           "value": "230000",
-          "label": "Kilometrow przejechanych przez naszych klientow"
+          "label": "Kilometrów przejechanych przez naszych klientów"
         },
         {
           "value": "4",
@@ -975,7 +975,7 @@
         },
         {
           "value": "54",
-          "label": "Nowych klientow miesiecznie"
+          "label": "Nowych klientów miesięcznie"
         }
       ]
     }
@@ -983,15 +983,15 @@
   "certificatePage": {
     "meta": {
       "title": "Bon podarunkowy na wynajem samochodu",
-      "description": "Podaruj przezycie: certyfikat REIZ 100–5000 $, e-mail w 5 minut lub karta fizyczna. Lwow.",
-      "og_title": "Bony podarunkowe REIZ — wynajem samochodow we Lwowie",
+      "description": "Podaruj przezycie: certyfikat REIZ 100–5000 $, e-mail w 5 minut lub karta fizyczna. Lwów.",
+      "og_title": "Bony podarunkowe REIZ — wynajem samochodów we Lwowie",
       "og_description": "Podaruj wynajem samochodu: wybierz kwote certyfikatu, format elektroniczny lub fizyczny. Wystawienie w 5 minut.",
       "og_image": "https://reiz.com.ua/img/og/certificate.webp",
       "og_locale": "pl_PL",
       "lang": "pl"
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "current": "Bony podarunkowe"
     },
     "pretitle": "BONY PODARUNKOWE",
@@ -1000,16 +1000,16 @@
       "titleRest": "na wynajem samochodu od REIZ",
       "titleDesktop": "Bony podarunkowe na wynajem samochodu od REIZ",
       "titleMobile": "Podaruj wynajem samochodu najblizszym",
-      "subtitle": "Nowe doswiadczenie to najlepszy prezent — a z REIZ bedzie niezapomniane."
+      "subtitle": "Nowe doświadczenie to najlepszy prezent — a z REIZ będzie niezapomniane."
     },
     "preview": {
       "imageAlt": "Podgląd certyfikatu podarunkowego REIZ na wynajem samochodu"
     },
     "driverRequirements": {
-      "title": "WYMAGANIA DLA KIEROWCOW",
+      "title": "WYMAGANIA DLA KIEROWCÓW",
       "items": [
         "WIEK: 21+",
-        "DOSWIADCZENIE W PROWADZENIU: 3+ LATA"
+        "DOŚWIADCZENIE W PROWADZENIU: 3+ LATA"
       ]
     },
     "rentalNeeds": {
@@ -1022,25 +1022,25 @@
     "slider": {
       "items": [
         {
-          "title": "Swieta zimowe",
-          "text": "Bon podarunkowy na wynajem samochodu to doskonaly prezent noworoczny: wypady w gory, rodzinne podroze i cieple zimowe weekendy."
+          "title": "Święta zimowe",
+          "text": "Bon podarunkowy na wynajem samochodu to doskonaly prezent noworoczny: wypady w gory, rodzinne podróże i cieple zimowe weekendy."
         },
         {
           "title": "Urodziny",
-          "text": "Oryginalny prezent dla milosnikow samochodow: wybierz klase, daty i format — e-certyfikat lub fizyczna karta."
+          "text": "Oryginalny prezent dla miłośników samochodów: wybierz klase, daty i format — e-certyfikat lub fizyczna karta."
         },
         {
           "title": "Romantyczny weekend",
-          "text": "Podaruj emocje: bon na wynajem samochodu na randki i krotkie wycieczki po Lwowie i okolicy."
+          "text": "Podaruj emocje: bon na wynajem samochodu na randki i krótkie wycieczki po Lwowie i okolicy."
         },
         {
           "title": "Weekend w Karpatach",
-          "text": "<em>Wyjatkowy prezent</em> na gorski weekend: start ze Lwowa i wybor odpowiedniej klasy samochodu."
+          "text": "<em>Wyjatkowy prezent</em> na gorski weekend: start ze Lwowa i wybór odpowiedniej klasy samochodu."
         }
       ]
     },
     "form": {
-      "title": "Podaruj przyjemnosc prowadzenia z REIZ",
+      "title": "Podaruj przyjemność prowadzenia z REIZ",
       "chooseAmount": "WYBIERZ KWOTE CERTYFIKATU",
       "amountOptions": [
         "100 $",
@@ -1053,9 +1053,9 @@
         "5000 $",
         "Inna kwota"
       ],
-      "fillForm": "WYPELNIJ FORMULARZ",
+      "fillForm": "WYPEŁNIJ FORMULARZ",
       "placeholders": {
-        "name": "Twoje imie",
+        "name": "Twoje imię",
         "phone": "Telefon",
         "email": "E-mail"
       },
@@ -1066,71 +1066,71 @@
       },
       "terms": {
         "title": "WARUNKI UZYCIA",
-        "driverRequirementsAge": "Minimalny wiek kierowcy to 21 lat, minimalne doswiadczenie w prowadzeniu to 2 lata.",
-        "driverRequirementsNote": "Dla niektorych pojazdow minimalny wiek kierowcy to 24 lata.",
-        "text": "Po oplacie wysylamy certyfikat na e-mail lub organizujemy dostawe kurierem w wygodnym miejscu i czasie — wystarczy wlaczyc opcje \"Chce certyfikat fizyczny\"."
+        "driverRequirementsAge": "Minimalny wiek kierowcy to 21 lat, minimalne doświadczenie w prowadzeniu to 2 lata.",
+        "driverRequirementsNote": "Dla niektorych pojazdów minimalny wiek kierowcy to 24 lata.",
+        "text": "Po oplacie wysylamy certyfikat na e-mail lub organizujemy dostawe kurierem w wygodnym miejscu i czasie — wystarczy włączyć opcje \"Chce certyfikat fizyczny\"."
       },
       "checkout": {
-        "title": "PLATNOSC",
-        "description": "Po oplacie wysylamy certyfikat na e-mail lub kontaktujemy sie w celu umowienia dostawy w wygodnym miejscu i czasie — wystarczy wlaczyc opcje \"Chce certyfikat fizyczny\".",
+        "title": "PŁATNOŚĆ",
+        "description": "Po oplacie wysylamy certyfikat na e-mail lub kontaktujemy się w celu umowienia dostawy w wygodnym miejscu i czasie — wystarczy włączyć opcje \"Chce certyfikat fizyczny\".",
         "highlight": "Chce certyfikat fizyczny"
       },
       "price": "1500 $",
-      "payButton": "PRZEJDZ DO PLATNOSCI",
-      "consent": "Klikajac \"Przejdz do platnosci\", akceptujesz warunki przetwarzania danych osobowych."
+      "payButton": "PRZEJDŹ DO PŁATNOŚCI",
+      "consent": "Klikając \"Przejdź do płatności\", akceptujesz warunki przetwarzania danych osobowych."
     },
     "faq": {
       "title": "FAQ",
       "items": [
         {
-          "q": "Czy muszę zarezerwowac samochod z wyprzedzeniem, korzystajac z certyfikatu?",
-          "aHtml": "Tak, zalecamy rezerwacje samochodu z wyprzedzeniem. Certyfikat potwierdza kwote lub prawo do wynajmu, ale nie rezerwuje automatycznie konkretnego pojazdu. Popularne modele moga byc niedostepne, zwlaszcza w weekendy i swieta."
+          "q": "Czy muszę zarezerwować samochód z wyprzedzeniem, korzystając z certyfikatu?",
+          "aHtml": "Tak, zalecamy rezerwacje samochodu z wyprzedzeniem. Certyfikat potwierdza kwote lub prawo do wynajmu, ale nie rezerwuje automatycznie konkretnego pojazdu. Popularne modele mogą być niedostepne, zwłaszcza w weekendy i święta."
         },
         {
-          "q": "Co jesli wybrany samochod jest niedostepny w zadanych terminach?",
-          "aHtml": "W takim przypadku zaproponujemy alternatywny pojazd podobnej klasy lub pomozemy znalezc inne wygodne terminy. Certyfikat zachowuje swoja wartosc i moze byc wykorzystany pozniej."
+          "q": "Co jesli wybrany samochód jest niedostepny w zadanych terminach?",
+          "aHtml": "W takim przypadku zaproponujemy alternatywny pojazd podobnej klasy lub pomozemy znaleźć inne wygodne terminy. Certyfikat zachowuje swoja wartość i może być wykorzystany pozniej."
         },
         {
-          "q": "Czy moge wykorzystac certyfikat czesciowo, czy tylko na jeden wynajem?",
-          "aHtml": "Certyfikat moze byc wykorzystany na jeden lub kilka wynajmow, w zaleznosci od jego wartosci. Jesli koszt wynajmu jest nizszy niz kwota certyfikatu, pozostale saldo jest zachowane i moze byc wykorzystane pozniej."
+          "q": "Czy mogę wykorzystać certyfikat czesciowo, czy tylko na jeden wynajem?",
+          "aHtml": "Certyfikat może być wykorzystany na jeden lub kilka wynajmów, w zależności od jego wartości. Jesli koszt wynajmu jest niższy niz kwota certyfikatu, pozostale saldo jest zachowane i może być wykorzystane pozniej."
         },
         {
-          "q": "Czy moge wymienic certyfikat na gotowke?",
-          "aHtml": "Certyfikat nie podlega wymianie na gotowke. Moze byc wykorzystany wylacznie na wynajem samochodu z dostepnej floty."
+          "q": "Czy mogę wymienić certyfikat na gotowke?",
+          "aHtml": "Certyfikat nie podlega wymianie na gotowke. Może być wykorzystany wylacznie na wynajem samochodu z dostepnej floty."
         },
         {
-          "q": "Kto moze skorzystac z bonu podarunkowego?",
-          "aHtml": "Certyfikat moze byc wykorzystany przez osobe, na ktora zostal wystawiony. Jesli chcesz przekazac certyfikat innej osobie, skontaktuj sie z nami wczesniej — wystawimy certyfikat ponownie i zaktualizujemy dane kierowcy w systemie. Certyfikat moze byc uzywany przez kierowce, ktory spelnia wymagania wiekowe i minimalne doswiadczenie w prowadzeniu okreslone w warunkach wynajmu."
+          "q": "Kto może skorzystać z bonu podarunkowego?",
+          "aHtml": "Certyfikat może być wykorzystany przez osobe, na która zostal wystawiony. Jesli chcesz przekazać certyfikat innej osobie, skontaktuj się z nami wcześniej — wystawimy certyfikat ponownie i zaktualizujemy dane kierowcy w systemie. Certyfikat może być uzywany przez kierowce, który spelnia wymagania wiekowe i minimalne doświadczenie w prowadzeniu określone w warunkach wynajmu."
         }
       ]
     }
   },
   "investPage": {
     "meta": {
-      "title": "Oddaj samochod na wynajem we Lwowie",
-      "description": "Oddaj samochod we Lwowie z REIZ: oficjalna umowa, miesieczne wyplaty, serwis i monitoring 24/7. Sprawdz wymagania i zloz wniosek.",
-      "og_title": "Oddaj samochod na wynajem we Lwowie",
-      "og_description": "Przekaz swoj samochod REIZ i zarabiaj pasywny dochod. Umowa, wyplaty, serwis i pelna kontrola.",
+      "title": "Oddaj samochód na wynajem we Lwowie",
+      "description": "Oddaj samochód we Lwowie z REIZ: oficjalna umowa, miesięczne wyplaty, serwis i monitoring 24/7. Sprawdz wymagania i złóż wniosek.",
+      "og_title": "Oddaj samochód na wynajem we Lwowie",
+      "og_description": "Przekaz swój samochód REIZ i zarabiaj pasywny dochod. Umowa, wyplaty, serwis i pelna kontrola.",
       "og_image": "https://reiz.com.ua/img/og/invest.webp",
       "lang": "pl"
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
-      "current": "Oddaj samochod"
+      "home": "Strona główna",
+      "current": "Oddaj samochód"
     },
     "hero": {
-      "pretitle": "ODDAJ SAMOCHOD",
-      "title": "Oddaj samochod na wynajem we Lwowie",
-      "intro": "Zamien swoj samochod w zrodlo dochodu bez zajmowania sie codziennymi operacjami. Nasz doswiadczony zespol zajmuje sie wszystkim za Ciebie."
+      "pretitle": "ODDAJ SAMOCHÓD",
+      "title": "Oddaj samochód na wynajem we Lwowie",
+      "intro": "Zamien swój samochód w zrodlo dochodu bez zajmowania się codziennymi operacjami. Nasz doświadczony zespol zajmuje się wszystkim za Ciebie."
     },
     "why": {
-      "title": "DLACZEGO TO SIE OPLACA",
+      "title": "DLACZEGO TO SIĘ OPŁACA",
       "items": [
-        "Inwestuj w rozwijajacy sie rynek wynajmu samochodow bez dodatkowych klopotow. Zajmujemy sie calym cyklem — od listingu po zwrot pojazdu.",
-        "Twoj samochod generuje dochod — wyplaty sa przelewane na Twoje konto co miesiac zgodnie z umowa.",
-        "Regularny serwis, przeglady i monitoring — aby Twoj samochod zarabial bez przestojow i niespodziewanych awarii.",
-        "Pelna kontrola: sledz status pojazdu w panelu klienta. Wszystkie procesy sa przejrzyste i zautomatyzowane.",
-        "Wynajem jest objety oficjalna umowa. Wszystkie aspekty prawne i dokumentacja spelniaja ustalone standardy."
+        "Inwestuj w rozwijajacy się rynek wynajmu samochodów bez dodatkowych kłopotów. Zajmujemy się calym cyklem — od listingu po zwrot pojazdu.",
+        "Twój samochód generuje dochod — wyplaty są przelewane na Twoje konto co miesiąc zgodnie z umowa.",
+        "Regularny serwis, przeglady i monitoring — aby Twój samochód zarabial bez przestojów i niespodziewanych awarii.",
+        "Pelna kontrola: śledź status pojazdu w panelu klienta. Wszystkie procesy są przejrzyste i zautomatyzowane.",
+        "Wynajem jest objety oficjalna umowa. Wszystkie aspekty prawne i dokumentacja spełniają ustalone standardy."
       ]
     },
     "requirements": {
@@ -1139,12 +1139,12 @@
         "Pojazd nie starszy niz 3 lata",
         "Sprawny technicznie i w pelni serwisowany",
         "Obowiazkowe ubezpieczenie CASCO i OC",
-        "Samochod musi byc prawnie czysty — bez zastawow/ograniczen i niezgloszony jako ukradziony"
+        "Samochód musi być prawnie czysty — bez zastawów/ograniczen i niezgloszony jako ukradziony"
       ]
     },
     "form": {
-      "title": "ZLOZ WNIOSEK O LISTING",
-      "text": "Wypelnij formularz, abysmy mogli oszacowac potencjalny zysk z Twojego pojazdu i skontaktowac sie w celu wyjasnienia szczegolow.",
+      "title": "ZŁÓŻ WNIOSEK O LISTING",
+      "text": "Wypełnij formularz, abysmy mogli oszacować potencjalny zysk z Twojego pojazdu i skontaktować się w celu wyjasnienia szczegółów.",
       "placeholders": {
         "car": "Marka:",
         "model": "Model:",
@@ -1152,8 +1152,8 @@
         "milliage": "Przebieg:",
         "year": "Rok:",
         "color": "Kolor:",
-        "complect": "Wersja wyposazenia:",
-        "name": "Imie i nazwisko:",
+        "complect": "Wersja wyposażenia:",
+        "name": "Imię i nazwisko:",
         "phone": "Telefon:",
         "mail": "E-mail:"
       },
@@ -1168,10 +1168,10 @@
       "items": [
         {
           "value": "15–25%",
-          "label": "prognozowana rentownosc rocznie"
+          "label": "prognozowana rentowność rocznie"
         },
         {
-          "value": "Co miesiac",
+          "value": "Co miesiąc",
           "label": "regularne wyplaty na konto"
         },
         {
@@ -1182,8 +1182,8 @@
     },
     "income": {
       "title": "SZACUNKOWY DOCHOD WEDLUG KLASY POJAZDU",
-      "text": "Poziom dochodu zalezy od klasy, modelu, stanu technicznego i sezonowosci popytu. Ponizej — szacunkowe zakresy miesiecznego dochodu dla wlasciciela pojazdu.",
-      "disclaimer": "* Dane sa prognozowane i moga sie roznic w zaleznosci od konkretnego modelu, jego stanu i warunkow rynkowych.",
+      "text": "Poziom dochodu zalezy od klasy, modelu, stanu technicznego i sezonowości popytu. Poniżej — szacunkowe zakresy miesiecznego dochodu dla właściciela pojazdu.",
+      "disclaimer": "* Dane są prognozowane i mogą się różnić w zależności od konkretnego modelu, jego stanu i warunków rynkowych.",
       "items": [
         {
           "label": "Ekonomiczny",
@@ -1215,57 +1215,57 @@
       "title": "NAJCZESCIEJ ZADAWANE PYTANIA",
       "items": [
         {
-          "question": "Ile moge zarabiac miesiecznie?",
-          "answer": "Dochod zalezy od klasy i modelu pojazdu, jego stanu technicznego i sezonowosci. Orientacyjnie — od 300 do 3000 USD miesiecznie. Dokladna prognoze menedzer obliczy po ocenie Twojego auta."
+          "question": "Ile mogę zarabiać miesięcznie?",
+          "answer": "Dochod zalezy od klasy i modelu pojazdu, jego stanu technicznego i sezonowości. Orientacyjnie — od 300 do 3000 USD miesięcznie. Dokladna prognoze menedżer obliczy po ocenie Twojego auta."
         },
         {
           "question": "Kto pokrywa szkody w razie wypadku?",
-          "answer": "Wszystkie pojazdy w naszej flocie sa ubezpieczone. Szkody z wypadku sa pokrywane przez ubezpieczenie zgodnie z warunkami polisy. W przypadku przekroczenia limitu — strona winna ponosi odpowiedzialnosc zgodnie z umowa."
+          "answer": "Wszystkie pojazdy w naszej flocie są ubezpieczone. Szkody z wypadku są pokrywane przez ubezpieczenie zgodnie z warunkami polisy. W przypadku przekroczenia limitu — strona winna ponosi odpowiedzialność zgodnie z umowa."
         },
         {
-          "question": "Jak weryfikowani sa najemcy?",
-          "answer": "Kazdy najemca przechodzi weryfikacje dokumentow: prawo jazdy, paszport, zdolnosc platnicza. Prowadzimy wewnetrzna baze i nie dopuszczamy do wynajmu osob z naruszeniami w przeszlosci."
+          "question": "Jak weryfikowani są najemcy?",
+          "answer": "Każdy najemca przechodzi weryfikacje dokumentów: prawo jazdy, paszport, zdolność platnicza. Prowadzimy wewnetrzna bazę i nie dopuszczamy do wynajmu osob z naruszeniami w przeszłości."
         },
         {
-          "question": "Czy moge korzystac z auta, kiedy potrzebuje?",
-          "answer": "Tak, po wczesniejszym uzgodnieniu z menedzerem. Glowny warunek — auto nie moze byc zarezerwowane przez klienta na ten okres. Wstrzymujemy auto w systemie na potrzebny Ci czas."
+          "question": "Czy mogę korzystać z auta, kiedy potrzebuje?",
+          "answer": "Tak, po wczesniejszym uzgodnieniu z menedżerem. Główny warunek — auto nie może być zarezerwowane przez klienta na ten okres. Wstrzymujemy auto w systemie na potrzebny Ci czas."
         },
         {
           "question": "Jak czesto wyplacany jest dochod?",
-          "answer": "Wyplaty sa realizowane co miesiac zgodnie z harmonogramem ustalonym w umowie. Zawsze znasz dokladna date i kwote. Dostepne metody wyplat: przelew bankowy, konto firmy, gotowka w biurze lub kryptowaluta — wybierasz najwygodniejsza opcje."
+          "answer": "Wyplaty są realizowane co miesiąc zgodnie z harmonogramem ustalonym w umowie. Zawsze znasz dokladna date i kwote. Dostepne metody wyplat: przelew bankowy, konto firmy, gotowka w biurze lub kryptowaluta — wybierasz najwygodniejsza opcje."
         },
         {
           "question": "Jak dziala monitoring GPS?",
           "answer": "Na pojezdzie montowany jest tracker GPS. Przez aplikacje mobilna widzisz aktualna lokalizacje, trasy i stan pojazdu w czasie rzeczywistym."
         },
         {
-          "question": "Jak szybko auto trafia na rynek?",
-          "answer": "Zwykle od podpisania umowy do pierwszego wynajmu mija 3–7 dni roboczych — w zaleznosci od stanu auta i zakresu niezbednych przygotowan (zdjecia, ubezpieczenie, GPS)."
+          "question": "Jak szybko auto trafią na rynek?",
+          "answer": "Zwykle od podpisania umowy do pierwszego wynajmu mija 3–7 dni roboczych — w zależności od stanu auta i zakresu niezbędnych przygotowan (zdjecia, ubezpieczenie, GPS)."
         }
       ]
     }
   },
   "termsPage": {
     "meta": {
-      "title": "Warunki wynajmu samochodow Lwow — Wymagania i dokumenty",
-      "description": "Przejrzyste warunki wynajmu samochodow we Lwowie: wiek 21+, 2+ lata doswiadczenia. Bez kaucji. Lista wymaganych dokumentow. Zasady przebiegu, podstawienia i zwrotu.",
-      "og_title": "Warunki wynajmu samochodow Lwow — Wymagania i dokumenty | REIZ",
-      "og_description": "Przejrzyste warunki wynajmu samochodow we Lwowie: wiek 21+, 2+ lata doswiadczenia. Bez kaucji. Lista wymaganych dokumentow. Zasady przebiegu, podstawienia i zwrotu.",
+      "title": "Warunki wynajmu samochodów Lwów — Wymagania i dokumenty",
+      "description": "Przejrzyste warunki wynajmu samochodów we Lwowie: wiek 21+, 2+ lata doświadczenia. Bez kaucji. Lista wymaganych dokumentów. Zasady przebiegu, podstawienia i zwrotu.",
+      "og_title": "Warunki wynajmu samochodów Lwów — Wymagania i dokumenty | REIZ",
+      "og_description": "Przejrzyste warunki wynajmu samochodów we Lwowie: wiek 21+, 2+ lata doświadczenia. Bez kaucji. Lista wymaganych dokumentów. Zasady przebiegu, podstawienia i zwrotu.",
       "og_image": "https://reiz.com.ua/img/og/terms.webp",
       "lang": "pl"
     },
     "hero": {
       "pretitle": "WARUNKI WYNAJMU",
-      "title": "Warunki wynajmu samochodow",
-      "subtitle": "Przejrzyste warunki bez ukrytych oplat — wszystko, co musisz wiedziec przed rezerwacja"
+      "title": "Warunki wynajmu samochodów",
+      "subtitle": "Przejrzyste warunki bez ukrytych opłat — wszystko, co musisz wiedzieć przed rezerwacja"
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "current": "Warunki wynajmu"
     },
     "termsList": {
       "ageTitle": "WIEK 21+",
-      "experienceTitle": "DOSWIADCZENIE W PROWADZENIU 3+ LATA",
+      "experienceTitle": "DOŚWIADCZENIE W PROWADZENIU 3+ LATA",
       "requirementsBlockLabel": "WYMAGANIA DLA NAJEMCY",
       "citizensUA": {
         "title": "DLA OBYWATELI UKRAINY",
@@ -1276,16 +1276,16 @@
         ]
       },
       "foreignCitizens": {
-        "title": "DLA OBCOKRAJOWCOW",
+        "title": "DLA OBCOKRAJOWCÓW",
         "items": [
           "Wazny stempel wjazdowy/pozwolenie na pobyt na Ukrainie",
-          "Miedzynarodowe Prawo Jazdy (IDP)",
+          "Międzynarodowe Prawo Jazdy (IDP)",
           "Paszport"
         ]
       }
     },
     "payments": {
-      "title": "METODY PLATNOSCI",
+      "title": "METODY PŁATNOŚCI",
       "methods": [
         "Gotowka",
         "UnionPay",
@@ -1552,15 +1552,15 @@
   },
   "contactsPage": {
     "meta": {
-      "title": "Kontakt wynajmu samochodow we Lwowie",
+      "title": "Kontakt wynajmu samochodów we Lwowie",
       "description": "Biuro we Lwowie, telefon rezerwacyjny, godziny otwarcia. Dostawa samochodu pod adres lub na lotnisko. Czynne 24/7. Odpowiadamy na wszystkie pytania.",
-      "og_title": "Kontakt wynajmu samochodow we Lwowie",
+      "og_title": "Kontakt wynajmu samochodów we Lwowie",
       "og_description": "Biuro we Lwowie, telefon rezerwacyjny, godziny otwarcia. Dostawa samochodu pod adres lub na lotnisko. Czynne 24/7. Odpowiadamy na wszystkie pytania.",
       "og_image": "https://reiz.com.ua/img/og/contacts.webp",
       "lang": "pl"
     },
     "hero": {
-      "pretitle": "SKONTAKTUJ SIE Z NAMI",
+      "pretitle": "SKONTAKTUJ SIĘ Z NAMI",
       "title": "Kontakt",
       "titleAccent": "z nami",
       "rentNow": "Wynajmij",
@@ -1570,17 +1570,17 @@
       "email": "Napisz do nas",
       "address": "Obsługa",
       "hours": "Godziny otwarcia",
-      "phone": "Zadzwon do nas"
+      "phone": "Zadzwoń do nas"
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "current": "Kontakt"
     },
     "officesSection": {
       "title": "NASZE BIURA",
       "offices": [
         {
-          "city": "Lwow",
+          "city": "Lwów",
           "address": "Lwów i dostawa w całej Ukrainie",
           "phone": "+380 73 992 88 38",
           "hours": "Pon.–Niedz. 08:30–20:30",
@@ -1592,27 +1592,27 @@
     "form": {
       "title": "Skontaktuj się z nami",
       "placeholders": {
-        "name": "Twoje imie",
+        "name": "Twoje imię",
         "email": "E-mail",
         "phone": "Telefon",
         "subject": "Temat",
-        "message": "Wiadomosc"
+        "message": "Wiadomość"
       },
-      "submit": "WYSLIJ ZGLOSZENIE",
-      "success": "Twoja wiadomosc zostala wyslana pomyslnie!",
-      "error": "Nie udalo sie wyslac wiadomosci. Sprobuj ponownie.",
+      "submit": "WYSLIJ ZGŁOSZENIE",
+      "success": "Twoja wiadomość zostala wyslana pomyslnie!",
+      "error": "Nie udalo się wysłać wiadomości. Sprobuj ponownie.",
       "submitting": "Wysylanie..."
     },
     "whatsapp_unavailable": "WhatsApp jest tymczasowo niedostępny"
   },
   "footer": {
-    "tagline": "WYNAJEM SAMOCHODOW NA UKRAINIE",
-    "description": "Niezawodny wynajem samochodow na terenie calej Ukrainy od REIZ. Wynajmij samochod klasy Economy, Comfort i SUV z dostawa na lotnisko, dworzec lub pod Twoj adres. Wsparcie 24/7.",
+    "tagline": "WYNAJEM SAMOCHODÓW NA UKRAINIE",
+    "description": "Niezawodny wynajem samochodów na terenie całej Ukrainy od REIZ. Wynajmij samochód klasy Economy, Comfort i SUV z dostawa na lotnisko, dworzec lub pod Twój adres. Wsparcie 24/7.",
     "nav": {
-      "home": "STRONA GLOWNA",
+      "home": "STRONA GŁÓWNA",
       "cars": "SAMOCHODY",
       "business": "DLA FIRM",
-      "invest": "ODDAJ SAMOCHOD",
+      "invest": "ODDAJ SAMOCHÓD",
       "blog": "BLOG",
       "about": "O NAS",
       "contacts": "KONTAKT",
@@ -1654,45 +1654,45 @@
     "whatsapp_unavailable": "WhatsApp jest tymczasowo niedostępny",
     "bottom": {
       "copyright": "© 2025 Reiz. Wszelkie prawa zastrzezone.",
-      "privacy": "Polityka prywatnosci",
+      "privacy": "Polityka prywatności",
       "developed_by": "Stworzone przez Reiz"
     }
   },
   "mobileBar": {
     "aria_label": "Szybkie akcje",
-    "call": "Zadzwon",
+    "call": "Zadzwoń",
     "cars": "Auta"
   },
   "offerModal": {
     "title": "Uzyskaj oferte",
     "placeholders": {
-      "name": "Imie",
+      "name": "Imię",
       "phone": "Telefon",
       "email": "E-mail"
     },
-    "consentText": "Klikajac przycisk \"Wyslij zgloszenie\", akceptujesz warunki przetwarzania danych osobowych",
-    "checkboxLabel": "Zapoznalem sie z warunkami przetwarzania danych osobowych",
-    "submit": "Wyslij zgloszenie"
+    "consentText": "Klikając przycisk \"Wyslij zgłoszenie\", akceptujesz warunki przetwarzania danych osobowych",
+    "checkboxLabel": "Zapoznalem się z warunkami przetwarzania danych osobowych",
+    "submit": "Wyslij zgłoszenie"
   },
   "applyModal": {
-    "title": "Zloz zgloszenie",
-    "consent": "Klikajac przycisk \"Zloz zgloszenie\", akceptujesz warunki przetwarzania danych osobowych",
-    "checkboxLabel": "Zapoznalem sie z warunkami przetwarzania danych osobowych",
-    "submit": "Zloz zgloszenie",
+    "title": "Złóż zgłoszenie",
+    "consent": "Klikając przycisk \"Złóż zgłoszenie\", akceptujesz warunki przetwarzania danych osobowych",
+    "checkboxLabel": "Zapoznalem się z warunkami przetwarzania danych osobowych",
+    "submit": "Złóż zgłoszenie",
     "loading": "Wysylanie...",
     "successTitle": "Dziekujemy!",
-    "successMessage": "Twoje zgloszenie zostalo przyjete. Skontaktujemy sie z Toba wkrotce.",
-    "errorMessage": "Blad wysylania. Sprobuj ponownie.",
+    "successMessage": "Twoje zgłoszenie zostalo przyjete. Skontaktujemy się z Toba wkrotce.",
+    "errorMessage": "Błąd wysylania. Sprobuj ponownie.",
     "closeAria": "Zamknij"
   },
   "carPage": {
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "cars": "Samochody"
     },
     "meta": {
       "title": "Wynajem {brand} {model} {location} — od {price}$/dobę",
-      "description": "Wynajem {carName} we Lwowie. {specsText}{seats, plural, one {{seats} miejsce} few {{seats} miejsca} many {{seats} miejsc} other {{seats} miejsc}}. Dostawa na lotnisko i po miescie 24/7."
+      "description": "Wynajem {carName} we Lwowie. {specsText}{seats, plural, one {{seats} miejsce} few {{seats} miejsca} many {{seats} miejsc} other {{seats} miejsc}}. Dostawa na lotnisko i po mieście 24/7."
     },
     "title": "Wynajem {brand} {model} {year} {location}",
     "tabs": {
@@ -1801,11 +1801,11 @@
     },
     "depositLabel": "Kaucja",
     "currency": "{value}",
-    "totalPriceLabel": "Koszt calkowity",
+    "totalPriceLabel": "Koszt całkowity",
     "clubPriceLabel": "Cena klubowa",
     "actions": {
       "book": "ZAREZERWUJ",
-      "requestCall": "ZAMOW ODDZWONIENIE"
+      "requestCall": "ZAMÓW ODDZWONIENIE"
     },
     "conditionsTitle": "Warunki wynajmu \"{brand} {model} {year}\"",
     "requirements": {
@@ -1818,19 +1818,19 @@
         "value": "Od {years} lat prowadzenia"
       },
       "mileage": {
-        "title": "Limit przebiegu ({count, plural, one {{count} dzien} few {{count} dni} many {{count} dni} other {{count} dni}})",
+        "title": "Limit przebiegu ({count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}})",
         "value": "{limit} km"
       }
     },
     "links": {
-      "conditions": "Dowiedz sie wiecej o warunkach",
+      "conditions": "Dowiedz się więcej o warunkach",
       "faq": "FAQ",
       "rentalPolicy": "Polityka wynajmu {carName}"
     },
     "tooltips": {
-      "club": "Cena klubowa dla lojalnych klientow Reiz.<br/>Zapytaj menedzera o szczegoly.",
-      "deposit": "Chcesz obnizyc kaucje?<br/>Wybierz pakiet ochrony:<br/>50% — kaucja o polowe mniejsza<br/>100% — bezplatne mycie w cenie<br/>*kaucja tylko na pokrycie mandatow i tankowania",
-      "overdrive": "{price} USD za kazdy dodatkowy km."
+      "club": "Cena klubowa dla lojalnych klientów Reiz.<br/>Zapytaj menedżera o szczegóły.",
+      "deposit": "Chcesz obniżyć kaucje?<br/>Wybierz pakiet ochrony:<br/>50% — kaucja o połowę mniejsza<br/>100% — bezpłatne mycie w cenie<br/>*kaucja tylko na pokrycie mandatów i tankowania",
+      "overdrive": "{price} USD za każdy dodatkowy km."
     }
   },
   "rangeDateTimePicker": {
@@ -1845,7 +1845,7 @@
     ],
     "reset": "Resetuj",
     "title": "Wybierz date i godzine odbioru oraz zwrotu",
-    "monthsAriaLabel": "Wybor miesiaca",
+    "monthsAriaLabel": "Wybór miesiaca",
     "startDate": {
       "label": "Data odbioru",
       "timeLabel": "Godzina odbioru"
@@ -1859,30 +1859,30 @@
     "confirm": "Potwierdź",
     "minRentalWarning": "Minimalny okres wynajmu to {days, plural, one {{days} doba} few {{days} doby} many {{days} dób} other {{days} dób}}",
     "close": "Zamknij",
-    "prevMonth": "Poprzedni miesiac",
-    "nextMonth": "Nastepny miesiac"
+    "prevMonth": "Poprzedni miesiąc",
+    "nextMonth": "Następny miesiąc"
   },
   "carRentModal": {
     "unavailable": "Rezerwacja online wszystkich samochodów na stronie REIZ jest tymczasowo wstrzymana. Przepraszamy za niedogodności.",
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "cars": "Samochody"
     },
-    "title": "Zgloszenie rezerwacji",
+    "title": "Zgłoszenie rezerwacji",
     "orderForm": {
       "datePlaceholder": "Wybierz daty",
       "submit": "Szukaj"
     },
     "steps": {
-      "title": "Zgloszenie rezerwacji",
+      "title": "Zgłoszenie rezerwacji",
       "indicator": "Krok {current}/{total}",
       "back": "Wstecz",
       "next": "Dalej",
-      "submit": "Wyslij zgloszenie"
+      "submit": "Wyslij zgłoszenie"
     },
     "personal": {
       "title": "Dane osobowe",
-      "firstName": "Imie",
+      "firstName": "Imię",
       "lastName": "Nazwisko",
       "phonePlaceholder": "Telefon",
       "email": "E-mail",
@@ -1926,26 +1926,26 @@
           "summary": "Przekroczenie granicy"
         },
         "driverService": {
-          "label": "Usluga kierowcy",
+          "label": "Usługa kierowcy",
           "price": "{formattedPrice}/dzień roboczy",
-          "summary": "Usluga kierowcy",
+          "summary": "Usługa kierowcy",
           "tooltip": "<span class=\"text-strong\">Co obejmuje dzień roboczy kierowcy?</span><br/>Godziny pracy: 9:00–18:00<br/>8 godzin pracy + 1 godzina przerwy na lunch (przerwa nie jest wliczana do czasu pracy)."
         }
       },
-      "noneSelected": "Nie wybrano dodatkow"
+      "noneSelected": "Nie wybrano dodatków"
     },
     "comment": {
       "title": "Komentarz",
-      "placeholder": "Wiadomosc dla menedzera"
+      "placeholder": "Wiadomość dla menedżera"
     },
-    "agreement": "Zapoznalem sie i akceptuje warunki przetwarzania danych osobowych",
+    "agreement": "Zapoznalem się i akceptuje warunki przetwarzania danych osobowych",
     "notifications": {
-      "success": "Zgloszenie wyslane pomyslnie. Wkrotce sie z Toba skontaktujemy.",
-      "error": "Nie udalo sie wyslac zgloszenia. Sprobuj ponownie.",
+      "success": "Zgłoszenie wyslane pomyslnie. Wkrotce się z Toba skontaktujemy.",
+      "error": "Nie udalo się wysłać zgłoszenia. Sprobuj ponownie.",
       "validation": {
-        "fillRequired": "Wypelnij wszystkie wymagane pola i daty wynajmu.",
-        "invalidEmail": "Prosze podac prawidlowy adres e-mail.",
-        "acceptTerms": "Prosze zaakceptowac warunki przetwarzania danych."
+        "fillRequired": "Wypełnij wszystkie wymagane pola i daty wynajmu.",
+        "invalidEmail": "Proszę podać prawidlowy adres e-mail.",
+        "acceptTerms": "Proszę zaakceptować warunki przetwarzania danych."
       }
     },
     "summary": {
@@ -1962,18 +1962,18 @@
       "returnDeliveryLabel": "Zwrot auta",
       "returnDeliveryUnknown": "Skontaktuj się z menedżerem",
       "depositLabel": "Kaucja zwrotna",
-      "totalLabel": "Do zaplaty",
+      "totalLabel": "Do zapłaty",
       "locationPlaceholder": "Nie okreslono",
       "imageAlt": "Wynajem samochodu {car}"
     },
     "locations": {
       "options": [
-        "Kijow, Lotnisko Boryspol, Terminal 3B",
-        "Kijow, Lotnisko Zhuliany, Terminal 2A",
-        "Lwow, Miedzynarodowy Port Lotniczy im. D. Halickiego, T1"
+        "Kijów, Lotnisko Boryspol, Terminal 3B",
+        "Kijów, Lotnisko Zhuliany, Terminal 2A",
+        "Lwów, Międzynarodowy Port Lotniczy im. D. Halickiego, T1"
       ]
     },
-    "totalCostLabel": "Do zaplaty",
+    "totalCostLabel": "Do zapłaty",
     "bookButton": "Zarezerwuj"
   },
   "carRentPage": {
@@ -1982,11 +1982,11 @@
       "description": "Zarezerwuj {carName} online. Od {price}$/dobę, ubezpieczenie w cenie, dostawa 24/7."
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "cars": "Samochody",
       "booking": "Rezerwacja"
     },
-    "agreement": "Zapoznalem sie i akceptuje warunki przetwarzania danych osobowych",
+    "agreement": "Zapoznalem się i akceptuje warunki przetwarzania danych osobowych",
     "rangeSeparator": "do",
     "orderForm": {
       "datePlaceholder": "Wybierz daty",
@@ -1994,7 +1994,7 @@
     },
     "personal": {
       "title": "Dane osobowe",
-      "firstName": "Imie",
+      "firstName": "Imię",
       "lastName": "Nazwisko",
       "phonePlaceholder": "Telefon",
       "email": "E-mail",
@@ -2014,8 +2014,8 @@
           "sub": "W ramach limitu kaucji"
         },
         "theft": {
-          "label": "Oplata za kradziez / szkode calkowita",
-          "sub": "5% wartosci pojazdu"
+          "label": "Opłata za kradziez / szkodę całkowita",
+          "sub": "5% wartości pojazdu"
         },
         "tireDamage": {
           "label": "Uszkodzenie opon / felg",
@@ -2028,7 +2028,7 @@
       },
       "footer": {
         "deposit": "Kaucja",
-        "pricePerDay": " / dzien",
+        "pricePerDay": " / dzień",
         "total": "Razem za dni"
       }
     },
@@ -2051,24 +2051,24 @@
           "summary": "Przekroczenie granicy"
         },
         "driverService": {
-          "label": "Usluga kierowcy",
+          "label": "Usługa kierowcy",
           "price": "{formattedPrice}/dzień roboczy",
-          "summary": "Usluga kierowcy",
+          "summary": "Usługa kierowcy",
           "tooltip": "<span class=\"text-strong\">Co obejmuje dzień roboczy kierowcy?</span><br/>Godziny pracy: 9:00–18:00<br/>8 godzin pracy + 1 godzina przerwy na lunch (przerwa nie jest wliczana do czasu pracy)."
         }
       },
-      "noneSelected": "Nie wybrano dodatkow"
+      "noneSelected": "Nie wybrano dodatków"
     },
     "comment": {
-      "placeholder": "Wiadomosc dla menedzera"
+      "placeholder": "Wiadomość dla menedżera"
     },
     "notifications": {
-      "success": "Zgloszenie wyslane pomyslnie. Wkrotce sie z Toba skontaktujemy.",
-      "error": "Nie udalo sie wyslac zgloszenia. Sprobuj ponownie.",
+      "success": "Zgłoszenie wyslane pomyslnie. Wkrotce się z Toba skontaktujemy.",
+      "error": "Nie udalo się wysłać zgłoszenia. Sprobuj ponownie.",
       "validation": {
-        "fillRequired": "Wypelnij wszystkie wymagane pola i daty wynajmu.",
-        "invalidEmail": "Prosze podac prawidlowy adres e-mail.",
-        "acceptTerms": "Prosze zaakceptowac warunki przetwarzania danych."
+        "fillRequired": "Wypełnij wszystkie wymagane pola i daty wynajmu.",
+        "invalidEmail": "Proszę podać prawidlowy adres e-mail.",
+        "acceptTerms": "Proszę zaakceptować warunki przetwarzania danych."
       }
     },
     "summary": {
@@ -2085,78 +2085,78 @@
       "addOnsLabel": "Dodatki",
       "deliveryLabel": "Dostawa",
       "depositLabel": "Kaucja zwrotna",
-      "totalLabel": "Do zaplaty",
+      "totalLabel": "Do zapłaty",
       "locationPlaceholder": "Nie okreslono",
       "imageAlt": "Wynajem samochodu {car}"
     },
     "locations": {
       "options": [
-        "Kijow, Lotnisko Boryspol, Terminal 3B",
-        "Kijow, Lotnisko Zhuliany, Terminal 2A",
-        "Lwow, Miedzynarodowy Port Lotniczy im. D. Halickiego, T1"
+        "Kijów, Lotnisko Boryspol, Terminal 3B",
+        "Kijów, Lotnisko Zhuliany, Terminal 2A",
+        "Lwów, Międzynarodowy Port Lotniczy im. D. Halickiego, T1"
       ]
     },
-    "totalCostLabel": "Do zaplaty",
+    "totalCostLabel": "Do zapłaty",
     "bookButton": "Zarezerwuj"
   },
   "requestCallModal": {
     "title": "Uzyskaj oferte",
     "placeholder": {
-      "name": "Imie",
+      "name": "Imię",
       "phone": "Telefon",
       "email": "E-mail"
     },
-    "text": "Klikajac przycisk \"Wyslij zgloszenie\", akceptujesz warunki przetwarzania danych osobowych",
-    "checkbox": "Zapoznalem sie i akceptuje warunki przetwarzania danych osobowych",
-    "button": "Wyslij zgloszenie",
+    "text": "Klikając przycisk \"Wyslij zgłoszenie\", akceptujesz warunki przetwarzania danych osobowych",
+    "checkbox": "Zapoznalem się i akceptuje warunki przetwarzania danych osobowych",
+    "button": "Wyslij zgłoszenie",
     "submitting": "Wysylanie...",
     "contactMethods": {
-      "title": "Jak mamy sie z Toba skontaktowac?",
+      "title": "Jak mamy się z Toba skontaktować?",
       "options": {
         "phone": {
-          "title": "Zadzwonic",
-          "description": "(Nasz menedzer do Ciebie zadzwoni)"
+          "title": "Zadzwonić",
+          "description": "(Nasz menedżer do Ciebie zadzwoni)"
         },
         "whatsapp": {
-          "title": "Wyslac wiadomosc WhatsApp",
-          "description": "(Otrzymasz wiadomosc WhatsApp)"
+          "title": "Wysłać wiadomość WhatsApp",
+          "description": "(Otrzymasz wiadomość WhatsApp)"
         },
         "telegram": {
-          "title": "Wyslac wiadomosc Telegram",
-          "description": "(Otrzymasz wiadomosc Telegram)"
+          "title": "Wysłać wiadomość Telegram",
+          "description": "(Otrzymasz wiadomość Telegram)"
         },
         "viber": {
-          "title": "Wyslac wiadomosc Viber",
-          "description": "(Otrzymasz wiadomosc Viber)"
+          "title": "Wysłać wiadomość Viber",
+          "description": "(Otrzymasz wiadomość Viber)"
         }
       }
     },
     "errors": {
-      "nameRequired": "Prosze podac swoje imie",
-      "phoneRequired": "Prosze podac numer telefonu",
+      "nameRequired": "Proszę podać swoje imię",
+      "phoneRequired": "Proszę podać numer telefonu",
       "phoneInvalid": "Podaj prawidlowy numer telefonu",
-      "consentRequired": "Prosze zaakceptowac warunki przetwarzania danych osobowych",
-      "submitFailed": "Nie udalo sie wyslac zgloszenia. Sprobuj ponownie."
+      "consentRequired": "Proszę zaakceptować warunki przetwarzania danych osobowych",
+      "submitFailed": "Nie udalo się wysłać zgłoszenia. Sprobuj ponownie."
     }
   },
   "businessOfferModal": {
     "title": "Uzyskaj oferte dla biznesu",
     "placeholder": {
-      "name": "Imie",
+      "name": "Imię",
       "company": "Nazwa firmy (opcjonalnie)",
       "phone": "Telefon"
     },
     "vehicleCount": {
-      "label": "Liczba samochodow",
+      "label": "Liczba samochodów",
       "options": {
-        "1": "1 samochod",
-        "2-5": "2–5 samochodow",
-        "5-10": "5–10 samochodow",
-        "10+": "10+ samochodow"
+        "1": "1 samochód",
+        "2-5": "2–5 samochodów",
+        "5-10": "5–10 samochodów",
+        "10+": "10+ samochodów"
       }
     },
     "contactMethods": {
-      "title": "Jak mamy sie z Toba skontaktowac?",
+      "title": "Jak mamy się z Toba skontaktować?",
       "options": {
         "phone": "Telefon",
         "whatsapp": "WhatsApp",
@@ -2164,29 +2164,29 @@
         "viber": "Viber"
       }
     },
-    "checkbox": "Zapoznalem sie i akceptuje warunki przetwarzania danych osobowych",
-    "button": "Wyslij zgloszenie",
+    "checkbox": "Zapoznalem się i akceptuje warunki przetwarzania danych osobowych",
+    "button": "Wyslij zgłoszenie",
     "submitting": "Wysylanie...",
-    "success": "Dziekujemy! Skontaktujemy sie z Toba wkrotce.",
-    "text": "Klikajac przycisk \"Wyslij zgloszenie\", akceptujesz warunki przetwarzania danych osobowych",
+    "success": "Dziekujemy! Skontaktujemy się z Toba wkrotce.",
+    "text": "Klikając przycisk \"Wyslij zgłoszenie\", akceptujesz warunki przetwarzania danych osobowych",
     "errors": {
-      "nameRequired": "Prosze podac swoje imie",
-      "phoneRequired": "Prosze podac numer telefonu",
+      "nameRequired": "Proszę podać swoje imię",
+      "phoneRequired": "Proszę podać numer telefonu",
       "phoneInvalid": "Podaj prawidlowy numer telefonu",
-      "vehicleCountRequired": "Wybierz liczbe samochodow",
-      "consentRequired": "Prosze zaakceptowac warunki przetwarzania danych osobowych",
-      "submitFailed": "Nie udalo sie wyslac zgloszenia. Sprobuj ponownie."
+      "vehicleCountRequired": "Wybierz liczbe samochodów",
+      "consentRequired": "Proszę zaakceptować warunki przetwarzania danych osobowych",
+      "submitFailed": "Nie udalo się wysłać zgłoszenia. Sprobuj ponownie."
     }
   },
   "managerWillContactYouModal": {
     "title": "Dziekujemy!",
-    "subtitle": "Otrzymalismy Twoje zgloszenie dotyczace",
-    "callRequest": "Skontaktujemy sie z Toba pod numer: {phone}",
+    "subtitle": "Otrzymalismy Twoje zgłoszenie dotyczace",
+    "callRequest": "Skontaktujemy się z Toba pod numer: {phone}",
     "carInfo": "{brand} {model} {year}",
     "dateRange": "{startDate}–{endDate}.",
-    "managerContact": "Menedzer REIZ wkrotce sie z Toba skontaktuje w celu potwierdzenia.",
+    "managerContact": "Menedżer REIZ wkrotce się z Toba skontaktuje w celu potwierdzenia.",
     "buttons": {
-      "home": "Przejdz na strone glowna",
+      "home": "Przejdź na strone główna",
       "close": "Zamknij"
     }
   },
@@ -2201,36 +2201,36 @@
   "blogLvivTravel": {
     "meta": {
       "title": "Top 4 trasy ze Lwowa na zdjecia na Instagram | REIZ",
-      "description": "Gdzie znalezc widoki godne Instagrama i kiedy jechac, by uniknac tlumow. Zlota Podkowa, Tustan, Fort Tarakanow, Synewir.",
+      "description": "Gdzie znaleźć widoki godne Instagrama i kiedy jechać, by uniknąć tłumów. Złota Podkowa, Tustan, Fort Tarakanów, Synewir.",
       "og_title": "Top 4 trasy ze Lwowa na zdjecia na Instagram | REIZ",
-      "og_description": "Gdzie znalezc widoki godne Instagrama i kiedy jechac, by uniknac tlumow. Zlota Podkowa, Tustan, Fort Tarakanow, Synewir."
+      "og_description": "Gdzie znaleźć widoki godne Instagrama i kiedy jechać, by uniknąć tłumów. Złota Podkowa, Tustan, Fort Tarakanów, Synewir."
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "blog": "Artykuly",
       "current": "Top 4 trasy ze Lwowa",
       "nav_label": "Nawigacja strony"
     },
-    "title": "Top 4 trasy ze Lwowa: Gdzie znalezc widoki godne Instagrama i kiedy jechac, by uniknac tlumow",
+    "title": "Top 4 trasy ze Lwowa: Gdzie znaleźć widoki godne Instagrama i kiedy jechać, by uniknąć tłumów",
     "hero_alt": "Jezioro Synewir w Karpatach — najlepsze miejsce na zdjecia ze Lwowa",
     "locations_aria": "Linki do lokalizacji w Google Maps",
     "intro": {
       "p1": "Region lwowski to gotowy plan filmowy. Znajdziesz tu lokacje w stylu \"Bridgerton\", mistyczne ruiny jak w The Last of Us i skaly przypominajace krajobrazy \"Gry o Tron\".",
-      "p2": "Ale jest haczyk: najlepsze ujecia robi sie o wschodzie lub zachodzie slonca, gdy autobusy turystyczne jeszcze nie przyjechaly lub juz odjechaly. Aby zlapac idealne swiatlo i mgle, potrzebujesz swobody poruszania sie.",
-      "p3": "My w REIZ przygotowalismy 4 trasy wybrane przez fotografow i od razu obliczylismy, na jak dlugo warto wynajac samochod na kazda wycieczke."
+      "p2": "Ale jest haczyk: najlepsze ujecia robi się o wschodzie lub zachodzie slonca, gdy autobusy turystyczne jeszcze nie przyjechaly lub już odjechaly. Aby złapać idealne światło i mgle, potrzebujesz swobody poruszania się.",
+      "p3": "My w REIZ przygotowaliśmy 4 trasy wybrane przez fotografów i od razu obliczylismy, na jak długo warto wynająć samochód na każda wycieczke."
     },
     "routes": {
       "route1": {
-        "title": "Trasa nr 1. \"Zlota Podkowa\": Arystokratyczna estetyka",
+        "title": "Trasa nr 1. \"Złota Podkowa\": Arystokratyczna estetyka",
         "locations": "Lokalizacje: Zamki w Olesku, Podgorcach i Zoloczowie.",
         "vibe": "Klimat: Krolewski przepych, barok, mistyka.",
-        "p1": "Gwiazda trasy to Zamek w Podgorcach. W sowieckich \"Muszkieterach\" gral Luwr. Wyglada monumentalnie i lekko opuszczony, co nadaje zdjeciom szczegolna glebie.",
-        "insight_title": "Wskazowka dla fotografow:",
-        "insight_time": "Najlepszy czas: Druga polowa dnia, blizej zachodu slonca (\"zlota godzina\"). Slonce lagodnie oswietla fasade palacu.",
-        "insight_angle": "Tajny kat: Nie fotografuj z bliska przy wejsciu. Obejdz zamek i zejdz na pole naprzeciwko poludniowej fasady. Stamtad masz panoramiczny widok na palac na wzgorzu — bez ludzi w kadrze.",
-        "why_car": "Dlaczego potrzebujesz samochodu: Bagaznik to Twoja mobilna garderoba. Aby zrobic roznorodne zdjecia (w sukni przy palacu i w stylu casual na murach twierdzy), musisz wiesc zapasowe ubrania.",
-        "rental_title": "Zalecany okres wynajmu: 1 dzien",
-        "rental_text": "To latwa trasa. Droga jest doskonala (autostrada M-06), zamki sa blisko. Plan: Odbierz samochod rano, dotrzyj do zamkow na lunch, zwroc samochod do Lwowa wieczorem. Nie warto placic za drugi dzien.",
+        "p1": "Gwiazda trasy to Zamek w Podgorcach. W sowieckich \"Muszkieterach\" gral Luwr. Wyglada monumentalnie i lekko opuszczony, co nadaje zdjeciom szczególna glebie.",
+        "insight_title": "Wskazowka dla fotografów:",
+        "insight_time": "Najlepszy czas: Druga połowa dnia, bliżej zachodu slonca (\"złota godzina\"). Slonce lagodnie oswietla fasade pałacu.",
+        "insight_angle": "Tajny kat: Nie fotografuj z bliska przy wejsciu. Obejdz zamek i zejdz na pole naprzeciwko południowej fasady. Stamtad masz panoramiczny widok na pałac na wzgorzu — bez ludzi w kadrze.",
+        "why_car": "Dlaczego potrzebujesz samochodu: Bagaznik to Twoja mobilna garderoba. Aby zrobić różnorodne zdjecia (w sukni przy pałacu i w stylu casual na murach twierdzy), musisz wiesc zapasowe ubrania.",
+        "rental_title": "Zalecany okres wynajmu: 1 dzień",
+        "rental_text": "To latwa trasa. Droga jest doskonala (autostrada M-06), zamki są blisko. Plan: Odbierz samochód rano, dotrzyj do zamków na lunch, zwróć samochód do Lwowa wieczorem. Nie warto płacić za drugi dzień.",
         "castles": {
           "olesky": "Zamek w Olesku",
           "pidhirtsi": "Zamek w Podgorcach",
@@ -2242,14 +2242,14 @@
         "image_alt": "Twierdza skalna Tustan — unikalna atrakcja regionu lwowskiego na zdjecia fantasy",
         "locations": "Lokalizacje: Twierdza skalna Tustan (wies Urucz), wodospad Kamianka, jezioro Zurawlyne.",
         "vibe": "Klimat: \"Wiedzmin\", Skandynawia, sila natury.",
-        "p1": "Tustan to unikalny zabytek, gdzie drewniana twierdza stala wprost na skalach. Trase zwykle zaczyna sie od wodospadu Kamianka, a zaledwie 500 metrow dalej ukrywa sie jezioro Zurawlyne (Martwe) z czarna woda i omszalymi brzegami.",
-        "insight_title": "Wskazowka dla fotografow:",
-        "insight_timing": "Tajny timing: Wieksznosc autobusaw przybywa miedzy 12:00 a 15:00. Jesli przyjedziesz samochodem o 9:00 rano lub zostaniesz do 17:00, skaly beda tylko Twoje.",
+        "p1": "Tustan to unikalny zabytek, gdzie drewniana twierdza stała wprost na skalach. Trase zwykle zaczyna się od wodospadu Kamianka, a zaledwie 500 metrów dalej ukrywa się jezioro Zurawlyne (Martwe) z czarna woda i omszalymi brzegami.",
+        "insight_title": "Wskazowka dla fotografów:",
+        "insight_timing": "Tajny timing: Większość autobusaw przybywa między 12:00 a 15:00. Jesli przyjedziesz samochodem o 9:00 rano lub zostaniesz do 17:00, skaly będą tylko Twoje.",
         "insight_gastro": "Punkt gastronomiczny: Na polanie przy wodospadzie miejscowi gotuja zupe grzybowa. Niesamowicie klimatycznie na relacje.",
-        "why_car": "Dlaczego potrzebujesz samochodu: Transportem publicznym ta trasa to wyzwanie: autobus do Schidnyci, przesiadka do busa do Urycza, potem jeszcze marsz. Wynajmowanym samochodem parkujesz tuz przy wejsciu, oszczedzajac energie na wspinaczke po skalach.",
+        "why_car": "Dlaczego potrzebujesz samochodu: Transportem publicznym ta trasa to wyzwanie: autobus do Schidnyci, przesiadka do busa do Urycza, potem jeszcze marsz. Wynajmowanym samochodem parkujesz tuz przy wejsciu, oszczędzając energie na wspinaczke po skalach.",
         "rental_title": "Zalecany okres wynajmu: 1–2 dni",
-        "rental_turbo": "Opcja \"Turbo\" (1 dzien): Wczesny wyjazd (08:00), aktywne zwiedzanie wszystkich lokalizacji i pozny powrot wieczorem.",
-        "rental_relax": "Opcja \"Relaks\" (2 dni): Na spokojnie, nocleg w Schidnyci (20 km od skal), napij sie wody mineralnej i wroc do Lwowa rano.",
+        "rental_turbo": "Opcja \"Turbo\" (1 dzień): Wczesny wyjazd (08:00), aktywne zwiedzanie wszystkich lokalizacji i pozny powrót wieczorem.",
+        "rental_relax": "Opcja \"Relaks\" (2 dni): Na spokojnie, nocleg w Schidnyci (20 km od skal), napij się wody mineralnej i wróć do Lwowa rano.",
         "locations_btn": {
           "tustan": "Tustan",
           "waterfall": "Wodospad Kamianka",
@@ -2257,31 +2257,31 @@
         }
       },
       "route3": {
-        "title": "Trasa nr 3. Fort Tarakanow: Postapokalipsa",
-        "locations": "Lokalizacje: Fort Tarakanow (okolice Dubna).",
-        "vibe": "Klimat: Opuszczony swiat, klimat stalkera, tajemnica.",
+        "title": "Trasa nr 3. Fort Tarakanów: Postapokalipsa",
+        "locations": "Lokalizacje: Fort Tarakanów (okolice Dubna).",
+        "vibe": "Klimat: Opuszczony świat, klimat stalkera, tajemnica.",
         "p1": "Masywne XIX-wieczne fortyfikacje pochlonieete przez las. Czerwona cegla opleciona zielonym bluszczem, ciemne tunele i luki — tekstura jest niesamowita.",
-        "insight_title": "Wskazowka dla fotografow:",
+        "insight_title": "Wskazowka dla fotografów:",
         "insight_time": "Najlepszy czas: Pochmurna pogoda lub mgla dziala tu na Twoja korzysc — wzmacnia mistyczny klimat.",
-        "insight_bring": "Co zabrać: Mocna latarke (do oswietlania ciemnych lukow) i wygodne buty.",
-        "why_car": "Dlaczego potrzebujesz samochodu: To trudno dostepna lokalizacja, trzeba jechac gruntowa droga z autostrady. Ponadto po wilgotnych kazamatach bedziez chcial przebrac sie w suche ubranie.",
-        "rental_title": "Zalecany okres wynajmu: 1 dzien",
-        "rental_text": "Lokalizacja jest 1,5–2 godziny jazdy ze Lwowa dobra autostrada. Wskazowka: Po drodze mozna sie zatrzymac przy Zamku Lubarta (Luck), co wypelni wycieczke w 100%. Jeden dzien w zupelnosci wystarczy na ta podroz.",
+        "insight_bring": "Co zabrać: Mocna latarke (do oswietlania ciemnych łuków) i wygodne buty.",
+        "why_car": "Dlaczego potrzebujesz samochodu: To trudno dostepna lokalizacja, trzeba jechać gruntowa droga z autostrady. Ponadto po wilgotnych kazamatach bedziez chcial przebrać się w suche ubranie.",
+        "rental_title": "Zalecany okres wynajmu: 1 dzień",
+        "rental_text": "Lokalizacja jest 1,5–2 godziny jazdy ze Lwowa dobra autostrada. Wskazowka: Po drodze można się zatrzymać przy Zamku Lubarta (Luck), co wypelni wycieczke w 100%. Jeden dzień w zupełności wystarczy na ta podróż.",
         "locations_btn": {
-          "fort": "Fort Tarakanow",
+          "fort": "Fort Tarakanów",
           "lubart": "Zamek Lubarta"
         }
       },
       "route4": {
-        "title": "Trasa nr 4. Podroz w serce Karpat: Synewir, Szypot i Niedywiedzie",
+        "title": "Trasa nr 4. Podróż w serce Karpat: Synewir, Szypot i Niedywiedzie",
         "locations": "Lokalizacje: Przelecz Wolowiecka, wodospad Szypot, jezioro Synewir, Centrum Rehabilitacji Niedziwiedzi.",
-        "vibe": "Klimat: Ukrainski \"Twin Peaks\", pradawne jodly, dzicz.",
-        "p1": "Pelna ekspedycja przez Przelecz Wolowiecka, gdzie chmury czepiaja sie dachu samochodu. Sam Synewir lezy wysoko w gorach, a w poblizu — wodospad Szypot i Centrum Rehabilitacji Niedzwiedzi Brunatnych.",
-        "insight_title": "Wskazowka dla fotografow:",
-        "insight_fog": "Polowanie na mgle: Najbardziej mistyczne ujecia Synewiru robi sie o wschodzie slonca (6:00–8:00 rano). O tej porze para unosi sie nad woda, a ludzi nie ma.",
-        "why_car": "Logistyka: Transportem publicznym ta trasa zajmuje trzy dni z wieloma przesiadkami. Samochodem to wygodna podroz.",
+        "vibe": "Klimat: Ukraiński \"Twin Peaks\", pradawne jodly, dzicz.",
+        "p1": "Pelna ekspedycja przez Przelecz Wolowiecka, gdzie chmury czepiają się dachu samochodu. Sam Synewir lezy wysoko w gorach, a w poblizu — wodospad Szypot i Centrum Rehabilitacji Niedzwiedzi Brunatnych.",
+        "insight_title": "Wskazowka dla fotografów:",
+        "insight_fog": "Polowanie na mgle: Najbardziej mistyczne ujecia Synewiru robi się o wschodzie slonca (6:00–8:00 rano). O tej porze para unosi się nad woda, a ludzi nie ma.",
+        "why_car": "Logistyka: Transportem publicznym ta trasa zajmuje trzy dni z wieloma przesiadkami. Samochodem to wygodna podróż.",
         "rental_title": "Zalecany okres wynajmu: 2–3 dni",
-        "rental_text": "Jechac tu na jeden dzien to meczarnia (za duzo czasu w drodze). Idealny plan: Wynajmij samochod na 2–3 dni. Jedz w spokojnym tempie, przenocuj w autentycznej gorskiej chacie, zlap wschod slonca nad jeziorem bez turystow i wroc w komforcie.",
+        "rental_text": "Jechać tu na jeden dzień to meczarnia (za dużo czasu w drodze). Idealny plan: Wynajmij samochód na 2–3 dni. Jedz w spokojnym tempie, przenocuj w autentycznej gorskiej chacie, zlap wschód slonca nad jeziorem bez turystów i wróć w komforcie.",
         "locations_btn": {
           "synevir": "Jezioro Synewir",
           "shypit": "Wodospad Szypot",
@@ -2290,89 +2290,89 @@
       }
     },
     "conclusion": {
-      "title": "Jak zaplanowac wycieczke?",
-      "p1": "Glowny sekret udanej podrozy i pieknych zdjec to timing. Nie powinienes zalezec od rozkladu dworca. Powinienes zalezec tylko od swiatla i pogody.",
+      "title": "Jak zaplanować wycieczke?",
+      "p1": "Główny sekret udanej podróży i pieknych zdjec to timing. Nie powinienes zalezec od rozkladu dworca. Powinienes zalezec tylko od światła i pogody.",
       "list": {
-        "item1": "Chcesz zlapac wschod slonca w gorach?",
-        "item2": "Chcesz zostac na murze zamku do zachodu slonca?",
-        "item3": "Chcesz zabrac trzy stroje i rekwizyty?"
+        "item1": "Chcesz złapać wschód slonca w gorach?",
+        "item2": "Chcesz zostać na murze zamku do zachodu slonca?",
+        "item3": "Chcesz zabrać trzy stroje i rekwizyty?"
       },
-      "cta": "Wynajmij samochod w REIZ, wbij wspolrzedne w nawigacje i twoz swoje najlepsze wspomnienia (i tresci). Drogi czekaja!"
+      "cta": "Wynajmij samochód w REIZ, wbij wspolrzedne w nawigacje i twoz swoje najlepsze wspomnienia (i tresci). Drogi czekaja!"
     }
   },
   "blogDtpUkraine": {
     "meta": {
-      "title": "Co robic w razie wypadku drogowego na Ukrainie: instrukcja krok po kroku | REIZ",
-      "description": "Szczegolowa instrukcja, co robic w razie wypadku drogowego na Ukrainie: kolejnosc dzialal, europrotokol, wezwanie policji, dokumenty dla ubezpieczyciela. Porady od REIZ Car Rental.",
-      "og_title": "Co robic w razie wypadku drogowego na Ukrainie: instrukcja krok po kroku | REIZ",
-      "og_description": "Szczegolowa instrukcja, co robic w razie wypadku drogowego na Ukrainie: kolejnosc dzialal, europrotokol, wezwanie policji, dokumenty dla ubezpieczyciela. Porady od REIZ Car Rental."
+      "title": "Co robić w razie wypadku drogowego na Ukrainie: instrukcja krok po kroku | REIZ",
+      "description": "Szczegółowa instrukcja, co robić w razie wypadku drogowego na Ukrainie: kolejność dzialal, europrotokol, wezwanie policji, dokumenty dla ubezpieczyciela. Porady od REIZ Car Rental.",
+      "og_title": "Co robić w razie wypadku drogowego na Ukrainie: instrukcja krok po kroku | REIZ",
+      "og_description": "Szczegółowa instrukcja, co robić w razie wypadku drogowego na Ukrainie: kolejność dzialal, europrotokol, wezwanie policji, dokumenty dla ubezpieczyciela. Porady od REIZ Car Rental."
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "blog": "Artykuly",
-      "current": "Co robic w razie wypadku",
+      "current": "Co robić w razie wypadku",
       "nav_label": "Nawigacja po stronie"
     },
-    "title": "Co robic w razie wypadku drogowego na Ukrainie: instrukcja krok po kroku",
-    "hero_alt": "Samochod z trojkatem ostrzegawczym na drodze — instrukcja postepowania w razie wypadku drogowego na Ukrainie",
-    "intro": "Wypadek drogowy to zawsze stresujaca sytuacja. Szczegolnie jesli prowadzisz samochod w nieznanym miescie lub wynajmowanym autem. Wazne jest, aby znac kolejnosc dzialal, zapewnic bezpieczenstwo ludzi, prawidlowo udokumentowac wypadek i uniknac problemow z ubezpieczycielem. W tym artykule zespol REIZ Car Rental przygotowal szczegolowa instrukcje, co robic w razie wypadku drogowego na Ukrainie.",
+    "title": "Co robić w razie wypadku drogowego na Ukrainie: instrukcja krok po kroku",
+    "hero_alt": "Samochód z trojkatem ostrzegawczym na drodze — instrukcja postepowania w razie wypadku drogowego na Ukrainie",
+    "intro": "Wypadek drogowy to zawsze stresujaca sytuacja. Szczególnie jesli prowadzisz samochód w nieznanym mieście lub wynajmowanym autem. Wazne jest, aby znać kolejność dzialal, zapewnić bezpieczeństwo ludzi, prawidlowo udokumentować wypadek i uniknąć problemów z ubezpieczycielem. W tym artykule zespol REIZ Car Rental przygotowal szczegółowa instrukcje, co robić w razie wypadku drogowego na Ukrainie.",
     "steps": {
       "step1": {
-        "title": "1. Natychmiast zatrzymaj samochod",
+        "title": "1. Natychmiast zatrzymaj samochód",
         "text": "Jesli doszlo do wypadku:",
         "list": {
-          "item1": "Zatrzymaj samochod",
-          "item2": "Wlacz swiatla awaryjne",
-          "item3": "Nie przemieszczaj pojazdu przed udokumentowaniem okolicznosci"
+          "item1": "Zatrzymaj samochód",
+          "item2": "Włącz światła awaryjne",
+          "item3": "Nie przemieszczaj pojazdu przed udokumentowaniem okoliczności"
         },
-        "note": "Przemieszczenie samochodu moze utrudnic ustalenie przyczyn wypadku."
+        "note": "Przemieszczenie samochodu może utrudnić ustalenie przyczyn wypadku."
       },
       "step2": {
-        "title": "2. Upewnij sie, ze nie ma poszkodowanych",
-        "text": "Przede wszystkim nalezy sprawdzic, czy sa ranni.",
-        "if_injured": "Jesli sa poszkodowani:",
+        "title": "2. Upewnij się, ze nie ma poszkodowanych",
+        "text": "Przede wszystkim nalezy sprawdzić, czy są ranni.",
+        "if_injured": "Jesli są poszkodowani:",
         "list": {
           "item1": "Wezwij pogotowie ratunkowe — 103",
           "item2": "Wezwij policje — 102",
-          "item3": "W miare mozliwosci udziel pierwszej pomocy"
+          "item3": "W miare możliwości udziel pierwszej pomocy"
         },
-        "remember": "Pamietaj: zycie i zdrowie ludzi sa wazniejsze niz jakiekolwiek straty materialne."
+        "remember": "Pamietaj: życie i zdrowie ludzi są wazniejsze niz jakiekolwiek straty materialne."
       },
       "step3": {
         "title": "3. Ustaw trojkat ostrzegawczy",
-        "text": "Zgodnie z ukrainskimi przepisami ruchu drogowego kierowca musi ustawic trojkat ostrzegawczy:",
+        "text": "Zgodnie z ukraińskimi przepisami ruchu drogowego kierowca musi ustawić trojkat ostrzegawczy:",
         "list": {
-          "item1": "20 metrow od samochodu — w terenie zabudowanym",
-          "item2": "40 metrow — poza terenem zabudowanym"
+          "item1": "20 metrów od samochodu — w terenie zabudowanym",
+          "item2": "40 metrów — poza terenem zabudowanym"
         },
-        "note": "To pomoze uniknac kolejnego wypadku."
+        "note": "To pomoże uniknąć kolejnego wypadku."
       },
       "step4": {
-        "title": "4. Wezwij policje lub wypelnij europrotokol",
-        "text": "Na Ukrainie wypadek mozna udokumentowac na dwa sposoby.",
+        "title": "4. Wezwij policje lub wypełnij europrotokol",
+        "text": "Na Ukrainie wypadek można udokumentować na dwa sposoby.",
         "police": {
-          "title": "Kiedy nalezy wezwac policje",
-          "text": "Policje nalezy wezwac, jesli:",
+          "title": "Kiedy nalezy wezwać policje",
+          "text": "Policje nalezy wezwać, jesli:",
           "list": {
-            "item1": "Sa poszkodowani",
-            "item2": "Kierowcy nie moga dojsc do porozumienia w sprawie okolicznosci wypadku",
-            "item3": "Jeden z kierowcow jest pod wplywem alkoholu",
-            "item4": "Uszkodzonych jest wiecej niz dwa samochody",
+            "item1": "Są poszkodowani",
+            "item2": "Kierowcy nie mogą dojsc do porozumienia w sprawie okoliczności wypadku",
+            "item3": "Jeden z kierowców jest pod wplywem alkoholu",
+            "item4": "Uszkodzonych jest więcej niz dwa samochody",
             "item5": "Uszkodzone jest mienie panstwowe (ogrodzenie, znaki drogowe itp.)"
           },
           "phone": "Numer policji — 102."
         },
         "euro": {
-          "title": "Kiedy mozna uzyc europrotokolu",
-          "text": "Europrotokol pozwala udokumentowac wypadek bez policji.",
-          "conditions": "Jest to mozliwe, gdy:",
+          "title": "Kiedy można użyć europrotokolu",
+          "text": "Europrotokol pozwala udokumentować wypadek bez policji.",
+          "conditions": "Jest to możliwe, gdy:",
           "list": {
             "item1": "Nie ma poszkodowanych",
-            "item2": "W wypadku uczestnicza tylko dwa samochody",
-            "item3": "Obaj kierowcy maja wazne ubezpieczenie",
-            "item4": "Kierowcy zgadzaja sie co do okolicznosci wypadku"
+            "item2": "W wypadku uczestniczą tylko dwa samochody",
+            "item3": "Obaj kierowcy mają wazne ubezpieczenie",
+            "item4": "Kierowcy zgadzają się co do okoliczności wypadku"
           },
-          "fill": "Europrotokol mozna wypelnic:",
+          "fill": "Europrotokol można wypełnić:",
           "fill_list": {
             "item1": "W formie papierowej",
             "item2": "Przez system online MTIBU"
@@ -2381,29 +2381,29 @@
       },
       "step5": {
         "title": "5. Udokumentuj miejsce wypadku",
-        "text": "Przed usuniecem samochodow z drogi nalezy zrobic zdjecia lub nagranie wideo.",
-        "recommend": "Zaleca sie udokumentowac:",
+        "text": "Przed usuniecem samochodów z drogi nalezy zrobić zdjecia lub nagranie wideo.",
+        "recommend": "Zaleca się udokumentować:",
         "list": {
-          "item1": "Ogolny widok miejsca wypadku",
-          "item2": "Uszkodzenia samochodow",
+          "item1": "Ogólny widok miejsca wypadku",
+          "item2": "Uszkodzenia samochodów",
           "item3": "Tablice rejestracyjne",
           "item4": "Oznakowanie drogowe",
           "item5": "Znaki drogowe",
           "item6": "Slady hamowania"
         },
-        "note": "To pomoze ubezpieczycielowi szybciej rozpatrzyc sprawe."
+        "note": "To pomoże ubezpieczycielowi szybciej rozpatrzyc sprawe."
       },
       "step6": {
-        "title": "6. Wymien dane z drugim kierowca",
-        "text": "Nalezy zapisac:",
+        "title": "6. Wymień dane z drugim kierowcą",
+        "text": "Nalezy zapisać:",
         "list": {
-          "item1": "Imie i nazwisko kierowcy",
+          "item1": "Imię i nazwisko kierowcy",
           "item2": "Numer telefonu",
           "item3": "Numer polisy ubezpieczeniowej",
           "item4": "Marke i numer rejestracyjny samochodu",
           "item5": "Nazwe firmy ubezpieczeniowej"
         },
-        "photo_text": "Zaleca sie rowniez sfotografowac:",
+        "photo_text": "Zaleca się również sfotografować:",
         "photo_list": {
           "item1": "Prawo jazdy",
           "item2": "Dowod rejestracyjny",
@@ -2412,7 +2412,7 @@
       },
       "step7": {
         "title": "7. Powiadom ubezpieczyciela",
-        "text": "Zazwyczaj ubezpieczyciela nalezy powiadomic w ciagu 3 dni roboczych po wypadku.",
+        "text": "Zazwyczaj ubezpieczyciela nalezy powiadomić w ciągu 3 dni roboczych po wypadku.",
         "prepare": "Przygotuj:",
         "list": {
           "item1": "Dokumenty kierowcy",
@@ -2422,164 +2422,164 @@
         }
       },
       "step8": {
-        "title": "8. Co robic, jesli wypadek dotyczy wynajmowanego samochodu",
-        "text": "Jesli prowadzisz wynajmowany samochod, na przyklad od REIZ Car Rental, nalezy:",
+        "title": "8. Co robić, jesli wypadek dotyczy wynajmowanego samochodu",
+        "text": "Jesli prowadzisz wynajmowany samochód, na przyklad od REIZ Car Rental, nalezy:",
         "list": {
-          "item1": "Zapewnic bezpieczenstwo na miejscu wypadku",
-          "item2": "Wezwac policje lub wypelnic europrotokol",
-          "item3": "Zrobic zdjecia uszkodzen",
-          "item4": "Natychmiast powiadomic menedzera firmy wynajmu"
+          "item1": "Zapewnić bezpieczeństwo na miejscu wypadku",
+          "item2": "Wezwać policje lub wypełnić europrotokol",
+          "item3": "Zrobić zdjecia uszkodzen",
+          "item4": "Natychmiast powiadomić menedżera firmy wynajmu"
         },
-        "reiz_title": "Zespol REIZ pomoze:",
-        "reiz_text1": "Prawidlowo wypelnic dokumenty",
-        "reiz_text2": "Skontaktowac sie z ubezpieczycielem",
-        "reiz_text3": "Zorganizowac dalsze dzialania",
+        "reiz_title": "Zespol REIZ pomoże:",
+        "reiz_text1": "Prawidlowo wypełnić dokumenty",
+        "reiz_text2": "Skontaktować się z ubezpieczycielem",
+        "reiz_text3": "Zorganizować dalsze dzialania",
         "insurance_link": "WARUNKI UBEZPIECZENIA REIZ"
       }
     },
     "phones": {
       "title": "Przydatne numery alarmowe",
-      "text": "Na Ukrainie dzialaja nastepujace numery:",
+      "text": "Na Ukrainie dzialaja następujące numery:",
       "list": {
         "item1": "Policja — 102",
         "item2": "Pogotowie ratunkowe — 103",
-        "item3": "Sluzba ratunkowa — 101",
+        "item3": "Służba ratunkowa — 101",
         "item4": "Jednolity numer alarmowy — 112"
       }
     },
     "conclusion": {
       "title": "Podsumowanie",
-      "p1": "Najwazniejsze przy wypadku — dzialac spokojnie i konsekwentnie. Przestrzeganie zasad pomoze uniknac dodatkowych problemow i szybciej rozwiazac sytuacje z ubezpieczycielem.",
-      "p2": "Jesli wynajmujesz samochod w REIZ, nasz zespol jest zawsze gotowy pomoc Ci w kazdej sytuacji na drodze."
+      "p1": "Najważniejsze przy wypadku — działać spokojnie i konsekwentnie. Przestrzeganie zasad pomoże uniknąć dodatkowych problemów i szybciej rozwiązać sytuacje z ubezpieczycielem.",
+      "p2": "Jesli wynajmujesz samochód w REIZ, nasz zespol jest zawsze gotowy pomoc Ci w każdej sytuacji na drodze."
     },
     "faq": {
       "title": "FAQ",
       "q1": {
-        "question": "Co robic natychmiast po wypadku?",
-        "answer": "Nalezy zatrzymac samochod, wlaczyc swiatla awaryjne, sprawdzic czy sa poszkodowani i ustawic trojkat ostrzegawczy."
+        "question": "Co robić natychmiast po wypadku?",
+        "answer": "Nalezy zatrzymać samochód, włączyć światła awaryjne, sprawdzić czy są poszkodowani i ustawić trojkat ostrzegawczy."
       },
       "q2": {
-        "question": "Kiedy mozna uzyc europrotokolu?",
-        "answer": "Jesli w wypadku nie ma poszkodowanych, uczestnicza dwa samochody, obaj kierowcy maja ubezpieczenie i zgadzaja sie co do okolicznosci wypadku."
+        "question": "Kiedy można użyć europrotokolu?",
+        "answer": "Jesli w wypadku nie ma poszkodowanych, uczestniczą dwa samochody, obaj kierowcy mają ubezpieczenie i zgadzają się co do okoliczności wypadku."
       },
       "q3": {
-        "question": "Czy trzeba wzywac policje przy kazdym wypadku?",
-        "answer": "Nie. Jesli uszkodzenia sa niewielkie i spelnione sa warunki europrotokolu, policji mozna nie wzywac."
+        "question": "Czy trzeba wzywać policje przy każdym wypadku?",
+        "answer": "Nie. Jesli uszkodzenia są niewielkie i spelnione są warunki europrotokolu, policji można nie wzywać."
       },
       "q4": {
         "question": "Ile czasu jest na powiadomienie ubezpieczyciela?",
-        "answer": "Zazwyczaj ubezpieczyciela nalezy powiadomic w ciagu trzech dni roboczych po wypadku."
+        "answer": "Zazwyczaj ubezpieczyciela nalezy powiadomić w ciągu trzech dni roboczych po wypadku."
       }
     }
   },
   "blogUkraineRoadTrip": {
     "meta": {
-      "title": "Trasa podrozy samochodem po Ukrainie | REIZ",
-      "description": "Gotowa 7-dniowa trasa road-tripu po Ukrainie od REIZ: Lwow, Kamieniec Podolski, Human, Kijow, Czerniowce. Co zobaczyc, jak zaplanowac i dlaczego wynajem auta to najlepszy wybor.",
-      "og_title": "Trasa podrozy samochodem po Ukrainie | REIZ",
-      "og_description": "Gotowa 7-dniowa trasa road-tripu po Ukrainie od REIZ: Lwow, Kamieniec Podolski, Human, Kijow, Czerniowce. Co zobaczyc, jak zaplanowac i dlaczego wynajem auta to najlepszy wybor."
+      "title": "Trasa podróży samochodem po Ukrainie | REIZ",
+      "description": "Gotowa 7-dniowa trasa road-tripu po Ukrainie od REIZ: Lwów, Kamieniec Podolski, Human, Kijów, Czerniowce. Co zobaczyc, jak zaplanować i dlaczego wynajem auta to najlepszy wybór.",
+      "og_title": "Trasa podróży samochodem po Ukrainie | REIZ",
+      "og_description": "Gotowa 7-dniowa trasa road-tripu po Ukrainie od REIZ: Lwów, Kamieniec Podolski, Human, Kijów, Czerniowce. Co zobaczyc, jak zaplanować i dlaczego wynajem auta to najlepszy wybór."
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "blog": "Artykuly",
       "current": "Trasa po Ukrainie autem",
       "nav_label": "Nawigacja po stronie"
     },
-    "title": "Trasa podrozy samochodem po Ukrainie",
-    "hero_alt": "Panorama zabytow Ukrainy o zachodzie slonca — trasa podrozy samochodem",
+    "title": "Trasa podróży samochodem po Ukrainie",
+    "hero_alt": "Panorama zabytków Ukrainy o zachodzie slonca — trasa podróży samochodem",
     "intro": {
-      "p1": "Ukraine najlepiej odkrywac zza kierownicy. Waskie brukowane uliczki Lwowa, barok Kamienca Podolskiego, dendropark Sofiivka w Humaniu, swiatla Kijowa i austriacki szarm Czerniowiec — to wszystko mozna zobaczyc w ciagu jednego tygodnia, jesli prowadzisz samochod.",
-      "p2": "Zespol REIZ Car Rental przygotowal sprawdzona trase na 7 dni z zachodu na wschod i z powrotem. Pasuje zarowno dla tych, ktorzy po raz pierwszy planuja road-trip po Ukrainie, jak i dla doswiadczonych podroznikow, chcacych polaczyc znane miasta z mniej turystycznymi miejscami.",
-      "p3": "W artykule — co zobaczyc w kazdym miescie, ile czasu zaplanowac, jak organizowac noclegi i dlaczego samochod to optymalny srodek transportu."
+      "p1": "Ukraine najlepiej odkrywać zza kierownicy. Waskie brukowane uliczki Lwowa, barok Kamienca Podolskiego, dendropark Sofiivka w Humaniu, światła Kijowa i austriacki szarm Czerniowiec — to wszystko można zobaczyc w ciągu jednego tygodnia, jesli prowadzisz samochód.",
+      "p2": "Zespol REIZ Car Rental przygotowal sprawdzona trase na 7 dni z zachodu na wschód i z powrotem. Pasuje zarowno dla tych, którzy po raz pierwszy planuja road-trip po Ukrainie, jak i dla doświadczonych podróżników, chcacych połączyć znane miasta z mniej turystycznymi miejscami.",
+      "p3": "W artykule — co zobaczyc w każdym mieście, ile czasu zaplanować, jak organizować noclegi i dlaczego samochód to optymalny środek transportu."
     },
     "routes": {
       "route1": {
-        "title": "Dzien 1–2. Lwow — serce Zachodniej Ukrainy",
-        "locations": "Start: Lwow.",
+        "title": "Dzień 1–2. Lwów — serce Zachodniej Ukrainy",
+        "locations": "Start: Lwów.",
         "vibe": "Kawiarnie, Ratusz, Wysoki Zamek, Cmentarz Lyczakowski.",
-        "p1": "Rozpocznij trase od Lwowa — miasta, gdzie za kazdym zakretem kryje sie historia. Przejdz sie po Rynku, wejdz na Ratusz, wypij kawe przy Ormianskiej i odwiedz nekropolie Lyczakowska. Wieczorem — restauracja z lokalna kuchnia i lwowska czekolada na deser.",
-        "insight_title": "Co warto uwzglednic",
-        "insight_time": "Na Lwow zaplanuj minimum 2 pelne dni. Stare Miasto obchodzi sie pieszo, ale do wyjazdow poza centrum (skansen Szewczenkiwskyj Haj, zamki obwodu lwowskiego) potrzebny jest samochod.",
-        "why_car": "Samochod daje niezaleznosc od rozkladu komunikacji miejskiej i pozwala wieczorem wyjechac do jednego z zamkow Zlotej Podkowy.",
+        "p1": "Rozpocznij trase od Lwowa — miasta, gdzie za każdym zakretem kryje się historia. Przejdź się po Rynku, wejdz na Ratusz, wypij kawe przy Ormianskiej i odwiedz nekropolie Lyczakowska. Wieczorem — restauracja z lokalna kuchnia i lwowska czekolada na deser.",
+        "insight_title": "Co warto uwzględnić",
+        "insight_time": "Na Lwów zaplanuj minimum 2 pelne dni. Stare Miasto obchodzi się pieszo, ale do wyjazdów poza centrum (skansen Szewczenkiwskyj Haj, zamki obwodu lwowskiego) potrzebny jest samochód.",
+        "why_car": "Samochód daje niezależność od rozkladu komunikacji miejskiej i pozwala wieczorem wyjechać do jednego z zamków Złotej Podkowy.",
         "rental_title": "Rada REIZ:",
-        "rental_text": "Wynajmij auto od razu we Lwowie — nasze biuro jest blisko centrum, wiec odbierzesz samochod w dniu przyjazdu."
+        "rental_text": "Wynajmij auto od razu we Lwowie — nasze biuro jest blisko centrum, więc odbierzesz samochód w dniu przyjazdu."
       },
       "route2": {
-        "title": "Dzien 3. Kamieniec Podolski — miasto-twierdza",
-        "locations": "Lwow → Kamieniec Podolski (ok. 4 h).",
+        "title": "Dzień 3. Kamieniec Podolski — miasto-twierdza",
+        "locations": "Lwów → Kamieniec Podolski (ok. 4 h).",
         "vibe": "Barok, kanion Smotrycza, Stara Forteca, balony o wschodzie slonca.",
-        "p1": "Kamieniec Podolski robi wrazenie od razu: miasto polozone jest na skalistej wyspie, ktora ze wszystkich stron otacza rzeka Smotrycz. Odwiedz Stara Forteca, spaceruj barokowymi uliczkami, a o swicie zamow lot balonem — to najbardziej efektowny widok na kanion.",
+        "p1": "Kamieniec Podolski robi wrażenie od razu: miasto polozone jest na skalistej wyspie, która ze wszystkich stron otacza rzeka Smotrycz. Odwiedz Stara Forteca, spaceruj barokowymi uliczkami, a o świcie zamów lot balonem — to najbardziej efektowny widok na kanion.",
         "insight_title": "Porady",
-        "insight_time": "Optymalnie — przyjechac wieczorem, przenocowac na starym miescie i obejsc forteca o swicie, kiedy turystow jest malo.",
-        "why_car": "Niektore punkty widokowe kanionu i pobliski Chocim (tez forteca nad Dniestrem) wygodnie odwiedzi sie tylko wlasnym srodkiem transportu.",
+        "insight_time": "Optymalnie — przyjechac wieczorem, przenocować na starym mieście i obejść forteca o świcie, kiedy turystów jest malo.",
+        "why_car": "Niektore punkty widokowe kanionu i pobliski Chocim (też forteca nad Dniestrem) wygodnie odwiedzi się tylko własnym środkiem transportu.",
         "rental_title": "Lifehack:",
-        "rental_text": "Polacz Kamieniec i Chocim w jednym dniu — dziela ich tylko 25 km, a dostaniesz dwie forteci zamiast jednej."
+        "rental_text": "Połącz Kamieniec i Chocim w jednym dniu — dziela ich tylko 25 km, a dostaniesz dwie forteci zamiast jednej."
       },
       "route3": {
-        "title": "Dzien 4. Human — dendropark Sofiivka",
+        "title": "Dzień 4. Human — dendropark Sofiivka",
         "locations": "Kamieniec Podolski → Human (ok. 4 h).",
         "vibe": "Park, wodospady, groty, jeziora.",
-        "p1": "Glownym celem jest dendrologiczny park Sofiivka, jeden z najpiekniejszych w Europie. Kaskady jezior, groty, sztuczne wodospady i tysiace gatunkow roslin. Zaplanuj przynajmniej 3 godziny na spacer, bo park jest ogromny. Po parku — lokalne kawiarnie w centrum Humania z kuchnia podolska.",
-        "insight_title": "Co warto wiedziec",
-        "insight_time": "Najlepiej wejsc do parku rano, zeby zdazyc zobaczyc wszystko przy lagodnym swietle. Bilet wstepu kup online wczesniej, zwlaszcza w weekendy.",
-        "why_car": "Human jest kompaktowym miastem, ale na trasie sprawdza sie jako wygodny punkt posredni. Bez samochodu dojazd tutaj zajmuje duzo czasu i wymaga przesiadek.",
+        "p1": "Głównym celem jest dendrologiczny park Sofiivka, jeden z najpiekniejszych w Europie. Kaskady jezior, groty, sztuczne wodospady i tysiące gatunków roslin. Zaplanuj przynajmniej 3 godziny na spacer, bo park jest ogromny. Po parku — lokalne kawiarnie w centrum Humania z kuchnia podolska.",
+        "insight_title": "Co warto wiedzieć",
+        "insight_time": "Najlepiej wejsc do parku rano, żeby zdążyć zobaczyc wszystko przy lagodnym swietle. Bilet wstępu kup online wcześniej, zwłaszcza w weekendy.",
+        "why_car": "Human jest kompaktowym miastem, ale na trasie sprawdza się jako wygodny punkt posredni. Bez samochodu dojazd tutaj zajmuje dużo czasu i wymaga przesiadek.",
         "rental_title": "Rada REIZ:",
-        "rental_text": "Przed wyjazdem z Humania zatankuj do pelna — nastepna duza stacja pojawi sie dopiero na rogatkach obwodu kijowskiego."
+        "rental_text": "Przed wyjazdem z Humania zatankuj do pelna — następna duża stacja pojawi się dopiero na rogatkach obwodu kijowskiego."
       },
       "route4": {
-        "title": "Dzien 5–6. Kijow — stolica",
-        "locations": "Human → Kijow (ok. 3 h).",
+        "title": "Dzień 5–6. Kijów — stolica",
+        "locations": "Human → Kijów (ok. 3 h).",
         "vibe": "Lawra Peczerska, Chreszczatyk, Podol, Zejscie Andrzejowskie.",
-        "p1": "Na stolice zaplanuj 2 dni: Lawra Kijowsko-Peczerska i Palac Maryjski, Sobor Swietej Zofii, Majdan, Chreszczatyk, Zejscie Andrzejowskie i Podol — to minimum. Zostaw wieczor na bulwar Dniepru i swiatla mostow nad rzeka.",
-        "insight_title": "Kijow autem",
-        "insight_time": "Centrum Kijowa ma duzo platnych parkingow i zatloczonych ulic w godzinach szczytu. Najlepiej — zaparkowac przy hotelu i poruszac sie po centrum pieszo lub metrem.",
-        "why_car": "Samochod przyda sie do wyjazdow poza miasto: Mieziryria, Pyrohiw, Bucza, a takze do dlugiego przejazdu do ostatniego punktu trasy.",
+        "p1": "Na stolice zaplanuj 2 dni: Lawra Kijowsko-Peczerska i Pałac Maryjski, Sobor Swietej Zofii, Majdan, Chreszczatyk, Zejscie Andrzejowskie i Podol — to minimum. Zostaw wieczor na bulwar Dniepru i światła mostów nad rzeka.",
+        "insight_title": "Kijów autem",
+        "insight_time": "Centrum Kijowa ma dużo płatnych parkingów i zatloczonych ulic w godzinach szczytu. Najlepiej — zaparkować przy hotelu i poruszać się po centrum pieszo lub metrem.",
+        "why_car": "Samochód przyda się do wyjazdów poza miasto: Mieziryria, Pyrohiw, Bucza, a takze do dlugiego przejazdu do ostatniego punktu trasy.",
         "rental_title": "Lifehack:",
-        "rental_text": "Wybierz hotel z wlasnym parkingiem — w centrum zaoszczedzi ci to nawet 300 UAH dziennie na platnych strefach."
+        "rental_text": "Wybierz hotel z własnym parkingiem — w centrum zaoszczedzi ci to nawet 300 UAH dziennie na płatnych strefach."
       },
       "route5": {
-        "title": "Dzien 7. Czerniowce — maly Wieden",
-        "locations": "Kijow → Czerniowce (ok. 8 h).",
-        "vibe": "Rezydencja Metropolitow, bruk, architektura austro-wegierska.",
-        "p1": "Ostatni punkt to Czerniowce. To jedno z najbardziej klimatycznych miast Ukrainy: architektura austro-wegierska, Rezydencja Metropolitow Bukowinskich (obiekt UNESCO), plac Tureckiej Studni i Uniwersytet na wzgorzu. Tutaj czuc Europe Srodkowa.",
+        "title": "Dzień 7. Czerniowce — maly Wieden",
+        "locations": "Kijów → Czerniowce (ok. 8 h).",
+        "vibe": "Rezydencja Metropolitów, bruk, architektura austro-wegierska.",
+        "p1": "Ostatni punkt to Czerniowce. To jedno z najbardziej klimatycznych miast Ukrainy: architektura austro-wegierska, Rezydencja Metropolitów Bukowinskich (obiekt UNESCO), plac Tureckiej Studni i Uniwersytet na wzgorzu. Tutaj czuc Europe Środkowa.",
         "insight_title": "Porady",
-        "insight_time": "Wyjazd z Kijowa zaplanuj rano i zarezerwuj caly dzien na droge. Nocleg w Czerniowcach, nastepnego dnia — powrot do Lwowa (jeszcze ok. 4 godzin).",
-        "why_car": "Czerniowce sa kompaktowe, ale wlasnie droga z Kijowa na Bukowine daje poczucie prawdziwego road-tripu — zmieniajace sie krajobrazy, postoje w wioskach i przydrozne kawiarnie.",
+        "insight_time": "Wyjazd z Kijowa zaplanuj rano i zarezerwuj cały dzień na droge. Nocleg w Czerniowcach, następnego dnia — powrót do Lwowa (jeszcze ok. 4 godzin).",
+        "why_car": "Czerniowce są kompaktowe, ale właśnie droga z Kijowa na Bukowine daje poczucie prawdziwego road-tripu — zmieniajace się krajobrazy, postoje w wioskach i przydrozne kawiarnie.",
         "rental_title": "Rada REIZ:",
-        "rental_text": "Jesli masz malo czasu — zdaj auto w jednym z naszych partnerskich biur w Czerniowcach i wracaj pociagiem. Szczegoly ustal z menedzerem."
+        "rental_text": "Jesli masz malo czasu — zdaj auto w jednym z naszych partnerskich biur w Czerniowcach i wracaj pociagiem. Szczegóły ustal z menedżerem."
       }
     },
     "tips": {
-      "title": "Ogolne porady na podroz",
+      "title": "Ogólne porady na podróż",
       "intro": "Przed wyjazdem uwzglednij kilka waznych rzeczy:",
       "list": {
-        "item1": "Zarezerwuj nocleg wczesniej — zwlaszcza latem i w weekendy.",
-        "item2": "Sciagnij mapy offline Google Maps i Waze — w niektorych regionach zasieg bywa niestabilny.",
+        "item1": "Zarezerwuj nocleg wcześniej — zwłaszcza latem i w weekendy.",
+        "item2": "Ściągnij mapy offline Google Maps i Waze — w niektorych regionach zasieg bywa niestabilny.",
         "item3": "Trzymaj dokumenty samochodu i polisy ubezpieczeniowe razem, w teczce lub koszulce.",
-        "item4": "Planuj postoje na stacjach co 250–300 km — glowne trasy maja gesta siec stacji paliw.",
-        "item5": "Uwzglednij stan drog: glowne trasy sa w dobrym stanie, ale niektore drogi regionalne moga miec dziury — nie spiesz sie."
+        "item4": "Planuj postoje na stacjach co 250–300 km — główne trasy mają gesta sieć stacji paliw.",
+        "item5": "Uwzglednij stan dróg: główne trasy są w dobrym stanie, ale niektore drogi regionalne mogą mieć dziury — nie spiesz się."
       }
     },
     "rental_box": {
       "title": "Wynajem auta w REIZ",
-      "text": "W REIZ mozesz wynajac samochod we Lwowie na cala trase. Oferujemy pelny bak, calodobowe wsparcie, ubezpieczenie i opcje zdania auta w innym miescie po osobnej umowie. To optymalny wybor do podrozy po Ukrainie."
+      "text": "W REIZ możesz wynająć samochód we Lwowie na cała trase. Oferujemy pelny bak, całodobowe wsparcie, ubezpieczenie i opcje zdania auta w innym mieście po osobnej umowie. To optymalny wybór do podróży po Ukrainie."
     },
     "conclusion": {
       "title": "Podsumowanie",
-      "p1": "Road-trip po Ukrainie to wolnosc wyboru tempa, trasy i postojow. W 7 dni zobaczysz zupelnie rozne regiony kraju: od galicyjskiego Lwowa po bukowinskie Czerniowce, od podolskich forteci po Kijow.",
-      "p2": "Zespol REIZ pomoze dobrac auto, podpowie trase i przygotuje samochod do dalekiej podrozy. Pozostaje tylko wsiasc za kierownice i ruszyc.",
+      "p1": "Road-trip po Ukrainie to wolność wyboru tempa, trasy i postojów. W 7 dni zobaczysz zupelnie różne regiony kraju: od galicyjskiego Lwowa po bukowinskie Czerniowce, od podolskich forteci po Kijów.",
+      "p2": "Zespol REIZ pomoże dobrać auto, podpowie trase i przygotuje samochód do dalekiej podróży. Pozostaje tylko wsiąść za kierownice i ruszyć.",
       "cta": "ZOBACZ AUTA"
     }
   },
   "blogNavigationAppsUkraine": {
     "meta": {
       "title": "Najlepsze aplikacje nawigacyjne na Ukrainie: Google Maps, Waze i inne | REIZ",
-      "description": "Przeglad najlepszych aplikacji nawigacyjnych do podrozy po Ukrainie: Google Maps, Waze, Apple Maps, 2GIS, OsmAnd. Plusy, minusy i kiedy ktorej uzywac.",
+      "description": "Przeglad najlepszych aplikacji nawigacyjnych do podróży po Ukrainie: Google Maps, Waze, Apple Maps, 2GIS, OsmAnd. Plusy, minusy i kiedy której używać.",
       "og_title": "Najlepsze aplikacje nawigacyjne na Ukrainie: Google Maps, Waze i inne | REIZ",
-      "og_description": "Przeglad najlepszych aplikacji nawigacyjnych do podrozy po Ukrainie: Google Maps, Waze, Apple Maps, 2GIS, OsmAnd. Plusy, minusy i kiedy ktorej uzywac."
+      "og_description": "Przeglad najlepszych aplikacji nawigacyjnych do podróży po Ukrainie: Google Maps, Waze, Apple Maps, 2GIS, OsmAnd. Plusy, minusy i kiedy której używać."
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "blog": "Artykuly",
       "current": "Najlepsze aplikacje nawigacyjne",
       "nav_label": "Nawigacja po stronie"
@@ -2587,202 +2587,202 @@
     "title": "Najlepsze aplikacje nawigacyjne na Ukrainie",
     "hero_alt": "Ikona nawigacji GPS — przeglad popularnych aplikacji nawigacyjnych na Ukrainie",
     "intro": {
-      "p1": "Nawigacja to obowiazkowy towarzysz kazdej podrozy po Ukrainie. Tymczasowe remonty drog, objazdy, nowe wezly i po prostu nieznana trasa — wszystko to sprawia, ze dobra nawigacja jest kluczowa, szczegolnie dla turystow i kierowcow wynajetych aut.",
-      "p2": "W tym artykule zespol REIZ Car Rental zebral piec najlepszych aplikacji do nawigacji po Ukrainie — z ich plusami, minusami i wskazowkami, kiedy ktora uzywac."
+      "p1": "Nawigacja to obowiazkowy towarzysz każdej podróży po Ukrainie. Tymczasowe remonty dróg, objazdy, nowe węzły i po prostu nieznana trasa — wszystko to sprawia, ze dobra nawigacja jest kluczowa, szczególnie dla turystów i kierowców wynajętych aut.",
+      "p2": "W tym artykule zespol REIZ Car Rental zebral piec najlepszych aplikacji do nawigacji po Ukrainie — z ich plusami, minusami i wskazowkami, kiedy która używać."
     },
     "apps": {
       "google_maps": {
         "title": "1. Google Maps",
-        "description": "Najpopularniejsza nawigacja na swiecie — i na Ukrainie tez. Szczegolowe mapy miast i wsi, informacje o ruchu w czasie rzeczywistym, duza baza miejsc (restauracje, stacje paliw, hotele), opinie uzytkownikow.",
+        "description": "Najpopularniejsza nawigacja na świecie — i na Ukrainie też. Szczegółowe mapy miast i wsi, informacje o ruchu w czasie rzeczywistym, duża baza miejsc (restauracje, stacje paliw, hotele), opinie użytkowników.",
         "pros_title": "Zalety:",
         "pros": {
-          "item1": "Maksymalne pokrycie calej Ukrainy",
+          "item1": "Maksymalne pokrycie całej Ukrainy",
           "item2": "Informacje o ruchu i wypadkach w czasie rzeczywistym",
           "item3": "Mapy offline dla stref bez internetu",
-          "item4": "Street View dla wiekszosci miast",
-          "item5": "Integracja z wyszukiwarka Google — latwe szukanie adresow"
+          "item4": "Street View dla większości miast",
+          "item5": "Integracja z wyszukiwarka Google — latwe szukanie adresów"
         },
-        "when": "Uniwersalny wybor na codzien. Idealny dla turystow, ktorzy planuja trasy wczesniej."
+        "when": "Uniwersalny wybór na codzien. Idealny dla turystów, którzy planuja trasy wcześniej."
       },
       "waze": {
         "title": "2. Waze",
-        "description": "Nawigacja spolecznosciowa, w ktorej trasa budowana jest na podstawie danych od innych kierowcow: wypadki, fotoradary, korki, patrole, dziury. Ukraina ma jedna z najbardziej aktywnych spolecznosci Waze.",
+        "description": "Nawigacja społecznościowa, w której trasa budowana jest na podstawie danych od innych kierowców: wypadki, fotoradary, korki, patrole, dziury. Ukraina ma jedna z najbardziej aktywnych społeczności Waze.",
         "pros_title": "Zalety:",
         "pros": {
-          "item1": "Zgloszenia na zywo od innych kierowcow",
+          "item1": "Zgłoszenia na zywo od innych kierowców",
           "item2": "Ostrzezenia o fotoradarach",
-          "item3": "Objazdy korkow w czasie rzeczywistym",
-          "item4": "Najlepszy wybor w duzych miastach (Kijow, Lwow, Dniepr)",
+          "item3": "Objazdy korków w czasie rzeczywistym",
+          "item4": "Najlepszy wybór w dużych miastach (Kijów, Lwów, Dniepr)",
           "item5": "Prosta integracja z CarPlay i Android Auto"
         },
-        "when": "Kiedy jedziesz zatloczonym miastem lub trasa i chcesz unikac korkow oraz fotoradarow."
+        "when": "Kiedy jedziesz zatloczonym miastem lub trasa i chcesz unikać korków oraz fotoradarów."
       },
       "apple_maps": {
         "title": "3. Apple Maps",
-        "description": "Standardowa nawigacja iPhone'a. W ciagu ostatnich kilku lat Apple powaznie odswiezyla mapy Ukrainy: poprawiona szczegolowosc, dodane informacje o ruchu, pojawily sie detale ulic dla Kijowa i Lwowa.",
+        "description": "Standardowa nawigacja iPhone'a. W ciągu ostatnich kilku lat Apple poważnie odswiezyla mapy Ukrainy: poprawiona szczegółowość, dodane informacje o ruchu, pojawily się detale ulic dla Kijowa i Lwowa.",
         "pros_title": "Zalety:",
         "pros": {
           "item1": "Integracja z iPhone i CarPlay bez dodatkowych instalacji",
-          "item2": "Prywatnosc — Apple nie zapisuje historii wyszukiwania",
-          "item3": "Ladny interfejs z czysta mapa",
-          "item4": "Informacje o ruchu w duzych miastach"
+          "item2": "Prywatność — Apple nie zapisuje historii wyszukiwania",
+          "item3": "Ładny interfejs z czysta mapa",
+          "item4": "Informacje o ruchu w dużych miastach"
         },
-        "when": "Dla uzytkownikow iPhone, ktorzy chca prostej i estetycznej nawigacji bez zbednych funkcji."
+        "when": "Dla użytkowników iPhone, którzy chcą prostej i estetycznej nawigacji bez zbednych funkcji."
       },
       "two_gis": {
         "title": "4. 2GIS",
-        "description": "Szczegolowy miejski informator z nawigacja. Szczegolnie mocny w duzych miastach: znajdziesz nie tylko miejsce, ale konkretne pietro, wejscie, godziny otwarcia i telefon. Dziala offline po pobraniu miasta.",
+        "description": "Szczegółowy miejski informator z nawigacja. Szczególnie mocny w dużych miastach: znajdziesz nie tylko miejsce, ale konkretne pietro, wejscie, godziny otwarcia i telefon. Dziala offline po pobraniu miasta.",
         "pros_title": "Zalety:",
         "pros": {
           "item1": "Pelna praca offline po pobraniu",
-          "item2": "Szczegolowe plany galerii handlowych, biurowcow, targow",
-          "item3": "Telefon i godziny otwarcia kazdego miejsca",
-          "item4": "Bezplatny, bez reklam w trakcie nawigacji"
+          "item2": "Szczegółowe plany galerii handlowych, biurowców, targów",
+          "item3": "Telefon i godziny otwarcia każdego miejsca",
+          "item4": "Bezpłatny, bez reklam w trakcie nawigacji"
         },
-        "when": "Do szczegolowego wyszukiwania adresow w miastach — zwlaszcza gdy musisz znalezc konkretny biuro, restauracje lub sklep."
+        "when": "Do szczegółowego wyszukiwania adresów w miastach — zwłaszcza gdy musisz znaleźć konkretny biuro, restauracje lub sklep."
       },
       "osmand": {
         "title": "5. OsmAnd",
-        "description": "Nawigacja oparta na OpenStreetMap — idealna do off-roadu, trasy gorskich i wsi, gdzie komercyjne mapy bywaja niepelne. W pelni offline, obsluguje sciezki turystyczne, trasy rowerowe a nawet szlaki piesze w Karpatach.",
+        "description": "Nawigacja oparta na OpenStreetMap — idealna do off-roadu, trasy gorskich i wsi, gdzie komercyjne mapy bywają niepelne. W pelni offline, obsługuje ścieżki turystyczne, trasy rowerowe a nawet szlaki piesze w Karpatach.",
         "pros_title": "Zalety:",
         "pros": {
           "item1": "Pelna praca offline bez ograniczen",
-          "item2": "Szczegolowe mapy Karpat i wsi",
-          "item3": "Obsluga trackow GPX",
+          "item2": "Szczegółowe mapy Karpat i wsi",
+          "item3": "Obsługa tracków GPX",
           "item4": "Ustawienia trasy dla samochodu, roweru lub pieszo"
         },
-        "when": "Do wyjazdow w gory, lasy lub odlegle wsie, gdzie inne nawigacje traca sygnal."
+        "when": "Do wyjazdów w gory, lasy lub odległe wsie, gdzie inne nawigacje traca sygnal."
       }
     },
     "comparison": {
-      "title": "Ktora nawigacje wybrac?",
-      "intro": "Krotka sciaga, jaka aplikacje zainstalowac w zaleznosci od celu:",
+      "title": "Która nawigacje wybrać?",
+      "intro": "Krótka ściąga, jaka aplikacje zainstalować w zależności od celu:",
       "list": {
         "item1": "Do codziennego uzytku — Google Maps",
         "item2": "Do miejskiego ruchu — Waze",
         "item3": "Do szukania konkretnych miejsc — 2GIS",
         "item4": "Do tras gorskich i Karpat — OsmAnd",
-        "item5": "Dla uzytkownikow iPhone — Apple Maps jako baza"
+        "item5": "Dla użytkowników iPhone — Apple Maps jako baza"
       }
     },
     "tourist_tips": {
-      "title": "Porady dla turystow",
-      "intro": "Kilka praktycznych wskazowek, ktore ulatwia nawigacje:",
+      "title": "Porady dla turystów",
+      "intro": "Kilka praktycznych wskazowek, które ułatwia nawigacje:",
       "list": {
         "item1": "Pobierz mapy offline — w niektorych regionach zasieg bywa niestabilny.",
-        "item2": "Kup ukrainska karte SIM z internetem mobilnym od razu po przyjezdzie.",
+        "item2": "Kup ukraińska karte SIM z internetem mobilnym od razu po przyjezdzie.",
         "item3": "Laduj telefon w drodze — auto REIZ ma porty USB i uchwyt na telefon.",
-        "item4": "Uzywaj kilku aplikacji rownoczesnie: Google Maps do trasy, Waze do fotoradarow.",
+        "item4": "Uzywaj kilku aplikacji równocześnie: Google Maps do trasy, Waze do fotoradarów.",
         "item5": "Sprawdz trase przed wyjazdem — aplikacje czasem sugeruja drogi gorskie lub gruntowe."
       }
     },
     "rental_box": {
       "title": "Wynajmij auto w REIZ",
-      "text": "Nasze samochody sa wyposazone w wygodne uchwyty na telefon i porty USB, zebys mogl uzywac dowolnej nawigacji bez problemow. Wiekszosc modeli obsluguje Apple CarPlay i Android Auto — idealnie dla Google Maps i Waze na duzym ekranie."
+      "text": "Nasze samochody są wyposazone w wygodne uchwyty na telefon i porty USB, zebys mogl używać dowolnej nawigacji bez problemów. Większość modeli obsługuje Apple CarPlay i Android Auto — idealnie dla Google Maps i Waze na duzym ekranie."
     },
     "conclusion": {
       "title": "Podsumowanie",
-      "p1": "Zadna aplikacja nie obsluguje wszystkich sytuacji, ale odpowiednia kombinacja pozwoli ci pewnie jechac po Ukrainie. Google Maps + Waze — optymalny zestaw bazowy. Do wyjazdow w Karpaty lub regiony odlegle dodaj OsmAnd.",
-      "p2": "Zespol REIZ Car Rental zyczy ci udanych drog — i zawsze chetnie podpowie najlepsza trase."
+      "p1": "Zadna aplikacja nie obsługuje wszystkich sytuacji, ale odpowiednia kombinacja pozwoli ci pewnie jechać po Ukrainie. Google Maps + Waze — optymalny zestaw bazowy. Do wyjazdów w Karpaty lub regiony odległe dodaj OsmAnd.",
+      "p2": "Zespol REIZ Car Rental życzy ci udanych dróg — i zawsze chetnie podpowie najlepsza trase."
     }
   },
   "blogParkingPaymentUkraine": {
     "meta": {
-      "title": "Jak zaplacic za parking na Ukrainie: przewodnik dla turystow | REIZ",
-      "description": "Pelny przewodnik dla turystow o platnosci za parking na Ukrainie: gotowka, SMS, aplikacje, karta bankowa. Rodzaje stref parkingowych, kary i przydatne porady.",
-      "og_title": "Jak zaplacic za parking na Ukrainie: przewodnik dla turystow | REIZ",
-      "og_description": "Pelny przewodnik dla turystow o platnosci za parking na Ukrainie: gotowka, SMS, aplikacje, karta bankowa. Rodzaje stref parkingowych, kary i przydatne porady."
+      "title": "Jak zapłacić za parking na Ukrainie: przewodnik dla turystów | REIZ",
+      "description": "Pelny przewodnik dla turystów o płatności za parking na Ukrainie: gotowka, SMS, aplikacje, karta bankowa. Rodzaje stref parkingowych, kary i przydatne porady.",
+      "og_title": "Jak zapłacić za parking na Ukrainie: przewodnik dla turystów | REIZ",
+      "og_description": "Pelny przewodnik dla turystów o płatności za parking na Ukrainie: gotowka, SMS, aplikacje, karta bankowa. Rodzaje stref parkingowych, kary i przydatne porady."
     },
     "breadcrumbs": {
-      "home": "Strona glowna",
+      "home": "Strona główna",
       "blog": "Artykuly",
-      "current": "Platnosc za parking",
+      "current": "Płatność za parking",
       "nav_label": "Nawigacja po stronie"
     },
-    "title": "Jak turysta placi za parking na Ukrainie",
-    "hero_alt": "Znak parkingowy przy budynku w miescie — jak zaplacic za parking na Ukrainie",
+    "title": "Jak turysta płaci za parking na Ukrainie",
+    "hero_alt": "Znak parkingowy przy budynku w mieście — jak zapłacić za parking na Ukrainie",
     "intro": {
-      "p1": "System parkowania w ukrainskich miastach rozni sie od europejskiego, ale zrozumiesz go w kilka minut. W duzych miastach — Kijowie, Lwowie, Odessie, Dnieprze, Charkowie — dzialaja platne strefy regulowane przez wladze miasta. W srednich miastach platnych parkingow jest mniej, a niekiedy w ogole nie ma.",
-      "p2": "W tym artykule zespol REIZ Car Rental wyjasnia, jak rozpoznac typ strefy parkingowej, jakie metody platnosci sa dostepne i co zrobic, jesli auto zostanie odholowane."
+      "p1": "System parkowania w ukraińskich miastach różni się od europejskiego, ale zrozumiesz go w kilka minut. W dużych miastach — Kijowie, Lwowie, Odessie, Dnieprze, Charkowie — dzialaja płatne strefy regulowane przez wladze miasta. W srednich miastach płatnych parkingów jest mniej, a niekiedy w ogole nie ma.",
+      "p2": "W tym artykule zespol REIZ Car Rental wyjasnia, jak rozpoznać typ strefy parkingowej, jakie metody płatności są dostepne i co zrobić, jesli auto zostanie odholowane."
     },
     "zones": {
       "title": "Rodzaje stref parkingowych",
-      "intro": "Na Ukrainie istnieja trzy glowne rodzaje stref:",
+      "intro": "Na Ukrainie istnieja trzy główne rodzaje stref:",
       "paid": {
-        "title": "Parkingi platne",
-        "text": "Oznaczone niebieskim znakiem 'P' z napisem 'platny' lub tablica informacyjna z taryfa. W Kijowie i Lwowie obowiazuja taryfy strefowe: centrum jest drozsze niz peryferia. Platnosc — godzinowa."
+        "title": "Parkingi płatne",
+        "text": "Oznaczone niebieskim znakiem 'P' z napisem 'płatny' lub tablica informacyjna z taryfa. W Kijowie i Lwowie obowiązują taryfy strefowe: centrum jest drozsze niz peryferia. Płatność — godzinowa."
       },
       "free": {
-        "title": "Parkingi bezplatne",
-        "text": "Oznaczone zwyklym niebieskim znakiem 'P'. Czesto przy supermarketach, centrach handlowych lub na ulicach osiedlowych. W weekendy i w nocy (zwykle 20:00–08:00) czesc platnych stref staje sie bezplatna."
+        "title": "Parkingi bezpłatne",
+        "text": "Oznaczone zwyklym niebieskim znakiem 'P'. Czesto przy supermarketach, centrach handlowych lub na ulicach osiedlowych. W weekendy i w nocy (zwykle 20:00–08:00) czesc płatnych stref staje się bezpłatna."
       },
       "prohibited": {
         "title": "Strefy zakazu parkowania",
-        "text": "Oznaczone okraglym czerwonym znakiem z przekreslona litera 'P' lub znakiem zakazu zatrzymywania. Takie strefy sa przy skrzyzowaniach, przystankach komunikacji miejskiej, mostach. Parkowanie tutaj gwarantuje odholowanie auta."
+        "text": "Oznaczone okraglym czerwonym znakiem z przekreslona litera 'P' lub znakiem zakazu zatrzymywania. Takie strefy są przy skrzyzowaniach, przystankach komunikacji miejskiej, mostach. Parkowanie tutaj gwarantuje odholowanie auta."
       }
     },
     "payment_methods": {
-      "title": "Metody platnosci za parking",
-      "intro": "Na Ukrainie dostepnych jest kilka metod platnosci — wybierz te, ktora jest ci najwygodniejsza:",
+      "title": "Metody płatności za parking",
+      "intro": "Na Ukrainie dostepnych jest kilka metod płatności — wybierz te, która jest ci najwygodniejsza:",
       "cash": {
         "title": "1. Gotowka do parkingowego",
-        "text": "Na niektorych parkingach wciaz obecni sa parkingowi — im mozna zaplacic gotowka. Zawsze bierz pokwitowanie: to twoj dowod platnosci w razie sporu.",
-        "note": "Ta metoda stopniowo znika — w wiekszosci stref sa teraz parkomaty lub platnosc bezgotowkowa."
+        "text": "Na niektorych parkingach wciaz obecni są parkingowi — im można zapłacić gotowka. Zawsze bierz pokwitowanie: to twój dowod płatności w razie sporu.",
+        "note": "Ta metoda stopniowo znika — w większości stref są teraz parkomaty lub płatność bezgotówkowa."
       },
       "sms": {
-        "title": "2. Platnosc SMS",
-        "text": "Jedna z najprostszych metod: wysylasz SMS z kodem strefy na krotki numer — i parking jest oplacony. Kod strefy jest na znaku lub parkomacie. Oplata schodzi z konta operatora komorkowego.",
-        "example": "Przyklad: w Kijowie wysylasz kod strefy na krotki numer operatora. W odpowiedzi przychodzi potwierdzenie z oplaconym czasem."
+        "title": "2. Płatność SMS",
+        "text": "Jedna z najprostszych metod: wysylasz SMS z kodem strefy na krótki numer — i parking jest oplacony. Kod strefy jest na znaku lub parkomacie. Opłata schodzi z konta operatora komorkowego.",
+        "example": "Przyklad: w Kijowie wysylasz kod strefy na krótki numer operatora. W odpowiedzi przychodzi potwierdzenie z opłaconym czasem."
       },
       "apps": {
         "title": "3. Aplikacje mobilne",
-        "text": "Najwygodniejsza metoda dla turystow — aplikacje miast lub uniwersalne serwisy. Zainstaluj aplikacje, przypisz karte, wybierz strefe i czas — gotowe.",
+        "text": "Najwygodniejsza metoda dla turystów — aplikacje miast lub uniwersalne serwisy. Zainstaluj aplikacje, przypisz karte, wybierz strefe i czas — gotowe.",
         "list": {
-          "item1": "Kyiv Digital — oficjalna aplikacja Kijowa z platnoscia za parking",
-          "item2": "Lviv Parking — do parkingow we Lwowie",
-          "item3": "EasyPay — uniwersalna platforma z platnoscia w calej Ukrainie",
+          "item1": "Kyiv Digital — oficjalna aplikacja Kijowa z płatnością za parking",
+          "item2": "Lviv Parking — do parkingów we Lwowie",
+          "item3": "EasyPay — uniwersalna platforma z płatnością w całej Ukrainie",
           "item4": "Park UA — obejmuje strefy wielu miast"
         }
       },
       "parkomats": {
         "title": "4. Parkomaty",
-        "text": "W centrach duzych miast sa nowoczesne parkomaty z dotykowym ekranem. Przyjmuja karty bankowe i gotowke. Po oplaceniu — wydrukuj pokwitowanie i polóz je za szyba."
+        "text": "W centrach dużych miast są nowoczesne parkomaty z dotykowym ekranem. Przyjmuja karty bankowe i gotowke. Po oplaceniu — wydrukuj pokwitowanie i polóz je za szyba."
       },
       "card": {
-        "title": "5. Platnosc karta bankowa",
-        "text": "Wiekszosc nowoczesnych parkomatow i aplikacji akceptuje Visa i Mastercard, w tym karty zagraniczne. To wygodne dla turystow, ktorzy nie maja jeszcze ukrainskiej karty SIM do platnosci SMS."
+        "title": "5. Płatność karta bankowa",
+        "text": "Większość nowoczesnych parkomatów i aplikacji akceptuje Visa i Mastercard, w tym karty zagraniczne. To wygodne dla turystów, którzy nie mają jeszcze ukraińskiej karty SIM do płatności SMS."
       }
     },
     "evacuation": {
-      "title": "Co zrobic, gdy auto zostanie odholowane",
-      "text": "Jesli wrociles na parking i nie znalazles auta — najpierw upewnij sie, ze nie zostalo skradzione: zadzwon pod 102 lub sprawdz oficjalny serwis miasta. Najczesciej auto trafia na parking depozytowy.",
+      "title": "Co zrobić, gdy auto zostanie odholowane",
+      "text": "Jesli wrociles na parking i nie znalazles auta — najpierw upewnij się, ze nie zostalo skradzione: zadzwoń pod 102 lub sprawdz oficjalny serwis miasta. Najczesciej auto trafią na parking depozytowy.",
       "steps": {
-        "step1": "Zadzwon do miejskiej sluzby parkingowej — numer znajdziesz na stronie urzedu miasta lub w oficjalnej aplikacji.",
-        "step2": "Dowiedz sie, na ktory parking depozytowy przewieziono twoje auto.",
+        "step1": "Zadzwoń do miejskiej służby parkingowej — numer znajdziesz na stronie urzedu miasta lub w oficjalnej aplikacji.",
+        "step2": "Dowiedz się, na który parking depozytowy przewieziono twoje auto.",
         "step3": "Wez ze soba paszport, dokumenty auta i prawo jazdy.",
-        "step4": "Oplac holowanie i mandat — wtedy odbierzesz samochod."
+        "step4": "Opłać holowanie i mandat — wtedy odbierzesz samochód."
       },
-      "rental_note": "Jesli prowadzisz wynajmowane auto REIZ — natychmiast powiadom menedzera. Pomozemy zalatwic sprawe na parkingu depozytowym i przygotowac niezbedne dokumenty."
+      "rental_note": "Jesli prowadzisz wynajmowane auto REIZ — natychmiast powiadom menedżera. Pomozemy załatwić sprawe na parkingu depozytowym i przygotować niezbędne dokumenty."
     },
     "tips": {
-      "title": "Przydatne porady dla turystow",
-      "intro": "Kilka praktycznych rad, ktore zaoszczedza ci nerwow i pieniedzy:",
+      "title": "Przydatne porady dla turystów",
+      "intro": "Kilka praktycznych rad, które zaoszczedza ci nerwów i pieniedzy:",
       "list": {
-        "item1": "Uwaznie czytaj znaki: ukrainskie znaki parkingowe moga miec dodatkowe tabliczki z godzinami i wyjatkami.",
-        "item2": "Wieczorem i w nocy wiele platnych stref staje sie bezplatnych — jest to oznaczone na znaku.",
-        "item3": "W weekendy (sobota i niedziela) w niektorych miastach oplata nie jest pobierana.",
+        "item1": "Uważnie czytaj znaki: ukraińskie znaki parkingowe mogą mieć dodatkowe tabliczki z godzinami i wyjatkami.",
+        "item2": "Wieczorem i w nocy wiele płatnych stref staje się bezplatnych — jest to oznaczone na znaku.",
+        "item3": "W weekendy (sobota i niedziela) w niektorych miastach opłata nie jest pobierana.",
         "item4": "Nigdy nie zostawiaj cennych rzeczy na widoku — nawet w strefie platnej.",
-        "item5": "Zachowuj pokwitowanie lub zrzut ekranu z platnosci — to twoj dowod w sytuacji spornej."
+        "item5": "Zachowuj pokwitowanie lub zrzut ekranu z płatności — to twój dowod w sytuacji spornej."
       }
     },
     "rental_box": {
       "title": "Wynajem auta w REIZ",
-      "text": "Przy wynajmie auta w REIZ opowiadamy o specyfice parkowania we Lwowie i innych miastach, ktore planujesz odwiedzic. Nasi menedzerowie sa zawsze na linii, jesli pojawia sie pytania na miejscu."
+      "text": "Przy wynajmie auta w REIZ opowiadamy o specyfice parkowania we Lwowie i innych miastach, które planujesz odwiedzić. Nasi menedzerowie są zawsze na linii, jesli pojawią się pytania na miejscu."
     },
     "conclusion": {
       "title": "Podsumowanie",
-      "p1": "Platnosc za parking na Ukrainie jest prostsza, niz mogloby sie wydawac. Aplikacje mobilne, parkomaty z platnoscia karta i serwisy SMS sprawiaja, ze proces jest przyjazny dla turystow. Najwazniejsze — uwaznie czytac znaki i zachowywac dowody platnosci.",
-      "p2": "Zespol REIZ Car Rental zyczy ci przyjemnej podrozy po Ukrainie — i bezproblemowego parkowania w kazdym miescie."
+      "p1": "Płatność za parking na Ukrainie jest prostsza, niż mogłoby się wydawać. Aplikacje mobilne, parkomaty z płatnością kartą i serwisy SMS sprawiają, że proces jest przyjazny dla turystów. Najważniejsze — uważnie czytać znaki i zachowywać dowody płatności.",
+      "p2": "Zespol REIZ Car Rental życzy ci przyjemnej podróży po Ukrainie — i bezproblemowego parkowania w każdym mieście."
     }
   },
   "rentalPolicyModal": {
