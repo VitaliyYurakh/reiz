@@ -154,6 +154,18 @@ function printTable(results: PageResult[]) {
 	console.log(divider);
 }
 
+// biome-ignore lint/suspicious/noExplicitAny: stdout._handle is undocumented but real
+const handle = (process.stdout as any)._handle;
+if (handle?.setBlocking) handle.setBlocking(true);
+
+function progressBar(done: number, total: number, width = 30): string {
+	const ratio = total > 0 ? done / total : 0;
+	const filled = Math.round(ratio * width);
+	const bar = "█".repeat(filled) + "░".repeat(width - filled);
+	const pct = (ratio * 100).toFixed(1).padStart(5);
+	return `[${bar}] ${pct}% (${done}/${total})`;
+}
+
 async function main() {
 	console.log("=== Google Indexing Bot ===");
 
@@ -165,6 +177,10 @@ async function main() {
 	const urlsToCheck = urls.slice(0, INSPECTION_LIMIT);
 	const results: PageResult[] = [];
 
+	let runIndexed = 0;
+	let runNotIndexed = 0;
+	let runErrors = 0;
+
 	for (let i = 0; i < urlsToCheck.length; i++) {
 		const url = urlsToCheck[i];
 		const result = await checkIndexStatus(authClient, url);
@@ -174,11 +190,23 @@ async function main() {
 			`  [${icon}] (${i + 1}/${urlsToCheck.length}) ${shortUrl(url)}`,
 		);
 
+		if (result.isIndexed) runIndexed++;
+		else if (result.status.startsWith("Error")) runErrors++;
+		else runNotIndexed++;
+
 		results.push({
 			url,
 			indexStatus: result.status,
 			submitted: result.isIndexed ? "—" : "—",
 		});
+
+		// Progress bar every 10 URLs (and on the last one)
+		if ((i + 1) % 10 === 0 || i + 1 === urlsToCheck.length) {
+			console.log(
+				`  ${progressBar(i + 1, urlsToCheck.length)}  ` +
+					`\x1b[32m+${runIndexed}\x1b[0m \x1b[33m-${runNotIndexed}\x1b[0m \x1b[31m!${runErrors}\x1b[0m`,
+			);
+		}
 
 		await sleep(200);
 	}
@@ -212,17 +240,26 @@ async function main() {
 	let submitted = 0;
 	let failed = 0;
 
-	for (const entry of toSubmit) {
+	for (let i = 0; i < toSubmit.length; i++) {
+		const entry = toSubmit[i];
 		const success = await submitForIndexing(authClient, entry.url);
 		if (success) {
 			submitted++;
 			entry.submitted = "OK";
-			console.log(`  \x1b[32m[OK]\x1b[0m (${submitted + failed}/${toSubmit.length}) ${shortUrl(entry.url)}`);
+			console.log(`  \x1b[32m[OK]\x1b[0m (${i + 1}/${toSubmit.length}) ${shortUrl(entry.url)}`);
 		} else {
 			failed++;
 			entry.submitted = "FAILED";
-			console.log(`  \x1b[31m[FAIL]\x1b[0m (${submitted + failed}/${toSubmit.length}) ${shortUrl(entry.url)}`);
+			console.log(`  \x1b[31m[FAIL]\x1b[0m (${i + 1}/${toSubmit.length}) ${shortUrl(entry.url)}`);
 		}
+
+		if ((i + 1) % 10 === 0 || i + 1 === toSubmit.length) {
+			console.log(
+				`  ${progressBar(i + 1, toSubmit.length)}  ` +
+					`\x1b[32m✓${submitted}\x1b[0m \x1b[31m✗${failed}\x1b[0m`,
+			);
+		}
+
 		await sleep(200);
 	}
 

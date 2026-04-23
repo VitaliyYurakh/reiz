@@ -29,7 +29,6 @@ export type RouteKey =
   | "faq"
   | "insurance"
   | "invest"
-  | "partners"
   | "terms";
 
 const ROUTES: Record<RouteKey, string> = {
@@ -42,7 +41,6 @@ const ROUTES: Record<RouteKey, string> = {
   faq: "/faq",
   insurance: "/insurance",
   invest: "/invest",
-  partners: "/partners",
   terms: "/terms",
 };
 

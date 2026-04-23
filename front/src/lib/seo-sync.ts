@@ -59,7 +59,6 @@ export type PageKey =
   | "faqPage"
   | "insurancePage"
   | "investPage"
-  | "partnersPage"
   | "termsPage";
 
 const ROUTES: Record<PageKey, string> = {
@@ -72,7 +71,6 @@ const ROUTES: Record<PageKey, string> = {
   faqPage: "/faq",
   insurancePage: "/insurance",
   investPage: "/invest",
-  partnersPage: "/partners",
   termsPage: "/terms",
 };
 
