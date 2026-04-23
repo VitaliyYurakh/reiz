@@ -11,7 +11,7 @@
     "lint": "biome check",
     "format": "biome format --write --fix",
     "build:icons": "node scripts/build-icons.mjs",
-    "postinstall": "prisma generate --schema=prisma/schema.prisma"
+    "postinstall": "test -f prisma/schema.prisma && prisma generate --schema=prisma/schema.prisma || echo 'skip prisma generate (schema not present yet — handled by Dockerfile builder stage)'"
   },
   "dependencies": {
     "@fancyapps/ui": "^6.0.34",
