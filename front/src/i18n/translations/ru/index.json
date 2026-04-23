@@ -108,9 +108,9 @@
       },
       "catalog_list": {
         "badges": {
-          "withDeposit": "Полный залог",
-          "coverage50": "Сниженный залог 50%",
-          "coverage100": "Без залога",
+          "withDeposit": "С залогом",
+          "coverage50": "Покрытие 50%",
+          "coverage100": "Покрытие 100%",
           "available": "Доступно сейчас",
           "contact": "Недоступна"
         },
@@ -1788,11 +1788,11 @@
     "selectedDays": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
     "rentalCostTitle": "Стоимость аренды",
     "plans": {
-      "withDeposit": "Полный залог",
-      "coverage": "Сниженный залог на {percent}%",
-      "fullDeposit": "Полный залог",
-      "reducedDeposit": "Сниженный залог на {percent}%",
-      "zeroDeposit": "Без залога"
+      "withDeposit": "С залогом",
+      "coverage": "Покрытие {percent}%",
+      "fullDeposit": "С залогом",
+      "reducedDeposit": "Покрытие {percent}%",
+      "zeroDeposit": "Покрытие 100%"
     },
     "tariffs": {
       "exact": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
@@ -1898,11 +1898,11 @@
       "title": "Страхование",
       "infoTitle": "Страхование",
       "packages": {
-        "withDeposit": "Полный залог",
-        "coverage": "Сниженный залог на {percent}%",
-        "fullDeposit": "Полный залог",
-        "reducedDeposit": "Сниженный залог на {percent}%",
-        "zeroDeposit": "Без залога"
+        "withDeposit": "С залогом",
+        "coverage": "Покрытие {percent}%",
+        "fullDeposit": "С залогом",
+        "reducedDeposit": "Покрытие {percent}%",
+        "zeroDeposit": "Покрытие 100%"
       },
       "included": "Включено в стоимость",
       "depositReduction": "Залог уменьшен на {percent}%",
@@ -2898,7 +2898,7 @@
       "scratches": "Царапины на элементах кузова",
       "perElement": "/элемент",
       "smoking": "Прокуренный салон",
-      "coverageNote": "Снижение залога на 100% = без залога. Это не покрывает вашу ответственность при ДТП — для этого отдельная страховка."
+      "coverageNote": "При аренде авто с базовой страховкой, для снижения ответственности до 0, выбирайте полное покрытие (100%)."
     },
     "depositMultiplier": {
       "title": "Задаток увеличивается в {multiplier} раза, если",

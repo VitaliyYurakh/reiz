@@ -108,9 +108,9 @@
       },
       "catalog_list": {
         "badges": {
-          "withDeposit": "Pełna kaucja",
-          "coverage50": "Kaucja zmniejszona o 50%",
-          "coverage100": "Bez kaucji",
+          "withDeposit": "Z kaucją",
+          "coverage50": "Pokrycie 50%",
+          "coverage100": "Pokrycie 100%",
           "available": "Dostepny teraz",
           "contact": "Niedostępny"
         },
@@ -1787,11 +1787,11 @@
     "selectedDays": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
     "rentalCostTitle": "Koszt wynajmu",
     "plans": {
-      "withDeposit": "Pełna kaucja",
-      "coverage": "Kaucja zmniejszona o {percent}%",
-      "fullDeposit": "Pełna kaucja",
-      "reducedDeposit": "Kaucja zmniejszona o {percent}%",
-      "zeroDeposit": "Bez kaucji"
+      "withDeposit": "Z kaucją",
+      "coverage": "Pokrycie {percent}%",
+      "fullDeposit": "Z kaucją",
+      "reducedDeposit": "Pokrycie {percent}%",
+      "zeroDeposit": "Pokrycie 100%"
     },
     "tariffs": {
       "exact": "{count, plural, one {{count} dzień} few {{count} dni} many {{count} dni} other {{count} dni}}",
@@ -1897,11 +1897,11 @@
       "title": "Ubezpieczenie",
       "infoTitle": "Ubezpieczenie",
       "packages": {
-        "withDeposit": "Pełna kaucja",
-        "coverage": "Kaucja zmniejszona o {percent}%",
-        "fullDeposit": "Pełna kaucja",
-        "reducedDeposit": "Kaucja zmniejszona o {percent}%",
-        "zeroDeposit": "Bez kaucji"
+        "withDeposit": "Z kaucją",
+        "coverage": "Pokrycie {percent}%",
+        "fullDeposit": "Z kaucją",
+        "reducedDeposit": "Pokrycie {percent}%",
+        "zeroDeposit": "Pokrycie 100%"
       },
       "included": "W cenie",
       "depositReduction": "Kaucja obniżona o {percent}%",
@@ -2897,7 +2897,7 @@
       "scratches": "Rysy na elementach nadwozia",
       "perElement": "/element",
       "smoking": "Palenie w kabinie",
-      "coverageNote": "Zmniejszenie kaucji o 100% = brak kaucji. To NIE pokrywa Twojej odpowiedzialności w razie wypadku — wymagane jest osobne ubezpieczenie OC."
+      "coverageNote": "Przy wynajmie z podstawowym ubezpieczeniem, aby zredukować odpowiedzialność do 0, wybierz pełne pokrycie (100%)."
     },
     "depositMultiplier": {
       "title": "Kaucja zwiększa się {multiplier}x, jeśli",

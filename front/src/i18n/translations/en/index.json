@@ -108,9 +108,9 @@
       },
       "catalog_list": {
         "badges": {
-          "withDeposit": "Full deposit",
-          "coverage50": "50% deposit waived",
-          "coverage100": "No deposit",
+          "withDeposit": "With deposit",
+          "coverage50": "50% coverage",
+          "coverage100": "100% coverage",
           "available": "Available now",
           "contact": "Unavailable"
         },
@@ -1788,11 +1788,11 @@
     "selectedDays": "{count, plural, one {{count} day} other {{count} days}}",
     "rentalCostTitle": "Rental cost",
     "plans": {
-      "withDeposit": "Full deposit",
-      "coverage": "{percent}% deposit waived",
-      "fullDeposit": "Full deposit",
-      "reducedDeposit": "{percent}% deposit waived",
-      "zeroDeposit": "No deposit"
+      "withDeposit": "With deposit",
+      "coverage": "Coverage {percent}%",
+      "fullDeposit": "With deposit",
+      "reducedDeposit": "Coverage {percent}%",
+      "zeroDeposit": "Coverage 100%"
     },
     "tariffs": {
       "exact": "{count, plural, one {{count} day} other {{count} days}}",
@@ -1898,11 +1898,11 @@
       "title": "Insurance",
       "infoTitle": "Insurance",
       "packages": {
-        "withDeposit": "Full deposit",
-        "coverage": "{percent}% deposit waived",
-        "fullDeposit": "Full deposit",
-        "reducedDeposit": "{percent}% deposit waived",
-        "zeroDeposit": "No deposit"
+        "withDeposit": "With deposit",
+        "coverage": "Coverage {percent}%",
+        "fullDeposit": "With deposit",
+        "reducedDeposit": "Coverage {percent}%",
+        "zeroDeposit": "Coverage 100%"
       },
       "included": "Included in the price",
       "depositReduction": "Deposit reduced by {percent}%",
@@ -2898,7 +2898,7 @@
       "scratches": "Body scratches",
       "perElement": "/element",
       "smoking": "Smoking in the cabin",
-      "coverageNote": "100% deposit waiver = no deposit. This does NOT cover your liability in an accident — separate liability insurance is required for that."
+      "coverageNote": "With basic insurance, to reduce liability to 0, choose full coverage (100%)."
     },
     "depositMultiplier": {
       "title": "Deposit increases by {multiplier}x if",

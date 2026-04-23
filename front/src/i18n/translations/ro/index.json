@@ -108,9 +108,9 @@
       },
       "catalog_list": {
         "badges": {
-          "withDeposit": "Depozit complet",
-          "coverage50": "Depozit redus cu 50%",
-          "coverage100": "Fără depozit",
+          "withDeposit": "Cu depozit",
+          "coverage50": "Acoperire 50%",
+          "coverage100": "Acoperire 100%",
           "available": "Disponibil acum",
           "contact": "Indisponibil"
         },
@@ -1839,11 +1839,11 @@
     "selectedDays": "{count, plural, one {{count} zi} few {{count} zile} other {{count} zile}}",
     "rentalCostTitle": "Costul închirierii",
     "plans": {
-      "withDeposit": "Depozit complet",
-      "coverage": "Depozit redus cu {percent}%",
-      "fullDeposit": "Depozit complet",
-      "reducedDeposit": "Depozit redus cu {percent}%",
-      "zeroDeposit": "Fără depozit"
+      "withDeposit": "Cu depozit",
+      "coverage": "Acoperire {percent}%",
+      "fullDeposit": "Cu depozit",
+      "reducedDeposit": "Acoperire {percent}%",
+      "zeroDeposit": "Acoperire 100%"
     },
     "tariffs": {
       "exact": "{count, plural, one {{count} zi} few {{count} zile} other {{count} zile}}",
@@ -1949,11 +1949,11 @@
       "title": "Asigurare",
       "infoTitle": "Asigurare",
       "packages": {
-        "withDeposit": "Depozit complet",
-        "coverage": "Depozit redus cu {percent}%",
-        "fullDeposit": "Depozit complet",
-        "reducedDeposit": "Depozit redus cu {percent}%",
-        "zeroDeposit": "Fără depozit"
+        "withDeposit": "Cu depozit",
+        "coverage": "Acoperire {percent}%",
+        "fullDeposit": "Cu depozit",
+        "reducedDeposit": "Acoperire {percent}%",
+        "zeroDeposit": "Acoperire 100%"
       },
       "included": "Inclus în preț",
       "depositReduction": "Depozit redus cu {percent}%",
@@ -2949,7 +2949,7 @@
       "scratches": "Zgârieturi pe elementele caroseriei",
       "perElement": "/element",
       "smoking": "Fumat în salon",
-      "coverageNote": "Reducerea depozitului cu 100% = fără depozit. Aceasta NU acoperă răspunderea dvs. în caz de accident — este necesară o asigurare RCA separată."
+      "coverageNote": "La închirierea cu asigurare de bază, pentru a reduce răspunderea la 0, alegeți acoperire completă (100%)."
     },
     "depositMultiplier": {
       "title": "Depozitul crește de {multiplier}x dacă",

@@ -108,9 +108,9 @@
       },
       "catalog_list": {
         "badges": {
-          "withDeposit": "Повна застава",
-          "coverage50": "Знижена застава 50%",
-          "coverage100": "Без застави",
+          "withDeposit": "Зі заставою",
+          "coverage50": "Покриття 50%",
+          "coverage100": "Покриття 100%",
           "available": "Доступно зараз",
           "contact": "Недоступна"
         },
@@ -1814,11 +1814,11 @@
     "selectedDays": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
     "rentalCostTitle": "Вартість оренди",
     "plans": {
-      "withDeposit": "Повна застава",
-      "coverage": "Знижена застава на {percent}%",
-      "fullDeposit": "Повна застава",
-      "reducedDeposit": "Знижена застава на {percent}%",
-      "zeroDeposit": "Без застави"
+      "withDeposit": "З заставою",
+      "coverage": "Покриття {percent}%",
+      "fullDeposit": "З заставою",
+      "reducedDeposit": "Покриття {percent}%",
+      "zeroDeposit": "Покриття 100%"
     },
     "tariffs": {
       "exact": "{count, plural, one {{count} доба} few {{count} доби} many {{count} діб} other {{count} діб}}",
@@ -1924,11 +1924,11 @@
       "title": "Страхування",
       "infoTitle": "Страхування",
       "packages": {
-        "withDeposit": "Повна застава",
-        "coverage": "Знижена застава на {percent}%",
-        "fullDeposit": "Повна застава",
-        "reducedDeposit": "Знижена застава на {percent}%",
-        "zeroDeposit": "Без застави"
+        "withDeposit": "З заставою",
+        "coverage": "Покриття {percent}%",
+        "fullDeposit": "З заставою",
+        "reducedDeposit": "Покриття {percent}%",
+        "zeroDeposit": "Покриття 100%"
       },
       "included": "Включено у вартість",
       "depositReduction": "Застава зменшена на {percent}%",
@@ -2924,7 +2924,7 @@
       "scratches": "Подряпини на елементах кузова",
       "perElement": "/елемент",
       "smoking": "Прокурений салон",
-      "coverageNote": "Зниження застави на 100% = без застави. Це не покриває вашу відповідальність у разі ДТП — для цього є окреме страхування."
+      "coverageNote": "При оренді авто із базовим страхуванням, для зниження відповідальності до 0, обирайте повне покриття (100%)."
     },
     "depositMultiplier": {
       "title": "Завдаток збільшується у {multiplier} рази, якщо",
