@@ -108,9 +108,9 @@
       },
       "catalog_list": {
         "badges": {
-          "withDeposit": "With deposit",
-          "coverage50": "50% coverage",
-          "coverage100": "100% coverage",
+          "withDeposit": "Full deposit",
+          "coverage50": "50% deposit waived",
+          "coverage100": "No deposit",
           "available": "Available now",
           "contact": "Unavailable"
         },
@@ -1788,8 +1788,11 @@
     "selectedDays": "{count, plural, one {{count} day} other {{count} days}}",
     "rentalCostTitle": "Rental cost",
     "plans": {
-      "withDeposit": "With deposit",
-      "coverage": "Coverage {percent}%"
+      "withDeposit": "Full deposit",
+      "coverage": "{percent}% deposit waived",
+      "fullDeposit": "Full deposit",
+      "reducedDeposit": "{percent}% deposit waived",
+      "zeroDeposit": "No deposit"
     },
     "tariffs": {
       "exact": "{count, plural, one {{count} day} other {{count} days}}",
@@ -1895,8 +1898,11 @@
       "title": "Insurance",
       "infoTitle": "Insurance",
       "packages": {
-        "withDeposit": "With deposit",
-        "coverage": "Coverage {percent}%"
+        "withDeposit": "Full deposit",
+        "coverage": "{percent}% deposit waived",
+        "fullDeposit": "Full deposit",
+        "reducedDeposit": "{percent}% deposit waived",
+        "zeroDeposit": "No deposit"
       },
       "included": "Included in the price",
       "depositReduction": "Deposit reduced by {percent}%",
@@ -2892,7 +2898,7 @@
       "scratches": "Body scratches",
       "perElement": "/element",
       "smoking": "Smoking in the cabin",
-      "coverageNote": "With basic insurance, to reduce liability to 0, choose full coverage (100%)."
+      "coverageNote": "100% deposit waiver = no deposit. This does NOT cover your liability in an accident — separate liability insurance is required for that."
     },
     "depositMultiplier": {
       "title": "Deposit increases by {multiplier}x if",
@@ -2955,6 +2961,7 @@
       "profile": "Profile",
       "bookings": "Bookings",
       "history": "Booking History",
+      "complaints": "Complaints",
       "favorites": "Favorites",
       "notifications": "Notifications",
       "privacy": "Privacy",
@@ -3033,6 +3040,8 @@
       "hide_details": "Hide details",
       "paid": "Paid",
       "per_day": "day",
+      "rebook": "Book again",
+      "view_inspection": "View inspections",
       "request_cancel": "Request cancellation",
       "cancel_reason_placeholder": "Reason for cancellation (optional)",
       "send_request": "Send request",

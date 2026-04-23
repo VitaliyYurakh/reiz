@@ -17,6 +17,7 @@ import { BASE_URL } from '@/config/environment';
 import { IosSelect } from '@/components/admin/IosSelect';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { fmtDate, fmtDateTime, fmtMoney } from '@/app/admin/lib/format';
+import { PartnerBadge } from '@/components/admin/PartnerBadge';
 
 /* ── Types ── */
 
@@ -472,7 +473,13 @@ export default function ReservationDetailPage() {
                         <p className="text-base font-semibold text-foreground">
                             <Link href={`/admin/clients/${r.client.id}`} className="hover:underline">{clientName}</Link>
                         </p>
-                        {r.client.phone && <p className="text-sm text-muted-foreground">{r.client.phone}</p>}
+                        {r.client.phone && (
+                            <p className="text-sm text-muted-foreground">
+                                <a href={`tel:${r.client.phone}`} className="hover:text-primary hover:underline">
+                                    {r.client.phone}
+                                </a>
+                            </p>
+                        )}
                         {r.client.email && <p className="text-sm text-muted-foreground">{r.client.email}</p>}
                     </div>
                 </div>
@@ -486,7 +493,10 @@ export default function ReservationDetailPage() {
                         {carThumb && <img src={carThumb} alt={carName} className="h-16 w-24 rounded-md object-cover" />}
                         <div>
                             <p className="text-base font-semibold text-foreground">{carName}</p>
-                            {r.car?.plateNumber && <p className="text-sm text-muted-foreground">{r.car.plateNumber}</p>}
+                            <div className="mt-0.5 flex items-center gap-2 flex-wrap">
+                                {r.car?.plateNumber && <span className="text-sm text-muted-foreground">{r.car.plateNumber}</span>}
+                                <PartnerBadge partner={(r.car as any)?.partner} />
+                            </div>
                         </div>
                     </div>
                 </div>

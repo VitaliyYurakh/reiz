@@ -28,5 +28,7 @@ router.post('/:rentalId/fine', auth, requirePermission('rentals', 'full'), fineC
 router.patch('/:rentalId/fine/:fineId', auth, requirePermission('rentals', 'full'), fineController.update);
 router.delete('/:rentalId/fine/:fineId', auth, requirePermission('rentals', 'full'), fineController.delete);
 router.post('/:rentalId/fine/:fineId/pay', auth, requirePermission('rentals', 'full'), fineController.markPaid);
+router.post('/:rentalId/fine/:fineId/attachment', auth, requirePermission('rentals', 'full'), multer, fineController.addAttachment);
+router.delete('/:rentalId/fine/:fineId/attachment', auth, requirePermission('rentals', 'full'), fineController.removeAttachment);
 
 export default router;

@@ -26,4 +26,12 @@ router.put('/notifications', customerController.updateNotifications);
 router.get('/export', customerController.exportData);
 router.delete('/account', customerController.deleteAccount);
 
+// Complaints (customer-side)
+router.get('/complaint', customerController.listComplaints);
+router.get('/complaint/:id', customerController.getComplaint);
+router.post('/complaint/:id/message', customerController.addComplaintMessage);
+
+// Inspection gallery for a customer's own rental
+router.get('/rental/:id/inspection', customerController.getRentalInspections);
+
 export default router;

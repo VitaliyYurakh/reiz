@@ -4,19 +4,20 @@ import { useEffect, useState, useCallback } from 'react';
 import { adminApiClient } from '@/lib/api/admin';
 import { toastError } from '@/lib/toast';
 import { logError } from '@/lib/log';
-import { cn } from '@/lib/cn';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
+import { useAdminTheme } from '@/context/AdminThemeContext';
 import {
     ArrowLeft,
     AlertTriangle,
     CheckCircle,
     Clock,
+    Receipt,
 } from 'lucide-react';
 
 import type { Rental, TabKey } from './components/rental-detail-types';
-import { STATUS_CLASS_MAP, TAB_KEYS, TAB_ICONS } from './components/rental-detail-constants';
+import { TAB_KEYS, TAB_ICONS } from './components/rental-detail-constants';
 import { LoadingSkeleton } from './components/LoadingSkeleton';
 import { CompleteModal } from './components/CompleteModal';
 import { ExtendModal } from './components/ExtendModal';
@@ -29,8 +30,9 @@ import { DocumentsTab } from './components/DocumentsTab';
 
 export default function RentalDetailPage() {
     const params = useParams();
-    const router = useRouter();
     const { t } = useAdminLocale();
+    const { theme, H } = useAdminTheme();
+    const isDark = theme === 'dark';
     const id = params.id as string;
 
     const STATUS_LABEL: Record<string, string> = {
@@ -184,99 +186,118 @@ export default function RentalDetailPage() {
         );
     }
 
-    const stClass = STATUS_CLASS_MAP[rental.status] || 'bg-gray-100 text-gray-800 dark:bg-gray-500/15 dark:text-gray-300';
     const stLabel = STATUS_LABEL[rental.status] || rental.status;
     const isActive = rental.status === 'active';
 
+    const iconBoxColor =
+        rental.status === 'active' ? 'h-icon-box-green'
+            : rental.status === 'completed' ? 'h-icon-box-cyan'
+                : rental.status === 'cancelled' ? 'h-icon-box-gray'
+                    : 'h-icon-box-cyan';
+
+    const statusBadgeBg =
+        rental.status === 'active' ? '#4CAF50'
+            : rental.status === 'completed' ? '#42A5F5'
+                : rental.status === 'cancelled' ? '#90A4AE'
+                    : '#4CAF50';
+
     return (
         <div>
-            {/* Header */}
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-center gap-4">
-                    <Link
-                        href="/admin/rentals"
-                        className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary/60 transition-colors hover:bg-secondary"
-                    >
-                        <ArrowLeft className="h-4 w-4" />
-                    </Link>
-                    <div>
-                        <h1 className="text-2xl font-bold text-foreground">
-                            {t('rentalDetail.title', { id: String(rental.id) })}
-                        </h1>
-                        {rental.contractNumber && (
-                            <p className="mt-0.5 text-sm font-mono text-muted-foreground">
-                                {rental.contractNumber}
-                            </p>
-                        )}
+            {/* -- Page header (matches list page style) -- */}
+            <div
+                className="mb-6 rounded-[20px] px-7 py-5"
+                style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
+            >
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex min-w-0 items-center gap-3.5">
+                        <Link
+                            href="/admin/rentals"
+                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors"
+                            style={{ backgroundColor: isDark ? '#1E293B' : '#F7F9FB' }}
+                            aria-label={t('rentalDetail.backToList') || 'Back'}
+                        >
+                            <ArrowLeft className="h-4 w-4" />
+                        </Link>
+                        <div className={`h-icon-box ${iconBoxColor}`}>
+                            <Receipt size={24} />
+                        </div>
+                        <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-3">
+                                <h1 className="h-title">
+                                    {t('rentalDetail.title', { id: String(rental.id) })}
+                                </h1>
+                                <span
+                                    className="inline-flex h-6 items-center rounded-full px-2.5 text-[11px] font-bold text-white"
+                                    style={{ backgroundColor: statusBadgeBg }}
+                                >
+                                    {stLabel}
+                                </span>
+                            </div>
+                            {rental.contractNumber && (
+                                <span className="h-subtitle font-mono">{rental.contractNumber}</span>
+                            )}
+                        </div>
                     </div>
-                    <span
-                        className={cn(
-                            'inline-block rounded-full px-3 py-1 text-xs font-medium',
-                            stClass,
-                        )}
-                    >
-                        {stLabel}
-                    </span>
+
+                    {/* Action buttons */}
+                    {isActive && (
+                        <div className="flex items-center gap-2">
+                            <button
+                                type="button"
+                                onClick={() => setShowCompleteModal(true)}
+                                className="ios-btn ios-btn-primary text-sm"
+                            >
+                                <CheckCircle className="h-4 w-4" />
+                                {t('rentalDetail.complete')}
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setShowExtendModal(true)}
+                                className="ios-btn ios-btn-warning text-sm"
+                            >
+                                <Clock className="h-4 w-4" />
+                                {t('rentalDetail.extend')}
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setShowCancelModal(true)}
+                                className="ios-btn ios-btn-destructive text-sm"
+                            >
+                                <AlertTriangle className="h-4 w-4" />
+                                {t('common.cancel')}
+                            </button>
+                        </div>
+                    )}
                 </div>
 
-                {/* Action buttons */}
-                {isActive && (
-                    <div className="flex items-center gap-2">
-                        <button
-                            type="button"
-                            onClick={() => setShowCompleteModal(true)}
-                            className="ios-btn ios-btn-primary text-sm"
-                        >
-                            <CheckCircle className="h-4 w-4" />
-                            {t('rentalDetail.complete')}
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => setShowExtendModal(true)}
-                            className="ios-btn ios-btn-warning text-sm"
-                        >
-                            <Clock className="h-4 w-4" />
-                            {t('rentalDetail.extend')}
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => setShowCancelModal(true)}
-                            className="ios-btn ios-btn-destructive text-sm"
-                        >
-                            <AlertTriangle className="h-4 w-4" />
-                            {t('common.cancel')}
-                        </button>
-                    </div>
-                )}
-            </div>
-
-            {/* Tabs */}
-            <div className="h-tabs mt-6">
-                {TAB_KEYS.map((tabKey) => {
-                    const TabIcon = TAB_ICONS[tabKey];
-                    const isActiveTab = activeTab === tabKey;
-                    const unpaidFines = tabKey === 'fines' ? rental.fines.filter((f) => !f.isPaid).length : 0;
-                    return (
-                        <button
-                            key={tabKey}
-                            type="button"
-                            onClick={() => setActiveTab(tabKey)}
-                            className={`h-tab ${isActiveTab ? 'h-tab-active' : ''}`}
-                        >
-                            <TabIcon size={16} />
-                            {TAB_LABELS[tabKey]}
-                            {unpaidFines > 0 && (
-                                <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
-                                    {unpaidFines}
-                                </span>
-                            )}
-                        </button>
-                    );
-                })}
+                {/* Tabs inside the header card */}
+                <div className="h-tabs mt-5">
+                    {TAB_KEYS.map((tabKey) => {
+                        const TabIcon = TAB_ICONS[tabKey];
+                        const isActiveTab = activeTab === tabKey;
+                        const unpaidFines = tabKey === 'fines' ? rental.fines.filter((f) => !f.isPaid).length : 0;
+                        return (
+                            <button
+                                key={tabKey}
+                                type="button"
+                                onClick={() => setActiveTab(tabKey)}
+                                className={`h-tab ${isActiveTab ? 'h-tab-active' : ''}`}
+                            >
+                                <TabIcon size={16} />
+                                {TAB_LABELS[tabKey]}
+                                {unpaidFines > 0 && (
+                                    <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
+                                        {unpaidFines}
+                                    </span>
+                                )}
+                            </button>
+                        );
+                    })}
+                </div>
             </div>
 
             {/* Tab content */}
-            <div className="mt-6">
+            <div>
                 {activeTab === 'overview' && <OverviewTab rental={rental} />}
                 {activeTab === 'inspections' && (
                     <InspectionsTab

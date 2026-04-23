@@ -13,8 +13,11 @@ import {
   Search,
   Receipt,
   Inbox,
+  Plus,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { PartnerBadge } from '@/components/admin/PartnerBadge';
 
 interface Rental {
   id: number;
@@ -25,7 +28,13 @@ interface Rental {
   actualReturnDate: string | null;
   createdAt: string;
   client: { id: number; firstName: string; lastName: string; phone: string } | null;
-  car: { id: number; brand: string; model: string; plateNumber: string } | null;
+  car: {
+    id: number;
+    brand: string;
+    model: string;
+    plateNumber: string;
+    partner?: { id: number; fullName: string; companyName: string | null } | null;
+  } | null;
 }
 
 function getStatusStyles(isDark: boolean): Record<string, { bg: string; text: string; dot: string }> {
@@ -113,7 +122,7 @@ export default function RentalsPage() {
         className="mb-6 rounded-[20px] px-7 py-5"
         style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-3.5">
             <div className="h-icon-box h-icon-box-green">
               <Receipt size={24} />
@@ -133,6 +142,14 @@ export default function RentalsPage() {
               <span className="h-subtitle">{t('rentals.subtitle')}</span>
             </div>
           </div>
+
+          <Link
+            href="/admin/rentals/new"
+            className="ios-btn ios-btn-primary text-sm"
+          >
+            <Plus className="h-4 w-4" />
+            Нова оренда
+          </Link>
         </div>
 
         {/* Status tabs + search */}
@@ -276,8 +293,11 @@ export default function RentalsPage() {
                       <td className="px-4 py-2.5 text-[13px] font-medium truncate max-w-[160px]" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{name}</td>
                       <td className="px-4 py-2.5 text-[12px] whitespace-nowrap" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{phone}</td>
                       <td className="px-4 py-2.5 whitespace-nowrap">
-                        <span className="text-[13px]" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{carName}</span>
-                        {plate && <span className="ml-1.5 text-[11px]" style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{plate}</span>}
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className="text-[13px]" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{carName}</span>
+                          {plate && <span className="text-[11px]" style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{plate}</span>}
+                          <PartnerBadge partner={r.car?.partner} />
+                        </div>
                       </td>
                       <td className="px-4 py-2.5 text-[12px] whitespace-nowrap" style={{ color: isDark ? '#90A4AE' : '#607D8B' }}>
                         {fmtDate(r.pickupDate)} → {fmtDate(r.returnDate)}

@@ -12,11 +12,13 @@ import {
     X,
     ImagePlus,
     CheckCircle,
+    AlertTriangle,
 } from 'lucide-react';
 import type { Inspection } from './rental-detail-types';
 import { INSPECTION_TYPE_CLASS } from './rental-detail-constants';
 import { fmtDateTime } from './rental-detail-helpers';
 import { CreateInspectionModal } from './CreateInspectionModal';
+import { CreateFineModal } from './CreateFineModal';
 import { UploadPhotoModal } from './UploadPhotoModal';
 
 export function InspectionsTab({
@@ -34,6 +36,7 @@ export function InspectionsTab({
     const [uploadTarget, setUploadTarget] = useState<number | null>(null);
     const [completing, setCompleting] = useState<number | null>(null);
     const [deletingPhoto, setDeletingPhoto] = useState<number | null>(null);
+    const [fineFromInspection, setFineFromInspection] = useState<{ id: number; type: 'PICKUP' | 'RETURN' } | null>(null);
 
     const INSPECTION_TYPE_LABEL: Record<string, string> = {
         PICKUP: t('rentalDetail.inspectionPickup'),
@@ -94,6 +97,9 @@ export function InspectionsTab({
                     const typeLabel = INSPECTION_TYPE_LABEL[insp.type] || insp.type;
                     const damagesCount = Array.isArray(insp.damages) ? insp.damages.length : 0;
                     const isCompleted = !!insp.completedAt;
+                    const requiredPhotos = insp.type === 'RETURN' ? 8 : 4;
+                    const photoCount = insp.photos.length;
+                    const hasEnoughPhotos = photoCount >= requiredPhotos;
 
                     return (
                         <div key={insp.id} className="ios-card">
@@ -121,6 +127,15 @@ export function InspectionsTab({
                                 <div className="flex items-center gap-2">
                                     {!isCompleted && (
                                         <>
+                                            <span
+                                                className={cn(
+                                                    'text-xs font-medium tabular-nums',
+                                                    hasEnoughPhotos ? 'text-green-600 dark:text-green-400' : 'text-amber-600 dark:text-amber-400',
+                                                )}
+                                                title={hasEnoughPhotos ? 'Достатньо фото для завершення' : `Потрібно ще ${requiredPhotos - photoCount} фото`}
+                                            >
+                                                {photoCount}/{requiredPhotos} фото
+                                            </span>
                                             <button
                                                 type="button"
                                                 onClick={() => setUploadTarget(insp.id)}
@@ -132,7 +147,8 @@ export function InspectionsTab({
                                             <button
                                                 type="button"
                                                 onClick={() => handleComplete(insp.id)}
-                                                disabled={completing === insp.id}
+                                                disabled={completing === insp.id || !hasEnoughPhotos}
+                                                title={!hasEnoughPhotos ? `Мінімум ${requiredPhotos} фото потрібно для завершення ${insp.type}-огляду` : undefined}
                                                 className="ios-btn ios-btn-primary text-xs !h-8 !px-3"
                                             >
                                                 <CheckCircle className="h-3.5 w-3.5" />
@@ -225,7 +241,16 @@ export function InspectionsTab({
                             )}
 
                             {isCompleted && (
-                                <div className="mt-3 flex justify-end">
+                                <div className="mt-3 flex justify-end gap-2">
+                                    <button
+                                        type="button"
+                                        onClick={() => setFineFromInspection({ id: insp.id, type: insp.type })}
+                                        className="ios-btn ios-btn-warning text-xs !h-8 !px-3"
+                                        title="Створити штраф, прив'язаний до цього огляду"
+                                    >
+                                        <AlertTriangle className="h-3.5 w-3.5" />
+                                        Створити штраф
+                                    </button>
                                     <button
                                         type="button"
                                         onClick={() => setUploadTarget(insp.id)}
@@ -258,6 +283,18 @@ export function InspectionsTab({
                     onClose={() => setUploadTarget(null)}
                     onUploaded={() => {
                         setUploadTarget(null);
+                        onRefresh();
+                    }}
+                />
+            )}
+            {fineFromInspection && (
+                <CreateFineModal
+                    rentalId={rentalId}
+                    presetInspectionId={fineFromInspection.id}
+                    presetType={fineFromInspection.type === 'RETURN' ? 'DAMAGE' : 'OTHER'}
+                    onClose={() => setFineFromInspection(null)}
+                    onCreated={() => {
+                        setFineFromInspection(null);
                         onRefresh();
                     }}
                 />

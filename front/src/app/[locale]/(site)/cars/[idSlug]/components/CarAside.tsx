@@ -186,7 +186,7 @@ export default function CarAside({ car }: { car: Car }) {
   const discountPercent = car.discount ?? 0;
 
   const pricing = useMemo(() => {
-    if (!activeTariff) return { dailyBeforeDiscount: 0, daily: 0, deposit: 0, total: 0, club: 0, hasDiscount: false };
+    if (!activeTariff) return { dailyBeforeDiscount: 0, daily: 0, deposit: 0, total: 0, hasDiscount: false };
     const baseDaily = activeTariff.dailyPrice;
     const is30Plus = totalDays >= 29;
     const pFixed30 = selectedPlan?.priceFixed30 ?? null;
@@ -209,7 +209,7 @@ export default function CarAside({ car }: { car: Car }) {
     );
     const deposit = selectedPlan?.depositFixed != null
       ? selectedPlan.depositFixed
-      : Math.max((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100), 120);
+      : Math.round((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100));
     const total = is30Plus && pFixed30 != null
       ? Math.round((baseDaily * totalDays + coverageSurcharge) * (1 - discountPercent / 100))
       : daily * totalDays;
@@ -218,7 +218,6 @@ export default function CarAside({ car }: { car: Car }) {
       daily,
       deposit,
       total,
-      club: total * 0.9,
       hasDiscount: discountPercent > 0,
     };
   }, [
@@ -235,7 +234,6 @@ export default function CarAside({ car }: { car: Car }) {
   const hasDiscount = pricing.hasDiscount;
   const depositAmount = pricing.deposit;
   const totalPrice = pricing.total;
-  const clubPrice = pricing.club;
 
   const dateRangeLabel = useMemo(
     () =>
@@ -310,8 +308,10 @@ export default function CarAside({ car }: { car: Car }) {
               />
               <span className="radio-checkbox__content">
                 {el.depositPercent === 0
-                  ? t("plans.withDeposit")
-                  : t("plans.coverage", { percent: el.depositPercent })}
+                  ? t("plans.fullDeposit")
+                  : el.depositPercent >= 100
+                    ? t("plans.zeroDeposit")
+                    : t("plans.reducedDeposit", { percent: el.depositPercent })}
               </span>
             </label>
           ))}

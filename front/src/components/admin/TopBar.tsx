@@ -179,7 +179,7 @@ export function TopBar({ title = 'Dashboard' }: TopBarProps) {
           fontSize: '18px',
           lineHeight: '24px',
           letterSpacing: '-0.01em',
-          color: TH.navy,
+          color: isDark ? '#FFFFFF' : '#000000',
           whiteSpace: 'nowrap',
         }}
       >

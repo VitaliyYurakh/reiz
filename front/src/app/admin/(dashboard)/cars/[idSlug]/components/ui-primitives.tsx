@@ -481,14 +481,21 @@ export function HModalOverlay({ onClose, children }: { onClose: () => void; chil
         inset: 0,
         zIndex: 50,
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-start', // scroll tall modals from top instead of clipping
         justifyContent: 'center',
         background: 'rgba(27, 37, 89, 0.4)',
         backdropFilter: 'blur(8px)',
+        padding: '24px 16px',
+        overflowY: 'auto',
       }}
       onClick={onClose}
     >
-      <div onClick={(e) => e.stopPropagation()}>{children}</div>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{ width: '100%', maxWidth: 760, margin: 'auto' }}
+      >
+        {children}
+      </div>
     </div>
   );
 }

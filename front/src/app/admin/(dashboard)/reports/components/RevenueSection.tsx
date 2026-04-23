@@ -255,69 +255,79 @@ export function RevenueSection({
                     gap: 2,
                     minHeight: 200,
                     overflowX: 'auto',
-                    paddingBottom: 30,
+                    paddingBottom: 8,
                   }}
                 >
-                  {revenue.daily.map((d) => (
-                    <div
-                      key={d.date}
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        flex: 1,
-                        minWidth: 24,
-                        position: 'relative',
-                      }}
-                      className="group"
-                    >
+                  {revenue.daily.map((d, i, arr) => {
+                    // Pick an even, predictable stride so every visible label sits
+                    // on the same weekday-like cadence (1/2/3/7-day steps).
+                    const n = arr.length;
+                    let labelStride = 1;
+                    if (n > 60) labelStride = 7;
+                    else if (n > 30) labelStride = 3;
+                    else if (n > 14) labelStride = 2;
+                    const showLabel = i % labelStride === 0 || i === arr.length - 1;
+                    return (
                       <div
+                        key={d.date}
                         style={{
                           display: 'flex',
-                          flexDirection: 'column-reverse',
-                          width: '100%',
-                          gap: 1,
-                          height: 180,
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          flex: 1,
+                          minWidth: 8,
+                          position: 'relative',
                         }}
+                        className="group"
                       >
                         <div
                           style={{
+                            display: 'flex',
+                            flexDirection: 'column-reverse',
                             width: '100%',
-                            borderRadius: '4px 4px 0 0',
-                            background: `linear-gradient(180deg, ${H.green}cc, ${H.green})`,
-                            height: `${(d.income / maxRevenue) * 100}%`,
-                            minHeight: d.income > 0 ? 2 : 0,
-                            transition: 'height 0.4s ease',
+                            gap: 1,
+                            height: 180,
                           }}
-                          title={`${t('reports.incomeLabel')}: ${formatMoney(d.income)}`}
-                        />
-                        <div
+                        >
+                          <div
+                            style={{
+                              width: '100%',
+                              borderRadius: '4px 4px 0 0',
+                              background: `linear-gradient(180deg, ${H.green}cc, ${H.green})`,
+                              height: `${(d.income / maxRevenue) * 100}%`,
+                              minHeight: d.income > 0 ? 2 : 0,
+                              transition: 'height 0.4s ease',
+                            }}
+                            title={`${d.date.slice(5)} · ${t('reports.incomeLabel')}: ${formatMoney(d.income)}`}
+                          />
+                          <div
+                            style={{
+                              width: '100%',
+                              borderRadius: '4px 4px 0 0',
+                              background: `linear-gradient(180deg, ${H.red}cc, ${H.red})`,
+                              height: `${(d.expense / maxRevenue) * 100}%`,
+                              minHeight: d.expense > 0 ? 2 : 0,
+                              transition: 'height 0.4s ease',
+                            }}
+                            title={`${d.date.slice(5)} · ${t('reports.expenseLabel')}: ${formatMoney(d.expense)}`}
+                          />
+                        </div>
+                        <span
                           style={{
-                            width: '100%',
-                            borderRadius: '4px 4px 0 0',
-                            background: `linear-gradient(180deg, ${H.red}cc, ${H.red})`,
-                            height: `${(d.expense / maxRevenue) * 100}%`,
-                            minHeight: d.expense > 0 ? 2 : 0,
-                            transition: 'height 0.4s ease',
+                            marginTop: 6,
+                            fontSize: 11,
+                            color: H.gray,
+                            whiteSpace: 'nowrap',
+                            fontWeight: 500,
+                            opacity: showLabel ? 1 : 0,
+                            pointerEvents: 'none',
                           }}
-                          title={`${t('reports.expenseLabel')}: ${formatMoney(d.expense)}`}
-                        />
+                        >
+                          {d.date.slice(5)}
+                        </span>
                       </div>
-                      <span
-                        style={{
-                          marginTop: 4,
-                          fontSize: 10,
-                          color: H.gray,
-                          transform: 'rotate(-45deg)',
-                          transformOrigin: 'top left',
-                          whiteSpace: 'nowrap',
-                          fontWeight: 500,
-                        }}
-                      >
-                        {d.date.slice(5)}
-                      </span>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
                 {/* Legend */}
                 <div

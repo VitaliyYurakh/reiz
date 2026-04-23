@@ -141,7 +141,7 @@ export function AddOnsSection({
             margin: 0,
           }}
         >
-          Доп. услуги
+          Дод. послуги
         </h2>
         <button
           type="button"
@@ -154,11 +154,11 @@ export function AddOnsSection({
         >
           {showCreate ? (
             <>
-              <X style={{ width: 15, height: 15 }} /> Отмена
+              <X style={{ width: 15, height: 15 }} /> Скасувати
             </>
           ) : (
             <>
-              <Plus style={{ width: 15, height: 15 }} /> Добавить
+              <Plus style={{ width: 15, height: 15 }} /> Додати
             </>
           )}
         </button>
@@ -184,7 +184,7 @@ export function AddOnsSection({
               marginBottom: 20,
             }}
           >
-            Новая доп. услуга
+            Нова дод. послуга
           </h3>
           <div
             style={{
@@ -194,14 +194,14 @@ export function AddOnsSection({
             }}
           >
             <div>
-              <HLabel>Название</HLabel>
+              <HLabel>Назва</HLabel>
               <HInput
                 type="text"
                 value={createForm.name}
                 onChange={(e) =>
                   setCreateForm({ ...createForm, name: e.target.value })
                 }
-                placeholder="Название услуги"
+                placeholder="Назва послуги"
               />
             </div>
             <div>
@@ -220,7 +220,7 @@ export function AddOnsSection({
               />
             </div>
             <div>
-              <HLabel>Цена</HLabel>
+              <HLabel>Ціна</HLabel>
               <HInput
                 type="number"
                 value={createForm.unitPriceMinor}
@@ -272,7 +272,7 @@ export function AddOnsSection({
               className="h-btn h-btn-primary h-btn-sm"
               style={{ borderRadius: 49 }}
             >
-              {creating ? 'Сохранение...' : 'Создать'}
+              {creating ? 'Збереження…' : 'Створити'}
             </button>
           </div>
         </div>
@@ -297,7 +297,7 @@ export function AddOnsSection({
         >
           <thead>
             <tr style={{ borderBottom: `1px solid ${H.grayLight}` }}>
-              {['#', 'Название', 'Режим', 'Цена', 'Статус', ''].map(
+              {['#', 'Назва', 'Режим', 'Ціна', 'Статус', ''].map(
                 (h, i) => (
                   <th
                     key={i}
@@ -373,7 +373,7 @@ export function AddOnsSection({
                         margin: 0,
                       }}
                     >
-                      Доп. услуг не найдено
+                      Дод. послуг не знайдено
                     </p>
                   </div>
                 </td>
@@ -478,13 +478,13 @@ export function AddOnsSection({
                           icon={Check}
                           onClick={() => handleSave(ao.id)}
                           disabled={saving}
-                          title="Сохранить"
+                          title="Зберегти"
                           variant="success"
                         />
                         <ActionButton
                           icon={X}
                           onClick={cancelEdit}
-                          title="Отмена"
+                          title="Скасувати"
                         />
                       </div>
                     </td>
@@ -562,12 +562,12 @@ export function AddOnsSection({
                         <ActionButton
                           icon={Pencil}
                           onClick={() => startEdit(ao)}
-                          title="Редактировать"
+                          title="Редагувати"
                         />
                         <ActionButton
                           icon={Trash2}
                           onClick={() => handleDelete(ao.id)}
-                          title="Удалить"
+                          title="Видалити"
                           variant="danger"
                         />
                       </div>

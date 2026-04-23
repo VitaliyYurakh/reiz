@@ -55,18 +55,28 @@ class RentalRequestController {
             return res.status(StatusCodes.OK).json(result);
         } catch (error) {
             const msg = error.message || 'Unknown error';
-            if (
+            // Any "business-rule" error from the service is plain Error with a
+            // readable message — pass it through as 400 so the UI can show it.
+            // Technical errors (Prisma crashes, null refs) fall through to 500.
+            const isBusinessError =
                 msg.includes('зайняте') ||
                 msg.includes('пізніше') ||
                 msg.includes('not found') ||
-                msg.includes('already approved')
-            ) {
+                msg.includes('already approved') ||
+                msg.includes('Cannot approve') ||
+                msg.includes('expected new') ||
+                msg.includes('status') ||
+                msg.includes('Дата');
+            if (isBusinessError) {
                 logger.warn({msg, id: req.params.id}, 'approve rental request validation error');
                 return res.status(StatusCodes.BAD_REQUEST).json({msg});
             }
 
             logger.error({err: error, stack: error.stack}, 'approve rental request failed');
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
+            // Include actual msg in dev so staff can actually debug — filtering
+            // only hid the real cause. If you want to hide internals in prod,
+            // swap to `'Internal server error'` behind a NODE_ENV check.
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: `Internal: ${msg}`});
         }
     }
 

@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-import { Car } from 'lucide-react';
 import { getFleetUtilization, getSegments, type FleetUtilizationData } from '@/lib/api/admin';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
@@ -31,7 +30,6 @@ export function FleetUtilizationChart() {
   const [segments, setSegments] = useState<SegmentOption[]>([]);
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
 
-  // Load segments once
   useEffect(() => {
     getSegments()
       .then((segs) => setSegments(segs.map((s: any) => ({ id: s.id, name: s.name }))))
@@ -58,24 +56,19 @@ export function FleetUtilizationChart() {
   ];
   const topCars = data?.cars.slice(0, 5) ?? [];
 
-  function handleSegment(id: number | null) {
-    setActiveSegment(id);
-  }
+  const accentColor = isDark ? '#E5E7EB' : '#1F2937';
+  const trackColor = isDark ? '#2D3748' : '#E5E5EA';
 
   return (
-    <div className="ios-card !py-3 flex h-full flex-col">
-      <p className="mb-2 text-sm font-semibold text-card-foreground">{t('dashboard.fleetTitle')}</p>
+    <div className="ios-card flex h-full flex-col">
+      <p className="text-sm font-semibold text-foreground">{t('dashboard.fleetTitle')}</p>
 
-      {/* Segment filter — segmented control */}
-      <div
-        className="ios-segmented mb-2"
-        style={{ display: 'flex', width: '100%' }}
-      >
+      <div className="ios-segmented mt-3" style={{ display: 'flex', width: '100%' }}>
         {[{ id: null, name: t('dashboard.allSegments') }, ...segments].map((seg) => (
           <button
             key={seg.id ?? 'all'}
             type="button"
-            onClick={() => handleSegment(seg.id)}
+            onClick={() => setActiveSegment(seg.id)}
             className={`ios-segment ios-segment-fill ${activeSegment === seg.id ? 'ios-segment-active' : ''}`}
           >
             {seg.name}
@@ -83,65 +76,61 @@ export function FleetUtilizationChart() {
         ))}
       </div>
 
-      {loading ? (
-        <div className="flex flex-1 items-center justify-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-muted border-t-primary" />
-        </div>
-      ) : (
-        <>
-          {/* Donut */}
-          <div className="relative mx-auto h-[130px] w-[130px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={pieData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={40}
-                  outerRadius={56}
-                  startAngle={90}
-                  endAngle={-270}
-                  dataKey="value"
-                  strokeWidth={0}
-                >
-                  <Cell fill="#26C6DA" />
-                  <Cell fill={isDark ? '#2D3748' : '#E5E5EA'} />
-                </Pie>
-              </PieChart>
-            </ResponsiveContainer>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-xl font-bold text-card-foreground">{utilization}%</span>
-              <span className="text-[11px] text-muted-foreground">{t('dashboard.utilization')}</span>
-            </div>
+      {/* Fixed-height body: stops the card from jumping between segment tabs */}
+      <div className="relative mt-4 min-h-[320px]">
+        {loading && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-card/70 backdrop-blur-[1px]">
+            <div className="h-6 w-6 animate-spin rounded-full border-2 border-muted border-t-primary" />
           </div>
+        )}
 
-          {/* Top cars */}
+        <div className="relative mx-auto h-[120px] w-[120px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={pieData}
+                cx="50%"
+                cy="50%"
+                innerRadius={40}
+                outerRadius={54}
+                startAngle={90}
+                endAngle={-270}
+                dataKey="value"
+                strokeWidth={0}
+                isAnimationActive={false}
+              >
+                <Cell fill={accentColor} />
+                <Cell fill={trackColor} />
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-xl font-semibold text-foreground tabular-nums">{utilization}%</span>
+          </div>
+        </div>
+
+        {/* Reserved slot for the top-cars list — always ~180px so tabs don't shift layout */}
+        <div className="mt-4 min-h-[180px]">
           {topCars.length > 0 ? (
-            <div className="mt-2 space-y-1.5">
+            <div className="space-y-2">
               {topCars.map((car) => (
                 <div key={car.carId} className="flex items-center gap-3">
-                  <div
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
-                    style={{ backgroundColor: isDark ? 'rgba(38,198,218,0.15)' : '#E0F7FA' }}
-                  >
-                    <Car className="h-3.5 w-3.5" style={{ color: '#26C6DA' }} />
-                  </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between">
-                      <p className="truncate text-xs font-medium text-card-foreground">
+                      <p className="truncate text-xs text-muted-foreground">
                         {car.brand} {car.model}
                       </p>
-                      <span className="ml-2 shrink-0 text-xs font-semibold text-muted-foreground">
+                      <span className="ml-2 shrink-0 text-xs font-semibold text-foreground tabular-nums">
                         {car.utilizationPercent}%
                       </span>
                     </div>
                     <div
-                      className="mt-1 h-1.5 w-full overflow-hidden rounded-full"
-                      style={{ backgroundColor: isDark ? '#2D3748' : '#ECEFF1' }}
+                      className="mt-1 h-1 w-full overflow-hidden rounded-full"
+                      style={{ backgroundColor: trackColor }}
                     >
                       <div
                         className="h-full rounded-full transition-all duration-500"
-                        style={{ width: `${car.utilizationPercent}%`, backgroundColor: '#26C6DA' }}
+                        style={{ width: `${car.utilizationPercent}%`, backgroundColor: accentColor }}
                       />
                     </div>
                   </div>
@@ -149,12 +138,12 @@ export function FleetUtilizationChart() {
               ))}
             </div>
           ) : (
-            <div className="mt-4 flex flex-1 items-center justify-center">
+            <div className="flex h-full items-center justify-center">
               <p className="text-xs text-muted-foreground">{t('dashboard.noDataForSegment')}</p>
             </div>
           )}
-        </>
-      )}
+        </div>
+      </div>
     </div>
   );
 }

@@ -11,13 +11,45 @@ class FineService {
         });
     }
 
+    async listOpen() {
+        return await prisma.fine.findMany({
+            where: {isPaid: false, description: {not: {startsWith: '[СКАСОВАНО]'}}},
+            orderBy: {createdAt: 'desc'},
+            include: {
+                rental: {select: {id: true, contractNumber: true, clientId: true}},
+            },
+            take: 200,
+        });
+    }
+
     async create(data: {
         rentalId: number;
         type: string;
         description: string;
         amountMinor: number;
         currency?: string;
+        externalCaseNumber?: string;
+        incidentAt?: string | Date;
+        location?: string;
+        authority?: string;
+        attachments?: string[];
+        inspectionId?: number;
     }) {
+        // Legal requirement: TRAFFIC fines must reference an authority case + at
+        // least one attachment (a photo or scan of the police notice).
+        if (data.type === 'TRAFFIC') {
+            if (!data.externalCaseNumber?.trim()) {
+                const err: any = new Error('TRAFFIC-штраф потребує номера постанови (externalCaseNumber)');
+                err.status = 400;
+                throw err;
+            }
+            if (!data.attachments || data.attachments.length === 0) {
+                const err: any = new Error('TRAFFIC-штраф потребує хоча б одного скана постанови (attachments)');
+                err.status = 400;
+                throw err;
+            }
+        }
+
         return await prisma.fine.create({
             data: {
                 rentalId: data.rentalId,
@@ -25,6 +57,12 @@ class FineService {
                 description: data.description,
                 amountMinor: data.amountMinor,
                 currency: data.currency || 'UAH',
+                externalCaseNumber: data.externalCaseNumber || null,
+                incidentAt: data.incidentAt ? new Date(data.incidentAt) : null,
+                location: data.location || null,
+                authority: data.authority || null,
+                attachments: data.attachments ?? [],
+                inspectionId: data.inspectionId || null,
             },
         });
     }
@@ -34,10 +72,40 @@ class FineService {
         description?: string;
         amountMinor?: number;
         currency?: string;
+        externalCaseNumber?: string | null;
+        incidentAt?: string | Date | null;
+        location?: string | null;
+        authority?: string | null;
+        attachments?: string[];
+        inspectionId?: number | null;
     }) {
+        const updateData: any = {...data};
+        if (data.incidentAt !== undefined) {
+            updateData.incidentAt = data.incidentAt ? new Date(data.incidentAt) : null;
+        }
         return await prisma.fine.update({
             where: {id},
-            data,
+            data: updateData,
+        });
+    }
+
+    async addAttachment(id: number, fileUrl: string) {
+        const fine = await prisma.fine.findUnique({where: {id}});
+        if (!fine) throw new Error(`Fine ${id} not found`);
+        const current = Array.isArray(fine.attachments) ? (fine.attachments as string[]) : [];
+        return await prisma.fine.update({
+            where: {id},
+            data: {attachments: [...current, fileUrl]},
+        });
+    }
+
+    async removeAttachment(id: number, fileUrl: string) {
+        const fine = await prisma.fine.findUnique({where: {id}});
+        if (!fine) throw new Error(`Fine ${id} not found`);
+        const current = Array.isArray(fine.attachments) ? (fine.attachments as string[]) : [];
+        return await prisma.fine.update({
+            where: {id},
+            data: {attachments: current.filter((u) => u !== fileUrl)},
         });
     }
 

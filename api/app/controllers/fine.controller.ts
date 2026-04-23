@@ -12,6 +12,11 @@ class FineController {
         return res.status(StatusCodes.OK).json({fines});
     }
 
+    async listOpen(_req: Request, res: Response) {
+        const fines = await fineService.listOpen();
+        return res.status(StatusCodes.OK).json({fines});
+    }
+
     async create(req: Request, res: Response) {
         const {rentalId} = req.params;
         const data = validate(createFineSchema, req.body);
@@ -52,6 +57,29 @@ class FineController {
 
         logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: parseId(fineId), action: 'STATUS_CHANGE', after: result, req});
         return res.status(StatusCodes.OK).json(result);
+    }
+
+    async addAttachment(req: Request, res: Response) {
+        const {fineId} = req.params;
+        const file = req.file;
+        if (!file) {
+            return res.status(StatusCodes.BAD_REQUEST).json({msg: 'File is required'});
+        }
+        const fileUrl = `/static/fines/${file.filename}`;
+        const fine = await fineService.addAttachment(parseId(fineId), fileUrl);
+        logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: parseId(fineId), action: 'UPDATE', after: {attachments: fine.attachments}, req});
+        return res.status(StatusCodes.CREATED).json({fine, fileUrl});
+    }
+
+    async removeAttachment(req: Request, res: Response) {
+        const {fineId} = req.params;
+        const {url} = req.body;
+        if (!url) {
+            return res.status(StatusCodes.BAD_REQUEST).json({msg: 'Missing url in body'});
+        }
+        const fine = await fineService.removeAttachment(parseId(fineId), url);
+        logAudit({actorId: res.locals.user?.id, entityType: 'Fine', entityId: parseId(fineId), action: 'UPDATE', after: {attachments: fine.attachments}, req});
+        return res.status(StatusCodes.OK).json({fine});
     }
 }
 

@@ -1,5 +1,9 @@
 import {prisma, MS_PER_DAY, RentalStatus, ReservationStatus} from '../utils';
 
+// Deposits are held on behalf of the client (liability, not revenue).
+// Exclude from all operating-revenue / P&L calculations.
+const NON_REVENUE_TYPES = ['DEPOSIT_RECEIVED', 'DEPOSIT_RETURNED'];
+
 class ReportService {
     async getDashboard() {
         const now = new Date();
@@ -40,10 +44,12 @@ class ReportService {
             // Total active clients
             prisma.client.count({where: {deletedAt: null}}),
 
-            // Revenue this month (sum of incoming transactions in UAH)
+            // Revenue this month (sum of incoming transactions in UAH,
+            // excluding deposits — those are client money we hold, not revenue)
             prisma.transaction.aggregate({
                 where: {
                     direction: 'in',
+                    type: {notIn: NON_REVENUE_TYPES},
                     createdAt: {gte: startOfMonth},
                 },
                 _sum: {amountUahMinor: true},
@@ -53,6 +59,7 @@ class ReportService {
             prisma.transaction.aggregate({
                 where: {
                     direction: 'in',
+                    type: {notIn: NON_REVENUE_TYPES},
                     createdAt: {
                         gte: startOfLastMonth,
                         lte: endOfLastMonth,
@@ -104,9 +111,14 @@ class ReportService {
     async getRevenue(from: string, to: string) {
         const fromDate = new Date(from);
         const toDate = new Date(to);
+        // `to` is a date string like "2026-04-22"; JS parses it as UTC midnight,
+        // which excludes transactions that happened later on that same day.
+        // Stretch to end of day so the current day is included.
+        toDate.setUTCHours(23, 59, 59, 999);
 
         const transactions = await prisma.transaction.findMany({
             where: {
+                type: {notIn: NON_REVENUE_TYPES},
                 createdAt: {
                     gte: fromDate,
                     lte: toDate,
@@ -152,6 +164,9 @@ class ReportService {
     async getFleetUtilization(from: string, to: string, segmentId?: number) {
         const fromDate = new Date(from);
         const toDate = new Date(to);
+        // See comment in getRevenue: stretch `to` to end of day so the current
+        // day is counted as utilised.
+        toDate.setUTCHours(23, 59, 59, 999);
 
         const carWhere: any = {};
         if (segmentId) {

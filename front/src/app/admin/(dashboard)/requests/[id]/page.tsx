@@ -17,22 +17,15 @@ import {
   PlayCircle,
   ExternalLink,
   Loader2,
-  UserCheck,
   Globe,
   Shield,
-  Receipt,
   Package,
   Phone,
   Mail,
-  Clock,
-  Hash,
-  ArrowRight,
-  CircleDot,
-  MapPin,
-  FileText,
 } from 'lucide-react';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
-import { useAdminTheme, type ThemeTokens } from '@/context/AdminThemeContext';
+import { EntitySearch } from '@/components/admin/EntitySearch';
+import { PartnerBadge } from '@/components/admin/PartnerBadge';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -62,6 +55,7 @@ interface RentalRequestCar {
   carPhoto: CarPhoto[];
   rentalTariff: unknown[];
   segment: unknown[];
+  partner?: { id: number; fullName: string; companyName: string | null } | null;
 }
 
 interface AddOn {
@@ -111,21 +105,17 @@ interface RentalRequestFull {
 
 function fmtDateShort(d: string | null) {
   if (!d) return '—';
-  return new Date(d).toLocaleDateString('uk', {
-    day: 'numeric',
-    month: 'short',
-  });
+  return new Date(d).toLocaleDateString('uk', { day: 'numeric', month: 'short' });
 }
 
 function fmtDateTime(d: string | null) {
   if (!d) return '—';
-  return new Date(d).toLocaleString('uk', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
+  const date = new Date(d);
+  const datePart = date
+    .toLocaleDateString('uk', { day: 'numeric', month: 'long', year: 'numeric' })
+    .replace(/\s*р\.?\s*$/, '');
+  const timePart = date.toLocaleTimeString('uk', { hour: '2-digit', minute: '2-digit' });
+  return `${datePart}, ${timePart}`;
 }
 
 function toInputDate(d: string | null): string {
@@ -152,20 +142,17 @@ function daysBetween(a: string | null, b: string | null): number | null {
 }
 
 function getInitials(name: string) {
-  return name
-    .split(' ')
-    .map((w) => w[0])
-    .filter(Boolean)
-    .slice(0, 2)
-    .join('')
-    .toUpperCase();
+  return name.split(' ').map((w) => w[0]).filter(Boolean).slice(0, 2).join('').toUpperCase();
 }
 
 /* ------------------------------------------------------------------ */
-/*  Sub-components                                                     */
+/*  WebsiteSnapshotCard                                                */
 /* ------------------------------------------------------------------ */
 
-function WebsiteSnapshotCard({ snapshot, t, H, isDark }: { snapshot: Record<string, unknown>; t: (key: string, params?: Record<string, string | number>) => string; H: ThemeTokens; isDark: boolean }) {
+function WebsiteSnapshotCard({ snapshot, t }: {
+  snapshot: Record<string, unknown>;
+  t: (key: string, params?: Record<string, string | number>) => string;
+}) {
   const carDetails = snapshot.carDetails as { brand?: string; model?: string; year?: number } | undefined;
   const totalDays = snapshot.totalDays as number | undefined;
   const selectedPlan = snapshot.selectedPlan as {
@@ -179,12 +166,6 @@ function WebsiteSnapshotCard({ snapshot, t, H, isDark }: { snapshot: Record<stri
     id?: string; price?: number; cost?: number; isPerDay?: boolean; quantity?: number;
   }> | undefined;
 
-  const PLAN_LABELS: Record<number, string> = useMemo(() => ({
-    1: t('requestDetail.packageBasic'),
-    2: t('requestDetail.packageStandard'),
-    3: t('requestDetail.packagePremium'),
-  }), [t]);
-
   const EXTRA_LABELS: Record<string, string> = useMemo(() => ({
     borderCrossing: t('requestDetail.addonBorderCross'),
     childSeat: t('requestDetail.addonChildSeat'),
@@ -197,117 +178,142 @@ function WebsiteSnapshotCard({ snapshot, t, H, isDark }: { snapshot: Record<stri
   }), [t]);
 
   return (
-    <div className="space-y-4">
-      {/* Stat chips */}
-      <div className="flex flex-wrap gap-2 pt-1">
-        {carDetails && (
-          <span className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12px] font-medium" style={{ backgroundColor: H.bg, color: H.navy }}>
-            {carDetails.brand} {carDetails.model}{carDetails.year ? ` (${carDetails.year})` : ''}
-          </span>
-        )}
-        {totalDays != null && (
-          <span className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12px] font-semibold" style={{ backgroundColor: isDark ? H.blueBg : '#E3F2FD', color: isDark ? H.blue : '#1565C0' }}>
-            {totalDays} {t('common.days')}
-          </span>
-        )}
-        {selectedPlan?.depositPercent != null && (
-          <span className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12px] font-semibold" style={{ backgroundColor: isDark ? '#2D2047' : '#EDE7F6', color: isDark ? H.purpleLight : '#5E35B1' }}>
-            {t('requestDetail.coverage')} {selectedPlan.depositPercent}%
-          </span>
-        )}
-      </div>
-
-      {/* Price receipt */}
-      {priceBreakdown && (
-        <div className="rounded-xl p-4" style={{ backgroundColor: isDark ? H.bg : '#FAFBFC', border: `1px solid ${H.grayLight}` }}>
-          <h3 className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: H.gray }}>
-            <Receipt className="h-3.5 w-3.5" />
-            {t('requestDetail.costCalc')}
-          </h3>
-          <div className="space-y-2">
-            {priceBreakdown.baseRentalCost != null && (
-              <div className="flex justify-between text-[13px]">
-                <span style={{ color: H.gray }}>{t('requestDetail.rental')}</span>
-                <span className="font-semibold" style={{ color: H.navy }}>{fmtMoney(priceBreakdown.baseRentalCost)}</span>
-              </div>
-            )}
-            {priceBreakdown.insuranceCost != null && priceBreakdown.insuranceCost > 0 && (
-              <div className="flex justify-between text-[13px]">
-                <span style={{ color: H.gray }}>{t('requestDetail.insurance')}</span>
-                <span className="font-semibold" style={{ color: H.navy }}>{fmtMoney(priceBreakdown.insuranceCost)}</span>
-              </div>
-            )}
-            {priceBreakdown.extrasCost != null && priceBreakdown.extrasCost > 0 && (
-              <div className="flex justify-between text-[13px]">
-                <span style={{ color: H.gray }}>{t('requestDetail.addOns')}</span>
-                <span className="font-semibold" style={{ color: H.navy }}>{fmtMoney(priceBreakdown.extrasCost)}</span>
-              </div>
-            )}
-
-            <div className="my-2" style={{ borderTop: `1px dashed ${H.grayLight}` }} />
-
-            <div className="flex items-center justify-between">
-              <span className="text-[13px] font-bold" style={{ color: H.navy }}>{t('requestDetail.totalPrice')}</span>
-              <span className="text-[17px] font-bold" style={{ color: H.navy }}>{fmtMoney(priceBreakdown.totalCost)}</span>
+    <div className="space-y-5">
+      {/* Summary: car + key metrics */}
+      {(carDetails || totalDays != null || selectedPlan?.depositPercent != null) && (
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          {carDetails && (
+            <div className="min-w-0">
+              <p className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                {t('requestDetail.car')}
+              </p>
+              <p className="mt-1 truncate text-base font-semibold text-foreground">
+                {carDetails.brand} {carDetails.model}
+                {carDetails.year && (
+                  <span className="ml-1.5 text-sm font-normal text-muted-foreground tabular-nums">
+                    {carDetails.year}
+                  </span>
+                )}
+              </p>
             </div>
-
-            {priceBreakdown.depositAmount != null && priceBreakdown.depositAmount > 0 && (
-              <div className="flex items-center justify-between rounded-lg px-3 py-1.5 -mx-1" style={{ backgroundColor: isDark ? H.orangeBg : '#FFF3E0' }}>
-                <span className="flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: isDark ? H.orange : '#E65100' }}>
-                  <Shield className="h-3.5 w-3.5" />
-                  {t('requestDetail.deposit')}
-                </span>
-                <span className="text-[13px] font-bold" style={{ color: isDark ? H.orange : '#E65100' }}>{fmtMoney(priceBreakdown.depositAmount)}</span>
+          )}
+          <div className="flex gap-4">
+            {totalDays != null && (
+              <div className="text-right">
+                <p className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                  {t('common.days')}
+                </p>
+                <p className="mt-1 text-base font-semibold text-foreground tabular-nums">
+                  {totalDays}
+                </p>
+              </div>
+            )}
+            {selectedPlan?.depositPercent != null && (
+              <div className="text-right">
+                <p className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                  {t('requestDetail.coverage')}
+                </p>
+                <p className="mt-1 text-base font-semibold text-foreground tabular-nums">
+                  {selectedPlan.depositPercent}%
+                </p>
               </div>
             )}
           </div>
+        </div>
+      )}
+
+      {/* Price breakdown block */}
+      {priceBreakdown && (
+        <div className="rounded-xl bg-muted/40 p-4">
+          <div className="space-y-2">
+            {priceBreakdown.baseRentalCost != null && (
+              <Row label={t('requestDetail.rental')} value={fmtMoney(priceBreakdown.baseRentalCost)} />
+            )}
+            {priceBreakdown.insuranceCost != null && priceBreakdown.insuranceCost > 0 && (
+              <Row label={t('requestDetail.insurance')} value={fmtMoney(priceBreakdown.insuranceCost)} />
+            )}
+            {priceBreakdown.extrasCost != null && priceBreakdown.extrasCost > 0 && (
+              <Row label={t('requestDetail.addOns')} value={fmtMoney(priceBreakdown.extrasCost)} />
+            )}
+          </div>
+
+          {priceBreakdown.totalCost != null && (
+            <div className="mt-3 flex items-baseline justify-between border-t border-border/60 pt-3">
+              <span className="text-sm font-semibold text-foreground">
+                {t('requestDetail.totalPrice')}
+              </span>
+              <span className="text-2xl font-bold text-foreground tabular-nums">
+                {fmtMoney(priceBreakdown.totalCost)}
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Deposit — visually separated */}
+      {priceBreakdown?.depositAmount != null && priceBreakdown.depositAmount > 0 && (
+        <div className="flex items-center justify-between rounded-lg border border-dashed border-border px-4 py-2.5">
+          <span className="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground">
+            <Shield className="h-3.5 w-3.5" />
+            {t('requestDetail.deposit')}
+          </span>
+          <span className="text-sm font-semibold text-foreground tabular-nums">
+            {fmtMoney(priceBreakdown.depositAmount)}
+          </span>
         </div>
       )}
 
       {/* Extras */}
       {selectedExtras && selectedExtras.length > 0 && (
         <div>
-          <h3 className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider mb-2" style={{ color: H.gray }}>
-            <Package className="h-3.5 w-3.5" />
+          <p className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
             {t('requestDetail.addOns')}
-          </h3>
-          <div className="space-y-1.5">
+          </p>
+          <ul className="mt-2 divide-y divide-border/50">
             {selectedExtras.map((ext, i) => (
-              <div key={ext.id ?? i} className="flex items-center justify-between rounded-lg px-3 py-2" style={{ backgroundColor: H.bg }}>
-                <div>
-                  <span className="text-[13px]" style={{ color: H.navy }}>
-                    {EXTRA_LABELS[ext.id ?? ''] || ext.id}
-                  </span>
+              <li
+                key={ext.id ?? i}
+                className="flex items-center justify-between gap-3 py-2 text-sm first:pt-0 last:pb-0"
+              >
+                <span className="min-w-0 truncate text-foreground">
+                  {EXTRA_LABELS[ext.id ?? ''] || ext.id}
                   {ext.isPerDay && ext.quantity ? (
-                    <span className="ml-1.5 text-[11px]" style={{ color: H.gray }}>
-                      {fmtMoney(ext.price)} x {ext.quantity} {t('common.days')}
+                    <span className="ml-1.5 text-xs text-muted-foreground tabular-nums">
+                      {fmtMoney(ext.price)} × {ext.quantity}
                     </span>
                   ) : ext.quantity && ext.quantity > 1 ? (
-                    <span className="ml-1.5 text-[11px]" style={{ color: H.gray }}>
-                      x{ext.quantity}
-                    </span>
+                    <span className="ml-1.5 text-xs text-muted-foreground">×{ext.quantity}</span>
                   ) : null}
-                </div>
-                <span className="text-[13px] font-semibold" style={{ color: H.navy }}>{fmtMoney(ext.cost)}</span>
-              </div>
+                </span>
+                <span className="shrink-0 font-semibold text-foreground tabular-nums">
+                  {fmtMoney(ext.cost)}
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       )}
     </div>
   );
 }
 
+function Row({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-baseline justify-between text-sm">
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-medium text-foreground tabular-nums">{value}</span>
+    </div>
+  );
+}
+
 /* ------------------------------------------------------------------ */
-/*  Page component                                                     */
+/*  Page                                                               */
 /* ------------------------------------------------------------------ */
 
 export default function RequestDetailPage() {
   const params = useParams();
   const router = useRouter();
   const { t } = useAdminLocale();
-  const { theme, H } = useAdminTheme();
-  const isDark = theme === 'dark';
   const id = params.id as string;
 
   const [request, setRequest] = useState<RentalRequestFull | null>(null);
@@ -328,21 +334,22 @@ export default function RequestDetailPage() {
   const [approveError, setApproveError] = useState<string | null>(null);
   const [rejectError, setRejectError] = useState<string | null>(null);
 
-  const STATUS_MAP: Record<string, { label: string; bg: string; text: string; dot: string }> = useMemo(() => ({
-    new: { label: t('requests.mapNew'), bg: isDark ? '#2D2047' : '#EDE7F6', text: isDark ? H.purpleLight : '#5E35B1', dot: isDark ? H.purple : '#7C4DFF' },
-    in_review: { label: t('requests.mapProcessing'), bg: isDark ? H.orangeBg : '#FFF3E0', text: isDark ? H.orange : '#E65100', dot: isDark ? '#F6AD55' : '#FF9100' },
-    approved: { label: t('requests.mapApproved'), bg: isDark ? H.greenBg : '#E8F5E9', text: isDark ? H.green : '#2E7D32', dot: isDark ? '#48BB78' : '#4CAF50' },
-    rejected: { label: t('requests.mapRejected'), bg: isDark ? H.redBg : '#FFEBEE', text: isDark ? H.red : '#C62828', dot: isDark ? '#FC8181' : '#EF5350' },
-    cancelled: { label: t('requests.mapCancelled'), bg: isDark ? H.grayLight : '#ECEFF1', text: isDark ? H.gray : '#546E7A', dot: H.gray },
-  }), [t, isDark, H]);
+  // Status + source labels only — palette is unified (amber for warning, default for rest).
+  const STATUS_LABEL: Record<string, string> = useMemo(() => ({
+    new: t('requests.mapNew'),
+    in_review: t('requests.mapProcessing'),
+    approved: t('requests.mapApproved'),
+    rejected: t('requests.mapRejected'),
+    cancelled: t('requests.mapCancelled'),
+  }), [t]);
 
-  const SOURCE_CONFIG: Record<string, { label: string; bg: string; text: string }> = useMemo(() => ({
-    website: { label: t('requests.sourceWebsite'), bg: isDark ? H.blueBg : '#E3F2FD', text: isDark ? H.blue : '#1565C0' },
-    phone: { label: t('requests.sourcePhone'), bg: isDark ? H.greenBg : '#E8F5E9', text: isDark ? H.green : '#2E7D32' },
-    telegram: { label: t('requests.sourceTelegram'), bg: isDark ? H.blueBg : '#E3F2FD', text: isDark ? H.blue : '#0288D1' },
-    instagram: { label: t('requests.sourceInstagram'), bg: isDark ? H.redBg : '#FCE4EC', text: isDark ? H.red : '#C2185B' },
-    walk_in: { label: t('requests.sourceWalkIn'), bg: isDark ? H.orangeBg : '#FFF3E0', text: isDark ? H.orange : '#E65100' },
-  }), [t, isDark, H]);
+  const SOURCE_LABEL: Record<string, string> = useMemo(() => ({
+    website: t('requests.sourceWebsite'),
+    phone: t('requests.sourcePhone'),
+    telegram: t('requests.sourceTelegram'),
+    instagram: t('requests.sourceInstagram'),
+    walk_in: t('requests.sourceWalkIn'),
+  }), [t]);
 
   const fetchRequest = useCallback(async () => {
     setLoading(true);
@@ -397,11 +404,9 @@ export default function RequestDetailPage() {
         pickupLocation: approvePickupLocation,
         returnLocation: approveReturnLocation,
       };
-      if (approveClientId) {
-        body.clientId = Number(approveClientId);
-      }
+      if (approveClientId) body.clientId = Number(approveClientId);
       await adminApiClient.post(`/rental-request/${id}/approve`, body);
-      router.push('/admin/requests');
+      router.push('/admin/requests?status=new');
     } catch (err: any) {
       logError(err);
       setApproveError(err?.response?.data?.msg || t('requestDetail.approveError'));
@@ -421,7 +426,7 @@ export default function RequestDetailPage() {
       await adminApiClient.post(`/rental-request/${id}/reject`, {
         reason: rejectReason.trim(),
       });
-      router.push('/admin/requests');
+      router.push('/admin/requests?status=new');
     } catch (err) {
       logError(err);
       setRejectError(t('requestDetail.rejectError'));
@@ -432,27 +437,13 @@ export default function RequestDetailPage() {
   /* ---- Loading ---- */
   if (loading) {
     return (
-      <div className="space-y-6">
-        {/* Header skeleton */}
-        <div className="rounded-2xl px-8 py-6" style={{ backgroundColor: H.white, boxShadow: H.shadow }}>
-          <div className="flex items-center gap-4">
-            <div className="h-10 w-10 animate-pulse rounded-xl" style={{ backgroundColor: H.bg }} />
-            <div className="space-y-2">
-              <div className="h-4 w-48 animate-pulse rounded" style={{ backgroundColor: H.bg }} />
-              <div className="h-3 w-32 animate-pulse rounded" style={{ backgroundColor: H.bg }} />
-            </div>
-          </div>
+      <div className="space-y-3">
+        <div className="ios-card !py-4">
+          <div className="h-4 w-48 animate-pulse rounded bg-muted" />
+          <div className="mt-2 h-3 w-32 animate-pulse rounded bg-muted" />
         </div>
-        {/* Card skeleton */}
-        <div className="rounded-2xl p-6" style={{ backgroundColor: H.white, boxShadow: H.shadow }}>
-          <div className="flex gap-6">
-            <div className="h-44 w-72 animate-pulse rounded-xl" style={{ backgroundColor: H.bg }} />
-            <div className="flex-1 space-y-4">
-              <div className="h-5 w-40 animate-pulse rounded" style={{ backgroundColor: H.bg }} />
-              <div className="h-4 w-24 animate-pulse rounded" style={{ backgroundColor: H.bg }} />
-              <div className="h-16 w-full animate-pulse rounded-xl" style={{ backgroundColor: H.bg }} />
-            </div>
-          </div>
+        <div className="ios-card">
+          <div className="h-44 w-full animate-pulse rounded bg-muted" />
         </div>
       </div>
     );
@@ -461,14 +452,11 @@ export default function RequestDetailPage() {
   if (error || !request) {
     return (
       <div className="flex flex-col items-center justify-center py-16">
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: isDark ? H.redBg : '#FFEBEE' }}>
-          <XCircle className="h-8 w-8" style={{ color: isDark ? H.red : '#EF5350' }} />
-        </div>
-        <p className="mt-4 text-[15px] font-semibold" style={{ color: H.navy }}>{error ?? t('common.errorOccurred')}</p>
+        <XCircle className="h-8 w-8 text-muted-foreground" />
+        <p className="mt-3 text-sm font-medium text-foreground">{error ?? t('common.errorOccurred')}</p>
         <Link
           href="/admin/requests"
-          className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-medium transition-colors hover:opacity-80"
-          style={{ color: isDark ? H.purple : '#7C4DFF' }}
+          className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
           {t('requestDetail.backToList')}
@@ -477,12 +465,9 @@ export default function RequestDetailPage() {
     );
   }
 
-  /* ---- Derived data ---- */
-  const st = STATUS_MAP[request.status] ?? {
-    label: request.status, bg: isDark ? H.grayLight : '#ECEFF1', text: isDark ? H.gray : '#546E7A', dot: H.gray,
-  };
-
-  const src = SOURCE_CONFIG[request.source] ?? { label: request.source, bg: H.bg, text: H.gray };
+  /* ---- Derived ---- */
+  const statusLabel = STATUS_LABEL[request.status] ?? request.status;
+  const sourceLabel = SOURCE_LABEL[request.source] ?? request.source;
 
   const contactName =
     request.client
@@ -502,63 +487,59 @@ export default function RequestDetailPage() {
   const canAct = request.status === 'new' || request.status === 'in_review';
   const rentalDays = daysBetween(request.pickupDate, request.returnDate);
 
+  const statusBadge =
+    request.status === 'approved'
+      ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400'
+      : request.status === 'in_review'
+        ? 'bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-400'
+        : request.status === 'rejected'
+          ? 'bg-rose-100 text-rose-700 dark:bg-rose-500/15 dark:text-rose-400'
+          : request.status === 'cancelled'
+            ? 'bg-muted text-muted-foreground'
+            : 'bg-blue-100 text-blue-700 dark:bg-blue-500/15 dark:text-blue-400';
+
   /* ---- Render ---- */
   return (
-    <div className="space-y-5">
-      {/* ══════════ PAGE HEADER ══════════ */}
-      <div className="rounded-2xl px-8 py-6" style={{ backgroundColor: H.white, boxShadow: H.shadow }}>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link href="/admin/requests" className="ios-icon-btn">
+    <div className="space-y-3">
+      {/* ── Header ──────────────────────────────────────────── */}
+      <div className="ios-card !py-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex min-w-0 items-center gap-3">
+            <Link
+              href="/admin/requests"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground transition-colors hover:bg-border"
+              aria-label={t('requestDetail.backToList')}
+            >
               <ArrowLeft className="h-4 w-4" />
             </Link>
-            <div
-              className="flex h-12 w-12 items-center justify-center rounded-2xl"
-              style={{ background: `linear-gradient(to bottom right, ${isDark ? H.purple : '#7C4DFF'}, ${isDark ? '#6B3FE7' : '#651FFF'})`, boxShadow: isDark ? '0 4px 12px rgba(124,92,255,0.4)' : '0 4px 12px rgba(124,77,255,0.3)' }}
-            >
-              <FileText className="h-6 w-6 text-white" />
-            </div>
-            <div>
-              <div className="flex items-center gap-3">
-                <h1 className="text-[18px] font-bold" style={{ color: H.navy }}>{t('requestDetail.title', { id: request.id })}</h1>
-                <span
-                  className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-semibold whitespace-nowrap"
-                  style={{ backgroundColor: st.bg, color: st.text }}
-                >
-                  <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: st.dot }} />
-                  {st.label}
-                </span>
-                <span
-                  className="inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-medium"
-                  style={{ backgroundColor: src.bg, color: src.text }}
-                >
-                  <Globe className="h-3 w-3" />
-                  {src.label}
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-0.5">
+                <h1 className="text-xl font-semibold leading-tight text-foreground">
+                  {t('requestDetail.title', { id: request.id })}
+                </h1>
+                <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${statusBadge}`}>
+                  {statusLabel}
                 </span>
               </div>
-              <p className="mt-0.5 text-[13px]" style={{ color: H.gray }}>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {sourceLabel}
+                <span className="mx-1.5 opacity-50">·</span>
                 {fmtDateTime(request.createdAt)}
-                {request.assignedTo && (
-                  <span className="ml-2 inline-flex items-center gap-1">
-                    <UserCheck className="h-3 w-3" />
-                    {request.assignedTo.email}
-                  </span>
-                )}
               </p>
             </div>
           </div>
 
           {/* Action buttons */}
           {canAct && (
-            <div className="flex items-center gap-2.5">
+            <div className="flex flex-wrap items-center gap-2">
               {request.status === 'new' && (
                 <button
                   type="button"
                   disabled={actionLoading}
                   onClick={handleTakeInReview}
-                  className="ios-btn ios-btn-warning text-[13px]"
+                  className="ios-btn ios-btn-warning text-xs"
                 >
-                  {actionLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <PlayCircle className="h-4 w-4" />}
+                  {actionLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <PlayCircle className="h-3.5 w-3.5" />}
                   {t('requestDetail.toWork')}
                 </button>
               )}
@@ -566,157 +547,123 @@ export default function RequestDetailPage() {
                 type="button"
                 disabled={actionLoading}
                 onClick={() => { setShowApproveForm((v) => !v); setShowRejectForm(false); }}
-                className={`ios-btn ios-btn-success text-[13px] ${showApproveForm ? 'opacity-80' : ''}`}
+                className="ios-btn ios-btn-success text-xs"
               >
-                <CheckCircle2 className="h-4 w-4" />
+                <CheckCircle2 className="h-3.5 w-3.5" />
                 {t('requestDetail.approve')}
               </button>
               <button
                 type="button"
                 disabled={actionLoading}
                 onClick={() => { setShowRejectForm((v) => !v); setShowApproveForm(false); }}
-                className={`ios-btn ios-btn-destructive text-[13px] ${showRejectForm ? 'opacity-80' : ''}`}
+                className="ios-btn ios-btn-destructive text-xs"
               >
-                <XCircle className="h-4 w-4" />
+                <XCircle className="h-3.5 w-3.5" />
                 {t('requestDetail.reject')}
               </button>
             </div>
           )}
         </div>
-      </div>
 
-      {/* ══════════ STATUS BANNERS ══════════ */}
-      {request.status === 'rejected' && request.rejectionReason && (
-        <div
-          className="flex items-start gap-3 rounded-2xl px-6 py-4"
-          style={{ backgroundColor: isDark ? H.redBg : '#FFEBEE', border: `1px solid ${isDark ? '#5C2B2B' : '#FFCDD2'}` }}
-        >
-          <XCircle className="h-5 w-5 shrink-0 mt-0.5" style={{ color: isDark ? H.red : '#EF5350' }} />
-          <div>
-            <p className="text-[13px] font-bold" style={{ color: isDark ? H.red : '#C62828' }}>{t('requestDetail.rejectReason')}</p>
-            <p className="mt-1 text-[13px]" style={{ color: isDark ? '#FEB2B2' : '#D32F2F' }}>{request.rejectionReason}</p>
+        {/* Inline status notes — integrated into header, no separate card */}
+        {request.status === 'rejected' && request.rejectionReason && (
+          <div className="mt-3 border-t border-border/50 pt-3 text-sm">
+            <span className="text-muted-foreground">{t('requestDetail.rejectionNote')}: </span>
+            <span className="text-foreground">{request.rejectionReason}</span>
           </div>
-        </div>
-      )}
-
-      {request.status === 'approved' && request.reservation && (
-        <div
-          className="flex items-center gap-3 rounded-2xl px-6 py-4"
-          style={{ backgroundColor: isDark ? H.greenBg : '#E8F5E9', border: `1px solid ${isDark ? '#2D5A3F' : '#C8E6C9'}` }}
-        >
-          <CheckCircle2 className="h-5 w-5 shrink-0" style={{ color: isDark ? H.green : '#4CAF50' }} />
-          <p className="text-[13px]" style={{ color: isDark ? '#81C784' : '#2E7D32' }}>
-            {t('requestDetail.reservationCreated')}{' '}
+        )}
+        {request.status === 'approved' && request.reservation && (
+          <div className="mt-3 border-t border-border/50 pt-3 text-sm">
+            <span className="text-muted-foreground">{t('requestDetail.reservationCreated')} </span>
             <Link
               href={`/admin/reservations/${request.reservation.id}`}
-              className="inline-flex items-center gap-1 font-bold underline underline-offset-2 transition-colors hover:opacity-80"
+              className="inline-flex items-center gap-1 font-medium text-primary hover:underline"
             >
               #{request.reservation.id}
-              <ExternalLink className="h-3.5 w-3.5" />
+              <ExternalLink className="h-3 w-3" />
             </Link>
-          </p>
-        </div>
-      )}
+          </div>
+        )}
+      </div>
 
-      {/* ══════════ ACTION FORMS ══════════ */}
+
+      {/* ── Approve form ───────────────────────────────────── */}
       {showApproveForm && (
-        <form
-          onSubmit={handleApprove}
-          className="rounded-2xl p-6"
-          style={{ backgroundColor: H.white, boxShadow: H.shadow }}
-        >
-          <h3 className="flex items-center gap-2.5 text-[15px] font-bold" style={{ color: H.navy }}>
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ backgroundColor: isDark ? H.greenBg : '#E8F5E9' }}>
-              <CheckCircle2 className="h-4 w-4" style={{ color: isDark ? H.green : '#4CAF50' }} />
-            </div>
-            {t('requestDetail.confirmApproval')}
-          </h3>
-
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <label className="block">
-              <span className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.clientIdLabel')}</span>
-              <input
-                type="number"
-                value={approveClientId}
-                onChange={(e) => setApproveClientId(e.target.value)}
-                placeholder={t('requestDetail.autoCreateClient')}
-                className="mt-1.5 block w-full ios-input text-[13px]"
-              />
-              <span className="mt-1 block text-[11px]" style={{ color: H.gray }}>
-                {t('requestDetail.clientIdHint')}
-              </span>
-            </label>
-            <label className="block">
-              <span className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.carIdLabel')}</span>
-              <input
-                type="number"
-                required
-                value={approveCarId}
-                onChange={(e) => setApproveCarId(e.target.value)}
-                className="mt-1.5 block w-full ios-input text-[13px]"
-              />
-            </label>
-            <label className="block">
-              <span className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.pickupDateLabel')}</span>
+        <form onSubmit={handleApprove} className="ios-card">
+          <h3 className="text-sm font-semibold text-foreground">{t('requestDetail.confirmApproval')}</h3>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <Field label={t('requestDetail.clientIdLabel')} hint={t('requestDetail.clientIdHint')}>
+              <div style={{ marginTop: 6 }}>
+                <EntitySearch
+                  entity="client"
+                  value={approveClientId}
+                  onChange={setApproveClientId}
+                  placeholder={t('requestDetail.autoCreateClient')}
+                />
+              </div>
+            </Field>
+            <Field label={t('requestDetail.carIdLabel')}>
+              <div style={{ marginTop: 6 }}>
+                <EntitySearch
+                  entity="car"
+                  value={approveCarId}
+                  onChange={setApproveCarId}
+                  required
+                  placeholder="— Оберіть авто —"
+                />
+              </div>
+            </Field>
+            <Field label={t('requestDetail.pickupDateLabel')}>
               <input
                 type="date"
                 required
                 value={approvePickupDate}
                 onChange={(e) => setApprovePickupDate(e.target.value)}
                 min={new Date().toISOString().slice(0, 10)}
-                className="mt-1.5 block w-full ios-input text-[13px]"
+                className="ios-input text-sm"
+                style={{ display: 'block', width: '100%', marginTop: 6 }}
               />
-            </label>
-            <label className="block">
-              <span className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.returnDateLabel')}</span>
+            </Field>
+            <Field label={t('requestDetail.returnDateLabel')}>
               <input
                 type="date"
                 required
                 value={approveReturnDate}
                 onChange={(e) => setApproveReturnDate(e.target.value)}
                 min={approvePickupDate || new Date().toISOString().slice(0, 10)}
-                className="mt-1.5 block w-full ios-input text-[13px]"
+                className="ios-input text-sm"
+                style={{ display: 'block', width: '100%', marginTop: 6 }}
               />
-            </label>
-            <label className="block">
-              <span className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.pickupLocationLabel')}</span>
+            </Field>
+            <Field label={t('requestDetail.pickupLocationLabel')}>
               <input
                 type="text"
                 value={approvePickupLocation}
                 onChange={(e) => setApprovePickupLocation(e.target.value)}
-                className="mt-1.5 block w-full ios-input text-[13px]"
+                className="ios-input text-sm"
+                style={{ display: 'block', width: '100%', marginTop: 6 }}
               />
-            </label>
-            <label className="block">
-              <span className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.returnLocationLabel')}</span>
+            </Field>
+            <Field label={t('requestDetail.returnLocationLabel')}>
               <input
                 type="text"
                 value={approveReturnLocation}
                 onChange={(e) => setApproveReturnLocation(e.target.value)}
-                className="mt-1.5 block w-full ios-input text-[13px]"
+                className="ios-input text-sm"
+                style={{ display: 'block', width: '100%', marginTop: 6 }}
               />
-            </label>
+            </Field>
           </div>
-
-          {approveError && (
-            <div className="mt-4 ios-alert-destructive">
-              {approveError}
-            </div>
-          )}
-
-          <div className="mt-5 flex gap-3">
-            <button
-              type="submit"
-              disabled={actionLoading}
-              className="ios-btn ios-btn-success text-[13px]"
-            >
-              {actionLoading && <Loader2 className="h-4 w-4 animate-spin" />}
+          {approveError && <div className="mt-4 ios-alert-destructive">{approveError}</div>}
+          <div className="mt-4 flex gap-2">
+            <button type="submit" disabled={actionLoading} className="ios-btn ios-btn-success text-xs">
+              {actionLoading && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
               {t('requestDetail.confirm')}
             </button>
             <button
               type="button"
               onClick={() => { setShowApproveForm(false); setApproveError(null); }}
-              className="ios-btn ios-btn-secondary text-[13px]"
+              className="ios-btn ios-btn-secondary text-xs"
             >
               {t('common.cancel')}
             </button>
@@ -724,48 +671,35 @@ export default function RequestDetailPage() {
         </form>
       )}
 
+      {/* ── Reject form ────────────────────────────────────── */}
       {showRejectForm && (
-        <form
-          onSubmit={handleReject}
-          className="rounded-2xl p-6"
-          style={{ backgroundColor: H.white, boxShadow: H.shadow }}
-        >
-          <h3 className="flex items-center gap-2.5 text-[15px] font-bold" style={{ color: H.navy }}>
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ backgroundColor: isDark ? H.redBg : '#FFEBEE' }}>
-              <XCircle className="h-4 w-4" style={{ color: isDark ? H.red : '#EF5350' }} />
-            </div>
-            {t('requestDetail.confirmRejection')}
-          </h3>
-          <label className="mt-4 block">
-            <span className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.rejectReason')}</span>
+        <form onSubmit={handleReject} className="ios-card">
+          <h3 className="text-sm font-semibold text-foreground">{t('requestDetail.confirmRejection')}</h3>
+          <div className="mt-4">
+            <label htmlFor="reject-reason" className="text-xs font-medium text-muted-foreground">
+              {t('requestDetail.rejectReason')}
+            </label>
             <textarea
+              id="reject-reason"
               required
               rows={3}
               value={rejectReason}
               onChange={(e) => setRejectReason(e.target.value)}
               placeholder={t('requestDetail.rejectPlaceholder')}
-              className="mt-1.5 block w-full ios-textarea text-[13px]"
+              className="ios-textarea text-sm"
+              style={{ display: 'block', width: '100%', marginTop: 6 }}
             />
-          </label>
-          {rejectError && (
-            <div className="mt-4 ios-alert-destructive">
-              {rejectError}
-            </div>
-          )}
-
-          <div className="mt-5 flex gap-3">
-            <button
-              type="submit"
-              disabled={actionLoading}
-              className="ios-btn ios-btn-destructive text-[13px]"
-            >
-              {actionLoading && <Loader2 className="h-4 w-4 animate-spin" />}
+          </div>
+          {rejectError && <div className="mt-4 ios-alert-destructive">{rejectError}</div>}
+          <div className="mt-4 flex gap-2">
+            <button type="submit" disabled={actionLoading} className="ios-btn ios-btn-destructive text-xs">
+              {actionLoading && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
               {t('requestDetail.confirmReject')}
             </button>
             <button
               type="button"
               onClick={() => { setShowRejectForm(false); setRejectError(null); }}
-              className="ios-btn ios-btn-secondary text-[13px]"
+              className="ios-btn ios-btn-secondary text-xs"
             >
               {t('common.cancel')}
             </button>
@@ -773,233 +707,201 @@ export default function RequestDetailPage() {
         </form>
       )}
 
-      {/* ══════════ HERO: CAR + DATE RANGE ══════════ */}
-      <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: H.white, boxShadow: H.shadow }}>
-        <div className="flex flex-col sm:flex-row">
-          {/* Car image / placeholder */}
-          <div className="relative sm:w-80 shrink-0">
-            {carPreview ? (
-              <img
-                src={carPreview}
-                alt={request.car ? `${request.car.brand} ${request.car.model}` : ''}
-                className="h-full w-full object-cover sm:absolute sm:inset-0"
-                style={{ aspectRatio: '16/10' }}
-              />
-            ) : (
-              <div
-                className="flex h-full min-h-[180px] items-center justify-center"
-                style={{ background: isDark ? `linear-gradient(135deg, ${H.bg} 0%, ${H.grayLight} 100%)` : 'linear-gradient(135deg, #F0F4F8 0%, #E3E8ED 100%)' }}
-              >
-                <Car className="h-16 w-16" style={{ color: isDark ? H.gray : '#B0BEC5' }} />
-              </div>
-            )}
-          </div>
-
-          {/* Right: summary info */}
-          <div className="flex-1 p-6">
-            {/* Car name + plate */}
-            {request.car ? (
-              <div className="mb-5">
-                <h2 className="text-[17px] font-bold" style={{ color: H.navy }}>
-                  {request.car.brand} {request.car.model}
-                </h2>
-                <span
-                  className="mt-1 inline-flex rounded-md px-2 py-0.5 text-[11px] font-mono font-medium"
-                  style={{ backgroundColor: H.bg, color: H.gray }}
-                >
-                  {request.car.plateNumber}
-                </span>
-              </div>
-            ) : (
-              <div className="mb-5">
-                <h2 className="text-[17px] font-bold" style={{ color: H.navy }}>{t('common.notSpecified')}</h2>
-              </div>
-            )}
-
-            {/* Date range visual */}
-            <div className="flex items-center gap-3 rounded-xl p-4" style={{ backgroundColor: H.bg, border: `1px solid ${H.grayLight}` }}>
-              <div className="flex-1 text-center">
-                <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.pickup')}</p>
-                <p className="mt-1 text-[14px] font-bold" style={{ color: H.navy }}>{fmtDateShort(request.pickupDate)}</p>
-                {request.pickupLocation && (
-                  <p className="mt-0.5 flex items-center justify-center gap-1 text-[11px] truncate" style={{ color: H.gray }}>
-                    <MapPin className="h-3 w-3 shrink-0" style={{ color: H.gray }} />
-                    {request.pickupLocation}
-                  </p>
-                )}
-              </div>
-              <div className="flex flex-col items-center gap-1">
-                <div className="h-px w-8" style={{ backgroundColor: H.grayLight }} />
-                {rentalDays != null ? (
-                  <span
-                    className="rounded-full px-3 py-1 text-[11px] font-bold text-white"
-                    style={{ background: `linear-gradient(to right, ${isDark ? H.purple : '#7C4DFF'}, ${isDark ? '#6B3FE7' : '#651FFF'})` }}
-                  >
-                    {rentalDays} {t('common.days')}
-                  </span>
-                ) : (
-                  <ArrowRight className="h-4 w-4" style={{ color: isDark ? H.gray : '#B0BEC5' }} />
-                )}
-                <div className="h-px w-8" style={{ backgroundColor: H.grayLight }} />
-              </div>
-              <div className="flex-1 text-center">
-                <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('requestDetail.return_')}</p>
-                <p className="mt-1 text-[14px] font-bold" style={{ color: H.navy }}>{fmtDateShort(request.returnDate)}</p>
-                {request.returnLocation && (
-                  <p className="mt-0.5 flex items-center justify-center gap-1 text-[11px] truncate" style={{ color: H.gray }}>
-                    <MapPin className="h-3 w-3 shrink-0" style={{ color: H.gray }} />
-                    {request.returnLocation}
-                  </p>
-                )}
-              </div>
+      {/* ── Car + Contact (side by side) ──────────────────── */}
+      <div className="grid gap-3 lg:grid-cols-2">
+      <div className="ios-card">
+        <div className="flex h-20 items-start gap-4">
+          {carPreview ? (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={carPreview}
+              alt={request.car ? `${request.car.brand} ${request.car.model}` : ''}
+              className="h-20 w-32 shrink-0 rounded-md object-cover"
+            />
+          ) : (
+            <div className="flex h-20 w-32 shrink-0 items-center justify-center rounded-md bg-muted">
+              <Car className="h-6 w-6 text-muted-foreground/50" />
             </div>
+          )}
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-semibold text-foreground">
+              {request.car ? `${request.car.brand} ${request.car.model}` : t('common.notSpecified')}
+            </p>
+            <div className="mt-0.5 flex items-center gap-2 flex-wrap">
+              {request.car?.plateNumber && (
+                <span className="text-xs text-muted-foreground">{request.car.plateNumber}</span>
+              )}
+              <PartnerBadge partner={request.car?.partner} />
+            </div>
+          </div>
+        </div>
 
-            {/* Flight number */}
-            {request.flightNumber && (
-              <div className="mt-3 flex items-center gap-2 text-[13px]" style={{ color: H.gray }}>
-                <Plane className="h-3.5 w-3.5" style={{ color: H.gray }} />
-                <span>{t('requestDetail.flight')} <span className="font-semibold" style={{ color: H.navy }}>{request.flightNumber}</span></span>
-              </div>
-            )}
-
-            {/* Meta chips */}
-            <div className="mt-3 flex flex-wrap gap-2">
-              <span
-                className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-medium"
-                style={{ backgroundColor: H.bg, border: `1px solid ${H.grayLight}`, color: H.gray }}
-              >
-                <UserCheck className="h-3 w-3" style={{ color: H.gray }} />
-                {request.assignedTo ? request.assignedTo.email : t('common.notAssigned')}
+        <dl className="mt-4 divide-y divide-border/50 text-sm">
+          <div className="flex min-h-[48px] items-center justify-between gap-4 py-3 first:pt-0">
+            <dt className="text-muted-foreground">{t('requestDetail.pickup')}</dt>
+            <dd className="whitespace-nowrap text-right">
+              <span className="font-medium text-foreground tabular-nums">
+                {fmtDateShort(request.pickupDate)}
               </span>
-              {request.client && (
-                <span
-                  className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-medium"
-                  style={{ backgroundColor: H.bg, border: `1px solid ${H.grayLight}`, color: H.gray }}
-                >
-                  <Hash className="h-3 w-3" style={{ color: H.gray }} />
-                  {t('requestDetail.client')} #{request.client.id}
+              {request.pickupLocation && (
+                <span className="ml-2 text-xs text-muted-foreground">
+                  · {request.pickupLocation}
                 </span>
+              )}
+            </dd>
+          </div>
+          <div className="flex min-h-[48px] items-center justify-between gap-4 py-3">
+            <dt className="text-muted-foreground">{t('requestDetail.return_')}</dt>
+            <dd className="whitespace-nowrap text-right">
+              <span className="font-medium text-foreground tabular-nums">
+                {fmtDateShort(request.returnDate)}
+              </span>
+              {request.returnLocation && (
+                <span className="ml-2 text-xs text-muted-foreground">
+                  · {request.returnLocation}
+                </span>
+              )}
+            </dd>
+          </div>
+          {rentalDays != null && (
+            <div className="flex min-h-[48px] items-center justify-between gap-4 py-3">
+              <dt className="text-muted-foreground">{t('common.daysLabel')}</dt>
+              <dd className="font-medium text-foreground tabular-nums">{rentalDays}</dd>
+            </div>
+          )}
+          {request.flightNumber && (
+            <div className="flex min-h-[48px] items-center justify-between gap-4 py-3 last:pb-0">
+              <dt className="inline-flex items-center gap-1.5 text-muted-foreground">
+                <Plane className="h-3.5 w-3.5" /> {t('requestDetail.flight')}
+              </dt>
+              <dd className="font-medium text-foreground">{request.flightNumber}</dd>
+            </div>
+          )}
+        </dl>
+      </div>
+
+        {/* Contact — mirrors car card: [icon+name] on top, <dl> below */}
+        <div className="ios-card">
+          <div className="flex h-20 items-start gap-4">
+            <div className="flex h-20 w-32 shrink-0 items-center justify-center rounded-md bg-muted text-base font-semibold text-foreground">
+              {getInitials(contactName)}
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-foreground">{contactName}</p>
+              {request.client && (
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {t('requestDetail.client')} #{request.client.id}
+                </p>
               )}
             </div>
           </div>
+
+          <dl className="mt-4 divide-y divide-border/50 text-sm">
+            <div className="flex min-h-[48px] items-center justify-between gap-3 py-3 first:pt-0">
+              <dt className="inline-flex items-center gap-2 text-muted-foreground">
+                <Phone className="h-3.5 w-3.5" /> {t('common.phone')}
+              </dt>
+              <dd className="truncate font-medium text-foreground">
+                {contactPhone && contactPhone !== '—' ? (
+                  <a href={`tel:${contactPhone}`} className="hover:text-primary hover:underline">
+                    {contactPhone}
+                  </a>
+                ) : '—'}
+              </dd>
+            </div>
+            <div className="flex min-h-[48px] items-center justify-between gap-3 py-3">
+              <dt className="inline-flex items-center gap-2 text-muted-foreground">
+                <Mail className="h-3.5 w-3.5" /> {t('common.email')}
+              </dt>
+              <dd className="truncate font-medium text-foreground">{contactEmail}</dd>
+            </div>
+            <div className="flex min-h-[48px] items-center justify-between gap-3 py-3 last:pb-0">
+              <dt className="text-muted-foreground">{t('common.assigned')}</dt>
+              <dd className="truncate font-medium text-foreground">
+                {request.assignedTo ? request.assignedTo.email : t('common.notAssigned')}
+              </dd>
+            </div>
+          </dl>
         </div>
       </div>
 
-      {/* ══════════ MAIN CONTENT: 2 COLUMNS ══════════ */}
-      <div className="grid gap-5 lg:grid-cols-5">
-        {/* Left column (3/5) */}
-        <div className="lg:col-span-3 space-y-5">
-          {/* Contact card */}
-          <div className="rounded-2xl p-6" style={{ backgroundColor: H.white, boxShadow: H.shadow }}>
-            <div className="flex items-center gap-3 mb-5">
-              <div
-                className="flex h-11 w-11 items-center justify-center rounded-xl text-[13px] font-bold text-white"
-                style={{ background: `linear-gradient(135deg, ${isDark ? H.purple : '#7C4DFF'}, ${isDark ? '#6B3FE7' : '#651FFF'})`, boxShadow: isDark ? '0 3px 10px rgba(124,92,255,0.3)' : '0 3px 10px rgba(124,77,255,0.25)' }}
-              >
-                {getInitials(contactName)}
-              </div>
-              <div>
-                <h2 className="text-[15px] font-bold" style={{ color: H.navy }}>{contactName}</h2>
-                <p className="text-[12px]" style={{ color: H.gray }}>{t('requestDetail.contactPerson')}</p>
-              </div>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              <div className="flex items-center gap-3 rounded-xl p-3" style={{ backgroundColor: H.bg, border: `1px solid ${H.grayLight}` }}>
-                <div
-                  className="flex h-9 w-9 items-center justify-center rounded-lg"
-                  style={{ backgroundColor: isDark ? H.blueBg : '#E3F2FD' }}
-                >
-                  <Phone className="h-4 w-4" style={{ color: isDark ? H.blue : '#1565C0' }} />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('common.phone')}</p>
-                  <p className="text-[13px] font-semibold truncate" style={{ color: H.navy }}>{contactPhone}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl p-3" style={{ backgroundColor: H.bg, border: `1px solid ${H.grayLight}` }}>
-                <div
-                  className="flex h-9 w-9 items-center justify-center rounded-lg"
-                  style={{ backgroundColor: isDark ? '#2D2047' : '#EDE7F6' }}
-                >
-                  <Mail className="h-4 w-4" style={{ color: isDark ? H.purple : '#7C4DFF' }} />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: H.gray }}>{t('common.email')}</p>
-                  <p className="text-[13px] font-semibold truncate" style={{ color: H.navy }}>{contactEmail}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Comment */}
-          {request.comment && (
-            <div className="rounded-2xl p-6" style={{ backgroundColor: H.white, boxShadow: H.shadow }}>
-              <h2 className="flex items-center gap-2.5 text-[13px] font-bold mb-3" style={{ color: H.navy }}>
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg" style={{ backgroundColor: H.bg }}>
-                  <MessageSquare className="h-3.5 w-3.5" style={{ color: H.gray }} />
-                </div>
-                {t('requestDetail.commentSection')}
-              </h2>
-              <div className="rounded-xl p-4" style={{ backgroundColor: H.bg, border: `1px solid ${H.grayLight}` }}>
-                <p className="whitespace-pre-wrap text-[13px] leading-relaxed" style={{ color: H.navy }}>
+      {/* ── Comment / Add-ons / Website snapshot ─────────── */}
+      {(request.comment || (request.reservation?.reservationAddOns && request.reservation.reservationAddOns.length > 0) || request.websiteSnapshot) && (
+        <div className="grid gap-3 lg:grid-cols-2">
+          <div className="space-y-3">
+            {request.comment && (
+              <div className="ios-card">
+                <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                  <MessageSquare className="h-4 w-4 text-muted-foreground" />
+                  {t('requestDetail.commentSection')}
+                </p>
+                <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-foreground">
                   {request.comment}
                 </p>
               </div>
-            </div>
-          )}
+            )}
+            {request.reservation?.reservationAddOns && request.reservation.reservationAddOns.length > 0 && (
+              <div className="ios-card">
+                <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                  <Package className="h-4 w-4 text-muted-foreground" />
+                  {t('requestDetail.addOnsSection')}
+                </p>
+                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                  {request.reservation.reservationAddOns.map((ra) => (
+                    <li key={ra.id}>
+                      <span className="text-foreground">{ra.addOn.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
 
-          {/* Reservation add-ons */}
-          {request.reservation?.reservationAddOns && request.reservation.reservationAddOns.length > 0 && (
-            <div className="rounded-2xl p-6" style={{ backgroundColor: H.white, boxShadow: H.shadow }}>
-              <h2 className="flex items-center gap-2.5 text-[13px] font-bold mb-3" style={{ color: H.navy }}>
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg" style={{ backgroundColor: H.bg }}>
-                  <Package className="h-3.5 w-3.5" style={{ color: H.gray }} />
-                </div>
-                {t('requestDetail.addOnsSection')}
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {request.reservation.reservationAddOns.map((ra) => (
-                  <span
-                    key={ra.id}
-                    className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12px] font-medium"
-                    style={{ backgroundColor: H.bg, border: `1px solid ${H.grayLight}`, color: H.navy }}
-                  >
-                    <CircleDot className="h-3 w-3" style={{ color: isDark ? H.purple : '#7C4DFF' }} />
-                    {ra.addOn.name}
-                  </span>
-                ))}
+          {request.websiteSnapshot && (
+            <div className="ios-card">
+              <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                <Globe className="h-4 w-4 text-muted-foreground" />
+                {t('requestDetail.websiteData')}
+              </p>
+              <div className="mt-4">
+                <WebsiteSnapshotCard snapshot={request.websiteSnapshot} t={t} />
               </div>
             </div>
           )}
         </div>
+      )}
 
-        {/* Right column (2/5) — Pricing / Snapshot */}
-        <div className="lg:col-span-2 space-y-5">
-          {request.websiteSnapshot && (
-            <div className="rounded-2xl p-6" style={{ backgroundColor: H.white, boxShadow: H.shadow }}>
-              <h2 className="flex items-center gap-2.5 text-[13px] font-bold mb-4" style={{ color: H.navy }}>
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg" style={{ backgroundColor: H.bg }}>
-                  <Globe className="h-3.5 w-3.5" style={{ color: H.gray }} />
-                </div>
-                {t('requestDetail.websiteData')}
-              </h2>
-              <WebsiteSnapshotCard snapshot={request.websiteSnapshot} t={t} H={H} isDark={isDark} />
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* ══════════ FOOTER ══════════ */}
-      <div className="flex items-center justify-between pt-2 pb-4 text-[12px]" style={{ color: isDark ? H.gray : '#B0BEC5' }}>
-        <span className="flex items-center gap-1">
-          <Clock className="h-3 w-3" />
+      {/* ── Footer ─────────────────────────────────────────── */}
+      <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs text-muted-foreground">
+        <span>
           {t('common.created')} {fmtDateTime(request.createdAt)}
         </span>
         <span>
           {t('common.updated')} {fmtDateTime(request.updatedAt)}
         </span>
       </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Helper components                                                  */
+/* ------------------------------------------------------------------ */
+
+function Field({
+  label,
+  hint,
+  children,
+}: {
+  label: string;
+  hint?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label className="text-xs font-medium text-muted-foreground">{label}</label>
+      {children}
+      {hint && <p className="mt-1 text-xs text-muted-foreground">{hint}</p>}
     </div>
   );
 }

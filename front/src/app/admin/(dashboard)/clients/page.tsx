@@ -453,7 +453,15 @@ export default function ClientsPage() {
                                 color: H.gray,
                               }}
                             />
-                            {c.phone}
+                            <a
+                              href={`tel:${c.phone}`}
+                              onClick={(e) => e.stopPropagation()}
+                              style={{ color: 'inherit', textDecoration: 'none' }}
+                              onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
+                              onMouseLeave={(e) => { e.currentTarget.style.textDecoration = 'none'; }}
+                            >
+                              {c.phone}
+                            </a>
                           </div>
                         </td>
 

@@ -174,7 +174,7 @@ export function StatusBadge({ active }: { active: boolean }) {
           background: active ? H.green : H.gray,
         }}
       />
-      {active ? 'Активен' : 'Неактивен'}
+      {active ? 'Активний' : 'Неактивний'}
     </span>
   );
 }

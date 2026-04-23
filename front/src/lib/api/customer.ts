@@ -143,6 +143,25 @@ export async function exportUserData() {
   return customerFetch("/export");
 }
 
+export async function getMyComplaints() {
+  return customerFetch("/complaint");
+}
+
+export async function getMyComplaint(id: number) {
+  return customerFetch(`/complaint/${id}`);
+}
+
+export async function postComplaintMessage(id: number, body: string) {
+  return customerFetch(`/complaint/${id}/message`, {
+    method: "POST",
+    body: JSON.stringify({ body }),
+  });
+}
+
+export async function getMyRentalInspections(rentalId: number) {
+  return customerFetch(`/rental/${rentalId}/inspection`);
+}
+
 export async function deleteAccount() {
   return customerFetch("/account", { method: "DELETE" });
 }

@@ -34,13 +34,14 @@ function formatMoney(minor: number) {
 function CustomTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-xl border border-border bg-card px-3 py-2 shadow-lg">
+    <div className="rounded-lg border border-border bg-card px-3 py-2 shadow-sm">
       <p className="mb-1 text-xs text-muted-foreground">
         {new Date(label).toLocaleDateString('uk-UA', { day: 'numeric', month: 'short' })}
       </p>
       {payload.map((entry: any) => (
-        <p key={entry.name} className="text-sm font-medium" style={{ color: entry.color }}>
-          {entry.name}: {formatMoney(entry.value)}
+        <p key={entry.name} className="text-sm font-medium text-foreground">
+          <span className="text-muted-foreground">{entry.name}:</span>{' '}
+          {formatMoney(entry.value)}
         </p>
       ))}
     </div>
@@ -80,61 +81,62 @@ export function RevenueChart() {
     '90d': t('dashboard.period90d'),
   };
 
+  const incomeColor = isDark ? '#34D399' : '#059669'; // emerald-400 / emerald-600
+  const expenseColor = isDark ? '#FB7185' : '#E11D48'; // rose-400 / rose-600
+  const gridColor = isDark ? '#2D3748' : '#E5E5EA';
+  const mutedColor = isDark ? '#718096' : '#8E8E93';
+
   return (
-    <div className="ios-card !py-3 flex flex-col">
-      <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-sm font-semibold text-card-foreground">{t('dashboard.revenueTitle')}</p>
-        <div className="flex items-center gap-2">
-          <div className="ios-segmented">
-            {(['7d', '30d', '90d'] as Period[]).map((p) => (
-              <button
-                key={p}
-                onClick={() => setPeriod(p)}
-                className={`ios-segment ${period === p ? 'ios-segment-active' : ''}`}
-              >
-                {periodLabels[p]}
-              </button>
-            ))}
-          </div>
+    <div className="ios-card flex flex-col">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-sm font-semibold text-foreground">{t('dashboard.revenueTitle')}</p>
+        <div className="ios-segmented">
+          {(['7d', '30d', '90d'] as Period[]).map((p) => (
+            <button
+              key={p}
+              onClick={() => setPeriod(p)}
+              className={`ios-segment ${period === p ? 'ios-segment-active' : ''}`}
+            >
+              {periodLabels[p]}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Summary pills */}
       {data && !loading && (
-        <div className="mb-2 flex flex-wrap gap-2">
-          <span
-            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold"
-            style={{ backgroundColor: isDark ? 'rgba(59,130,246,0.15)' : '#EFF6FF', color: isDark ? '#60A5FA' : '#1D4ED8' }}
-          >
-            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#3B82F6' }} />
-            {t('dashboard.incomeLabel')}: {formatMoney(data.totalIncome)}
+        <div className="mt-3 flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm">
+          <span className="inline-flex items-baseline gap-1.5">
+            <span className="h-1.5 w-1.5 translate-y-[-1px] rounded-full bg-emerald-500" />
+            <span className="text-muted-foreground">{t('dashboard.incomeLabel')}:</span>
+            <span className="font-semibold text-emerald-600 dark:text-emerald-400 tabular-nums">
+              {formatMoney(data.totalIncome)}
+            </span>
           </span>
-          <span
-            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold"
-            style={{ backgroundColor: isDark ? 'rgba(239,68,68,0.15)' : '#FEF2F2', color: isDark ? '#FCA5A5' : '#B91C1C' }}
-          >
-            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#EF4444' }} />
-            {t('dashboard.expenseLabel')}: {formatMoney(data.totalExpense)}
+          <span className="inline-flex items-baseline gap-1.5">
+            <span className="h-1.5 w-1.5 translate-y-[-1px] rounded-full bg-rose-500" />
+            <span className="text-muted-foreground">{t('dashboard.expenseLabel')}:</span>
+            <span className="font-semibold text-rose-600 dark:text-rose-400 tabular-nums">
+              {formatMoney(data.totalExpense)}
+            </span>
           </span>
-          <span
-            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold"
-            style={{ backgroundColor: isDark ? 'rgba(34,197,94,0.15)' : '#F0FDF4', color: isDark ? '#4ADE80' : '#15803D' }}
-          >
-            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#22C55E' }} />
-            {t('dashboard.netLabel')}: {formatMoney(data.net)}
+          <span className="inline-flex items-baseline gap-1.5">
+            <span className="h-1.5 w-1.5 translate-y-[-1px] rounded-full bg-foreground" />
+            <span className="text-muted-foreground">{t('dashboard.netLabel')}:</span>
+            <span className="font-semibold text-foreground tabular-nums">
+              {formatMoney(data.net)}
+            </span>
           </span>
         </div>
       )}
 
-      {/* Chart */}
-      <div className="h-[230px] w-full">
+      <div className="mt-3 h-[230px] w-full">
         {loading ? (
           <div className="flex h-full items-center justify-center">
-            <div className="h-8 w-8 animate-spin rounded-full border-4 border-muted border-t-primary" />
+            <div className="h-6 w-6 animate-spin rounded-full border-2 border-muted border-t-primary" />
           </div>
         ) : !data || data.daily.length === 0 ? (
           <div className="flex h-full flex-col items-center justify-center gap-2 text-muted-foreground">
-            <Download className="h-8 w-8" />
+            <Download className="h-5 w-5" />
             <p className="text-sm">{t('dashboard.noDataForPeriod')}</p>
           </div>
         ) : (
@@ -142,14 +144,14 @@ export function RevenueChart() {
             <AreaChart data={data.daily} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="incomeGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#007AFF" stopOpacity={0.15} />
-                  <stop offset="95%" stopColor="#007AFF" stopOpacity={0} />
+                  <stop offset="5%" stopColor={incomeColor} stopOpacity={0.18} />
+                  <stop offset="95%" stopColor={incomeColor} stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#2D3748' : '#E5E5EA'} vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke={gridColor} vertical={false} />
               <XAxis
                 dataKey="date"
-                tick={{ fontSize: 11, fill: isDark ? '#718096' : '#8E8E93' }}
+                tick={{ fontSize: 11, fill: mutedColor }}
                 tickFormatter={(d) =>
                   new Date(d).toLocaleDateString('uk-UA', { day: 'numeric', month: 'short' })
                 }
@@ -157,7 +159,7 @@ export function RevenueChart() {
                 tickLine={false}
               />
               <YAxis
-                tick={{ fontSize: 11, fill: isDark ? '#718096' : '#8E8E93' }}
+                tick={{ fontSize: 11, fill: mutedColor }}
                 tickFormatter={(v) => `${(v / 100).toLocaleString('uk-UA')}₴`}
                 axisLine={false}
                 tickLine={false}
@@ -167,7 +169,7 @@ export function RevenueChart() {
               <Area
                 type="monotone"
                 dataKey="income"
-                stroke="#007AFF"
+                stroke={incomeColor}
                 strokeWidth={2}
                 fill="url(#incomeGradient)"
                 name={t('dashboard.incomeLabel')}
@@ -175,7 +177,7 @@ export function RevenueChart() {
               <Area
                 type="monotone"
                 dataKey="expense"
-                stroke="#FF3B30"
+                stroke={expenseColor}
                 strokeWidth={1.5}
                 fill="none"
                 strokeDasharray="4 4"

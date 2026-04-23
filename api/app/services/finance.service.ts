@@ -82,28 +82,40 @@ class FinanceService {
         fineId?: number;
         createdByUserId?: number;
     }) {
-        return await prisma.transaction.create({
-            data: {
-                type: data.type,
-                accountId: data.accountId,
-                direction: data.direction,
-                amountMinor: data.amountMinor,
-                currency: data.currency,
-                fxRate: data.fxRate || 1.0,
-                amountUahMinor: data.amountUahMinor,
-                description: data.description || null,
-                clientId: data.clientId || null,
-                rentalId: data.rentalId || null,
-                reservationId: data.reservationId || null,
-                fineId: data.fineId || null,
-                createdByUserId: data.createdByUserId || null,
-            },
-            include: {
-                account: true,
-                client: {select: {id: true, firstName: true, lastName: true}},
-                rental: {select: {id: true, contractNumber: true}},
-                createdBy: {select: {id: true, email: true}},
-            },
+        return await prisma.$transaction(async (tx) => {
+            const transaction = await tx.transaction.create({
+                data: {
+                    type: data.type,
+                    accountId: data.accountId,
+                    direction: data.direction,
+                    amountMinor: data.amountMinor,
+                    currency: data.currency,
+                    fxRate: data.fxRate || 1.0,
+                    amountUahMinor: data.amountUahMinor,
+                    description: data.description || null,
+                    clientId: data.clientId || null,
+                    rentalId: data.rentalId || null,
+                    reservationId: data.reservationId || null,
+                    fineId: data.fineId || null,
+                    createdByUserId: data.createdByUserId || null,
+                },
+                include: {
+                    account: true,
+                    client: {select: {id: true, firstName: true, lastName: true}},
+                    rental: {select: {id: true, contractNumber: true}},
+                    createdBy: {select: {id: true, email: true}},
+                },
+            });
+
+            // Auto-close the fine when a FINE_PAYMENT transaction is recorded against it.
+            if (data.type === 'FINE_PAYMENT' && data.fineId) {
+                await tx.fine.update({
+                    where: {id: data.fineId},
+                    data: {isPaid: true},
+                });
+            }
+
+            return transaction;
         });
     }
 

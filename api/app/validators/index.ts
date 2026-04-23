@@ -509,6 +509,12 @@ export const createFineSchema = z.object({
     description: z.string().min(1).max(5000),
     amountMinor: z.number().int().min(0),
     currency: z.string().length(3).optional(),
+    externalCaseNumber: z.string().max(200).optional(),
+    incidentAt: z.coerce.date().optional(),
+    location: z.string().max(500).optional(),
+    authority: z.string().max(200).optional(),
+    attachments: z.array(z.string().url().or(z.string().min(1))).optional(),
+    inspectionId: z.number().int().positive().optional(),
 });
 
 export const updateFineSchema = z.object({
@@ -516,7 +522,12 @@ export const updateFineSchema = z.object({
     description: z.string().max(5000).optional(),
     amountMinor: z.number().int().min(0).optional(),
     currency: z.string().length(3).optional(),
-    fineDate: z.coerce.date().optional(),
+    externalCaseNumber: z.string().max(200).nullable().optional(),
+    incidentAt: z.coerce.date().nullable().optional(),
+    location: z.string().max(500).nullable().optional(),
+    authority: z.string().max(200).nullable().optional(),
+    attachments: z.array(z.string()).optional(),
+    inspectionId: z.number().int().positive().nullable().optional(),
 });
 
 export const markFinePaidSchema = z.object({
@@ -525,6 +536,71 @@ export const markFinePaidSchema = z.object({
     currency: z.string().length(3),
     fxRate: z.number().optional(),
     amountUahMinor: z.number().int(),
+});
+
+// ── Partner ──
+const commissionTierSchema = z.object({
+    minDays: z.number().int().min(1),
+    maxDays: z.number().int().min(0),
+    percent: z.number().min(0).max(100),
+});
+
+export const createPartnerSchema = z.object({
+    fullName: z.string().min(1).max(200),
+    companyName: z.string().max(200).optional(),
+    edrpou: z.string().max(20).optional(),
+    ipn: z.string().max(20).optional(),
+    phone: z.string().max(50).optional(),
+    email: z.string().email().max(200).optional(),
+    iban: z.string().max(50).optional(),
+    bankName: z.string().max(200).optional(),
+    commissionTiers: z.array(commissionTierSchema).optional(),
+    notes: z.string().max(5000).optional(),
+});
+
+export const updatePartnerSchema = z.object({
+    fullName: z.string().min(1).max(200).optional(),
+    companyName: z.string().max(200).nullable().optional(),
+    edrpou: z.string().max(20).nullable().optional(),
+    ipn: z.string().max(20).nullable().optional(),
+    phone: z.string().max(50).nullable().optional(),
+    email: z.string().email().max(200).nullable().optional(),
+    iban: z.string().max(50).nullable().optional(),
+    bankName: z.string().max(200).nullable().optional(),
+    commissionTiers: z.array(commissionTierSchema).optional(),
+    notes: z.string().max(5000).nullable().optional(),
+    isActive: z.boolean().optional(),
+});
+
+// ── Complaint ──
+const COMPLAINT_CATEGORIES = ['DEPOSIT', 'DAMAGE', 'FINE', 'SERVICE', 'GDPR', 'OTHER'] as const;
+const COMPLAINT_PRIORITIES = ['low', 'normal', 'high', 'urgent'] as const;
+const COMPLAINT_STATUSES = ['open', 'in_review', 'awaiting_client', 'resolved', 'rejected'] as const;
+
+export const createComplaintSchema = z.object({
+    clientId: z.number().int().positive().optional(),
+    rentalId: z.number().int().positive().optional(),
+    category: z.enum(COMPLAINT_CATEGORIES),
+    priority: z.enum(COMPLAINT_PRIORITIES).optional(),
+    subject: z.string().min(3).max(500),
+    initialMessage: z.string().min(5).max(20000),
+    contactName: z.string().max(200).optional(),
+    contactEmail: z.string().email().max(200).optional(),
+    contactPhone: z.string().max(50).optional(),
+    attachments: z.array(z.string()).optional(),
+});
+
+export const updateComplaintSchema = z.object({
+    status: z.enum(COMPLAINT_STATUSES).optional(),
+    category: z.enum(COMPLAINT_CATEGORIES).optional(),
+    priority: z.enum(COMPLAINT_PRIORITIES).optional(),
+    assignedManagerId: z.number().int().positive().nullable().optional(),
+    resolution: z.string().max(20000).optional(),
+});
+
+export const addComplaintMessageSchema = z.object({
+    body: z.string().min(1).max(20000),
+    attachments: z.array(z.string()).optional(),
 });
 
 // ── City ──

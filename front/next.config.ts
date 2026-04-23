@@ -11,6 +11,17 @@ const nextConfig: NextConfig = {
       static: 0,
     },
   },
+  // Dev-only: proxy /static/* to the local API server so <img src="/static/...">
+  // works on the frontend domain without a reverse proxy. In prod, Caddy handles this.
+  async rewrites() {
+    if (process.env.NODE_ENV === "production") return [];
+    return [
+      {
+        source: "/static/:path*",
+        destination: "http://localhost:3001/static/:path*",
+      },
+    ];
+  },
   // Redirect www to non-www
   async redirects() {
     return [
@@ -53,9 +64,19 @@ const nextConfig: NextConfig = {
         pathname: "/static/**",
       },
       {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
         protocol: "http",
         hostname: "localhost",
         port: "3000",
+        pathname: "/static/**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "3001",
         pathname: "/static/**",
       },
       {

@@ -108,9 +108,9 @@
       },
       "catalog_list": {
         "badges": {
-          "withDeposit": "С залогом",
-          "coverage50": "Покрытие 50%",
-          "coverage100": "Покрытие 100%",
+          "withDeposit": "Полный залог",
+          "coverage50": "Сниженный залог 50%",
+          "coverage100": "Без залога",
           "available": "Доступно сейчас",
           "contact": "Недоступна"
         },
@@ -1788,8 +1788,11 @@
     "selectedDays": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
     "rentalCostTitle": "Стоимость аренды",
     "plans": {
-      "withDeposit": "С залогом",
-      "coverage": "Покрытие {percent}%"
+      "withDeposit": "Полный залог",
+      "coverage": "Сниженный залог на {percent}%",
+      "fullDeposit": "Полный залог",
+      "reducedDeposit": "Сниженный залог на {percent}%",
+      "zeroDeposit": "Без залога"
     },
     "tariffs": {
       "exact": "{count, plural, one {{count} день} few {{count} дня} many {{count} дней} other {{count} дней}}",
@@ -1895,8 +1898,11 @@
       "title": "Страхование",
       "infoTitle": "Страхование",
       "packages": {
-        "withDeposit": "С залогом",
-        "coverage": "Покрытие {percent}%"
+        "withDeposit": "Полный залог",
+        "coverage": "Сниженный залог на {percent}%",
+        "fullDeposit": "Полный залог",
+        "reducedDeposit": "Сниженный залог на {percent}%",
+        "zeroDeposit": "Без залога"
       },
       "included": "Включено в стоимость",
       "depositReduction": "Залог уменьшен на {percent}%",
@@ -2892,7 +2898,7 @@
       "scratches": "Царапины на элементах кузова",
       "perElement": "/элемент",
       "smoking": "Прокуренный салон",
-      "coverageNote": "При аренде авто с базовой страховкой, для снижения ответственности до 0, выбирайте полное покрытие (100%)."
+      "coverageNote": "Снижение залога на 100% = без залога. Это не покрывает вашу ответственность при ДТП — для этого отдельная страховка."
     },
     "depositMultiplier": {
       "title": "Задаток увеличивается в {multiplier} раза, если",
@@ -2905,7 +2911,7 @@
     "register": { "title": "Регистрация", "subtitle": "Создайте аккаунт для быстрого бронирования", "google": "Зарегистрироваться через Google", "submit": "Зарегистрироваться", "loading": "Загрузка...", "have_account": "Уже есть аккаунт?", "login_link": "Войти", "consent": "Я согласен с политикой конфиденциальности" },
     "fields": { "email": "Email", "email_placeholder": "your@email.com", "password": "Пароль", "password_placeholder": "Минимум 8 символов", "first_name": "Имя", "first_name_placeholder": "Ваше имя", "last_name": "Фамилия", "last_name_placeholder": "Ваша фамилия", "phone": "Телефон", "phone_placeholder": "+380", "password_hint": "Минимум 8 символов, заглавные, строчные буквы и цифра" },
     "errors": { "all_fields_required": "Заполните все поля", "password_too_short": "Пароль должен быть не менее 8 символов", "password_too_weak": "Пароль должен содержать заглавные, строчные буквы и цифру", "email_exists": "Этот email уже зарегистрирован", "registration_failed": "Ошибка регистрации. Попробуйте снова или войдите", "invalid_credentials": "Неверный email или пароль", "too_many_requests": "Слишком много попыток. Попробуйте позже", "captcha_required": "Пройдите проверку безопасности", "captcha_failed": "Проверка безопасности не пройдена. Попробуйте снова", "consent_required": "Необходимо согласиться с политикой конфиденциальности", "account_locked": "Аккаунт временно заблокирован. Попробуйте через 15 минут" },
-    "nav": { "overview": "Обзор", "profile": "Профиль", "bookings": "Бронирования", "history": "История бронирований", "favorites": "Избранное", "notifications": "Уведомления", "privacy": "Конфиденциальность", "logout": "Выйти" },
+    "nav": { "overview": "Обзор", "profile": "Профиль", "bookings": "Бронирования", "history": "История бронирований", "complaints": "Обращения", "favorites": "Избранное", "notifications": "Уведомления", "privacy": "Конфиденциальность", "logout": "Выйти" },
     "overview": { "title": "Мой кабинет", "welcome": "Добро пожаловать, {name}!", "no_bookings": "У вас нет активных бронирований", "upcoming_trip": "Ближайшая поездка" },
     "profile": {
       "title": "Профиль",
@@ -2947,7 +2953,7 @@
     "layout": {
       "back_to_site": "Вернуться на сайт"
     },
-    "bookings": { "title": "Активные бронирования", "empty": "Нет активных бронирований", "pickup": "Получение", "return": "Возврат", "status": "Статус", "status_active": "Активная", "status_confirmed": "Подтверждена", "status_pending": "Ожидает", "status_completed": "Завершена", "status_cancelled": "Отменена", "status_no_show": "Неявка", "status_picked_up": "Выдано", "status_reservation": "Бронирование", "status_rental": "Аренда", "daily_rate": "Тариф/день", "total_paid": "Оплачено", "deposit": "Депозит", "deposit_returned": "Возвращён", "deposit_held": "Удержан", "fines": "Штрафы", "add_ons": "Дополнительные услуги", "extensions": "Продления", "show_details": "Показать детали", "hide_details": "Скрыть детали", "paid": "Оплачено", "per_day": "день", "request_cancel": "Запросить отмену", "cancel_reason_placeholder": "Причина отмены (необязательно)", "send_request": "Отправить запрос", "cancel_back": "Назад", "cancel_requested": "Запрос на отмену отправлен", "cancel_request_sent": "Запрос отправлен. Мы свяжемся с вами.", "view_car": "Посмотреть авто", "link_copied": "Ссылка скопирована" },
+    "bookings": { "title": "Активные бронирования", "empty": "Нет активных бронирований", "pickup": "Получение", "return": "Возврат", "status": "Статус", "status_active": "Активная", "status_confirmed": "Подтверждена", "status_pending": "Ожидает", "status_completed": "Завершена", "status_cancelled": "Отменена", "status_no_show": "Неявка", "status_picked_up": "Выдано", "status_reservation": "Бронирование", "status_rental": "Аренда", "daily_rate": "Тариф/день", "total_paid": "Оплачено", "deposit": "Депозит", "deposit_returned": "Возвращён", "deposit_held": "Удержан", "fines": "Штрафы", "add_ons": "Дополнительные услуги", "extensions": "Продления", "show_details": "Показать детали", "hide_details": "Скрыть детали", "paid": "Оплачено", "per_day": "день", "rebook": "Забронировать снова", "view_inspection": "Посмотреть осмотры", "request_cancel": "Запросить отмену", "cancel_reason_placeholder": "Причина отмены (необязательно)", "send_request": "Отправить запрос", "cancel_back": "Назад", "cancel_requested": "Запрос на отмену отправлен", "cancel_request_sent": "Запрос отправлен. Мы свяжемся с вами.", "view_car": "Посмотреть авто", "link_copied": "Ссылка скопирована" },
     "history": { "title": "История бронирований", "empty": "История пуста", "tab_reservations": "Бронирования", "tab_rentals": "Аренды", "completed_rentals": "Завершённых аренд", "cancelled_title": "Отменённые бронирования", "total_spent": "Общая сумма", "member_since": "Клиент с" },
     "favorites": { "title": "Избранное", "empty": "У вас нет избранных авто", "remove": "Удалить", "add_tooltip": "Добавить этот автомобиль в ваш список желаний", "remove_tooltip": "Удалить этот автомобиль из вашего списка желаний", "perDay": "день" },
     "notifications": { "title": "Уведомления", "email_deals": "Акции и скидки", "email_reminders": "Напоминания о бронировании", "email_receipts": "Квитанции и счета", "saved": "Сохранено!" },

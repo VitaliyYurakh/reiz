@@ -10,6 +10,12 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 
 const abs = (path: string) => new URL(path, BASE).toString();
 
+const DEFAULT_IMAGE = abs("/img/og/home-square.jpg");
+
+const BLOG_ARTICLE_IMAGES: Record<string, string> = {
+  "/blog/lviv-travel": abs("/img/blog/synevir-lake.webp"),
+};
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
@@ -31,6 +37,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: isHome ? "daily" : "monthly",
       priority: isHome ? 1.0 : 0.8,
       alternates: { languages },
+      images: [DEFAULT_IMAGE],
     });
   });
 
@@ -45,6 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.9,
       alternates: { languages },
+      images: [DEFAULT_IMAGE],
     });
   }
 
@@ -55,12 +63,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const idSlug = createCarIdSlug(car);
       const languages = buildHreflangMap(`/cars/${idSlug}`, abs);
 
+      const photo =
+        car.carPhoto.find((p) => p.type === "PC")?.url ||
+        car.carPhoto[0]?.url;
+      const carImage = photo
+        ? abs(`/static/${encodeURI(photo)}`)
+        : DEFAULT_IMAGE;
+
       entries.push({
         url: abs(`/cars/${idSlug}`),
         lastModified: staticLastModified,
         changeFrequency: "weekly",
         priority: 0.9,
         alternates: { languages },
+        images: [carImage],
       });
       // Note: /rent pages excluded from sitemap (noindex)
     }
@@ -78,6 +94,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.7,
       alternates: { languages },
+      images: [BLOG_ARTICLE_IMAGES[articlePath] ?? DEFAULT_IMAGE],
     });
   }
 

@@ -1,9 +1,16 @@
 import {Router} from 'express';
 
-import {financeController} from '../controllers';
+import {financeController, fineController, fxRateController} from '../controllers';
 import {auth, requirePermission} from '../middleware';
 
 const router = Router();
+
+// Open fines list (for linking FINE_PAYMENT transactions)
+router.get('/fine/open', auth, requirePermission('finance', 'view'), fineController.listOpen.bind(fineController));
+
+// FX rate auto-fill (calls НБУ; cached daily in DailyFxRate table)
+router.get('/fx-rate', auth, requirePermission('finance', 'view'), fxRateController.getRate.bind(fxRateController));
+router.get('/fx-rate/today', auth, requirePermission('finance', 'view'), fxRateController.listToday.bind(fxRateController));
 
 // Accounts
 router.get('/account', auth, requirePermission('finance', 'view'), financeController.getAllAccounts.bind(financeController));

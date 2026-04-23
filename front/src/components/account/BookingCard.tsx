@@ -58,7 +58,7 @@ export default function BookingCard({ booking }: BookingCardProps) {
   const returnDate = new Date(booking.actualReturnDate || booking.returnDate);
 
   const fmtDate = (d: Date) =>
-    d.toLocaleDateString("uk-UA", { day: "numeric", month: "short" });
+    d.toLocaleDateString(locale, { day: "numeric", month: "short" });
 
   const dateRange = `${fmtDate(pickupDate)} — ${fmtDate(returnDate)}`;
 
@@ -86,6 +86,25 @@ export default function BookingCard({ booking }: BookingCardProps) {
 
   // Already requested cancellation
   const cancelRequested = !!booking.cancellationRequestedAt;
+
+  // Rebook is available when the trip is over (completed rental OR cancelled).
+  // We send the user back to the car detail page with a hint we can use later
+  // for analytics and (eventually) date prefill.
+  const canRebook =
+    !!car?.id &&
+    (booking.status === "completed" ||
+      booking.status === "cancelled" ||
+      booking._type === "history");
+  const rebookHref = car?.id
+    ? `${locale === "uk" ? "" : `/${locale}`}/cars/${car.id}?rebookFrom=${booking.id}`
+    : null;
+
+  // Inspection gallery — only for actual rentals (not reservations) so we have
+  // PICKUP/RETURN documentation to show.
+  const canViewInspection = booking._type === "rental" || booking._type === "history";
+  const inspectionHref = canViewInspection
+    ? `${locale === "uk" ? "" : `/${locale}`}/account/bookings/${booking.id}/inspection`
+    : null;
 
   async function handleRequestCancel(e: React.MouseEvent) {
     e.stopPropagation();
@@ -213,6 +232,28 @@ export default function BookingCard({ booking }: BookingCardProps) {
           onClick={(e) => { e.stopPropagation(); setExpanded(!expanded); }}
         >
           {expanded ? t("hide_details") : t("show_details")}
+        </button>
+      )}
+
+      {/* Inspection gallery (rentals only) */}
+      {canViewInspection && inspectionHref && (
+        <button
+          type="button"
+          className="trip-card__inspection-btn"
+          onClick={(e) => { e.stopPropagation(); router.push(inspectionHref); }}
+        >
+          {t.has("view_inspection") ? t("view_inspection") : "Переглянути огляди"}
+        </button>
+      )}
+
+      {/* Rebook (for completed / cancelled trips) */}
+      {canRebook && rebookHref && (
+        <button
+          type="button"
+          className="trip-card__rebook-btn"
+          onClick={(e) => { e.stopPropagation(); router.push(rebookHref); }}
+        >
+          {t.has("rebook") ? t("rebook") : "Забронювати знову"}
         </button>
       )}
 

@@ -35,6 +35,8 @@ model User {
   inspections         Inspection[]
   ratingAuthored      Client[]         @relation("RatingAuthor")
   auditLogs           AuditLog[]       @relation("AuditLogs")
+  assignedComplaints  Complaint[]      @relation("AssignedComplaints")
+  complaintMessages   ComplaintMessage[] @relation("ComplaintAuthorUser")
 }
 
 model Car {
@@ -107,6 +109,9 @@ model Car {
   damageSmokingFee           Float?  @map("damage_smoking_fee")
   depositMultiplier          Float?  @map("deposit_multiplier")
 
+  // Partner / owner — for fleet operated under commission with another business
+  partnerId Int? @map("partner_id")
+
   rentalTariff    RentalTariff[]
   carPhoto        CarPhoto[]
   carCountingRule CarCountingRule[]
@@ -124,6 +129,10 @@ model Car {
 
   // Customer cabinet relations
   favorites Favorite[]
+
+  partner   Partner? @relation(fields: [partnerId], references: [id], onDelete: SetNull)
+
+  @@index([partnerId])
 }
 
 model Segment {
@@ -291,6 +300,9 @@ model Client {
   customerAccount        CustomerAccount?
   favorites              Favorite[]
   notificationPreference NotificationPreference?
+
+  // Complaint relations
+  complaints             Complaint[]
 
   @@index([phone])
   @@index([email])
@@ -515,6 +527,7 @@ model Rental {
   fines            Fine[]
   transactions     Transaction[]
   documents        Document[]
+  complaints       Complaint[]
 
   @@index([status])
   @@index([carId, pickupDate, returnDate])
@@ -574,6 +587,7 @@ model Inspection {
   rental    Rental            @relation(fields: [rentalId], references: [id], onDelete: Cascade)
   inspector User?             @relation(fields: [inspectorId], references: [id])
   photos    InspectionPhoto[]
+  fines     Fine[]
 
   @@index([rentalId])
   @@index([type])
@@ -595,20 +609,31 @@ model InspectionPhoto {
 // --- Fine ---
 
 model Fine {
-  id          Int      @id @default(autoincrement())
-  rentalId    Int      @map("rental_id")
-  type        String
-  description String
-  amountMinor Int      @map("amount_minor")
-  currency    String   @default("UAH")
-  isPaid      Boolean  @default(false) @map("is_paid")
-  createdAt   DateTime @default(now()) @map("created_at")
+  id                 Int       @id @default(autoincrement())
+  rentalId           Int       @map("rental_id")
+  type               String
+  description        String
+  amountMinor        Int       @map("amount_minor")
+  currency           String    @default("UAH")
+  isPaid             Boolean   @default(false) @map("is_paid")
+  createdAt          DateTime  @default(now()) @map("created_at")
+
+  // Evidence fields — added 2026-04 to defend disputed deductions and meet
+  // legal requirements for traffic fines (must reference an authority case).
+  externalCaseNumber String?   @map("external_case_number")
+  incidentAt         DateTime? @map("incident_at")
+  location           String?
+  authority          String?   // e.g. "Патрульна поліція Одеса"
+  attachments        Json      @default("[]") // array of URLs (PDF / images of evidence)
+  inspectionId       Int?      @map("inspection_id")
 
   rental      Rental       @relation(fields: [rentalId], references: [id], onDelete: Cascade)
+  inspection  Inspection?  @relation(fields: [inspectionId], references: [id], onDelete: SetNull)
   transaction Transaction?
 
   @@index([rentalId])
   @@index([isPaid])
+  @@index([inspectionId])
   @@map("fine")
 }
 
@@ -894,4 +919,121 @@ model NotificationPreference {
   client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
 
   @@map("notification_preference")
+}
+
+// ============================================================
+// COMPLAINTS & DISPUTES (added 2026-04)
+// ============================================================
+//
+// Replaces ad-hoc support emails. A Complaint is the canonical record of any
+// customer dispute, complaint, or refund request — with attachments, a thread,
+// SLA tracking, and an assigned manager. Lets us:
+//   * defend disputed deductions with evidence + audit trail
+//   * meet GDPR data-subject requests with a numbered case
+//   * surface friction patterns in admin (status filters, by category)
+
+model Complaint {
+  id                Int       @id @default(autoincrement())
+  ticketNumber      String    @unique @map("ticket_number") // human-friendly e.g. "REIZ-COMP-2026-04-0001"
+  clientId          Int?      @map("client_id")             // nullable — anonymous via contact form is OK
+  rentalId          Int?      @map("rental_id")
+  category          String                                  // 'DEPOSIT' | 'DAMAGE' | 'FINE' | 'SERVICE' | 'GDPR' | 'OTHER'
+  priority          String    @default("normal")            // 'low' | 'normal' | 'high' | 'urgent'
+  status            String    @default("open")              // 'open' | 'in_review' | 'awaiting_client' | 'resolved' | 'rejected'
+  subject           String
+  initialMessage    String                                  @map("initial_message")
+  contactName       String?   @map("contact_name")
+  contactEmail      String?   @map("contact_email")
+  contactPhone      String?   @map("contact_phone")
+  attachments       Json      @default("[]")                // array of URLs
+  assignedManagerId Int?      @map("assigned_manager_id")
+  slaDeadline       DateTime? @map("sla_deadline")
+  resolvedAt        DateTime? @map("resolved_at")
+  resolution        String?
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+
+  client          Client?            @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  rental          Rental?            @relation(fields: [rentalId], references: [id], onDelete: SetNull)
+  assignedManager User?              @relation("AssignedComplaints", fields: [assignedManagerId], references: [id])
+  messages        ComplaintMessage[]
+
+  @@index([status])
+  @@index([category])
+  @@index([clientId])
+  @@index([rentalId])
+  @@index([assignedManagerId])
+  @@index([createdAt])
+  @@map("complaint")
+}
+
+model ComplaintMessage {
+  id           Int      @id @default(autoincrement())
+  complaintId  Int      @map("complaint_id")
+  authorType   String   @map("author_type") // 'client' | 'staff' | 'system'
+  authorUserId Int?     @map("author_user_id")
+  body         String
+  attachments  Json     @default("[]")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  complaint  Complaint @relation(fields: [complaintId], references: [id], onDelete: Cascade)
+  authorUser User?     @relation("ComplaintAuthorUser", fields: [authorUserId], references: [id])
+
+  @@index([complaintId])
+  @@map("complaint_message")
+}
+
+// ============================================================
+// DAILY FX RATE (added 2026-04)
+// ============================================================
+//
+// Stops cashiers from typing different USD/UAH rates in the same day.
+// Pulled from НБУ once a day (cron) and used as default when creating
+// non-UAH transactions; can still be overridden manually with a note.
+
+model DailyFxRate {
+  id        Int      @id @default(autoincrement())
+  date      DateTime @db.Date
+  currency  String                          // 'USD' | 'EUR' | 'PLN' | …
+  rate      Float                           // units of UAH per 1 unit of currency
+  source    String   @default("NBU")        // 'NBU' | 'manual'
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([date, currency])
+  @@index([currency, date])
+  @@map("daily_fx_rate")
+}
+
+// ============================================================
+// PARTNERS (added 2026-04)
+// ============================================================
+//
+// External owners whose cars Reiz manages on commission. Each Partner has
+// commission tiers based on rental length (default 15% / 12.5% / 10% for
+// short / mid / long rentals — matches the partner statement template the
+// company has been sending manually as XLSX). Reports are generated per
+// partner per period and exported as XLSX.
+
+model Partner {
+  id          Int      @id @default(autoincrement())
+  fullName    String   @map("full_name")
+  companyName String?  @map("company_name")
+  edrpou      String?                          // ЄДРПОУ / company tax ID for VAT-compliant invoices
+  ipn         String?                          // ІПН / personal tax ID for individuals
+  phone       String?
+  email       String?
+  iban        String?                          // for payouts
+  bankName    String?  @map("bank_name")
+  // Default commission tiers as JSON: [{minDays: 1, maxDays: 7, percent: 15}, ...]
+  // Stored as Json so we can evolve the rule shape without migrations.
+  commissionTiers Json @default("[{\"minDays\":1,\"maxDays\":7,\"percent\":15},{\"minDays\":8,\"maxDays\":29,\"percent\":12.5},{\"minDays\":30,\"maxDays\":0,\"percent\":10}]") @map("commission_tiers")
+  notes       String?
+  isActive    Boolean  @default(true) @map("is_active")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  cars Car[]
+
+  @@index([isActive])
+  @@map("partner")
 }

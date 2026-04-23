@@ -1,6 +1,9 @@
 import {Request, Response} from 'express';
 import {StatusCodes} from 'http-status-codes';
 import customerService from '../services/customer.service';
+import complaintService from '../services/complaint.service';
+import inspectionService from '../services/inspection.service';
+import {prisma, parseId} from '../utils';
 
 class CustomerController {
     async getProfile(req: Request, res: Response) {
@@ -114,6 +117,60 @@ class CustomerController {
         const clientId = res.locals.clientId;
         await customerService.deleteAccount(clientId);
         res.json({msg: 'Account deleted successfully'});
+    }
+
+    /* ── Complaints (customer-side) ── */
+
+    async listComplaints(req: Request, res: Response) {
+        const clientId = res.locals.clientId;
+        const result = await complaintService.list({clientId, limit: 50});
+        res.json(result);
+    }
+
+    async getComplaint(req: Request, res: Response) {
+        const clientId = res.locals.clientId;
+        const id = parseId(req.params.id);
+        const complaint = await complaintService.getOne(id);
+        if (!complaint || complaint.clientId !== clientId) {
+            return res.status(StatusCodes.NOT_FOUND).json({msg: 'Complaint not found'});
+        }
+        res.json({complaint});
+    }
+
+    async addComplaintMessage(req: Request, res: Response) {
+        const clientId = res.locals.clientId;
+        const id = parseId(req.params.id);
+        const complaint = await complaintService.getOne(id);
+        if (!complaint || complaint.clientId !== clientId) {
+            return res.status(StatusCodes.NOT_FOUND).json({msg: 'Complaint not found'});
+        }
+        const body = (req.body?.body || '').trim();
+        if (!body) {
+            return res.status(StatusCodes.BAD_REQUEST).json({msg: 'Message body required'});
+        }
+        const message = await complaintService.addMessage(id, {
+            body,
+            authorType: 'client',
+            attachments: Array.isArray(req.body?.attachments) ? req.body.attachments : [],
+        });
+        res.status(StatusCodes.CREATED).json({message});
+    }
+
+    /* ── Inspection gallery (customer-side) ── */
+
+    async getRentalInspections(req: Request, res: Response) {
+        const clientId = res.locals.clientId;
+        const rentalId = parseId(req.params.id);
+        // Verify the rental belongs to this client before returning anything.
+        const rental = await prisma.rental.findUnique({
+            where: {id: rentalId},
+            select: {clientId: true, contractNumber: true, car: {select: {brand: true, model: true, plateNumber: true}}},
+        });
+        if (!rental || rental.clientId !== clientId) {
+            return res.status(StatusCodes.NOT_FOUND).json({msg: 'Rental not found'});
+        }
+        const inspections = await inspectionService.getByRental(rentalId);
+        res.json({rental, inspections});
     }
 }
 
