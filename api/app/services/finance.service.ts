@@ -1,4 +1,5 @@
 import {prisma, BadRequestError} from '../utils';
+import fxRateService from './fx-rate.service';
 
 class FinanceService {
     // --- Account CRUD ---
@@ -14,27 +15,45 @@ class FinanceService {
     }
 
     async getAccountBalances() {
+        // Native balance per account via groupBy.
         const rows = await prisma.transaction.groupBy({
             by: ['accountId', 'direction'],
-            _sum: {amountMinor: true, amountUahMinor: true},
+            _sum: {amountMinor: true},
         });
 
-        const map = new Map<
-            number,
-            {totalIn: number; totalOut: number; totalInUah: number; totalOutUah: number}
-        >();
+        const map = new Map<number, {totalIn: number; totalOut: number}>();
         for (const row of rows) {
             if (!map.has(row.accountId)) {
-                map.set(row.accountId, {totalIn: 0, totalOut: 0, totalInUah: 0, totalOutUah: 0});
+                map.set(row.accountId, {totalIn: 0, totalOut: 0});
             }
             const entry = map.get(row.accountId)!;
             if (row.direction === 'in') {
                 entry.totalIn = row._sum.amountMinor ?? 0;
-                entry.totalInUah = row._sum.amountUahMinor ?? 0;
             } else {
                 entry.totalOut = row._sum.amountMinor ?? 0;
-                entry.totalOutUah = row._sum.amountUahMinor ?? 0;
             }
+        }
+
+        // Fetch the accounts so we know each account's currency.
+        const accounts = await prisma.account.findMany({
+            where: {id: {in: Array.from(map.keys())}},
+            select: {id: true, currency: true},
+        });
+        const currencyById = new Map(accounts.map((a) => [a.id, a.currency]));
+
+        // Resolve today's NBU rate per distinct non-UAH currency so the UAH
+        // equivalent is accurate even when historical transactions were saved
+        // with fxRate=1.0 (pre-audit data has amountUahMinor = amountMinor
+        // for foreign-currency rows, which would otherwise make a $274 USD
+        // account display as 274 грн in the pocket total). Doing the
+        // conversion live means mark-to-market: the pocket shows cash-on-hand
+        // at today's rate, which is the standard for a wallet/till view.
+        const distinctCurrencies = Array.from(new Set(accounts.map((a) => a.currency)))
+            .filter((c) => c !== 'UAH');
+        const fxByCurrency = new Map<string, number>();
+        for (const ccy of distinctCurrencies) {
+            const nbu = await fxRateService.getRate(ccy);
+            if (nbu) fxByCurrency.set(ccy, nbu.rate);
         }
 
         const result: Array<{
@@ -42,19 +61,19 @@ class FinanceService {
             totalIn: number;
             totalOut: number;
             balance: number;
-            totalInUah: number;
-            totalOutUah: number;
             balanceUah: number;
         }> = [];
         for (const [accountId, v] of map) {
+            const balance = v.totalIn - v.totalOut;
+            const currency = currencyById.get(accountId) || 'UAH';
+            const rate = currency === 'UAH' ? 1 : (fxByCurrency.get(currency) ?? 0);
+            const balanceUah = Math.round(balance * rate);
             result.push({
                 accountId,
                 totalIn: v.totalIn,
                 totalOut: v.totalOut,
-                balance: v.totalIn - v.totalOut,
-                totalInUah: v.totalInUah,
-                totalOutUah: v.totalOutUah,
-                balanceUah: v.totalInUah - v.totalOutUah,
+                balance,
+                balanceUah,
             });
         }
         return result;

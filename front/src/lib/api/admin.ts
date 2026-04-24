@@ -223,8 +223,9 @@ export interface AccountBalance {
   totalIn: number;
   totalOut: number;
   balance: number;
-  totalInUah: number;
-  totalOutUah: number;
+  // UAH-equivalent of `balance`, converted at today's NBU rate on the
+  // backend. Does NOT trust historical Transaction.amountUahMinor (which
+  // pre-audit rows saved as raw foreign cents with fxRate=1.0).
   balanceUah: number;
 }
 
