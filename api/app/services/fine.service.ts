@@ -1,4 +1,5 @@
-import {prisma} from '../utils';
+import {prisma, BadRequestError} from '../utils';
+import fxRateService from './fx-rate.service';
 
 class FineService {
     async getByRental(rentalId: number) {
@@ -158,10 +159,44 @@ class FineService {
             throw new Error(`Fine ${id} is already marked as paid`);
         }
 
-        // Validate payment amount covers the fine
-        if (transactionData.amountUahMinor < fine.amountMinor) {
-            throw new Error(
-                `Сума оплати (${transactionData.amountUahMinor / 100} грн) менша за суму штрафу (${fine.amountMinor / 100} грн)`,
+        // Validate payment amount covers the fine.
+        //
+        // Historic bug: compared `amountUahMinor` (UAH копійки) directly to
+        // `fine.amountMinor` (native cents of `fine.currency`). For a €50 fine,
+        // an admin could "pay" 1 грн and pass because 100 > 5000 is false but
+        // wait 100 < 5000 is true; conversely for a $50 fine with a 2000 грн
+        // payment the check passed silently (200000 > 5000). Both the check
+        // and the user-facing error misreported units. Fix: compare amounts in
+        // the same currency — convert fine.amountMinor to UAH using either
+        // the tx's fxRate (if provided) or today's NBU rate.
+        let fineAmountUahMinor = fine.amountMinor;
+        if (fine.currency !== 'UAH') {
+            const fxForFine = transactionData.fxRate && transactionData.fxRate > 0
+                ? transactionData.fxRate
+                : (await fxRateService.getRate(fine.currency))?.rate;
+            if (!fxForFine) {
+                throw new BadRequestError(
+                    `Неможливо визначити курс ${fine.currency}→UAH для штрафу #${id}. Задайте курс вручну.`,
+                );
+            }
+            fineAmountUahMinor = Math.round(fine.amountMinor * fxForFine);
+        }
+        if (transactionData.amountUahMinor < fineAmountUahMinor) {
+            throw new BadRequestError(
+                `Сума оплати (${(transactionData.amountUahMinor / 100).toFixed(2)} грн) менша за суму штрафу (${(fineAmountUahMinor / 100).toFixed(2)} грн).`,
+            );
+        }
+
+        // Verify the account's currency matches the transaction's currency
+        // (same invariant as financeService.createTransaction — this path goes
+        // through tx.transaction.create directly and bypasses that check).
+        const account = await prisma.account.findUnique({where: {id: transactionData.accountId}});
+        if (!account || !account.isActive) {
+            throw new BadRequestError(`Рахунок #${transactionData.accountId} не активний або не існує.`);
+        }
+        if (account.currency !== transactionData.currency) {
+            throw new BadRequestError(
+                `Валюта транзакції (${transactionData.currency}) не збігається з валютою рахунку "${account.name}" (${account.currency}).`,
             );
         }
 

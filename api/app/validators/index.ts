@@ -268,6 +268,13 @@ export const cancelRentalSchema = z.object({
 export const extendRentalSchema = z.object({
     newReturnDate: z.coerce.date(),
     reason: z.string().max(2000).optional(),
+    // Payment options for the auto-created EXTENSION_PAYMENT transaction.
+    // If accountId is omitted, the service picks the first active account
+    // matching the rental's currency. skipPayment=true lets admin record the
+    // extension without creating a transaction (e.g. unpaid extension).
+    paymentAccountId: z.number().int().positive().optional(),
+    paymentFxRate: z.number().positive().optional(),
+    skipPayment: z.boolean().optional(),
 });
 
 // ── Reservation ──

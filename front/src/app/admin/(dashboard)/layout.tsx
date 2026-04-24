@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState, useCallback } from 'react';
+import { Fragment, useEffect, useState, useCallback } from 'react';
 import adminApi, { checkAuthReq, getNewRequestsCount } from '@/lib/api/admin';
 import {
   Car,
@@ -16,11 +16,10 @@ import {
   BarChart3,
   Settings,
   LogOut,
-  LayoutDashboard,
+  Home,
   Tag,
   ChevronLeft,
   ChevronRight,
-  ExternalLink,
   Globe,
   MapPin,
   Moon,
@@ -57,7 +56,7 @@ const NAV_GROUPS: NavGroup[] = [
   {
     label: '',
     items: [
-      { href: '/admin/dashboard', labelKey: 'nav.dashboard', icon: LayoutDashboard, module: 'dashboard' },
+      { href: '/admin/dashboard', labelKey: 'nav.dashboard', icon: Home, module: 'dashboard' },
     ],
   },
   {
@@ -262,262 +261,120 @@ export default function DashboardLayout({
     '--shadow-h-md': '0 4px 12px rgba(0, 0, 0, 0.5)',
   } as React.CSSProperties : {};
 
+  // Filter visible nav items by user permissions
+  const visibleGroups = NAV_GROUPS.map((group) => ({
+    ...group,
+    items:
+      userRole === 'admin'
+        ? group.items
+        : group.items.filter((item) => {
+            if (!item.module) return true;
+            const level = userPermissions[item.module];
+            return level === 'full' || level === 'view';
+          }),
+  })).filter((g) => g.items.length > 0);
+
   return (
     <ConfirmProvider>
-    <div className={cn('fixed inset-0 z-50 flex transition-colors duration-300', isDark ? 'bg-[#111827]' : 'bg-[#F0F4F8]')} data-theme={theme} style={themeVars}>
-      {/* ── Sidebar ── */}
-      <aside
-        className={cn(
-          'relative flex flex-col transition-all duration-300 ease-in-out',
-          collapsed ? 'w-[72px]' : 'w-[230px]',
-          isDark ? 'bg-[#1A2332]' : 'bg-white',
-        )}
-        style={{
-          boxShadow: isDark ? '1px 0 0 0 rgba(255,255,255,0.04)' : '1px 0 0 0 rgba(0,0,0,0.04)',
-        }}
-      >
-        {/* ── Brand ── */}
-        <div
-          className={cn(
-            'flex shrink-0 items-center justify-between py-4',
-            collapsed ? 'px-4' : 'px-6',
-          )}
-        >
-          <Link href="/admin/dashboard" className="flex items-center gap-2.5">
-            <span
-              className={cn(
-                'font-black tracking-tight',
-                collapsed ? 'text-[15px]' : 'text-[18px]',
-                isDark ? 'text-white' : 'text-[#1a1a1a]',
-              )}
+      <div className="as-shell fixed inset-0 z-50 flex" data-theme={theme} style={themeVars}>
+        {/* ═══════════════ Sidebar ═══════════════ */}
+        <aside className={cn('as-sidebar', !collapsed && 'expanded')}>
+          {/* Navigation */}
+          <nav className="as-nav">
+            {visibleGroups.map((group, gi) => (
+              <Fragment key={gi}>
+                {gi > 0 && <div className="as-nav-divider" />}
+                {group.items.map((item) => {
+                  const badge = item.href === '/admin/requests' ? newRequestsCount : item.badge;
+                  const isActive =
+                    pathname === item.href || pathname.startsWith(`${item.href}/`);
+                  const label = t(item.labelKey);
+                  const Icon = item.icon;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn('as-nav-item', isActive && 'active')}
+                      title={collapsed ? label : undefined}
+                    >
+                      <Icon strokeWidth={1.8} />
+                      <span className="as-nav-label">{label}</span>
+                      {badge != null && badge > 0 && (
+                        <>
+                          <span className="as-nav-badge">{badge > 99 ? '99+' : badge}</span>
+                          {collapsed && <span className="as-nav-badge-dot" />}
+                        </>
+                      )}
+                    </Link>
+                  );
+                })}
+              </Fragment>
+            ))}
+          </nav>
+
+          {/* Bottom utilities */}
+          <div className="as-sidebar-bottom">
+            <div className="as-nav-divider" />
+
+            {/* Theme toggle */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="as-nav-item"
+              title={collapsed ? (isDark ? t('nav.lightMode') : t('nav.darkMode')) : undefined}
             >
-              REIZ
-            </span>
-          </Link>
-          <button
-            type="button"
-            onClick={() => setCollapsed((c) => !c)}
-            className={cn(
-              'flex h-7 w-7 items-center justify-center rounded-full transition-colors',
-              isDark ? 'text-[#718096] hover:bg-[#2D3748] hover:text-[#A0AEC0]' : 'text-[#B0BEC5] hover:bg-[#F5F5F5] hover:text-[#607D8B]',
-            )}
-          >
-            {collapsed ? (
-              <ChevronRight className="h-4 w-4" />
-            ) : (
-              <ChevronLeft className="h-4 w-4" />
-            )}
-          </button>
-        </div>
+              {isDark ? <Sun strokeWidth={1.8} /> : <Moon strokeWidth={1.8} />}
+              <span className="as-nav-label">
+                {isDark ? t('nav.lightMode') : t('nav.darkMode')}
+              </span>
+            </button>
 
-        {/* ── Navigation ── */}
-        <nav className="flex-1 overflow-y-auto px-3">
-          {NAV_GROUPS.map((group, gi) => {
-            // Filter items by permissions (admin sees all)
-            const visibleItems = userRole === 'admin'
-              ? group.items
-              : group.items.filter((item) => {
-                  if (!item.module) return true;
-                  const level = userPermissions[item.module];
-                  return level === 'full' || level === 'view';
-                });
+            {/* Language */}
+            <button
+              type="button"
+              onClick={cycleLocale}
+              className="as-nav-item"
+              title={collapsed ? LOCALE_LABELS[locale] : undefined}
+            >
+              <Globe strokeWidth={1.8} />
+              <span className="as-nav-label">{LOCALE_LABELS[locale]}</span>
+            </button>
 
-            if (visibleItems.length === 0) return null;
+            {/* Collapse / expand */}
+            <button
+              type="button"
+              onClick={() => setCollapsed((c) => !c)}
+              className="as-nav-item"
+              aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            >
+              {collapsed ? <ChevronRight strokeWidth={1.8} /> : <ChevronLeft strokeWidth={1.8} />}
+              <span className="as-nav-label">{collapsed ? '' : ' '}</span>
+            </button>
 
-            const showSeparator = gi > 0;
-
-            return (
-              <div key={gi}>
-                {showSeparator && (
-                  <div className={cn('my-1 mx-3 border-t', isDark ? 'border-[#2D3748]' : 'border-[#ECEFF1]')} />
-                )}
-                <ul className="flex flex-col gap-0.5">
-                  {visibleItems.map((item) => {
-                    const badge = item.href === '/admin/requests' ? newRequestsCount : item.badge;
-                    const isActive =
-                      pathname === item.href ||
-                      pathname.startsWith(`${item.href}/`);
-                    const label = t(item.labelKey);
-
-                    return (
-                      <li key={item.href}>
-                        <Link
-                          href={item.href}
-                          className={cn(
-                            'flex w-full items-center gap-3 rounded-xl px-3 text-[13px] transition-all duration-150',
-                            isActive
-                              ? isDark
-                                ? 'bg-[#1E293B] font-semibold'
-                                : 'bg-[#F7F9FB] font-semibold'
-                              : isDark
-                                ? 'font-medium hover:bg-[#1E293B]'
-                                : 'font-medium hover:bg-[#FAFBFC]',
-                            collapsed && 'justify-center px-0',
-                          )}
-                          style={{
-                            paddingTop: 5,
-                            paddingBottom: 5,
-                            color: isActive
-                              ? isDark ? '#E2E8F0' : '#263238'
-                              : isDark ? '#718096' : '#607D8B',
-                          }}
-                          title={collapsed ? label : undefined}
-                          onMouseEnter={(e) => {
-                            if (!isActive) e.currentTarget.style.color = isDark ? '#A0AEC0' : '#37474F';
-                          }}
-                          onMouseLeave={(e) => {
-                            if (!isActive) e.currentTarget.style.color = isDark ? '#718096' : '#607D8B';
-                          }}
-                        >
-                          {/* Icon in teal circle */}
-                          <div className="relative shrink-0">
-                            <div
-                              className={cn(
-                                'flex h-7 w-7 items-center justify-center rounded-full transition-all duration-150',
-                                isActive
-                                  ? 'bg-gradient-to-br from-[#26C6DA] to-[#00ACC1] shadow-sm'
-                                  : isDark ? 'bg-[#2D3748]' : 'bg-[#ECEFF1]',
-                              )}
-                            >
-                              <item.icon
-                                className="h-3.5 w-3.5"
-                                style={{ color: isActive ? '#FFFFFF' : isDark ? '#718096' : '#78909C' }}
-                                strokeWidth={1.8}
-                              />
-                            </div>
-                            {collapsed && badge != null && badge > 0 && (
-                              <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#FF5252] px-1 text-[9px] font-bold text-white shadow-sm">
-                                {badge > 9 ? '9+' : badge}
-                              </span>
-                            )}
-                          </div>
-
-                          {!collapsed && (
-                            <>
-                              <span className="flex-1">{label}</span>
-                              {/* Badge */}
-                              {badge != null && badge > 0 && (
-                                <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#FF5252] px-1.5 text-[10px] font-bold text-white">
-                                  {badge > 99 ? '99+' : badge}
-                                </span>
-                              )}
-                              {/* Active chevron */}
-                              {isActive && (
-                                <ChevronRight className="h-4 w-4" style={{ color: isDark ? '#4A5568' : '#B0BEC5' }} />
-                              )}
-                            </>
-                          )}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            );
-          })}
-        </nav>
-
-        {/* ── User card + Language + Logout ── */}
-        <div className="shrink-0 px-3 pb-2">
-          <div className={cn('mx-3 mb-2 border-t', isDark ? 'border-[#2D3748]' : 'border-[#ECEFF1]')} />
-
-          {/* Theme toggle */}
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className={cn(
-              'flex w-full items-center gap-3 rounded-xl px-3 text-[13px] font-medium transition-all duration-150',
-              isDark ? 'hover:bg-[#1E293B]' : 'hover:bg-[#FAFBFC]',
-              collapsed && 'justify-center px-0',
-            )}
-            style={{ paddingTop: 5, paddingBottom: 5, color: isDark ? '#718096' : '#607D8B' }}
-            title={collapsed ? (isDark ? 'Light' : 'Dark') : undefined}
-            onMouseEnter={(e) => { e.currentTarget.style.color = isDark ? '#A0AEC0' : '#37474F'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = isDark ? '#718096' : '#607D8B'; }}
-          >
-            <div className={cn(
-              'flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors',
-              isDark ? 'bg-[#2D3748]' : 'bg-[#ECEFF1]',
-            )}>
-              {isDark ? (
-                <Sun className="h-3.5 w-3.5" style={{ color: '#F6AD55' }} strokeWidth={1.8} />
-              ) : (
-                <Moon className="h-3.5 w-3.5" style={{ color: '#78909C' }} strokeWidth={1.8} />
-              )}
-            </div>
-            {!collapsed && <span className="flex-1 text-left">{isDark ? t('nav.lightMode') : t('nav.darkMode')}</span>}
-          </button>
-
-          {/* Language switcher */}
-          <button
-            type="button"
-            onClick={cycleLocale}
-            className={cn(
-              'flex w-full items-center gap-3 rounded-xl px-3 text-[13px] font-medium transition-all duration-150',
-              isDark ? 'hover:bg-[#1E293B]' : 'hover:bg-[#FAFBFC]',
-              collapsed && 'justify-center px-0',
-            )}
-            style={{ paddingTop: 5, paddingBottom: 5, color: isDark ? '#718096' : '#607D8B' }}
-            title={collapsed ? LOCALE_LABELS[locale] : undefined}
-            onMouseEnter={(e) => { e.currentTarget.style.color = isDark ? '#A0AEC0' : '#37474F'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = isDark ? '#718096' : '#607D8B'; }}
-          >
-            <div className={cn(
-              'flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors',
-              isDark ? 'bg-[#2D3748]' : 'bg-[#ECEFF1]',
-            )}>
-              <Globe className="h-3.5 w-3.5" style={{ color: isDark ? '#718096' : '#78909C' }} strokeWidth={1.8} />
-            </div>
-            {!collapsed && <span className="flex-1 text-left">{LOCALE_LABELS[locale]}</span>}
-          </button>
-
-          <button
-            type="button"
-            onClick={handleLogout}
-            className={cn(
-              'flex w-full items-center gap-3 rounded-xl px-3 py-1.5 text-[13px] font-medium transition-all duration-150',
-              isDark ? 'hover:bg-[#3B1F1F]' : 'hover:bg-[#FFF3F3]',
-              collapsed && 'justify-center px-0',
-            )}
-            style={{ color: isDark ? '#718096' : '#90A4AE' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = isDark ? '#FC8181' : '#E53935'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = isDark ? '#718096' : '#90A4AE'; }}
-          >
-            <div className={cn(
-              'flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors',
-              isDark ? 'bg-[#2D3748]' : 'bg-[#ECEFF1]',
-            )}>
-              <LogOut className="h-3.5 w-3.5" style={{ color: isDark ? '#718096' : '#90A4AE' }} />
-            </div>
-            {!collapsed && <span>{t('nav.logout')}</span>}
-          </button>
-        </div>
-
-        {/* ── Decorative gradient wave at bottom ── */}
-        <div
-          className={cn('pointer-events-none absolute bottom-0 left-0 right-0 h-16', isDark ? 'opacity-20' : 'opacity-30')}
-          style={{
-            background: isDark
-              ? 'linear-gradient(180deg, transparent 0%, rgba(38,198,218,0.06) 40%, rgba(38,198,218,0.12) 100%)'
-              : 'linear-gradient(180deg, transparent 0%, rgba(38,198,218,0.08) 40%, rgba(38,198,218,0.15) 100%)',
-            borderRadius: '0 0 0 0',
-          }}
-        />
-
-      </aside>
-
-      {/* ── Main content ── */}
-      <main className="min-w-0 flex-1 overflow-y-auto overflow-x-hidden">
-        {/* ── Top Bar Row (only on dashboard) ── */}
-        {pathname === '/admin/dashboard' && (
-          <div className="sticky top-0 z-10 px-8 pt-6 pb-0">
-            <TopBar title={t('nav.dashboard')} />
+            {/* Logout */}
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="as-nav-item"
+              title={collapsed ? t('nav.logout') : undefined}
+            >
+              <LogOut strokeWidth={1.8} />
+              <span className="as-nav-label">{t('nav.logout')}</span>
+            </button>
           </div>
-        )}
-        <div className="px-8 py-6">{children}</div>
-      </main>
-    </div>
-    <Toaster richColors position="top-right" theme={isDark ? 'dark' : 'light'} closeButton />
+        </aside>
+
+        {/* ═══════════════ Main content ═══════════════ */}
+        <main className="min-w-0 flex-1 overflow-y-auto overflow-x-hidden">
+          {pathname === '/admin/dashboard' && (
+            <div className="px-8 pt-6 pb-0">
+              <TopBar />
+            </div>
+          )}
+          <div className="px-8 py-6">{children}</div>
+        </main>
+      </div>
+      <Toaster richColors position="top-right" theme={isDark ? 'dark' : 'light'} closeButton />
     </ConfirmProvider>
   );
 }

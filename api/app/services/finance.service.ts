@@ -1,4 +1,4 @@
-import {prisma} from '../utils';
+import {prisma, BadRequestError} from '../utils';
 
 class FinanceService {
     // --- Account CRUD ---
@@ -16,23 +16,46 @@ class FinanceService {
     async getAccountBalances() {
         const rows = await prisma.transaction.groupBy({
             by: ['accountId', 'direction'],
-            _sum: {amountMinor: true},
+            _sum: {amountMinor: true, amountUahMinor: true},
         });
 
-        const map = new Map<number, {totalIn: number; totalOut: number}>();
+        const map = new Map<
+            number,
+            {totalIn: number; totalOut: number; totalInUah: number; totalOutUah: number}
+        >();
         for (const row of rows) {
-            if (!map.has(row.accountId)) map.set(row.accountId, {totalIn: 0, totalOut: 0});
+            if (!map.has(row.accountId)) {
+                map.set(row.accountId, {totalIn: 0, totalOut: 0, totalInUah: 0, totalOutUah: 0});
+            }
             const entry = map.get(row.accountId)!;
             if (row.direction === 'in') {
                 entry.totalIn = row._sum.amountMinor ?? 0;
+                entry.totalInUah = row._sum.amountUahMinor ?? 0;
             } else {
                 entry.totalOut = row._sum.amountMinor ?? 0;
+                entry.totalOutUah = row._sum.amountUahMinor ?? 0;
             }
         }
 
-        const result: Array<{accountId: number; totalIn: number; totalOut: number; balance: number}> = [];
-        for (const [accountId, {totalIn, totalOut}] of map) {
-            result.push({accountId, totalIn, totalOut, balance: totalIn - totalOut});
+        const result: Array<{
+            accountId: number;
+            totalIn: number;
+            totalOut: number;
+            balance: number;
+            totalInUah: number;
+            totalOutUah: number;
+            balanceUah: number;
+        }> = [];
+        for (const [accountId, v] of map) {
+            result.push({
+                accountId,
+                totalIn: v.totalIn,
+                totalOut: v.totalOut,
+                balance: v.totalIn - v.totalOut,
+                totalInUah: v.totalInUah,
+                totalOutUah: v.totalOutUah,
+                balanceUah: v.totalInUah - v.totalOutUah,
+            });
         }
         return result;
     }
@@ -83,6 +106,19 @@ class FinanceService {
         createdByUserId?: number;
     }) {
         return await prisma.$transaction(async (tx) => {
+            // Invariant: a transaction's currency must match its account's currency.
+            // Violating this silently corrupts getAccountBalances() (which sums amountMinor
+            // without a currency filter), mixing cents+копійки as if they were the same unit.
+            const account = await tx.account.findUnique({where: {id: data.accountId}});
+            if (!account) {
+                throw new BadRequestError(`Рахунок #${data.accountId} не існує.`);
+            }
+            if (account.currency !== data.currency) {
+                throw new BadRequestError(
+                    `Валюта транзакції (${data.currency}) не збігається з валютою рахунку "${account.name}" (${account.currency}). Оберіть інший рахунок або створіть рахунок у потрібній валюті.`,
+                );
+            }
+
             const transaction = await tx.transaction.create({
                 data: {
                     type: data.type,

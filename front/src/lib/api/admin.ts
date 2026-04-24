@@ -208,6 +208,36 @@ export const getOverdueRentals = async (): Promise<OverdueData> => {
   return res.data;
 };
 
+// ── Finance: accounts + balances ──
+
+export interface Account {
+  id: number;
+  name: string;
+  type: string;
+  currency: string;
+  isActive: boolean;
+}
+
+export interface AccountBalance {
+  accountId: number;
+  totalIn: number;
+  totalOut: number;
+  balance: number;
+  totalInUah: number;
+  totalOutUah: number;
+  balanceUah: number;
+}
+
+export const getAccounts = async (): Promise<Account[]> => {
+  const res = await adminApi.get('/finance/account');
+  return res.data.accounts ?? [];
+};
+
+export const getAccountBalances = async (): Promise<AccountBalance[]> => {
+  const res = await adminApi.get('/finance/account/balances');
+  return res.data ?? [];
+};
+
 // ── Admin notifications ──
 
 export interface AdminNotification {

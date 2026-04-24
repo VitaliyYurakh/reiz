@@ -391,9 +391,12 @@ class CustomerService {
 
     private buildReservationPricing(reservation: any) {
         const ps = reservation.priceSnapshot as any;
+        // Exclude deposits — the customer cabinet shows "total paid for this
+        // reservation"; depositing money we'll return is not "spend". Also
+        // subtract refunds (direction=out) so a partial refund is reflected.
         const totalPaidMinor = (reservation.transactions || [])
-            .filter((t: any) => t.direction === 'in')
-            .reduce((sum: number, t: any) => sum + (t.amountMinor || 0), 0);
+            .filter((t: any) => t.type !== 'DEPOSIT_RECEIVED' && t.type !== 'DEPOSIT_RETURNED')
+            .reduce((sum: number, t: any) => sum + (t.direction === 'in' ? (t.amountMinor || 0) : -(t.amountMinor || 0)), 0);
 
         return {
             dailyRateMinor: ps?.dailyRateMinor || ps?.dailyRate || null,
@@ -413,9 +416,10 @@ class CustomerService {
 
     private buildRentalPricing(rental: any) {
         const ps = rental.priceSnapshot as any;
+        // Exclude deposits and subtract refunds/outgoing — see buildReservationPricing.
         const totalPaidMinor = (rental.transactions || [])
-            .filter((t: any) => t.direction === 'in')
-            .reduce((sum: number, t: any) => sum + (t.amountMinor || 0), 0);
+            .filter((t: any) => t.type !== 'DEPOSIT_RECEIVED' && t.type !== 'DEPOSIT_RETURNED')
+            .reduce((sum: number, t: any) => sum + (t.direction === 'in' ? (t.amountMinor || 0) : -(t.amountMinor || 0)), 0);
 
         const totalFinesMinor = (rental.fines || [])
             .reduce((sum: number, f: any) => sum + (f.amountMinor || 0), 0);

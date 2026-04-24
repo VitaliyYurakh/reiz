@@ -1,6 +1,7 @@
-import {prisma, MS_PER_DAY, RentalStatus} from '../utils';
+import {prisma, MS_PER_DAY, RentalStatus, BadRequestError} from '../utils';
 import {PriceSnapshot} from '../types/dto.types';
 import availabilityService, {formatConflicts} from './availability.service';
+import fxRateService from './fx-rate.service';
 
 class RentalService {
     async getAll(params: {
@@ -246,17 +247,25 @@ class RentalService {
                 }
             }
 
-            // Increment client loyalty counters
+            // Increment client loyalty counters. Aggregate in UAH копійки
+            // (amountUahMinor) so multi-currency rentals sum into a single
+            // comparable field, and exclude deposits — they are client money
+            // held on our side, not lifetime spend. Matches NON_REVENUE_TYPES
+            // used by the dashboard revenue aggregation.
             const totalPaid = await tx.transaction.aggregate({
-                where: {rentalId: id, direction: 'in'},
-                _sum: {amountMinor: true},
+                where: {
+                    rentalId: id,
+                    direction: 'in',
+                    type: {notIn: ['DEPOSIT_RECEIVED', 'DEPOSIT_RETURNED']},
+                },
+                _sum: {amountUahMinor: true},
             });
 
             await tx.client.update({
                 where: {id: rental.clientId},
                 data: {
                     totalCompletedRentals: {increment: 1},
-                    totalSpentMinor: {increment: totalPaid._sum.amountMinor || 0},
+                    totalSpentMinor: {increment: totalPaid._sum.amountUahMinor || 0},
                 },
             });
 
@@ -296,6 +305,48 @@ class RentalService {
                 });
 
                 if (depositAccountId) {
+                    // Verify that the account's currency matches the deposit's currency.
+                    // Otherwise amountMinor (stored per-account in its native currency)
+                    // would corrupt the account balance — e.g. putting USD cents on a
+                    // UAH cash drawer so `getAccountBalances` would read -20000 USD cents
+                    // as if they were копійки.
+                    const depAcc = await tx.account.findUnique({where: {id: depositAccountId}});
+                    if (!depAcc || !depAcc.isActive) {
+                        throw new BadRequestError(`Повернення застави: рахунок #${depositAccountId} не активний або не існує.`);
+                    }
+                    if (depAcc.currency !== rental.depositCurrency) {
+                        throw new BadRequestError(
+                            `Повернення застави: валюта рахунку "${depAcc.name}" (${depAcc.currency}) не збігається з валютою застави (${rental.depositCurrency}).`,
+                        );
+                    }
+
+                    // Resolve fxRate for UAH normalization. Prefer the rate used when
+                    // the deposit was originally received (so we "refund at the same rate"
+                    // and the account's UAH-normalized balance nets to zero). Fall back to
+                    // today's NBU rate, then 1.0 if the currency is UAH.
+                    let fxRate = 1.0;
+                    if (rental.depositCurrency !== 'UAH') {
+                        const originalDeposit = await tx.transaction.findFirst({
+                            where: {rentalId: id, type: 'DEPOSIT_RECEIVED'},
+                            orderBy: {createdAt: 'asc'},
+                        });
+                        if (originalDeposit) {
+                            fxRate = originalDeposit.fxRate;
+                        } else {
+                            const nbu = await fxRateService.getRate(rental.depositCurrency);
+                            if (!nbu) {
+                                throw new BadRequestError(
+                                    `Неможливо визначити курс ${rental.depositCurrency} → UAH для повернення застави. Задайте курс вручну у /admin/finance.`,
+                                );
+                            }
+                            fxRate = nbu.rate;
+                        }
+                    }
+
+                    const amountUahMinor = rental.depositCurrency === 'UAH'
+                        ? rental.depositAmount
+                        : Math.round(rental.depositAmount * fxRate);
+
                     depositTransaction = await tx.transaction.create({
                         data: {
                             type: 'DEPOSIT_RETURNED',
@@ -303,8 +354,8 @@ class RentalService {
                             direction: 'out',
                             amountMinor: rental.depositAmount,
                             currency: rental.depositCurrency,
-                            fxRate: 1.0,
-                            amountUahMinor: rental.depositAmount,
+                            fxRate,
+                            amountUahMinor,
                             description: `Повернення застави за скасовану оренду #${id}`,
                             clientId: rental.clientId,
                             rentalId: id,
@@ -317,7 +368,12 @@ class RentalService {
         });
     }
 
-    async extend(id: number, newReturnDate: Date, reason?: string) {
+    async extend(
+        id: number,
+        newReturnDate: Date,
+        reason?: string,
+        paymentOptions?: {accountId?: number; fxRate?: number; skipPayment?: boolean},
+    ) {
         const rental = await prisma.rental.findUnique({where: {id}});
 
         if (!rental) {
@@ -373,6 +429,70 @@ class RentalService {
                 },
             });
 
+            // Auto-create EXTENSION_PAYMENT transaction so the extension's revenue
+            // flows into the dashboard / reports just like the pickup PAYMENT does.
+            // Without this, extending an active rental was silently invisible to
+            // Revenue-this-month and the per-rental payments balance.
+            let extensionTransaction = null;
+            const shouldRecordPayment = !paymentOptions?.skipPayment && totalMinor > 0;
+            if (shouldRecordPayment) {
+                let accountId = paymentOptions?.accountId;
+                if (accountId) {
+                    // Verify admin-picked account's currency matches the extension's currency.
+                    const acc = await tx.account.findUnique({where: {id: accountId}});
+                    if (!acc || !acc.isActive) {
+                        throw new BadRequestError(`Продовження: рахунок #${accountId} не активний або не існує.`);
+                    }
+                    if (acc.currency !== currency) {
+                        throw new BadRequestError(
+                            `Продовження: валюта рахунку "${acc.name}" (${acc.currency}) не збігається з валютою оренди (${currency}).`,
+                        );
+                    }
+                } else {
+                    const defaultAccount = await tx.account.findFirst({
+                        where: {currency, isActive: true},
+                        orderBy: {id: 'asc'},
+                    });
+                    if (!defaultAccount) {
+                        throw new BadRequestError(
+                            `Продовження: немає активного рахунку у валюті ${currency}. Створіть його у /admin/finance або передайте skipPayment=true.`,
+                        );
+                    }
+                    accountId = defaultAccount.id;
+                }
+
+                let fxRate = 1.0;
+                if (paymentOptions?.fxRate != null && paymentOptions.fxRate > 0) {
+                    fxRate = paymentOptions.fxRate;
+                } else if (currency !== 'UAH') {
+                    const nbu = await fxRateService.getRate(currency);
+                    if (!nbu) {
+                        throw new BadRequestError(
+                            `Продовження: не вдалося визначити курс ${currency}→UAH. Задайте курс вручну.`,
+                        );
+                    }
+                    fxRate = nbu.rate;
+                }
+                const amountUahMinor = currency === 'UAH'
+                    ? totalMinor
+                    : Math.round(totalMinor * fxRate);
+
+                extensionTransaction = await tx.transaction.create({
+                    data: {
+                        type: 'EXTENSION_PAYMENT',
+                        accountId,
+                        direction: 'in',
+                        amountMinor: totalMinor,
+                        currency,
+                        fxRate,
+                        amountUahMinor,
+                        description: `Оплата продовження оренди #${id} (+${extraDays} дн.)`,
+                        clientId: rental.clientId,
+                        rentalId: id,
+                    },
+                });
+            }
+
             // Update rental return date
             const updatedRental = await tx.rental.update({
                 where: {id},
@@ -384,7 +504,7 @@ class RentalService {
                 },
             });
 
-            return {rental: updatedRental, extension};
+            return {rental: updatedRental, extension, transaction: extensionTransaction};
         });
     }
 }

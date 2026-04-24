@@ -66,12 +66,16 @@ class RentalController {
 
     async extend(req: Request, res: Response) {
         const {id} = req.params;
-        const {newReturnDate, reason} = validate(extendRentalSchema, req.body);
+        const {newReturnDate, reason, paymentAccountId, paymentFxRate, skipPayment} = validate(extendRentalSchema, req.body);
         const before = await rentalService.getOne(parseId(id));
-        const rental = await rentalService.extend(parseId(id), newReturnDate, reason);
+        const result = await rentalService.extend(parseId(id), newReturnDate, reason, {
+            accountId: paymentAccountId,
+            fxRate: paymentFxRate,
+            skipPayment,
+        });
 
-        logAudit({actorId: res.locals.user?.id, entityType: 'Rental', entityId: parseId(id), action: 'UPDATE', before, after: rental, req});
-        return res.status(StatusCodes.OK).json({rental});
+        logAudit({actorId: res.locals.user?.id, entityType: 'Rental', entityId: parseId(id), action: 'UPDATE', before, after: result, req});
+        return res.status(StatusCodes.OK).json(result);
     }
 }
 

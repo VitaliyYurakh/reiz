@@ -2,6 +2,7 @@ import {prisma, MS_PER_DAY, ReservationStatus, BadRequestError, ConflictError, N
 import {PriceSnapshot} from '../types/dto.types';
 import availabilityService from './availability.service';
 import {formatConflicts} from './availability.service';
+import fxRateService from './fx-rate.service';
 
 class ReservationService {
     async getAll(params: {
@@ -349,6 +350,10 @@ class ReservationService {
             const grandTotal = Math.round(Number(ps.grandTotal) || 0);
             const depositAmount = Math.round(Number(ps.depositAmount) || 0);
 
+            // Resolve an account + enforce that its currency matches the
+            // transaction's currency. Without this check, admin could pick a
+            // UAH cash drawer for a USD pickup, and getAccountBalances() would
+            // sum USD cents into the UAH account balance — a silent corruption.
             const resolveAccount = async (
                 provided: number | undefined,
                 label: string,
@@ -357,6 +362,11 @@ class ReservationService {
                     const acc = await tx.account.findUnique({where: {id: provided}});
                     if (!acc || !acc.isActive) {
                         throw new BadRequestError(`${label}: рахунок #${provided} не активний або не існує.`);
+                    }
+                    if (acc.currency !== currency) {
+                        throw new BadRequestError(
+                            `${label}: валюта рахунку "${acc.name}" (${acc.currency}) не збігається з валютою оренди (${currency}). Оберіть інший рахунок.`,
+                        );
                     }
                     return acc.id;
                 }
@@ -372,11 +382,33 @@ class ReservationService {
                 return defaultAccount.id;
             };
 
+            // Resolve fxRate: if admin didn't supply one and currency ≠ UAH,
+            // pull today's NBU rate. Silently defaulting to 1.0 (the historic
+            // bug) wrote amountUahMinor = grandTotal-in-foreign-cents, which
+            // then inflated the UAH revenue aggregation on the dashboard by
+            // the raw-number ratio (e.g. $1000 became 1000 грн instead of
+            // ~41 000 грн — or the opposite, depending on which side of the
+            // aggregation was read).
+            const resolveFxRate = async (
+                provided: number | undefined,
+                label: string,
+            ): Promise<number> => {
+                if (provided != null && provided > 0) return provided;
+                if (currency === 'UAH') return 1.0;
+                const nbu = await fxRateService.getRate(currency);
+                if (!nbu) {
+                    throw new BadRequestError(
+                        `${label}: не вдалося визначити курс ${currency}→UAH (НБУ недоступний, немає збереженого курсу). Задайте курс вручну або у /admin/finance.`,
+                    );
+                }
+                return nbu.rate;
+            };
+
             const transactions: unknown[] = [];
 
             if (!pickupData.skipPayment && grandTotal > 0) {
                 const accountId = await resolveAccount(pickupData.paymentAccountId, 'Оплата оренди');
-                const fx = pickupData.paymentFxRate ?? (currency === 'UAH' ? 1.0 : 1.0);
+                const fx = await resolveFxRate(pickupData.paymentFxRate, 'Оплата оренди');
                 const amountUahMinor = currency === 'UAH' ? grandTotal : Math.round(grandTotal * fx);
                 const paymentTx = await tx.transaction.create({
                     data: {
@@ -402,7 +434,10 @@ class ReservationService {
                     pickupData.depositAccountId ?? pickupData.paymentAccountId,
                     'Застава',
                 );
-                const fx = pickupData.depositFxRate ?? pickupData.paymentFxRate ?? 1.0;
+                const fx = await resolveFxRate(
+                    pickupData.depositFxRate ?? pickupData.paymentFxRate,
+                    'Застава',
+                );
                 const amountUahMinor = currency === 'UAH' ? depositAmount : Math.round(depositAmount * fx);
                 const depositTx = await tx.transaction.create({
                     data: {

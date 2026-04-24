@@ -3,6 +3,7 @@ import { AdminLocaleProvider } from '@/context/AdminLocaleContext';
 import { AdminThemeProvider } from '@/context/AdminThemeContext';
 import { AdminAuthProvider } from '@/context/AdminAuthContext';
 import './globals.css';
+import './admin-shell.css';
 
 export const metadata = {
     title: 'REIZ Admin',

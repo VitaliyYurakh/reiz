@@ -7,9 +7,16 @@ const NON_REVENUE_TYPES = ['DEPOSIT_RECEIVED', 'DEPOSIT_RETURNED'];
 class ReportService {
     async getDashboard() {
         const now = new Date();
-        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-        const startOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-        const endOfLastMonth = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59, 999);
+        // Month boundaries in UTC so the server's local timezone cannot drift
+        // first-of-month transactions into the previous accounting month.
+        // Postgres stores TIMESTAMP in UTC; the frontend dateRange() helper
+        // also serializes with toISOString (UTC), so every clock on every path
+        // now agrees on month boundaries.
+        const y = now.getUTCFullYear();
+        const m = now.getUTCMonth();
+        const startOfMonth = new Date(Date.UTC(y, m, 1));
+        const startOfLastMonth = new Date(Date.UTC(y, m - 1, 1));
+        const endOfLastMonth = new Date(Date.UTC(y, m, 0, 23, 59, 59, 999));
 
         const [
             activeRentals,
