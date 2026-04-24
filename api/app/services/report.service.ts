@@ -137,12 +137,28 @@ class ReportService {
             orderBy: {createdAt: 'asc'},
         });
 
-        // Group by day
+        // Seed every day in the [from, to] range with zeros so the chart
+        // has one data point per calendar day, not only the days that
+        // happened to have transactions. Without this, a week with only two
+        // active days collapses to 2 points and the 5-slot x-axis on the
+        // dashboard duplicates labels ("21 апр / 21 апр / 22 апр / 22 апр /
+        // 22 апр").
         const dailyRevenue: Record<string, {date: string; income: number; expense: number; net: number}> = {};
+        const cursor = new Date(fromDate);
+        cursor.setUTCHours(0, 0, 0, 0);
+        const end = new Date(toDate);
+        end.setUTCHours(0, 0, 0, 0);
+        while (cursor.getTime() <= end.getTime()) {
+            const key = cursor.toISOString().slice(0, 10);
+            dailyRevenue[key] = {date: key, income: 0, expense: 0, net: 0};
+            cursor.setUTCDate(cursor.getUTCDate() + 1);
+        }
 
         for (const tx of transactions) {
             const dateKey = tx.createdAt.toISOString().slice(0, 10);
             if (!dailyRevenue[dateKey]) {
+                // Defensive: tx outside the seeded range (shouldn't happen
+                // given the where-clause, but handles off-by-one edge cases).
                 dailyRevenue[dateKey] = {date: dateKey, income: 0, expense: 0, net: 0};
             }
 
