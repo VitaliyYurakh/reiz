@@ -43,7 +43,7 @@ export async function generateMetadata({
       siteName: "REIZ",
       images: [
         {
-          url: "/img/blog/road%20accidentua.webp",
+          url: "/img/blog/dtp-warning-sign-v2.webp",
           width: 1200,
           height: 630,
           alt: t("meta.og_title"),
@@ -73,7 +73,7 @@ export default async function DtpUkrainePage() {
     "@type": "HowTo",
     name: t("title"),
     description: t("intro"),
-    image: `${BASE}/img/blog/road%20accidentua.webp`,
+    image: `${BASE}/img/blog/dtp-warning-sign-v2.webp`,
     step: stepKeys.map((key, idx) => ({
       "@type": "HowToStep",
       position: idx + 1,
@@ -119,7 +119,7 @@ export default async function DtpUkrainePage() {
 
       <figure className="article__hero-image">
         <UiImage
-          src="/img/blog/road%20accidentua.webp"
+          src="/img/blog/dtp-warning-sign-v2.webp"
           alt={t("hero_alt")}
           width={800}
           height={450}

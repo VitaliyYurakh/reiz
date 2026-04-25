@@ -41,7 +41,7 @@ export async function generateMetadata({
       siteName: "REIZ",
       images: [
         {
-          url: "/img/blog/parking.webp",
+          url: "/img/blog/long-term-rental-clean.webp",
           width: 1200,
           height: 630,
           alt: t("meta.og_title"),
@@ -79,7 +79,7 @@ export default async function ParkingPaymentUkrainePage() {
 
       <figure className="article__hero-image">
         <UiImage
-          src="/img/blog/parking.webp"
+          src="/img/blog/long-term-rental-clean.webp"
           alt={t("hero_alt")}
           width={800}
           height={450}

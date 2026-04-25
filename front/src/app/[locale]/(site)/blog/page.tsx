@@ -98,6 +98,7 @@ export default async function BlogPage() {
                     alt={post.imgAlt}
                     sizePreset="card"
                   />
+                  <span className="blog-card__logo blog-card__logo--small" aria-hidden="true" />
                 </Link>
               ) : (
                 <div className="blog-card__image">
@@ -108,6 +109,7 @@ export default async function BlogPage() {
                     alt={post.imgAlt}
                     sizePreset="card"
                   />
+                  <span className="blog-card__logo blog-card__logo--small" aria-hidden="true" />
                 </div>
               )}
 

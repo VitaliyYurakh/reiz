@@ -46,6 +46,12 @@ export default async function SchemaOrg({
   // Build FAQPage from homePage.faq (3 groups × 3 items = 9 Q&A pairs).
   // Lets AI engines (Google AI Overviews, ChatGPT, Perplexity) extract direct
   // answers for queries like "ліміт пробігу оренди авто Львів".
+  // Use t.raw + stripHtml because some answers contain HTML markup that
+  // next-intl's ICU parser would otherwise reject as INVALID_TAG.
+  const stripHtml = (value: unknown) =>
+    typeof value === "string"
+      ? value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim()
+      : "";
   const faqGroupKeys = ["group1", "group2", "group3"] as const;
   const faqItemKeys = ["item1", "item2", "item3"] as const;
   const faqQuestions = faqGroupKeys.flatMap((group) =>
@@ -54,7 +60,7 @@ export default async function SchemaOrg({
       name: t(`faq.${group}_${item}_question`),
       acceptedAnswer: {
         "@type": "Answer" as const,
-        text: t(`faq.${group}_${item}_answer`),
+        text: stripHtml(t.raw(`faq.${group}_${item}_answer`)),
       },
     })),
   );

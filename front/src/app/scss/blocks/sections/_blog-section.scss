@@ -89,7 +89,6 @@
     display: flex;
     flex-direction: column;
     gap: clamp(16px, 1.4706vw, 20px);
-    max-width: 800px;
 
     @include for-tablet {
       margin-top: 30px;
@@ -104,9 +103,11 @@
     color: var(--cl-brown);
     letter-spacing: -0.01em;
     margin: 0;
+    white-space: nowrap;
 
     @include small-tablet {
       font-size: clamp(22px, 6vw, 28px);
+      white-space: normal;
     }
   }
 
@@ -118,6 +119,7 @@
     line-height: 1.6;
     color: var(--cl-ab);
     margin-top: clamp(8px, 0.8824vw, 12px);
+    max-width: 800px;
   }
 
   @include tablet {
