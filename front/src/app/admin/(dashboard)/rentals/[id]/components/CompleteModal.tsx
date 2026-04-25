@@ -9,7 +9,7 @@ export function CompleteModal({
     loading,
 }: {
     onClose: () => void;
-    onSubmit: (data: { returnOdometer?: number; notes?: string }) => void;
+    onSubmit: (data: { returnOdometer?: number; notes?: string; actualReturnDate: string }) => void;
     loading: boolean;
 }) {
     const { t } = useAdminLocale();
@@ -21,6 +21,7 @@ export function CompleteModal({
         onSubmit({
             returnOdometer: returnOdometer ? Number(returnOdometer) : undefined,
             notes: notes || undefined,
+            actualReturnDate: new Date().toISOString(),
         });
     };
 

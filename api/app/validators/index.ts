@@ -256,8 +256,9 @@ export const updateRentalSchema = z.object({
 });
 
 export const completeRentalSchema = z.object({
-    returnOdometer: z.number().int().min(0),
-    actualReturnDate: z.coerce.date(),
+    returnOdometer: z.number().int().min(0).optional(),
+    actualReturnDate: z.coerce.date().optional(),
+    notes: z.string().max(5000).optional(),
 });
 
 export const cancelRentalSchema = z.object({

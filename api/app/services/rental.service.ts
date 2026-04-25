@@ -160,8 +160,9 @@ class RentalService {
     }
 
     async complete(id: number, data: {
-        returnOdometer: number;
-        actualReturnDate: Date;
+        returnOdometer?: number;
+        actualReturnDate?: Date;
+        notes?: string;
     }) {
         const rental = await prisma.rental.findUnique({
             where: {id},
@@ -175,6 +176,10 @@ class RentalService {
         if (rental.status !== RentalStatus.ACTIVE) {
             throw new Error(`Rental must be in active status to complete. Current status: ${rental.status}`);
         }
+
+        // Default actualReturnDate to "now" so the admin can complete a rental
+        // without explicitly picking a timestamp (the modal omits it).
+        const actualReturnDate = data.actualReturnDate ? new Date(data.actualReturnDate) : new Date();
 
         // Calculate overmileage if applicable
         let overmileageKm = 0;
@@ -196,13 +201,19 @@ class RentalService {
             }
         }
 
+        // Append the admin-provided completion notes to whatever already exists.
+        const mergedNotes = data.notes
+            ? (rental.notes ? `${rental.notes}\n\n[Завершення]: ${data.notes}` : data.notes)
+            : rental.notes;
+
         return await prisma.$transaction(async (tx) => {
             const updatedRental = await tx.rental.update({
                 where: {id},
                 data: {
                     status: RentalStatus.COMPLETED,
-                    returnOdometer: data.returnOdometer,
-                    actualReturnDate: new Date(data.actualReturnDate),
+                    returnOdometer: data.returnOdometer ?? null,
+                    actualReturnDate,
+                    notes: mergedNotes,
                 },
                 include: {
                     client: true,
@@ -212,7 +223,7 @@ class RentalService {
 
             // Auto-create OVERMILEAGE fine if applicable
             let overmileageFineRecord = null;
-            if (overmileageFee > 0) {
+            if (overmileageFee > 0 && data.returnOdometer != null) {
                 overmileageFineRecord = await tx.fine.create({
                     data: {
                         rentalId: id,
@@ -226,7 +237,7 @@ class RentalService {
 
             // Calculate late return days and auto-create fine
             let lateReturnFine = null;
-            const actualReturn = new Date(data.actualReturnDate);
+            const actualReturn = actualReturnDate;
             const expectedReturn = rental.returnDate;
             if (actualReturn > expectedReturn) {
                 const lateDays = Math.ceil((actualReturn.getTime() - expectedReturn.getTime()) / MS_PER_DAY);

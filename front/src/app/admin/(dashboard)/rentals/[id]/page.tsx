@@ -111,7 +111,7 @@ export default function RentalDetailPage() {
 
     /* ── Actions ── */
 
-    const handleComplete = async (data: { returnOdometer?: number; notes?: string }) => {
+    const handleComplete = async (data: { returnOdometer?: number; notes?: string; actualReturnDate: string }) => {
         setActionLoading(true);
         try {
             await adminApiClient.post(`/rental/${id}/complete`, data);
