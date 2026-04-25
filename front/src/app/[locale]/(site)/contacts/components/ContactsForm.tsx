@@ -1,18 +1,127 @@
 "use client";
 
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useEffect, useId, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import TelInput from "@/components/TelInput";
 import { submitContactRequest, submitComplaint } from "@/lib/api/feedback";
 
-const CATEGORY_OPTIONS = [
-  { value: "OTHER", label: "Загальне питання" },
-  { value: "DEPOSIT", label: "Спір по заставі" },
-  { value: "DAMAGE", label: "Пошкодження авто" },
-  { value: "FINE", label: "Спір по штрафу" },
-  { value: "SERVICE", label: "Якість сервісу" },
-  { value: "GDPR", label: "Персональні дані / GDPR" },
-] as const;
+const CATEGORY_VALUES = ["OTHER", "DEPOSIT", "DAMAGE", "FINE", "SERVICE", "GDPR"] as const;
+type CategoryValue = (typeof CATEGORY_VALUES)[number];
+
+type CategoryDropdownProps = {
+  value: CategoryValue;
+  onChange: (value: CategoryValue) => void;
+  options: { value: CategoryValue; label: string }[];
+  placeholder: string;
+};
+
+function CategoryDropdown({ value, onChange, options, placeholder }: CategoryDropdownProps) {
+  const [open, setOpen] = useState(false);
+  const [highlight, setHighlight] = useState<number>(() =>
+    Math.max(0, options.findIndex((o) => o.value === value)),
+  );
+  const ref = useRef<HTMLDivElement>(null);
+  const listId = useId();
+
+  const selected = options.find((o) => o.value === value);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDocClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const handleTriggerKey = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setOpen(true);
+    }
+  };
+
+  const handleListKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setHighlight((h) => (h + 1) % options.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHighlight((h) => (h - 1 + options.length) % options.length);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      onChange(options[highlight].value);
+      setOpen(false);
+    }
+  };
+
+  return (
+    <div className={`category-dropdown${open ? " category-dropdown--open" : ""}`} ref={ref}>
+      <button
+        type="button"
+        className="category-dropdown__trigger"
+        onClick={() => setOpen((v) => !v)}
+        onKeyDown={handleTriggerKey}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls={listId}
+      >
+        <span className={selected ? "" : "category-dropdown__placeholder"}>
+          {selected ? selected.label : placeholder}
+        </span>
+        <svg
+          className="category-dropdown__chevron"
+          width="12"
+          height="8"
+          viewBox="0 0 12 8"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M1 1.5 6 6.5l5-5"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      <div
+        id={listId}
+        role="listbox"
+        className="category-dropdown__menu"
+        tabIndex={-1}
+        onKeyDown={handleListKey}
+      >
+        {options.map((opt, i) => (
+          <button
+            key={opt.value}
+            type="button"
+            role="option"
+            aria-selected={opt.value === value}
+            className={`category-dropdown__option${
+              opt.value === value ? " category-dropdown__option--active" : ""
+            }${i === highlight ? " category-dropdown__option--highlight" : ""}`}
+            onClick={() => {
+              onChange(opt.value);
+              setOpen(false);
+            }}
+            onMouseEnter={() => setHighlight(i)}
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function ContactsForm() {
   const t = useTranslations("contactsPage");
@@ -21,7 +130,12 @@ export default function ContactsForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [phone, setPhone] = useState("");
   const [phoneInputKey, setPhoneInputKey] = useState(0);
-  const [category, setCategory] = useState<string>("OTHER");
+  const [category, setCategory] = useState<CategoryValue>("OTHER");
+
+  const categoryOptions = CATEGORY_VALUES.map((value) => ({
+    value,
+    label: t(`form.categories.${value}`),
+  }));
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,7 +157,7 @@ export default function ContactsForm() {
       // (managers' email inbox) for now.
       if (category !== "OTHER") {
         const res = await submitComplaint({
-          category: category as any,
+          category,
           subject: subject || `[${category}] звернення`,
           initialMessage: message || `(порожнє повідомлення)`,
           contactName: name || undefined,
@@ -98,18 +212,6 @@ export default function ContactsForm() {
         />
       </label>
       <label className="main-form__label">
-        <select
-          name="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="main-form__input"
-        >
-          {CATEGORY_OPTIONS.map((opt) => (
-            <option key={opt.value} value={opt.value}>{opt.label}</option>
-          ))}
-        </select>
-      </label>
-      <label className="main-form__label">
         <input
           type="text"
           name="subject"
@@ -118,6 +220,15 @@ export default function ContactsForm() {
           className="main-form__input"
         />
       </label>
+      <div className="main-form__label main-form__label--select">
+        <input type="hidden" name="category" value={category} />
+        <CategoryDropdown
+          value={category}
+          onChange={setCategory}
+          options={categoryOptions}
+          placeholder={t("form.placeholders.category")}
+        />
+      </div>
       <label className="main-form__label">
         <textarea
           name="mess"

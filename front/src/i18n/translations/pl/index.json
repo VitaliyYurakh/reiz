@@ -641,7 +641,7 @@
       ]
     },
     "cases": {
-      "title": "Z KIM WSPÓŁPRACUJEMY",
+      "title": "Z kim współpracujemy",
       "items": [
         {
           "title": "Firmy IT i startupy",
@@ -792,10 +792,26 @@
       "title": "Dlaczego wynajem, a nie zakup",
       "subtitle": "Porownaj koszty — i zobacz różnice",
       "cols": [
-        { "value": "100% VAT", "label": "w kredycie podatkowym", "desc": "Każda płatność zmniejsza Twoje zobowiazania podatkowe" },
-        { "value": "0 zl", "label": "na amortyzacje", "desc": "Auto nie na bilansie — brak zuzycia, brak księgowania" },
-        { "value": "OPEX", "label": "zamiast CAPEX", "desc": "Zachowujesz kapital obrotowy na rozwój biznesu" },
-        { "value": "od 30 dni", "label": "elastyczne terminy", "desc": "Wynajem od miesiąca z możliwością przedłużenia" }
+        {
+          "value": "100% VAT",
+          "label": "w kredycie podatkowym",
+          "desc": "Każda płatność zmniejsza Twoje zobowiazania podatkowe"
+        },
+        {
+          "value": "0 zl",
+          "label": "na amortyzacje",
+          "desc": "Auto nie na bilansie — brak zuzycia, brak księgowania"
+        },
+        {
+          "value": "OPEX",
+          "label": "zamiast CAPEX",
+          "desc": "Zachowujesz kapital obrotowy na rozwój biznesu"
+        },
+        {
+          "value": "od 30 dni",
+          "label": "elastyczne terminy",
+          "desc": "Wynajem od miesiąca z możliwością przedłużenia"
+        }
       ],
       "cta": "Oblicz oszczędności"
     },
@@ -803,37 +819,73 @@
       "title": "Auto nie na Twoim bilansie",
       "subtitle": "Mniej ryzyka, mniej księgowania, więcej spokoju",
       "cards": [
-        { "title": "Nie jest majatkiem Twojej firmy", "text": "Auto jest zarejestrowane na REIZ i nie wchodzi w sklad Twoich aktywów. Korzystasz z niego na podstawie umowy najmu — bez wprowadzania na bilans, bez amortyzacji." },
-        { "title": "List gwarancyjny zamiast depozytu", "text": "Dla klientów korporacyjnych możemy pracować na podstawie listu gwarancyjnego bez zamrazania środków — po uzgodnieniu warunków." }
+        {
+          "title": "Nie jest majatkiem Twojej firmy",
+          "text": "Auto jest zarejestrowane na REIZ i nie wchodzi w sklad Twoich aktywów. Korzystasz z niego na podstawie umowy najmu — bez wprowadzania na bilans, bez amortyzacji."
+        },
+        {
+          "title": "List gwarancyjny zamiast depozytu",
+          "text": "Dla klientów korporacyjnych możemy pracować na podstawie listu gwarancyjnego bez zamrazania środków — po uzgodnieniu warunków."
+        }
       ]
     },
     "fleet": {
       "title": "Zajmujemy się wszystkim",
       "subtitle": "Skup się na biznesie — my zadbamy o flote",
       "cards": [
-        { "title": "Serwis i przeglady", "text": "Planowe przeglady, sezonowa wymiana opon, naprawy — organizujemy i oplacamy. Jesli auto się zepsuje — dostarczamy zastepczy w ciągu doby." },
-        { "title": "Ubezpieczenie AC + OC", "text": "Pelne pokrycie już w cenie wynajmu. Obsługa wypadków i szkod — po naszej stronie." },
-        { "title": "Jedna faktura miesięcznie", "text": "Zadnego zamieszania z dziesiiatkami paragonów. Jedna faktura, jedna płatność, 100% VAT do odliczenia." }
-      ]
-    },
-    "cases": {
-      "title": "Z kim współpracujemy",
-      "items": [
-        { "title": "Firmy IT i startupy", "text": "Wynajem samochodów dla zespołów deweloperskich, menedżerów i spotkań z klientami.", "photo": "/img/business/client-consultation.webp" },
-        { "title": "Organizacje międzynarodowe", "text": "Transport dla misji dyplomatycznych i humanitarnych, ambasad i przedstawicielstw.", "photo": "/img/business/corporate-driver.webp" },
-        { "title": "Firmy budowlane", "text": "SUV-y i minibusy do transportu specjalistów i koordynacji placów budowy.", "photo": "/img/business/construction-team.webp" },
-        { "title": "Firmy logistyczne i handlowe", "text": "Flota dla przedstawicieli handlowych, kurierów i podróży regionalnych.", "photo": "/img/business/logistics-delivery.webp" }
+        {
+          "title": "Serwis i przeglady",
+          "text": "Planowe przeglady, sezonowa wymiana opon, naprawy — organizujemy i oplacamy. Jesli auto się zepsuje — dostarczamy zastepczy w ciągu doby."
+        },
+        {
+          "title": "Ubezpieczenie AC + OC",
+          "text": "Pelne pokrycie już w cenie wynajmu. Obsługa wypadków i szkod — po naszej stronie."
+        },
+        {
+          "title": "Jedna faktura miesięcznie",
+          "text": "Zadnego zamieszania z dziesiiatkami paragonów. Jedna faktura, jedna płatność, 100% VAT do odliczenia."
+        }
       ]
     },
     "vehicles": {
       "title": "Flota na każde zadanie",
       "subtitle": "Od furgonetki dostawczej po limuzyne na spotkania",
       "tabs": [
-        { "key": "commercial", "label": "Komercyjne", "title": "Ekonom i komfort", "text": "Skoda Octavia, Renault Megane, Peugeot 308. Niezawodne auta do codziennych potrzeb biznesowych.", "cta": "Otrzymaj listę dostępnych aut" },
-        { "key": "executive", "label": "Reprezentacyjne", "title": "Klasa biznes", "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. Dla zarzadu, spotkan i transferów.", "cta": "Otrzymaj listę dostępnych aut" },
-        { "key": "suv", "label": "SUV", "title": "SUV i crossovery", "text": "Toyota RAV4, Hyundai Tucson, Mitsubishi Outlander. Na wyjazdy terenowe i trudne drogi.", "cta": "Otrzymaj listę dostępnych aut" },
-        { "key": "cross-border", "label": "Cross-Border", "title": "Wyjazd za granice", "text": "Przejrzyste przekraczanie granic UE bez ukrytych opłat. Możliwość zostawienia auta w Polsce lub innym kraju.", "cta": "Poznaj warunki" },
-        { "key": "vans", "label": "Furgony i ciężarowe", "title": "Furgony i ciężarowe", "text": "Renault Master, Mercedes Sprinter i inne. Idealne do logistyki, dostaw i ekip mobilnych.", "cta": "Otrzymaj listę dostępnych aut" }
+        {
+          "key": "commercial",
+          "label": "Komercyjne",
+          "title": "Ekonom i komfort",
+          "text": "Skoda Octavia, Renault Megane, Peugeot 308. Niezawodne auta do codziennych potrzeb biznesowych.",
+          "cta": "Otrzymaj listę dostępnych aut"
+        },
+        {
+          "key": "executive",
+          "label": "Reprezentacyjne",
+          "title": "Klasa biznes",
+          "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. Dla zarzadu, spotkan i transferów.",
+          "cta": "Otrzymaj listę dostępnych aut"
+        },
+        {
+          "key": "suv",
+          "label": "SUV",
+          "title": "SUV i crossovery",
+          "text": "Toyota RAV4, Hyundai Tucson, Mitsubishi Outlander. Na wyjazdy terenowe i trudne drogi.",
+          "cta": "Otrzymaj listę dostępnych aut"
+        },
+        {
+          "key": "cross-border",
+          "label": "Cross-Border",
+          "title": "Wyjazd za granice",
+          "text": "Przejrzyste przekraczanie granic UE bez ukrytych opłat. Możliwość zostawienia auta w Polsce lub innym kraju.",
+          "cta": "Poznaj warunki"
+        },
+        {
+          "key": "vans",
+          "label": "Furgony i ciężarowe",
+          "title": "Furgony i ciężarowe",
+          "text": "Renault Master, Mercedes Sprinter i inne. Idealne do logistyki, dostaw i ekip mobilnych.",
+          "cta": "Otrzymaj listę dostępnych aut"
+        }
       ]
     },
     "finalCta": {
@@ -868,18 +920,26 @@
     },
     "posts": [
       {
+        "title": "Długoterminowy wynajem auta na Ukrainie: jak wybrać samochód na miesiąc lub dłużej",
+        "excerpt": "Praktyczny poradnik dla biznesu, relokacji i dłuższych podróży: kiedy opłaca się wynajem długoterminowy, co sprawdzić w umowie i jak dobrać klasę auta.",
+        "date": "25.04.2026",
+        "imgAlt": "Samochód REIZ do wynajmu długoterminowego — biznes i podróże po Ukrainie",
+        "image": "/img/blog/parking-payment-clean.webp",
+        "slug": "long-term-car-rental-ukraine"
+      },
+      {
         "title": "Co robić po wypadku drogowym na Ukrainie: przewodnik krok po kroku od REIZ",
         "excerpt": "Prosta lista kontrolna: co robić po wypadku na Ukrainie, jak prawidlowo udokumentować zdarzenie, kogo powiadomić i jakie dokumenty będzie wymagal ubezpieczyciel.",
         "date": "17.04.2025",
         "imgAlt": "Samochód z trojkatem ostrzegawczym na drodze — artykul o wypadkach drogowych na Ukrainie",
-        "image": "/img/blog/road%20accident.webp"
+        "image": "/img/blog/dtp-warning-sign-v2.webp"
       },
       {
         "title": "Trasa podróży samochodem po Ukrainie",
         "excerpt": "Poznaj trase, która oferuje ekscytujaca przygode drogowa i szanse na odkrycie kultury i krajobrazów kraju.",
         "date": "17.04.2025",
         "imgAlt": "Panorama zabytków Ukrainy o zachodzie slonca — trasa podróży samochodem",
-        "image": "/img/blog/Ukraineblog.webp",
+        "image": "/img/blog/ukraine-road-trip-mercator-v3.webp",
         "slug": "ukraine-road-trip"
       },
       {
@@ -887,7 +947,7 @@
         "excerpt": "Ukraina to miejsce, gdzie technologia jest czescia codziennego życia mieszkańców i odwiedzajacych. Recenzujemy najpopularniejsze aplikacje, które pomagają poruszać się po miastach i autostradach.",
         "date": "17.04.2025",
         "imgAlt": "Ikona nawigacji GPS — przeglad popularnych aplikacji nawigacyjnych na Ukrainie",
-        "image": "/img/blog/NAV.webp",
+        "image": "/img/blog/navigation-apps-clean.webp",
         "slug": "navigation-apps-ukraine"
       },
       {
@@ -895,7 +955,7 @@
         "excerpt": "Odkryj Lwów i jego region samochodem — od uroczych ulic Starego Miasta po zamki, jeziora i Karpaty. Wygodna trasa, by zobaczyc najważniejsze miejsca bez pospieehu.",
         "date": "17.04.2025",
         "imgAlt": "Panorama Lwowa i zabytki — trasa po obwodzie lwowskim",
-        "image": "/img/blog/lvivblog.webp",
+        "image": "/img/blog/lviv-travel-mercator-v3.webp",
         "slug": "lviv-travel"
       },
       {
@@ -903,7 +963,7 @@
         "excerpt": "Poznaj kilka szybkich sposobów na dokonanie płatności z minimalnymi problemami.",
         "date": "17.04.2025",
         "imgAlt": "Znak parkingowy przy budynku w mieście — jak zapłacić za parking na Ukrainie",
-        "image": "/img/blog/parking.webp",
+        "image": "/img/blog/long-term-rental-clean.webp",
         "slug": "parking-payment-ukraine"
       }
     ],
@@ -1595,8 +1655,17 @@
         "name": "Twoje imię",
         "email": "E-mail",
         "phone": "Telefon",
+        "category": "Typ zgłoszenia",
         "subject": "Temat",
         "message": "Wiadomość"
+      },
+      "categories": {
+        "OTHER": "Pytanie ogólne",
+        "DEPOSIT": "Spór o kaucję",
+        "DAMAGE": "Uszkodzenie pojazdu",
+        "FINE": "Spór o mandat",
+        "SERVICE": "Jakość obsługi",
+        "GDPR": "Dane osobowe / RODO"
       },
       "submit": "WYSLIJ ZGŁOSZENIE",
       "success": "Twoja wiadomość zostala wyslana pomyslnie!",
@@ -2785,6 +2854,137 @@
       "p2": "Zespol REIZ Car Rental życzy ci przyjemnej podróży po Ukrainie — i bezproblemowego parkowania w każdym mieście."
     }
   },
+  "blogLongTermCarRentalUkraine": {
+    "meta": {
+      "title": "Długoterminowy wynajem auta na Ukrainie 2026: poradnik REIZ",
+      "description": "Długoterminowy wynajem auta na Ukrainie: kiedy opłaca się auto na miesiąc i dłużej, jak wybrać samochód oraz co sprawdzić w umowie, kaucji, ubezpieczeniu i limicie kilometrów.",
+      "og_title": "Długoterminowy wynajem auta na Ukrainie: poradnik dla biznesu i relokacji | REIZ",
+      "og_description": "Praktyczny poradnik REIZ o długoterminowym wynajmie auta na Ukrainie: miesiąc, sezon, podróże biznesowe, relokacja, umowa, ubezpieczenie, przebieg i wybór klasy auta."
+    },
+    "breadcrumbs": {
+      "home": "Strona główna",
+      "blog": "Artykuły",
+      "current": "Długoterminowy wynajem auta",
+      "nav_label": "Nawigacja strony"
+    },
+    "title": "Długoterminowy wynajem auta na Ukrainie: jak wybrać samochód na miesiąc lub dłużej",
+    "hero_alt": "Samochód REIZ do wynajmu długoterminowego — biznes i podróże po Ukrainie",
+    "intro": [
+      "Długoterminowy wynajem auta stał się praktycznym rozwiązaniem dla osób, które potrzebują mobilności bez kupowania samochodu. Sprawdza się przy relokacji, pracy projektowej, rodzinnym sezonie we Lwowie lub Karpatach, wizytach biznesowych oraz w firmach, które nie chcą zamrażać budżetu we własnej flocie.",
+      "W przeciwieństwie do krótkiego wynajmu na dzień lub weekend, format miesięczny wymaga analizy czegoś więcej niż cena dobowa. Na realny koszt wpływają przebieg, ubezpieczenie, kaucja, serwis, opony sezonowe, podstawienie do innego miasta i zasady przedłużenia umowy."
+    ],
+    "quick_take": {
+      "title": "W skrócie: dla kogo wynajem na miesiąc i dłużej",
+      "items": [
+        "Dla przedsiębiorców i zespołów, które potrzebują auta bez zakupu i obsługi serwisowej.",
+        "Dla rodzin przyjeżdżających do Lwowa, Truskawca, Bukowela lub innych miast na kilka tygodni.",
+        "Dla specjalistów w delegacji lub relokacji, gdy taksówki stają się droższe niż własny samochód na miejscu.",
+        "Dla gości z zagranicy, którzy chcą swobodnie podróżować po Ukrainie ze wsparciem menedżera."
+      ]
+    },
+    "sections": [
+      {
+        "title": "Kiedy wynajem długoterminowy jest lepszy niż taksówki lub zakup auta",
+        "text": "Jeśli jeździsz codziennie, masz kilka punktów w mieście albo regularnie wyjeżdżasz poza Lwów, wynajem miesięczny często daje przewidywalny budżet. Nie płacisz za zakup, rejestrację, serwis, utratę wartości i koszty sezonowe, a samochód masz dostępny od razu.",
+        "list": [
+          "Dla biznesu to szybki sposób na rozwiązanie potrzeby transportowej bez wydatków kapitałowych.",
+          "Dla klientów prywatnych — auto na sezon, gdy własny samochód jest w naprawie albo nie został jeszcze kupiony.",
+          "Dla turystów — swoboda poruszania się bez rozkładów jazdy i transferów międzymiastowych."
+        ]
+      },
+      {
+        "title": "Co koniecznie sprawdzić w warunkach wynajmu",
+        "text": "Najniższa cena w ogłoszeniu nie zawsze oznacza najlepszą ofertę. Przed rezerwacją warto sprawdzić pełny obraz: co obejmuje taryfa, jaka jest kaucja, czy obowiązuje limit kilometrów, jakie są zasady zwrotu oraz co dzieje się w razie kolizji lub mandatu.",
+        "list": [
+          "Przebieg: limit dzienny lub miesięczny, koszt nadprzebiegu, opcja unlimited.",
+          "Ubezpieczenie: podstawowa ochrona, udział własny i możliwość zmniejszenia odpowiedzialności.",
+          "Kaucja: kwota, termin odblokowania i dostępność wynajmu bez kaucji dla danego auta.",
+          "Serwis: kto odpowiada za przeglądy, zmianę opon i pomoc na drodze.",
+          "Podstawienie i zwrot: adres, miasto, lotnisko, dworzec, możliwość zwrotu one-way."
+        ]
+      },
+      {
+        "title": "Jak dobrać klasę auta do zadania",
+        "text": "Przy dłuższym okresie komfort ma większe znaczenie niż podczas krótkiej podróży. Auto powinno pasować nie tylko ceną, lecz także pozycją za kierownicą, bagażnikiem, spalaniem, prześwitem i tym, jak często będziesz jeździć trasami.",
+        "list": [
+          "Ekonom lub komfort — do miasta, codziennych spraw i kontroli budżetu.",
+          "Crossover — w Karpaty, na drogi podmiejskie, zimę i wyjazdy z bagażem.",
+          "Klasa biznes — na spotkania, transfery, dla kadry zarządzającej i zadań reprezentacyjnych.",
+          "Minivan — dla rodzin, grup, podróży z dziećmi lub dużą ilością rzeczy."
+        ]
+      },
+      {
+        "title": "Przebieg: główny punkt wpływający na cenę końcową",
+        "text": "W trybie miejskim standardowy limit często wystarcza. Jeśli jednak planujesz trasy Lwów — Kijów, Lwów — Bukowel, Lwów — Użhorod albo regularne przejazdy między obwodami, przebieg trzeba policzyć przed podpisaniem umowy.",
+        "list": [
+          "Poproś menedżera o oszacowanie typowej miesięcznej trasy.",
+          "Porównaj taryfę z limitem i taryfę z nielimitowanym przebiegiem.",
+          "Zostaw zapas na spontaniczne wyjazdy, objazdy i zmianę planów."
+        ]
+      },
+      {
+        "title": "Długoterminowy wynajem dla biznesu",
+        "text": "Dla firm wynajem jest wygodny, bo potrzeba transportowa zamienia się w umowę i czytelną miesięczną płatność. Nie trzeba kupować aut, prowadzić historii serwisowej, szukać opon, sprzedawać samochodu po projekcie ani utrzymywać floty rezerwowej.",
+        "list": [
+          "Auta dla kierowników i menedżerów w delegacjach.",
+          "Samochody dla zespołów terenowych, logistyki, inżynierów serwisowych lub partnerów.",
+          "Tymczasowa flota na sezon, wydarzenie, projekt budowlany lub IT.",
+          "Możliwość szybkiej zmiany klasy auta, jeśli zadania się zmienią."
+        ]
+      },
+      {
+        "title": "Jak przygotować się do rezerwacji",
+        "text": "Aby otrzymać dokładną ofertę, nie ograniczaj się do zdania 'potrzebuję auta na miesiąc'. Od razu opisz trasę, liczbę pasażerów, miasto podstawienia, preferowaną klasę, wymagania dotyczące kaucji i ewentualne wyjazdy za granicę.",
+        "list": [
+          "Podaj daty, miasto odbioru i miasto zwrotu.",
+          "Opisz przybliżony przebieg i typ dróg: miasto, trasa, Karpaty, kilka obwodów.",
+          "Powiedz, czy potrzebujesz fotelika dziecięcego, dodatkowego kierowcy, nielimitowanego przebiegu lub zmniejszonej kaucji.",
+          "Sprawdź dokumenty: paszport, prawo jazdy, a dla cudzoziemców — międzynarodowe prawo jazdy, jeśli jest wymagane."
+        ]
+      },
+      {
+        "title": "Typowe błędy przy wynajmie na długi okres",
+        "text": "Najczęstszy błąd to porównywanie tylko ceny dobowej. W wynajmie długoterminowym trzeba patrzeć na cały scenariusz użycia: ile naprawdę przejedziesz, gdzie będziesz parkować, czy dostępne jest auto zastępcze na czas serwisu i jak szybko menedżer odpowiada na niestandardowe pytania.",
+        "list": [
+          "Brak sprawdzenia nadprzebiegu i dopłata na końcu wynajmu.",
+          "Wybór zbyt małego auta na bagaż lub zimowe trasy.",
+          "Brak uzgodnienia wyjazdu za granicę albo zwrotu w innym mieście.",
+          "Brak sprawdzenia warunków kaucji i ochrony ubezpieczeniowej."
+        ]
+      }
+    ],
+    "rental_box": {
+      "title": "Długoterminowy wynajem w REIZ",
+      "text": "REIZ dobiera auto do realnego scenariusza: miasto, trasa, Karpaty, podróże biznesowe albo rodzinny sezon. Przygotujemy kilka wariantów według klasy, kaucji, przebiegu i okresu, aby było widać nie tylko cenę dobową, ale pełny koszt użytkowania.",
+      "cta": "Uzyskaj ofertę"
+    },
+    "faq": {
+      "title": "Najczęstsze pytania",
+      "items": [
+        {
+          "question": "Na jaki minimalny okres opłaca się brać auto długoterminowo?",
+          "answer": "Zwykle format długoterminowy ma sens od 30 dni. Jeśli auto jest potrzebne na 10–20 dni, menedżer porówna taryfę krótką i miesięczną oraz podpowie, co jest korzystniejsze."
+        },
+        {
+          "question": "Czy można przedłużyć wynajem po pierwszym miesiącu?",
+          "answer": "Tak, jeśli auto nie jest zarezerwowane przez innego klienta. Najlepiej zgłosić przedłużenie wcześniej, aby potwierdzić warunki i nie przerywać użytkowania."
+        },
+        {
+          "question": "Czy obsługa serwisowa jest wliczona w wynajem długoterminowy?",
+          "answer": "Tak, planowa obsługa techniczna pozostaje po stronie wypożyczalni. Klient korzysta z auta i informuje menedżera, jeśli pojawią się pytania dotyczące stanu samochodu."
+        },
+        {
+          "question": "Czy dostępny jest wynajem bez kaucji?",
+          "answer": "Dla wybranych aut dostępny jest wynajem bez kaucji lub ze zmniejszoną kaucją. Warunki zależą od klasy auta, okresu, wieku i doświadczenia kierowcy."
+        }
+      ]
+    },
+    "conclusion": {
+      "title": "Podsumowanie",
+      "p1": "Długoterminowy wynajem auta to nie tylko niższa cena dobowa. To sposób na przewidywalną mobilność bez zakupu, kosztów serwisowych i zależności od taksówek lub rozkładów jazdy.",
+      "p2": "Aby wynajem rzeczywiście się opłacał, policz cały scenariusz: okres, przebieg, klasę auta, kaucję, ubezpieczenie, podstawienie i zwrot. Zespół REIZ pomoże zamienić te parametry w czytelną ofertę."
+    }
+  },
   "rentalPolicyModal": {
     "title": "Polityka wynajmu",
     "km": "km",
@@ -2906,19 +3106,170 @@
     }
   },
   "account": {
-    "login": { "title": "Zaloguj się", "modal_title": "Zaloguj się lub zarejestruj", "subtitle": "Zaloguj się, aby zarządzać rezerwacjami", "google": "Zaloguj przez Google", "or": "lub", "submit": "Zaloguj się", "loading": "Ładowanie...", "no_account": "Nie masz konta?", "register_link": "Zarejestruj się", "favorites_modal_title": "Zaloguj się, aby zapisywać ulubione", "favorites_modal_subtitle": "Zaloguj się, aby dodawać samochody do ulubionych i śledzić oferty" },
-    "register": { "title": "Rejestracja", "subtitle": "Utwórz konto do szybkiej rezerwacji", "google": "Zarejestruj przez Google", "submit": "Zarejestruj się", "loading": "Ładowanie...", "have_account": "Masz już konto?", "login_link": "Zaloguj się", "consent": "Zgadzam się z polityką prywatności" },
-    "fields": { "email": "Email", "email_placeholder": "your@email.com", "password": "Hasło", "password_placeholder": "Minimum 8 znaków", "first_name": "Imię", "first_name_placeholder": "Twoje imię", "last_name": "Nazwisko", "last_name_placeholder": "Twoje nazwisko", "phone": "Telefon", "phone_placeholder": "+48", "password_hint": "Minimum 8 znaków, wielkie, małe litery i cyfra" },
-    "errors": { "all_fields_required": "Wypełnij wszystkie pola", "password_too_short": "Hasło musi mieć co najmniej 8 znaków", "password_too_weak": "Hasło musi zawierać wielkie, małe litery i cyfrę", "email_exists": "Ten email jest już zarejestrowany", "registration_failed": "Błąd rejestracji. Spróbuj ponownie lub zaloguj się", "invalid_credentials": "Nieprawidłowy email lub hasło", "too_many_requests": "Zbyt wiele prób. Spróbuj później", "captcha_required": "Przejdź weryfikację bezpieczeństwa", "captcha_failed": "Weryfikacja bezpieczeństwa nie powiodła się. Spróbuj ponownie", "consent_required": "Musisz zaakceptować politykę prywatności", "account_locked": "Konto tymczasowo zablokowane. Spróbuj za 15 minut" },
-    "nav": { "overview": "Przegląd", "profile": "Profil", "bookings": "Rezerwacje", "history": "Historia rezerwacji", "complaints": "Skargi", "favorites": "Ulubione", "notifications": "Powiadomienia", "privacy": "Prywatność", "logout": "Wyloguj" },
-    "overview": { "title": "Moje konto", "welcome": "Witaj, {name}!", "no_bookings": "Nie masz aktywnych rezerwacji", "upcoming_trip": "Nadchodząca podróż" },
-    "profile": { "title": "Profil", "save": "Zapisz", "saved": "Zapisano!" },
-    "card": { "trips": "podróży", "discount": "Moja zniżka", "time_with_reiz": "{value} {unit} z REIZ", "year_one": "rok", "year_few": "lata", "year_many": "lat", "month_one": "miesiąc", "month_few": "miesiące", "month_many": "miesięcy", "day_one": "dzień", "day_few": "dni", "day_many": "dni" },
-    "bookings": { "title": "Aktywne rezerwacje", "empty": "Brak aktywnych rezerwacji", "pickup": "Odbiór", "return": "Zwrot", "status": "Status", "status_active": "Aktywna", "status_confirmed": "Potwierdzona", "status_pending": "Oczekuje", "status_completed": "Zakończona", "status_cancelled": "Anulowana", "status_no_show": "Nieobecność", "status_picked_up": "Wydano", "status_reservation": "Rezerwacja", "status_rental": "Wynajem", "daily_rate": "Stawka/dzień", "total_paid": "Zapłacono", "deposit": "Kaucja", "deposit_returned": "Zwrócona", "deposit_held": "Zatrzymana", "fines": "Kary", "add_ons": "Usługi dodatkowe", "extensions": "Przedłużenia", "show_details": "Pokaż szczegóły", "hide_details": "Ukryj szczegóły", "paid": "Opłacono", "per_day": "dzień", "rebook": "Zarezerwuj ponownie", "view_inspection": "Zobacz przeglądy", "request_cancel": "Poproś o anulowanie", "cancel_reason_placeholder": "Powód anulowania (opcjonalnie)", "send_request": "Wyślij prośbę", "cancel_back": "Wstecz", "cancel_requested": "Prośba o anulowanie wysłana", "cancel_request_sent": "Prośba wysłana. Skontaktujemy się z Tobą.", "view_car": "Zobacz samochód", "link_copied": "Link skopiowany" },
-    "history": { "title": "Historia rezerwacji", "empty": "Historia jest pusta", "tab_reservations": "Rezerwacje", "tab_rentals": "Wynajmy", "completed_rentals": "Ukończonych wynajmów", "cancelled_title": "Anulowane rezerwacje", "total_spent": "Łączna kwota", "member_since": "Klient od" },
-    "favorites": { "title": "Ulubione", "empty": "Nie masz ulubionych samochodów", "remove": "Usuń", "add_tooltip": "Dodaj ten samochód do swojej listy życzeń", "remove_tooltip": "Usuń ten samochód ze swojej listy życzeń", "perDay": "dzień" },
-    "notifications": { "title": "Powiadomienia", "email_deals": "Promocje i zniżki", "email_reminders": "Przypomnienia o rezerwacji", "email_receipts": "Rachunki i faktury", "saved": "Zapisano!" },
-    "privacy": { "title": "Prywatność i dane", "export_title": "Eksport danych", "export_desc": "Pobierz swoje dane w formacie JSON", "export_btn": "Pobierz dane", "delete_title": "Usunięcie konta", "delete_desc": "Ta akcja jest nieodwracalna. Wszystkie dane zostaną usunięte.", "delete_btn": "Usuń konto", "delete_confirm": "Czy na pewno? Tego nie można cofnąć.", "delete_yes": "Tak, usuń", "delete_cancel": "Anuluj" },
-    "header": { "my_account": "Moje konto", "login": "Zaloguj się", "login_to_account": "Zaloguj się do konta osobistego" }
+    "login": {
+      "title": "Zaloguj się",
+      "modal_title": "Zaloguj się lub zarejestruj",
+      "subtitle": "Zaloguj się, aby zarządzać rezerwacjami",
+      "google": "Zaloguj przez Google",
+      "or": "lub",
+      "submit": "Zaloguj się",
+      "loading": "Ładowanie...",
+      "no_account": "Nie masz konta?",
+      "register_link": "Zarejestruj się",
+      "favorites_modal_title": "Zaloguj się, aby zapisywać ulubione",
+      "favorites_modal_subtitle": "Zaloguj się, aby dodawać samochody do ulubionych i śledzić oferty"
+    },
+    "register": {
+      "title": "Rejestracja",
+      "subtitle": "Utwórz konto do szybkiej rezerwacji",
+      "google": "Zarejestruj przez Google",
+      "submit": "Zarejestruj się",
+      "loading": "Ładowanie...",
+      "have_account": "Masz już konto?",
+      "login_link": "Zaloguj się",
+      "consent": "Zgadzam się z polityką prywatności"
+    },
+    "fields": {
+      "email": "Email",
+      "email_placeholder": "your@email.com",
+      "password": "Hasło",
+      "password_placeholder": "Minimum 8 znaków",
+      "first_name": "Imię",
+      "first_name_placeholder": "Twoje imię",
+      "last_name": "Nazwisko",
+      "last_name_placeholder": "Twoje nazwisko",
+      "phone": "Telefon",
+      "phone_placeholder": "+48",
+      "password_hint": "Minimum 8 znaków, wielkie, małe litery i cyfra"
+    },
+    "errors": {
+      "all_fields_required": "Wypełnij wszystkie pola",
+      "password_too_short": "Hasło musi mieć co najmniej 8 znaków",
+      "password_too_weak": "Hasło musi zawierać wielkie, małe litery i cyfrę",
+      "email_exists": "Ten email jest już zarejestrowany",
+      "registration_failed": "Błąd rejestracji. Spróbuj ponownie lub zaloguj się",
+      "invalid_credentials": "Nieprawidłowy email lub hasło",
+      "too_many_requests": "Zbyt wiele prób. Spróbuj później",
+      "captcha_required": "Przejdź weryfikację bezpieczeństwa",
+      "captcha_failed": "Weryfikacja bezpieczeństwa nie powiodła się. Spróbuj ponownie",
+      "consent_required": "Musisz zaakceptować politykę prywatności",
+      "account_locked": "Konto tymczasowo zablokowane. Spróbuj za 15 minut"
+    },
+    "nav": {
+      "overview": "Przegląd",
+      "profile": "Profil",
+      "bookings": "Rezerwacje",
+      "history": "Historia rezerwacji",
+      "complaints": "Skargi",
+      "favorites": "Ulubione",
+      "notifications": "Powiadomienia",
+      "privacy": "Prywatność",
+      "logout": "Wyloguj"
+    },
+    "overview": {
+      "title": "Moje konto",
+      "welcome": "Witaj, {name}!",
+      "no_bookings": "Nie masz aktywnych rezerwacji",
+      "upcoming_trip": "Nadchodząca podróż"
+    },
+    "profile": {
+      "title": "Profil",
+      "save": "Zapisz",
+      "saved": "Zapisano!"
+    },
+    "card": {
+      "trips": "podróży",
+      "discount": "Moja zniżka",
+      "time_with_reiz": "{value} {unit} z REIZ",
+      "year_one": "rok",
+      "year_few": "lata",
+      "year_many": "lat",
+      "month_one": "miesiąc",
+      "month_few": "miesiące",
+      "month_many": "miesięcy",
+      "day_one": "dzień",
+      "day_few": "dni",
+      "day_many": "dni"
+    },
+    "bookings": {
+      "title": "Aktywne rezerwacje",
+      "empty": "Brak aktywnych rezerwacji",
+      "pickup": "Odbiór",
+      "return": "Zwrot",
+      "status": "Status",
+      "status_active": "Aktywna",
+      "status_confirmed": "Potwierdzona",
+      "status_pending": "Oczekuje",
+      "status_completed": "Zakończona",
+      "status_cancelled": "Anulowana",
+      "status_no_show": "Nieobecność",
+      "status_picked_up": "Wydano",
+      "status_reservation": "Rezerwacja",
+      "status_rental": "Wynajem",
+      "daily_rate": "Stawka/dzień",
+      "total_paid": "Zapłacono",
+      "deposit": "Kaucja",
+      "deposit_returned": "Zwrócona",
+      "deposit_held": "Zatrzymana",
+      "fines": "Kary",
+      "add_ons": "Usługi dodatkowe",
+      "extensions": "Przedłużenia",
+      "show_details": "Pokaż szczegóły",
+      "hide_details": "Ukryj szczegóły",
+      "paid": "Opłacono",
+      "per_day": "dzień",
+      "rebook": "Zarezerwuj ponownie",
+      "view_inspection": "Zobacz przeglądy",
+      "request_cancel": "Poproś o anulowanie",
+      "cancel_reason_placeholder": "Powód anulowania (opcjonalnie)",
+      "send_request": "Wyślij prośbę",
+      "cancel_back": "Wstecz",
+      "cancel_requested": "Prośba o anulowanie wysłana",
+      "cancel_request_sent": "Prośba wysłana. Skontaktujemy się z Tobą.",
+      "view_car": "Zobacz samochód",
+      "link_copied": "Link skopiowany"
+    },
+    "history": {
+      "title": "Historia rezerwacji",
+      "empty": "Historia jest pusta",
+      "tab_reservations": "Rezerwacje",
+      "tab_rentals": "Wynajmy",
+      "completed_rentals": "Ukończonych wynajmów",
+      "cancelled_title": "Anulowane rezerwacje",
+      "total_spent": "Łączna kwota",
+      "member_since": "Klient od"
+    },
+    "favorites": {
+      "title": "Ulubione",
+      "empty": "Nie masz ulubionych samochodów",
+      "remove": "Usuń",
+      "add_tooltip": "Dodaj ten samochód do swojej listy życzeń",
+      "remove_tooltip": "Usuń ten samochód ze swojej listy życzeń",
+      "perDay": "dzień"
+    },
+    "notifications": {
+      "title": "Powiadomienia",
+      "email_deals": "Promocje i zniżki",
+      "email_reminders": "Przypomnienia o rezerwacji",
+      "email_receipts": "Rachunki i faktury",
+      "saved": "Zapisano!"
+    },
+    "privacy": {
+      "title": "Prywatność i dane",
+      "export_title": "Eksport danych",
+      "export_desc": "Pobierz swoje dane w formacie JSON",
+      "export_btn": "Pobierz dane",
+      "delete_title": "Usunięcie konta",
+      "delete_desc": "Ta akcja jest nieodwracalna. Wszystkie dane zostaną usunięte.",
+      "delete_btn": "Usuń konto",
+      "delete_confirm": "Czy na pewno? Tego nie można cofnąć.",
+      "delete_yes": "Tak, usuń",
+      "delete_cancel": "Anuluj"
+    },
+    "header": {
+      "my_account": "Moje konto",
+      "login": "Zaloguj się",
+      "login_to_account": "Zaloguj się do konta osobistego"
+    }
   }
 }

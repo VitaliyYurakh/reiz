@@ -641,7 +641,7 @@
       ]
     },
     "cases": {
-      "title": "WHO WE WORK WITH",
+      "title": "Who we work with",
       "items": [
         {
           "title": "IT Companies & Startups",
@@ -792,10 +792,26 @@
       "title": "Why rent instead of buying",
       "subtitle": "Compare the costs — and see the difference",
       "cols": [
-        { "value": "100% VAT", "label": "as tax credit", "desc": "Every payment reduces your tax obligations" },
-        { "value": "$0", "label": "depreciation", "desc": "Car is not on your balance sheet — no wear accounting" },
-        { "value": "OPEX", "label": "instead of CAPEX", "desc": "Preserve working capital for business growth" },
-        { "value": "from 30 days", "label": "flexible terms", "desc": "Rental from one month with option to extend" }
+        {
+          "value": "100% VAT",
+          "label": "as tax credit",
+          "desc": "Every payment reduces your tax obligations"
+        },
+        {
+          "value": "$0",
+          "label": "depreciation",
+          "desc": "Car is not on your balance sheet — no wear accounting"
+        },
+        {
+          "value": "OPEX",
+          "label": "instead of CAPEX",
+          "desc": "Preserve working capital for business growth"
+        },
+        {
+          "value": "from 30 days",
+          "label": "flexible terms",
+          "desc": "Rental from one month with option to extend"
+        }
       ],
       "cta": "Calculate savings"
     },
@@ -803,37 +819,73 @@
       "title": "Car is not on your balance sheet",
       "subtitle": "Less risk, less accounting, more peace of mind",
       "cards": [
-        { "title": "Not your company's asset", "text": "The car is registered under REIZ and is not part of your assets. You use it under a rental agreement — no balance sheet entry, no depreciation. In case of disputes, ownership is confirmed by documents." },
-        { "title": "Guarantee letter instead of deposit", "text": "For corporate clients, we can work with a guarantee letter without freezing funds — under agreement and after approval of terms." }
+        {
+          "title": "Not your company's asset",
+          "text": "The car is registered under REIZ and is not part of your assets. You use it under a rental agreement — no balance sheet entry, no depreciation. In case of disputes, ownership is confirmed by documents."
+        },
+        {
+          "title": "Guarantee letter instead of deposit",
+          "text": "For corporate clients, we can work with a guarantee letter without freezing funds — under agreement and after approval of terms."
+        }
       ]
     },
     "fleet": {
       "title": "We take care of everything",
       "subtitle": "Focus on your business — we'll handle the fleet",
       "cards": [
-        { "title": "Service & Maintenance", "text": "Scheduled maintenance, seasonal tire changes, repairs — we organize and pay. If a car breaks down — we provide a replacement within 24 hours." },
-        { "title": "Full Insurance Coverage", "text": "Comprehensive coverage is already included in the rental price. Accident and insurance case management — on us." },
-        { "title": "One invoice per month", "text": "No hassle with dozens of receipts. One invoice, one payment, 100% VAT credit." }
-      ]
-    },
-    "cases": {
-      "title": "Who we work with",
-      "items": [
-        { "title": "IT Companies & Startups", "text": "Car rental for development teams, managers, and client meetings on the go.", "photo": "/img/business/client-consultation.webp" },
-        { "title": "International Organizations", "text": "Transport for diplomatic and humanitarian missions, embassies, and representative offices.", "photo": "/img/business/corporate-driver.webp" },
-        { "title": "Construction Companies", "text": "SUVs and minivans for transporting specialists and coordinating construction sites.", "photo": "/img/business/construction-team.webp" },
-        { "title": "Logistics & Trade Companies", "text": "Fleet for sales representatives, courier services, and regional trips.", "photo": "/img/business/logistics-delivery.webp" }
+        {
+          "title": "Service & Maintenance",
+          "text": "Scheduled maintenance, seasonal tire changes, repairs — we organize and pay. If a car breaks down — we provide a replacement within 24 hours."
+        },
+        {
+          "title": "Full Insurance Coverage",
+          "text": "Comprehensive coverage is already included in the rental price. Accident and insurance case management — on us."
+        },
+        {
+          "title": "One invoice per month",
+          "text": "No hassle with dozens of receipts. One invoice, one payment, 100% VAT credit."
+        }
       ]
     },
     "vehicles": {
       "title": "Fleet for any task",
       "subtitle": "From a delivery van to an executive sedan for negotiations",
       "tabs": [
-        { "key": "commercial", "label": "Commercial", "title": "Economy & Comfort", "text": "Skoda Octavia, Renault Megane, Peugeot 308. Reliable cars for everyday business needs.", "cta": "Get list of available cars" },
-        { "key": "executive", "label": "Executive", "title": "Business Class", "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. For management, meetings, and transfers.", "cta": "Get list of available cars" },
-        { "key": "suv", "label": "SUVs", "title": "SUVs & Crossovers", "text": "Toyota RAV4, Hyundai Tucson, Mitsubishi Outlander. For site visits and tough roads.", "cta": "Get list of available cars" },
-        { "key": "cross-border", "label": "Cross-Border", "title": "International Travel", "text": "Transparent EU border crossing with no hidden fees. Option to leave the car in Poland or another country — we'll pick it up.", "cta": "Learn more" },
-        { "key": "vans", "label": "Vans & Cargo", "title": "Vans & Cargo", "text": "Renault Master, Mercedes Sprinter and more. Perfect for logistics, delivery, and mobile teams.", "cta": "Get list of available cars" }
+        {
+          "key": "commercial",
+          "label": "Commercial",
+          "title": "Economy & Comfort",
+          "text": "Skoda Octavia, Renault Megane, Peugeot 308. Reliable cars for everyday business needs.",
+          "cta": "Get list of available cars"
+        },
+        {
+          "key": "executive",
+          "label": "Executive",
+          "title": "Business Class",
+          "text": "Toyota Camry, Skoda Superb, Mercedes E-Class. For management, meetings, and transfers.",
+          "cta": "Get list of available cars"
+        },
+        {
+          "key": "suv",
+          "label": "SUVs",
+          "title": "SUVs & Crossovers",
+          "text": "Toyota RAV4, Hyundai Tucson, Mitsubishi Outlander. For site visits and tough roads.",
+          "cta": "Get list of available cars"
+        },
+        {
+          "key": "cross-border",
+          "label": "Cross-Border",
+          "title": "International Travel",
+          "text": "Transparent EU border crossing with no hidden fees. Option to leave the car in Poland or another country — we'll pick it up.",
+          "cta": "Learn more"
+        },
+        {
+          "key": "vans",
+          "label": "Vans & Cargo",
+          "title": "Vans & Cargo",
+          "text": "Renault Master, Mercedes Sprinter and more. Perfect for logistics, delivery, and mobile teams.",
+          "cta": "Get list of available cars"
+        }
       ]
     },
     "finalCta": {
@@ -868,11 +920,19 @@
     },
     "posts": [
       {
+        "title": "Long-term car rental in Ukraine: how to choose a car for a month or longer",
+        "excerpt": "A practical guide for business, relocation, and extended travel: when long-term rental makes sense, what to check in the contract, and how to choose the right car class.",
+        "date": "25.04.2026",
+        "imgAlt": "REIZ car for long-term rental — business and travel in Ukraine",
+        "image": "/img/blog/parking-payment-clean.webp",
+        "slug": "long-term-car-rental-ukraine"
+      },
+      {
         "title": "What to do after a road accident in Ukraine: a step-by-step guide from REIZ",
         "excerpt": "A simple checklist on what to do after an accident in Ukraine: how to record the incident properly, whom to notify, and which documents your insurer will require.",
         "date": "17.04.2025",
         "imgAlt": "Car with a warning triangle on the road — article about road accidents in Ukraine",
-        "image": "/img/blog/road%20accidentua.webp",
+        "image": "/img/blog/dtp-warning-sign-v2.webp",
         "slug": "dtp-ukraine"
       },
       {
@@ -880,7 +940,7 @@
         "excerpt": "Explore a route that offers a thrilling road adventure and a chance to discover the country's culture and landscapes.",
         "date": "17.04.2025",
         "imgAlt": "Panorama of Ukraine's landmarks at sunset — road-trip route",
-        "image": "/img/blog/Ukraineblog.webp",
+        "image": "/img/blog/ukraine-road-trip-mercator-v3.webp",
         "slug": "ukraine-road-trip"
       },
       {
@@ -888,7 +948,7 @@
         "excerpt": "Ukraine is a place where tech is part of daily life for locals and visitors. We review the most popular apps that help you navigate cities and highways with ease.",
         "date": "17.04.2025",
         "imgAlt": "GPS navigator icon — review of popular navigation apps in Ukraine",
-        "image": "/img/blog/NAV.webp",
+        "image": "/img/blog/navigation-apps-clean.webp",
         "slug": "navigation-apps-ukraine"
       },
       {
@@ -896,7 +956,7 @@
         "excerpt": "Discover Lviv and its region by car — from the cozy Old Town streets to castles, lakes, and the Carpathians. A convenient route to see the essentials without rushing.",
         "date": "17.04.2025",
         "imgAlt": "Panorama of Lviv and landmarks — route around Lviv Oblast",
-        "image": "/img/blog/lvivblog.webp",
+        "image": "/img/blog/lviv-travel-mercator-v3.webp",
         "slug": "lviv-travel"
       },
       {
@@ -904,7 +964,7 @@
         "excerpt": "Learn several quick ways to make the payment with minimal fuss.",
         "date": "17.04.2025",
         "imgAlt": "Parking sign near a city building — how to pay for parking in Ukraine",
-        "image": "/img/blog/parking.webp",
+        "image": "/img/blog/long-term-rental-clean.webp",
         "slug": "parking-payment-ukraine"
       }
     ],
@@ -1596,8 +1656,17 @@
         "name": "Your name",
         "email": "Email",
         "phone": "Phone",
+        "category": "Request type",
         "subject": "Subject",
         "message": "Message"
+      },
+      "categories": {
+        "OTHER": "General question",
+        "DEPOSIT": "Deposit dispute",
+        "DAMAGE": "Vehicle damage",
+        "FINE": "Fine dispute",
+        "SERVICE": "Service quality",
+        "GDPR": "Personal data / GDPR"
       },
       "submit": "SEND REQUEST",
       "success": "Your message has been sent successfully!",
@@ -2784,6 +2853,137 @@
       "title": "Conclusion",
       "p1": "Paying for parking in Ukraine is easier than it looks. Mobile apps, card-enabled meters, and SMS services make the process tourist-friendly. The key is to pay attention to signs and keep proof of payment.",
       "p2": "The REIZ Car Rental team wishes you a pleasant trip across Ukraine — and trouble-free parking in every city."
+    }
+  },
+  "blogLongTermCarRentalUkraine": {
+    "meta": {
+      "title": "Long-term car rental in Ukraine 2026: REIZ guide",
+      "description": "Long-term car rental in Ukraine: when monthly rental makes sense, how to choose a car, and what to check in the contract, deposit, insurance, and mileage terms.",
+      "og_title": "Long-term car rental in Ukraine: guide for business and relocation | REIZ",
+      "og_description": "A practical REIZ guide to long-term car rental in Ukraine: monthly rental, seasonal use, business trips, relocation, contract terms, insurance, mileage, and car class."
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Articles",
+      "current": "Long-term car rental",
+      "nav_label": "Page navigation"
+    },
+    "title": "Long-term car rental in Ukraine: how to choose a car for a month or longer",
+    "hero_alt": "REIZ car for long-term rental — business and travel in Ukraine",
+    "intro": [
+      "Long-term car rental has become a practical option for people who need mobility without buying a vehicle. It works for relocation, project work, a family season in Lviv or the Carpathians, business visits, and companies that do not want to lock budget into fleet ownership.",
+      "Unlike a one-day or weekend rental, a monthly format requires looking beyond the daily rate. Mileage, insurance, deposit, service, seasonal tires, delivery to another city, and extension rules all affect the real cost."
+    ],
+    "quick_take": {
+      "title": "In short: who should consider monthly rental",
+      "items": [
+        "Entrepreneurs and teams that need a car without purchase or maintenance.",
+        "Families staying in Lviv, Truskavets, Bukovel, or other cities for several weeks.",
+        "Professionals on assignment or relocation when taxis become more expensive than a dedicated car.",
+        "International guests who want to travel around Ukraine freely with manager support."
+      ]
+    },
+    "sections": [
+      {
+        "title": "When long-term rental is better than taxis or buying a car",
+        "text": "If you drive every day, visit several locations in the city, or regularly leave Lviv, a monthly rental often gives you a predictable budget. You avoid purchase, registration, servicing, depreciation, and seasonal costs while getting a car immediately.",
+        "list": [
+          "For business, it closes a transport need without capital spending.",
+          "For private clients, it provides a car for a season while their own car is being repaired or before they buy one.",
+          "For travelers, it gives freedom from timetables and intercity transfers."
+        ]
+      },
+      {
+        "title": "What to check in the rental terms",
+        "text": "The lowest advertised rate is not always the best offer. Before booking, review the full picture: what is included, the deposit amount, mileage limits, return rules, and what happens in case of an accident or a traffic fine.",
+        "list": [
+          "Mileage: daily or monthly limit, overmileage cost, unlimited option.",
+          "Insurance: basic coverage, deductible, and options to reduce liability.",
+          "Deposit: amount, release timing, and whether no-deposit rental is available for the chosen car.",
+          "Service: who handles maintenance, tire changes, and roadside assistance.",
+          "Delivery and return: address, city, airport, railway station, and one-way return availability."
+        ]
+      },
+      {
+        "title": "How to choose the right car class",
+        "text": "For a longer period, comfort matters more than it does on a short trip. The car should fit not only your budget but also seating position, luggage space, fuel use, ground clearance, and how often you will drive highways.",
+        "list": [
+          "Economy or comfort — for city use, daily errands, and budget control.",
+          "Crossover — for the Carpathians, country roads, winter, and luggage-heavy trips.",
+          "Business class — for meetings, transfers, executives, and representative tasks.",
+          "Minivan — for families, groups, children, or a large amount of luggage."
+        ]
+      },
+      {
+        "title": "Mileage: the key factor behind the final price",
+        "text": "For city use, a standard limit is often enough. But if you plan routes such as Lviv — Kyiv, Lviv — Bukovel, Lviv — Uzhhorod, or regular trips between regions, mileage should be calculated before signing.",
+        "list": [
+          "Ask the manager to estimate your typical monthly route.",
+          "Compare a limited-mileage tariff with an unlimited-mileage tariff.",
+          "Leave a buffer for spontaneous trips, detours, and changing plans."
+        ]
+      },
+      {
+        "title": "Long-term rental for business",
+        "text": "For companies, rental turns transport into a contract and a clear monthly payment. You do not need to buy vehicles, manage service history, source tires, sell the car after a project, or keep a backup fleet.",
+        "list": [
+          "Cars for executives and managers on business trips.",
+          "Vehicles for field teams, logistics, service engineers, or partners.",
+          "Temporary fleet for a season, event, construction project, or IT project.",
+          "Ability to change car class quickly when tasks change."
+        ]
+      },
+      {
+        "title": "How to prepare for booking",
+        "text": "To get an accurate offer, do not stop at 'I need a car for a month'. Describe your route, passenger count, delivery city, preferred class, deposit requirements, and whether you plan cross-border travel.",
+        "list": [
+          "Specify dates, pickup city, and return city.",
+          "Describe approximate mileage and road type: city, highway, Carpathians, several regions.",
+          "Mention child seats, an additional driver, unlimited mileage, or reduced deposit if needed.",
+          "Check documents: passport, driver's license, and an international driving permit for foreign guests when required."
+        ]
+      },
+      {
+        "title": "Common mistakes with long-term rental",
+        "text": "The most common mistake is comparing only the daily rate. For long-term rental, look at the full usage scenario: how much you will really drive, where you will park, whether a replacement car is available during service, and how quickly the manager handles unusual questions.",
+        "list": [
+          "Not checking overmileage and getting an extra charge at the end.",
+          "Choosing a car that is too small for luggage or winter routes.",
+          "Not approving cross-border travel or return in another city.",
+          "Not checking deposit and insurance coverage terms."
+        ]
+      }
+    ],
+    "rental_box": {
+      "title": "Long-term rental at REIZ",
+      "text": "REIZ selects a car for the actual use case: city, highway, the Carpathians, business travel, or a family season. We prepare several options by class, deposit, mileage, and rental period so you see the full cost of use, not only the daily rate.",
+      "cta": "Get an offer"
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": [
+        {
+          "question": "What is the minimum period for long-term rental?",
+          "answer": "Monthly rental usually starts making sense from 30 days. If you need a car for 10–20 days, the manager can compare a short-term and monthly tariff and suggest the better option."
+        },
+        {
+          "question": "Can I extend the rental after the first month?",
+          "answer": "Yes, if the car is not already booked by another client. It is best to request the extension in advance so the terms can be fixed without interrupting your use."
+        },
+        {
+          "question": "Is maintenance included in long-term rental?",
+          "answer": "Yes. Scheduled maintenance remains the responsibility of the rental service. The client uses the car and informs the manager if any condition-related questions appear."
+        },
+        {
+          "question": "Is no-deposit rental available?",
+          "answer": "No-deposit rental or a reduced deposit is available for selected cars. Terms depend on the car class, rental period, driver's age, and driving experience."
+        }
+      ]
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "p1": "Long-term car rental is not just a lower daily rate. It is a way to get predictable mobility without purchase costs, service expenses, or dependence on taxis and timetables.",
+      "p2": "To make the rental truly cost-effective, calculate the whole scenario: period, mileage, car class, deposit, insurance, delivery, and return. The REIZ team will turn those parameters into a clear offer."
     }
   },
   "rentalPolicyModal": {

@@ -920,18 +920,26 @@
     },
     "posts": [
       {
+        "title": "Închiriere auto pe termen lung în Ucraina: cum alegi mașina pentru o lună sau mai mult",
+        "excerpt": "Ghid practic pentru business, relocare și călătorii lungi: când merită închirierea pe termen lung, ce să verifici în contract și cum alegi clasa mașinii.",
+        "date": "25.04.2026",
+        "imgAlt": "Mașină REIZ pentru închiriere pe termen lung — business și călătorii în Ucraina",
+        "image": "/img/blog/parking-payment-clean.webp",
+        "slug": "long-term-car-rental-ukraine"
+      },
+      {
         "title": "Ce trebuie să faci după un accident rutier în Ucraina: ghid pas cu pas de la REIZ",
         "excerpt": "O listă de verificare simplă despre ce trebuie să faci după un accident în Ucraina: cum să înregistrezi corect incidentul, pe cine să notifici și ce documente va solicita asiguratorul tău.",
         "date": "17.04.2025",
         "imgAlt": "Mașină cu triunghi de avertizare pe drum — articol despre accidente rutiere în Ucraina",
-        "image": "/img/blog/road%20accident.webp"
+        "image": "/img/blog/dtp-warning-sign-v2.webp"
       },
       {
         "title": "Traseu de road-trip prin Ucraina cu mașina",
         "excerpt": "Explorează un traseu care oferă o aventură captivantă pe șosea și șansa de a descoperi cultura și peisajele țării.",
         "date": "17.04.2025",
         "imgAlt": "Panorama obiectivelor turistice ale Ucrainei la apus — traseu de road-trip",
-        "image": "/img/blog/Ukraineblog.webp",
+        "image": "/img/blog/ukraine-road-trip-mercator-v3.webp",
         "slug": "ukraine-road-trip"
       },
       {
@@ -939,7 +947,7 @@
         "excerpt": "Ucraina este un loc unde tehnologia face parte din viața de zi cu zi pentru localnici și vizitatori. Analizăm cele mai populare aplicații care te ajută să navighezi în orașe și pe autostrăzi cu ușurință.",
         "date": "17.04.2025",
         "imgAlt": "Pictogramă navigator GPS — recenzie a aplicațiilor de navigație populare în Ucraina",
-        "image": "/img/blog/NAV.webp",
+        "image": "/img/blog/navigation-apps-clean.webp",
         "slug": "navigation-apps-ukraine"
       },
       {
@@ -947,7 +955,7 @@
         "excerpt": "Descoperă Lviv și regiunea sa cu mașina — de la străzile pitorești ale Orașului Vechi la castele, lacuri și Carpați. Un traseu convenabil pentru a vedea esențialul fără grabă.",
         "date": "17.04.2025",
         "imgAlt": "Panorama Lvivului și a obiectivelor turistice — traseu prin regiunea Lviv",
-        "image": "/img/blog/lvivblog.webp",
+        "image": "/img/blog/lviv-travel-mercator-v3.webp",
         "slug": "lviv-travel"
       },
       {
@@ -955,7 +963,7 @@
         "excerpt": "Descoperă câteva modalități rapide de a efectua plata cu efort minim.",
         "date": "17.04.2025",
         "imgAlt": "Semn de parcare lângă o clădire urbană — cum plătești parcarea în Ucraina",
-        "image": "/img/blog/parking.webp",
+        "image": "/img/blog/long-term-rental-clean.webp",
         "slug": "parking-payment-ukraine"
       }
     ],
@@ -1647,8 +1655,17 @@
         "name": "Numele dumneavoastră",
         "email": "Email",
         "phone": "Telefon",
+        "category": "Tip de solicitare",
         "subject": "Subiect",
         "message": "Mesaj"
+      },
+      "categories": {
+        "OTHER": "Întrebare generală",
+        "DEPOSIT": "Dispută privind garanția",
+        "DAMAGE": "Daune la vehicul",
+        "FINE": "Contestare amendă",
+        "SERVICE": "Calitatea serviciului",
+        "GDPR": "Date personale / GDPR"
       },
       "submit": "TRIMITE CEREREA",
       "success": "Mesajul dumneavoastră a fost trimis cu succes!",
@@ -2837,6 +2854,137 @@
       "p2": "Echipa REIZ Car Rental îți urează o călătorie plăcută prin Ucraina — și o parcare fără probleme în orice oraș."
     }
   },
+  "blogLongTermCarRentalUkraine": {
+    "meta": {
+      "title": "Închiriere auto pe termen lung în Ucraina 2026: ghid REIZ",
+      "description": "Închiriere auto pe termen lung în Ucraina: când merită mașina pentru o lună sau mai mult, cum alegi modelul și ce verifici în contract, depozit, asigurare și kilometraj.",
+      "og_title": "Închiriere auto pe termen lung în Ucraina: ghid pentru business și relocare | REIZ",
+      "og_description": "Ghid practic REIZ despre închirierea auto pe termen lung în Ucraina: o lună, sezon, călătorii de business, relocare, contract, asigurare, kilometraj și alegerea clasei auto."
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "blog": "Articole",
+      "current": "Închiriere auto pe termen lung",
+      "nav_label": "Navigare pe pagină"
+    },
+    "title": "Închiriere auto pe termen lung în Ucraina: cum alegi mașina pentru o lună sau mai mult",
+    "hero_alt": "Mașină REIZ pentru închiriere pe termen lung — business și călătorii în Ucraina",
+    "intro": [
+      "Închirierea auto pe termen lung a devenit o soluție practică pentru cei care au nevoie de mobilitate fără să cumpere o mașină. Este utilă pentru relocare, proiecte de lucru, un sezon de familie în Lviv sau Carpați, vizite de business și companii care nu vor să blocheze bugetul într-o flotă proprie.",
+      "Spre deosebire de închirierea scurtă pe o zi sau weekend, formatul lunar cere să analizezi mai mult decât prețul pe zi. Kilometrajul, asigurarea, depozitul, service-ul, anvelopele sezoniere, livrarea în alt oraș și regulile de prelungire influențează costul real."
+    ],
+    "quick_take": {
+      "title": "Pe scurt: cui i se potrivește închirierea pe o lună sau mai mult",
+      "items": [
+        "Antreprenorilor și echipelor care au nevoie de mașină fără achiziție și întreținere.",
+        "Familiilor care stau în Lviv, Truskavets, Bukovel sau alte orașe câteva săptămâni.",
+        "Specialiștilor în delegație sau relocare, când taxiurile devin mai scumpe decât o mașină dedicată.",
+        "Oaspeților din străinătate care vor să circule liber prin Ucraina cu suportul unui manager."
+      ]
+    },
+    "sections": [
+      {
+        "title": "Când închirierea pe termen lung este mai bună decât taxiul sau cumpărarea",
+        "text": "Dacă conduci zilnic, ai mai multe puncte în oraș sau ieși regulat din Lviv, închirierea lunară oferă adesea un buget previzibil. Nu plătești achiziția, înmatricularea, service-ul, deprecierea și costurile sezoniere, dar primești o mașină disponibilă imediat.",
+        "list": [
+          "Pentru business, este o modalitate rapidă de a acoperi nevoia de transport fără cheltuieli de capital.",
+          "Pentru clienții privați, este o mașină pentru un sezon cât timp propria mașină este în service sau încă nu a fost cumpărată.",
+          "Pentru turiști, oferă libertate față de orare și transferuri interurbane."
+        ]
+      },
+      {
+        "title": "Ce trebuie verificat în condițiile de închiriere",
+        "text": "Cel mai mic preț din anunț nu înseamnă întotdeauna cea mai bună ofertă. Înainte de rezervare, verifică imaginea completă: ce este inclus în tarif, valoarea depozitului, limitele de kilometraj, regulile de returnare și ce se întâmplă în caz de accident sau amendă.",
+        "list": [
+          "Kilometraj: limită zilnică sau lunară, cost pentru depășire, opțiune unlimited.",
+          "Asigurare: acoperire de bază, franșiză și opțiuni de reducere a răspunderii.",
+          "Depozit: sumă, termen de deblocare și disponibilitatea închirierii fără depozit pentru mașina aleasă.",
+          "Service: cine se ocupă de întreținere, schimbarea anvelopelor și asistența rutieră.",
+          "Livrare și returnare: adresă, oraș, aeroport, gară și posibilitatea de returnare one-way."
+        ]
+      },
+      {
+        "title": "Cum alegi clasa auto potrivită",
+        "text": "Pentru o perioadă lungă, confortul contează mai mult decât într-o călătorie scurtă. Mașina trebuie să se potrivească nu doar bugetului, ci și poziției la volan, spațiului pentru bagaje, consumului, gărzii la sol și frecvenței drumurilor pe autostradă.",
+        "list": [
+          "Economy sau comfort — pentru oraș, activități zilnice și controlul bugetului.",
+          "Crossover — pentru Carpați, drumuri suburbane, iarnă și călătorii cu bagaje.",
+          "Business class — pentru întâlniri, transferuri, manageri și sarcini reprezentative.",
+          "Minivan — pentru familii, grupuri, copii sau multe bagaje."
+        ]
+      },
+      {
+        "title": "Kilometrajul: punctul principal care influențează prețul final",
+        "text": "Pentru utilizare urbană, limita standard este adesea suficientă. Dar dacă planifici rute Lviv — Kiev, Lviv — Bukovel, Lviv — Ujhorod sau călătorii regulate între regiuni, kilometrajul trebuie calculat înainte de semnarea contractului.",
+        "list": [
+          "Roagă managerul să estimeze ruta ta lunară tipică.",
+          "Compară tariful cu limită și tariful cu kilometraj nelimitat.",
+          "Lasă o rezervă pentru plecări spontane, ocoliri și schimbări de plan."
+        ]
+      },
+      {
+        "title": "Închiriere pe termen lung pentru business",
+        "text": "Pentru companii, închirierea este comodă deoarece nevoia de transport devine un contract și o plată lunară clară. Nu trebuie să cumperi mașini, să gestionezi istoricul de service, să cauți anvelope, să vinzi mașina după proiect sau să păstrezi flotă de rezervă.",
+        "list": [
+          "Mașini pentru directori și manageri în delegații.",
+          "Vehicule pentru echipe de teren, logistică, ingineri de service sau parteneri.",
+          "Flotă temporară pentru sezon, eveniment, proiect de construcții sau IT.",
+          "Posibilitatea de a schimba rapid clasa mașinii dacă sarcinile se schimbă."
+        ]
+      },
+      {
+        "title": "Cum te pregătești pentru rezervare",
+        "text": "Pentru o ofertă exactă, nu te limita la fraza 'am nevoie de o mașină pentru o lună'. Descrie ruta, numărul de pasageri, orașul de livrare, clasa dorită, cerințele privind depozitul și eventualele călătorii peste graniță.",
+        "list": [
+          "Indică datele, orașul de preluare și orașul de returnare.",
+          "Descrie kilometrajul aproximativ și tipul de drum: oraș, traseu, Carpați, mai multe regiuni.",
+          "Spune dacă ai nevoie de scaun pentru copil, șofer suplimentar, kilometraj nelimitat sau depozit redus.",
+          "Verifică documentele: pașaport, permis de conducere, iar pentru străini — permis internațional dacă este necesar."
+        ]
+      },
+      {
+        "title": "Greșeli tipice la închirierea pe termen lung",
+        "text": "Cea mai frecventă greșeală este compararea doar a prețului zilnic. În închirierea pe termen lung trebuie analizat tot scenariul de utilizare: cât vei conduce în realitate, unde vei parca, dacă există mașină de schimb pe perioada service-ului și cât de rapid răspunde managerul la întrebări neobișnuite.",
+        "list": [
+          "Nu ai verificat depășirea de kilometraj și primești o plată suplimentară la final.",
+          "Ai ales o mașină prea mică pentru bagaje sau trasee de iarnă.",
+          "Nu ai aprobat ieșirea din țară sau returnarea în alt oraș.",
+          "Nu ai verificat condițiile depozitului și acoperirea asigurării."
+        ]
+      }
+    ],
+    "rental_box": {
+      "title": "Închiriere pe termen lung la REIZ",
+      "text": "REIZ alege mașina pentru scenariul real: oraș, traseu, Carpați, călătorii de business sau sezon de familie. Pregătim mai multe variante după clasă, depozit, kilometraj și perioadă, ca să vezi costul complet de utilizare, nu doar prețul pe zi.",
+      "cta": "Obține o ofertă"
+    },
+    "faq": {
+      "title": "Întrebări frecvente",
+      "items": [
+        {
+          "question": "Care este perioada minimă pentru închiriere pe termen lung?",
+          "answer": "De obicei, formatul pe termen lung are sens de la 30 de zile. Dacă ai nevoie de mașină pentru 10–20 de zile, managerul poate compara tariful scurt cu cel lunar și îți recomandă varianta mai avantajoasă."
+        },
+        {
+          "question": "Pot prelungi închirierea după prima lună?",
+          "answer": "Da, dacă mașina nu este deja rezervată de alt client. Este mai bine să anunți prelungirea din timp, pentru a fixa condițiile fără întreruperea utilizării."
+        },
+        {
+          "question": "Întreținerea este inclusă în închirierea pe termen lung?",
+          "answer": "Da, întreținerea tehnică planificată rămâne responsabilitatea serviciului de închiriere. Clientul folosește mașina și anunță managerul dacă apar întrebări privind starea ei."
+        },
+        {
+          "question": "Este disponibilă închirierea fără depozit?",
+          "answer": "Pentru anumite mașini este disponibilă închirierea fără depozit sau cu depozit redus. Condițiile depind de clasa mașinii, perioadă, vârsta și experiența șoferului."
+        }
+      ]
+    },
+    "conclusion": {
+      "title": "Concluzie",
+      "p1": "Închirierea auto pe termen lung nu înseamnă doar un preț zilnic mai mic. Este o modalitate de a obține mobilitate previzibilă fără achiziție, costuri de service și dependență de taxiuri sau orare.",
+      "p2": "Pentru ca închirierea să fie cu adevărat avantajoasă, calculează întregul scenariu: perioada, kilometrajul, clasa auto, depozitul, asigurarea, livrarea și returnarea. Echipa REIZ va transforma acești parametri într-o ofertă clară."
+    }
+  },
   "rentalPolicyModal": {
     "title": "Politica de închiriere",
     "km": "km",
@@ -2958,19 +3106,170 @@
     }
   },
   "account": {
-    "login": { "title": "Autentificare", "modal_title": "Conectați-vă sau înregistrați-vă", "subtitle": "Conectați-vă pentru a gestiona rezervările", "google": "Conectare cu Google", "or": "sau", "submit": "Autentificare", "loading": "Se încarcă...", "no_account": "Nu aveți cont?", "register_link": "Înregistrare", "favorites_modal_title": "Conectați-vă pentru a salva favoritele", "favorites_modal_subtitle": "Autentificați-vă pentru a adăuga mașini la favorite și a urmări ofertele" },
-    "register": { "title": "Înregistrare", "subtitle": "Creați un cont pentru rezervări rapide", "google": "Înregistrare cu Google", "submit": "Înregistrare", "loading": "Se încarcă...", "have_account": "Aveți deja cont?", "login_link": "Autentificare", "consent": "Sunt de acord cu politica de confidențialitate" },
-    "fields": { "email": "Email", "email_placeholder": "your@email.com", "password": "Parolă", "password_placeholder": "Minimum 8 caractere", "first_name": "Prenume", "first_name_placeholder": "Prenumele dvs.", "last_name": "Nume", "last_name_placeholder": "Numele dvs.", "phone": "Telefon", "phone_placeholder": "+40", "password_hint": "Minimum 8 caractere, litere mari, mici și o cifră" },
-    "errors": { "all_fields_required": "Completați toate câmpurile", "password_too_short": "Parola trebuie să aibă cel puțin 8 caractere", "password_too_weak": "Parola trebuie să conțină litere mari, mici și o cifră", "email_exists": "Acest email este deja înregistrat", "registration_failed": "Eroare de înregistrare. Încercați din nou sau autentificați-vă", "invalid_credentials": "Email sau parolă incorectă", "too_many_requests": "Prea multe încercări. Încercați mai târziu", "captcha_required": "Completați verificarea de securitate", "captcha_failed": "Verificarea de securitate a eșuat. Încercați din nou", "consent_required": "Trebuie să acceptați politica de confidențialitate", "account_locked": "Cont blocat temporar. Încercați peste 15 minute" },
-    "nav": { "overview": "Prezentare", "profile": "Profil", "bookings": "Rezervări", "history": "Istoricul rezervărilor", "complaints": "Reclamații", "favorites": "Favorite", "notifications": "Notificări", "privacy": "Confidențialitate", "logout": "Deconectare" },
-    "overview": { "title": "Contul meu", "welcome": "Bun venit, {name}!", "no_bookings": "Nu aveți rezervări active", "upcoming_trip": "Următoarea călătorie" },
-    "profile": { "title": "Profil", "save": "Salvare", "saved": "Salvat!" },
-    "card": { "trips": "călătorii", "discount": "Reducerea mea", "time_with_reiz": "{value} {unit} cu REIZ", "year_one": "an", "year_few": "ani", "year_many": "ani", "month_one": "lună", "month_few": "luni", "month_many": "luni", "day_one": "zi", "day_few": "zile", "day_many": "zile" },
-    "bookings": { "title": "Rezervări active", "empty": "Nicio rezervare activă", "pickup": "Ridicare", "return": "Returnare", "status": "Status", "status_active": "Activă", "status_confirmed": "Confirmată", "status_pending": "În așteptare", "status_completed": "Finalizată", "status_cancelled": "Anulată", "status_no_show": "Neprezentare", "status_picked_up": "Ridicată", "status_reservation": "Rezervare", "status_rental": "Închiriere", "daily_rate": "Tarif/zi", "total_paid": "Total plătit", "deposit": "Depozit", "deposit_returned": "Returnat", "deposit_held": "Reținut", "fines": "Amenzi", "add_ons": "Servicii suplimentare", "extensions": "Prelungiri", "show_details": "Arată detalii", "hide_details": "Ascunde detalii", "paid": "Plătit", "per_day": "zi", "rebook": "Rezervă din nou", "view_inspection": "Vezi inspecțiile", "request_cancel": "Solicită anularea", "cancel_reason_placeholder": "Motivul anulării (opțional)", "send_request": "Trimite cererea", "cancel_back": "Înapoi", "cancel_requested": "Cerere de anulare trimisă", "cancel_request_sent": "Cerere trimisă. Vă vom contacta.", "view_car": "Vezi mașina", "link_copied": "Link copiat" },
-    "history": { "title": "Istoricul rezervărilor", "empty": "Istoricul este gol", "tab_reservations": "Rezervări", "tab_rentals": "Închirieri", "completed_rentals": "Închirieri finalizate", "cancelled_title": "Rezervări anulate", "total_spent": "Suma totală", "member_since": "Client din" },
-    "favorites": { "title": "Favorite", "empty": "Nu aveți mașini favorite", "remove": "Eliminare", "add_tooltip": "Adaugă acest automobil în lista ta de dorințe", "remove_tooltip": "Elimină acest automobil din lista ta de dorințe", "perDay": "zi" },
-    "notifications": { "title": "Notificări", "email_deals": "Oferte și reduceri", "email_reminders": "Memento-uri de rezervare", "email_receipts": "Chitanțe și facturi", "saved": "Salvat!" },
-    "privacy": { "title": "Confidențialitate și date", "export_title": "Export date", "export_desc": "Descărcați datele personale în format JSON", "export_btn": "Descărcare date", "delete_title": "Ștergere cont", "delete_desc": "Această acțiune este ireversibilă. Toate datele vor fi șterse.", "delete_btn": "Șterge contul", "delete_confirm": "Sunteți sigur? Nu se poate anula.", "delete_yes": "Da, șterge", "delete_cancel": "Anulare" },
-    "header": { "my_account": "Contul meu", "login": "Autentificare", "login_to_account": "Autentifică-te în contul personal" }
+    "login": {
+      "title": "Autentificare",
+      "modal_title": "Conectați-vă sau înregistrați-vă",
+      "subtitle": "Conectați-vă pentru a gestiona rezervările",
+      "google": "Conectare cu Google",
+      "or": "sau",
+      "submit": "Autentificare",
+      "loading": "Se încarcă...",
+      "no_account": "Nu aveți cont?",
+      "register_link": "Înregistrare",
+      "favorites_modal_title": "Conectați-vă pentru a salva favoritele",
+      "favorites_modal_subtitle": "Autentificați-vă pentru a adăuga mașini la favorite și a urmări ofertele"
+    },
+    "register": {
+      "title": "Înregistrare",
+      "subtitle": "Creați un cont pentru rezervări rapide",
+      "google": "Înregistrare cu Google",
+      "submit": "Înregistrare",
+      "loading": "Se încarcă...",
+      "have_account": "Aveți deja cont?",
+      "login_link": "Autentificare",
+      "consent": "Sunt de acord cu politica de confidențialitate"
+    },
+    "fields": {
+      "email": "Email",
+      "email_placeholder": "your@email.com",
+      "password": "Parolă",
+      "password_placeholder": "Minimum 8 caractere",
+      "first_name": "Prenume",
+      "first_name_placeholder": "Prenumele dvs.",
+      "last_name": "Nume",
+      "last_name_placeholder": "Numele dvs.",
+      "phone": "Telefon",
+      "phone_placeholder": "+40",
+      "password_hint": "Minimum 8 caractere, litere mari, mici și o cifră"
+    },
+    "errors": {
+      "all_fields_required": "Completați toate câmpurile",
+      "password_too_short": "Parola trebuie să aibă cel puțin 8 caractere",
+      "password_too_weak": "Parola trebuie să conțină litere mari, mici și o cifră",
+      "email_exists": "Acest email este deja înregistrat",
+      "registration_failed": "Eroare de înregistrare. Încercați din nou sau autentificați-vă",
+      "invalid_credentials": "Email sau parolă incorectă",
+      "too_many_requests": "Prea multe încercări. Încercați mai târziu",
+      "captcha_required": "Completați verificarea de securitate",
+      "captcha_failed": "Verificarea de securitate a eșuat. Încercați din nou",
+      "consent_required": "Trebuie să acceptați politica de confidențialitate",
+      "account_locked": "Cont blocat temporar. Încercați peste 15 minute"
+    },
+    "nav": {
+      "overview": "Prezentare",
+      "profile": "Profil",
+      "bookings": "Rezervări",
+      "history": "Istoricul rezervărilor",
+      "complaints": "Reclamații",
+      "favorites": "Favorite",
+      "notifications": "Notificări",
+      "privacy": "Confidențialitate",
+      "logout": "Deconectare"
+    },
+    "overview": {
+      "title": "Contul meu",
+      "welcome": "Bun venit, {name}!",
+      "no_bookings": "Nu aveți rezervări active",
+      "upcoming_trip": "Următoarea călătorie"
+    },
+    "profile": {
+      "title": "Profil",
+      "save": "Salvare",
+      "saved": "Salvat!"
+    },
+    "card": {
+      "trips": "călătorii",
+      "discount": "Reducerea mea",
+      "time_with_reiz": "{value} {unit} cu REIZ",
+      "year_one": "an",
+      "year_few": "ani",
+      "year_many": "ani",
+      "month_one": "lună",
+      "month_few": "luni",
+      "month_many": "luni",
+      "day_one": "zi",
+      "day_few": "zile",
+      "day_many": "zile"
+    },
+    "bookings": {
+      "title": "Rezervări active",
+      "empty": "Nicio rezervare activă",
+      "pickup": "Ridicare",
+      "return": "Returnare",
+      "status": "Status",
+      "status_active": "Activă",
+      "status_confirmed": "Confirmată",
+      "status_pending": "În așteptare",
+      "status_completed": "Finalizată",
+      "status_cancelled": "Anulată",
+      "status_no_show": "Neprezentare",
+      "status_picked_up": "Ridicată",
+      "status_reservation": "Rezervare",
+      "status_rental": "Închiriere",
+      "daily_rate": "Tarif/zi",
+      "total_paid": "Total plătit",
+      "deposit": "Depozit",
+      "deposit_returned": "Returnat",
+      "deposit_held": "Reținut",
+      "fines": "Amenzi",
+      "add_ons": "Servicii suplimentare",
+      "extensions": "Prelungiri",
+      "show_details": "Arată detalii",
+      "hide_details": "Ascunde detalii",
+      "paid": "Plătit",
+      "per_day": "zi",
+      "rebook": "Rezervă din nou",
+      "view_inspection": "Vezi inspecțiile",
+      "request_cancel": "Solicită anularea",
+      "cancel_reason_placeholder": "Motivul anulării (opțional)",
+      "send_request": "Trimite cererea",
+      "cancel_back": "Înapoi",
+      "cancel_requested": "Cerere de anulare trimisă",
+      "cancel_request_sent": "Cerere trimisă. Vă vom contacta.",
+      "view_car": "Vezi mașina",
+      "link_copied": "Link copiat"
+    },
+    "history": {
+      "title": "Istoricul rezervărilor",
+      "empty": "Istoricul este gol",
+      "tab_reservations": "Rezervări",
+      "tab_rentals": "Închirieri",
+      "completed_rentals": "Închirieri finalizate",
+      "cancelled_title": "Rezervări anulate",
+      "total_spent": "Suma totală",
+      "member_since": "Client din"
+    },
+    "favorites": {
+      "title": "Favorite",
+      "empty": "Nu aveți mașini favorite",
+      "remove": "Eliminare",
+      "add_tooltip": "Adaugă acest automobil în lista ta de dorințe",
+      "remove_tooltip": "Elimină acest automobil din lista ta de dorințe",
+      "perDay": "zi"
+    },
+    "notifications": {
+      "title": "Notificări",
+      "email_deals": "Oferte și reduceri",
+      "email_reminders": "Memento-uri de rezervare",
+      "email_receipts": "Chitanțe și facturi",
+      "saved": "Salvat!"
+    },
+    "privacy": {
+      "title": "Confidențialitate și date",
+      "export_title": "Export date",
+      "export_desc": "Descărcați datele personale în format JSON",
+      "export_btn": "Descărcare date",
+      "delete_title": "Ștergere cont",
+      "delete_desc": "Această acțiune este ireversibilă. Toate datele vor fi șterse.",
+      "delete_btn": "Șterge contul",
+      "delete_confirm": "Sunteți sigur? Nu se poate anula.",
+      "delete_yes": "Da, șterge",
+      "delete_cancel": "Anulare"
+    },
+    "header": {
+      "my_account": "Contul meu",
+      "login": "Autentificare",
+      "login_to_account": "Autentifică-te în contul personal"
+    }
   }
 }
