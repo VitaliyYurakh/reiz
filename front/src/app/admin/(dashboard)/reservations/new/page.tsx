@@ -451,26 +451,22 @@ export default function NewReservationPage() {
                         className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-[#8E24AA]"
                       />
                       <div className="min-w-0 flex-1">
-                        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
-                          <div className="min-w-0">
-                            <div className="text-[13px] font-semibold truncate" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
-                              {addon.name}
-                            </div>
-                          </div>
-                          <div className="flex w-full flex-wrap items-center justify-end gap-1.5 sm:w-auto">
-                            <span
-                              className="whitespace-nowrap rounded-full border bg-white dark:bg-card px-2.5 py-1 text-[12px] font-bold"
-                              style={{ borderColor: isDark ? '#2D3748' : '#ECEFF1', color: isDark ? '#E2E8F0' : '#263238' }}
-                            >
-                              {fmtMoney(addon.unitPriceMinor, addon.currency)}
-                            </span>
-                            <span
-                              className="whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-semibold"
-                              style={{ backgroundColor: isDark ? 'rgba(206,147,216,0.15)' : '#E1BEE7', color: isDark ? '#CE93D8' : '#6A1B9A' }}
-                            >
-                              {pricingLabel}
-                            </span>
-                          </div>
+                        <div className="text-[13px] font-semibold truncate" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
+                          {addon.name}
+                        </div>
+                        <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                          <span
+                            className="whitespace-nowrap rounded-full border bg-white dark:bg-card px-2.5 py-1 text-[12px] font-bold"
+                            style={{ borderColor: isDark ? '#2D3748' : '#ECEFF1', color: isDark ? '#E2E8F0' : '#263238' }}
+                          >
+                            {fmtMoney(addon.unitPriceMinor, addon.currency)}
+                          </span>
+                          <span
+                            className="whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-semibold"
+                            style={{ backgroundColor: isDark ? 'rgba(206,147,216,0.15)' : '#E1BEE7', color: isDark ? '#CE93D8' : '#6A1B9A' }}
+                          >
+                            {pricingLabel}
+                          </span>
                         </div>
 
                         {showQty && (
