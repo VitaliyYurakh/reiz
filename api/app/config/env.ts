@@ -1,5 +1,12 @@
 import {config} from 'dotenv';
-config({override: true});
+
+// Load .env for local dev (when running `npm run dev` outside Docker).
+// In Docker / production, env vars come from the orchestrator (docker-compose
+// `env_file:` or `environment:` block). Default `override: false` ensures
+// injected vars win over any stale .env that might exist in the working dir
+// — important after we moved to .dockerignore-ing .env (image no longer
+// carries credentials).
+config();
 
 import {z} from 'zod';
 

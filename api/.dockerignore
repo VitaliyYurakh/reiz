@@ -1,0 +1,23 @@
+node_modules
+build
+.git
+.gitignore
+.dockerignore
+Dockerfile
+*.log
+npm-debug.log*
+
+# CRITICAL: never bake secrets into the image. Real env vars come from the
+# orchestrator at runtime (docker-compose env_file or environment: block).
+.env
+.env.*
+!.env.example
+
+# Local IDE / OS junk
+.vscode
+.idea
+.DS_Store
+
+# Test artifacts (if any)
+coverage
+.nyc_output
