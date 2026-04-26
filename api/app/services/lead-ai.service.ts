@@ -71,8 +71,19 @@ function demoUrlForLanguage(language: string): string {
 class LeadAIService {
     private readonly apiKey = env.GEMINI_API_KEY || '';
 
+    // Circuit breaker — if Gemini returns 429 (quota exhausted), back off for an
+    // hour so we stop hammering the API and stop polluting logs. A successful
+    // call resets the breaker. Picks itself back up automatically when the key
+    // gets fixed (e.g. after rotation to a key from a non-billing project).
+    private cooldownUntil: number = 0;
+    private cooldownReason: string = '';
+
     isConfigured(): boolean {
         return !!this.apiKey;
+    }
+
+    private isInCooldown(): boolean {
+        return Date.now() < this.cooldownUntil;
     }
 
     /**
@@ -82,12 +93,30 @@ class LeadAIService {
         if (!this.isConfigured()) {
             return {...this.fallbackTemplate(lead), usedAi: false};
         }
+        if (this.isInCooldown()) {
+            return {
+                ...this.fallbackTemplate(lead),
+                usedAi: false,
+                failureReason: `Gemini in cooldown until ${new Date(this.cooldownUntil).toISOString()}: ${this.cooldownReason}`,
+            };
+        }
         try {
             const ai = await this.callGemini(lead);
+            // Successful call → clear any prior cooldown
+            this.cooldownUntil = 0;
+            this.cooldownReason = '';
             return {...ai, usedAi: true};
         } catch (err: any) {
             const reason = err?.message ?? String(err);
-            logger.error(`[lead-ai] Gemini call failed for ${lead.companyName}: ${reason}`);
+            // 429 = quota exhausted on this project. Back off for 1 hour so we
+            // stop spamming the API and the log file.
+            if (reason.includes('HTTP 429')) {
+                this.cooldownUntil = Date.now() + 60 * 60 * 1000;
+                this.cooldownReason = '429 quota exhausted';
+                logger.warn(`[lead-ai] Gemini 429 — entering 1h cooldown. Will use fallback template until ${new Date(this.cooldownUntil).toISOString()}`);
+            } else {
+                logger.error(`[lead-ai] Gemini call failed for ${lead.companyName}: ${reason}`);
+            }
             return {...this.fallbackTemplate(lead), usedAi: false, failureReason: reason.slice(0, 200)};
         }
     }
