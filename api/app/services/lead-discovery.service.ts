@@ -15,29 +15,35 @@ interface TargetCity {
     city: string;
 }
 
-// Russian-speaking owners-first markets. Georgia is intentionally excluded —
-// already a client (Merent.ge) and we don't poach from their territory.
+// PHASE-1 ICP: Russian-native or Russian-speaking-majority markets only.
+// Selection rationale: while our PDF/case study is in Russian, we need
+// every step of the funnel to be linguistically coherent. Markets where
+// <60% of small car-rental owners conduct business in Russian are
+// excluded for now and re-added once an English version of the deck exists.
+//
+// Excluded for Phase-1:
+//   - TH, ID  → ~5% Russian-speaking owners
+//   - TR Istanbul / Bodrum → English-dominant, only ~10% RU
+// Already excluded permanently:
+//   - GE (Georgia) → existing client (Merent.ge), no poaching from their territory
 export const DEFAULT_TARGETS: TargetCity[] = [
+    // 🇹🇷 Turkey — coastal resorts only (heavy Russian-diaspora ownership)
     {country: 'TR', city: 'Antalya'},
     {country: 'TR', city: 'Alanya'},
     {country: 'TR', city: 'Side'},
     {country: 'TR', city: 'Kemer'},
-    {country: 'TR', city: 'Istanbul'},
-    {country: 'TR', city: 'Bodrum'},
+    // 🇲🇪 Montenegro — large Russian diaspora among owners
     {country: 'ME', city: 'Budva'},
     {country: 'ME', city: 'Tivat'},
     {country: 'ME', city: 'Bar'},
     {country: 'ME', city: 'Podgorica'},
+    // 🇷🇸 Serbia — 2022+ wave of Russian-speaking relocants
     {country: 'RS', city: 'Belgrade'},
     {country: 'RS', city: 'Novi Sad'},
+    // 🇦🇲 Armenia — Russian-native business culture
     {country: 'AM', city: 'Yerevan'},
     {country: 'AM', city: 'Gyumri'},
-    {country: 'TH', city: 'Phuket'},
-    {country: 'TH', city: 'Pattaya'},
-    {country: 'TH', city: 'Koh Samui'},
-    {country: 'ID', city: 'Canggu'},
-    {country: 'ID', city: 'Seminyak'},
-    {country: 'ID', city: 'Ubud'},
+    // 🇰🇿 Kazakhstan — Russian-native business culture
     {country: 'KZ', city: 'Almaty'},
     {country: 'KZ', city: 'Astana'},
 ];
