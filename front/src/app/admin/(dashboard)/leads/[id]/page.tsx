@@ -74,7 +74,7 @@ export default function LeadDetailPage() {
   const [loading, setLoading] = useState(true);
   const [notes, setNotes] = useState('');
   const [savingNotes, setSavingNotes] = useState(false);
-  const [preview, setPreview] = useState<{ subject: string; body: string; kind: string; usedAi: boolean } | null>(null);
+  const [preview, setPreview] = useState<{ subject: string; body: string; kind: string; usedAi: boolean; failureReason?: string } | null>(null);
   const [previewing, setPreviewing] = useState(false);
 
   const fetchLead = useCallback(async () => {
@@ -330,10 +330,21 @@ export default function LeadDetailPage() {
                 border: isDark ? '1px solid #2D3748' : '1px solid #E2E8F0',
               }}>
                 <div className="text-[11px] mb-2" style={{ color: isDark ? '#90A4AE' : '#607D8B' }}>
-                  {preview.usedAi ? '✨ Сгенерировано Gemini' : '📋 Локальный шаблон'}
+                  {preview.usedAi ? '✨ Сгенерировано Gemini' : '📋 Локальный шаблон (fallback)'}
                   {' · '}
                   {preview.kind}
                 </div>
+                {preview.failureReason && (
+                  <div className="text-[11px] mb-2 px-2 py-1 rounded" style={{
+                    background: isDark ? 'rgba(239,68,68,0.15)' : '#FEE2E2',
+                    color: isDark ? '#FCA5A5' : '#991B1B',
+                  }}>
+                    ⚠️ AI fail: {preview.failureReason.slice(0, 140)}
+                    {preview.failureReason.includes('429') && (
+                      <div className="mt-1 opacity-80">Подожди ~60 сек (Gemini free tier: 15 req/min) и нажми ещё раз.</div>
+                    )}
+                  </div>
+                )}
                 <div className="text-[14px] font-bold mb-2" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
                   Subject: {preview.subject}
                 </div>

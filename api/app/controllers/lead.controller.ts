@@ -103,18 +103,13 @@ class LeadController {
             language: lead.language,
         };
 
-        let generated;
-        if (kind === 'fu_3d' || kind === 'fu_7d' || kind === 'breakup_14d') {
-            generated = leadAiService.buildFollowUp(aiInput, kind);
-        } else {
-            generated = await leadAiService.generateInitial(aiInput);
-        }
+        const generated = (kind === 'fu_3d' || kind === 'fu_7d' || kind === 'breakup_14d')
+            ? leadAiService.buildFollowUp(aiInput, kind)
+            : await leadAiService.generateInitial(aiInput);
 
-        res.status(StatusCodes.OK).json({
-            kind,
-            usedAi: leadAiService.isConfigured() && kind === 'initial',
-            ...generated,
-        });
+        // The service tells us truthfully whether Gemini wrote it. Pass that
+        // verdict + any failure reason so the admin UI can warn on rate limits.
+        res.status(StatusCodes.OK).json({kind, ...generated});
     }
 
     async sendNow(req: Request, res: Response) {

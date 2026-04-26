@@ -22,6 +22,8 @@ interface LeadInput {
 interface GeneratedEmail {
     subject: string;
     body: string;
+    usedAi: boolean;     // true if Gemini wrote it, false if fallback template
+    failureReason?: string; // populated when usedAi=false but isConfigured() was true (rate limit, network, etc.)
 }
 
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
@@ -69,13 +71,15 @@ class LeadAIService {
      */
     async generateInitial(lead: LeadInput): Promise<GeneratedEmail> {
         if (!this.isConfigured()) {
-            return this.fallbackTemplate(lead);
+            return {...this.fallbackTemplate(lead), usedAi: false};
         }
         try {
-            return await this.callGemini(lead);
+            const ai = await this.callGemini(lead);
+            return {...ai, usedAi: true};
         } catch (err: any) {
-            logger.error(`[lead-ai] Gemini call failed for ${lead.companyName}: ${err.message}`);
-            return this.fallbackTemplate(lead);
+            const reason = err?.message ?? String(err);
+            logger.error(`[lead-ai] Gemini call failed for ${lead.companyName}: ${reason}`);
+            return {...this.fallbackTemplate(lead), usedAi: false, failureReason: reason.slice(0, 200)};
         }
     }
 
@@ -86,28 +90,34 @@ class LeadAIService {
      */
     buildFollowUp(lead: LeadInput, kind: 'fu_3d' | 'fu_7d' | 'breakup_14d'): GeneratedEmail {
         const isRu = lead.language === 'ru' || ['KZ', 'AM'].includes(lead.country);
+        const senderName = env.OUTREACH_SENDER_NAME;
+        const demoUrl = demoUrlForLanguage(isRu ? 'ru' : 'en');
 
         if (kind === 'fu_3d') {
             return isRu
                 ? {
                     subject: 'Re: REIZ',
-                    body: `Подняли тред на случай, если пропустили.\n\nКейс — merent.ge: тот же движок, полностью в их брендинге, запустили за 4 дня. Если интересно — 2-мин видео покажу.\n\n— Марьян`,
+                    body: `Поднимаю тред на случай, если пропустили.\n\nЖивой кейс — merent.ge: тот же движок, полностью в их брендинге, запустили за 4 дня. Наш флагман: ${demoUrl}. Если интересно — 2-мин видео покажу.\n\n— ${senderName}`,
+                    usedAi: false,
                 }
                 : {
                     subject: 'Re: REIZ',
-                    body: `Bumping in case you missed this.\n\nLive case — merent.ge: same engine, fully their branding, launched in 4 days. Want a 2-min walkthrough?\n\n— Marian`,
+                    body: `Bumping in case you missed this.\n\nLive case — merent.ge: same engine, fully their branding, launched in 4 days. Flagship: ${demoUrl}. Want a 2-min walkthrough?\n\n— ${senderName}`,
+                    usedAi: false,
                 };
         }
 
         if (kind === 'fu_7d') {
             return isRu
                 ? {
-                    subject: 'Последний пинг по сайту для ' + lead.companyName,
-                    body: `Понимаю, что у тебя не на первом месте.\n\nНо если сайт сейчас на Tilda/WordPress — это -30% мобильной конверсии для туристов. У нас Next.js, $149/мес, без подрядчиков. Мне правда интересно — стоит подумать или нет?\n\n— Марьян`,
+                    subject: 'Последний пинг по сайту',
+                    body: `Понимаю, что не на первом месте.\n\nНо если сайт сейчас на Tilda/WordPress — это -30% мобильной конверсии для туристов. У нас Next.js, $149/мес, без подрядчиков. Стоит 10 минут на демо или нет?\n\n— ${senderName}`,
+                    usedAi: false,
                 }
                 : {
                     subject: 'Last ping about your site',
-                    body: `I get it's not top-of-mind right now.\n\nBut if you're on Tilda/WordPress — that's -30% mobile conversion on tourist traffic. We're on Next.js, $149/mo, no contractors. Worth a 10-min look?\n\n— Marian`,
+                    body: `I get it's not top-of-mind right now.\n\nBut if you're on Tilda/WordPress — that's -30% mobile conversion on tourist traffic. We're on Next.js, $149/mo, no contractors. Worth a 10-min look?\n\n— ${senderName}`,
+                    usedAi: false,
                 };
         }
 
@@ -115,15 +125,17 @@ class LeadAIService {
         return isRu
             ? {
                 subject: 'Закрываю тред',
-                body: `Если не приоритет — без проблем, не буду беспокоить.\n\nЕсли в будущем понадобится — пиши: @Reiz_Rental в Telegram.\n\n— Марьян`,
+                body: `Если не приоритет — без проблем, не буду беспокоить.\n\nЕсли в будущем понадобится — пишите: @Reiz_Rental в Telegram.\n\n— ${senderName}`,
+                usedAi: false,
             }
             : {
                 subject: 'Closing the loop',
-                body: `If it's not a priority right now — totally fine, won't bother you again.\n\nIf this comes up later: @Reiz_Rental on Telegram.\n\n— Marian`,
+                body: `If it's not a priority right now — totally fine, won't bother you again.\n\nIf this comes up later: @Reiz_Rental on Telegram.\n\n— ${senderName}`,
+                usedAi: false,
             };
     }
 
-    private async callGemini(lead: LeadInput): Promise<GeneratedEmail> {
+    private async callGemini(lead: LeadInput): Promise<{subject: string; body: string}> {
         const language = lead.language || 'ru';
         const userPrompt = `Recipient:
 - Company: ${lead.companyName}
@@ -176,7 +188,7 @@ Write the email in language: ${language} (use Cyrillic if Russian/Serbian/Kazakh
         }
     }
 
-    private fallbackTemplate(lead: LeadInput): GeneratedEmail {
+    private fallbackTemplate(lead: LeadInput): {subject: string; body: string} {
         const isRu = lead.language === 'ru' || ['KZ', 'AM'].includes(lead.country);
         const senderName = env.OUTREACH_SENDER_NAME;
         const demoUrl = demoUrlForLanguage(isRu ? 'ru' : 'en');
