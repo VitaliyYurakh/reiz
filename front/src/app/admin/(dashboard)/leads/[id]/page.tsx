@@ -21,6 +21,8 @@ import {
   Star,
   Send,
   Inbox,
+  Sparkles,
+  RefreshCcw,
 } from 'lucide-react';
 
 interface LeadEmail {
@@ -72,6 +74,8 @@ export default function LeadDetailPage() {
   const [loading, setLoading] = useState(true);
   const [notes, setNotes] = useState('');
   const [savingNotes, setSavingNotes] = useState(false);
+  const [preview, setPreview] = useState<{ subject: string; body: string; kind: string; usedAi: boolean } | null>(null);
+  const [previewing, setPreviewing] = useState(false);
 
   const fetchLead = useCallback(async () => {
     setLoading(true);
@@ -95,6 +99,18 @@ export default function LeadDetailPage() {
       fetchLead();
     } catch (err) {
       toastError(err, 'Не удалось обновить статус');
+    }
+  };
+
+  const generatePreview = async (kind: 'initial' | 'fu_3d' | 'fu_7d' | 'breakup_14d' = 'initial') => {
+    setPreviewing(true);
+    try {
+      const res = await adminApiClient.get(`/lead/${params.id}/preview-email?kind=${kind}`);
+      setPreview(res.data);
+    } catch (err) {
+      toastError(err, 'Не удалось сгенерировать preview');
+    } finally {
+      setPreviewing(false);
     }
   };
 
@@ -258,8 +274,56 @@ export default function LeadDetailPage() {
           )}
         </div>
 
-        {/* Right: email thread */}
-        <div className="lg:col-span-2">
+        {/* Right: preview + email thread */}
+        <div className="lg:col-span-2 space-y-6">
+          <Card isDark={isDark} H={H} title="AI Preview (без отправки)">
+            <div className="flex items-center gap-2 flex-wrap mb-3">
+              <button
+                type="button"
+                onClick={() => generatePreview('initial')}
+                disabled={previewing}
+                className="ios-btn ios-btn-primary text-sm disabled:opacity-50"
+              >
+                {previewing ? <RefreshCcw className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
+                Initial (Gemini)
+              </button>
+              <button type="button" onClick={() => generatePreview('fu_3d')} disabled={previewing} className="ios-btn ios-btn-ghost text-sm">
+                Follow-up 3д
+              </button>
+              <button type="button" onClick={() => generatePreview('fu_7d')} disabled={previewing} className="ios-btn ios-btn-ghost text-sm">
+                Follow-up 7д
+              </button>
+              <button type="button" onClick={() => generatePreview('breakup_14d')} disabled={previewing} className="ios-btn ios-btn-ghost text-sm">
+                Break-up
+              </button>
+            </div>
+
+            {preview ? (
+              <div className="rounded-xl p-4" style={{
+                background: isDark ? '#0F1623' : '#F8FAFC',
+                border: isDark ? '1px solid #2D3748' : '1px solid #E2E8F0',
+              }}>
+                <div className="text-[11px] mb-2" style={{ color: isDark ? '#90A4AE' : '#607D8B' }}>
+                  {preview.usedAi ? '✨ Сгенерировано Gemini' : '📋 Локальный шаблон'}
+                  {' · '}
+                  {preview.kind}
+                </div>
+                <div className="text-[14px] font-bold mb-2" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
+                  Subject: {preview.subject}
+                </div>
+                <div className="text-[13px] whitespace-pre-wrap leading-relaxed" style={{ color: isDark ? '#90A4AE' : '#607D8B' }}>
+                  {preview.body}
+                </div>
+              </div>
+            ) : (
+              <div className="text-[13px] text-center py-6" style={{ color: isDark ? '#718096' : '#90A4AE' }}>
+                Нажми «Initial» — увидишь как Gemini напишет под этого лида.
+                <br />
+                <span className="text-[11px] opacity-70">Письмо НЕ отправится. Это только просмотр.</span>
+              </div>
+            )}
+          </Card>
+
           <Card isDark={isDark} H={H} title={`Переписка (${lead.emails.length})`}>
             {lead.emails.length === 0 ? (
               <div className="text-center py-12 text-[13px]" style={{ color: isDark ? '#718096' : '#90A4AE' }}>

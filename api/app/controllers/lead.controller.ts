@@ -2,6 +2,7 @@ import {StatusCodes} from 'http-status-codes';
 import {Request, Response} from 'express';
 import leadService from '../services/lead.service';
 import leadCronService from '../services/lead-cron.service';
+import leadAiService from '../services/lead-ai.service';
 import {parseId, parseOptionalId} from '../utils';
 import logAudit from '../middleware/audit.middleware';
 import {
@@ -83,6 +84,36 @@ class LeadController {
         const result = await leadService.bulkImport(data.items);
         logAudit({actorId: res.locals.user?.id, entityType: 'Lead', action: 'BULK_IMPORT', after: result, req});
         res.status(StatusCodes.OK).json(result);
+    }
+
+    async previewEmail(req: Request, res: Response) {
+        const id = parseId(req.params.id);
+        const lead = await leadService.getOne(id);
+        if (!lead) return res.status(StatusCodes.NOT_FOUND).json({msg: 'Lead not found'});
+
+        const kind = (req.query.kind as string) || 'initial';
+        const aiInput = {
+            companyName: lead.companyName,
+            country: lead.country,
+            city: lead.city,
+            ownerName: lead.ownerName,
+            website: lead.website,
+            websiteContent: lead.websiteContent,
+            language: lead.language,
+        };
+
+        let generated;
+        if (kind === 'fu_3d' || kind === 'fu_7d' || kind === 'breakup_14d') {
+            generated = leadAiService.buildFollowUp(aiInput, kind);
+        } else {
+            generated = await leadAiService.generateInitial(aiInput);
+        }
+
+        res.status(StatusCodes.OK).json({
+            kind,
+            usedAi: leadAiService.isConfigured() && kind === 'initial',
+            ...generated,
+        });
     }
 
     async runStep(req: Request, res: Response) {

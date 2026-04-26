@@ -13,6 +13,7 @@ router.patch('/:id', auth, requirePermission('crm', 'full'), leadController.upda
 router.patch('/:id/status', auth, requirePermission('crm', 'full'), leadController.updateStatus);
 router.delete('/:id', auth, requirePermission('crm', 'full'), leadController.delete);
 router.post('/:id/emails', auth, requirePermission('crm', 'full'), leadController.addEmail);
+router.get('/:id/preview-email', auth, requirePermission('crm', 'view'), leadController.previewEmail);
 
 // Outreach automation triggers (manual run from admin)
 router.post('/run/:step', auth, requirePermission('crm', 'full'), leadController.runStep);
