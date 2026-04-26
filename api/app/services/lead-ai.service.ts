@@ -28,31 +28,40 @@ interface GeneratedEmail {
 
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
-function buildSystemPrompt(senderName: string, demoUrl: string): string {
-    return `You are an SDR writing a 4-sentence cold B2B email to a car-rental business owner.
-You represent REIZ — a white-label car-rental SaaS platform built on Next.js.
+/**
+ * Cold-outreach template is fixed by the founder. Gemini's only freedom is to
+ * rewrite the SECOND sentence of paragraph one with a one-line personalization
+ * based on what the website actually shows. Everything else is verbatim.
+ */
+function buildSystemPrompt(senderName: string, companyName: string, demoUrl: string): string {
+    return `You are an SDR. Output a cold B2B email in Russian to a car-rental business owner.
+The template below is FINAL. You may rewrite ONLY the [PERSONALIZED_OBSERVATION] line — one short Russian sentence based on the website excerpt (their fleet, locations, feature, anything specific). Don't fabricate. If the excerpt is too thin, fall back to: "Заметил ваш автопрокат".
 
-KEY FACTS to weave in (don't list them — pick what fits naturally):
-- Setup: $250 one-time, includes first month
-- Subscription: $149/month (everything: hosting, SSL, support, SEO content)
-- Tech: Next.js (the stack used by Nike, Netflix, TikTok)
-- Live cases: ${demoUrl} (our flagship), merent.ge (Georgia — launched in 4 days, fully their branding)
-- Languages, currencies, payments — all configurable
-- Telegram bot for instant booking notifications
+EVERYTHING ELSE STAYS WORD-FOR-WORD. No extra greetings, no closing fluff, no rewording.
 
-TONE: peer-to-peer, direct, no formal "Dear Sir/Madam". For Russian use "вы". NO marketing fluff.
+TEMPLATE:
 
-STRICT REQUIREMENTS:
-- Body: exactly 4 short sentences. Plain text, no bullets, no headers.
-- Refer to the recipient by their COMPANY NAME (given in metadata) — never by URL.
-- Mention ONE specific detail you noticed from their website excerpt (cars, locations, features) — prove you actually looked.
-- Include the live demo link exactly once: ${demoUrl} (woven naturally — e.g. "посмотрите как выглядит: ${demoUrl}").
-- End body with: "2-мин демо?" (Russian) or "2-min demo?" (English equivalent).
-- Sign body as: "— ${senderName}" (and only that — no name, no title above it).
-- Subject: STRICTLY ≤ 6 words and ≤ 60 characters. NO ALL-CAPS. NO website meta-title text. Be intriguing, not salesy.
+Subject: Идея для роста бронирований ${companyName}
+
+Здравствуйте.
+
+[PERSONALIZED_OBSERVATION] Мы помогаем прокатным компаниям получать больше прямых корпоративных и частных клиентов за счёт современного интерфейса и быстрой работы сайта.
+
+Вместо долгой разработки с нуля за $8–15K мы разворачиваем готовое решение по подписке за $149/мес. Кейс: запустили проект в Тбилиси за 4 дня — https://merent.ge/. Посмотреть, как это работает вживую, можно также на нашем проекте: ${demoUrl}.
+
+Напишите нам здесь или в Telegram (@Reiz_Rental), и мы отправим короткую PDF-презентацию с деталями.
+
+— ${senderName}
+
+RULES:
+- Subject must be EXACTLY: "Идея для роста бронирований ${companyName}"
+- The personalized observation must be ONE short Russian sentence ending with a period. Examples: "Увидел ваш парк Hyundai в Анталии — отличная подборка для туристов." / "Заметил, что у вас доставка по всему городу." / "Понравился ваш сервис по аэропорту."
+- All URLs (https://merent.ge/, ${demoUrl}, @Reiz_Rental) must remain verbatim.
+- Use "вы" (formal). Russian throughout.
+- Do NOT change the signature line.
 
 Output STRICT JSON only: {"subject": "...", "body": "..."}.
-Do NOT wrap in markdown. Do NOT add commentary or anything outside the JSON.`;
+Do NOT wrap in markdown. Do NOT add commentary outside the JSON.`;
 }
 
 function demoUrlForLanguage(language: string): string {
@@ -152,7 +161,7 @@ Write the email in language: ${language} (use Cyrillic if Russian/Serbian/Kazakh
         const senderName = env.OUTREACH_SENDER_NAME;
         const demoUrl = demoUrlForLanguage(language);
         const body = {
-            systemInstruction: {parts: [{text: buildSystemPrompt(senderName, demoUrl)}]},
+            systemInstruction: {parts: [{text: buildSystemPrompt(senderName, lead.companyName, demoUrl)}]},
             contents: [{role: 'user', parts: [{text: userPrompt}]}],
             generationConfig: {
                 temperature: 0.8,
@@ -188,37 +197,35 @@ Write the email in language: ${language} (use Cyrillic if Russian/Serbian/Kazakh
         }
     }
 
+    /**
+     * Founder-approved fallback. Used when Gemini is missing/rate-limited/network-fails.
+     * Same shape as the AI template, but with a generic observation line —
+     * no website-specific personalization.
+     */
     private fallbackTemplate(lead: LeadInput): {subject: string; body: string} {
-        const isRu = lead.language === 'ru' || ['KZ', 'AM'].includes(lead.country);
         const senderName = env.OUTREACH_SENDER_NAME;
+        const isRu = lead.language === 'ru' || ['KZ', 'AM', 'ME', 'RS', 'TR'].includes(lead.country);
         const demoUrl = demoUrlForLanguage(isRu ? 'ru' : 'en');
-        // Cap subject to 60 chars: short company names work, long ones get truncated.
-        const cap = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s);
 
         if (isRu) {
-            const greet = lead.ownerName ? `Здравствуйте, ${lead.ownerName}.` : 'Здравствуйте.';
-            const subject = cap(`${lead.companyName}: сайт за 4 дня?`, 60);
             return {
-                subject,
+                subject: `Идея для роста бронирований ${lead.companyName}`,
                 body:
-                    `${greet}\n\n` +
-                    `Заметил ${lead.companyName} в ${lead.city}. ` +
-                    `Мы делаем готовые сайты для автопрокатов на Next.js — запустили merent.ge в Тбилиси за 4 дня в их брендинге. ` +
-                    `Живой пример: ${demoUrl}. Подписка $149/мес, без $8–15K на разработку с нуля.\n\n` +
-                    `2-мин демо?\n\n` +
+                    `Здравствуйте.\n\n` +
+                    `Заметил ваш автопрокат. Мы помогаем прокатным компаниям получать больше прямых корпоративных и частных клиентов за счёт современного интерфейса и быстрой работы сайта.\n\n` +
+                    `Вместо долгой разработки с нуля за $8–15K мы разворачиваем готовое решение по подписке за $149/мес. Кейс: запустили проект в Тбилиси за 4 дня — https://merent.ge/. Посмотреть, как это работает вживую, можно также на нашем проекте: ${demoUrl}.\n\n` +
+                    `Напишите нам здесь или в Telegram (@Reiz_Rental), и мы отправим короткую PDF-презентацию с деталями.\n\n` +
                     `— ${senderName}`,
             };
         }
-        const greet = lead.ownerName ? `Hi ${lead.ownerName},` : 'Hi,';
-        const subject = cap(`${lead.companyName}: site in 4 days?`, 60);
+
         return {
-            subject,
+            subject: `Idea to grow ${lead.companyName} bookings`,
             body:
-                `${greet}\n\n` +
-                `Spotted ${lead.companyName} in ${lead.city}. ` +
-                `We build turnkey car-rental sites on Next.js — launched merent.ge in Tbilisi in 4 days under their full branding. ` +
-                `Live demo: ${demoUrl}. $149/month subscription instead of $8–15K custom builds.\n\n` +
-                `2-min demo?\n\n` +
+                `Hi.\n\n` +
+                `Noticed your car-rental business. We help rental companies get more direct corporate and private bookings with a modern UI and a fast site.\n\n` +
+                `Instead of a $8–15K custom build, we ship a turn-key solution for $149/month. Case study: we launched a project in Tbilisi in 4 days — https://merent.ge/. You can also see it live on our flagship: ${demoUrl}.\n\n` +
+                `Reply here or ping us on Telegram (@Reiz_Rental) and we'll send a short PDF deck with the details.\n\n` +
                 `— ${senderName}`,
         };
     }

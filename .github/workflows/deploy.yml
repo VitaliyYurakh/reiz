@@ -56,7 +56,7 @@ jobs:
                       GMAIL_APP_PASSWORD=${{ secrets.GMAIL_APP_PASSWORD }}
                       OUTREACH_DAILY_CAP=${{ vars.OUTREACH_DAILY_CAP || '5' }}
                       OUTREACH_PUBLIC_URL=${{ vars.OUTREACH_PUBLIC_URL || 'https://reiz.com.ua' }}
-                      OUTREACH_SENDER_NAME=${{ vars.OUTREACH_SENDER_NAME || 'Команда REIZ' }}
+                      OUTREACH_SENDER_NAME=${{ vars.OUTREACH_SENDER_NAME || 'Марьян, основатель REIZ' }}
                       EOF
                       chmod 600 .env
 
