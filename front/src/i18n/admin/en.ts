@@ -15,6 +15,7 @@ export const en: AdminTranslations = {
     finance: 'Finance',
     service: 'Service',
     complaints: 'Complaints',
+    leads: 'Outreach',
     reports: 'Reports',
     settings: 'Settings',
     locations: 'Locations',

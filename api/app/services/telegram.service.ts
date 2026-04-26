@@ -383,6 +383,57 @@ class TelegramService {
         if ([2, 3, 4].includes(days % 10) && ![12, 13, 14].includes(days % 100)) return 'дні';
         return 'днів';
     }
+
+    /**
+     * Notification when a B2B lead replies to our cold email.
+     * Lead-aware so the "interesting" ones land in your inbox, not in admin polling.
+     */
+    formatLeadReply(data: {
+        leadId: number;
+        companyName: string;
+        country: string;
+        city: string;
+        ownerName?: string | null;
+        subject: string;
+        bodyPreview: string;
+        adminUrl: string;
+    }): string {
+        const flag = ({TR: '🇹🇷', ME: '🇲🇪', RS: '🇷🇸', AM: '🇦🇲', TH: '🇹🇭', ID: '🇮🇩', KZ: '🇰🇿'} as Record<string, string>)[data.country] || '🌍';
+        let msg = `📬 <b>Ответ на B2B-аутрич!</b>\n\n`;
+        msg += `🏢 <b>${escapeHtml(data.companyName)}</b>${data.ownerName ? ` — ${escapeHtml(data.ownerName)}` : ''}\n`;
+        msg += `${flag} ${escapeHtml(data.city)}, ${escapeHtml(data.country)}\n\n`;
+        msg += `✉️ <b>${escapeHtml(data.subject)}</b>\n`;
+        msg += `<i>${escapeHtml(data.bodyPreview.slice(0, 400))}${data.bodyPreview.length > 400 ? '…' : ''}</i>\n\n`;
+        msg += `🔗 ${escapeHtml(data.adminUrl)}`;
+        return msg;
+    }
+
+    /**
+     * Daily summary of outreach activity. Sent by cron once a day so the operator
+     * has a single line of "what happened yesterday" without having to log in.
+     */
+    formatOutreachDailyReport(data: {
+        sent: number;
+        replied: number;
+        bounced: number;
+        unsubscribed: number;
+        byCountry: Record<string, number>;
+    }): string {
+        let msg = `📊 <b>B2B Аутрич — отчёт за день</b>\n\n`;
+        msg += `📤 Отправлено: <b>${data.sent}</b>\n`;
+        msg += `📬 Ответили: <b>${data.replied}</b>\n`;
+        msg += `❌ Bounced: ${data.bounced}\n`;
+        msg += `🚫 Отписались: ${data.unsubscribed}\n`;
+
+        const countries = Object.entries(data.byCountry).filter(([, n]) => n > 0);
+        if (countries.length) {
+            msg += `\n<b>По странам:</b>\n`;
+            for (const [c, n] of countries) {
+                msg += `  ${c}: ${n}\n`;
+            }
+        }
+        return msg;
+    }
 }
 
 export default new TelegramService();

@@ -10,6 +10,7 @@ import {logger, prisma} from './utils';
 import {router} from './routers';
 import {auth, csrfProtection, globalErrorHandler, requirePermission} from './middleware';
 import {requestContext} from './config/request-context';
+import leadCronService from './services/lead-cron.service';
 import path from 'node:path';
 
 const SHUTDOWN_TIMEOUT = 10_000;
@@ -118,6 +119,16 @@ const startServer = async () => {
         const server = app.listen(port, () => {
             logger.info(`Server listening on port ${port}`);
         });
+
+        // Start B2B outreach pipeline (no-op when env vars missing).
+        // Disabled in test env to avoid intermittent network calls during tests.
+        if (env.NODE_ENV !== 'test') {
+            try {
+                leadCronService.start();
+            } catch (err: any) {
+                logger.error(`[lead-cron] failed to start: ${err.message}`);
+            }
+        }
 
         // ── Graceful shutdown ──
         const shutdown = (signal: string) => {

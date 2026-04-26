@@ -37,6 +37,7 @@ model User {
   auditLogs           AuditLog[]       @relation("AuditLogs")
   assignedComplaints  Complaint[]      @relation("AssignedComplaints")
   complaintMessages   ComplaintMessage[] @relation("ComplaintAuthorUser")
+  assignedLeads       Lead[]             @relation("AssignedLeads")
 }
 
 model Car {
@@ -1036,4 +1037,91 @@ model Partner {
 
   @@index([isActive])
   @@map("partner")
+}
+
+// ============================================================
+// B2B OUTREACH — LEADS (added 2026-04)
+// ============================================================
+//
+// External car-rental businesses we cold-email to pitch the REIZ
+// white-label SaaS platform. Lead lifecycle:
+//   NEW → ENRICHED (email parsed) → READY → CONTACTED →
+//     FOLLOWED_UP_1 (3d) → FOLLOWED_UP_2 (7d) → BREAKUP_SENT (14d)
+// Exit branches at any point: REPLIED, INTERESTED, CLIENT,
+//   DISQUALIFIED, BOUNCED, UNSUBSCRIBED, PAUSED.
+// LeadEmail keeps both inbound and outbound messages so the admin
+// shows a chronological thread per lead.
+
+model Lead {
+  id             Int       @id @default(autoincrement())
+
+  source         String    @default("google_places") // 'google_places' | 'manual' | 'csv'
+  googlePlaceId  String?   @unique                      @map("google_place_id")
+
+  companyName    String                                  @map("company_name")
+  country        String                                  // ISO-2: 'TR' | 'ME' | 'RS' | 'AM' | 'TH' | 'ID' | 'KZ'
+  city           String
+  website        String?
+  phone          String?
+  email          String?
+  ownerName      String?                                 @map("owner_name")
+
+  language       String    @default("ru")                // outreach language: 'ru' | 'en' | 'tr' | 'sr' | ...
+
+  // 'NEW' | 'ENRICHED' | 'READY' | 'CONTACTED' | 'FOLLOWED_UP_1' | 'FOLLOWED_UP_2'
+  // | 'BREAKUP_SENT' | 'REPLIED' | 'INTERESTED' | 'CLIENT'
+  // | 'DISQUALIFIED' | 'BOUNCED' | 'UNSUBSCRIBED' | 'PAUSED'
+  status         String    @default("NEW")
+  pausedReason   String?                                 @map("paused_reason")
+
+  // Cached website excerpt — fed to Gemini for personalization. Limited to ~2000 chars in code.
+  websiteContent String?                                 @map("website_content") @db.Text
+
+  contactedAt    DateTime?                               @map("contacted_at")
+  lastFollowUpAt DateTime?                               @map("last_follow_up_at")
+  followUpCount  Int       @default(0)                   @map("follow_up_count")
+  repliedAt      DateTime?                               @map("replied_at")
+
+  assignedManagerId Int?                                 @map("assigned_manager_id")
+  notes             String?
+
+  createdAt      DateTime  @default(now())               @map("created_at")
+  updatedAt      DateTime  @updatedAt                    @map("updated_at")
+
+  assignedManager User?       @relation("AssignedLeads", fields: [assignedManagerId], references: [id])
+  emails          LeadEmail[]
+
+  @@index([status])
+  @@index([country])
+  @@index([assignedManagerId])
+  @@index([createdAt])
+  @@index([contactedAt])
+  @@map("lead")
+}
+
+model LeadEmail {
+  id            Int       @id @default(autoincrement())
+  leadId        Int                                      @map("lead_id")
+
+  direction     String                                   // 'OUTBOUND' | 'INBOUND'
+  template      String?                                  // 'initial' | 'fu_3d' | 'fu_7d' | 'breakup_14d' | null
+  subject       String
+  body          String                                   @db.Text
+
+  sentAt        DateTime?                                @map("sent_at")
+  receivedAt    DateTime?                                @map("received_at")
+
+  // Gmail tracking — used both to deduplicate inbound messages and to thread
+  // follow-ups under the same conversation in the recipient's mailbox.
+  gmailMsgId    String?   @unique                        @map("gmail_msg_id")
+  gmailThreadId String?                                  @map("gmail_thread_id")
+
+  createdAt     DateTime  @default(now())                @map("created_at")
+
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@index([leadId])
+  @@index([direction])
+  @@index([gmailThreadId])
+  @@map("lead_email")
 }

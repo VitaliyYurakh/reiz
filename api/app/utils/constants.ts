@@ -22,6 +22,71 @@ export const RentalRequestStatus = {
     CANCELLED: 'cancelled',
 } as const;
 
+// ── Lead / B2B outreach ──
+
+export const LeadStatus = {
+    NEW: 'NEW',
+    ENRICHED: 'ENRICHED',
+    READY: 'READY',
+    CONTACTED: 'CONTACTED',
+    FOLLOWED_UP_1: 'FOLLOWED_UP_1',
+    FOLLOWED_UP_2: 'FOLLOWED_UP_2',
+    BREAKUP_SENT: 'BREAKUP_SENT',
+    REPLIED: 'REPLIED',
+    INTERESTED: 'INTERESTED',
+    CLIENT: 'CLIENT',
+    DISQUALIFIED: 'DISQUALIFIED',
+    BOUNCED: 'BOUNCED',
+    UNSUBSCRIBED: 'UNSUBSCRIBED',
+    PAUSED: 'PAUSED',
+} as const;
+export const LEAD_STATUSES = Object.values(LeadStatus);
+export type LeadStatusValue = typeof LeadStatus[keyof typeof LeadStatus];
+
+// Statuses where outreach automation may still send to this lead
+export const LEAD_ACTIVE_STATUSES: LeadStatusValue[] = [
+    LeadStatus.READY,
+    LeadStatus.CONTACTED,
+    LeadStatus.FOLLOWED_UP_1,
+    LeadStatus.FOLLOWED_UP_2,
+];
+
+// Statuses that take the lead out of automation
+export const LEAD_TERMINAL_STATUSES: LeadStatusValue[] = [
+    LeadStatus.REPLIED,
+    LeadStatus.INTERESTED,
+    LeadStatus.CLIENT,
+    LeadStatus.DISQUALIFIED,
+    LeadStatus.BOUNCED,
+    LeadStatus.UNSUBSCRIBED,
+    LeadStatus.PAUSED,
+];
+
+export const LeadSource = {
+    GOOGLE_PLACES: 'google_places',
+    MANUAL: 'manual',
+    CSV: 'csv',
+} as const;
+export const LEAD_SOURCES = Object.values(LeadSource);
+
+export const LeadEmailDirection = {
+    OUTBOUND: 'OUTBOUND',
+    INBOUND: 'INBOUND',
+} as const;
+export const LEAD_EMAIL_DIRECTIONS = Object.values(LeadEmailDirection);
+
+export const LeadEmailTemplate = {
+    INITIAL: 'initial',
+    FOLLOW_UP_3D: 'fu_3d',
+    FOLLOW_UP_7D: 'fu_7d',
+    BREAKUP_14D: 'breakup_14d',
+} as const;
+export const LEAD_EMAIL_TEMPLATES = Object.values(LeadEmailTemplate);
+
+// Target markets — Russian-speaking owners-first prioritization
+export const LEAD_TARGET_COUNTRIES = ['TR', 'ME', 'RS', 'AM', 'TH', 'ID', 'KZ'] as const;
+export type LeadCountryCode = typeof LEAD_TARGET_COUNTRIES[number];
+
 /**
  * Parse a route param as integer. Throws 400-style error if NaN.
  */

@@ -13,6 +13,7 @@ export const uk = {
     finance: 'Фінанси',
     service: 'Сервіс',
     complaints: 'Скарги',
+    leads: 'Аутріч',
     reports: 'Звіти',
     settings: 'Налаштування',
     locations: 'Локації',

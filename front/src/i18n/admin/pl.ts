@@ -15,6 +15,7 @@ export const pl: AdminTranslations = {
     finance: 'Finanse',
     service: 'Serwis',
     complaints: 'Skargi',
+    leads: 'Outreach',
     reports: 'Raporty',
     settings: 'Ustawienia',
     locations: 'Lokalizacje',

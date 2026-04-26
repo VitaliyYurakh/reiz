@@ -15,6 +15,7 @@ export const ro: AdminTranslations = {
         finance: 'Finanțe',
         service: 'Service',
         complaints: 'Reclamații',
+        leads: 'Outreach',
         reports: 'Rapoarte',
         settings: 'Setări',
         locations: 'Locații',

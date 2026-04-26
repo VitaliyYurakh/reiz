@@ -720,6 +720,66 @@ export const investRequestSchema = z.object({
     email: z.string().email('Invalid email format').max(200),
 });
 
+// ── Lead / B2B outreach ──
+const LEAD_STATUS_VALUES = [
+    'NEW', 'ENRICHED', 'READY', 'CONTACTED',
+    'FOLLOWED_UP_1', 'FOLLOWED_UP_2', 'BREAKUP_SENT',
+    'REPLIED', 'INTERESTED', 'CLIENT',
+    'DISQUALIFIED', 'BOUNCED', 'UNSUBSCRIBED', 'PAUSED',
+] as const;
+const LEAD_SOURCE_VALUES = ['google_places', 'manual', 'csv'] as const;
+const LEAD_DIRECTION_VALUES = ['OUTBOUND', 'INBOUND'] as const;
+const LEAD_TEMPLATE_VALUES = ['initial', 'fu_3d', 'fu_7d', 'breakup_14d'] as const;
+
+export const createLeadSchema = z.object({
+    companyName: z.string().min(1).max(200),
+    country: z.string().length(2).toUpperCase(),
+    city: z.string().min(1).max(100),
+    website: z.string().url().max(500).optional().or(z.literal('')),
+    phone: z.string().max(50).optional(),
+    email: z.string().email().max(200).optional().or(z.literal('')),
+    ownerName: z.string().max(200).optional(),
+    language: z.string().min(2).max(10).optional().default('ru'),
+    source: z.enum(LEAD_SOURCE_VALUES).optional().default('manual'),
+    googlePlaceId: z.string().max(200).optional(),
+    notes: z.string().max(5000).optional(),
+});
+
+export const updateLeadSchema = z.object({
+    companyName: z.string().min(1).max(200).optional(),
+    country: z.string().length(2).toUpperCase().optional(),
+    city: z.string().min(1).max(100).optional(),
+    website: z.string().url().max(500).nullable().optional().or(z.literal('')),
+    phone: z.string().max(50).nullable().optional(),
+    email: z.string().email().max(200).nullable().optional().or(z.literal('')),
+    ownerName: z.string().max(200).nullable().optional(),
+    language: z.string().min(2).max(10).optional(),
+    status: z.enum(LEAD_STATUS_VALUES).optional(),
+    pausedReason: z.string().max(500).nullable().optional(),
+    assignedManagerId: z.number().int().positive().nullable().optional(),
+    notes: z.string().max(5000).nullable().optional(),
+});
+
+export const updateLeadStatusSchema = z.object({
+    status: z.enum(LEAD_STATUS_VALUES),
+    pausedReason: z.string().max(500).optional(),
+});
+
+export const addLeadEmailSchema = z.object({
+    direction: z.enum(LEAD_DIRECTION_VALUES),
+    template: z.enum(LEAD_TEMPLATE_VALUES).nullable().optional(),
+    subject: z.string().min(1).max(500),
+    body: z.string().min(1).max(50000),
+    sentAt: z.string().datetime().optional(),
+    receivedAt: z.string().datetime().optional(),
+    gmailMsgId: z.string().max(200).optional(),
+    gmailThreadId: z.string().max(200).optional(),
+});
+
+export const bulkImportLeadsSchema = z.object({
+    items: z.array(createLeadSchema).min(1).max(500),
+});
+
 // ── Validation error class ──
 export class ValidationError extends Error {
     errors: string[];
