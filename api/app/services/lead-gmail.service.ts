@@ -132,7 +132,7 @@ class LeadGmailService {
                     to: lead.email!,
                     toName: lead.ownerName,
                     subject: generated.subject,
-                    body: appendUnsubscribeFooter(generated.body, lead.id),
+                    body: generated.body,
                 });
                 await prisma.leadEmail.create({
                     data: {
@@ -180,7 +180,7 @@ class LeadGmailService {
                         to: lead.email!,
                         toName: lead.ownerName,
                         subject: generated.subject,
-                        body: appendUnsubscribeFooter(generated.body, lead.id),
+                        body: generated.body,
                     });
                     await prisma.leadEmail.create({
                         data: {
@@ -241,7 +241,7 @@ class LeadGmailService {
             to: lead.email,
             toName: lead.ownerName,
             subject: generated.subject,
-            body: appendUnsubscribeFooter(generated.body, lead.id),
+            body: generated.body,
         });
         await prisma.leadEmail.create({
             data: {
@@ -421,11 +421,6 @@ class LeadGmailService {
         }
         return {processed, replies, configured: true};
     }
-}
-
-function appendUnsubscribeFooter(body: string, leadId: number): string {
-    const tag = `\n\n---\nReply STOP if not interested — won't email again. (lead#${leadId})`;
-    return body + tag;
 }
 
 function extractTextFromRfc822(raw: string): string {

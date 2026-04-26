@@ -68,6 +68,18 @@ function demoUrlForLanguage(language: string): string {
     return language === 'en' ? 'https://reiz.com.ua/en' : 'https://reiz.com.ua/ru';
 }
 
+/**
+ * Soft-opt-out footer required for cold outreach to stay on the right side of
+ * GDPR / CAN-SPAM. Plain language, no internal IDs leaked.
+ */
+function withFooter(body: string, language: string): string {
+    const isRu = language === 'ru' || language === undefined;
+    const footer = isRu
+        ? `\n\nP.S. Если эта тема неактуальна — просто ответьте «стоп», и я больше не напишу.`
+        : `\n\nP.S. Not relevant? Just reply "stop" and we won't reach out again.`;
+    return body + footer;
+}
+
 class LeadAIService {
     private readonly apiKey = env.GEMINI_API_KEY || '';
 
@@ -90,26 +102,29 @@ class LeadAIService {
      * Generate the initial cold email for a lead.
      */
     async generateInitial(lead: LeadInput): Promise<GeneratedEmail> {
+        const lang = lead.language || 'ru';
+        const wrap = (subj: string, body: string, usedAi: boolean, failureReason?: string): GeneratedEmail => ({
+            subject: subj,
+            body: withFooter(body, lang),
+            usedAi,
+            ...(failureReason ? {failureReason} : {}),
+        });
+
         if (!this.isConfigured()) {
-            return {...this.fallbackTemplate(lead), usedAi: false};
+            const t = this.fallbackTemplate(lead);
+            return wrap(t.subject, t.body, false);
         }
         if (this.isInCooldown()) {
-            return {
-                ...this.fallbackTemplate(lead),
-                usedAi: false,
-                failureReason: `Gemini in cooldown until ${new Date(this.cooldownUntil).toISOString()}: ${this.cooldownReason}`,
-            };
+            const t = this.fallbackTemplate(lead);
+            return wrap(t.subject, t.body, false, `Gemini in cooldown until ${new Date(this.cooldownUntil).toISOString()}: ${this.cooldownReason}`);
         }
         try {
             const ai = await this.callGemini(lead);
-            // Successful call → clear any prior cooldown
             this.cooldownUntil = 0;
             this.cooldownReason = '';
-            return {...ai, usedAi: true};
+            return wrap(ai.subject, ai.body, true);
         } catch (err: any) {
             const reason = err?.message ?? String(err);
-            // 429 = quota exhausted on this project. Back off for 1 hour so we
-            // stop spamming the API and the log file.
             if (reason.includes('HTTP 429')) {
                 this.cooldownUntil = Date.now() + 60 * 60 * 1000;
                 this.cooldownReason = '429 quota exhausted';
@@ -117,7 +132,8 @@ class LeadAIService {
             } else {
                 logger.error(`[lead-ai] Gemini call failed for ${lead.companyName}: ${reason}`);
             }
-            return {...this.fallbackTemplate(lead), usedAi: false, failureReason: reason.slice(0, 200)};
+            const t = this.fallbackTemplate(lead);
+            return wrap(t.subject, t.body, false, reason.slice(0, 200));
         }
     }
 
@@ -127,50 +143,50 @@ class LeadAIService {
      * (and preserves Gemini quota for the high-leverage initial emails).
      */
     buildFollowUp(lead: LeadInput, kind: 'fu_3d' | 'fu_7d' | 'breakup_14d'): GeneratedEmail {
-        const isRu = lead.language === 'ru' || ['KZ', 'AM'].includes(lead.country);
+        const isRu = lead.language === 'ru' || ['KZ', 'AM', 'ME', 'RS', 'TR'].includes(lead.country);
         const senderName = env.OUTREACH_SENDER_NAME;
         const demoUrl = demoUrlForLanguage(isRu ? 'ru' : 'en');
+        const lang = isRu ? 'ru' : 'en';
+        const wrap = (subj: string, body: string): GeneratedEmail => ({
+            subject: subj,
+            body: withFooter(body, lang),
+            usedAi: false,
+        });
 
         if (kind === 'fu_3d') {
             return isRu
-                ? {
-                    subject: 'Re: REIZ',
-                    body: `Поднимаю тред на случай, если пропустили.\n\nЖивой кейс — merent.ge: тот же движок, полностью в их брендинге, запустили за 4 дня. Наш флагман: ${demoUrl}. Если интересно — 2-мин видео покажу.\n\n— ${senderName}`,
-                    usedAi: false,
-                }
-                : {
-                    subject: 'Re: REIZ',
-                    body: `Bumping in case you missed this.\n\nLive case — merent.ge: same engine, fully their branding, launched in 4 days. Flagship: ${demoUrl}. Want a 2-min walkthrough?\n\n— ${senderName}`,
-                    usedAi: false,
-                };
+                ? wrap(
+                    'Re: REIZ',
+                    `Поднимаю тред на случай, если пропустили.\n\nЖивой кейс — merent.ge: тот же движок, полностью в их брендинге, запустили за 4 дня. Наш флагман: ${demoUrl}. Если интересно — 2-мин видео покажу.\n\n— ${senderName}`,
+                )
+                : wrap(
+                    'Re: REIZ',
+                    `Bumping in case you missed this.\n\nLive case — merent.ge: same engine, fully their branding, launched in 4 days. Flagship: ${demoUrl}. Want a 2-min walkthrough?\n\n— ${senderName}`,
+                );
         }
 
         if (kind === 'fu_7d') {
             return isRu
-                ? {
-                    subject: 'Последний пинг по сайту',
-                    body: `Понимаю, что не на первом месте.\n\nНо если сайт сейчас на Tilda/WordPress — это -30% мобильной конверсии для туристов. У нас Next.js, $149/мес, без подрядчиков. Стоит 10 минут на демо или нет?\n\n— ${senderName}`,
-                    usedAi: false,
-                }
-                : {
-                    subject: 'Last ping about your site',
-                    body: `I get it's not top-of-mind right now.\n\nBut if you're on Tilda/WordPress — that's -30% mobile conversion on tourist traffic. We're on Next.js, $149/mo, no contractors. Worth a 10-min look?\n\n— ${senderName}`,
-                    usedAi: false,
-                };
+                ? wrap(
+                    'Последний пинг по сайту',
+                    `Понимаю, что не на первом месте.\n\nНо если сайт сейчас на Tilda/WordPress — это -30% мобильной конверсии для туристов. У нас Next.js, $149/мес, без подрядчиков. Стоит 10 минут на демо или нет?\n\n— ${senderName}`,
+                )
+                : wrap(
+                    'Last ping about your site',
+                    `I get it's not top-of-mind right now.\n\nBut if you're on Tilda/WordPress — that's -30% mobile conversion on tourist traffic. We're on Next.js, $149/mo, no contractors. Worth a 10-min look?\n\n— ${senderName}`,
+                );
         }
 
         // breakup
         return isRu
-            ? {
-                subject: 'Закрываю тред',
-                body: `Если не приоритет — без проблем, не буду беспокоить.\n\nЕсли в будущем понадобится — пишите: @Reiz_Rental в Telegram.\n\n— ${senderName}`,
-                usedAi: false,
-            }
-            : {
-                subject: 'Closing the loop',
-                body: `If it's not a priority right now — totally fine, won't bother you again.\n\nIf this comes up later: @Reiz_Rental on Telegram.\n\n— ${senderName}`,
-                usedAi: false,
-            };
+            ? wrap(
+                'Закрываю тред',
+                `Если не приоритет — без проблем, не буду беспокоить.\n\nЕсли в будущем понадобится — пишите: @Reiz_Rental в Telegram.\n\n— ${senderName}`,
+            )
+            : wrap(
+                'Closing the loop',
+                `If it's not a priority right now — totally fine, won't bother you again.\n\nIf this comes up later: @Reiz_Rental on Telegram.\n\n— ${senderName}`,
+            );
     }
 
     private async callGemini(lead: LeadInput): Promise<{subject: string; body: string}> {
