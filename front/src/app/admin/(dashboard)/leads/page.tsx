@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { adminApiClient } from '@/lib/api/admin';
 import { logError } from '@/lib/log';
 import { toast, toastError } from '@/lib/toast';
 import { useAdminTheme } from '@/context/AdminThemeContext';
-import { Target, Plus, Search, Phone, Mail, Globe, MessageSquare, Play, RefreshCcw } from 'lucide-react';
+import { Target, Plus, Search, Phone, Mail, Globe, MessageSquare, Play, RefreshCcw, ChevronDown, Check } from 'lucide-react';
 
 interface LeadRow {
   id: number;
@@ -49,39 +49,61 @@ const COUNTRY_FLAGS: Record<string, string> = {
   TH: '🇹🇭', ID: '🇮🇩', KZ: '🇰🇿',
 };
 
-const STATUS_OPTIONS = [
-  '', 'NEW', 'ENRICHED', 'READY',
-  'CONTACTED', 'FOLLOWED_UP_1', 'FOLLOWED_UP_2', 'BREAKUP_SENT',
-  'REPLIED', 'INTERESTED', 'CLIENT',
-  'DISQUALIFIED', 'BOUNCED', 'UNSUBSCRIBED', 'PAUSED',
-];
+const COUNTRY_NAMES: Record<string, string> = {
+  TR: 'Турция',
+  ME: 'Черногория',
+  RS: 'Сербия',
+  AM: 'Армения',
+  TH: 'Таиланд',
+  ID: 'Индонезия (Бали)',
+  KZ: 'Казахстан',
+};
 
+interface StatusMeta {
+  bg: string;
+  fg: string;
+  short: string; // for table badge
+  long: string;  // for dropdown
+}
+
+const STATUS_META: Record<string, StatusMeta> = {
+  NEW:           { bg: '#94A3B8', fg: '#fff',    short: 'Новый',     long: 'Новый — только найден'        },
+  ENRICHED:      { bg: '#60A5FA', fg: '#fff',    short: 'Обогащён',  long: 'Обогащён — есть email'         },
+  READY:         { bg: '#22D3EE', fg: '#063545', short: 'Готов',     long: 'Готов к рассылке'              },
+  CONTACTED:     { bg: '#A78BFA', fg: '#fff',    short: 'Написано',  long: 'Письмо отправлено'             },
+  FOLLOWED_UP_1: { bg: '#8B5CF6', fg: '#fff',    short: 'FU 3д',     long: 'Follow-up через 3 дня'         },
+  FOLLOWED_UP_2: { bg: '#7C3AED', fg: '#fff',    short: 'FU 7д',     long: 'Follow-up через 7 дней'        },
+  BREAKUP_SENT:  { bg: '#6D28D9', fg: '#fff',    short: 'Break-up',  long: 'Break-up через 14 дней'        },
+  REPLIED:       { bg: '#FBBF24', fg: '#3F2A06', short: 'Ответил',   long: 'Ответил — нужна реакция'       },
+  INTERESTED:    { bg: '#F59E0B', fg: '#fff',    short: 'Интерес',   long: 'Заинтересован'                 },
+  CLIENT:        { bg: '#10B981', fg: '#fff',    short: 'Клиент',    long: 'Клиент'                        },
+  DISQUALIFIED:  { bg: '#64748B', fg: '#fff',    short: 'Disq',      long: 'Дисквалифицирован'             },
+  BOUNCED:       { bg: '#EF4444', fg: '#fff',    short: 'Bounced',   long: 'Bounced — email не доставлен'  },
+  UNSUBSCRIBED:  { bg: '#9CA3AF', fg: '#fff',    short: 'Отписан',   long: 'Отписался'                     },
+  PAUSED:        { bg: '#475569', fg: '#fff',    short: 'Пауза',     long: 'На паузе'                      },
+};
+
+const STATUS_OPTIONS = ['', ...Object.keys(STATUS_META)];
 const COUNTRY_OPTIONS = ['', 'TR', 'ME', 'RS', 'AM', 'TH', 'ID', 'KZ'];
 
 function statusBadge(status: string, isDark: boolean) {
-  const map: Record<string, { bg: string; fg: string; label: string }> = {
-    NEW:           { bg: '#94A3B8', fg: '#fff',    label: 'Новый' },
-    ENRICHED:      { bg: '#60A5FA', fg: '#fff',    label: 'Enriched' },
-    READY:         { bg: '#22D3EE', fg: '#063545', label: 'Готов' },
-    CONTACTED:     { bg: '#A78BFA', fg: '#fff',    label: 'Написано' },
-    FOLLOWED_UP_1: { bg: '#8B5CF6', fg: '#fff',    label: 'FU 3д' },
-    FOLLOWED_UP_2: { bg: '#7C3AED', fg: '#fff',    label: 'FU 7д' },
-    BREAKUP_SENT:  { bg: '#6D28D9', fg: '#fff',    label: 'Break-up' },
-    REPLIED:       { bg: '#FBBF24', fg: '#3F2A06', label: 'Ответил' },
-    INTERESTED:    { bg: '#F59E0B', fg: '#fff',    label: 'Интерес' },
-    CLIENT:        { bg: '#10B981', fg: '#fff',    label: 'Клиент' },
-    DISQUALIFIED:  { bg: '#64748B', fg: '#fff',    label: 'Disq' },
-    BOUNCED:       { bg: '#EF4444', fg: '#fff',    label: 'Bounced' },
-    UNSUBSCRIBED:  { bg: '#9CA3AF', fg: '#fff',    label: 'Отписан' },
-    PAUSED:        { bg: '#475569', fg: '#fff',    label: 'Пауза' },
-  };
-  const entry = map[status] ?? { bg: '#94A3B8', fg: '#fff', label: status };
+  const entry = STATUS_META[status];
+  if (!entry) {
+    return (
+      <span
+        className="inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold"
+        style={{ background: '#94A3B8', color: '#fff', opacity: isDark ? 0.95 : 1 }}
+      >
+        {status}
+      </span>
+    );
+  }
   return (
     <span
       className="inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold"
       style={{ background: entry.bg, color: entry.fg, opacity: isDark ? 0.95 : 1 }}
     >
-      {entry.label}
+      {entry.short}
     </span>
   );
 }
@@ -189,35 +211,62 @@ export default function LeadsPage() {
             />
           </div>
 
-          <select
+          <FilterDropdown
             value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
-            className="h-9 rounded-lg px-3 text-[13px]"
-            style={{
-              backgroundColor: isDark ? '#1E293B' : '#F7F9FB',
-              border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1',
-              color: isDark ? '#E2E8F0' : '#263238',
+            options={STATUS_OPTIONS}
+            onChange={setStatusFilter}
+            isDark={isDark}
+            placeholder="Все статусы"
+            renderOption={(v) => {
+              const meta = STATUS_META[v];
+              if (!meta) return <span className="text-[13px]">Все статусы</span>;
+              return (
+                <span className="flex items-center gap-2">
+                  <span
+                    className="inline-block w-2 h-2 rounded-full shrink-0"
+                    style={{ background: meta.bg }}
+                  />
+                  <span className="text-[13px]">{meta.long}</span>
+                </span>
+              );
             }}
-          >
-            {STATUS_OPTIONS.map((s) => (
-              <option key={s} value={s}>{s || 'Все статусы'}</option>
-            ))}
-          </select>
+            renderTrigger={(v) => {
+              const meta = STATUS_META[v];
+              if (!meta) return <span className="text-[13px]">Все статусы</span>;
+              return (
+                <span className="flex items-center gap-2">
+                  <span className="inline-block w-2 h-2 rounded-full shrink-0" style={{ background: meta.bg }} />
+                  <span className="text-[13px]">{meta.long}</span>
+                </span>
+              );
+            }}
+          />
 
-          <select
+          <FilterDropdown
             value={countryFilter}
-            onChange={(e) => setCountryFilter(e.target.value)}
-            className="h-9 rounded-lg px-3 text-[13px]"
-            style={{
-              backgroundColor: isDark ? '#1E293B' : '#F7F9FB',
-              border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1',
-              color: isDark ? '#E2E8F0' : '#263238',
+            options={COUNTRY_OPTIONS}
+            onChange={setCountryFilter}
+            isDark={isDark}
+            placeholder="Все страны"
+            renderOption={(v) => {
+              if (!v) return <span className="text-[13px]">Все страны</span>;
+              return (
+                <span className="flex items-center gap-2 text-[13px]">
+                  <span className="text-[15px] leading-none">{COUNTRY_FLAGS[v]}</span>
+                  <span>{COUNTRY_NAMES[v] ?? v}</span>
+                </span>
+              );
             }}
-          >
-            {COUNTRY_OPTIONS.map((c) => (
-              <option key={c} value={c}>{c ? `${COUNTRY_FLAGS[c] ?? ''} ${c}` : 'Все страны'}</option>
-            ))}
-          </select>
+            renderTrigger={(v) => {
+              if (!v) return <span className="text-[13px]">Все страны</span>;
+              return (
+                <span className="flex items-center gap-2 text-[13px]">
+                  <span className="text-[15px] leading-none">{COUNTRY_FLAGS[v]}</span>
+                  <span>{COUNTRY_NAMES[v] ?? v}</span>
+                </span>
+              );
+            }}
+          />
         </div>
       </div>
 
@@ -359,6 +408,113 @@ export default function LeadsPage() {
           </tbody>
         </table>
       </div>
+    </div>
+  );
+}
+
+function FilterDropdown({
+  value,
+  options,
+  onChange,
+  isDark,
+  placeholder,
+  renderTrigger,
+  renderOption,
+}: {
+  value: string;
+  options: string[];
+  onChange: (v: string) => void;
+  isDark: boolean;
+  placeholder: string;
+  renderTrigger: (v: string) => React.ReactNode;
+  renderOption: (v: string) => React.ReactNode;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const escHandler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    document.addEventListener('keydown', escHandler);
+    return () => {
+      document.removeEventListener('mousedown', handler);
+      document.removeEventListener('keydown', escHandler);
+    };
+  }, [open]);
+
+  const triggerStyle: React.CSSProperties = {
+    backgroundColor: isDark ? '#1E293B' : '#F7F9FB',
+    border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1',
+    color: isDark ? '#E2E8F0' : '#263238',
+  };
+  const menuStyle: React.CSSProperties = {
+    backgroundColor: isDark ? '#1A2332' : '#FFFFFF',
+    border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1',
+    boxShadow: isDark
+      ? '0 12px 32px rgba(0,0,0,0.5)'
+      : '0 12px 32px rgba(0,0,0,0.08)',
+  };
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="h-9 rounded-lg pl-3 pr-2.5 flex items-center gap-2 min-w-[200px] cursor-pointer transition-colors"
+        style={{
+          ...triggerStyle,
+          ...(open && { boxShadow: '0 0 0 3px rgba(34, 211, 238, 0.18)' }),
+        }}
+      >
+        <span className="flex-1 text-left truncate">{renderTrigger(value) ?? placeholder}</span>
+        <ChevronDown
+          className="h-3.5 w-3.5 shrink-0 opacity-60 transition-transform"
+          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}
+        />
+      </button>
+
+      {open && (
+        <div
+          role="listbox"
+          className="absolute top-full mt-1.5 left-0 rounded-xl py-1 z-50 min-w-[260px] max-h-[420px] overflow-auto"
+          style={menuStyle}
+        >
+          {options.map((opt) => {
+            const isSelected = value === opt;
+            return (
+              <button
+                key={opt || '__all__'}
+                type="button"
+                role="option"
+                aria-selected={isSelected}
+                onClick={() => { onChange(opt); setOpen(false); }}
+                className="w-full px-3 py-2 text-left flex items-center gap-2 transition-colors"
+                style={{
+                  background: isSelected
+                    ? (isDark ? '#1E293B' : '#F0F9FF')
+                    : 'transparent',
+                  color: isDark ? '#E2E8F0' : '#263238',
+                }}
+                onMouseEnter={(e) => {
+                  if (!isSelected) e.currentTarget.style.background = isDark ? '#1E293B' : '#F7F9FB';
+                }}
+                onMouseLeave={(e) => {
+                  if (!isSelected) e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                <span className="flex-1">{renderOption(opt)}</span>
+                {isSelected && <Check className="h-3.5 w-3.5 shrink-0" style={{ color: '#22D3EE' }} />}
+              </button>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
