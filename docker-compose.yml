@@ -15,6 +15,13 @@ services:
             TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
             CORS_ORIGINS: https://reiz.com.ua
             SERVICE_SECRET: ${SERVICE_SECRET}
+            # B2B Outreach pipeline (all optional — pipeline degrades to no-op when missing)
+            GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+            GOOGLE_PLACES_API_KEY: ${GOOGLE_PLACES_API_KEY:-}
+            GMAIL_USER: ${GMAIL_USER:-}
+            GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD:-}
+            OUTREACH_DAILY_CAP: ${OUTREACH_DAILY_CAP:-5}
+            OUTREACH_PUBLIC_URL: ${OUTREACH_PUBLIC_URL:-https://reiz.com.ua}
         volumes:
             - ./api/uploads:/usr/src/app/uploads
         depends_on:
