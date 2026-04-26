@@ -26,27 +26,36 @@ interface GeneratedEmail {
 
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
-const SYSTEM_PROMPT = `You are a founder writing a 4-sentence cold B2B email to a car-rental business owner.
-You sell REIZ — a white-label car-rental SaaS platform built on Next.js.
+function buildSystemPrompt(senderName: string, demoUrl: string): string {
+    return `You are an SDR writing a 4-sentence cold B2B email to a car-rental business owner.
+You represent REIZ — a white-label car-rental SaaS platform built on Next.js.
 
-KEY FACTS to weave in (don't list them — pick what fits):
+KEY FACTS to weave in (don't list them — pick what fits naturally):
 - Setup: $250 one-time, includes first month
 - Subscription: $149/month (everything: hosting, SSL, support, SEO content)
 - Tech: Next.js (the stack used by Nike, Netflix, TikTok)
-- Live cases: reiz.com.ua (Ukraine flagship), merent.ge (Georgia, launched in 4 days, fully their branding)
+- Live cases: ${demoUrl} (our flagship), merent.ge (Georgia — launched in 4 days, fully their branding)
 - Languages, currencies, payments — all configurable
 - Telegram bot for instant booking notifications
 
-TONE: founder-to-founder, direct, no formal "Dear Sir". Use "ты" if Russian. NO marketing fluff.
+TONE: peer-to-peer, direct, no formal "Dear Sir/Madam". For Russian use "вы". NO marketing fluff.
 
-REQUIREMENTS:
-- Exactly 4 sentences in body
-- Mention ONE specific detail from the recipient's website to prove you actually looked
-- End with: "2-min demo?" (or local-language equivalent)
-- Subject: max 6 words, lowercase except names — make it intriguing, not salesy
+STRICT REQUIREMENTS:
+- Body: exactly 4 short sentences. Plain text, no bullets, no headers.
+- Refer to the recipient by their COMPANY NAME (given in metadata) — never by URL.
+- Mention ONE specific detail you noticed from their website excerpt (cars, locations, features) — prove you actually looked.
+- Include the live demo link exactly once: ${demoUrl} (woven naturally — e.g. "посмотрите как выглядит: ${demoUrl}").
+- End body with: "2-мин демо?" (Russian) or "2-min demo?" (English equivalent).
+- Sign body as: "— ${senderName}" (and only that — no name, no title above it).
+- Subject: STRICTLY ≤ 6 words and ≤ 60 characters. NO ALL-CAPS. NO website meta-title text. Be intriguing, not salesy.
 
 Output STRICT JSON only: {"subject": "...", "body": "..."}.
-Do NOT wrap in markdown. Do NOT add commentary.`;
+Do NOT wrap in markdown. Do NOT add commentary or anything outside the JSON.`;
+}
+
+function demoUrlForLanguage(language: string): string {
+    return language === 'en' ? 'https://reiz.com.ua/en' : 'https://reiz.com.ua/ru';
+}
 
 class LeadAIService {
     private readonly apiKey = env.GEMINI_API_KEY || '';
@@ -128,8 +137,10 @@ ${(lead.websiteContent ?? '').slice(0, 1500)}
 
 Write the email in language: ${language} (use Cyrillic if Russian/Serbian/Kazakh).`;
 
+        const senderName = env.OUTREACH_SENDER_NAME;
+        const demoUrl = demoUrlForLanguage(language);
         const body = {
-            systemInstruction: {parts: [{text: SYSTEM_PROMPT}]},
+            systemInstruction: {parts: [{text: buildSystemPrompt(senderName, demoUrl)}]},
             contents: [{role: 'user', parts: [{text: userPrompt}]}],
             generationConfig: {
                 temperature: 0.8,
@@ -167,28 +178,36 @@ Write the email in language: ${language} (use Cyrillic if Russian/Serbian/Kazakh
 
     private fallbackTemplate(lead: LeadInput): GeneratedEmail {
         const isRu = lead.language === 'ru' || ['KZ', 'AM'].includes(lead.country);
-        const greet = lead.ownerName ? (isRu ? `Привет, ${lead.ownerName}.` : `Hi ${lead.ownerName},`) : (isRu ? 'Привет.' : 'Hi,');
+        const senderName = env.OUTREACH_SENDER_NAME;
+        const demoUrl = demoUrlForLanguage(isRu ? 'ru' : 'en');
+        // Cap subject to 60 chars: short company names work, long ones get truncated.
+        const cap = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s);
+
         if (isRu) {
+            const greet = lead.ownerName ? `Здравствуйте, ${lead.ownerName}.` : 'Здравствуйте.';
+            const subject = cap(`${lead.companyName}: сайт за 4 дня?`, 60);
             return {
-                subject: `${lead.companyName} + Next.js за 4 дня?`,
+                subject,
                 body:
                     `${greet}\n\n` +
-                    `Зашёл на ${lead.website ?? 'ваш сайт'} — увидел, что работаете в ${lead.city}. ` +
-                    `Мы сделали платформу автопроката на Next.js, запустили merent.ge в Тбилиси за 4 дня в их брендинге. ` +
-                    `Подписка $149/мес, замена кастомной разработки за $8–15K.\n\n` +
+                    `Заметил ${lead.companyName} в ${lead.city}. ` +
+                    `Мы делаем готовые сайты для автопрокатов на Next.js — запустили merent.ge в Тбилиси за 4 дня в их брендинге. ` +
+                    `Живой пример: ${demoUrl}. Подписка $149/мес, без $8–15K на разработку с нуля.\n\n` +
                     `2-мин демо?\n\n` +
-                    `— Марьян, REIZ`,
+                    `— ${senderName}`,
             };
         }
+        const greet = lead.ownerName ? `Hi ${lead.ownerName},` : 'Hi,';
+        const subject = cap(`${lead.companyName}: site in 4 days?`, 60);
         return {
-            subject: `${lead.companyName} + Next.js in 4 days?`,
+            subject,
             body:
                 `${greet}\n\n` +
-                `Saw ${lead.website ?? 'your site'} — you operate in ${lead.city}. ` +
-                `We built a car-rental SaaS on Next.js and launched merent.ge in Tbilisi in 4 days under their full branding. ` +
-                `$149/month subscription, replaces $8–15K custom builds.\n\n` +
+                `Spotted ${lead.companyName} in ${lead.city}. ` +
+                `We build turnkey car-rental sites on Next.js — launched merent.ge in Tbilisi in 4 days under their full branding. ` +
+                `Live demo: ${demoUrl}. $149/month subscription instead of $8–15K custom builds.\n\n` +
                 `2-min demo?\n\n` +
-                `— Marian, REIZ`,
+                `— ${senderName}`,
         };
     }
 }

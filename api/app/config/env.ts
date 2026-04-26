@@ -35,6 +35,7 @@ const envSchema = z.object({
     GMAIL_APP_PASSWORD: z.string().optional(),            // 16-char app password from Google account
     OUTREACH_DAILY_CAP: z.coerce.number().int().min(0).max(500).default(30),
     OUTREACH_PUBLIC_URL: z.string().optional(),           // e.g. https://reiz.com.ua — used in unsubscribe links
+    OUTREACH_SENDER_NAME: z.string().default('Команда REIZ'), // signature in cold emails
 });
 
 const parsed = envSchema.safeParse(process.env);

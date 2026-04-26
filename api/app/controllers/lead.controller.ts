@@ -3,6 +3,7 @@ import {Request, Response} from 'express';
 import leadService from '../services/lead.service';
 import leadCronService from '../services/lead-cron.service';
 import leadAiService from '../services/lead-ai.service';
+import leadGmailService from '../services/lead-gmail.service';
 import {parseId, parseOptionalId} from '../utils';
 import logAudit from '../middleware/audit.middleware';
 import {
@@ -114,6 +115,17 @@ class LeadController {
             usedAi: leadAiService.isConfigured() && kind === 'initial',
             ...generated,
         });
+    }
+
+    async sendNow(req: Request, res: Response) {
+        const id = parseId(req.params.id);
+        try {
+            const result = await leadGmailService.sendOneNow(id);
+            logAudit({actorId: res.locals.user?.id, entityType: 'Lead', entityId: id, action: 'SEND_NOW', after: result, req});
+            res.status(StatusCodes.OK).json(result);
+        } catch (err: any) {
+            res.status(StatusCodes.BAD_REQUEST).json({msg: err.message ?? 'Send failed'});
+        }
     }
 
     async runStep(req: Request, res: Response) {

@@ -22,6 +22,7 @@ services:
             GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD:-}
             OUTREACH_DAILY_CAP: ${OUTREACH_DAILY_CAP:-5}
             OUTREACH_PUBLIC_URL: ${OUTREACH_PUBLIC_URL:-https://reiz.com.ua}
+            OUTREACH_SENDER_NAME: ${OUTREACH_SENDER_NAME:-Команда REIZ}
         volumes:
             - ./api/uploads:/usr/src/app/uploads
         depends_on:

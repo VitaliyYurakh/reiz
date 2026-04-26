@@ -214,6 +214,58 @@ class LeadGmailService {
         return {sent, failed, configured: true};
     }
 
+    /**
+     * Send a single email to a specific lead **right now**, ignoring the daily cap.
+     * Used for smoke-testing and manual one-off sends from the admin UI.
+     * Only initial-template generation; follow-ups still come from the cron
+     * pipeline so we don't double-up on a lead that already replied.
+     */
+    async sendOneNow(leadId: number) {
+        if (!this.isConfigured()) {
+            throw new Error('Gmail not configured (GMAIL_USER / GMAIL_APP_PASSWORD missing)');
+        }
+        const lead = await prisma.lead.findUnique({where: {id: leadId}});
+        if (!lead) throw new Error(`Lead ${leadId} not found`);
+        if (!lead.email) throw new Error(`Lead ${leadId} has no email`);
+
+        const generated = await leadAiService.generateInitial({
+            companyName: lead.companyName,
+            country: lead.country,
+            city: lead.city,
+            ownerName: lead.ownerName,
+            website: lead.website,
+            websiteContent: lead.websiteContent,
+            language: lead.language,
+        });
+        const result = await this.sendOne({
+            to: lead.email,
+            toName: lead.ownerName,
+            subject: generated.subject,
+            body: appendUnsubscribeFooter(generated.body, lead.id),
+        });
+        await prisma.leadEmail.create({
+            data: {
+                leadId: lead.id,
+                direction: LeadEmailDirection.OUTBOUND,
+                template: LeadEmailTemplate.INITIAL,
+                subject: generated.subject,
+                body: generated.body,
+                sentAt: new Date(),
+                gmailMsgId: result.messageId,
+            },
+        });
+        // Don't move lead off CONTACTED if it was already past that — only set
+        // CONTACTED for fresh leads (READY/NEW/ENRICHED).
+        const advanceableStatuses = [LeadStatus.NEW, LeadStatus.ENRICHED, LeadStatus.READY];
+        if (advanceableStatuses.includes(lead.status as never)) {
+            await prisma.lead.update({
+                where: {id: lead.id},
+                data: {status: LeadStatus.CONTACTED, contactedAt: new Date()},
+            });
+        }
+        return {sent: true, subject: generated.subject, messageId: result.messageId};
+    }
+
     private async findFollowUpsDue(limit: number) {
         const now = new Date();
         const days = (n: number) => new Date(now.getTime() - n * 86_400_000);

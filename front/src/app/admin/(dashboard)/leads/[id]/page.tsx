@@ -114,6 +114,20 @@ export default function LeadDetailPage() {
     }
   };
 
+  const sendNow = async () => {
+    if (!confirm('Отправить НАСТОЯЩЕЕ письмо этому лиду прямо сейчас?\nЭто проигнорирует daily cap.')) return;
+    setPreviewing(true);
+    try {
+      const res = await adminApiClient.post(`/lead/${params.id}/send-now`);
+      toast.success(`Письмо ушло. Subject: ${res.data.subject}`);
+      fetchLead();
+    } catch (err) {
+      toastError(err, 'Не удалось отправить');
+    } finally {
+      setPreviewing(false);
+    }
+  };
+
   const saveNotes = async () => {
     setSavingNotes(true);
     try {
@@ -296,6 +310,18 @@ export default function LeadDetailPage() {
               <button type="button" onClick={() => generatePreview('breakup_14d')} disabled={previewing} className="ios-btn ios-btn-ghost text-sm">
                 Break-up
               </button>
+              {lead.email && (
+                <button
+                  type="button"
+                  onClick={sendNow}
+                  disabled={previewing}
+                  className="ios-btn text-sm disabled:opacity-50 ml-auto"
+                  style={{ background: '#10B981', color: '#fff' }}
+                  title="Отправить НАСТОЯЩЕЕ письмо прямо сейчас (минуя daily cap)"
+                >
+                  <Send className="h-4 w-4" /> Отправить сейчас
+                </button>
+              )}
             </div>
 
             {preview ? (
