@@ -48,6 +48,7 @@ import complaintRouter from './complaint.router';
 import publicComplaintRouter from './public-complaint.router';
 import partnerRouter from './partner.router';
 import leadRouter from './lead.router';
+import mailRouter from './mail.router';
 
 router.use('/client', clientRouter);
 router.use('/rental-request', rentalRequestRouter);
@@ -68,5 +69,6 @@ router.use('/complaint', complaintRouter);
 router.use('/public/complaint', publicComplaintRouter);
 router.use('/partner', partnerRouter);
 router.use('/lead', leadRouter);
+router.use('/mail', mailRouter);
 
 export {router};

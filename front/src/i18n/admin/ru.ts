@@ -16,6 +16,7 @@ export const ru: AdminTranslations = {
     service: 'Сервис',
     complaints: 'Жалобы',
     leads: 'Аутрич',
+    mail: 'Почта',
     reports: 'Отчёты',
     settings: 'Настройки',
     locations: 'Локации',

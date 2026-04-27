@@ -16,6 +16,7 @@ export const en: AdminTranslations = {
     service: 'Service',
     complaints: 'Complaints',
     leads: 'Outreach',
+    mail: 'Mail',
     reports: 'Reports',
     settings: 'Settings',
     locations: 'Locations',

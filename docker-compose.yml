@@ -23,6 +23,15 @@ services:
             OUTREACH_DAILY_CAP: ${OUTREACH_DAILY_CAP:-5}
             OUTREACH_PUBLIC_URL: ${OUTREACH_PUBLIC_URL:-https://reiz.com.ua}
             OUTREACH_SENDER_NAME: ${OUTREACH_SENDER_NAME:-Марьян, основатель REIZ}
+            # General mailbox for /admin/mail (Hostinger). Optional — page shows
+            # "not configured" empty state when MAIL_USER / MAIL_PASSWORD missing.
+            MAIL_USER: ${MAIL_USER:-}
+            MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+            MAIL_DISPLAY_NAME: ${MAIL_DISPLAY_NAME:-REIZ}
+            MAIL_IMAP_HOST: ${MAIL_IMAP_HOST:-imap.hostinger.com}
+            MAIL_IMAP_PORT: ${MAIL_IMAP_PORT:-993}
+            MAIL_SMTP_HOST: ${MAIL_SMTP_HOST:-smtp.hostinger.com}
+            MAIL_SMTP_PORT: ${MAIL_SMTP_PORT:-465}
         volumes:
             - ./api/uploads:/usr/src/app/uploads
         depends_on:

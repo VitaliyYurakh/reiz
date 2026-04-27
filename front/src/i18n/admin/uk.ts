@@ -14,6 +14,7 @@ export const uk = {
     service: 'Сервіс',
     complaints: 'Скарги',
     leads: 'Аутріч',
+    mail: 'Пошта',
     reports: 'Звіти',
     settings: 'Налаштування',
     locations: 'Локації',

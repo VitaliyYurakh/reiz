@@ -27,6 +27,7 @@ import {
   AlertOctagon,
   Handshake,
   Target,
+  Mail,
 } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { Toaster } from 'sonner';
@@ -91,6 +92,7 @@ const NAV_GROUPS: NavGroup[] = [
       { href: '/admin/service', labelKey: 'nav.service', icon: Wrench, module: 'service' },
       { href: '/admin/complaints', labelKey: 'nav.complaints', icon: AlertOctagon, module: 'rentals' },
       { href: '/admin/leads', labelKey: 'nav.leads', icon: Target, module: 'crm' },
+      { href: '/admin/mail', labelKey: 'nav.mail', icon: Mail, module: 'settings' },
       { href: '/admin/reports', labelKey: 'nav.reports', icon: BarChart3, module: 'reports' },
       { href: '/admin/settings', labelKey: 'nav.settings', icon: Settings, module: 'settings' },
     ],

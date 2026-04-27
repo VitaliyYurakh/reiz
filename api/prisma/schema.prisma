@@ -1125,3 +1125,133 @@ model LeadEmail {
   @@index([gmailThreadId])
   @@map("lead_email")
 }
+
+// ─── Mail (general inbox at /admin/mail) ──────────────────────────────────
+// IMAP/SMTP-backed inbox. Designed to support multiple accounts but bootstraps
+// a single account from MAIL_* env vars on first sync. Credentials live in env
+// (not in DB) so no encryption layer is needed at this stage.
+
+model MailAccount {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  displayName  String?                                          @map("display_name")
+  imapHost     String                                           @map("imap_host")
+  imapPort     Int       @default(993)                          @map("imap_port")
+  imapSecure   Boolean   @default(true)                         @map("imap_secure")
+  smtpHost     String                                           @map("smtp_host")
+  smtpPort     Int       @default(465)                          @map("smtp_port")
+  smtpSecure   Boolean   @default(true)                         @map("smtp_secure")
+  username     String                                           // login (often = email)
+  signature    String?   @db.Text
+  isActive     Boolean   @default(true)                         @map("is_active")
+  lastSyncAt   DateTime?                                        @map("last_sync_at")
+  createdAt    DateTime  @default(now())                        @map("created_at")
+  updatedAt    DateTime  @updatedAt                             @map("updated_at")
+
+  folders  MailFolder[]
+  messages MailMessage[]
+  drafts   MailDraft[]
+
+  @@map("mail_account")
+}
+
+model MailFolder {
+  id          Int      @id @default(autoincrement())
+  accountId   Int                                              @map("account_id")
+  path        String                                           // IMAP path, e.g. "INBOX", "Sent"
+  name        String                                           // display name
+  specialUse  String?                                          @map("special_use") // \Inbox \Sent \Drafts \Trash \Junk
+  uidValidity String?                                          @map("uid_validity") // BigInt as string
+  uidNext     String?                                          @map("uid_next")
+  unreadCount Int      @default(0)                             @map("unread_count")
+  totalCount  Int      @default(0)                             @map("total_count")
+  lastSyncAt  DateTime?                                        @map("last_sync_at")
+  createdAt   DateTime @default(now())                         @map("created_at")
+  updatedAt   DateTime @updatedAt                              @map("updated_at")
+
+  account  MailAccount  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  messages MailMessage[]
+
+  @@unique([accountId, path])
+  @@index([accountId])
+  @@map("mail_folder")
+}
+
+model MailMessage {
+  id             Int       @id @default(autoincrement())
+  accountId      Int                                            @map("account_id")
+  folderId       Int                                            @map("folder_id")
+  uid            Int                                            // IMAP UID within folder
+  messageId      String?                                        @map("message_id") // RFC Message-ID
+  inReplyTo      String?                                        @map("in_reply_to")
+  references     String?   @db.Text
+  threadKey      String?                                        @map("thread_key")
+  fromName       String?                                        @map("from_name")
+  fromAddr       String                                         @map("from_addr")
+  toAddrs        Json                                           @map("to_addrs")
+  ccAddrs        Json?                                          @map("cc_addrs")
+  bccAddrs       Json?                                          @map("bcc_addrs")
+  replyTo        Json?                                          @map("reply_to")
+  subject        String?   @db.Text
+  date           DateTime
+  bodyText       String?   @db.Text                             @map("body_text")
+  bodyHtml       String?   @db.Text                             @map("body_html")
+  snippet        String?   @db.Text                             // first ~200 chars
+  hasAttachments Boolean   @default(false)                      @map("has_attachments")
+  size           Int?
+  isSeen         Boolean   @default(false)                      @map("is_seen")
+  isFlagged      Boolean   @default(false)                      @map("is_flagged")
+  isAnswered     Boolean   @default(false)                      @map("is_answered")
+  isDraft        Boolean   @default(false)                      @map("is_draft")
+  flags          Json?
+  createdAt      DateTime  @default(now())                      @map("created_at")
+  updatedAt      DateTime  @updatedAt                           @map("updated_at")
+
+  account     MailAccount      @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  folder      MailFolder       @relation(fields: [folderId], references: [id], onDelete: Cascade)
+  attachments MailAttachment[]
+
+  @@unique([accountId, folderId, uid])
+  @@index([accountId, folderId, date])
+  @@index([threadKey])
+  @@index([fromAddr])
+  @@index([isSeen])
+  @@map("mail_message")
+}
+
+model MailAttachment {
+  id          Int      @id @default(autoincrement())
+  messageId   Int                                            @map("message_id")
+  filename    String?
+  contentType String?                                        @map("content_type")
+  size        Int?
+  contentId   String?                                        @map("content_id") // for inline cid: refs
+  partId      String?                                        @map("part_id")    // IMAP part for on-demand fetch
+  storagePath String?                                        @map("storage_path") // disk cache
+  createdAt   DateTime @default(now())                       @map("created_at")
+
+  message MailMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@index([messageId])
+  @@map("mail_attachment")
+}
+
+model MailDraft {
+  id           Int      @id @default(autoincrement())
+  accountId    Int                                          @map("account_id")
+  toAddrs      Json                                         @map("to_addrs")
+  ccAddrs      Json?                                        @map("cc_addrs")
+  bccAddrs     Json?                                        @map("bcc_addrs")
+  subject      String?  @db.Text
+  bodyHtml     String?  @db.Text                            @map("body_html")
+  bodyText     String?  @db.Text                            @map("body_text")
+  inReplyToId  Int?                                         @map("in_reply_to_id") // MailMessage we're replying to
+  attachments  Json?    // [{filename, path, size, type}] — pending uploads
+  createdAt    DateTime @default(now())                     @map("created_at")
+  updatedAt    DateTime @updatedAt                          @map("updated_at")
+
+  account MailAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+  @@index([accountId])
+  @@map("mail_draft")
+}

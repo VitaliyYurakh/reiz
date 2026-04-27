@@ -36,6 +36,17 @@ const envSchema = z.object({
     OUTREACH_DAILY_CAP: z.coerce.number().int().min(0).max(500).default(30),
     OUTREACH_PUBLIC_URL: z.string().optional(),           // e.g. https://reiz.com.ua — used in unsubscribe links
     OUTREACH_SENDER_NAME: z.string().default('Марьян, основатель REIZ'), // signature in cold emails
+
+    // ── General mailbox at /admin/mail (Hostinger / any IMAP+SMTP host) ──
+    // First sync auto-creates a MailAccount row from these vars. Optional —
+    // missing config disables the mail feature gracefully.
+    MAIL_USER: z.string().optional(),                     // login + From address e.g. info@reiz.com.ua
+    MAIL_PASSWORD: z.string().optional(),                 // mailbox password
+    MAIL_IMAP_HOST: z.string().default('imap.hostinger.com'),
+    MAIL_IMAP_PORT: z.coerce.number().int().positive().default(993),
+    MAIL_SMTP_HOST: z.string().default('smtp.hostinger.com'),
+    MAIL_SMTP_PORT: z.coerce.number().int().positive().default(465),
+    MAIL_DISPLAY_NAME: z.string().optional(),             // e.g. "REIZ Rental"
 });
 
 const parsed = envSchema.safeParse(process.env);
