@@ -367,29 +367,29 @@ const SCOPED_CSS = `
   padding: 24px 28px 32px;
 }
 .reiz-leads.theme-light {
-  --bg-app: #F4F2EE;
+  --bg-app: #EDEEF2;
   --bg-surface: #FFFFFF;
-  --bg-surface-2: #FAFAF7;
-  --bg-sunken: #F0EEE9;
-  --bg-row-hover: #F8F7F3;
-  --border: #ECEAE3;
-  --border-strong: #DAD6CC;
-  --text-1: #14110C;
-  --text-2: #5C5851;
-  --text-3: #908A7E;
-  --shadow-card: 0 1px 2px rgba(20, 17, 12, 0.04), 0 8px 24px rgba(20, 17, 12, 0.04);
+  --bg-surface-2: #F7F8FA;
+  --bg-sunken: #E5E7EC;
+  --bg-row-hover: #F4F5F7;
+  --border: #E5E7EC;
+  --border-strong: #D1D5DB;
+  --text-1: #1A1D23;
+  --text-2: #6B7280;
+  --text-3: #9CA3AF;
+  --shadow-card: 0 1px 2px rgba(20, 22, 30, 0.04), 0 8px 24px rgba(20, 22, 30, 0.04);
 }
 .reiz-leads.theme-dark {
-  --bg-app: #0E0D0B;
-  --bg-surface: #1A1815;
-  --bg-surface-2: #221F1B;
-  --bg-sunken: #0E0D0B;
-  --bg-row-hover: #221F1B;
-  --border: #2A2722;
-  --border-strong: #3A352E;
-  --text-1: #F4F2EE;
-  --text-2: #A8A39A;
-  --text-3: #6F6A60;
+  --bg-app: #14161C;
+  --bg-surface: #21242C;
+  --bg-surface-2: #1B1E25;
+  --bg-sunken: #1B1E25;
+  --bg-row-hover: #2A2D36;
+  --border: #2A2D36;
+  --border-strong: #383C46;
+  --text-1: #F4F5F7;
+  --text-2: #9CA3AF;
+  --text-3: #6B7280;
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 .reiz-leads .r-card {
