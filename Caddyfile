@@ -5,11 +5,14 @@
 }
 
 :80 {
-  # Express backend admin auth (login/logout/check/me) — must come before NextAuth catch-all
+  # Express backend admin auth (login/logout/check/me + 2fa) — must come
+  # before the NextAuth catch-all `/api/auth/*` (which targets web:8080)
+  # otherwise these would be routed to Next.js and 404.
   reverse_proxy /api/auth/login api:3000
   reverse_proxy /api/auth/logout api:3000
   reverse_proxy /api/auth/check api:3000
   reverse_proxy /api/auth/me api:3000
+  reverse_proxy /api/auth/2fa/* api:3000
 
   # Next.js Auth.js routes (Google OAuth, session, CSRF, etc.)
   reverse_proxy /api/auth/* web:8080
