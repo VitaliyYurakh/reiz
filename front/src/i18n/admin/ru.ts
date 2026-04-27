@@ -51,7 +51,7 @@ export const ru: AdminTranslations = {
     refresh: 'Обновить',
     page: 'Стр. {page} из {pages}',
     perDay: '/ сутки',
-    days: 'дн.',
+    days: 'дней',
     daysLabel: 'Дней',
     noPriceSet: 'Цена не указана',
     required: 'Обязательное поле',

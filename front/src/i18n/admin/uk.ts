@@ -49,7 +49,7 @@ export const uk = {
     refresh: 'Оновити',
     page: 'Стор. {page} з {pages}',
     perDay: '/ добу',
-    days: 'дн.',
+    days: 'днів',
     daysLabel: 'Днів',
     noPriceSet: 'Ціну не вказано',
     required: "Обов'язкове поле",
