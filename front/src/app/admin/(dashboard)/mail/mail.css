@@ -54,9 +54,11 @@
 }
 
 .mail-page * { box-sizing: border-box; }
-.mail-page button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; padding: 0; }
-.mail-page input,
-.mail-page textarea { font-family: inherit; font-size: inherit; color: inherit; }
+/* Resets are wrapped in :where() so they have 0 specificity beyond .mail-page —
+   otherwise `.mail-page button` (0,1,1) would shadow `.compose-btn` / `.qr-send`
+   / `.send-btn` / `.chip` (all 0,1,0) and strip their backgrounds. */
+.mail-page :where(button) { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; padding: 0; }
+.mail-page :where(input, textarea) { font-family: inherit; font-size: inherit; color: inherit; }
 .mail-page kbd {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 11px;

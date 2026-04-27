@@ -2,7 +2,7 @@
 
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-    Inbox, Send, FileText, Trash2, AlertTriangle, Star, Folder, Pencil,
+    Inbox, Send, FileText, Trash2, AlertCircle, Star, Folder, Pencil,
     ChevronDown, ChevronLeft, ChevronRight, RefreshCw, Search,
     Paperclip, Reply, ReplyAll, Forward, MoreVertical, Archive,
     Image as ImageIcon, Download, X, Minus, Maximize2, Bold, Italic,
@@ -26,7 +26,7 @@ const SPECIAL_ICON: Record<string, typeof Inbox> = {
     '\\Sent': Send,
     '\\Drafts': FileText,
     '\\Trash': Trash2,
-    '\\Junk': AlertTriangle,
+    '\\Junk': AlertCircle,
     '\\Archive': Archive,
     '\\Flagged': Star,
 };
@@ -418,7 +418,7 @@ MAIL_SMTP_HOST=smtp.hostinger.com`}</pre>
                                     {(account.displayName || account.email)[0].toUpperCase()}
                                 </div>
                                 <div className="account-info">
-                                    <div className="account-name">{account.displayName || 'REIZ'}</div>
+                                    <div className="account-name">{account.displayName || 'REIZ Admin'}</div>
                                     <div className="account-email">{account.email}</div>
                                 </div>
                                 <ChevronDown size={14} />
@@ -494,10 +494,10 @@ MAIL_SMTP_HOST=smtp.hostinger.com`}</pre>
                     <div className="folders-storage">
                         <div className="storage-row">
                             <span>Сховище</span>
-                            <span className="storage-val">{storageMb.toFixed(0)} МБ / 10 ГБ</span>
+                            <span className="storage-val">{(storageMb / 1024).toFixed(1)} / 15 ГБ</span>
                         </div>
                         <div className="storage-bar">
-                            <div className="storage-fill" style={{ width: `${Math.min(storageMb / 10240 * 100, 100).toFixed(1)}%` }} />
+                            <div className="storage-fill" style={{ width: `${Math.min(storageMb / (15 * 1024) * 100, 100).toFixed(1)}%` }} />
                         </div>
                     </div>
 
@@ -522,6 +522,7 @@ MAIL_SMTP_HOST=smtp.hostinger.com`}</pre>
                                 value={search}
                                 onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                             />
+                            <kbd>⌘K</kbd>
                         </div>
                         <div className="list-filters">
                             {([
