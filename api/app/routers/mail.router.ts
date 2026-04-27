@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import rateLimit from 'express-rate-limit';
+import rateLimit, {ipKeyGenerator} from 'express-rate-limit';
 import mailController, {mailAttachmentsUpload} from '../controllers/mail.controller';
 import {auth, requirePermission} from '../middleware';
 
@@ -11,6 +11,14 @@ const router = Router();
 const requireView = requirePermission('mail', 'view');
 const requireFull = requirePermission('mail', 'full');
 
+// Both limiters key on the authed user id. The auth middleware runs ahead of
+// these so res.locals.user is always set; ipKeyGenerator is just a typed
+// fallback that satisfies express-rate-limit v8's IPv6-safety check.
+const userKey = (prefix: string) => (req: any, res: any) => {
+    const uid = res.locals.user?.id;
+    return uid ? `${prefix}:u${uid}` : `${prefix}:${ipKeyGenerator(req.ip ?? '')}`;
+};
+
 // Per-user rate limiter for /send — caps phishing blast radius if an admin
 // session is hijacked. 30 messages/hour is well above legit usage.
 const sendLimiter = rateLimit({
@@ -18,7 +26,7 @@ const sendLimiter = rateLimit({
     max: 30,
     standardHeaders: true,
     legacyHeaders: false,
-    keyGenerator: (req, res) => `mail-send:${res.locals.user?.id ?? req.ip}`,
+    keyGenerator: userKey('mail-send'),
     message: {msg: 'Send rate limit exceeded — try again later'},
 });
 
@@ -29,7 +37,7 @@ const syncLimiter = rateLimit({
     max: 6,
     standardHeaders: true,
     legacyHeaders: false,
-    keyGenerator: (req, res) => `mail-sync:${res.locals.user?.id ?? req.ip}`,
+    keyGenerator: userKey('mail-sync'),
     message: {msg: 'Sync rate limit exceeded — try again in a minute'},
 });
 
