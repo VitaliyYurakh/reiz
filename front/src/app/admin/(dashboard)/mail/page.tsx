@@ -1,13 +1,13 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
     Inbox, Send, FileText, Trash2, AlertTriangle, Star, Folder, Pencil,
     ChevronDown, ChevronLeft, ChevronRight, RefreshCw, Search,
     Paperclip, Reply, ReplyAll, Forward, MoreVertical, Archive,
     Image as ImageIcon, Download, X, Minus, Maximize2, Bold, Italic,
     Underline, List, ListOrdered, Link as LinkIcon, Quote, AlignLeft,
-    Smile, Clock, Loader2, Check,
+    Smile, Clock, Loader2, Check, Square, CheckSquare, Filter, Trash, Plus,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { mailApi } from '@/lib/api/mail';
@@ -96,6 +96,36 @@ function formatBytes(n: number | null | undefined): string {
     return `${(n / 1024 / 1024).toFixed(1)} МБ`;
 }
 
+function autoLabel(fromAddr: string, subject: string | null): { text: string; color: string } | null {
+    const addr = fromAddr.toLowerCase();
+    const subj = (subject || '').toLowerCase();
+    // Banks → Рахунок (blue)
+    if (/privatbank|monobank|raiffeisen|oschadbank|pumb|sense|wise|stripe|paypal/.test(addr)) {
+        return { text: 'Рахунок', color: '#0EA5E9' };
+    }
+    // Known partners → Партнер (green)
+    if (/@bolt\.|@uklon\.|@uber\.|@booking\.|@expedia\.|@kayak\./.test(addr)) {
+        return { text: 'Партнер', color: '#22C55E' };
+    }
+    // Complaints
+    if (/скарг|complaint|жалоб|претенз/i.test(subj)) {
+        return { text: 'Скарга', color: '#EF4444' };
+    }
+    // Internal
+    if (/@reiz\.com\.ua$/i.test(addr)) {
+        return { text: 'Команда', color: '#A855F7' };
+    }
+    // Big-company SaaS / no-reply → no label
+    if (/noreply|no-reply|notifications?@|newsletter|marketing|@google\.com|@workspace\.|@notion\.|@github\.|@figma\.|@slack\.|@stripe\.com/.test(addr)) {
+        return null;
+    }
+    // Default for personal emails → Клієнт
+    if (/@(gmail|yahoo|hotmail|outlook|ukr\.net|i\.ua|meta\.ua|icloud|proton)\./i.test(addr)) {
+        return { text: 'Клієнт', color: '#7C5CFF' };
+    }
+    return null;
+}
+
 function fileTypeFromMime(mime: string | null): { color: string; label: string } {
     if (!mime) return { color: '#94A3B8', label: 'FILE' };
     if (mime.includes('pdf')) return { color: '#EF4444', label: 'PDF' };
@@ -147,6 +177,7 @@ export default function MailPage() {
     const [loadingMsg, setLoadingMsg] = useState(false);
 
     const [composer, setComposer] = useState<null | { mode: 'new' | 'reply' | 'forward'; parent?: MailMessageDetail }>(null);
+    const [checked, setChecked] = useState<Set<number>>(new Set());
 
     const [syncing, setSyncing] = useState(false);
 
@@ -300,6 +331,45 @@ export default function MailPage() {
     const unreadInList = messages.filter((m) => !m.isSeen).length;
     const totalPages = Math.max(1, Math.ceil(total / limit));
 
+    // Approximate storage: sum of cached message sizes (MB). Real Hostinger
+    // quota lives outside our DB — this is a best-effort indicator from synced
+    // envelopes. For an exact value we'd need to query IMAP STATUS QUOTA.
+    const storageMb = useMemo(() => {
+        return messages.reduce((s, m) => s + (m.size ?? 0), 0) / 1024 / 1024;
+    }, [messages]);
+
+    const visibleIds = useMemo(() => messages.map((m) => m.id), [messages]);
+    const allChecked = visibleIds.length > 0 && visibleIds.every((id) => checked.has(id));
+    const someChecked = checked.size > 0;
+    const toggleAll = () => {
+        if (allChecked) setChecked(new Set());
+        else setChecked(new Set(visibleIds));
+    };
+    const toggleOne = (id: number, e: React.MouseEvent) => {
+        e.stopPropagation();
+        setChecked((prev) => {
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id); else next.add(id);
+            return next;
+        });
+    };
+    const handleBulkDelete = async () => {
+        if (!confirm(`Видалити ${checked.size}?`)) return;
+        for (const id of checked) {
+            await mailApi.delete(id).catch(() => undefined);
+        }
+        setChecked(new Set());
+        await loadMessages();
+        if (account) await loadFolders(account.id);
+    };
+    const handleBulkSeen = async () => {
+        for (const id of checked) {
+            await mailApi.setSeen(id, true).catch(() => undefined);
+        }
+        setMessages((arr) => arr.map((m) => (checked.has(m.id) ? { ...m, isSeen: true } : m)));
+        setChecked(new Set());
+    };
+
     // ── Render ──────────────────────────────────────────────────────────
 
     if (!configured) {
@@ -359,47 +429,76 @@ MAIL_SMTP_HOST=smtp.hostinger.com`}</pre>
                     <div className="folders-list">
                         {systemFolders.map((f) => {
                             const Icon = SPECIAL_ICON[f.specialUse ?? ''] ?? Folder;
-                            const isActive = f.id === activeFolderId;
+                            const isActive = f.id === activeFolderId && filter !== 'flagged';
                             const label = SPECIAL_LABEL_UK[f.specialUse ?? ''] ?? f.name;
                             const isInbox = f.specialUse === '\\Inbox';
                             return (
-                                <button
-                                    key={f.id}
-                                    type="button"
-                                    className={`folder-item ${isActive ? 'is-active' : ''}`}
-                                    onClick={() => { setActiveFolderId(f.id); setPage(1); setSelectedId(null); setSelectedMsg(null); }}
-                                >
-                                    <Icon size={18} />
-                                    <span className="folder-name">{label}</span>
-                                    {f.unreadCount > 0 && (
-                                        <span className={`folder-count ${isInbox ? 'is-primary' : ''}`}>
-                                            {f.unreadCount > 99 ? '99+' : f.unreadCount}
-                                        </span>
+                                <Fragment key={f.id}>
+                                    <button
+                                        type="button"
+                                        className={`folder-item ${isActive ? 'is-active' : ''}`}
+                                        onClick={() => { setActiveFolderId(f.id); setFilter('all'); setPage(1); setSelectedId(null); setSelectedMsg(null); }}
+                                    >
+                                        <Icon size={18} />
+                                        <span className="folder-name">{label}</span>
+                                        {f.unreadCount > 0 && (
+                                            <span className={`folder-count ${isInbox ? 'is-primary' : ''}`}>
+                                                {f.unreadCount > 99 ? '99+' : f.unreadCount}
+                                            </span>
+                                        )}
+                                    </button>
+                                    {/* Insert virtual "Помічені" filter button right after Inbox */}
+                                    {isInbox && (
+                                        <button
+                                            type="button"
+                                            className={`folder-item ${filter === 'flagged' ? 'is-active' : ''}`}
+                                            onClick={() => { setFilter('flagged'); setPage(1); setSelectedId(null); setSelectedMsg(null); }}
+                                        >
+                                            <Star size={18} />
+                                            <span className="folder-name">Помічені</span>
+                                        </button>
                                     )}
-                                </button>
+                                </Fragment>
                             );
                         })}
 
-                        {customFolders.length > 0 && (
-                            <>
-                                <div className="folders-divider"><span>Власні папки</span></div>
-                                {customFolders.map((f) => {
-                                    const isActive = f.id === activeFolderId;
-                                    return (
-                                        <button
-                                            key={f.id}
-                                            type="button"
-                                            className={`folder-item ${isActive ? 'is-active' : ''}`}
-                                            onClick={() => { setActiveFolderId(f.id); setPage(1); setSelectedId(null); setSelectedMsg(null); }}
-                                        >
-                                            <Folder size={18} />
-                                            <span className="folder-name">{f.name}</span>
-                                            {f.unreadCount > 0 && <span className="folder-count">{f.unreadCount}</span>}
-                                        </button>
-                                    );
-                                })}
-                            </>
+                        <div className="folders-divider">
+                            <span>Власні папки</span>
+                            <button type="button" className="icon-btn-xs" title="Створи папку у Hostinger webmail" disabled>
+                                <Plus size={12} />
+                            </button>
+                        </div>
+                        {customFolders.length === 0 ? (
+                            <div style={{ fontSize: 11.5, color: 'var(--m-text-3)', padding: '4px 12px 8px' }}>
+                                Створи папку у Hostinger webmail
+                            </div>
+                        ) : (
+                            customFolders.map((f) => {
+                                const isActive = f.id === activeFolderId && filter !== 'flagged';
+                                return (
+                                    <button
+                                        key={f.id}
+                                        type="button"
+                                        className={`folder-item ${isActive ? 'is-active' : ''}`}
+                                        onClick={() => { setActiveFolderId(f.id); setFilter('all'); setPage(1); setSelectedId(null); setSelectedMsg(null); }}
+                                    >
+                                        <Folder size={18} />
+                                        <span className="folder-name">{f.name}</span>
+                                        {f.unreadCount > 0 && <span className="folder-count">{f.unreadCount}</span>}
+                                    </button>
+                                );
+                            })
                         )}
+                    </div>
+
+                    <div className="folders-storage">
+                        <div className="storage-row">
+                            <span>Сховище</span>
+                            <span className="storage-val">{storageMb.toFixed(0)} МБ / 10 ГБ</span>
+                        </div>
+                        <div className="storage-bar">
+                            <div className="storage-fill" style={{ width: `${Math.min(storageMb / 10240 * 100, 100).toFixed(1)}%` }} />
+                        </div>
                     </div>
 
                     <div className="folders-sync">
@@ -443,14 +542,43 @@ MAIL_SMTP_HOST=smtp.hostinger.com`}</pre>
                                     )}
                                 </button>
                             ))}
+                            <span className="list-spacer" />
+                            <button type="button" className="chip chip-ghost" title="Сортування">
+                                <Filter size={14} />
+                                <span>Сортування</span>
+                                <ChevronDown size={12} />
+                            </button>
                         </div>
                     </div>
 
-                    <div className="list-info">
-                        <span className="list-count">
-                            {total} {total === 1 ? 'лист' : total < 5 ? 'листи' : 'листів'} · {unreadInList} нових
-                        </span>
-                    </div>
+                    {someChecked ? (
+                        <div className="bulk-bar">
+                            <button type="button" className="check-btn is-on" onClick={toggleAll}>
+                                {allChecked ? <CheckSquare size={16} /> : <Square size={16} />}
+                            </button>
+                            <span className="bulk-count">{checked.size} обрано</span>
+                            <div className="bulk-actions">
+                                <button type="button" className="bulk-action" onClick={handleBulkSeen}>
+                                    <Check size={14} /><span>Прочитано</span>
+                                </button>
+                                <button type="button" className="bulk-action danger" onClick={handleBulkDelete}>
+                                    <Trash size={14} /><span>Видалити</span>
+                                </button>
+                            </div>
+                            <button type="button" className="bulk-close" onClick={() => setChecked(new Set())}>
+                                <X size={14} />
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="list-info">
+                            <button type="button" className="check-btn" onClick={toggleAll}>
+                                <Square size={16} />
+                            </button>
+                            <span className="list-count">
+                                {total} {total === 1 ? 'лист' : total < 5 ? 'листи' : 'листів'} · {unreadInList} нових
+                            </span>
+                        </div>
+                    )}
 
                     {loadingList ? (
                         <div className="list-loader">
@@ -471,14 +599,23 @@ MAIL_SMTP_HOST=smtp.hostinger.com`}</pre>
                             {messages.map((m) => {
                                 const isSelected = m.id === selectedId;
                                 const isUnread = !m.isSeen;
+                                const isChecked = checked.has(m.id);
+                                const label = autoLabel(m.fromAddr, m.subject);
                                 return (
-                                    <button
+                                    <div
                                         key={m.id}
-                                        type="button"
-                                        className={`msg-row ${isSelected ? 'is-selected' : ''} ${isUnread ? 'is-unread' : ''}`}
+                                        className={`msg-row ${isSelected ? 'is-selected' : ''} ${isUnread ? 'is-unread' : ''} ${isChecked ? 'is-checked' : ''}`}
                                         onClick={() => openMessage(m.id)}
                                     >
                                         <div className="msg-row-left">
+                                            <button
+                                                type="button"
+                                                className="check-btn row-check"
+                                                onClick={(e) => toggleOne(m.id, e)}
+                                                aria-label="Обрати"
+                                            >
+                                                {isChecked ? <CheckSquare size={16} /> : <Square size={16} />}
+                                            </button>
                                             <div className="msg-row-avatar-wrap">
                                                 {isUnread && <span className="unread-dot" />}
                                                 <Avatar name={m.fromName} addr={m.fromAddr} size={36} />
@@ -497,8 +634,16 @@ MAIL_SMTP_HOST=smtp.hostinger.com`}</pre>
                                             <div className="msg-row-line3">
                                                 <span className="msg-snippet">{m.snippet || ''}</span>
                                             </div>
+                                            {label && (
+                                                <span
+                                                    className="msg-label"
+                                                    style={{ color: label.color, background: label.color + '14' }}
+                                                >
+                                                    {label.text}
+                                                </span>
+                                            )}
                                         </div>
-                                    </button>
+                                    </div>
                                 );
                             })}
                         </div>
@@ -525,7 +670,13 @@ MAIL_SMTP_HOST=smtp.hostinger.com`}</pre>
                         <div className="viewer-empty-inner">
                             <div className="empty-illu"><Inbox size={56} /></div>
                             <div className="empty-title-lg">Виберіть лист</div>
-                            <div className="empty-sub">Оберіть лист зліва, щоб переглянути його тут.</div>
+                            <div className="empty-sub">Він з&apos;явиться тут. ←/→ для навігації, R — швидка відповідь.</div>
+                            <div className="kbd-row">
+                                <span><kbd>R</kbd> Відповісти</span>
+                                <span><kbd>E</kbd> В архів</span>
+                                <span><kbd>#</kbd> Видалити</span>
+                                <span><kbd>C</kbd> Написати</span>
+                            </div>
                         </div>
                     </section>
                 ) : loadingMsg ? (
@@ -660,6 +811,17 @@ function MessageViewer({
                         <h1 className="viewer-subject">{msg.subject || '(без теми)'}</h1>
                         <div className="viewer-tags">
                             <span className="badge-folder"><Inbox size={12} /> Вхідні</span>
+                            {(() => {
+                                const lbl = autoLabel(msg.fromAddr, msg.subject);
+                                return lbl ? (
+                                    <span
+                                        className="msg-label"
+                                        style={{ color: lbl.color, background: lbl.color + '14', marginTop: 0 }}
+                                    >
+                                        {lbl.text}
+                                    </span>
+                                ) : null;
+                            })()}
                         </div>
                     </div>
                     <div className="viewer-actions">
