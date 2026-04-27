@@ -201,7 +201,26 @@ class LeadService {
         const contacted = (byStatus.CONTACTED ?? 0) + (byStatus.FOLLOWED_UP_1 ?? 0) + (byStatus.FOLLOWED_UP_2 ?? 0) + (byStatus.BREAKUP_SENT ?? 0) + (byStatus.REPLIED ?? 0) + (byStatus.INTERESTED ?? 0) + (byStatus.CLIENT ?? 0);
         const replied = (byStatus.REPLIED ?? 0) + (byStatus.INTERESTED ?? 0) + (byStatus.CLIENT ?? 0);
         const replyRate = contacted > 0 ? Math.round((replied / contacted) * 1000) / 10 : 0;
-        return {total, byStatus, byCountry, replyRate, contacted, replied};
+
+        // Stuck = lead has been sitting in its current stage too long without progressing.
+        // READY: enriched but never sent — createdAt > 5d ago and never contacted.
+        // CONTACTED / FOLLOWED_UP_1 / FOLLOWED_UP_2: last touch > 5d ago, no reply yet.
+        const STUCK_DAYS = 5;
+        const cutoff = new Date(Date.now() - STUCK_DAYS * 24 * 60 * 60 * 1000);
+        const [stuckReady, stuckContacted, stuckFu1, stuckFu2] = await Promise.all([
+            prisma.lead.count({where: {status: 'READY', contactedAt: null, createdAt: {lt: cutoff}}}),
+            prisma.lead.count({where: {status: 'CONTACTED', repliedAt: null, OR: [{lastFollowUpAt: {lt: cutoff}}, {AND: [{lastFollowUpAt: null}, {contactedAt: {lt: cutoff}}]}]}}),
+            prisma.lead.count({where: {status: 'FOLLOWED_UP_1', repliedAt: null, lastFollowUpAt: {lt: cutoff}}}),
+            prisma.lead.count({where: {status: 'FOLLOWED_UP_2', repliedAt: null, lastFollowUpAt: {lt: cutoff}}}),
+        ]);
+        const stuckByStatus: Record<string, number> = {
+            READY: stuckReady,
+            CONTACTED: stuckContacted,
+            FOLLOWED_UP_1: stuckFu1,
+            FOLLOWED_UP_2: stuckFu2,
+        };
+
+        return {total, byStatus, byCountry, replyRate, contacted, replied, stuckByStatus};
     }
 }
 

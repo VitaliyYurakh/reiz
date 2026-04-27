@@ -7,6 +7,7 @@ import { adminApiClient } from "@/lib/api/admin";
 import { logError } from "@/lib/log";
 import { toast, toastError } from "@/lib/toast";
 import { useAdminTheme } from "@/context/AdminThemeContext";
+import { REIZ_LEADS_CSS } from "./_design";
 
 // ─── Types ────────────────────────────────────────────────────────────────
 interface LeadRow {
@@ -42,6 +43,7 @@ interface Stats {
   replyRate: number;
   byStatus: Record<string, number>;
   byCountry: Record<string, number>;
+  stuckByStatus?: Record<string, number>;
 }
 
 // ─── Status definitions (13) ──────────────────────────────────────────────
@@ -107,17 +109,14 @@ const STATUS_DESCRIPTIONS: Record<string, string> = {
   PAUSED: "На паузе вручную",
 };
 
-const COUNTRY_META: Record<
-  string,
-  { flag: string; name: string; lat: number; lng: number }
-> = {
-  TR: { flag: "🇹🇷", name: "Турция", lat: 39, lng: 35 },
-  ME: { flag: "🇲🇪", name: "Черногория", lat: 42.5, lng: 19.3 },
-  RS: { flag: "🇷🇸", name: "Сербия", lat: 44, lng: 21 },
-  AM: { flag: "🇦🇲", name: "Армения", lat: 40, lng: 45 },
-  KZ: { flag: "🇰🇿", name: "Казахстан", lat: 48, lng: 68 },
-  TH: { flag: "🇹🇭", name: "Таиланд", lat: 15, lng: 101 },
-  ID: { flag: "🇮🇩", name: "Индонезия (Бали)", lat: 8, lng: 115 },
+const COUNTRY_META: Record<string, { flag: string; name: string }> = {
+  TR: { flag: "🇹🇷", name: "Турция" },
+  ME: { flag: "🇲🇪", name: "Черногория" },
+  RS: { flag: "🇷🇸", name: "Сербия" },
+  AM: { flag: "🇦🇲", name: "Армения" },
+  KZ: { flag: "🇰🇿", name: "Казахстан" },
+  TH: { flag: "🇹🇭", name: "Таиланд" },
+  ID: { flag: "🇮🇩", name: "Индонезия (Бали)" },
 };
 
 const COUNTRY_ORDER = ["TR", "TH", "ID", "ME", "RS", "AM", "KZ"];
@@ -329,126 +328,6 @@ const Icon = {
   ),
 };
 
-// ─── Scoped CSS (warm-theme tokens for the redesign) ──────────────────────
-const SCOPED_CSS = `
-.reiz-leads {
-  --reiz-indigo: #7C5CFF;
-  --reiz-indigo-600: #6B46FF;
-  --reiz-cyan: #22D3EE;
-  --reiz-green: #10B981;
-  --reiz-amber: #F59E0B;
-  --reiz-rose: #F43F5E;
-  --reiz-blue: #3B82F6;
-
-  --st-new:           #94A3B8;
-  --st-enriched:      #6366F1;
-  --st-ready:         #22D3EE;
-  --st-contacted:     #3B82F6;
-  --st-fu1:           #8B5CF6;
-  --st-fu2:           #A855F7;
-  --st-breakup:       #C026D3;
-  --st-replied:       #10B981;
-  --st-interested:    #059669;
-  --st-client:        #047857;
-  --st-disqualified:  #64748B;
-  --st-bounced:       #EF4444;
-  --st-unsubscribed:  #71717A;
-  --st-paused:        #F59E0B;
-
-  --radius-card: 20px;
-
-  font-family: 'Inter', 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  font-feature-settings: 'cv11', 'ss01';
-  -webkit-font-smoothing: antialiased;
-  color: var(--text-1);
-  background: var(--bg-app);
-  min-height: calc(100vh - 48px);
-  margin: -24px -32px;
-  padding: 24px 28px 32px;
-}
-.reiz-leads.theme-light {
-  --bg-app: #EDEEF2;
-  --bg-surface: #FFFFFF;
-  --bg-surface-2: #F7F8FA;
-  --bg-sunken: #E5E7EC;
-  --bg-row-hover: #F4F5F7;
-  --border: #E5E7EC;
-  --border-strong: #D1D5DB;
-  --text-1: #1A1D23;
-  --text-2: #6B7280;
-  --text-3: #9CA3AF;
-  --shadow-card: 0 1px 2px rgba(20, 22, 30, 0.04), 0 8px 24px rgba(20, 22, 30, 0.04);
-}
-.reiz-leads.theme-dark {
-  --bg-app: #14161C;
-  --bg-surface: #21242C;
-  --bg-surface-2: #1B1E25;
-  --bg-sunken: #1B1E25;
-  --bg-row-hover: #2A2D36;
-  --border: #2A2D36;
-  --border-strong: #383C46;
-  --text-1: #F4F5F7;
-  --text-2: #9CA3AF;
-  --text-3: #6B7280;
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-.reiz-leads .r-card {
-  background: var(--bg-surface);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--border);
-}
-.reiz-leads .r-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 3px 9px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  line-height: 1.4;
-}
-.reiz-leads .r-badge .dot { width: 6px; height: 6px; border-radius: 50%; }
-@keyframes reiz-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.55; }
-}
-.reiz-leads .r-pulse-dot {
-  position: relative;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--reiz-amber);
-  display: inline-block;
-}
-.reiz-leads .r-pulse-dot::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: var(--reiz-amber);
-  opacity: 0.35;
-  animation: reiz-pulse 1.6s ease-in-out infinite;
-}
-@keyframes reiz-shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-.reiz-leads .r-input {
-  background: transparent;
-  border: none;
-  padding: 10px 12px 10px 38px;
-  font: inherit;
-  color: var(--text-1);
-  width: 100%;
-  outline: none;
-}
-.reiz-leads .r-input::placeholder { color: var(--text-3); }
-.reiz-leads .r-row:hover { background: var(--bg-row-hover); }
-.reiz-leads .r-row:hover .row-actions { opacity: 1 !important; }
-`;
-
 // ─── Sparkline ────────────────────────────────────────────────────────────
 function Sparkline({
   data,
@@ -651,13 +530,19 @@ function KpiCard({
 // ─── Pipeline Funnel ──────────────────────────────────────────────────────
 function PipelineFunnel({
   byStatus,
+  stuckByStatus,
   total,
   replyRate,
 }: {
   byStatus: Record<string, number>;
+  stuckByStatus: Record<string, number>;
   total: number;
   replyRate: number;
 }) {
+  const stuckContacted =
+    (stuckByStatus.CONTACTED ?? 0) +
+    (stuckByStatus.FOLLOWED_UP_1 ?? 0) +
+    (stuckByStatus.FOLLOWED_UP_2 ?? 0);
   const stages = [
     {
       id: "NEW",
@@ -681,7 +566,7 @@ function PipelineFunnel({
       ru: "К отправке",
       count: byStatus.READY ?? 0,
       color: "#22D3EE",
-      stuck: Math.floor((byStatus.READY ?? 0) * 0.3),
+      stuck: stuckByStatus.READY ?? 0,
     },
     {
       id: "CONTACTED",
@@ -692,7 +577,7 @@ function PipelineFunnel({
         (byStatus.FOLLOWED_UP_1 ?? 0) +
         (byStatus.FOLLOWED_UP_2 ?? 0),
       color: "#3B82F6",
-      stuck: 0,
+      stuck: stuckContacted,
     },
     {
       id: "REPLIED",
@@ -735,21 +620,6 @@ function PipelineFunnel({
             </span>
           </p>
         </div>
-        <button
-          type="button"
-          style={{
-            fontSize: 12,
-            color: "var(--text-2)",
-            background: "transparent",
-            border: "1px solid var(--border)",
-            padding: "6px 12px",
-            borderRadius: 8,
-            cursor: "pointer",
-            fontFamily: "inherit",
-          }}
-        >
-          За 30 дней ▾
-        </button>
       </div>
 
       <div style={{ display: "flex", alignItems: "stretch", gap: 0 }}>
@@ -1153,27 +1023,23 @@ function RunnerCard({
   );
 }
 
-// ─── World Map ────────────────────────────────────────────────────────────
-function projectPin(lat: number, lng: number) {
-  const x = ((lng + 10) / 140) * 480;
-  const y = ((60 - lat) / 55) * 220;
-  return { x, y };
-}
-
+// ─── Geography Block (ranked country list) ────────────────────────────────
 function WorldMap({
   byCountry,
   onSelect,
+  selected,
 }: {
   byCountry: Record<string, number>;
   onSelect: (code: string) => void;
+  selected: string;
 }) {
-  const [hover, setHover] = useState<string | null>(null);
-  const pins = COUNTRY_ORDER.map((code) => ({
+  const rows = COUNTRY_ORDER.map((code) => ({
     code,
     ...COUNTRY_META[code],
     leads: byCountry[code] ?? 0,
-  })).filter((p) => p.leads >= 0);
-  const maxLeads = Math.max(...pins.map((c) => c.leads), 1);
+  })).sort((a, b) => b.leads - a.leads);
+  const maxLeads = Math.max(...rows.map((c) => c.leads), 1);
+  const total = rows.reduce((acc, c) => acc + c.leads, 0);
 
   return (
     <div
@@ -1201,222 +1067,152 @@ function WorldMap({
           <p
             style={{ margin: "4px 0 0", fontSize: 12, color: "var(--text-3)" }}
           >
-            7 стран · клик по пину → фильтр таблицы
+            7 стран · клик по строке → фильтр таблицы
           </p>
         </div>
-        <button
-          type="button"
+        <span
           style={{
-            fontSize: 11.5,
-            color: "var(--reiz-indigo)",
-            background: "transparent",
-            border:
-              "1px solid color-mix(in oklab, var(--reiz-indigo) 30%, transparent)",
-            padding: "5px 10px",
-            borderRadius: 8,
-            cursor: "pointer",
-            fontFamily: "inherit",
+            fontSize: 11,
             fontWeight: 600,
+            color: "var(--text-3)",
+            fontFamily: "'JetBrains Mono', ui-monospace, monospace",
           }}
         >
-          + Добавить страну
-        </button>
+          {total} всего
+        </span>
       </div>
 
-      <div
-        style={{
-          position: "relative",
-          background: "var(--bg-sunken)",
-          borderRadius: 14,
-          padding: 12,
-          height: 260,
-          border: "1px solid var(--border)",
-        }}
-      >
-        <svg
-          viewBox="0 0 480 220"
-          width="100%"
-          height="100%"
-          style={{ display: "block" }}
-        >
-          <defs>
-            <pattern
-              id="reiz-leads-dots"
-              width="6"
-              height="6"
-              patternUnits="userSpaceOnUse"
+      <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        {rows.map((c, i) => {
+          const isSelected = selected === c.code;
+          const pct = (c.leads / maxLeads) * 100;
+          const share = total > 0 ? ((c.leads / total) * 100).toFixed(1) : "0";
+          const accent =
+            c.leads > 0 ? "var(--reiz-cyan)" : "var(--reiz-indigo)";
+          return (
+            <button
+              type="button"
+              key={c.code}
+              onClick={() => onSelect(isSelected ? "" : c.code)}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "22px 24px 1fr auto auto",
+                alignItems: "center",
+                gap: 12,
+                padding: "10px 12px",
+                borderRadius: 12,
+                cursor: "pointer",
+                background: isSelected
+                  ? "color-mix(in oklab, var(--reiz-indigo) 8%, transparent)"
+                  : "transparent",
+                border:
+                  "1px solid " +
+                  (isSelected
+                    ? "color-mix(in oklab, var(--reiz-indigo) 25%, transparent)"
+                    : "transparent"),
+                transition: "background 0.12s, border-color 0.12s",
+                fontFamily: "inherit",
+                textAlign: "left",
+                width: "100%",
+              }}
+              onMouseEnter={(e) => {
+                if (!isSelected)
+                  e.currentTarget.style.background = "var(--bg-surface-2)";
+              }}
+              onMouseLeave={(e) => {
+                if (!isSelected)
+                  e.currentTarget.style.background = "transparent";
+              }}
             >
-              <circle
-                cx="1"
-                cy="1"
-                r="0.8"
-                fill="var(--text-3)"
-                opacity="0.3"
-              />
-            </pattern>
-          </defs>
-          <g fill="url(#reiz-leads-dots)">
-            <path d="M50,40 Q90,30 130,45 L155,55 Q180,50 200,70 L210,90 Q190,105 165,100 L130,95 Q95,98 75,85 L55,70 Z" />
-            <path d="M200,75 Q230,70 260,85 L280,100 Q275,120 250,118 L220,110 Q200,100 200,85 Z" />
-            <path d="M255,55 Q300,48 340,62 L350,78 Q330,90 290,85 L260,75 Z" />
-            <path d="M300,110 Q330,108 350,125 L365,160 Q360,180 340,178 L320,165 Q305,145 300,125 Z" />
-            <path d="M380,168 Q410,162 435,170 L450,180 Q435,192 405,188 L385,180 Z" />
-            <path d="M420,195 Q435,192 445,200 L440,205 Q428,205 420,200 Z" />
-          </g>
-
-          {pins.map((c) => {
-            const { x, y } = projectPin(c.lat, c.lng);
-            const size = 6 + (c.leads / maxLeads) * 14;
-            const isHover = hover === c.code;
-            const accent =
-              c.leads > 0 ? "var(--reiz-cyan)" : "var(--reiz-indigo)";
-            return (
-              <g
-                key={c.code}
-                onMouseEnter={() => setHover(c.code)}
-                onMouseLeave={() => setHover(null)}
-                onClick={() => onSelect(c.code)}
-                style={{ cursor: "pointer" }}
+              <span
+                style={{
+                  fontSize: 11,
+                  fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+                  color: "var(--text-3)",
+                  fontWeight: 600,
+                }}
               >
-                <circle
-                  cx={x}
-                  cy={y}
-                  r={size + 6}
-                  fill={accent}
-                  opacity="0.12"
-                />
-                <circle
-                  cx={x}
-                  cy={y}
-                  r={size}
-                  fill={accent}
-                  stroke="var(--bg-surface)"
-                  strokeWidth="2"
-                  style={{ transition: "r 0.15s" }}
-                />
-                <text
-                  x={x}
-                  y={y + 1}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fontSize={size > 12 ? 9 : 0}
-                  fontWeight="700"
-                  fill="#fff"
+                #{i + 1}
+              </span>
+              <span style={{ fontSize: 18, lineHeight: 1 }}>{c.flag}</span>
+              <div style={{ minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
+                <div
                   style={{
-                    pointerEvents: "none",
-                    fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 8,
                   }}
                 >
-                  {c.leads}
-                </text>
-                {isHover && (
-                  <g style={{ pointerEvents: "none" }}>
-                    <rect
-                      x={x + size + 6}
-                      y={y - 22}
-                      width="120"
-                      height="44"
-                      rx="8"
-                      fill="var(--bg-surface)"
-                      stroke="var(--border-strong)"
-                      strokeWidth="1"
-                    />
-                    <text
-                      x={x + size + 14}
-                      y={y - 8}
-                      fontSize="10"
-                      fontWeight="700"
-                      fill="var(--text-1)"
-                    >
-                      {c.flag} {c.name}
-                    </text>
-                    <text
-                      x={x + size + 14}
-                      y={y + 6}
-                      fontSize="9"
-                      fill="var(--text-2)"
-                      fontFamily="'JetBrains Mono', ui-monospace, monospace"
-                    >
-                      {c.leads} лидов
-                    </text>
-                  </g>
-                )}
-              </g>
-            );
-          })}
-        </svg>
-      </div>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: "6px 16px",
-        }}
-      >
-        {pins.map((c) => (
-          <div
-            key={c.code}
-            onClick={() => onSelect(c.code)}
-            onMouseEnter={() => setHover(c.code)}
-            onMouseLeave={() => setHover(null)}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              padding: "6px 4px",
-              cursor: "pointer",
-              borderRadius: 6,
-            }}
-          >
-            <span style={{ fontSize: 14 }}>{c.flag}</span>
-            <span
-              style={{
-                fontSize: 12,
-                color: "var(--text-2)",
-                flex: 1,
-                minWidth: 0,
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {c.name}
-            </span>
-            <div
-              style={{
-                width: 60,
-                height: 4,
-                borderRadius: 2,
-                background: "var(--bg-sunken)",
-                overflow: "hidden",
-                flexShrink: 0,
-              }}
-            >
-              <div
+                  <span
+                    style={{
+                      fontSize: 13,
+                      fontWeight: 600,
+                      color: "var(--text-1)",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {c.name}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: 11,
+                      color: "var(--text-3)",
+                      fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+                      flexShrink: 0,
+                    }}
+                  >
+                    {share}%
+                  </span>
+                </div>
+                <div
+                  style={{
+                    height: 6,
+                    borderRadius: 3,
+                    background: "var(--bg-sunken)",
+                    overflow: "hidden",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: `${pct}%`,
+                      height: "100%",
+                      background: accent,
+                      borderRadius: 3,
+                      transition: "width 0.3s ease",
+                    }}
+                  />
+                </div>
+              </div>
+              <span
                 style={{
-                  width: `${(c.leads / maxLeads) * 100}%`,
-                  height: "100%",
-                  background:
-                    c.leads > 0 ? "var(--reiz-cyan)" : "var(--reiz-indigo)",
-                  borderRadius: 2,
+                  fontSize: 16,
+                  fontWeight: 700,
+                  fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+                  color: "var(--text-1)",
+                  minWidth: 36,
+                  textAlign: "right",
+                  fontVariantNumeric: "tabular-nums",
                 }}
-              />
-            </div>
-            <span
-              style={{
-                fontSize: 11,
-                fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                color: "var(--text-2)",
-                minWidth: 28,
-                textAlign: "right",
-                fontWeight: 600,
-              }}
-            >
-              {c.leads}
-            </span>
-          </div>
-        ))}
+              >
+                {c.leads}
+              </span>
+              <span
+                style={{
+                  fontSize: 10,
+                  fontWeight: 600,
+                  color: "var(--text-3)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                лидов
+              </span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
@@ -2041,7 +1837,7 @@ export default function LeadsPage() {
 
   return (
     <>
-      <style>{SCOPED_CSS}</style>
+      <style>{REIZ_LEADS_CSS}</style>
       <div
         className={`reiz-leads theme-${theme === "dark" ? "dark" : "light"}`}
         style={{ fontSize: 13 }}
@@ -2380,6 +2176,7 @@ export default function LeadsPage() {
           {stats && (
             <PipelineFunnel
               byStatus={byStatus}
+              stuckByStatus={stats.stuckByStatus ?? {}}
               total={stats.total}
               replyRate={stats.replyRate}
             />
@@ -2441,6 +2238,7 @@ export default function LeadsPage() {
             <WorldMap
               byCountry={byCountry}
               onSelect={(code) => setCountryFilter(code)}
+              selected={countryFilter}
             />
             <InboxBlock
               replies={replyPreview}
@@ -2542,31 +2340,6 @@ export default function LeadsPage() {
                     </button>
                   );
                 })}
-                <div
-                  style={{
-                    width: 1,
-                    background: "var(--border)",
-                    margin: "0 4px",
-                  }}
-                />
-                <button
-                  type="button"
-                  style={{
-                    padding: "6px 12px",
-                    borderRadius: 8,
-                    fontSize: 12,
-                    color: "var(--text-2)",
-                    background: "transparent",
-                    border: "1px solid var(--border)",
-                    cursor: "pointer",
-                    fontFamily: "inherit",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 5,
-                  }}
-                >
-                  <Icon.filter width={13} height={13} /> Фильтры
-                </button>
               </div>
             </div>
 
