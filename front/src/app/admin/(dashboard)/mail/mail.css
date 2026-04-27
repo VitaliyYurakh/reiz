@@ -905,3 +905,19 @@
   color: var(--text);
   overflow-x: auto;
 }
+
+/* Admin globals.css ships `[data-theme] :is(h1..h6, p, a, button) { color: inherit }`
+   (specificity 0,1,1) which shadows `.compose-btn { color: #fff }` (0,1,0) and
+   forces dark text on every purple-fill button. Bump specificity here. */
+.mail-page .compose-btn,
+.mail-page .compose-btn svg,
+.mail-page .qr-send,
+.mail-page .qr-send svg,
+.mail-page .send-btn,
+.mail-page .send-btn svg,
+.mail-page .composer-pill,
+.mail-page .composer-pill svg,
+.mail-page .chip.is-on,
+.mail-page .folder-count.is-primary {
+  color: #fff;
+}
