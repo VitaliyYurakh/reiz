@@ -116,6 +116,10 @@ export const ru: AdminTranslations = {
     error: 'Неверный email или пароль',
     networkError: 'Сервер недоступен. Попробуйте позже.',
     footer: 'REIZ Car Rental · Admin Panel',
+    totpHint: 'Введите 6-значный код из вашего приложения аутентификатора или один из резервных кодов.',
+    totpLabel: 'Код 2FA',
+    totpSubmit: 'Подтвердить',
+    totpBack: '← Другой аккаунт',
   },
 
   /* ── Dashboard ── */
@@ -1236,6 +1240,20 @@ export const ru: AdminTranslations = {
     emailLabel: 'Email',
     pagination: 'Стр. {page} из {pages}',
 
+    twofaTitle: 'Двухфакторная аутентификация',
+    twofaEnabledHint: '2FA включена. Резервных кодов осталось: {count}.',
+    twofaDisabledHint: 'Повысьте безопасность: включите 2FA через приложение-аутентификатор.',
+    twofaEnable: 'Включить 2FA',
+    twofaDisable: 'Отключить 2FA',
+    twofaScanHint: 'Отсканируйте QR в Google Authenticator, 1Password, Authy. Или введите код вручную.',
+    twofaCodeLabel: '6-значный код',
+    twofaConfirm: 'Подтвердить',
+    twofaRecoveryTitle: 'Резервные коды',
+    twofaRecoveryHint: 'Сохраните эти коды в надёжном месте. Каждый можно использовать только один раз. Без них и приложения вы потеряете доступ.',
+    twofaCopyCodes: 'Скопировать',
+    twofaDone: 'Готово',
+    twofaDisableTitle: 'Подтвердите паролем и кодом, чтобы отключить 2FA',
+
     // Team tab
     tabTeam: 'Команда',
     addUser: 'Добавить пользователя',
@@ -1259,6 +1277,7 @@ export const ru: AdminTranslations = {
     modFinance: 'Финансы',
     modService: 'Сервис',
     modReports: 'Отчёты',
+    modMail: 'Почта',
     modSettings: 'Настройки',
     confirmDeleteUser: 'Удалить пользователя {name}?',
     userCreated: 'Пользователь создан',

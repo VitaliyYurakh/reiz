@@ -116,6 +116,10 @@ export const pl: AdminTranslations = {
     error: 'Nieprawidłowy email lub hasło',
     networkError: 'Serwer niedostępny. Spróbuj ponownie później.',
     footer: 'REIZ Wynajem Samochodów · Panel Administracyjny',
+    totpHint: 'Wprowadź 6-cyfrowy kod z aplikacji uwierzytelniającej lub kod odzyskiwania.',
+    totpLabel: 'Kod 2FA',
+    totpSubmit: 'Potwierdź',
+    totpBack: '← Inne konto',
   },
 
   /* ── Dashboard ── */
@@ -1236,6 +1240,20 @@ export const pl: AdminTranslations = {
     emailLabel: 'Email',
     pagination: 'Strona {page} z {pages}',
 
+    twofaTitle: 'Uwierzytelnianie dwuskładnikowe',
+    twofaEnabledHint: '2FA jest włączone. Pozostałe kody odzyskiwania: {count}.',
+    twofaDisabledHint: 'Zwiększ bezpieczeństwo konta dzięki aplikacji uwierzytelniającej.',
+    twofaEnable: 'Włącz 2FA',
+    twofaDisable: 'Wyłącz 2FA',
+    twofaScanHint: 'Zeskanuj kod QR w Google Authenticator, 1Password lub Authy. Albo wpisz sekret ręcznie.',
+    twofaCodeLabel: 'Kod 6-cyfrowy',
+    twofaConfirm: 'Potwierdź',
+    twofaRecoveryTitle: 'Kody odzyskiwania',
+    twofaRecoveryHint: 'Zachowaj te kody w bezpiecznym miejscu. Każdy może zostać użyty tylko raz. Bez nich i aplikacji stracisz dostęp.',
+    twofaCopyCodes: 'Kopiuj',
+    twofaDone: 'Gotowe',
+    twofaDisableTitle: 'Potwierdź hasłem + kodem, aby wyłączyć 2FA',
+
     // Team tab
     tabTeam: 'Zespół',
     addUser: 'Dodaj użytkownika',
@@ -1259,6 +1277,7 @@ export const pl: AdminTranslations = {
     modFinance: 'Finanse',
     modService: 'Serwis',
     modReports: 'Raporty',
+    modMail: 'Poczta',
     modSettings: 'Ustawienia',
     confirmDeleteUser: 'Usunąć użytkownika {name}?',
     userCreated: 'Użytkownik utworzony',

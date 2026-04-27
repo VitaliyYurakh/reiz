@@ -116,6 +116,10 @@ export const ro: AdminTranslations = {
         error: 'Email sau parolă incorectă',
         networkError: 'Server indisponibil. Încercați mai târziu.',
         footer: 'REIZ Închirieri Auto · Panou Admin',
+        totpHint: 'Introduceți codul de 6 cifre din aplicația de autentificare sau un cod de recuperare.',
+        totpLabel: 'Cod 2FA',
+        totpSubmit: 'Verificați',
+        totpBack: '← Alt cont',
     },
 
     /* ── Dashboard ── */
@@ -1236,6 +1240,20 @@ export const ro: AdminTranslations = {
         emailLabel: 'Email',
         pagination: 'Pagina {page} din {pages}',
 
+        twofaTitle: 'Autentificare în doi pași',
+        twofaEnabledHint: '2FA este activat. Coduri de recuperare rămase: {count}.',
+        twofaDisabledHint: 'Sporiți securitatea cu o aplicație de autentificare.',
+        twofaEnable: 'Activează 2FA',
+        twofaDisable: 'Dezactivează 2FA',
+        twofaScanHint: 'Scanați codul QR în Google Authenticator, 1Password sau Authy. Sau introduceți secretul manual.',
+        twofaCodeLabel: 'Cod din 6 cifre',
+        twofaConfirm: 'Confirmare',
+        twofaRecoveryTitle: 'Coduri de recuperare',
+        twofaRecoveryHint: 'Salvați aceste coduri într-un loc sigur. Fiecare poate fi folosit o singură dată. Fără ele și fără aplicație veți pierde accesul.',
+        twofaCopyCodes: 'Copiați',
+        twofaDone: 'Gata',
+        twofaDisableTitle: 'Confirmați cu parola + codul pentru a dezactiva 2FA',
+
         // Team tab
         tabTeam: 'Echipă',
         addUser: 'Adaugă utilizator',
@@ -1259,6 +1277,7 @@ export const ro: AdminTranslations = {
         modFinance: 'Finanțe',
         modService: 'Service',
         modReports: 'Rapoarte',
+        modMail: 'Poștă',
         modSettings: 'Setări',
         confirmDeleteUser: 'Ștergeți utilizatorul {name}?',
         userCreated: 'Utilizator creat',

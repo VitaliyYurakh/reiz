@@ -26,6 +26,15 @@ model User {
   permissions Json     @default("{}")
   isActive      Boolean  @default(true) @map("is_active")
   tokenVersion  Int      @default(0) @map("token_version")
+  // ── 2FA (TOTP, opt-in) ─────────────────────────────────────────────
+  // totpSecret: base32 secret, set during setup. Cleared on disable.
+  // totpEnabled: only true after the user verifies their first code.
+  // totpRecoveryCodes: array of bcrypt-hashed single-use codes (10 by
+  //   default). Each is consumed when used. Stored hashed so a DB leak
+  //   does not directly grant fallback access.
+  totpSecret         String?  @map("totp_secret")
+  totpEnabled        Boolean  @default(false) @map("totp_enabled")
+  totpRecoveryCodes  Json?    @map("totp_recovery_codes")
   createdAt     DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
 

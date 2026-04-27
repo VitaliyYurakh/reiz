@@ -114,6 +114,10 @@ export const uk = {
     error: 'Невірний email або пароль',
     networkError: 'Сервер недоступний. Спробуйте пізніше.',
     footer: 'REIZ Car Rental · Admin Panel',
+    totpHint: 'Введіть 6-значний код із вашого додатку автентифікації, або один із резервних кодів.',
+    totpLabel: 'Код 2FA',
+    totpSubmit: 'Підтвердити',
+    totpBack: '← Інший акаунт',
   },
 
   /* ── Dashboard ── */
@@ -1254,6 +1258,21 @@ export const uk = {
     emailLabel: 'Email',
     pagination: 'Стор. {page} з {pages}',
 
+    // 2FA
+    twofaTitle: 'Двофакторна автентифікація',
+    twofaEnabledHint: '2FA увімкнено. Залишилось резервних кодів: {count}.',
+    twofaDisabledHint: 'Підвищіть безпеку: увімкніть 2FA через додаток-автентифікатор.',
+    twofaEnable: 'Увімкнути 2FA',
+    twofaDisable: 'Вимкнути 2FA',
+    twofaScanHint: 'Відскануйте QR в Google Authenticator, 1Password, Authy. Або введіть код вручну.',
+    twofaCodeLabel: '6-значний код',
+    twofaConfirm: 'Підтвердити',
+    twofaRecoveryTitle: 'Резервні коди',
+    twofaRecoveryHint: 'Збережіть ці коди в безпечному місці. Кожен можна використати лише раз. Без них і без додатку ви втратите доступ до акаунту.',
+    twofaCopyCodes: 'Скопіювати',
+    twofaDone: 'Готово',
+    twofaDisableTitle: 'Підтвердьте паролем + кодом, щоб вимкнути 2FA',
+
     // Team tab
     tabTeam: 'Команда',
     addUser: 'Додати користувача',
@@ -1277,6 +1296,7 @@ export const uk = {
     modFinance: 'Фінанси',
     modService: 'Сервіс',
     modReports: 'Звіти',
+    modMail: 'Пошта',
     modSettings: 'Налаштування',
     confirmDeleteUser: 'Видалити користувача {name}?',
     userCreated: 'Користувача створено',

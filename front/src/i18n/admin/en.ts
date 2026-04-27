@@ -116,6 +116,10 @@ export const en: AdminTranslations = {
     error: 'Invalid email or password',
     networkError: 'Server unavailable. Please try again later.',
     footer: 'REIZ Car Rental · Admin Panel',
+    totpHint: 'Enter the 6-digit code from your authenticator app, or a recovery code.',
+    totpLabel: '2FA code',
+    totpSubmit: 'Verify',
+    totpBack: '← Different account',
   },
 
   /* ── Dashboard ── */
@@ -1236,6 +1240,20 @@ export const en: AdminTranslations = {
     emailLabel: 'Email',
     pagination: 'Page {page} of {pages}',
 
+    twofaTitle: 'Two-factor authentication',
+    twofaEnabledHint: '2FA is enabled. Recovery codes remaining: {count}.',
+    twofaDisabledHint: 'Boost your account security with an authenticator app.',
+    twofaEnable: 'Enable 2FA',
+    twofaDisable: 'Disable 2FA',
+    twofaScanHint: 'Scan the QR with Google Authenticator, 1Password, or Authy. Or enter the secret manually.',
+    twofaCodeLabel: '6-digit code',
+    twofaConfirm: 'Confirm',
+    twofaRecoveryTitle: 'Recovery codes',
+    twofaRecoveryHint: 'Save these codes somewhere safe. Each one can be used once. Without them and the app you will be locked out.',
+    twofaCopyCodes: 'Copy',
+    twofaDone: 'Done',
+    twofaDisableTitle: 'Confirm with password + code to disable 2FA',
+
     // Team tab
     tabTeam: 'Team',
     addUser: 'Add user',
@@ -1259,6 +1277,7 @@ export const en: AdminTranslations = {
     modFinance: 'Finance',
     modService: 'Service',
     modReports: 'Reports',
+    modMail: 'Mail',
     modSettings: 'Settings',
     confirmDeleteUser: 'Delete user {name}?',
     userCreated: 'User created',

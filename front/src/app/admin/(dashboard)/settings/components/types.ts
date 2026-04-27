@@ -61,6 +61,7 @@ export const PERMISSION_MODULES = [
   { key: 'finance', labelKey: 'settings.modFinance' },
   { key: 'service', labelKey: 'settings.modService' },
   { key: 'reports', labelKey: 'settings.modReports' },
+  { key: 'mail', labelKey: 'settings.modMail' },
   { key: 'settings', labelKey: 'settings.modSettings' },
 ] as const;
 

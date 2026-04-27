@@ -13,6 +13,18 @@ const passwordSchema = z
 export const loginSchema = z.object({
     nickname: z.string().min(1, 'Email is required').email('Invalid email format'),
     pass: z.string().min(1, 'Password is required'),
+    // Optional TOTP code or recovery code — required only when the user has
+    // 2FA enabled. Service throws TwoFactorRequiredError if missing in that case.
+    totpCode: z.string().min(6).max(20).optional(),
+});
+
+export const totpEnableSchema = z.object({
+    code: z.string().min(6).max(8),
+});
+
+export const totpDisableSchema = z.object({
+    pass: z.string().min(1),
+    code: z.string().min(6).max(20),
 });
 
 // ── User management ──

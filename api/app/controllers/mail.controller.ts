@@ -7,6 +7,7 @@ import {z} from 'zod';
 import mailService from '../services/mail.service';
 import {parseId, parseOptionalId, BadRequestError} from '../utils';
 import {validate} from '../validators';
+import {logAudit} from '../middleware';
 
 // ── Validators ─────────────────────────────────────────────────────────
 
@@ -133,7 +134,16 @@ class MailController {
 
     async delete(req: Request, res: Response) {
         const id = parseId(req.params.id);
+        const before = await mailService.getMessage(id).catch(() => null);
         const result = await mailService.deleteMessage(id);
+        await logAudit({
+            actorId: res.locals.user?.id,
+            entityType: 'mail_message',
+            entityId: id,
+            action: 'delete',
+            before: before ? {subject: before.subject, fromAddr: before.fromAddr, date: before.date} : null,
+            req,
+        });
         res.status(StatusCodes.OK).json(result);
     }
 
@@ -161,6 +171,23 @@ class MailController {
         const accountId = raw.accountId ? Number(raw.accountId) : undefined;
         try {
             const result = await mailService.send({...data, attachments}, accountId);
+            // Audit every outbound mail — recipient list, subject, attachment
+            // count and (if reply) the parent message id. Body intentionally
+            // not stored to keep audit log lean.
+            await logAudit({
+                actorId: res.locals.user?.id,
+                entityType: 'mail_message',
+                entityId: 0,
+                action: 'send',
+                after: {
+                    to: data.to.map((r) => r.address),
+                    cc: data.cc?.map((r) => r.address),
+                    subject: data.subject,
+                    inReplyToMessageId: data.inReplyToMessageId ?? null,
+                    attachments: attachments.length,
+                },
+                req,
+            });
             res.status(StatusCodes.OK).json(result);
         } finally {
             // Cleanup uploaded attachments after send
