@@ -57,6 +57,11 @@ jobs:
                       OUTREACH_DAILY_CAP=${{ vars.OUTREACH_DAILY_CAP || '5' }}
                       OUTREACH_PUBLIC_URL=${{ vars.OUTREACH_PUBLIC_URL || 'https://reiz.com.ua' }}
                       OUTREACH_SENDER_NAME=${{ vars.OUTREACH_SENDER_NAME || 'Марьян, основатель REIZ' }}
+                      MAIL_USER=${{ secrets.MAIL_USER }}
+                      MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}
+                      MAIL_DISPLAY_NAME=${{ vars.MAIL_DISPLAY_NAME || 'REIZ' }}
+                      MAIL_IMAP_HOST=${{ vars.MAIL_IMAP_HOST || 'imap.hostinger.com' }}
+                      MAIL_SMTP_HOST=${{ vars.MAIL_SMTP_HOST || 'smtp.hostinger.com' }}
                       EOF
                       chmod 600 .env
 
