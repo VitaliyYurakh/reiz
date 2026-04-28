@@ -183,11 +183,13 @@ export function OverviewTab({ rental }: { rental: Rental }) {
                     baseAmount: t('rentalDetail.priceBaseAmount'),
                     baseRentalCost: t('rentalDetail.priceRental'),
                     rentalTotal: t('rentalDetail.priceRental'),
+                    rentalTotalMinor: t('rentalDetail.priceRental'),
                     insuranceCost: t('rentalDetail.priceInsurance'),
                     addOnsTotal: t('rentalDetail.priceAddOns'),
                     extrasCost: t('rentalDetail.priceAddOns'),
                     deliveryFee: t('rentalDetail.priceDelivery'),
                     discount: t('rentalDetail.priceDiscount'),
+                    discountPercent: t('rentalDetail.priceDiscount'),
                     depositAmount: t('rentalDetail.priceDeposit'),
                     total: t('rentalDetail.totalLabel'),
                     totalCost: t('rentalDetail.totalLabel'),
@@ -201,15 +203,14 @@ export function OverviewTab({ rental }: { rental: Rental }) {
                 const SKIP_KEYS = new Set([
                     'approvedAt', 'pickupDate', 'returnDate', 'createdAt', 'updatedAt',
                     'carId', 'ratePlanId', 'coveragePackageId', 'currency', 'addOns',
-                    'depositPercent',
                 ]);
                 const MINOR_MONEY_KEYS = new Set([
-                    'grandTotal', 'rentalTotal', 'addOnsTotal', 'deliveryFee',
-                    'depositAmount', 'dailyRateMinor', 'baseRentalCost',
+                    'grandTotal', 'rentalTotal', 'rentalTotalMinor', 'addOnsTotal',
+                    'deliveryFee', 'depositAmount', 'dailyRateMinor', 'baseRentalCost',
                     'insuranceCost', 'extrasCost', 'total', 'totalCost', 'totalMinor',
                     'baseAmount',
                 ]);
-                const PERCENT_KEYS = new Set(['depositPercent']);
+                const PERCENT_KEYS = new Set(['depositPercent', 'discountPercent']);
                 const PLAIN_NUMBER_KEYS = new Set(['totalDays', 'dailyRate']);
                 const TOTAL_KEYS = new Set(['total', 'totalCost', 'grandTotal']);
 
@@ -227,7 +228,16 @@ export function OverviewTab({ rental }: { rental: Rental }) {
                     if (typeof val === 'string') return val;
                     if (typeof val === 'number') {
                         if (MINOR_MONEY_KEYS.has(key)) {
-                            return `${(val / 100).toLocaleString('uk-UA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${currency}`;
+                            // Same heuristic as `partner.service.ts#getReport`: keys that
+                            // explicitly end in "Minor" are always cents; bare keys like
+                            // `rentalTotal` may have been written as either MAJOR (older
+                            // snapshots & partner statements that store €45 directly) or
+                            // MINOR units (newer reservation flows that store 4500).
+                            // A value > 1000 is overwhelmingly likely to be cents in this
+                            // app's price range; anything below is treated as already-major.
+                            const isMinor = key.endsWith('Minor') || val > 1000;
+                            const display = isMinor ? val / 100 : val;
+                            return `${display.toLocaleString('uk-UA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${currency}`;
                         }
                         return `${val.toLocaleString('uk-UA')} ${currency}`;
                     }
