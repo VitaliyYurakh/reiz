@@ -193,10 +193,9 @@ export default function ClientsPage() {
             {/* Create */}
             <Link
               href="/admin/clients/new"
-              className="h-btn h-btn-primary h-btn-sm"
-              style={{ borderRadius: 49, textDecoration: 'none' }}
+              className="ios-btn ios-btn-primary"
             >
-              <Plus style={{ width: 16, height: 16 }} />
+              <Plus className="h-4 w-4" />
               {t('clients.create')}
             </Link>
           </div>

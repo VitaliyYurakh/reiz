@@ -91,29 +91,75 @@ body {
 }
 
 /*
- * Brand-button text-color rescue.
+ * Brand-button rescue from public-site element resets.
  *
- * The public site's `scss/general/_global.scss` defines `button { color: inherit }`
- * as part of its global reset. That bubbles up into the admin <body> and silently
- * stomps the `color: #FFFFFF` that's declared on classes like `.h-login-btn`,
- * `.ios-btn-primary`, etc. Result: brand-purple buttons render with the parent's
- * text color (navy/black) instead of white.
+ * Public site's `scss/general/_global.scss` defines:
+ *   button { color: inherit; background-color: transparent; padding: 0; ... }
+ *   a      { color: inherit; font-family: inherit; font-weight: inherit; ... }
  *
- * Inline `style={{ color: '#fff' }}` on buttons works (style attribute wins the
- * cascade), but CSS-class-only buttons need higher specificity than `button { … }`.
- * `button.<class>` is (0,1,1) vs the reset's (0,0,1) — wins without !important.
+ * Those rules bubble into the admin <body> via the shared cascade and silently
+ * stomp every visual property declared on `.ios-btn` / `.ios-btn-primary` /
+ * `.h-login-btn` etc. — the buttons end up with the parent's text color (navy
+ * or black instead of white) AND with whatever font-weight the surrounding
+ * paragraph happens to use. Because the button visually changed shape between
+ * pages depending on its parent context, the design looked inconsistent.
+ *
+ * Fix: re-declare the canonical visual contract with higher specificity than
+ * the public resets. `button.ios-btn` and `a.ios-btn` both reach (0,1,1),
+ * which beats `button { … }` and `a { … }` (both 0,0,1) without !important
+ * and works for both the BUTTON and LINK render targets used across the app.
  */
-button.h-login-btn,
+button.ios-btn,
+a.ios-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1;
+    height: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
 button.ios-btn-primary,
+a.ios-btn-primary,
 button.ios-btn-success,
-button.ios-btn-destructive {
-    color: #FFFFFF;
+a.ios-btn-success,
+button.ios-btn-destructive,
+a.ios-btn-destructive,
+button.h-btn-primary,
+a.h-btn-primary,
+button.h-btn-danger,
+a.h-btn-danger,
+button.h-btn,
+a.h-btn,
+button.h-login-btn,
+a.h-login-btn {
+    color: #FFFFFF !important;
 }
-button.ios-btn-secondary {
-    color: var(--c-brand-dark);
+button.ios-btn-secondary,
+a.ios-btn-secondary {
+    color: var(--c-brand-dark) !important;
 }
-button.ios-btn-ghost {
-    color: var(--c-brand);
+button.ios-btn-ghost,
+a.ios-btn-ghost {
+    color: var(--c-brand) !important;
+}
+
+/*
+ * Same rescue for the `.h-btn` legacy family (used on clients / locations /
+ * cars list pages). Force gradient + white text + canonical font/size so they
+ * match the .ios-btn family visually (one design language across the admin).
+ */
+button.h-btn,
+a.h-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 /* ═══════════════════════════════════════════════════════════

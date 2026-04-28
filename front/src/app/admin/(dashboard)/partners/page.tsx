@@ -71,7 +71,7 @@ export default function PartnersPage() {
               <span className="h-subtitle">Власники авто, які працюють з нами на комісії</span>
             </div>
           </div>
-          <Link href="/admin/partners/new" className="ios-btn ios-btn-primary text-sm">
+          <Link href="/admin/partners/new" className="ios-btn ios-btn-primary">
             <Plus className="h-4 w-4" /> Новий партнер
           </Link>
         </div>

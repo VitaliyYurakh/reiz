@@ -211,7 +211,6 @@ export default function RequestsPage() {
           <Link
             href="/admin/requests/new"
             className="ios-btn ios-btn-primary"
-            style={{ textDecoration: 'none' }}
           >
             <Plus className="h-4 w-4" />
             <span>{t('requests.create')}</span>

@@ -145,7 +145,7 @@ export default function RentalsPage() {
 
           <Link
             href="/admin/rentals/new"
-            className="ios-btn ios-btn-primary text-sm"
+            className="ios-btn ios-btn-primary"
           >
             <Plus className="h-4 w-4" />
             Нова оренда

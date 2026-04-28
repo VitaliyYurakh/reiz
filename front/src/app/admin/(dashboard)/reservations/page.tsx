@@ -137,7 +137,6 @@ export default function ReservationsPage() {
           <Link
             href="/admin/reservations/new"
             className="ios-btn ios-btn-primary"
-            style={{ textDecoration: 'none' }}
           >
             <Plus className="h-4 w-4" />
             <span>{t('reservations.create')}</span>
