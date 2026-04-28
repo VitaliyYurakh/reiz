@@ -50,6 +50,9 @@ router.get('/messages/:id', auth, requireView, mailController.getOne);
 router.get('/messages/:id/attachments/:aid', auth, requireView, mailController.getAttachment);
 router.patch('/messages/:id', auth, requireFull, mailController.patch);
 router.delete('/messages/:id', auth, requireFull, mailController.delete);
+// Bulk delete — single endpoint that opens one IMAP connection per (account,
+// folder) instead of one per message; required for selecting 30+ rows in the UI.
+router.post('/messages/delete-bulk', auth, requireFull, mailController.deleteBulk);
 
 router.post('/send', auth, requireFull, sendLimiter, mailAttachmentsUpload, mailController.send);
 

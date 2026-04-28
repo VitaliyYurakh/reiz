@@ -109,6 +109,14 @@ export const mailApi = {
     delete: (id: number) =>
         adminApi.delete<{ok: boolean}>(`/mail/messages/${id}`).then((r) => r.data),
 
+    deleteBulk: (ids: number[]) =>
+        adminApi
+            .post<{deletedDbCount: number; succeeded: number[]; failed: {id: number; error: string}[]}>(
+                '/mail/messages/delete-bulk',
+                {ids},
+            )
+            .then((r) => r.data),
+
     send: (input: {
         accountId?: number;
         to: MailAddr[];

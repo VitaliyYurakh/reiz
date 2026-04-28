@@ -632,39 +632,135 @@ class MailService {
     }
 
     async deleteMessage(messageId: number) {
-        const msg = await prisma.mailMessage.findUnique({where: {id: messageId}});
-        if (!msg) throw new NotFoundError('Message not found');
-        const account = await prisma.mailAccount.findUnique({where: {id: msg.accountId}});
-        const folder = await prisma.mailFolder.findUnique({where: {id: msg.folderId}});
-        if (!account || !folder) throw new NotFoundError('Mail context missing');
+        const result = await this.deleteMessages([messageId]);
+        if (result.failed.length > 0) {
+            throw new Error(result.failed[0].error);
+        }
+        return {ok: true};
+    }
 
-        const password = this.getPasswordFor(account);
-        const client = buildImapClient(account, password);
-        try {
-            await client.connect();
-            // Find a Trash folder to move into (if not already in trash)
-            const trash = await prisma.mailFolder.findFirst({
-                where: {accountId: account.id, specialUse: '\\Trash'},
-            });
-            const lock = await client.getMailboxLock(folder.path);
-            try {
-                if (trash && trash.id !== folder.id) {
-                    await client.messageMove({uid: String(msg.uid)}, trash.path, {uid: true});
-                } else {
-                    await client.messageDelete({uid: String(msg.uid)}, {uid: true});
-                }
-            } finally {
-                lock.release();
-            }
-        } catch (err: any) {
-            logger.warn(`[mail] delete failed for msg ${messageId}: ${err.message}`);
-            throw err;
-        } finally {
-            try { await client.logout(); } catch { /* ignore */ }
+    /**
+     * Bulk-delete (or move-to-Trash) one or many messages.
+     *
+     * Why bulk: deleting 30 messages one-by-one used to open 30 separate IMAP
+     * connections to the provider (Hostinger, Gmail, etc.). Most mail providers
+     * throttle concurrent connections and silently drop the later ones, leaving
+     * the messages undeleted. This implementation:
+     *
+     *   1. Loads all target messages once.
+     *   2. Groups them by (account, folder) — so each group needs ONE
+     *      connection and ONE mailbox lock.
+     *   3. Batches the IMAP `messageMove`/`messageDelete` per group with a
+     *      UID-list (no per-message round-trip).
+     *   4. Bulk-deletes the corresponding rows from Postgres in a single query.
+     *
+     * Returns per-id success/failure so the UI can surface partial errors
+     * instead of pretending everything worked.
+     */
+    async deleteMessages(messageIds: number[]): Promise<{
+        deletedDbCount: number;
+        succeeded: number[];
+        failed: {id: number; error: string}[];
+    }> {
+        if (messageIds.length === 0) return {deletedDbCount: 0, succeeded: [], failed: []};
+
+        const messages = await prisma.mailMessage.findMany({
+            where: {id: {in: messageIds}},
+            select: {id: true, uid: true, accountId: true, folderId: true},
+        });
+
+        const succeeded: number[] = [];
+        const failed: {id: number; error: string}[] = [];
+
+        // Group by accountId, then folderId.
+        const byAccount = new Map<number, Map<number, typeof messages>>();
+        for (const m of messages) {
+            if (!byAccount.has(m.accountId)) byAccount.set(m.accountId, new Map());
+            const byFolder = byAccount.get(m.accountId)!;
+            if (!byFolder.has(m.folderId)) byFolder.set(m.folderId, []);
+            byFolder.get(m.folderId)!.push(m);
         }
 
-        await prisma.mailMessage.delete({where: {id: messageId}});
-        return {ok: true};
+        for (const [accountId, folders] of byAccount) {
+            const account = await prisma.mailAccount.findUnique({where: {id: accountId}});
+            if (!account) {
+                for (const msgs of folders.values()) {
+                    for (const m of msgs) failed.push({id: m.id, error: 'Account missing'});
+                }
+                continue;
+            }
+
+            const trash = await prisma.mailFolder.findFirst({
+                where: {accountId, specialUse: '\\Trash'},
+            });
+
+            const password = this.getPasswordFor(account);
+            const client = buildImapClient(account, password);
+
+            let connected = false;
+            try {
+                await client.connect();
+                connected = true;
+
+                for (const [folderId, msgs] of folders) {
+                    const folder = await prisma.mailFolder.findUnique({where: {id: folderId}});
+                    if (!folder) {
+                        for (const m of msgs) failed.push({id: m.id, error: 'Folder missing'});
+                        continue;
+                    }
+
+                    const uidList = msgs.map((m) => m.uid).join(',');
+                    const lock = await client.getMailboxLock(folder.path);
+                    try {
+                        if (trash && trash.id !== folder.id) {
+                            // Move all UIDs in this folder to trash in one IMAP command.
+                            await client.messageMove({uid: uidList}, trash.path, {uid: true});
+                        } else {
+                            // Already in trash → permanent delete (one IMAP command).
+                            await client.messageDelete({uid: uidList}, {uid: true});
+                        }
+                        for (const m of msgs) succeeded.push(m.id);
+                    } catch (err: any) {
+                        logger.warn(`[mail] bulk delete failed for folder ${folder.path}: ${err.message}`);
+                        for (const m of msgs) failed.push({id: m.id, error: err.message ?? 'IMAP error'});
+                    } finally {
+                        lock.release();
+                    }
+                }
+            } catch (err: any) {
+                logger.warn(`[mail] bulk delete connection failed for account ${accountId}: ${err.message}`);
+                for (const msgs of folders.values()) {
+                    for (const m of msgs) {
+                        if (!succeeded.includes(m.id) && !failed.some((f) => f.id === m.id)) {
+                            failed.push({id: m.id, error: err.message ?? 'Connection failed'});
+                        }
+                    }
+                }
+            } finally {
+                if (connected) {
+                    try { await client.logout(); } catch { /* ignore */ }
+                }
+            }
+        }
+
+        // Drop the DB rows for everything that succeeded (one query).
+        let deletedDbCount = 0;
+        if (succeeded.length > 0) {
+            const res = await prisma.mailMessage.deleteMany({where: {id: {in: succeeded}}});
+            deletedDbCount = res.count;
+        }
+
+        // Any messages we were asked to delete but couldn't find on IMAP/DB
+        // are also reported back as not-failed (likely already gone).
+        const knownIds = new Set(messages.map((m) => m.id));
+        for (const id of messageIds) {
+            if (!knownIds.has(id)) {
+                // Already gone from DB — treat as success so caller can clear local state.
+                succeeded.push(id);
+            }
+        }
+
+        return {deletedDbCount, succeeded, failed};
     }
 
     // ── Compose / Send ───────────────────────────────────────────────────

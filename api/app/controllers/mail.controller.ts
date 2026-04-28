@@ -147,6 +147,28 @@ class MailController {
         res.status(StatusCodes.OK).json(result);
     }
 
+    async deleteBulk(req: Request, res: Response) {
+        const raw = req.body?.ids;
+        if (!Array.isArray(raw) || raw.length === 0) {
+            throw new BadRequestError('Body must include non-empty `ids` array');
+        }
+        const ids = raw.map((v) => Number(v)).filter((n) => Number.isInteger(n) && n > 0);
+        if (ids.length === 0) {
+            throw new BadRequestError('No valid message ids provided');
+        }
+        const result = await mailService.deleteMessages(ids);
+        await logAudit({
+            actorId: res.locals.user?.id,
+            entityType: 'mail_message',
+            entityId: ids[0],
+            action: 'delete_bulk',
+            after: {requested: ids.length, succeeded: result.succeeded.length, failed: result.failed.length},
+            req,
+        });
+        // 200 even if some failed — UI uses succeeded/failed lists to react.
+        res.status(StatusCodes.OK).json(result);
+    }
+
     async send(req: Request, res: Response) {
         // Body fields come as strings via multipart/form-data; parse JSON fields
         const raw = req.body ?? {};

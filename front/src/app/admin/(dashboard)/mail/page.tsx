@@ -354,13 +354,32 @@ export default function MailPage() {
         });
     };
     const handleBulkDelete = async () => {
+        if (checked.size === 0) return;
         if (!confirm(`Видалити ${checked.size}?`)) return;
-        for (const id of checked) {
-            await mailApi.delete(id).catch(() => undefined);
+        const ids = Array.from(checked);
+        try {
+            const res = await mailApi.deleteBulk(ids);
+            // Optimistically drop the rows that the server confirmed succeeded
+            // BEFORE re-fetching, so we don't race with the auto-poll re-creating
+            // them via syncFolder if Hostinger IMAP hasn't propagated the move yet.
+            const succeededSet = new Set(res.succeeded);
+            setMessages((arr) => arr.filter((m) => !succeededSet.has(m.id)));
+            setChecked(new Set());
+            if (selectedId != null && succeededSet.has(selectedId)) {
+                setSelectedId(null);
+                setSelectedMsg(null);
+            }
+            if (res.failed.length === 0) {
+                toast.success(`Видалено ${res.succeeded.length}`);
+            } else {
+                toast.error(
+                    `Видалено ${res.succeeded.length} з ${ids.length}. Помилок: ${res.failed.length}. Перша: ${res.failed[0].error}`,
+                );
+            }
+            if (account) await loadFolders(account.id);
+        } catch (e: any) {
+            toast.error(e?.response?.data?.msg ?? e.message ?? 'Не вдалось видалити');
         }
-        setChecked(new Set());
-        await loadMessages();
-        if (account) await loadFolders(account.id);
     };
     const handleBulkSeen = async () => {
         for (const id of checked) {
