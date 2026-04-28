@@ -277,6 +277,11 @@ class PartnerPaymentService {
     /**
      * Stats card: how much partner X paid us this year, how much is still
      * waiting (rentals not in any payment yet), and any underpayment delta.
+     *
+     * `pendingUahMinor` mirrors the report's UAH column — each pending rental
+     * is converted at the NBU EUR/UAH rate from its pickup day (same rule
+     * `partner.service.getReport()` uses), so the operator sees a number
+     * directly comparable to what they'll actually receive.
      */
     async getStats(partnerId: number) {
         const yearStart = new Date(new Date().getFullYear(), 0, 1);
@@ -293,7 +298,6 @@ class PartnerPaymentService {
         ]);
         const settledIds = new Set(settledLinks.map((l) => l.rentalId));
 
-        // Rentals that ARE eligible for commission but haven't been paid yet.
         const partner = await prisma.partner.findUnique({where: {id: partnerId}});
         if (!partner) {
             return {
@@ -302,6 +306,7 @@ class PartnerPaymentService {
                 expectedUahMinor: 0,
                 varianceUahMinor: 0,
                 pendingEurMinor: 0,
+                pendingUahMinor: 0,
                 pendingRentalsCount: 0,
             };
         }
@@ -315,10 +320,36 @@ class PartnerPaymentService {
             },
         });
         const pending = allRentals.filter((r) => !settledIds.has(r.id));
-        const pendingEurMinor = pending.reduce(
-            (s, r) => s + commissionEurMinorFor(r, tiers),
-            0,
+
+        // Sum pending in BOTH currencies — UAH per-rental at its pickup-day
+        // NBU rate. Cache rates per (currency, day) so a long pending list
+        // doesn't bombard the NBU API.
+        const rateCache = new Map<string, number>();
+        const ratesNeeded = pending.map((r) => {
+            const day = new Date(r.pickupDate);
+            day.setUTCHours(0, 0, 0, 0);
+            return day.toISOString().slice(0, 10);
+        });
+        const uniqueDays = Array.from(new Set(ratesNeeded));
+        await Promise.all(
+            uniqueDays.map(async (dayKey) => {
+                const fx = await fxRateService.getRate('EUR', dayKey);
+                if (fx) rateCache.set(dayKey, fx.rate);
+            }),
         );
+
+        let pendingEurMinor = 0;
+        let pendingUahMinor = 0;
+        for (const r of pending) {
+            const eur = commissionEurMinorFor(r, tiers);
+            pendingEurMinor += eur;
+            const day = new Date(r.pickupDate);
+            day.setUTCHours(0, 0, 0, 0);
+            const rate = rateCache.get(day.toISOString().slice(0, 10));
+            if (rate != null) {
+                pendingUahMinor += Math.round((eur / 100) * rate * 100);
+            }
+        }
 
         const received = paidAgg._sum.receivedUahMinor ?? 0;
         const expected = paidAgg._sum.expectedUahMinor ?? 0;
@@ -329,6 +360,7 @@ class PartnerPaymentService {
             // Negative = overall underpayment from rounding.
             varianceUahMinor: received - expected,
             pendingEurMinor,
+            pendingUahMinor,
             pendingRentalsCount: pending.length,
         };
     }

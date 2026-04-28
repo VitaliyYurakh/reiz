@@ -62,6 +62,7 @@ interface Stats {
   expectedUahMinor: number;
   varianceUahMinor: number;
   pendingEurMinor: number;
+  pendingUahMinor: number;
   pendingRentalsCount: number;
 }
 
@@ -132,42 +133,42 @@ export function PartnerPaymentSection({ partnerId, reportRows, period, onChange 
     <>
       {/* ── Stats card ── */}
       {stats && (
-        <div className="ios-card">
-          <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-              <Banknote className="h-3.5 w-3.5" />
-              Розрахунки з партнером
+        <div className="ios-card !p-4">
+          <div className="flex items-center justify-between mb-3 gap-2">
+            <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              <Banknote className="h-3 w-3" />
+              Розрахунки
             </div>
             <button
               type="button"
               onClick={() => setShowModal(true)}
               disabled={reportRows.length === 0}
-              className="ios-btn ios-btn-primary"
+              className="ios-btn ios-btn-primary text-xs !h-8 !px-3"
               title={reportRows.length === 0 ? 'Спочатку сформуйте звіт' : 'Зафіксувати оплату'}
             >
-              <Plus className="h-4 w-4" />
+              <Plus className="h-3.5 w-3.5" />
               Прийняти платіж
             </button>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            <StatCell label="Платежів цьогоріч" val={String(stats.paymentsCount)} color="var(--c-brand-light)" />
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+            <StatCell label="Платежів" val={String(stats.paymentsCount)} color="var(--c-brand-light)" isDark={isDark} />
             <StatCell
-              label="Прийнято за рік"
+              label="Прийнято"
               val={fmtMoney(stats.receivedUahMinor, 'UAH')}
               color="var(--c-success)"
               isDark={isDark}
             />
             <StatCell
               label="Очікується"
-              val={fmtMoney(stats.pendingEurMinor, 'EUR')}
-              sub={`${stats.pendingRentalsCount} оренд`}
+              val={fmtMoney(stats.pendingUahMinor, 'UAH')}
+              sub={stats.pendingRentalsCount > 0 ? `${stats.pendingRentalsCount} оренд` : undefined}
               color="var(--c-warning)"
               isDark={isDark}
             />
             <StatCell
               label={stats.varianceUahMinor < 0 ? 'Недоотримано' : stats.varianceUahMinor > 0 ? 'Переплата' : 'Розбіжність'}
-              val={fmtMoney(Math.abs(stats.varianceUahMinor), 'UAH')}
+              val={stats.varianceUahMinor === 0 ? '—' : fmtMoney(Math.abs(stats.varianceUahMinor), 'UAH')}
               color={stats.varianceUahMinor < 0 ? 'var(--c-error)' : stats.varianceUahMinor > 0 ? 'var(--c-success)' : '#90A4AE'}
               isDark={isDark}
             />
@@ -254,10 +255,10 @@ export function PartnerPaymentSection({ partnerId, reportRows, period, onChange 
 
 function StatCell({ label, val, sub, color, isDark }: { label: string; val: string; sub?: string; color: string; isDark?: boolean }) {
   return (
-    <div className="rounded-xl p-3" style={{ backgroundColor: isDark ? '#0F172A' : 'var(--c-surface-muted)' }}>
-      <p className="text-[10px] uppercase tracking-wider text-muted-foreground">{label}</p>
-      <p className="mt-1 text-base font-bold tabular-nums" style={{ color }}>{val}</p>
-      {sub && <p className="text-[11px] text-muted-foreground tabular-nums">{sub}</p>}
+    <div className="rounded-lg px-2.5 py-1.5" style={{ backgroundColor: isDark ? '#0F172A' : 'var(--c-surface-muted)' }}>
+      <p className="text-[9px] uppercase tracking-wide text-muted-foreground leading-tight">{label}</p>
+      <p className="mt-0.5 text-sm font-semibold tabular-nums leading-tight" style={{ color }}>{val}</p>
+      {sub && <p className="text-[10px] text-muted-foreground tabular-nums leading-tight">{sub}</p>}
     </div>
   );
 }
