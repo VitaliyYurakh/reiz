@@ -6,6 +6,7 @@ type CreateCarDto = {
     yearOfManufacture: number;
     color: string;
     segmentIds: number[];
+    partnerId?: number | null;
 };
 
 type Language = 'uk' | 'ru' | 'en';
@@ -72,6 +73,11 @@ type UpdateCarDto = {
     damageScratchesFee?: number | null;
     damageSmokingFee?: number | null;
     depositMultiplier?: number | null;
+    // Owner of the car when fleet is operated under commission with another
+    // business. `null` = REIZ-owned. Was missing before 2026-04-29 — Zod
+    // silently stripped the key so PATCH /car/:id appeared to succeed but
+    // never persisted the partner assignment.
+    partnerId?: number | null;
 };
 
 type TariffDto = {

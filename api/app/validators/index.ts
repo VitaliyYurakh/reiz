@@ -137,6 +137,7 @@ export const createCarSchema = z.object({
         yearOfManufacture: z.number().int().min(1900).max(2100).optional(),
         color: z.string().min(1).max(50).optional(),
         segmentIds: z.array(z.number().int().positive()).optional(),
+        partnerId: z.number().int().positive().nullable().optional(),
     }),
 });
 
@@ -207,6 +208,11 @@ export const updateCarSchema = z.object({
         damageScratchesFee: z.number().min(0).nullable().optional(),
         damageSmokingFee: z.number().min(0).nullable().optional(),
         depositMultiplier: z.number().min(0).nullable().optional(),
+        // Owner partner. `null` = REIZ-owned. Was missing — Zod silently
+        // dropped the key so the partner assignment never reached Prisma
+        // (reported 2026-04-29: change owner to "Leokar", save, re-open,
+        // owner reverted to "REIZ").
+        partnerId: z.number().int().positive().nullable().optional(),
     }),
 });
 

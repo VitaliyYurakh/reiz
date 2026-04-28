@@ -5,6 +5,7 @@ import { X } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import type { Car, Segment } from '@/types/cars';
 import { HModalOverlay, HModalField } from './ui-primitives';
+import { IosSelect } from '@/components/admin/IosSelect';
 import { adminApiClient } from '@/lib/api/admin';
 import { logError } from '@/lib/log';
 
@@ -24,6 +25,11 @@ interface SettingsModalProps {
 export function SettingsModal({ car, segments, onClose, onSubmit }: SettingsModalProps) {
   const { H } = useAdminTheme();
   const [partners, setPartners] = useState<PartnerOption[]>([]);
+  // Partner select is controlled (custom IosSelect) — sync to a hidden input
+  // so the parent's FormData-based onSubmit handler still picks up the value.
+  const [partnerId, setPartnerId] = useState<string>(
+    car.partnerId ? String(car.partnerId) : '',
+  );
 
   useEffect(() => {
     (async () => {
@@ -86,29 +92,24 @@ export function SettingsModal({ car, segments, onClose, onSubmit }: SettingsModa
             <label style={{ display: 'block', fontSize: 12, fontWeight: 500, color: H.gray, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>
               Партнер (власник авто)
             </label>
-            <select
-              name="partnerId"
-              defaultValue={car.partnerId ? String(car.partnerId) : ''}
-              style={{
-                width: '100%',
-                padding: '12px 16px',
-                borderRadius: 16,
-                background: H.bg,
-                border: 'none',
-                fontSize: 14,
-                fontFamily: H.font,
-                color: H.navy,
-                outline: 'none',
-                cursor: 'pointer',
-              }}
-            >
-              <option value="">— Reiz (власне авто) —</option>
-              {partners.map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.companyName || p.fullName}
-                </option>
-              ))}
-            </select>
+            {/* Hidden input mirrors the controlled IosSelect value so the
+                parent's FormData-driven onSubmit handler reads the right thing.
+                Without this, switching to IosSelect would silently drop the
+                field on save (same class of bug as the Zod validator that
+                previously stripped partnerId on the server). */}
+            <input type="hidden" name="partnerId" value={partnerId} />
+            <IosSelect
+              value={partnerId}
+              onChange={setPartnerId}
+              options={[
+                { value: '', label: '— Reiz (власне авто) —' },
+                ...partners.map((p) => ({
+                  value: String(p.id),
+                  label: p.companyName || p.fullName,
+                })),
+              ]}
+              placeholder="— Reiz (власне авто) —"
+            />
             <p style={{ fontSize: 11, color: H.gray, marginTop: 6 }}>
               Якщо авто належить партнеру — звіт по комісії автоматично потрапить у його статемент.
             </p>
