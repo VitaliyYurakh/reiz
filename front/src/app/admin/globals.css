@@ -15,6 +15,24 @@ body {
     background-color: transparent !important;
 }
 
+/*
+ * Sonner toast content rescue.
+ *
+ * Public-site `scss/general/_global.scss` has a global accordion rule
+ * `.panel, [data-content] { max-height: 0; overflow: hidden; }` that
+ * accidentally catches Sonner's `<div data-content>` wrapper around the
+ * toast title/description, hiding all toast text (only the icon and the
+ * background tint remain visible — see screenshot 2026-04-28).
+ *
+ * Sonner toasts render at <body> level under `[data-sonner-toaster]`, so
+ * they reach this stylesheet via the same global cascade. We undo the
+ * accordion side-effect *only* inside the toaster portal.
+ */
+[data-sonner-toaster] [data-content] {
+    max-height: none !important;
+    overflow: visible !important;
+}
+
 /* ═══════════════════════════════════════════════════════════
    iOS Settings Design System — Design Tokens
    ═══════════════════════════════════════════════════════════ */
