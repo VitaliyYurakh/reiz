@@ -21,7 +21,9 @@ import {
   X as XIcon,
   Trash2,
   Save,
+  CheckCircle2,
 } from 'lucide-react';
+import { PartnerPaymentSection } from './PartnerPaymentSection';
 
 interface Tier {
   minDays: number;
@@ -128,6 +130,11 @@ export default function PartnerDetailPage() {
   // Delete state — same trigger ("the manager realized they don't need this
   // partner after all"). Confirm before destruction.
   const [deleting, setDeleting] = useState(false);
+
+  // Set of rental IDs already covered by a PartnerPayment — used to render
+  // a "✓ оплачено" badge on each row of the report. Updated by the
+  // PartnerPaymentSection child via onChange.
+  const [settledRentalIds, setSettledRentalIds] = useState<Set<number>>(new Set());
 
   const loadPartner = useCallback(async () => {
     setLoading(true);
@@ -527,6 +534,12 @@ export default function PartnerDetailPage() {
                             ₴ —
                           </div>
                         )}
+                        {settledRentalIds.has(r.rentalId) && (
+                          <div className="mt-1 inline-flex items-center gap-1 text-[10px] font-medium" style={{ color: 'var(--c-success)' }} title="Включено в зафіксований платіж">
+                            <CheckCircle2 className="h-2.5 w-2.5" />
+                            оплачено
+                          </div>
+                        )}
                       </td>
                     </tr>
                   ))}
@@ -555,6 +568,15 @@ export default function PartnerDetailPage() {
               За цей період оренд для партнера не знайдено.
             </div>
           )}
+
+          {/* Partner monthly settlement section — appears after the report
+              card so the operator's eyes naturally flow Report → Pay. */}
+          <PartnerPaymentSection
+            partnerId={id}
+            reportRows={report?.rows ?? []}
+            period={{ from, to }}
+            onChange={setSettledRentalIds}
+          />
         </div>
 
         {/* Sidebar */}

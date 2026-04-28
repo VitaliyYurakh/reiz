@@ -70,6 +70,11 @@ export const createClientSchema = z.object({
 const TRANSACTION_TYPES = [
     'PAYMENT', 'DEPOSIT_RECEIVED', 'DEPOSIT_RETURNED', 'REFUND',
     'FINE_PAYMENT', 'SERVICE_COST', 'ADDON_PAYMENT', 'EXTENSION_PAYMENT',
+    'TRANSFER',
+    // Income from a partner settling the monthly commission. Tagged with
+    // `partnerId` so the revenue report can break out partner-driven income
+    // separately from rental income.
+    'PARTNER_COMMISSION',
 ] as const;
 
 const ACCOUNT_TYPES = ['CASH', 'BANK_ACCOUNT', 'BANK_CARD'] as const;
@@ -88,6 +93,32 @@ export const createTransactionSchema = z.object({
     rentalId: z.number().int().positive().optional(),
     reservationId: z.number().int().positive().optional(),
     fineId: z.number().int().positive().optional(),
+    partnerId: z.number().int().positive().optional(),
+});
+
+// ── Partner monthly settlements ─────────────────────────────────────
+const isoDateOnly = z.string().refine((s) => /^\d{4}-\d{2}-\d{2}/.test(s), 'YYYY-MM-DD expected');
+export const createPartnerPaymentSchema = z.object({
+    partnerId:   z.number().int().positive(),
+    accountId:   z.number().int().positive(),
+    periodFrom:  isoDateOnly,
+    periodTo:    isoDateOnly,
+    paidAt:      isoDateOnly,
+    // Operator can override either of the UAH amounts before saving (rounding
+    // / partial pay). EUR amount is recomputed on the server from the rentals
+    // chosen so the operator can't accidentally send a number that doesn't
+    // match the included rentals.
+    receivedUahMinor: z.number().int().positive('Сума має бути додатна'),
+    fxRate:           z.number().positive().optional(),  // override fx if needed
+    rentalIds:        z.array(z.number().int().positive()).min(1, 'Оберіть хоча б одну оренду'),
+    notes:            z.string().max(2000).optional(),
+});
+
+export const updatePartnerPaymentSchema = z.object({
+    paidAt:           isoDateOnly.optional(),
+    receivedUahMinor: z.number().int().positive().optional(),
+    notes:            z.string().max(2000).nullable().optional(),
+    status:           z.enum(['paid', 'partial', 'disputed', 'refunded']).optional(),
 });
 
 export const createAccountSchema = z.object({

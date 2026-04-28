@@ -52,6 +52,7 @@ import mailRouter from './mail.router';
 import accidentRouter from './accident.router';
 import inventoryRouter from './inventory.router';
 import documentTemplateRouter from './document-template.router';
+import partnerPaymentRouter from './partner-payment.router';
 
 router.use('/client', clientRouter);
 router.use('/rental-request', rentalRequestRouter);
@@ -76,5 +77,6 @@ router.use('/mail', mailRouter);
 router.use('/accident', accidentRouter);
 router.use('/inventory', inventoryRouter);
 router.use('/document-template', documentTemplateRouter);
+router.use('/partner-payment', partnerPaymentRouter);
 
 export {router};

@@ -49,10 +49,11 @@ model User {
   assignedLeads       Lead[]             @relation("AssignedLeads")
 
   // Inventory / Accidents (added 2026-04 for CRM parity with mfauto)
-  inventoryItems    InventoryItem[]    @relation("InventoryResponsible")
-  reportedAccidents Accident[]         @relation("AccidentReporter")
-  carSwaps          RentalCarSwap[]    @relation("RentalCarSwapAuthor")
-  documentTemplates DocumentTemplate[] @relation("DocumentTemplateAuthor")
+  inventoryItems          InventoryItem[]    @relation("InventoryResponsible")
+  reportedAccidents       Accident[]         @relation("AccidentReporter")
+  carSwaps                RentalCarSwap[]    @relation("RentalCarSwapAuthor")
+  documentTemplates       DocumentTemplate[] @relation("DocumentTemplateAuthor")
+  partnerPaymentsAuthored PartnerPayment[]   @relation("PartnerPaymentAuthor")
 }
 
 model Car {
@@ -568,11 +569,14 @@ model Rental {
   complaints       Complaint[]
 
   // Accidents that happened during this rental
-  accidents      Accident[]
+  accidents           Accident[]
   // History of mid-rental car swaps (latest record's `toCarId` matches `carId`)
-  carSwaps       RentalCarSwap[]
+  carSwaps            RentalCarSwap[]
   // Dynamic deposits (per-rental ad-hoc holds beyond the standard depositAmount)
-  rentalDeposits RentalDeposit[]
+  rentalDeposits      RentalDeposit[]
+  // Which monthly partner-payments cover this rental (one rental → many
+  // payment rows possible if a correction is issued).
+  partnerPaymentLinks PartnerPaymentRental[]
 
   @@index([status])
   @@index([carId, pickupDate, returnDate])
@@ -734,7 +738,8 @@ model Account {
 
   createdAt DateTime @default(now()) @map("created_at")
 
-  transactions Transaction[]
+  transactions   Transaction[]
+  PartnerPayment PartnerPayment[]
 
   @@map("account")
 }
@@ -754,6 +759,9 @@ model Transaction {
   reservationId   Int? @map("reservation_id")
   rentalId        Int? @map("rental_id")
   fineId          Int? @unique @map("fine_id")
+  // For income tagged as a partner commission settlement (type =
+  // PARTNER_COMMISSION). Allows revenue/partner reports to roll up by partner.
+  partnerId       Int? @map("partner_id")
   createdByUserId Int? @map("created_by_user_id")
 
   createdAt DateTime @default(now()) @map("created_at")
@@ -769,16 +777,20 @@ model Transaction {
   reservation Reservation? @relation(fields: [reservationId], references: [id])
   rental      Rental?      @relation(fields: [rentalId], references: [id])
   fine        Fine?        @relation(fields: [fineId], references: [id])
+  partner     Partner?     @relation("PartnerTransactions", fields: [partnerId], references: [id], onDelete: SetNull)
   createdBy   User?        @relation("CreatedTransactions", fields: [createdByUserId], references: [id])
 
   // Back-relations for RentalDeposit (paired txn for received / returned)
-  depositReceivedFor RentalDeposit? @relation("DepositReceivedTxn")
-  depositReturnedFor RentalDeposit? @relation("DepositReturnedTxn")
+  depositReceivedFor RentalDeposit?  @relation("DepositReceivedTxn")
+  depositReturnedFor RentalDeposit?  @relation("DepositReturnedTxn")
+  // Back-relation for PartnerPayment (the payment row this transaction settles)
+  partnerPaymentFor  PartnerPayment?
 
   @@index([accountId])
   @@index([clientId])
   @@index([rentalId])
   @@index([reservationId])
+  @@index([partnerId])
   @@index([createdAt])
   @@index([type])
   @@map("transaction")
@@ -1090,10 +1102,100 @@ model Partner {
   createdAt       DateTime @default(now()) @map("created_at")
   updatedAt       DateTime @updatedAt @map("updated_at")
 
-  cars Car[]
+  cars         Car[]
+  payments     PartnerPayment[]
+  // Inbound transactions tagged with this partner (commission settlements).
+  transactions Transaction[]    @relation("PartnerTransactions")
 
   @@index([isActive])
   @@map("partner")
+}
+
+// ============================================================
+// PARTNER MONTHLY SETTLEMENTS — added 2026-04-29
+// ============================================================
+//
+// Records the actual transfer the operator received from a partner at the
+// end of each month — closes the loop on the rentals listed in
+// partner.service.getReport(). Stores both the calculated commission
+// (`amountEurMinor` / `expectedUahMinor`) and the amount that actually hit
+// the bank account (`receivedUahMinor`) — partners often round, so a
+// small variance is normal and tracked, not silently overwritten.
+//
+// Each row is paired with a single Transaction (income, type =
+// PARTNER_COMMISSION) on the manager's chosen account, and links to every
+// Rental that's covered by this payment via the join table
+// `partner_payment_rental` so the partner statement can render a
+// "✓ оплачено DD.MM" badge per rental.
+
+model PartnerPayment {
+  id Int @id @default(autoincrement())
+
+  partnerId  Int      @map("partner_id")
+  // Reporting period covered by this payment (operator picks "April 2026" etc).
+  periodFrom DateTime @map("period_from") @db.Date
+  periodTo   DateTime @map("period_to") @db.Date
+
+  // Calculated commission for the period (sum of `commissionAmount` over
+  // the rentals in this period, in EUR cents).
+  amountEurMinor   Int   @map("amount_eur_minor")
+  // What that EUR sum was worth in UAH at the time the operator generated
+  // the statement (NBU rate, weighted by rental). Stored for audit so we can
+  // show "очікувалося ₴X" alongside actual receipt.
+  expectedUahMinor Int   @map("expected_uah_minor")
+  // What actually landed on the bank account in UAH cents. Operator can
+  // override before saving (rounding, partial pay, etc).
+  receivedUahMinor Int   @map("received_uah_minor")
+  // FX rate used to compute expectedUahMinor (UAH per 1 EUR). Captured for
+  // historical audit — recomputing later won't drift.
+  fxRate           Float @map("fx_rate")
+
+  // Operator chooses which account the funds landed on (typically Monobank
+  // UAH). Account currency is informational only — the amount on the
+  // transaction is always UAH for partner payments.
+  accountId     Int  @map("account_id")
+  // The Transaction this payment created. One PartnerPayment ⟷ one Transaction.
+  // Nullable to allow the row to be inserted first, then back-linked.
+  transactionId Int? @unique @map("transaction_id")
+
+  paidAt      DateTime @map("paid_at")
+  status      String   @default("paid") // paid | partial | disputed | refunded
+  notes       String?
+  createdById Int?     @map("created_by_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  partner     Partner                @relation(fields: [partnerId], references: [id], onDelete: Restrict)
+  account     Account                @relation(fields: [accountId], references: [id])
+  transaction Transaction?           @relation(fields: [transactionId], references: [id], onDelete: SetNull)
+  createdBy   User?                  @relation("PartnerPaymentAuthor", fields: [createdById], references: [id], onDelete: SetNull)
+  rentals     PartnerPaymentRental[]
+
+  @@index([partnerId, periodFrom])
+  @@index([paidAt])
+  @@map("partner_payment")
+}
+
+// Join table — which rentals are settled by which payment. A rental can
+// theoretically appear in multiple payments (corrections / reissues), so
+// no unique constraint on (rentalId).
+model PartnerPaymentRental {
+  id               Int @id @default(autoincrement())
+  partnerPaymentId Int @map("partner_payment_id")
+  rentalId         Int @map("rental_id")
+
+  // Snapshot of the per-rental commission at the moment the payment was
+  // settled — protects against later edits to the rental's priceSnapshot
+  // shifting the historical attribution.
+  commissionEurMinor Int @map("commission_eur_minor")
+
+  payment PartnerPayment @relation(fields: [partnerPaymentId], references: [id], onDelete: Cascade)
+  rental  Rental         @relation(fields: [rentalId], references: [id], onDelete: Restrict)
+
+  @@unique([partnerPaymentId, rentalId])
+  @@index([rentalId])
+  @@map("partner_payment_rental")
 }
 
 // ============================================================
