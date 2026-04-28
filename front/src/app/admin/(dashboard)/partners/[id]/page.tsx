@@ -469,24 +469,14 @@ export default function PartnerDetailPage() {
             {report && (
               <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
                 {[
-                  { label: 'Оренд', val: String(report.summary.rentalsCount), sub: null as string | null, color: 'var(--c-brand-light)' },
-                  { label: 'Базова сума', val: `${symbol} ${report.summary.totalBase.toFixed(2)}`, sub: null, color: '#90A4AE' },
-                  { label: 'Після знижок', val: `${symbol} ${report.summary.totalAfterDiscount.toFixed(2)}`, sub: null, color: '#90A4AE' },
-                  {
-                    label: 'Комісія Reiz',
-                    val: `${symbol} ${report.summary.totalCommission.toFixed(2)}`,
-                    sub: report.summary.totalCommissionUah != null
-                      ? `₴ ${report.summary.totalCommissionUah.toFixed(2)}`
-                      : null,
-                    color: 'var(--c-success)',
-                  },
-                ].map(({ label, val, sub, color }) => (
+                  { label: 'Оренд', val: String(report.summary.rentalsCount), color: 'var(--c-brand-light)' },
+                  { label: 'Базова сума', val: `${symbol} ${report.summary.totalBase.toFixed(2)}`, color: '#90A4AE' },
+                  { label: 'Після знижок', val: `${symbol} ${report.summary.totalAfterDiscount.toFixed(2)}`, color: '#90A4AE' },
+                  { label: 'Комісія Reiz', val: `${symbol} ${report.summary.totalCommission.toFixed(2)}`, color: 'var(--c-success)' },
+                ].map(({ label, val, color }) => (
                   <div key={label} className="rounded-xl p-3" style={{ backgroundColor: isDark ? '#0F172A' : 'var(--c-surface-muted)' }}>
                     <p className="text-[10px] uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{label}</p>
                     <p className="mt-1 text-base font-bold tabular-nums" style={{ color }}>{val}</p>
-                    {sub && (
-                      <p className="text-[11px] font-medium tabular-nums text-muted-foreground">{sub}</p>
-                    )}
                   </div>
                 ))}
               </div>
@@ -553,9 +543,10 @@ export default function PartnerDetailPage() {
                   </tr>
                 </tbody>
               </table>
-              <p className="px-3 pt-2 pb-1 text-[10px] text-muted-foreground italic">
-                Гривневий еквівалент комісії зафіксовано за курсом НБУ на день видачі кожної оренди.
-              </p>
+              <div className="flex items-center gap-1.5 px-3 py-2 text-[10px] text-muted-foreground border-t border-border/30">
+                <span aria-hidden="true">ⓘ</span>
+                <span>Курс НБУ на день видачі</span>
+              </div>
             </div>
           )}
 
