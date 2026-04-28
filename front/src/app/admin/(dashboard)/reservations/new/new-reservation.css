@@ -663,6 +663,10 @@
   cursor: pointer;
   transition: all 160ms;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .nr-segmented button:hover {
   color: var(--dh-text);
