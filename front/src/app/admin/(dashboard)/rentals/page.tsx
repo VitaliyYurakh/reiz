@@ -39,13 +39,13 @@ interface Rental {
 
 function getStatusStyles(isDark: boolean): Record<string, { bg: string; text: string; dot: string }> {
   return isDark ? {
-    active: { bg: 'rgba(76,175,80,0.15)', text: '#81C784', dot: '#4CAF50' },
-    completed: { bg: 'rgba(154, 165, 255, 0.15)', text: '#9aa5ff', dot: '#9aa5ff' },
+    active: { bg: 'rgba(76,175,80,0.15)', text: 'var(--c-success-light)', dot: 'var(--c-success)' },
+    completed: { bg: 'rgba(154, 165, 255, 0.15)', text: 'var(--c-brand-light)', dot: 'var(--c-brand-light)' },
     cancelled: { bg: 'rgba(144,164,174,0.15)', text: '#90A4AE', dot: '#78909C' },
   } : {
-    active: { bg: '#E8F5E9', text: '#2E7D32', dot: '#4CAF50' },
-    completed: { bg: '#E3F2FD', text: '#1565C0', dot: '#9aa5ff' },
-    cancelled: { bg: '#ECEFF1', text: '#546E7A', dot: '#90A4AE' },
+    active: { bg: 'var(--c-success-bg)', text: 'var(--c-success)', dot: 'var(--c-success)' },
+    completed: { bg: 'var(--c-info-bg)', text: '#1565C0', dot: 'var(--c-brand-light)' },
+    cancelled: { bg: 'var(--c-surface-border)', text: '#546E7A', dot: '#90A4AE' },
   };
 }
 
@@ -120,7 +120,7 @@ export default function RentalsPage() {
       {/* -- Page header -- */}
       <div
         className="mb-6 rounded-[20px] px-7 py-5"
-        style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
+        style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}
       >
         <div className="flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-3.5">
@@ -133,7 +133,7 @@ export default function RentalsPage() {
                 {activeCount > 0 && (
                   <span
                     className="inline-flex h-6 items-center gap-1 rounded-full px-2.5 text-[11px] font-bold text-white"
-                    style={{ backgroundColor: '#4CAF50' }}
+                    style={{ backgroundColor: 'var(--c-success)' }}
                   >
                     {activeCount} {t('rentals.activeBadge')}
                   </span>
@@ -180,14 +180,14 @@ export default function RentalsPage() {
               onKeyDown={(e) => {
                 if (e.key === 'Enter') { setSearch(searchInput); setPage(1); }
               }}
-              className="h-9 w-[220px] rounded-lg text-[13px] transition-all focus:outline-none focus:ring-2 focus:ring-[#66BB6A]/20"
-              style={{ paddingLeft: 34, paddingRight: 12, backgroundColor: isDark ? '#1E293B' : '#F7F9FB', border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1', color: isDark ? '#E2E8F0' : '#263238' }}
+              className="h-9 w-[220px] rounded-lg text-[13px] transition-all focus:outline-none focus:ring-2 focus:ring-[var(--c-success-light)]/20"
+              style={{ paddingLeft: 34, paddingRight: 12, backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)', border: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)', color: isDark ? '#E2E8F0' : '#263238' }}
             />
           </div>
 
           <div
             className="flex h-9 items-center rounded-lg px-3"
-            style={{ backgroundColor: isDark ? '#1E293B' : '#F7F9FB', border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}
+            style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)', border: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}
           >
             <span className="text-[12px] font-medium" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('common.total')}</span>
             <span className="ml-1.5 text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{total}</span>
@@ -203,20 +203,20 @@ export default function RentalsPage() {
               <div
                 key={i}
                 className="flex items-center gap-4 px-6 py-4"
-                style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid #F0F4F8' }}
+                style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-muted)' }}
               >
-                <div className="h-10 w-10 animate-pulse rounded-xl" style={{ backgroundColor: isDark ? '#1E293B' : '#F0F4F8' }} />
+                <div className="h-10 w-10 animate-pulse rounded-xl" style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)' }} />
                 <div className="flex-1 space-y-2">
-                  <div className="h-3.5 w-48 animate-pulse rounded" style={{ backgroundColor: isDark ? '#1E293B' : '#F0F4F8' }} />
-                  <div className="h-3 w-32 animate-pulse rounded" style={{ backgroundColor: isDark ? '#1E293B' : '#F0F4F8' }} />
+                  <div className="h-3.5 w-48 animate-pulse rounded" style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)' }} />
+                  <div className="h-3 w-32 animate-pulse rounded" style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)' }} />
                 </div>
-                <div className="h-6 w-20 animate-pulse rounded-full" style={{ backgroundColor: isDark ? '#1E293B' : '#F0F4F8' }} />
+                <div className="h-6 w-20 animate-pulse rounded-full" style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)' }} />
               </div>
             ))}
           </div>
         ) : items.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: isDark ? '#1E293B' : '#F0F4F8' }}>
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)' }}>
               <Inbox className="h-8 w-8" style={{ color: isDark ? '#4A5568' : '#B0BEC5' }} />
             </div>
             <p className="mt-4 text-[15px] font-semibold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('rentals.emptyTitle')}</p>
@@ -228,16 +228,16 @@ export default function RentalsPage() {
           <div>
             <table className="w-full">
               <thead>
-                <tr style={{ backgroundColor: isDark ? '#111827' : '#FAFBFC' }}>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 44, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}>{t('rentals.thId')}</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 100, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}>{t('rentals.thStatus')}</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 110, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}>{t('rentals.thContract')}</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}>{t('rentals.thClient')}</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}>{t('rentals.thPhone')}</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}>{t('rentals.thCar')}</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 140, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}>{t('rentals.thPeriod')}</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 90, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}>{t('rentals.thActualReturn')}</th>
-                  <th className="px-4 py-2 text-right text-[11px] font-semibold uppercase tracking-wider" style={{ width: 90, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}>{t('rentals.thCreated')}</th>
+                <tr style={{ backgroundColor: isDark ? '#111827' : 'var(--c-surface-muted)' }}>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 44, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}>{t('rentals.thId')}</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 100, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}>{t('rentals.thStatus')}</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 110, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}>{t('rentals.thContract')}</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}>{t('rentals.thClient')}</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}>{t('rentals.thPhone')}</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}>{t('rentals.thCar')}</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 140, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}>{t('rentals.thPeriod')}</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 90, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}>{t('rentals.thActualReturn')}</th>
+                  <th className="px-4 py-2 text-right text-[11px] font-semibold uppercase tracking-wider" style={{ width: 90, color: isDark ? '#718096' : '#90A4AE', borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}>{t('rentals.thCreated')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -248,7 +248,7 @@ export default function RentalsPage() {
                   const phone = r.client?.phone || '—';
                   const carName = r.car ? `${r.car.brand} ${r.car.model}` : '—';
                   const plate = r.car?.plateNumber || '';
-                  const fallback = isDark ? { bg: 'rgba(144,164,174,0.15)', text: '#90A4AE', dot: '#78909C' } : { bg: '#ECEFF1', text: '#546E7A', dot: '#90A4AE' };
+                  const fallback = isDark ? { bg: 'rgba(144,164,174,0.15)', text: '#90A4AE', dot: '#78909C' } : { bg: 'var(--c-surface-border)', text: '#546E7A', dot: '#90A4AE' };
                   const stStyle = STATUS_STYLES[r.status] || fallback;
                   const stLabel = STATUS_LABEL_MAP[r.status] || r.status;
                   const isActive = r.status === 'active';
@@ -259,15 +259,15 @@ export default function RentalsPage() {
                       onClick={() => router.push(`/admin/rentals/${r.id}`)}
                       className={cn(
                         'cursor-pointer transition-colors',
-                        isActive && (isDark ? 'bg-[#1A3A2A]/30' : 'bg-[#E8F5E9]/30'),
+                        isActive && (isDark ? 'bg-[#1A3A2A]/30' : 'bg-[var(--c-success-bg)]/30'),
                       )}
                       style={{
-                        borderBottom: isDark ? '1px solid #2D3748' : '1px solid #F0F4F8',
+                        borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-muted)',
                       }}
                       onMouseEnter={(e) => {
                         (e.currentTarget as HTMLElement).style.backgroundColor = isActive
                           ? (isDark ? 'rgba(26,58,42,0.5)' : 'rgba(232,245,233,0.5)')
-                          : (isDark ? '#1E293B' : '#F7F9FB');
+                          : (isDark ? '#1E293B' : 'var(--c-surface-muted)');
                       }}
                       onMouseLeave={(e) => {
                         (e.currentTarget as HTMLElement).style.backgroundColor = isActive
@@ -286,7 +286,7 @@ export default function RentalsPage() {
                         </span>
                       </td>
                       <td className="px-4 py-2.5 whitespace-nowrap">
-                        <span className="inline-flex rounded-md px-1.5 py-0.5 text-[11px] font-mono font-medium" style={{ backgroundColor: isDark ? '#1E293B' : '#F0F4F8', color: isDark ? '#90A4AE' : '#607D8B' }}>
+                        <span className="inline-flex rounded-md px-1.5 py-0.5 text-[11px] font-mono font-medium" style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)', color: isDark ? '#90A4AE' : '#607D8B' }}>
                           {r.contractNumber || '—'}
                         </span>
                       </td>

@@ -260,7 +260,7 @@ export function RatePlansSection({
               <HLabel>Авто</HLabel>
               <IosSelect
                 className="w-full text-sm"
-                triggerClassName={`h-[42px] rounded-[16px] border-none text-[13px] font-medium ${isDark ? 'bg-[#111827]' : 'bg-[#F4F7FE]'}`}
+                triggerClassName={`h-[42px] rounded-[16px] border-none text-[13px] font-medium ${isDark ? 'bg-[#111827]' : 'bg-[var(--c-surface-bg)]'}`}
                 value={createForm.carId ? String(createForm.carId) : ''}
                 onChange={(v) =>
                   setCreateForm({ ...createForm, carId: v ? Number(v) : '' })

@@ -467,7 +467,7 @@ export function PricingTab({
               style={{
                 borderRadius: 49, padding: '10px 22px', fontSize: 13, fontWeight: 700,
                 border: 'none', cursor: 'pointer', transition: 'all 0.15s',
-                background: rentalConditions.petAllowed ? '#16a34a' : H.bg,
+                background: rentalConditions.petAllowed ? 'var(--c-success)' : H.bg,
                 color: rentalConditions.petAllowed ? H.white : H.gray,
               }}
             >
@@ -714,9 +714,9 @@ export function PricingTab({
                       cursor: 'pointer',
                       transition: 'all 0.15s',
                       background: isActive
-                        ? 'linear-gradient(135deg, #FFB547 0%, #FF9100 100%)'
+                        ? 'linear-gradient(135deg, var(--c-warning) 0%, var(--c-warning) 100%)'
                         : H.bg,
-                      color: isActive ? H.white : '#FF9100',
+                      color: isActive ? H.white : 'var(--c-warning)',
                       boxShadow: isActive ? '0 4px 12px rgba(255, 145, 0, 0.25)' : 'none',
                     }}
                   >

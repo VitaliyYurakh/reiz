@@ -143,7 +143,7 @@ export default function LeadDetailPage() {
 
   if (loading) {
     return (
-      <div className="rounded-[20px] p-12 text-center" style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}>
+      <div className="rounded-[20px] p-12 text-center" style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}>
         <div className="h-8 w-8 animate-spin rounded-full border-4 border-muted border-t-primary mx-auto" />
       </div>
     );
@@ -151,7 +151,7 @@ export default function LeadDetailPage() {
 
   if (!lead) {
     return (
-      <div className="rounded-[20px] p-12 text-center" style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}>
+      <div className="rounded-[20px] p-12 text-center" style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}>
         <p className="text-[14px]" style={{ color: isDark ? '#90A4AE' : '#607D8B' }}>
           Лид не найден.
         </p>
@@ -165,7 +165,7 @@ export default function LeadDetailPage() {
       {/* Header */}
       <div
         className="mb-6 rounded-[20px] px-7 py-5"
-        style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
+        style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}
       >
         <Link href="/admin/leads" className="flex items-center gap-2 text-[13px] mb-3 hover:underline" style={{ color: isDark ? '#90A4AE' : '#607D8B' }}>
           <ArrowLeft className="h-4 w-4" /> К списку
@@ -184,7 +184,7 @@ export default function LeadDetailPage() {
                 </span>
                 <StatusPill status={lead.status} />
                 {lead.repliedAt && (
-                  <span style={{ color: '#10B981', fontWeight: 600 }}>
+                  <span style={{ color: 'var(--c-success)', fontWeight: 600 }}>
                     ответил {new Date(lead.repliedAt).toLocaleDateString()}
                   </span>
                 )}
@@ -228,7 +228,7 @@ export default function LeadDetailPage() {
               type="button"
               onClick={() => updateStatus('DISQUALIFIED')}
               className="ios-btn text-sm"
-              style={{ background: '#EF4444', color: '#fff' }}
+              style={{ background: 'var(--c-error)', color: '#fff' }}
             >
               <XCircle className="h-4 w-4" /> Disq.
             </button>
@@ -261,8 +261,8 @@ export default function LeadDetailPage() {
               placeholder="Контекст, что обсудили, кто кого рекомендовал…"
               className="w-full rounded-lg px-3 py-2 text-[13px]"
               style={{
-                backgroundColor: isDark ? '#1E293B' : '#F7F9FB',
-                border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1',
+                backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)',
+                border: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)',
                 color: isDark ? '#E2E8F0' : '#263238',
               }}
             />
@@ -316,7 +316,7 @@ export default function LeadDetailPage() {
                   onClick={sendNow}
                   disabled={previewing}
                   className="ios-btn text-sm disabled:opacity-50 ml-auto"
-                  style={{ background: '#10B981', color: '#fff' }}
+                  style={{ background: 'var(--c-success)', color: '#fff' }}
                   title="Отправить НАСТОЯЩЕЕ письмо прямо сейчас (минуя daily cap)"
                 >
                   <Send className="h-4 w-4" /> Отправить сейчас
@@ -336,8 +336,8 @@ export default function LeadDetailPage() {
                 </div>
                 {preview.failureReason && (
                   <div className="text-[11px] mb-2 px-2 py-1 rounded" style={{
-                    background: isDark ? 'rgba(239,68,68,0.15)' : '#FEE2E2',
-                    color: isDark ? '#FCA5A5' : '#991B1B',
+                    background: isDark ? 'rgba(239,68,68,0.15)' : 'var(--c-error-bg)',
+                    color: isDark ? 'var(--c-error-light)' : '#991B1B',
                   }}>
                     ⚠️ AI fail: {preview.failureReason.slice(0, 140)}
                     {preview.failureReason.includes('429') && (
@@ -388,7 +388,7 @@ function Card({ children, title, isDark, H }: { children: React.ReactNode; title
   return (
     <div
       className="rounded-[20px] p-5"
-      style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
+      style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}
     >
       <h2 className="text-[14px] font-bold mb-3" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
         {title}
@@ -417,17 +417,17 @@ function ContactRow({ icon, value, type }: { icon: React.ReactNode; value: strin
 function StatusPill({ status }: { status: string }) {
   const map: Record<string, { bg: string; fg: string; label: string }> = {
     NEW:           { bg: '#94A3B8', fg: '#fff',    label: 'Новый' },
-    ENRICHED:      { bg: '#9aa5ff', fg: '#fff',    label: 'Enriched' },
-    READY:         { bg: '#6a7bff', fg: '#063545', label: 'Готов к рассылке' },
-    CONTACTED:     { bg: '#9aa5ff', fg: '#fff',    label: 'Письмо отправлено' },
-    FOLLOWED_UP_1: { bg: '#6a7bff', fg: '#fff',    label: 'Follow-up 3д' },
-    FOLLOWED_UP_2: { bg: '#6a7bff', fg: '#fff',    label: 'Follow-up 7д' },
-    BREAKUP_SENT:  { bg: '#6a7bff', fg: '#fff',    label: 'Break-up' },
+    ENRICHED:      { bg: 'var(--c-brand-light)', fg: '#fff',    label: 'Enriched' },
+    READY:         { bg: 'var(--c-brand)', fg: '#063545', label: 'Готов к рассылке' },
+    CONTACTED:     { bg: 'var(--c-brand-light)', fg: '#fff',    label: 'Письмо отправлено' },
+    FOLLOWED_UP_1: { bg: 'var(--c-brand)', fg: '#fff',    label: 'Follow-up 3д' },
+    FOLLOWED_UP_2: { bg: 'var(--c-brand)', fg: '#fff',    label: 'Follow-up 7д' },
+    BREAKUP_SENT:  { bg: 'var(--c-brand)', fg: '#fff',    label: 'Break-up' },
     REPLIED:       { bg: '#FBBF24', fg: '#3F2A06', label: 'Ответил' },
-    INTERESTED:    { bg: '#F59E0B', fg: '#fff',    label: 'Интерес' },
-    CLIENT:        { bg: '#10B981', fg: '#fff',    label: 'Клиент' },
+    INTERESTED:    { bg: 'var(--c-warning)', fg: '#fff',    label: 'Интерес' },
+    CLIENT:        { bg: 'var(--c-success)', fg: '#fff',    label: 'Клиент' },
     DISQUALIFIED:  { bg: '#64748B', fg: '#fff',    label: 'Disqualified' },
-    BOUNCED:       { bg: '#EF4444', fg: '#fff',    label: 'Bounced' },
+    BOUNCED:       { bg: 'var(--c-error)', fg: '#fff',    label: 'Bounced' },
     UNSUBSCRIBED:  { bg: '#9CA3AF', fg: '#fff',    label: 'Отписался' },
     PAUSED:        { bg: '#475569', fg: '#fff',    label: 'Пауза' },
   };
@@ -449,8 +449,8 @@ function EmailItem({ email, isDark }: { email: LeadEmail; isDark: boolean }) {
     <div
       className="rounded-xl p-4"
       style={{
-        background: isOut ? (isDark ? '#1E293B' : '#F0F7FF') : (isDark ? '#1A2332' : '#F7FFF0'),
-        border: isDark ? '1px solid #2D3748' : `1px solid ${isOut ? '#BAE6FD' : '#BBF7D0'}`,
+        background: isOut ? (isDark ? '#1E293B' : '#F0F7FF') : (isDark ? '#1A2332' : 'var(--c-success-bg)'),
+        border: isDark ? '1px solid #2D3748' : `1px solid ${isOut ? '#BAE6FD' : 'var(--c-success-bg)'}`,
       }}
     >
       <div className="flex items-center justify-between mb-2 text-[11px]" style={{ color: isDark ? '#90A4AE' : '#607D8B' }}>

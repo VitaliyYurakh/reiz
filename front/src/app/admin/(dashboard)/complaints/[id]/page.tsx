@@ -132,11 +132,11 @@ export default function ComplaintDetailPage() {
       {/* Header */}
       <div
         className="mb-6 rounded-[20px] px-7 py-5"
-        style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
+        style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}
       >
         <div className="flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-3.5 min-w-0">
-            <Link href="/admin/complaints" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: isDark ? '#1E293B' : '#F7F9FB' }}>
+            <Link href="/admin/complaints" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)' }}>
               <ArrowLeft className="h-4 w-4" />
             </Link>
             <div className="h-icon-box h-icon-box-red">
@@ -197,10 +197,10 @@ export default function ComplaintDetailPage() {
               style={{
                 borderLeft: `3px solid ${
                   msg.authorType === 'staff'
-                    ? '#6a7bff'
+                    ? 'var(--c-brand)'
                     : msg.authorType === 'system'
                       ? '#90A4AE'
-                      : '#FFB547'
+                      : 'var(--c-warning)'
                 }`,
               }}
             >
@@ -209,7 +209,7 @@ export default function ComplaintDetailPage() {
                   <div
                     className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[10px] font-semibold text-white"
                     style={{
-                      background: msg.authorType === 'staff' ? '#6a7bff' : '#FFB547',
+                      background: msg.authorType === 'staff' ? 'var(--c-brand)' : 'var(--c-warning)',
                     }}
                   >
                     {msg.authorType === 'staff' ? 'S' : 'C'}

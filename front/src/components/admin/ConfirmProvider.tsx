@@ -91,7 +91,7 @@ export function ConfirmProvider({ children }: { children: ReactNode }) {
                     <div
                         style={{
                             background: 'var(--color-card, #fff)',
-                            color: 'var(--color-foreground, #2B3674)',
+                            color: 'var(--color-foreground, var(--c-text))',
                             borderRadius: 16,
                             padding: 28,
                             width: 'min(420px, calc(100vw - 32px))',
@@ -135,8 +135,8 @@ export function ConfirmProvider({ children }: { children: ReactNode }) {
                                     fontSize: 13,
                                     fontWeight: 700,
                                     border: 'none',
-                                    background: 'var(--color-secondary, #F0F4F8)',
-                                    color: 'var(--color-foreground, #2B3674)',
+                                    background: 'var(--color-secondary, var(--c-surface-muted))',
+                                    color: 'var(--color-foreground, var(--c-text))',
                                     cursor: 'pointer',
                                 }}
                             >
@@ -153,8 +153,8 @@ export function ConfirmProvider({ children }: { children: ReactNode }) {
                                     fontWeight: 700,
                                     border: 'none',
                                     background: state.options.danger
-                                        ? 'linear-gradient(135deg, #FF6B6B 0%, #EE5D50 100%)'
-                                        : 'linear-gradient(135deg, #9aa5ff 0%, #6a7bff 100%)',
+                                        ? 'linear-gradient(135deg, #FF6B6B 0%, var(--c-error) 100%)'
+                                        : 'linear-gradient(135deg, var(--c-brand-light) 0%, var(--c-brand) 100%)',
                                     color: '#fff',
                                     boxShadow: state.options.danger
                                         ? '0 4px 12px rgba(238, 93, 80, 0.25)'

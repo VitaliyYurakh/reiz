@@ -208,7 +208,7 @@ export default function DashboardLayout({
         <div className="text-center" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           <div style={{
             width: 64, height: 64, borderRadius: 20,
-            background: 'linear-gradient(135deg, #FF5252 0%, #D32F2F 100%)',
+            background: 'linear-gradient(135deg, var(--c-error) 0%, var(--c-error) 100%)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             margin: '0 auto 16px',
           }}>
@@ -216,10 +216,10 @@ export default function DashboardLayout({
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
             </svg>
           </div>
-          <h2 style={{ fontSize: 20, fontWeight: 700, color: isDark ? '#E2E8F0' : '#2B3674', marginBottom: 8 }}>
+          <h2 style={{ fontSize: 20, fontWeight: 700, color: isDark ? '#E2E8F0' : 'var(--c-text)', marginBottom: 8 }}>
             {t('common.accessDenied')}
           </h2>
-          <p style={{ fontSize: 14, color: isDark ? '#718096' : '#A3AED0', marginBottom: 24 }}>
+          <p style={{ fontSize: 14, color: isDark ? '#718096' : 'var(--c-text-muted)', marginBottom: 24 }}>
             {t('common.noAccess')}
           </p>
           <button
@@ -241,33 +241,33 @@ export default function DashboardLayout({
     '--color-card-foreground': '#E2E8F0',
     '--color-popover': '#1A2332',
     '--color-popover-foreground': '#E2E8F0',
-    '--color-primary': '#6a7bff',
-    '--color-primary-foreground': '#FFFFFF',
+    '--color-primary': 'var(--c-brand)',
+    '--color-primary-foreground': 'var(--c-surface-card)',
     '--color-secondary': '#1E293B',
-    '--color-secondary-foreground': '#A0AEC0',
+    '--color-secondary-foreground': 'var(--c-text-muted)',
     '--color-muted': '#2D3748',
     '--color-muted-foreground': '#718096',
     '--color-accent': '#1E293B',
     '--color-accent-foreground': '#E2E8F0',
-    '--color-destructive': '#FC8181',
-    '--color-destructive-foreground': '#FFFFFF',
+    '--color-destructive': 'var(--c-error-light)',
+    '--color-destructive-foreground': 'var(--c-surface-card)',
     '--color-border': '#2D3748',
     '--color-input': '#2D3748',
-    '--color-ring': '#6a7bff',
-    '--color-chart-blue': '#9aa5ff',
-    '--color-chart-green': '#48BB78',
-    '--color-chart-red': '#FC8181',
-    '--color-chart-orange': '#F6AD55',
-    '--color-chart-purple': '#9aa5ff',
+    '--color-ring': 'var(--c-brand)',
+    '--color-chart-blue': 'var(--c-brand-light)',
+    '--color-chart-green': 'var(--c-success-light)',
+    '--color-chart-red': 'var(--c-error-light)',
+    '--color-chart-orange': 'var(--c-warning-light)',
+    '--color-chart-purple': 'var(--c-brand-light)',
     '--color-chart-gray': '#2D3748',
     '--color-h-navy': '#E2E8F0',
     '--color-h-gray': '#718096',
     '--color-h-bg': '#111827',
-    '--color-h-purple': '#6a7bff',
-    '--color-h-purple-light': '#9aa5ff',
-    '--color-h-green': '#48BB78',
-    '--color-h-red': '#FC8181',
-    '--color-h-orange': '#F6AD55',
+    '--color-h-purple': 'var(--c-brand)',
+    '--color-h-purple-light': 'var(--c-brand-light)',
+    '--color-h-green': 'var(--c-success-light)',
+    '--color-h-red': 'var(--c-error-light)',
+    '--color-h-orange': 'var(--c-warning-light)',
     '--color-h-border': '#2D3748',
     '--shadow-h': '0 2px 8px rgba(0, 0, 0, 0.4)',
     '--shadow-h-md': '0 4px 12px rgba(0, 0, 0, 0.5)',

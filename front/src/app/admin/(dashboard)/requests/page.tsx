@@ -59,17 +59,17 @@ export default function RequestsPage() {
   const limit = 20;
 
   const STATUS_CONFIG: Record<string, { label: string; bg: string; text: string; dot: string }> = useMemo(() => isDark ? {
-    new: { label: t('requests.mapNew'), bg: 'rgba(106, 123, 255, 0.15)', text: '#9aa5ff', dot: '#6a7bff' },
-    in_review: { label: t('requests.mapProcessing'), bg: 'rgba(255,145,0,0.15)', text: '#FFB74D', dot: '#FF9100' },
-    approved: { label: t('requests.mapApproved'), bg: 'rgba(76,175,80,0.15)', text: '#81C784', dot: '#4CAF50' },
-    rejected: { label: t('requests.mapRejected'), bg: 'rgba(239,83,80,0.15)', text: '#EF9A9A', dot: '#EF5350' },
+    new: { label: t('requests.mapNew'), bg: 'rgba(106, 123, 255, 0.15)', text: 'var(--c-brand-light)', dot: 'var(--c-brand)' },
+    in_review: { label: t('requests.mapProcessing'), bg: 'rgba(255,145,0,0.15)', text: 'var(--c-warning-light)', dot: 'var(--c-warning)' },
+    approved: { label: t('requests.mapApproved'), bg: 'rgba(76,175,80,0.15)', text: 'var(--c-success-light)', dot: 'var(--c-success)' },
+    rejected: { label: t('requests.mapRejected'), bg: 'rgba(239,83,80,0.15)', text: 'var(--c-error-light)', dot: 'var(--c-warning-light)' },
     cancelled: { label: t('requests.mapCancelled'), bg: 'rgba(144,164,174,0.15)', text: '#90A4AE', dot: '#78909C' },
   } : {
-    new: { label: t('requests.mapNew'), bg: '#EDE7F6', text: '#6a7bff', dot: '#6a7bff' },
-    in_review: { label: t('requests.mapProcessing'), bg: '#FFF3E0', text: '#E65100', dot: '#FF9100' },
-    approved: { label: t('requests.mapApproved'), bg: '#E8F5E9', text: '#2E7D32', dot: '#4CAF50' },
-    rejected: { label: t('requests.mapRejected'), bg: '#FFEBEE', text: '#C62828', dot: '#EF5350' },
-    cancelled: { label: t('requests.mapCancelled'), bg: '#ECEFF1', text: '#546E7A', dot: '#90A4AE' },
+    new: { label: t('requests.mapNew'), bg: '#EDE7F6', text: 'var(--c-brand)', dot: 'var(--c-brand)' },
+    in_review: { label: t('requests.mapProcessing'), bg: 'var(--c-warning-bg)', text: 'var(--c-warning)', dot: 'var(--c-warning)' },
+    approved: { label: t('requests.mapApproved'), bg: 'var(--c-success-bg)', text: 'var(--c-success)', dot: 'var(--c-success)' },
+    rejected: { label: t('requests.mapRejected'), bg: '#FFEBEE', text: 'var(--c-error)', dot: 'var(--c-warning-light)' },
+    cancelled: { label: t('requests.mapCancelled'), bg: 'var(--c-surface-border)', text: '#546E7A', dot: '#90A4AE' },
   }, [t, isDark]);
 
   const STATUS_TABS = useMemo(() => [
@@ -187,7 +187,7 @@ export default function RequestsPage() {
   return (
     <div>
       {/* ── Page header ── */}
-      <div className="mb-6 rounded-[20px] px-7 py-5" style={{ boxShadow: H.shadow, backgroundColor: isDark ? '#1A2332' : '#FFFFFF' }}>
+      <div className="mb-6 rounded-[20px] px-7 py-5" style={{ boxShadow: H.shadow, backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)' }}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3.5">
             <div className="h-icon-box h-icon-box-purple">
@@ -199,7 +199,7 @@ export default function RequestsPage() {
                 {newCount > 0 && (
                   <span
                     className="inline-flex h-6 items-center gap-1 rounded-full px-2.5 text-[11px] font-bold text-white"
-                    style={{ backgroundColor: '#6a7bff' }}
+                    style={{ backgroundColor: 'var(--c-brand)' }}
                   >
                     {newCount} {t('requests.newBadge')}
                   </span>
@@ -246,14 +246,14 @@ export default function RequestsPage() {
               onKeyDown={(e) => {
                 if (e.key === 'Enter') { setSearch(searchInput); setPage(1); }
               }}
-              className="h-9 w-[220px] rounded-lg text-[13px] transition-all focus:outline-none focus:ring-2 focus:ring-[#6a7bff]/20"
-              style={{ paddingLeft: 34, paddingRight: 12, backgroundColor: isDark ? '#1E293B' : '#F7F9FB', border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1', color: isDark ? '#E2E8F0' : '#263238' }}
+              className="h-9 w-[220px] rounded-lg text-[13px] transition-all focus:outline-none focus:ring-2 focus:ring-[var(--c-brand)]/20"
+              style={{ paddingLeft: 34, paddingRight: 12, backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)', border: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)', color: isDark ? '#E2E8F0' : '#263238' }}
             />
           </div>
 
           <div
             className="flex h-9 items-center rounded-lg px-3"
-            style={{ backgroundColor: isDark ? '#1E293B' : '#F7F9FB', border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}
+            style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)', border: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}
           >
             <span className="text-[12px] font-medium" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('common.total')}</span>
             <span className="ml-1.5 text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{total}</span>
@@ -266,9 +266,9 @@ export default function RequestsPage() {
         <div
           className="mb-4 rounded-xl border-2 p-3 flex items-start justify-between gap-3"
           style={{
-            borderColor: '#EE5D50',
+            borderColor: 'var(--c-error)',
             background: 'rgba(238,93,80,0.08)',
-            color: '#C62828',
+            color: 'var(--c-error)',
           }}
         >
           <div className="text-sm font-mono break-all flex-1">
@@ -292,19 +292,19 @@ export default function RequestsPage() {
         {loading ? (
           <div>
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className={cn('flex items-center gap-4 border-b px-6 py-4', isDark ? 'border-[#1E293B]' : 'border-[#F0F4F8]')}>
-                <div className={cn('h-10 w-10 animate-pulse rounded-xl', isDark ? 'bg-[#1E293B]' : 'bg-[#F0F4F8]')} />
+              <div key={i} className={cn('flex items-center gap-4 border-b px-6 py-4', isDark ? 'border-[#1E293B]' : 'border-[var(--c-surface-muted)]')}>
+                <div className={cn('h-10 w-10 animate-pulse rounded-xl', isDark ? 'bg-[#1E293B]' : 'bg-[var(--c-surface-muted)]')} />
                 <div className="flex-1 space-y-2">
-                  <div className={cn('h-3.5 w-48 animate-pulse rounded', isDark ? 'bg-[#1E293B]' : 'bg-[#F0F4F8]')} />
-                  <div className={cn('h-3 w-32 animate-pulse rounded', isDark ? 'bg-[#1E293B]' : 'bg-[#F0F4F8]')} />
+                  <div className={cn('h-3.5 w-48 animate-pulse rounded', isDark ? 'bg-[#1E293B]' : 'bg-[var(--c-surface-muted)]')} />
+                  <div className={cn('h-3 w-32 animate-pulse rounded', isDark ? 'bg-[#1E293B]' : 'bg-[var(--c-surface-muted)]')} />
                 </div>
-                <div className={cn('h-6 w-20 animate-pulse rounded-full', isDark ? 'bg-[#1E293B]' : 'bg-[#F0F4F8]')} />
+                <div className={cn('h-6 w-20 animate-pulse rounded-full', isDark ? 'bg-[#1E293B]' : 'bg-[var(--c-surface-muted)]')} />
               </div>
             ))}
           </div>
         ) : items.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16">
-            <div className={cn('flex h-16 w-16 items-center justify-center rounded-2xl', isDark ? 'bg-[#1E293B]' : 'bg-[#F0F4F8]')}>
+            <div className={cn('flex h-16 w-16 items-center justify-center rounded-2xl', isDark ? 'bg-[#1E293B]' : 'bg-[var(--c-surface-muted)]')}>
               <Inbox className="h-8 w-8" style={{ color: isDark ? '#4A5568' : '#B0BEC5' }} />
             </div>
             <p className="mt-4 text-[15px] font-semibold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('requests.emptyTitle')}</p>
@@ -317,16 +317,16 @@ export default function RequestsPage() {
             {/* Table */}
             <table className="w-full">
               <thead>
-                <tr style={{ backgroundColor: isDark ? '#111827' : '#FAFBFC' }}>
-                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 44, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thId')}</th>
-                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 100, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thStatus')}</th>
-                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thClient')}</th>
-                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thPhone')}</th>
-                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thCar')}</th>
-                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 140, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thPeriod')}</th>
-                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 76, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thSource')}</th>
-                  <th className="border-b px-4 py-2 text-right text-[11px] font-semibold uppercase tracking-wider" style={{ width: 90, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : '#ECEFF1' }}>{t('requests.thCreated')}</th>
-                  <th className="border-b px-2 py-2" style={{ width: 40, borderColor: isDark ? '#2D3748' : '#ECEFF1' }}></th>
+                <tr style={{ backgroundColor: isDark ? '#111827' : 'var(--c-surface-muted)' }}>
+                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 44, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)' }}>{t('requests.thId')}</th>
+                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 100, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)' }}>{t('requests.thStatus')}</th>
+                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)' }}>{t('requests.thClient')}</th>
+                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)' }}>{t('requests.thPhone')}</th>
+                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)' }}>{t('requests.thCar')}</th>
+                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 140, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)' }}>{t('requests.thPeriod')}</th>
+                  <th className="border-b px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider" style={{ width: 76, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)' }}>{t('requests.thSource')}</th>
+                  <th className="border-b px-4 py-2 text-right text-[11px] font-semibold uppercase tracking-wider" style={{ width: 90, color: isDark ? '#718096' : '#90A4AE', borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)' }}>{t('requests.thCreated')}</th>
+                  <th className="border-b px-2 py-2" style={{ width: 40, borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)' }}></th>
                 </tr>
               </thead>
               <tbody>
@@ -337,7 +337,7 @@ export default function RequestsPage() {
                   const phone = r.client?.phone || r.phone || '—';
                   const carName = r.car ? `${r.car.brand} ${r.car.model}` : '—';
                   const plate = r.car?.plateNumber || '';
-                  const st = STATUS_CONFIG[r.status] || { label: r.status, bg: '#ECEFF1', text: '#546E7A', dot: '#90A4AE' };
+                  const st = STATUS_CONFIG[r.status] || { label: r.status, bg: 'var(--c-surface-border)', text: '#546E7A', dot: '#90A4AE' };
                   const isNew = r.status === 'new';
 
                   return (
@@ -346,10 +346,10 @@ export default function RequestsPage() {
                       onClick={() => router.push(`/admin/requests/${r.id}`)}
                       className={cn(
                         'cursor-pointer border-b transition-colors',
-                        isDark ? 'border-[#1E293B] hover:bg-[#1E293B]' : 'border-[#F0F4F8] hover:bg-[#F7F9FB]',
+                        isDark ? 'border-[#1E293B] hover:bg-[#1E293B]' : 'border-[var(--c-surface-muted)] hover:bg-[var(--c-surface-muted)]',
                         isNew && (isDark ? 'bg-[#4A2B99]/25' : 'bg-[#EDE7F6]'),
                       )}
-                      style={isNew ? { borderLeft: '3px solid #6a7bff' } : undefined}
+                      style={isNew ? { borderLeft: '3px solid var(--c-brand)' } : undefined}
                     >
                       <td className="px-4 py-2.5 text-[13px] font-semibold whitespace-nowrap" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>#{r.id}</td>
                       <td className="px-4 py-2.5">
@@ -374,7 +374,7 @@ export default function RequestsPage() {
                         {r.pickupDate ? `${fmtDate(r.pickupDate)} → ${fmtDate(r.returnDate)}` : '—'}
                       </td>
                       <td className="px-4 py-2.5">
-                        <span className="inline-flex rounded-md px-1.5 py-0.5 text-[11px] font-medium" style={{ backgroundColor: isDark ? '#1E293B' : '#F0F4F8', color: isDark ? '#90A4AE' : '#607D8B' }}>
+                        <span className="inline-flex rounded-md px-1.5 py-0.5 text-[11px] font-medium" style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)', color: isDark ? '#90A4AE' : '#607D8B' }}>
                           {SOURCE_LABELS[r.source] || r.source}
                         </span>
                       </td>
@@ -388,7 +388,7 @@ export default function RequestsPage() {
                             title="Швидке схвалення (авто й дати з заявки)"
                             className="flex h-7 w-7 items-center justify-center rounded-full transition-colors"
                             style={{
-                              background: quickApproveError?.id === r.id ? '#EE5D50' : '#01B574',
+                              background: quickApproveError?.id === r.id ? 'var(--c-error)' : 'var(--c-success)',
                               color: '#fff',
                             }}
                           >

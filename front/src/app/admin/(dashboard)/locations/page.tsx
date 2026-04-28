@@ -17,12 +17,12 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const TYPE_COLORS: Record<string, string> = {
-  railway: '#6a7bff',
-  bus: '#01B574',
-  airport: '#6a7bff',
-  mall: '#FFB547',
-  center: '#EE5D50',
-  other: '#8B97C0',
+  railway: 'var(--c-brand)',
+  bus: 'var(--c-success)',
+  airport: 'var(--c-brand)',
+  mall: 'var(--c-warning)',
+  center: 'var(--c-error)',
+  other: 'var(--c-text-muted)',
 };
 
 export default function LocationsPage() {
@@ -277,7 +277,7 @@ export default function LocationsPage() {
                   </td>
                   <td style={{ padding: '12px 16px' }}>
                     {city.isPopular && (
-                      <Star size={16} fill="#FFB547" color="#FFB547" />
+                      <Star size={16} fill="var(--c-warning)" color="var(--c-warning)" />
                     )}
                   </td>
                   <td style={{ padding: '12px 16px' }}>

@@ -145,7 +145,7 @@ export function RevenueSection({
                   style={{
                     fontSize: 20,
                     fontWeight: 700,
-                    color: '#05603A',
+                    color: 'var(--c-success)',
                     margin: 0,
                   }}
                 >
@@ -236,7 +236,7 @@ export function RevenueSection({
                     fontSize: 20,
                     fontWeight: 700,
                     color:
-                      revenue.net >= 0 ? '#05603A' : '#9B1C1C',
+                      revenue.net >= 0 ? 'var(--c-success)' : '#9B1C1C',
                     margin: 0,
                   }}
                 >

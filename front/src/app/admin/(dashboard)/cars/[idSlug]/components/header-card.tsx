@@ -119,7 +119,7 @@ export function HeaderCard({
             className="h-btn h-btn-sm"
             style={{
               borderRadius: 49,
-              background: isAvailable ? '#22c55e' : '#ef4444',
+              background: isAvailable ? 'var(--c-success)' : 'var(--c-error)',
               color: '#fff',
               fontWeight: 700,
             }}

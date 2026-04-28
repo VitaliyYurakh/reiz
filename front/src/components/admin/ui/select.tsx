@@ -19,7 +19,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "ios-select-trigger flex h-10 w-full items-center justify-between rounded-xl px-5 text-[13px] text-foreground transition-all focus:outline-none focus:ring-2 focus:ring-[#6a7bff]/25 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+      "ios-select-trigger flex h-10 w-full items-center justify-between rounded-xl px-5 text-[13px] text-foreground transition-all focus:outline-none focus:ring-2 focus:ring-[var(--c-brand)]/25 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
       className
     )}
     {...props}
@@ -118,14 +118,14 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex w-full cursor-default select-none items-center rounded-[10px] py-2.5 pl-3 pr-8 text-sm outline-none transition-colors focus:bg-[#6a7bff]/[0.08] focus:text-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex w-full cursor-default select-none items-center rounded-[10px] py-2.5 pl-3 pr-8 text-sm outline-none transition-colors focus:bg-[var(--c-brand)]/[0.08] focus:text-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     )}
     {...props}
   >
     <span className="absolute right-2.5 flex h-4 w-4 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
-        <Check className="h-4 w-4 text-[#6a7bff]" />
+        <Check className="h-4 w-4 text-[var(--c-brand)]" />
       </SelectPrimitive.ItemIndicator>
     </span>
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>

@@ -59,7 +59,7 @@ export default function PartnersPage() {
       {/* Header */}
       <div
         className="mb-6 rounded-[20px] px-7 py-5"
-        style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
+        style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}
       >
         <div className="flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-3.5">
@@ -92,8 +92,8 @@ export default function PartnersPage() {
               style={{
                 paddingLeft: 34,
                 paddingRight: 12,
-                backgroundColor: isDark ? '#1E293B' : '#F7F9FB',
-                border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1',
+                backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)',
+                border: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)',
                 color: isDark ? '#E2E8F0' : '#263238',
               }}
             />
@@ -113,7 +113,7 @@ export default function PartnersPage() {
       <div className="ios-table-wrap" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
         <table className="w-full text-sm">
           <thead>
-            <tr style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid #F0F4F8' }}>
+            <tr style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-muted)' }}>
               <th className="px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>Партнер</th>
               <th className="px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>Компанія / ЄДРПОУ</th>
               <th className="px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>Контакти</th>
@@ -124,9 +124,9 @@ export default function PartnersPage() {
           <tbody>
             {loading ? (
               Array.from({ length: 4 }).map((_, i) => (
-                <tr key={i} style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid #F0F4F8' }}>
+                <tr key={i} style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-muted)' }}>
                   <td colSpan={5} className="px-4 py-4">
-                    <div className="h-4 w-full animate-pulse rounded" style={{ background: isDark ? '#1E293B' : '#F0F4F8' }} />
+                    <div className="h-4 w-full animate-pulse rounded" style={{ background: isDark ? '#1E293B' : 'var(--c-surface-muted)' }} />
                   </td>
                 </tr>
               ))
@@ -143,10 +143,10 @@ export default function PartnersPage() {
                   onClick={() => router.push(`/admin/partners/${p.id}`)}
                   className="cursor-pointer transition-colors"
                   style={{
-                    borderBottom: isDark ? '1px solid #2D3748' : '1px solid #F0F4F8',
+                    borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-muted)',
                     opacity: p.isActive ? 1 : 0.5,
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = isDark ? '#1E293B' : '#F7F9FB'; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = isDark ? '#1E293B' : 'var(--c-surface-muted)'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
                 >
                   <td className="px-4 py-3 text-[13px] font-semibold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>

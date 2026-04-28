@@ -57,7 +57,7 @@ export function FleetUtilizationChart() {
   const topCars = data?.cars.slice(0, 5) ?? [];
 
   const accentColor = isDark ? '#E5E7EB' : '#1F2937';
-  const trackColor = isDark ? '#2D3748' : '#E5E5EA';
+  const trackColor = isDark ? '#2D3748' : 'var(--c-surface-border)';
 
   return (
     <div className="ios-card flex h-full flex-col">

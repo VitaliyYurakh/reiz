@@ -24,7 +24,7 @@ const TYPE_COLORS: Record<string, { bg: string; color: string }> = {
   railway: { bg: `${HL.purple}15`, color: HL.purple },
   bus: { bg: HL.greenBg, color: HL.green },
   airport: { bg: '#EBF0FF', color: HL.blue },
-  mall: { bg: '#FFF6E6', color: HL.orange },
+  mall: { bg: 'var(--c-warning-bg)', color: HL.orange },
   center: { bg: HL.redBg, color: HL.red },
   other: { bg: HL.bg, color: HL.gray },
 };

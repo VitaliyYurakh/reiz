@@ -50,11 +50,11 @@ function getInitials(firstName: string, lastName: string) {
 }
 
 const AVATAR_COLORS = [
-  'linear-gradient(135deg, #9aa5ff 0%, #6a7bff 100%)',
-  'linear-gradient(135deg, #01B574 0%, #0BB783 100%)',
-  'linear-gradient(135deg, #6a7bff 0%, #9aa5ff 100%)',
-  'linear-gradient(135deg, #FFB547 0%, #FF9A23 100%)',
-  'linear-gradient(135deg, #EE5D50 0%, #FF8A80 100%)',
+  'linear-gradient(135deg, var(--c-brand-light) 0%, var(--c-brand) 100%)',
+  'linear-gradient(135deg, var(--c-success) 0%, var(--c-success) 100%)',
+  'linear-gradient(135deg, var(--c-brand) 0%, var(--c-brand-light) 100%)',
+  'linear-gradient(135deg, var(--c-warning) 0%, #FF9A23 100%)',
+  'linear-gradient(135deg, var(--c-error) 0%, #FF8A80 100%)',
 ];
 
 export default function ClientsPage() {

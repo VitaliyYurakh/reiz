@@ -5,15 +5,15 @@
 
 .as-shell {
   --as-bg: #EDEEF2;
-  --as-surface: #FFFFFF;
+  --as-surface: var(--c-surface-card);
   --as-bg-subtle: #E5E7EC;
   --as-text: #1A1D23;
   --as-text-muted: #6B7280;
   --as-text-dim: #9CA3AF;
 
-  --as-accent: #6A7BFF;
-  --as-accent-strong: #5867e8;
-  --as-danger: #EF4444;
+  --as-accent: var(--c-brand);
+  --as-accent-strong: var(--c-brand-dark);
+  --as-danger: var(--c-error);
 
   --as-shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.04);
   --as-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
@@ -35,8 +35,8 @@
   --as-text: #F4F5F7;
   --as-text-muted: #9CA3AF;
   --as-text-dim: #6B7280;
-  --as-accent: #9aa5ff;
-  --as-accent-strong: #9aa5ff;
+  --as-accent: var(--c-brand-light);
+  --as-accent-strong: var(--c-brand-light);
   --as-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --as-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.4);
   --as-shadow-active: 0 10px 24px -6px rgba(154, 165, 255, 0.45), 0 2px 6px rgba(0, 0, 0, 0.5);
@@ -390,7 +390,7 @@ a.as-pill:hover {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #9aa5ff 0%, #6a7bff 100%);
+  background: linear-gradient(135deg, var(--c-brand-light) 0%, var(--c-brand) 100%);
   display: grid;
   place-items: center;
   color: white;

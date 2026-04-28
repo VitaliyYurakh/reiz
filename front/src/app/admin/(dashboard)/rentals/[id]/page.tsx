@@ -187,9 +187,9 @@ export default function RentalDetailPage() {
                         <ArrowLeft className="h-5 w-5" />
                     </Link>
                 </div>
-                <div className="mt-8 rounded-2xl bg-[#FF3B30]/10 p-8 text-center">
-                    <AlertTriangle className="mx-auto h-8 w-8 text-[#FF3B30]" />
-                    <p className="mt-2 text-sm font-medium text-[#FF3B30]">{error || t('rentalDetail.notFound')}</p>
+                <div className="mt-8 rounded-2xl bg-[var(--c-error)]/10 p-8 text-center">
+                    <AlertTriangle className="mx-auto h-8 w-8 text-[var(--c-error)]" />
+                    <p className="mt-2 text-sm font-medium text-[var(--c-error)]">{error || t('rentalDetail.notFound')}</p>
                     <button
                         type="button"
                         onClick={fetchRental}
@@ -212,24 +212,24 @@ export default function RentalDetailPage() {
                     : 'h-icon-box-cyan';
 
     const statusBadgeBg =
-        rental.status === 'active' ? '#4CAF50'
-            : rental.status === 'completed' ? '#9aa5ff'
+        rental.status === 'active' ? 'var(--c-success)'
+            : rental.status === 'completed' ? 'var(--c-brand-light)'
                 : rental.status === 'cancelled' ? '#90A4AE'
-                    : '#4CAF50';
+                    : 'var(--c-success)';
 
     return (
         <div>
             {/* -- Page header (matches list page style) -- */}
             <div
                 className="mb-6 rounded-[20px] px-7 py-5"
-                style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
+                style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}
             >
                 <div className="flex flex-wrap items-center justify-between gap-4">
                     <div className="flex min-w-0 items-center gap-3.5">
                         <Link
                             href="/admin/rentals"
                             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors"
-                            style={{ backgroundColor: isDark ? '#1E293B' : '#F7F9FB' }}
+                            style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)' }}
                             aria-label={t('rentalDetail.backToList') || 'Back'}
                         >
                             <ArrowLeft className="h-4 w-4" />

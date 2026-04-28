@@ -211,7 +211,7 @@ export default function NewReservationPage() {
       {/* ── Header ── */}
       <div
         className="mb-6 rounded-2xl px-8 py-6"
-        style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
+        style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
       >
         <div className="flex items-center gap-4">
           <Link href="/admin/reservations" className="ios-icon-btn">
@@ -220,7 +220,7 @@ export default function NewReservationPage() {
           <div
             className="flex h-12 w-12 items-center justify-center rounded-2xl"
             style={{
-              background: 'linear-gradient(135deg, #43A047, #2E7D32)',
+              background: 'linear-gradient(135deg, var(--c-success), var(--c-success))',
               boxShadow: '0 4px 12px rgba(67,160,71,0.3)',
             }}
           >
@@ -241,14 +241,14 @@ export default function NewReservationPage() {
         {/* ── Client ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
+          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
         >
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
               style={{ backgroundColor: isDark ? 'rgba(106, 123, 255, 0.15)' : '#EDE7F6' }}
             >
-              <User className="h-3.5 w-3.5" style={{ color: '#6a7bff' }} />
+              <User className="h-3.5 w-3.5" style={{ color: 'var(--c-brand)' }} />
             </div>
             <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
               {t('newReservation.sectionClient')}
@@ -270,14 +270,14 @@ export default function NewReservationPage() {
         {/* ── Car ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
+          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
         >
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(67,160,71,0.15)' : '#E8F5E9' }}
+              style={{ backgroundColor: isDark ? 'rgba(67,160,71,0.15)' : 'var(--c-success-bg)' }}
             >
-              <Car className="h-3.5 w-3.5" style={{ color: '#43A047' }} />
+              <Car className="h-3.5 w-3.5" style={{ color: 'var(--c-success)' }} />
             </div>
             <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
               {t('newReservation.sectionCar')}
@@ -299,14 +299,14 @@ export default function NewReservationPage() {
         {/* ── Dates ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
+          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
         >
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(230,81,0,0.15)' : '#FFF3E0' }}
+              style={{ backgroundColor: isDark ? 'rgba(230,81,0,0.15)' : 'var(--c-warning-bg)' }}
             >
-              <CalendarDays className="h-3.5 w-3.5" style={{ color: '#E65100' }} />
+              <CalendarDays className="h-3.5 w-3.5" style={{ color: 'var(--c-warning)' }} />
             </div>
             <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
               {t('newReservation.sectionDates')}
@@ -331,12 +331,12 @@ export default function NewReservationPage() {
         {/* ── Locations ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
+          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
         >
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(21,101,192,0.15)' : '#E3F2FD' }}
+              style={{ backgroundColor: isDark ? 'rgba(21,101,192,0.15)' : 'var(--c-info-bg)' }}
             >
               <MapPin className="h-3.5 w-3.5" style={{ color: '#1565C0' }} />
             </div>
@@ -359,14 +359,14 @@ export default function NewReservationPage() {
         {/* ── Coverage & delivery ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
+          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
         >
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
               style={{ backgroundColor: isDark ? 'rgba(198,40,40,0.15)' : '#FCE4EC' }}
             >
-              <Shield className="h-3.5 w-3.5" style={{ color: '#C62828' }} />
+              <Shield className="h-3.5 w-3.5" style={{ color: 'var(--c-error)' }} />
             </div>
             <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newReservation.sectionCoverage')}</h2>
           </div>
@@ -413,7 +413,7 @@ export default function NewReservationPage() {
         {availableAddOns.length > 0 && (
           <div
             className="rounded-2xl p-6"
-            style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
+            style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
           >
             <div className="flex items-center gap-2.5 mb-4">
               <div
@@ -438,7 +438,7 @@ export default function NewReservationPage() {
                       'group rounded-2xl border p-3.5 transition-all cursor-pointer',
                       isSelected
                         ? (isDark ? 'bg-[#2D1B45] border-[#6A1B9A]' : 'bg-[#F3E5F5] border-[#E1BEE7]') + ' shadow-[0_10px_22px_rgba(142,36,170,0.12)]'
-                        : (isDark ? 'bg-[#1E293B] border-[#2D3748] hover:bg-[#1A2332]' : 'bg-[#F7F9FB] border-[#ECEFF1] hover:bg-white') + ' hover:shadow-[0_6px_16px_rgba(0,0,0,0.06)]',
+                        : (isDark ? 'bg-[#1E293B] border-[#2D3748] hover:bg-[#1A2332]' : 'bg-[var(--c-surface-muted)] border-[var(--c-surface-border)] hover:bg-white') + ' hover:shadow-[0_6px_16px_rgba(0,0,0,0.06)]',
                     )}
                     onClick={() => toggleAddOn(addon.id)}
                   >
@@ -457,7 +457,7 @@ export default function NewReservationPage() {
                         <div className="mt-2 flex flex-wrap items-center gap-1.5">
                           <span
                             className="whitespace-nowrap rounded-full border bg-white dark:bg-card px-2.5 py-1 text-[12px] font-bold"
-                            style={{ borderColor: isDark ? '#2D3748' : '#ECEFF1', color: isDark ? '#E2E8F0' : '#263238' }}
+                            style={{ borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)', color: isDark ? '#E2E8F0' : '#263238' }}
                           >
                             {fmtMoney(addon.unitPriceMinor, addon.currency)}
                           </span>
@@ -510,14 +510,14 @@ export default function NewReservationPage() {
         {/* ── Cost calculation ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
+          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
         >
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(67,160,71,0.15)' : '#E8F5E9' }}
+              style={{ backgroundColor: isDark ? 'rgba(67,160,71,0.15)' : 'var(--c-success-bg)' }}
             >
-              <Calculator className="h-3.5 w-3.5" style={{ color: '#2E7D32' }} />
+              <Calculator className="h-3.5 w-3.5" style={{ color: 'var(--c-success)' }} />
             </div>
             <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newReservation.sectionCost')}</h2>
             {priceLoading && <Loader2 className="h-3.5 w-3.5 animate-spin" style={{ color: isDark ? '#718096' : '#90A4AE' }} />}
@@ -529,7 +529,7 @@ export default function NewReservationPage() {
               <span className="text-[13px]">{t('newReservation.calculating')}</span>
             </div>
           ) : priceError ? (
-            <p className="text-[13px]" style={{ color: '#EF5350' }}>{priceError}</p>
+            <p className="text-[13px]" style={{ color: 'var(--c-warning-light)' }}>{priceError}</p>
           ) : price ? (
             <div className="space-y-2.5">
               <div className="flex justify-between text-[13px]">
@@ -562,10 +562,10 @@ export default function NewReservationPage() {
               )}
               <div
                 className="flex justify-between pt-3 mt-1"
-                style={{ borderTop: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1' }}
+                style={{ borderTop: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}
               >
                 <span className="text-[14px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newReservation.totalCost')}</span>
-                <span className="text-[18px] font-bold" style={{ color: isDark ? '#4ADE80' : '#2E7D32' }}>{fmtMoney(price.grandTotal, price.currency)}</span>
+                <span className="text-[18px] font-bold" style={{ color: isDark ? 'var(--c-success)' : 'var(--c-success)' }}>{fmtMoney(price.grandTotal, price.currency)}</span>
               </div>
               {price.depositAmount > 0 && (
                 <div className="flex justify-between text-[12px]">
@@ -574,7 +574,7 @@ export default function NewReservationPage() {
                 </div>
               )}
               {price.dailyRateMinor === 0 && (
-                <p className="text-[12px] mt-1" style={{ color: '#E65100' }}>
+                <p className="text-[12px] mt-1" style={{ color: 'var(--c-warning)' }}>
                   {t('newReservation.noTariff')}
                 </p>
               )}

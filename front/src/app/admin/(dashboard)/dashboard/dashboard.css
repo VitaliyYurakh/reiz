@@ -3,30 +3,30 @@
 .dh-root {
   --dh-bg: #EDEEF2;
   --dh-bg-subtle: #E5E7EC;
-  --dh-surface: #FFFFFF;
+  --dh-surface: var(--c-surface-card);
   --dh-text: #1A1D23;
   --dh-text-muted: #6B7280;
   --dh-text-dim: #9CA3AF;
 
-  --dh-accent: #6A7BFF;
-  --dh-accent-strong: #5867e8;
+  --dh-accent: var(--c-brand);
+  --dh-accent-strong: var(--c-brand-dark);
   --dh-accent-soft: #EEF0FF;
 
-  --dh-success: #10B981;
-  --dh-success-soft: #E7F7F0;
-  --dh-danger: #EF4444;
+  --dh-success: var(--c-success);
+  --dh-success-soft: var(--c-success-bg);
+  --dh-danger: var(--c-error);
   --dh-danger-soft: #FDECEC;
-  --dh-warning: #F59E0B;
-  --dh-warning-soft: #FEF4E0;
+  --dh-warning: var(--c-warning);
+  --dh-warning-soft: var(--c-warning-bg);
 
   /* Card palette (front → back): pink, orange, indigo-blue, pastel green */
   --dh-car-1-from: #D980FF;
-  --dh-car-1-to: #9aa5ff;
-  --dh-car-2-from: #FF9A4D;
+  --dh-car-1-to: var(--c-brand-light);
+  --dh-car-2-from: var(--c-warning);
   --dh-car-2-to: #F37A2E;
-  --dh-car-3-from: #6a7bff;
-  --dh-car-3-to: #6a7bff;
-  --dh-car-4-from: #8ED9A6;
+  --dh-car-3-from: var(--c-brand);
+  --dh-car-3-to: var(--c-brand);
+  --dh-car-4-from: var(--c-success-light);
   --dh-car-4-to: #5FBE7D;
 
   --dh-radius: 22px;
@@ -51,8 +51,8 @@
   --dh-text-muted: #9CA3AF;
   --dh-text-dim: #6B7280;
 
-  --dh-accent: #9aa5ff;
-  --dh-accent-strong: #9aa5ff;
+  --dh-accent: var(--c-brand-light);
+  --dh-accent-strong: var(--c-brand-light);
   --dh-accent-soft: #2A3050;
 
   --dh-success-soft: rgba(16, 185, 129, 0.12);
@@ -63,11 +63,11 @@
   --dh-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.4);
 
   /* Muted card gradients for dark theme — softer, less saturated */
-  --dh-car-1-from: #9aa5ff;
+  --dh-car-1-from: var(--c-brand-light);
   --dh-car-1-to: #7A4B94;
   --dh-car-2-from: #C68451;
   --dh-car-2-to: #9B6030;
-  --dh-car-3-from: #6a7bff;
+  --dh-car-3-from: var(--c-brand);
   --dh-car-3-to: #4A56A0;
   --dh-car-4-from: #77A88B;
   --dh-car-4-to: #528466;

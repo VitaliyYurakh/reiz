@@ -81,9 +81,9 @@ export function RevenueChart() {
     '90d': t('dashboard.period90d'),
   };
 
-  const incomeColor = isDark ? '#34D399' : '#059669'; // emerald-400 / emerald-600
+  const incomeColor = isDark ? '#34D399' : 'var(--c-success)'; // emerald-400 / emerald-600
   const expenseColor = isDark ? '#FB7185' : '#E11D48'; // rose-400 / rose-600
-  const gridColor = isDark ? '#2D3748' : '#E5E5EA';
+  const gridColor = isDark ? '#2D3748' : 'var(--c-surface-border)';
   const mutedColor = isDark ? '#718096' : '#8E8E93';
 
   return (

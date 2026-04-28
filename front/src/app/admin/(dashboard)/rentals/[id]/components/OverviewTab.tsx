@@ -66,7 +66,7 @@ export function OverviewTab({ rental }: { rental: Rental }) {
                 {/* Client */}
                 <div className="ios-card">
                     <div className="flex items-center gap-4">
-                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#6a7bff] to-[#5867e8] text-base font-semibold text-white shadow-sm">
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--c-brand)] to-[var(--c-brand-dark)] text-base font-semibold text-white shadow-sm">
                             {getInitials(rental.client.firstName, rental.client.lastName)}
                         </div>
                         <div className="min-w-0 flex-1">
@@ -370,12 +370,12 @@ export function OverviewTab({ rental }: { rental: Rental }) {
 
             {/* ── Cancellation request ──────────────────────────── */}
             {(rental as any).cancellationRequestedAt && (
-                <div className="rounded-2xl bg-[#FF9500]/10 p-5">
-                    <div className="flex items-center gap-2 text-sm font-medium text-[#FF9500]">
+                <div className="rounded-2xl bg-[var(--c-warning)]/10 p-5">
+                    <div className="flex items-center gap-2 text-sm font-medium text-[var(--c-warning)]">
                         <AlertTriangle className="h-4 w-4" />
                         Клієнт запросив скасування оренди
                     </div>
-                    <p className="mt-1 text-sm text-[#FF9500]/80">
+                    <p className="mt-1 text-sm text-[var(--c-warning)]/80">
                         {new Date((rental as any).cancellationRequestedAt).toLocaleString('uk-UA')}
                     </p>
                     {(rental as any).cancellationRequestReason && (
@@ -386,12 +386,12 @@ export function OverviewTab({ rental }: { rental: Rental }) {
 
             {/* ── Cancel reason ─────────────────────────────────── */}
             {rental.cancelReason && (
-                <div className="rounded-2xl bg-[#FF3B30]/10 p-5">
-                    <div className="flex items-center gap-2 text-sm font-medium text-[#FF3B30]">
+                <div className="rounded-2xl bg-[var(--c-error)]/10 p-5">
+                    <div className="flex items-center gap-2 text-sm font-medium text-[var(--c-error)]">
                         <AlertTriangle className="h-4 w-4" />
                         {t('rentalDetail.cancelReasonLabel')}
                     </div>
-                    <p className="mt-2 text-sm text-[#FF3B30]">{rental.cancelReason}</p>
+                    <p className="mt-2 text-sm text-[var(--c-error)]">{rental.cancelReason}</p>
                 </div>
             )}
         </div>

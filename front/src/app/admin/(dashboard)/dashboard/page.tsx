@@ -556,7 +556,7 @@ function ChartCard({ t, localeTag }: { t: (k: string, p?: Record<string, string 
               <span className="dh-dot" style={{ background: 'var(--dh-accent)' }} /> {t('dashboard.chartThisMonth')}
             </span>
             <span className="dh-chart-legend-item">
-              <span className="dh-dot" style={{ background: '#FF9A4D' }} /> {t('dashboard.chartLastMonth')}
+              <span className="dh-dot" style={{ background: 'var(--c-warning)' }} /> {t('dashboard.chartLastMonth')}
             </span>
           </div>
         </div>
@@ -613,12 +613,12 @@ function ChartCard({ t, localeTag }: { t: (k: string, p?: Record<string, string 
               />
             ))}
             <path d={curArea} fill="url(#dhCurFill)" />
-            <path d={lastPath} fill="none" stroke="#FF9A4D" strokeWidth={2.5} strokeLinecap="round" />
+            <path d={lastPath} fill="none" stroke="var(--c-warning)" strokeWidth={2.5} strokeLinecap="round" />
             <path d={curPath} fill="none" stroke="var(--dh-accent)" strokeWidth={2.5} strokeLinecap="round" />
             {hover !== null && (
               <>
                 <line x1={px(hover)} x2={px(hover)} y1={pad} y2={h - pad} stroke="var(--dh-text-dim)" strokeDasharray="3 3" />
-                <circle cx={px(hover)} cy={py(last[hover])} r={4} fill="var(--dh-surface)" stroke="#FF9A4D" strokeWidth={2} />
+                <circle cx={px(hover)} cy={py(last[hover])} r={4} fill="var(--dh-surface)" stroke="var(--c-warning)" strokeWidth={2} />
                 <circle cx={px(hover)} cy={py(current[hover])} r={5} fill="var(--dh-surface)" stroke="var(--dh-accent)" strokeWidth={2.5} />
               </>
             )}
@@ -645,7 +645,7 @@ function ChartCard({ t, localeTag }: { t: (k: string, p?: Record<string, string 
             </div>
             <div className="tt-col">
               <div className="tt-label">
-                <span className="dh-dot" style={{ background: '#FF9A4D' }} />
+                <span className="dh-dot" style={{ background: 'var(--c-warning)' }} />
                 {t('dashboard.chartLastMonth')}
               </div>
               <div className="tt-val">{fmtMoneyUAH(last[hover])}</div>

@@ -746,8 +746,8 @@ function ProfileTab({
               <Star
                 className="h-6 w-6"
                 style={{
-                  fill: (ratingHover || ratingValue) >= star ? '#FFB547' : 'none',
-                  color: (ratingHover || ratingValue) >= star ? '#FFB547' : 'var(--color-h-gray)',
+                  fill: (ratingHover || ratingValue) >= star ? 'var(--c-warning)' : 'none',
+                  color: (ratingHover || ratingValue) >= star ? 'var(--c-warning)' : 'var(--color-h-gray)',
                 }}
               />
             </button>

@@ -46,19 +46,19 @@ const getNotifTypeConfig = (dark: boolean): Record<
 > => ({
   request: {
     icon: ClipboardList,
-    color: dark ? '#9aa5ff' : '#6a7bff',
+    color: dark ? 'var(--c-brand-light)' : 'var(--c-brand)',
     bg: dark ? 'rgba(106, 123, 255, 0.15)' : '#EDE7F6',
     href: '/admin/requests',
   },
   service: {
     icon: Wrench,
-    color: dark ? '#FFB74D' : '#FF9100',
-    bg: dark ? 'rgba(255,145,0,0.15)' : '#FFF3E0',
+    color: dark ? 'var(--c-warning-light)' : 'var(--c-warning)',
+    bg: dark ? 'rgba(255,145,0,0.15)' : 'var(--c-warning-bg)',
     href: '/admin/service',
   },
   overdue: {
     icon: AlertTriangle,
-    color: dark ? '#EF9A9A' : '#E53935',
+    color: dark ? 'var(--c-error-light)' : 'var(--c-error)',
     bg: dark ? 'rgba(229,57,53,0.15)' : '#FFEBEE',
     href: '/admin/rentals',
   },
@@ -70,26 +70,26 @@ const getSearchTypeConfig = (dark: boolean): Record<
 > => ({
   client: {
     icon: Users,
-    color: dark ? '#9aa5ff' : '#6a7bff',
+    color: dark ? 'var(--c-brand-light)' : 'var(--c-brand)',
     bg: dark ? 'rgba(106, 123, 255, 0.15)' : '#EDE7F6',
     href: (id) => `/admin/clients/${id}`,
   },
   car: {
     icon: Car,
-    color: dark ? '#9aa5ff' : '#6a7bff',
-    bg: dark ? 'rgba(106, 123, 255, 0.15)' : '#E3F2FD',
+    color: dark ? 'var(--c-brand-light)' : 'var(--c-brand)',
+    bg: dark ? 'rgba(106, 123, 255, 0.15)' : 'var(--c-info-bg)',
     href: (id) => `/admin/cars/${id}`,
   },
   request: {
     icon: ClipboardList,
-    color: dark ? '#FFB74D' : '#FF9100',
-    bg: dark ? 'rgba(255,145,0,0.15)' : '#FFF3E0',
+    color: dark ? 'var(--c-warning-light)' : 'var(--c-warning)',
+    bg: dark ? 'rgba(255,145,0,0.15)' : 'var(--c-warning-bg)',
     href: () => '/admin/requests',
   },
   rental: {
     icon: AlertTriangle,
-    color: dark ? '#81C784' : '#4CAF50',
-    bg: dark ? 'rgba(76,175,80,0.15)' : '#E8F5E9',
+    color: dark ? 'var(--c-success-light)' : 'var(--c-success)',
+    bg: dark ? 'rgba(76,175,80,0.15)' : 'var(--c-success-bg)',
     href: () => '/admin/rentals',
   },
 });
@@ -220,7 +220,7 @@ export function TopBar() {
               top: 'calc(100% + 8px)',
               left: 0,
               width: '340px',
-              background: isDark ? '#21242C' : '#FFFFFF',
+              background: isDark ? '#21242C' : 'var(--c-surface-card)',
               borderRadius: '18px',
               border: isDark ? '1px solid rgba(255,255,255,0.06)' : 'none',
               boxShadow: isDark ? '0 20px 50px -12px rgba(0,0,0,0.6)' : '0 20px 50px -12px rgba(16, 24, 40, 0.18)',
@@ -379,7 +379,7 @@ export function TopBar() {
             padding: 0,
             overflow: 'hidden',
             fontFamily: "'DM Sans', sans-serif",
-            background: isDark ? '#21242C' : '#FFFFFF',
+            background: isDark ? '#21242C' : 'var(--c-surface-card)',
             zIndex: 100,
           }}
         >
@@ -405,7 +405,7 @@ export function TopBar() {
                   height: '20px',
                   minWidth: '20px',
                   borderRadius: '10px',
-                  background: '#EF4444',
+                  background: 'var(--c-error)',
                   color: '#fff',
                   fontSize: '11px',
                   fontWeight: 700,

@@ -737,7 +737,7 @@ export default function FinancePage() {
                     <tr
                       key={tx.id}
                       className="h-tr"
-                      style={{ borderLeft: `3px solid ${isIn ? '#01B574' : '#EE5D50'}` }}
+                      style={{ borderLeft: `3px solid ${isIn ? 'var(--c-success)' : 'var(--c-error)'}` }}
                     >
                       <td className="h-td h-td-gray text-xs font-semibold">
                         {tx.id}
@@ -748,7 +748,7 @@ export default function FinancePage() {
                             className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
                             style={{
                               background: isIn ? 'rgba(1,181,116,0.1)' : 'rgba(238,93,80,0.1)',
-                              color: isIn ? '#01B574' : '#EE5D50',
+                              color: isIn ? 'var(--c-success)' : 'var(--c-error)',
                             }}
                           >
                             <DirIcon size={14} strokeWidth={2.5} />

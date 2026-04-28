@@ -39,20 +39,20 @@ export const TYPE_STYLES: Record<
   { gradient: string; dot: string; labelKey: string; shadow: string }
 > = {
   rental: {
-    gradient: 'linear-gradient(135deg, #01B574 0%, #01A266 100%)',
-    dot: '#01B574',
+    gradient: 'linear-gradient(135deg, var(--c-success) 0%, var(--c-success) 100%)',
+    dot: 'var(--c-success)',
     labelKey: 'calendar.typeRental',
     shadow: '0 2px 8px rgba(1, 181, 116, 0.35)',
   },
   reservation: {
-    gradient: 'linear-gradient(135deg, #6a7bff 0%, #6a7bff 100%)',
-    dot: '#6a7bff',
+    gradient: 'linear-gradient(135deg, var(--c-brand) 0%, var(--c-brand) 100%)',
+    dot: 'var(--c-brand)',
     labelKey: 'calendar.typeReservation',
     shadow: '0 2px 8px rgba(106, 123, 255, 0.35)',
   },
   service: {
-    gradient: 'linear-gradient(135deg, #FFB547 0%, #FF9F0A 100%)',
-    dot: '#FFB547',
+    gradient: 'linear-gradient(135deg, var(--c-warning) 0%, #FF9F0A 100%)',
+    dot: 'var(--c-warning)',
     labelKey: 'calendar.typeService',
     shadow: '0 2px 8px rgba(255, 181, 71, 0.35)',
   },

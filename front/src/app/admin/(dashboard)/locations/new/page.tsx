@@ -100,7 +100,7 @@ export default function NewCityPage() {
       {/* Form */}
       <div style={{ background: H.white, borderRadius: 16, boxShadow: H.shadow, padding: 32 }}>
         {error && (
-          <div style={{ padding: '10px 16px', borderRadius: 10, background: '#FFF0EF', color: H.red, fontSize: 14, marginBottom: 20 }}>
+          <div style={{ padding: '10px 16px', borderRadius: 10, background: 'var(--c-error-bg)', color: H.red, fontSize: 14, marginBottom: 20 }}>
             {error}
           </div>
         )}

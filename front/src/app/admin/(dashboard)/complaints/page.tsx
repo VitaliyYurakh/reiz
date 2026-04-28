@@ -60,17 +60,17 @@ const CATEGORY_LABEL: Record<string, string> = {
 
 const PRIORITY_COLOR: Record<string, string> = {
   low: '#90A4AE',
-  normal: '#9aa5ff',
-  high: '#FFB547',
-  urgent: '#EE5D50',
+  normal: 'var(--c-brand-light)',
+  high: 'var(--c-warning)',
+  urgent: 'var(--c-error)',
 };
 
 const STATUS_COLOR: Record<string, { bg: string; text: string }> = {
-  open: { bg: '#EDE7F6', text: '#6a7bff' },
-  in_review: { bg: '#FFF3E0', text: '#E65100' },
-  awaiting_client: { bg: '#E0F7FA', text: '#00838F' },
-  resolved: { bg: '#E8F5E9', text: '#2E7D32' },
-  rejected: { bg: '#ECEFF1', text: '#546E7A' },
+  open: { bg: '#EDE7F6', text: 'var(--c-brand)' },
+  in_review: { bg: 'var(--c-warning-bg)', text: 'var(--c-warning)' },
+  awaiting_client: { bg: 'var(--c-info-bg)', text: 'var(--c-info)' },
+  resolved: { bg: 'var(--c-success-bg)', text: 'var(--c-success)' },
+  rejected: { bg: 'var(--c-surface-border)', text: '#546E7A' },
 };
 
 export default function ComplaintsPage() {
@@ -133,7 +133,7 @@ export default function ComplaintsPage() {
       {/* Header */}
       <div
         className="mb-6 rounded-[20px] px-7 py-5"
-        style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
+        style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}
       >
         <div className="flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-3.5">
@@ -144,7 +144,7 @@ export default function ComplaintsPage() {
               <div className="flex items-center gap-3">
                 <h1 className="h-title">Скарги та спори</h1>
                 {stats && stats.overdue > 0 && (
-                  <span className="inline-flex h-6 items-center gap-1 rounded-full px-2.5 text-[11px] font-bold text-white" style={{ backgroundColor: '#EE5D50' }}>
+                  <span className="inline-flex h-6 items-center gap-1 rounded-full px-2.5 text-[11px] font-bold text-white" style={{ backgroundColor: 'var(--c-error)' }}>
                     <AlertTriangle size={11} /> {stats.overdue} прострочено
                   </span>
                 )}
@@ -157,16 +157,16 @@ export default function ComplaintsPage() {
         {stats && (
           <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-5">
             {[
-              { label: 'Відкриті', val: stats.open, color: '#6a7bff', icon: AlertOctagon },
-              { label: 'В роботі', val: stats.inReview, color: '#FF9100', icon: Clock },
-              { label: 'Чекають клієнта', val: stats.awaitingClient, color: '#00838F', icon: Clock },
-              { label: 'Вирішені', val: stats.resolved, color: '#4CAF50', icon: CheckCircle2 },
-              { label: 'Прострочено SLA', val: stats.overdue, color: '#EE5D50', icon: AlertTriangle },
+              { label: 'Відкриті', val: stats.open, color: 'var(--c-brand)', icon: AlertOctagon },
+              { label: 'В роботі', val: stats.inReview, color: 'var(--c-warning)', icon: Clock },
+              { label: 'Чекають клієнта', val: stats.awaitingClient, color: 'var(--c-info)', icon: Clock },
+              { label: 'Вирішені', val: stats.resolved, color: 'var(--c-success)', icon: CheckCircle2 },
+              { label: 'Прострочено SLA', val: stats.overdue, color: 'var(--c-error)', icon: AlertTriangle },
             ].map(({ label, val, color, icon: Icon }) => (
               <div
                 key={label}
                 className="rounded-xl p-3"
-                style={{ backgroundColor: isDark ? '#0F172A' : '#F7F9FB' }}
+                style={{ backgroundColor: isDark ? '#0F172A' : 'var(--c-surface-muted)' }}
               >
                 <div className="flex items-center gap-2">
                   <Icon size={14} style={{ color }} />
@@ -204,12 +204,12 @@ export default function ComplaintsPage() {
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               onKeyDown={(e) => { if (e.key === 'Enter') { setSearch(searchInput); setPage(1); } }}
-              className="h-9 w-[260px] rounded-lg text-[13px] focus:outline-none focus:ring-2 focus:ring-[#EE5D50]/20"
+              className="h-9 w-[260px] rounded-lg text-[13px] focus:outline-none focus:ring-2 focus:ring-[var(--c-error)]/20"
               style={{
                 paddingLeft: 34,
                 paddingRight: 12,
-                backgroundColor: isDark ? '#1E293B' : '#F7F9FB',
-                border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1',
+                backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)',
+                border: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)',
                 color: isDark ? '#E2E8F0' : '#263238',
               }}
             />
@@ -221,7 +221,7 @@ export default function ComplaintsPage() {
       <div className="ios-table-wrap" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
         <table className="w-full text-sm">
           <thead>
-            <tr style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid #F0F4F8' }}>
+            <tr style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-muted)' }}>
               <th className="px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>Номер</th>
               <th className="px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>Тема</th>
               <th className="px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>Категорія</th>
@@ -234,9 +234,9 @@ export default function ComplaintsPage() {
           <tbody>
             {loading ? (
               Array.from({ length: 6 }).map((_, i) => (
-                <tr key={i} style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid #F0F4F8' }}>
+                <tr key={i} style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-muted)' }}>
                   <td colSpan={7} className="px-4 py-4">
-                    <div className="h-4 w-full animate-pulse rounded" style={{ background: isDark ? '#1E293B' : '#F0F4F8' }} />
+                    <div className="h-4 w-full animate-pulse rounded" style={{ background: isDark ? '#1E293B' : 'var(--c-surface-muted)' }} />
                   </td>
                 </tr>
               ))
@@ -248,7 +248,7 @@ export default function ComplaintsPage() {
               </tr>
             ) : (
               items.map((c) => {
-                const st = STATUS_COLOR[c.status] || { bg: '#ECEFF1', text: '#546E7A' };
+                const st = STATUS_COLOR[c.status] || { bg: 'var(--c-surface-border)', text: '#546E7A' };
                 const isOverdue = c.slaDeadline && new Date(c.slaDeadline).getTime() < Date.now() && c.status !== 'resolved';
                 return (
                   <tr
@@ -256,10 +256,10 @@ export default function ComplaintsPage() {
                     onClick={() => router.push(`/admin/complaints/${c.id}`)}
                     className="cursor-pointer transition-colors"
                     style={{
-                      borderBottom: isDark ? '1px solid #2D3748' : '1px solid #F0F4F8',
+                      borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-muted)',
                       borderLeft: `3px solid ${PRIORITY_COLOR[c.priority] || '#90A4AE'}`,
                     }}
-                    onMouseEnter={(e) => { e.currentTarget.style.background = isDark ? '#1E293B' : '#F7F9FB'; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = isDark ? '#1E293B' : 'var(--c-surface-muted)'; }}
                     onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
                   >
                     <td className="px-4 py-3 font-mono text-[12px] font-semibold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
@@ -276,7 +276,7 @@ export default function ComplaintsPage() {
                       )}
                     </td>
                     <td className="px-4 py-3">
-                      <span className="inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold" style={{ background: isDark ? '#1E293B' : '#F0F4F8', color: isDark ? '#E2E8F0' : '#263238' }}>
+                      <span className="inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold" style={{ background: isDark ? '#1E293B' : 'var(--c-surface-muted)', color: isDark ? '#E2E8F0' : '#263238' }}>
                         {CATEGORY_LABEL[c.category] || c.category}
                       </span>
                     </td>
@@ -290,7 +290,7 @@ export default function ComplaintsPage() {
                         {STATUS_TABS.find((t) => t.value === c.status)?.label || c.status}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-[12px] tabular-nums font-semibold" style={{ color: isOverdue ? '#EE5D50' : isDark ? '#718096' : '#90A4AE' }}>
+                    <td className="px-4 py-3 text-[12px] tabular-nums font-semibold" style={{ color: isOverdue ? 'var(--c-error)' : isDark ? '#718096' : '#90A4AE' }}>
                       {formatTimeLeft(c.slaDeadline)}
                     </td>
                     <td className="px-4 py-3 text-[12px]" style={{ color: isDark ? '#718096' : '#90A4AE' }}>

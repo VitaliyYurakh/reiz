@@ -197,7 +197,7 @@ export function ActionButton({
   const colors = {
     default: { bg: H.bg, color: H.navy, hoverBg: isDark ? 'rgba(255,255,255,0.06)' : '#E9EDF7' },
     danger: { bg: H.redBg, color: H.red, hoverBg: isDark ? 'rgba(252,129,129,0.15)' : '#FFE0DE' },
-    success: { bg: H.greenBg, color: H.green, hoverBg: isDark ? 'rgba(72,187,120,0.15)' : '#D0FFE8' },
+    success: { bg: H.greenBg, color: H.green, hoverBg: isDark ? 'rgba(72,187,120,0.15)' : 'var(--c-success-bg)' },
   }[variant];
 
   return (

@@ -557,7 +557,7 @@ function PipelineFunnel({
       title: "ENRICHED",
       ru: "Email есть",
       count: byStatus.ENRICHED ?? 0,
-      color: "#6a7bff",
+      color: "var(--c-brand)",
       stuck: 0,
     },
     {
@@ -565,7 +565,7 @@ function PipelineFunnel({
       title: "READY",
       ru: "К отправке",
       count: byStatus.READY ?? 0,
-      color: "#6a7bff",
+      color: "var(--c-brand)",
       stuck: stuckByStatus.READY ?? 0,
     },
     {
@@ -576,7 +576,7 @@ function PipelineFunnel({
         (byStatus.CONTACTED ?? 0) +
         (byStatus.FOLLOWED_UP_1 ?? 0) +
         (byStatus.FOLLOWED_UP_2 ?? 0),
-      color: "#6a7bff",
+      color: "var(--c-brand)",
       stuck: stuckContacted,
     },
     {
@@ -584,7 +584,7 @@ function PipelineFunnel({
       title: "REPLIED",
       ru: "Ответили",
       count: byStatus.REPLIED ?? 0,
-      color: "#10B981",
+      color: "var(--c-success)",
       stuck: 0,
     },
   ];
@@ -822,7 +822,7 @@ const RUNNER_DEFS: Array<{
     name: "Discovery",
     desc: "Парсинг Google Places",
     cron: "0 9 * * *",
-    color: "#6a7bff",
+    color: "var(--c-brand)",
     icon: "globe",
   },
   {
@@ -830,7 +830,7 @@ const RUNNER_DEFS: Array<{
     name: "Enrichment",
     desc: "Извлечение email с сайтов",
     cron: "30 7 * * *",
-    color: "#6a7bff",
+    color: "var(--c-brand)",
     icon: "spark",
   },
   {
@@ -838,7 +838,7 @@ const RUNNER_DEFS: Array<{
     name: "Outreach",
     desc: "Отправка писем · ramp-up",
     cron: "0 12 * * *",
-    color: "#6a7bff",
+    color: "var(--c-brand)",
     icon: "bolt",
   },
   {
@@ -846,7 +846,7 @@ const RUNNER_DEFS: Array<{
     name: "Inbox",
     desc: "Чтение ответов · ping TG",
     cron: "*/20 * * * *",
-    color: "#6a7bff",
+    color: "var(--c-brand)",
     icon: "inbox",
   },
   {
@@ -854,7 +854,7 @@ const RUNNER_DEFS: Array<{
     name: "Report",
     desc: "Daily digest в Telegram",
     cron: "0 19 * * *",
-    color: "#F59E0B",
+    color: "var(--c-warning)",
     icon: "trending",
   },
 ];
@@ -1518,7 +1518,7 @@ function TopPerformers({ byCountry }: { byCountry: Record<string, number> }) {
     "var(--reiz-amber)",
     "var(--reiz-rose)",
     "var(--reiz-blue)",
-    "#6a7bff",
+    "var(--c-brand)",
   ];
   const items = COUNTRY_ORDER.map((code, i) => {
     const meta = COUNTRY_META[code];
@@ -1954,7 +1954,7 @@ export default function LeadsPage() {
                   padding: "10px 18px",
                   borderRadius: 12,
                   background:
-                    "linear-gradient(135deg, #6a7bff 0%, #6a7bff 100%)",
+                    "linear-gradient(135deg, var(--c-brand) 0%, var(--c-brand) 100%)",
                   color: "#fff",
                   border: "none",
                   fontSize: 13,

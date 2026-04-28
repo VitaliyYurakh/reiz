@@ -46,7 +46,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         padding: 10px 24px;
         border-radius: 49px;
         border: none;
-        background: linear-gradient(to right, #6a7bff, #5867e8);
+        background: linear-gradient(to right, var(--c-brand), var(--c-brand-dark));
         color: #fff;
         font-size: 13px;
         font-weight: 700;

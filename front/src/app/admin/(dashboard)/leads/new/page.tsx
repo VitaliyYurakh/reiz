@@ -240,7 +240,7 @@ export default function NewLeadPage() {
                 disabled={submitting}
                 style={{
                   padding: '10px 18px', borderRadius: 12,
-                  background: 'linear-gradient(135deg, #6a7bff 0%, #6a7bff 100%)',
+                  background: 'linear-gradient(135deg, var(--c-brand) 0%, var(--c-brand) 100%)',
                   color: '#fff', border: 'none',
                   fontSize: 13, fontWeight: 600, fontFamily: 'inherit',
                   cursor: submitting ? 'not-allowed' : 'pointer',

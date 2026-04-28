@@ -260,13 +260,13 @@ export default function PartnerDetailPage() {
       {/* Header */}
       <div
         className="mb-6 rounded-[20px] px-7 py-5"
-        style={{ backgroundColor: isDark ? '#1A2332' : '#FFFFFF', boxShadow: H.shadow }}
+        style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}
       >
         <div className="flex items-center gap-3.5">
           <Link
             href="/admin/partners"
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full"
-            style={{ backgroundColor: isDark ? '#1E293B' : '#F7F9FB' }}
+            style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)' }}
           >
             <ArrowLeft className="h-4 w-4" />
           </Link>
@@ -319,9 +319,9 @@ export default function PartnerDetailPage() {
               <div
                 className="mt-3 rounded-lg border-2 p-3 text-sm font-mono break-all relative"
                 style={{
-                  borderColor: downloadStatus.startsWith('✓') ? '#01B574' : '#EE5D50',
+                  borderColor: downloadStatus.startsWith('✓') ? 'var(--c-success)' : 'var(--c-error)',
                   background: downloadStatus.startsWith('✓') ? 'rgba(1,181,116,0.1)' : 'rgba(238,93,80,0.1)',
-                  color: downloadStatus.startsWith('✓') ? '#01B574' : '#C62828',
+                  color: downloadStatus.startsWith('✓') ? 'var(--c-success)' : 'var(--c-error)',
                 }}
               >
                 <div className="text-[10px] uppercase tracking-wider opacity-60 mb-1">
@@ -369,12 +369,12 @@ export default function PartnerDetailPage() {
             {report && (
               <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
                 {[
-                  { label: 'Оренд', val: report.summary.rentalsCount, color: '#9aa5ff' },
+                  { label: 'Оренд', val: report.summary.rentalsCount, color: 'var(--c-brand-light)' },
                   { label: 'Базова сума', val: `${symbol} ${report.summary.totalBase.toFixed(2)}`, color: '#90A4AE' },
                   { label: 'Після знижок', val: `${symbol} ${report.summary.totalAfterDiscount.toFixed(2)}`, color: '#90A4AE' },
-                  { label: 'Комісія Reiz', val: `${symbol} ${report.summary.totalCommission.toFixed(2)}`, color: '#01B574' },
+                  { label: 'Комісія Reiz', val: `${symbol} ${report.summary.totalCommission.toFixed(2)}`, color: 'var(--c-success)' },
                 ].map(({ label, val, color }) => (
-                  <div key={label} className="rounded-xl p-3" style={{ backgroundColor: isDark ? '#0F172A' : '#F7F9FB' }}>
+                  <div key={label} className="rounded-xl p-3" style={{ backgroundColor: isDark ? '#0F172A' : 'var(--c-surface-muted)' }}>
                     <p className="text-[10px] uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{label}</p>
                     <p className="mt-1 text-base font-bold tabular-nums" style={{ color }}>{val}</p>
                   </div>
@@ -388,7 +388,7 @@ export default function PartnerDetailPage() {
             <div className="ios-table-wrap">
               <table className="w-full text-sm">
                 <thead>
-                  <tr style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid #F0F4F8' }}>
+                  <tr style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-muted)' }}>
                     <th className="px-3 py-2 text-left text-[10px] font-bold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>Дата</th>
                     <th className="px-3 py-2 text-left text-[10px] font-bold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>Авто</th>
                     <th className="px-3 py-2 text-right text-[10px] font-bold uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>Дні</th>
@@ -401,7 +401,7 @@ export default function PartnerDetailPage() {
                 </thead>
                 <tbody>
                   {report.rows.map((r) => (
-                    <tr key={r.rentalId} style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid #F0F4F8' }}>
+                    <tr key={r.rentalId} style={{ borderBottom: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-muted)' }}>
                       <td className="px-3 py-2 text-xs tabular-nums whitespace-nowrap">
                         {new Date(r.date).toLocaleDateString('uk', { day: '2-digit', month: '2-digit', year: '2-digit' })}
                       </td>
@@ -416,12 +416,12 @@ export default function PartnerDetailPage() {
                       <td className="px-3 py-2 text-right text-xs tabular-nums">{r.discountPercent}%</td>
                       <td className="px-3 py-2 text-right text-xs tabular-nums">{symbol} {r.priceAfterDiscount.toFixed(2)}</td>
                       <td className="px-3 py-2 text-right text-xs tabular-nums font-semibold">{r.commissionPercent}%</td>
-                      <td className="px-3 py-2 text-right text-xs tabular-nums font-bold" style={{ color: '#01B574' }}>{symbol} {r.commissionAmount.toFixed(2)}</td>
+                      <td className="px-3 py-2 text-right text-xs tabular-nums font-bold" style={{ color: 'var(--c-success)' }}>{symbol} {r.commissionAmount.toFixed(2)}</td>
                     </tr>
                   ))}
-                  <tr className="font-bold" style={{ background: isDark ? '#0F172A' : '#FFF8E1' }}>
+                  <tr className="font-bold" style={{ background: isDark ? '#0F172A' : 'var(--c-warning-bg)' }}>
                     <td colSpan={7} className="px-3 py-2 text-right text-sm">Разом до оплати:</td>
-                    <td className="px-3 py-2 text-right text-base tabular-nums" style={{ color: '#01B574' }}>
+                    <td className="px-3 py-2 text-right text-base tabular-nums" style={{ color: 'var(--c-success)' }}>
                       {symbol} {report.summary.totalCommission.toFixed(2)}
                     </td>
                   </tr>
@@ -552,7 +552,7 @@ export default function PartnerDetailPage() {
                     <dt className="text-muted-foreground tabular-nums">
                       {t.maxDays === 0 ? `≥ ${t.minDays} днів` : `${t.minDays}–${t.maxDays} днів`}
                     </dt>
-                    <dd className="font-bold tabular-nums" style={{ color: '#01B574' }}>
+                    <dd className="font-bold tabular-nums" style={{ color: 'var(--c-success)' }}>
                       {t.percent}%
                     </dd>
                   </div>

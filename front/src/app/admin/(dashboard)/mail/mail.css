@@ -5,22 +5,22 @@
 .mail-page {
   --bg: #F4F5F9;
   --bg-2: #ECEEF4;
-  --surface: #FFFFFF;
+  --surface: var(--c-surface-card);
   --surface-2: #FAFAFC;
   --border: #E6E8EF;
   --border-2: #EFF1F6;
   --text: #0F1226;
   --text-2: #4B5063;
-  --text-3: #8A8FA3;
-  --primary: #6a7bff;
+  --text-3: var(--c-text-muted);
+  --primary: var(--c-brand);
   --primary-50: #F2EEFF;
   --primary-100: #E5DEFF;
   --primary-shadow: rgba(106, 123, 255, 0.30);
-  --green: #22C55E;
-  --orange: #F97316;
+  --green: var(--c-success);
+  --orange: var(--c-warning);
   --pink: #EC4899;
-  --red: #EF4444;
-  --blue: #6a7bff;
+  --red: var(--c-error);
+  --blue: var(--c-brand);
   --shadow-sm: 0 1px 2px rgba(20,22,40,0.04);
   --shadow-md: 0 6px 24px rgba(20,22,40,0.06);
   --shadow-lg: 0 24px 60px rgba(20,22,40,0.12);
@@ -47,7 +47,7 @@
   --border: #262945;
   --border-2: #20223A;
   --text: #ECEEF7;
-  --text-2: #A6ABC2;
+  --text-2: var(--c-text-muted);
   --text-3: #6B7090;
   --primary-50: #2A2348;
   --primary-100: #36295E;
@@ -195,7 +195,7 @@
 .storage-bar {
   height: 4px; background: var(--bg-2); border-radius: 2px; margin-top: 6px; overflow: hidden;
 }
-.storage-fill { height: 100%; background: linear-gradient(90deg, #6a7bff, #6a7bff); border-radius: 2px; }
+.storage-fill { height: 100%; background: linear-gradient(90deg, var(--c-brand), var(--c-brand)); border-radius: 2px; }
 
 .folders-sync {
   padding: 10px 6px 0;
@@ -372,7 +372,7 @@
   flex-shrink: 0;
   color: var(--text-3);
 }
-.star-on { color: #F59E0B; }
+.star-on { color: var(--c-warning); }
 .msg-time {
   font-size: 11.5px;
   font-variant-numeric: tabular-nums;

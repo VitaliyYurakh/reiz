@@ -105,7 +105,7 @@ export function AuditTab() {
                 className="h-filter-count"
                 style={{
                   background: showFilters ? 'rgba(255,255,255,0.3)' : 'var(--color-h-purple)',
-                  color: '#FFFFFF',
+                  color: 'var(--c-surface-card)',
                 }}
               >
                 {[filterAction, filterEntity, filterFrom, filterTo].filter(Boolean).length}

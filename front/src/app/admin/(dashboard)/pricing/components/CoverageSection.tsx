@@ -552,7 +552,7 @@ export function CoverageSection({
                     style={{
                       fontSize: 13,
                       fontWeight: 700,
-                      color: isDark ? '#F6AD55' : '#C87800',
+                      color: isDark ? 'var(--c-warning-light)' : '#C87800',
                       fontFamily: H.font,
                     }}
                   >

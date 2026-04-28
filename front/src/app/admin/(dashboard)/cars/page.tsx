@@ -340,7 +340,7 @@ export default function CarListPage() {
                             padding: '4px 10px',
                             fontSize: 11,
                             fontWeight: 700,
-                            background: 'linear-gradient(135deg, #FFB547 0%, #FF9100 100%)',
+                            background: 'linear-gradient(135deg, var(--c-warning) 0%, var(--c-warning) 100%)',
                             color: '#fff',
                           }}
                         >

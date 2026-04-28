@@ -106,14 +106,14 @@ export default function NewRequestPage() {
       {/* ── Page header ── */}
       <div
         className="mb-6 rounded-2xl px-8 py-6"
-        style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : '#FFFFFF' }}
+        style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)' }}
       >
         <div className="flex items-center gap-4">
           <Link href="/admin/requests" className="ios-icon-btn">
             <ArrowLeft className="h-4 w-4" />
           </Link>
           <div
-            className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6a7bff] to-[#6a7bff]"
+            className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--c-brand)] to-[var(--c-brand)]"
             style={{ boxShadow: '0 4px 12px rgba(106, 123, 255, 0.3)' }}
           >
             <ClipboardList className="h-6 w-6 text-white" />
@@ -135,12 +135,12 @@ export default function NewRequestPage() {
         {/* ── Источник ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : '#FFFFFF' }}
+          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)' }}
         >
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(21,101,192,0.15)' : '#E3F2FD' }}
+              style={{ backgroundColor: isDark ? 'rgba(21,101,192,0.15)' : 'var(--c-info-bg)' }}
             >
               <Globe className="h-3.5 w-3.5" style={{ color: '#1565C0' }} />
             </div>
@@ -173,7 +173,7 @@ export default function NewRequestPage() {
         {/* ── Клиент ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : '#FFFFFF' }}
+          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)' }}
         >
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2.5">
@@ -181,7 +181,7 @@ export default function NewRequestPage() {
                 className="flex h-7 w-7 items-center justify-center rounded-lg"
                 style={{ backgroundColor: isDark ? 'rgba(106, 123, 255, 0.15)' : '#EDE7F6' }}
               >
-                <User className="h-3.5 w-3.5" style={{ color: '#6a7bff' }} />
+                <User className="h-3.5 w-3.5" style={{ color: 'var(--c-brand)' }} />
               </div>
               <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newRequest.sectionClient')}</h2>
             </div>
@@ -189,7 +189,7 @@ export default function NewRequestPage() {
               type="button"
               onClick={() => setMode(m => m === 'existing' ? 'manual' : 'existing')}
               className="text-[12px] font-semibold transition-colors hover:opacity-80"
-              style={{ color: isDark ? '#9aa5ff' : '#6a7bff' }}
+              style={{ color: isDark ? 'var(--c-brand-light)' : 'var(--c-brand)' }}
             >
               {mode === 'existing' ? t('newRequest.enterManually') : t('newRequest.selectFromDB')}
             </button>
@@ -256,14 +256,14 @@ export default function NewRequestPage() {
         {/* ── Автомобиль ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : '#FFFFFF' }}
+          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)' }}
         >
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(67,160,71,0.15)' : '#E8F5E9' }}
+              style={{ backgroundColor: isDark ? 'rgba(67,160,71,0.15)' : 'var(--c-success-bg)' }}
             >
-              <Car className="h-3.5 w-3.5" style={{ color: '#43A047' }} />
+              <Car className="h-3.5 w-3.5" style={{ color: 'var(--c-success)' }} />
             </div>
             <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newRequest.sectionCar')}</h2>
           </div>
@@ -282,14 +282,14 @@ export default function NewRequestPage() {
         {/* ── Даты и локации ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : '#FFFFFF' }}
+          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)' }}
         >
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(230,81,0,0.15)' : '#FFF3E0' }}
+              style={{ backgroundColor: isDark ? 'rgba(230,81,0,0.15)' : 'var(--c-warning-bg)' }}
             >
-              <CalendarDays className="h-3.5 w-3.5" style={{ color: '#E65100' }} />
+              <CalendarDays className="h-3.5 w-3.5" style={{ color: 'var(--c-warning)' }} />
             </div>
             <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newRequest.sectionDates')}</h2>
           </div>
@@ -340,12 +340,12 @@ export default function NewRequestPage() {
         {/* ── Дополнительно ── */}
         <div
           className="rounded-2xl p-6"
-          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : '#FFFFFF' }}
+          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)', backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)' }}
         >
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(144,164,174,0.10)' : '#F7F9FB' }}
+              style={{ backgroundColor: isDark ? 'rgba(144,164,174,0.10)' : 'var(--c-surface-muted)' }}
             >
               <MessageSquare className="h-3.5 w-3.5" style={{ color: '#90A4AE' }} />
             </div>

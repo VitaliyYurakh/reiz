@@ -3,28 +3,28 @@
 
 export const REIZ_LEADS_CSS = `
 .reiz-leads {
-  --reiz-indigo: #6a7bff;
-  --reiz-indigo-600: #6a7bff;
-  --reiz-cyan: #6a7bff;
-  --reiz-green: #10B981;
-  --reiz-amber: #F59E0B;
+  --reiz-indigo: var(--c-brand);
+  --reiz-indigo-600: var(--c-brand);
+  --reiz-cyan: var(--c-brand);
+  --reiz-green: var(--c-success);
+  --reiz-amber: var(--c-warning);
   --reiz-rose: #F43F5E;
-  --reiz-blue: #6a7bff;
+  --reiz-blue: var(--c-brand);
 
   --st-new:           #94A3B8;
-  --st-enriched:      #6a7bff;
-  --st-ready:         #6a7bff;
-  --st-contacted:     #6a7bff;
-  --st-fu1:           #6a7bff;
-  --st-fu2:           #6a7bff;
+  --st-enriched:      var(--c-brand);
+  --st-ready:         var(--c-brand);
+  --st-contacted:     var(--c-brand);
+  --st-fu1:           var(--c-brand);
+  --st-fu2:           var(--c-brand);
   --st-breakup:       #C026D3;
-  --st-replied:       #10B981;
-  --st-interested:    #059669;
-  --st-client:        #047857;
+  --st-replied:       var(--c-success);
+  --st-interested:    var(--c-success);
+  --st-client:        var(--c-success);
   --st-disqualified:  #64748B;
-  --st-bounced:       #EF4444;
+  --st-bounced:       var(--c-error);
   --st-unsubscribed:  #71717A;
-  --st-paused:        #F59E0B;
+  --st-paused:        var(--c-warning);
 
   --radius-card: 20px;
 
@@ -39,8 +39,8 @@ export const REIZ_LEADS_CSS = `
 }
 .reiz-leads.theme-light {
   --bg-app: #EDEEF2;
-  --bg-surface: #FFFFFF;
-  --bg-surface-2: #F7F8FA;
+  --bg-surface: var(--c-surface-card);
+  --bg-surface-2: var(--c-surface-muted);
   --bg-sunken: #E5E7EC;
   --bg-row-hover: #F4F5F7;
   --border: #E5E7EC;

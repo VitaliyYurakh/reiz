@@ -8,6 +8,7 @@ import {
   useEffect,
   type ReactNode,
 } from 'react';
+import { ADMIN_COLORS } from '@/lib/admin/colors';
 
 export type AdminTheme = 'light' | 'dark';
 
@@ -33,45 +34,50 @@ export interface ThemeTokens {
   font: string;
 }
 
+// LIGHT/DARK keep their old "Horizon" key names for backward compatibility
+// with the dozens of admin pages that destructure `H.purple` / `H.green` /
+// etc. The actual values now come from the canonical palette in
+// `lib/admin/colors.ts` so changing a brand color in one place updates
+// every consumer.
 export const LIGHT: ThemeTokens = {
-  navy: '#2B3674',
-  navyDark: '#1B2559',
-  gray: '#A3AED0',
-  grayLight: '#E0E5F2',
-  bg: '#F4F7FE',
-  white: '#FFFFFF',
-  purple: '#6a7bff',
-  purpleLight: '#9aa5ff',
-  green: '#01B574',
-  greenBg: '#E6FFF3',
-  red: '#EE5D50',
-  redBg: '#FFF0EF',
-  orange: '#FFB547',
-  orangeBg: '#FFF6E6',
-  blue: '#6a7bff',
-  blueBg: '#EEF1FF',
+  navy: ADMIN_COLORS.text.primaryLight,
+  navyDark: ADMIN_COLORS.text.deepNavy,
+  gray: ADMIN_COLORS.text.secondaryLight,
+  grayLight: ADMIN_COLORS.surface.borderLight,
+  bg: ADMIN_COLORS.surface.bgLight,
+  white: ADMIN_COLORS.surface.cardLight,
+  purple: ADMIN_COLORS.brand.primary,
+  purpleLight: ADMIN_COLORS.brand.light,
+  green: ADMIN_COLORS.success.base,
+  greenBg: ADMIN_COLORS.success.bgLight,
+  red: ADMIN_COLORS.error.base,
+  redBg: ADMIN_COLORS.error.bgLight,
+  orange: ADMIN_COLORS.warning.base,
+  orangeBg: ADMIN_COLORS.warning.bgLight,
+  blue: ADMIN_COLORS.brand.primary,
+  blueBg: ADMIN_COLORS.brand.bgLight,
   shadow: '14px 17px 40px 4px rgba(112, 144, 176, 0.08)',
   shadowMd: '0 4px 12px rgba(112, 144, 176, 0.12)',
   font: "'DM Sans', sans-serif",
 };
 
 export const DARK: ThemeTokens = {
-  navy: '#E2E8F0',
+  navy: ADMIN_COLORS.text.primaryDark,
   navyDark: '#CBD5E0',
-  gray: '#718096',
-  grayLight: '#2D3748',
-  bg: '#111827',
-  white: '#1A2332',
-  purple: '#6a7bff',
-  purpleLight: '#9aa5ff',
-  green: '#48BB78',
-  greenBg: '#1A3A2A',
-  red: '#FC8181',
-  redBg: '#3B1F1F',
-  orange: '#F6AD55',
-  orangeBg: '#3D2B13',
-  blue: '#9aa5ff',
-  blueBg: '#1F2347',
+  gray: ADMIN_COLORS.text.secondaryDark,
+  grayLight: ADMIN_COLORS.surface.borderDark,
+  bg: ADMIN_COLORS.surface.bgDark,
+  white: ADMIN_COLORS.surface.cardDark,
+  purple: ADMIN_COLORS.brand.primary,
+  purpleLight: ADMIN_COLORS.brand.light,
+  green: ADMIN_COLORS.success.dark,
+  greenBg: ADMIN_COLORS.success.bgDark,
+  red: ADMIN_COLORS.error.dark,
+  redBg: ADMIN_COLORS.error.bgDark,
+  orange: ADMIN_COLORS.warning.dark,
+  orangeBg: ADMIN_COLORS.warning.bgDark,
+  blue: ADMIN_COLORS.brand.light,
+  blueBg: ADMIN_COLORS.brand.bgDark,
   shadow: '0 2px 8px rgba(0, 0, 0, 0.4)',
   shadowMd: '0 4px 12px rgba(0, 0, 0, 0.5)',
   font: "'DM Sans', sans-serif",

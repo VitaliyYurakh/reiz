@@ -27,14 +27,14 @@ const KPI_COLORS: Record<
   string,
   { icon: string; bg: string }
 > = {
-  activeRentals: { icon: '#6a7bff', bg: 'rgba(106, 123, 255, 0.08)' },
-  confirmedReservations: { icon: '#01B574', bg: 'rgba(1,181,116,0.08)' },
-  newRequests: { icon: '#9aa5ff', bg: 'rgba(154, 165, 255, 0.08)' },
-  overdue: { icon: '#EE5D50', bg: 'rgba(238,93,80,0.08)' },
-  revenue: { icon: '#01B574', bg: 'rgba(1,181,116,0.08)' },
-  completed: { icon: '#6a7bff', bg: 'rgba(106, 123, 255, 0.08)' },
-  clients: { icon: '#FFB547', bg: 'rgba(255,181,71,0.08)' },
-  fleet: { icon: '#9aa5ff', bg: 'rgba(154, 165, 255, 0.08)' },
+  activeRentals: { icon: 'var(--c-brand)', bg: 'rgba(106, 123, 255, 0.08)' },
+  confirmedReservations: { icon: 'var(--c-success)', bg: 'rgba(1,181,116,0.08)' },
+  newRequests: { icon: 'var(--c-brand-light)', bg: 'rgba(154, 165, 255, 0.08)' },
+  overdue: { icon: 'var(--c-error)', bg: 'rgba(238,93,80,0.08)' },
+  revenue: { icon: 'var(--c-success)', bg: 'rgba(1,181,116,0.08)' },
+  completed: { icon: 'var(--c-brand)', bg: 'rgba(106, 123, 255, 0.08)' },
+  clients: { icon: 'var(--c-warning)', bg: 'rgba(255,181,71,0.08)' },
+  fleet: { icon: 'var(--c-brand-light)', bg: 'rgba(154, 165, 255, 0.08)' },
 };
 
 export function KPICard({

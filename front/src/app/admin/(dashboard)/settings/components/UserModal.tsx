@@ -187,7 +187,7 @@ export function UserModal({
         </div>
 
         {errorMsg && (
-          <div className="mt-3 rounded-lg px-3 py-2 text-[13px] shrink-0" style={{ backgroundColor: 'rgba(239,83,80,0.1)', color: '#EF5350', whiteSpace: 'pre-line' }}>
+          <div className="mt-3 rounded-lg px-3 py-2 text-[13px] shrink-0" style={{ backgroundColor: 'rgba(239,83,80,0.1)', color: 'var(--c-warning-light)', whiteSpace: 'pre-line' }}>
             {errorMsg}
           </div>
         )}

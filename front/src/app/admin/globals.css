@@ -6,6 +6,63 @@
 /* Reset public-site body padding for admin pages */
 :root {
     --header-height: 0px !important;
+
+    /* ──────────────────────────────────────────────────────────────
+       Canonical admin color palette — single source of truth.
+       Mirrors `lib/admin/colors.ts`. Dark-theme overrides live below
+       under `[data-theme="dark"]`.
+       ────────────────────────────────────────────────────────────── */
+    --c-brand:              #6a7bff;
+    --c-brand-light:        #9aa5ff;
+    --c-brand-dark:         #5867e8;
+    --c-brand-bg:           #EEF1FF;
+
+    --c-success:            #01B574;
+    --c-success-light:      #48BB78;
+    --c-success-bg:         #E6FFF3;
+
+    --c-warning:            #FFB547;
+    --c-warning-light:      #F6AD55;
+    --c-warning-bg:         #FFF6E6;
+
+    --c-error:              #EE5D50;
+    --c-error-light:        #FC8181;
+    --c-error-bg:           #FFF0EF;
+
+    --c-info:               #00838F;
+    --c-info-bg:            #E0F7FA;
+
+    --c-text:               #2B3674;
+    --c-text-muted:         #A3AED0;
+    --c-text-deep:          #1B2559;
+
+    --c-surface-bg:         #F4F7FE;
+    --c-surface-card:       #FFFFFF;
+    --c-surface-border:     #E0E5F2;
+    --c-surface-muted:      #F7F9FB;
+}
+
+/* Dark-theme overrides — applied via [data-theme="dark"] on <html>. */
+[data-theme="dark"] {
+    --c-brand-bg:           #1F2347;
+    --c-success:            #48BB78;
+    --c-success-light:      #66BB6A;
+    --c-success-bg:         #1A3A2A;
+    --c-warning:            #F6AD55;
+    --c-warning-light:      #FFB74D;
+    --c-warning-bg:         #3D2B13;
+    --c-error:              #FC8181;
+    --c-error-light:        #FCA5A5;
+    --c-error-bg:           #3B1F1F;
+    --c-info:               #80DEEA;
+    --c-info-bg:            #063545;
+    --c-text:               #E2E8F0;
+    --c-text-muted:         #718096;
+    --c-text-deep:          #CBD5E0;
+    --c-surface-bg:         #111827;
+    --c-surface-card:       #1A2332;
+    --c-surface-border:     #2D3748;
+    --c-surface-muted:      #1E293B;
 }
 body {
     padding-top: 0 !important;
