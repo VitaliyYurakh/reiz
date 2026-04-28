@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { adminApiClient, getAllCars } from '@/lib/api/admin';
-import { cn } from '@/lib/cn';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -12,18 +11,20 @@ import {
   Loader2,
   Plus,
   Minus,
+  Check,
+  AlertCircle,
   User,
   Car,
   CalendarDays,
   MapPin,
   Shield,
   Package,
-  Truck,
 } from 'lucide-react';
 import { IosSelect } from '@/components/admin/IosSelect';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
-import { useAdminTheme } from '@/context/AdminThemeContext';
 import { fmtMoney } from '@/app/admin/lib/format';
+import '../../dashboard/dashboard.css';
+import './new-reservation.css';
 
 interface ClientOption { id: number; firstName: string; lastName: string; phone: string }
 interface CarOption { id: number; brand: string | null; model: string | null; plateNumber: string | null }
@@ -60,8 +61,6 @@ function todayLocal() {
 export default function NewReservationPage() {
   const router = useRouter();
   const { t } = useAdminLocale();
-  const { theme } = useAdminTheme();
-  const isDark = theme === 'dark';
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [clients, setClients] = useState<ClientOption[]>([]);
@@ -207,226 +206,205 @@ export default function NewReservationPage() {
   const minReturn = form.pickupDate || minPickup;
 
   return (
-    <div className="max-w-3xl">
-      {/* ── Header ── */}
-      <div
-        className="mb-6 rounded-2xl px-8 py-6"
-        style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
-      >
-        <div className="flex items-center gap-4">
-          <Link href="/admin/reservations" className="ios-icon-btn">
-            <ArrowLeft className="h-4 w-4" />
-          </Link>
-          <div
-            className="flex h-12 w-12 items-center justify-center rounded-2xl"
-            style={{
-              background: 'linear-gradient(135deg, var(--c-success), var(--c-success))',
-              boxShadow: '0 4px 12px rgba(67,160,71,0.3)',
-            }}
-          >
-            <CalendarDays className="h-6 w-6 text-white" />
-          </div>
-          <div>
-            <h1 className="text-[18px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newReservation.title')}</h1>
-            <p className="mt-0.5 text-[13px]" style={{ color: isDark ? '#718096' : '#90A4AE' }}>
-              {t('newReservation.subtitle')}
-            </p>
-          </div>
+    <div className="dh-root nr-container">
+      {/* ── Header (greeting style) ── */}
+      <div className="nr-header">
+        <Link href="/admin/reservations" className="nr-back" aria-label="Назад">
+          <ArrowLeft />
+        </Link>
+        <div>
+          <div className="nr-greeting">{t('newReservation.title')}</div>
+          <div className="nr-subtitle">{t('newReservation.subtitle')}</div>
         </div>
       </div>
 
-      {error && <div className="mb-5 ios-alert-destructive">{error}</div>}
-
-      <form onSubmit={handleSubmit} className="space-y-5">
-        {/* ── Client ── */}
-        <div
-          className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
-        >
-          <div className="flex items-center gap-2.5 mb-4">
-            <div
-              className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(106, 123, 255, 0.15)' : '#EDE7F6' }}
-            >
-              <User className="h-3.5 w-3.5" style={{ color: 'var(--c-brand)' }} />
-            </div>
-            <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
-              {t('newReservation.sectionClient')}
-            </h2>
-          </div>
-          <IosSelect
-            value={form.clientId}
-            onChange={(v) => set('clientId', v)}
-            options={[
-              { value: '', label: t('newReservation.selectClient') },
-              ...clients.map(c => ({ value: String(c.id), label: `${c.lastName} ${c.firstName} (${c.phone})` })),
-            ]}
-            placeholder={t('newReservation.selectClient')}
-            className="w-full text-[13px]"
-            required
-          />
+      {error && (
+        <div className="nr-alert" style={{ marginBottom: 16 }}>
+          <AlertCircle />
+          <span>{error}</span>
         </div>
+      )}
 
-        {/* ── Car ── */}
-        <div
-          className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
-        >
-          <div className="flex items-center gap-2.5 mb-4">
-            <div
-              className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(67,160,71,0.15)' : 'var(--c-success-bg)' }}
-            >
-              <Car className="h-3.5 w-3.5" style={{ color: 'var(--c-success)' }} />
+      <form onSubmit={handleSubmit} className="nr-form">
+        {/* ── Client + Car ── */}
+        <div className="nr-row-2">
+          <section className="dh-card">
+            <div className="nr-section-head">
+              <div className="nr-section-icon accent">
+                <User />
+              </div>
+              <div className="nr-section-title">
+                {t('newReservation.sectionClient')}
+                <span className="nr-required">*</span>
+              </div>
             </div>
-            <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
-              {t('newReservation.sectionCar')}
-            </h2>
-          </div>
-          <IosSelect
-            value={form.carId}
-            onChange={(v) => set('carId', v)}
-            options={[
-              { value: '', label: t('newReservation.selectCar') },
-              ...cars.map(c => ({ value: String(c.id), label: `${c.brand || ''} ${c.model || ''} (${c.plateNumber || ''})`.trim() })),
-            ]}
-            placeholder={t('newReservation.selectCar')}
-            className="w-full text-[13px]"
-            required
-          />
+            <div className="nr-select-wrap">
+              <IosSelect
+                value={form.clientId}
+                onChange={(v) => set('clientId', v)}
+                options={[
+                  { value: '', label: t('newReservation.selectClient') },
+                  ...clients.map(c => ({ value: String(c.id), label: `${c.lastName} ${c.firstName} (${c.phone})` })),
+                ]}
+                placeholder={t('newReservation.selectClient')}
+                required
+              />
+            </div>
+          </section>
+
+          <section className="dh-card">
+            <div className="nr-section-head">
+              <div className="nr-section-icon success">
+                <Car />
+              </div>
+              <div className="nr-section-title">
+                {t('newReservation.sectionCar')}
+                <span className="nr-required">*</span>
+              </div>
+            </div>
+            <div className="nr-select-wrap">
+              <IosSelect
+                value={form.carId}
+                onChange={(v) => set('carId', v)}
+                options={[
+                  { value: '', label: t('newReservation.selectCar') },
+                  ...cars.map(c => ({ value: String(c.id), label: `${c.brand || ''} ${c.model || ''} (${c.plateNumber || ''})`.trim() })),
+                ]}
+                placeholder={t('newReservation.selectCar')}
+                required
+              />
+            </div>
+          </section>
         </div>
 
         {/* ── Dates ── */}
-        <div
-          className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
-        >
-          <div className="flex items-center gap-2.5 mb-4">
-            <div
-              className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(230,81,0,0.15)' : 'var(--c-warning-bg)' }}
-            >
-              <CalendarDays className="h-3.5 w-3.5" style={{ color: 'var(--c-warning)' }} />
+        <section className="dh-card">
+          <div className="nr-section-head">
+            <div className="nr-section-icon warning">
+              <CalendarDays />
             </div>
-            <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
+            <div className="nr-section-title">
               {t('newReservation.sectionDates')}
-            </h2>
+              <span className="nr-required">*</span>
+            </div>
           </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="nr-row-2">
             <div>
-              <label className="block text-[12px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.pickupDate')}</label>
-              <input type="datetime-local" value={form.pickupDate} onChange={e => handlePickupChange(e.target.value)}
+              <label className="nr-label">{t('newReservation.pickupDate')}</label>
+              <input
+                type="datetime-local"
+                value={form.pickupDate}
+                onChange={(e) => handlePickupChange(e.target.value)}
                 min={minPickup}
-                className="w-full ios-input text-[13px]" required />
-            </div>
-            <div>
-              <label className="block text-[12px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.returnDate')}</label>
-              <input type="datetime-local" value={form.returnDate} onChange={e => set('returnDate', e.target.value)}
-                min={minReturn}
-                className="w-full ios-input text-[13px]" required />
-            </div>
-          </div>
-        </div>
-
-        {/* ── Locations ── */}
-        <div
-          className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
-        >
-          <div className="flex items-center gap-2.5 mb-4">
-            <div
-              className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(21,101,192,0.15)' : 'var(--c-info-bg)' }}
-            >
-              <MapPin className="h-3.5 w-3.5" style={{ color: '#1565C0' }} />
-            </div>
-            <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newReservation.sectionLocations')}</h2>
-          </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div>
-              <label className="block text-[12px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.pickupLocation')}</label>
-              <input value={form.pickupLocation} onChange={e => set('pickupLocation', e.target.value)}
-                className="w-full ios-input text-[13px]" />
-            </div>
-            <div>
-              <label className="block text-[12px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.returnLocation')}</label>
-              <input value={form.returnLocation} onChange={e => set('returnLocation', e.target.value)}
-                className="w-full ios-input text-[13px]" />
-            </div>
-          </div>
-        </div>
-
-        {/* ── Coverage & delivery ── */}
-        <div
-          className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
-        >
-          <div className="flex items-center gap-2.5 mb-4">
-            <div
-              className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(198,40,40,0.15)' : '#FCE4EC' }}
-            >
-              <Shield className="h-3.5 w-3.5" style={{ color: 'var(--c-error)' }} />
-            </div>
-            <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newReservation.sectionCoverage')}</h2>
-          </div>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-[12px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.coverageLabel')}</label>
-              <IosSelect
-                value={form.coveragePackageId}
-                onChange={(v) => set('coveragePackageId', v)}
-                options={[
-                  { value: '', label: t('newReservation.noCoverage') },
-                  ...packages.map(p => ({ value: String(p.id), label: p.name })),
-                ]}
-                placeholder={t('newReservation.noCoverage')}
-                className="w-full text-[13px]"
+                className="nr-input"
+                required
               />
             </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div>
-                <label className="block text-[12px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: isDark ? '#718096' : '#90A4AE' }}>
-                  <span className="flex items-center gap-1"><Truck className="h-3 w-3" /> {t('newReservation.deliveryCost')}</span>
-                </label>
-                <input type="number" value={form.deliveryFee} onChange={e => set('deliveryFee', e.target.value)}
-                  className="w-full ios-input text-[13px]" />
-              </div>
-              <div>
-                <label className="block text-[12px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.deliveryCurrency')}</label>
+            <div>
+              <label className="nr-label">{t('newReservation.returnDate')}</label>
+              <input
+                type="datetime-local"
+                value={form.returnDate}
+                onChange={(e) => set('returnDate', e.target.value)}
+                min={minReturn}
+                className="nr-input"
+                required
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── Locations ── */}
+        <section className="dh-card">
+          <div className="nr-section-head">
+            <div className="nr-section-icon info">
+              <MapPin />
+            </div>
+            <div className="nr-section-title">{t('newReservation.sectionLocations')}</div>
+          </div>
+          <div className="nr-row-2">
+            <div>
+              <label className="nr-label">{t('newReservation.pickupLocation')}</label>
+              <input
+                value={form.pickupLocation}
+                onChange={(e) => set('pickupLocation', e.target.value)}
+                className="nr-input"
+              />
+            </div>
+            <div>
+              <label className="nr-label">{t('newReservation.returnLocation')}</label>
+              <input
+                value={form.returnLocation}
+                onChange={(e) => set('returnLocation', e.target.value)}
+                className="nr-input"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── Coverage & delivery ── */}
+        <section className="dh-card">
+          <div className="nr-section-head">
+            <div className="nr-section-icon danger">
+              <Shield />
+            </div>
+            <div className="nr-section-title">{t('newReservation.sectionCoverage')}</div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div>
+              <label className="nr-label">{t('newReservation.coverageLabel')}</label>
+              <div className="nr-select-wrap">
                 <IosSelect
-                  value={form.deliveryCurrency}
-                  onChange={(v) => set('deliveryCurrency', v)}
+                  value={form.coveragePackageId}
+                  onChange={(v) => set('coveragePackageId', v)}
                   options={[
-                    { value: 'UAH', label: 'UAH' },
-                    { value: 'USD', label: 'USD' },
-                    { value: 'EUR', label: 'EUR' },
+                    { value: '', label: t('newReservation.noCoverage') },
+                    ...packages.map(p => ({ value: String(p.id), label: p.name })),
                   ]}
-                  className="w-full text-[13px]"
+                  placeholder={t('newReservation.noCoverage')}
                 />
               </div>
             </div>
+            <div className="nr-row-2">
+              <div>
+                <label className="nr-label">{t('newReservation.deliveryCost')}</label>
+                <input
+                  type="number"
+                  value={form.deliveryFee}
+                  onChange={(e) => set('deliveryFee', e.target.value)}
+                  className="nr-input"
+                />
+              </div>
+              <div>
+                <label className="nr-label">{t('newReservation.deliveryCurrency')}</label>
+                <div className="nr-select-wrap">
+                  <IosSelect
+                    value={form.deliveryCurrency}
+                    onChange={(v) => set('deliveryCurrency', v)}
+                    options={[
+                      { value: 'UAH', label: 'UAH' },
+                      { value: 'USD', label: 'USD' },
+                      { value: 'EUR', label: 'EUR' },
+                    ]}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
         {/* ── Add-ons ── */}
         {availableAddOns.length > 0 && (
-          <div
-            className="rounded-2xl p-6"
-            style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
-          >
-            <div className="flex items-center gap-2.5 mb-4">
-              <div
-                className="flex h-7 w-7 items-center justify-center rounded-lg"
-                style={{ backgroundColor: isDark ? 'rgba(142,36,170,0.15)' : '#F3E5F5' }}
-              >
-                <Package className="h-3.5 w-3.5" style={{ color: '#8E24AA' }} />
+          <section className="dh-card">
+            <div className="nr-section-head">
+              <div className="nr-section-icon accent">
+                <Package />
               </div>
-              <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newReservation.sectionAddOns')}</h2>
+              <div className="nr-section-title">{t('newReservation.sectionAddOns')}</div>
             </div>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {availableAddOns.map(addon => {
-                const selected = selectedAddOns.find(a => a.addOnId === addon.id);
+            <div className="nr-addons-grid">
+              {availableAddOns.map((addon) => {
+                const selected = selectedAddOns.find((a) => a.addOnId === addon.id);
                 const isSelected = !!selected;
                 const showQty = isSelected && (addon.pricingMode === 'MANUAL_QTY' || addon.qtyEditable);
                 const qty = selected?.qty || 1;
@@ -434,175 +412,124 @@ export default function NewReservationPage() {
                 return (
                   <div
                     key={addon.id}
-                    className={cn(
-                      'group rounded-2xl border p-3.5 transition-all cursor-pointer',
-                      isSelected
-                        ? (isDark ? 'bg-[#2D1B45] border-[#6A1B9A]' : 'bg-[#F3E5F5] border-[#E1BEE7]') + ' shadow-[0_10px_22px_rgba(142,36,170,0.12)]'
-                        : (isDark ? 'bg-[#1E293B] border-[#2D3748] hover:bg-[#1A2332]' : 'bg-[var(--c-surface-muted)] border-[var(--c-surface-border)] hover:bg-white') + ' hover:shadow-[0_6px_16px_rgba(0,0,0,0.06)]',
-                    )}
+                    className={`nr-addon ${isSelected ? 'selected' : ''}`}
                     onClick={() => toggleAddOn(addon.id)}
                   >
-                    <div className="flex items-start gap-3 min-w-0">
-                      <input
-                        type="checkbox"
-                        checked={isSelected}
-                        onChange={() => toggleAddOn(addon.id)}
-                        onClick={e => e.stopPropagation()}
-                        className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-[#8E24AA]"
-                      />
-                      <div className="min-w-0 flex-1">
-                        <div className="text-[13px] font-semibold truncate" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
-                          {addon.name}
-                        </div>
-                        <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                          <span
-                            className="whitespace-nowrap rounded-full border bg-white dark:bg-card px-2.5 py-1 text-[12px] font-bold"
-                            style={{ borderColor: isDark ? '#2D3748' : 'var(--c-surface-border)', color: isDark ? '#E2E8F0' : '#263238' }}
-                          >
-                            {fmtMoney(addon.unitPriceMinor, addon.currency)}
-                          </span>
-                          <span
-                            className="whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-semibold"
-                            style={{ backgroundColor: isDark ? 'rgba(206,147,216,0.15)' : '#E1BEE7', color: isDark ? '#CE93D8' : '#6A1B9A' }}
-                          >
-                            {pricingLabel}
-                          </span>
-                        </div>
-
-                        {showQty && (
-                          <div className="mt-3 flex justify-end" onClick={e => e.stopPropagation()}>
-                            <div
-                              className="flex items-center rounded-full border bg-white dark:bg-card"
-                              style={{ borderColor: isDark ? 'rgba(206,147,216,0.3)' : '#E1BEE7' }}
-                            >
-                              <button
-                                type="button"
-                                disabled={qty <= 1}
-                                onClick={() => setAddOnQty(addon.id, qty - 1)}
-                                className="flex h-8 w-8 items-center justify-center rounded-full transition-colors disabled:opacity-40"
-                                style={{ backgroundColor: 'transparent' }}
-                              >
-                                <Minus className="h-3 w-3" style={{ color: '#6A1B9A' }} />
-                              </button>
-                              <span className="w-10 text-center text-[13px] font-semibold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
-                                {qty}
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() => setAddOnQty(addon.id, qty + 1)}
-                                className="flex h-8 w-8 items-center justify-center rounded-full transition-colors"
-                                style={{ backgroundColor: 'transparent' }}
-                              >
-                                <Plus className="h-3 w-3" style={{ color: '#6A1B9A' }} />
-                              </button>
-                            </div>
-                          </div>
-                        )}
+                    <div className="nr-addon-top">
+                      <span className="nr-addon-name">{addon.name}</span>
+                      <div className="nr-addon-check">
+                        <Check />
                       </div>
+                    </div>
+                    <div className="nr-addon-meta">
+                      <span className="nr-addon-price">{fmtMoney(addon.unitPriceMinor, addon.currency)}</span>
+                      <span className="nr-addon-mode">{pricingLabel}</span>
+                      {showQty && (
+                        <div className="nr-qty-stepper" onClick={(e) => e.stopPropagation()}>
+                          <button
+                            type="button"
+                            className="nr-qty-btn"
+                            disabled={qty <= 1}
+                            onClick={() => setAddOnQty(addon.id, qty - 1)}
+                          >
+                            <Minus />
+                          </button>
+                          <span className="nr-qty-val">{qty}</span>
+                          <button
+                            type="button"
+                            className="nr-qty-btn"
+                            onClick={() => setAddOnQty(addon.id, qty + 1)}
+                          >
+                            <Plus />
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
               })}
             </div>
-          </div>
+          </section>
         )}
 
         {/* ── Cost calculation ── */}
-        <div
-          className="rounded-2xl p-6"
-          style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
-        >
-          <div className="flex items-center gap-2.5 mb-4">
-            <div
-              className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(67,160,71,0.15)' : 'var(--c-success-bg)' }}
-            >
-              <Calculator className="h-3.5 w-3.5" style={{ color: 'var(--c-success)' }} />
+        <section className="dh-card">
+          <div className="nr-section-head">
+            <div className="nr-section-icon success">
+              <Calculator />
             </div>
-            <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newReservation.sectionCost')}</h2>
-            {priceLoading && <Loader2 className="h-3.5 w-3.5 animate-spin" style={{ color: isDark ? '#718096' : '#90A4AE' }} />}
+            <div className="nr-section-title">{t('newReservation.sectionCost')}</div>
           </div>
 
           {priceLoading ? (
-            <div className="flex items-center gap-2 py-3" style={{ color: isDark ? '#718096' : '#90A4AE' }}>
-              <Loader2 className="h-4 w-4 animate-spin" />
-              <span className="text-[13px]">{t('newReservation.calculating')}</span>
+            <div className="nr-summary-loading">
+              <Loader2 />
+              <span>{t('newReservation.calculating')}</span>
             </div>
           ) : priceError ? (
-            <p className="text-[13px]" style={{ color: 'var(--c-warning-light)' }}>{priceError}</p>
+            <p style={{ fontSize: 13, color: 'var(--dh-warning)' }}>{priceError}</p>
           ) : price ? (
-            <div className="space-y-2.5">
-              <div className="flex justify-between text-[13px]">
-                <span style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.tariff')}</span>
-                <span className="font-medium" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{price.ratePlanName || t('newReservation.standard')}</span>
+            <div className="nr-summary">
+              <div className="nr-summary-row">
+                <span className="label">{t('newReservation.tariff')}</span>
+                <span className="value">{price.ratePlanName || t('newReservation.standard')}</span>
               </div>
-              <div className="flex justify-between text-[13px]">
-                <span style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.rentalDays')}</span>
-                <span className="font-medium" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{price.totalDays}</span>
+              <div className="nr-summary-row">
+                <span className="label">{t('newReservation.rentalDays')}</span>
+                <span className="value">{price.totalDays}</span>
               </div>
-              <div className="flex justify-between text-[13px]">
-                <span style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.pricePerDay')}</span>
-                <span className="font-medium" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{fmtMoney(price.dailyRateMinor, price.currency)}</span>
+              <div className="nr-summary-row">
+                <span className="label">{t('newReservation.pricePerDay')}</span>
+                <span className="value">{fmtMoney(price.dailyRateMinor, price.currency)}</span>
               </div>
-              <div className="flex justify-between text-[13px]">
-                <span style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.rentalCost')}</span>
-                <span className="font-medium" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{fmtMoney(price.rentalTotal, price.currency)}</span>
+              <div className="nr-summary-row">
+                <span className="label">{t('newReservation.rentalCost')}</span>
+                <span className="value">{fmtMoney(price.rentalTotal, price.currency)}</span>
               </div>
-              {price.addOns.length > 0 && price.addOns.map((a, i) => (
-                <div key={i} className="flex justify-between text-[13px]">
-                  <span style={{ color: isDark ? '#718096' : '#90A4AE' }}>{a.name} (x{a.quantity})</span>
-                  <span className="font-medium" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{fmtMoney(a.totalMinor, a.currency)}</span>
-                </div>
-              ))}
+              {price.addOns.length > 0 &&
+                price.addOns.map((a, i) => (
+                  <div key={i} className="nr-summary-row">
+                    <span className="label">{a.name} (x{a.quantity})</span>
+                    <span className="value">{fmtMoney(a.totalMinor, a.currency)}</span>
+                  </div>
+                ))}
               {price.deliveryFee > 0 && (
-                <div className="flex justify-between text-[13px]">
-                  <span style={{ color: isDark ? '#718096' : '#90A4AE' }}>{t('newReservation.deliveryLabel')}</span>
-                  <span className="font-medium" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{fmtMoney(price.deliveryFee, price.currency)}</span>
+                <div className="nr-summary-row">
+                  <span className="label">{t('newReservation.deliveryLabel')}</span>
+                  <span className="value">{fmtMoney(price.deliveryFee, price.currency)}</span>
                 </div>
               )}
-              <div
-                className="flex justify-between pt-3 mt-1"
-                style={{ borderTop: isDark ? '1px solid #2D3748' : '1px solid var(--c-surface-border)' }}
-              >
-                <span className="text-[14px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newReservation.totalCost')}</span>
-                <span className="text-[18px] font-bold" style={{ color: isDark ? 'var(--c-success)' : 'var(--c-success)' }}>{fmtMoney(price.grandTotal, price.currency)}</span>
+              <div className="nr-summary-divider" />
+              <div className="nr-summary-total">
+                <span className="label">{t('newReservation.totalCost')}</span>
+                <span className="value">{fmtMoney(price.grandTotal, price.currency)}</span>
               </div>
               {price.depositAmount > 0 && (
-                <div className="flex justify-between text-[12px]">
-                  <span style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{t('newReservation.deposit')}</span>
-                  <span style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>{fmtMoney(price.depositAmount, price.currency)}</span>
+                <div className="nr-summary-deposit">
+                  <span>{t('newReservation.deposit')}</span>
+                  <span>{fmtMoney(price.depositAmount, price.currency)}</span>
                 </div>
               )}
               {price.dailyRateMinor === 0 && (
-                <p className="text-[12px] mt-1" style={{ color: 'var(--c-warning)' }}>
+                <p style={{ fontSize: 12, color: 'var(--dh-warning)', marginTop: 4 }}>
                   {t('newReservation.noTariff')}
                 </p>
               )}
             </div>
           ) : (
-            <p className="text-[13px] py-2" style={{ color: isDark ? '#4A5568' : '#B0BEC5' }}>
-              {t('newReservation.selectCarAndDates')}
-            </p>
+            <p className="nr-summary-empty">{t('newReservation.selectCarAndDates')}</p>
           )}
-        </div>
+        </section>
 
         {/* ── Actions ── */}
-        <div className="pt-2 pb-6 space-y-3">
-          <button
-            type="submit"
-            disabled={saving}
-            className="ios-btn ios-btn-success w-full text-[16px] py-4 rounded-2xl"
-          >
-            {saving ? <Loader2 className="h-5 w-5 animate-spin" /> : <Save className="h-5 w-5" />}
-            {saving ? t('common.saving') : t('newReservation.submit')}
-          </button>
-          <Link
-            href="/admin/reservations"
-            className="w-full flex items-center justify-center gap-2 rounded-2xl text-[14px] font-semibold transition-all active:scale-[0.97]"
-            style={{ padding: '14px 0', color: isDark ? '#718096' : '#90A4AE' }}
-          >
+        <div className="nr-actions">
+          <Link href="/admin/reservations" className="nr-btn nr-btn-ghost">
             {t('common.cancel')}
           </Link>
+          <button type="submit" disabled={saving} className="nr-btn nr-btn-primary">
+            {saving ? <Loader2 className="animate-spin" /> : <Save />}
+            {saving ? t('common.saving') : t('newReservation.submit')}
+          </button>
         </div>
       </form>
     </div>
