@@ -9,8 +9,9 @@ class ClientController {
     async getAll(req: Request, res: Response) {
         const {page, limit} = parsePagination(req.query);
         const search = req.query.search as string | undefined;
+        const isBlocked = req.query.isBlocked === 'true' ? true : req.query.isBlocked === 'false' ? false : undefined;
 
-        const result = await clientService.getAll({page, limit, search});
+        const result = await clientService.getAll({page, limit, search, isBlocked});
         return res.status(StatusCodes.OK).json(result);
     }
 

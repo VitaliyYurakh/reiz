@@ -811,3 +811,167 @@ export function validate<T>(schema: z.ZodSchema<T>, data: unknown): T {
     const errors = result.error.issues.map((e) => `${e.path.join('.')}: ${e.message}`);
     throw new ValidationError(errors);
 }
+
+// ── Accident / ДТП ──
+const ACCIDENT_STATUSES = ['REPORTED', 'INVESTIGATING', 'AWAITING_PAYOUT', 'RESOLVED', 'CLOSED'] as const;
+const ACCIDENT_FAULTS = ['CLIENT', 'COMPANY', 'THIRD_PARTY', 'UNKNOWN'] as const;
+const isoDate = z.string().refine((s) => !Number.isNaN(Date.parse(s)), 'Invalid date');
+
+export const createAccidentSchema = z.object({
+    carId: z.number().int().positive(),
+    rentalId: z.number().int().positive().optional(),
+    clientId: z.number().int().positive().optional(),
+    incidentAt: isoDate,
+    location: z.string().max(500).optional(),
+    description: z.string().min(3).max(20000),
+    fault: z.enum(ACCIDENT_FAULTS).optional(),
+    status: z.enum(ACCIDENT_STATUSES).optional(),
+    policeReportNumber: z.string().max(200).optional(),
+    insuranceCompany: z.string().max(200).optional(),
+    insuranceClaimNumber: z.string().max(200).optional(),
+    expertVisitAt: isoDate.optional(),
+    expertNotes: z.string().max(20000).optional(),
+    estimatedDamageMinor: z.number().int().min(0).optional(),
+    insurancePayoutMinor: z.number().int().min(0).optional(),
+    clientDebtMinor: z.number().int().min(0).optional(),
+    currency: z.string().length(3).optional(),
+    blocksCar: z.boolean().optional(),
+    attachments: z.array(z.string().url()).optional(),
+    notes: z.string().max(20000).optional(),
+});
+
+export const updateAccidentSchema = z.object({
+    incidentAt: isoDate.optional(),
+    location: z.string().max(500).nullable().optional(),
+    description: z.string().min(3).max(20000).optional(),
+    fault: z.enum(ACCIDENT_FAULTS).optional(),
+    status: z.enum(ACCIDENT_STATUSES).optional(),
+    policeReportNumber: z.string().max(200).nullable().optional(),
+    insuranceCompany: z.string().max(200).nullable().optional(),
+    insuranceClaimNumber: z.string().max(200).nullable().optional(),
+    expertVisitAt: isoDate.nullable().optional(),
+    expertNotes: z.string().max(20000).nullable().optional(),
+    estimatedDamageMinor: z.number().int().min(0).nullable().optional(),
+    insurancePayoutMinor: z.number().int().min(0).nullable().optional(),
+    clientDebtMinor: z.number().int().min(0).optional(),
+    currency: z.string().length(3).optional(),
+    blocksCar: z.boolean().optional(),
+    attachments: z.array(z.string().url()).optional(),
+    notes: z.string().max(20000).nullable().optional(),
+});
+
+// ── Inventory ──
+const INVENTORY_CATEGORIES = ['TOOL', 'EQUIPMENT', 'ACCESSORY', 'KEYS', 'OTHER'] as const;
+const INVENTORY_STATUSES = ['AVAILABLE', 'ASSIGNED', 'MAINTENANCE', 'LOST', 'WRITTEN_OFF'] as const;
+
+export const createInventoryItemSchema = z.object({
+    name: z.string().min(1).max(200),
+    category: z.enum(INVENTORY_CATEGORIES).optional(),
+    serialNumber: z.string().max(100).optional(),
+    status: z.enum(INVENTORY_STATUSES).optional(),
+    quantity: z.number().int().min(0).optional(),
+    purchaseDate: isoDate.optional(),
+    purchasePriceMinor: z.number().int().min(0).optional(),
+    currentValueMinor: z.number().int().min(0).optional(),
+    currency: z.string().length(3).optional(),
+    locationId: z.number().int().positive().optional(),
+    responsibleUserId: z.number().int().positive().optional(),
+    notes: z.string().max(5000).optional(),
+    attachments: z.array(z.string().url()).optional(),
+});
+
+export const updateInventoryItemSchema = createInventoryItemSchema.partial().extend({
+    name: z.string().min(1).max(200).optional(),
+    serialNumber: z.string().max(100).nullable().optional(),
+    locationId: z.number().int().positive().nullable().optional(),
+    responsibleUserId: z.number().int().positive().nullable().optional(),
+    purchaseDate: isoDate.nullable().optional(),
+    notes: z.string().max(5000).nullable().optional(),
+});
+
+// ── DocumentTemplate ──
+const DOCUMENT_TEMPLATE_KINDS = ['RENTAL_AGREEMENT', 'ACT_TRANSFER', 'ACT_RETURN', 'INVOICE', 'INSURANCE_CLAIM', 'OTHER'] as const;
+const DOCUMENT_TEMPLATE_LANGUAGES = ['uk', 'ru', 'en', 'pl', 'ro'] as const;
+
+export const createDocumentTemplateSchema = z.object({
+    name: z.string().min(1).max(200),
+    kind: z.enum(DOCUMENT_TEMPLATE_KINDS),
+    language: z.enum(DOCUMENT_TEMPLATE_LANGUAGES).optional(),
+    bodyHtml: z.string().min(1),
+    bodyText: z.string().optional(),
+    placeholders: z.array(z.string().max(200)).optional(),
+    isActive: z.boolean().optional(),
+    isDefault: z.boolean().optional(),
+});
+
+export const updateDocumentTemplateSchema = createDocumentTemplateSchema.partial().extend({
+    bodyText: z.string().nullable().optional(),
+});
+
+export const renderDocumentTemplateSchema = z.object({
+    rentalId: z.number().int().positive().optional(),
+    reservationId: z.number().int().positive().optional(),
+    clientId: z.number().int().positive().optional(),
+    accidentId: z.number().int().positive().optional(),
+    extraContext: z.record(z.string(), z.any()).optional(),
+});
+
+// ── Rental Car Swap ──
+export const swapRentalCarSchema = z.object({
+    toCarId: z.number().int().positive(),
+    fromOdometer: z.number().int().min(0).optional(),
+    toOdometer: z.number().int().min(0).optional(),
+    reason: z.string().max(500).optional(),
+    notes: z.string().max(5000).optional(),
+});
+
+// ── Rental Deposit (dynamic) ──
+const RENTAL_DEPOSIT_STATUSES = ['PENDING', 'RECEIVED', 'RETURNED', 'FORFEITED'] as const;
+
+export const createRentalDepositSchema = z.object({
+    rentalId: z.number().int().positive(),
+    reason: z.string().min(1).max(500),
+    amountMinor: z.number().int().positive(),
+    currency: z.string().length(3).optional(),
+    dueAt: isoDate.optional(),
+    notes: z.string().max(5000).optional(),
+});
+
+export const updateRentalDepositSchema = z.object({
+    reason: z.string().min(1).max(500).optional(),
+    amountMinor: z.number().int().positive().optional(),
+    currency: z.string().length(3).optional(),
+    status: z.enum(RENTAL_DEPOSIT_STATUSES).optional(),
+    dueAt: isoDate.nullable().optional(),
+    notes: z.string().max(5000).nullable().optional(),
+});
+
+export const collectRentalDepositSchema = z.object({
+    accountId: z.number().int().positive(),
+    fxRate: z.number().positive().optional(),
+});
+
+// ── Inter-account transfer ──
+export const transferAccountsSchema = z.object({
+    fromAccountId: z.number().int().positive(),
+    toAccountId: z.number().int().positive(),
+    amountMinor: z.number().int().positive(),
+    fxRate: z.number().positive().optional(), // override when from/to currencies differ
+    description: z.string().max(500).optional(),
+}).refine((d) => d.fromAccountId !== d.toAccountId, {
+    message: 'Source and destination accounts must differ',
+});
+
+// ── Car block / unblock (for fleet operations) ──
+export const blockCarSchema = z.object({
+    reason: z.string().min(1).max(1000),
+});
+
+// ── Car maintenance schedule (mileage-based) ──
+export const updateCarMaintenanceSchema = z.object({
+    currentOdometer: z.number().int().min(0).nullable().optional(),
+    serviceIntervalKm: z.number().int().min(0).nullable().optional(),
+    nextServiceMileageKm: z.number().int().min(0).nullable().optional(),
+    lastServiceMileageKm: z.number().int().min(0).nullable().optional(),
+    lastServiceAt: isoDate.nullable().optional(),
+});

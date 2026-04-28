@@ -3,7 +3,7 @@ import {Request, Response} from 'express';
 import financeService from '../services/finance.service';
 import {parseId, parseOptionalId, parsePagination} from '../utils';
 import logAudit from '../middleware/audit.middleware';
-import {createTransactionSchema, createAccountSchema, updateAccountSchema, validate} from '../validators';
+import {createTransactionSchema, createAccountSchema, updateAccountSchema, transferAccountsSchema, validate} from '../validators';
 
 class FinanceController {
     // --- Accounts ---
@@ -87,6 +87,21 @@ class FinanceController {
         const {rentalId} = req.params;
         const balance = await financeService.getRentalBalance(parseId(rentalId));
         return res.status(StatusCodes.OK).json(balance);
+    }
+
+    // --- Transfer (інкасація / between accounts) ---
+    async transfer(req: Request, res: Response) {
+        const data = validate(transferAccountsSchema, req.body);
+        const result = await financeService.transferBetweenAccounts({...data, createdByUserId: res.locals.user?.id});
+        logAudit({
+            actorId: res.locals.user?.id,
+            entityType: 'Transaction',
+            entityId: result.out.id,
+            action: 'TRANSFER',
+            after: result,
+            req,
+        });
+        return res.status(StatusCodes.CREATED).json(result);
     }
 }
 

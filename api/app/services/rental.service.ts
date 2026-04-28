@@ -104,6 +104,34 @@ class RentalService {
         allowedMileage?: number;
         notes?: string;
     }) {
+        // Hard guard: blacklisted clients cannot be put on a new rental even by an
+        // admin going through the direct-creation flow (the reservation flow already
+        // checks this; this is the missing path).
+        const client = await prisma.client.findUnique({
+            where: {id: data.clientId},
+            select: {isBlocked: true, blockReason: true, firstName: true, lastName: true},
+        });
+        if (!client) throw new BadRequestError(`Client ${data.clientId} not found`);
+        if (client.isBlocked) {
+            const reason = client.blockReason ? `: ${client.blockReason}` : '';
+            throw new BadRequestError(
+                `Cannot create rental — client "${client.firstName} ${client.lastName}" is blacklisted${reason}`,
+            );
+        }
+        // Refuse to start a rental on a car that is administratively blocked
+        // (e.g. open Accident, awaiting service).
+        const car = await prisma.car.findUnique({
+            where: {id: data.carId},
+            select: {isBlocked: true, blockReason: true, brand: true, model: true, plateNumber: true},
+        });
+        if (!car) throw new BadRequestError(`Car ${data.carId} not found`);
+        if (car.isBlocked) {
+            const reason = car.blockReason ? `: ${car.blockReason}` : '';
+            throw new BadRequestError(
+                `Cannot create rental — car ${car.brand} ${car.model} (${car.plateNumber}) is blocked${reason}`,
+            );
+        }
+
         return await prisma.$transaction(async (tx) => {
             // Check for conflicts INSIDE the transaction to prevent race conditions
             const availability = await availabilityService.checkCarAvailability(
@@ -517,6 +545,253 @@ class RentalService {
 
             return {rental: updatedRental, extension, transaction: extensionTransaction};
         });
+    }
+
+    /**
+     * Mid-rental car swap.
+     *
+     * Replaces the active car on a rental with a new one — used when the
+     * original vehicle goes into unscheduled service / DTP / breakdown but
+     * the customer is keeping the contract going. Records both odometers,
+     * the reason, and writes a RentalCarSwap audit row. Multiple swaps per
+     * rental are allowed.
+     *
+     * Guarantees:
+     *   - rental must be ACTIVE
+     *   - target car must not be blocked / not double-booked for the
+     *     remaining period
+     *   - old car odometer is captured (becomes its currentOdometer)
+     */
+    async swapCar(rentalId: number, data: {
+        toCarId: number;
+        fromOdometer?: number;
+        toOdometer?: number;
+        reason?: string;
+        notes?: string;
+        authorUserId?: number;
+    }) {
+        const rental = await prisma.rental.findUnique({
+            where: {id: rentalId},
+            select: {id: true, status: true, carId: true, returnDate: true, pickupDate: true},
+        });
+        if (!rental) throw new BadRequestError(`Rental ${rentalId} not found`);
+        if (rental.status !== RentalStatus.ACTIVE) {
+            throw new BadRequestError(`Rental must be ACTIVE to swap cars (current: ${rental.status})`);
+        }
+        if (rental.carId === data.toCarId) {
+            throw new BadRequestError('Target car is the same as current — nothing to swap');
+        }
+
+        const targetCar = await prisma.car.findUnique({
+            where: {id: data.toCarId},
+            select: {id: true, isBlocked: true, blockReason: true, brand: true, model: true, plateNumber: true},
+        });
+        if (!targetCar) throw new BadRequestError(`Target car ${data.toCarId} not found`);
+        if (targetCar.isBlocked) {
+            throw new BadRequestError(`Target car ${targetCar.brand} ${targetCar.model} is blocked${targetCar.blockReason ? `: ${targetCar.blockReason}` : ''}`);
+        }
+
+        // Check the target car is free for the REMAINING window (now → returnDate).
+        const now = new Date();
+        const checkFrom = now > rental.pickupDate ? now : rental.pickupDate;
+        const availability = await availabilityService.checkCarAvailability(
+            data.toCarId,
+            checkFrom,
+            rental.returnDate,
+            // Exclude this rental itself (not relevant — different car) — but
+            // we have no excludeRentalId param in availability; ok since the
+            // current rental references the OLD carId.
+        );
+        if (!availability.available) {
+            throw new BadRequestError(`Target car not available for the remaining rental period: ${formatConflicts(availability.conflicts)}`);
+        }
+
+        return await prisma.$transaction(async (tx) => {
+            const swap = await tx.rentalCarSwap.create({
+                data: {
+                    rentalId,
+                    fromCarId: rental.carId,
+                    toCarId: data.toCarId,
+                    fromOdometer: data.fromOdometer ?? null,
+                    toOdometer: data.toOdometer ?? null,
+                    reason: data.reason ?? null,
+                    notes: data.notes ?? null,
+                    authorUserId: data.authorUserId ?? null,
+                },
+            });
+
+            // Persist odometer of the old car if provided (so its profile is up to date).
+            if (data.fromOdometer != null) {
+                await tx.car.update({
+                    where: {id: rental.carId},
+                    data: {currentOdometer: data.fromOdometer},
+                });
+            }
+            if (data.toOdometer != null) {
+                await tx.car.update({
+                    where: {id: data.toCarId},
+                    data: {currentOdometer: data.toOdometer},
+                });
+            }
+
+            const updated = await tx.rental.update({
+                where: {id: rentalId},
+                data: {
+                    carId: data.toCarId,
+                    pickupOdometer: data.toOdometer ?? null, // new car starts the next leg
+                },
+                include: {
+                    client: true,
+                    car: true,
+                    carSwaps: {orderBy: {swappedAt: 'desc'}, include: {fromCar: true, toCar: true}},
+                },
+            });
+
+            return {rental: updated, swap};
+        });
+    }
+
+    // ── Dynamic deposits (parity with mfauto's "Депозити" tab) ───────────
+    async listDeposits(rentalId: number) {
+        return await prisma.rentalDeposit.findMany({
+            where: {rentalId},
+            orderBy: {createdAt: 'desc'},
+            include: {receivedTxn: true, returnedTxn: true},
+        });
+    }
+
+    async createDeposit(data: {
+        rentalId: number;
+        reason: string;
+        amountMinor: number;
+        currency?: string;
+        dueAt?: string | Date;
+        notes?: string;
+    }) {
+        const rental = await prisma.rental.findUnique({where: {id: data.rentalId}, select: {id: true}});
+        if (!rental) throw new BadRequestError(`Rental ${data.rentalId} not found`);
+
+        return await prisma.rentalDeposit.create({
+            data: {
+                rentalId: data.rentalId,
+                reason: data.reason,
+                amountMinor: data.amountMinor,
+                currency: data.currency ?? 'UAH',
+                dueAt: data.dueAt ? new Date(data.dueAt) : null,
+                notes: data.notes ?? null,
+            },
+        });
+    }
+
+    async updateDeposit(id: number, data: {
+        reason?: string;
+        amountMinor?: number;
+        currency?: string;
+        status?: string;
+        dueAt?: string | Date | null;
+        notes?: string | null;
+    }) {
+        const updateData: any = {};
+        for (const k of ['reason', 'amountMinor', 'currency', 'status', 'notes'] as const) {
+            if (data[k] !== undefined) updateData[k] = data[k];
+        }
+        if (data.dueAt !== undefined) {
+            updateData.dueAt = data.dueAt ? new Date(data.dueAt as any) : null;
+        }
+        return await prisma.rentalDeposit.update({where: {id}, data: updateData});
+    }
+
+    async collectDeposit(depositId: number, data: {accountId: number; fxRate?: number; createdByUserId?: number}) {
+        const deposit = await prisma.rentalDeposit.findUnique({
+            where: {id: depositId},
+            include: {rental: {select: {clientId: true}}},
+        });
+        if (!deposit) throw new BadRequestError(`Deposit ${depositId} not found`);
+        if (deposit.status === 'RECEIVED') throw new BadRequestError('Deposit already received');
+
+        return await prisma.$transaction(async (tx) => {
+            const account = await tx.account.findUnique({where: {id: data.accountId}});
+            if (!account) throw new BadRequestError(`Account ${data.accountId} not found`);
+
+            const fxRate = data.fxRate ?? 1.0;
+            const amountUahMinor = account.currency === 'UAH'
+                ? deposit.amountMinor
+                : Math.round(deposit.amountMinor * fxRate);
+
+            const txn = await tx.transaction.create({
+                data: {
+                    type: 'DEPOSIT_RECEIVED',
+                    accountId: data.accountId,
+                    direction: 'IN',
+                    amountMinor: deposit.amountMinor,
+                    currency: deposit.currency,
+                    fxRate,
+                    amountUahMinor,
+                    description: `Депозит: ${deposit.reason}`,
+                    rentalId: deposit.rentalId,
+                    clientId: deposit.rental.clientId,
+                    createdByUserId: data.createdByUserId ?? null,
+                },
+            });
+
+            return await tx.rentalDeposit.update({
+                where: {id: depositId},
+                data: {status: 'RECEIVED', receivedAt: new Date(), receivedTxnId: txn.id},
+                include: {receivedTxn: true, returnedTxn: true},
+            });
+        });
+    }
+
+    async returnDeposit(depositId: number, data: {accountId: number; fxRate?: number; createdByUserId?: number}) {
+        const deposit = await prisma.rentalDeposit.findUnique({
+            where: {id: depositId},
+            include: {rental: {select: {clientId: true}}},
+        });
+        if (!deposit) throw new BadRequestError(`Deposit ${depositId} not found`);
+        if (deposit.status !== 'RECEIVED') {
+            throw new BadRequestError(`Cannot return a deposit that is not in RECEIVED status (current: ${deposit.status})`);
+        }
+
+        return await prisma.$transaction(async (tx) => {
+            const account = await tx.account.findUnique({where: {id: data.accountId}});
+            if (!account) throw new BadRequestError(`Account ${data.accountId} not found`);
+
+            const fxRate = data.fxRate ?? 1.0;
+            const amountUahMinor = account.currency === 'UAH'
+                ? deposit.amountMinor
+                : Math.round(deposit.amountMinor * fxRate);
+
+            const txn = await tx.transaction.create({
+                data: {
+                    type: 'DEPOSIT_RETURNED',
+                    accountId: data.accountId,
+                    direction: 'OUT',
+                    amountMinor: deposit.amountMinor,
+                    currency: deposit.currency,
+                    fxRate,
+                    amountUahMinor,
+                    description: `Повернення депозиту: ${deposit.reason}`,
+                    rentalId: deposit.rentalId,
+                    clientId: deposit.rental.clientId,
+                    createdByUserId: data.createdByUserId ?? null,
+                },
+            });
+
+            return await tx.rentalDeposit.update({
+                where: {id: depositId},
+                data: {status: 'RETURNED', returnedAt: new Date(), returnedTxnId: txn.id},
+                include: {receivedTxn: true, returnedTxn: true},
+            });
+        });
+    }
+
+    async deleteDeposit(id: number) {
+        const dep = await prisma.rentalDeposit.findUnique({where: {id}, select: {status: true}});
+        if (!dep) throw new BadRequestError(`Deposit ${id} not found`);
+        if (dep.status === 'RECEIVED') {
+            throw new BadRequestError('Cannot delete a received deposit — return it first or mark it FORFEITED');
+        }
+        await prisma.rentalDeposit.delete({where: {id}});
     }
 }
 

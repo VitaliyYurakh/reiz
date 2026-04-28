@@ -49,6 +49,9 @@ import publicComplaintRouter from './public-complaint.router';
 import partnerRouter from './partner.router';
 import leadRouter from './lead.router';
 import mailRouter from './mail.router';
+import accidentRouter from './accident.router';
+import inventoryRouter from './inventory.router';
+import documentTemplateRouter from './document-template.router';
 
 router.use('/client', clientRouter);
 router.use('/rental-request', rentalRequestRouter);
@@ -70,5 +73,8 @@ router.use('/public/complaint', publicComplaintRouter);
 router.use('/partner', partnerRouter);
 router.use('/lead', leadRouter);
 router.use('/mail', mailRouter);
+router.use('/accident', accidentRouter);
+router.use('/inventory', inventoryRouter);
+router.use('/document-template', documentTemplateRouter);
 
 export {router};

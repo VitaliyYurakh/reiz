@@ -3,7 +3,7 @@ import {Request, Response} from 'express';
 import {carService} from '../services';
 import {parseId} from '../utils';
 import logAudit from '../middleware/audit.middleware';
-import {createCarSchema, updateCarSchema, tariffSchema, countingRuleSchema, carCityAvailabilitySchema, validate} from '../validators';
+import {createCarSchema, updateCarSchema, tariffSchema, countingRuleSchema, carCityAvailabilitySchema, blockCarSchema, updateCarMaintenanceSchema, validate} from '../validators';
 
 class CarController {
     async getAll(req: Request, res: Response) {
@@ -131,6 +131,34 @@ class CarController {
 
         logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: parseId(id), action: 'DELETE', before, req});
         return res.status(StatusCodes.OK).json();
+    }
+
+    async block(req: Request, res: Response) {
+        const id = parseId(req.params.id);
+        const {reason} = validate(blockCarSchema, req.body);
+        const car = await carService.block(id, reason);
+        logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: id, action: 'BLOCK', after: car, req});
+        return res.status(StatusCodes.OK).json({car});
+    }
+
+    async unblock(req: Request, res: Response) {
+        const id = parseId(req.params.id);
+        const car = await carService.unblock(id);
+        logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: id, action: 'UNBLOCK', after: car, req});
+        return res.status(StatusCodes.OK).json({car});
+    }
+
+    async updateMaintenance(req: Request, res: Response) {
+        const id = parseId(req.params.id);
+        const data = validate(updateCarMaintenanceSchema, req.body);
+        const car = await carService.updateMaintenance(id, data);
+        logAudit({actorId: res.locals.user?.id, entityType: 'Car', entityId: id, action: 'MAINTENANCE_UPDATE', after: car, req});
+        return res.status(StatusCodes.OK).json({car});
+    }
+
+    async listDueForService(_req: Request, res: Response) {
+        const items = await carService.listDueForService();
+        return res.status(StatusCodes.OK).json({items});
     }
 }
 

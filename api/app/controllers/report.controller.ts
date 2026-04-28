@@ -2,6 +2,7 @@ import {StatusCodes} from 'http-status-codes';
 import {Request, Response} from 'express';
 import reportService from '../services/report.service';
 import notificationService from '../services/notification.service';
+import {parseOptionalId} from '../utils';
 
 class ReportController {
     async dashboard(req: Request, res: Response) {
@@ -56,6 +57,27 @@ class ReportController {
             (user.permissions as Record<string, string>) || {},
             user.role,
         );
+        return res.status(StatusCodes.OK).json(data);
+    }
+
+    /**
+     * Per-car P&L report. Query params:
+     *   from, to (YYYY-MM-DD; required)
+     *   partnerId (optional — restrict to one partner's fleet)
+     */
+    async carPnl(req: Request, res: Response) {
+        const fromStr = req.query.from as string;
+        const toStr = req.query.to as string;
+        if (!fromStr || !toStr) {
+            return res.status(StatusCodes.BAD_REQUEST).json({msg: 'from and to query params are required (YYYY-MM-DD)'});
+        }
+        const from = new Date(fromStr);
+        const to = new Date(toStr);
+        if (Number.isNaN(from.getTime()) || Number.isNaN(to.getTime())) {
+            return res.status(StatusCodes.BAD_REQUEST).json({msg: 'Invalid date format'});
+        }
+        const partnerId = parseOptionalId(req.query.partnerId as string | undefined, 'partnerId');
+        const data = await reportService.getCarPnl(from, to, partnerId);
         return res.status(StatusCodes.OK).json(data);
     }
 

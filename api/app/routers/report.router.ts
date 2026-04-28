@@ -9,6 +9,7 @@ router.get('/dashboard', auth, requirePermission('dashboard', 'view'), reportCon
 router.get('/revenue', auth, requirePermission('reports', 'view'), reportController.revenue);
 router.get('/fleet-utilization', auth, requirePermission('reports', 'view'), reportController.fleetUtilization);
 router.get('/overdue', auth, requirePermission('reports', 'view'), reportController.overdue);
+router.get('/car-pnl', auth, requirePermission('reports', 'view'), reportController.carPnl);
 router.get('/notifications', auth, requirePermission('dashboard', 'view'), reportController.notifications);
 router.get('/search', auth, requirePermission('dashboard', 'view'), reportController.search);
 router.post('/overdue/notify', auth, requirePermission('reports', 'full'), reportController.notifyOverdue);

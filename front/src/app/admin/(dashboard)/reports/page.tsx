@@ -12,6 +12,7 @@ import { KPISection } from './components/KPISection';
 import { RevenueSection } from './components/RevenueSection';
 import { FleetSection } from './components/FleetSection';
 import { OverdueSection } from './components/OverdueSection';
+import { CarPnlSection } from './components/CarPnlSection';
 
 export default function ReportsPage() {
   const { t } = useAdminLocale();
@@ -124,6 +125,8 @@ export default function ReportsPage() {
         loading={loadingFleet}
         fleet={fleet}
       />
+
+      <CarPnlSection />
 
       <OverdueSection loading={loadingOverdue} overdue={overdue} />
 

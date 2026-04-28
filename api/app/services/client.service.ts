@@ -182,8 +182,9 @@ class ClientService {
         limit: number;
         search?: string;
         deletedAt?: boolean;
+        isBlocked?: boolean;
     }) {
-        const {page, limit, search, deletedAt} = params;
+        const {page, limit, search, deletedAt, isBlocked} = params;
         const skip = (page - 1) * limit;
 
         const where: any = {};
@@ -193,6 +194,11 @@ class ClientService {
             where.deletedAt = {not: null};
         } else {
             where.deletedAt = null;
+        }
+
+        // Optional: only blacklisted (or only non-blacklisted)
+        if (isBlocked !== undefined) {
+            where.isBlocked = isBlocked;
         }
 
         if (search) {

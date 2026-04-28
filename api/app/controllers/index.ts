@@ -22,6 +22,9 @@ import complaintController from './complaint.controller';
 import fxRateController from './fx-rate.controller';
 import partnerController from './partner.controller';
 import leadController from './lead.controller';
+import accidentController from './accident.controller';
+import inventoryController from './inventory.controller';
+import documentTemplateController from './document-template.controller';
 
 export {
     authController,
@@ -48,4 +51,7 @@ export {
     fxRateController,
     partnerController,
     leadController,
+    accidentController,
+    inventoryController,
+    documentTemplateController,
 };

@@ -14,6 +14,17 @@ router.post('/:id/complete', auth, requirePermission('rentals', 'full'), rentalC
 router.post('/:id/cancel', auth, requirePermission('rentals', 'full'), rentalController.cancel);
 router.post('/:id/extend', auth, requirePermission('rentals', 'full'), rentalController.extend);
 
+// Mid-rental car swap
+router.post('/:id/swap-car', auth, requirePermission('rentals', 'full'), rentalController.swapCar);
+
+// Dynamic per-rental deposits
+router.get('/:id/deposit', auth, requirePermission('rentals', 'view'), rentalController.listDeposits);
+router.post('/:id/deposit', auth, requirePermission('rentals', 'full'), rentalController.createDeposit);
+router.patch('/:id/deposit/:depositId', auth, requirePermission('rentals', 'full'), rentalController.updateDeposit);
+router.delete('/:id/deposit/:depositId', auth, requirePermission('rentals', 'full'), rentalController.deleteDeposit);
+router.post('/:id/deposit/:depositId/collect', auth, requirePermission('rentals', 'full'), rentalController.collectDeposit);
+router.post('/:id/deposit/:depositId/return', auth, requirePermission('rentals', 'full'), rentalController.returnDeposit);
+
 // Inspections (nested under rental)
 router.get('/:rentalId/inspection', auth, requirePermission('rentals', 'view'), inspectionController.getByRental);
 router.post('/:rentalId/inspection', auth, requirePermission('rentals', 'full'), inspectionController.create);

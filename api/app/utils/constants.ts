@@ -87,6 +87,70 @@ export const LEAD_EMAIL_TEMPLATES = Object.values(LeadEmailTemplate);
 export const LEAD_TARGET_COUNTRIES = ['TR', 'ME', 'RS', 'AM', 'TH', 'ID', 'KZ'] as const;
 export type LeadCountryCode = typeof LEAD_TARGET_COUNTRIES[number];
 
+// ── Accident / ДТП ──
+export const AccidentStatus = {
+    REPORTED: 'REPORTED',
+    INVESTIGATING: 'INVESTIGATING',
+    AWAITING_PAYOUT: 'AWAITING_PAYOUT',
+    RESOLVED: 'RESOLVED',
+    CLOSED: 'CLOSED',
+} as const;
+export const ACCIDENT_STATUSES = Object.values(AccidentStatus);
+export const ACCIDENT_OPEN_STATUSES = [
+    AccidentStatus.REPORTED,
+    AccidentStatus.INVESTIGATING,
+    AccidentStatus.AWAITING_PAYOUT,
+] as string[];
+export const ACCIDENT_TERMINAL_STATUSES = [AccidentStatus.RESOLVED, AccidentStatus.CLOSED] as string[];
+
+export const AccidentFault = {
+    CLIENT: 'CLIENT',
+    COMPANY: 'COMPANY',
+    THIRD_PARTY: 'THIRD_PARTY',
+    UNKNOWN: 'UNKNOWN',
+} as const;
+export const ACCIDENT_FAULTS = Object.values(AccidentFault);
+
+// ── Inventory ──
+export const InventoryCategory = {
+    TOOL: 'TOOL',
+    EQUIPMENT: 'EQUIPMENT',
+    ACCESSORY: 'ACCESSORY',
+    KEYS: 'KEYS',
+    OTHER: 'OTHER',
+} as const;
+export const INVENTORY_CATEGORIES = Object.values(InventoryCategory);
+
+export const InventoryStatus = {
+    AVAILABLE: 'AVAILABLE',
+    ASSIGNED: 'ASSIGNED',
+    MAINTENANCE: 'MAINTENANCE',
+    LOST: 'LOST',
+    WRITTEN_OFF: 'WRITTEN_OFF',
+} as const;
+export const INVENTORY_STATUSES = Object.values(InventoryStatus);
+
+// ── DocumentTemplate ──
+export const DocumentTemplateKind = {
+    RENTAL_AGREEMENT: 'RENTAL_AGREEMENT',
+    ACT_TRANSFER: 'ACT_TRANSFER',
+    ACT_RETURN: 'ACT_RETURN',
+    INVOICE: 'INVOICE',
+    INSURANCE_CLAIM: 'INSURANCE_CLAIM',
+    OTHER: 'OTHER',
+} as const;
+export const DOCUMENT_TEMPLATE_KINDS = Object.values(DocumentTemplateKind);
+export const DOCUMENT_TEMPLATE_LANGUAGES = ['uk', 'ru', 'en', 'pl', 'ro'] as const;
+
+// ── Rental Deposit (dynamic) ──
+export const RentalDepositStatus = {
+    PENDING: 'PENDING',
+    RECEIVED: 'RECEIVED',
+    RETURNED: 'RETURNED',
+    FORFEITED: 'FORFEITED',
+} as const;
+export const RENTAL_DEPOSIT_STATUSES = Object.values(RentalDepositStatus);
+
 /**
  * Parse a route param as integer. Throws 400-style error if NaN.
  */

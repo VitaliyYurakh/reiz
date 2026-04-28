@@ -564,6 +564,138 @@ class ReportService {
 
         return {results};
     }
+
+    /**
+     * Per-car P&L over a date range.
+     *
+     * Income: every IN transaction tied to a rental whose car matches.
+     * Costs:  every OUT transaction tied to that rental + the car's
+     *         service-event costs + accident clientDebt that we wrote off.
+     *
+     * All in UAH (uses amountUahMinor that's stored at transaction time).
+     * Returns one row per car + a totals object.
+     */
+    async getCarPnl(from: Date, to: Date, partnerId?: number) {
+        const carWhere: any = {};
+        if (partnerId) carWhere.partnerId = partnerId;
+
+        const cars = await prisma.car.findMany({
+            where: carWhere,
+            select: {
+                id: true,
+                brand: true,
+                model: true,
+                plateNumber: true,
+                partnerId: true,
+                partner: {select: {id: true, fullName: true, companyName: true}},
+            },
+        });
+        if (cars.length === 0) return {rows: [], totals: empty()};
+
+        const carIds = cars.map((c) => c.id);
+
+        // Income & explicit OUT (refunds, deposit returns) attached to rentals
+        const txns = await prisma.transaction.groupBy({
+            by: ['rentalId', 'direction'],
+            where: {
+                rentalId: {not: null},
+                rental: {carId: {in: carIds}, pickupDate: {gte: from, lt: to}},
+            },
+            _sum: {amountUahMinor: true},
+        });
+
+        // Resolve rental → car so we can roll up to car level.
+        const rentalMap = new Map<number, number>();
+        const rentals = await prisma.rental.findMany({
+            where: {carId: {in: carIds}, pickupDate: {gte: from, lt: to}},
+            select: {id: true, carId: true},
+        });
+        for (const r of rentals) rentalMap.set(r.id, r.carId);
+
+        // Service events directly on the car
+        const services = await prisma.serviceEvent.groupBy({
+            by: ['carId'],
+            where: {carId: {in: carIds}, startDate: {gte: from, lt: to}},
+            _sum: {costMinor: true},
+        });
+
+        // Accidents — count clientDebt as recovered, estimatedDamage as cost
+        const accidents = await prisma.accident.findMany({
+            where: {carId: {in: carIds}, incidentAt: {gte: from, lt: to}},
+            select: {carId: true, estimatedDamageMinor: true, insurancePayoutMinor: true, clientDebtMinor: true},
+        });
+
+        // Pre-aggregate per car
+        const incomePerCar = new Map<number, number>();
+        const refundPerCar = new Map<number, number>();
+        for (const t of txns) {
+            const carId = t.rentalId != null ? rentalMap.get(t.rentalId) : undefined;
+            if (!carId) continue;
+            const amount = t._sum.amountUahMinor ?? 0;
+            const target = t.direction === 'IN' ? incomePerCar : refundPerCar;
+            target.set(carId, (target.get(carId) ?? 0) + amount);
+        }
+
+        const servicePerCar = new Map<number, number>();
+        for (const s of services) {
+            servicePerCar.set(s.carId, s._sum.costMinor ?? 0);
+        }
+
+        const accDamagePerCar = new Map<number, number>();
+        const accRecoveryPerCar = new Map<number, number>();
+        for (const a of accidents) {
+            const dmg = a.estimatedDamageMinor ?? 0;
+            const rec = (a.insurancePayoutMinor ?? 0) + (a.clientDebtMinor ?? 0);
+            accDamagePerCar.set(a.carId, (accDamagePerCar.get(a.carId) ?? 0) + dmg);
+            accRecoveryPerCar.set(a.carId, (accRecoveryPerCar.get(a.carId) ?? 0) + rec);
+        }
+
+        const rows = cars.map((c) => {
+            const incomeMinor = incomePerCar.get(c.id) ?? 0;
+            const refundMinor = refundPerCar.get(c.id) ?? 0;
+            const serviceCostMinor = servicePerCar.get(c.id) ?? 0;
+            const accidentCostMinor = accDamagePerCar.get(c.id) ?? 0;
+            const accidentRecoveryMinor = accRecoveryPerCar.get(c.id) ?? 0;
+            const profitMinor = incomeMinor - refundMinor - serviceCostMinor - accidentCostMinor + accidentRecoveryMinor;
+            return {
+                carId: c.id,
+                brand: c.brand,
+                model: c.model,
+                plateNumber: c.plateNumber,
+                partner: c.partner ? {id: c.partner.id, name: c.partner.companyName || c.partner.fullName} : null,
+                incomeMinor, refundMinor, serviceCostMinor, accidentCostMinor, accidentRecoveryMinor,
+                profitMinor,
+            };
+        });
+
+        const totals = rows.reduce(
+            (acc, r) => ({
+                incomeMinor: acc.incomeMinor + r.incomeMinor,
+                refundMinor: acc.refundMinor + r.refundMinor,
+                serviceCostMinor: acc.serviceCostMinor + r.serviceCostMinor,
+                accidentCostMinor: acc.accidentCostMinor + r.accidentCostMinor,
+                accidentRecoveryMinor: acc.accidentRecoveryMinor + r.accidentRecoveryMinor,
+                profitMinor: acc.profitMinor + r.profitMinor,
+            }),
+            empty(),
+        );
+
+        // Sort by profit desc — most-profitable cars at top.
+        rows.sort((a, b) => b.profitMinor - a.profitMinor);
+
+        return {rows, totals, period: {from, to}};
+    }
+}
+
+function empty() {
+    return {
+        incomeMinor: 0,
+        refundMinor: 0,
+        serviceCostMinor: 0,
+        accidentCostMinor: 0,
+        accidentRecoveryMinor: 0,
+        profitMinor: 0,
+    };
 }
 
 export default new ReportService();

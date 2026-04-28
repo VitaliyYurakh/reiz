@@ -18,35 +18,41 @@ datasource db {
 // ============================================================
 
 model User {
-  id          Int      @id @default(autoincrement())
-  email       String   @unique
-  pass        String
-  name        String   @default("")
-  role        String   @default("manager")
-  permissions Json     @default("{}")
-  isActive      Boolean  @default(true) @map("is_active")
-  tokenVersion  Int      @default(0) @map("token_version")
+  id                Int      @id @default(autoincrement())
+  email             String   @unique
+  pass              String
+  name              String   @default("")
+  role              String   @default("manager")
+  permissions       Json     @default("{}")
+  isActive          Boolean  @default(true) @map("is_active")
+  tokenVersion      Int      @default(0) @map("token_version")
   // ── 2FA (TOTP, opt-in) ─────────────────────────────────────────────
   // totpSecret: base32 secret, set during setup. Cleared on disable.
   // totpEnabled: only true after the user verifies their first code.
   // totpRecoveryCodes: array of bcrypt-hashed single-use codes (10 by
   //   default). Each is consumed when used. Stored hashed so a DB leak
   //   does not directly grant fallback access.
-  totpSecret         String?  @map("totp_secret")
-  totpEnabled        Boolean  @default(false) @map("totp_enabled")
-  totpRecoveryCodes  Json?    @map("totp_recovery_codes")
-  createdAt     DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+  totpSecret        String?  @map("totp_secret")
+  totpEnabled       Boolean  @default(false) @map("totp_enabled")
+  totpRecoveryCodes Json?    @map("totp_recovery_codes")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
 
   // CRM relations
-  assignedRequests    RentalRequest[]  @relation("AssignedRequests")
-  createdTransactions Transaction[]    @relation("CreatedTransactions")
+  assignedRequests    RentalRequest[]    @relation("AssignedRequests")
+  createdTransactions Transaction[]      @relation("CreatedTransactions")
   inspections         Inspection[]
-  ratingAuthored      Client[]         @relation("RatingAuthor")
-  auditLogs           AuditLog[]       @relation("AuditLogs")
-  assignedComplaints  Complaint[]      @relation("AssignedComplaints")
+  ratingAuthored      Client[]           @relation("RatingAuthor")
+  auditLogs           AuditLog[]         @relation("AuditLogs")
+  assignedComplaints  Complaint[]        @relation("AssignedComplaints")
   complaintMessages   ComplaintMessage[] @relation("ComplaintAuthorUser")
   assignedLeads       Lead[]             @relation("AssignedLeads")
+
+  // Inventory / Accidents (added 2026-04 for CRM parity with mfauto)
+  inventoryItems    InventoryItem[]    @relation("InventoryResponsible")
+  reportedAccidents Accident[]         @relation("AccidentReporter")
+  carSwaps          RentalCarSwap[]    @relation("RentalCarSwapAuthor")
+  documentTemplates DocumentTemplate[] @relation("DocumentTemplateAuthor")
 }
 
 model Car {
@@ -71,53 +77,53 @@ model Car {
   isAvailable       Boolean @default(false) @map("is_available")
   alt               String  @default("image")
 
-  deliveryPrice         Int?    @map("delivery_price")
-  freeDeliveryThreshold Int?    @map("free_delivery_threshold")
-  cancellationHours     Int?    @map("cancellation_hours")
-  paymentMethods        String? @map("payment_methods")
-  minRentalDays         Int?    @map("min_rental_days")
-  dailyMileageLimit     Int?    @map("daily_mileage_limit")
-  overmileagePrice      Float?  @map("overmileage_price")
-  driverAge             Int?    @map("driver_age")
-  driverExperience      Int?    @map("driver_experience")
-  fuelPolicy            String? @map("fuel_policy")
-  weeklyMileageLimit    Int?    @map("weekly_mileage_limit")
-  monthlyMileageLimit   Int?    @map("monthly_mileage_limit")
-  unlimitedMileage      Boolean @default(false) @map("unlimited_mileage")
-  maxRentalDays         Int?    @map("max_rental_days")
-  allowCrossBorder      Boolean @default(false) @map("allow_cross_border")
-  crossBorderFee        Int?    @map("cross_border_fee")
-  crossBorderDailyFee   Int?    @map("cross_border_daily_fee")
-  allowedCountries      Json?   @map("allowed_countries")
-  lateReturnGraceMin    Int?    @map("late_return_grace_min")
-  lateReturnFeePerHour  Float?  @map("late_return_fee_per_hour")
-  youngerDriverAge      Int?    @map("younger_driver_age")
-  youngerDriverSurcharge Float? @map("younger_driver_surcharge")
-  petAllowed            Boolean @default(false) @map("pet_allowed")
-  cleaningFee           Int?    @map("cleaning_fee")
+  deliveryPrice          Int?    @map("delivery_price")
+  freeDeliveryThreshold  Int?    @map("free_delivery_threshold")
+  cancellationHours      Int?    @map("cancellation_hours")
+  paymentMethods         String? @map("payment_methods")
+  minRentalDays          Int?    @map("min_rental_days")
+  dailyMileageLimit      Int?    @map("daily_mileage_limit")
+  overmileagePrice       Float?  @map("overmileage_price")
+  driverAge              Int?    @map("driver_age")
+  driverExperience       Int?    @map("driver_experience")
+  fuelPolicy             String? @map("fuel_policy")
+  weeklyMileageLimit     Int?    @map("weekly_mileage_limit")
+  monthlyMileageLimit    Int?    @map("monthly_mileage_limit")
+  unlimitedMileage       Boolean @default(false) @map("unlimited_mileage")
+  maxRentalDays          Int?    @map("max_rental_days")
+  allowCrossBorder       Boolean @default(false) @map("allow_cross_border")
+  crossBorderFee         Int?    @map("cross_border_fee")
+  crossBorderDailyFee    Int?    @map("cross_border_daily_fee")
+  allowedCountries       Json?   @map("allowed_countries")
+  lateReturnGraceMin     Int?    @map("late_return_grace_min")
+  lateReturnFeePerHour   Float?  @map("late_return_fee_per_hour")
+  youngerDriverAge       Int?    @map("younger_driver_age")
+  youngerDriverSurcharge Float?  @map("younger_driver_surcharge")
+  petAllowed             Boolean @default(false) @map("pet_allowed")
+  cleaningFee            Int?    @map("cleaning_fee")
 
   // Additional services
-  unlimitedMileagePrice1Day  Float?  @map("unlimited_mileage_price_1day")
-  unlimitedMileagePrice2to7  Float?  @map("unlimited_mileage_price_2to7")
-  unlimitedMileageFreeFromDays Int?  @map("unlimited_mileage_free_from_days")
-  intercityDeliveryPrice     Float?  @map("intercity_delivery_price")
-  carWashPrice               Float?  @map("car_wash_price")
-  emptyTankFee               Float?  @map("empty_tank_fee")
-  additionalDriverFee        Float?  @map("additional_driver_fee")
-  equipmentRentalPrice       Float?  @map("equipment_rental_price")
-  afterHoursServiceFee       Float?  @map("after_hours_service_fee")
-  workingHoursStart          String? @map("working_hours_start")
-  workingHoursEnd            String? @map("working_hours_end")
+  unlimitedMileagePrice1Day    Float?  @map("unlimited_mileage_price_1day")
+  unlimitedMileagePrice2to7    Float?  @map("unlimited_mileage_price_2to7")
+  unlimitedMileageFreeFromDays Int?    @map("unlimited_mileage_free_from_days")
+  intercityDeliveryPrice       Float?  @map("intercity_delivery_price")
+  carWashPrice                 Float?  @map("car_wash_price")
+  emptyTankFee                 Float?  @map("empty_tank_fee")
+  additionalDriverFee          Float?  @map("additional_driver_fee")
+  equipmentRentalPrice         Float?  @map("equipment_rental_price")
+  afterHoursServiceFee         Float?  @map("after_hours_service_fee")
+  workingHoursStart            String? @map("working_hours_start")
+  workingHoursEnd              String? @map("working_hours_end")
 
   // Damage fees
-  damageTiresFee             Float?  @map("damage_tires_fee")
-  damageGlassChipFee         Float?  @map("damage_glass_chip_fee")
-  damageLostKeysFee          Float?  @map("damage_lost_keys_fee")
-  damageBrokenGlassFee       Float?  @map("damage_broken_glass_fee")
-  damageTotalLossPercent     Float?  @map("damage_total_loss_percent")
-  damageScratchesFee         Float?  @map("damage_scratches_fee")
-  damageSmokingFee           Float?  @map("damage_smoking_fee")
-  depositMultiplier          Float?  @map("deposit_multiplier")
+  damageTiresFee         Float? @map("damage_tires_fee")
+  damageGlassChipFee     Float? @map("damage_glass_chip_fee")
+  damageLostKeysFee      Float? @map("damage_lost_keys_fee")
+  damageBrokenGlassFee   Float? @map("damage_broken_glass_fee")
+  damageTotalLossPercent Float? @map("damage_total_loss_percent")
+  damageScratchesFee     Float? @map("damage_scratches_fee")
+  damageSmokingFee       Float? @map("damage_smoking_fee")
+  depositMultiplier      Float? @map("deposit_multiplier")
 
   // Partner / owner — for fleet operated under commission with another business
   partnerId Int? @map("partner_id")
@@ -126,6 +132,18 @@ model Car {
   carPhoto        CarPhoto[]
   carCountingRule CarCountingRule[]
   segment         Segment[]
+
+  // Operational status (admin can hard-block a vehicle from rentals — separate
+  // from `isAvailable` which gates the public catalog).
+  isBlocked   Boolean @default(false) @map("is_blocked")
+  blockReason String? @map("block_reason")
+
+  // Mileage-based scheduled maintenance (parity with mfauto «Регламентні роботи»)
+  currentOdometer      Int?      @map("current_odometer")
+  serviceIntervalKm    Int?      @map("service_interval_km")
+  nextServiceMileageKm Int?      @map("next_service_mileage_km")
+  lastServiceAt        DateTime? @map("last_service_at")
+  lastServiceMileageKm Int?      @map("last_service_mileage_km")
 
   // CRM relations (no DB column changes)
   rentalRequests RentalRequest[]
@@ -140,9 +158,15 @@ model Car {
   // Customer cabinet relations
   favorites Favorite[]
 
-  partner   Partner? @relation(fields: [partnerId], references: [id], onDelete: SetNull)
+  // Accident/ДТП history + car-swap targets
+  accidents Accident[]      @relation("AccidentCar")
+  swapsFrom RentalCarSwap[] @relation("CarSwapFrom")
+  swapsTo   RentalCarSwap[] @relation("CarSwapTo")
+
+  partner Partner? @relation(fields: [partnerId], references: [id], onDelete: SetNull)
 
   @@index([partnerId])
+  @@index([isBlocked])
 }
 
 model Segment {
@@ -197,26 +221,26 @@ enum CarPhotoType {
 }
 
 model BookingRequest {
-  id              Int      @id @default(autoincrement())
-  firstName       String   @map("first_name")
-  lastName        String   @map("last_name")
-  phone           String
-  email           String
-  pickupLocation  String   @map("pickup_location")
-  returnLocation  String   @map("return_location")
-  startDate       DateTime @map("start_date")
-  endDate         DateTime @map("end_date")
-  flightNumber    String?  @map("flight_number")
-  comment         String?
-  carId           Int?     @map("car_id")
-  clientId        Int?     @map("client_id")
-  carDetails      Json?    @map("car_details")
-  selectedPlan    Json?    @map("selected_plan")
-  selectedExtras  Json?    @map("selected_extras")
-  totalDays       Int?     @map("total_days")
-  priceBreakdown  Json?    @map("price_breakdown")
-  telegramSent    Boolean  @default(false) @map("telegram_sent")
-  createdAt       DateTime @default(now()) @map("created_at")
+  id             Int      @id @default(autoincrement())
+  firstName      String   @map("first_name")
+  lastName       String   @map("last_name")
+  phone          String
+  email          String
+  pickupLocation String   @map("pickup_location")
+  returnLocation String   @map("return_location")
+  startDate      DateTime @map("start_date")
+  endDate        DateTime @map("end_date")
+  flightNumber   String?  @map("flight_number")
+  comment        String?
+  carId          Int?     @map("car_id")
+  clientId       Int?     @map("client_id")
+  carDetails     Json?    @map("car_details")
+  selectedPlan   Json?    @map("selected_plan")
+  selectedExtras Json?    @map("selected_extras")
+  totalDays      Int?     @map("total_days")
+  priceBreakdown Json?    @map("price_breakdown")
+  telegramSent   Boolean  @default(false) @map("telegram_sent")
+  createdAt      DateTime @default(now()) @map("created_at")
 
   // CRM relation
   client        Client?        @relation(fields: [clientId], references: [id])
@@ -267,38 +291,38 @@ enum AddOnPricingMode {
 // --- Client ---
 
 model Client {
-  id                  Int       @id @default(autoincrement())
-  firstName           String    @map("first_name")
-  lastName            String    @map("last_name")
-  middleName          String?   @map("middle_name")
-  phone               String
-  email               String?
-  dateOfBirth         DateTime? @map("date_of_birth")
-  drivingSince        Int?      @map("driving_since")
-  languages           Json?
-  driverLicenseNo     String?   @map("driver_license_no")
-  driverLicenseExpiry DateTime? @map("driver_license_exp")
-  passportNo          String?   @map("passport_no")
-  nationalId          String?   @map("national_id")
-  address             String?
-  city                String?
-  country             String    @default("UA")
-  notes               String?
-  rating              Int?
-  ratingReason        String?   @map("rating_reason")
-  ratingAuthorId      Int?      @map("rating_author_id")
-  source              String?
-  isBlocked           Boolean   @default(false) @map("is_blocked")
-  blockReason         String?   @map("block_reason")
+  id                    Int       @id @default(autoincrement())
+  firstName             String    @map("first_name")
+  lastName              String    @map("last_name")
+  middleName            String?   @map("middle_name")
+  phone                 String
+  email                 String?
+  dateOfBirth           DateTime? @map("date_of_birth")
+  drivingSince          Int?      @map("driving_since")
+  languages             Json?
+  driverLicenseNo       String?   @map("driver_license_no")
+  driverLicenseExpiry   DateTime? @map("driver_license_exp")
+  passportNo            String?   @map("passport_no")
+  nationalId            String?   @map("national_id")
+  address               String?
+  city                  String?
+  country               String    @default("UA")
+  notes                 String?
+  rating                Int?
+  ratingReason          String?   @map("rating_reason")
+  ratingAuthorId        Int?      @map("rating_author_id")
+  source                String?
+  isBlocked             Boolean   @default(false) @map("is_blocked")
+  blockReason           String?   @map("block_reason")
   blockedAt             DateTime? @map("blocked_at")
   loyaltyTier           String?   @map("loyalty_tier")
   totalCompletedRentals Int       @default(0) @map("total_completed_rentals")
   totalSpentMinor       Int       @default(0) @map("total_spent_minor")
   deletedAt             DateTime? @map("deleted_at")
-  createdAt           DateTime  @default(now()) @map("created_at")
-  updatedAt           DateTime  @updatedAt @map("updated_at")
+  createdAt             DateTime  @default(now()) @map("created_at")
+  updatedAt             DateTime  @updatedAt @map("updated_at")
 
-  ratingAuthor   User?             @relation("RatingAuthor", fields: [ratingAuthorId], references: [id])
+  ratingAuthor    User?            @relation("RatingAuthor", fields: [ratingAuthorId], references: [id])
   documents       ClientDocument[]
   bookingRequests BookingRequest[]
   rentalRequests  RentalRequest[]
@@ -312,12 +336,16 @@ model Client {
   notificationPreference NotificationPreference?
 
   // Complaint relations
-  complaints             Complaint[]
+  complaints Complaint[]
+
+  // Accidents where this client was the driver/at-fault party
+  accidents Accident[]
 
   @@index([phone])
   @@index([email])
   @@index([lastName, firstName])
   @@index([deletedAt])
+  @@index([isBlocked])
   @@map("client")
 }
 
@@ -338,12 +366,12 @@ model ClientDocument {
 // --- Rental Request (Lead) ---
 
 model RentalRequest {
-  id               Int       @id @default(autoincrement())
-  source           String    @default("website")
-  status           String    @default("new")
-  clientId         Int?      @map("client_id")
-  bookingRequestId Int?      @unique @map("booking_request_id")
-  carId            Int?      @map("car_id")
+  id               Int    @id @default(autoincrement())
+  source           String @default("website")
+  status           String @default("new")
+  clientId         Int?   @map("client_id")
+  bookingRequestId Int?   @unique @map("booking_request_id")
+  carId            Int?   @map("car_id")
 
   firstName      String?   @map("first_name")
   lastName       String?   @map("last_name")
@@ -437,12 +465,12 @@ model RatePlan {
 // --- Reservation ---
 
 model Reservation {
-  id                Int       @id @default(autoincrement())
-  status            String    @default("confirmed")
-  rentalRequestId   Int?      @unique @map("rental_request_id")
-  clientId          Int       @map("client_id")
-  carId             Int       @map("car_id")
-  coveragePackageId Int?      @map("coverage_package_id")
+  id                Int    @id @default(autoincrement())
+  status            String @default("confirmed")
+  rentalRequestId   Int?   @unique @map("rental_request_id")
+  clientId          Int    @map("client_id")
+  carId             Int    @map("car_id")
+  coveragePackageId Int?   @map("coverage_package_id")
 
   pickupLocation String   @map("pickup_location")
   returnLocation String   @map("return_location")
@@ -462,10 +490,10 @@ model Reservation {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  rentalRequest     RentalRequest?   @relation(fields: [rentalRequestId], references: [id])
-  client            Client           @relation(fields: [clientId], references: [id])
-  car               Car              @relation(fields: [carId], references: [id])
-  coveragePackage   CoveragePackage? @relation(fields: [coveragePackageId], references: [id])
+  rentalRequest     RentalRequest?     @relation(fields: [rentalRequestId], references: [id])
+  client            Client             @relation(fields: [clientId], references: [id])
+  car               Car                @relation(fields: [carId], references: [id])
+  coveragePackage   CoveragePackage?   @relation(fields: [coveragePackageId], references: [id])
   rental            Rental?
   reservationAddOns ReservationAddOn[]
   transactions      Transaction[]
@@ -496,12 +524,12 @@ model ReservationAddOn {
 // --- Rental ---
 
 model Rental {
-  id               Int       @id @default(autoincrement())
-  status           String    @default("active")
-  reservationId    Int?      @unique @map("reservation_id")
-  clientId         Int       @map("client_id")
-  carId            Int       @map("car_id")
-  contractNumber   String?   @unique @map("contract_number")
+  id             Int     @id @default(autoincrement())
+  status         String  @default("active")
+  reservationId  Int?    @unique @map("reservation_id")
+  clientId       Int     @map("client_id")
+  carId          Int     @map("car_id")
+  contractNumber String? @unique @map("contract_number")
 
   pickupDate       DateTime  @map("pickup_date")
   returnDate       DateTime  @map("return_date")
@@ -538,6 +566,13 @@ model Rental {
   transactions     Transaction[]
   documents        Document[]
   complaints       Complaint[]
+
+  // Accidents that happened during this rental
+  accidents      Accident[]
+  // History of mid-rental car swaps (latest record's `toCarId` matches `carId`)
+  carSwaps       RentalCarSwap[]
+  // Dynamic deposits (per-rental ad-hoc holds beyond the standard depositAmount)
+  rentalDeposits RentalDeposit[]
 
   @@index([status])
   @@index([carId, pickupDate, returnDate])
@@ -619,27 +654,29 @@ model InspectionPhoto {
 // --- Fine ---
 
 model Fine {
-  id                 Int       @id @default(autoincrement())
-  rentalId           Int       @map("rental_id")
-  type               String
-  description        String
-  amountMinor        Int       @map("amount_minor")
-  currency           String    @default("UAH")
-  isPaid             Boolean   @default(false) @map("is_paid")
-  createdAt          DateTime  @default(now()) @map("created_at")
+  id          Int      @id @default(autoincrement())
+  rentalId    Int      @map("rental_id")
+  type        String
+  description String
+  amountMinor Int      @map("amount_minor")
+  currency    String   @default("UAH")
+  isPaid      Boolean  @default(false) @map("is_paid")
+  createdAt   DateTime @default(now()) @map("created_at")
 
   // Evidence fields — added 2026-04 to defend disputed deductions and meet
   // legal requirements for traffic fines (must reference an authority case).
   externalCaseNumber String?   @map("external_case_number")
   incidentAt         DateTime? @map("incident_at")
   location           String?
-  authority          String?   // e.g. "Патрульна поліція Одеса"
+  authority          String? // e.g. "Патрульна поліція Одеса"
   attachments        Json      @default("[]") // array of URLs (PDF / images of evidence)
   inspectionId       Int?      @map("inspection_id")
 
-  rental      Rental       @relation(fields: [rentalId], references: [id], onDelete: Cascade)
-  inspection  Inspection?  @relation(fields: [inspectionId], references: [id], onDelete: SetNull)
-  transaction Transaction?
+  rental         Rental       @relation(fields: [rentalId], references: [id], onDelete: Cascade)
+  inspection     Inspection?  @relation(fields: [inspectionId], references: [id], onDelete: SetNull)
+  transaction    Transaction?
+  // Optional back-relation to Accident (set when fault=CLIENT auto-creates a fine).
+  linkedAccident Accident?
 
   @@index([rentalId])
   @@index([isPaid])
@@ -665,7 +702,7 @@ model ServiceEvent {
   createdAt     DateTime  @default(now()) @map("created_at")
   updatedAt     DateTime  @updatedAt @map("updated_at")
 
-  car    Car                  @relation(fields: [carId], references: [id], onDelete: Cascade)
+  car    Car                 @relation(fields: [carId], references: [id], onDelete: Cascade)
   photos ServiceEventPhoto[]
 
   @@index([carId, startDate, endDate])
@@ -674,11 +711,11 @@ model ServiceEvent {
 }
 
 model ServiceEventPhoto {
-  id             Int          @id @default(autoincrement())
-  serviceEventId Int          @map("service_event_id")
+  id             Int      @id @default(autoincrement())
+  serviceEventId Int      @map("service_event_id")
   url            String
   label          String?
-  createdAt      DateTime     @default(now()) @map("created_at")
+  createdAt      DateTime @default(now()) @map("created_at")
 
   serviceEvent ServiceEvent @relation(fields: [serviceEventId], references: [id], onDelete: Cascade)
 
@@ -703,14 +740,14 @@ model Account {
 }
 
 model Transaction {
-  id             Int    @id @default(autoincrement())
+  id             Int     @id @default(autoincrement())
   type           String
-  accountId      Int    @map("account_id")
+  accountId      Int     @map("account_id")
   direction      String
-  amountMinor    Int    @map("amount_minor")
+  amountMinor    Int     @map("amount_minor")
   currency       String
-  fxRate         Float  @default(1.0) @map("fx_rate")
-  amountUahMinor Int    @map("amount_uah_minor")
+  fxRate         Float   @default(1.0) @map("fx_rate")
+  amountUahMinor Int     @map("amount_uah_minor")
   description    String?
 
   clientId        Int? @map("client_id")
@@ -721,12 +758,22 @@ model Transaction {
 
   createdAt DateTime @default(now()) @map("created_at")
 
+  // Inter-account transfer link: outgoing and incoming legs reference each other
+  // so the UI can render a paired badge and reports can de-double them in totals.
+  transferPairId Int?         @unique @map("transfer_pair_id")
+  transferPair   Transaction? @relation("TransferPair", fields: [transferPairId], references: [id], onDelete: SetNull)
+  transferPairOf Transaction? @relation("TransferPair")
+
   account     Account      @relation(fields: [accountId], references: [id])
   client      Client?      @relation(fields: [clientId], references: [id])
   reservation Reservation? @relation(fields: [reservationId], references: [id])
   rental      Rental?      @relation(fields: [rentalId], references: [id])
   fine        Fine?        @relation(fields: [fineId], references: [id])
   createdBy   User?        @relation("CreatedTransactions", fields: [createdByUserId], references: [id])
+
+  // Back-relations for RentalDeposit (paired txn for received / returned)
+  depositReceivedFor RentalDeposit? @relation("DepositReceivedTxn")
+  depositReturnedFor RentalDeposit? @relation("DepositReturnedTxn")
 
   @@index([accountId])
   @@index([clientId])
@@ -817,23 +864,23 @@ model AuditLog {
 // --- City & Pickup Location ---
 
 model City {
-  id              Int      @id @default(autoincrement())
-  slug            String   @unique
-  nameUk          String   @map("name_uk")
-  nameRu          String   @map("name_ru")
-  nameEn          String   @map("name_en")
-  nameLocativeUk  String   @map("name_locative_uk")
-  nameLocativeRu  String   @map("name_locative_ru")
-  nameLocativeEn  String   @map("name_locative_en")
-  latitude        String
-  longitude       String
-  postalCode      String   @map("postal_code")
-  region          String
-  sortOrder       Int      @default(0) @map("sort_order")
-  isPopular       Boolean  @default(false) @map("is_popular")
-  isActive        Boolean  @default(true) @map("is_active")
-  createdAt       DateTime @default(now()) @map("created_at")
-  updatedAt       DateTime @updatedAt @map("updated_at")
+  id             Int      @id @default(autoincrement())
+  slug           String   @unique
+  nameUk         String   @map("name_uk")
+  nameRu         String   @map("name_ru")
+  nameEn         String   @map("name_en")
+  nameLocativeUk String   @map("name_locative_uk")
+  nameLocativeRu String   @map("name_locative_ru")
+  nameLocativeEn String   @map("name_locative_en")
+  latitude       String
+  longitude      String
+  postalCode     String   @map("postal_code")
+  region         String
+  sortOrder      Int      @default(0) @map("sort_order")
+  isPopular      Boolean  @default(false) @map("is_popular")
+  isActive       Boolean  @default(true) @map("is_active")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
 
   pickupLocations PickupLocation[]
   carAvailability CarCityAvailability[]
@@ -855,7 +902,8 @@ model PickupLocation {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  city City @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  city           City            @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  inventoryItems InventoryItem[]
 
   @@unique([cityId, slug])
   @@index([cityId])
@@ -945,17 +993,17 @@ model NotificationPreference {
 model Complaint {
   id                Int       @id @default(autoincrement())
   ticketNumber      String    @unique @map("ticket_number") // human-friendly e.g. "REIZ-COMP-2026-04-0001"
-  clientId          Int?      @map("client_id")             // nullable — anonymous via contact form is OK
+  clientId          Int?      @map("client_id") // nullable — anonymous via contact form is OK
   rentalId          Int?      @map("rental_id")
-  category          String                                  // 'DEPOSIT' | 'DAMAGE' | 'FINE' | 'SERVICE' | 'GDPR' | 'OTHER'
-  priority          String    @default("normal")            // 'low' | 'normal' | 'high' | 'urgent'
-  status            String    @default("open")              // 'open' | 'in_review' | 'awaiting_client' | 'resolved' | 'rejected'
+  category          String // 'DEPOSIT' | 'DAMAGE' | 'FINE' | 'SERVICE' | 'GDPR' | 'OTHER'
+  priority          String    @default("normal") // 'low' | 'normal' | 'high' | 'urgent'
+  status            String    @default("open") // 'open' | 'in_review' | 'awaiting_client' | 'resolved' | 'rejected'
   subject           String
-  initialMessage    String                                  @map("initial_message")
+  initialMessage    String    @map("initial_message")
   contactName       String?   @map("contact_name")
   contactEmail      String?   @map("contact_email")
   contactPhone      String?   @map("contact_phone")
-  attachments       Json      @default("[]")                // array of URLs
+  attachments       Json      @default("[]") // array of URLs
   assignedManagerId Int?      @map("assigned_manager_id")
   slaDeadline       DateTime? @map("sla_deadline")
   resolvedAt        DateTime? @map("resolved_at")
@@ -1004,9 +1052,9 @@ model ComplaintMessage {
 model DailyFxRate {
   id        Int      @id @default(autoincrement())
   date      DateTime @db.Date
-  currency  String                          // 'USD' | 'EUR' | 'PLN' | …
-  rate      Float                           // units of UAH per 1 unit of currency
-  source    String   @default("NBU")        // 'NBU' | 'manual'
+  currency  String // 'USD' | 'EUR' | 'PLN' | …
+  rate      Float // units of UAH per 1 unit of currency
+  source    String   @default("NBU") // 'NBU' | 'manual'
   createdAt DateTime @default(now()) @map("created_at")
 
   @@unique([date, currency])
@@ -1025,22 +1073,22 @@ model DailyFxRate {
 // partner per period and exported as XLSX.
 
 model Partner {
-  id          Int      @id @default(autoincrement())
-  fullName    String   @map("full_name")
-  companyName String?  @map("company_name")
-  edrpou      String?                          // ЄДРПОУ / company tax ID for VAT-compliant invoices
-  ipn         String?                          // ІПН / personal tax ID for individuals
-  phone       String?
-  email       String?
-  iban        String?                          // for payouts
-  bankName    String?  @map("bank_name")
+  id              Int      @id @default(autoincrement())
+  fullName        String   @map("full_name")
+  companyName     String?  @map("company_name")
+  edrpou          String? // ЄДРПОУ / company tax ID for VAT-compliant invoices
+  ipn             String? // ІПН / personal tax ID for individuals
+  phone           String?
+  email           String?
+  iban            String? // for payouts
+  bankName        String?  @map("bank_name")
   // Default commission tiers as JSON: [{minDays: 1, maxDays: 7, percent: 15}, ...]
   // Stored as Json so we can evolve the rule shape without migrations.
-  commissionTiers Json @default("[{\"minDays\":1,\"maxDays\":7,\"percent\":15},{\"minDays\":8,\"maxDays\":29,\"percent\":12.5},{\"minDays\":30,\"maxDays\":0,\"percent\":10}]") @map("commission_tiers")
-  notes       String?
-  isActive    Boolean  @default(true) @map("is_active")
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
+  commissionTiers Json     @default("[{\"minDays\":1,\"maxDays\":7,\"percent\":15},{\"minDays\":8,\"maxDays\":29,\"percent\":12.5},{\"minDays\":30,\"maxDays\":0,\"percent\":10}]") @map("commission_tiers")
+  notes           String?
+  isActive        Boolean  @default(true) @map("is_active")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
 
   cars Car[]
 
@@ -1062,40 +1110,40 @@ model Partner {
 // shows a chronological thread per lead.
 
 model Lead {
-  id             Int       @id @default(autoincrement())
+  id Int @id @default(autoincrement())
 
-  source         String    @default("google_places") // 'google_places' | 'manual' | 'csv'
-  googlePlaceId  String?   @unique                      @map("google_place_id")
+  source        String  @default("google_places") // 'google_places' | 'manual' | 'csv'
+  googlePlaceId String? @unique @map("google_place_id")
 
-  companyName    String                                  @map("company_name")
-  country        String                                  // ISO-2: 'TR' | 'ME' | 'RS' | 'AM' | 'TH' | 'ID' | 'KZ'
-  city           String
-  website        String?
-  phone          String?
-  email          String?
-  ownerName      String?                                 @map("owner_name")
+  companyName String  @map("company_name")
+  country     String // ISO-2: 'TR' | 'ME' | 'RS' | 'AM' | 'TH' | 'ID' | 'KZ'
+  city        String
+  website     String?
+  phone       String?
+  email       String?
+  ownerName   String? @map("owner_name")
 
-  language       String    @default("ru")                // outreach language: 'ru' | 'en' | 'tr' | 'sr' | ...
+  language String @default("ru") // outreach language: 'ru' | 'en' | 'tr' | 'sr' | ...
 
   // 'NEW' | 'ENRICHED' | 'READY' | 'CONTACTED' | 'FOLLOWED_UP_1' | 'FOLLOWED_UP_2'
   // | 'BREAKUP_SENT' | 'REPLIED' | 'INTERESTED' | 'CLIENT'
   // | 'DISQUALIFIED' | 'BOUNCED' | 'UNSUBSCRIBED' | 'PAUSED'
-  status         String    @default("NEW")
-  pausedReason   String?                                 @map("paused_reason")
+  status       String  @default("NEW")
+  pausedReason String? @map("paused_reason")
 
   // Cached website excerpt — fed to Gemini for personalization. Limited to ~2000 chars in code.
-  websiteContent String?                                 @map("website_content") @db.Text
+  websiteContent String? @map("website_content") @db.Text
 
-  contactedAt    DateTime?                               @map("contacted_at")
-  lastFollowUpAt DateTime?                               @map("last_follow_up_at")
-  followUpCount  Int       @default(0)                   @map("follow_up_count")
-  repliedAt      DateTime?                               @map("replied_at")
+  contactedAt    DateTime? @map("contacted_at")
+  lastFollowUpAt DateTime? @map("last_follow_up_at")
+  followUpCount  Int       @default(0) @map("follow_up_count")
+  repliedAt      DateTime? @map("replied_at")
 
-  assignedManagerId Int?                                 @map("assigned_manager_id")
+  assignedManagerId Int?    @map("assigned_manager_id")
   notes             String?
 
-  createdAt      DateTime  @default(now())               @map("created_at")
-  updatedAt      DateTime  @updatedAt                    @map("updated_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   assignedManager User?       @relation("AssignedLeads", fields: [assignedManagerId], references: [id])
   emails          LeadEmail[]
@@ -1109,23 +1157,23 @@ model Lead {
 }
 
 model LeadEmail {
-  id            Int       @id @default(autoincrement())
-  leadId        Int                                      @map("lead_id")
+  id     Int @id @default(autoincrement())
+  leadId Int @map("lead_id")
 
-  direction     String                                   // 'OUTBOUND' | 'INBOUND'
-  template      String?                                  // 'initial' | 'fu_3d' | 'fu_7d' | 'breakup_14d' | null
-  subject       String
-  body          String                                   @db.Text
+  direction String // 'OUTBOUND' | 'INBOUND'
+  template  String? // 'initial' | 'fu_3d' | 'fu_7d' | 'breakup_14d' | null
+  subject   String
+  body      String  @db.Text
 
-  sentAt        DateTime?                                @map("sent_at")
-  receivedAt    DateTime?                                @map("received_at")
+  sentAt     DateTime? @map("sent_at")
+  receivedAt DateTime? @map("received_at")
 
   // Gmail tracking — used both to deduplicate inbound messages and to thread
   // follow-ups under the same conversation in the recipient's mailbox.
-  gmailMsgId    String?   @unique                        @map("gmail_msg_id")
-  gmailThreadId String?                                  @map("gmail_thread_id")
+  gmailMsgId    String? @unique @map("gmail_msg_id")
+  gmailThreadId String? @map("gmail_thread_id")
 
-  createdAt     DateTime  @default(now())                @map("created_at")
+  createdAt DateTime @default(now()) @map("created_at")
 
   lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
 
@@ -1141,21 +1189,21 @@ model LeadEmail {
 // (not in DB) so no encryption layer is needed at this stage.
 
 model MailAccount {
-  id           Int       @id @default(autoincrement())
-  email        String    @unique
-  displayName  String?                                          @map("display_name")
-  imapHost     String                                           @map("imap_host")
-  imapPort     Int       @default(993)                          @map("imap_port")
-  imapSecure   Boolean   @default(true)                         @map("imap_secure")
-  smtpHost     String                                           @map("smtp_host")
-  smtpPort     Int       @default(465)                          @map("smtp_port")
-  smtpSecure   Boolean   @default(true)                         @map("smtp_secure")
-  username     String                                           // login (often = email)
-  signature    String?   @db.Text
-  isActive     Boolean   @default(true)                         @map("is_active")
-  lastSyncAt   DateTime?                                        @map("last_sync_at")
-  createdAt    DateTime  @default(now())                        @map("created_at")
-  updatedAt    DateTime  @updatedAt                             @map("updated_at")
+  id          Int       @id @default(autoincrement())
+  email       String    @unique
+  displayName String?   @map("display_name")
+  imapHost    String    @map("imap_host")
+  imapPort    Int       @default(993) @map("imap_port")
+  imapSecure  Boolean   @default(true) @map("imap_secure")
+  smtpHost    String    @map("smtp_host")
+  smtpPort    Int       @default(465) @map("smtp_port")
+  smtpSecure  Boolean   @default(true) @map("smtp_secure")
+  username    String // login (often = email)
+  signature   String?   @db.Text
+  isActive    Boolean   @default(true) @map("is_active")
+  lastSyncAt  DateTime? @map("last_sync_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
 
   folders  MailFolder[]
   messages MailMessage[]
@@ -1165,20 +1213,20 @@ model MailAccount {
 }
 
 model MailFolder {
-  id          Int      @id @default(autoincrement())
-  accountId   Int                                              @map("account_id")
-  path        String                                           // IMAP path, e.g. "INBOX", "Sent"
-  name        String                                           // display name
-  specialUse  String?                                          @map("special_use") // \Inbox \Sent \Drafts \Trash \Junk
-  uidValidity String?                                          @map("uid_validity") // BigInt as string
-  uidNext     String?                                          @map("uid_next")
-  unreadCount Int      @default(0)                             @map("unread_count")
-  totalCount  Int      @default(0)                             @map("total_count")
-  lastSyncAt  DateTime?                                        @map("last_sync_at")
-  createdAt   DateTime @default(now())                         @map("created_at")
-  updatedAt   DateTime @updatedAt                              @map("updated_at")
+  id          Int       @id @default(autoincrement())
+  accountId   Int       @map("account_id")
+  path        String // IMAP path, e.g. "INBOX", "Sent"
+  name        String // display name
+  specialUse  String?   @map("special_use") // \Inbox \Sent \Drafts \Trash \Junk
+  uidValidity String?   @map("uid_validity") // BigInt as string
+  uidNext     String?   @map("uid_next")
+  unreadCount Int       @default(0) @map("unread_count")
+  totalCount  Int       @default(0) @map("total_count")
+  lastSyncAt  DateTime? @map("last_sync_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
 
-  account  MailAccount  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  account  MailAccount   @relation(fields: [accountId], references: [id], onDelete: Cascade)
   messages MailMessage[]
 
   @@unique([accountId, path])
@@ -1187,34 +1235,34 @@ model MailFolder {
 }
 
 model MailMessage {
-  id             Int       @id @default(autoincrement())
-  accountId      Int                                            @map("account_id")
-  folderId       Int                                            @map("folder_id")
-  uid            Int                                            // IMAP UID within folder
-  messageId      String?                                        @map("message_id") // RFC Message-ID
-  inReplyTo      String?                                        @map("in_reply_to")
-  references     String?   @db.Text
-  threadKey      String?                                        @map("thread_key")
-  fromName       String?                                        @map("from_name")
-  fromAddr       String                                         @map("from_addr")
-  toAddrs        Json                                           @map("to_addrs")
-  ccAddrs        Json?                                          @map("cc_addrs")
-  bccAddrs       Json?                                          @map("bcc_addrs")
-  replyTo        Json?                                          @map("reply_to")
-  subject        String?   @db.Text
+  id             Int      @id @default(autoincrement())
+  accountId      Int      @map("account_id")
+  folderId       Int      @map("folder_id")
+  uid            Int // IMAP UID within folder
+  messageId      String?  @map("message_id") // RFC Message-ID
+  inReplyTo      String?  @map("in_reply_to")
+  references     String?  @db.Text
+  threadKey      String?  @map("thread_key")
+  fromName       String?  @map("from_name")
+  fromAddr       String   @map("from_addr")
+  toAddrs        Json     @map("to_addrs")
+  ccAddrs        Json?    @map("cc_addrs")
+  bccAddrs       Json?    @map("bcc_addrs")
+  replyTo        Json?    @map("reply_to")
+  subject        String?  @db.Text
   date           DateTime
-  bodyText       String?   @db.Text                             @map("body_text")
-  bodyHtml       String?   @db.Text                             @map("body_html")
-  snippet        String?   @db.Text                             // first ~200 chars
-  hasAttachments Boolean   @default(false)                      @map("has_attachments")
+  bodyText       String?  @map("body_text") @db.Text
+  bodyHtml       String?  @map("body_html") @db.Text
+  snippet        String?  @db.Text // first ~200 chars
+  hasAttachments Boolean  @default(false) @map("has_attachments")
   size           Int?
-  isSeen         Boolean   @default(false)                      @map("is_seen")
-  isFlagged      Boolean   @default(false)                      @map("is_flagged")
-  isAnswered     Boolean   @default(false)                      @map("is_answered")
-  isDraft        Boolean   @default(false)                      @map("is_draft")
+  isSeen         Boolean  @default(false) @map("is_seen")
+  isFlagged      Boolean  @default(false) @map("is_flagged")
+  isAnswered     Boolean  @default(false) @map("is_answered")
+  isDraft        Boolean  @default(false) @map("is_draft")
   flags          Json?
-  createdAt      DateTime  @default(now())                      @map("created_at")
-  updatedAt      DateTime  @updatedAt                           @map("updated_at")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
 
   account     MailAccount      @relation(fields: [accountId], references: [id], onDelete: Cascade)
   folder      MailFolder       @relation(fields: [folderId], references: [id], onDelete: Cascade)
@@ -1230,14 +1278,14 @@ model MailMessage {
 
 model MailAttachment {
   id          Int      @id @default(autoincrement())
-  messageId   Int                                            @map("message_id")
+  messageId   Int      @map("message_id")
   filename    String?
-  contentType String?                                        @map("content_type")
+  contentType String?  @map("content_type")
   size        Int?
-  contentId   String?                                        @map("content_id") // for inline cid: refs
-  partId      String?                                        @map("part_id")    // IMAP part for on-demand fetch
-  storagePath String?                                        @map("storage_path") // disk cache
-  createdAt   DateTime @default(now())                       @map("created_at")
+  contentId   String?  @map("content_id") // for inline cid: refs
+  partId      String?  @map("part_id") // IMAP part for on-demand fetch
+  storagePath String?  @map("storage_path") // disk cache
+  createdAt   DateTime @default(now()) @map("created_at")
 
   message MailMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
 
@@ -1246,21 +1294,247 @@ model MailAttachment {
 }
 
 model MailDraft {
-  id           Int      @id @default(autoincrement())
-  accountId    Int                                          @map("account_id")
-  toAddrs      Json                                         @map("to_addrs")
-  ccAddrs      Json?                                        @map("cc_addrs")
-  bccAddrs     Json?                                        @map("bcc_addrs")
-  subject      String?  @db.Text
-  bodyHtml     String?  @db.Text                            @map("body_html")
-  bodyText     String?  @db.Text                            @map("body_text")
-  inReplyToId  Int?                                         @map("in_reply_to_id") // MailMessage we're replying to
-  attachments  Json?    // [{filename, path, size, type}] — pending uploads
-  createdAt    DateTime @default(now())                     @map("created_at")
-  updatedAt    DateTime @updatedAt                          @map("updated_at")
+  id          Int      @id @default(autoincrement())
+  accountId   Int      @map("account_id")
+  toAddrs     Json     @map("to_addrs")
+  ccAddrs     Json?    @map("cc_addrs")
+  bccAddrs    Json?    @map("bcc_addrs")
+  subject     String?  @db.Text
+  bodyHtml    String?  @map("body_html") @db.Text
+  bodyText    String?  @map("body_text") @db.Text
+  inReplyToId Int?     @map("in_reply_to_id") // MailMessage we're replying to
+  attachments Json? // [{filename, path, size, type}] — pending uploads
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
 
   account MailAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
 
   @@index([accountId])
   @@map("mail_draft")
+}
+
+// ============================================================
+// CRM PARITY EXTENSIONS — added 2026-04-28
+// (Accident / Inventory / DocumentTemplate / RentalCarSwap /
+//  RentalDeposit) — patterned on competitor mfauto.ua so the
+// admin reaches feature parity for fleet operations.
+// ============================================================
+
+// --- Accident / ДТП ---
+//
+// One row per insurance-relevant event involving a fleet car. The car gets
+// auto-blocked from new rentals on creation and unblocked when status moves
+// to RESOLVED or CLOSED (handled in service layer, not by the schema).
+//
+// `fault` drives whether the client gets a Fine: CLIENT → fine equal to
+// uninsured loss; THIRD_PARTY → expect insurance payout; UNKNOWN/COMPANY →
+// neither. Status flow: REPORTED → INVESTIGATING → AWAITING_PAYOUT → RESOLVED.
+
+model Accident {
+  id Int @id @default(autoincrement())
+
+  carId          Int  @map("car_id")
+  rentalId       Int? @map("rental_id") // optional — accident may happen off-rental
+  clientId       Int? @map("client_id") // driver at the time
+  reporterUserId Int? @map("reporter_user_id")
+
+  incidentAt  DateTime @map("incident_at")
+  reportedAt  DateTime @default(now()) @map("reported_at")
+  location    String?
+  description String
+
+  fault  String @default("UNKNOWN") // CLIENT | COMPANY | THIRD_PARTY | UNKNOWN
+  status String @default("REPORTED") // REPORTED | INVESTIGATING | AWAITING_PAYOUT | RESOLVED | CLOSED
+
+  policeReportNumber   String? @map("police_report_number")
+  insuranceCompany     String? @map("insurance_company")
+  insuranceClaimNumber String? @map("insurance_claim_number")
+
+  // Expert visit (страхова експертиза)
+  expertVisitAt DateTime? @map("expert_visit_at")
+  expertNotes   String?   @map("expert_notes")
+
+  // Money — minor units (kopecks/cents). Currency same on all 3 fields per case.
+  estimatedDamageMinor Int?   @map("estimated_damage_minor")
+  insurancePayoutMinor Int?   @map("insurance_payout_minor")
+  clientDebtMinor      Int    @default(0) @map("client_debt_minor")
+  currency             String @default("UAH")
+
+  // When true → Car.isBlocked is forced true while the case is open.
+  blocksCar Boolean @default(true) @map("blocks_car")
+
+  // Linked Fine row created when fault=CLIENT (so the debt feeds into the
+  // existing fine ledger and doesn't need a separate accounting path).
+  linkedFineId Int? @unique @map("linked_fine_id")
+
+  // Free-form attachments (URLs to photos, expert reports, police docs).
+  attachments Json    @default("[]")
+  notes       String?
+
+  resolvedAt DateTime? @map("resolved_at")
+  createdAt  DateTime  @default(now()) @map("created_at")
+  updatedAt  DateTime  @updatedAt @map("updated_at")
+
+  car        Car     @relation("AccidentCar", fields: [carId], references: [id], onDelete: Restrict)
+  rental     Rental? @relation(fields: [rentalId], references: [id], onDelete: SetNull)
+  client     Client? @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  reporter   User?   @relation("AccidentReporter", fields: [reporterUserId], references: [id], onDelete: SetNull)
+  linkedFine Fine?   @relation(fields: [linkedFineId], references: [id], onDelete: SetNull)
+
+  @@index([carId, incidentAt])
+  @@index([rentalId])
+  @@index([clientId])
+  @@index([status])
+  @@map("accident")
+}
+
+// --- Inventory item (tools / equipment / accessories) ---
+//
+// Tracks physical items (impact wrenches, jump-starters, child seats, GPS
+// trackers, keys, fuel cans) that are NOT a Car and NOT a consumable part —
+// each is a unique trackable asset assigned to a person. For consumable
+// parts/spares use a separate stock table (not in scope here).
+
+model InventoryItem {
+  id Int @id @default(autoincrement())
+
+  name               String
+  category           String    @default("TOOL") // TOOL | EQUIPMENT | ACCESSORY | KEYS | OTHER
+  serialNumber       String?   @unique @map("serial_number")
+  status             String    @default("AVAILABLE") // AVAILABLE | ASSIGNED | MAINTENANCE | LOST | WRITTEN_OFF
+  quantity           Int       @default(1)
+  purchaseDate       DateTime? @map("purchase_date")
+  purchasePriceMinor Int?      @map("purchase_price_minor")
+  currentValueMinor  Int?      @map("current_value_minor")
+  currency           String    @default("UAH")
+
+  // Where the item normally lives (a pickup location / warehouse).
+  locationId        Int?      @map("location_id")
+  // Who is currently responsible for it.
+  responsibleUserId Int?      @map("responsible_user_id")
+  // When the item was checked out to the responsible person.
+  assignedAt        DateTime? @map("assigned_at")
+
+  notes       String?
+  attachments Json    @default("[]") // URLs (photos, receipts)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  location        PickupLocation? @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  responsibleUser User?           @relation("InventoryResponsible", fields: [responsibleUserId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([category])
+  @@index([locationId])
+  @@index([responsibleUserId])
+  @@map("inventory_item")
+}
+
+// --- Document template (договір, акт, рахунок) ---
+//
+// One row per template — body uses {{placeholder}} substitution. Placeholders
+// are resolved by the renderer service from a context object built per-render
+// from the linked Rental / Client / Car / Company. Output is HTML which the
+// client converts to PDF on demand.
+
+model DocumentTemplate {
+  id Int @id @default(autoincrement())
+
+  name     String // human label
+  kind     String // RENTAL_AGREEMENT | ACT_TRANSFER | ACT_RETURN | INVOICE | INSURANCE_CLAIM | OTHER
+  language String @default("uk") // uk | ru | en | pl | ro
+
+  // The template body (HTML with {{placeholder}} tokens).
+  bodyHtml String  @map("body_html") @db.Text
+  // Optional plain-text fallback (e.g., for emails / SMS).
+  bodyText String? @map("body_text") @db.Text
+
+  // List of placeholder keys this template uses — populated by the editor
+  // and validated against the renderer's known context keys at save time.
+  // Stored as: ["client.fullName", "car.brand", "rental.contractNumber", ...]
+  placeholders Json @default("[]")
+
+  isActive    Boolean @default(true) @map("is_active")
+  isDefault   Boolean @default(false) @map("is_default") // pick this when no template explicitly chosen for the kind
+  createdById Int?    @map("created_by_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  createdBy User? @relation("DocumentTemplateAuthor", fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@index([kind, language, isActive])
+  @@index([isDefault])
+  @@map("document_template")
+}
+
+// --- Mid-rental car swap (заміна авто без закриття договору) ---
+//
+// One row per swap event. Service layer flips Rental.carId to `toCarId`,
+// inserts an inspection on both vehicles (out for the old car, in for the
+// new), and writes this audit row. Multiple swaps per rental are allowed.
+
+model RentalCarSwap {
+  id Int @id @default(autoincrement())
+
+  rentalId  Int      @map("rental_id")
+  fromCarId Int      @map("from_car_id")
+  toCarId   Int      @map("to_car_id")
+  swappedAt DateTime @default(now()) @map("swapped_at")
+
+  fromOdometer Int? @map("from_odometer") // odometer of the old car at swap
+  toOdometer   Int? @map("to_odometer") // odometer of the new car at swap
+
+  reason       String?
+  notes        String?
+  authorUserId Int?    @map("author_user_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  rental  Rental @relation(fields: [rentalId], references: [id], onDelete: Cascade)
+  fromCar Car    @relation("CarSwapFrom", fields: [fromCarId], references: [id], onDelete: Restrict)
+  toCar   Car    @relation("CarSwapTo", fields: [toCarId], references: [id], onDelete: Restrict)
+  author  User?  @relation("RentalCarSwapAuthor", fields: [authorUserId], references: [id], onDelete: SetNull)
+
+  @@index([rentalId])
+  @@index([fromCarId])
+  @@index([toCarId])
+  @@map("rental_car_swap")
+}
+
+// --- Dynamic per-rental deposit ---
+//
+// Rental.depositAmount remains the standard contractual deposit. This table
+// holds AD-HOC deposits a manager creates mid-rental for non-standard cases
+// (e.g., extra deposit for a planned cross-border trip, holding deposit for a
+// minor damage pending repair quote). Each row may be linked to a Transaction
+// when actually collected.
+
+model RentalDeposit {
+  id Int @id @default(autoincrement())
+
+  rentalId    Int       @map("rental_id")
+  reason      String // free-form label shown to client
+  amountMinor Int       @map("amount_minor")
+  currency    String    @default("UAH")
+  status      String    @default("PENDING") // PENDING | RECEIVED | RETURNED | FORFEITED
+  dueAt       DateTime? @map("due_at")
+  receivedAt  DateTime? @map("received_at")
+  returnedAt  DateTime? @map("returned_at")
+  notes       String?
+
+  receivedTxnId Int? @unique @map("received_txn_id") // Transaction created when funds received
+  returnedTxnId Int? @unique @map("returned_txn_id") // Transaction created when funds returned
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  rental      Rental       @relation(fields: [rentalId], references: [id], onDelete: Cascade)
+  receivedTxn Transaction? @relation("DepositReceivedTxn", fields: [receivedTxnId], references: [id], onDelete: SetNull)
+  returnedTxn Transaction? @relation("DepositReturnedTxn", fields: [returnedTxnId], references: [id], onDelete: SetNull)
+
+  @@index([rentalId])
+  @@index([status])
+  @@map("rental_deposit")
 }

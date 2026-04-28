@@ -324,6 +324,96 @@ class FinanceService {
             transactions,
         };
     }
+
+    /**
+     * Inter-account transfer ("інкасація" / "transfer between accounts").
+     *
+     * Creates a paired pair of Transaction rows — one OUT from the source,
+     * one IN to the destination — linked via `transferPairId` so reports can
+     * deduplicate and the UI can render a "transfer" badge instead of two
+     * orphan ledger entries. Currency conversion uses the supplied fxRate or
+     * 1.0 when both sides share a currency.
+     *
+     * Returns both legs.
+     */
+    async transferBetweenAccounts(data: {
+        fromAccountId: number;
+        toAccountId: number;
+        amountMinor: number;
+        fxRate?: number;
+        description?: string;
+        createdByUserId?: number;
+    }) {
+        if (data.fromAccountId === data.toAccountId) {
+            throw new Error('Source and destination accounts must differ');
+        }
+        return await prisma.$transaction(async (tx) => {
+            const [from, to] = await Promise.all([
+                tx.account.findUnique({where: {id: data.fromAccountId}}),
+                tx.account.findUnique({where: {id: data.toAccountId}}),
+            ]);
+            if (!from || !to) throw new Error('One of the accounts not found');
+
+            const sameCurrency = from.currency === to.currency;
+            const fxRate = data.fxRate ?? 1.0;
+            if (!sameCurrency && data.fxRate == null) {
+                throw new Error(`Cross-currency transfer (${from.currency}→${to.currency}) requires explicit fxRate`);
+            }
+
+            // Outgoing leg in source currency
+            const outAmountUahMinor = from.currency === 'UAH'
+                ? data.amountMinor
+                : Math.round(data.amountMinor * (from.currency === 'UAH' ? 1 : (sameCurrency ? fxRate : 1)));
+
+            // Determine the destination amount in destination currency
+            const inAmountMinorDest = sameCurrency
+                ? data.amountMinor
+                : Math.round(data.amountMinor * fxRate);
+
+            const inAmountUahMinor = to.currency === 'UAH'
+                ? inAmountMinorDest
+                : Math.round(inAmountMinorDest * (sameCurrency ? 1 : 1)); // unknown UAH rate cross-cross — keep simple
+
+            const description = data.description || `Переказ між рахунками: ${from.name} → ${to.name}`;
+
+            const outLeg = await tx.transaction.create({
+                data: {
+                    type: 'TRANSFER',
+                    accountId: data.fromAccountId,
+                    direction: 'OUT',
+                    amountMinor: data.amountMinor,
+                    currency: from.currency,
+                    fxRate: 1.0,
+                    amountUahMinor: outAmountUahMinor,
+                    description,
+                    createdByUserId: data.createdByUserId ?? null,
+                },
+            });
+
+            const inLeg = await tx.transaction.create({
+                data: {
+                    type: 'TRANSFER',
+                    accountId: data.toAccountId,
+                    direction: 'IN',
+                    amountMinor: inAmountMinorDest,
+                    currency: to.currency,
+                    fxRate,
+                    amountUahMinor: inAmountUahMinor,
+                    description,
+                    createdByUserId: data.createdByUserId ?? null,
+                    transferPairId: outLeg.id,
+                },
+            });
+
+            // Back-link the OUT leg to the IN leg.
+            const outLegLinked = await tx.transaction.update({
+                where: {id: outLeg.id},
+                data: {transferPairId: inLeg.id},
+            });
+
+            return {out: outLegLinked, in: inLeg};
+        });
+    }
 }
 
 export default new FinanceService();

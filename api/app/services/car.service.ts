@@ -236,6 +236,87 @@ class CarService {
         await prisma.car.delete({where: {id}});
     }
 
+    /**
+     * Hard-block a car from any new rental (separate from `isAvailable` which
+     * gates the public catalog). The reason is shown to managers in the rental
+     * creation flow when they try to assign this car.
+     */
+    async block(id: number, reason: string) {
+        return await prisma.car.update({
+            where: {id},
+            data: {isBlocked: true, blockReason: reason},
+        });
+    }
+
+    async unblock(id: number) {
+        return await prisma.car.update({
+            where: {id},
+            data: {isBlocked: false, blockReason: null},
+        });
+    }
+
+    /**
+     * Update mileage-based maintenance schedule. Auto-derives nextServiceMileageKm
+     * from lastServiceMileageKm + serviceIntervalKm if both are present and
+     * nextServiceMileageKm is not explicitly provided.
+     */
+    async updateMaintenance(id: number, data: {
+        currentOdometer?: number | null;
+        serviceIntervalKm?: number | null;
+        nextServiceMileageKm?: number | null;
+        lastServiceMileageKm?: number | null;
+        lastServiceAt?: string | Date | null;
+    }) {
+        const updateData: any = {};
+        for (const k of ['currentOdometer', 'serviceIntervalKm', 'nextServiceMileageKm', 'lastServiceMileageKm'] as const) {
+            if (data[k] !== undefined) updateData[k] = data[k];
+        }
+        if (data.lastServiceAt !== undefined) {
+            updateData.lastServiceAt = data.lastServiceAt ? new Date(data.lastServiceAt as any) : null;
+        }
+        // Auto-derive next-service mileage if both interval and last-service mileage
+        // are provided and the caller didn't explicitly set nextServiceMileageKm.
+        if (
+            data.nextServiceMileageKm === undefined &&
+            (data.serviceIntervalKm != null || data.lastServiceMileageKm != null)
+        ) {
+            const car = await prisma.car.findUnique({
+                where: {id},
+                select: {serviceIntervalKm: true, lastServiceMileageKm: true},
+            });
+            const interval = data.serviceIntervalKm ?? car?.serviceIntervalKm;
+            const lastMileage = data.lastServiceMileageKm ?? car?.lastServiceMileageKm;
+            if (interval != null && lastMileage != null) {
+                updateData.nextServiceMileageKm = lastMileage + interval;
+            }
+        }
+        return await prisma.car.update({where: {id}, data: updateData});
+    }
+
+    /**
+     * Cars that are due for service: currentOdometer >= nextServiceMileageKm.
+     * Returns only cars with a defined next-service threshold.
+     */
+    async listDueForService() {
+        const cars = await prisma.car.findMany({
+            where: {
+                nextServiceMileageKm: {not: null},
+                currentOdometer: {not: null},
+            },
+            select: {
+                id: true, brand: true, model: true, plateNumber: true,
+                currentOdometer: true, nextServiceMileageKm: true, lastServiceAt: true,
+                serviceIntervalKm: true,
+            },
+        });
+        return cars
+            .filter((c) => c.currentOdometer != null && c.nextServiceMileageKm != null && c.currentOdometer >= c.nextServiceMileageKm)
+            .map((c) => ({
+                ...c,
+                kmOver: (c.currentOdometer ?? 0) - (c.nextServiceMileageKm ?? 0),
+            }));
+    }
+
     async getConfigurationOptions() {
         const cars = await prisma.car.findMany({
             where: {configuration: {not: Prisma.DbNull}},

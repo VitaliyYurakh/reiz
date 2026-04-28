@@ -28,6 +28,10 @@ import {
   Handshake,
   Target,
   Mail,
+  AlertTriangle,
+  Package,
+  FileText,
+  UserX,
 } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { Toaster } from 'sonner';
@@ -74,6 +78,7 @@ const NAV_GROUPS: NavGroup[] = [
     items: [
       { href: '/admin/calendar', labelKey: 'nav.calendar', icon: CalendarDays, module: 'calendar' },
       { href: '/admin/clients', labelKey: 'nav.clients', icon: Users, module: 'clients' },
+      { href: '/admin/blacklist', labelKey: 'nav.blacklist', icon: UserX, module: 'clients' },
       { href: '/admin/cars', labelKey: 'nav.cars', icon: Car, module: 'cars' },
       { href: '/admin/partners', labelKey: 'nav.partners', icon: Handshake, module: 'cars' },
       { href: '/admin/locations', labelKey: 'nav.locations', icon: MapPin, module: 'locations' },
@@ -90,10 +95,13 @@ const NAV_GROUPS: NavGroup[] = [
     label: '',
     items: [
       { href: '/admin/service', labelKey: 'nav.service', icon: Wrench, module: 'service' },
+      { href: '/admin/accidents', labelKey: 'nav.accidents', icon: AlertTriangle, module: 'service' },
+      { href: '/admin/inventory', labelKey: 'nav.inventory', icon: Package, module: 'service' },
       { href: '/admin/complaints', labelKey: 'nav.complaints', icon: AlertOctagon, module: 'rentals' },
       { href: '/admin/leads', labelKey: 'nav.leads', icon: Target, module: 'crm' },
       { href: '/admin/mail', labelKey: 'nav.mail', icon: Mail, module: 'settings' },
       { href: '/admin/reports', labelKey: 'nav.reports', icon: BarChart3, module: 'reports' },
+      { href: '/admin/document-templates', labelKey: 'nav.documentTemplates', icon: FileText, module: 'settings' },
       { href: '/admin/settings', labelKey: 'nav.settings', icon: Settings, module: 'settings' },
     ],
   },

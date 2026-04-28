@@ -23,6 +23,9 @@ router.get('/transaction', auth, requirePermission('finance', 'view'), financeCo
 router.post('/transaction', auth, requirePermission('finance', 'full'), financeController.createTransaction.bind(financeController));
 router.get('/transaction/summary', auth, requirePermission('finance', 'view'), financeController.getSummary.bind(financeController));
 
+// Inter-account transfer (інкасація / переказ)
+router.post('/transfer', auth, requirePermission('finance', 'full'), financeController.transfer.bind(financeController));
+
 // Rental balance
 router.get('/rental-balance/:rentalId', auth, requirePermission('finance', 'view'), financeController.getRentalBalance.bind(financeController));
 

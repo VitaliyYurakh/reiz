@@ -14,6 +14,7 @@ import {
     CheckCircle,
     Clock,
     Receipt,
+    Repeat,
 } from 'lucide-react';
 
 import type { Rental, TabKey } from './components/rental-detail-types';
@@ -22,6 +23,7 @@ import { LoadingSkeleton } from './components/LoadingSkeleton';
 import { CompleteModal } from './components/CompleteModal';
 import { ExtendModal } from './components/ExtendModal';
 import { CancelModal } from './components/CancelModal';
+import { SwapCarModal } from './components/SwapCarModal';
 import { OverviewTab } from './components/OverviewTab';
 import { InspectionsTab } from './components/InspectionsTab';
 import { FinesTab } from './components/FinesTab';
@@ -80,6 +82,7 @@ export default function RentalDetailPage() {
     const [showCompleteModal, setShowCompleteModal] = useState(false);
     const [showExtendModal, setShowExtendModal] = useState(false);
     const [showCancelModal, setShowCancelModal] = useState(false);
+    const [showSwapModal, setShowSwapModal] = useState(false);
     const [actionLoading, setActionLoading] = useState(false);
 
     const fetchRental = useCallback(async () => {
@@ -145,6 +148,19 @@ export default function RentalDetailPage() {
             await fetchRental();
         } catch (err) {
             toastError(err, t('rentalDetail.cancelError'));
+        } finally {
+            setActionLoading(false);
+        }
+    };
+
+    const handleSwap = async (data: { toCarId: number; fromOdometer?: number; toOdometer?: number; reason?: string; notes?: string }) => {
+        setActionLoading(true);
+        try {
+            await adminApiClient.post(`/rental/${id}/swap-car`, data);
+            setShowSwapModal(false);
+            await fetchRental();
+        } catch (err) {
+            toastError(err, t('common.errorOccurred'));
         } finally {
             setActionLoading(false);
         }
@@ -260,6 +276,14 @@ export default function RentalDetailPage() {
                             </button>
                             <button
                                 type="button"
+                                onClick={() => setShowSwapModal(true)}
+                                className="ios-btn ios-btn-secondary text-sm"
+                            >
+                                <Repeat className="h-4 w-4" />
+                                {t('carSwap.swapNow')}
+                            </button>
+                            <button
+                                type="button"
                                 onClick={() => setShowCancelModal(true)}
                                 className="ios-btn ios-btn-destructive text-sm"
                             >
@@ -342,6 +366,14 @@ export default function RentalDetailPage() {
                 <CancelModal
                     onClose={() => setShowCancelModal(false)}
                     onSubmit={handleCancel}
+                    loading={actionLoading}
+                />
+            )}
+            {showSwapModal && (
+                <SwapCarModal
+                    currentCarId={rental.car.id}
+                    onClose={() => setShowSwapModal(false)}
+                    onSubmit={handleSwap}
                     loading={actionLoading}
                 />
             )}
