@@ -117,10 +117,10 @@ export default function PricingPage() {
                     fontFamily: H.font,
                     ...(isActive
                       ? {
-                          background: H.navy,
+                          background: H.purple,
                           color: '#fff',
                           boxShadow:
-                            '0 4px 12px rgba(43, 54, 116, 0.2)',
+                            '0 4px 12px rgba(106, 123, 255, 0.30)',
                         }
                       : {
                           background: 'transparent',

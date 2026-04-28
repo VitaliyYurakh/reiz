@@ -90,6 +90,32 @@ body {
     overflow: visible !important;
 }
 
+/*
+ * Brand-button text-color rescue.
+ *
+ * The public site's `scss/general/_global.scss` defines `button { color: inherit }`
+ * as part of its global reset. That bubbles up into the admin <body> and silently
+ * stomps the `color: #FFFFFF` that's declared on classes like `.h-login-btn`,
+ * `.ios-btn-primary`, etc. Result: brand-purple buttons render with the parent's
+ * text color (navy/black) instead of white.
+ *
+ * Inline `style={{ color: '#fff' }}` on buttons works (style attribute wins the
+ * cascade), but CSS-class-only buttons need higher specificity than `button { … }`.
+ * `button.<class>` is (0,1,1) vs the reset's (0,0,1) — wins without !important.
+ */
+button.h-login-btn,
+button.ios-btn-primary,
+button.ios-btn-success,
+button.ios-btn-destructive {
+    color: #FFFFFF;
+}
+button.ios-btn-secondary {
+    color: var(--c-brand-dark);
+}
+button.ios-btn-ghost {
+    color: var(--c-brand);
+}
+
 /* ═══════════════════════════════════════════════════════════
    iOS Settings Design System — Design Tokens
    ═══════════════════════════════════════════════════════════ */
