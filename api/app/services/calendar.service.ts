@@ -24,11 +24,19 @@ class CalendarService {
 
         const carIdList = cars.map((c) => c.id);
 
+        // Calendar shows the full timeline — both upcoming work AND past
+        // history — so the operator can scroll back to any month and see
+        // exactly which car was rented to whom. Until 2026-04-29 the query
+        // only returned `confirmed` reservations and `active` rentals, which
+        // hid every completed/picked-up record from view (reported when a
+        // backdated rental for 04.04 was invisible despite existing in DB).
+        // The frontend already has colors for `picked_up` (green) and
+        // `completed` (gray) — see `calendar-types.ts#getStatusMap`.
         const [reservations, rentals, serviceEvents] = await Promise.all([
             prisma.reservation.findMany({
                 where: {
                     carId: {in: carIdList},
-                    status: {in: [ReservationStatus.CONFIRMED]},
+                    status: {in: [ReservationStatus.CONFIRMED, ReservationStatus.PICKED_UP]},
                     pickupDate: {lt: toDate},
                     returnDate: {gt: fromDate},
                 },
@@ -44,7 +52,7 @@ class CalendarService {
             prisma.rental.findMany({
                 where: {
                     carId: {in: carIdList},
-                    status: {in: [RentalStatus.ACTIVE]},
+                    status: {in: [RentalStatus.ACTIVE, RentalStatus.COMPLETED]},
                     pickupDate: {lt: toDate},
                     returnDate: {gt: fromDate},
                 },
