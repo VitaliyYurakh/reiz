@@ -52,7 +52,7 @@ export function HCard({
                 width: 36,
                 height: 36,
                 borderRadius: 12,
-                background: 'linear-gradient(135deg, rgba(134,140,255,0.15) 0%, rgba(67,24,255,0.15) 100%)',
+                background: 'linear-gradient(135deg, rgba(154, 165, 255, 0.15) 0%, rgba(106, 123, 255, 0.15) 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -266,7 +266,7 @@ export function HFileUpload({
         style={{
           borderRadius: 16,
           border: `2px dashed ${dragOver ? H.purple : H.grayLight}`,
-          background: dragOver ? 'rgba(67,24,255,0.04)' : H.bg,
+          background: dragOver ? 'rgba(106, 123, 255, 0.04)' : H.bg,
           color: dragOver ? H.purple : H.gray,
           cursor: 'pointer',
           transition: 'all 0.15s',
@@ -335,7 +335,7 @@ export function HInput({
           opacity: disabled ? 0.5 : 1,
           cursor: disabled ? 'not-allowed' : 'text',
         }}
-        onFocus={(e) => { if (!disabled) e.currentTarget.style.boxShadow = '0 0 0 2px rgba(67,24,255,0.15)'; }}
+        onFocus={(e) => { if (!disabled) e.currentTarget.style.boxShadow = '0 0 0 2px rgba(106, 123, 255, 0.15)'; }}
         onBlur={(e) => { e.currentTarget.style.boxShadow = 'none'; }}
       />
     </div>
@@ -389,7 +389,7 @@ export function HSelect({
           backgroundSize: '1.25em 1.25em',
           transition: 'box-shadow 0.15s',
         }}
-        onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px rgba(67,24,255,0.15)'; }}
+        onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px rgba(106, 123, 255, 0.15)'; }}
         onBlur={(e) => { e.currentTarget.style.boxShadow = 'none'; }}
       >
         <option value="">Не выбрано</option>
@@ -457,7 +457,7 @@ export function HSaveButton({ onClick, saved }: { onClick: () => void; saved: bo
           ? H.greenBg
           : `linear-gradient(135deg, ${H.purpleLight} 0%, ${H.purple} 100%)`,
         color: saved ? H.green : H.white,
-        boxShadow: saved ? 'none' : '0 4px 12px rgba(67, 24, 255, 0.25)',
+        boxShadow: saved ? 'none' : '0 4px 12px rgba(106, 123, 255, 0.25)',
       }}
     >
       {saved ? (
@@ -537,7 +537,7 @@ export function HModalField({
           outline: 'none',
           transition: 'box-shadow 0.15s',
         }}
-        onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px rgba(67,24,255,0.15)'; }}
+        onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px rgba(106, 123, 255, 0.15)'; }}
         onBlur={(e) => { e.currentTarget.style.boxShadow = 'none'; }}
       />
     </div>
@@ -584,7 +584,7 @@ export function HModalFieldControlled({
           outline: 'none',
           transition: 'box-shadow 0.15s',
         }}
-        onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px rgba(67,24,255,0.15)'; }}
+        onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px rgba(106, 123, 255, 0.15)'; }}
         onBlur={(e) => { e.currentTarget.style.boxShadow = 'none'; }}
       />
     </div>

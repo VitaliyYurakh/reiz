@@ -213,7 +213,7 @@ export default function RentalDetailPage() {
 
     const statusBadgeBg =
         rental.status === 'active' ? '#4CAF50'
-            : rental.status === 'completed' ? '#42A5F5'
+            : rental.status === 'completed' ? '#9aa5ff'
                 : rental.status === 'cancelled' ? '#90A4AE'
                     : '#4CAF50';
 

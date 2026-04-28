@@ -43,7 +43,7 @@ const SPECIAL_LABEL_UK: Record<string, string> = {
 
 const SPECIAL_ORDER = ['\\Inbox', '\\Flagged', '\\Sent', '\\Drafts', '\\Trash', '\\Junk', '\\Archive'];
 
-const AVATAR_PALETTE = ['#7C5CFF', '#22C55E', '#EC4899', '#F97316', '#06B6D4', '#A855F7', '#F59E0B', '#10B981', '#0EA5E9', '#EF4444'];
+const AVATAR_PALETTE = ['#6a7bff', '#22C55E', '#EC4899', '#F97316', '#5867e8', '#6a7bff', '#F59E0B', '#10B981', '#6a7bff', '#EF4444'];
 
 function colorFor(s: string): string {
     let h = 0;
@@ -101,7 +101,7 @@ function autoLabel(fromAddr: string, subject: string | null): { text: string; co
     const subj = (subject || '').toLowerCase();
     // Banks → Рахунок (blue)
     if (/privatbank|monobank|raiffeisen|oschadbank|pumb|sense|wise|stripe|paypal/.test(addr)) {
-        return { text: 'Рахунок', color: '#0EA5E9' };
+        return { text: 'Рахунок', color: '#6a7bff' };
     }
     // Known partners → Партнер (green)
     if (/@bolt\.|@uklon\.|@uber\.|@booking\.|@expedia\.|@kayak\./.test(addr)) {
@@ -113,7 +113,7 @@ function autoLabel(fromAddr: string, subject: string | null): { text: string; co
     }
     // Internal
     if (/@reiz\.com\.ua$/i.test(addr)) {
-        return { text: 'Команда', color: '#A855F7' };
+        return { text: 'Команда', color: '#6a7bff' };
     }
     // Big-company SaaS / no-reply → no label
     if (/noreply|no-reply|notifications?@|newsletter|marketing|@google\.com|@workspace\.|@notion\.|@github\.|@figma\.|@slack\.|@stripe\.com/.test(addr)) {
@@ -121,7 +121,7 @@ function autoLabel(fromAddr: string, subject: string | null): { text: string; co
     }
     // Default for personal emails → Клієнт
     if (/@(gmail|yahoo|hotmail|outlook|ukr\.net|i\.ua|meta\.ua|icloud|proton)\./i.test(addr)) {
-        return { text: 'Клієнт', color: '#7C5CFF' };
+        return { text: 'Клієнт', color: '#6a7bff' };
     }
     return null;
 }
@@ -130,9 +130,9 @@ function fileTypeFromMime(mime: string | null): { color: string; label: string }
     if (!mime) return { color: '#94A3B8', label: 'FILE' };
     if (mime.includes('pdf')) return { color: '#EF4444', label: 'PDF' };
     if (mime.startsWith('image/')) return { color: '#22C55E', label: 'IMG' };
-    if (mime.includes('word') || mime.includes('document')) return { color: '#3B82F6', label: 'DOC' };
+    if (mime.includes('word') || mime.includes('document')) return { color: '#6a7bff', label: 'DOC' };
     if (mime.includes('sheet') || mime.includes('excel')) return { color: '#16A34A', label: 'XLS' };
-    if (mime.includes('zip') || mime.includes('archive')) return { color: '#A855F7', label: 'ZIP' };
+    if (mime.includes('zip') || mime.includes('archive')) return { color: '#6a7bff', label: 'ZIP' };
     return { color: '#94A3B8', label: (mime.split('/')[1] || 'FILE').slice(0, 4).toUpperCase() };
 }
 
@@ -433,7 +433,7 @@ MAIL_SMTP_HOST=smtp.hostinger.com`}</pre>
 
                         {account && (
                             <div className="account-card">
-                                <div className="account-avatar" style={{ background: 'linear-gradient(135deg,#7C5CFF,#A855F7)' }}>
+                                <div className="account-avatar" style={{ background: 'linear-gradient(135deg,#6a7bff,#6a7bff)' }}>
                                     {(account.displayName || account.email)[0].toUpperCase()}
                                 </div>
                                 <div className="account-info">
@@ -770,7 +770,7 @@ function MessageViewer({
             html, body { margin: 0; padding: 0; }
             body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14.5px; line-height: 1.7; color: #0F1226; padding: 0; word-wrap: break-word; }
             img { max-width: 100%; height: auto; }
-            a { color: #7C5CFF; }
+            a { color: #6a7bff; }
             blockquote { border-left: 3px solid #E6E8EF; padding-left: 12px; color: #4B5063; margin: 12px 0; }
             p { margin: 0 0 12px; }
             ol, ul { padding-left: 22px; margin: 0 0 12px; }
@@ -1136,7 +1136,7 @@ function Composer({
                 <div className="cf-row">
                     <span className="cf-label">Від</span>
                     <span className="cf-from">
-                        <span className="dot-sm" style={{ background: '#7C5CFF' }} />
+                        <span className="dot-sm" style={{ background: '#6a7bff' }} />
                         <span>{accountEmail}</span>
                     </span>
                 </div>

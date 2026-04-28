@@ -246,9 +246,9 @@ export default function NewReservationPage() {
           <div className="flex items-center gap-2.5 mb-4">
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
-              style={{ backgroundColor: isDark ? 'rgba(124,77,255,0.15)' : '#EDE7F6' }}
+              style={{ backgroundColor: isDark ? 'rgba(106, 123, 255, 0.15)' : '#EDE7F6' }}
             >
-              <User className="h-3.5 w-3.5" style={{ color: '#7C4DFF' }} />
+              <User className="h-3.5 w-3.5" style={{ color: '#6a7bff' }} />
             </div>
             <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>
               {t('newReservation.sectionClient')}

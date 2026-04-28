@@ -369,7 +369,7 @@ export default function PartnerDetailPage() {
             {report && (
               <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
                 {[
-                  { label: 'Оренд', val: report.summary.rentalsCount, color: '#42A5F5' },
+                  { label: 'Оренд', val: report.summary.rentalsCount, color: '#9aa5ff' },
                   { label: 'Базова сума', val: `${symbol} ${report.summary.totalBase.toFixed(2)}`, color: '#90A4AE' },
                   { label: 'Після знижок', val: `${symbol} ${report.summary.totalAfterDiscount.toFixed(2)}`, color: '#90A4AE' },
                   { label: 'Комісія Reiz', val: `${symbol} ${report.summary.totalCommission.toFixed(2)}`, color: '#01B574' },

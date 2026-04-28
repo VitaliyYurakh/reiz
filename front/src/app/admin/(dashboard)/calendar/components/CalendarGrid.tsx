@@ -310,7 +310,7 @@ export function CalendarGrid({
                           ? `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`
                           : 'transparent',
                         boxShadow: td
-                          ? '0 2px 8px rgba(67, 24, 255, 0.3)'
+                          ? '0 2px 8px rgba(106, 123, 255, 0.3)'
                           : 'none',
                         animation:
                           td && todayFlash

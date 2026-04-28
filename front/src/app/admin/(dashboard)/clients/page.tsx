@@ -50,9 +50,9 @@ function getInitials(firstName: string, lastName: string) {
 }
 
 const AVATAR_COLORS = [
-  'linear-gradient(135deg, #868CFF 0%, #4318FF 100%)',
+  'linear-gradient(135deg, #9aa5ff 0%, #6a7bff 100%)',
   'linear-gradient(135deg, #01B574 0%, #0BB783 100%)',
-  'linear-gradient(135deg, #3965FF 0%, #6B8AFF 100%)',
+  'linear-gradient(135deg, #6a7bff 0%, #9aa5ff 100%)',
   'linear-gradient(135deg, #FFB547 0%, #FF9A23 100%)',
   'linear-gradient(135deg, #EE5D50 0%, #FF8A80 100%)',
 ];
@@ -680,7 +680,7 @@ export default function ClientsPage() {
                       ? `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`
                       : H.white,
                     boxShadow: isActive
-                      ? '0 4px 12px rgba(67, 24, 255, 0.3)'
+                      ? '0 4px 12px rgba(106, 123, 255, 0.3)'
                       : H.shadowMd,
                     color: isActive ? '#fff' : H.navy,
                     fontSize: 13,

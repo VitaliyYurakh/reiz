@@ -46,8 +46,8 @@ const getNotifTypeConfig = (dark: boolean): Record<
 > => ({
   request: {
     icon: ClipboardList,
-    color: dark ? '#B39DDB' : '#7C4DFF',
-    bg: dark ? 'rgba(124,77,255,0.15)' : '#EDE7F6',
+    color: dark ? '#9aa5ff' : '#6a7bff',
+    bg: dark ? 'rgba(106, 123, 255, 0.15)' : '#EDE7F6',
     href: '/admin/requests',
   },
   service: {
@@ -70,14 +70,14 @@ const getSearchTypeConfig = (dark: boolean): Record<
 > => ({
   client: {
     icon: Users,
-    color: dark ? '#B39DDB' : '#7C4DFF',
-    bg: dark ? 'rgba(124,77,255,0.15)' : '#EDE7F6',
+    color: dark ? '#9aa5ff' : '#6a7bff',
+    bg: dark ? 'rgba(106, 123, 255, 0.15)' : '#EDE7F6',
     href: (id) => `/admin/clients/${id}`,
   },
   car: {
     icon: Car,
-    color: dark ? '#64B5F6' : '#2196F3',
-    bg: dark ? 'rgba(33,150,243,0.15)' : '#E3F2FD',
+    color: dark ? '#9aa5ff' : '#6a7bff',
+    bg: dark ? 'rgba(106, 123, 255, 0.15)' : '#E3F2FD',
     href: (id) => `/admin/cars/${id}`,
   },
   request: {

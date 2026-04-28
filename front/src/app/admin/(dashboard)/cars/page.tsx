@@ -425,7 +425,7 @@ export default function CarListPage() {
                         <span
                           style={{
                             display: 'inline-block',
-                            background: 'linear-gradient(135deg, rgba(134,140,255,0.1) 0%, rgba(67,24,255,0.1) 100%)',
+                            background: 'linear-gradient(135deg, rgba(154, 165, 255, 0.1) 0%, rgba(106, 123, 255, 0.1) 100%)',
                             borderRadius: 49,
                             padding: '3px 10px',
                             fontSize: 11,

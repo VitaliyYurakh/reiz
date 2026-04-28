@@ -530,7 +530,7 @@ export function AddOnsSection({
                           borderRadius: 49,
                           fontSize: 11,
                           fontWeight: 700,
-                          background: `linear-gradient(135deg, rgba(134,140,255,0.12), rgba(67,24,255,0.12))`,
+                          background: `linear-gradient(135deg, rgba(154, 165, 255, 0.12), rgba(106, 123, 255, 0.12))`,
                           color: H.purple,
                         }}
                       >

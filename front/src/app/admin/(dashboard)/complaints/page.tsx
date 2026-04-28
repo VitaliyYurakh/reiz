@@ -60,13 +60,13 @@ const CATEGORY_LABEL: Record<string, string> = {
 
 const PRIORITY_COLOR: Record<string, string> = {
   low: '#90A4AE',
-  normal: '#42A5F5',
+  normal: '#9aa5ff',
   high: '#FFB547',
   urgent: '#EE5D50',
 };
 
 const STATUS_COLOR: Record<string, { bg: string; text: string }> = {
-  open: { bg: '#EDE7F6', text: '#5E35B1' },
+  open: { bg: '#EDE7F6', text: '#6a7bff' },
   in_review: { bg: '#FFF3E0', text: '#E65100' },
   awaiting_client: { bg: '#E0F7FA', text: '#00838F' },
   resolved: { bg: '#E8F5E9', text: '#2E7D32' },
@@ -157,7 +157,7 @@ export default function ComplaintsPage() {
         {stats && (
           <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-5">
             {[
-              { label: 'Відкриті', val: stats.open, color: '#7C4DFF', icon: AlertOctagon },
+              { label: 'Відкриті', val: stats.open, color: '#6a7bff', icon: AlertOctagon },
               { label: 'В роботі', val: stats.inReview, color: '#FF9100', icon: Clock },
               { label: 'Чекають клієнта', val: stats.awaitingClient, color: '#00838F', icon: Clock },
               { label: 'Вирішені', val: stats.resolved, color: '#4CAF50', icon: CheckCircle2 },

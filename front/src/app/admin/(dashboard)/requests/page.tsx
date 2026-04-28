@@ -59,13 +59,13 @@ export default function RequestsPage() {
   const limit = 20;
 
   const STATUS_CONFIG: Record<string, { label: string; bg: string; text: string; dot: string }> = useMemo(() => isDark ? {
-    new: { label: t('requests.mapNew'), bg: 'rgba(124,77,255,0.15)', text: '#B39DDB', dot: '#7C4DFF' },
+    new: { label: t('requests.mapNew'), bg: 'rgba(106, 123, 255, 0.15)', text: '#9aa5ff', dot: '#6a7bff' },
     in_review: { label: t('requests.mapProcessing'), bg: 'rgba(255,145,0,0.15)', text: '#FFB74D', dot: '#FF9100' },
     approved: { label: t('requests.mapApproved'), bg: 'rgba(76,175,80,0.15)', text: '#81C784', dot: '#4CAF50' },
     rejected: { label: t('requests.mapRejected'), bg: 'rgba(239,83,80,0.15)', text: '#EF9A9A', dot: '#EF5350' },
     cancelled: { label: t('requests.mapCancelled'), bg: 'rgba(144,164,174,0.15)', text: '#90A4AE', dot: '#78909C' },
   } : {
-    new: { label: t('requests.mapNew'), bg: '#EDE7F6', text: '#5E35B1', dot: '#7C4DFF' },
+    new: { label: t('requests.mapNew'), bg: '#EDE7F6', text: '#6a7bff', dot: '#6a7bff' },
     in_review: { label: t('requests.mapProcessing'), bg: '#FFF3E0', text: '#E65100', dot: '#FF9100' },
     approved: { label: t('requests.mapApproved'), bg: '#E8F5E9', text: '#2E7D32', dot: '#4CAF50' },
     rejected: { label: t('requests.mapRejected'), bg: '#FFEBEE', text: '#C62828', dot: '#EF5350' },
@@ -199,7 +199,7 @@ export default function RequestsPage() {
                 {newCount > 0 && (
                   <span
                     className="inline-flex h-6 items-center gap-1 rounded-full px-2.5 text-[11px] font-bold text-white"
-                    style={{ backgroundColor: '#7C4DFF' }}
+                    style={{ backgroundColor: '#6a7bff' }}
                   >
                     {newCount} {t('requests.newBadge')}
                   </span>
@@ -246,7 +246,7 @@ export default function RequestsPage() {
               onKeyDown={(e) => {
                 if (e.key === 'Enter') { setSearch(searchInput); setPage(1); }
               }}
-              className="h-9 w-[220px] rounded-lg text-[13px] transition-all focus:outline-none focus:ring-2 focus:ring-[#7C4DFF]/20"
+              className="h-9 w-[220px] rounded-lg text-[13px] transition-all focus:outline-none focus:ring-2 focus:ring-[#6a7bff]/20"
               style={{ paddingLeft: 34, paddingRight: 12, backgroundColor: isDark ? '#1E293B' : '#F7F9FB', border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1', color: isDark ? '#E2E8F0' : '#263238' }}
             />
           </div>
@@ -349,7 +349,7 @@ export default function RequestsPage() {
                         isDark ? 'border-[#1E293B] hover:bg-[#1E293B]' : 'border-[#F0F4F8] hover:bg-[#F7F9FB]',
                         isNew && (isDark ? 'bg-[#4A2B99]/25' : 'bg-[#EDE7F6]'),
                       )}
-                      style={isNew ? { borderLeft: '3px solid #7C4DFF' } : undefined}
+                      style={isNew ? { borderLeft: '3px solid #6a7bff' } : undefined}
                     >
                       <td className="px-4 py-2.5 text-[13px] font-semibold whitespace-nowrap" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>#{r.id}</td>
                       <td className="px-4 py-2.5">

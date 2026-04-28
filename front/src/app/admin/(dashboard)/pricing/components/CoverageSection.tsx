@@ -488,7 +488,7 @@ export function CoverageSection({
                         width: 42,
                         height: 42,
                         borderRadius: 12,
-                        background: `linear-gradient(135deg, rgba(134,140,255,0.15), rgba(67,24,255,0.15))`,
+                        background: `linear-gradient(135deg, rgba(154, 165, 255, 0.15), rgba(106, 123, 255, 0.15))`,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',

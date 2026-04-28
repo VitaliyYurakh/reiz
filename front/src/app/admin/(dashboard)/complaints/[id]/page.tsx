@@ -197,7 +197,7 @@ export default function ComplaintDetailPage() {
               style={{
                 borderLeft: `3px solid ${
                   msg.authorType === 'staff'
-                    ? '#26C6DA'
+                    ? '#6a7bff'
                     : msg.authorType === 'system'
                       ? '#90A4AE'
                       : '#FFB547'
@@ -209,7 +209,7 @@ export default function ComplaintDetailPage() {
                   <div
                     className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[10px] font-semibold text-white"
                     style={{
-                      background: msg.authorType === 'staff' ? '#26C6DA' : '#FFB547',
+                      background: msg.authorType === 'staff' ? '#6a7bff' : '#FFB547',
                     }}
                   >
                     {msg.authorType === 'staff' ? 'S' : 'C'}

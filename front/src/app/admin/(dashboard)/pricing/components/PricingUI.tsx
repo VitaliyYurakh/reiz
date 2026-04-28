@@ -24,7 +24,7 @@ export function HInput(props: React.InputHTMLAttributes<HTMLInputElement>) {
         ...props.style,
       }}
       onFocus={(e) => {
-        e.currentTarget.style.boxShadow = `0 0 0 2px rgba(67,24,255,0.15)`;
+        e.currentTarget.style.boxShadow = `0 0 0 2px rgba(106, 123, 255, 0.15)`;
         props.onFocus?.(e);
       }}
       onBlur={(e) => {
@@ -57,7 +57,7 @@ export function HTextarea(props: React.TextareaHTMLAttributes<HTMLTextAreaElemen
         ...props.style,
       }}
       onFocus={(e) => {
-        e.currentTarget.style.boxShadow = `0 0 0 2px rgba(67,24,255,0.15)`;
+        e.currentTarget.style.boxShadow = `0 0 0 2px rgba(106, 123, 255, 0.15)`;
         props.onFocus?.(e);
       }}
       onBlur={(e) => {

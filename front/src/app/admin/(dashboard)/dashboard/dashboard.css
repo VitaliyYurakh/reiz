@@ -9,7 +9,7 @@
   --dh-text-dim: #9CA3AF;
 
   --dh-accent: #6A7BFF;
-  --dh-accent-strong: #5867E8;
+  --dh-accent-strong: #5867e8;
   --dh-accent-soft: #EEF0FF;
 
   --dh-success: #10B981;
@@ -21,11 +21,11 @@
 
   /* Card palette (front → back): pink, orange, indigo-blue, pastel green */
   --dh-car-1-from: #D980FF;
-  --dh-car-1-to: #B765F2;
+  --dh-car-1-to: #9aa5ff;
   --dh-car-2-from: #FF9A4D;
   --dh-car-2-to: #F37A2E;
-  --dh-car-3-from: #7C8BFF;
-  --dh-car-3-to: #5F6FE8;
+  --dh-car-3-from: #6a7bff;
+  --dh-car-3-to: #6a7bff;
   --dh-car-4-from: #8ED9A6;
   --dh-car-4-to: #5FBE7D;
 
@@ -51,8 +51,8 @@
   --dh-text-muted: #9CA3AF;
   --dh-text-dim: #6B7280;
 
-  --dh-accent: #8290FF;
-  --dh-accent-strong: #9AA5FF;
+  --dh-accent: #9aa5ff;
+  --dh-accent-strong: #9aa5ff;
   --dh-accent-soft: #2A3050;
 
   --dh-success-soft: rgba(16, 185, 129, 0.12);
@@ -63,11 +63,11 @@
   --dh-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.4);
 
   /* Muted card gradients for dark theme — softer, less saturated */
-  --dh-car-1-from: #9C6BB5;
+  --dh-car-1-from: #9aa5ff;
   --dh-car-1-to: #7A4B94;
   --dh-car-2-from: #C68451;
   --dh-car-2-to: #9B6030;
-  --dh-car-3-from: #6572C0;
+  --dh-car-3-from: #6a7bff;
   --dh-car-3-to: #4A56A0;
   --dh-car-4-from: #77A88B;
   --dh-car-4-to: #528466;

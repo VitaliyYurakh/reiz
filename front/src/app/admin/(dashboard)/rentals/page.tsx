@@ -40,11 +40,11 @@ interface Rental {
 function getStatusStyles(isDark: boolean): Record<string, { bg: string; text: string; dot: string }> {
   return isDark ? {
     active: { bg: 'rgba(76,175,80,0.15)', text: '#81C784', dot: '#4CAF50' },
-    completed: { bg: 'rgba(66,165,245,0.15)', text: '#90CAF9', dot: '#42A5F5' },
+    completed: { bg: 'rgba(154, 165, 255, 0.15)', text: '#9aa5ff', dot: '#9aa5ff' },
     cancelled: { bg: 'rgba(144,164,174,0.15)', text: '#90A4AE', dot: '#78909C' },
   } : {
     active: { bg: '#E8F5E9', text: '#2E7D32', dot: '#4CAF50' },
-    completed: { bg: '#E3F2FD', text: '#1565C0', dot: '#42A5F5' },
+    completed: { bg: '#E3F2FD', text: '#1565C0', dot: '#9aa5ff' },
     cancelled: { bg: '#ECEFF1', text: '#546E7A', dot: '#90A4AE' },
   };
 }

@@ -17,9 +17,9 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const TYPE_COLORS: Record<string, string> = {
-  railway: '#4318FF',
+  railway: '#6a7bff',
   bus: '#01B574',
-  airport: '#3965FF',
+  airport: '#6a7bff',
   mall: '#FFB547',
   center: '#EE5D50',
   other: '#8B97C0',

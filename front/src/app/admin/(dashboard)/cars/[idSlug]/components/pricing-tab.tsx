@@ -750,7 +750,7 @@ export function PricingTab({
                     ? `linear-gradient(135deg, ${H.purpleLight} 0%, ${H.purple} 100%)`
                     : H.bg,
                   color: isNew ? H.white : H.purple,
-                  boxShadow: isNew ? '0 4px 12px rgba(67, 24, 255, 0.25)' : 'none',
+                  boxShadow: isNew ? '0 4px 12px rgba(106, 123, 255, 0.25)' : 'none',
                 }}
               >
                 <Sparkles style={{ width: 15, height: 15 }} /> NEW

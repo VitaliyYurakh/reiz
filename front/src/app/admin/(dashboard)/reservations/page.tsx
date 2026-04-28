@@ -54,12 +54,12 @@ export default function ReservationsPage() {
 
   const STATUS_CONFIG: Record<string, { label: string; bg: string; text: string; dot: string }> = useMemo(() => isDark ? {
     confirmed: { label: t('reservations.mapConfirmed'), bg: 'rgba(76,175,80,0.15)', text: '#81C784', dot: '#4CAF50' },
-    picked_up: { label: t('reservations.mapIssued'), bg: 'rgba(66,165,245,0.15)', text: '#90CAF9', dot: '#42A5F5' },
+    picked_up: { label: t('reservations.mapIssued'), bg: 'rgba(154, 165, 255, 0.15)', text: '#9aa5ff', dot: '#9aa5ff' },
     cancelled: { label: t('reservations.mapCancelled'), bg: 'rgba(144,164,174,0.15)', text: '#90A4AE', dot: '#78909C' },
     no_show: { label: t('reservations.mapNoShow'), bg: 'rgba(239,83,80,0.15)', text: '#EF9A9A', dot: '#EF5350' },
   } : {
     confirmed: { label: t('reservations.mapConfirmed'), bg: '#E8F5E9', text: '#2E7D32', dot: '#4CAF50' },
-    picked_up: { label: t('reservations.mapIssued'), bg: '#E3F2FD', text: '#1565C0', dot: '#42A5F5' },
+    picked_up: { label: t('reservations.mapIssued'), bg: '#E3F2FD', text: '#1565C0', dot: '#9aa5ff' },
     cancelled: { label: t('reservations.mapCancelled'), bg: '#ECEFF1', text: '#546E7A', dot: '#90A4AE' },
     no_show: { label: t('reservations.mapNoShow'), bg: '#FFEBEE', text: '#C62828', dot: '#EF5350' },
   }, [t, isDark]);
@@ -125,7 +125,7 @@ export default function ReservationsPage() {
                 {confirmedCount > 0 && (
                   <span
                     className="inline-flex h-6 items-center gap-1 rounded-full px-2.5 text-[11px] font-bold text-white"
-                    style={{ backgroundColor: '#26C6DA' }}
+                    style={{ backgroundColor: '#6a7bff' }}
                   >
                     {confirmedCount} {t('reservations.activeBadge')}
                   </span>
@@ -172,7 +172,7 @@ export default function ReservationsPage() {
               onKeyDown={(e) => {
                 if (e.key === 'Enter') { setSearch(searchInput); setPage(1); }
               }}
-              className="h-9 w-[220px] rounded-lg text-[13px] transition-all focus:outline-none focus:ring-2 focus:ring-[#26C6DA]/20"
+              className="h-9 w-[220px] rounded-lg text-[13px] transition-all focus:outline-none focus:ring-2 focus:ring-[#6a7bff]/20"
               style={{ paddingLeft: 34, paddingRight: 12, backgroundColor: isDark ? '#1E293B' : '#F7F9FB', border: isDark ? '1px solid #2D3748' : '1px solid #ECEFF1', color: isDark ? '#E2E8F0' : '#263238' }}
             />
           </div>

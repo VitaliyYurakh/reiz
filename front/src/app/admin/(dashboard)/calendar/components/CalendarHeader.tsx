@@ -312,7 +312,7 @@ export function CalendarHeader({
                 : H.white,
               color: availCheck ? '#fff' : H.navy,
               boxShadow: availCheck
-                ? '0 4px 12px rgba(67, 24, 255, 0.3)'
+                ? '0 4px 12px rgba(106, 123, 255, 0.3)'
                 : H.shadowMd,
             }}
           >

@@ -557,7 +557,7 @@ function PipelineFunnel({
       title: "ENRICHED",
       ru: "Email есть",
       count: byStatus.ENRICHED ?? 0,
-      color: "#6366F1",
+      color: "#6a7bff",
       stuck: 0,
     },
     {
@@ -565,7 +565,7 @@ function PipelineFunnel({
       title: "READY",
       ru: "К отправке",
       count: byStatus.READY ?? 0,
-      color: "#22D3EE",
+      color: "#6a7bff",
       stuck: stuckByStatus.READY ?? 0,
     },
     {
@@ -576,7 +576,7 @@ function PipelineFunnel({
         (byStatus.CONTACTED ?? 0) +
         (byStatus.FOLLOWED_UP_1 ?? 0) +
         (byStatus.FOLLOWED_UP_2 ?? 0),
-      color: "#3B82F6",
+      color: "#6a7bff",
       stuck: stuckContacted,
     },
     {
@@ -822,7 +822,7 @@ const RUNNER_DEFS: Array<{
     name: "Discovery",
     desc: "Парсинг Google Places",
     cron: "0 9 * * *",
-    color: "#22D3EE",
+    color: "#6a7bff",
     icon: "globe",
   },
   {
@@ -830,7 +830,7 @@ const RUNNER_DEFS: Array<{
     name: "Enrichment",
     desc: "Извлечение email с сайтов",
     cron: "30 7 * * *",
-    color: "#A855F7",
+    color: "#6a7bff",
     icon: "spark",
   },
   {
@@ -838,7 +838,7 @@ const RUNNER_DEFS: Array<{
     name: "Outreach",
     desc: "Отправка писем · ramp-up",
     cron: "0 12 * * *",
-    color: "#7C5CFF",
+    color: "#6a7bff",
     icon: "bolt",
   },
   {
@@ -846,7 +846,7 @@ const RUNNER_DEFS: Array<{
     name: "Inbox",
     desc: "Чтение ответов · ping TG",
     cron: "*/20 * * * *",
-    color: "#3B82F6",
+    color: "#6a7bff",
     icon: "inbox",
   },
   {
@@ -1518,7 +1518,7 @@ function TopPerformers({ byCountry }: { byCountry: Record<string, number> }) {
     "var(--reiz-amber)",
     "var(--reiz-rose)",
     "var(--reiz-blue)",
-    "#A855F7",
+    "#6a7bff",
   ];
   const items = COUNTRY_ORDER.map((code, i) => {
     const meta = COUNTRY_META[code];
@@ -1954,14 +1954,14 @@ export default function LeadsPage() {
                   padding: "10px 18px",
                   borderRadius: 12,
                   background:
-                    "linear-gradient(135deg, #7C5CFF 0%, #6B46FF 100%)",
+                    "linear-gradient(135deg, #6a7bff 0%, #6a7bff 100%)",
                   color: "#fff",
                   border: "none",
                   fontSize: 13,
                   fontFamily: "inherit",
                   fontWeight: 600,
                   cursor: "pointer",
-                  boxShadow: "0 6px 16px rgba(124, 92, 255, 0.32)",
+                  boxShadow: "0 6px 16px rgba(106, 123, 255, 0.32)",
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 6,

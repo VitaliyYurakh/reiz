@@ -154,11 +154,11 @@ export function ConfirmProvider({ children }: { children: ReactNode }) {
                                     border: 'none',
                                     background: state.options.danger
                                         ? 'linear-gradient(135deg, #FF6B6B 0%, #EE5D50 100%)'
-                                        : 'linear-gradient(135deg, #868CFF 0%, #4318FF 100%)',
+                                        : 'linear-gradient(135deg, #9aa5ff 0%, #6a7bff 100%)',
                                     color: '#fff',
                                     boxShadow: state.options.danger
                                         ? '0 4px 12px rgba(238, 93, 80, 0.25)'
-                                        : '0 4px 12px rgba(67, 24, 255, 0.25)',
+                                        : '0 4px 12px rgba(106, 123, 255, 0.25)',
                                     cursor: 'pointer',
                                 }}
                             >

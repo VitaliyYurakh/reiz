@@ -27,14 +27,14 @@ const KPI_COLORS: Record<
   string,
   { icon: string; bg: string }
 > = {
-  activeRentals: { icon: '#4318FF', bg: 'rgba(67,24,255,0.08)' },
+  activeRentals: { icon: '#6a7bff', bg: 'rgba(106, 123, 255, 0.08)' },
   confirmedReservations: { icon: '#01B574', bg: 'rgba(1,181,116,0.08)' },
-  newRequests: { icon: '#868CFF', bg: 'rgba(134,140,255,0.08)' },
+  newRequests: { icon: '#9aa5ff', bg: 'rgba(154, 165, 255, 0.08)' },
   overdue: { icon: '#EE5D50', bg: 'rgba(238,93,80,0.08)' },
   revenue: { icon: '#01B574', bg: 'rgba(1,181,116,0.08)' },
-  completed: { icon: '#4318FF', bg: 'rgba(67,24,255,0.08)' },
+  completed: { icon: '#6a7bff', bg: 'rgba(106, 123, 255, 0.08)' },
   clients: { icon: '#FFB547', bg: 'rgba(255,181,71,0.08)' },
-  fleet: { icon: '#868CFF', bg: 'rgba(134,140,255,0.08)' },
+  fleet: { icon: '#9aa5ff', bg: 'rgba(154, 165, 255, 0.08)' },
 };
 
 export function KPICard({

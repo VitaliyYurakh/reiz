@@ -66,7 +66,7 @@ export function OverviewTab({ rental }: { rental: Rental }) {
                 {/* Client */}
                 <div className="ios-card">
                     <div className="flex items-center gap-4">
-                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#26C6DA] to-[#00ACC1] text-base font-semibold text-white shadow-sm">
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#6a7bff] to-[#5867e8] text-base font-semibold text-white shadow-sm">
                             {getInitials(rental.client.firstName, rental.client.lastName)}
                         </div>
                         <div className="min-w-0 flex-1">

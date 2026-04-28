@@ -45,10 +45,10 @@ export const TYPE_STYLES: Record<
     shadow: '0 2px 8px rgba(1, 181, 116, 0.35)',
   },
   reservation: {
-    gradient: 'linear-gradient(135deg, #3965FF 0%, #4318FF 100%)',
-    dot: '#4318FF',
+    gradient: 'linear-gradient(135deg, #6a7bff 0%, #6a7bff 100%)',
+    dot: '#6a7bff',
     labelKey: 'calendar.typeReservation',
-    shadow: '0 2px 8px rgba(67, 24, 255, 0.35)',
+    shadow: '0 2px 8px rgba(106, 123, 255, 0.35)',
   },
   service: {
     gradient: 'linear-gradient(135deg, #FFB547 0%, #FF9F0A 100%)',

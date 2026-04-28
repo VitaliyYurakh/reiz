@@ -113,8 +113,8 @@ export default function NewRequestPage() {
             <ArrowLeft className="h-4 w-4" />
           </Link>
           <div
-            className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7C4DFF] to-[#651FFF]"
-            style={{ boxShadow: '0 4px 12px rgba(124,77,255,0.3)' }}
+            className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6a7bff] to-[#6a7bff]"
+            style={{ boxShadow: '0 4px 12px rgba(106, 123, 255, 0.3)' }}
           >
             <ClipboardList className="h-6 w-6 text-white" />
           </div>
@@ -179,9 +179,9 @@ export default function NewRequestPage() {
             <div className="flex items-center gap-2.5">
               <div
                 className="flex h-7 w-7 items-center justify-center rounded-lg"
-                style={{ backgroundColor: isDark ? 'rgba(124,77,255,0.15)' : '#EDE7F6' }}
+                style={{ backgroundColor: isDark ? 'rgba(106, 123, 255, 0.15)' : '#EDE7F6' }}
               >
-                <User className="h-3.5 w-3.5" style={{ color: '#7C4DFF' }} />
+                <User className="h-3.5 w-3.5" style={{ color: '#6a7bff' }} />
               </div>
               <h2 className="text-[13px] font-bold" style={{ color: isDark ? '#E2E8F0' : '#263238' }}>{t('newRequest.sectionClient')}</h2>
             </div>
@@ -189,7 +189,7 @@ export default function NewRequestPage() {
               type="button"
               onClick={() => setMode(m => m === 'existing' ? 'manual' : 'existing')}
               className="text-[12px] font-semibold transition-colors hover:opacity-80"
-              style={{ color: isDark ? '#A78BFA' : '#7C4DFF' }}
+              style={{ color: isDark ? '#9aa5ff' : '#6a7bff' }}
             >
               {mode === 'existing' ? t('newRequest.enterManually') : t('newRequest.selectFromDB')}
             </button>

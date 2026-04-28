@@ -115,7 +115,7 @@ export function ProfileTab() {
     <div className="max-w-[520px] flex flex-col gap-5">
       <div className="h-card p-7">
         <div className="flex items-center gap-4 mb-6">
-          <div className="h-icon-box h-icon-box-lg h-icon-box-purple shadow-[0_4px_12px_rgba(67,24,255,0.25)]">
+          <div className="h-icon-box h-icon-box-lg h-icon-box-purple shadow-[0_4px_12px_rgba(106, 123, 255, 0.25)]">
             <User size={28} />
           </div>
           <div>

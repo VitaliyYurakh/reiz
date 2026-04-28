@@ -12,15 +12,15 @@
   --text: #0F1226;
   --text-2: #4B5063;
   --text-3: #8A8FA3;
-  --primary: #7C5CFF;
+  --primary: #6a7bff;
   --primary-50: #F2EEFF;
   --primary-100: #E5DEFF;
-  --primary-shadow: rgba(124,92,255,0.30);
+  --primary-shadow: rgba(106, 123, 255, 0.30);
   --green: #22C55E;
   --orange: #F97316;
   --pink: #EC4899;
   --red: #EF4444;
-  --blue: #3B82F6;
+  --blue: #6a7bff;
   --shadow-sm: 0 1px 2px rgba(20,22,40,0.04);
   --shadow-md: 0 6px 24px rgba(20,22,40,0.06);
   --shadow-lg: 0 24px 60px rgba(20,22,40,0.12);
@@ -195,7 +195,7 @@
 .storage-bar {
   height: 4px; background: var(--bg-2); border-radius: 2px; margin-top: 6px; overflow: hidden;
 }
-.storage-fill { height: 100%; background: linear-gradient(90deg, #7C5CFF, #A855F7); border-radius: 2px; }
+.storage-fill { height: 100%; background: linear-gradient(90deg, #6a7bff, #6a7bff); border-radius: 2px; }
 
 .folders-sync {
   padding: 10px 6px 0;
@@ -786,7 +786,7 @@
   color: var(--primary);
   opacity: 0.7;
 }
-.recipient-chip button:hover { opacity: 1; background: rgba(124,92,255,0.15); }
+.recipient-chip button:hover { opacity: 1; background: rgba(106, 123, 255, 0.15); }
 .chips-input {
   flex: 1;
   min-width: 100px;

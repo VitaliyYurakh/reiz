@@ -417,12 +417,12 @@ function ContactRow({ icon, value, type }: { icon: React.ReactNode; value: strin
 function StatusPill({ status }: { status: string }) {
   const map: Record<string, { bg: string; fg: string; label: string }> = {
     NEW:           { bg: '#94A3B8', fg: '#fff',    label: 'Новый' },
-    ENRICHED:      { bg: '#60A5FA', fg: '#fff',    label: 'Enriched' },
-    READY:         { bg: '#22D3EE', fg: '#063545', label: 'Готов к рассылке' },
-    CONTACTED:     { bg: '#A78BFA', fg: '#fff',    label: 'Письмо отправлено' },
-    FOLLOWED_UP_1: { bg: '#8B5CF6', fg: '#fff',    label: 'Follow-up 3д' },
-    FOLLOWED_UP_2: { bg: '#7C3AED', fg: '#fff',    label: 'Follow-up 7д' },
-    BREAKUP_SENT:  { bg: '#6D28D9', fg: '#fff',    label: 'Break-up' },
+    ENRICHED:      { bg: '#9aa5ff', fg: '#fff',    label: 'Enriched' },
+    READY:         { bg: '#6a7bff', fg: '#063545', label: 'Готов к рассылке' },
+    CONTACTED:     { bg: '#9aa5ff', fg: '#fff',    label: 'Письмо отправлено' },
+    FOLLOWED_UP_1: { bg: '#6a7bff', fg: '#fff',    label: 'Follow-up 3д' },
+    FOLLOWED_UP_2: { bg: '#6a7bff', fg: '#fff',    label: 'Follow-up 7д' },
+    BREAKUP_SENT:  { bg: '#6a7bff', fg: '#fff',    label: 'Break-up' },
     REPLIED:       { bg: '#FBBF24', fg: '#3F2A06', label: 'Ответил' },
     INTERESTED:    { bg: '#F59E0B', fg: '#fff',    label: 'Интерес' },
     CLIENT:        { bg: '#10B981', fg: '#fff',    label: 'Клиент' },

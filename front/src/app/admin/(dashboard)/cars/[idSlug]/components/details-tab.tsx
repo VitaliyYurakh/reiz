@@ -69,7 +69,7 @@ export function DetailsTab({
             outline: 'none',
             transition: 'box-shadow 0.15s',
           }}
-          onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px rgba(67,24,255,0.15)'; }}
+          onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px rgba(106, 123, 255, 0.15)'; }}
           onBlur={(e) => { e.currentTarget.style.boxShadow = 'none'; }}
         />
       </HCard>

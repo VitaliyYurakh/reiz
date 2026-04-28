@@ -3,20 +3,20 @@
 
 export const REIZ_LEADS_CSS = `
 .reiz-leads {
-  --reiz-indigo: #7C5CFF;
-  --reiz-indigo-600: #6B46FF;
-  --reiz-cyan: #22D3EE;
+  --reiz-indigo: #6a7bff;
+  --reiz-indigo-600: #6a7bff;
+  --reiz-cyan: #6a7bff;
   --reiz-green: #10B981;
   --reiz-amber: #F59E0B;
   --reiz-rose: #F43F5E;
-  --reiz-blue: #3B82F6;
+  --reiz-blue: #6a7bff;
 
   --st-new:           #94A3B8;
-  --st-enriched:      #6366F1;
-  --st-ready:         #22D3EE;
-  --st-contacted:     #3B82F6;
-  --st-fu1:           #8B5CF6;
-  --st-fu2:           #A855F7;
+  --st-enriched:      #6a7bff;
+  --st-ready:         #6a7bff;
+  --st-contacted:     #6a7bff;
+  --st-fu1:           #6a7bff;
+  --st-fu2:           #6a7bff;
   --st-breakup:       #C026D3;
   --st-replied:       #10B981;
   --st-interested:    #059669;

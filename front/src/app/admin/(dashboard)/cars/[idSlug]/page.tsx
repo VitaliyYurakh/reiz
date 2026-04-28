@@ -726,7 +726,7 @@ export default function CarEditPage() {
                   border: 'none',
                   background: `linear-gradient(135deg, ${H.purpleLight} 0%, ${H.purple} 100%)`,
                   color: '#fff',
-                  boxShadow: '0 4px 12px rgba(67, 24, 255, 0.25)',
+                  boxShadow: '0 4px 12px rgba(106, 123, 255, 0.25)',
                   cursor: 'pointer',
                 }}
               >
