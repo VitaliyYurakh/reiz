@@ -2,12 +2,14 @@
 
 import { useEffect, useState, useCallback, use } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { adminApiClient } from '@/lib/api/admin';
 import { logError } from '@/lib/log';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
-import { useAdminTheme } from '@/context/AdminThemeContext';
-import { ArrowLeft, Save, Trash2 } from 'lucide-react';
+import { ArrowLeft, Trash2 } from 'lucide-react';
 import InventoryForm from '../InventoryForm';
+import '../../dashboard/dashboard.css';
+import '../../reservations/new/new-reservation.css';
 
 interface InventoryItem {
   id: number;
@@ -30,7 +32,6 @@ export default function InventoryDetailPage({ params }: { params: Promise<{ id: 
   const { id: idStr } = use(params);
   const id = Number(idStr);
   const { t } = useAdminLocale();
-  const { H } = useAdminTheme();
   const router = useRouter();
   const [item, setItem] = useState<InventoryItem | null>(null);
   const [saving, setSaving] = useState(false);
@@ -45,7 +46,9 @@ export default function InventoryDetailPage({ params }: { params: Promise<{ id: 
     }
   }, [id, router]);
 
-  useEffect(() => { fetchData(); }, [fetchData]);
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleSave = async (data: Partial<InventoryItem>) => {
     setSaving(true);
@@ -69,29 +72,32 @@ export default function InventoryDetailPage({ params }: { params: Promise<{ id: 
     }
   };
 
-  if (!item) return <div style={{ padding: 32, color: H.gray, fontFamily: H.font }}>{t('common.loading')}</div>;
+  if (!item) {
+    return (
+      <div className="dh-root nr-container" style={{ padding: 32 }}>
+        <span style={{ color: 'var(--dh-text-dim)', fontSize: 13 }}>{t('common.loading')}</span>
+      </div>
+    );
+  }
 
   return (
-    <div style={{ fontFamily: H.font, padding: '24px 28px', maxWidth: 900, margin: '0 auto' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-        <button
-          onClick={() => router.push('/admin/inventory')}
-          style={{ background: 'transparent', border: 'none', color: H.gray, fontSize: 14, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: H.font }}
-        >
-          <ArrowLeft size={16} /> {t('common.back')}
-        </button>
-        <button
-          onClick={handleDelete}
-          style={{ background: H.redBg, color: H.red, border: 'none', borderRadius: 8, padding: '8px 14px', fontSize: 13, fontWeight: 500, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: H.font }}
-        >
+    <div className="dh-root nr-container">
+      <div className="nr-header">
+        <Link href="/admin/inventory" className="nr-back" aria-label={t('common.back')}>
+          <ArrowLeft />
+        </Link>
+        <div style={{ flex: 1 }}>
+          <div className="nr-greeting">{item.name}</div>
+          <div className="nr-subtitle">
+            {t('inventory.detailSubtitle') ?? 'Перегляд та редагування одиниці інвентарю'}
+          </div>
+        </div>
+        <button onClick={handleDelete} className="nr-btn nr-btn-danger">
           <Trash2 size={14} /> {t('common.delete')}
         </button>
       </div>
 
-      <div style={{ background: H.white, borderRadius: 20, boxShadow: H.shadow, padding: '24px 28px' }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: H.navyDark, marginTop: 0, marginBottom: 20 }}>{item.name}</h1>
-        <InventoryForm value={item} onSave={handleSave} saving={saving} />
-      </div>
+      <InventoryForm value={item} onSave={handleSave} saving={saving} />
     </div>
   );
 }

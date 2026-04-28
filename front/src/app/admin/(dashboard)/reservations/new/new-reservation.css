@@ -54,8 +54,14 @@
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
+.nr-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
 @media (max-width: 760px) {
-  .nr-row-2 {
+  .nr-row-2,
+  .nr-row-3 {
     grid-template-columns: 1fr;
   }
 }
@@ -74,6 +80,8 @@
   display: grid;
   place-items: center;
   flex-shrink: 0;
+  background: var(--dh-bg-subtle);
+  color: var(--dh-text-muted);
 }
 .nr-section-icon svg {
   width: 18px;
@@ -479,4 +487,189 @@
 /* ── Container ── */
 .nr-container {
   max-width: 880px;
+}
+.nr-container-wide {
+  max-width: 1100px;
+}
+
+/* ── Inline checkbox row ── */
+.nr-checkbox-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dh-text);
+  user-select: none;
+  padding: 10px 0;
+}
+.nr-checkbox-row input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  accent-color: var(--dh-accent);
+  cursor: pointer;
+  margin: 0;
+}
+
+/* ── Top-action banner (e.g. linked-fine notice on detail) ── */
+.nr-banner {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 18px;
+  border-radius: var(--dh-radius-sm);
+  background: var(--dh-warning-soft);
+  color: var(--dh-warning);
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+.nr-banner svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.nr-banner a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* ── Danger pill button (used for Delete on detail headers) ── */
+.nr-btn-danger {
+  background: var(--dh-danger-soft);
+  color: var(--dh-danger);
+  border: none;
+  cursor: pointer;
+}
+.nr-btn-danger:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--dh-danger) 18%, transparent);
+}
+
+/* Header row — for pages that need a right-side action next to the greeting */
+.nr-header-spacer {
+  flex: 1;
+}
+
+/* ── Textarea (multi-line input) ── */
+.nr-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 14px 16px;
+  background: var(--dh-bg-subtle);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  font-family: var(--dh-font);
+  font-size: 14px;
+  color: var(--dh-text);
+  transition: all 160ms;
+  outline: none;
+  resize: vertical;
+  line-height: 1.5;
+}
+.nr-textarea::placeholder {
+  color: var(--dh-text-dim);
+}
+.nr-textarea:hover {
+  background: color-mix(in oklab, var(--dh-bg-subtle) 70%, var(--dh-surface));
+}
+.nr-textarea:focus {
+  background: var(--dh-surface);
+  border-color: var(--dh-accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--dh-accent) 18%, transparent);
+}
+
+/* ── Section head with right-side action (e.g. mode toggle) ── */
+.nr-section-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.nr-link-btn {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dh-accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: all 160ms;
+  white-space: nowrap;
+}
+.nr-link-btn:hover {
+  background: var(--dh-accent-soft);
+  color: var(--dh-accent-strong);
+}
+
+/* ── EntitySearch reskin: matches .nr-input look ──
+   The component renders either a chip-style selected display or a search
+   input, both with class .ios-input. We re-skin those inside .nr-entity-wrap. */
+.nr-entity-wrap {
+  position: relative;
+}
+.nr-entity-wrap .ios-input {
+  width: 100%;
+  height: 46px;
+  padding: 0 16px;
+  background: var(--dh-bg-subtle);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  font-family: var(--dh-font);
+  font-size: 14px;
+  color: var(--dh-text);
+  transition: all 160ms;
+  outline: none;
+}
+.nr-entity-wrap input.ios-input {
+  padding-left: 40px;
+}
+.nr-entity-wrap .ios-input::placeholder {
+  color: var(--dh-text-dim);
+}
+.nr-entity-wrap .ios-input:hover {
+  background: color-mix(in oklab, var(--dh-bg-subtle) 70%, var(--dh-surface));
+}
+.nr-entity-wrap .ios-input:focus,
+.nr-entity-wrap .ios-input:focus-within {
+  background: var(--dh-surface);
+  border-color: var(--dh-accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--dh-accent) 18%, transparent);
+}
+
+/* ── Segmented control (source picker style) ── */
+.nr-segmented {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--dh-bg-subtle);
+  border-radius: 999px;
+  flex-wrap: wrap;
+}
+.nr-segmented button {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--dh-font);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--dh-text-muted);
+  cursor: pointer;
+  transition: all 160ms;
+  white-space: nowrap;
+}
+.nr-segmented button:hover {
+  color: var(--dh-text);
+}
+.nr-segmented button.active {
+  background: var(--dh-surface);
+  color: var(--dh-text);
+  box-shadow: var(--dh-shadow-sm);
+  font-weight: 600;
 }

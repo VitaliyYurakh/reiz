@@ -2,16 +2,17 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { adminApiClient } from '@/lib/api/admin';
 import { logError } from '@/lib/log';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
-import { useAdminTheme } from '@/context/AdminThemeContext';
 import { ArrowLeft } from 'lucide-react';
 import InventoryForm from '../InventoryForm';
+import '../../dashboard/dashboard.css';
+import '../../reservations/new/new-reservation.css';
 
 export default function NewInventoryPage() {
   const { t } = useAdminLocale();
-  const { H } = useAdminTheme();
   const router = useRouter();
   const [saving, setSaving] = useState(false);
 
@@ -28,18 +29,20 @@ export default function NewInventoryPage() {
   };
 
   return (
-    <div style={{ fontFamily: H.font, padding: '24px 28px', maxWidth: 900, margin: '0 auto' }}>
-      <button
-        onClick={() => router.push('/admin/inventory')}
-        style={{ background: 'transparent', border: 'none', color: H.gray, fontSize: 14, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6, marginBottom: 20, fontFamily: H.font }}
-      >
-        <ArrowLeft size={16} /> {t('common.back')}
-      </button>
-
-      <div style={{ background: H.white, borderRadius: 20, boxShadow: H.shadow, padding: '24px 28px' }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: H.navyDark, marginTop: 0, marginBottom: 20 }}>{t('inventory.newItem')}</h1>
-        <InventoryForm value={null} onSave={handleSave} saving={saving} />
+    <div className="dh-root nr-container">
+      <div className="nr-header">
+        <Link href="/admin/inventory" className="nr-back" aria-label={t('common.back')}>
+          <ArrowLeft />
+        </Link>
+        <div>
+          <div className="nr-greeting">{t('inventory.newItem')}</div>
+          <div className="nr-subtitle">
+            {t('inventory.newSubtitle') ?? 'Реєстрація нової одиниці інвентарю'}
+          </div>
+        </div>
       </div>
+
+      <InventoryForm value={null} onSave={handleSave} saving={saving} />
     </div>
   );
 }
