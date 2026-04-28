@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { adminApiClient } from '@/lib/api/admin';
 import { logError } from '@/lib/log';
 import { toast, toastError } from '@/lib/toast';
@@ -19,6 +19,8 @@ import {
   Pencil,
   Check,
   X as XIcon,
+  Trash2,
+  Save,
 } from 'lucide-react';
 
 interface Tier {
@@ -80,8 +82,16 @@ const monthStart = () => {
   return d.toISOString().slice(0, 10);
 };
 
+// Editable contact fields — mirrors the /new form (minus tiers/notes which
+// have their own inline editors).
+type ContactDraft = Pick<
+  Partner,
+  'fullName' | 'companyName' | 'edrpou' | 'ipn' | 'phone' | 'email' | 'iban' | 'bankName'
+>;
+
 export default function PartnerDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const id = Number(params.id);
   const { theme, H } = useAdminTheme();
   const isDark = theme === 'dark';
@@ -102,6 +112,17 @@ export default function PartnerDetailPage() {
   const [editNotes, setEditNotes] = useState(false);
   const [notesDraft, setNotesDraft] = useState('');
   const [savingNotes, setSavingNotes] = useState(false);
+
+  // Contact-card edit mode — added 2026-04-29 after a manager hit save on a
+  // partner without a phone number and discovered there was no way to add it
+  // back (the old detail page only exposed inline edit for tiers + notes).
+  const [editContact, setEditContact] = useState(false);
+  const [contactDraft, setContactDraft] = useState<ContactDraft | null>(null);
+  const [savingContact, setSavingContact] = useState(false);
+
+  // Delete state — same trigger ("the manager realized they don't need this
+  // partner after all"). Confirm before destruction.
+  const [deleting, setDeleting] = useState(false);
 
   const loadPartner = useCallback(async () => {
     setLoading(true);
@@ -230,6 +251,68 @@ export default function PartnerDetailPage() {
     }
   };
 
+  const startEditContact = () => {
+    if (!partner) return;
+    setContactDraft({
+      fullName: partner.fullName,
+      companyName: partner.companyName,
+      edrpou: partner.edrpou,
+      ipn: partner.ipn,
+      phone: partner.phone,
+      email: partner.email,
+      iban: partner.iban,
+      bankName: partner.bankName,
+    });
+    setEditContact(true);
+  };
+
+  const saveContact = async () => {
+    if (!contactDraft) return;
+    if (!contactDraft.fullName.trim()) {
+      toastError(new Error('ПІБ обов\'язкове'), 'ПІБ обов\'язкове');
+      return;
+    }
+    setSavingContact(true);
+    try {
+      // Send empty strings as null so the back-end stores NULL rather than ''
+      // (matters for the email validator and for clean reports).
+      const body: Record<string, string | null> = {};
+      (Object.keys(contactDraft) as Array<keyof ContactDraft>).forEach((k) => {
+        const v = contactDraft[k];
+        if (k === 'fullName') {
+          body[k] = (v ?? '').trim();
+        } else {
+          const trimmed = (v ?? '').trim();
+          body[k] = trimmed === '' ? null : trimmed;
+        }
+      });
+      await adminApiClient.patch(`/partner/${id}`, body);
+      setEditContact(false);
+      await loadPartner();
+    } catch (err) {
+      toastError(err, 'Не вдалося зберегти контакт');
+    } finally {
+      setSavingContact(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!partner) return;
+    const carsCount = partner.cars.length;
+    const message = carsCount > 0
+      ? `Партнер "${partner.companyName || partner.fullName}" має ${carsCount} авто. Він буде деактивований (історія оренд збережеться). Продовжити?`
+      : `Видалити партнера "${partner.companyName || partner.fullName}"? Цю дію неможливо скасувати.`;
+    if (!confirm(message)) return;
+    setDeleting(true);
+    try {
+      await adminApiClient.delete(`/partner/${id}`);
+      router.push('/admin/partners');
+    } catch (err) {
+      toastError(err, 'Не вдалося видалити партнера');
+      setDeleting(false);
+    }
+  };
+
   const startEditNotes = () => {
     setNotesDraft(partner?.notes ?? '');
     setEditNotes(true);
@@ -262,23 +345,35 @@ export default function PartnerDetailPage() {
         className="mb-6 rounded-[20px] px-7 py-5"
         style={{ backgroundColor: isDark ? '#1A2332' : 'var(--c-surface-card)', boxShadow: H.shadow }}
       >
-        <div className="flex items-center gap-3.5">
-          <Link
-            href="/admin/partners"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full"
-            style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)' }}
+        <div className="flex items-center justify-between gap-3.5 flex-wrap">
+          <div className="flex items-center gap-3.5 min-w-0">
+            <Link
+              href="/admin/partners"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full"
+              style={{ backgroundColor: isDark ? '#1E293B' : 'var(--c-surface-muted)' }}
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </Link>
+            <div className="h-icon-box h-icon-box-cyan">
+              <Handshake size={24} />
+            </div>
+            <div className="min-w-0">
+              <h1 className="h-title truncate">{partner.companyName || partner.fullName}</h1>
+              {partner.companyName && (
+                <span className="h-subtitle">{partner.fullName}</span>
+              )}
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={handleDelete}
+            disabled={deleting}
+            className="ios-btn ios-btn-destructive"
+            title="Видалити партнера"
           >
-            <ArrowLeft className="h-4 w-4" />
-          </Link>
-          <div className="h-icon-box h-icon-box-cyan">
-            <Handshake size={24} />
-          </div>
-          <div>
-            <h1 className="h-title">{partner.companyName || partner.fullName}</h1>
-            {partner.companyName && (
-              <span className="h-subtitle">{partner.fullName}</span>
-            )}
-          </div>
+            <Trash2 className="h-4 w-4" />
+            {deleting ? 'Видаляємо…' : 'Видалити'}
+          </button>
         </div>
       </div>
 
@@ -441,81 +536,220 @@ export default function PartnerDetailPage() {
         <div className="space-y-4">
           {/* Contact */}
           <div className="ios-card">
-            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-3">
-              <Building2 className="h-3.5 w-3.5" />
-              Контакт
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                <Building2 className="h-3.5 w-3.5" />
+                Контакт
+              </div>
+              {!editContact ? (
+                <button
+                  type="button"
+                  onClick={startEditContact}
+                  className="text-muted-foreground hover:text-primary"
+                  title="Редагувати контакт"
+                >
+                  <Pencil className="h-3.5 w-3.5" />
+                </button>
+              ) : (
+                <div className="flex gap-1">
+                  <button
+                    type="button"
+                    onClick={saveContact}
+                    disabled={savingContact}
+                    className="text-green-600 hover:text-green-700"
+                    title="Зберегти"
+                  >
+                    {savingContact ? <Save className="h-4 w-4 animate-pulse" /> : <Check className="h-4 w-4" />}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { setEditContact(false); setContactDraft(null); }}
+                    className="text-rose-500 hover:text-rose-700"
+                    title="Скасувати"
+                  >
+                    <XIcon className="h-4 w-4" />
+                  </button>
+                </div>
+              )}
             </div>
 
-            {/* Company block at the top — primary info */}
-            {partner.companyName && (
-              <div className="mb-3 pb-3 border-b border-border/50">
-                <p className="text-sm font-semibold text-foreground">{partner.companyName}</p>
-                {partner.edrpou && (
-                  <p className="mt-1 text-[11px] text-muted-foreground">
-                    <span>ЄДРПОУ: </span>
-                    <span className="font-mono tabular-nums text-foreground">{partner.edrpou}</span>
-                  </p>
-                )}
-                {partner.ipn && (
-                  <p className="mt-0.5 text-[11px] text-muted-foreground">
-                    <span>ІПН: </span>
-                    <span className="font-mono tabular-nums text-foreground">{partner.ipn}</span>
-                  </p>
-                )}
-              </div>
-            )}
-
-            {/* Aligned label/value rows */}
-            <dl className="divide-y divide-border/40">
-              {partner.phone && (
-                <div className="flex items-center gap-3 py-2 first:pt-0">
-                  <dt className="flex w-20 shrink-0 items-center gap-1.5 text-[11px] uppercase tracking-wider text-muted-foreground">
-                    <Phone className="h-3 w-3" />
-                    Телефон
-                  </dt>
-                  <dd className="min-w-0 flex-1 text-right">
-                    <a href={`tel:${partner.phone}`} className="text-sm font-medium text-foreground hover:text-primary hover:underline">
-                      {partner.phone}
-                    </a>
-                  </dd>
-                </div>
-              )}
-
-              {partner.email && (
-                <div className="flex items-center gap-3 py-2">
-                  <dt className="flex w-20 shrink-0 items-center gap-1.5 text-[11px] uppercase tracking-wider text-muted-foreground">
-                    <Mail className="h-3 w-3" />
-                    Email
-                  </dt>
-                  <dd className="min-w-0 flex-1 text-right">
-                    <a href={`mailto:${partner.email}`} className="truncate text-sm font-medium text-foreground hover:text-primary hover:underline">
-                      {partner.email}
-                    </a>
-                  </dd>
-                </div>
-              )}
-
-              {partner.iban && (
-                <div className="flex items-start gap-3 py-2 last:pb-0">
-                  <dt className="flex w-20 shrink-0 items-center gap-1.5 text-[11px] uppercase tracking-wider text-muted-foreground pt-0.5">
-                    <Banknote className="h-3 w-3" />
-                    IBAN
-                  </dt>
-                  <dd className="min-w-0 flex-1 text-right">
-                    <div className="font-mono text-[11px] tabular-nums text-foreground break-all">{partner.iban}</div>
-                    {partner.bankName && (
-                      <div className="mt-0.5 text-[11px] text-muted-foreground">{partner.bankName}</div>
+            {!editContact ? (
+              <>
+                {/* Company block at the top — primary info */}
+                {partner.companyName && (
+                  <div className="mb-3 pb-3 border-b border-border/50">
+                    <p className="text-sm font-semibold text-foreground">{partner.companyName}</p>
+                    {partner.edrpou && (
+                      <p className="mt-1 text-[11px] text-muted-foreground">
+                        <span>ЄДРПОУ: </span>
+                        <span className="font-mono tabular-nums text-foreground">{partner.edrpou}</span>
+                      </p>
                     )}
-                  </dd>
-                </div>
-              )}
-            </dl>
+                    {partner.ipn && (
+                      <p className="mt-0.5 text-[11px] text-muted-foreground">
+                        <span>ІПН: </span>
+                        <span className="font-mono tabular-nums text-foreground">{partner.ipn}</span>
+                      </p>
+                    )}
+                  </div>
+                )}
 
-            {/* If there's no companyName, fall back to fullName header at bottom */}
-            {!partner.companyName && partner.fullName && (
-              <div className="mt-3 pt-3 border-t border-border/50">
-                <p className="text-xs text-muted-foreground">ПІБ</p>
-                <p className="mt-0.5 text-sm font-semibold text-foreground">{partner.fullName}</p>
+                {/* Aligned label/value rows */}
+                {(partner.phone || partner.email || partner.iban) ? (
+                  <dl className="divide-y divide-border/40">
+                    {partner.phone && (
+                      <div className="flex items-center gap-3 py-2 first:pt-0">
+                        <dt className="flex w-20 shrink-0 items-center gap-1.5 text-[11px] uppercase tracking-wider text-muted-foreground">
+                          <Phone className="h-3 w-3" />
+                          Телефон
+                        </dt>
+                        <dd className="min-w-0 flex-1 text-right">
+                          <a href={`tel:${partner.phone}`} className="text-sm font-medium text-foreground hover:text-primary hover:underline">
+                            {partner.phone}
+                          </a>
+                        </dd>
+                      </div>
+                    )}
+
+                    {partner.email && (
+                      <div className="flex items-center gap-3 py-2">
+                        <dt className="flex w-20 shrink-0 items-center gap-1.5 text-[11px] uppercase tracking-wider text-muted-foreground">
+                          <Mail className="h-3 w-3" />
+                          Email
+                        </dt>
+                        <dd className="min-w-0 flex-1 text-right">
+                          <a href={`mailto:${partner.email}`} className="truncate text-sm font-medium text-foreground hover:text-primary hover:underline">
+                            {partner.email}
+                          </a>
+                        </dd>
+                      </div>
+                    )}
+
+                    {partner.iban && (
+                      <div className="flex items-start gap-3 py-2 last:pb-0">
+                        <dt className="flex w-20 shrink-0 items-center gap-1.5 text-[11px] uppercase tracking-wider text-muted-foreground pt-0.5">
+                          <Banknote className="h-3 w-3" />
+                          IBAN
+                        </dt>
+                        <dd className="min-w-0 flex-1 text-right">
+                          <div className="font-mono text-[11px] tabular-nums text-foreground break-all">{partner.iban}</div>
+                          {partner.bankName && (
+                            <div className="mt-0.5 text-[11px] text-muted-foreground">{partner.bankName}</div>
+                          )}
+                        </dd>
+                      </div>
+                    )}
+                  </dl>
+                ) : (
+                  !partner.companyName && (
+                    <p className="text-xs italic text-muted-foreground">
+                      Контакт не заповнений. Натисніть ✎ щоб додати.
+                    </p>
+                  )
+                )}
+
+                {/* If there's no companyName, fall back to fullName header at bottom */}
+                {!partner.companyName && partner.fullName && (
+                  <div className="mt-3 pt-3 border-t border-border/50">
+                    <p className="text-xs text-muted-foreground">ПІБ</p>
+                    <p className="mt-0.5 text-sm font-semibold text-foreground">{partner.fullName}</p>
+                  </div>
+                )}
+              </>
+            ) : contactDraft && (
+              <div className="space-y-3">
+                <div>
+                  <label className="block text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                    ПІБ <span className="text-rose-600">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={contactDraft.fullName}
+                    onChange={(e) => setContactDraft({ ...contactDraft, fullName: e.target.value })}
+                    className="ios-input text-sm w-full"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                    Назва компанії
+                  </label>
+                  <input
+                    type="text"
+                    value={contactDraft.companyName ?? ''}
+                    onChange={(e) => setContactDraft({ ...contactDraft, companyName: e.target.value })}
+                    className="ios-input text-sm w-full"
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                      ЄДРПОУ
+                    </label>
+                    <input
+                      type="text"
+                      value={contactDraft.edrpou ?? ''}
+                      onChange={(e) => setContactDraft({ ...contactDraft, edrpou: e.target.value })}
+                      className="ios-input text-sm w-full font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                      ІПН
+                    </label>
+                    <input
+                      type="text"
+                      value={contactDraft.ipn ?? ''}
+                      onChange={(e) => setContactDraft({ ...contactDraft, ipn: e.target.value })}
+                      className="ios-input text-sm w-full font-mono"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                    Телефон
+                  </label>
+                  <input
+                    type="tel"
+                    value={contactDraft.phone ?? ''}
+                    onChange={(e) => setContactDraft({ ...contactDraft, phone: e.target.value })}
+                    placeholder="+380…"
+                    className="ios-input text-sm w-full"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    value={contactDraft.email ?? ''}
+                    onChange={(e) => setContactDraft({ ...contactDraft, email: e.target.value })}
+                    className="ios-input text-sm w-full"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                    IBAN
+                  </label>
+                  <input
+                    type="text"
+                    value={contactDraft.iban ?? ''}
+                    onChange={(e) => setContactDraft({ ...contactDraft, iban: e.target.value })}
+                    className="ios-input text-sm w-full font-mono"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                    Банк
+                  </label>
+                  <input
+                    type="text"
+                    value={contactDraft.bankName ?? ''}
+                    onChange={(e) => setContactDraft({ ...contactDraft, bankName: e.target.value })}
+                    className="ios-input text-sm w-full"
+                  />
+                </div>
               </div>
             )}
           </div>
