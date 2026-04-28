@@ -59,6 +59,10 @@ interface ReportRow {
   commissionPercent: number;
   commissionAmount: number;
   currency: string;
+  // UAH-equivalent of `commissionAmount`, frozen at the NBU rate from the
+  // pickup day. `null` when fx fetch failed (offline + no cached rate).
+  fxRateToUah: number | null;
+  commissionAmountUah: number | null;
 }
 
 interface Report {
@@ -71,6 +75,7 @@ interface Report {
     totalBase: number;
     totalAfterDiscount: number;
     totalCommission: number;
+    totalCommissionUah: number | null;
     payoutToPartner: number;
   };
 }
@@ -464,14 +469,24 @@ export default function PartnerDetailPage() {
             {report && (
               <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
                 {[
-                  { label: 'Оренд', val: report.summary.rentalsCount, color: 'var(--c-brand-light)' },
-                  { label: 'Базова сума', val: `${symbol} ${report.summary.totalBase.toFixed(2)}`, color: '#90A4AE' },
-                  { label: 'Після знижок', val: `${symbol} ${report.summary.totalAfterDiscount.toFixed(2)}`, color: '#90A4AE' },
-                  { label: 'Комісія Reiz', val: `${symbol} ${report.summary.totalCommission.toFixed(2)}`, color: 'var(--c-success)' },
-                ].map(({ label, val, color }) => (
+                  { label: 'Оренд', val: String(report.summary.rentalsCount), sub: null as string | null, color: 'var(--c-brand-light)' },
+                  { label: 'Базова сума', val: `${symbol} ${report.summary.totalBase.toFixed(2)}`, sub: null, color: '#90A4AE' },
+                  { label: 'Після знижок', val: `${symbol} ${report.summary.totalAfterDiscount.toFixed(2)}`, sub: null, color: '#90A4AE' },
+                  {
+                    label: 'Комісія Reiz',
+                    val: `${symbol} ${report.summary.totalCommission.toFixed(2)}`,
+                    sub: report.summary.totalCommissionUah != null
+                      ? `₴ ${report.summary.totalCommissionUah.toFixed(2)}`
+                      : null,
+                    color: 'var(--c-success)',
+                  },
+                ].map(({ label, val, sub, color }) => (
                   <div key={label} className="rounded-xl p-3" style={{ backgroundColor: isDark ? '#0F172A' : 'var(--c-surface-muted)' }}>
                     <p className="text-[10px] uppercase tracking-wider" style={{ color: isDark ? '#718096' : '#90A4AE' }}>{label}</p>
                     <p className="mt-1 text-base font-bold tabular-nums" style={{ color }}>{val}</p>
+                    {sub && (
+                      <p className="text-[11px] font-medium tabular-nums text-muted-foreground">{sub}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -511,17 +526,36 @@ export default function PartnerDetailPage() {
                       <td className="px-3 py-2 text-right text-xs tabular-nums">{r.discountPercent}%</td>
                       <td className="px-3 py-2 text-right text-xs tabular-nums">{symbol} {r.priceAfterDiscount.toFixed(2)}</td>
                       <td className="px-3 py-2 text-right text-xs tabular-nums font-semibold">{r.commissionPercent}%</td>
-                      <td className="px-3 py-2 text-right text-xs tabular-nums font-bold" style={{ color: 'var(--c-success)' }}>{symbol} {r.commissionAmount.toFixed(2)}</td>
+                      <td className="px-3 py-2 text-right text-xs tabular-nums font-bold" style={{ color: 'var(--c-success)' }}>
+                        <div>{symbol} {r.commissionAmount.toFixed(2)}</div>
+                        {r.commissionAmountUah != null ? (
+                          <div className="text-[10px] font-medium text-muted-foreground tabular-nums" title={r.fxRateToUah ? `Курс НБУ ${r.fxRateToUah.toFixed(4)} грн / ${r.currency}` : undefined}>
+                            ₴ {r.commissionAmountUah.toFixed(2)}
+                          </div>
+                        ) : (
+                          <div className="text-[10px] text-muted-foreground" title="Не вдалось дістати курс НБУ">
+                            ₴ —
+                          </div>
+                        )}
+                      </td>
                     </tr>
                   ))}
                   <tr className="font-bold" style={{ background: isDark ? '#0F172A' : 'var(--c-warning-bg)' }}>
                     <td colSpan={7} className="px-3 py-2 text-right text-sm">Разом до оплати:</td>
                     <td className="px-3 py-2 text-right text-base tabular-nums" style={{ color: 'var(--c-success)' }}>
-                      {symbol} {report.summary.totalCommission.toFixed(2)}
+                      <div>{symbol} {report.summary.totalCommission.toFixed(2)}</div>
+                      {report.summary.totalCommissionUah != null && (
+                        <div className="text-xs font-semibold text-muted-foreground tabular-nums">
+                          ₴ {report.summary.totalCommissionUah.toFixed(2)}
+                        </div>
+                      )}
                     </td>
                   </tr>
                 </tbody>
               </table>
+              <p className="px-3 pt-2 pb-1 text-[10px] text-muted-foreground italic">
+                Гривневий еквівалент комісії зафіксовано за курсом НБУ на день видачі кожної оренди.
+              </p>
             </div>
           )}
 

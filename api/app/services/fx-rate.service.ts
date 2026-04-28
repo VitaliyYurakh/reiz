@@ -21,10 +21,16 @@ class FxRateService {
         });
         if (existing) return {rate: existing.rate, source: existing.source, date: existing.date};
 
-        // Fall back to today from NBU. We don't try to fetch historical rates
-        // here — admins can override with a manual entry if they need a back-dated one.
+        // NBU's `exchange?json` endpoint without `date=` returns *today's* rates,
+        // which silently mis-fixed historical rates. Always pass `date=YYYYMMDD`
+        // so a request for 2026-04-04 actually returns the rate from 2026-04-04
+        // (NBU keeps decades of history). Used for partner statements where the
+        // commission is paid in UAH at the rate that was in force on the day
+        // of the rental.
+        const ymd = `${day.getUTCFullYear()}${String(day.getUTCMonth() + 1).padStart(2, '0')}${String(day.getUTCDate()).padStart(2, '0')}`;
+        const url = `${NBU_URL}&date=${ymd}`;
         try {
-            const res = await fetch(NBU_URL);
+            const res = await fetch(url);
             if (!res.ok) throw new Error(`NBU returned ${res.status}`);
             const data = await res.json() as Array<{cc: string; rate: number; exchangedate: string}>;
             const found = data.find((d) => d.cc === upper);
@@ -37,10 +43,12 @@ class FxRateService {
             });
             return {rate: saved.rate, source: saved.source, date: saved.date};
         } catch (err) {
-            console.error('NBU fetch failed', err);
-            // Last-ditch fallback: most recent saved rate for this currency.
+            console.error(`NBU fetch failed for ${upper} on ${ymd}`, err);
+            // Last-ditch fallback: most recent saved rate for this currency
+            // dated on or before the requested day. Avoids returning a future
+            // rate for a back-dated query.
             const fallback = await prisma.dailyFxRate.findFirst({
-                where: {currency: upper},
+                where: {currency: upper, date: {lte: day}},
                 orderBy: {date: 'desc'},
             });
             if (fallback) return {rate: fallback.rate, source: 'stale', date: fallback.date};

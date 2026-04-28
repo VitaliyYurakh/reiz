@@ -1,4 +1,5 @@
 import {prisma} from '../utils';
+import fxRateService from './fx-rate.service';
 
 interface CommissionTier {
     minDays: number;
@@ -156,6 +157,26 @@ class PartnerService {
             },
         });
 
+        // Pre-fetch UAH rates for every rental's pickup-day in parallel.
+        // Operator pays the partner in UAH at the end of each month, but the
+        // rentals are priced in EUR — so we lock the conversion to the NBU
+        // rate that was in force on the day of pickup. The fx-rate service
+        // caches per-day in `daily_fx_rate`, so a re-run of the same report
+        // hits the DB instead of NBU.
+        const ratesByPickup = new Map<string, number | null>();
+        await Promise.all(
+            rentals.map(async (r) => {
+                const snap = (r.priceSnapshot ?? {}) as Record<string, any>;
+                const cur = (snap.currency as string) || 'EUR';
+                const day = new Date(r.pickupDate);
+                day.setUTCHours(0, 0, 0, 0);
+                const key = `${cur}|${day.toISOString().slice(0, 10)}`;
+                if (ratesByPickup.has(key)) return;
+                const fx = await fxRateService.getRate(cur, day);
+                ratesByPickup.set(key, fx ? fx.rate : null);
+            }),
+        );
+
         const rows = rentals.map((r) => {
             const snap = (r.priceSnapshot ?? {}) as Record<string, any>;
             const days = daysBetween(new Date(r.pickupDate), new Date(r.actualReturnDate ?? r.returnDate));
@@ -179,6 +200,14 @@ class PartnerService {
             const tier = pickTier(tiers, days);
             const commissionAmount = +(priceAfterDiscount * tier.percent / 100).toFixed(2);
 
+            const currency = snap.currency || 'EUR';
+            const day = new Date(r.pickupDate);
+            day.setUTCHours(0, 0, 0, 0);
+            const fxRate = ratesByPickup.get(`${currency}|${day.toISOString().slice(0, 10)}`) ?? null;
+            const commissionAmountUah = fxRate != null
+                ? +(commissionAmount * fxRate).toFixed(2)
+                : null;
+
             return {
                 rentalId: r.id,
                 contractNumber: r.contractNumber,
@@ -192,13 +221,21 @@ class PartnerService {
                 priceAfterDiscount: +priceAfterDiscount.toFixed(2),
                 commissionPercent: tier.percent,
                 commissionAmount,
-                currency: snap.currency || 'EUR',
+                currency,
+                // UAH-equivalent of commission, frozen at the NBU rate from
+                // the pickup day. `null` if fx fetch failed (offline + no
+                // cached rate). UI shows "—" in that case.
+                fxRateToUah: fxRate,
+                commissionAmountUah,
             };
         });
 
         const totalCommission = +rows.reduce((sum, r) => sum + r.commissionAmount, 0).toFixed(2);
         const totalBase = +rows.reduce((sum, r) => sum + r.basePrice, 0).toFixed(2);
         const totalAfterDiscount = +rows.reduce((sum, r) => sum + r.priceAfterDiscount, 0).toFixed(2);
+        const totalCommissionUah = rows.every((r) => r.commissionAmountUah == null)
+            ? null
+            : +rows.reduce((sum, r) => sum + (r.commissionAmountUah ?? 0), 0).toFixed(2);
 
         return {
             partner: {
@@ -216,6 +253,7 @@ class PartnerService {
                 totalBase,
                 totalAfterDiscount,
                 totalCommission,
+                totalCommissionUah,
                 payoutToPartner: +(totalAfterDiscount - totalCommission).toFixed(2),
             },
         };

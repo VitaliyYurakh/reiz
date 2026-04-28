@@ -10,6 +10,8 @@ interface ReportRow {
     commissionPercent: number;
     commissionAmount: number;
     currency: string;
+    fxRateToUah?: number | null;
+    commissionAmountUah?: number | null;
 }
 
 interface ReportPayload {
@@ -17,7 +19,7 @@ interface ReportPayload {
     tiers: Array<{minDays: number; maxDays: number; percent: number}>;
     period: {from: Date; to: Date};
     rows: ReportRow[];
-    summary: {totalCommission: number};
+    summary: {totalCommission: number; totalCommissionUah?: number | null};
 }
 
 const HEADER_BG = 'FF1F3864';      // dark blue (matches user's screenshot)
@@ -40,10 +42,14 @@ export async function buildPartnerStatementXLSX(report: ReportPayload, currency 
         {key: 'afterDiscount', width: 22},
         {key: 'commissionPct', width: 18},
         {key: 'commissionAmount', width: 22},
+        // UAH-equivalent of the commission, frozen at the NBU rate from the
+        // pickup day. Operator pays the partner in UAH but the rentals are
+        // priced in EUR, so this column is what they actually transfer.
+        {key: 'commissionAmountUah', width: 22},
     ];
 
     /* ---- Title row ---- */
-    ws.mergeCells('A1:H1');
+    ws.mergeCells('A1:I1');
     const title = ws.getCell('A1');
     title.value = `Reiz — звіт по клієнтах (${report.partner.companyName || report.partner.fullName})`;
     title.font = {bold: true, size: 14, color: {argb: 'FFFFFFFF'}};
@@ -52,7 +58,7 @@ export async function buildPartnerStatementXLSX(report: ReportPayload, currency 
     ws.getRow(1).height = 28;
 
     /* ---- Cooperation terms section ---- */
-    ws.mergeCells('A3:H3');
+    ws.mergeCells('A3:I3');
     const termsTitle = ws.getCell('A3');
     termsTitle.value = 'Умови співпраці / тарифи';
     termsTitle.font = {bold: true, size: 11, color: {argb: 'FFFFFFFF'}};
@@ -85,7 +91,7 @@ export async function buildPartnerStatementXLSX(report: ReportPayload, currency 
 
     /* ---- Report header ---- */
     const reportHeaderRow = 9;
-    ws.mergeCells(`A${reportHeaderRow}:H${reportHeaderRow}`);
+    ws.mergeCells(`A${reportHeaderRow}:I${reportHeaderRow}`);
     const rh = ws.getCell(`A${reportHeaderRow}`);
     rh.value = 'Звіт';
     rh.font = {bold: true, size: 11, color: {argb: 'FFFFFFFF'}};
@@ -102,6 +108,7 @@ export async function buildPartnerStatementXLSX(report: ReportPayload, currency 
         `Ціна після знижки (${currency})`,
         'Ставка комісії',
         `Сума до оплати (${currency})`,
+        'Сума до оплати (₴)',
     ];
     ws.getRow(colsHeaderRow).eachCell((cell) => {
         cell.font = {bold: true, size: 10};
@@ -124,6 +131,7 @@ export async function buildPartnerStatementXLSX(report: ReportPayload, currency 
             row.priceAfterDiscount,
             row.commissionPercent / 100,
             row.commissionAmount,
+            row.commissionAmountUah ?? null,
         ];
         ws.getCell(`A${r}`).numFmt = 'dd.mm.yyyy';
         ws.getCell(`D${r}`).numFmt = `"${currencySymbol(currency)}" #,##0.00`;
@@ -131,6 +139,7 @@ export async function buildPartnerStatementXLSX(report: ReportPayload, currency 
         ws.getCell(`F${r}`).numFmt = `"${currencySymbol(currency)}" #,##0.00`;
         ws.getCell(`G${r}`).numFmt = '0.0%';
         ws.getCell(`H${r}`).numFmt = `"${currencySymbol(currency)}" #,##0.00`;
+        ws.getCell(`I${r}`).numFmt = '"₴" #,##0.00';
         ws.getRow(r).eachCell((cell) => {
             cell.fill = {type: 'pattern', pattern: 'solid', fgColor: {argb: ROW_BG}};
             cell.border = {bottom: {style: 'hair', color: {argb: 'FFB4C7E7'}}};
@@ -147,6 +156,12 @@ export async function buildPartnerStatementXLSX(report: ReportPayload, currency 
         ws.getCell(`H${totalRow}`).numFmt = `"${currencySymbol(currency)}" #,##0.00`;
         ws.getCell(`H${totalRow}`).font = {bold: true};
         ws.getCell(`H${totalRow}`).fill = {type: 'pattern', pattern: 'solid', fgColor: {argb: TOTAL_BG}};
+        if (report.summary.totalCommissionUah != null) {
+            ws.getCell(`I${totalRow}`).value = report.summary.totalCommissionUah;
+            ws.getCell(`I${totalRow}`).numFmt = '"₴" #,##0.00';
+            ws.getCell(`I${totalRow}`).font = {bold: true};
+            ws.getCell(`I${totalRow}`).fill = {type: 'pattern', pattern: 'solid', fgColor: {argb: TOTAL_BG}};
+        }
     }
 
     const buffer = await wb.xlsx.writeBuffer();
