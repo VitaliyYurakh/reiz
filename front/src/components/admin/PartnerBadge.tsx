@@ -10,41 +10,68 @@ interface PartnerLike {
 interface PartnerBadgeProps {
   partner: PartnerLike | null | undefined;
   /**
-   * `inline` — compact pill suitable for tables / tight rows
-   * `block`  — bigger block with "link to partner page" affordance
+   * `inline` — compact pill for tables / tight rows.
+   * `block`  — bigger affordance with circular icon aside, suitable for
+   *            entity headers (rental detail, reservation detail).
    */
   size?: 'inline' | 'block';
-  /** Include "own fleet" placeholder when partner is null */
+  /** When partner is null, render a muted "власне авто" placeholder. */
   showOwnFleet?: boolean;
 }
 
 /**
- * Visual marker that a car (and therefore this rental/reservation/request)
- * belongs to an external partner rather than to Reiz's own fleet.
+ * Marks an entity (rental / reservation / request) as belonging to an
+ * external partner rather than to Reiz's own fleet.
  *
- * When a partner exists, renders a cyan chip with a handshake icon that
- * links to the partner's statement page. When there's no partner and
- * `showOwnFleet` is true, renders a subtle "власне авто" gray chip.
+ * Uses the brand purple family (`--c-brand-*`) so the badge sits inside
+ * the unified palette instead of the orphan cyan it used to be — keeps
+ * the table/row visual language coherent with the rest of the admin.
  */
 export function PartnerBadge({ partner, size = 'inline', showOwnFleet }: PartnerBadgeProps) {
   if (!partner) {
     if (!showOwnFleet) return null;
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+      <span
+        className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium"
+        style={{
+          background: 'var(--c-surface-muted)',
+          color: 'var(--c-text-muted)',
+        }}
+      >
         Reiz · власне авто
       </span>
     );
   }
 
   const label = partner.companyName || partner.fullName;
+  const stop = (e: React.MouseEvent) => e.stopPropagation();
 
   if (size === 'block') {
     return (
       <Link
         href={`/admin/partners/${partner.id}`}
-        className="inline-flex items-center gap-2 rounded-lg border border-cyan-200 bg-cyan-50 px-3 py-1.5 text-sm font-semibold text-cyan-800 transition-colors hover:bg-cyan-100 dark:border-cyan-500/30 dark:bg-cyan-500/15 dark:text-cyan-300 dark:hover:bg-cyan-500/25"
+        onClick={stop}
+        className="group rounded-xl text-sm font-semibold transition-all hover:shadow-sm"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 8,
+          background: 'var(--c-brand-bg)',
+          color: 'var(--c-brand-dark)',
+          border: '1px solid color-mix(in srgb, var(--c-brand) 22%, transparent)',
+          padding: '6px 12px 6px 6px',
+        }}
+        title={`Партнерське авто · ${label}`}
       >
-        <Handshake className="h-3.5 w-3.5" />
+        <span
+          className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg transition-colors"
+          style={{
+            background: 'var(--c-brand)',
+            color: '#fff',
+          }}
+        >
+          <Handshake style={{ width: 12, height: 12 }} strokeWidth={2.4} />
+        </span>
         <span className="truncate">{label}</span>
       </Link>
     );
@@ -53,12 +80,31 @@ export function PartnerBadge({ partner, size = 'inline', showOwnFleet }: Partner
   return (
     <Link
       href={`/admin/partners/${partner.id}`}
-      className="inline-flex items-center gap-1 rounded-full bg-cyan-100 px-2 py-0.5 text-[10px] font-semibold text-cyan-800 transition-colors hover:bg-cyan-200 dark:bg-cyan-500/15 dark:text-cyan-300 dark:hover:bg-cyan-500/25"
+      onClick={stop}
       title={`Партнерське авто · ${label}`}
-      onClick={(e) => e.stopPropagation()}
+      className="group transition-colors hover:opacity-90"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 4,
+        background: 'var(--c-brand-bg)',
+        color: 'var(--c-brand-dark)',
+        border: '1px solid color-mix(in srgb, var(--c-brand) 20%, transparent)',
+        borderRadius: 9999,
+        padding: '1px 8px 1px 5px',
+        fontSize: 10.5,
+        fontWeight: 600,
+        letterSpacing: 0.1,
+        lineHeight: '16px',
+      }}
     >
-      <Handshake className="h-2.5 w-2.5" />
-      <span className="truncate max-w-[140px]">{label}</span>
+      <Handshake style={{ width: 10, height: 10 }} strokeWidth={2.5} />
+      <span
+        className="truncate"
+        style={{ maxWidth: 140 }}
+      >
+        {label}
+      </span>
     </Link>
   );
 }
