@@ -2,6 +2,7 @@ import {StatusCodes} from 'http-status-codes';
 import {Request, Response} from 'express';
 import partnerService from '../services/partner.service';
 import {buildPartnerStatementXLSX} from '../services/partner-xlsx.service';
+import {buildPartnerStatementPDF} from '../services/partner-pdf.service';
 import {parseId, BadRequestError} from '../utils';
 import logAudit from '../middleware/audit.middleware';
 import {validate, createPartnerSchema, updatePartnerSchema} from '../validators';
@@ -81,6 +82,38 @@ class PartnerController {
         const contentDisposition = `attachment; filename="${asciiFallback}"; filename*=UTF-8''${encodeURIComponent(fnameUtf8)}`;
 
         res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        res.setHeader('Content-Disposition', contentDisposition);
+        res.send(buffer);
+    }
+
+    async exportReportPDF(req: Request, res: Response) {
+        const id = parseId(req.params.id);
+        const from = parseDateOrThrow(req.query.from as string, 'from');
+        const to = parseDateOrThrow(req.query.to as string, 'to');
+        console.log('[partner-pdf] export start', {id, from, to});
+        let report: any;
+        try {
+            report = await partnerService.getReport(id, from, to);
+            console.log('[partner-pdf] report built', {rows: report.rows.length});
+        } catch (err: any) {
+            console.error('[partner-pdf] getReport failed:', err?.message, err?.stack);
+            throw err;
+        }
+        const currency = (req.query.currency as string) || 'EUR';
+        let buffer: Buffer;
+        try {
+            buffer = await buildPartnerStatementPDF(report, currency);
+            console.log('[partner-pdf] pdf built', {bytes: buffer.length});
+        } catch (err: any) {
+            console.error('[partner-pdf] buildPartnerStatementPDF failed:', err?.message, err?.stack);
+            throw err;
+        }
+        const partnerLabel = report.partner.companyName || report.partner.fullName;
+        const fnameUtf8 = `reiz-statement-${slugify(partnerLabel)}-${ymd(from)}_${ymd(to)}.pdf`;
+        const asciiFallback = `reiz-statement-partner-${report.partner.id}-${ymd(from)}_${ymd(to)}.pdf`;
+        const contentDisposition = `attachment; filename="${asciiFallback}"; filename*=UTF-8''${encodeURIComponent(fnameUtf8)}`;
+
+        res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', contentDisposition);
         res.send(buffer);
     }

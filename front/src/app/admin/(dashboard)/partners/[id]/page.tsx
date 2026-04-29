@@ -162,33 +162,34 @@ export default function PartnerDetailPage() {
     }
   };
 
-  const downloadXLSX = async () => {
+  const downloadReport = async (format: 'xlsx' | 'pdf') => {
     // Using window.fetch directly + inline UI status banner so we don't depend
     // on toast rendering — some dev environments (Turbopack HMR, theme quirks)
     // have been blanking the toast body.
     const apiBase = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api').replace(/\/$/, '');
-    const url = `${apiBase}/partner/${id}/report-export?from=${from}&to=${to}`;
+    const path = format === 'pdf' ? 'report-export-pdf' : 'report-export';
+    const url = `${apiBase}/partner/${id}/${path}?from=${from}&to=${to}`;
     const setStatus = (s: string) => {
       setDownloadStatus(s);
     };
 
     setDownloading(true);
     setStatus(`GET ${url}`);
-    console.log('[xlsx download] GET', url);
+    console.log(`[${format} download] GET`, url);
 
     let res: Response;
     try {
       res = await window.fetch(url, { method: 'GET', credentials: 'include' });
     } catch (err: any) {
       const msg = err?.message || err?.name || String(err) || 'Unknown network error';
-      console.error('[xlsx download] network error:', err);
+      console.error(`[${format} download] network error:`, err);
       setStatus(`Мережева помилка: ${msg}`);
       setDownloading(false);
       return;
     }
 
     const ct = res.headers.get('content-type') || '(no content-type)';
-    console.log('[xlsx download] status:', res.status, 'content-type:', ct);
+    console.log(`[${format} download] status:`, res.status, 'content-type:', ct);
 
     if (!res.ok) {
       let txt = '';
@@ -212,7 +213,7 @@ export default function PartnerDetailPage() {
       return;
     }
 
-    console.log('[xlsx download] blob size:', blob.size, 'type:', blob.type);
+    console.log(`[${format} download] blob size:`, blob.size, 'type:', blob.type);
 
     if (blob.size === 0) {
       setStatus(`Сервер повернув порожній файл (ct=${ct})`);
@@ -222,7 +223,7 @@ export default function PartnerDetailPage() {
 
     if (ct.includes('application/json')) {
       const txt = await blob.text();
-      setStatus(`Сервер повернув JSON замість XLSX: ${txt.slice(0, 300)}`);
+      setStatus(`Сервер повернув JSON замість ${format.toUpperCase()}: ${txt.slice(0, 300)}`);
       setDownloading(false);
       return;
     }
@@ -231,12 +232,12 @@ export default function PartnerDetailPage() {
       const blobUrl = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = blobUrl;
-      a.download = `reiz-statement-${id}-${from}_${to}.xlsx`;
+      a.download = `reiz-statement-${id}-${from}_${to}.${format}`;
       document.body.appendChild(a);
       a.click();
       a.remove();
       URL.revokeObjectURL(blobUrl);
-      setStatus(`✓ XLSX завантажено (${blob.size} байт)`);
+      setStatus(`✓ ${format.toUpperCase()} завантажено (${blob.size} байт)`);
     } catch (err: any) {
       setStatus(`Помилка збереження файлу: ${err?.message || String(err)}`);
     } finally {
@@ -401,24 +402,22 @@ export default function PartnerDetailPage() {
               <div className="flex items-center gap-2">
                 <button
                   type="button"
-                  onClick={downloadXLSX}
+                  onClick={() => downloadReport('xlsx')}
                   disabled={downloading || !report || report.rows.length === 0}
                   className="ios-btn ios-btn-success text-xs"
                 >
                   <Download className="h-3.5 w-3.5" />
                   {downloading ? 'Завантажуємо…' : 'XLSX'}
                 </button>
-                {report && report.rows.length > 0 && (
-                  <a
-                    href={`${(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api').replace(/\/$/, '')}/partner/${id}/report-export?from=${from}&to=${to}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-cyan-700 hover:underline"
-                    title="Пряме посилання — відкриває URL у браузері напряму"
-                  >
-                    (пряме посилання)
-                  </a>
-                )}
+                <button
+                  type="button"
+                  onClick={() => downloadReport('pdf')}
+                  disabled={downloading || !report || report.rows.length === 0}
+                  className="ios-btn ios-btn-primary text-xs"
+                >
+                  <Download className="h-3.5 w-3.5" />
+                  {downloading ? 'Завантажуємо…' : 'PDF'}
+                </button>
               </div>
             </div>
 

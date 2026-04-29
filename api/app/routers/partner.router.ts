@@ -14,5 +14,6 @@ router.delete('/:id', auth, requirePermission('cars', 'full'), partnerController
 router.get('/:id/report', auth, requirePermission('cars', 'view'), partnerController.getReport);
 // Export uses ?format=xlsx on the same path to avoid path-extension edge cases
 router.get('/:id/report-export', auth, requirePermission('cars', 'view'), partnerController.exportReportXLSX);
+router.get('/:id/report-export-pdf', auth, requirePermission('cars', 'view'), partnerController.exportReportPDF);
 
 export default router;
