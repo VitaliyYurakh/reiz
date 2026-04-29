@@ -27,11 +27,11 @@ const FONTS_DIR = path.join(__dirname, '..', '..', 'assets', 'fonts');
 const FONT_REGULAR = path.join(FONTS_DIR, 'DejaVuSans.ttf');
 const FONT_BOLD = path.join(FONTS_DIR, 'DejaVuSans-Bold.ttf');
 
-const PAGE_BG = '#E8F0F8';
+const PAGE_BG = '#EEF2F8';
 const BAND_BG = '#1F3864';
 const BAND_FG = '#FFFFFF';
 const ACCENT = '#1F3864';
-const TABLE_HEAD_BG = '#D9E2F3';
+const TABLE_HEAD_BG = '#DCE3EF';
 const ROW_LINE = '#B4C7E7';
 
 export async function buildPartnerStatementPDF(report: ReportPayload, currency = 'EUR'): Promise<Buffer> {
@@ -133,7 +133,7 @@ function renderPage(doc: PDFKit.PDFDocument, report: ReportPayload, currency: st
     fill(doc, contentLeft, y, contentW, reportBandH, BAND_BG);
     doc.font('BodyBold').fontSize(10).fillColor(BAND_FG);
     doc.text('Звіт', contentLeft + 8, y + 6, {width: contentW - 16, lineBreak: false});
-    y += reportBandH + 6;
+    y += reportBandH;
 
     /* ---- Data table ---- */
     const hasUah = report.summary.totalCommissionUah != null;
