@@ -139,18 +139,18 @@ function renderPage(doc: PDFKit.PDFDocument, report: ReportPayload, currency: st
     const hasUah = report.summary.totalCommissionUah != null;
     const dataCols: Array<{label: string; w: number; align: 'left' | 'right'}> = hasUah ? [
         {label: 'Дата', w: 65, align: 'left'},
-        {label: 'Авто', w: 110, align: 'left'},
+        {label: 'Авто', w: 90, align: 'left'},
         {label: 'К-сть днів', w: 60, align: 'right'},
         {label: `Базова ціна (${sym})`, w: 80, align: 'right'},
-        {label: 'Знижка', w: 55, align: 'right'},
-        {label: `Ціна після знижки (${sym})`, w: 100, align: 'right'},
-        {label: 'Ставка комісії', w: 75, align: 'right'},
-        {label: `Сума до оплати (${sym})`, w: 105, align: 'right'},
+        {label: 'Знижка', w: 48, align: 'right'},
+        {label: `Ціна після знижки (${sym})`, w: 110, align: 'right'},
+        {label: 'Ставка комісії', w: 78, align: 'right'},
+        {label: `Сума до оплати (${sym})`, w: 110, align: 'right'},
         {label: 'Сума до оплати (₴)', w: 0, align: 'right'},
     ] : [
         {label: 'Дата', w: 78, align: 'left'},
         {label: 'Авто', w: 125, align: 'left'},
-        {label: 'К-сть днів', w: 60, align: 'right'},
+        {label: 'К-сть днів', w: 65, align: 'right'},
         {label: `Базова ціна (${sym})`, w: 90, align: 'right'},
         {label: 'Знижка', w: 55, align: 'right'},
         {label: `Ціна після знижки (${sym})`, w: 125, align: 'right'},
@@ -161,10 +161,10 @@ function renderPage(doc: PDFKit.PDFDocument, report: ReportPayload, currency: st
     dataCols[dataCols.length - 1].w = contentW - usedW;
     const dataW = dataCols.reduce((s, c) => s + c.w, 0);
 
-    const headRowH = 28;
+    const headRowH = 22;
     fill(doc, contentLeft, y, dataW, headRowH, TABLE_HEAD_BG);
-    drawCellsWrap(doc, contentLeft, y + 5, dataCols, dataCols.map((c) => c.label), {
-        font: 'BodyBold', fontSize: 8.5, color: '#000', height: headRowH - 8,
+    drawCellsSingleLine(doc, contentLeft, y + 7, dataCols, dataCols.map((c) => c.label), {
+        font: 'BodyBold', fontSize: hasUah ? 7.5 : 8.5, color: '#000',
     });
     line(doc, contentLeft, y + headRowH, dataW, ROW_LINE);
     y += headRowH;
@@ -186,12 +186,12 @@ function renderPage(doc: PDFKit.PDFDocument, report: ReportPayload, currency: st
         }
 
         let cx = contentLeft;
-        doc.font('Body').fontSize(9.5);
+        doc.font('Body').fontSize(9);
         dataCols.forEach((c, idx) => {
             const isCarCol = idx === 1;
             doc.fillColor(isCarCol ? ACCENT : '#000');
-            doc.text(values[idx] ?? '', cx + 6, y + 6, {
-                width: c.w - 12, align: c.align, lineBreak: false, ellipsis: true,
+            doc.text(values[idx] ?? '', cx + 6, y + 7, {
+                width: c.w - 12, align: c.align, lineBreak: false, ellipsis: true, height: 12,
             });
             cx += c.w;
         });
@@ -291,6 +291,24 @@ function drawCellsWrap(
     cols.forEach((c, i) => {
         doc.text(values[i] ?? '', cx + 6, y, {
             width: c.w - 12, align: c.align, lineBreak: true, height: opts.height,
+        });
+        cx += c.w;
+    });
+}
+
+function drawCellsSingleLine(
+    doc: PDFKit.PDFDocument,
+    x: number,
+    y: number,
+    cols: Array<{w: number; align: 'left' | 'right'}>,
+    values: string[],
+    opts: CellOpts,
+) {
+    doc.font(opts.font).fontSize(opts.fontSize).fillColor(opts.color);
+    let cx = x;
+    cols.forEach((c, i) => {
+        doc.text(values[i] ?? '', cx + 6, y, {
+            width: c.w - 12, align: c.align, lineBreak: false, ellipsis: true, height: opts.fontSize + 2,
         });
         cx += c.w;
     });
