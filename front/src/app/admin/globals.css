@@ -444,24 +444,30 @@ a.h-btn {
     background: #CC7700;
 }
 
-/* ── Segmented Control (Tabs) ── */
+/* ── Segmented Control (Tabs) — pill-shape, source-picker style ── */
 .ios-segmented {
     display: inline-flex;
-    border-radius: 10px;
-    background: #E5E5EA;
-    padding: 3px;
+    gap: 4px;
+    padding: 4px;
+    background: #E5E7EC;
+    border-radius: 999px;
 }
+button.ios-segment,
 .ios-segment {
-    padding: 7px 20px;
+    padding: 8px 14px;
     font-size: 13px;
-    font-weight: 600;
-    border-radius: 7px;
-    color: #8E8E93;
-    transition: all 200ms;
+    font-weight: 500 !important;
+    border-radius: 999px;
+    color: #1A1D23 !important;
+    transition: all 160ms;
     cursor: pointer;
     border: none;
     background: transparent;
     text-align: center;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 .ios-segment-fill {
     flex: 1 1 0;
@@ -474,12 +480,14 @@ a.h-btn {
     justify-content: center;
 }
 .ios-segment:hover {
-    color: #636366;
+    color: #1A1D23;
 }
+button.ios-segment-active,
 .ios-segment-active {
     background: #FFFFFF;
-    color: #000000;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+    color: #1A1D23 !important;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+    font-weight: 600 !important;
 }
 
 /* ── Table wrapper ── */
@@ -1774,12 +1782,24 @@ a.h-btn {
 }
 
 [data-theme="dark"] .ios-segmented {
-    background: #1E293B;
+    background: #1B1E25;
 }
 
+[data-theme="dark"] button.ios-segment,
+[data-theme="dark"] .ios-segment {
+    color: #F4F5F7 !important;
+}
+
+[data-theme="dark"] button.ios-segment:hover,
+[data-theme="dark"] .ios-segment:hover {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] button.ios-segment-active,
 [data-theme="dark"] .ios-segment-active {
-    background: #2D3748;
-    color: #E2E8F0;
+    background: #21242C;
+    color: #F4F5F7 !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .ios-icon-btn,
