@@ -114,7 +114,6 @@ export default function PartnerDetailPage() {
   const [editTiers, setEditTiers] = useState(false);
   const [tiersDraft, setTiersDraft] = useState<Tier[]>([]);
   const [savingTiers, setSavingTiers] = useState(false);
-  const [downloadStatus, setDownloadStatus] = useState<string | null>(null);
   const [downloading, setDownloading] = useState(false);
   const [editNotes, setEditNotes] = useState(false);
   const [notesDraft, setNotesDraft] = useState('');
@@ -163,43 +162,33 @@ export default function PartnerDetailPage() {
   };
 
   const downloadReport = async (format: 'xlsx' | 'pdf') => {
-    // Using window.fetch directly + inline UI status banner so we don't depend
-    // on toast rendering — some dev environments (Turbopack HMR, theme quirks)
-    // have been blanking the toast body.
     const apiBase = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api').replace(/\/$/, '');
     const path = format === 'pdf' ? 'report-export-pdf' : 'report-export';
     const url = `${apiBase}/partner/${id}/${path}?from=${from}&to=${to}`;
-    const setStatus = (s: string) => {
-      setDownloadStatus(s);
-    };
 
     setDownloading(true);
-    setStatus(`GET ${url}`);
-    console.log(`[${format} download] GET`, url);
 
     let res: Response;
     try {
       res = await window.fetch(url, { method: 'GET', credentials: 'include' });
     } catch (err: any) {
-      const msg = err?.message || err?.name || String(err) || 'Unknown network error';
-      console.error(`[${format} download] network error:`, err);
-      setStatus(`Мережева помилка: ${msg}`);
+      toastError(err, `Не вдалося завантажити ${format.toUpperCase()}`);
       setDownloading(false);
       return;
     }
 
-    const ct = res.headers.get('content-type') || '(no content-type)';
-    console.log(`[${format} download] status:`, res.status, 'content-type:', ct);
+    const ct = res.headers.get('content-type') || '';
 
     if (!res.ok) {
-      let txt = '';
-      try { txt = await res.text(); } catch { /* ignore */ }
-      let detail = txt;
+      let detail = '';
       try {
-        const parsed = JSON.parse(txt);
-        detail = parsed?.msg || parsed?.message || txt;
-      } catch { /* not json */ }
-      setStatus(`[${res.status} ${res.statusText}] ${detail || '(empty body)'}`);
+        const txt = await res.text();
+        try {
+          const parsed = JSON.parse(txt);
+          detail = parsed?.msg || parsed?.message || txt;
+        } catch { detail = txt; }
+      } catch { /* ignore */ }
+      toastError(new Error(detail || `${res.status} ${res.statusText}`), `Не вдалося завантажити ${format.toUpperCase()}`);
       setDownloading(false);
       return;
     }
@@ -208,22 +197,19 @@ export default function PartnerDetailPage() {
     try {
       blob = await res.blob();
     } catch (err: any) {
-      setStatus(`Не вдалося прочитати відповідь: ${err?.message || String(err)}`);
+      toastError(err, 'Не вдалося прочитати відповідь сервера');
       setDownloading(false);
       return;
     }
 
-    console.log(`[${format} download] blob size:`, blob.size, 'type:', blob.type);
-
     if (blob.size === 0) {
-      setStatus(`Сервер повернув порожній файл (ct=${ct})`);
+      toastError(new Error('Сервер повернув порожній файл'), `Не вдалося завантажити ${format.toUpperCase()}`);
       setDownloading(false);
       return;
     }
 
     if (ct.includes('application/json')) {
-      const txt = await blob.text();
-      setStatus(`Сервер повернув JSON замість ${format.toUpperCase()}: ${txt.slice(0, 300)}`);
+      toastError(new Error(`Сервер повернув JSON замість ${format.toUpperCase()}`), 'Помилка експорту');
       setDownloading(false);
       return;
     }
@@ -237,9 +223,9 @@ export default function PartnerDetailPage() {
       a.click();
       a.remove();
       URL.revokeObjectURL(blobUrl);
-      setStatus(`✓ ${format.toUpperCase()} завантажено (${blob.size} байт)`);
+      toast.success(`${format.toUpperCase()} завантажено`);
     } catch (err: any) {
-      setStatus(`Помилка збереження файлу: ${err?.message || String(err)}`);
+      toastError(err, 'Помилка збереження файлу');
     } finally {
       setDownloading(false);
     }
@@ -421,28 +407,6 @@ export default function PartnerDetailPage() {
               </div>
             </div>
 
-            {downloadStatus && (
-              <div
-                className="mt-3 rounded-lg border-2 p-3 text-sm font-mono break-all relative"
-                style={{
-                  borderColor: downloadStatus.startsWith('✓') ? 'var(--c-success)' : 'var(--c-error)',
-                  background: downloadStatus.startsWith('✓') ? 'rgba(1,181,116,0.1)' : 'rgba(238,93,80,0.1)',
-                  color: downloadStatus.startsWith('✓') ? 'var(--c-success)' : 'var(--c-error)',
-                }}
-              >
-                <div className="text-[10px] uppercase tracking-wider opacity-60 mb-1">
-                  [xlsx-v3] Статус завантаження
-                </div>
-                <div className="font-semibold">{downloadStatus}</div>
-                <button
-                  type="button"
-                  onClick={() => setDownloadStatus(null)}
-                  className="absolute top-2 right-2 text-xs opacity-60 hover:opacity-100"
-                >
-                  ✕
-                </button>
-              </div>
-            )}
             <div className="flex items-end gap-3 flex-wrap">
               <div>
                 <label className="block text-xs text-muted-foreground">Від</label>
