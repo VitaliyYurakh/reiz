@@ -892,12 +892,18 @@ export default function PartnerDetailPage() {
                 Авто ще не призначено. Виберіть партнера у налаштуваннях авто.
               </p>
             ) : (
-              <div className="space-y-1">
+              // `flex flex-col` on the parent forces every child to occupy a
+              // full row, regardless of the child's own `display`. Without
+              // this the public-site reset `a { display: inline-flex }`
+              // wins specificity-wise on Next.js <Link>, and the cars wrap
+              // into two-per-row mush.
+              <div className="flex flex-col gap-0.5">
                 {partner.cars.map((c) => (
                   <Link
                     key={c.id}
                     href={`/admin/cars/${c.id}`}
-                    className="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 transition-colors hover:bg-[var(--c-brand-bg)]"
+                    className="group rounded-lg px-2 py-1.5 transition-colors hover:bg-[var(--c-brand-bg)]"
+                    style={{ display: 'flex', alignItems: 'center', gap: 10 }}
                   >
                     {/* Status dot */}
                     <span
