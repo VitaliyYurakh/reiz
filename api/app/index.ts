@@ -118,6 +118,13 @@ const startServer = async () => {
             }
         });
 
+        // One-shot Sentry verification endpoint. Throws an unhandled error
+        // that the global handler ships to Sentry. Remove this route after
+        // the first event lands in the Sentry UI.
+        app.get('/api/debug-sentry', () => {
+            throw new Error('Sentry verification: this is a deliberate test error');
+        });
+
         // CSRF protection (must be after cookieParser)
         app.use('/api', csrfProtection);
 
