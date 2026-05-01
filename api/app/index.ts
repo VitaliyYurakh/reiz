@@ -1,4 +1,9 @@
 import {env} from './config/env';
+import {initSentry, Sentry} from './config/sentry';
+
+// Sentry must initialise before any other modules so its auto-
+// instrumentation can patch them. No-op when SENTRY_DSN isn't set.
+initSentry();
 
 import express from 'express';
 import cors from 'cors';

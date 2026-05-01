@@ -15,6 +15,9 @@ services:
             # silently skips the admin upsert when this is missing, so prod
             # is safe even if the secret isn't set yet.
             ADMIN_PASSWORD_HASH: ${ADMIN_PASSWORD_HASH:-}
+            # When set, errors auto-report to Sentry. Optional — service
+            # degrades to no-op without it (logs still record everything).
+            SENTRY_DSN: ${SENTRY_DSN:-}
             TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
             TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
             CORS_ORIGINS: https://reiz.com.ua

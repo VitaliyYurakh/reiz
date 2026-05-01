@@ -128,6 +128,7 @@ jobs:
                       TURNSTILE_SECRET_KEY=${{ secrets.TURNSTILE_SECRET_KEY }}
                       POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
                       ADMIN_PASSWORD_HASH=${{ secrets.ADMIN_PASSWORD_HASH }}
+                      SENTRY_DSN=${{ secrets.SENTRY_DSN }}
                       GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
                       GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }}
                       GMAIL_USER=${{ secrets.GMAIL_USER }}

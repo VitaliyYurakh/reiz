@@ -2,6 +2,7 @@ import {Request, Response, NextFunction} from 'express';
 import {StatusCodes} from 'http-status-codes';
 import {logger, AccessDenied, UserNotFoundError, CarNotFoundError, BadParamError, NotFoundError, BadRequestError, ConflictError, ForbiddenError} from '../utils';
 import {ValidationError} from '../validators';
+import {Sentry} from '../config/sentry';
 
 const globalErrorHandler = (err: Error, _req: Request, res: Response, _next: NextFunction) => {
     if (res.headersSent) return;
@@ -51,7 +52,11 @@ const globalErrorHandler = (err: Error, _req: Request, res: Response, _next: Nex
         return res.status(StatusCodes.BAD_REQUEST).json({msg: err.message});
     }
 
+    // Anything that reached the bottom of the chain is unexpected — log
+    // it AND ship to Sentry (no-op if SENTRY_DSN isn't configured) so
+    // ops gets paged instead of finding it days later in pino logs.
     logger.error({err, requestId: res.locals.requestId}, 'Unhandled error');
+    Sentry.captureException(err, {tags: {requestId: res.locals.requestId}});
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: 'Internal server error'});
 };
 

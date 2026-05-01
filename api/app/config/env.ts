@@ -24,6 +24,13 @@ const envSchema = z.object({
     // ── Legacy (optional) ──
     SALT: z.string().default(''),
 
+    // ── Observability ──
+    // Sentry DSN. When set, errors auto-report to Sentry with request
+    // context. When unset, the integration silently degrades to no-op
+    // (logger still records everything). Add SENTRY_DSN as a GitHub
+    // Actions secret to enable in prod.
+    SENTRY_DSN: z.string().url().optional(),
+
     // ── Service-to-service auth ──
     // Used by /api/auth/check on internal calls (front-end SSR rendering
     // pre-fetches admin data with this header). Optional in dev,
