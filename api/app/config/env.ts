@@ -26,16 +26,25 @@ const envSchema = z.object({
 
     // ── Observability ──
     // Sentry DSN. When set, errors auto-report to Sentry with request
-    // context. When unset, the integration silently degrades to no-op
-    // (logger still records everything). Add SENTRY_DSN as a GitHub
-    // Actions secret to enable in prod.
-    SENTRY_DSN: z.string().url().optional(),
+    // context. When unset (or empty string from a missing GitHub secret
+    // expanding to ""), the integration silently degrades to no-op.
+    // The `''` → undefined coercion is necessary because deploy.yml
+    // always writes the env line, even when the secret isn't configured.
+    SENTRY_DSN: z
+        .string()
+        .transform((s) => (s === '' ? undefined : s))
+        .pipe(z.string().url().optional())
+        .optional(),
 
     // ── Service-to-service auth ──
     // Used by /api/auth/check on internal calls (front-end SSR rendering
     // pre-fetches admin data with this header). Optional in dev,
-    // ≥16 chars when set.
-    SERVICE_SECRET: z.string().min(16).optional(),
+    // ≥16 chars when set. Same `''` → undefined coercion as SENTRY_DSN.
+    SERVICE_SECRET: z
+        .string()
+        .transform((s) => (s === '' ? undefined : s))
+        .pipe(z.string().min(16).optional())
+        .optional(),
 
     // ── Telegram (optional pair) ──
     TELEGRAM_BOT_TOKEN: z.string().optional(),
