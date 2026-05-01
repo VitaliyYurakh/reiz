@@ -125,9 +125,9 @@ model Car {
   blockReason String? @map("block_reason")
 
   // ─── Pickup / delivery ───────────────────────────────────────────────
-  deliveryPrice         Int?    @map("delivery_price")
-  freeDeliveryThreshold Int?    @map("free_delivery_threshold")
-  paymentMethods        String? @map("payment_methods")
+  deliveryPriceMinor         Int?    @map("delivery_price_minor")
+  freeDeliveryThresholdMinor Int?    @map("free_delivery_threshold_minor")
+  paymentMethods             String? @map("payment_methods")
 
   // ─── Rental policy ───────────────────────────────────────────────────
   cancellationHours     Int?    @map("cancellation_hours")
@@ -140,7 +140,7 @@ model Car {
   overmileagePriceMinor Int?    @map("overmileage_price_minor")
   fuelPolicy            String? @map("fuel_policy")
   petAllowed            Boolean @default(false) @map("pet_allowed")
-  cleaningFee           Int?    @map("cleaning_fee")
+  cleaningFeeMinor      Int?    @map("cleaning_fee_minor")
 
   // ─── Driver requirements ─────────────────────────────────────────────
   driverAge                   Int? @map("driver_age")
@@ -149,10 +149,10 @@ model Car {
   youngerDriverSurchargeMinor Int? @map("younger_driver_surcharge_minor")
 
   // ─── Cross-border travel ─────────────────────────────────────────────
-  allowCrossBorder    Boolean @default(false) @map("allow_cross_border")
-  crossBorderFee      Int?    @map("cross_border_fee")
-  crossBorderDailyFee Int?    @map("cross_border_daily_fee")
-  allowedCountries    Json?   @map("allowed_countries")
+  allowCrossBorder         Boolean @default(false) @map("allow_cross_border")
+  crossBorderFeeMinor      Int?    @map("cross_border_fee_minor")
+  crossBorderDailyFeeMinor Int?    @map("cross_border_daily_fee_minor")
+  allowedCountries         Json?   @map("allowed_countries")
 
   // ─── Late return ─────────────────────────────────────────────────────
   lateReturnGraceMin        Int? @map("late_return_grace_min")
@@ -280,12 +280,12 @@ model Segment {
 }
 
 model RentalTariff {
-  id         Int @id @default(autoincrement())
-  deposit    Int
-  minDays    Int @map("min_days")
-  maxDays    Int @map("max_days")
-  dailyPrice Int @map("daily_price")
-  carId      Int @map("car_id")
+  id              Int @id @default(autoincrement())
+  depositMinor    Int @map("deposit_minor")
+  minDays         Int @map("min_days")
+  maxDays         Int @map("max_days")
+  dailyPriceMinor Int @map("daily_price_minor")
+  carId           Int @map("car_id")
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
@@ -297,13 +297,13 @@ model RentalTariff {
 }
 
 model CarCountingRule {
-  id             Int  @id @default(autoincrement())
-  pricePercent   Int  @map("price_percent")
-  depositPercent Int  @map("deposit_percent")
-  priceFixed     Int? @map("price_fixed")
-  priceFixed30   Int? @map("price_fixed_30")
-  depositFixed   Int? @map("deposit_fixed")
-  carId          Int  @map("car_id")
+  id                Int  @id @default(autoincrement())
+  pricePercent      Int  @map("price_percent")
+  depositPercent    Int  @map("deposit_percent")
+  priceFixedMinor   Int? @map("price_fixed_minor")
+  priceFixed30Minor Int? @map("price_fixed_30_minor")
+  depositFixedMinor Int? @map("deposit_fixed_minor")
+  carId             Int  @map("car_id")
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
@@ -785,16 +785,16 @@ model AddOn {
 }
 
 model RatePlan {
-  id         Int       @id @default(autoincrement())
-  name       String
-  carId      Int       @map("car_id")
-  minDays    Int       @map("min_days")
-  maxDays    Int       @map("max_days")
-  dailyPrice Int       @map("daily_price")
-  currency   Currency  @default(USD)
-  isActive   Boolean   @default(true) @map("is_active")
-  deletedAt  DateTime? @map("deleted_at")
-  createdAt  DateTime  @default(now()) @map("created_at")
+  id              Int       @id @default(autoincrement())
+  name            String
+  carId           Int       @map("car_id")
+  minDays         Int       @map("min_days")
+  maxDays         Int       @map("max_days")
+  dailyPriceMinor Int       @map("daily_price_minor")
+  currency        Currency  @default(USD)
+  isActive        Boolean   @default(true) @map("is_active")
+  deletedAt       DateTime? @map("deleted_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
 
   car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
 

@@ -54,15 +54,16 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
   const minDays = car.minRentalDays ?? 1;
   const maxDays = car.maxRentalDays ?? 0;
 
+  // Tariff/rule money is in копійки. Divide by 100 once when extracting.
   const baseDeposit = car.rentalTariff.length > 0
-    ? Math.min(...car.rentalTariff.map((t) => t.deposit))
+    ? Math.min(...car.rentalTariff.map((t) => t.depositMinor / 100))
     : 0;
   const sortedRules = [...(car.carCountingRule || [])].sort(
     (a, b) => a.depositPercent - b.depositPercent,
   );
   const depositValues = sortedRules.map((rule) =>
-    rule.depositFixed != null
-      ? rule.depositFixed
+    rule.depositFixedMinor != null
+      ? rule.depositFixedMinor / 100
       : Math.max(Math.round(baseDeposit * (1 - rule.depositPercent / 100)), 0),
   );
   if (depositValues.length === 0) depositValues.push(baseDeposit);
@@ -233,22 +234,22 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
               <>
                 <p className="rpm__text rpm__text--success">{t("crossBorder.allowed")}</p>
                 <ul className="rpm__list">
-                  {(car.crossBorderFee ?? 0) > 0 && (
+                  {(car.crossBorderFeeMinor ?? 0) > 0 && (
                     <li className="rpm__item">
                       <span className="rpm__icon sprite">
                         <Icon id="geo-alt" width={22} height={22} />
                       </span>
                       <span className="rpm__label">{t("crossBorder.fee")}</span>
-                      <span className="rpm__value">{formatPrice(car.crossBorderFee ?? 0)}</span>
+                      <span className="rpm__value">{formatPrice((car.crossBorderFeeMinor ?? 0) / 100)}</span>
                     </li>
                   )}
-                  {(car.crossBorderDailyFee ?? 0) > 0 && (
+                  {(car.crossBorderDailyFeeMinor ?? 0) > 0 && (
                     <li className="rpm__item">
                       <span className="rpm__icon sprite">
                         <Icon id="geo-alt" width={22} height={22} />
                       </span>
                       <span className="rpm__label">{t("crossBorder.dailyFee")}</span>
-                      <span className="rpm__value">{formatPrice(car.crossBorderDailyFee ?? 0)}/{t("crossBorder.day")}</span>
+                      <span className="rpm__value">{formatPrice((car.crossBorderDailyFeeMinor ?? 0) / 100)}/{t("crossBorder.day")}</span>
                     </li>
                   )}
                   {car.allowedCountries && car.allowedCountries.length > 0 && (
@@ -305,7 +306,7 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
           </section>
 
           {/* Rules */}
-          {(car.petAllowed || (car.cleaningFee ?? 0) > 0) && (
+          {(car.petAllowed || (car.cleaningFeeMinor ?? 0) > 0) && (
             <section className="rpm__section">
               <h4 className="rpm__heading">{t("rules.title")}</h4>
               <ul className="rpm__list">
@@ -318,13 +319,13 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                     {car.petAllowed ? t("rules.allowed") : t("rules.notAllowed")}
                   </span>
                 </li>
-                {(car.cleaningFee ?? 0) > 0 && (
+                {(car.cleaningFeeMinor ?? 0) > 0 && (
                   <li className="rpm__item">
                     <span className="rpm__icon sprite">
                       <Icon id="credit-card" width={22} height={22} />
                     </span>
                     <span className="rpm__label">{t("rules.cleaningFee")}</span>
-                    <span className="rpm__value">{formatPrice(car.cleaningFee ?? 0)}</span>
+                    <span className="rpm__value">{formatPrice((car.cleaningFeeMinor ?? 0) / 100)}</span>
                   </li>
                 )}
               </ul>
@@ -346,8 +347,8 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
             const cwP = minorToUah(car.carWashPriceMinor);
             const etF = minorToUah(car.emptyTankFeeMinor);
             const adF = minorToUah(car.additionalDriverFeeMinor);
-            const dlP = car.deliveryPrice ?? 0;
-            const fthr = car.freeDeliveryThreshold ?? 351;
+            const dlP = (car.deliveryPriceMinor ?? 0) / 100;
+            const fthr = (car.freeDeliveryThresholdMinor ?? 35100) / 100;
             const yAge = car.youngerDriverAge ?? 0;
             const ySur = minorToUah(car.youngerDriverSurchargeMinor) ?? 0;
             const yExp = car.driverExperience ?? car.segment?.[0]?.experience ?? 2;

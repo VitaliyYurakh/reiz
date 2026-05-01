@@ -41,7 +41,7 @@ export function generateVehicleSchema({
     .map((p) => toAbsolute(p.url));
 
   // Calculate price range from rental tariffs
-  const prices = car.rentalTariff?.map((t) => t.dailyPrice) || [];
+  const prices = car.rentalTariff?.map((t) => t.dailyPriceMinor / 100) || [];
   const minPrice = prices.length > 0 ? Math.min(...prices) : null;
   const maxPrice = prices.length > 0 ? Math.max(...prices) : null;
 
@@ -141,7 +141,7 @@ export function generateProductSchema({
     .map((p) => toAbsolute(p.url));
 
   // Calculate min price from rental tariffs
-  const prices = car.rentalTariff?.map((t) => t.dailyPrice) || [];
+  const prices = car.rentalTariff?.map((t) => t.dailyPriceMinor / 100) || [];
   const minPrice = prices.length > 0 ? Math.min(...prices) : null;
 
   // Build description from car specs (localized)

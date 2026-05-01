@@ -13,7 +13,10 @@ import {
   X,
 } from 'lucide-react';
 import { LANGUAGES, type LangCode } from './constants';
-import type { RentalTariff } from '@/types/cars';
+// HTariffField is form-only — uses UAH whole units (admin types 200, not
+// 20000). Parent converts to *Minor at API submit time. Type is inlined
+// rather than importing from `pricing-tab.tsx` to avoid a circular import.
+type TariffFormShape = {minDays: number; maxDays: number; dailyPrice: number};
 
 // ═══════════════════════════════════════════════════
 // HCard
@@ -417,7 +420,7 @@ export function HTariffField({
   label: string;
   min: number;
   max: number;
-  tariffs: RentalTariff[];
+  tariffs: TariffFormShape[];
   onChange: (min: number, max: number, val: string) => void;
 }) {
   const tariff = tariffs.find((t) => t.minDays === min && t.maxDays === max);

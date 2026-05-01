@@ -51,11 +51,13 @@ export const parseFiltersFromSearch = (
   return { filters, sortKey };
 };
 
+// Returns the minimum daily price across tariffs in UAH whole units
+// (admin-friendly display value). DB stores `dailyPriceMinor` in копійки.
 export function getMinTariffPrice(rentalTariff: RentalTariff[]): number | null {
   if (!rentalTariff?.length) return null;
   let min = Infinity;
   for (const t of rentalTariff) {
-    min = Math.min(min, t.dailyPrice);
+    min = Math.min(min, t.dailyPriceMinor / 100);
   }
   return Number.isFinite(min) ? min : null;
 }

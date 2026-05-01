@@ -68,8 +68,9 @@ export default function StepTwo({
             </span>
 
             {carCountingRules.map((plan) => {
-              const planDailyBeforeDiscount = plan.priceFixed != null
-                ? baseDailyPrice + plan.priceFixed
+              const fixedUah = plan.priceFixedMinor != null ? plan.priceFixedMinor / 100 : null;
+              const planDailyBeforeDiscount = fixedUah != null
+                ? baseDailyPrice + fixedUah
                 : baseDailyPrice * (1 + plan.pricePercent / 100);
               const planDaily = Math.round(planDailyBeforeDiscount * (1 - discountPercent / 100));
               return (

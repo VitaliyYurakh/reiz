@@ -68,9 +68,10 @@ const parseFiltersFromSearch = (
     return {filters, sortKey};
 };
 
+// Both helpers return UAH whole units. dailyPriceMinor is stored in копійки.
 const getMinPrice = (car: Car): number | null => {
     if (!car.rentalTariff || car.rentalTariff.length === 0) return null;
-    return Math.min(...car.rentalTariff.map((t) => t.dailyPrice));
+    return Math.min(...car.rentalTariff.map((t) => t.dailyPriceMinor / 100));
 };
 
 /**
@@ -82,7 +83,7 @@ const getLongTermPrice = (car: Car): number | null => {
     const longTermTariff = car.rentalTariff.find(
         (t) => t.minDays === 30 && t.maxDays === 0
     );
-    return longTermTariff?.dailyPrice ?? null;
+    return longTermTariff != null ? longTermTariff.dailyPriceMinor / 100 : null;
 };
 
 type CatalogProps = {

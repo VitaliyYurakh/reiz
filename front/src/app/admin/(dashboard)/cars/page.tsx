@@ -268,8 +268,9 @@ export default function CarListPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {filtered.map((car) => {
               const segment = car.segment?.[0];
+              // dailyPriceMinor stored in копійки; admin list shows UAH whole units.
               const minTariff = car.rentalTariff?.length
-                ? Math.min(...car.rentalTariff.map((t) => t.dailyPrice))
+                ? Math.min(...car.rentalTariff.map((t) => t.dailyPriceMinor / 100))
                 : null;
               const displayName = `${car.brand || ''} ${car.model || ''}`.trim();
 

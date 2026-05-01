@@ -141,7 +141,9 @@ async function main() {
         });
     }
 
-    // CRM: Generate RatePlans from existing RentalTariffs
+    // CRM: Generate RatePlans from existing RentalTariffs. Both
+    // `tariff.dailyPriceMinor` and `ratePlan.dailyPriceMinor` are stored in
+    // копійки after the Phase B money migration — direct copy, no *100.
     const ratePlanCount = await prisma.ratePlan.count();
     if (!ratePlanCount) {
         const tariffs = await prisma.rentalTariff.findMany();
@@ -153,7 +155,7 @@ async function main() {
                     carId: t.carId,
                     minDays: t.minDays,
                     maxDays: t.maxDays,
-                    dailyPrice: t.dailyPrice * 100,
+                    dailyPriceMinor: t.dailyPriceMinor,
                     currency: 'USD',
                 },
             });

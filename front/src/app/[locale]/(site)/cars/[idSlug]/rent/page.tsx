@@ -37,7 +37,9 @@ export async function generateMetadata({
   const slug = createCarIdSlug(car);
   const carPath = `/cars/${slug}`;
 
-  const minPrice = car.rentalTariff?.reduce((min, t) => Math.min(min, t.dailyPrice), Infinity) || 0;
+  // dailyPriceMinor is копійки; metadata price is shown in UAH whole units.
+  const minPriceMinor = car.rentalTariff?.reduce((min, t) => Math.min(min, t.dailyPriceMinor), Infinity) || 0;
+  const minPrice = Number.isFinite(minPriceMinor) ? minPriceMinor / 100 : 0;
   const t = await getTranslations("carRentPage");
   const title = t("meta.title", { carName, price: minPrice });
   const description = t("meta.description", { carName, price: minPrice });

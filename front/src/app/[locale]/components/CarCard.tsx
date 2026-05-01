@@ -84,15 +84,16 @@ export default function CarCard({ car, citySlug }: CarCardProps) {
       ? activeTariff ?? baseTariff
       : baseTariff;
 
-  const baseDailyPrice = activeTariffForCalc.dailyPrice ?? 0;
-  const baseDeposit = activeTariffForCalc.deposit ?? 0;
+  // Money fields stored in копійки. Convert to UAH whole units once.
+  const baseDailyPrice = (activeTariffForCalc.dailyPriceMinor ?? 0) / 100;
+  const baseDeposit = (activeTariffForCalc.depositMinor ?? 0) / 100;
 
   const pricePercent = selectedPlan?.pricePercent ?? 0;
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
   const is30Plus = totalDays >= 29;
-  const pFixed30 = selectedPlan?.priceFixed30 ?? null;
-  const pFixed = selectedPlan?.priceFixed ?? null;
+  const pFixed30 = selectedPlan?.priceFixed30Minor != null ? selectedPlan.priceFixed30Minor / 100 : null;
+  const pFixed = selectedPlan?.priceFixedMinor != null ? selectedPlan.priceFixedMinor / 100 : null;
   const surchargePerDay = is30Plus && pFixed30 != null ? pFixed30 / 30 : (pFixed ?? 0);
   const dailyPriceBeforeDiscount = pFixed != null || pFixed30 != null
     ? baseDailyPrice + surchargePerDay
@@ -344,12 +345,13 @@ export default function CarCard({ car, citySlug }: CarCardProps) {
           <ul className="car-card__list">
             {sortedTariffs.map((tariff, index) => {
               const is30 = tariff.minDays >= 29;
-              const pf30t = selectedPlan?.priceFixed30 ?? null;
-              const pft = selectedPlan?.priceFixed ?? null;
+              const dailyUah = tariff.dailyPriceMinor / 100;
+              const pf30t = selectedPlan?.priceFixed30Minor != null ? selectedPlan.priceFixed30Minor / 100 : null;
+              const pft = selectedPlan?.priceFixedMinor != null ? selectedPlan.priceFixedMinor / 100 : null;
               const sc = is30 && pf30t != null ? pf30t / 30 : (pft ?? 0);
               const priceBeforeDiscount = pft != null || pf30t != null
-                ? tariff.dailyPrice + sc
-                : tariff.dailyPrice * (1 + (selectedPlan?.pricePercent ?? 0) / 100);
+                ? dailyUah + sc
+                : dailyUah * (1 + (selectedPlan?.pricePercent ?? 0) / 100);
               const finalPrice = Math.round(priceBeforeDiscount * (1 - discountPercent / 100));
 
               return (

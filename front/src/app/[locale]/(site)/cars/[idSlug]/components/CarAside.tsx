@@ -187,10 +187,13 @@ export default function CarAside({ car }: { car: Car }) {
 
   const pricing = useMemo(() => {
     if (!activeTariff) return { dailyBeforeDiscount: 0, daily: 0, deposit: 0, total: 0, hasDiscount: false };
-    const baseDaily = activeTariff.dailyPrice;
+    // All money fields below are in копійки (Int *Minor) per the platform-
+    // wide convention. Divide by 100 once at the boundary so downstream UI
+    // stays in UAH whole units (what users expect to see).
+    const baseDaily = activeTariff.dailyPriceMinor / 100;
     const is30Plus = totalDays >= 29;
-    const pFixed30 = selectedPlan?.priceFixed30 ?? null;
-    const pFixed = selectedPlan?.priceFixed ?? null;
+    const pFixed30 = selectedPlan?.priceFixed30Minor != null ? selectedPlan.priceFixed30Minor / 100 : null;
+    const pFixed = selectedPlan?.priceFixedMinor != null ? selectedPlan.priceFixedMinor / 100 : null;
 
     let coverageSurcharge: number;
     if (is30Plus && pFixed30 != null) {
@@ -207,9 +210,10 @@ export default function CarAside({ car }: { car: Car }) {
     const daily = Math.round(
       dailyBeforeDiscount * (1 - discountPercent / 100),
     );
-    const deposit = selectedPlan?.depositFixed != null
-      ? selectedPlan.depositFixed
-      : Math.round((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100));
+    const baseDepositUah = (activeTariff?.depositMinor ?? 0) / 100;
+    const deposit = selectedPlan?.depositFixedMinor != null
+      ? selectedPlan.depositFixedMinor / 100
+      : Math.round(baseDepositUah * (1 - depositPercent / 100));
     const total = is30Plus && pFixed30 != null
       ? Math.round((baseDaily * totalDays + coverageSurcharge) * (1 - discountPercent / 100))
       : daily * totalDays;
@@ -320,12 +324,14 @@ export default function CarAside({ car }: { car: Car }) {
         <ul className="single-form__list">
           {car.rentalTariff.map((el) => {
             const is30 = el.minDays >= 29;
-            const pf30 = selectedPlan?.priceFixed30 ?? null;
-            const pf = selectedPlan?.priceFixed ?? null;
+            // *Minor → UAH whole units once per row.
+            const dailyUah = el.dailyPriceMinor / 100;
+            const pf30 = selectedPlan?.priceFixed30Minor != null ? selectedPlan.priceFixed30Minor / 100 : null;
+            const pf = selectedPlan?.priceFixedMinor != null ? selectedPlan.priceFixedMinor / 100 : null;
             const surcharge = is30 && pf30 != null ? pf30 / 30 : (pf ?? 0);
             const priceBeforeDiscount = pf != null || pf30 != null
-              ? el.dailyPrice + surcharge
-              : el.dailyPrice * (1 + (selectedPlan?.pricePercent || 0) / 100);
+              ? dailyUah + surcharge
+              : dailyUah * (1 + (selectedPlan?.pricePercent || 0) / 100);
             const finalPrice = Math.round(priceBeforeDiscount * (1 - discountPercent / 100));
 
             return (

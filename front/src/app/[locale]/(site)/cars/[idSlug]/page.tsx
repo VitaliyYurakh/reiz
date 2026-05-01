@@ -59,9 +59,11 @@ export async function generateMetadata({
 
     const t = await getTranslations("carPage");
 
-    const minPrice =
-      car.rentalTariff?.reduce((min, t) => Math.min(min, t.dailyPrice), Infinity) ?? 0;
-    const price = Number.isFinite(minPrice) && minPrice > 0 ? minPrice : 50;
+    // dailyPriceMinor is in копійки; metadata price is shown in UAH whole units.
+    const minPriceMinor =
+      car.rentalTariff?.reduce((min, t) => Math.min(min, t.dailyPriceMinor), Infinity) ?? 0;
+    const minPrice = Number.isFinite(minPriceMinor) ? minPriceMinor / 100 : 0;
+    const price = minPrice > 0 ? minPrice : 50;
 
     const specs = [car.engineVolume, localized(car.transmission, locale)].filter(Boolean).join(" ");
     const specsText = specs ? `${specs}, ` : "";
@@ -173,21 +175,22 @@ export default async function CarPage({
     const overmileagePriceMinor =
         car.overmileagePriceMinor ?? car.segment?.[0]?.overmileagePriceMinor ?? 0;
     const overmileagePrice = overmileagePriceMinor / 100;
+    // Tariff/rule money is in копійки; collapse to UAH whole units up front.
     const baseDeposit = car.rentalTariff.length > 0
-        ? Math.min(...car.rentalTariff.map((t_) => t_.deposit))
+        ? Math.min(...car.rentalTariff.map((t_) => t_.depositMinor / 100))
         : 0;
     const sortedRules = [...(car.carCountingRule || [])].sort(
         (a, b) => a.depositPercent - b.depositPercent,
     );
     const depositValues = sortedRules.map((rule) =>
-        rule.depositFixed != null
-            ? rule.depositFixed
+        rule.depositFixedMinor != null
+            ? rule.depositFixedMinor / 100
             : Math.max(Math.round(baseDeposit * (1 - rule.depositPercent / 100)), 0),
     );
     if (depositValues.length === 0) depositValues.push(baseDeposit);
     const minDeposit = Math.min(...depositValues);
     const maxDeposit = Math.max(...depositValues, baseDeposit);
-    const freeDeliveryThreshold = car.freeDeliveryThreshold ?? 351;
+    const freeDeliveryThreshold = (car.freeDeliveryThresholdMinor ?? 35100) / 100;
 
     // Determine delivery info based on city context
     const activeCities = (car.cityAvailability ?? []).filter((ca) => ca.isActive);

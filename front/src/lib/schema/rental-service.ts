@@ -20,8 +20,8 @@ export function generateRentalServiceSchema({
 }: RentalServiceSchemaParams): Record<string, unknown> {
   const carName = `${car.brand} ${car.model} ${car.yearOfManufacture}`.trim();
 
-  // Calculate min price from rental tariffs
-  const prices = car.rentalTariff?.map((t) => t.dailyPrice) || [];
+  // dailyPriceMinor is stored in копійки; schema.org price is in UAH whole units.
+  const prices = car.rentalTariff?.map((t) => t.dailyPriceMinor / 100) || [];
   const minPrice = prices.length > 0 ? Math.min(...prices) : null;
 
   // Service name by locale

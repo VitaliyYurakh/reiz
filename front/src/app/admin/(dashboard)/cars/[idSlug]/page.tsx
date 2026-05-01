@@ -17,7 +17,8 @@ import {
 import { toast, toastError } from '@/lib/toast';
 import { logError } from '@/lib/log';
 import { useConfirm } from '@/components/admin/ConfirmProvider';
-import { Car, CarCountingRule, RentalTariff, Segment } from '@/types/cars';
+import { Car, Segment } from '@/types/cars';
+import type { CountingRuleFormRow, TariffFormRow } from './components/pricing-tab';
 import { useAdminTheme } from '@/context/AdminThemeContext';
 import { Camera, DollarSign, Info, List, MapPin } from 'lucide-react';
 import { normalizeMultiLang, type LangCode, type MultiLang } from './components/constants';
@@ -45,14 +46,14 @@ export default function CarEditPage() {
   const [activeLang, setActiveLang] = useState<LangCode>('uk');
   const [description, setDescription] = useState<MultiLang>({ uk: '', ru: '', en: '', pl: '', ro: '' });
   const [attributes, setAttributes] = useState<any>({});
-  const [tariffs, setTariffs] = useState<RentalTariff[]>([]);
+  const [tariffs, setTariffs] = useState<TariffFormRow[]>([]);
   const [deposit, setDeposit] = useState<number>(0);
   const [configurationList, setConfigurationList] = useState<MultiLang[]>([]);
   const [newConfigItem, setNewConfigItem] = useState<MultiLang>({ uk: '', ru: '', en: '', pl: '', ro: '' });
   const [currentDiscount, setCurrentDiscount] = useState<number | null>(null);
   const [isNew, setIsNew] = useState<boolean>(false);
   const [isAvailable, setIsAvailable] = useState<boolean>(false);
-  const [countingRules, setCountingRules] = useState<CarCountingRule[]>([]);
+  const [countingRules, setCountingRules] = useState<CountingRuleFormRow[]>([]);
   const [rentalConditions, setRentalConditions] = useState({
     freeDeliveryThreshold: 0,
     cancellationHours: 24,
@@ -121,9 +122,30 @@ export default function CarEditPage() {
       driveType: normalizeMultiLang(data.driveType),
       seats: data.seats,
     });
-    setTariffs(data.rentalTariff || []);
-    setDeposit(data.rentalTariff?.[0]?.deposit || 0);
-    setCountingRules(data.carCountingRule || []);
+    // API returns *Minor (копійки); form holds UAH whole units. Convert at
+    // load — admin sees "200", not "20000". Submit handlers convert back.
+    setTariffs(
+      (data.rentalTariff || []).map((t: any) => ({
+        id: t.id,
+        carId: t.carId,
+        minDays: t.minDays,
+        maxDays: t.maxDays,
+        dailyPrice: (t.dailyPriceMinor ?? 0) / 100,
+        deposit: (t.depositMinor ?? 0) / 100,
+      })),
+    );
+    setDeposit((data.rentalTariff?.[0]?.depositMinor ?? 0) / 100);
+    setCountingRules(
+      (data.carCountingRule || []).map((r: any) => ({
+        id: r.id,
+        carId: r.carId,
+        pricePercent: r.pricePercent,
+        depositPercent: r.depositPercent,
+        priceFixed: r.priceFixedMinor != null ? r.priceFixedMinor / 100 : null,
+        priceFixed30: r.priceFixed30Minor != null ? r.priceFixed30Minor / 100 : null,
+        depositFixed: r.depositFixedMinor != null ? r.depositFixedMinor / 100 : null,
+      })),
+    );
     try {
       const parsedConfig = data.configuration || [];
       setConfigurationList(parsedConfig.map((item: any) => normalizeMultiLang(item)));
@@ -140,7 +162,7 @@ export default function CarEditPage() {
     // stay clean.
     const minorToUah = (v: number | null | undefined) => (v ?? 0) / 100;
     setRentalConditions({
-      freeDeliveryThreshold: data.freeDeliveryThreshold ?? 0,
+      freeDeliveryThreshold: minorToUah(data.freeDeliveryThresholdMinor),
       cancellationHours: data.cancellationHours ?? 24,
       paymentMethods: data.paymentMethods ?? '',
       minRentalDays: data.minRentalDays ?? 1,
@@ -154,15 +176,15 @@ export default function CarEditPage() {
       unlimitedMileage: data.unlimitedMileage ?? false,
       maxRentalDays: data.maxRentalDays ?? 0,
       allowCrossBorder: data.allowCrossBorder ?? false,
-      crossBorderFee: data.crossBorderFee ?? 0,
-      crossBorderDailyFee: data.crossBorderDailyFee ?? 0,
+      crossBorderFee: minorToUah(data.crossBorderFeeMinor),
+      crossBorderDailyFee: minorToUah(data.crossBorderDailyFeeMinor),
       allowedCountries: (data.allowedCountries ?? []).join(', '),
       lateReturnGraceMin: data.lateReturnGraceMin ?? 0,
       lateReturnFeePerHour: minorToUah(data.lateReturnFeePerHourMinor),
       youngerDriverAge: data.youngerDriverAge ?? 0,
       youngerDriverSurcharge: minorToUah(data.youngerDriverSurchargeMinor),
       petAllowed: data.petAllowed ?? false,
-      cleaningFee: data.cleaningFee ?? 0,
+      cleaningFee: minorToUah(data.cleaningFeeMinor),
       unlimitedMileagePrice1Day: minorToUah(data.unlimitedMileagePrice1DayMinor),
       unlimitedMileagePrice2to7: minorToUah(data.unlimitedMileagePrice2to7Minor),
       unlimitedMileageFreeFromDays: data.unlimitedMileageFreeFromDays ?? 0,
@@ -292,17 +314,22 @@ export default function CarEditPage() {
     if (existingIndex >= 0) {
       newTariffs[existingIndex] = { ...newTariffs[existingIndex], dailyPrice: price };
     } else {
-      newTariffs.push({ minDays: min, maxDays: max, dailyPrice: price, deposit: deposit } as RentalTariff);
+      newTariffs.push({ minDays: min, maxDays: max, dailyPrice: price, deposit: deposit });
     }
     setTariffs(newTariffs);
   };
 
   const handleSaveTariffs = async () => {
-    const tariffsToSend = tariffs.map((t) => ({ ...t, deposit: Number(deposit) }));
+    // Form holds UAH whole units; API expects копійки.
+    const tariffsToSend = tariffs.map((t) => ({
+      minDays: t.minDays,
+      maxDays: t.maxDays,
+      dailyPriceMinor: Math.round(Number(t.dailyPrice) * 100),
+      depositMinor: Math.round(Number(deposit) * 100),
+    }));
     // Sequential (audit M-14): if overmileagePrice update fails, don't persist tariffs
     // at a different price expectation. Tariffs second because they are the bigger op.
     try {
-      // Form holds UAH whole units; DB stores копійки.
       await updateCar(id, { overmileagePriceMinor: Math.round(Number(rentalConditions.overmileagePrice) * 100) || 0 });
       await updateRentalTariffs(id, tariffsToSend);
       await loadData();
@@ -313,13 +340,15 @@ export default function CarEditPage() {
   };
 
   const handleSaveCoverage = async () => {
+    // Counting-rule form keeps UAH whole units; API expects копійки.
+    const uahToMinor = (v: number | null) => (v == null ? null : Math.round(v * 100));
     try {
       const rulesToSend = countingRules.map((r) => ({
         pricePercent: r.pricePercent,
         depositPercent: r.depositPercent,
-        priceFixed: r.priceFixed ?? null,
-        priceFixed30: r.priceFixed30 ?? null,
-        depositFixed: r.depositFixed ?? null,
+        priceFixedMinor: uahToMinor(r.priceFixed),
+        priceFixed30Minor: uahToMinor(r.priceFixed30),
+        depositFixedMinor: uahToMinor(r.depositFixed),
       }));
       await updateCountingRules(id, rulesToSend);
       await loadData();
@@ -338,7 +367,7 @@ export default function CarEditPage() {
     };
     try {
       await updateCar(id, {
-        freeDeliveryThreshold: Number(rentalConditions.freeDeliveryThreshold) || 0,
+        freeDeliveryThresholdMinor: uahToMinor(rentalConditions.freeDeliveryThreshold) ?? 0,
         cancellationHours: Number(rentalConditions.cancellationHours) || 0,
         paymentMethods: rentalConditions.paymentMethods || null,
         minRentalDays: Number(rentalConditions.minRentalDays) || 1,
@@ -352,15 +381,15 @@ export default function CarEditPage() {
         unlimitedMileage: rentalConditions.unlimitedMileage,
         maxRentalDays: Number(rentalConditions.maxRentalDays) || null,
         allowCrossBorder: rentalConditions.allowCrossBorder,
-        crossBorderFee: Number(rentalConditions.crossBorderFee) || null,
-        crossBorderDailyFee: Number(rentalConditions.crossBorderDailyFee) || null,
+        crossBorderFeeMinor: uahToMinor(rentalConditions.crossBorderFee),
+        crossBorderDailyFeeMinor: uahToMinor(rentalConditions.crossBorderDailyFee),
         allowedCountries: rentalConditions.allowedCountries ? rentalConditions.allowedCountries.split(',').map((s: string) => s.trim()).filter(Boolean) : null,
         lateReturnGraceMin: Number(rentalConditions.lateReturnGraceMin) || null,
         lateReturnFeePerHourMinor: uahToMinor(rentalConditions.lateReturnFeePerHour),
         youngerDriverAge: Number(rentalConditions.youngerDriverAge) || null,
         youngerDriverSurchargeMinor: uahToMinor(rentalConditions.youngerDriverSurcharge),
         petAllowed: rentalConditions.petAllowed,
-        cleaningFee: Number(rentalConditions.cleaningFee) || null,
+        cleaningFeeMinor: uahToMinor(rentalConditions.cleaningFee),
         unlimitedMileagePrice1DayMinor: uahToMinor(rentalConditions.unlimitedMileagePrice1Day),
         unlimitedMileagePrice2to7Minor: uahToMinor(rentalConditions.unlimitedMileagePrice2to7),
         unlimitedMileageFreeFromDays: Number(rentalConditions.unlimitedMileageFreeFromDays) || null,

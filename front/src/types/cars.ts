@@ -13,17 +13,17 @@ export interface CarCountingRule {
   depositPercent: number;
   id: number;
   pricePercent: number;
-  priceFixed: number | null;
-  priceFixed30: number | null;
-  depositFixed: number | null;
+  priceFixedMinor: number | null;
+  priceFixed30Minor: number | null;
+  depositFixedMinor: number | null;
 }
 
 export interface RentalTariff {
   id: number;
-  deposit: number;
+  depositMinor: number;
   minDays: number;
   maxDays: number;
-  dailyPrice: number;
+  dailyPriceMinor: number;
   carId: number;
 }
 
@@ -91,8 +91,8 @@ export interface Car {
   isNew: boolean;
   isAvailable: boolean;
   alt: string | null;
-  deliveryPrice: number | null;
-  freeDeliveryThreshold: number | null;
+  deliveryPriceMinor: number | null;
+  freeDeliveryThresholdMinor: number | null;
   cancellationHours: number | null;
   paymentMethods: string | null;
   minRentalDays: number | null;
@@ -106,15 +106,15 @@ export interface Car {
   unlimitedMileage: boolean;
   maxRentalDays: number | null;
   allowCrossBorder: boolean;
-  crossBorderFee: number | null;
-  crossBorderDailyFee: number | null;
+  crossBorderFeeMinor: number | null;
+  crossBorderDailyFeeMinor: number | null;
   allowedCountries: string[] | null;
   lateReturnGraceMin: number | null;
   lateReturnFeePerHourMinor: number | null;
   youngerDriverAge: number | null;
   youngerDriverSurchargeMinor: number | null;
   petAllowed: boolean;
-  cleaningFee: number | null;
+  cleaningFeeMinor: number | null;
   unlimitedMileagePrice1DayMinor: number | null;
   unlimitedMileagePrice2to7Minor: number | null;
   unlimitedMileageFreeFromDays: number | null;

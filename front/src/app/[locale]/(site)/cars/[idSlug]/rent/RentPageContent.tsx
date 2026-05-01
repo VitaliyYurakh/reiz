@@ -246,7 +246,8 @@ export default function RentPageContent({
     return car.carCountingRule.find((plan) => plan.id === selectedPlanId);
   }, [car.carCountingRule, selectedPlanId]);
 
-  const baseDailyPrice = car.rentalTariff[0]?.dailyPrice ?? 0;
+  // All money fields below are in копійки. Divide once at the boundary.
+  const baseDailyPrice = (car.rentalTariff[0]?.dailyPriceMinor ?? 0) / 100;
 
   const activeTariff = useMemo(() => {
     if (car.rentalTariff.length === 0) return undefined;
@@ -263,10 +264,10 @@ export default function RentPageContent({
   const pricePercent = selectedPlan?.pricePercent ?? 0;
   const depositPercent = selectedPlan?.depositPercent ?? 0;
 
-  const basePrice = activeTariff?.dailyPrice ?? baseDailyPrice;
+  const basePrice = activeTariff ? activeTariff.dailyPriceMinor / 100 : baseDailyPrice;
   const is30Plus = totalDays >= 29;
-  const pFixed30 = selectedPlan?.priceFixed30 ?? null;
-  const pFixed = selectedPlan?.priceFixed ?? null;
+  const pFixed30 = selectedPlan?.priceFixed30Minor != null ? selectedPlan.priceFixed30Minor / 100 : null;
+  const pFixed = selectedPlan?.priceFixedMinor != null ? selectedPlan.priceFixedMinor / 100 : null;
   const surchargePerDay = is30Plus && pFixed30 != null ? pFixed30 / 30 : (pFixed ?? 0);
   const dailyPriceBeforeDiscount = pFixed != null || pFixed30 != null
     ? basePrice + surchargePerDay
@@ -275,9 +276,9 @@ export default function RentPageContent({
   const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
   const hasDiscount = discountPercent > 0;
 
-  const depositAmount = selectedPlan?.depositFixed != null
-    ? selectedPlan.depositFixed
-    : Math.max((activeTariff?.deposit ?? 0) * (1 - depositPercent / 100), 120);
+  const depositAmount = selectedPlan?.depositFixedMinor != null
+    ? selectedPlan.depositFixedMinor / 100
+    : Math.max(((activeTariff?.depositMinor ?? 0) / 100) * (1 - depositPercent / 100), 120);
 
   const extrasPerDay = useMemo(() => {
     return Array.from(selectedExtras).reduce((sum, id) => {

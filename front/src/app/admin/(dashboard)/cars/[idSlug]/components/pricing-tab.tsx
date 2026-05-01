@@ -3,7 +3,29 @@
 import React from 'react';
 import { AlertTriangle, ClipboardList, DollarSign, Globe, PackagePlus, Shield, Sparkles, Tag } from 'lucide-react';
 import { useAdminTheme } from '@/context/AdminThemeContext';
-import type { CarCountingRule, RentalTariff, Segment } from '@/types/cars';
+import type { Segment } from '@/types/cars';
+
+// Form state for the counting-rule + tariff editors. Both use UAH whole
+// units (admin types 200, not 20000). The parent page converts to/from
+// `*Minor` at the API boundary in load/submit handlers.
+export interface CountingRuleFormRow {
+  id?: number;
+  carId?: number;
+  pricePercent: number;
+  depositPercent: number;
+  priceFixed: number | null;
+  priceFixed30: number | null;
+  depositFixed: number | null;
+}
+
+export interface TariffFormRow {
+  id?: number;
+  carId?: number;
+  minDays: number;
+  maxDays: number;
+  dailyPrice: number;
+  deposit: number;
+}
 import { HCard, HSaveButton, HInput, HTariffField } from './ui-primitives';
 
 const COVERAGE_LABELS: Record<number, string> = {
@@ -58,7 +80,7 @@ interface RentalConditionsState {
 }
 
 interface PricingTabProps {
-  tariffs: RentalTariff[];
+  tariffs: TariffFormRow[];
   deposit: number;
   setDeposit: (val: number) => void;
   segmentInfo: Segment | null;
@@ -69,8 +91,8 @@ interface PricingTabProps {
   onChangeDiscount: (val: string) => void;
   isNew: boolean;
   onToggleNew: () => void;
-  countingRules: CarCountingRule[];
-  setCountingRules: (rules: CarCountingRule[]) => void;
+  countingRules: CountingRuleFormRow[];
+  setCountingRules: (rules: CountingRuleFormRow[]) => void;
   onSaveCoverage: () => void;
   rentalConditions: RentalConditionsState;
   setRentalConditions: (val: RentalConditionsState) => void;

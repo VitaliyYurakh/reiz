@@ -26,14 +26,14 @@ class PricingService {
                 minDays: {lte: totalDays},
                 maxDays: {gte: totalDays},
             },
-            orderBy: {dailyPrice: 'asc'},
+            orderBy: {dailyPriceMinor: 'asc'},
         });
 
-        // Always look up the legacy RentalTariff — we need `tariff.deposit`
-        // as the base security deposit (a per-car fixed figure stored in main
-        // USD units, e.g. 920 for a Kia Sportage). RatePlan carries only the
-        // daily price, so this lookup is the single source of truth for the
-        // deposit regardless of which pricing source wins the rate below.
+        // Always look up the legacy RentalTariff — we need `tariff.depositMinor`
+        // as the base security deposit (a per-car fixed figure, e.g. 92000 for
+        // a Kia Sportage = 920 USD/UAH). RatePlan carries only the daily price,
+        // so this lookup is the single source of truth for the deposit
+        // regardless of which pricing source wins the rate below.
         const tariff = await prisma.rentalTariff.findFirst({
             where: {
                 carId,
@@ -52,14 +52,14 @@ class PricingService {
         let rateCurrency = currency || 'USD';
 
         if (ratePlan) {
-            dailyRateMinor = ratePlan.dailyPrice;
+            dailyRateMinor = ratePlan.dailyPriceMinor;
             ratePlanId = ratePlan.id;
             ratePlanName = ratePlan.name;
             rateCurrency = ratePlan.currency;
         } else if (tariff) {
-            // Legacy RentalTariff.dailyPrice stores value in MAIN units (USD
-            // dollars); dailyRateMinor is expected in MINOR units (cents).
-            dailyRateMinor = tariff.dailyPrice * 100;
+            // RentalTariff.dailyPriceMinor and dailyRateMinor share the same
+            // unit (копійки/cents minor units) — direct assignment, no *100.
+            dailyRateMinor = tariff.dailyPriceMinor;
         }
 
         const rentalTotal = dailyRateMinor * totalDays;
@@ -98,10 +98,10 @@ class PricingService {
             const countingRule = await prisma.carCountingRule.findFirst({
                 where: {carId, depositPercent},
             });
-            if (countingRule?.depositFixed != null) {
-                depositAmount = countingRule.depositFixed * 100;
+            if (countingRule?.depositFixedMinor != null) {
+                depositAmount = countingRule.depositFixedMinor;
             } else {
-                depositAmount = Math.round((tariff.deposit * 100 * (100 - depositPercent)) / 100);
+                depositAmount = Math.round((tariff.depositMinor * (100 - depositPercent)) / 100);
             }
         }
 
@@ -202,7 +202,7 @@ class PricingService {
         carId: number;
         minDays: number;
         maxDays: number;
-        dailyPrice: number;
+        dailyPriceMinor: number;
         currency?: Currency;
         isActive?: boolean;
     }) {
@@ -212,7 +212,7 @@ class PricingService {
                 carId: data.carId,
                 minDays: data.minDays,
                 maxDays: data.maxDays,
-                dailyPrice: data.dailyPrice,
+                dailyPriceMinor: data.dailyPriceMinor,
                 currency: data.currency ?? Currency.USD,
                 isActive: data.isActive !== undefined ? data.isActive : true,
             },
@@ -223,7 +223,7 @@ class PricingService {
         name?: string;
         minDays?: number;
         maxDays?: number;
-        dailyPrice?: number;
+        dailyPriceMinor?: number;
         currency?: Currency;
         isActive?: boolean;
     }) {

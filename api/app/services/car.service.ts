@@ -97,10 +97,10 @@ class CarService {
 
             await tx.rentalTariff.createMany({
                 data: [
-                    {dailyPrice: 0, deposit: 0, minDays: 1, maxDays: 2, carId: newCar.id},
-                    {dailyPrice: 0, deposit: 0, minDays: 3, maxDays: 7, carId: newCar.id},
-                    {dailyPrice: 0, deposit: 0, minDays: 8, maxDays: 29, carId: newCar.id},
-                    {dailyPrice: 0, deposit: 0, minDays: 30, maxDays: 0, carId: newCar.id},
+                    {dailyPriceMinor: 0, depositMinor: 0, minDays: 1, maxDays: 2, carId: newCar.id},
+                    {dailyPriceMinor: 0, depositMinor: 0, minDays: 3, maxDays: 7, carId: newCar.id},
+                    {dailyPriceMinor: 0, depositMinor: 0, minDays: 8, maxDays: 29, carId: newCar.id},
+                    {dailyPriceMinor: 0, depositMinor: 0, minDays: 30, maxDays: 0, carId: newCar.id},
                 ],
             });
 

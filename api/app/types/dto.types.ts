@@ -35,8 +35,8 @@ type UpdateCarDto = {
     configuration?: Record<string, string>[];
     alt?: string;
     isNew?: boolean;
-    deliveryPrice?: number | null;
-    freeDeliveryThreshold?: number | null;
+    deliveryPriceMinor?: number | null;
+    freeDeliveryThresholdMinor?: number | null;
     cancellationHours?: number | null;
     paymentMethods?: string | null;
     minRentalDays?: number | null;
@@ -50,15 +50,15 @@ type UpdateCarDto = {
     unlimitedMileage?: boolean;
     maxRentalDays?: number | null;
     allowCrossBorder?: boolean;
-    crossBorderFee?: number | null;
-    crossBorderDailyFee?: number | null;
+    crossBorderFeeMinor?: number | null;
+    crossBorderDailyFeeMinor?: number | null;
     allowedCountries?: string[] | null;
     lateReturnGraceMin?: number | null;
     lateReturnFeePerHourMinor?: number | null;
     youngerDriverAge?: number | null;
     youngerDriverSurchargeMinor?: number | null;
     petAllowed?: boolean;
-    cleaningFee?: number | null;
+    cleaningFeeMinor?: number | null;
     unlimitedMileagePrice1DayMinor?: number | null;
     unlimitedMileagePrice2to7Minor?: number | null;
     unlimitedMileageFreeFromDays?: number | null;
@@ -102,19 +102,21 @@ type CarMaintenanceDto = {
     lastServiceAt?: string | Date | null;
 };
 
+// Money fields are in копійки (Int *Minor) — same convention as the rest
+// of the platform after the Phase B refactor (commit 9bf2dd1+).
 type TariffDto = {
-    deposit: number;
+    depositMinor: number;
     minDays: number;
     maxDays: number;
-    dailyPrice: number;
+    dailyPriceMinor: number;
 };
 
 type CountingRuleDto = {
     pricePercent: number;
     depositPercent: number;
-    priceFixed?: number | null;
-    priceFixed30?: number | null;
-    depositFixed?: number | null;
+    priceFixedMinor?: number | null;
+    priceFixed30Minor?: number | null;
+    depositFixedMinor?: number | null;
 };
 
 type CarPhotoDto = {

@@ -201,8 +201,8 @@ export const updateCarSchema = z.object({
         configuration: z.array(z.record(z.string(), z.string())).optional(),
         alt: z.string().max(500).optional(),
         isNew: z.boolean().optional(),
-        deliveryPrice: z.number().int().min(0).nullable().optional(),
-        freeDeliveryThreshold: z.number().int().min(0).nullable().optional(),
+        deliveryPriceMinor: z.number().int().min(0).nullable().optional(),
+        freeDeliveryThresholdMinor: z.number().int().min(0).nullable().optional(),
         cancellationHours: z.number().int().min(0).nullable().optional(),
         paymentMethods: z.string().max(500).nullable().optional(),
         minRentalDays: z.number().int().min(1).nullable().optional(),
@@ -216,15 +216,15 @@ export const updateCarSchema = z.object({
         unlimitedMileage: z.boolean().optional(),
         maxRentalDays: z.number().int().min(1).nullable().optional(),
         allowCrossBorder: z.boolean().optional(),
-        crossBorderFee: z.number().int().min(0).nullable().optional(),
-        crossBorderDailyFee: z.number().int().min(0).nullable().optional(),
+        crossBorderFeeMinor: z.number().int().min(0).nullable().optional(),
+        crossBorderDailyFeeMinor: z.number().int().min(0).nullable().optional(),
         allowedCountries: z.array(z.string()).nullable().optional(),
         lateReturnGraceMin: z.number().int().min(0).nullable().optional(),
         lateReturnFeePerHourMinor: z.number().int().min(0).nullable().optional(),
         youngerDriverAge: z.number().int().min(16).nullable().optional(),
         youngerDriverSurchargeMinor: z.number().int().min(0).nullable().optional(),
         petAllowed: z.boolean().optional(),
-        cleaningFee: z.number().int().min(0).nullable().optional(),
+        cleaningFeeMinor: z.number().int().min(0).nullable().optional(),
         unlimitedMileagePrice1DayMinor: z.number().int().min(0).nullable().optional(),
         unlimitedMileagePrice2to7Minor: z.number().int().min(0).nullable().optional(),
         unlimitedMileageFreeFromDays: z.number().int().min(0).nullable().optional(),
@@ -262,10 +262,10 @@ export const updateCarSchema = z.object({
 
 export const tariffSchema = z.object({
     data: z.array(z.object({
-        deposit: z.number().min(0),
+        depositMinor: z.number().int().min(0),
         minDays: z.number().int().min(0),
         maxDays: z.number().int().min(0),
-        dailyPrice: z.number().min(0),
+        dailyPriceMinor: z.number().int().min(0),
     })),
 });
 
@@ -282,9 +282,9 @@ export const countingRuleSchema = z.object({
     data: z.array(z.object({
         pricePercent: z.number().min(0),
         depositPercent: z.number().min(0),
-        priceFixed: z.number().min(0).nullable().optional(),
-        priceFixed30: z.number().min(0).nullable().optional(),
-        depositFixed: z.number().min(0).nullable().optional(),
+        priceFixedMinor: z.number().int().min(0).nullable().optional(),
+        priceFixed30Minor: z.number().int().min(0).nullable().optional(),
+        depositFixedMinor: z.number().int().min(0).nullable().optional(),
     })),
 });
 
@@ -464,7 +464,7 @@ export const createRatePlanSchema = z.object({
     carId: z.number().int().positive(),
     minDays: z.number().int().min(0),
     maxDays: z.number().int().min(0),
-    dailyPrice: z.number().int().min(0),
+    dailyPriceMinor: z.number().int().min(0),
     currency: z.nativeEnum(Currency).optional(),
     isActive: z.boolean().optional(),
 });
@@ -473,7 +473,7 @@ export const updateRatePlanSchema = z.object({
     name: z.string().min(1).max(200).optional(),
     minDays: z.number().int().min(0).optional(),
     maxDays: z.number().int().min(0).optional(),
-    dailyPrice: z.number().int().min(0).optional(),
+    dailyPriceMinor: z.number().int().min(0).optional(),
     currency: z.nativeEnum(Currency).optional(),
     isActive: z.boolean().optional(),
 });
