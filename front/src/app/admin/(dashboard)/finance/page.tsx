@@ -736,7 +736,7 @@ export default function FinancePage() {
                 </tr>
               ) : (
                 transactions.map((tx) => {
-                  const isIn = tx.direction === 'in';
+                  const isIn = tx.direction?.toLowerCase() === 'in';
                   const DirIcon = isIn ? ArrowDownLeft : ArrowUpRight;
                   return (
                     <tr
