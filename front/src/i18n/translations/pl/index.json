@@ -920,6 +920,14 @@
     },
     "posts": [
       {
+        "title": "Czerniowce samochodem ze Lwowa: trasa, atrakcje i porady",
+        "excerpt": "Gotowy plan wyjazdu ze Lwowa do Czerniowiec autem: trasa 270 km, top atrakcje, twierdza w Chocimiu, parkowanie i co zjeść.",
+        "date": "01.05.2026",
+        "imgAlt": "Czerniowce — wyjazd autem ze Lwowa: trasa i atrakcje REIZ",
+        "image": "/img/blog/chernivtsi-trip-centered-v3.webp",
+        "slug": "chernivtsi-trip-from-lviv"
+      },
+      {
         "title": "Długoterminowy wynajem auta na Ukrainie: jak wybrać samochód na miesiąc lub dłużej",
         "excerpt": "Praktyczny poradnik dla biznesu, relokacji i dłuższych podróży: kiedy opłaca się wynajem długoterminowy, co sprawdzić w umowie i jak dobrać klasę auta.",
         "date": "25.04.2026",
@@ -2983,6 +2991,135 @@
       "title": "Podsumowanie",
       "p1": "Długoterminowy wynajem auta to nie tylko niższa cena dobowa. To sposób na przewidywalną mobilność bez zakupu, kosztów serwisowych i zależności od taksówek lub rozkładów jazdy.",
       "p2": "Aby wynajem rzeczywiście się opłacał, policz cały scenariusz: okres, przebieg, klasę auta, kaucję, ubezpieczenie, podstawienie i zwrot. Zespół REIZ pomoże zamienić te parametry w czytelną ofertę."
+    }
+  },
+  "blogChernivtsiTripFromLviv": {
+    "meta": {
+      "title": "Czerniowce samochodem ze Lwowa 2026: trasa, atrakcje, porady",
+      "description": "Jak zaplanować wyjazd ze Lwowa do Czerniowiec autem: trasa, czas jazdy, top atrakcje, twierdza w Chocimiu, parkowanie i co zjeść. Przewodnik REIZ.",
+      "og_title": "Czerniowce autem ze Lwowa: trasa i top atrakcje | REIZ",
+      "og_description": "Przewodnik REIZ po wyjeździe autem ze Lwowa do Czerniowiec: trasa, czas, top atrakcje, Rezydencja Metropolitów Bukowiny, twierdza w Chocimiu, parkowanie."
+    },
+    "breadcrumbs": {
+      "home": "Strona główna",
+      "blog": "Blog",
+      "current": "Czerniowce ze Lwowa",
+      "nav_label": "Nawigacja po stronie"
+    },
+    "title": "Czerniowce samochodem ze Lwowa: trasa, atrakcje i praktyczne porady",
+    "hero_alt": "Czerniowce — wyjazd autem ze Lwowa: trasa, atrakcje i porady REIZ",
+    "intro": [
+      "Czerniowce to miasto, którego nie zwiedzisz w jeden dzień. Austro-węgierska architektura, długa deptakowa starówka, kawiarnie w podwórkach i jeden z najpiękniejszych zabytków Ukrainy — Rezydencja Metropolitów Bukowiny i Dalmacji z listy UNESCO. To wszystko ok. 270 km od Lwowa, czyli mniej więcej 4 godziny wygodną trasą.",
+      "W tym przewodniku zebraliśmy gotowy plan wyjazdu ze Lwowa autem: trasę, parkowanie, top atrakcje samego miasta, co zobaczyć w okolicy (twierdza w Chocimiu i Kamieniec Podolski), gdzie zjeść i na ile dni najlepiej wziąć samochód, by nie wymęczyć się non stop za kierownicą."
+    ],
+    "quick_take": {
+      "title": "W skrócie: dla kogo ten wyjazd autem",
+      "items": [
+        "Turystom, którzy chcą zobaczyć 'Mały Wiedeń' bez pośpiechu i bez zależności od rozkładów autobusów.",
+        "Parom i małym grupom na weekend: 2–3 dni Czerniowce + Chocim + Kamieniec Podolski to już połowa zachodniej Ukrainy.",
+        "Rodzinom z dziećmi: autem łatwiej z bagażem, fotelikiem i własnym planem postojów.",
+        "Gościom z zagranicy, którzy przylecieli do Lwowa i chcą jechać dalej w głąb kraju."
+      ]
+    },
+    "sections": [
+      {
+        "title": "Trasa Lwów — Czerniowce: droga, czas, paliwo",
+        "text": "Najkrótszy wariant to trasa M-06 / H-10 przez Stryj, Dolinę, Iwano-Frankiwsk, Kołomyję i dalej do Czerniowiec. Łącznie ok. 270 km, średnio 4 godziny bez postojów. Droga jest w większości asfaltowa, miejscami remonty — zarezerwuj +30 minut zapasu. Połowa trasy to równina, druga — malownicze podgórze Karpat.",
+        "list": [
+          "Lwów → Stryj: ~75 km, dobra trasa.",
+          "Stryj → Iwano-Frankiwsk: ~110 km, częściowo droga dwupasmowa.",
+          "Iwano-Frankiwsk → Kołomyja: ~70 km, dobra jakość nawierzchni.",
+          "Kołomyja → Czerniowce: ~75 km, uwaga na ograniczenia 50–70 km/h."
+        ]
+      },
+      {
+        "title": "Co zobaczyć w Czerniowcach w jeden dzień",
+        "text": "Większość atrakcji jest skupiona w deptakowej starówce, więc po zaparkowaniu auta wystarczy spacer. Orientacyjna trasa na 5–7 godzin z przerwami na kawę:",
+        "list": [
+          "Rynek, ratusz i panorama z tarasu widokowego.",
+          "Ulica Olgi Kobylańskiej — deptakowa 'mała Europa' pełna kawiarni.",
+          "Katedra Ormiańska z akustyką sali koncertowej.",
+          "Plac Turecki i kolorowa dzielnica 'Tureckiej Studni'.",
+          "Sobór Świętego Ducha z charakterystyczną zieloną kopułą.",
+          "Plac Filharmonii z fontanną i wieczornym światłem latarni.",
+          "Ogród Botaniczny Uniwersytetu — spokój z dala od tłumów."
+        ]
+      },
+      {
+        "title": "Rezydencja Metropolitów Bukowiny: główna atrakcja UNESCO",
+        "text": "Najsłynniejszy zabytek Czerniowiec to Rezydencja Metropolitów Bukowiny i Dalmacji, dziś główny budynek Czerniowieckiego Uniwersytetu Narodowego im. Jurija Fedkowycza. Od 2011 roku wpisana na listę UNESCO: czerwona cegła, motywy mauretańskie i bizantyjskie, dziedziniec często porównywany z Alhambrą. Zwiedzanie wnętrz (Sala Marmurowa, Synodalna, kaplica) trwa około godziny — uwzględnij to w planie."
+      },
+      {
+        "title": "Okolice: twierdza w Chocimiu i Kamieniec Podolski",
+        "text": "Jeśli masz 2–3 dni i auto, nie zostawaj tylko w mieście. W promieniu 60–100 km czekają dwie lokacje, na każdą warto zarezerwować osobny dzień: twierdza w Chocimiu (~70 km na wschód) i Stara Twierdza w Kamieńcu Podolskim (~85 km dalej). Obie znajdują się w top 10 twierdz Ukrainy.",
+        "list": [
+          "Twierdza w Chocimiu — masywne mury z XV w. nad Dniestrem, częsty plan filmów historycznych.",
+          "Kanion Dniestru obok Chocimia — malownicze punkty widokowe.",
+          "Kamieniec Podolski — miasto-wyspa w zakolu rzeki Smotrycz, ze słynnym mostem i Starą Twierdzą.",
+          "Trasę 'Czerniowce → Chocim → Kamieniec' bez problemu zmieścisz w jeden intensywny dzień za kierownicą."
+        ]
+      },
+      {
+        "title": "Gdzie parkować w centrum Czerniowiec",
+        "text": "Centrum jest częściowo deptakowe, więc auto najlepiej zostawić na płatnych parkingach przy Rynku lub przy Placu Soborowym. Wszystko jest w zasięgu spaceru, opłaty zwykle przez aplikację miejską lub w parkomatach. Hotele w centrum prawie zawsze mają własny parking — potwierdź to przy rezerwacji.",
+        "list": [
+          "Płatny parking przy Rynku — najwygodniej dla pieszego zwiedzania.",
+          "Bezpłatne miejsca są w bocznych uliczkach, 10–15 minut spaceru.",
+          "W weekendy główne ulice są często zamknięte — planuj parkowanie z wyprzedzeniem."
+        ]
+      },
+      {
+        "title": "Co zjeść w Czerniowcach",
+        "text": "Kuchnia czerniowiecka to mieszanka wpływów austriackich, rumuńskich, żydowskich i mołdawskich. Kawiarnie z domowymi tortami, čevapi z grillowanymi warzywami, plăcinte z serem, domowe wino z Besarabii. Większość lokalnych miejsc znajdziesz na ulicy Kobylańskiej lub w pobliskich podwórkach.",
+        "list": [
+          "Klasyczna kawa po wiedeńsku z tortem Sachera — w każdej kawiarni w centrum.",
+          "Čevapi i lokalne piwo w małych bistro.",
+          "Plăcinte (cienkie placki z nadzieniem) — typowe danie bukowińskie.",
+          "Lokalne wino z obwodu czerniowieckiego i odeskiego."
+        ]
+      },
+      {
+        "title": "Porady na wyjazd autem ze Lwowa",
+        "text": "Kilka detali, które sprawią, że podróż będzie wygodniejsza i tańsza. Wszystko sprawdzone na klientach REIZ, którzy regularnie wynajmują auto na trasę Lwów — Czerniowce.",
+        "list": [
+          "Wyjeżdżaj ze Lwowa przed 9:00 — unikniesz porannych korków i dotrzesz na późny obiad.",
+          "Tankuj do pełna we Lwowie lub w Stryju — ceny paliwa są bardziej stabilne niż po drodze.",
+          "Pobierz mapy Google Maps offline na odcinek Kołomyja — Czerniowce na wypadek słabego zasięgu.",
+          "Bierz auto na minimum 2 doby: dzień na dojazd i miasto, drugi na Chocim/Kamieniec.",
+          "Sprawdź prześwit auta, jeśli planujesz zjazd nad Kanion Dniestru."
+        ]
+      }
+    ],
+    "rental_box": {
+      "title": "Auto na wyjazd do Czerniowiec",
+      "text": "REIZ dobierze auto do twojego wyjazdu: ekonomiczny hatchback dla dwóch osób, crossover dla rodziny lub sedan klasy biznes na komfortową jazdę trasą. Podstawiamy auto we Lwowie, ustalamy warunki zwrotu i pomagamy ułożyć trasę.",
+      "cta": "Wynajmij auto"
+    },
+    "faq": {
+      "title": "Najczęstsze pytania",
+      "items": [
+        {
+          "question": "Ile zajmuje przejazd ze Lwowa do Czerniowiec?",
+          "answer": "Średnio 4 godziny bez długich postojów. Trasa to ok. 270 km drogą M-06 / H-10 przez Stryj, Iwano-Frankiwsk i Kołomyję. Doliczaj +30 minut na remonty i kawę."
+        },
+        {
+          "question": "Jakie auto wybrać na wyjazd do Czerniowiec?",
+          "answer": "Dla dwojga — klasa ekonomiczna lub komfort. Dla rodziny z bagażem — crossover. Jeśli planujesz zjazdy nad Kanion Dniestru, weź auto z wyższym prześwitem."
+        },
+        {
+          "question": "Czy można dojechać do Czerniowiec komunikacją publiczną?",
+          "answer": "Tak, są pociągi i autobusy, ale ograniczają czas pobytu i utrudniają wycieczki w okolice (Chocim, Kamieniec Podolski). Auto daje swobodę — sam decydujesz, gdzie się zatrzymasz i ile czasu spędzisz w każdym miejscu."
+        },
+        {
+          "question": "Ile dni zaplanować na wyjazd?",
+          "answer": "Optymalnie 2–3 dni. Dzień 1 — dojazd i spacer po mieście, dzień 2 — Rezydencja Metropolitów i lokalne kawiarnie, dzień 3 — twierdza w Chocimiu i Kamieniec Podolski."
+        }
+      ]
+    },
+    "conclusion": {
+      "title": "Podsumowanie",
+      "p1": "Czerniowce to jeden z najwygodniejszych miejskich wyjazdów ze Lwowa: 4 godziny drogi, kawiarniana starówka w europejskim stylu, obiekt UNESCO i dwie mocne historyczne lokacje obok (Chocim i Kamieniec Podolski). Miasto rzadko jest zatłoczone turystami, więc nawet w sezonie nie postoisz w kolejkach.",
+      "p2": "Żeby wyjazd nie zamienił się w maraton, weź auto na minimum 2 doby, zaplanuj trasę z wyprzedzeniem i nie próbuj zobaczyć wszystkiego w jeden dzień. Zespół REIZ dobierze auto do twojego scenariusza i pomoże ułożyć wygodny harmonogram odbioru i zwrotu."
     }
   },
   "rentalPolicyModal": {

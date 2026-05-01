@@ -17,6 +17,7 @@ const DEFAULT_IMAGE = abs("/img/og/home-square.jpg");
 const BLOG_ARTICLE_IMAGES: Record<string, string> = {
   "/blog/long-term-car-rental-ukraine": abs("/img/blog/parking-payment-clean.webp"),
   "/blog/lviv-travel": abs("/img/blog/synevir-lake.webp"),
+  "/blog/chernivtsi-trip-from-lviv": abs("/img/blog/chernivtsi-trip-centered-v3.webp"),
 };
 
 // Auto-discover all blog articles from the filesystem.
