@@ -21,16 +21,25 @@ class FinanceService {
             _sum: {amountMinor: true},
         });
 
+        // Defensive against legacy rows that stored direction as 'IN'/'OUT'
+        // (uppercase). The system convention is lowercase 'in'/'out', and all
+        // current call sites have been aligned. Normalising here ensures that
+        // historical mixed-case data still rolls up correctly into the wallet
+        // balances instead of silently flipping IN entries into OUT and
+        // producing negative balances for accounts that have only received
+        // money. Aggregating IN+OUT additively also tolerates the rare case
+        // where both casings exist for the same account.
         const map = new Map<number, {totalIn: number; totalOut: number}>();
         for (const row of rows) {
             if (!map.has(row.accountId)) {
                 map.set(row.accountId, {totalIn: 0, totalOut: 0});
             }
             const entry = map.get(row.accountId)!;
-            if (row.direction === 'in') {
-                entry.totalIn = row._sum.amountMinor ?? 0;
+            const dir = (row.direction ?? '').toLowerCase();
+            if (dir === 'in') {
+                entry.totalIn += row._sum.amountMinor ?? 0;
             } else {
-                entry.totalOut = row._sum.amountMinor ?? 0;
+                entry.totalOut += row._sum.amountMinor ?? 0;
             }
         }
 
@@ -380,7 +389,7 @@ class FinanceService {
                 data: {
                     type: 'TRANSFER',
                     accountId: data.fromAccountId,
-                    direction: 'OUT',
+                    direction: 'out',
                     amountMinor: data.amountMinor,
                     currency: from.currency,
                     fxRate: 1.0,
@@ -394,7 +403,7 @@ class FinanceService {
                 data: {
                     type: 'TRANSFER',
                     accountId: data.toAccountId,
-                    direction: 'IN',
+                    direction: 'in',
                     amountMinor: inAmountMinorDest,
                     currency: to.currency,
                     fxRate,

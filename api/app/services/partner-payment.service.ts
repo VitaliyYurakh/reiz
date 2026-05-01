@@ -220,7 +220,7 @@ class PartnerPaymentService {
                 data: {
                     type:           'PARTNER_COMMISSION',
                     accountId:      input.accountId,
-                    direction:      'IN',
+                    direction:      'in',
                     amountMinor:    input.receivedUahMinor,
                     currency:       'UAH',
                     fxRate:         1.0,

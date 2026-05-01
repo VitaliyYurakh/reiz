@@ -722,7 +722,7 @@ class RentalService {
                 data: {
                     type: 'DEPOSIT_RECEIVED',
                     accountId: data.accountId,
-                    direction: 'IN',
+                    direction: 'in',
                     amountMinor: deposit.amountMinor,
                     currency: deposit.currency,
                     fxRate,
@@ -765,7 +765,7 @@ class RentalService {
                 data: {
                     type: 'DEPOSIT_RETURNED',
                     accountId: data.accountId,
-                    direction: 'OUT',
+                    direction: 'out',
                     amountMinor: deposit.amountMinor,
                     currency: deposit.currency,
                     fxRate,
