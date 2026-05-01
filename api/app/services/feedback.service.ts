@@ -1,5 +1,4 @@
-import {prisma} from '../utils';
-import {logger} from '../utils';
+import {prisma, logger, getErrorMessage} from '../utils';
 import telegramService from './telegram.service';
 import {
     BookingRequestDto,
@@ -84,13 +83,13 @@ class FeedbackService {
                 });
                 await telegramService.sendMessage(message);
             } catch (error) {
-                logger.error(`Failed to send Telegram notification for booking #${rentalRequest.id}: ${error.message}`);
+                logger.error(`Failed to send Telegram notification for booking #${rentalRequest.id}: ${getErrorMessage(error)}`);
             }
 
             logger.info(`RentalRequest #${rentalRequest.id} created for website booking`);
             return rentalRequest;
         } catch (error) {
-            logger.error(`Failed to create booking request: ${error.message}`);
+            logger.error(`Failed to create booking request: ${getErrorMessage(error)}`);
             throw error;
         }
     }
@@ -118,12 +117,12 @@ class FeedbackService {
                     });
                 }
             } catch (error) {
-                logger.error(`Failed to send Telegram notification for contact request ${contactRequest.id}: ${error.message}`);
+                logger.error(`Failed to send Telegram notification for contact request ${contactRequest.id}: ${getErrorMessage(error)}`);
             }
 
             return contactRequest;
         } catch (error) {
-            logger.error(`Failed to create contact request: ${error.message}`);
+            logger.error(`Failed to create contact request: ${getErrorMessage(error)}`);
             throw error;
         }
     }
@@ -150,12 +149,12 @@ class FeedbackService {
                     });
                 }
             } catch (error) {
-                logger.error(`Failed to send Telegram notification for callback request ${callbackRequest.id}: ${error.message}`);
+                logger.error(`Failed to send Telegram notification for callback request ${callbackRequest.id}: ${getErrorMessage(error)}`);
             }
 
             return callbackRequest;
         } catch (error) {
-            logger.error(`Failed to create callback request: ${error.message}`);
+            logger.error(`Failed to create callback request: ${getErrorMessage(error)}`);
             throw error;
         }
     }
@@ -183,12 +182,12 @@ class FeedbackService {
                     });
                 }
             } catch (error) {
-                logger.error(`Failed to send Telegram notification for business request ${businessRequest.id}: ${error.message}`);
+                logger.error(`Failed to send Telegram notification for business request ${businessRequest.id}: ${getErrorMessage(error)}`);
             }
 
             return businessRequest;
         } catch (error) {
-            logger.error(`Failed to create business request: ${error.message}`);
+            logger.error(`Failed to create business request: ${getErrorMessage(error)}`);
             throw error;
         }
     }
@@ -224,12 +223,12 @@ class FeedbackService {
                     });
                 }
             } catch (error) {
-                logger.error(`Failed to send Telegram notification for invest request ${businessRequest.id}: ${error.message}`);
+                logger.error(`Failed to send Telegram notification for invest request ${businessRequest.id}: ${getErrorMessage(error)}`);
             }
 
             return businessRequest;
         } catch (error) {
-            logger.error(`Failed to create invest request: ${error.message}`);
+            logger.error(`Failed to create invest request: ${getErrorMessage(error)}`);
             throw error;
         }
     }

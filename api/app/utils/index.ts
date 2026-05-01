@@ -2,7 +2,7 @@ import logger from './logger.utils';
 import prisma from './db.utils';
 import createHashedPassword from './hash.utils';
 import {verifyPassword} from './hash.utils';
-import {AccessDenied, UserNotFoundError, CarNotFoundError, NotFoundError, BadRequestError, ConflictError, ForbiddenError} from './error.utils';
+import {AccessDenied, UserNotFoundError, CarNotFoundError, NotFoundError, BadRequestError, ConflictError, ForbiddenError, getErrorMessage} from './error.utils';
 import {
     MS_PER_DAY,
     parseId,
@@ -37,6 +37,7 @@ export {
     BadRequestError,
     ConflictError,
     ForbiddenError,
+    getErrorMessage,
     MS_PER_DAY,
     parseId,
     parseOptionalId,

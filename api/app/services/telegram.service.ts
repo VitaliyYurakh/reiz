@@ -1,4 +1,4 @@
-import {logger} from '../utils';
+import {logger, getErrorMessage} from '../utils';
 import {env} from '../config/env';
 
 interface TelegramMessage {
@@ -69,7 +69,7 @@ class TelegramService {
 
             return this.cachedRates;
         } catch (error) {
-            logger.error(`Failed to fetch exchange rates: ${error.message}`);
+            logger.error(`Failed to fetch exchange rates: ${getErrorMessage(error)}`);
 
             // Return fallback rates if API fails
             return this.cachedRates || { eur: 0.85, uah: 41.5 };
@@ -120,10 +120,10 @@ class TelegramService {
             logger.info('Telegram notification sent successfully');
             return true;
         } catch (error) {
-            if (error.name === 'AbortError') {
+            if (error instanceof Error && error.name === 'AbortError') {
                 logger.error('Telegram API request timeout');
             } else {
-                logger.error(`Telegram API error: ${error.message}`);
+                logger.error(`Telegram API error: ${getErrorMessage(error)}`);
             }
             return false;
         }

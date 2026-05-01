@@ -1,5 +1,5 @@
 import {StatusCodes} from 'http-status-codes';
-import {logger, parseId, parsePagination} from '../utils';
+import {logger, parseId, parsePagination, getErrorMessage} from '../utils';
 import {Request, Response} from 'express';
 import rentalRequestService from '../services/rental-request.service';
 import logAudit from '../middleware/audit.middleware';
@@ -54,7 +54,7 @@ class RentalRequestController {
             logAudit({actorId: res.locals.user?.id, entityType: 'RentalRequest', entityId: parseId(id), action: 'STATUS_CHANGE', before, after: result, req});
             return res.status(StatusCodes.OK).json(result);
         } catch (error) {
-            const msg = error.message || 'Unknown error';
+            const msg = getErrorMessage(error) || 'Unknown error';
             // Any "business-rule" error from the service is plain Error with a
             // readable message — pass it through as 400 so the UI can show it.
             // Technical errors (Prisma crashes, null refs) fall through to 500.
@@ -72,7 +72,7 @@ class RentalRequestController {
                 return res.status(StatusCodes.BAD_REQUEST).json({msg});
             }
 
-            logger.error({err: error, stack: error.stack}, 'approve rental request failed');
+            logger.error({err: error}, 'approve rental request failed');
             // Include actual msg in dev so staff can actually debug — filtering
             // only hid the real cause. If you want to hide internals in prod,
             // swap to `'Internal server error'` behind a NODE_ENV check.

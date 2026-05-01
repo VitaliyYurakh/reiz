@@ -1,6 +1,6 @@
 import {NextFunction, Request, Response} from 'express';
 import {StatusCodes} from 'http-status-codes';
-import {logger} from '../utils';
+import {logger, getErrorMessage} from '../utils';
 
 const requireRole = (...roles: string[]) => {
     return (req: Request, res: Response, next: NextFunction) => {
@@ -20,7 +20,7 @@ const requireRole = (...roles: string[]) => {
             next();
         } catch (error) {
             logger.error(error);
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error.message});
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: getErrorMessage(error)});
         }
     };
 };
@@ -46,7 +46,7 @@ const requirePermission = (module: string, level: 'view' | 'full') => {
             return res.status(StatusCodes.FORBIDDEN).json({msg: 'Insufficient permissions'});
         } catch (error) {
             logger.error(error);
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error.message});
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: getErrorMessage(error)});
         }
     };
 };
