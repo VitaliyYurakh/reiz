@@ -38,14 +38,14 @@ class AuthService {
     async loginUser(email: string, pass: string, totpCode?: string) {
         const user = await prisma.user.findFirst({
             where: {email},
-            select: {id: true, pass: true, tokenVersion: true, totpEnabled: true, totpSecret: true},
+            select: {id: true, passwordHash: true, tokenVersion: true, totpEnabled: true, totpSecret: true},
         });
 
         if (!user) {
             throw new UserNotFoundError();
         }
 
-        const {valid, needsRehash} = await verifyPassword(pass, user.pass);
+        const {valid, needsRehash} = await verifyPassword(pass, user.passwordHash);
 
         if (!valid) {
             throw new AccessDenied();
@@ -66,7 +66,7 @@ class AuthService {
         // Transparent rehash: upgrade legacy PBKDF2 → bcrypt on successful login
         if (needsRehash) {
             const newHash = await createHashedPassword(pass);
-            await prisma.user.update({where: {id: user.id}, data: {pass: newHash}});
+            await prisma.user.update({where: {id: user.id}, data: {passwordHash: newHash}});
         }
 
         const token = jwt.sign({id: user.id, tv: user.tokenVersion}, SECRET, {algorithm: 'HS256', expiresIn: '24h'});

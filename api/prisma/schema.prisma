@@ -20,7 +20,7 @@ datasource db {
 model User {
   id                Int      @id @default(autoincrement())
   email             String   @unique
-  pass              String
+  passwordHash      String   @map("password_hash")
   name              String   @default("")
   role              String   @default("manager")
   permissions       Json     @default("{}")
@@ -54,6 +54,8 @@ model User {
   carSwaps                RentalCarSwap[]    @relation("RentalCarSwapAuthor")
   documentTemplates       DocumentTemplate[] @relation("DocumentTemplateAuthor")
   partnerPaymentsAuthored PartnerPayment[]   @relation("PartnerPaymentAuthor")
+
+  @@map("user")
 }
 
 model Car {
@@ -61,7 +63,7 @@ model Car {
   brand             String?
   model             String?
   plateNumber       String? @map("plate_number")
-  VIN               String?
+  VIN               String? @map("vin")
   yearOfManufacture Int?    @map("year_of_manufacture")
   color             String?
   description       Json?
@@ -168,6 +170,7 @@ model Car {
 
   @@index([partnerId])
   @@index([isBlocked])
+  @@map("car")
 }
 
 model Segment {
@@ -179,6 +182,8 @@ model Segment {
   experience       Int    @default(3)
 
   car Car[]
+
+  @@map("segment")
 }
 
 model RentalTariff {
@@ -192,6 +197,7 @@ model RentalTariff {
   car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
 
   @@unique([minDays, maxDays, carId])
+  @@map("rental_tariff")
 }
 
 model CarCountingRule {
@@ -203,7 +209,9 @@ model CarCountingRule {
   depositFixed   Int? @map("deposit_fixed")
   carId          Int  @map("car_id")
 
-  Car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@map("car_counting_rule")
 }
 
 model CarPhoto {
@@ -214,6 +222,8 @@ model CarPhoto {
   alt   String
 
   car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@map("car_photo")
 }
 
 enum CarPhotoType {
@@ -246,6 +256,8 @@ model BookingRequest {
   // CRM relation
   client        Client?        @relation(fields: [clientId], references: [id])
   rentalRequest RentalRequest?
+
+  @@map("booking_request")
 }
 
 model ContactRequest {
@@ -256,6 +268,8 @@ model ContactRequest {
   message      String?
   telegramSent Boolean  @default(false) @map("telegram_sent")
   createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("contact_request")
 }
 
 model CallbackRequest {
@@ -265,6 +279,8 @@ model CallbackRequest {
   contactMethod String?  @map("contact_method")
   telegramSent  Boolean  @default(false) @map("telegram_sent")
   createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("callback_request")
 }
 
 model BusinessRequest {
@@ -275,6 +291,8 @@ model BusinessRequest {
   message      String?
   telegramSent Boolean  @default(false) @map("telegram_sent")
   createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("business_request")
 }
 
 // ============================================================

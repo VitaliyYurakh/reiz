@@ -135,12 +135,12 @@ class AuthController {
         const userId = res.locals.user.id;
         const user = await prisma.user.findUnique({
             where: {id: userId},
-            select: {pass: true, totpSecret: true, totpEnabled: true},
+            select: {passwordHash: true, totpSecret: true, totpEnabled: true},
         });
         if (!user || !user.totpEnabled) {
             throw new BadRequestError('2FA is not enabled');
         }
-        const {valid} = await verifyPassword(pass, user.pass);
+        const {valid} = await verifyPassword(pass, user.passwordHash);
         if (!valid) throw new AccessDenied();
 
         const okTotp = user.totpSecret ? totpService.verify(user.totpSecret, code) : false;

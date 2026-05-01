@@ -31,7 +31,7 @@ class UserService {
         return prisma.user.create({
             data: {
                 email: data.email,
-                pass: hashedPassword,
+                passwordHash: hashedPassword,
                 name: data.name,
                 role: data.role,
                 permissions: data.permissions || {},
@@ -61,7 +61,7 @@ class UserService {
         // kept admin access for up to 24h after the password change.
         return prisma.user.update({
             where: {id},
-            data: {pass: hashedPassword, tokenVersion: {increment: 1}},
+            data: {passwordHash: hashedPassword, tokenVersion: {increment: 1}},
             select: this.selectWithoutPass,
         });
     }

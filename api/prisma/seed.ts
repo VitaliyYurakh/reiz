@@ -14,7 +14,7 @@ async function main() {
         update: {}, // idempotent — do not touch existing admin's pass/role/permissions
         create: {
             email: 'admin@example.com',
-            pass: adminHash,
+            passwordHash: adminHash,
             role: 'admin',
         },
     });
