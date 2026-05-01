@@ -130,7 +130,7 @@ class AccidentService {
                 const fine = await tx.fine.create({
                     data: {
                         rentalId: data.rentalId,
-                        type: 'ACCIDENT',
+                        type: 'ACCIDENT' as const,
                         description: `ДТП ${new Date(data.incidentAt).toISOString().slice(0, 10)}: ${data.description.slice(0, 200)}`,
                         amountMinor: clientDebt,
                         currency,

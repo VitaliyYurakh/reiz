@@ -1,4 +1,4 @@
-import {Currency} from '@prisma/client';
+import {Currency, FineType} from '@prisma/client';
 import {prisma, BadRequestError} from '../utils';
 import fxRateService from './fx-rate.service';
 
@@ -26,7 +26,7 @@ class FineService {
 
     async create(data: {
         rentalId: number;
-        type: string;
+        type: FineType;
         description: string;
         amountMinor: number;
         currency?: Currency;

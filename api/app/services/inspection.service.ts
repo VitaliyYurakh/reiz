@@ -1,3 +1,4 @@
+import {InspectionType} from '@prisma/client';
 import {prisma} from '../utils';
 
 class InspectionService {
@@ -14,7 +15,7 @@ class InspectionService {
 
     async create(data: {
         rentalId: number;
-        type: string;
+        type: InspectionType;
         inspectorId?: number;
         odometer?: number;
         fuelLevel?: number;

@@ -506,6 +506,31 @@ enum UserRole {
   operator
 }
 
+enum ServiceEventType {
+  MAINTENANCE
+  REPAIR
+  INSURANCE_RENEWAL
+  INSPECTION_GOV
+  WASH
+  OTHER
+}
+
+enum InspectionType {
+  PICKUP
+  RETURN
+}
+
+enum FineType {
+  OVERMILEAGE
+  DAMAGE
+  LATE_RETURN
+  FUEL
+  CLEANING
+  TRAFFIC
+  ACCIDENT
+  OTHER
+}
+
 // --- Client ---
 
 model Client {
@@ -837,18 +862,18 @@ model RentalExtension {
 // --- Inspection ---
 
 model Inspection {
-  id            Int       @id @default(autoincrement())
-  rentalId      Int       @map("rental_id")
-  type          String
-  inspectorId   Int?      @map("inspector_id")
+  id            Int            @id @default(autoincrement())
+  rentalId      Int            @map("rental_id")
+  type          InspectionType
+  inspectorId   Int?           @map("inspector_id")
   odometer      Int?
-  fuelLevel     Int?      @map("fuel_level")
-  cleanlinessOk Boolean   @default(true) @map("cleanliness_ok")
+  fuelLevel     Int?           @map("fuel_level")
+  cleanlinessOk Boolean        @default(true) @map("cleanliness_ok")
   checklist     Json?
   damages       Json?
   notes         String?
-  completedAt   DateTime? @map("completed_at")
-  createdAt     DateTime  @default(now()) @map("created_at")
+  completedAt   DateTime?      @map("completed_at")
+  createdAt     DateTime       @default(now()) @map("created_at")
 
   rental    Rental            @relation(fields: [rentalId], references: [id], onDelete: Cascade)
   inspector User?             @relation(fields: [inspectorId], references: [id])
@@ -877,7 +902,7 @@ model InspectionPhoto {
 model Fine {
   id          Int      @id @default(autoincrement())
   rentalId    Int      @map("rental_id")
-  type        String
+  type        FineType
   description String
   amountMinor Int      @map("amount_minor")
   currency    Currency @default(UAH)
@@ -908,20 +933,20 @@ model Fine {
 // --- Service ---
 
 model ServiceEvent {
-  id            Int       @id @default(autoincrement())
-  carId         Int       @map("car_id")
-  type          String
+  id            Int              @id @default(autoincrement())
+  carId         Int              @map("car_id")
+  type          ServiceEventType
   description   String
-  startDate     DateTime  @map("start_date")
-  endDate       DateTime? @map("end_date")
-  blocksBooking Boolean   @default(true) @map("blocks_booking")
-  costMinor     Int?      @map("cost_minor")
-  currency      Currency  @default(UAH)
+  startDate     DateTime         @map("start_date")
+  endDate       DateTime?        @map("end_date")
+  blocksBooking Boolean          @default(true) @map("blocks_booking")
+  costMinor     Int?             @map("cost_minor")
+  currency      Currency         @default(UAH)
   odometer      Int?
   vendor        String?
   notes         String?
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
+  createdAt     DateTime         @default(now()) @map("created_at")
+  updatedAt     DateTime         @updatedAt @map("updated_at")
 
   car    Car                 @relation(fields: [carId], references: [id], onDelete: Cascade)
   photos ServiceEventPhoto[]

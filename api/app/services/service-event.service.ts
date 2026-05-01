@@ -1,4 +1,4 @@
-import {Currency} from '@prisma/client';
+import {Currency, ServiceEventType} from '@prisma/client';
 import {prisma} from '../utils';
 import availabilityService, {formatConflicts} from './availability.service';
 
@@ -60,7 +60,7 @@ class ServiceEventService {
 
     async create(data: {
         carId: number;
-        type: string;
+        type: ServiceEventType;
         description: string;
         startDate: Date;
         endDate?: Date;
@@ -110,7 +110,7 @@ class ServiceEventService {
     }
 
     async update(id: number, data: {
-        type?: string;
+        type?: ServiceEventType;
         description?: string;
         startDate?: Date;
         endDate?: Date;

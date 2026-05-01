@@ -1,5 +1,5 @@
 import {z} from 'zod';
-import {Currency} from '@prisma/client';
+import {Currency, ServiceEventType, InspectionType, FineType} from '@prisma/client';
 
 // ── Password policy ──
 const PASSWORD_MIN = 8;
@@ -523,7 +523,7 @@ export const calculatePricingSchema = z.object({
 // ── Service Event ──
 export const createServiceEventSchema = z.object({
     carId: z.number().int().positive(),
-    type: z.string().min(1).max(100),
+    type: z.nativeEnum(ServiceEventType),
     description: z.string().min(1).max(5000),
     startDate: z.coerce.date(),
     endDate: z.coerce.date().optional(),
@@ -536,7 +536,7 @@ export const createServiceEventSchema = z.object({
 });
 
 export const updateServiceEventSchema = z.object({
-    type: z.string().min(1).max(100).optional(),
+    type: z.nativeEnum(ServiceEventType).optional(),
     description: z.string().max(5000).optional(),
     startDate: z.coerce.date().optional(),
     endDate: z.coerce.date().optional(),
@@ -550,7 +550,7 @@ export const updateServiceEventSchema = z.object({
 
 // ── Inspection ──
 export const createInspectionSchema = z.object({
-    type: z.enum(['PICKUP', 'RETURN']),
+    type: z.nativeEnum(InspectionType),
     fuelLevel: z.number().int().min(0).max(100).optional(),
     cleanlinessOk: z.boolean().optional(),
     bodyDamage: z.string().max(5000).optional(),
@@ -566,7 +566,7 @@ export const updateInspectionSchema = z.object({
 
 // ── Fine ──
 export const createFineSchema = z.object({
-    type: z.string().min(1).max(100),
+    type: z.nativeEnum(FineType),
     description: z.string().min(1).max(5000),
     amountMinor: z.number().int().min(0),
     currency: z.nativeEnum(Currency).optional(),
@@ -579,7 +579,7 @@ export const createFineSchema = z.object({
 });
 
 export const updateFineSchema = z.object({
-    type: z.string().min(1).max(100).optional(),
+    type: z.nativeEnum(FineType).optional(),
     description: z.string().max(5000).optional(),
     amountMinor: z.number().int().min(0).optional(),
     currency: z.nativeEnum(Currency).optional(),
