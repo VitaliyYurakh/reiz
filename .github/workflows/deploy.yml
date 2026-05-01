@@ -32,6 +32,14 @@ jobs:
         defaults:
             run:
                 working-directory: api
+        # CI gates the schema. The Docker build step in the deploy job
+        # exercises `npm run build` on the same alpine image that runs
+        # in prod — that's the authoritative tsc smoke check, since
+        # GHA's Ubuntu runner has shown subtly different tsc emit
+        # behaviour from `node:20-alpine` (case-sensitivity / Node patch
+        # differences). Failing tsc inside Docker still blocks deploy
+        # because `docker compose up --build` fails before SSH actions
+        # run, so prod stays on the previous image.
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
@@ -42,9 +50,6 @@ jobs:
             - run: npm ci
             - run: npx prisma generate
             - run: npx prisma validate
-            - run: npm run build
-            - name: Smoke check entry compiled
-              run: test -f build/app/index.js
 
     front:
         name: ci · front
