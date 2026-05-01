@@ -504,7 +504,7 @@ export default function CarAside({ car }: { car: Car }) {
                 // biome-ignore lint/security/noDangerouslySetInnerHtml: <3>
                 dangerouslySetInnerHTML={{
                   __html: t("tooltips.overdrive", {
-                    price: car.segment?.[0]?.overmileagePrice ?? 0,
+                    price: (car.segment?.[0]?.overmileagePriceMinor ?? 0) / 100,
                   }),
                 }}
               />

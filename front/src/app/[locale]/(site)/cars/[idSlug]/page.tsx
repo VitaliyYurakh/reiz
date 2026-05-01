@@ -169,7 +169,10 @@ export default async function CarPage({
 
     const driverAge = car.driverAge ?? car.segment?.[0]?.driverAge ?? 21;
     const driverExperience = car.driverExperience ?? car.segment?.[0]?.experience ?? 2;
-    const overmileagePrice = car.overmileagePrice ?? car.segment?.[0]?.overmileagePrice ?? 0;
+    // Stored in копійки; convert to UAH whole units for display.
+    const overmileagePriceMinor =
+        car.overmileagePriceMinor ?? car.segment?.[0]?.overmileagePriceMinor ?? 0;
+    const overmileagePrice = overmileagePriceMinor / 100;
     const baseDeposit = car.rentalTariff.length > 0
         ? Math.min(...car.rentalTariff.map((t_) => t_.deposit))
         : 0;

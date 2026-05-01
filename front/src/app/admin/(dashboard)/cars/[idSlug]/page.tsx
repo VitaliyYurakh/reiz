@@ -133,13 +133,19 @@ export default function CarEditPage() {
     setCurrentDiscount(data.discount || null);
     setIsNew(data.isNew || false);
     setIsAvailable(data.isAvailable || false);
+    // Money fields are stored in копійки (Int *Minor) on the API. The form
+    // state holds UAH whole units (familiar to admins typing in 200, not
+    // 20000). Divide by 100 on load, multiply by 100 on submit. Conversion
+    // lives ONLY in this loader + the submit handler so individual inputs
+    // stay clean.
+    const minorToUah = (v: number | null | undefined) => (v ?? 0) / 100;
     setRentalConditions({
       freeDeliveryThreshold: data.freeDeliveryThreshold ?? 0,
       cancellationHours: data.cancellationHours ?? 24,
       paymentMethods: data.paymentMethods ?? '',
       minRentalDays: data.minRentalDays ?? 1,
       dailyMileageLimit: data.dailyMileageLimit ?? 300,
-      overmileagePrice: data.overmileagePrice ?? data.segment?.[0]?.overmileagePrice ?? 0,
+      overmileagePrice: minorToUah(data.overmileagePriceMinor ?? data.segment?.[0]?.overmileagePriceMinor),
       driverAge: data.driverAge ?? data.segment?.[0]?.driverAge ?? 21,
       driverExperience: data.driverExperience ?? data.segment?.[0]?.experience ?? 2,
       fuelPolicy: data.fuelPolicy ?? 'full_to_full',
@@ -152,31 +158,31 @@ export default function CarEditPage() {
       crossBorderDailyFee: data.crossBorderDailyFee ?? 0,
       allowedCountries: (data.allowedCountries ?? []).join(', '),
       lateReturnGraceMin: data.lateReturnGraceMin ?? 0,
-      lateReturnFeePerHour: data.lateReturnFeePerHour ?? 0,
+      lateReturnFeePerHour: minorToUah(data.lateReturnFeePerHourMinor),
       youngerDriverAge: data.youngerDriverAge ?? 0,
-      youngerDriverSurcharge: data.youngerDriverSurcharge ?? 0,
+      youngerDriverSurcharge: minorToUah(data.youngerDriverSurchargeMinor),
       petAllowed: data.petAllowed ?? false,
       cleaningFee: data.cleaningFee ?? 0,
-      unlimitedMileagePrice1Day: data.unlimitedMileagePrice1Day ?? 0,
-      unlimitedMileagePrice2to7: data.unlimitedMileagePrice2to7 ?? 0,
+      unlimitedMileagePrice1Day: minorToUah(data.unlimitedMileagePrice1DayMinor),
+      unlimitedMileagePrice2to7: minorToUah(data.unlimitedMileagePrice2to7Minor),
       unlimitedMileageFreeFromDays: data.unlimitedMileageFreeFromDays ?? 0,
-      intercityDeliveryPrice: data.intercityDeliveryPrice ?? 0,
-      carWashPrice: data.carWashPrice ?? 0,
-      emptyTankFee: data.emptyTankFee ?? 0,
-      additionalDriverFee: data.additionalDriverFee ?? 0,
-      equipmentRentalPrice: data.equipmentRentalPrice ?? 0,
-      afterHoursServiceFee: data.afterHoursServiceFee ?? 0,
+      intercityDeliveryPrice: minorToUah(data.intercityDeliveryPriceMinor),
+      carWashPrice: minorToUah(data.carWashPriceMinor),
+      emptyTankFee: minorToUah(data.emptyTankFeeMinor),
+      additionalDriverFee: minorToUah(data.additionalDriverFeeMinor),
+      equipmentRentalPrice: minorToUah(data.equipmentRentalPriceMinor),
+      afterHoursServiceFee: minorToUah(data.afterHoursServiceFeeMinor),
       workingHoursStart: data.workingHoursStart ?? '',
       workingHoursEnd: data.workingHoursEnd ?? '',
       // Damage fees moved to a 1:1 child row. Keep the form state flat —
       // it's nested back into a `damageFees` object on submit.
-      damageTiresFee: data.damageFees?.damageTiresFee ?? 0,
-      damageGlassChipFee: data.damageFees?.damageGlassChipFee ?? 0,
-      damageLostKeysFee: data.damageFees?.damageLostKeysFee ?? 0,
-      damageBrokenGlassFee: data.damageFees?.damageBrokenGlassFee ?? 0,
+      damageTiresFee: minorToUah(data.damageFees?.damageTiresFeeMinor),
+      damageGlassChipFee: minorToUah(data.damageFees?.damageGlassChipFeeMinor),
+      damageLostKeysFee: minorToUah(data.damageFees?.damageLostKeysFeeMinor),
+      damageBrokenGlassFee: minorToUah(data.damageFees?.damageBrokenGlassFeeMinor),
       damageTotalLossPercent: data.damageFees?.damageTotalLossPercent ?? 0,
-      damageScratchesFee: data.damageFees?.damageScratchesFee ?? 0,
-      damageSmokingFee: data.damageFees?.damageSmokingFee ?? 0,
+      damageScratchesFee: minorToUah(data.damageFees?.damageScratchesFeeMinor),
+      damageSmokingFee: minorToUah(data.damageFees?.damageSmokingFeeMinor),
       depositMultiplier: data.damageFees?.depositMultiplier ?? 0,
     });
   };
@@ -296,7 +302,8 @@ export default function CarEditPage() {
     // Sequential (audit M-14): if overmileagePrice update fails, don't persist tariffs
     // at a different price expectation. Tariffs second because they are the bigger op.
     try {
-      await updateCar(id, { overmileagePrice: Number(rentalConditions.overmileagePrice) || 0 });
+      // Form holds UAH whole units; DB stores копійки.
+      await updateCar(id, { overmileagePriceMinor: Math.round(Number(rentalConditions.overmileagePrice) * 100) || 0 });
       await updateRentalTariffs(id, tariffsToSend);
       await loadData();
       showSaved('tariffs');
@@ -323,6 +330,12 @@ export default function CarEditPage() {
   };
 
   const handleSaveRentalConditions = async () => {
+    // Form holds UAH whole units; DB stores копійки. Convert ONLY the money
+    // fields. Percent / coefficient / day-count / age fields stay as-is.
+    const uahToMinor = (v: unknown): number | null => {
+      const n = Number(v);
+      return Number.isFinite(n) && n > 0 ? Math.round(n * 100) : null;
+    };
     try {
       await updateCar(id, {
         freeDeliveryThreshold: Number(rentalConditions.freeDeliveryThreshold) || 0,
@@ -330,7 +343,7 @@ export default function CarEditPage() {
         paymentMethods: rentalConditions.paymentMethods || null,
         minRentalDays: Number(rentalConditions.minRentalDays) || 1,
         dailyMileageLimit: Number(rentalConditions.dailyMileageLimit) || 0,
-        overmileagePrice: Number(rentalConditions.overmileagePrice) || 0,
+        overmileagePriceMinor: uahToMinor(rentalConditions.overmileagePrice) ?? 0,
         driverAge: Number(rentalConditions.driverAge) || 21,
         driverExperience: Number(rentalConditions.driverExperience) || 2,
         fuelPolicy: rentalConditions.fuelPolicy || null,
@@ -343,32 +356,33 @@ export default function CarEditPage() {
         crossBorderDailyFee: Number(rentalConditions.crossBorderDailyFee) || null,
         allowedCountries: rentalConditions.allowedCountries ? rentalConditions.allowedCountries.split(',').map((s: string) => s.trim()).filter(Boolean) : null,
         lateReturnGraceMin: Number(rentalConditions.lateReturnGraceMin) || null,
-        lateReturnFeePerHour: Number(rentalConditions.lateReturnFeePerHour) || null,
+        lateReturnFeePerHourMinor: uahToMinor(rentalConditions.lateReturnFeePerHour),
         youngerDriverAge: Number(rentalConditions.youngerDriverAge) || null,
-        youngerDriverSurcharge: Number(rentalConditions.youngerDriverSurcharge) || null,
+        youngerDriverSurchargeMinor: uahToMinor(rentalConditions.youngerDriverSurcharge),
         petAllowed: rentalConditions.petAllowed,
         cleaningFee: Number(rentalConditions.cleaningFee) || null,
-        unlimitedMileagePrice1Day: Number(rentalConditions.unlimitedMileagePrice1Day) || null,
-        unlimitedMileagePrice2to7: Number(rentalConditions.unlimitedMileagePrice2to7) || null,
+        unlimitedMileagePrice1DayMinor: uahToMinor(rentalConditions.unlimitedMileagePrice1Day),
+        unlimitedMileagePrice2to7Minor: uahToMinor(rentalConditions.unlimitedMileagePrice2to7),
         unlimitedMileageFreeFromDays: Number(rentalConditions.unlimitedMileageFreeFromDays) || null,
-        intercityDeliveryPrice: Number(rentalConditions.intercityDeliveryPrice) || null,
-        carWashPrice: Number(rentalConditions.carWashPrice) || null,
-        emptyTankFee: Number(rentalConditions.emptyTankFee) || null,
-        additionalDriverFee: Number(rentalConditions.additionalDriverFee) || null,
-        equipmentRentalPrice: Number(rentalConditions.equipmentRentalPrice) || null,
-        afterHoursServiceFee: Number(rentalConditions.afterHoursServiceFee) || null,
+        intercityDeliveryPriceMinor: uahToMinor(rentalConditions.intercityDeliveryPrice),
+        carWashPriceMinor: uahToMinor(rentalConditions.carWashPrice),
+        emptyTankFeeMinor: uahToMinor(rentalConditions.emptyTankFee),
+        additionalDriverFeeMinor: uahToMinor(rentalConditions.additionalDriverFee),
+        equipmentRentalPriceMinor: uahToMinor(rentalConditions.equipmentRentalPrice),
+        afterHoursServiceFeeMinor: uahToMinor(rentalConditions.afterHoursServiceFee),
         workingHoursStart: rentalConditions.workingHoursStart || null,
         workingHoursEnd: rentalConditions.workingHoursEnd || null,
         // Damage fees travel as a nested object — backend upserts into the
-        // `car_damage_fees` 1:1 child table.
+        // `car_damage_fees` 1:1 child table. Money in копійки (`*Minor`),
+        // percent / multiplier as plain numbers.
         damageFees: {
-          damageTiresFee: Number(rentalConditions.damageTiresFee) || null,
-          damageGlassChipFee: Number(rentalConditions.damageGlassChipFee) || null,
-          damageLostKeysFee: Number(rentalConditions.damageLostKeysFee) || null,
-          damageBrokenGlassFee: Number(rentalConditions.damageBrokenGlassFee) || null,
+          damageTiresFeeMinor: uahToMinor(rentalConditions.damageTiresFee),
+          damageGlassChipFeeMinor: uahToMinor(rentalConditions.damageGlassChipFee),
+          damageLostKeysFeeMinor: uahToMinor(rentalConditions.damageLostKeysFee),
+          damageBrokenGlassFeeMinor: uahToMinor(rentalConditions.damageBrokenGlassFee),
+          damageScratchesFeeMinor: uahToMinor(rentalConditions.damageScratchesFee),
+          damageSmokingFeeMinor: uahToMinor(rentalConditions.damageSmokingFee),
           damageTotalLossPercent: Number(rentalConditions.damageTotalLossPercent) || null,
-          damageScratchesFee: Number(rentalConditions.damageScratchesFee) || null,
-          damageSmokingFee: Number(rentalConditions.damageSmokingFee) || null,
           depositMultiplier: Number(rentalConditions.depositMultiplier) || null,
         },
       });

@@ -98,23 +98,23 @@ model Car {
   paymentMethods        String? @map("payment_methods")
 
   // ─── Rental policy ───────────────────────────────────────────────────
-  cancellationHours   Int?    @map("cancellation_hours")
-  minRentalDays       Int?    @map("min_rental_days")
-  maxRentalDays       Int?    @map("max_rental_days")
-  dailyMileageLimit   Int?    @map("daily_mileage_limit")
-  weeklyMileageLimit  Int?    @map("weekly_mileage_limit")
-  monthlyMileageLimit Int?    @map("monthly_mileage_limit")
-  unlimitedMileage    Boolean @default(false) @map("unlimited_mileage")
-  overmileagePrice    Float?  @map("overmileage_price")
-  fuelPolicy          String? @map("fuel_policy")
-  petAllowed          Boolean @default(false) @map("pet_allowed")
-  cleaningFee         Int?    @map("cleaning_fee")
+  cancellationHours     Int?    @map("cancellation_hours")
+  minRentalDays         Int?    @map("min_rental_days")
+  maxRentalDays         Int?    @map("max_rental_days")
+  dailyMileageLimit     Int?    @map("daily_mileage_limit")
+  weeklyMileageLimit    Int?    @map("weekly_mileage_limit")
+  monthlyMileageLimit   Int?    @map("monthly_mileage_limit")
+  unlimitedMileage      Boolean @default(false) @map("unlimited_mileage")
+  overmileagePriceMinor Int?    @map("overmileage_price_minor")
+  fuelPolicy            String? @map("fuel_policy")
+  petAllowed            Boolean @default(false) @map("pet_allowed")
+  cleaningFee           Int?    @map("cleaning_fee")
 
   // ─── Driver requirements ─────────────────────────────────────────────
-  driverAge              Int?   @map("driver_age")
-  driverExperience       Int?   @map("driver_experience")
-  youngerDriverAge       Int?   @map("younger_driver_age")
-  youngerDriverSurcharge Float? @map("younger_driver_surcharge")
+  driverAge                   Int? @map("driver_age")
+  driverExperience            Int? @map("driver_experience")
+  youngerDriverAge            Int? @map("younger_driver_age")
+  youngerDriverSurchargeMinor Int? @map("younger_driver_surcharge_minor")
 
   // ─── Cross-border travel ─────────────────────────────────────────────
   allowCrossBorder    Boolean @default(false) @map("allow_cross_border")
@@ -123,19 +123,19 @@ model Car {
   allowedCountries    Json?   @map("allowed_countries")
 
   // ─── Late return ─────────────────────────────────────────────────────
-  lateReturnGraceMin   Int?   @map("late_return_grace_min")
-  lateReturnFeePerHour Float? @map("late_return_fee_per_hour")
+  lateReturnGraceMin        Int? @map("late_return_grace_min")
+  lateReturnFeePerHourMinor Int? @map("late_return_fee_per_hour_minor")
 
-  // ─── Add-on prices ───────────────────────────────────────────────────
-  unlimitedMileagePrice1Day    Float? @map("unlimited_mileage_price_1day")
-  unlimitedMileagePrice2to7    Float? @map("unlimited_mileage_price_2to7")
-  unlimitedMileageFreeFromDays Int?   @map("unlimited_mileage_free_from_days")
-  intercityDeliveryPrice       Float? @map("intercity_delivery_price")
-  carWashPrice                 Float? @map("car_wash_price")
-  emptyTankFee                 Float? @map("empty_tank_fee")
-  additionalDriverFee          Float? @map("additional_driver_fee")
-  equipmentRentalPrice         Float? @map("equipment_rental_price")
-  afterHoursServiceFee         Float? @map("after_hours_service_fee")
+  // ─── Add-on prices (all in UAH копійки, see CLAUDE.md) ──────────────
+  unlimitedMileagePrice1DayMinor Int? @map("unlimited_mileage_price_1day_minor")
+  unlimitedMileagePrice2to7Minor Int? @map("unlimited_mileage_price_2to7_minor")
+  unlimitedMileageFreeFromDays   Int? @map("unlimited_mileage_free_from_days")
+  intercityDeliveryPriceMinor    Int? @map("intercity_delivery_price_minor")
+  carWashPriceMinor              Int? @map("car_wash_price_minor")
+  emptyTankFeeMinor              Int? @map("empty_tank_fee_minor")
+  additionalDriverFeeMinor       Int? @map("additional_driver_fee_minor")
+  equipmentRentalPriceMinor      Int? @map("equipment_rental_price_minor")
+  afterHoursServiceFeeMinor      Int? @map("after_hours_service_fee_minor")
 
   // ─── Working hours ───────────────────────────────────────────────────
   workingHoursStart String? @map("working_hours_start")
@@ -185,21 +185,22 @@ model Car {
 
 // Damage-fee schedule for a car. 1:1 with Car (FK has @unique). Optional —
 // when absent the front-end falls back to the platform-wide defaults
-// surfaced in the Terms page. All amounts are in UAH; we keep `Float` for
-// parity with the rest of the catalog. A future commit will migrate the
-// whole pricing column family to `Int amountMinor`.
+// surfaced in the Terms page. Money fields are stored in UAH копійки
+// (Int *Minor) matching the rest of the platform. `damageTotalLossPercent`
+// is a percent (0–100) and `depositMultiplier` is a coefficient (e.g. 1.5),
+// so they remain Float — neither represents money.
 model CarDamageFees {
   id    Int @id @default(autoincrement())
   carId Int @unique @map("car_id")
 
-  damageTiresFee         Float? @map("damage_tires_fee")
-  damageGlassChipFee     Float? @map("damage_glass_chip_fee")
-  damageLostKeysFee      Float? @map("damage_lost_keys_fee")
-  damageBrokenGlassFee   Float? @map("damage_broken_glass_fee")
-  damageTotalLossPercent Float? @map("damage_total_loss_percent")
-  damageScratchesFee     Float? @map("damage_scratches_fee")
-  damageSmokingFee       Float? @map("damage_smoking_fee")
-  depositMultiplier      Float? @map("deposit_multiplier")
+  damageTiresFeeMinor       Int?   @map("damage_tires_fee_minor")
+  damageGlassChipFeeMinor   Int?   @map("damage_glass_chip_fee_minor")
+  damageLostKeysFeeMinor    Int?   @map("damage_lost_keys_fee_minor")
+  damageBrokenGlassFeeMinor Int?   @map("damage_broken_glass_fee_minor")
+  damageScratchesFeeMinor   Int?   @map("damage_scratches_fee_minor")
+  damageSmokingFeeMinor     Int?   @map("damage_smoking_fee_minor")
+  damageTotalLossPercent    Float? @map("damage_total_loss_percent")
+  depositMultiplier         Float? @map("deposit_multiplier")
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
@@ -231,12 +232,12 @@ model CarMaintenance {
 }
 
 model Segment {
-  id               Int    @id @default(autoincrement())
-  name             String
-  description      String
-  overmileagePrice Float  @map("overmileage_price")
-  driverAge        Int    @default(25) @map("driver_age")
-  experience       Int    @default(3)
+  id                    Int    @id @default(autoincrement())
+  name                  String
+  description           String
+  overmileagePriceMinor Int    @map("overmileage_price_minor")
+  driverAge             Int    @default(25) @map("driver_age")
+  experience            Int    @default(3)
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at")

@@ -41,7 +41,7 @@ type UpdateCarDto = {
     paymentMethods?: string | null;
     minRentalDays?: number | null;
     dailyMileageLimit?: number | null;
-    overmileagePrice?: number | null;
+    overmileagePriceMinor?: number | null;
     driverAge?: number | null;
     driverExperience?: number | null;
     fuelPolicy?: string | null;
@@ -54,20 +54,20 @@ type UpdateCarDto = {
     crossBorderDailyFee?: number | null;
     allowedCountries?: string[] | null;
     lateReturnGraceMin?: number | null;
-    lateReturnFeePerHour?: number | null;
+    lateReturnFeePerHourMinor?: number | null;
     youngerDriverAge?: number | null;
-    youngerDriverSurcharge?: number | null;
+    youngerDriverSurchargeMinor?: number | null;
     petAllowed?: boolean;
     cleaningFee?: number | null;
-    unlimitedMileagePrice1Day?: number | null;
-    unlimitedMileagePrice2to7?: number | null;
+    unlimitedMileagePrice1DayMinor?: number | null;
+    unlimitedMileagePrice2to7Minor?: number | null;
     unlimitedMileageFreeFromDays?: number | null;
-    intercityDeliveryPrice?: number | null;
-    carWashPrice?: number | null;
-    emptyTankFee?: number | null;
-    additionalDriverFee?: number | null;
-    equipmentRentalPrice?: number | null;
-    afterHoursServiceFee?: number | null;
+    intercityDeliveryPriceMinor?: number | null;
+    carWashPriceMinor?: number | null;
+    emptyTankFeeMinor?: number | null;
+    additionalDriverFeeMinor?: number | null;
+    equipmentRentalPriceMinor?: number | null;
+    afterHoursServiceFeeMinor?: number | null;
     workingHoursStart?: string | null;
     workingHoursEnd?: string | null;
     // Damage-fee schedule moved to its own 1:1 model `CarDamageFees`.
@@ -84,13 +84,13 @@ type UpdateCarDto = {
 };
 
 type CarDamageFeesDto = {
-    damageTiresFee?: number | null;
-    damageGlassChipFee?: number | null;
-    damageLostKeysFee?: number | null;
-    damageBrokenGlassFee?: number | null;
+    damageTiresFeeMinor?: number | null;
+    damageGlassChipFeeMinor?: number | null;
+    damageLostKeysFeeMinor?: number | null;
+    damageBrokenGlassFeeMinor?: number | null;
+    damageScratchesFeeMinor?: number | null;
+    damageSmokingFeeMinor?: number | null;
     damageTotalLossPercent?: number | null;
-    damageScratchesFee?: number | null;
-    damageSmokingFee?: number | null;
     depositMultiplier?: number | null;
 };
 

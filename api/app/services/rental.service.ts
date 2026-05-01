@@ -222,10 +222,14 @@ class RentalService {
                 // Prefer per-car override, fall back to first segment's legacy rate
                 // (audit H-13). Many-to-many segment order is non-deterministic, so
                 // relying on segment[0] alone was effectively random.
-                const overmileagePrice =
-                    rental.car.overmileagePrice ?? rental.car.segment[0]?.overmileagePrice;
-                if (overmileagePrice != null) {
-                    overmileageFee = Math.round(overmileageKm * overmileagePrice);
+                // Per-km price stored in копійки (Int *Minor) — multiplied by km
+                // yields копійки, matches `Fine.amountMinor`. Pre-Float→Int the
+                // result was UAH stored in `amountMinor` (latent 100× bug, fixed
+                // by this rename).
+                const overmileagePriceMinor =
+                    rental.car.overmileagePriceMinor ?? rental.car.segment[0]?.overmileagePriceMinor;
+                if (overmileagePriceMinor != null) {
+                    overmileageFee = overmileageKm * overmileagePriceMinor;
                 }
             }
         }

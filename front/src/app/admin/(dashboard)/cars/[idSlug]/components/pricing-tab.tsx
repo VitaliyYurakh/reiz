@@ -133,7 +133,7 @@ export function PricingTab({
             value={String(rentalConditions.overmileagePrice)}
             onChange={(v) => setRentalConditions({ ...rentalConditions, overmileagePrice: Number(v) || 0 })}
             type="number"
-            placeholder={String(segmentInfo?.overmileagePrice || '0')}
+            placeholder={String((segmentInfo?.overmileagePriceMinor ?? 0) / 100 || '0')}
           />
         </div>
       </HCard>

@@ -35,7 +35,11 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
   const weeklyMileage = car.weeklyMileageLimit ?? dailyMileage * 7;
   const monthlyMileage = car.monthlyMileageLimit ?? dailyMileage * 30;
   const unlimited = car.unlimitedMileage ?? false;
-  const overmileagePrice = car.overmileagePrice ?? car.segment?.[0]?.overmileagePrice ?? 0;
+  // DB stores per-km cost as `Int *Minor` (UAH копійки). Divide by 100 once
+  // here so all downstream display logic keeps working in UAH whole units.
+  const overmileagePriceMinor =
+    car.overmileagePriceMinor ?? car.segment?.[0]?.overmileagePriceMinor ?? 0;
+  const overmileagePrice = overmileagePriceMinor / 100;
 
   const fuelPolicyMap: Record<string, string> = {
     full_to_full: t("fuel.fullToFull"),
@@ -210,13 +214,13 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
           </section>
 
           {/* Young Driver Surcharge */}
-          {(car.youngerDriverAge ?? 0) > 0 && (car.youngerDriverSurcharge ?? 0) > 0 && (
+          {(car.youngerDriverAge ?? 0) > 0 && (car.youngerDriverSurchargeMinor ?? 0) > 0 && (
             <section className="rpm__section">
               <h4 className="rpm__heading">{t("youngDriver.title")}</h4>
               <p className="rpm__text">
                 <CurrencyText text={t("youngDriver.text", {
                   age: car.youngerDriverAge ?? 0,
-                  fee: car.youngerDriverSurcharge ?? 0,
+                  fee: (car.youngerDriverSurchargeMinor ?? 0) / 100,
                 })} />
               </p>
             </section>
@@ -264,7 +268,7 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
           </section>
 
           {/* Late Return */}
-          {((car.lateReturnGraceMin ?? 0) > 0 || (car.lateReturnFeePerHour ?? 0) > 0) && (
+          {((car.lateReturnGraceMin ?? 0) > 0 || (car.lateReturnFeePerHourMinor ?? 0) > 0) && (
             <section className="rpm__section">
               <h4 className="rpm__heading">{t("lateReturn.title")}</h4>
               <ul className="rpm__list">
@@ -277,13 +281,13 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
                     <span className="rpm__value">{car.lateReturnGraceMin} {t("lateReturn.min")}</span>
                   </li>
                 )}
-                {(car.lateReturnFeePerHour ?? 0) > 0 && (
+                {(car.lateReturnFeePerHourMinor ?? 0) > 0 && (
                   <li className="rpm__item">
                     <span className="rpm__icon sprite">
                       <Icon id="cancel-circle" width={22} height={22} />
                     </span>
                     <span className="rpm__label">{t("lateReturn.fee")}</span>
-                    <span className="rpm__value">{formatPrice(car.lateReturnFeePerHour ?? 0)}/{t("lateReturn.hour")}</span>
+                    <span className="rpm__value">{formatPrice((car.lateReturnFeePerHourMinor ?? 0) / 100)}/{t("lateReturn.hour")}</span>
                   </li>
                 )}
               </ul>
@@ -329,21 +333,26 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
 
           {/* Extra Services */}
           {(() => {
+            // All `*Minor` prices are read from the DB in копійки. Divide by
+            // 100 once at the boundary so downstream display logic stays in
+            // UAH whole units.
+            const minorToUah = (v: number | null | undefined) =>
+              v == null ? null : v / 100;
             const ovP = overmileagePrice;
-            const ulP1 = car.unlimitedMileagePrice1Day;
-            const ulP2 = car.unlimitedMileagePrice2to7;
+            const ulP1 = minorToUah(car.unlimitedMileagePrice1DayMinor);
+            const ulP2 = minorToUah(car.unlimitedMileagePrice2to7Minor);
             const ulFree = car.unlimitedMileageFreeFromDays ?? 8;
-            const icP = car.intercityDeliveryPrice;
-            const cwP = car.carWashPrice;
-            const etF = car.emptyTankFee;
-            const adF = car.additionalDriverFee;
+            const icP = minorToUah(car.intercityDeliveryPriceMinor);
+            const cwP = minorToUah(car.carWashPriceMinor);
+            const etF = minorToUah(car.emptyTankFeeMinor);
+            const adF = minorToUah(car.additionalDriverFeeMinor);
             const dlP = car.deliveryPrice ?? 0;
             const fthr = car.freeDeliveryThreshold ?? 351;
             const yAge = car.youngerDriverAge ?? 0;
-            const ySur = car.youngerDriverSurcharge ?? 0;
+            const ySur = minorToUah(car.youngerDriverSurchargeMinor) ?? 0;
             const yExp = car.driverExperience ?? car.segment?.[0]?.experience ?? 2;
-            const eqP = car.equipmentRentalPrice;
-            const ahF = car.afterHoursServiceFee;
+            const eqP = minorToUah(car.equipmentRentalPriceMinor);
+            const ahF = minorToUah(car.afterHoursServiceFeeMinor);
             const whS = car.workingHoursStart ?? '09:00';
             const whE = car.workingHoursEnd ?? '20:00';
             const hasAny = ulP1 != null || icP != null || cwP != null || etF != null || adF != null || dlP > 0 || (yAge > 0 && ySur > 0) || eqP != null || ahF != null;
@@ -435,14 +444,18 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
 
           {/* Damages */}
           {(() => {
+            // All damage fees are stored in копійки. Convert to UAH whole
+            // units once here.
             const fees = car.damageFees;
-            const tires = fees?.damageTiresFee ?? null;
-            const chip = fees?.damageGlassChipFee ?? null;
-            const keys = fees?.damageLostKeysFee ?? null;
-            const glass = fees?.damageBrokenGlassFee ?? null;
+            const minorToUah = (v: number | null | undefined) =>
+              v == null ? null : v / 100;
+            const tires = minorToUah(fees?.damageTiresFeeMinor);
+            const chip = minorToUah(fees?.damageGlassChipFeeMinor);
+            const keys = minorToUah(fees?.damageLostKeysFeeMinor);
+            const glass = minorToUah(fees?.damageBrokenGlassFeeMinor);
             const totalPct = fees?.damageTotalLossPercent ?? null;
-            const scratch = fees?.damageScratchesFee ?? null;
-            const smoke = fees?.damageSmokingFee ?? null;
+            const scratch = minorToUah(fees?.damageScratchesFeeMinor);
+            const smoke = minorToUah(fees?.damageSmokingFeeMinor);
             const hasDamages = tires || chip || keys || glass || totalPct || scratch || smoke;
             if (!hasDamages) return null;
             return (

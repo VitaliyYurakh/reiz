@@ -35,33 +35,14 @@ async function main() {
     const segments = await prisma.segment.findMany();
 
     if (!segments.length) {
+        // Per-km cost in копійки (Int *Minor). 0.20 UAH/km → 20.
         await prisma.segment.createMany({
             data: [
-                {
-                    name: 'Economy',
-                    description: 'Affordable and fuel-efficient vehicles',
-                    overmileagePrice: 0.2,
-                },
-                {
-                    name: 'Business',
-                    description: 'Comfortable cars for business travel',
-                    overmileagePrice: 0.35,
-                },
-                {
-                    name: 'Luxury',
-                    description: 'Premium vehicles for VIP experience',
-                    overmileagePrice: 0.4,
-                },
-                {
-                    name: 'SUV',
-                    description: 'SUV',
-                    overmileagePrice: 0.45,
-                },
-                {
-                    name: 'VAN',
-                    description: 'VAN',
-                    overmileagePrice: 0.5,
-                },
+                {name: 'Economy',  description: 'Affordable and fuel-efficient vehicles', overmileagePriceMinor: 20},
+                {name: 'Business', description: 'Comfortable cars for business travel',   overmileagePriceMinor: 35},
+                {name: 'Luxury',   description: 'Premium vehicles for VIP experience',    overmileagePriceMinor: 40},
+                {name: 'SUV',      description: 'SUV',                                    overmileagePriceMinor: 45},
+                {name: 'VAN',      description: 'VAN',                                    overmileagePriceMinor: 50},
             ],
             skipDuplicates: true,
         });
