@@ -1164,8 +1164,12 @@ model City {
   nameLocativeUk String   @map("name_locative_uk")
   nameLocativeRu String   @map("name_locative_ru")
   nameLocativeEn String   @map("name_locative_en")
-  latitude       String
-  longitude      String
+  // Geographic coordinates as Decimal(10,7) — 7 fractional digits is
+  // ~11 mm precision at the equator, plenty for vehicle pickup
+  // markers. Decimal (not Float) avoids IEEE-754 rounding when
+  // computing distances or matching tiles.
+  latitude       Decimal  @db.Decimal(10, 7)
+  longitude      Decimal  @db.Decimal(10, 7)
   postalCode     String   @map("postal_code")
   region         String
   sortOrder      Int      @default(0) @map("sort_order")
