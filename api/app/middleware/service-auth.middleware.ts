@@ -1,5 +1,6 @@
 import {Request, Response, NextFunction} from 'express';
 import {StatusCodes} from 'http-status-codes';
+import {env} from '../config/env';
 
 /**
  * Validates requests from Next.js BFF (customer cabinet).
@@ -13,7 +14,7 @@ const serviceAuth = (req: Request, res: Response, next: NextFunction) => {
     const secret = req.header('x-service-secret');
     const clientId = req.header('x-client-id');
 
-    if (!secret || secret !== process.env.SERVICE_SECRET) {
+    if (!env.SERVICE_SECRET || !secret || secret !== env.SERVICE_SECRET) {
         return res.status(StatusCodes.FORBIDDEN).json({msg: 'Invalid service secret'});
     }
 

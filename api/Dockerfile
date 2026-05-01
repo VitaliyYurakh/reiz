@@ -17,6 +17,14 @@ RUN npx prisma generate
 
 EXPOSE 3000
 
+# Health check — Docker pings /api/health, which executes a SELECT 1
+# against Postgres. If the API stops responding (or DB is unreachable)
+# Docker marks the container `unhealthy` and Caddy stops sending traffic
+# to it. Without this, a crashed-but-still-running container looks
+# healthy and silently 502s.
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD wget --quiet --spider --tries=1 http://localhost:3000/api/health || exit 1
+
 # Production startup:
 #   * `migrate deploy` is the ONLY schema-applying step. We deliberately
 #     dropped `prisma db push --accept-data-loss` from the previous

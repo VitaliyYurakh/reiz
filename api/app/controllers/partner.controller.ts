@@ -3,7 +3,7 @@ import {Request, Response} from 'express';
 import partnerService from '../services/partner.service';
 import {buildPartnerStatementXLSX} from '../services/partner-xlsx.service';
 import {buildPartnerStatementPDF} from '../services/partner-pdf.service';
-import {parseId, BadRequestError} from '../utils';
+import {parseId, BadRequestError, logger} from '../utils';
 import logAudit from '../middleware/audit.middleware';
 import {validate, createPartnerSchema, updatePartnerSchema} from '../validators';
 
@@ -56,22 +56,22 @@ class PartnerController {
         const id = parseId(req.params.id);
         const from = parseDateOrThrow(req.query.from as string, 'from');
         const to = parseDateOrThrow(req.query.to as string, 'to');
-        console.log('[partner-xlsx] export start', {id, from, to});
-        let report: any;
+        logger.info({id, from, to}, '[partner-xlsx] export start');
+        let report: Awaited<ReturnType<typeof partnerService.getReport>>;
         try {
             report = await partnerService.getReport(id, from, to);
-            console.log('[partner-xlsx] report built', {rows: report.rows.length});
-        } catch (err: any) {
-            console.error('[partner-xlsx] getReport failed:', err?.message, err?.stack);
+            logger.info({rows: report.rows.length}, '[partner-xlsx] report built');
+        } catch (err) {
+            logger.error({err}, '[partner-xlsx] getReport failed');
             throw err;
         }
         const currency = (req.query.currency as string) || 'EUR';
         let buffer: Buffer;
         try {
             buffer = await buildPartnerStatementXLSX(report, currency);
-            console.log('[partner-xlsx] xlsx built', {bytes: buffer.length});
-        } catch (err: any) {
-            console.error('[partner-xlsx] buildPartnerStatementXLSX failed:', err?.message, err?.stack);
+            logger.info({bytes: buffer.length}, '[partner-xlsx] xlsx built');
+        } catch (err) {
+            logger.error({err}, '[partner-xlsx] buildPartnerStatementXLSX failed');
             throw err;
         }
         const partnerLabel = report.partner.companyName || report.partner.fullName;
@@ -90,22 +90,22 @@ class PartnerController {
         const id = parseId(req.params.id);
         const from = parseDateOrThrow(req.query.from as string, 'from');
         const to = parseDateOrThrow(req.query.to as string, 'to');
-        console.log('[partner-pdf] export start', {id, from, to});
-        let report: any;
+        logger.info({id, from, to}, '[partner-pdf] export start');
+        let report: Awaited<ReturnType<typeof partnerService.getReport>>;
         try {
             report = await partnerService.getReport(id, from, to);
-            console.log('[partner-pdf] report built', {rows: report.rows.length});
-        } catch (err: any) {
-            console.error('[partner-pdf] getReport failed:', err?.message, err?.stack);
+            logger.info({rows: report.rows.length}, '[partner-pdf] report built');
+        } catch (err) {
+            logger.error({err}, '[partner-pdf] getReport failed');
             throw err;
         }
         const currency = (req.query.currency as string) || 'EUR';
         let buffer: Buffer;
         try {
             buffer = await buildPartnerStatementPDF(report, currency);
-            console.log('[partner-pdf] pdf built', {bytes: buffer.length});
-        } catch (err: any) {
-            console.error('[partner-pdf] buildPartnerStatementPDF failed:', err?.message, err?.stack);
+            logger.info({bytes: buffer.length}, '[partner-pdf] pdf built');
+        } catch (err) {
+            logger.error({err}, '[partner-pdf] buildPartnerStatementPDF failed');
             throw err;
         }
         const partnerLabel = report.partner.companyName || report.partner.fullName;

@@ -24,6 +24,12 @@ const envSchema = z.object({
     // ── Legacy (optional) ──
     SALT: z.string().default(''),
 
+    // ── Service-to-service auth ──
+    // Used by /api/auth/check on internal calls (front-end SSR rendering
+    // pre-fetches admin data with this header). Optional in dev,
+    // ≥16 chars when set.
+    SERVICE_SECRET: z.string().min(16).optional(),
+
     // ── Telegram (optional pair) ──
     TELEGRAM_BOT_TOKEN: z.string().optional(),
     TELEGRAM_CHAT_ID: z.string().optional(),

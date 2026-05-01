@@ -99,6 +99,20 @@ const startServer = async () => {
         const publicUploadsPath = path.join(pathToUploads);
         app.use('/static', express.static(publicUploadsPath));
 
+        // Health check — must be BEFORE auth/CSRF so docker HEALTHCHECK and
+        // Caddy upstream probes don't need credentials. Pings Postgres so a
+        // green response means the whole vertical (Express → Prisma → DB)
+        // is alive, not just the Node process.
+        app.get('/api/health', async (_req, res) => {
+            try {
+                await prisma.$queryRaw`SELECT 1`;
+                return res.status(200).json({status: 'ok', db: 'connected'});
+            } catch (err) {
+                logger.error({err}, 'Health check failed');
+                return res.status(503).json({status: 'degraded', db: 'unreachable'});
+            }
+        });
+
         // CSRF protection (must be after cookieParser)
         app.use('/api', csrfProtection);
 
