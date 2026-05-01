@@ -1,7 +1,27 @@
+import {Currency} from '@prisma/client';
 import {prisma} from '../utils';
 
 const NBU_URL = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
-const SUPPORTED = ['USD', 'EUR', 'GBP', 'PLN', 'CZK', 'RON'];
+const SUPPORTED: Currency[] = [
+    Currency.USD,
+    Currency.EUR,
+    Currency.GBP,
+    Currency.PLN,
+    Currency.CZK,
+    Currency.RON,
+];
+
+// Currency was widened from `String` to a Postgres ENUM. The runtime
+// inputs to this service still arrive as plain strings (NBU API
+// responses, query params, validator output for endpoints that accept
+// `currency: z.string()`). We narrow at the boundary: anything that
+// doesn't match a Currency member is rejected here rather than blowing
+// up later inside Prisma with a less-helpful error.
+const VALID_CURRENCIES = new Set<string>(Object.values(Currency));
+function asCurrencyOrNull(input: string): Currency | null {
+    const upper = input.toUpperCase();
+    return VALID_CURRENCIES.has(upper) ? (upper as Currency) : null;
+}
 
 class FxRateService {
     /**
@@ -10,8 +30,9 @@ class FxRateService {
      * Returns UAH per 1 unit of currency.
      */
     async getRate(currency: string, date?: Date | string) {
-        const upper = currency.toUpperCase();
-        if (upper === 'UAH') return {rate: 1.0, source: 'fixed', date: new Date()};
+        const upper = asCurrencyOrNull(currency);
+        if (!upper) return null;
+        if (upper === Currency.UAH) return {rate: 1.0, source: 'fixed', date: new Date()};
 
         const day = date ? new Date(date) : new Date();
         day.setUTCHours(0, 0, 0, 0);
@@ -73,7 +94,8 @@ class FxRateService {
      * specific rate for a back-dated transaction.
      */
     async setManualRate(currency: string, rate: number, date?: Date | string) {
-        const upper = currency.toUpperCase();
+        const upper = asCurrencyOrNull(currency);
+        if (!upper) throw new Error(`Unknown currency: ${currency}`);
         const day = date ? new Date(date) : new Date();
         day.setUTCHours(0, 0, 0, 0);
         return await prisma.dailyFxRate.upsert({

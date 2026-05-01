@@ -1,4 +1,5 @@
 import {z} from 'zod';
+import {Currency} from '@prisma/client';
 
 // ── Password policy ──
 const PASSWORD_MIN = 8;
@@ -78,7 +79,10 @@ const TRANSACTION_TYPES = [
 ] as const;
 
 const ACCOUNT_TYPES = ['CASH', 'BANK_ACCOUNT', 'BANK_CARD'] as const;
-const CURRENCIES = ['UAH', 'USD', 'EUR', 'ILS'] as const;
+// User-facing payment currencies. GBP/CZK/RON exist in the Currency enum
+// for fxRateService to cache NBU rates, but operators don't transact in
+// them — so the public API restricts to this 5-currency subset.
+const CURRENCIES = ['UAH', 'USD', 'EUR', 'ILS', 'PLN'] as const;
 
 export const createTransactionSchema = z.object({
     type: z.enum(TRANSACTION_TYPES, {message: 'Invalid transaction type'}),
@@ -287,7 +291,7 @@ export const createRentalSchema = z.object({
     contractNumber: z.string().max(100).optional(),
     priceSnapshot: z.any(),
     depositAmount: z.number().int().min(0).optional(),
-    depositCurrency: z.string().length(3).optional(),
+    depositCurrency: z.nativeEnum(Currency).optional(),
     allowedMileage: z.number().int().min(0).optional(),
     notes: z.string().max(5000).optional(),
 });
@@ -298,7 +302,7 @@ export const updateRentalSchema = z.object({
     allowedMileage: z.number().int().min(0).optional(),
     notes: z.string().max(5000).optional(),
     depositAmount: z.number().int().min(0).optional(),
-    depositCurrency: z.string().length(3).optional(),
+    depositCurrency: z.nativeEnum(Currency).optional(),
     depositReturned: z.boolean().optional(),
     pickupLocation: z.string().max(500).optional(),
     returnLocation: z.string().max(500).optional(),
@@ -338,7 +342,7 @@ export const createReservationSchema = z.object({
     coveragePackageId: z.number().int().positive().optional(),
     priceSnapshot: z.any().optional(),
     deliveryFee: z.number().int().min(0).optional(),
-    deliveryCurrency: z.string().length(3).optional(),
+    deliveryCurrency: z.nativeEnum(Currency).optional(),
     rentalRequestId: z.number().int().positive().optional(),
 });
 
@@ -350,7 +354,7 @@ export const updateReservationSchema = z.object({
     coveragePackageId: z.number().int().positive().optional(),
     priceSnapshot: z.any().optional(),
     deliveryFee: z.number().int().min(0).optional(),
-    deliveryCurrency: z.string().length(3).optional(),
+    deliveryCurrency: z.nativeEnum(Currency).optional(),
 });
 
 export const pickupReservationSchema = z.object({
@@ -382,7 +386,7 @@ export const addReservationAddOnSchema = z.object({
     addOnId: z.number().int().positive(),
     quantity: z.number().int().min(1).optional(),
     unitPriceMinor: z.number().int().min(0),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
 });
 
 // ── Rental Request ──
@@ -435,7 +439,7 @@ export const approveRentalRequestSchema = z.object({
         addOnId: z.number().int().positive(),
         quantity: z.number().int().min(1),
         unitPriceMinor: z.number().int().min(0),
-        currency: z.string().length(3),
+        currency: z.nativeEnum(Currency),
     })).optional(),
     deliveryFee: z.number().int().min(0).optional(),
     priceSnapshot: z.any().optional(),
@@ -452,7 +456,7 @@ export const createRatePlanSchema = z.object({
     minDays: z.number().int().min(0),
     maxDays: z.number().int().min(0),
     dailyPrice: z.number().int().min(0),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     isActive: z.boolean().optional(),
 });
 
@@ -461,7 +465,7 @@ export const updateRatePlanSchema = z.object({
     minDays: z.number().int().min(0).optional(),
     maxDays: z.number().int().min(0).optional(),
     dailyPrice: z.number().int().min(0).optional(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     isActive: z.boolean().optional(),
 });
 
@@ -470,7 +474,7 @@ export const createAddOnSchema = z.object({
     nameLocalized: z.any().optional(),
     pricingMode: z.enum(['PER_DAY', 'ONE_TIME', 'MANUAL_QTY']),
     unitPriceMinor: z.number().int().min(0),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     defaultQty: z.string().optional(),
     qtyEditable: z.boolean().optional(),
     isActive: z.boolean().optional(),
@@ -481,7 +485,7 @@ export const updateAddOnSchema = z.object({
     nameLocalized: z.any().optional(),
     pricingMode: z.enum(['PER_DAY', 'ONE_TIME', 'MANUAL_QTY']).optional(),
     unitPriceMinor: z.number().int().min(0).optional(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     defaultQty: z.string().optional(),
     qtyEditable: z.boolean().optional(),
     isActive: z.boolean().optional(),
@@ -513,7 +517,7 @@ export const calculatePricingSchema = z.object({
         qty: z.number().int().min(1).optional(),
     })).optional(),
     deliveryFee: z.number().int().min(0).optional(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
 });
 
 // ── Service Event ──
@@ -525,7 +529,7 @@ export const createServiceEventSchema = z.object({
     endDate: z.coerce.date().optional(),
     blocksBooking: z.boolean().optional(),
     costMinor: z.number().int().min(0).optional(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     odometer: z.number().int().min(0).optional(),
     vendor: z.string().max(500).optional(),
     notes: z.string().max(5000).optional(),
@@ -538,7 +542,7 @@ export const updateServiceEventSchema = z.object({
     endDate: z.coerce.date().optional(),
     blocksBooking: z.boolean().optional(),
     costMinor: z.number().int().min(0).optional(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     odometer: z.number().int().min(0).optional(),
     vendor: z.string().max(500).optional(),
     notes: z.string().max(5000).optional(),
@@ -565,7 +569,7 @@ export const createFineSchema = z.object({
     type: z.string().min(1).max(100),
     description: z.string().min(1).max(5000),
     amountMinor: z.number().int().min(0),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     externalCaseNumber: z.string().max(200).optional(),
     incidentAt: z.coerce.date().optional(),
     location: z.string().max(500).optional(),
@@ -578,7 +582,7 @@ export const updateFineSchema = z.object({
     type: z.string().min(1).max(100).optional(),
     description: z.string().max(5000).optional(),
     amountMinor: z.number().int().min(0).optional(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     externalCaseNumber: z.string().max(200).nullable().optional(),
     incidentAt: z.coerce.date().nullable().optional(),
     location: z.string().max(500).nullable().optional(),
@@ -590,7 +594,7 @@ export const updateFineSchema = z.object({
 export const markFinePaidSchema = z.object({
     accountId: z.number().int().positive(),
     amountMinor: z.number().int().min(0),
-    currency: z.string().length(3),
+    currency: z.nativeEnum(Currency),
     fxRate: z.number().optional(),
     amountUahMinor: z.number().int(),
 });
@@ -871,7 +875,7 @@ export const createAccidentSchema = z.object({
     estimatedDamageMinor: z.number().int().min(0).optional(),
     insurancePayoutMinor: z.number().int().min(0).optional(),
     clientDebtMinor: z.number().int().min(0).optional(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     blocksCar: z.boolean().optional(),
     attachments: z.array(z.string().url()).optional(),
     notes: z.string().max(20000).optional(),
@@ -891,7 +895,7 @@ export const updateAccidentSchema = z.object({
     estimatedDamageMinor: z.number().int().min(0).nullable().optional(),
     insurancePayoutMinor: z.number().int().min(0).nullable().optional(),
     clientDebtMinor: z.number().int().min(0).optional(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     blocksCar: z.boolean().optional(),
     attachments: z.array(z.string().url()).optional(),
     notes: z.string().max(20000).nullable().optional(),
@@ -910,7 +914,7 @@ export const createInventoryItemSchema = z.object({
     purchaseDate: isoDate.optional(),
     purchasePriceMinor: z.number().int().min(0).optional(),
     currentValueMinor: z.number().int().min(0).optional(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     locationId: z.number().int().positive().optional(),
     responsibleUserId: z.number().int().positive().optional(),
     notes: z.string().max(5000).optional(),
@@ -969,7 +973,7 @@ export const createRentalDepositSchema = z.object({
     rentalId: z.number().int().positive(),
     reason: z.string().min(1).max(500),
     amountMinor: z.number().int().positive(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     dueAt: isoDate.optional(),
     notes: z.string().max(5000).optional(),
 });
@@ -977,7 +981,7 @@ export const createRentalDepositSchema = z.object({
 export const updateRentalDepositSchema = z.object({
     reason: z.string().min(1).max(500).optional(),
     amountMinor: z.number().int().positive().optional(),
-    currency: z.string().length(3).optional(),
+    currency: z.nativeEnum(Currency).optional(),
     status: z.enum(RENTAL_DEPOSIT_STATUSES).optional(),
     dueAt: isoDate.nullable().optional(),
     notes: z.string().max(5000).nullable().optional(),

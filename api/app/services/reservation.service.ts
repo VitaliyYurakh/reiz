@@ -1,3 +1,4 @@
+import {Currency} from '@prisma/client';
 import {prisma, MS_PER_DAY, ReservationStatus, BadRequestError, ConflictError, NotFoundError} from '../utils';
 import {PriceSnapshot} from '../types/dto.types';
 import availabilityService from './availability.service';
@@ -88,7 +89,7 @@ class ReservationService {
         coveragePackageId?: number;
         priceSnapshot?: any;
         deliveryFee?: number;
-        deliveryCurrency?: string;
+        deliveryCurrency?: Currency;
         rentalRequestId?: number;
     }) {
         const pickup = new Date(data.pickupDate);
@@ -123,7 +124,7 @@ class ReservationService {
                 coveragePackageId: data.coveragePackageId || null,
                 priceSnapshot: data.priceSnapshot || {},
                 deliveryFee: data.deliveryFee || 0,
-                deliveryCurrency: data.deliveryCurrency || 'UAH',
+                deliveryCurrency: data.deliveryCurrency ?? Currency.UAH,
                 rentalRequestId: data.rentalRequestId || null,
             },
             include: {
@@ -143,7 +144,7 @@ class ReservationService {
         coveragePackageId?: number;
         priceSnapshot?: any;
         deliveryFee?: number;
-        deliveryCurrency?: string;
+        deliveryCurrency?: Currency;
     }) {
         const reservation = await prisma.reservation.findUnique({where: {id}});
         if (!reservation) {
@@ -317,7 +318,7 @@ class ReservationService {
                     // Inherit the snapshot's currency instead of relying on the Prisma
                     // default 'UAH' — otherwise a USD booking shows "164 UAH" in the
                     // rental detail because the raw number is right but the unit is wrong.
-                    depositCurrency: ((effectiveSnapshot as {currency?: unknown}).currency as string | undefined) || 'UAH',
+                    depositCurrency: ((effectiveSnapshot as {currency?: unknown}).currency as Currency | undefined) ?? Currency.UAH,
                     // Copy add-ons from reservation to rental
                     rentalAddOns: reservation.reservationAddOns.length > 0
                         ? {
@@ -346,7 +347,7 @@ class ReservationService {
             // Read the same effectiveSnapshot used for the rental record so
             // the transactions match what we just persisted on the rental.
             const ps = effectiveSnapshot as PriceSnapshot & {grandTotal?: number};
-            const currency = (ps.currency as string) || 'UAH';
+            const currency = ((ps.currency as Currency) ?? Currency.UAH);
             const grandTotal = Math.round(Number(ps.grandTotal) || 0);
             const depositAmount = Math.round(Number(ps.depositAmount) || 0);
 
@@ -394,7 +395,7 @@ class ReservationService {
                 label: string,
             ): Promise<number> => {
                 if (provided != null && provided > 0) return provided;
-                if (currency === 'UAH') return 1.0;
+                if (currency === Currency.UAH) return 1.0;
                 const nbu = await fxRateService.getRate(currency);
                 if (!nbu) {
                     throw new BadRequestError(
@@ -409,7 +410,7 @@ class ReservationService {
             if (!pickupData.skipPayment && grandTotal > 0) {
                 const accountId = await resolveAccount(pickupData.paymentAccountId, 'Оплата оренди');
                 const fx = await resolveFxRate(pickupData.paymentFxRate, 'Оплата оренди');
-                const amountUahMinor = currency === 'UAH' ? grandTotal : Math.round(grandTotal * fx);
+                const amountUahMinor = currency === Currency.UAH ? grandTotal : Math.round(grandTotal * fx);
                 const paymentTx = await tx.transaction.create({
                     data: {
                         type: 'PAYMENT',
@@ -438,7 +439,7 @@ class ReservationService {
                     pickupData.depositFxRate ?? pickupData.paymentFxRate,
                     'Застава',
                 );
-                const amountUahMinor = currency === 'UAH' ? depositAmount : Math.round(depositAmount * fx);
+                const amountUahMinor = currency === Currency.UAH ? depositAmount : Math.round(depositAmount * fx);
                 const depositTx = await tx.transaction.create({
                     data: {
                         type: 'DEPOSIT_RECEIVED',
@@ -526,7 +527,7 @@ class ReservationService {
         addOnId: number,
         quantity: number,
         unitPriceMinor: number,
-        currency: string,
+        currency: Currency,
     ) {
         // Prevent duplicate add-ons on same reservation
         const existing = await prisma.reservationAddOn.findFirst({

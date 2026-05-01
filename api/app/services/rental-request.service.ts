@@ -1,3 +1,4 @@
+import {Currency} from '@prisma/client';
 import {prisma, RentalRequestStatus} from '../utils';
 import availabilityService, {formatConflicts} from './availability.service';
 import clientService from './client.service';
@@ -115,7 +116,7 @@ class RentalRequestService {
         pickupLocation?: string;
         returnLocation?: string;
         coveragePackageId?: number;
-        addOns?: Array<{addOnId: number; quantity: number; unitPriceMinor: number; currency: string}>;
+        addOns?: Array<{addOnId: number; quantity: number; unitPriceMinor: number; currency: Currency}>;
         deliveryFee?: number;
         priceSnapshot?: any;
     }) {

@@ -1,3 +1,4 @@
+import {Currency} from '@prisma/client';
 import {prisma, MS_PER_DAY} from '../utils';
 
 class PricingService {
@@ -8,7 +9,7 @@ class PricingService {
         coveragePackageId?: number;
         addOns?: Array<{addOnId: number; qty?: number}>;
         deliveryFee?: number;
-        currency?: string;
+        currency?: Currency;
     }) {
         const {carId, startDate, endDate, coveragePackageId, addOns, deliveryFee, currency} = params;
 
@@ -202,7 +203,7 @@ class PricingService {
         minDays: number;
         maxDays: number;
         dailyPrice: number;
-        currency?: string;
+        currency?: Currency;
         isActive?: boolean;
     }) {
         return await prisma.ratePlan.create({
@@ -212,7 +213,7 @@ class PricingService {
                 minDays: data.minDays,
                 maxDays: data.maxDays,
                 dailyPrice: data.dailyPrice,
-                currency: data.currency || 'USD',
+                currency: data.currency ?? Currency.USD,
                 isActive: data.isActive !== undefined ? data.isActive : true,
             },
         });
@@ -223,7 +224,7 @@ class PricingService {
         minDays?: number;
         maxDays?: number;
         dailyPrice?: number;
-        currency?: string;
+        currency?: Currency;
         isActive?: boolean;
     }) {
         return await prisma.ratePlan.update({
@@ -256,7 +257,7 @@ class PricingService {
         nameLocalized?: any;
         pricingMode: 'PER_DAY' | 'ONE_TIME' | 'MANUAL_QTY';
         unitPriceMinor: number;
-        currency?: string;
+        currency?: Currency;
         defaultQty?: string;
         qtyEditable?: boolean;
         isActive?: boolean;
@@ -267,7 +268,7 @@ class PricingService {
                 nameLocalized: data.nameLocalized || null,
                 pricingMode: data.pricingMode,
                 unitPriceMinor: data.unitPriceMinor,
-                currency: data.currency || 'USD',
+                currency: data.currency ?? Currency.USD,
                 defaultQty: data.defaultQty || null,
                 qtyEditable: data.qtyEditable || false,
                 isActive: data.isActive !== undefined ? data.isActive : true,
@@ -280,7 +281,7 @@ class PricingService {
         nameLocalized?: any;
         pricingMode?: 'PER_DAY' | 'ONE_TIME' | 'MANUAL_QTY';
         unitPriceMinor?: number;
-        currency?: string;
+        currency?: Currency;
         defaultQty?: string;
         qtyEditable?: boolean;
         isActive?: boolean;

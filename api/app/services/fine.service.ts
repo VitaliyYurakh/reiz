@@ -1,3 +1,4 @@
+import {Currency} from '@prisma/client';
 import {prisma, BadRequestError} from '../utils';
 import fxRateService from './fx-rate.service';
 
@@ -28,7 +29,7 @@ class FineService {
         type: string;
         description: string;
         amountMinor: number;
-        currency?: string;
+        currency?: Currency;
         externalCaseNumber?: string;
         incidentAt?: string | Date;
         location?: string;
@@ -57,7 +58,7 @@ class FineService {
                 type: data.type,
                 description: data.description,
                 amountMinor: data.amountMinor,
-                currency: data.currency || 'UAH',
+                currency: data.currency ?? Currency.UAH,
                 externalCaseNumber: data.externalCaseNumber || null,
                 incidentAt: data.incidentAt ? new Date(data.incidentAt) : null,
                 location: data.location || null,
@@ -141,7 +142,7 @@ class FineService {
     async markPaid(id: number, transactionData: {
         accountId: number;
         amountMinor: number;
-        currency: string;
+        currency: Currency;
         fxRate?: number;
         amountUahMinor: number;
         createdByUserId?: number;

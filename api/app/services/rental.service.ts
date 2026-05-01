@@ -1,3 +1,4 @@
+import {Currency} from '@prisma/client';
 import {prisma, MS_PER_DAY, RentalStatus, BadRequestError} from '../utils';
 import {PriceSnapshot} from '../types/dto.types';
 import availabilityService, {formatConflicts} from './availability.service';
@@ -100,7 +101,7 @@ class RentalService {
         contractNumber?: string;
         priceSnapshot: any;
         depositAmount?: number;
-        depositCurrency?: string;
+        depositCurrency?: Currency;
         allowedMileage?: number;
         notes?: string;
     }) {
@@ -158,7 +159,7 @@ class RentalService {
                     contractNumber: data.contractNumber || null,
                     priceSnapshot: data.priceSnapshot,
                     depositAmount: data.depositAmount || 0,
-                    depositCurrency: data.depositCurrency || 'UAH',
+                    depositCurrency: data.depositCurrency ?? Currency.UAH,
                     allowedMileage: data.allowedMileage || null,
                     notes: data.notes || null,
                 },
@@ -176,7 +177,7 @@ class RentalService {
         allowedMileage?: number;
         notes?: string;
         depositAmount?: number;
-        depositCurrency?: string;
+        depositCurrency?: Currency;
         depositReturned?: boolean;
         pickupLocation?: string;
         returnLocation?: string;
@@ -280,7 +281,7 @@ class RentalService {
                             type: 'LATE_RETURN',
                             description: `Прострочене повернення на ${lateDays} дн. (очікувалось: ${expectedReturn.toLocaleDateString('uk-UA')})`,
                             amountMinor: lateFee,
-                            currency: (ps?.currency || 'UAH'),
+                            currency: ((ps?.currency as Currency) ?? Currency.UAH),
                         },
                     });
                 }
@@ -436,7 +437,11 @@ class RentalService {
         // Get daily rate from price snapshot
         const priceSnapshot = rental.priceSnapshot as PriceSnapshot;
         const dailyRateMinor = priceSnapshot?.dailyRateMinor || priceSnapshot?.dailyRate || 0;
-        const currency = priceSnapshot?.currency || 'USD';
+        // priceSnapshot.currency arrived as a generic string in the JSON
+        // before Currency was a typed enum; treat the snapshot value as
+        // already-validated (it was validated when the snapshot was first
+        // built) and cast to the strict enum.
+        const currency = ((priceSnapshot?.currency as Currency) ?? Currency.USD);
         const totalMinor = dailyRateMinor * extraDays;
 
         return await prisma.$transaction(async (tx) => {
@@ -503,7 +508,7 @@ class RentalService {
                 let fxRate = 1.0;
                 if (paymentOptions?.fxRate != null && paymentOptions.fxRate > 0) {
                     fxRate = paymentOptions.fxRate;
-                } else if (currency !== 'UAH') {
+                } else if (currency !== Currency.UAH) {
                     const nbu = await fxRateService.getRate(currency);
                     if (!nbu) {
                         throw new BadRequestError(
@@ -512,7 +517,7 @@ class RentalService {
                     }
                     fxRate = nbu.rate;
                 }
-                const amountUahMinor = currency === 'UAH'
+                const amountUahMinor = currency === Currency.UAH
                     ? totalMinor
                     : Math.round(totalMinor * fxRate);
 
@@ -664,7 +669,7 @@ class RentalService {
         rentalId: number;
         reason: string;
         amountMinor: number;
-        currency?: string;
+        currency?: Currency;
         dueAt?: string | Date;
         notes?: string;
     }) {
@@ -676,7 +681,7 @@ class RentalService {
                 rentalId: data.rentalId,
                 reason: data.reason,
                 amountMinor: data.amountMinor,
-                currency: data.currency ?? 'UAH',
+                currency: data.currency ?? Currency.UAH,
                 dueAt: data.dueAt ? new Date(data.dueAt) : null,
                 notes: data.notes ?? null,
             },
@@ -686,7 +691,7 @@ class RentalService {
     async updateDeposit(id: number, data: {
         reason?: string;
         amountMinor?: number;
-        currency?: string;
+        currency?: Currency;
         status?: string;
         dueAt?: string | Date | null;
         notes?: string | null;

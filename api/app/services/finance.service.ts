@@ -1,4 +1,4 @@
-import {AccountType, TransactionType, TransactionDirection} from '@prisma/client';
+import {AccountType, Currency, TransactionType, TransactionDirection} from '@prisma/client';
 import {prisma, BadRequestError} from '../utils';
 import fxRateService from './fx-rate.service';
 
@@ -83,14 +83,14 @@ class FinanceService {
     async createAccount(data: {
         name: string;
         type: AccountType;
-        currency?: string;
+        currency?: Currency;
         isActive?: boolean;
     }) {
         return await prisma.account.create({
             data: {
                 name: data.name,
                 type: data.type,
-                currency: data.currency || 'UAH',
+                currency: data.currency ?? Currency.UAH,
                 isActive: data.isActive !== undefined ? data.isActive : true,
             },
         });
@@ -99,7 +99,7 @@ class FinanceService {
     async updateAccount(id: number, data: {
         name?: string;
         type?: AccountType;
-        currency?: string;
+        currency?: Currency;
         isActive?: boolean;
     }) {
         return await prisma.account.update({
@@ -115,7 +115,7 @@ class FinanceService {
         accountId: number;
         direction: TransactionDirection;
         amountMinor: number;
-        currency: string;
+        currency: Currency;
         fxRate?: number;
         amountUahMinor: number;
         description?: string;
@@ -361,10 +361,11 @@ class FinanceService {
                 throw new Error(`Cross-currency transfer (${from.currency}→${to.currency}) requires explicit fxRate`);
             }
 
-            // Outgoing leg in source currency
-            const outAmountUahMinor = from.currency === 'UAH'
+            // Outgoing leg in source currency. For non-UAH source we apply
+            // fxRate (or 1 fallback when sameCurrency is true).
+            const outAmountUahMinor = from.currency === Currency.UAH
                 ? data.amountMinor
-                : Math.round(data.amountMinor * (from.currency === 'UAH' ? 1 : (sameCurrency ? fxRate : 1)));
+                : Math.round(data.amountMinor * (sameCurrency ? fxRate : 1));
 
             // Determine the destination amount in destination currency
             const inAmountMinorDest = sameCurrency

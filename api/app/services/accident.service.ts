@@ -1,4 +1,4 @@
-import {AccidentStatus as PAccidentStatus, AccidentFault as PAccidentFault} from '@prisma/client';
+import {AccidentStatus as PAccidentStatus, AccidentFault as PAccidentFault, Currency} from '@prisma/client';
 import {prisma, BadRequestError, NotFoundError} from '../utils';
 import {AccidentStatus, AccidentFault, ACCIDENT_OPEN_STATUSES, ACCIDENT_TERMINAL_STATUSES} from '../utils/constants';
 
@@ -20,7 +20,7 @@ interface CreateAccidentInput {
     estimatedDamageMinor?: number;
     insurancePayoutMinor?: number;
     clientDebtMinor?: number;
-    currency?: string;
+    currency?: Currency;
     blocksCar?: boolean;
     attachments?: string[];
     notes?: string;

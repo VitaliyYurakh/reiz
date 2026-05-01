@@ -1,3 +1,4 @@
+import {Currency} from '@prisma/client';
 import {prisma} from '../utils';
 import availabilityService, {formatConflicts} from './availability.service';
 
@@ -65,7 +66,7 @@ class ServiceEventService {
         endDate?: Date;
         blocksBooking?: boolean;
         costMinor?: number;
-        currency?: string;
+        currency?: Currency;
         odometer?: number;
         vendor?: string;
         notes?: string;
@@ -97,7 +98,7 @@ class ServiceEventService {
                 endDate: data.endDate ? new Date(data.endDate) : null,
                 blocksBooking,
                 costMinor: data.costMinor || null,
-                currency: data.currency || 'UAH',
+                currency: data.currency ?? Currency.UAH,
                 odometer: data.odometer || null,
                 vendor: data.vendor || null,
                 notes: data.notes || null,
@@ -115,7 +116,7 @@ class ServiceEventService {
         endDate?: Date;
         blocksBooking?: boolean;
         costMinor?: number;
-        currency?: string;
+        currency?: Currency;
         odometer?: number;
         vendor?: string;
         notes?: string;

@@ -346,9 +346,22 @@ enum AccountType {
   BANK_CARD
 }
 
-// Currency stays a String for now — promoting it to an enum requires
-// widening every `currency: string` service signature and fxRate calls
-// that take API input outside the closed set. Tracked separately.
+// Currencies the platform handles. UAH/USD/EUR are the real money flows;
+// ILS/PLN are accepted by validators for international clients;
+// GBP/CZK/RON exist because fxRateService caches their NBU rates for
+// reference even though we don't transact in them. Keeping all 8 in one
+// enum means daily_fx_rate.currency can store any of the 6 SUPPORTED
+// fetched rates without runtime ENUM rejection.
+enum Currency {
+  UAH
+  USD
+  EUR
+  ILS
+  PLN
+  GBP
+  CZK
+  RON
+}
 
 enum TransactionType {
   PAYMENT
@@ -629,7 +642,7 @@ model AddOn {
   nameLocalized  Json?            @map("name_localized")
   pricingMode    AddOnPricingMode @map("pricing_mode")
   unitPriceMinor Int              @map("unit_price_minor")
-  currency       String           @default("USD")
+  currency       Currency         @default(USD)
   defaultQty     String?          @map("default_qty")
   qtyEditable    Boolean          @default(false) @map("qty_editable")
   isActive       Boolean          @default(true) @map("is_active")
@@ -650,7 +663,7 @@ model RatePlan {
   minDays    Int       @map("min_days")
   maxDays    Int       @map("max_days")
   dailyPrice Int       @map("daily_price")
-  currency   String    @default("USD")
+  currency   Currency  @default(USD)
   isActive   Boolean   @default(true) @map("is_active")
   deletedAt  DateTime? @map("deleted_at")
   createdAt  DateTime  @default(now()) @map("created_at")
@@ -677,9 +690,9 @@ model Reservation {
   pickupDate     DateTime @map("pickup_date")
   returnDate     DateTime @map("return_date")
 
-  priceSnapshot    Json   @map("price_snapshot")
-  deliveryFee      Int    @default(0) @map("delivery_fee")
-  deliveryCurrency String @default("UAH") @map("delivery_currency")
+  priceSnapshot    Json     @map("price_snapshot")
+  deliveryFee      Int      @default(0) @map("delivery_fee")
+  deliveryCurrency Currency @default(UAH) @map("delivery_currency")
 
   cancelReason              String?   @map("cancel_reason")
   cancelledAt               DateTime? @map("cancelled_at")
@@ -707,13 +720,13 @@ model Reservation {
 }
 
 model ReservationAddOn {
-  id             Int    @id @default(autoincrement())
-  reservationId  Int    @map("reservation_id")
-  addOnId        Int    @map("add_on_id")
-  quantity       Int    @default(1)
-  unitPriceMinor Int    @map("unit_price_minor")
-  currency       String @default("USD")
-  totalMinor     Int    @map("total_minor")
+  id             Int      @id @default(autoincrement())
+  reservationId  Int      @map("reservation_id")
+  addOnId        Int      @map("add_on_id")
+  quantity       Int      @default(1)
+  unitPriceMinor Int      @map("unit_price_minor")
+  currency       Currency @default(USD)
+  totalMinor     Int      @map("total_minor")
 
   reservation Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
   addOn       AddOn       @relation(fields: [addOnId], references: [id])
@@ -744,9 +757,9 @@ model Rental {
 
   priceSnapshot Json @map("price_snapshot")
 
-  depositAmount   Int     @default(0) @map("deposit_amount")
-  depositCurrency String  @default("UAH") @map("deposit_currency")
-  depositReturned Boolean @default(false) @map("deposit_returned")
+  depositAmount   Int      @default(0) @map("deposit_amount")
+  depositCurrency Currency @default(UAH) @map("deposit_currency")
+  depositReturned Boolean  @default(false) @map("deposit_returned")
 
   cancelReason              String?   @map("cancel_reason")
   cancellationRequestedAt   DateTime? @map("cancellation_requested_at")
@@ -785,13 +798,13 @@ model Rental {
 }
 
 model RentalAddOn {
-  id             Int    @id @default(autoincrement())
-  rentalId       Int    @map("rental_id")
-  addOnId        Int    @map("add_on_id")
-  quantity       Int    @default(1)
-  unitPriceMinor Int    @map("unit_price_minor")
-  currency       String @default("USD")
-  totalMinor     Int    @map("total_minor")
+  id             Int      @id @default(autoincrement())
+  rentalId       Int      @map("rental_id")
+  addOnId        Int      @map("add_on_id")
+  quantity       Int      @default(1)
+  unitPriceMinor Int      @map("unit_price_minor")
+  currency       Currency @default(USD)
+  totalMinor     Int      @map("total_minor")
 
   rental Rental @relation(fields: [rentalId], references: [id], onDelete: Cascade)
   addOn  AddOn  @relation(fields: [addOnId], references: [id])
@@ -806,7 +819,7 @@ model RentalExtension {
   newReturnDate  DateTime @map("new_return_date")
   extraDays      Int      @map("extra_days")
   dailyRateMinor Int      @map("daily_rate_minor")
-  currency       String   @default("USD")
+  currency       Currency @default(USD)
   totalMinor     Int      @map("total_minor")
   reason         String?
   createdAt      DateTime @default(now()) @map("created_at")
@@ -862,7 +875,7 @@ model Fine {
   type        String
   description String
   amountMinor Int      @map("amount_minor")
-  currency    String   @default("UAH")
+  currency    Currency @default(UAH)
   isPaid      Boolean  @default(false) @map("is_paid")
   createdAt   DateTime @default(now()) @map("created_at")
 
@@ -898,7 +911,7 @@ model ServiceEvent {
   endDate       DateTime? @map("end_date")
   blocksBooking Boolean   @default(true) @map("blocks_booking")
   costMinor     Int?      @map("cost_minor")
-  currency      String    @default("UAH")
+  currency      Currency  @default(UAH)
   odometer      Int?
   vendor        String?
   notes         String?
@@ -932,7 +945,7 @@ model Account {
   id       Int         @id @default(autoincrement())
   name     String
   type     AccountType
-  currency String      @default("UAH")
+  currency Currency    @default(UAH)
   isActive Boolean     @default(true) @map("is_active")
 
   createdAt DateTime @default(now()) @map("created_at")
@@ -949,7 +962,7 @@ model Transaction {
   accountId      Int                  @map("account_id")
   direction      TransactionDirection
   amountMinor    Int                  @map("amount_minor")
-  currency       String
+  currency       Currency
   fxRate         Float                @default(1.0) @map("fx_rate")
   amountUahMinor Int                  @map("amount_uah_minor")
   description    String?
@@ -1263,7 +1276,7 @@ model ComplaintMessage {
 model DailyFxRate {
   id        Int          @id @default(autoincrement())
   date      DateTime     @db.Date
-  currency  String
+  currency  Currency
   rate      Float // units of UAH per 1 unit of currency
   source    FxRateSource @default(NBU)
   createdAt DateTime     @default(now()) @map("created_at")
@@ -1653,10 +1666,10 @@ model Accident {
   expertNotes   String?   @map("expert_notes")
 
   // Money — minor units (kopecks/cents). Currency same on all 3 fields per case.
-  estimatedDamageMinor Int?   @map("estimated_damage_minor")
-  insurancePayoutMinor Int?   @map("insurance_payout_minor")
-  clientDebtMinor      Int    @default(0) @map("client_debt_minor")
-  currency             String @default("UAH")
+  estimatedDamageMinor Int?     @map("estimated_damage_minor")
+  insurancePayoutMinor Int?     @map("insurance_payout_minor")
+  clientDebtMinor      Int      @default(0) @map("client_debt_minor")
+  currency             Currency @default(UAH)
 
   // When true → Car.isBlocked is forced true while the case is open.
   blocksCar Boolean @default(true) @map("blocks_car")
@@ -1704,7 +1717,7 @@ model InventoryItem {
   purchaseDate       DateTime?         @map("purchase_date")
   purchasePriceMinor Int?              @map("purchase_price_minor")
   currentValueMinor  Int?              @map("current_value_minor")
-  currency           String            @default("UAH")
+  currency           Currency          @default(UAH)
 
   // Where the item normally lives (a pickup location / warehouse).
   locationId        Int?      @map("location_id")
@@ -1815,7 +1828,7 @@ model RentalDeposit {
   rentalId    Int                 @map("rental_id")
   reason      String // free-form label shown to client
   amountMinor Int                 @map("amount_minor")
-  currency    String              @default("UAH")
+  currency    Currency            @default(UAH)
   status      RentalDepositStatus @default(PENDING)
   dueAt       DateTime?           @map("due_at")
   receivedAt  DateTime?           @map("received_at")
