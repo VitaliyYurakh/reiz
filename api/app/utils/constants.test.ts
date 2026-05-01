@@ -27,6 +27,15 @@ describe('parseId', () => {
     it('uses the supplied param name in the error message', () => {
         expect(() => parseId('x', 'rentalId')).toThrow(/Invalid rentalId/);
     });
+
+    it('rejects values larger than INT4 max (regression: prod bot scraper crash)', () => {
+        // Sentry caught GET /api/car/1766847957230 (13-digit timestamp as ID)
+        // crashing Prisma findUnique with a ConnectorError instead of 400.
+        // parseId now caps at 2_147_483_647 to fail at the route boundary.
+        expect(() => parseId('1766847957230')).toThrow(/Invalid id/);
+        expect(() => parseId('2147483648')).toThrow(/Invalid id/);
+        expect(parseId('2147483647')).toBe(2147483647);
+    });
 });
 
 describe('parseOptionalId', () => {

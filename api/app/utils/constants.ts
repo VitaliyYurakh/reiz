@@ -156,12 +156,21 @@ export const RentalDepositStatus = {
 } as const;
 export const RENTAL_DEPOSIT_STATUSES = Object.values(RentalDepositStatus);
 
+// Postgres INT4 max — every Prisma `id Int` column is stored as a 32-bit
+// signed integer, so anything larger overflows on findUnique() with a
+// confusing ConnectorError instead of a clean 400. Cap here to fail
+// fast at the route boundary (Sentry caught a bot scraper hitting
+// /api/car/1766847957230 — a 13-digit timestamp passed as ID — which
+// crashed Prisma rather than 400'ing).
+const PG_INT4_MAX = 2_147_483_647;
+
 /**
- * Parse a route param as integer. Throws 400-style error if NaN.
+ * Parse a route param as integer. Throws 400-style error if NaN, zero,
+ * negative, fractional, or outside the Postgres INT4 range.
  */
 export function parseId(value: string | undefined, name = 'id'): number {
     const n = Number(value);
-    if (!Number.isInteger(n) || n <= 0) {
+    if (!Number.isInteger(n) || n <= 0 || n > PG_INT4_MAX) {
         throw new BadParamError(`Invalid ${name}: ${value}`);
     }
     return n;
@@ -169,12 +178,12 @@ export function parseId(value: string | undefined, name = 'id'): number {
 
 /**
  * Parse an optional query param as integer. Returns undefined if absent/empty.
- * Throws if present but not a valid positive integer.
+ * Throws if present but not a valid positive integer in INT4 range.
  */
 export function parseOptionalId(value: string | undefined, name = 'id'): number | undefined {
     if (value === undefined || value === '') return undefined;
     const n = Number(value);
-    if (!Number.isInteger(n) || n <= 0) {
+    if (!Number.isInteger(n) || n <= 0 || n > PG_INT4_MAX) {
         throw new BadParamError(`Invalid ${name}: ${value}`);
     }
     return n;
