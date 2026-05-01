@@ -1025,6 +1025,8 @@ export const uk = {
     typeServiceCost: 'Витрата на сервіс',
     typeAddonPayment: 'Оплата дод. послуг',
     typeExtensionPayment: 'Оплата продовження',
+    typePartnerCommission: 'Комісія партнера',
+    typeTransfer: 'Переказ між рахунками',
     balance: 'Баланс',
     in: 'Прихід',
     out: 'Витрата',

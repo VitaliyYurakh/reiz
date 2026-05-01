@@ -1007,6 +1007,8 @@ export const ru: AdminTranslations = {
     typeServiceCost: 'Расход на сервис',
     typeAddonPayment: 'Оплата доп. услуг',
     typeExtensionPayment: 'Оплата продления',
+    typePartnerCommission: 'Комиссия партнёра',
+    typeTransfer: 'Перевод между счетами',
     balance: 'Баланс',
     in: 'Приход',
     out: 'Расход',

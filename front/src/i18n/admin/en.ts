@@ -1007,6 +1007,8 @@ export const en: AdminTranslations = {
     typeServiceCost: 'Service cost',
     typeAddonPayment: 'Add-on payment',
     typeExtensionPayment: 'Extension payment',
+    typePartnerCommission: 'Partner commission',
+    typeTransfer: 'Inter-account transfer',
     balance: 'Balance',
     in: 'Income',
     out: 'Expense',

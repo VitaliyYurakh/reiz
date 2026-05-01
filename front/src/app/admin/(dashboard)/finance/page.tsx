@@ -113,6 +113,11 @@ const TYPE_LABEL_KEYS: Record<string, string> = {
   SERVICE_COST: 'finance.typeServiceCost',
   ADDON_PAYMENT: 'finance.typeAddonPayment',
   EXTENSION_PAYMENT: 'finance.typeExtensionPayment',
+  // Backend-only types — not selectable in the create form, but appear in
+  // the transactions table (PARTNER_COMMISSION from partner payment flow,
+  // TRANSFER from inter-account transfers / інкасація).
+  PARTNER_COMMISSION: 'finance.typePartnerCommission',
+  TRANSFER: 'finance.typeTransfer',
 };
 
 const CURRENCIES = ['UAH', 'USD', 'EUR', 'ILS'] as const;

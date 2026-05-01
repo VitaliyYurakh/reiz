@@ -1007,6 +1007,8 @@ export const ro: AdminTranslations = {
         typeServiceCost: 'Cost service',
         typeAddonPayment: 'Plată serviciu suplimentar',
         typeExtensionPayment: 'Plată prelungire',
+        typePartnerCommission: 'Comision partener',
+        typeTransfer: 'Transfer între conturi',
         balance: 'Sold',
         in: 'Intrare',
         out: 'Ieșire',

@@ -1007,6 +1007,8 @@ export const pl: AdminTranslations = {
     typeServiceCost: 'Koszt serwisu',
     typeAddonPayment: 'Opłata za dodatek',
     typeExtensionPayment: 'Opłata za przedłużenie',
+    typePartnerCommission: 'Prowizja partnera',
+    typeTransfer: 'Przelew między kontami',
     balance: 'Saldo',
     in: 'Przychód',
     out: 'Wydatek',
