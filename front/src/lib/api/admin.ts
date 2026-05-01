@@ -401,8 +401,44 @@ export const updateUser = async (id: number, data: { name?: string; roleId?: num
   return res.data;
 };
 
-export const listRoles = async (): Promise<Array<{ id: number; name: string; isSystem: boolean }>> => {
+// Role CRUD — backend gates list/get on `users.view`, mutations on `users.full`.
+// `description` is optional; permissions is `{[module]: 'none'|'view'|'full'}`.
+export const listRoles = async (): Promise<Array<{
+  id: number;
+  name: string;
+  description: string | null;
+  isSystem: boolean;
+  permissions: Record<string, string>;
+}>> => {
   const res = await adminApi.get('/role');
+  return res.data;
+};
+
+export const getRole = async (id: number) => {
+  const res = await adminApi.get(`/role/${id}`);
+  return res.data;
+};
+
+export const createRole = async (data: {
+  name: string;
+  description?: string | null;
+  permissions?: Record<string, string>;
+}) => {
+  const res = await adminApi.post('/role', data);
+  return res.data;
+};
+
+export const updateRole = async (id: number, data: {
+  name?: string;
+  description?: string | null;
+  permissions?: Record<string, string>;
+}) => {
+  const res = await adminApi.patch(`/role/${id}`, data);
+  return res.data;
+};
+
+export const deleteRole = async (id: number) => {
+  const res = await adminApi.delete(`/role/${id}`);
   return res.data;
 };
 

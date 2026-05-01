@@ -8,6 +8,7 @@ import type { TabKey } from '@/app/admin/(dashboard)/settings/components/types';
 import { TemplatesTab } from '@/app/admin/(dashboard)/settings/components/TemplatesTab';
 import { AuditTab } from '@/app/admin/(dashboard)/settings/components/AuditTab';
 import { TeamTab } from '@/app/admin/(dashboard)/settings/components/TeamTab';
+import { RolesTab } from '@/app/admin/(dashboard)/settings/components/RolesTab';
 import { ProfileTab } from '@/app/admin/(dashboard)/settings/components/ProfileTab';
 
 export default function SettingsPage() {
@@ -50,6 +51,7 @@ export default function SettingsPage() {
       {activeTab === 'templates' && <TemplatesTab />}
       {activeTab === 'audit' && <AuditTab />}
       {activeTab === 'team' && <TeamTab />}
+      {activeTab === 'roles' && <RolesTab />}
       {activeTab === 'profile' && <ProfileTab />}
     </div>
   );
