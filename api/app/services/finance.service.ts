@@ -264,7 +264,7 @@ class FinanceService {
 
         for (const tx of transactions) {
             const amountUah = tx.amountUahMinor;
-            const isIn = tx.direction === 'in';
+            const isIn = tx.direction?.toLowerCase() === 'in';
 
             // By account
             if (!byAccount[tx.accountId]) {
@@ -318,7 +318,7 @@ class FinanceService {
         let totalPaid = 0;
 
         for (const tx of transactions) {
-            if (tx.direction === 'in') {
+            if (tx.direction?.toLowerCase() === 'in') {
                 totalPaid += tx.amountUahMinor;
             } else {
                 totalCharged += tx.amountUahMinor;

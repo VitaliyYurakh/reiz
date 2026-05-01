@@ -52,10 +52,13 @@ class ReportService {
             prisma.client.count({where: {deletedAt: null}}),
 
             // Revenue this month (sum of incoming transactions in UAH,
-            // excluding deposits — those are client money we hold, not revenue)
+            // excluding deposits — those are client money we hold, not revenue).
+            // direction filter accepts both casings to roll up legacy 'IN'
+            // rows that predate the lowercase normalization fix; otherwise the
+            // hero KPI silently underreports historic income.
             prisma.transaction.aggregate({
                 where: {
-                    direction: 'in',
+                    direction: {in: ['in', 'IN']},
                     type: {notIn: NON_REVENUE_TYPES},
                     createdAt: {gte: startOfMonth},
                 },
@@ -65,7 +68,7 @@ class ReportService {
             // Revenue last month
             prisma.transaction.aggregate({
                 where: {
-                    direction: 'in',
+                    direction: {in: ['in', 'IN']},
                     type: {notIn: NON_REVENUE_TYPES},
                     createdAt: {
                         gte: startOfLastMonth,
@@ -162,7 +165,7 @@ class ReportService {
                 dailyRevenue[dateKey] = {date: dateKey, income: 0, expense: 0, net: 0};
             }
 
-            if (tx.direction === 'in') {
+            if (tx.direction?.toLowerCase() === 'in') {
                 dailyRevenue[dateKey].income += tx.amountUahMinor;
             } else {
                 dailyRevenue[dateKey].expense += tx.amountUahMinor;
