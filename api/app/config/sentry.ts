@@ -7,11 +7,9 @@ import {env} from './env';
  * `express()` is built so Sentry's auto-instrumentation can wrap the
  * Express middleware stack.
  *
- * Setup steps for ops:
- *   1. Create a Node.js project at https://sentry.io
- *   2. Copy the DSN
- *   3. Add SENTRY_DSN as a GitHub Actions repo secret
- *   4. The deploy workflow already passes it to docker-compose
+ * Setup is one-time-done — DSN lives as the `SENTRY_DSN` GitHub Actions
+ * secret which the deploy workflow propagates to docker-compose. To
+ * rotate or rebind, update the secret value and push any commit.
  */
 export function initSentry() {
     if (!env.SENTRY_DSN) return;
