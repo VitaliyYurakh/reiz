@@ -1,9 +1,15 @@
 FROM node:20-alpine
 WORKDIR /usr/src/app
-ENV NODE_ENV=production
 
+# `tsx` (used by `prisma db seed`) is a devDependency. Install with the
+# default NODE_ENV so devDeps land — only flip to production AFTER
+# install. Skipping devDeps here is what crashed the container in the
+# previous deploy: seed bailed with "spawn tsx ENOENT" and nothing past
+# the seed step ran.
 COPY package*.json ./
 RUN npm ci
+
+ENV NODE_ENV=production
 
 COPY . .
 RUN npx prisma generate
