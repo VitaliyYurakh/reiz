@@ -1,33 +1,38 @@
-FROM node:20-alpine
+FROM node:20-alpine AS deps
 WORKDIR /usr/src/app
-
-# `tsx` (used by `prisma db seed`) is a devDependency. Install with the
-# default NODE_ENV so devDeps land — only flip to production AFTER
-# install. Skipping devDeps here is what crashed the container in the
-# previous deploy: seed bailed with "spawn tsx ENOENT" and nothing past
-# the seed step ran.
+# devDeps included intentionally — we need tsc here (build stage) and
+# tsx in the runtime stage for `prisma db seed`.
 COPY package*.json ./
 RUN npm ci
 
-ENV NODE_ENV=production
-
+FROM deps AS builder
 COPY . .
 RUN npx prisma generate
+# tsc is now clean (no `|| true` fallback) — every file emits.
+RUN npm run build
+
+FROM node:20-alpine AS runner
+WORKDIR /usr/src/app
+ENV NODE_ENV=production
+
+# Bring runtime artefacts from the builder. node_modules carries tsx
+# (devDep) which `prisma db seed` invokes per package.json's
+# `prisma.seed` config; without it the seed crashes with `spawn tsx
+# ENOENT` and the container restart-loops.
+COPY --from=builder /usr/src/app/node_modules ./node_modules
+COPY --from=builder /usr/src/app/build ./build
+COPY --from=builder /usr/src/app/prisma ./prisma
+COPY --from=builder /usr/src/app/package*.json ./
 
 EXPOSE 3000
 
 # Production startup:
 #   * `migrate deploy` is the ONLY schema-applying step. We deliberately
-#     dropped `prisma db push --accept-data-loss` from the previous CMD —
-#     it relied on Prisma's diff heuristics and could DROP+CREATE tables
-#     on perceived renames, which would silently destroy data (cars,
-#     photos, …). Migrations are now the single source of truth.
+#     dropped `prisma db push --accept-data-loss` from the previous
+#     pipeline — it relied on Prisma's diff heuristics and could
+#     DROP+CREATE tables on perceived renames, silently destroying data
+#     (cars, photos). Migrations are now the single source of truth.
 #   * `db seed` is idempotent (uses `upsert` / `count == 0` guards).
-#   * `tsx` runs TS sources directly. We tried `node build/app/index.js`
-#     after a `npm run build` step but the codebase has pre-existing
-#     tsc errors that bail tsc emit before reaching `app/index.ts`,
-#     leaving no entry to run. Until those warnings are cleaned up
-#     (separate PR), tsx is the pragmatic prod runner — it's the same
-#     thing nodemon was wrapping, minus the file watcher and restart
-#     overhead.
-CMD ["sh", "-c", "npx prisma migrate deploy && npx prisma db seed && npx tsx app/index.ts"]
+#   * Compiled JS via `node build/app/index.js` — no nodemon, no tsx
+#     in the runtime hot path.
+CMD ["sh", "-c", "npx prisma migrate deploy && npx prisma db seed && node build/app/index.js"]

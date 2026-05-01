@@ -1,11 +1,15 @@
+// All fields optional to match `createCarSchema` (Zod) — validator pre-2026-05
+// allowed bare {} bodies so admins could draft a car row and fill it in
+// later. Keep the runtime-validated shape and the TS DTO in sync; otherwise
+// `validate()` returns a wider type than the DTO accepts.
 type CreateCarDto = {
-    brand: string;
-    model: string;
-    plateNumber: string;
-    VIN: string;
-    yearOfManufacture: number;
-    color: string;
-    segmentIds: number[];
+    brand?: string;
+    model?: string;
+    plateNumber?: string;
+    VIN?: string;
+    yearOfManufacture?: number;
+    color?: string;
+    segmentIds?: number[];
     partnerId?: number | null;
 };
 
@@ -19,14 +23,15 @@ type UpdateCarDto = {
     yearOfManufacture?: number;
     color?: string;
     segmentIds?: number[];
-    description?: string;
+    // Either plain string (legacy) or i18n map (`{uk:'...', ru:'...', en:'...'}`).
+    description?: string | Record<string, string>;
     engineVolume?: string;
     engineType?: Record<string, string>;
     transmission?: Record<string, string>;
     fuelConsumption?: string;
     driveType?: Record<string, string>;
-    seats?: number;
-    discount?: number;
+    seats?: number | null;
+    discount?: number | null;
     configuration?: Record<string, string>[];
     alt?: string;
     isNew?: boolean;

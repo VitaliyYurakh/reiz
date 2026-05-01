@@ -1,4 +1,5 @@
 import {prisma} from '../utils';
+import telegramService from './telegram.service';
 
 class CustomerService {
     async getProfile(clientId: number) {
@@ -242,7 +243,6 @@ class CustomerService {
 
         // Send Telegram notification
         try {
-            const {default: telegramService} = await import('./telegram.service');
             const client = reservation.client;
             const car = reservation.car;
             const pickupDate = new Date(reservation.pickupDate).toLocaleDateString('uk-UA');

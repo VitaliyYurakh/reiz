@@ -129,7 +129,11 @@ class CarService {
 
         return await prisma.car.update({
             where: {id},
-            data,
+            // Cast through Prisma.CarUncheckedUpdateInput because we set
+            // `partnerId` (the FK column) directly rather than going through
+            // the `partner` relation. Prisma's typed input would otherwise
+            // disallow `partnerId` on the checked variant.
+            data: data as Prisma.CarUncheckedUpdateInput,
         });
     }
 

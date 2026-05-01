@@ -485,6 +485,7 @@ model RatePlan {
 
 model Reservation {
   id                Int    @id @default(autoincrement())
+  /// 'confirmed' | 'cancelled' | 'noshow' | 'cancellation_requested'
   status            String @default("confirmed")
   rentalRequestId   Int?   @unique @map("rental_request_id")
   clientId          Int    @map("client_id")
@@ -544,6 +545,7 @@ model ReservationAddOn {
 
 model Rental {
   id             Int     @id @default(autoincrement())
+  /// 'active' | 'completed' | 'cancelled' | 'overdue'
   status         String  @default("active")
   reservationId  Int?    @unique @map("reservation_id")
   clientId       Int     @map("client_id")
@@ -750,7 +752,9 @@ model ServiceEventPhoto {
 model Account {
   id       Int     @id @default(autoincrement())
   name     String
+  /// 'CASH' | 'BANK_ACCOUNT' | 'BANK_CARD'
   type     String
+  /// ISO 4217 — 'UAH' | 'USD' | 'EUR' | 'ILS' | 'PLN'
   currency String  @default("UAH")
   isActive Boolean @default(true) @map("is_active")
 
@@ -764,8 +768,13 @@ model Account {
 
 model Transaction {
   id             Int     @id @default(autoincrement())
+  /// 'PAYMENT' | 'DEPOSIT_RECEIVED' | 'DEPOSIT_RETURNED' | 'REFUND'
+  /// | 'FINE_PAYMENT' | 'SERVICE_COST' | 'ADDON_PAYMENT'
+  /// | 'EXTENSION_PAYMENT' | 'PARTNER_COMMISSION' | 'TRANSFER'
   type           String
   accountId      Int     @map("account_id")
+  /// 'in' (money received) | 'out' (money paid out). Lowercase is the
+  /// canonical form across all writers and readers.
   direction      String
   amountMinor    Int     @map("amount_minor")
   currency       String
@@ -1025,9 +1034,12 @@ model Complaint {
   ticketNumber      String    @unique @map("ticket_number") // human-friendly e.g. "REIZ-COMP-2026-04-0001"
   clientId          Int?      @map("client_id") // nullable — anonymous via contact form is OK
   rentalId          Int?      @map("rental_id")
-  category          String // 'DEPOSIT' | 'DAMAGE' | 'FINE' | 'SERVICE' | 'GDPR' | 'OTHER'
-  priority          String    @default("normal") // 'low' | 'normal' | 'high' | 'urgent'
-  status            String    @default("open") // 'open' | 'in_review' | 'awaiting_client' | 'resolved' | 'rejected'
+  /// 'DEPOSIT' | 'DAMAGE' | 'FINE' | 'SERVICE' | 'GDPR' | 'OTHER'
+  category          String
+  /// 'low' | 'normal' | 'high' | 'urgent'
+  priority          String    @default("normal")
+  /// 'open' | 'in_review' | 'awaiting_client' | 'resolved' | 'rejected'
+  status            String    @default("open")
   subject           String
   initialMessage    String    @map("initial_message")
   contactName       String?   @map("contact_name")
@@ -1463,8 +1475,10 @@ model Accident {
   location    String?
   description String
 
-  fault  String @default("UNKNOWN") // CLIENT | COMPANY | THIRD_PARTY | UNKNOWN
-  status String @default("REPORTED") // REPORTED | INVESTIGATING | AWAITING_PAYOUT | RESOLVED | CLOSED
+  /// 'CLIENT' | 'COMPANY' | 'THIRD_PARTY' | 'UNKNOWN'
+  fault  String @default("UNKNOWN")
+  /// 'REPORTED' | 'INVESTIGATING' | 'AWAITING_PAYOUT' | 'RESOLVED' | 'CLOSED'
+  status String @default("REPORTED")
 
   policeReportNumber   String? @map("police_report_number")
   insuranceCompany     String? @map("insurance_company")
@@ -1519,9 +1533,11 @@ model InventoryItem {
   id Int @id @default(autoincrement())
 
   name               String
-  category           String    @default("TOOL") // TOOL | EQUIPMENT | ACCESSORY | KEYS | OTHER
+  /// 'TOOL' | 'EQUIPMENT' | 'ACCESSORY' | 'KEYS' | 'OTHER'
+  category           String    @default("TOOL")
   serialNumber       String?   @unique @map("serial_number")
-  status             String    @default("AVAILABLE") // AVAILABLE | ASSIGNED | MAINTENANCE | LOST | WRITTEN_OFF
+  /// 'AVAILABLE' | 'ASSIGNED' | 'MAINTENANCE' | 'LOST' | 'WRITTEN_OFF'
+  status             String    @default("AVAILABLE")
   quantity           Int       @default(1)
   purchaseDate       DateTime? @map("purchase_date")
   purchasePriceMinor Int?      @map("purchase_price_minor")
@@ -1638,7 +1654,8 @@ model RentalDeposit {
   reason      String // free-form label shown to client
   amountMinor Int       @map("amount_minor")
   currency    String    @default("UAH")
-  status      String    @default("PENDING") // PENDING | RECEIVED | RETURNED | FORFEITED
+  /// 'PENDING' | 'RECEIVED' | 'RETURNED' | 'FORFEITED'
+  status      String    @default("PENDING")
   dueAt       DateTime? @map("due_at")
   receivedAt  DateTime? @map("received_at")
   returnedAt  DateTime? @map("returned_at")

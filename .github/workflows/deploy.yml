@@ -17,49 +17,67 @@ on:
         branches: [main]
 
 jobs:
-    # CI is intentionally narrow: validate Prisma schemas (catches the
-    # mistakes that have actually broken prod — invalid migrations, env
-    # references that fail to resolve at startup) and stop. The TS build
-    # is exercised on every deploy by the Docker multi-stage in
-    # api/Dockerfile and front/Dockerfile, so a syntax error fails the
-    # `docker compose up --build` step and the deploy SSH never starts.
-    # Adding `tsc` here today would gate on a backlog of pre-existing
-    # type warnings — false-positive that would block real fixes from
-    # shipping. When that backlog is cleaned up we can re-introduce
-    # `npm run build` to fail fast.
-    schema:
-        name: ci · prisma schemas
+    # CI gates two things: schema validity and a clean `npm run build`.
+    # Prior runs paid down the pre-existing tsc backlog (telegram dynamic
+    # import, UpdateCarDto null vs undefined, service-event explicit
+    # extension, customer.service casing) so `tsc` exits zero and the
+    # smoke-check below confirms `build/app/index.js` is emitted — that's
+    # the same file the prod container then runs via
+    # `node build/app/index.js`.
+    api:
+        name: ci · api
         runs-on: ubuntu-latest
         env:
-            # `prisma validate` resolves env() in the schema (api uses
-            # DATABASE_URL, front uses the same). Anything that parses as
-            # a postgres URL works — we never connect.
             DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
+        defaults:
+            run:
+                working-directory: api
         steps:
             - uses: actions/checkout@v4
-
             - uses: actions/setup-node@v4
               with:
                   node-version: '20'
+                  cache: npm
+                  cache-dependency-path: api/package-lock.json
+            - run: npm ci
+            - run: npx prisma generate
+            - run: npx prisma validate
+            - run: npm run build
+            - name: Smoke check entry compiled
+              run: test -f build/app/index.js
 
-            - name: Validate api schema
-              working-directory: api
-              run: |
-                  npm install --no-save --no-audit --no-fund prisma@^6
-                  npx prisma validate
-
-            - name: Validate front schema
-              working-directory: front
-              run: |
-                  npm install --no-save --no-audit --no-fund prisma@^6
-                  npx prisma validate
+    front:
+        name: ci · front
+        runs-on: ubuntu-latest
+        env:
+            DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
+        defaults:
+            run:
+                working-directory: front
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '22'
+                  cache: npm
+                  cache-dependency-path: front/package-lock.json
+            - run: npm ci
+            - name: Lint (advisory)
+              run: npm run lint
+              continue-on-error: true
+            - name: Build
+              env:
+                  NEXT_PUBLIC_BASE_URL: https://reiz.com.ua/
+                  NEXT_PUBLIC_API_URL: https://reiz.com.ua/api
+                  NEXT_PUBLIC_TURNSTILE_SITE_KEY: dummy-build-key
+              run: npm run build
 
     deploy:
         name: deploy · prod
         runs-on: ubuntu-latest
         # Only deploy on push to main (not on PRs) and only after CI passes.
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        needs: [schema]
+        needs: [api, front]
 
         steps:
             - name: Checkout

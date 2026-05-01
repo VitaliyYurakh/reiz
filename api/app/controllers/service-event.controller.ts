@@ -3,7 +3,7 @@ import {Request, Response} from 'express';
 import fs from 'fs';
 import path from 'path';
 import serviceEventService from '../services/service-event.service';
-import {parseId, parseOptionalId, parsePagination, NotFoundError, BadRequestError} from '../utils';
+import {parseId, parseOptionalId, parsePagination, prisma, NotFoundError, BadRequestError} from '../utils';
 import logAudit from '../middleware/audit.middleware';
 import {createServiceEventSchema, updateServiceEventSchema, validate} from '../validators';
 
@@ -78,7 +78,6 @@ class ServiceEventController {
         const id = parseId(photoId, 'photoId');
 
         // Find the photo to get its file path before deleting
-        const {prisma} = await import('../utils');
         const photo = await prisma.serviceEventPhoto.findUnique({where: {id}});
         if (!photo) throw new NotFoundError('Photo not found');
 

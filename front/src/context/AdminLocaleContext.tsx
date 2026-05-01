@@ -43,9 +43,9 @@ export function AdminLocaleProvider({ children }: { children: ReactNode }) {
 
   const t = useCallback(
     (key: string, params?: Record<string, string | number>): string => {
-      // Defensive: callers occasionally pass `t(LABELS[unknownEnum])` where
-      // the lookup misses; without this guard `.split` on undefined throws
-      // and the whole admin page crashes via the global error boundary.
+      // Guard kept after the AdminLocale.t crash on /admin/finance: callers
+      // occasionally pass `t(LABELS[unknownEnum])` where the lookup misses,
+      // and `.split` on undefined throws into the admin error boundary.
       if (typeof key !== 'string' || !key) return key ?? '';
       const dict = dictionaries[locale];
       const parts = key.split('.');
