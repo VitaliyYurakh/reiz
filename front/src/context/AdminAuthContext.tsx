@@ -36,14 +36,16 @@ export function AdminAuthProvider({ children }: { children: ReactNode }) {
     setIsAuthorized(false);
   }, []);
 
-  // Mirrors backend requirePermission logic exactly
+  // Mirrors backend requirePermission logic exactly. Post-RBAC there is no
+  // hard-coded admin bypass — the Admin role's permissions map already has
+  // every module at 'full', so it passes naturally. `userRole` is the role's
+  // human-readable name and is kept around for sidebar / profile display.
   const hasPermission = useCallback((module: string, level: 'view' | 'full' = 'view') => {
-    if (userRole === 'admin') return true;
     const userLevel = userPermissions[module] || 'none';
     if (level === 'view') return userLevel === 'view' || userLevel === 'full';
     if (level === 'full') return userLevel === 'full';
     return false;
-  }, [userRole, userPermissions]);
+  }, [userPermissions]);
 
   return (
     <AdminAuthContext.Provider value={{ isAuthorized, userRole, userPermissions, setAuth, clearAuth, hasPermission }}>

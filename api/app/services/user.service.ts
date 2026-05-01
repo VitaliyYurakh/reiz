@@ -1,16 +1,23 @@
-import {UserRole} from '@prisma/client';
 import {prisma, createHashedPassword} from '../utils';
 
 class UserService {
+    // Public-safe shape: never exposes passwordHash / totpSecret / recovery codes.
     private selectWithoutPass = {
         id: true,
         email: true,
         name: true,
-        role: true,
-        permissions: true,
         isActive: true,
+        tokenVersion: true,
         createdAt: true,
         updatedAt: true,
+        role: {
+            select: {
+                id: true,
+                name: true,
+                isSystem: true,
+                permissions: true,
+            },
+        },
     };
 
     async getAll() {
@@ -27,21 +34,20 @@ class UserService {
         });
     }
 
-    async create(data: {email: string; password: string; name: string; role: UserRole; permissions: any}) {
+    async create(data: {email: string; password: string; name: string; roleId: number}) {
         const hashedPassword = await createHashedPassword(data.password);
         return prisma.user.create({
             data: {
                 email: data.email,
                 passwordHash: hashedPassword,
                 name: data.name,
-                role: data.role,
-                permissions: data.permissions || {},
+                roleId: data.roleId,
             },
             select: this.selectWithoutPass,
         });
     }
 
-    async update(id: number, data: {name?: string; role?: UserRole; permissions?: any; isActive?: boolean}) {
+    async update(id: number, data: {name?: string; roleId?: number; isActive?: boolean}) {
         // Deactivating an account must also invalidate all its existing sessions.
         // auth.middleware rejects tokens whose `tv` claim does not match tokenVersion,
         // so incrementing it here immediately revokes every outstanding JWT.

@@ -283,8 +283,11 @@ class ReportService {
         };
     }
 
-    private hasAccess(permissions: Record<string, string>, role: string, module: string): boolean {
-        if (role === 'admin') return true;
+    private hasAccess(permissions: Record<string, string>, _role: string, module: string): boolean {
+        // Post-RBAC: there is no special "admin" bypass — the seeded Admin
+        // role has every module at 'full', so it passes naturally. The
+        // `_role` arg is kept for callsite compatibility (controllers still
+        // pass user.role.name) but no longer participates in the decision.
         const level = permissions[module] || 'none';
         return level === 'view' || level === 'full';
     }

@@ -42,21 +42,17 @@ class ReportController {
 
     async notifications(req: Request, res: Response) {
         const user = res.locals.user;
-        const data = await reportService.getNotifications(
-            (user.permissions as Record<string, string>) || {},
-            user.role,
-        );
+        // Post-RBAC: permissions live on `user.role.permissions`.
+        const perms = (user?.role?.permissions as Record<string, string>) || {};
+        const data = await reportService.getNotifications(perms, user?.role?.name ?? '');
         return res.status(StatusCodes.OK).json(data);
     }
 
     async search(req: Request, res: Response) {
         const q = (req.query.q as string) || '';
         const user = res.locals.user;
-        const data = await reportService.search(
-            q,
-            (user.permissions as Record<string, string>) || {},
-            user.role,
-        );
+        const perms = (user?.role?.permissions as Record<string, string>) || {};
+        const data = await reportService.search(q, perms, user?.role?.name ?? 'Manager');
         return res.status(StatusCodes.OK).json(data);
     }
 

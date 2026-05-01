@@ -1,13 +1,24 @@
 'use client';
 
-import { useState } from 'react';
-import { createUser, updateUser } from '@/lib/api/admin';
+import { useEffect, useState } from 'react';
+import { createUser, updateUser, listRoles } from '@/lib/api/admin';
 import { logError } from '@/lib/log';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
 import { X, Save } from 'lucide-react';
 import { Toggle } from '@/app/admin/(dashboard)/settings/components/Toggle';
-import { PERMISSION_MODULES } from '@/app/admin/(dashboard)/settings/components/types';
-import type { TeamUser, PermLevel, Permissions } from '@/app/admin/(dashboard)/settings/components/types';
+import type { TeamUser } from '@/app/admin/(dashboard)/settings/components/types';
+
+// Post-RBAC: per-user permissions are gone. The admin picks a role from the
+// `Role` table; the role carries the permission map. Editing what a role
+// can do happens in the dedicated /admin/roles section (Phase 2 — coming
+// in a follow-up commit). For now this modal exists in a reduced state:
+// just role assignment + activation toggle.
+
+interface RoleOption {
+  id: number;
+  name: string;
+  isSystem: boolean;
+}
 
 export function UserModal({
   user,
@@ -23,33 +34,32 @@ export function UserModal({
   const [name, setName] = useState(user?.name ?? '');
   const [email, setEmail] = useState(user?.email ?? '');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState(user?.role ?? 'manager');
+  const [roleId, setRoleId] = useState<number | ''>(user?.role?.id ?? '');
   const [isActive, setIsActive] = useState(user?.isActive ?? true);
-  const [permissions, setPermissions] = useState<Permissions>(() => {
-    if (user?.permissions && typeof user.permissions === 'object') {
-      return user.permissions as Permissions;
-    }
-    const defaults: Permissions = {};
-    for (const m of PERMISSION_MODULES) defaults[m.key] = 'full';
-    return defaults;
-  });
+  const [roles, setRoles] = useState<RoleOption[]>([]);
   const [saving, setSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const setPerm = (module: string, level: PermLevel) => {
-    setPermissions((prev) => ({ ...prev, [module]: level }));
-  };
+  useEffect(() => {
+    listRoles()
+      .then((rs) => setRoles(rs))
+      .catch((err) => logError(err));
+  }, []);
 
   const handleSave = async () => {
     setErrorMsg('');
     if (!email.trim()) return;
     if (isNew && !password.trim()) return;
+    if (!roleId) {
+      setErrorMsg(t('settings.roleRequired') || 'Role is required');
+      return;
+    }
     setSaving(true);
     try {
       if (isNew) {
-        await createUser({ email: email.trim(), password, name: name.trim(), role, permissions });
+        await createUser({ email: email.trim(), password, name: name.trim(), roleId: Number(roleId) });
       } else {
-        await updateUser(user.id, { name: name.trim(), role, permissions, isActive });
+        await updateUser(user.id, { name: name.trim(), roleId: Number(roleId), isActive });
       }
       onSaved();
       onClose();
@@ -65,8 +75,6 @@ export function UserModal({
       setSaving(false);
     }
   };
-
-  const isAdmin = role === 'admin';
 
   return (
     <div className="h-modal-overlay" style={{ alignItems: 'flex-start', paddingTop: 40, paddingBottom: 40 }}>
@@ -122,12 +130,17 @@ export function UserModal({
             <div>
               <label className="h-label">{t('settings.roleLabel')}</label>
               <select
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
+                value={roleId}
+                onChange={(e) => setRoleId(e.target.value ? Number(e.target.value) : '')}
                 className="h-select"
               >
-                <option value="admin">Admin</option>
-                <option value="manager">Manager</option>
+                <option value="">—</option>
+                {roles.map((r) => (
+                  <option key={r.id} value={r.id}>
+                    {r.name}
+                    {r.isSystem ? ' ★' : ''}
+                  </option>
+                ))}
               </select>
             </div>
             {!isNew && (
@@ -142,48 +155,10 @@ export function UserModal({
             )}
           </div>
 
-          {/* Permissions grid */}
-          <div>
-            <label className="h-label mb-2">{t('settings.permissionsLabel')}</label>
-            {isAdmin ? (
-              <p className="h-subtitle text-[13px]">{t('settings.adminFullAccess')}</p>
-            ) : (
-              <div className="h-card p-0 overflow-hidden">
-                <table className="h-table" style={{ marginBottom: 0 }}>
-                  <thead>
-                    <tr className="h-tr">
-                      <th className="h-th" style={{ minWidth: 120 }}></th>
-                      <th className="h-th text-center" style={{ width: 80 }}>{t('settings.accessFull')}</th>
-                      <th className="h-th text-center" style={{ width: 80 }}>{t('settings.accessView')}</th>
-                      <th className="h-th text-center" style={{ width: 80 }}>{t('settings.accessNone')}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {PERMISSION_MODULES.map((mod) => {
-                      const val = permissions[mod.key] || 'none';
-                      return (
-                        <tr key={mod.key} className="h-tr">
-                          <td className="h-td h-td-navy text-[13px] font-medium">{t(mod.labelKey)}</td>
-                          {(['full', 'view', 'none'] as PermLevel[]).map((level) => (
-                            <td key={level} className="h-td text-center">
-                              <input
-                                type="radio"
-                                name={`perm-${mod.key}`}
-                                checked={val === level}
-                                onChange={() => setPerm(mod.key, level)}
-                                className="accent-[var(--color-h-purple)]"
-                                style={{ width: 16, height: 16 }}
-                              />
-                            </td>
-                          ))}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
+          <p className="h-subtitle text-[13px]">
+            {t('settings.permissionsManagedViaRoles') ||
+              'Дозволи керуються через ролі. Щоб змінити права — відредагуйте відповідну роль у розділі «Ролі».'}
+          </p>
         </div>
 
         {errorMsg && (

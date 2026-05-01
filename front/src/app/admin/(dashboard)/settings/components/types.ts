@@ -36,7 +36,7 @@ export interface AuditEntry {
 export interface UserProfile {
   id: number;
   email: string;
-  role: string;
+  role: { id: number; name: string; isSystem: boolean } | null;
 }
 
 export type TabKey = 'templates' | 'audit' | 'profile' | 'team';
@@ -68,14 +68,21 @@ export const PERMISSION_MODULES = [
 export type PermLevel = 'full' | 'view' | 'none';
 export type Permissions = Record<string, PermLevel>;
 
+// Post-RBAC: a user has exactly one role (FK relation), which carries
+// the permission map. Old shape — `role: string` + per-user `permissions`
+// — is gone.
 export interface TeamUser {
   id: number;
   email: string;
   name: string;
-  role: string;
-  permissions: Permissions;
   isActive: boolean;
   createdAt: string;
+  role: {
+    id: number;
+    name: string;
+    isSystem: boolean;
+    permissions: Permissions;
+  };
 }
 
 export const CHANNEL_MAP: Record<string, { label: string; badgeClass: string; icon: typeof MessageSquare }> = {

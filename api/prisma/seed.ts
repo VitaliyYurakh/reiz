@@ -1,19 +1,31 @@
 import {PrismaClient} from '@prisma/client';
 import {seedCities, seedPickupLocations, popularCitySlugs} from './seed-cities';
+import {ADMIN_PERMISSIONS} from '../app/types/permissions';
 
 const prisma = new PrismaClient();
 
 async function main() {
-    // Bootstrap admin user — only on a fresh DB. The `update: {}` branch is
-    // intentionally empty so re-running seed never touches an existing admin's
-    // hash, role, or permissions (audit finding C-2). Password rotation goes
-    // through the admin API.
+    // Bootstrap the system Admin role. Idempotent: only created if the
+    // role table is empty (post-migration deploys already have it from
+    // the SQL migration; this branch only fires on a truly fresh DB).
+    const adminRole = await prisma.role.upsert({
+        where: {name: 'Admin'},
+        update: {permissions: ADMIN_PERMISSIONS}, // keep grants in sync as new modules are added
+        create: {
+            name: 'Admin',
+            description: 'Full access. System role — cannot be deleted.',
+            isSystem: true,
+            permissions: ADMIN_PERMISSIONS,
+        },
+    });
+
+    // Bootstrap admin user — only on a fresh DB. `update: {}` is intentionally
+    // empty so re-running seed never touches an existing admin's hash or role
+    // assignment (audit finding C-2). Password rotation goes through the API.
     //
     // Hash comes from ADMIN_PASSWORD_HASH env (set via GitHub Actions secret
-    // → docker-compose). When the env is missing we skip the upsert entirely
-    // rather than fall back to a committed hash — keeping bcrypt material out
-    // of git history. Existing prod admins are unaffected because the upsert
-    // never runs in that branch.
+    // → docker-compose). When missing we skip the upsert rather than fall back
+    // to a committed hash — keeping bcrypt material out of git history.
     const adminHash = process.env.ADMIN_PASSWORD_HASH;
     if (adminHash) {
         await prisma.user.upsert({
@@ -22,7 +34,7 @@ async function main() {
             create: {
                 email: 'admin@example.com',
                 passwordHash: adminHash,
-                role: 'admin',
+                roleId: adminRole.id,
             },
         });
     } else {

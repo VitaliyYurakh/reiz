@@ -98,8 +98,8 @@ export function TeamTab() {
                     <td className="h-td h-td-navy font-medium">{u.name || '—'}</td>
                     <td className="h-td h-td-navy">{u.email}</td>
                     <td className="h-td">
-                      <span className={`h-badge ${u.role === 'admin' ? 'h-badge-purple' : 'h-badge-blue'}`}>
-                        {u.role}
+                      <span className={`h-badge ${u.role?.isSystem ? 'h-badge-purple' : 'h-badge-blue'}`}>
+                        {u.role?.name ?? '—'}
                       </span>
                     </td>
                     <td className="h-td">

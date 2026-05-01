@@ -128,7 +128,7 @@ export function ProfileTab() {
           <div className="h-profile-row">
             <span className="text-sm text-[var(--color-h-gray)]">{t('settings.roleLabel')}</span>
             <span className="h-badge h-badge-purple">
-              {user.role}
+              {user.role?.name ?? '—'}
             </span>
           </div>
           <div className="h-profile-row">

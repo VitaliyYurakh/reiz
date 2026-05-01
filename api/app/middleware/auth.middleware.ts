@@ -11,17 +11,22 @@ const auth = async (req: Request, res: Response, next: NextFunction) => {
 
         const decoded: any = await authServices.authenticateUser(token);
 
-        // Fetch full user from DB to get permissions and current role
+        // Fetch full user from DB. `role` is now a relation to the
+        // `Role` table whose `permissions` Json holds the access map.
+        // Selecting `name` from the role keeps the legacy "is this an
+        // admin?" check (used by /admin sidebar) trivially answerable
+        // via `user.role.name === 'Admin'`.
         const user = await prisma.user.findUnique({
             where: {id: decoded.id},
             select: {
                 id: true,
                 email: true,
                 name: true,
-                role: true,
-                permissions: true,
                 isActive: true,
                 tokenVersion: true,
+                role: {
+                    select: {id: true, name: true, isSystem: true, permissions: true},
+                },
             },
         });
 

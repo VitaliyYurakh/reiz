@@ -150,11 +150,14 @@ export default function DashboardLayout({
         const isAuth = await checkAuthReq();
         if (!isAuth) throw new Error('Not authorized');
 
-        // Fetch user data including permissions
+        // Fetch user data including permissions. Post-RBAC: `user.role` is
+        // the related Role row `{ id, name, isSystem, permissions }`.
         const meRes = await adminApi.get('/auth/me');
         const user = meRes.data.user;
         if (user) {
-          setAuth(user.role || 'admin', user.permissions || {});
+          const roleName = user.role?.name ?? '';
+          const perms = (user.role?.permissions as Record<string, string>) ?? {};
+          setAuth(roleName, perms);
         }
 
         setIsAuthorized(true);
@@ -273,17 +276,18 @@ export default function DashboardLayout({
     '--shadow-h-md': '0 4px 12px rgba(0, 0, 0, 0.5)',
   } as React.CSSProperties : {};
 
-  // Filter visible nav items by user permissions
+  // Filter visible nav items by user permissions. Post-RBAC: no hard-coded
+  // admin bypass — the Admin role's permissions map has every module at
+  // 'full' so the filter passes naturally. `userRole` left in scope for
+  // future "show role badge in sidebar" needs.
+  void userRole;
   const visibleGroups = NAV_GROUPS.map((group) => ({
     ...group,
-    items:
-      userRole === 'admin'
-        ? group.items
-        : group.items.filter((item) => {
-            if (!item.module) return true;
-            const level = userPermissions[item.module];
-            return level === 'full' || level === 'view';
-          }),
+    items: group.items.filter((item) => {
+      if (!item.module) return true;
+      const level = userPermissions[item.module];
+      return level === 'full' || level === 'view';
+    }),
   })).filter((g) => g.items.length > 0);
 
   return (

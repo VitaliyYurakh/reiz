@@ -22,8 +22,12 @@ model User {
   email             String   @unique
   passwordHash      String   @map("password_hash")
   name              String   @default("")
-  role              UserRole @default(manager)
-  permissions       Json     @default("{}")
+  // Access control: role is a FK to the `Role` table whose `permissions`
+  // Json holds the {module: 'none'|'view'|'full'} map. Replaces the old
+  // `role UserRole` enum + `permissions Json` blob (split per-user, hard
+  // to audit). Migration `20260501200000_rbac_role_table` moved data.
+  roleId            Int      @map("role_id")
+  role              Role     @relation(fields: [roleId], references: [id], onDelete: Restrict)
   isActive          Boolean  @default(true) @map("is_active")
   tokenVersion      Int      @default(0) @map("token_version")
   // ── 2FA (TOTP, opt-in) ─────────────────────────────────────────────
@@ -55,7 +59,35 @@ model User {
   documentTemplates       DocumentTemplate[] @relation("DocumentTemplateAuthor")
   partnerPaymentsAuthored PartnerPayment[]   @relation("PartnerPaymentAuthor")
 
+  @@index([roleId])
   @@map("user")
+}
+
+// RBAC role. Holds the {module: 'none'|'view'|'full'} permission map for
+// every user assigned to it. Replaces the old `User.role UserRole` enum +
+// `User.permissions Json` blob — single source of truth, easy to audit
+// "what does this role grant" and to clone/edit through the admin UI.
+//
+// `isSystem = true` means the role is built-in (Admin) — admin UI should
+// disallow rename / delete to keep bootstrap stable. Editing permissions
+// IS allowed (so an admin can dial Admin's defaults if they ever need to).
+//
+// The list of valid module names lives in `app/types/permissions.ts`
+// (`PERMISSION_MODULES`). The Json column intentionally accepts unknown
+// keys — adding a permission module is a code change, not a schema
+// change. Existing roles that don't have the new key read as 'none'.
+model Role {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String?
+  isSystem    Boolean  @default(false) @map("is_system")
+  permissions Json     @default("{}")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
+
+  users User[]
+
+  @@map("role")
 }
 
 model Car {
@@ -568,15 +600,6 @@ enum DocumentTemplateKind {
 enum FxRateSource {
   NBU
   manual
-}
-
-// 'operator' is allowed by the createUser validator but no production user
-// currently has it; included so signup with role=operator doesn't get
-// rejected at the DB layer.
-enum UserRole {
-  admin
-  manager
-  operator
 }
 
 enum ServiceEventType {

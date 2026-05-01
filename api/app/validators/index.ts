@@ -29,18 +29,19 @@ export const totpDisableSchema = z.object({
 });
 
 // ── User management ──
+// Post-RBAC: per-user `role` enum and `permissions` Json are gone. A user
+// has exactly one `roleId` pointing at the `Role` table. Role permissions
+// are managed via the separate `/role` admin endpoints.
 export const createUserSchema = z.object({
     email: z.string().min(1, 'Email is required').email('Invalid email format'),
     password: passwordSchema,
     name: z.string().optional().default(''),
-    role: z.enum(['admin', 'manager', 'operator']).optional().default('manager'),
-    permissions: z.record(z.string(), z.string()).optional().default({}),
+    roleId: z.number().int().positive(),
 });
 
 export const updateUserSchema = z.object({
     name: z.string().optional(),
-    role: z.enum(['admin', 'manager', 'operator']).optional(),
-    permissions: z.record(z.string(), z.string()).optional(),
+    roleId: z.number().int().positive().optional(),
     isActive: z.boolean().optional(),
 });
 

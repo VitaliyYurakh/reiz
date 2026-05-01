@@ -388,13 +388,21 @@ export const getUser = async (id: number) => {
   return res.data;
 };
 
-export const createUser = async (data: { email: string; password: string; name: string; role: string; permissions: Record<string, string> }) => {
+// Post-RBAC: a user has exactly one `roleId` pointing to a Role row whose
+// `permissions` Json carries the access map. Per-user role string and
+// permissions blob no longer exist.
+export const createUser = async (data: { email: string; password: string; name: string; roleId: number }) => {
   const res = await adminApi.post('/user', data);
   return res.data;
 };
 
-export const updateUser = async (id: number, data: { name?: string; role?: string; permissions?: Record<string, string>; isActive?: boolean }) => {
+export const updateUser = async (id: number, data: { name?: string; roleId?: number; isActive?: boolean }) => {
   const res = await adminApi.patch(`/user/${id}`, data);
+  return res.data;
+};
+
+export const listRoles = async (): Promise<Array<{ id: number; name: string; isSystem: boolean }>> => {
+  const res = await adminApi.get('/role');
   return res.data;
 };
 

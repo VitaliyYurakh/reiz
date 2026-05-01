@@ -53,6 +53,7 @@ import accidentRouter from './accident.router';
 import inventoryRouter from './inventory.router';
 import documentTemplateRouter from './document-template.router';
 import partnerPaymentRouter from './partner-payment.router';
+import roleRouter from './role.router';
 
 router.use('/client', clientRouter);
 router.use('/rental-request', rentalRequestRouter);
@@ -78,5 +79,6 @@ router.use('/accident', accidentRouter);
 router.use('/inventory', inventoryRouter);
 router.use('/document-template', documentTemplateRouter);
 router.use('/partner-payment', partnerPaymentRouter);
+router.use('/role', roleRouter);
 
 export {router};
