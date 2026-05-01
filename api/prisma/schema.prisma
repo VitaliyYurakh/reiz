@@ -230,6 +230,11 @@ enum CarPhotoType {
   PC
 }
 
+/// @deprecated as of 2026-05-01. Public booking forms now write directly
+/// to `RentalRequest` (with `source='website'` and the booking payload
+/// stored in `websiteSnapshot`). This table is kept for the historical
+/// rows created before that change — `seed.ts` migrates any orphans to
+/// RentalRequest on container start. New code should not write here.
 model BookingRequest {
   id             Int      @id @default(autoincrement())
   firstName      String   @map("first_name")

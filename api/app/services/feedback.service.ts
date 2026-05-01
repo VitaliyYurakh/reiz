@@ -1,7 +1,6 @@
 import {prisma} from '../utils';
 import {logger} from '../utils';
 import telegramService from './telegram.service';
-import rentalRequestService from './rental-request.service';
 import {
     BookingRequestDto,
     ContactRequestDto,
@@ -27,26 +26,40 @@ class FeedbackService {
                 });
             }
 
-            const bookingRequest = await prisma.bookingRequest.create({
+            // BookingRequest used to be a separate table written first, then the
+            // CRM-side RentalRequest mirror was generated as a follow-up. Now we
+            // skip the intermediate row and write directly to RentalRequest with
+            // `source='website'` — admins still see the same record they
+            // approved/rejected, and there's only one source of truth. The
+            // BookingRequest model remains in the schema (marked @deprecated)
+            // for the legacy data rows that were created before this change.
+            const startDate = new Date(data.startDate);
+            const endDate = new Date(data.endDate);
+            const websiteSnapshot = {
+                carDetails: data.carDetails,
+                selectedPlan: data.selectedPlan,
+                selectedExtras: data.selectedExtras,
+                totalDays: data.totalDays,
+                priceBreakdown: data.priceBreakdown,
+            };
+
+            const rentalRequest = await prisma.rentalRequest.create({
                 data: {
+                    source: 'website',
+                    status: 'new',
+                    clientId: client?.id ?? null,
+                    carId: data.carId ?? null,
                     firstName: data.firstName,
                     lastName: data.lastName,
                     phone: data.phone,
                     email: data.email,
                     pickupLocation: data.pickupLocation,
                     returnLocation: data.returnLocation,
-                    startDate: new Date(data.startDate),
-                    endDate: new Date(data.endDate),
+                    pickupDate: startDate,
+                    returnDate: endDate,
                     flightNumber: data.flightNumber,
                     comment: data.comment,
-                    carId: data.carId,
-                    clientId: client?.id || null,
-                    carDetails: data.carDetails,
-                    selectedPlan: data.selectedPlan,
-                    selectedExtras: data.selectedExtras,
-                    totalDays: data.totalDays,
-                    priceBreakdown: data.priceBreakdown,
-                    telegramSent: false,
+                    websiteSnapshot,
                 },
             });
 
@@ -58,8 +71,8 @@ class FeedbackService {
                     email: data.email,
                     pickupLocation: data.pickupLocation,
                     returnLocation: data.returnLocation,
-                    startDate: bookingRequest.startDate,
-                    endDate: bookingRequest.endDate,
+                    startDate,
+                    endDate,
                     flightNumber: data.flightNumber,
                     comment: data.comment,
                     carDetails: data.carDetails,
@@ -69,27 +82,13 @@ class FeedbackService {
                     priceBreakdown: data.priceBreakdown,
                     clientProfile: client,
                 });
-                const sent = await telegramService.sendMessage(message);
-
-                if (sent) {
-                    await prisma.bookingRequest.update({
-                        where: {id: bookingRequest.id},
-                        data: {telegramSent: true},
-                    });
-                }
+                await telegramService.sendMessage(message);
             } catch (error) {
-                logger.error(`Failed to send Telegram notification for booking ${bookingRequest.id}: ${error.message}`);
+                logger.error(`Failed to send Telegram notification for booking #${rentalRequest.id}: ${error.message}`);
             }
 
-            // Auto-create RentalRequest for CRM
-            try {
-                await rentalRequestService.createFromBookingRequest(bookingRequest.id);
-                logger.info(`RentalRequest created for BookingRequest ${bookingRequest.id}`);
-            } catch (error) {
-                logger.error(`Failed to create RentalRequest for booking ${bookingRequest.id}: ${error.message}`);
-            }
-
-            return bookingRequest;
+            logger.info(`RentalRequest #${rentalRequest.id} created for website booking`);
+            return rentalRequest;
         } catch (error) {
             logger.error(`Failed to create booking request: ${error.message}`);
             throw error;
