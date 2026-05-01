@@ -168,14 +168,16 @@ export default function CarEditPage() {
       afterHoursServiceFee: data.afterHoursServiceFee ?? 0,
       workingHoursStart: data.workingHoursStart ?? '',
       workingHoursEnd: data.workingHoursEnd ?? '',
-      damageTiresFee: data.damageTiresFee ?? 0,
-      damageGlassChipFee: data.damageGlassChipFee ?? 0,
-      damageLostKeysFee: data.damageLostKeysFee ?? 0,
-      damageBrokenGlassFee: data.damageBrokenGlassFee ?? 0,
-      damageTotalLossPercent: data.damageTotalLossPercent ?? 0,
-      damageScratchesFee: data.damageScratchesFee ?? 0,
-      damageSmokingFee: data.damageSmokingFee ?? 0,
-      depositMultiplier: data.depositMultiplier ?? 0,
+      // Damage fees moved to a 1:1 child row. Keep the form state flat —
+      // it's nested back into a `damageFees` object on submit.
+      damageTiresFee: data.damageFees?.damageTiresFee ?? 0,
+      damageGlassChipFee: data.damageFees?.damageGlassChipFee ?? 0,
+      damageLostKeysFee: data.damageFees?.damageLostKeysFee ?? 0,
+      damageBrokenGlassFee: data.damageFees?.damageBrokenGlassFee ?? 0,
+      damageTotalLossPercent: data.damageFees?.damageTotalLossPercent ?? 0,
+      damageScratchesFee: data.damageFees?.damageScratchesFee ?? 0,
+      damageSmokingFee: data.damageFees?.damageSmokingFee ?? 0,
+      depositMultiplier: data.damageFees?.depositMultiplier ?? 0,
     });
   };
 
@@ -357,14 +359,18 @@ export default function CarEditPage() {
         afterHoursServiceFee: Number(rentalConditions.afterHoursServiceFee) || null,
         workingHoursStart: rentalConditions.workingHoursStart || null,
         workingHoursEnd: rentalConditions.workingHoursEnd || null,
-        damageTiresFee: Number(rentalConditions.damageTiresFee) || null,
-        damageGlassChipFee: Number(rentalConditions.damageGlassChipFee) || null,
-        damageLostKeysFee: Number(rentalConditions.damageLostKeysFee) || null,
-        damageBrokenGlassFee: Number(rentalConditions.damageBrokenGlassFee) || null,
-        damageTotalLossPercent: Number(rentalConditions.damageTotalLossPercent) || null,
-        damageScratchesFee: Number(rentalConditions.damageScratchesFee) || null,
-        damageSmokingFee: Number(rentalConditions.damageSmokingFee) || null,
-        depositMultiplier: Number(rentalConditions.depositMultiplier) || null,
+        // Damage fees travel as a nested object — backend upserts into the
+        // `car_damage_fees` 1:1 child table.
+        damageFees: {
+          damageTiresFee: Number(rentalConditions.damageTiresFee) || null,
+          damageGlassChipFee: Number(rentalConditions.damageGlassChipFee) || null,
+          damageLostKeysFee: Number(rentalConditions.damageLostKeysFee) || null,
+          damageBrokenGlassFee: Number(rentalConditions.damageBrokenGlassFee) || null,
+          damageTotalLossPercent: Number(rentalConditions.damageTotalLossPercent) || null,
+          damageScratchesFee: Number(rentalConditions.damageScratchesFee) || null,
+          damageSmokingFee: Number(rentalConditions.damageSmokingFee) || null,
+          depositMultiplier: Number(rentalConditions.depositMultiplier) || null,
+        },
       });
       await loadData();
       showSaved('rentalConditions');

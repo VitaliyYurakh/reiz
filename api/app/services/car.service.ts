@@ -23,6 +23,8 @@ class CarService {
                 carCountingRule: {orderBy: {depositPercent: 'asc'}},
                 rentalTariff: true,
                 segment: true,
+                damageFees: true,
+                maintenance: true,
                 cityAvailability: {
                     where: {isActive: true},
                     include: {
@@ -41,6 +43,8 @@ class CarService {
                 carCountingRule: {orderBy: {depositPercent: 'asc'}},
                 rentalTariff: true,
                 segment: true,
+                damageFees: true,
+                maintenance: true,
                 cityAvailability: {
                     include: {
                         city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true, nameLocativeUk: true, nameLocativeRu: true, nameLocativeEn: true}},
@@ -119,13 +123,24 @@ class CarService {
             throw new CarNotFoundError();
         }
 
-        const {segmentIds, description, ...rest} = carDto;
-        const data: UpdateCarDto & {
-            segment?: Record<string, unknown[]>;
-        } = {...rest};
+        const {segmentIds, description, damageFees, maintenance, ...rest} = carDto;
+        const data: any = {...rest};
 
         if (segmentIds) data.segment = {set: segmentIds.map((sid) => ({id: sid}))};
         if (description) data.description = description;
+
+        // 1:1 nested writes — upsert the related row when present, delete it
+        // when caller passes `null`, leave untouched when key is omitted.
+        if (damageFees !== undefined) {
+            data.damageFees = damageFees === null
+                ? {delete: true}
+                : {upsert: {create: damageFees, update: damageFees}};
+        }
+        if (maintenance !== undefined) {
+            data.maintenance = maintenance === null
+                ? {delete: true}
+                : {upsert: {create: maintenance, update: maintenance}};
+        }
 
         return await prisma.car.update({
             where: {id},
@@ -134,6 +149,7 @@ class CarService {
             // the `partner` relation. Prisma's typed input would otherwise
             // disallow `partnerId` on the checked variant.
             data: data as Prisma.CarUncheckedUpdateInput,
+            include: {damageFees: true, maintenance: true},
         });
     }
 
@@ -271,30 +287,36 @@ class CarService {
         lastServiceMileageKm?: number | null;
         lastServiceAt?: string | Date | null;
     }) {
-        const updateData: any = {};
+        const car = await prisma.car.findUnique({where: {id}});
+        if (!car) throw new CarNotFoundError();
+
+        const payload: any = {};
         for (const k of ['currentOdometer', 'serviceIntervalKm', 'nextServiceMileageKm', 'lastServiceMileageKm'] as const) {
-            if (data[k] !== undefined) updateData[k] = data[k];
+            if (data[k] !== undefined) payload[k] = data[k];
         }
         if (data.lastServiceAt !== undefined) {
-            updateData.lastServiceAt = data.lastServiceAt ? new Date(data.lastServiceAt as any) : null;
+            payload.lastServiceAt = data.lastServiceAt ? new Date(data.lastServiceAt as any) : null;
         }
-        // Auto-derive next-service mileage if both interval and last-service mileage
-        // are provided and the caller didn't explicitly set nextServiceMileageKm.
+
+        // Auto-derive next-service mileage when both interval and last-service
+        // mileage are known and the caller didn't explicitly set the next one.
         if (
             data.nextServiceMileageKm === undefined &&
             (data.serviceIntervalKm != null || data.lastServiceMileageKm != null)
         ) {
-            const car = await prisma.car.findUnique({
-                where: {id},
-                select: {serviceIntervalKm: true, lastServiceMileageKm: true},
-            });
-            const interval = data.serviceIntervalKm ?? car?.serviceIntervalKm;
-            const lastMileage = data.lastServiceMileageKm ?? car?.lastServiceMileageKm;
+            const existing = await prisma.carMaintenance.findUnique({where: {carId: id}});
+            const interval = data.serviceIntervalKm ?? existing?.serviceIntervalKm;
+            const lastMileage = data.lastServiceMileageKm ?? existing?.lastServiceMileageKm;
             if (interval != null && lastMileage != null) {
-                updateData.nextServiceMileageKm = lastMileage + interval;
+                payload.nextServiceMileageKm = lastMileage + interval;
             }
         }
-        return await prisma.car.update({where: {id}, data: updateData});
+
+        return await prisma.carMaintenance.upsert({
+            where: {carId: id},
+            create: {carId: id, ...payload},
+            update: payload,
+        });
     }
 
     /**
@@ -302,22 +324,27 @@ class CarService {
      * Returns only cars with a defined next-service threshold.
      */
     async listDueForService() {
-        const cars = await prisma.car.findMany({
+        const rows = await prisma.carMaintenance.findMany({
             where: {
                 nextServiceMileageKm: {not: null},
                 currentOdometer: {not: null},
             },
-            select: {
-                id: true, brand: true, model: true, plateNumber: true,
-                currentOdometer: true, nextServiceMileageKm: true, lastServiceAt: true,
-                serviceIntervalKm: true,
+            include: {
+                car: {select: {id: true, brand: true, model: true, plateNumber: true}},
             },
         });
-        return cars
-            .filter((c) => c.currentOdometer != null && c.nextServiceMileageKm != null && c.currentOdometer >= c.nextServiceMileageKm)
-            .map((c) => ({
-                ...c,
-                kmOver: (c.currentOdometer ?? 0) - (c.nextServiceMileageKm ?? 0),
+        return rows
+            .filter((m) => m.currentOdometer != null && m.nextServiceMileageKm != null && m.currentOdometer >= m.nextServiceMileageKm)
+            .map((m) => ({
+                id: m.car.id,
+                brand: m.car.brand,
+                model: m.car.model,
+                plateNumber: m.car.plateNumber,
+                currentOdometer: m.currentOdometer,
+                nextServiceMileageKm: m.nextServiceMileageKm,
+                lastServiceAt: m.lastServiceAt,
+                serviceIntervalKm: m.serviceIntervalKm,
+                kmOver: (m.currentOdometer ?? 0) - (m.nextServiceMileageKm ?? 0),
             }));
     }
 

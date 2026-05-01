@@ -70,6 +70,20 @@ type UpdateCarDto = {
     afterHoursServiceFee?: number | null;
     workingHoursStart?: string | null;
     workingHoursEnd?: string | null;
+    // Damage-fee schedule moved to its own 1:1 model `CarDamageFees`.
+    // PATCH /car/:id accepts a nested `damageFees` object; the service
+    // upserts into the related table.
+    damageFees?: CarDamageFeesDto | null;
+    // Maintenance state likewise lives in `CarMaintenance`.
+    maintenance?: CarMaintenanceDto | null;
+    // Owner of the car when fleet is operated under commission with another
+    // business. `null` = REIZ-owned. Was missing before 2026-04-29 — Zod
+    // silently stripped the key so PATCH /car/:id appeared to succeed but
+    // never persisted the partner assignment.
+    partnerId?: number | null;
+};
+
+type CarDamageFeesDto = {
     damageTiresFee?: number | null;
     damageGlassChipFee?: number | null;
     damageLostKeysFee?: number | null;
@@ -78,11 +92,14 @@ type UpdateCarDto = {
     damageScratchesFee?: number | null;
     damageSmokingFee?: number | null;
     depositMultiplier?: number | null;
-    // Owner of the car when fleet is operated under commission with another
-    // business. `null` = REIZ-owned. Was missing before 2026-04-29 — Zod
-    // silently stripped the key so PATCH /car/:id appeared to succeed but
-    // never persisted the partner assignment.
-    partnerId?: number | null;
+};
+
+type CarMaintenanceDto = {
+    currentOdometer?: number | null;
+    serviceIntervalKm?: number | null;
+    nextServiceMileageKm?: number | null;
+    lastServiceMileageKm?: number | null;
+    lastServiceAt?: string | Date | null;
 };
 
 type TariffDto = {
@@ -190,6 +207,8 @@ type PriceSnapshot = {
 export {
     CreateCarDto,
     UpdateCarDto,
+    CarDamageFeesDto,
+    CarMaintenanceDto,
     TariffDto,
     CountingRuleDto,
     CarPhotoDto,

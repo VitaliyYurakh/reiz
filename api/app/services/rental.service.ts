@@ -625,17 +625,21 @@ class RentalService {
                 },
             });
 
-            // Persist odometer of the old car if provided (so its profile is up to date).
+            // Persist odometer of the old / new car if provided. `currentOdometer`
+            // lives on the related `CarMaintenance` row now — upsert it so cars
+            // without prior maintenance state still get a row created.
             if (data.fromOdometer != null) {
-                await tx.car.update({
-                    where: {id: rental.carId},
-                    data: {currentOdometer: data.fromOdometer},
+                await tx.carMaintenance.upsert({
+                    where: {carId: rental.carId},
+                    create: {carId: rental.carId, currentOdometer: data.fromOdometer},
+                    update: {currentOdometer: data.fromOdometer},
                 });
             }
             if (data.toOdometer != null) {
-                await tx.car.update({
-                    where: {id: data.toCarId},
-                    data: {currentOdometer: data.toOdometer},
+                await tx.carMaintenance.upsert({
+                    where: {carId: data.toCarId},
+                    create: {carId: data.toCarId, currentOdometer: data.toOdometer},
+                    update: {currentOdometer: data.toOdometer},
                 });
             }
 

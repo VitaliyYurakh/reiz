@@ -126,6 +126,19 @@ export interface Car {
   afterHoursServiceFee: number | null;
   workingHoursStart: string | null;
   workingHoursEnd: string | null;
+  // 1:1 child rows. `null` (or undefined) = car has no row in that table yet
+  // (admin never filled it in / car too new). Front-end falls back to
+  // platform defaults from the Terms page.
+  damageFees: CarDamageFees | null;
+  maintenance: CarMaintenance | null;
+  carPhoto: CarPhoto[];
+  carCountingRule: CarCountingRule[];
+  rentalTariff: RentalTariff[];
+  segment: Segment[];
+  cityAvailability?: CarCityAvailability[];
+}
+
+export interface CarDamageFees {
   damageTiresFee: number | null;
   damageGlassChipFee: number | null;
   damageLostKeysFee: number | null;
@@ -134,9 +147,12 @@ export interface Car {
   damageScratchesFee: number | null;
   damageSmokingFee: number | null;
   depositMultiplier: number | null;
-  carPhoto: CarPhoto[];
-  carCountingRule: CarCountingRule[];
-  rentalTariff: RentalTariff[];
-  segment: Segment[];
-  cityAvailability?: CarCityAvailability[];
+}
+
+export interface CarMaintenance {
+  currentOdometer: number | null;
+  serviceIntervalKm: number | null;
+  nextServiceMileageKm: number | null;
+  lastServiceMileageKm: number | null;
+  lastServiceAt: string | null;
 }

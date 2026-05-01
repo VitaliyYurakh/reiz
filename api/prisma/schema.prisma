@@ -117,16 +117,6 @@ model Car {
   workingHoursStart            String? @map("working_hours_start")
   workingHoursEnd              String? @map("working_hours_end")
 
-  // Damage fees
-  damageTiresFee         Float? @map("damage_tires_fee")
-  damageGlassChipFee     Float? @map("damage_glass_chip_fee")
-  damageLostKeysFee      Float? @map("damage_lost_keys_fee")
-  damageBrokenGlassFee   Float? @map("damage_broken_glass_fee")
-  damageTotalLossPercent Float? @map("damage_total_loss_percent")
-  damageScratchesFee     Float? @map("damage_scratches_fee")
-  damageSmokingFee       Float? @map("damage_smoking_fee")
-  depositMultiplier      Float? @map("deposit_multiplier")
-
   // Partner / owner — for fleet operated under commission with another business
   partnerId Int? @map("partner_id")
 
@@ -140,12 +130,12 @@ model Car {
   isBlocked   Boolean @default(false) @map("is_blocked")
   blockReason String? @map("block_reason")
 
-  // Mileage-based scheduled maintenance (parity with mfauto «Регламентні роботи»)
-  currentOdometer      Int?      @map("current_odometer")
-  serviceIntervalKm    Int?      @map("service_interval_km")
-  nextServiceMileageKm Int?      @map("next_service_mileage_km")
-  lastServiceAt        DateTime? @map("last_service_at")
-  lastServiceMileageKm Int?      @map("last_service_mileage_km")
+  // 1:1 extracted blocks. Damage fees and maintenance state were moved out
+  // of `car` because they are independent concerns that can each be null
+  // ("uses defaults" / "not yet serviced"). Splitting them keeps the core
+  // car table lean and lets each block be updated atomically.
+  damageFees  CarDamageFees?
+  maintenance CarMaintenance?
 
   // CRM relations (no DB column changes)
   rentalRequests RentalRequest[]
@@ -170,6 +160,53 @@ model Car {
   @@index([partnerId])
   @@index([isBlocked])
   @@map("car")
+}
+
+// Damage-fee schedule for a car. 1:1 with Car (FK has @unique). Optional —
+// when absent the front-end falls back to the platform-wide defaults
+// surfaced in the Terms page. All amounts are in UAH; we keep `Float` for
+// parity with the rest of the catalog. A future commit will migrate the
+// whole pricing column family to `Int amountMinor`.
+model CarDamageFees {
+  id    Int @id @default(autoincrement())
+  carId Int @unique @map("car_id")
+
+  damageTiresFee         Float? @map("damage_tires_fee")
+  damageGlassChipFee     Float? @map("damage_glass_chip_fee")
+  damageLostKeysFee      Float? @map("damage_lost_keys_fee")
+  damageBrokenGlassFee   Float? @map("damage_broken_glass_fee")
+  damageTotalLossPercent Float? @map("damage_total_loss_percent")
+  damageScratchesFee     Float? @map("damage_scratches_fee")
+  damageSmokingFee       Float? @map("damage_smoking_fee")
+  depositMultiplier      Float? @map("deposit_multiplier")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@map("car_damage_fees")
+}
+
+// Mileage-based scheduled maintenance state. 1:1 with Car. Optional — a
+// freshly added car has no service history yet. Equivalent to the
+// «Регламентні роботи» block in mfauto's CRM.
+model CarMaintenance {
+  id    Int @id @default(autoincrement())
+  carId Int @unique @map("car_id")
+
+  currentOdometer      Int?      @map("current_odometer")
+  serviceIntervalKm    Int?      @map("service_interval_km")
+  nextServiceMileageKm Int?      @map("next_service_mileage_km")
+  lastServiceAt        DateTime? @map("last_service_at")
+  lastServiceMileageKm Int?      @map("last_service_mileage_km")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@map("car_maintenance")
 }
 
 model Segment {

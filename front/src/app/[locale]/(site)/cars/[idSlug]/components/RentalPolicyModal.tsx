@@ -435,13 +435,14 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
 
           {/* Damages */}
           {(() => {
-            const tires = car.damageTiresFee;
-            const chip = car.damageGlassChipFee;
-            const keys = car.damageLostKeysFee;
-            const glass = car.damageBrokenGlassFee;
-            const totalPct = car.damageTotalLossPercent;
-            const scratch = car.damageScratchesFee;
-            const smoke = car.damageSmokingFee;
+            const fees = car.damageFees;
+            const tires = fees?.damageTiresFee ?? null;
+            const chip = fees?.damageGlassChipFee ?? null;
+            const keys = fees?.damageLostKeysFee ?? null;
+            const glass = fees?.damageBrokenGlassFee ?? null;
+            const totalPct = fees?.damageTotalLossPercent ?? null;
+            const scratch = fees?.damageScratchesFee ?? null;
+            const smoke = fees?.damageSmokingFee ?? null;
             const hasDamages = tires || chip || keys || glass || totalPct || scratch || smoke;
             if (!hasDamages) return null;
             return (
@@ -509,19 +510,19 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
           })()}
 
           {/* Deposit multiplier */}
-          {(car.depositMultiplier ?? 0) > 0 && (
+          {(car.damageFees?.depositMultiplier ?? 0) > 0 && (
             <section className="rpm__section">
-              <h4 className="rpm__heading">{t("depositMultiplier.title", { multiplier: car.depositMultiplier ?? 1.5 })}</h4>
+              <h4 className="rpm__heading">{t("depositMultiplier.title", { multiplier: car.damageFees?.depositMultiplier ?? 1.5 })}</h4>
               <ul className="rpm__list">
                 <li className="rpm__item">
                   <span className="rpm__icon sprite"><Icon id="shield-deposit" width={22} height={22} /></span>
                   <span className="rpm__label">{t("depositMultiplier.youngDriver")}</span>
-                  <span className="rpm__value">x{car.depositMultiplier ?? 1.5}</span>
+                  <span className="rpm__value">x{car.damageFees?.depositMultiplier ?? 1.5}</span>
                 </li>
                 <li className="rpm__item">
                   <span className="rpm__icon sprite"><Icon id="shield-deposit" width={22} height={22} /></span>
                   <span className="rpm__label">{t("depositMultiplier.crossBorder")}</span>
-                  <span className="rpm__value">x{car.depositMultiplier ?? 1.5}</span>
+                  <span className="rpm__value">x{car.damageFees?.depositMultiplier ?? 1.5}</span>
                 </li>
               </ul>
             </section>

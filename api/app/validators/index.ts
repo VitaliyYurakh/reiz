@@ -235,14 +235,20 @@ export const updateCarSchema = z.object({
         afterHoursServiceFee: z.number().min(0).nullable().optional(),
         workingHoursStart: z.string().max(10).nullable().optional(),
         workingHoursEnd: z.string().max(10).nullable().optional(),
-        damageTiresFee: z.number().min(0).nullable().optional(),
-        damageGlassChipFee: z.number().min(0).nullable().optional(),
-        damageLostKeysFee: z.number().min(0).nullable().optional(),
-        damageBrokenGlassFee: z.number().min(0).nullable().optional(),
-        damageTotalLossPercent: z.number().min(0).nullable().optional(),
-        damageScratchesFee: z.number().min(0).nullable().optional(),
-        damageSmokingFee: z.number().min(0).nullable().optional(),
-        depositMultiplier: z.number().min(0).nullable().optional(),
+        // Damage fees moved to nested object (1:1 relation in DB).
+        damageFees: z
+            .object({
+                damageTiresFee: z.number().min(0).nullable().optional(),
+                damageGlassChipFee: z.number().min(0).nullable().optional(),
+                damageLostKeysFee: z.number().min(0).nullable().optional(),
+                damageBrokenGlassFee: z.number().min(0).nullable().optional(),
+                damageTotalLossPercent: z.number().min(0).nullable().optional(),
+                damageScratchesFee: z.number().min(0).nullable().optional(),
+                damageSmokingFee: z.number().min(0).nullable().optional(),
+                depositMultiplier: z.number().min(0).nullable().optional(),
+            })
+            .nullable()
+            .optional(),
         // Owner partner. `null` = REIZ-owned. Was missing — Zod silently
         // dropped the key so the partner assignment never reached Prisma
         // (reported 2026-04-29: change owner to "Leokar", save, re-open,
