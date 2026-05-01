@@ -6,7 +6,9 @@
         "format": "concurrently -n prettier,eslint \"npx prettier ./app --write\" \"npx eslint ./app --fix --ext .ts\"",
         "lint": "concurrently -n prettier,eslint \"npx prettier ./app -c\"  \"npx eslint ./app  --ext .ts\"",
         "dev": "npx nodemon",
-        "build": "rimraf ./build && npx tsc"
+        "build": "rimraf ./build && npx tsc",
+        "typecheck": "npx tsc --noEmit",
+        "start": "node build/app/index.js"
     },
     "keywords": [],
     "author": "",

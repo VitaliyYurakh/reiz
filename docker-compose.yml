@@ -11,6 +11,10 @@ services:
             DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:-postgres_dev}@postgres:5432/reiz
             SECRET: ${API_SECRET}
             SALT: ${API_SALT}
+            # Bootstrap hash for admin@example.com on a fresh DB. seed.ts
+            # silently skips the admin upsert when this is missing, so prod
+            # is safe even if the secret isn't set yet.
+            ADMIN_PASSWORD_HASH: ${ADMIN_PASSWORD_HASH:-}
             TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
             TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
             CORS_ORIGINS: https://reiz.com.ua

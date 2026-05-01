@@ -1,12 +1,97 @@
-name: Deploy
+name: CI / Deploy
+
+# Single workflow: CI runs first, deploy waits for it. Without the gate a
+# broken Prisma schema or a build error would still SCP to prod and crash
+# the container.
+#
+# CI is intentionally non-pedantic at first: `tsc --noEmit` runs as a
+# `continue-on-error` step until the small backlog of pre-existing type
+# warnings is cleaned up. The hard gates are `prisma validate`,
+# `prisma format --check`, and successful tsc emit / Next build — those
+# catch the mistakes that actually break the running container.
 
 on:
     push:
         branches: [main]
+    pull_request:
+        branches: [main]
 
 jobs:
-    deploy:
+    api:
+        name: ci · api
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: api
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: npm
+                  cache-dependency-path: api/package-lock.json
+
+            - name: Install
+              run: npm ci
+
+            - name: Prisma generate
+              run: npx prisma generate
+
+            - name: Prisma validate
+              run: npx prisma validate
+
+            - name: Prisma format check
+              run: npx prisma format --check || (echo 'Run `npx prisma format` locally and commit the result.' && exit 1)
+
+            - name: Build (tsc emit)
+              # Mirrors the Dockerfile: tsc emits files even with type warnings,
+              # so we don't gate on its exit code. The advisory typecheck step
+              # below surfaces them as a separate signal.
+              run: npm run build || true
+
+            - name: Smoke check entry exists
+              run: test -f build/app/index.js || (echo 'tsc did not emit build/app/index.js'; exit 1)
+
+            - name: Type check (advisory)
+              run: npm run typecheck
+              continue-on-error: true
+
+    front:
+        name: ci · front
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: front
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '22'
+                  cache: npm
+                  cache-dependency-path: front/package-lock.json
+
+            - name: Install
+              run: npm ci
+
+            - name: Lint (advisory)
+              run: npm run lint
+              continue-on-error: true
+
+            - name: Build
+              env:
+                  NEXT_PUBLIC_BASE_URL: https://reiz.com.ua/
+                  NEXT_PUBLIC_API_URL: https://reiz.com.ua/api
+                  NEXT_PUBLIC_TURNSTILE_SITE_KEY: dummy-build-key
+              run: npm run build
+
+    deploy:
+        name: deploy · prod
+        runs-on: ubuntu-latest
+        # Only deploy on push to main (not on PRs) and only after CI passes.
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        needs: [api, front]
 
         steps:
             - name: Checkout
@@ -50,6 +135,7 @@ jobs:
                       NEXT_PUBLIC_TURNSTILE_SITE_KEY=${{ secrets.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
                       TURNSTILE_SECRET_KEY=${{ secrets.TURNSTILE_SECRET_KEY }}
                       POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+                      ADMIN_PASSWORD_HASH=${{ secrets.ADMIN_PASSWORD_HASH }}
                       GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
                       GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }}
                       GMAIL_USER=${{ secrets.GMAIL_USER }}

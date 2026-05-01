@@ -4,20 +4,33 @@ import {seedCities, seedPickupLocations, popularCitySlugs} from './seed-cities';
 const prisma = new PrismaClient();
 
 async function main() {
-    // Initial bcrypt hash of 'admin123' — USED ONLY WHEN CREATING A FRESH RECORD.
-    // NEVER put `pass` into the `update` branch — it will overwrite the production
-    // password on every seed run (audit finding C-2). Password rotation is handled
-    // exclusively through the admin API / manual SQL on prod.
-    const adminHash = '$2b$12$J9eS8tRZSHlOVUvpBQP1wuw9KBqDRW3v5VqZQhiq9Xy4G23oKCsam';
-    await prisma.user.upsert({
-        where: {email: 'admin@example.com'},
-        update: {}, // idempotent — do not touch existing admin's pass/role/permissions
-        create: {
-            email: 'admin@example.com',
-            passwordHash: adminHash,
-            role: 'admin',
-        },
-    });
+    // Bootstrap admin user — only on a fresh DB. The `update: {}` branch is
+    // intentionally empty so re-running seed never touches an existing admin's
+    // hash, role, or permissions (audit finding C-2). Password rotation goes
+    // through the admin API.
+    //
+    // Hash comes from ADMIN_PASSWORD_HASH env (set via GitHub Actions secret
+    // → docker-compose). When the env is missing we skip the upsert entirely
+    // rather than fall back to a committed hash — keeping bcrypt material out
+    // of git history. Existing prod admins are unaffected because the upsert
+    // never runs in that branch.
+    const adminHash = process.env.ADMIN_PASSWORD_HASH;
+    if (adminHash) {
+        await prisma.user.upsert({
+            where: {email: 'admin@example.com'},
+            update: {}, // idempotent — never overwrite an existing admin
+            create: {
+                email: 'admin@example.com',
+                passwordHash: adminHash,
+                role: 'admin',
+            },
+        });
+    } else {
+        console.log(
+            '[seed] ADMIN_PASSWORD_HASH not set — skipping admin upsert. ' +
+            'Set the env var to bootstrap admin@example.com on a fresh DB.',
+        );
+    }
 
     const segments = await prisma.segment.findMany();
 
