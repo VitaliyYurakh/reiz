@@ -57,8 +57,12 @@ class ForbiddenError extends Error {
 function getErrorMessage(err: unknown): string {
     if (err instanceof Error) return err.message;
     if (typeof err === 'string') return err;
+    if (err === null || err === undefined) return String(err);
     try {
-        return JSON.stringify(err);
+        const json = JSON.stringify(err);
+        // JSON.stringify on a value with toJSON returning undefined yields
+        // the string `undefined` — fall back to String() in that edge case.
+        return json ?? String(err);
     } catch {
         return String(err);
     }
