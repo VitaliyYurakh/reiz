@@ -59,6 +59,7 @@ model User {
 }
 
 model Car {
+  // ─── Identity ────────────────────────────────────────────────────────
   id                Int     @id @default(autoincrement())
   brand             String?
   model             String?
@@ -66,95 +67,115 @@ model Car {
   VIN               String? @map("vin")
   yearOfManufacture Int?    @map("year_of_manufacture")
   color             String?
-  description       Json?
-  previewUrl        String? @map("preview_url")
-  engineVolume      String? @map("engine_volume")
-  engineType        Json?   @map("engine_type")
-  transmission      Json?
-  fuelConsumption   String? @map("fuel_consumption")
-  driveType         Json?   @map("drive_type")
-  seats             Int?
-  discount          Int?
-  configuration     Json?
-  isNew             Boolean @default(false) @map("is_new")
-  isAvailable       Boolean @default(false) @map("is_available")
 
-  deliveryPrice          Int?    @map("delivery_price")
-  freeDeliveryThreshold  Int?    @map("free_delivery_threshold")
-  cancellationHours      Int?    @map("cancellation_hours")
-  paymentMethods         String? @map("payment_methods")
-  minRentalDays          Int?    @map("min_rental_days")
-  dailyMileageLimit      Int?    @map("daily_mileage_limit")
-  overmileagePrice       Float?  @map("overmileage_price")
-  driverAge              Int?    @map("driver_age")
-  driverExperience       Int?    @map("driver_experience")
-  fuelPolicy             String? @map("fuel_policy")
-  weeklyMileageLimit     Int?    @map("weekly_mileage_limit")
-  monthlyMileageLimit    Int?    @map("monthly_mileage_limit")
-  unlimitedMileage       Boolean @default(false) @map("unlimited_mileage")
-  maxRentalDays          Int?    @map("max_rental_days")
-  allowCrossBorder       Boolean @default(false) @map("allow_cross_border")
-  crossBorderFee         Int?    @map("cross_border_fee")
-  crossBorderDailyFee    Int?    @map("cross_border_daily_fee")
-  allowedCountries       Json?   @map("allowed_countries")
-  lateReturnGraceMin     Int?    @map("late_return_grace_min")
-  lateReturnFeePerHour   Float?  @map("late_return_fee_per_hour")
-  youngerDriverAge       Int?    @map("younger_driver_age")
-  youngerDriverSurcharge Float?  @map("younger_driver_surcharge")
-  petAllowed             Boolean @default(false) @map("pet_allowed")
-  cleaningFee            Int?    @map("cleaning_fee")
+  // ─── Specs (drivetrain, body) ────────────────────────────────────────
+  engineVolume    String? @map("engine_volume")
+  engineType      Json?   @map("engine_type")
+  transmission    Json?
+  fuelConsumption String? @map("fuel_consumption")
+  driveType       Json?   @map("drive_type")
+  seats           Int?
 
-  // Additional services
-  unlimitedMileagePrice1Day    Float?  @map("unlimited_mileage_price_1day")
-  unlimitedMileagePrice2to7    Float?  @map("unlimited_mileage_price_2to7")
-  unlimitedMileageFreeFromDays Int?    @map("unlimited_mileage_free_from_days")
-  intercityDeliveryPrice       Float?  @map("intercity_delivery_price")
-  carWashPrice                 Float?  @map("car_wash_price")
-  emptyTankFee                 Float?  @map("empty_tank_fee")
-  additionalDriverFee          Float?  @map("additional_driver_fee")
-  equipmentRentalPrice         Float?  @map("equipment_rental_price")
-  afterHoursServiceFee         Float?  @map("after_hours_service_fee")
-  workingHoursStart            String? @map("working_hours_start")
-  workingHoursEnd              String? @map("working_hours_end")
+  // ─── Catalog presentation ────────────────────────────────────────────
+  description   Json?
+  previewUrl    String? @map("preview_url")
+  configuration Json?
+  discount      Int?
 
-  // Partner / owner — for fleet operated under commission with another business
-  partnerId Int? @map("partner_id")
-
-  rentalTariff    RentalTariff[]
-  carPhoto        CarPhoto[]
-  carCountingRule CarCountingRule[]
-  segment         Segment[]
-
-  // Operational status (admin can hard-block a vehicle from rentals — separate
-  // from `isAvailable` which gates the public catalog).
+  // ─── Catalog status ──────────────────────────────────────────────────
+  // `isAvailable` gates the PUBLIC catalog ("show / hide"). `isBlocked`
+  // is an OPERATIONAL hard-block ("vehicle in repair, do not allow new
+  // rentals") — kept separate so a manager can ground a car without
+  // pulling it from search.
+  isNew       Boolean @default(false) @map("is_new")
+  isAvailable Boolean @default(false) @map("is_available")
   isBlocked   Boolean @default(false) @map("is_blocked")
   blockReason String? @map("block_reason")
 
-  // 1:1 extracted blocks. Damage fees and maintenance state were moved out
-  // of `car` because they are independent concerns that can each be null
-  // ("uses defaults" / "not yet serviced"). Splitting them keeps the core
-  // car table lean and lets each block be updated atomically.
+  // ─── Pickup / delivery ───────────────────────────────────────────────
+  deliveryPrice         Int?    @map("delivery_price")
+  freeDeliveryThreshold Int?    @map("free_delivery_threshold")
+  paymentMethods        String? @map("payment_methods")
+
+  // ─── Rental policy ───────────────────────────────────────────────────
+  cancellationHours   Int?    @map("cancellation_hours")
+  minRentalDays       Int?    @map("min_rental_days")
+  maxRentalDays       Int?    @map("max_rental_days")
+  dailyMileageLimit   Int?    @map("daily_mileage_limit")
+  weeklyMileageLimit  Int?    @map("weekly_mileage_limit")
+  monthlyMileageLimit Int?    @map("monthly_mileage_limit")
+  unlimitedMileage    Boolean @default(false) @map("unlimited_mileage")
+  overmileagePrice    Float?  @map("overmileage_price")
+  fuelPolicy          String? @map("fuel_policy")
+  petAllowed          Boolean @default(false) @map("pet_allowed")
+  cleaningFee         Int?    @map("cleaning_fee")
+
+  // ─── Driver requirements ─────────────────────────────────────────────
+  driverAge              Int?   @map("driver_age")
+  driverExperience       Int?   @map("driver_experience")
+  youngerDriverAge       Int?   @map("younger_driver_age")
+  youngerDriverSurcharge Float? @map("younger_driver_surcharge")
+
+  // ─── Cross-border travel ─────────────────────────────────────────────
+  allowCrossBorder    Boolean @default(false) @map("allow_cross_border")
+  crossBorderFee      Int?    @map("cross_border_fee")
+  crossBorderDailyFee Int?    @map("cross_border_daily_fee")
+  allowedCountries    Json?   @map("allowed_countries")
+
+  // ─── Late return ─────────────────────────────────────────────────────
+  lateReturnGraceMin   Int?   @map("late_return_grace_min")
+  lateReturnFeePerHour Float? @map("late_return_fee_per_hour")
+
+  // ─── Add-on prices ───────────────────────────────────────────────────
+  unlimitedMileagePrice1Day    Float? @map("unlimited_mileage_price_1day")
+  unlimitedMileagePrice2to7    Float? @map("unlimited_mileage_price_2to7")
+  unlimitedMileageFreeFromDays Int?   @map("unlimited_mileage_free_from_days")
+  intercityDeliveryPrice       Float? @map("intercity_delivery_price")
+  carWashPrice                 Float? @map("car_wash_price")
+  emptyTankFee                 Float? @map("empty_tank_fee")
+  additionalDriverFee          Float? @map("additional_driver_fee")
+  equipmentRentalPrice         Float? @map("equipment_rental_price")
+  afterHoursServiceFee         Float? @map("after_hours_service_fee")
+
+  // ─── Working hours ───────────────────────────────────────────────────
+  workingHoursStart String? @map("working_hours_start")
+  workingHoursEnd   String? @map("working_hours_end")
+
+  // ─── Ownership ───────────────────────────────────────────────────────
+  // Owner of the car when fleet is operated under commission with a
+  // partner business. `null` = REIZ-owned.
+  partnerId Int? @map("partner_id")
+
+  // ─── Relations: pricing & catalog ────────────────────────────────────
+  rentalTariff    RentalTariff[]
+  carCountingRule CarCountingRule[]
+  segment         Segment[]
+  carPhoto        CarPhoto[]
+
+  // ─── Relations: 1:1 extracted blocks ─────────────────────────────────
+  // Damage fees and maintenance state were moved out of `car` because
+  // they are independent concerns that can each be NULL ("uses platform
+  // defaults" / "not yet serviced"). Keeps the core table lean.
   damageFees  CarDamageFees?
   maintenance CarMaintenance?
 
-  // CRM relations (no DB column changes)
+  // ─── Relations: CRM ──────────────────────────────────────────────────
   rentalRequests RentalRequest[]
   reservations   Reservation[]
   rentals        Rental[]
   ratePlans      RatePlan[]
   serviceEvents  ServiceEvent[]
 
-  // City availability
+  // ─── Relations: city availability + customer cabinet ────────────────
   cityAvailability CarCityAvailability[]
+  favorites        Favorite[]
 
-  // Customer cabinet relations
-  favorites Favorite[]
-
-  // Accident/ДТП history + car-swap targets
+  // ─── Relations: accidents + car-swap targets ─────────────────────────
   accidents Accident[]      @relation("AccidentCar")
   swapsFrom RentalCarSwap[] @relation("CarSwapFrom")
   swapsTo   RentalCarSwap[] @relation("CarSwapTo")
 
+  // ─── Relations: ownership ────────────────────────────────────────────
   partner Partner? @relation(fields: [partnerId], references: [id], onDelete: SetNull)
 
   @@index([partnerId])
