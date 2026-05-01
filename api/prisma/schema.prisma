@@ -180,6 +180,9 @@ model Segment {
   driverAge        Int    @default(25) @map("driver_age")
   experience       Int    @default(3)
 
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
   car Car[]
 
   @@map("segment")
@@ -192,6 +195,9 @@ model RentalTariff {
   maxDays    Int @map("max_days")
   dailyPrice Int @map("daily_price")
   carId      Int @map("car_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
   car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
 
@@ -208,6 +214,9 @@ model CarCountingRule {
   depositFixed   Int? @map("deposit_fixed")
   carId          Int  @map("car_id")
 
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
   car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
 
   @@map("car_counting_rule")
@@ -219,6 +228,9 @@ model CarPhoto {
   url   String
   carId Int          @map("car_id")
   alt   String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
   car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
 
@@ -258,7 +270,9 @@ model BookingRequest {
   createdAt      DateTime @default(now()) @map("created_at")
 
   // CRM relation
-  client        Client?        @relation(fields: [clientId], references: [id])
+  // Anonymous bookings (client null) are valid; preserve the booking row
+  // when the client is removed instead of deleting it.
+  client        Client?        @relation(fields: [clientId], references: [id], onDelete: SetNull)
   rentalRequest RentalRequest?
 
   @@map("booking_request")
@@ -635,10 +649,12 @@ model RentalRequest {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  client         Client?         @relation(fields: [clientId], references: [id])
-  bookingRequest BookingRequest? @relation(fields: [bookingRequestId], references: [id])
-  car            Car?            @relation(fields: [carId], references: [id])
-  assignedTo     User?           @relation("AssignedRequests", fields: [assignedToUserId], references: [id])
+  // Preserve the request as historical record even if the linked entities
+  // disappear (legacy booking removed, car retired, client wiped).
+  client         Client?         @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  bookingRequest BookingRequest? @relation(fields: [bookingRequestId], references: [id], onDelete: SetNull)
+  car            Car?            @relation(fields: [carId], references: [id], onDelete: SetNull)
+  assignedTo     User?           @relation("AssignedRequests", fields: [assignedToUserId], references: [id], onDelete: SetNull)
   reservation    Reservation?
 
   @@index([status])
@@ -733,10 +749,13 @@ model Reservation {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  rentalRequest     RentalRequest?     @relation(fields: [rentalRequestId], references: [id])
-  client            Client             @relation(fields: [clientId], references: [id])
-  car               Car                @relation(fields: [carId], references: [id])
-  coveragePackage   CoveragePackage?   @relation(fields: [coveragePackageId], references: [id])
+  rentalRequest     RentalRequest?     @relation(fields: [rentalRequestId], references: [id], onDelete: SetNull)
+  // Restrict on client/car: a reservation has booked resources, so the
+  // client and car can't be deleted while a reservation exists. Use the
+  // soft-delete path (Client.deletedAt) instead.
+  client            Client             @relation(fields: [clientId], references: [id], onDelete: Restrict)
+  car               Car                @relation(fields: [carId], references: [id], onDelete: Restrict)
+  coveragePackage   CoveragePackage?   @relation(fields: [coveragePackageId], references: [id], onDelete: SetNull)
   rental            Rental?
   reservationAddOns ReservationAddOn[]
   transactions      Transaction[]
@@ -758,8 +777,11 @@ model ReservationAddOn {
   currency       Currency @default(USD)
   totalMinor     Int      @map("total_minor")
 
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
   reservation Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
-  addOn       AddOn       @relation(fields: [addOnId], references: [id])
+  addOn       AddOn       @relation(fields: [addOnId], references: [id], onDelete: Restrict)
 
   @@map("reservation_add_on")
 }
@@ -799,9 +821,11 @@ model Rental {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  reservation      Reservation?      @relation(fields: [reservationId], references: [id])
-  client           Client            @relation(fields: [clientId], references: [id])
-  car              Car               @relation(fields: [carId], references: [id])
+  reservation      Reservation?      @relation(fields: [reservationId], references: [id], onDelete: SetNull)
+  // Same Restrict reasoning as Reservation: an active rental has money
+  // and obligations attached; client/car must remain referenceable.
+  client           Client            @relation(fields: [clientId], references: [id], onDelete: Restrict)
+  car              Car               @relation(fields: [carId], references: [id], onDelete: Restrict)
   rentalAddOns     RentalAddOn[]
   rentalExtensions RentalExtension[]
   inspections      Inspection[]
@@ -836,8 +860,11 @@ model RentalAddOn {
   currency       Currency @default(USD)
   totalMinor     Int      @map("total_minor")
 
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
   rental Rental @relation(fields: [rentalId], references: [id], onDelete: Cascade)
-  addOn  AddOn  @relation(fields: [addOnId], references: [id])
+  addOn  AddOn  @relation(fields: [addOnId], references: [id], onDelete: Restrict)
 
   @@map("rental_add_on")
 }
@@ -876,7 +903,9 @@ model Inspection {
   createdAt     DateTime       @default(now()) @map("created_at")
 
   rental    Rental            @relation(fields: [rentalId], references: [id], onDelete: Cascade)
-  inspector User?             @relation(fields: [inspectorId], references: [id])
+  // Inspector can be rotated off staff; null out the FK on the
+  // historical row instead of cascading delete.
+  inspector User?             @relation(fields: [inspectorId], references: [id], onDelete: SetNull)
   photos    InspectionPhoto[]
   fines     Fine[]
 
@@ -979,9 +1008,10 @@ model Account {
   isActive Boolean     @default(true) @map("is_active")
 
   createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
-  transactions   Transaction[]
-  PartnerPayment PartnerPayment[]
+  transactions    Transaction[]
+  partnerPayments PartnerPayment[]
 
   @@map("account")
 }
@@ -1014,11 +1044,15 @@ model Transaction {
   transferPair   Transaction? @relation("TransferPair", fields: [transferPairId], references: [id], onDelete: SetNull)
   transferPairOf Transaction? @relation("TransferPair")
 
-  account     Account      @relation(fields: [accountId], references: [id])
-  client      Client?      @relation(fields: [clientId], references: [id])
-  reservation Reservation? @relation(fields: [reservationId], references: [id])
-  rental      Rental?      @relation(fields: [rentalId], references: [id])
-  fine        Fine?        @relation(fields: [fineId], references: [id])
+  // Restrict on account: a transaction must always know which account
+  // recorded it (audit). SetNull on the entity FKs because the
+  // transaction itself stays as a historical money-flow record even
+  // when the related rental / reservation / client / fine is removed.
+  account     Account      @relation(fields: [accountId], references: [id], onDelete: Restrict)
+  client      Client?      @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  reservation Reservation? @relation(fields: [reservationId], references: [id], onDelete: SetNull)
+  rental      Rental?      @relation(fields: [rentalId], references: [id], onDelete: SetNull)
+  fine        Fine?        @relation(fields: [fineId], references: [id], onDelete: SetNull)
   partner     Partner?     @relation("PartnerTransactions", fields: [partnerId], references: [id], onDelete: SetNull)
   createdBy   User?        @relation("CreatedTransactions", fields: [createdByUserId], references: [id])
 
@@ -1050,7 +1084,9 @@ model Document {
   dataSnapshot    Json?    @map("data_snapshot")
   generatedAt     DateTime @default(now()) @map("generated_at")
 
-  rental Rental? @relation(fields: [rentalId], references: [id])
+  // Document file lives only in the rental's context; cascade so a
+  // wiped rental doesn't leave orphan PDFs in storage refs.
+  rental Rental? @relation(fields: [rentalId], references: [id], onDelete: Cascade)
 
   @@index([rentalId])
   @@index([type])
@@ -1086,7 +1122,9 @@ model NotificationLog {
   sentAt       DateTime? @map("sent_at")
   createdAt    DateTime  @default(now()) @map("created_at")
 
-  template NotificationTemplate @relation(fields: [templateId], references: [id])
+  // Restrict: the log entry must always know which template generated
+  // it. To remove a template that has logs, archive it via isActive.
+  template NotificationTemplate @relation(fields: [templateId], references: [id], onDelete: Restrict)
 
   @@index([templateId])
   @@index([status])
@@ -1106,7 +1144,7 @@ model AuditLog {
   before     Json?
   after      Json?
   ipAddress  String?  @map("ip_address")
-  userAgent  String?  @map("user_agent")
+  userAgent  String?  @map("user_agent") @db.Text
   createdAt  DateTime @default(now()) @map("created_at")
 
   @@index([entityType, entityId])
@@ -1200,7 +1238,9 @@ model CustomerAccount {
   createdAt     DateTime  @default(now()) @map("created_at")
   updatedAt     DateTime  @updatedAt @map("updated_at")
 
-  client Client @relation(fields: [clientId], references: [id])
+  // Customer-facing auth row. 1:1 with Client; if the Client is wiped
+  // the auth record goes with it (Auth.js convention).
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
 
   @@index([email])
   @@index([googleId])
@@ -1409,7 +1449,9 @@ model PartnerPayment {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   partner     Partner                @relation(fields: [partnerId], references: [id], onDelete: Restrict)
-  account     Account                @relation(fields: [accountId], references: [id])
+  // Restrict: a partner payment is tied to the account that received
+  // funds; preserve the audit link.
+  account     Account                @relation(fields: [accountId], references: [id], onDelete: Restrict)
   transaction Transaction?           @relation(fields: [transactionId], references: [id], onDelete: SetNull)
   createdBy   User?                  @relation("PartnerPaymentAuthor", fields: [createdById], references: [id], onDelete: SetNull)
   rentals     PartnerPaymentRental[]
