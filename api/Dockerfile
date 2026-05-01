@@ -1,28 +1,19 @@
-FROM node:20-alpine AS deps
+FROM node:20-alpine
 WORKDIR /usr/src/app
-# devDeps included intentionally — we need tsc here (build stage) and
-# tsx in the runtime stage for `prisma db seed`.
+
+# Install all deps first (tsc is dev, tsx is dev) — we run TS via tsx
+# at runtime because `node:20-alpine` tsc doesn't emit `build/app/index.js`
+# even though Mac tsc and the Ubuntu setup-node tsc do (case-sensitive
+# alpine + slightly older Node patch). Until we either find the alpine
+# emit fix or pin a node:20-bookworm-slim image, tsx is the safe runner.
+# Flip NODE_ENV after install so devDeps land.
 COPY package*.json ./
 RUN npm ci
 
-FROM deps AS builder
-COPY . .
-RUN npx prisma generate
-# tsc is now clean (no `|| true` fallback) — every file emits.
-RUN npm run build
-
-FROM node:20-alpine AS runner
-WORKDIR /usr/src/app
 ENV NODE_ENV=production
 
-# Bring runtime artefacts from the builder. node_modules carries tsx
-# (devDep) which `prisma db seed` invokes per package.json's
-# `prisma.seed` config; without it the seed crashes with `spawn tsx
-# ENOENT` and the container restart-loops.
-COPY --from=builder /usr/src/app/node_modules ./node_modules
-COPY --from=builder /usr/src/app/build ./build
-COPY --from=builder /usr/src/app/prisma ./prisma
-COPY --from=builder /usr/src/app/package*.json ./
+COPY . .
+RUN npx prisma generate
 
 EXPOSE 3000
 
@@ -33,6 +24,7 @@ EXPOSE 3000
 #     DROP+CREATE tables on perceived renames, silently destroying data
 #     (cars, photos). Migrations are now the single source of truth.
 #   * `db seed` is idempotent (uses `upsert` / `count == 0` guards).
-#   * Compiled JS via `node build/app/index.js` — no nodemon, no tsx
-#     in the runtime hot path.
-CMD ["sh", "-c", "npx prisma migrate deploy && npx prisma db seed && node build/app/index.js"]
+#   * `tsx app/index.ts` runs TS sources directly (one process, no file
+#     watcher, no compilation step). Switch to `node build/app/index.js`
+#     once the alpine tsc-emit issue is resolved.
+CMD ["sh", "-c", "npx prisma migrate deploy && npx prisma db seed && npx tsx app/index.ts"]
