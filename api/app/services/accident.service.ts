@@ -1,3 +1,4 @@
+import {AccidentStatus as PAccidentStatus, AccidentFault as PAccidentFault} from '@prisma/client';
 import {prisma, BadRequestError, NotFoundError} from '../utils';
 import {AccidentStatus, AccidentFault, ACCIDENT_OPEN_STATUSES, ACCIDENT_TERMINAL_STATUSES} from '../utils/constants';
 
@@ -9,8 +10,8 @@ interface CreateAccidentInput {
     incidentAt: string | Date;
     location?: string;
     description: string;
-    fault?: string;
-    status?: string;
+    fault?: PAccidentFault;
+    status?: PAccidentStatus;
     policeReportNumber?: string;
     insuranceCompany?: string;
     insuranceClaimNumber?: string;
@@ -152,8 +153,8 @@ class AccidentService {
 
         const movingToClosed =
             data.status &&
-            (ACCIDENT_TERMINAL_STATUSES as string[]).includes(data.status) &&
-            !(ACCIDENT_TERMINAL_STATUSES as string[]).includes(existing.status);
+            (ACCIDENT_TERMINAL_STATUSES as readonly string[]).includes(data.status) &&
+            !(ACCIDENT_TERMINAL_STATUSES as readonly string[]).includes(existing.status);
 
         return await prisma.$transaction(async (tx) => {
             const updateData: any = {};

@@ -21,7 +21,7 @@ class LeadController {
             page: parseOptionalId(req.query.page as string, 'page'),
             limit: parseOptionalId(req.query.limit as string, 'limit'),
             search: req.query.search as string | undefined,
-            status: req.query.status as string | undefined,
+            status: req.query.status as any,
             country: req.query.country as string | undefined,
             assignedManagerId: parseOptionalId(req.query.assignedManagerId as string, 'assignedManagerId'),
         });

@@ -1,8 +1,9 @@
+import {DocumentTemplateKind as PDocumentTemplateKind} from '@prisma/client';
 import {prisma, NotFoundError, BadRequestError} from '../utils';
 
 interface CreateInput {
     name: string;
-    kind: string;
+    kind: PDocumentTemplateKind;
     language?: string;
     bodyHtml: string;
     bodyText?: string;

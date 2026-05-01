@@ -1,11 +1,11 @@
-import {Prisma} from '@prisma/client';
+import {Prisma, LeadStatus as PLeadStatus} from '@prisma/client';
 import {prisma, LeadStatus, LeadSource} from '../utils';
 
 interface ListParams {
     page?: number;
     limit?: number;
     search?: string;
-    status?: string;
+    status?: PLeadStatus;
     country?: string;
     assignedManagerId?: number;
 }
@@ -94,7 +94,7 @@ class LeadService {
     }
 
     async update(id: number, data: Partial<CreateLeadData & {
-        status: string;
+        status: PLeadStatus;
         pausedReason: string | null;
         assignedManagerId: number | null;
     }>) {
@@ -118,7 +118,7 @@ class LeadService {
         return await prisma.lead.update({where: {id}, data: patch});
     }
 
-    async updateStatus(id: number, status: string, pausedReason?: string | null) {
+    async updateStatus(id: number, status: PLeadStatus, pausedReason?: string | null) {
         const patch: Prisma.LeadUpdateInput = {status};
         if (status === LeadStatus.PAUSED) patch.pausedReason = pausedReason ?? null;
         if (status === LeadStatus.REPLIED && !await this.hasReplyTimestamp(id)) {
@@ -142,7 +142,7 @@ class LeadService {
     }
 
     async addEmail(leadId: number, data: {
-        direction: string;
+        direction: 'OUTBOUND' | 'INBOUND';
         template?: string | null;
         subject: string;
         body: string;

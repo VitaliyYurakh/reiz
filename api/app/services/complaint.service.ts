@@ -1,3 +1,4 @@
+import {ComplaintCategory, ComplaintPriority, ComplaintAuthorType} from '@prisma/client';
 import {prisma} from '../utils';
 
 const SLA_HOURS_BY_PRIORITY: Record<string, number> = {
@@ -80,8 +81,8 @@ class ComplaintService {
     async create(data: {
         clientId?: number;
         rentalId?: number;
-        category: string;
-        priority?: string;
+        category: ComplaintCategory;
+        priority?: ComplaintPriority;
         subject: string;
         initialMessage: string;
         contactName?: string;
@@ -128,7 +129,7 @@ class ComplaintService {
 
     async addMessage(id: number, data: {
         body: string;
-        authorType: string;
+        authorType: ComplaintAuthorType;
         authorUserId?: number;
         attachments?: string[];
     }) {

@@ -1,3 +1,4 @@
+import {AccountType, TransactionType, TransactionDirection} from '@prisma/client';
 import {prisma, BadRequestError} from '../utils';
 import fxRateService from './fx-rate.service';
 
@@ -81,7 +82,7 @@ class FinanceService {
 
     async createAccount(data: {
         name: string;
-        type: string;
+        type: AccountType;
         currency?: string;
         isActive?: boolean;
     }) {
@@ -97,7 +98,7 @@ class FinanceService {
 
     async updateAccount(id: number, data: {
         name?: string;
-        type?: string;
+        type?: AccountType;
         currency?: string;
         isActive?: boolean;
     }) {
@@ -110,9 +111,9 @@ class FinanceService {
     // --- Transactions ---
 
     async createTransaction(data: {
-        type: string;
+        type: TransactionType;
         accountId: number;
-        direction: string;
+        direction: TransactionDirection;
         amountMinor: number;
         currency: string;
         fxRate?: number;

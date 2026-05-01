@@ -298,7 +298,7 @@ class LeadGmailService {
             orderBy: {lastFollowUpAt: 'asc'},
         });
 
-        const plan: {lead: typeof fu1[number]; kind: 'fu_3d' | 'fu_7d' | 'breakup_14d'; nextStatus: string}[] = [];
+        const plan: {lead: typeof fu1[number]; kind: 'fu_3d' | 'fu_7d' | 'breakup_14d'; nextStatus: 'FOLLOWED_UP_1' | 'FOLLOWED_UP_2' | 'BREAKUP_SENT'}[] = [];
         for (const l of fu1) plan.push({lead: l, kind: 'fu_3d', nextStatus: LeadStatus.FOLLOWED_UP_1});
         for (const l of fu2) plan.push({lead: l, kind: 'fu_7d', nextStatus: LeadStatus.FOLLOWED_UP_2});
         for (const l of breakup) plan.push({lead: l, kind: 'breakup_14d', nextStatus: LeadStatus.BREAKUP_SENT});

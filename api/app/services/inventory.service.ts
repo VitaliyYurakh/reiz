@@ -1,11 +1,12 @@
+import {InventoryCategory as PInventoryCategory, InventoryStatus as PInventoryStatus} from '@prisma/client';
 import {prisma, NotFoundError} from '../utils';
 import {InventoryStatus} from '../utils/constants';
 
 interface CreateInventoryItemInput {
     name: string;
-    category?: string;
+    category?: PInventoryCategory;
     serialNumber?: string;
-    status?: string;
+    status?: PInventoryStatus;
     quantity?: number;
     purchaseDate?: string | Date;
     purchasePriceMinor?: number;

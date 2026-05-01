@@ -1,8 +1,12 @@
+import {TransactionType} from '@prisma/client';
 import {prisma, MS_PER_DAY, RentalStatus, ReservationStatus} from '../utils';
 
 // Deposits are held on behalf of the client (liability, not revenue).
 // Exclude from all operating-revenue / P&L calculations.
-const NON_REVENUE_TYPES = ['DEPOSIT_RECEIVED', 'DEPOSIT_RETURNED'];
+const NON_REVENUE_TYPES: TransactionType[] = [
+    TransactionType.DEPOSIT_RECEIVED,
+    TransactionType.DEPOSIT_RETURNED,
+];
 
 class ReportService {
     async getDashboard() {
@@ -103,8 +107,8 @@ class ReportService {
             confirmedReservations,
             newRequestsThisMonth,
             totalClients,
-            revenueThisMonthMinor: revenueThisMonth._sum.amountUahMinor || 0,
-            revenueLastMonthMinor: revenueLastMonth._sum.amountUahMinor || 0,
+            revenueThisMonthMinor: revenueThisMonth._sum?.amountUahMinor || 0,
+            revenueLastMonthMinor: revenueLastMonth._sum?.amountUahMinor || 0,
             completedRentalsThisMonth,
             overdueRentals,
             totalCarsAvailable,
@@ -632,7 +636,7 @@ class ReportService {
             const carId = t.rentalId != null ? rentalMap.get(t.rentalId) : undefined;
             if (!carId) continue;
             const amount = t._sum.amountUahMinor ?? 0;
-            const target = t.direction === 'IN' ? incomePerCar : refundPerCar;
+            const target = t.direction === 'in' ? incomePerCar : refundPerCar;
             target.set(carId, (target.get(carId) ?? 0) + amount);
         }
 

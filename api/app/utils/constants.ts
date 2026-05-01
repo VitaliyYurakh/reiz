@@ -96,12 +96,17 @@ export const AccidentStatus = {
     CLOSED: 'CLOSED',
 } as const;
 export const ACCIDENT_STATUSES = Object.values(AccidentStatus);
+// Mutable arrays so Prisma's enum-typed `where: {status: {in: …}}` filters
+// compile without `[…spread]` everywhere.
 export const ACCIDENT_OPEN_STATUSES = [
     AccidentStatus.REPORTED,
     AccidentStatus.INVESTIGATING,
     AccidentStatus.AWAITING_PAYOUT,
-] as string[];
-export const ACCIDENT_TERMINAL_STATUSES = [AccidentStatus.RESOLVED, AccidentStatus.CLOSED] as string[];
+];
+export const ACCIDENT_TERMINAL_STATUSES = [
+    AccidentStatus.RESOLVED,
+    AccidentStatus.CLOSED,
+];
 
 export const AccidentFault = {
     CLIENT: 'CLIENT',

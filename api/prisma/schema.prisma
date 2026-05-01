@@ -22,7 +22,7 @@ model User {
   email             String   @unique
   passwordHash      String   @map("password_hash")
   name              String   @default("")
-  role              String   @default("manager")
+  role              UserRole @default(manager)
   permissions       Json     @default("{}")
   isActive          Boolean  @default(true) @map("is_active")
   tokenVersion      Int      @default(0) @map("token_version")
@@ -300,11 +300,193 @@ model BusinessRequest {
 // ============================================================
 
 // --- Enums ---
+//
+// Every enum's value list is the source of truth — Postgres rejects any
+// INSERT/UPDATE that doesn't match (a typo like `'avtive'` no longer
+// silently sits in a status column). Mirrors the TS-side const-objects
+// in `app/utils/constants.ts`; they stay around for centralized labels
+// + iteration helpers (LEAD_ACTIVE_STATUSES etc.) but the canonical
+// shape now lives here.
 
 enum AddOnPricingMode {
   PER_DAY
   ONE_TIME
   MANUAL_QTY
+}
+
+enum ReservationStatus {
+  confirmed
+  picked_up
+  cancelled
+  no_show
+}
+
+enum RentalStatus {
+  active
+  completed
+  cancelled
+}
+
+// Matches what `rental-request.service` actually writes today: new
+// rows start as 'new', admin moves them to 'in_review' while triaging,
+// then to 'approved' / 'rejected' / 'cancelled'. The `'pending'` value
+// in `constants.ts.RentalRequestStatus.PENDING` was aspirational and
+// never actually persisted — left out of the enum to keep the runtime
+// values authoritative.
+enum RentalRequestStatus {
+  new
+  in_review
+  approved
+  rejected
+  cancelled
+}
+
+enum AccountType {
+  CASH
+  BANK_ACCOUNT
+  BANK_CARD
+}
+
+// Currency stays a String for now — promoting it to an enum requires
+// widening every `currency: string` service signature and fxRate calls
+// that take API input outside the closed set. Tracked separately.
+
+enum TransactionType {
+  PAYMENT
+  DEPOSIT_RECEIVED
+  DEPOSIT_RETURNED
+  REFUND
+  FINE_PAYMENT
+  SERVICE_COST
+  ADDON_PAYMENT
+  EXTENSION_PAYMENT
+  PARTNER_COMMISSION
+  TRANSFER
+}
+
+enum TransactionDirection {
+  in
+  out
+}
+
+enum LeadStatus {
+  NEW
+  ENRICHED
+  READY
+  CONTACTED
+  FOLLOWED_UP_1
+  FOLLOWED_UP_2
+  BREAKUP_SENT
+  REPLIED
+  INTERESTED
+  CLIENT
+  DISQUALIFIED
+  BOUNCED
+  UNSUBSCRIBED
+  PAUSED
+}
+
+enum LeadEmailDirection {
+  OUTBOUND
+  INBOUND
+}
+
+enum AccidentFault {
+  CLIENT
+  COMPANY
+  THIRD_PARTY
+  UNKNOWN
+}
+
+enum AccidentStatus {
+  REPORTED
+  INVESTIGATING
+  AWAITING_PAYOUT
+  RESOLVED
+  CLOSED
+}
+
+enum InventoryCategory {
+  TOOL
+  EQUIPMENT
+  ACCESSORY
+  KEYS
+  OTHER
+}
+
+enum InventoryStatus {
+  AVAILABLE
+  ASSIGNED
+  MAINTENANCE
+  LOST
+  WRITTEN_OFF
+}
+
+enum RentalDepositStatus {
+  PENDING
+  RECEIVED
+  RETURNED
+  FORFEITED
+}
+
+enum PartnerPaymentStatus {
+  paid
+  partial
+  disputed
+  refunded
+}
+
+enum ComplaintCategory {
+  DEPOSIT
+  DAMAGE
+  FINE
+  SERVICE
+  GDPR
+  OTHER
+}
+
+enum ComplaintPriority {
+  low
+  normal
+  high
+  urgent
+}
+
+enum ComplaintStatus {
+  open
+  in_review
+  awaiting_client
+  resolved
+  rejected
+}
+
+enum ComplaintAuthorType {
+  client
+  staff
+  system
+}
+
+enum DocumentTemplateKind {
+  RENTAL_AGREEMENT
+  ACT_TRANSFER
+  ACT_RETURN
+  INVOICE
+  INSURANCE_CLAIM
+  OTHER
+}
+
+enum FxRateSource {
+  NBU
+  manual
+}
+
+// 'operator' is allowed by the createUser validator but no production user
+// currently has it; included so signup with role=operator doesn't get
+// rejected at the DB layer.
+enum UserRole {
+  admin
+  manager
+  operator
 }
 
 // --- Client ---
@@ -385,12 +567,12 @@ model ClientDocument {
 // --- Rental Request (Lead) ---
 
 model RentalRequest {
-  id               Int    @id @default(autoincrement())
-  source           String @default("website")
-  status           String @default("new")
-  clientId         Int?   @map("client_id")
-  bookingRequestId Int?   @unique @map("booking_request_id")
-  carId            Int?   @map("car_id")
+  id               Int                 @id @default(autoincrement())
+  source           String              @default("website")
+  status           RentalRequestStatus @default(new)
+  clientId         Int?                @map("client_id")
+  bookingRequestId Int?                @unique @map("booking_request_id")
+  carId            Int?                @map("car_id")
 
   firstName      String?   @map("first_name")
   lastName       String?   @map("last_name")
@@ -484,13 +666,12 @@ model RatePlan {
 // --- Reservation ---
 
 model Reservation {
-  id                Int    @id @default(autoincrement())
-  /// 'confirmed' | 'cancelled' | 'noshow' | 'cancellation_requested'
-  status            String @default("confirmed")
-  rentalRequestId   Int?   @unique @map("rental_request_id")
-  clientId          Int    @map("client_id")
-  carId             Int    @map("car_id")
-  coveragePackageId Int?   @map("coverage_package_id")
+  id                Int               @id @default(autoincrement())
+  status            ReservationStatus @default(confirmed)
+  rentalRequestId   Int?              @unique @map("rental_request_id")
+  clientId          Int               @map("client_id")
+  carId             Int               @map("car_id")
+  coveragePackageId Int?              @map("coverage_package_id")
 
   pickupLocation String   @map("pickup_location")
   returnLocation String   @map("return_location")
@@ -544,13 +725,12 @@ model ReservationAddOn {
 // --- Rental ---
 
 model Rental {
-  id             Int     @id @default(autoincrement())
-  /// 'active' | 'completed' | 'cancelled' | 'overdue'
-  status         String  @default("active")
-  reservationId  Int?    @unique @map("reservation_id")
-  clientId       Int     @map("client_id")
-  carId          Int     @map("car_id")
-  contractNumber String? @unique @map("contract_number")
+  id             Int          @id @default(autoincrement())
+  status         RentalStatus @default(active)
+  reservationId  Int?         @unique @map("reservation_id")
+  clientId       Int          @map("client_id")
+  carId          Int          @map("car_id")
+  contractNumber String?      @unique @map("contract_number")
 
   pickupDate       DateTime  @map("pickup_date")
   returnDate       DateTime  @map("return_date")
@@ -750,13 +930,11 @@ model ServiceEventPhoto {
 // --- Finance ---
 
 model Account {
-  id       Int     @id @default(autoincrement())
+  id       Int         @id @default(autoincrement())
   name     String
-  /// 'CASH' | 'BANK_ACCOUNT' | 'BANK_CARD'
-  type     String
-  /// ISO 4217 — 'UAH' | 'USD' | 'EUR' | 'ILS' | 'PLN'
-  currency String  @default("UAH")
-  isActive Boolean @default(true) @map("is_active")
+  type     AccountType
+  currency String      @default("UAH")
+  isActive Boolean     @default(true) @map("is_active")
 
   createdAt DateTime @default(now()) @map("created_at")
 
@@ -767,19 +945,14 @@ model Account {
 }
 
 model Transaction {
-  id             Int     @id @default(autoincrement())
-  /// 'PAYMENT' | 'DEPOSIT_RECEIVED' | 'DEPOSIT_RETURNED' | 'REFUND'
-  /// | 'FINE_PAYMENT' | 'SERVICE_COST' | 'ADDON_PAYMENT'
-  /// | 'EXTENSION_PAYMENT' | 'PARTNER_COMMISSION' | 'TRANSFER'
-  type           String
-  accountId      Int     @map("account_id")
-  /// 'in' (money received) | 'out' (money paid out). Lowercase is the
-  /// canonical form across all writers and readers.
-  direction      String
-  amountMinor    Int     @map("amount_minor")
+  id             Int                  @id @default(autoincrement())
+  type           TransactionType
+  accountId      Int                  @map("account_id")
+  direction      TransactionDirection
+  amountMinor    Int                  @map("amount_minor")
   currency       String
-  fxRate         Float   @default(1.0) @map("fx_rate")
-  amountUahMinor Int     @map("amount_uah_minor")
+  fxRate         Float                @default(1.0) @map("fx_rate")
+  amountUahMinor Int                  @map("amount_uah_minor")
   description    String?
 
   clientId        Int? @map("client_id")
@@ -1030,28 +1203,25 @@ model NotificationPreference {
 //   * surface friction patterns in admin (status filters, by category)
 
 model Complaint {
-  id                Int       @id @default(autoincrement())
-  ticketNumber      String    @unique @map("ticket_number") // human-friendly e.g. "REIZ-COMP-2026-04-0001"
-  clientId          Int?      @map("client_id") // nullable — anonymous via contact form is OK
-  rentalId          Int?      @map("rental_id")
-  /// 'DEPOSIT' | 'DAMAGE' | 'FINE' | 'SERVICE' | 'GDPR' | 'OTHER'
-  category          String
-  /// 'low' | 'normal' | 'high' | 'urgent'
-  priority          String    @default("normal")
-  /// 'open' | 'in_review' | 'awaiting_client' | 'resolved' | 'rejected'
-  status            String    @default("open")
+  id                Int               @id @default(autoincrement())
+  ticketNumber      String            @unique @map("ticket_number") // human-friendly e.g. "REIZ-COMP-2026-04-0001"
+  clientId          Int?              @map("client_id") // nullable — anonymous via contact form is OK
+  rentalId          Int?              @map("rental_id")
+  category          ComplaintCategory
+  priority          ComplaintPriority @default(normal)
+  status            ComplaintStatus   @default(open)
   subject           String
-  initialMessage    String    @map("initial_message")
-  contactName       String?   @map("contact_name")
-  contactEmail      String?   @map("contact_email")
-  contactPhone      String?   @map("contact_phone")
-  attachments       Json      @default("[]") // array of URLs
-  assignedManagerId Int?      @map("assigned_manager_id")
-  slaDeadline       DateTime? @map("sla_deadline")
-  resolvedAt        DateTime? @map("resolved_at")
+  initialMessage    String            @map("initial_message")
+  contactName       String?           @map("contact_name")
+  contactEmail      String?           @map("contact_email")
+  contactPhone      String?           @map("contact_phone")
+  attachments       Json              @default("[]") // array of URLs
+  assignedManagerId Int?              @map("assigned_manager_id")
+  slaDeadline       DateTime?         @map("sla_deadline")
+  resolvedAt        DateTime?         @map("resolved_at")
   resolution        String?
-  createdAt         DateTime  @default(now()) @map("created_at")
-  updatedAt         DateTime  @updatedAt @map("updated_at")
+  createdAt         DateTime          @default(now()) @map("created_at")
+  updatedAt         DateTime          @updatedAt @map("updated_at")
 
   client          Client?            @relation(fields: [clientId], references: [id], onDelete: SetNull)
   rental          Rental?            @relation(fields: [rentalId], references: [id], onDelete: SetNull)
@@ -1068,13 +1238,13 @@ model Complaint {
 }
 
 model ComplaintMessage {
-  id           Int      @id @default(autoincrement())
-  complaintId  Int      @map("complaint_id")
-  authorType   String   @map("author_type") // 'client' | 'staff' | 'system'
-  authorUserId Int?     @map("author_user_id")
+  id           Int                 @id @default(autoincrement())
+  complaintId  Int                 @map("complaint_id")
+  authorType   ComplaintAuthorType @map("author_type")
+  authorUserId Int?                @map("author_user_id")
   body         String
-  attachments  Json     @default("[]")
-  createdAt    DateTime @default(now()) @map("created_at")
+  attachments  Json                @default("[]")
+  createdAt    DateTime            @default(now()) @map("created_at")
 
   complaint  Complaint @relation(fields: [complaintId], references: [id], onDelete: Cascade)
   authorUser User?     @relation("ComplaintAuthorUser", fields: [authorUserId], references: [id])
@@ -1092,12 +1262,12 @@ model ComplaintMessage {
 // non-UAH transactions; can still be overridden manually with a note.
 
 model DailyFxRate {
-  id        Int      @id @default(autoincrement())
-  date      DateTime @db.Date
-  currency  String // 'USD' | 'EUR' | 'PLN' | …
+  id        Int          @id @default(autoincrement())
+  date      DateTime     @db.Date
+  currency  String
   rate      Float // units of UAH per 1 unit of currency
-  source    String   @default("NBU") // 'NBU' | 'manual'
-  createdAt DateTime @default(now()) @map("created_at")
+  source    FxRateSource @default(NBU)
+  createdAt DateTime     @default(now()) @map("created_at")
 
   @@unique([date, currency])
   @@index([currency, date])
@@ -1188,10 +1358,10 @@ model PartnerPayment {
   // Nullable to allow the row to be inserted first, then back-linked.
   transactionId Int? @unique @map("transaction_id")
 
-  paidAt      DateTime @map("paid_at")
-  status      String   @default("paid") // paid | partial | disputed | refunded
+  paidAt      DateTime             @map("paid_at")
+  status      PartnerPaymentStatus @default(paid)
   notes       String?
-  createdById Int?     @map("created_by_id")
+  createdById Int?                 @map("created_by_id")
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -1257,11 +1427,8 @@ model Lead {
 
   language String @default("ru") // outreach language: 'ru' | 'en' | 'tr' | 'sr' | ...
 
-  // 'NEW' | 'ENRICHED' | 'READY' | 'CONTACTED' | 'FOLLOWED_UP_1' | 'FOLLOWED_UP_2'
-  // | 'BREAKUP_SENT' | 'REPLIED' | 'INTERESTED' | 'CLIENT'
-  // | 'DISQUALIFIED' | 'BOUNCED' | 'UNSUBSCRIBED' | 'PAUSED'
-  status       String  @default("NEW")
-  pausedReason String? @map("paused_reason")
+  status       LeadStatus @default(NEW)
+  pausedReason String?    @map("paused_reason")
 
   // Cached website excerpt — fed to Gemini for personalization. Limited to ~2000 chars in code.
   websiteContent String? @map("website_content") @db.Text
@@ -1292,10 +1459,10 @@ model LeadEmail {
   id     Int @id @default(autoincrement())
   leadId Int @map("lead_id")
 
-  direction String // 'OUTBOUND' | 'INBOUND'
+  direction LeadEmailDirection
   template  String? // 'initial' | 'fu_3d' | 'fu_7d' | 'breakup_14d' | null
   subject   String
-  body      String  @db.Text
+  body      String             @db.Text
 
   sentAt     DateTime? @map("sent_at")
   receivedAt DateTime? @map("received_at")
@@ -1475,10 +1642,8 @@ model Accident {
   location    String?
   description String
 
-  /// 'CLIENT' | 'COMPANY' | 'THIRD_PARTY' | 'UNKNOWN'
-  fault  String @default("UNKNOWN")
-  /// 'REPORTED' | 'INVESTIGATING' | 'AWAITING_PAYOUT' | 'RESOLVED' | 'CLOSED'
-  status String @default("REPORTED")
+  fault  AccidentFault  @default(UNKNOWN)
+  status AccidentStatus @default(REPORTED)
 
   policeReportNumber   String? @map("police_report_number")
   insuranceCompany     String? @map("insurance_company")
@@ -1533,16 +1698,14 @@ model InventoryItem {
   id Int @id @default(autoincrement())
 
   name               String
-  /// 'TOOL' | 'EQUIPMENT' | 'ACCESSORY' | 'KEYS' | 'OTHER'
-  category           String    @default("TOOL")
-  serialNumber       String?   @unique @map("serial_number")
-  /// 'AVAILABLE' | 'ASSIGNED' | 'MAINTENANCE' | 'LOST' | 'WRITTEN_OFF'
-  status             String    @default("AVAILABLE")
-  quantity           Int       @default(1)
-  purchaseDate       DateTime? @map("purchase_date")
-  purchasePriceMinor Int?      @map("purchase_price_minor")
-  currentValueMinor  Int?      @map("current_value_minor")
-  currency           String    @default("UAH")
+  category           InventoryCategory @default(TOOL)
+  serialNumber       String?           @unique @map("serial_number")
+  status             InventoryStatus   @default(AVAILABLE)
+  quantity           Int               @default(1)
+  purchaseDate       DateTime?         @map("purchase_date")
+  purchasePriceMinor Int?              @map("purchase_price_minor")
+  currentValueMinor  Int?              @map("current_value_minor")
+  currency           String            @default("UAH")
 
   // Where the item normally lives (a pickup location / warehouse).
   locationId        Int?      @map("location_id")
@@ -1578,8 +1741,8 @@ model DocumentTemplate {
   id Int @id @default(autoincrement())
 
   name     String // human label
-  kind     String // RENTAL_AGREEMENT | ACT_TRANSFER | ACT_RETURN | INVOICE | INSURANCE_CLAIM | OTHER
-  language String @default("uk") // uk | ru | en | pl | ro
+  kind     DocumentTemplateKind
+  language String               @default("uk") // ISO-2 — uk | ru | en | pl | ro
 
   // The template body (HTML with {{placeholder}} tokens).
   bodyHtml String  @map("body_html") @db.Text
@@ -1650,15 +1813,14 @@ model RentalCarSwap {
 model RentalDeposit {
   id Int @id @default(autoincrement())
 
-  rentalId    Int       @map("rental_id")
+  rentalId    Int                 @map("rental_id")
   reason      String // free-form label shown to client
-  amountMinor Int       @map("amount_minor")
-  currency    String    @default("UAH")
-  /// 'PENDING' | 'RECEIVED' | 'RETURNED' | 'FORFEITED'
-  status      String    @default("PENDING")
-  dueAt       DateTime? @map("due_at")
-  receivedAt  DateTime? @map("received_at")
-  returnedAt  DateTime? @map("returned_at")
+  amountMinor Int                 @map("amount_minor")
+  currency    String              @default("UAH")
+  status      RentalDepositStatus @default(PENDING)
+  dueAt       DateTime?           @map("due_at")
+  receivedAt  DateTime?           @map("received_at")
+  returnedAt  DateTime?           @map("returned_at")
   notes       String?
 
   receivedTxnId Int? @unique @map("received_txn_id") // Transaction created when funds received

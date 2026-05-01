@@ -81,7 +81,7 @@ class RentalRequestService {
         websiteSnapshot?: any;
         assignedToUserId?: number;
     }) {
-        return await prisma.rentalRequest.create({data});
+        return await prisma.rentalRequest.create({data: data as any});
     }
 
     async update(id: number, data: {
@@ -103,7 +103,7 @@ class RentalRequestService {
     }) {
         return await prisma.rentalRequest.update({
             where: {id},
-            data,
+            data: data as any,
         });
     }
 

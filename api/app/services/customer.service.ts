@@ -225,8 +225,11 @@ class CustomerService {
             throw new Error('Reservation not found');
         }
 
-        if (reservation.status !== 'confirmed' && reservation.status !== 'pending') {
-            throw new Error('Only confirmed or pending reservations can request cancellation');
+        // 'pending' is not a real ReservationStatus value (reservation always
+        // starts as 'confirmed' once a booking is paid); the legacy guard
+        // stayed from a prior status flow. Check only against the live values.
+        if (reservation.status !== 'confirmed') {
+            throw new Error('Only confirmed reservations can request cancellation');
         }
 
         if (reservation.cancellationRequestedAt) {

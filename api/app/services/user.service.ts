@@ -1,3 +1,4 @@
+import {UserRole} from '@prisma/client';
 import {prisma, createHashedPassword} from '../utils';
 
 class UserService {
@@ -26,7 +27,7 @@ class UserService {
         });
     }
 
-    async create(data: {email: string; password: string; name: string; role: string; permissions: any}) {
+    async create(data: {email: string; password: string; name: string; role: UserRole; permissions: any}) {
         const hashedPassword = await createHashedPassword(data.password);
         return prisma.user.create({
             data: {
@@ -40,7 +41,7 @@ class UserService {
         });
     }
 
-    async update(id: number, data: {name?: string; role?: string; permissions?: any; isActive?: boolean}) {
+    async update(id: number, data: {name?: string; role?: UserRole; permissions?: any; isActive?: boolean}) {
         // Deactivating an account must also invalidate all its existing sessions.
         // auth.middleware rejects tokens whose `tv` claim does not match tokenVersion,
         // so incrementing it here immediately revokes every outstanding JWT.
