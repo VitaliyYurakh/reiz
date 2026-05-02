@@ -101,15 +101,21 @@ model Car {
   color             String?
 
   // ─── Specs (drivetrain, body) ────────────────────────────────────────
+  // Localized spec strings (engine type, transmission, drive type) live
+  // on `CarTranslation` — one row per (carId, locale). Read flow flattens
+  // them back into the legacy `{uk,ru,en,pl,ro}` map shape on the API
+  // response so existing front-end callers (`car.engineType[locale]`)
+  // keep working unchanged. See car.service.ts.
   engineVolume    String? @map("engine_volume")
-  engineType      Json?   @map("engine_type")
-  transmission    Json?
   fuelConsumption String? @map("fuel_consumption")
-  driveType       Json?   @map("drive_type")
   seats           Int?
 
   // ─── Catalog presentation ────────────────────────────────────────────
-  description   Json?
+  // `description` also moved to CarTranslation (longest-text field; was
+  // a JSON blob on Car). `configuration` stays as Json for now — it's a
+  // variable-length array of items each with their own multilang map;
+  // normalising it requires a separate ConfigurationOption catalogue,
+  // out of scope for this commit.
   previewUrl    String? @map("preview_url")
   configuration Json?
   discount      Int?
@@ -183,6 +189,7 @@ model Car {
   carCountingRule CarCountingRule[]
   segment         Segment[]
   carPhoto        CarPhoto[]
+  translations    CarTranslation[]
 
   // ─── Relations: 1:1 extracted blocks ─────────────────────────────────
   // Damage fees and maintenance state were moved out of `car` because
@@ -261,6 +268,37 @@ model CarMaintenance {
   car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
 
   @@map("car_maintenance")
+}
+
+// Per-locale text content for a Car (description + spec strings). Replaces
+// the previous design where each field was a `Json` map of `{uk,ru,en,
+// pl,ro}` — a shape that:
+//   * required adding a new locale by editing every car row,
+//   * gave no FK / referential integrity ("description" content was a
+//     blob the DB couldn't validate),
+//   * couldn't be queried per-locale (no index, GIN-only).
+//
+// Now each locale lives in its own row. Adding a 6th locale is a backfill,
+// not a schema change. The API service flattens these rows back to the
+// legacy map shape so existing FE callers (`car.engineType[locale]`)
+// keep working unchanged — see `car.service.ts → flattenTranslations()`.
+model CarTranslation {
+  id           Int     @id @default(autoincrement())
+  carId        Int     @map("car_id")
+  locale       String  @db.VarChar(2)
+  description  String? @db.Text
+  engineType   String? @map("engine_type")
+  transmission String?
+  driveType    String? @map("drive_type")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@unique([carId, locale])
+  @@index([locale])
+  @@map("car_translation")
 }
 
 model Segment {

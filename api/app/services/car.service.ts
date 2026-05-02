@@ -3,6 +3,109 @@ import {CarNotFoundError, prisma} from '../utils';
 import {CreateCarDto, UpdateCarDto, CarPhotoDto, CountingRuleDto, TariffDto} from '../types';
 import {Language} from '../types/dto.types';
 
+// Five locales the public site renders.  Kept here (not in a shared
+// constant) because the i18n table is Car-specific for now; expanding to
+// other models will lift this list.
+const TRANSLATION_LOCALES = ['uk', 'ru', 'en', 'pl', 'ro'] as const;
+type TranslationLocale = (typeof TRANSLATION_LOCALES)[number];
+
+type LocalizedMap = Partial<Record<TranslationLocale, string>>;
+
+type CarTranslationRow = {
+    locale: string;
+    description: string | null;
+    engineType: string | null;
+    transmission: string | null;
+    driveType: string | null;
+};
+
+/**
+ * Flatten the per-locale translation rows back into the legacy
+ * `{uk: '...', ru: '...', en: '...', pl: '...', ro: '...'}` map shape so
+ * existing FE callers (`car.engineType[locale]`, `localized(car.description, locale)`)
+ * keep working unchanged after the i18n normalisation. The original
+ * `translations` array is preserved on the response in case a client
+ * wants to query it directly.
+ */
+function flattenCarTranslations<T extends {translations?: CarTranslationRow[] | null}>(
+    car: T,
+): T & {description: LocalizedMap; engineType: LocalizedMap; transmission: LocalizedMap; driveType: LocalizedMap} {
+    const description: LocalizedMap = {};
+    const engineType: LocalizedMap = {};
+    const transmission: LocalizedMap = {};
+    const driveType: LocalizedMap = {};
+    for (const tr of car.translations ?? []) {
+        const loc = tr.locale as TranslationLocale;
+        if (tr.description !== null) description[loc] = tr.description;
+        if (tr.engineType !== null) engineType[loc] = tr.engineType;
+        if (tr.transmission !== null) transmission[loc] = tr.transmission;
+        if (tr.driveType !== null) driveType[loc] = tr.driveType;
+    }
+    return {...car, description, engineType, transmission, driveType};
+}
+
+/**
+ * Convert the legacy `{description: {uk,ru,...}, engineType: {...}, ...}`
+ * write shape into a list of per-locale upsert operations against the
+ * `car_translation` table. Locales that don't appear anywhere are
+ * skipped — admins blank a translation by sending `''` (or `null`),
+ * which clears that field on the existing row but doesn't delete the row
+ * (other locales might still need it).
+ *
+ * Accepts the legacy admin form which sometimes sent `description` as a
+ * plain string (Ukrainian-only fallback) — that lands in the `uk` row.
+ */
+/**
+ * Returns a list of `{locale, fields}` translation upsert specs derived
+ * from the legacy write shape. Caller decides whether to run them on a
+ * top-level prisma client or a transaction handle (so that the Car row
+ * + translation rows update atomically).
+ */
+function planTranslationUpserts(input: {
+    description?: string | LocalizedMap | null;
+    engineType?: LocalizedMap | null;
+    transmission?: LocalizedMap | null;
+    driveType?: LocalizedMap | null;
+}): Array<{locale: string; fields: Partial<Pick<CarTranslationRow, 'description' | 'engineType' | 'transmission' | 'driveType'>>}> {
+    const byLocale: Record<string, Partial<Pick<CarTranslationRow, 'description' | 'engineType' | 'transmission' | 'driveType'>>> = {};
+
+    const ensure = (locale: string) => {
+        if (!byLocale[locale]) byLocale[locale] = {};
+        return byLocale[locale];
+    };
+
+    if (input.description !== undefined) {
+        if (typeof input.description === 'string') {
+            // Legacy plain-string form posts: Ukrainian only.
+            ensure('uk').description = input.description || null;
+        } else if (input.description !== null) {
+            for (const [locale, value] of Object.entries(input.description)) {
+                ensure(locale).description = (value as string) || null;
+            }
+        }
+    }
+
+    for (const field of ['engineType', 'transmission', 'driveType'] as const) {
+        const map = input[field];
+        if (map == null) continue;
+        for (const [locale, value] of Object.entries(map)) {
+            ensure(locale)[field] = (value as string) || null;
+        }
+    }
+
+    return Object.entries(byLocale).map(([locale, fields]) => ({locale, fields}));
+}
+
+const CAR_INCLUDE = {
+    carPhoto: true,
+    carCountingRule: {orderBy: {depositPercent: 'asc'}},
+    rentalTariff: true,
+    segment: true,
+    damageFees: true,
+    maintenance: true,
+    translations: true,
+} as const satisfies Prisma.CarInclude;
+
 class CarService {
     async getAll(citySlug?: string) {
         const where: any = {};
@@ -16,15 +119,10 @@ class CarService {
             };
         }
 
-        return await prisma.car.findMany({
+        const cars = await prisma.car.findMany({
             where,
             include: {
-                carPhoto: true,
-                carCountingRule: {orderBy: {depositPercent: 'asc'}},
-                rentalTariff: true,
-                segment: true,
-                damageFees: true,
-                maintenance: true,
+                ...CAR_INCLUDE,
                 cityAvailability: {
                     where: {isActive: true},
                     include: {
@@ -33,18 +131,14 @@ class CarService {
                 },
             },
         });
+        return cars.map(flattenCarTranslations);
     }
 
     async getOne(id: number) {
-        return await prisma.car.findUnique({
+        const car = await prisma.car.findUnique({
             where: {id},
             include: {
-                carPhoto: true,
-                carCountingRule: {orderBy: {depositPercent: 'asc'}},
-                rentalTariff: true,
-                segment: true,
-                damageFees: true,
-                maintenance: true,
+                ...CAR_INCLUDE,
                 cityAvailability: {
                     include: {
                         city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true, nameLocativeUk: true, nameLocativeRu: true, nameLocativeEn: true}},
@@ -52,6 +146,7 @@ class CarService {
                 },
             },
         });
+        return car ? flattenCarTranslations(car) : null;
     }
 
     async getCityAvailability(carId: number) {
@@ -123,11 +218,21 @@ class CarService {
             throw new CarNotFoundError();
         }
 
-        const {segmentIds, description, damageFees, maintenance, ...rest} = carDto;
+        // Translation fields are persisted to `car_translation` rows (1
+        // per locale), not the Car table. Pull them out of the payload.
+        const {
+            segmentIds,
+            description,
+            engineType,
+            transmission,
+            driveType,
+            damageFees,
+            maintenance,
+            ...rest
+        } = carDto;
         const data: any = {...rest};
 
         if (segmentIds) data.segment = {set: segmentIds.map((sid) => ({id: sid}))};
-        if (description) data.description = description;
 
         // 1:1 nested writes — upsert the related row when present, delete it
         // when caller passes `null`, leave untouched when key is omitted.
@@ -142,14 +247,29 @@ class CarService {
                 : {upsert: {create: maintenance, update: maintenance}};
         }
 
-        return await prisma.car.update({
-            where: {id},
-            // Cast through Prisma.CarUncheckedUpdateInput because we set
-            // `partnerId` (the FK column) directly rather than going through
-            // the `partner` relation. Prisma's typed input would otherwise
-            // disallow `partnerId` on the checked variant.
-            data: data as Prisma.CarUncheckedUpdateInput,
-            include: {damageFees: true, maintenance: true},
+        // Atomic: Car row + per-locale translation upserts in one tx.
+        // Without it, a translation upsert failure would leave the Car
+        // partially updated (admin edits "Hyundai" → "Toyota" + new
+        // engineType, sees Toyota saved but engineType missing).
+        return await prisma.$transaction(async (tx) => {
+            const updated = await tx.car.update({
+                where: {id},
+                data: data as Prisma.CarUncheckedUpdateInput,
+                include: CAR_INCLUDE,
+            });
+
+            const plans = planTranslationUpserts({description, engineType, transmission, driveType});
+            for (const {locale, fields} of plans) {
+                await tx.carTranslation.upsert({
+                    where: {carId_locale: {carId: id, locale}},
+                    create: {carId: id, locale, ...fields},
+                    update: fields,
+                });
+            }
+
+            // Re-fetch to pick up any translations that were upserted.
+            const fresh = await tx.car.findUnique({where: {id}, include: CAR_INCLUDE});
+            return fresh ? flattenCarTranslations(fresh) : flattenCarTranslations(updated);
         });
     }
 
