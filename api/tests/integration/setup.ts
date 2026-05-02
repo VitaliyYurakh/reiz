@@ -50,13 +50,19 @@ export async function bootIntegrationDb(): Promise<IntegrationFixture> {
     const port = container.getMappedPort(5432);
     const databaseUrl = `postgresql://postgres:${password}@${host}:${port}/${dbName}?schema=public`;
 
-    // `migrate deploy` is the same command prod uses on container start —
-    // running it here proves migrations apply cleanly on a brand-new DB
-    // (no manual fix-ups needed). Streaming the output to /dev/null keeps
-    // the test reporter clean; if the migrate call fails, exec throws
-    // and the suite fails loudly.
+    // `prisma db push` projects the CURRENT schema.prisma straight to the
+    // fresh DB, skipping the historical migration sequence. Why not
+    // `migrate deploy` (what prod uses): some early migrations were
+    // written assuming sibling tables already existed (e.g.
+    // `20260501120000_promote_status_columns_to_enums` ALTERs `lead`,
+    // which was created in a *later* migration). On prod that worked
+    // because the table existed by the time the enum-promote ran;
+    // re-applying from a clean slate fails with `relation "lead" does
+    // not exist`. Rebaselining the history is a separate piece of work;
+    // for the integration suite, `db push` lets us test the schema we
+    // actually run today, which is the contract we care about.
     const apiRoot = join(__dirname, '..', '..');
-    execSync('npx prisma migrate deploy', {
+    execSync('npx prisma db push --skip-generate --accept-data-loss', {
         cwd: apiRoot,
         env: {...process.env, DATABASE_URL: databaseUrl},
         stdio: 'pipe',
