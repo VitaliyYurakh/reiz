@@ -895,6 +895,13 @@ export const ro: AdminTranslations = {
         clickForDetails: 'Apăsați pentru detalii',
         conflict: 'Conflict',
         km: 'km',
+        fleetTitle: 'Flotă',
+        avgLoad: 'utilizare medie',
+        freeNow: 'libere acum',
+        shownTypes: 'Afișate: {shown}/{total} tipuri',
+        hideAvailability: 'Ascunde verificarea',
+        availabilityWindow: 'Mașini libere în perioadă',
+        now: 'Acum',
     },
 
     /* ── Pricing ── */

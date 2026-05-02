@@ -895,6 +895,13 @@ export const en: AdminTranslations = {
     clickForDetails: 'Click for details',
     conflict: 'Conflict',
     km: 'km',
+    fleetTitle: 'Fleet',
+    avgLoad: 'avg utilization',
+    freeNow: 'free now',
+    shownTypes: 'Shown: {shown}/{total} types',
+    hideAvailability: 'Hide availability',
+    availabilityWindow: 'Available cars in period',
+    now: 'Now',
   },
 
   /* ── Pricing ── */

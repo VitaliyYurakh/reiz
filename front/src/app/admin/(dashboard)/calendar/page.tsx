@@ -27,7 +27,6 @@ export default function CalendarPage() {
   const { locale } = useAdminLocale();
   const today = useMemo(() => startOfDay(new Date()), []);
 
-  /* Dynamic "now" line — updates every 60 seconds */
   const [nowTime, setNowTime] = useState(() => new Date());
   useEffect(() => {
     const id = setInterval(() => setNowTime(new Date()), 60_000);
@@ -63,7 +62,6 @@ export default function CalendarPage() {
     () => new Set(['rental', 'reservation', 'service']),
   );
 
-  /* Availability check */
   const [availCheck, setAvailCheck] = useState(false);
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
@@ -92,7 +90,6 @@ export default function CalendarPage() {
     );
   }, [data?.cars, carSearch]);
 
-  /* summary row: occupied car count per day (filtered by visible types) */
   const daySummary = useMemo(() => {
     if (!filteredCars.length) return [];
     const counts: number[] = new Array(days).fill(0);
@@ -113,7 +110,70 @@ export default function CalendarPage() {
 
   const totalCarsCount = filteredCars.length;
 
-  /* Availability map: carId → boolean (available for checked dates) */
+  /* Fleet summary — avg load over visible window + free now */
+  const fleetSummary = useMemo(() => {
+    const totalActive = filteredCars.length;
+    if (!totalActive) return { avgLoad: 0, freeNow: 0, totalActive: 0 };
+
+    const startMs = rangeStart.getTime();
+    const totalMs = days * DAY_MS;
+    let sumPct = 0;
+
+    for (const row of filteredCars) {
+      let busyMs = 0;
+      for (const iv of row.intervals) {
+        if (!visibleTypes.has(iv.type)) continue;
+        if (iv.status === 'cancelled' || iv.status === 'no_show') continue;
+        const ivS = startOfDay(new Date(iv.startDate)).getTime();
+        const ivE = iv.endDate
+          ? new Date(iv.endDate).getTime()
+          : ivS + DAY_MS;
+        const f = Math.max(ivS, startMs);
+        const t = Math.min(ivE, startMs + totalMs);
+        if (t > f) busyMs += t - f;
+      }
+      sumPct += (busyMs / totalMs) * 100;
+    }
+
+    const nowMs = nowTime.getTime();
+    let busyNow = 0;
+    for (const row of filteredCars) {
+      const isBusy = row.intervals.some((iv) => {
+        if (!visibleTypes.has(iv.type)) return false;
+        if (iv.status === 'cancelled' || iv.status === 'no_show') return false;
+        const ivS = new Date(iv.startDate).getTime();
+        const ivE = iv.endDate
+          ? new Date(iv.endDate).getTime()
+          : ivS + DAY_MS;
+        return ivS <= nowMs && ivE >= nowMs;
+      });
+      if (isBusy) busyNow++;
+    }
+
+    return {
+      avgLoad: Math.round(sumPct / totalActive),
+      freeNow: totalActive - busyNow,
+      totalActive,
+    };
+  }, [filteredCars, visibleTypes, rangeStart, days, nowTime]);
+
+  /* Type counts for filter chips */
+  const typeCounts = useMemo(() => {
+    const out: Record<string, number> = {
+      rental: 0,
+      reservation: 0,
+      service: 0,
+    };
+    if (!data?.cars) return out;
+    for (const row of data.cars) {
+      for (const iv of row.intervals) {
+        if (iv.status === 'cancelled' || iv.status === 'no_show') continue;
+        if (out[iv.type] != null) out[iv.type]++;
+      }
+    }
+    return out;
+  }, [data?.cars]);
+
   const availabilityMap = useMemo(() => {
     if (!availCheck || !checkIn || !checkOut || !filteredCars.length)
       return null;
@@ -148,7 +208,6 @@ export default function CalendarPage() {
     return { available: free, total: availabilityMap.size };
   }, [availabilityMap]);
 
-  /* Check-in/check-out column range for overlay */
   const checkRange = useMemo(() => {
     if (!availCheck || !checkIn || !checkOut) return null;
     const ci = startOfDay(new Date(checkIn));
@@ -157,9 +216,7 @@ export default function CalendarPage() {
     const colStart = Math.round(
       (ci.getTime() - rangeStart.getTime()) / DAY_MS,
     );
-    const colEnd = Math.round(
-      (co.getTime() - rangeStart.getTime()) / DAY_MS,
-    );
+    const colEnd = Math.round((co.getTime() - rangeStart.getTime()) / DAY_MS);
     return { start: colStart, end: colEnd };
   }, [availCheck, checkIn, checkOut, rangeStart]);
 
@@ -191,7 +248,6 @@ export default function CalendarPage() {
     return cols;
   }, [rangeStart, days]);
 
-  /* Dynamic now-line pixel offset from left edge of grid */
   const nowLineInfo = useMemo(() => {
     const todayCol = Math.round(
       (today.getTime() - rangeStart.getTime()) / DAY_MS,
@@ -285,9 +341,7 @@ export default function CalendarPage() {
 
     try {
       if (interval.type === 'reservation') {
-        const res = await adminApiClient.get(
-          `/reservation/${interval.id}`,
-        );
+        const res = await adminApiClient.get(`/reservation/${interval.id}`);
         setDetailData(res.data.reservation);
       } else if (interval.type === 'rental') {
         const res = await adminApiClient.get(`/rental/${interval.id}`);
@@ -312,17 +366,19 @@ export default function CalendarPage() {
   }
 
   const gridW = days * CELL_W;
-
   const rangeLabel = `${rangeStart.toLocaleDateString('ru', { day: 'numeric', month: 'short' })} — ${addDays(rangeStart, days - 1).toLocaleDateString('ru', { day: 'numeric', month: 'short', year: 'numeric' })}`;
 
-  /* ═══════════════ RENDER ═══════════════ */
   return (
-    <div style={{ maxWidth: '100%', overflow: 'hidden', fontFamily: H.font }}>
+    <div
+      className="cal-page"
+      style={{ maxWidth: '100%', overflow: 'hidden', fontFamily: H.font }}
+    >
       <CalendarStyles H={H} />
 
       <CalendarHeader
         H={H}
         rangeLabel={rangeLabel}
+        fleetCount={filteredCars.length}
         carSearch={carSearch}
         onCarSearchChange={setCarSearch}
         days={days}
@@ -332,6 +388,7 @@ export default function CalendarPage() {
         onRefresh={() => fetchData()}
         loading={loading}
         visibleTypes={visibleTypes}
+        typeCounts={typeCounts}
         onToggleType={toggleType}
         availCheck={availCheck}
         onToggleAvailCheck={() => {
@@ -348,33 +405,36 @@ export default function CalendarPage() {
         availCount={availCount}
       />
 
-      <CalendarGrid
-        H={H}
-        loading={loading}
-        fetchError={fetchError}
-        data={data}
-        filteredCars={filteredCars}
-        scrollRef={scrollRef}
-        days={days}
-        gridW={gridW}
-        rangeStart={rangeStart}
-        dateColumns={dateColumns}
-        monthGroups={monthGroups}
-        daySummary={daySummary}
-        totalCarsCount={totalCarsCount}
-        nowLineInfo={nowLineInfo}
-        todayFlash={todayFlash}
-        checkRange={checkRange}
-        availabilityMap={availabilityMap}
-        visibleTypes={visibleTypes}
-        carSearch={carSearch}
-        onFetchData={fetchData}
-        onBarHover={handleBarHover}
-        onBarLeave={() => setTooltip(null)}
-        onBarClick={handleBarClick}
-      />
-
-      <CalendarLegend H={H} />
+      <div className="cal-surface">
+        <CalendarGrid
+          H={H}
+          loading={loading}
+          fetchError={fetchError}
+          data={data}
+          filteredCars={filteredCars}
+          scrollRef={scrollRef}
+          days={days}
+          gridW={gridW}
+          rangeStart={rangeStart}
+          dateColumns={dateColumns}
+          monthGroups={monthGroups}
+          daySummary={daySummary}
+          totalCarsCount={totalCarsCount}
+          fleetSummary={fleetSummary}
+          nowLineInfo={nowLineInfo}
+          todayFlash={todayFlash}
+          checkRange={checkRange}
+          availabilityMap={availabilityMap}
+          visibleTypes={visibleTypes}
+          carSearch={carSearch}
+          onFetchData={fetchData}
+          onBarHover={handleBarHover}
+          onBarLeave={() => setTooltip(null)}
+          onBarClick={handleBarClick}
+          onCarClick={(carId) => router.push(`/admin/cars/${carId}`)}
+        />
+        <CalendarLegend H={H} />
+      </div>
 
       {tooltip && !selectedInterval && (
         <CalendarTooltip tooltip={tooltip} H={H} />

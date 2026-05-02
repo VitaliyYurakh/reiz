@@ -913,6 +913,13 @@ export const uk = {
     clickForDetails: 'Натисніть для подробиць',
     conflict: 'Конфлікт',
     km: 'км',
+    fleetTitle: 'Автопарк',
+    avgLoad: 'середнє завантаження',
+    freeNow: 'вільно зараз',
+    shownTypes: 'Показано: {shown}/{total} типів',
+    hideAvailability: 'Сховати перевірку',
+    availabilityWindow: 'Вільні авто в період',
+    now: 'Зараз',
   },
 
   /* ── Pricing ── */

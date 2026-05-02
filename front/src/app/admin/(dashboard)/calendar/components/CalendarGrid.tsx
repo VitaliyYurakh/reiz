@@ -1,12 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   Loader2,
-  Car,
-  X,
-  Check,
+  CalendarDays,
   AlertTriangle,
+  ChevronRight,
+  Car as CarIcon,
 } from 'lucide-react';
 import type { ThemeTokens } from '@/context/AdminThemeContext';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
@@ -16,7 +16,10 @@ import {
   ROW_H,
   CAR_COL_W,
   SUMMARY_H,
+  MONTH_BAND_H,
+  DAY_HEAD_H,
   TYPE_STYLES,
+  DAY_MS,
   fmtWeekday,
   isWeekend,
   isToday,
@@ -24,7 +27,113 @@ import {
   calcCarUtilization,
   hasConflict,
   utilColor,
+  startOfDay,
 } from './calendar-types';
+
+const HEADER_H = MONTH_BAND_H + DAY_HEAD_H + SUMMARY_H;
+
+interface BarPos {
+  col: number;
+  span: number;
+  lane: number;
+  totalLanes: number;
+  clipL: boolean;
+  clipR: boolean;
+}
+
+function assignLanes(intervals: Interval[], rangeStart: Date, days: number) {
+  const items: { iv: Interval; pos: BarPos }[] = [];
+  for (const iv of intervals) {
+    const cols = intervalCols(iv, rangeStart, days);
+    if (!cols) continue;
+    const startMs = startOfDay(new Date(iv.startDate)).getTime();
+    const endMs = iv.endDate
+      ? new Date(iv.endDate).getTime()
+      : startMs + DAY_MS;
+    const rangeStartMs = rangeStart.getTime();
+    const rangeEndMs = rangeStartMs + days * DAY_MS;
+    items.push({
+      iv,
+      pos: {
+        col: cols.col,
+        span: cols.span,
+        lane: 0,
+        totalLanes: 1,
+        clipL: startMs < rangeStartMs,
+        clipR: endMs > rangeEndMs,
+      },
+    });
+  }
+  items.sort((a, b) => a.pos.col - b.pos.col);
+  const laneEnds: number[] = [];
+  for (const item of items) {
+    let lane = laneEnds.findIndex((end) => end <= item.pos.col);
+    if (lane === -1) {
+      lane = laneEnds.length;
+      laneEnds.push(0);
+    }
+    laneEnds[lane] = item.pos.col + item.pos.span;
+    item.pos.lane = lane;
+  }
+  const total = Math.max(1, laneEnds.length);
+  for (const item of items) item.pos.totalLanes = total;
+  return items;
+}
+
+function CarThumb({ name, H }: { name: string; H: ThemeTokens }) {
+  const initials = name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase();
+  return (
+    <div className="cal-car-thumb">
+      <span
+        className="car-tag"
+        style={{
+          background: `linear-gradient(180deg, ${H.purple}, ${H.purpleLight})`,
+        }}
+      />
+      <CarIcon className="car-icon" />
+      <span style={{ display: 'none' }}>{initials}</span>
+    </div>
+  );
+}
+
+function LoadDonut({ pct, H }: { pct: number; H: ThemeTokens }) {
+  const r = 14;
+  const c = 2 * Math.PI * r;
+  const off = c * (1 - pct / 100);
+  const tone = pct >= 80 ? 'hot' : pct >= 50 ? 'warm' : '';
+  return (
+    <div className={`cal-car-load ${tone}`} title={`${pct}%`}>
+      <svg viewBox="0 0 36 36" aria-hidden="true">
+        <circle
+          className="track"
+          cx="18"
+          cy="18"
+          r={r}
+          fill="none"
+          strokeWidth="3.5"
+        />
+        <circle
+          className="bar"
+          cx="18"
+          cy="18"
+          r={r}
+          fill="none"
+          strokeWidth="3.5"
+          strokeLinecap="round"
+          strokeDasharray={`${c}`}
+          strokeDashoffset={`${off}`}
+        />
+      </svg>
+      <span className="pct">{pct}</span>
+    </div>
+  );
+}
 
 export function CalendarGrid({
   H,
@@ -40,6 +149,7 @@ export function CalendarGrid({
   monthGroups,
   daySummary,
   totalCarsCount,
+  fleetSummary,
   nowLineInfo,
   todayFlash,
   checkRange,
@@ -50,6 +160,8 @@ export function CalendarGrid({
   onBarHover,
   onBarLeave,
   onBarClick,
+  onCellClick,
+  onCarClick,
 }: {
   H: ThemeTokens;
   loading: boolean;
@@ -64,6 +176,7 @@ export function CalendarGrid({
   monthGroups: { label: string; span: number }[];
   daySummary: number[];
   totalCarsCount: number;
+  fleetSummary: { avgLoad: number; freeNow: number; totalActive: number };
   nowLineInfo: { left: number; timeStr: string; todayCol: number } | null;
   todayFlash: boolean;
   checkRange: { start: number; end: number } | null;
@@ -74,8 +187,38 @@ export function CalendarGrid({
   onBarHover: (e: React.MouseEvent, interval: Interval) => void;
   onBarLeave: () => void;
   onBarClick: (interval: Interval) => void;
+  onCellClick?: (carId: number, day: Date) => void;
+  onCarClick?: (carId: number) => void;
 }) {
   const { locale, t } = useAdminLocale();
+
+  const fleetTone =
+    fleetSummary.avgLoad >= 80
+      ? 'hot'
+      : fleetSummary.avgLoad >= 50
+        ? 'warm'
+        : '';
+
+  /* Pre-compute lane assignments for each car so the row height can adapt */
+  const carBarMap = useMemo(() => {
+    const map = new Map<
+      number,
+      { items: { iv: Interval; pos: BarPos }[]; rowH: number }
+    >();
+    for (const row of filteredCars) {
+      const filtered = row.intervals.filter((iv) =>
+        visibleTypes.has(iv.type),
+      );
+      const items = assignLanes(filtered, rangeStart, days);
+      const total = items.length
+        ? Math.max(1, ...items.map((i) => i.pos.totalLanes))
+        : 1;
+      const rowH = total > 1 ? Math.max(ROW_H, 28 * total + 16) : ROW_H;
+      map.set(row.car.id, { items, rowH });
+    }
+    return map;
+  }, [filteredCars, visibleTypes, rangeStart, days]);
+
   if (fetchError && !data) {
     return (
       <div
@@ -91,17 +234,8 @@ export function CalendarGrid({
           boxShadow: H.shadow,
         }}
       >
-        <AlertTriangle
-          style={{ width: 32, height: 32, color: H.orange }}
-        />
-        <p
-          style={{
-            fontSize: 13,
-            color: H.gray,
-            fontFamily: H.font,
-            margin: 0,
-          }}
-        >
+        <AlertTriangle style={{ width: 32, height: 32, color: H.orange }} />
+        <p style={{ fontSize: 13, color: H.gray, fontFamily: H.font, margin: 0 }}>
           {t('calendar.loadError')}
         </p>
         <button
@@ -138,620 +272,404 @@ export function CalendarGrid({
   }
 
   return (
-    <div
-      ref={scrollRef}
-      style={{
-        width: '100%',
-        overflowX: 'auto',
-        overflowY: 'auto',
-        maxHeight: 'calc(100vh - 260px)',
-        background: H.white,
-        borderRadius: 20,
-        boxShadow: H.shadow,
-      }}
-    >
-      <div style={{ width: CAR_COL_W + gridW }}>
-        {/* ── Sticky header ── */}
-        <div
-          style={{
-            position: 'sticky',
-            top: 0,
-            zIndex: 20,
-            display: 'flex',
-          }}
-        >
-          {/* Car column header */}
+    <div ref={scrollRef} className="cal-grid-wrap">
+      <div style={{ width: CAR_COL_W + gridW, position: 'relative' }}>
+          {/* ── Sticky header (month band + day cells + occupancy) ── */}
           <div
             style={{
               position: 'sticky',
-              left: 0,
-              zIndex: 30,
-              width: CAR_COL_W,
-              minWidth: CAR_COL_W,
-              height: 68 + SUMMARY_H,
+              top: 0,
+              zIndex: 20,
               display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-              background: H.bg,
-              borderRight: `1px solid ${H.grayLight}`,
-              borderBottom: `1px solid ${H.grayLight}`,
-              padding: '0 16px 0 16px',
+              background: H.white,
             }}
           >
+            {/* Fleet summary panel (sticky left) */}
             <div
+              className="cal-fleet-head"
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 6,
-                fontSize: 10,
-                fontWeight: 700,
-                color: H.gray,
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-                paddingBottom: 8,
+                position: 'sticky',
+                left: 0,
+                zIndex: 30,
+                width: CAR_COL_W,
+                minWidth: CAR_COL_W,
+                height: HEADER_H,
               }}
             >
-              <Car style={{ width: 12, height: 12 }} />
-              {t('calendar.carColumn')}
-            </div>
-            {/* Summary label */}
-            <div
-              style={{
-                height: SUMMARY_H,
-                display: 'flex',
-                alignItems: 'center',
-                fontSize: 10,
-                fontWeight: 600,
-                color: H.gray,
-                borderTop: `1px solid ${H.grayLight}`,
-              }}
-            >
-              {t('calendar.occupied')}
-            </div>
-          </div>
-
-          {/* Date headers + summary */}
-          <div style={{ width: gridW, position: 'relative' }}>
-            {/* Month row */}
-            <div
-              style={{
-                display: 'flex',
-                height: 26,
-                background: H.bg,
-                borderBottom: `1px solid ${H.grayLight}40`,
-              }}
-            >
-              {monthGroups.map((g, i) => (
-                <div
-                  key={i}
-                  style={{
-                    width: g.span * CELL_W,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: 11,
-                    fontWeight: 700,
-                    color: H.navy,
-                    textTransform: 'capitalize',
-                    fontFamily: H.font,
-                  }}
-                >
-                  {g.label}
+              <div className="h-month">
+                <CalendarDays />
+                <span className="park-label">
+                  {t('calendar.fleetTitle')}
+                </span>
+                <span className="park-count">{filteredCars.length}</span>
+              </div>
+              <div className="h-summary">
+                <div className="sum-item">
+                  <div className="sum-val">
+                    {fleetSummary.avgLoad}
+                    <span className="suf">%</span>
+                  </div>
+                  <div className="sum-key">{t('calendar.avgLoad')}</div>
+                  <div className="sum-bar">
+                    <div
+                      className={`sum-bar-fill ${fleetTone}`}
+                      style={{ width: `${fleetSummary.avgLoad}%` }}
+                    />
+                  </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Day row */}
-            <div
-              style={{
-                display: 'flex',
-                height: 42,
-                background: H.bg,
-                borderBottom: `1px solid ${H.grayLight}`,
-              }}
-            >
-              {dateColumns.map((d, i) => {
-                const td = isToday(d);
-                const we = isWeekend(d);
-                const inRange =
-                  checkRange &&
-                  i >= checkRange.start &&
-                  i < checkRange.end;
-                return (
-                  <div
-                    key={i}
-                    style={{
-                      width: CELL_W,
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: 1,
-                      background: inRange
-                        ? `${H.purple}10`
-                        : 'transparent',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 9,
-                        fontWeight: 600,
-                        lineHeight: 1,
-                        color: inRange
-                          ? H.purple
-                          : we
-                            ? `${H.red}99`
-                            : `${H.gray}99`,
-                        fontFamily: H.font,
-                      }}
-                    >
-                      {fmtWeekday(d, locale)}
-                    </span>
-                    <span
-                      style={{
-                        display: 'flex',
-                        width: 24,
-                        height: 24,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: 8,
-                        fontSize: 12,
-                        fontWeight: 700,
-                        lineHeight: 1,
-                        fontFamily: H.font,
-                        color: td
-                          ? H.white
-                          : inRange
-                            ? H.purple
-                            : we
-                              ? H.red
-                              : H.navy,
-                        background: td
-                          ? `linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%)`
-                          : 'transparent',
-                        boxShadow: td
-                          ? '0 2px 8px rgba(106, 123, 255, 0.3)'
-                          : 'none',
-                        animation:
-                          td && todayFlash
-                            ? 'todayPulse 0.6s ease'
-                            : 'none',
-                      }}
-                    >
-                      {d.getDate()}
-                    </span>
+                <div className="sum-divider" />
+                <div className="sum-item">
+                  <div className="sum-val">
+                    {fleetSummary.freeNow}
+                    <span className="suf">/{fleetSummary.totalActive}</span>
                   </div>
-                );
-              })}
-            </div>
-
-            {/* Summary row */}
-            <div
-              style={{
-                display: 'flex',
-                height: SUMMARY_H,
-                background: `${H.bg}CC`,
-                borderBottom: `1px solid ${H.grayLight}`,
-              }}
-            >
-              {dateColumns.map((d, i) => {
-                const count = daySummary[i] || 0;
-                const ratio =
-                  totalCarsCount > 0 ? count / totalCarsCount : 0;
-                const color =
-                  ratio >= 0.8
-                    ? H.red
-                    : ratio >= 0.5
-                      ? H.orange
-                      : count > 0
-                        ? H.green
-                        : `${H.gray}60`;
-                return (
-                  <div
-                    key={i}
-                    style={{
-                      width: CELL_W,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: 10,
-                      fontWeight: 700,
-                      fontFamily: H.font,
-                      color,
-                    }}
-                  >
-                    {count > 0 ? `${count}/${totalCarsCount}` : '·'}
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Dynamic now-line in header */}
-            {nowLineInfo && (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  bottom: 0,
-                  left: nowLineInfo.left,
-                  width: 2,
-                  zIndex: 15,
-                  pointerEvents: 'none',
-                  background: H.red,
-                  borderRadius: 1,
-                  opacity: 0.7,
-                }}
-              >
-                {/* Time badge */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: 2,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: H.red,
-                    color: '#fff',
-                    fontSize: 9,
-                    fontWeight: 700,
-                    fontFamily: H.font,
-                    padding: '2px 5px',
-                    borderRadius: 4,
-                    lineHeight: 1,
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {nowLineInfo.timeStr}
+                  <div className="sum-key">{t('calendar.freeNow')}</div>
                 </div>
               </div>
-            )}
-          </div>
-        </div>
+            </div>
 
-        {/* ── Data rows ── */}
-        {filteredCars.map((row, rowIdx) => {
-          const util = calcCarUtilization(
-            row.intervals,
-            rangeStart,
-            days,
-          );
-          const uColor = utilColor(util, H);
-          const isAvail = availabilityMap?.get(row.car.id);
-          const hasAvailCheck = availabilityMap != null;
-
-          return (
-            <div
-              key={row.car.id}
-              style={{
-                display: 'flex',
-                height: ROW_H,
-                background:
-                  hasAvailCheck
-                    ? isAvail
-                      ? `${H.green}06`
-                      : `${H.red}06`
-                    : rowIdx % 2 === 0
-                      ? H.white
-                      : `${H.bg}60`,
-              }}
-            >
-              {/* Car name — sticky left */}
+            {/* Right side: month band, day heads, occupancy band */}
+            <div style={{ width: gridW, position: 'relative' }}>
               <div
-                style={{
-                  position: 'sticky',
-                  left: 0,
-                  zIndex: 10,
-                  width: CAR_COL_W,
-                  minWidth: CAR_COL_W,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                  padding: '0 16px',
-                  borderRight: `1px solid ${H.grayLight}`,
-                  borderBottom: `1px solid ${H.grayLight}40`,
-                  borderLeft: hasAvailCheck
-                    ? `3px solid ${isAvail ? H.green : H.red}`
-                    : '3px solid transparent',
-                  background:
-                    hasAvailCheck
-                      ? isAvail
-                        ? `${H.green}06`
-                        : `${H.red}06`
-                      : rowIdx % 2 === 0
-                        ? H.white
-                        : `${H.bg}60`,
-                }}
+                className="cal-month-band"
+                style={{ width: gridW, height: MONTH_BAND_H }}
               >
-                {/* Availability dot */}
-                <div
-                  style={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: 4,
-                    flexShrink: 0,
-                    background: row.car.isAvailable
-                      ? H.green
-                      : H.red,
-                    boxShadow: row.car.isAvailable
-                      ? `0 0 6px ${H.green}50`
-                      : `0 0 6px ${H.red}50`,
-                  }}
-                  title={
-                    row.car.isAvailable ? t('calendar.available') : t('calendar.unavailable')
-                  }
-                />
-
-                {/* Name & plate */}
-                <div
-                  style={{
-                    flex: 1,
-                    minWidth: 0,
-                    overflow: 'hidden',
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 700,
-                      color: H.navy,
-                      lineHeight: 1.2,
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      fontFamily: H.font,
-                    }}
-                  >
-                    {row.car.name}
-                  </div>
-                  {row.car.plateNumber && (
-                    <div
-                      style={{
-                        fontSize: 10,
-                        color: H.gray,
-                        lineHeight: 1.2,
-                        fontFamily: 'monospace',
-                        fontWeight: 500,
-                      }}
-                    >
-                      {row.car.plateNumber}
-                    </div>
-                  )}
-                </div>
-
-                {/* Utilization / Availability badge */}
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    flexShrink: 0,
-                  }}
-                >
-                  {hasAvailCheck ? (
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        width: 24,
-                        height: 24,
-                        borderRadius: 8,
-                        background: isAvail ? H.greenBg : H.redBg,
-                      }}
-                    >
-                      {isAvail ? (
-                        <Check
-                          style={{
-                            width: 13,
-                            height: 13,
-                            color: H.green,
-                          }}
-                        />
-                      ) : (
-                        <X
-                          style={{
-                            width: 13,
-                            height: 13,
-                            color: H.red,
-                          }}
-                        />
-                      )}
-                    </div>
-                  ) : (
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'flex-end',
-                        gap: 2,
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: 11,
-                          fontWeight: 700,
-                          color: uColor,
-                          fontFamily: H.font,
-                        }}
-                      >
-                        {util}%
-                      </span>
-                      <div
-                        style={{
-                          width: 32,
-                          height: 3,
-                          borderRadius: 2,
-                          background: `${H.grayLight}80`,
-                          overflow: 'hidden',
-                        }}
-                      >
-                        <div
-                          style={{
-                            width: `${util}%`,
-                            height: '100%',
-                            borderRadius: 2,
-                            background: uColor,
-                            transition: 'width 0.3s ease',
-                          }}
-                        />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Calendar cells */}
-              <div
-                style={{
-                  position: 'relative',
-                  width: gridW,
-                  height: ROW_H,
-                  borderBottom: `1px solid ${H.grayLight}40`,
-                }}
-              >
-                {/* Day cell backgrounds */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    display: 'flex',
-                  }}
-                >
-                  {dateColumns.map((d, i) => {
-                    const we = isWeekend(d);
-                    const td = isToday(d);
-                    const inRange =
-                      checkRange &&
-                      i >= checkRange.start &&
-                      i < checkRange.end;
+                {(() => {
+                  let acc = 0;
+                  return monthGroups.map((g, i) => {
+                    const left = acc * CELL_W;
+                    const w = g.span * CELL_W;
+                    acc += g.span;
                     return (
-                      <div
-                        key={i}
-                        style={{
-                          width: CELL_W,
-                          borderRight: `1px solid ${H.grayLight}30`,
-                          background: inRange
-                            ? `${H.purple}12`
-                            : we
-                              ? `${H.grayLight}20`
-                              : td
-                                ? todayFlash
-                                  ? `${H.purple}12`
-                                  : `${H.purple}06`
-                                : 'transparent',
-                        }}
-                      />
+                      <React.Fragment key={i}>
+                        <div
+                          className={`cal-month-label ${i % 2 ? 'alt' : ''}`}
+                          style={{ left, width: w }}
+                        >
+                          {g.label}
+                        </div>
+                        {i > 0 && (
+                          <div
+                            className="cal-month-divider"
+                            style={{ left }}
+                          />
+                        )}
+                      </React.Fragment>
                     );
-                  })}
-                </div>
+                  });
+                })()}
 
-                {/* Dynamic now-line */}
+                {/* Now-time badge */}
                 {nowLineInfo && (
                   <div
                     style={{
                       position: 'absolute',
-                      top: 0,
-                      bottom: 0,
-                      zIndex: 5,
-                      width: 2,
-                      background: H.red,
-                      borderRadius: 1,
-                      opacity: 0.6,
-                      transition: 'left 60s linear',
+                      top: 6,
                       left: nowLineInfo.left,
+                      transform: 'translateX(-50%)',
+                      zIndex: 5,
                     }}
                   >
-                    {/* Dot at top */}
-                    <div
-                      className="now-line-dot"
-                      style={{
-                        position: 'absolute',
-                        top: -3,
-                        left: -3,
-                        width: 8,
-                        height: 8,
-                        borderRadius: 4,
-                        background: H.red,
-                      }}
-                    />
+                    <span className="cal-now-badge">
+                      {nowLineInfo.timeStr}
+                    </span>
                   </div>
                 )}
+              </div>
 
-                {/* Interval bars */}
-                {row.intervals
-                  .filter((iv) => visibleTypes.has(iv.type))
-                  .map((interval) => {
-                    const pos = intervalCols(
-                      interval,
-                      rangeStart,
-                      days,
-                    );
-                    if (!pos) return null;
-                    const ts =
-                      TYPE_STYLES[interval.type] ?? TYPE_STYLES.rental;
-                    const barW = pos.span * CELL_W - 6;
-                    const conflict = hasConflict(
-                      row.intervals.filter((iv) =>
-                        visibleTypes.has(iv.type),
-                      ),
-                      interval,
-                    );
-
-                    return (
-                      <div
-                        key={`${interval.type}-${interval.id}`}
-                        className={`cal-bar${conflict ? ' cal-bar-conflict' : ''}`}
+              {/* Day heads */}
+              <div
+                style={{
+                  display: 'flex',
+                  height: DAY_HEAD_H,
+                  background: H.bg,
+                  borderBottom: `1px solid ${H.grayLight}`,
+                }}
+              >
+                {dateColumns.map((d, i) => {
+                  const td = isToday(d);
+                  const we = isWeekend(d);
+                  const isMon = d.getDay() === 1;
+                  const isFirst = d.getDate() === 1;
+                  return (
+                    <div
+                      key={i}
+                      className={[
+                        'cal-day-head',
+                        we ? 'weekend' : '',
+                        td ? 'today' : '',
+                        isMon ? 'week-start' : '',
+                        isFirst ? 'month-start' : '',
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                      style={{ width: CELL_W }}
+                    >
+                      <span className="dow">{fmtWeekday(d, locale)}</span>
+                      <span
+                        className="num"
                         style={{
-                          left: pos.col * CELL_W + 3,
-                          width: barW,
-                          top: (ROW_H - 30) / 2,
-                          height: 30,
-                          background: ts.gradient,
-                          boxShadow: conflict ? undefined : ts.shadow,
-                          borderRadius: 8,
+                          animation:
+                            td && todayFlash
+                              ? 'todayPulse 0.6s ease'
+                              : 'none',
                         }}
-                        onMouseEnter={(e) =>
-                          onBarHover(e, interval)
-                        }
-                        onMouseLeave={onBarLeave}
-                        onClick={() => onBarClick(interval)}
                       >
-                        {barW > 60 && (
-                          <span
-                            style={{
-                              overflow: 'hidden',
-                              textOverflow: 'ellipsis',
-                            }}
-                          >
-                            {interval.clientName || interval.label}
-                          </span>
-                        )}
+                        {d.getDate()}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Occupancy band */}
+              <div
+                style={{
+                  display: 'flex',
+                  height: SUMMARY_H,
+                  background: H.white,
+                  borderBottom: `1px solid ${H.grayLight}`,
+                }}
+              >
+                {dateColumns.map((d, i) => {
+                  const count = daySummary[i] || 0;
+                  const td = isToday(d);
+                  const we = isWeekend(d);
+                  const pct =
+                    totalCarsCount > 0
+                      ? Math.round((count / totalCarsCount) * 100)
+                      : 0;
+                  const tone = pct >= 80 ? 'hot' : pct >= 50 ? 'warm' : '';
+                  return (
+                    <div
+                      key={i}
+                      className={`cal-occ-cell ${we ? 'weekend' : ''} ${td ? 'today' : ''}`}
+                      style={{ width: CELL_W }}
+                    >
+                      <span className="occ-label">
+                        {count}/{totalCarsCount}
+                      </span>
+                      <div className="cal-occ-bar">
+                        <div
+                          className={`cal-occ-bar-fill ${tone}`}
+                          style={{ width: `${pct}%` }}
+                        />
                       </div>
-                    );
-                  })}
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          );
-        })}
-
-        {/* Empty state */}
-        {filteredCars.length === 0 && (
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: 160,
-              fontSize: 13,
-              color: H.gray,
-              fontFamily: H.font,
-            }}
-          >
-            {carSearch.trim()
-              ? t('calendar.carNotFound')
-              : t('calendar.noCars')}
           </div>
-        )}
-      </div>
+
+          {/* ── Data rows ── */}
+          {filteredCars.length === 0 ? (
+            <div className="cal-empty">
+              {carSearch.trim()
+                ? t('calendar.carNotFound')
+                : t('calendar.noCars')}
+            </div>
+          ) : (
+            filteredCars.map((row) => {
+              const util = calcCarUtilization(
+                row.intervals,
+                rangeStart,
+                days,
+              );
+              const isAvail = availabilityMap?.get(row.car.id);
+              const hasAvailCheck = availabilityMap != null;
+              const cellHeight =
+                carBarMap.get(row.car.id)?.rowH ?? ROW_H;
+              const items = carBarMap.get(row.car.id)?.items ?? [];
+
+              return (
+                <div
+                  key={row.car.id}
+                  style={{ display: 'flex', height: cellHeight }}
+                >
+                  {/* Car cell — sticky left */}
+                  <div
+                    className="cal-car-cell"
+                    style={{
+                      position: 'sticky',
+                      left: 0,
+                      zIndex: 10,
+                      width: CAR_COL_W,
+                      minWidth: CAR_COL_W,
+                      height: cellHeight,
+                      background:
+                        hasAvailCheck && isAvail === true
+                          ? `${H.green}10`
+                          : hasAvailCheck && isAvail === false
+                            ? `${H.red}10`
+                            : H.white,
+                      borderLeft: hasAvailCheck
+                        ? `3px solid ${isAvail ? H.green : H.red}`
+                        : '3px solid transparent',
+                    }}
+                    onClick={() => onCarClick?.(row.car.id)}
+                  >
+                    <CarThumb name={row.car.name} H={H} />
+                    <div className="cal-car-info">
+                      <div className="cal-car-name">{row.car.name}</div>
+                      <div className="cal-car-meta">
+                        {row.car.plateNumber && (
+                          <span className="plate">{row.car.plateNumber}</span>
+                        )}
+                        {row.car.plateNumber && <span className="dot" />}
+                        <span>
+                          {row.car.isAvailable
+                            ? t('calendar.available')
+                            : t('calendar.unavailable')}
+                        </span>
+                      </div>
+                    </div>
+                    <LoadDonut pct={util} H={H} />
+                  </div>
+
+                  {/* Calendar cells + bars */}
+                  <div
+                    style={{
+                      position: 'relative',
+                      width: gridW,
+                      height: cellHeight,
+                      borderBottom: `1px solid ${H.grayLight}40`,
+                    }}
+                  >
+                    {/* Day cells */}
+                    <div style={{ position: 'absolute', inset: 0, display: 'flex' }}>
+                      {dateColumns.map((d, i) => {
+                        const td = isToday(d);
+                        const we = isWeekend(d);
+                        const inRange =
+                          checkRange &&
+                          i >= checkRange.start &&
+                          i < checkRange.end;
+                        const isMon = d.getDay() === 1;
+                        const isFirst = d.getDate() === 1;
+                        const availClass =
+                          inRange && hasAvailCheck
+                            ? isAvail
+                              ? 'avail-match'
+                              : 'avail-miss'
+                            : '';
+                        return (
+                          <div
+                            key={i}
+                            data-day={d.getDate()}
+                            className={[
+                              'cal-cell',
+                              we ? 'weekend' : '',
+                              td ? 'today' : '',
+                              isMon ? 'week-start' : '',
+                              isFirst ? 'month-start' : '',
+                              availClass,
+                            ]
+                              .filter(Boolean)
+                              .join(' ')}
+                            style={{ width: CELL_W }}
+                            onClick={() => onCellClick?.(row.car.id, d)}
+                          />
+                        );
+                      })}
+                    </div>
+
+                    {/* Now-line */}
+                    {nowLineInfo && (
+                      <div
+                        className="cal-now-line"
+                        style={{ left: nowLineInfo.left }}
+                      />
+                    )}
+
+                    {/* Bars */}
+                    {items.map(({ iv, pos }) => {
+                      const ts = TYPE_STYLES[iv.type] ?? TYPE_STYLES.rental;
+                      const conflict = hasConflict(
+                        row.intervals.filter((x) => visibleTypes.has(x.type)),
+                        iv,
+                      );
+                      const compact = pos.totalLanes > 1;
+                      const barH = compact ? 28 : 36;
+                      const top = 10 + pos.lane * (barH + 4);
+                      const left = pos.col * CELL_W + 2;
+                      const width = pos.span * CELL_W - 4;
+                      const status = iv.status ?? '';
+                      const cancelled =
+                        status === 'cancelled' || status === 'no_show';
+                      return (
+                        <div
+                          key={`${iv.type}-${iv.id}`}
+                          className={[
+                            'cal-bar',
+                            iv.type,
+                            status,
+                            conflict ? 'has-conflict' : '',
+                            pos.clipL ? 'clip-l' : '',
+                            pos.clipR ? 'clip-r' : '',
+                            compact ? 'compact' : '',
+                          ]
+                            .filter(Boolean)
+                            .join(' ')}
+                          style={{
+                            left,
+                            width,
+                            top,
+                            height: barH,
+                            background: cancelled ? undefined : ts.gradient,
+                            boxShadow: conflict ? undefined : ts.shadow,
+                          }}
+                          onMouseEnter={(e) => onBarHover(e, iv)}
+                          onMouseLeave={onBarLeave}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onBarLeave();
+                            onBarClick(iv);
+                          }}
+                        >
+                          {pos.clipL && (
+                            <span className="clip-arrow left" aria-hidden="true">
+                              <ChevronRight />
+                            </span>
+                          )}
+                          <span className="status-dot" />
+                          <span className="bar-name">
+                            {iv.clientName || iv.label}
+                          </span>
+                          {!compact && (
+                            <span className="bar-when">
+                              {String(
+                                new Date(iv.startDate).getDate(),
+                              ).padStart(2, '0')}
+                              .
+                              {String(
+                                new Date(iv.startDate).getMonth() + 1,
+                              ).padStart(2, '0')}
+                              {' – '}
+                              {iv.endDate
+                                ? `${String(new Date(iv.endDate).getDate()).padStart(2, '0')}.${String(new Date(iv.endDate).getMonth() + 1).padStart(2, '0')}`
+                                : '...'}
+                            </span>
+                          )}
+                          {pos.clipR && (
+                            <span className="clip-arrow" aria-hidden="true">
+                              <ChevronRight />
+                            </span>
+                          )}
+                          {conflict && (
+                            <div className="cal-conflict" title="!">
+                              <AlertTriangle />
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
     </div>
   );
 }

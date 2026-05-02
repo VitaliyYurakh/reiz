@@ -29,32 +29,40 @@ export interface CalendarData {
 
 /* ═══════════════ Constants ═══════════════ */
 export const DAY_MS = 86_400_000;
-export const CELL_W = 48;
+export const CELL_W = 64;
 export const ROW_H = 56;
-export const CAR_COL_W = 230;
-export const SUMMARY_H = 30;
+export const CAR_COL_W = 300;
+export const SUMMARY_H = 32;
+export const MONTH_BAND_H = 36;
+export const DAY_HEAD_H = 64;
 
 export const TYPE_STYLES: Record<
   string,
-  { gradient: string; dot: string; labelKey: string; shadow: string }
+  { gradient: string; dot: string; labelKey: string; shadow: string; soft: string; strong: string }
 > = {
   rental: {
-    gradient: 'linear-gradient(135deg, var(--c-success) 0%, var(--c-success) 100%)',
-    dot: 'var(--c-success)',
+    gradient: 'linear-gradient(135deg, #10B981 0%, #0EA572 100%)',
+    dot: '#10B981',
+    strong: '#0EA572',
+    soft: 'rgba(16, 185, 129, 0.14)',
     labelKey: 'calendar.typeRental',
-    shadow: '0 2px 8px rgba(1, 181, 116, 0.35)',
+    shadow: '0 6px 14px -4px rgba(16, 185, 129, 0.45)',
   },
   reservation: {
-    gradient: 'linear-gradient(135deg, var(--c-brand) 0%, var(--c-brand) 100%)',
-    dot: 'var(--c-brand)',
+    gradient: 'linear-gradient(135deg, #6A7BFF 0%, #5867E8 100%)',
+    dot: '#6A7BFF',
+    strong: '#5867E8',
+    soft: 'rgba(106, 123, 255, 0.14)',
     labelKey: 'calendar.typeReservation',
-    shadow: '0 2px 8px rgba(106, 123, 255, 0.35)',
+    shadow: '0 6px 14px -4px rgba(106, 123, 255, 0.45)',
   },
   service: {
-    gradient: 'linear-gradient(135deg, var(--c-warning) 0%, #FF9F0A 100%)',
-    dot: 'var(--c-warning)',
+    gradient: 'linear-gradient(135deg, #F59E0B 0%, #E08A0E 100%)',
+    dot: '#F59E0B',
+    strong: '#B45309',
+    soft: 'rgba(245, 158, 11, 0.18)',
     labelKey: 'calendar.typeService',
-    shadow: '0 2px 8px rgba(255, 181, 71, 0.35)',
+    shadow: '0 6px 14px -4px rgba(245, 158, 11, 0.45)',
   },
 };
 

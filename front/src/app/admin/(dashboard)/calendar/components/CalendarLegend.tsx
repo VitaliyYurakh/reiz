@@ -8,75 +8,28 @@ import { TYPE_STYLES } from './calendar-types';
 export function CalendarLegend({ H }: { H: ThemeTokens }) {
   const { t } = useAdminLocale();
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        gap: 20,
-        paddingTop: 14,
-        fontSize: 11,
-        fontWeight: 600,
-        fontFamily: H.font,
-        color: H.gray,
-      }}
-    >
+    <div className="cal-legend">
       {Object.entries(TYPE_STYLES).map(([key, ts]) => (
-        <div
-          key={key}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 6,
-          }}
-        >
-          <div
-            style={{
-              width: 20,
-              height: 8,
-              borderRadius: 4,
-              background: ts.gradient,
-            }}
-          />
-          <span>{t(ts.labelKey)}</span>
-        </div>
+        <span key={key} className="cal-legend-item">
+          <span className="swatch" style={{ background: ts.gradient }} />
+          {t(ts.labelKey)}
+        </span>
       ))}
-      <div style={{ width: 1, height: 14, background: H.grayLight }} />
-      <div
-        style={{ display: 'flex', alignItems: 'center', gap: 6 }}
-      >
-        <div
-          style={{
-            width: 8,
-            height: 8,
-            borderRadius: 4,
-            background: H.green,
-            boxShadow: `0 0 4px ${H.green}50`,
-          }}
-        />
-        <span>{t('calendar.available')}</span>
-      </div>
-      <div
-        style={{ display: 'flex', alignItems: 'center', gap: 6 }}
-      >
-        <div
-          style={{
-            width: 8,
-            height: 8,
-            borderRadius: 4,
-            background: H.red,
-            boxShadow: `0 0 4px ${H.red}50`,
-          }}
-        />
-        <span>{t('calendar.unavailable')}</span>
-      </div>
-      <div style={{ width: 1, height: 14, background: H.grayLight }} />
-      <div
-        style={{ display: 'flex', alignItems: 'center', gap: 6 }}
-      >
-        <AlertTriangle style={{ width: 12, height: 12, color: H.red }} />
-        <span>{t('calendar.conflict')}</span>
-      </div>
+      <div className="cal-legend-divider" />
+      <span className="cal-legend-item">
+        <span className="swatch cancelled" />
+        {t('calendar.statusCancelled')} / {t('calendar.statusNoShow')}
+      </span>
+      <div className="cal-legend-divider" />
+      <span className="cal-legend-item">
+        <span className="swatch now" />
+        {t('calendar.now')}
+      </span>
+      <div className="cal-legend-divider" />
+      <span className="cal-legend-item" style={{ color: H.red }}>
+        <AlertTriangle style={{ width: 12, height: 12 }} />
+        {t('calendar.conflict')}
+      </span>
     </div>
   );
 }

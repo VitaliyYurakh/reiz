@@ -895,6 +895,13 @@ export const pl: AdminTranslations = {
     clickForDetails: 'Kliknij, aby zobaczyć szczegóły',
     conflict: 'Konflikt',
     km: 'km',
+    fleetTitle: 'Flota',
+    avgLoad: 'średnie obciążenie',
+    freeNow: 'wolnych teraz',
+    shownTypes: 'Pokazano: {shown}/{total} typów',
+    hideAvailability: 'Ukryj sprawdzanie',
+    availabilityWindow: 'Dostępne auta w okresie',
+    now: 'Teraz',
   },
 
   /* ── Pricing ── */

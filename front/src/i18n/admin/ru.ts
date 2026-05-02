@@ -895,6 +895,13 @@ export const ru: AdminTranslations = {
     clickForDetails: 'Нажмите для подробностей',
     conflict: 'Конфликт',
     km: 'км',
+    fleetTitle: 'Автопарк',
+    avgLoad: 'средняя загрузка',
+    freeNow: 'свободно сейчас',
+    shownTypes: 'Показано: {shown}/{total} типов',
+    hideAvailability: 'Скрыть проверку',
+    availabilityWindow: 'Свободные авто в период',
+    now: 'Сейчас',
   },
 
   /* ── Pricing ── */
