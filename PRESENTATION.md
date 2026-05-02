@@ -41,11 +41,19 @@
 ### Інфраструктура
 | Компонент | Технологія |
 |---|---|
-| Контейнеризація | Docker Compose |
+| Контейнеризація | Docker Compose, multi-stage build (compiled JS у проді через `node`, не `tsx`) |
 | Reverse Proxy | Caddy 2.7 (автоматичний SSL) |
 | База даних | PostgreSQL 16 (volume persistence) |
-| Сповіщення | Telegram Bot API |
-| CI/CD | Docker multi-stage builds |
+| Спостереження | Sentry (DSN-gated, 10% transaction sampling у проді), Pino structured logs |
+| Сповіщення | Telegram Bot API, IMAP/SMTP пошта |
+| CI/CD | GitHub Actions: unit + integration tests (testcontainers + Postgres) → deploy з `--no-cache` build |
+
+### Архітектурні гарантії
+- **Гроші** — `Int *Minor` (копейки/cents) на всіх 29+ грошових колонках. CHECK constraints `>= 0` на DB рівні. Float заборонено для money (IEEE-754 ризик).
+- **i18n** — 6 translation таблиць (CarTranslation, CityTranslation, PickupLocationTranslation, CoveragePackageTranslation, AddOnTranslation, ConfigurationOptionTranslation). Жодних `Json` блобів локалізованих рядків. Додати 6-у локаль = backfill, не міграція.
+- **Soft-delete** — Client/Rental/Reservation + 4 catalogue таблиці. Prisma client extension автоматично filter'ить `deletedAt: null` у top-level reads, переписує `delete()` у `update({deletedAt: now()})`. Финансова історія не губиться.
+- **CHECK constraints** — `*_minor >= 0`, ages 16-99, lat/lng valid, percent 0-100, year_of_manufacture 1900-2100. Сторонні bug bypass'и блокуються на DB рівні.
+- **Migrations only, no `db push`** — schema.prisma зміни проходять через `prisma migrate dev`. `db push --accept-data-loss` навмисно прибрано з прод-pipeline (раніше міг DROP+CREATE на perceived renames, втрачаючи дані).
 
 ---
 
@@ -94,9 +102,10 @@
 
 ### Загальне
 - Темна / Світла тема з перемикачем
-- 3 мови інтерфейсу: UK / RU / EN
-- RBAC — рольовий доступ (Admin / Manager / Staff)
-- Аудит-логування всіх дій
+- 5 мов інтерфейсу: UK / RU / EN / PL / RO
+- RBAC — таблиця `Role` з `permissions Json` (17 модулів × `none`/`view`/`full`); ролі редагуються через `/admin/settings → Ролі`
+- 2FA TOTP (опціонально, через додаток-автентифікатор)
+- Аудит-логування всіх дій (модулі: Client, Rental, Reservation, Car, Transaction, Fine, …)
 - Skeleton-завантаження на кожній сторінці
 
 ### Модулі
