@@ -127,7 +127,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         width: auto;
         padding: 0 18px;
         font-size: 13px;
-        font-weight: 700;
+        font-weight: 600;
         color: #fff !important;
         height: 32px;
         border-radius: 16px !important;
@@ -164,7 +164,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         padding: 0 14px 0 12px;
         border-radius: 999px;
         font-size: 13px;
-        font-weight: 700;
+        font-weight: 600;
         letter-spacing: -0.01em;
         background: ${H.bg};
         color: ${H.gray};
@@ -214,7 +214,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         border: 0;
         border-radius: 999px;
         font-size: 13px;
-        font-weight: 700;
+        font-weight: 600;
         background: #14172A !important;
         color: #fff !important;
         cursor: pointer;
@@ -243,7 +243,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       }
       .cal-availability-bar .label {
         font-size: 13px;
-        font-weight: 700;
+        font-weight: 600;
         color: ${H.navy};
         letter-spacing: -0.01em;
       }
@@ -308,7 +308,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         align-items: center;
         padding: 0 14px;
         font-size: 12.5px;
-        font-weight: 700;
+        font-weight: 600;
         letter-spacing: -0.01em;
         color: ${H.navy};
         text-transform: capitalize;
@@ -342,7 +342,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         text-transform: uppercase;
         letter-spacing: 0.08em;
         color: ${H.gray};
-        font-weight: 700;
+        font-weight: 600;
         line-height: 1;
       }
       .cal-day-head .num {
@@ -352,7 +352,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         display: grid;
         place-items: center;
         font-size: 14px;
-        font-weight: 700;
+        font-weight: 600;
         color: ${H.navy};
         letter-spacing: -0.02em;
         background: ${H.white};
@@ -400,7 +400,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       .cal-occ-bar-fill.warm { background: ${H.orange}; }
       .cal-occ-bar-fill.hot { background: ${H.red}; }
       .cal-occ-cell .occ-label {
-        font-weight: 700;
+        font-weight: 500;
         color: ${H.gray};
         font-size: 10px;
         font-variant-numeric: tabular-nums;
@@ -426,14 +426,14 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       .cal-fleet-head .h-month svg { width: 14px; height: 14px; flex-shrink: 0; color: ${H.gray}; }
       .cal-fleet-head .h-month .park-label {
         color: ${H.navy};
-        font-weight: 700;
+        font-weight: 600;
         font-size: 13px;
         letter-spacing: -0.01em;
       }
       .cal-fleet-head .h-month .park-count {
         margin-left: auto;
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 600;
         background: ${H.white};
         color: ${H.gray};
         padding: 3px 9px;
@@ -457,7 +457,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       }
       .cal-fleet-head .sum-val {
         font-size: 22px;
-        font-weight: 800;
+        font-weight: 700;
         letter-spacing: -0.03em;
         color: ${H.navy};
         font-variant-numeric: tabular-nums;
@@ -469,7 +469,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       }
       .cal-fleet-head .sum-val .suf {
         font-size: 13px;
-        font-weight: 700;
+        font-weight: 500;
         color: ${H.gray};
         letter-spacing: -0.02em;
       }
@@ -478,7 +478,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         text-transform: uppercase;
         letter-spacing: 0.08em;
         color: ${H.gray};
-        font-weight: 700;
+        font-weight: 600;
       }
       .cal-fleet-head .sum-bar {
         margin-top: 6px;
@@ -540,7 +540,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       .cal-car-info { min-width: 0; }
       .cal-car-name {
         font-size: 13.5px;
-        font-weight: 700;
+        font-weight: 600;
         letter-spacing: -0.01em;
         color: ${H.navy};
         white-space: nowrap;
@@ -587,7 +587,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       .cal-car-load .pct {
         position: absolute;
         font-size: 10px;
-        font-weight: 800;
+        font-weight: 600;
         font-variant-numeric: tabular-nums;
         color: ${H.gray};
         letter-spacing: -0.04em;
@@ -752,7 +752,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         background: ${H.red};
         color: #fff;
         font-size: 10px;
-        font-weight: 700;
+        font-weight: 600;
         font-family: ${H.font};
         padding: 2px 6px;
         border-radius: 4px;
@@ -784,7 +784,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
       }
-      .cal-legend-item { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+      .cal-legend-item { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
       .cal-legend-item .swatch { width: 14px; height: 8px; border-radius: 3px; }
       .cal-legend-item .swatch.now {
         background: ${H.red};
@@ -821,7 +821,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         background: linear-gradient(to right, ${H.purple}, ${H.purpleLight});
         color: #fff;
         font-size: 13px;
-        font-weight: 700;
+        font-weight: 600;
         font-family: ${H.font};
         cursor: pointer;
         box-shadow: 0 2px 8px ${H.purple}40;
@@ -835,7 +835,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         background: ${H.white};
         color: ${H.gray};
         font-size: 13px;
-        font-weight: 700;
+        font-weight: 600;
         font-family: ${H.font};
         cursor: pointer;
         box-shadow: ${H.shadowMd};
