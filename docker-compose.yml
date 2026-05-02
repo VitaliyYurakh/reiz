@@ -40,7 +40,13 @@ services:
             MAIL_SMTP_HOST: ${MAIL_SMTP_HOST:-smtp.hostinger.com}
             MAIL_SMTP_PORT: ${MAIL_SMTP_PORT:-465}
         volumes:
-            - ./api/uploads:/usr/src/app/uploads
+            # Bind-mount host's uploads dir into the api container so
+            # car photos + client documents persist across container
+            # rebuilds. Mount path matches the image's WORKDIR (/app —
+            # the multi-stage Dockerfile from ea48080 changed it from
+            # the legacy /usr/src/app). pathToUploads in app/index.ts
+            # is `path.resolve('./uploads/')` so it tracks WORKDIR.
+            - ./api/uploads:/app/uploads
         depends_on:
             postgres:
                 condition: service_healthy

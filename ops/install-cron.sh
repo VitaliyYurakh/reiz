@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Idempotently install the daily Reiz backup cron job. Safe to re-run —
-# uses a marker comment to detect an existing installation.
+# uses a marker comment to detect an existing installation. Re-running
+# after a frequency change replaces the old entry with the new one
+# in-place rather than duplicating.
 #
 # What this installs (in root's crontab):
 #   * Daily backup at 02:13 UTC. Off-peak for Lviv traffic + an
@@ -17,15 +19,14 @@ CRON_LINE="13 2 * * * /opt/reiz/ops/backup.sh >> /var/log/reiz-backup.log 2>&1 $
 # Pull current crontab (may not exist yet — || true to handle that).
 EXISTING="$(crontab -l 2>/dev/null || true)"
 
-if grep -qF "$MARKER" <<< "$EXISTING"; then
-    echo "Reiz backup cron already installed:"
-    grep -F "$MARKER" <<< "$EXISTING"
-    exit 0
-fi
+# Strip any prior reiz-backup line so re-running after a frequency
+# change replaces the entry instead of leaving the old one alongside.
+FILTERED="$(grep -v -F "$MARKER" <<< "$EXISTING" || true)"
 
-# Write the merged crontab — preserve any existing jobs, append ours.
+# Write the merged crontab — preserve unrelated jobs, add the current
+# managed line.
 {
-    [[ -n "$EXISTING" ]] && printf '%s\n' "$EXISTING"
+    [[ -n "$FILTERED" ]] && printf '%s\n' "$FILTERED"
     printf '%s\n' "$CRON_LINE"
 } | crontab -
 
