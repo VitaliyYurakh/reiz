@@ -125,14 +125,15 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       .cal-datenav button svg { width: 14px; height: 14px; }
       .cal-datenav button.today {
         width: auto;
-        padding: 0 16px;
+        padding: 0 18px;
         font-size: 13px;
         font-weight: 700;
         color: #fff !important;
         height: 32px;
-        background: #5B9CFF !important;
+        border-radius: 16px !important;
+        background: #3B82F6 !important;
       }
-      .cal-datenav button.today:hover { background: #4A8FE8 !important; color: #fff !important; }
+      .cal-datenav button.today:hover { background: #2563EB !important; color: #fff !important; }
       .cal-datenav button.today svg { color: #fff !important; }
 
       .cal-icon-btn {
@@ -221,8 +222,8 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       }
       button.cal-availability-btn:hover { transform: translateY(-1px); box-shadow: ${H.shadowMd}; }
       button.cal-availability-btn.active {
-        background: #5B9CFF !important;
-        box-shadow: 0 8px 20px -6px rgba(91, 156, 255, 0.5);
+        background: #3B82F6 !important;
+        box-shadow: 0 8px 20px -6px rgba(59, 130, 246, 0.5);
       }
       button.cal-availability-btn svg { color: #fff !important; }
       .cal-availability-btn svg { width: 14px; height: 14px; }
@@ -361,11 +362,11 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       .cal-day-head.weekend { background: ${H.bg}; }
       .cal-day-head.weekend .dow { color: ${H.red}; }
       .cal-day-head.weekend .num { background: ${H.redBg}; color: ${H.red}; }
-      .cal-day-head.today .dow { color: #5B9CFF; }
+      .cal-day-head.today .dow { color: #3B82F6; }
       .cal-day-head.today .num {
-        background: #5B9CFF;
+        background: #3B82F6;
         color: #fff;
-        box-shadow: 0 4px 12px -2px rgba(91, 156, 255, 0.5);
+        box-shadow: 0 4px 12px -2px rgba(59, 130, 246, 0.5);
       }
       .cal-day-head.week-start { border-left: 1px solid ${H.grayLight}; }
       .cal-day-head.month-start { border-left: 2px solid ${H.purple}; }

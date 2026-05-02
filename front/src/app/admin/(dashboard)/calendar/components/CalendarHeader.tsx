@@ -8,7 +8,7 @@ import {
   CalendarDays,
   Check,
   X,
-  ChevronsLeftRight,
+  MoveHorizontal,
 } from 'lucide-react';
 import type { ThemeTokens } from '@/context/AdminThemeContext';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
@@ -92,7 +92,7 @@ export function CalendarHeader({
         </label>
 
         <div className="cal-pill cal-select">
-          <ChevronsLeftRight />
+          <MoveHorizontal />
           <select
             value={String(days)}
             onChange={(e) => onDaysChange(Number(e.target.value))}
