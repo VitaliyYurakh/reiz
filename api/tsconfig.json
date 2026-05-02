@@ -8,6 +8,16 @@
         "allowSyntheticDefaultImports": true,
         "target": "ES2018",
         "outDir": "./build",
+        // Force emit layout to mirror the project root (so app/index.ts
+        // → build/app/index.js, not build/index.js). Without this tsc
+        // computes `rootDir` as "longest common dir of all included .ts
+        // files". On a fresh checkout where scripts/ contains only
+        // *.sql + a single *.ts, the common dir collapses to `app`,
+        // the `app/` prefix disappears from emit, and the prod
+        // Dockerfile's CMD `node build/app/index.js` 404s on launch.
+        // Locked down 2026-05-02 after the multi-stage Dockerfile
+        // change tripped over this.
+        "rootDir": ".",
         "incremental": true,
         "skipLibCheck": true,
         "strict": true,
@@ -17,5 +27,5 @@
         "resolveJsonModule": true
     },
     "include": ["app/**/*", "scripts/**/*"],
-    "exclude": ["prisma", "build", "node_modules"]
+    "exclude": ["prisma", "build", "node_modules", "tests"]
 }

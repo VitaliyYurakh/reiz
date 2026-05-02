@@ -50,6 +50,12 @@ RUN --mount=type=cache,target=/root/.npm \
 # separate compile pipeline).
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/prisma ./prisma
+# Seed (`tsx prisma/seed.ts`) imports from `../app/types/permissions`
+# (RBAC defaults registry). Compiling the seed itself would mean
+# pulling prisma/ into tsconfig + sorting out .js extension imports;
+# easier to ship the small `app/` source tree alongside. Adds ~1-2 MB,
+# keeps the seed step out-of-band from the main bundle.
+COPY --from=builder /app/app ./app
 # Generated Prisma client lives under node_modules/@prisma/client; copy
 # it from the builder so we don't need to re-run `prisma generate` here
 # (which would require all of `prisma/schema.prisma` and the engines).
