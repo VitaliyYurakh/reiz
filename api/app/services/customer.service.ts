@@ -1,5 +1,6 @@
 import {prisma} from '../utils';
 import telegramService from './telegram.service';
+import {translationsToMap as rowsToMap} from './i18n.utils';
 
 class CustomerService {
     async getProfile(clientId: number) {
@@ -298,11 +299,11 @@ class CustomerService {
                         },
                     },
                     coveragePackage: {
-                        select: {id: true, name: true, nameLocalized: true},
+                        select: {id: true, name: true, translations: {select: {locale: true, name: true}}},
                     },
                     reservationAddOns: {
                         include: {
-                            addOn: {select: {name: true, nameLocalized: true}},
+                            addOn: {select: {name: true, translations: {select: {locale: true, name: true}}}},
                         },
                     },
                     transactions: {
@@ -332,7 +333,7 @@ class CustomerService {
                     },
                     rentalAddOns: {
                         include: {
-                            addOn: {select: {name: true, nameLocalized: true}},
+                            addOn: {select: {name: true, translations: {select: {locale: true, name: true}}}},
                         },
                     },
                     rentalExtensions: {
@@ -370,14 +371,25 @@ class CustomerService {
             }),
         ]);
 
+        // Post-i18n Phase 3: AddOn / CoveragePackage `nameLocalized Json?`
+        // are rows in their own translation tables. FE consumers
+        // (BookingCard, BookingModal) still read `addon.nameLocalized?.[locale]`,
+        // so flatten the translation arrays back into the legacy map shape
+        // before returning.
+        const flattenAddOn = (a: any) => a ? {...a, addOn: a.addOn ? {...a.addOn, nameLocalized: rowsToMap(a.addOn.translations)} : a.addOn} : a;
+        const flattenCoverage = (cp: any) => cp ? {...cp, nameLocalized: rowsToMap(cp.translations)} : cp;
+
         const enrichedReservations = reservations.map((r) => ({
             ...r,
             _type: 'reservation' as const,
+            coveragePackage: flattenCoverage(r.coveragePackage),
+            reservationAddOns: r.reservationAddOns.map(flattenAddOn),
             pricingSummary: this.buildReservationPricing(r),
         }));
         const enrichedRentals = rentals.map((r) => ({
             ...r,
             _type: 'rental' as const,
+            rentalAddOns: r.rentalAddOns.map(flattenAddOn),
             pricingSummary: this.buildRentalPricing(r),
         }));
 

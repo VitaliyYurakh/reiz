@@ -789,23 +789,41 @@ model RentalRequest {
 model CoveragePackage {
   id             Int       @id @default(autoincrement())
   name           String
-  nameLocalized  Json?     @map("name_localized")
   depositPercent Int       @map("deposit_percent")
   description    String?
   isActive       Boolean   @default(true) @map("is_active")
   deletedAt      DateTime? @map("deleted_at")
   createdAt      DateTime  @default(now()) @map("created_at")
 
+  // Localised display name. Pre-i18n Phase 3 lived as `nameLocalized Json?`
+  // — `{uk, ru, en}` map. Same architectural problem as Car/City: no
+  // schema enforcement, no proper index. Now per-locale rows.
+  translations CoveragePackageTranslation[]
   reservations Reservation[]
 
   @@index([isActive])
   @@map("coverage_package")
 }
 
+model CoveragePackageTranslation {
+  id                Int    @id @default(autoincrement())
+  coveragePackageId Int    @map("coverage_package_id")
+  locale            String @db.VarChar(2)
+  name              String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  coveragePackage CoveragePackage @relation(fields: [coveragePackageId], references: [id], onDelete: Cascade)
+
+  @@unique([coveragePackageId, locale])
+  @@index([locale])
+  @@map("coverage_package_translation")
+}
+
 model AddOn {
   id             Int              @id @default(autoincrement())
   name           String
-  nameLocalized  Json?            @map("name_localized")
   pricingMode    AddOnPricingMode @map("pricing_mode")
   unitPriceMinor Int              @map("unit_price_minor")
   currency       Currency         @default(USD)
@@ -815,11 +833,29 @@ model AddOn {
   deletedAt      DateTime?        @map("deleted_at")
   createdAt      DateTime         @default(now()) @map("created_at")
 
+  // Localised display name. See CoveragePackage above for rationale.
+  translations      AddOnTranslation[]
   reservationAddOns ReservationAddOn[]
   rentalAddOns      RentalAddOn[]
 
   @@index([isActive])
   @@map("add_on")
+}
+
+model AddOnTranslation {
+  id      Int    @id @default(autoincrement())
+  addOnId Int    @map("add_on_id")
+  locale  String @db.VarChar(2)
+  name    String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  addOn AddOn @relation(fields: [addOnId], references: [id], onDelete: Cascade)
+
+  @@unique([addOnId, locale])
+  @@index([locale])
+  @@map("add_on_translation")
 }
 
 model RatePlan {

@@ -262,17 +262,27 @@ class PricingService {
         qtyEditable?: boolean;
         isActive?: boolean;
     }) {
+        // Post-Phase 3: nameLocalized is rows in `add_on_translation`.
+        // Accept the legacy `{uk, ru, en}` map shape from admin and route
+        // it into nested `translations.create` inside the AddOn create.
+        const nameLocalized = data.nameLocalized as Record<string, string> | null | undefined;
+        const translationCreates = nameLocalized
+            ? Object.entries(nameLocalized)
+                .filter(([, name]) => Boolean(name))
+                .map(([locale, name]) => ({locale, name: name as string}))
+            : [];
         return await prisma.addOn.create({
             data: {
                 name: data.name,
-                nameLocalized: data.nameLocalized || null,
                 pricingMode: data.pricingMode,
                 unitPriceMinor: data.unitPriceMinor,
                 currency: data.currency ?? Currency.USD,
                 defaultQty: data.defaultQty || null,
                 qtyEditable: data.qtyEditable || false,
                 isActive: data.isActive !== undefined ? data.isActive : true,
+                ...(translationCreates.length && {translations: {create: translationCreates}}),
             },
+            include: {translations: {select: {locale: true, name: true}}},
         });
     }
 
@@ -286,9 +296,24 @@ class PricingService {
         qtyEditable?: boolean;
         isActive?: boolean;
     }) {
-        return await prisma.addOn.update({
-            where: {id},
-            data,
+        const {nameLocalized, ...rest} = data;
+        return await prisma.$transaction(async (tx) => {
+            const updated = await tx.addOn.update({where: {id}, data: rest});
+            if (nameLocalized && typeof nameLocalized === 'object') {
+                const map = nameLocalized as Record<string, string>;
+                for (const [locale, name] of Object.entries(map)) {
+                    if (typeof name !== 'string') continue;
+                    await tx.addOnTranslation.upsert({
+                        where: {addOnId_locale: {addOnId: id, locale}},
+                        create: {addOnId: id, locale, name},
+                        update: {name},
+                    });
+                }
+            }
+            return tx.addOn.findUnique({
+                where: {id},
+                include: {translations: {select: {locale: true, name: true}}},
+            }) ?? updated;
         });
     }
 
@@ -318,14 +343,21 @@ class PricingService {
         description?: string;
         isActive?: boolean;
     }) {
+        const nameLocalized = data.nameLocalized as Record<string, string> | null | undefined;
+        const translationCreates = nameLocalized
+            ? Object.entries(nameLocalized)
+                .filter(([, name]) => Boolean(name))
+                .map(([locale, name]) => ({locale, name: name as string}))
+            : [];
         return await prisma.coveragePackage.create({
             data: {
                 name: data.name,
-                nameLocalized: data.nameLocalized || null,
                 depositPercent: data.depositPercent,
                 description: data.description || null,
                 isActive: data.isActive !== undefined ? data.isActive : true,
+                ...(translationCreates.length && {translations: {create: translationCreates}}),
             },
+            include: {translations: {select: {locale: true, name: true}}},
         });
     }
 
@@ -336,9 +368,24 @@ class PricingService {
         description?: string;
         isActive?: boolean;
     }) {
-        return await prisma.coveragePackage.update({
-            where: {id},
-            data,
+        const {nameLocalized, ...rest} = data;
+        return await prisma.$transaction(async (tx) => {
+            const updated = await tx.coveragePackage.update({where: {id}, data: rest});
+            if (nameLocalized && typeof nameLocalized === 'object') {
+                const map = nameLocalized as Record<string, string>;
+                for (const [locale, name] of Object.entries(map)) {
+                    if (typeof name !== 'string') continue;
+                    await tx.coveragePackageTranslation.upsert({
+                        where: {coveragePackageId_locale: {coveragePackageId: id, locale}},
+                        create: {coveragePackageId: id, locale, name},
+                        update: {name},
+                    });
+                }
+            }
+            return tx.coveragePackage.findUnique({
+                where: {id},
+                include: {translations: {select: {locale: true, name: true}}},
+            }) ?? updated;
         });
     }
 

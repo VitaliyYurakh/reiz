@@ -60,71 +60,54 @@ async function main() {
         });
     }
 
-    // CRM: Coverage Packages
+    // CRM: Coverage Packages. Post-i18n Phase 3: name_localized lives
+    // in `coverage_package_translation`. The seed shape stays
+    // human-readable; the {uk,ru,en} map is split into nested
+    // translations.create per package.
+    const coveragePackages = [
+        {name: 'Без покриття', depositPercent: 0, description: 'Full refundable deposit required, no insurance coverage', i18n: {uk: 'Без покриття', ru: 'Без покрытия', en: 'No Coverage'}},
+        {name: 'Покриття 50%', depositPercent: 50, description: 'Half insurance coverage, reduced deposit', i18n: {uk: 'Покриття 50%', ru: 'Покрытие 50%', en: '50% Coverage'}},
+        {name: 'Покриття 100%', depositPercent: 100, description: 'Full insurance coverage, minimal fixed deposit', i18n: {uk: 'Покриття 100%', ru: 'Покрытие 100%', en: 'Full Coverage'}},
+    ];
     const coverageCount = await prisma.coveragePackage.count();
     if (!coverageCount) {
-        await prisma.coveragePackage.createMany({
-            data: [
-                {
-                    name: 'Без покриття',
-                    nameLocalized: {uk: 'Без покриття', ru: 'Без покрытия', en: 'No Coverage'},
-                    depositPercent: 0,
-                    description: 'Full refundable deposit required, no insurance coverage',
+        for (const cp of coveragePackages) {
+            const {i18n, ...rest} = cp;
+            await prisma.coveragePackage.create({
+                data: {
+                    ...rest,
+                    translations: {
+                        create: Object.entries(i18n).map(([locale, name]) => ({locale, name})),
+                    },
                 },
-                {
-                    name: 'Покриття 50%',
-                    nameLocalized: {uk: 'Покриття 50%', ru: 'Покрытие 50%', en: '50% Coverage'},
-                    depositPercent: 50,
-                    description: 'Half insurance coverage, reduced deposit',
-                },
-                {
-                    name: 'Покриття 100%',
-                    nameLocalized: {uk: 'Покриття 100%', ru: 'Покрытие 100%', en: 'Full Coverage'},
-                    depositPercent: 100,
-                    description: 'Full insurance coverage, minimal fixed deposit',
-                },
-            ],
-        });
+            });
+        }
     }
 
     // CRM: Add-Ons
+    const addOns = [
+        {name: 'Additional Driver', pricingMode: 'PER_DAY' as const, unitPriceMinor: 600, currency: 'USD' as const, qtyEditable: true,
+         i18n: {uk: 'Додатковий водій', ru: 'Дополнительный водитель', en: 'Additional Driver'}},
+        {name: 'Child Seat', pricingMode: 'PER_DAY' as const, unitPriceMinor: 300, currency: 'USD' as const,
+         i18n: {uk: 'Дитяче автокрісло', ru: 'Детское автокресло', en: 'Child Seat'}},
+        {name: 'Border Crossing', pricingMode: 'ONE_TIME' as const, unitPriceMinor: 15000, currency: 'USD' as const,
+         i18n: {uk: 'Виїзд за кордон', ru: 'Выезд за границу', en: 'Border Crossing'}},
+        {name: 'Chauffeur', pricingMode: 'MANUAL_QTY' as const, unitPriceMinor: 8000, currency: 'USD' as const, defaultQty: 'rental_days', qtyEditable: true,
+         i18n: {uk: 'Послуги водія', ru: 'Услуги водителя', en: 'Chauffeur Service'}},
+    ];
     const addOnCount = await prisma.addOn.count();
     if (!addOnCount) {
-        await prisma.addOn.createMany({
-            data: [
-                {
-                    name: 'Additional Driver',
-                    nameLocalized: {uk: 'Додатковий водій', ru: 'Дополнительный водитель', en: 'Additional Driver'},
-                    pricingMode: 'PER_DAY',
-                    unitPriceMinor: 600,
-                    currency: 'USD',
-                    qtyEditable: true,
+        for (const a of addOns) {
+            const {i18n, ...rest} = a;
+            await prisma.addOn.create({
+                data: {
+                    ...rest,
+                    translations: {
+                        create: Object.entries(i18n).map(([locale, name]) => ({locale, name})),
+                    },
                 },
-                {
-                    name: 'Child Seat',
-                    nameLocalized: {uk: 'Дитяче автокрісло', ru: 'Детское автокресло', en: 'Child Seat'},
-                    pricingMode: 'PER_DAY',
-                    unitPriceMinor: 300,
-                    currency: 'USD',
-                },
-                {
-                    name: 'Border Crossing',
-                    nameLocalized: {uk: 'Виїзд за кордон', ru: 'Выезд за границу', en: 'Border Crossing'},
-                    pricingMode: 'ONE_TIME',
-                    unitPriceMinor: 15000,
-                    currency: 'USD',
-                },
-                {
-                    name: 'Chauffeur',
-                    nameLocalized: {uk: 'Послуги водія', ru: 'Услуги водителя', en: 'Chauffeur Service'},
-                    pricingMode: 'MANUAL_QTY',
-                    unitPriceMinor: 8000,
-                    currency: 'USD',
-                    defaultQty: 'rental_days',
-                    qtyEditable: true,
-                },
-            ],
-        });
+            });
+        }
     }
 
     // CRM: Accounts

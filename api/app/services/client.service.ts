@@ -1,4 +1,5 @@
 import {prisma} from '../utils';
+import {translationsToMap as rowsToMap} from './i18n.utils';
 
 /**
  * Normalize phone to canonical "+DIGITS" form.
@@ -408,7 +409,7 @@ class ClientService {
                     fines: true,
                     transactions: true,
                     rentalAddOns: {
-                        include: {addOn: {select: {name: true, nameLocalized: true}}},
+                        include: {addOn: {select: {name: true, translations: {select: {locale: true, name: true}}}}},
                     },
                     rentalExtensions: true,
                 },
@@ -419,7 +420,7 @@ class ClientService {
                 include: {
                     car: {select: {id: true, brand: true, model: true, plateNumber: true}},
                     reservationAddOns: {
-                        include: {addOn: {select: {name: true, nameLocalized: true}}},
+                        include: {addOn: {select: {name: true, translations: {select: {locale: true, name: true}}}}},
                     },
                     transactions: true,
                 },
@@ -441,7 +442,13 @@ class ClientService {
             }),
         ]);
 
-        return {rentals, reservations, rentalRequests, clientStats};
+        // Flatten AddOn translations[] back to legacy nameLocalized map
+        // shape so admin client-history page (BookingCard) works unchanged.
+        const flattenAddOn = (a: any) => a ? {...a, addOn: a.addOn ? {...a.addOn, nameLocalized: rowsToMap(a.addOn.translations)} : a.addOn} : a;
+        const flatRentals = rentals.map((r) => ({...r, rentalAddOns: r.rentalAddOns.map(flattenAddOn)}));
+        const flatReservations = reservations.map((r) => ({...r, reservationAddOns: r.reservationAddOns.map(flattenAddOn)}));
+
+        return {rentals: flatRentals, reservations: flatReservations, rentalRequests, clientStats};
     }
 }
 
