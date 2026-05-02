@@ -61,8 +61,12 @@ ALTER TABLE fine               ADD CONSTRAINT fine_amount_minor_nonneg          
 ALTER TABLE rental_deposit     ADD CONSTRAINT rental_deposit_amount_minor_nonneg  CHECK (amount_minor >= 0);
 ALTER TABLE partner_payment    ADD CONSTRAINT partner_payment_amount_eur_minor_nonneg CHECK (amount_eur_minor >= 0);
 ALTER TABLE inventory_item     ADD CONSTRAINT inventory_purchase_price_minor_nonneg CHECK (purchase_price_minor IS NULL OR purchase_price_minor >= 0);
-ALTER TABLE service_event      ADD CONSTRAINT service_event_unit_price_minor_nonneg CHECK (unit_price_minor IS NULL OR unit_price_minor >= 0);
+-- ServiceEvent has cost_minor (unit_price_minor lives on add-on lines, see below).
 ALTER TABLE service_event      ADD CONSTRAINT service_event_cost_minor_nonneg      CHECK (cost_minor       IS NULL OR cost_minor       >= 0);
+ALTER TABLE reservation_add_on ADD CONSTRAINT reservation_add_on_unit_price_minor_nonneg CHECK (unit_price_minor >= 0);
+ALTER TABLE reservation_add_on ADD CONSTRAINT reservation_add_on_total_minor_nonneg      CHECK (total_minor      >= 0);
+ALTER TABLE rental_add_on      ADD CONSTRAINT rental_add_on_unit_price_minor_nonneg      CHECK (unit_price_minor >= 0);
+ALTER TABLE rental_add_on      ADD CONSTRAINT rental_add_on_total_minor_nonneg           CHECK (total_minor      >= 0);
 
 -- ─── Driver ages — physical reality 16..99 ─────────────────────────────
 ALTER TABLE car ADD CONSTRAINT car_driver_age_human         CHECK (driver_age IS NULL OR driver_age BETWEEN 16 AND 99);
