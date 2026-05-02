@@ -52,6 +52,31 @@ jobs:
             - run: npx prisma validate
             - run: npm test
 
+    # Integration tests — spin up real Postgres via testcontainers and
+    # run the prisma migration history against it. Catches schema drift
+    # and SQL/TypeScript shape mismatches the mocked unit suite can't
+    # see (the JSON-string-of-JSON description blob from 2026-05-02
+    # would have failed this gate before reaching prod).
+    api-integration:
+        name: ci · api integration
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: api
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: npm
+                  cache-dependency-path: api/package-lock.json
+            # GHA `ubuntu-latest` ships docker; testcontainers detects
+            # the daemon automatically. No services: section needed
+            # because each suite manages its own Postgres lifecycle.
+            - run: npm ci
+            - run: npx prisma generate
+            - run: npm run test:integration
+
     front:
         name: ci · front
         runs-on: ubuntu-latest
@@ -83,7 +108,7 @@ jobs:
         runs-on: ubuntu-latest
         # Only deploy on push to main (not on PRs) and only after CI passes.
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        needs: [api, front]
+        needs: [api, api-integration, front]
 
         steps:
             - name: Checkout
