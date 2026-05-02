@@ -130,9 +130,9 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         font-weight: 700;
         color: #fff;
         height: 32px;
-        background: ${H.purple};
+        background: #5B9CFF;
       }
-      .cal-datenav .today:hover { background: ${H.purpleLight}; color: #fff; }
+      .cal-datenav .today:hover { background: #4A8FE8; color: #fff; }
 
       .cal-icon-btn {
         width: 40px; height: 40px;
@@ -213,15 +213,15 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         border-radius: 999px;
         font-size: 13px;
         font-weight: 700;
-        background: ${H.navy};
+        background: #14172A;
         color: #fff;
         cursor: pointer;
         transition: all 160ms;
       }
       .cal-availability-btn:hover { transform: translateY(-1px); box-shadow: ${H.shadowMd}; }
       .cal-availability-btn.active {
-        background: linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%);
-        box-shadow: 0 8px 20px -6px ${H.purple}80;
+        background: #5B9CFF;
+        box-shadow: 0 8px 20px -6px rgba(91, 156, 255, 0.5);
       }
       .cal-availability-btn svg { width: 14px; height: 14px; }
 
@@ -359,11 +359,11 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       .cal-day-head.weekend { background: ${H.bg}; }
       .cal-day-head.weekend .dow { color: ${H.red}; }
       .cal-day-head.weekend .num { background: ${H.redBg}; color: ${H.red}; }
-      .cal-day-head.today .dow { color: ${H.purple}; }
+      .cal-day-head.today .dow { color: #5B9CFF; }
       .cal-day-head.today .num {
-        background: linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%);
+        background: #5B9CFF;
         color: #fff;
-        box-shadow: 0 4px 12px -2px ${H.purple}80;
+        box-shadow: 0 4px 12px -2px rgba(91, 156, 255, 0.5);
       }
       .cal-day-head.week-start { border-left: 1px solid ${H.grayLight}; }
       .cal-day-head.month-start { border-left: 2px solid ${H.purple}; }
