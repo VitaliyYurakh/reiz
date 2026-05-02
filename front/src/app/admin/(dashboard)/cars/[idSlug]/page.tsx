@@ -164,7 +164,9 @@ export default function CarEditPage() {
     setRentalConditions({
       freeDeliveryThreshold: minorToUah(data.freeDeliveryThresholdMinor),
       cancellationHours: data.cancellationHours ?? 24,
-      paymentMethods: data.paymentMethods ?? '',
+      // Form keeps a comma-separated string for the input field; the
+      // API exposes it as `string[]`. Stitch on load, split on submit.
+      paymentMethods: (data.paymentMethods ?? []).join(', '),
       minRentalDays: data.minRentalDays ?? 1,
       dailyMileageLimit: data.dailyMileageLimit ?? 300,
       overmileagePrice: minorToUah(data.overmileagePriceMinor ?? data.segment?.[0]?.overmileagePriceMinor),
@@ -369,7 +371,10 @@ export default function CarEditPage() {
       await updateCar(id, {
         freeDeliveryThresholdMinor: uahToMinor(rentalConditions.freeDeliveryThreshold) ?? 0,
         cancellationHours: Number(rentalConditions.cancellationHours) || 0,
-        paymentMethods: rentalConditions.paymentMethods || null,
+        // Form holds CSV string; API expects string[].
+        paymentMethods: rentalConditions.paymentMethods
+          ? rentalConditions.paymentMethods.split(',').map((s: string) => s.trim()).filter(Boolean)
+          : [],
         minRentalDays: Number(rentalConditions.minRentalDays) || 1,
         dailyMileageLimit: Number(rentalConditions.dailyMileageLimit) || 0,
         overmileagePriceMinor: uahToMinor(rentalConditions.overmileagePrice) ?? 0,
@@ -383,7 +388,9 @@ export default function CarEditPage() {
         allowCrossBorder: rentalConditions.allowCrossBorder,
         crossBorderFeeMinor: uahToMinor(rentalConditions.crossBorderFee),
         crossBorderDailyFeeMinor: uahToMinor(rentalConditions.crossBorderDailyFee),
-        allowedCountries: rentalConditions.allowedCountries ? rentalConditions.allowedCountries.split(',').map((s: string) => s.trim()).filter(Boolean) : null,
+        allowedCountries: rentalConditions.allowedCountries
+          ? rentalConditions.allowedCountries.split(',').map((s: string) => s.trim().toUpperCase()).filter((s) => s.length === 2)
+          : [],
         lateReturnGraceMin: Number(rentalConditions.lateReturnGraceMin) || null,
         lateReturnFeePerHourMinor: uahToMinor(rentalConditions.lateReturnFeePerHour),
         youngerDriverAge: Number(rentalConditions.youngerDriverAge) || null,

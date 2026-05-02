@@ -204,7 +204,11 @@ export const updateCarSchema = z.object({
         deliveryPriceMinor: z.number().int().min(0).nullable().optional(),
         freeDeliveryThresholdMinor: z.number().int().min(0).nullable().optional(),
         cancellationHours: z.number().int().min(0).nullable().optional(),
-        paymentMethods: z.string().max(500).nullable().optional(),
+        // Native Postgres TEXT[] (was a CSV string column). Caller can
+        // send an array directly; the legacy admin form posts UI text
+        // and would normally need to split — that conversion now lives
+        // in the form, not the DB.
+        paymentMethods: z.array(z.string().max(50)).max(20).optional(),
         minRentalDays: z.number().int().min(1).nullable().optional(),
         dailyMileageLimit: z.number().int().min(0).nullable().optional(),
         overmileagePriceMinor: z.number().int().min(0).nullable().optional(),
@@ -218,7 +222,9 @@ export const updateCarSchema = z.object({
         allowCrossBorder: z.boolean().optional(),
         crossBorderFeeMinor: z.number().int().min(0).nullable().optional(),
         crossBorderDailyFeeMinor: z.number().int().min(0).nullable().optional(),
-        allowedCountries: z.array(z.string()).nullable().optional(),
+        // ISO-3166-1 alpha-2. Native Postgres VARCHAR(2)[] — was Json
+        // blob. Empty array means "no restrictions configured".
+        allowedCountries: z.array(z.string().length(2)).max(50).optional(),
         lateReturnGraceMin: z.number().int().min(0).nullable().optional(),
         lateReturnFeePerHourMinor: z.number().int().min(0).nullable().optional(),
         youngerDriverAge: z.number().int().min(16).nullable().optional(),

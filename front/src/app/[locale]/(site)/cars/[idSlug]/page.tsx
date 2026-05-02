@@ -215,7 +215,7 @@ export default async function CarPage({
     }
 
     const cancellationHours = car.cancellationHours ?? 24;
-    const carPaymentMethods = car.paymentMethods;
+    const carPaymentMethods = car.paymentMethods.length > 0 ? car.paymentMethods.join(", ") : "";
     const minRentalDays = car.minRentalDays ?? 1;
     const dailyMileageLimit = car.dailyMileageLimit ?? 300;
     const unlimitedMileageFreeFromDays = car.unlimitedMileageFreeFromDays ?? 8;

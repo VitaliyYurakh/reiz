@@ -131,9 +131,12 @@ model Car {
   blockReason String? @map("block_reason")
 
   // ─── Pickup / delivery ───────────────────────────────────────────────
-  deliveryPriceMinor         Int?    @map("delivery_price_minor")
-  freeDeliveryThresholdMinor Int?    @map("free_delivery_threshold_minor")
-  paymentMethods             String? @map("payment_methods")
+  deliveryPriceMinor         Int?     @map("delivery_price_minor")
+  freeDeliveryThresholdMinor Int?     @map("free_delivery_threshold_minor")
+  // Postgres TEXT[] — replaces the legacy CSV `String?` column. Admin form
+  // already had to split the CSV every read; the array surfaces it
+  // properly in the schema and in the FE type (`string[]`).
+  paymentMethods             String[] @default([]) @map("payment_methods")
 
   // ─── Rental policy ───────────────────────────────────────────────────
   cancellationHours     Int?    @map("cancellation_hours")
@@ -155,10 +158,13 @@ model Car {
   youngerDriverSurchargeMinor Int? @map("younger_driver_surcharge_minor")
 
   // ─── Cross-border travel ─────────────────────────────────────────────
-  allowCrossBorder         Boolean @default(false) @map("allow_cross_border")
-  crossBorderFeeMinor      Int?    @map("cross_border_fee_minor")
-  crossBorderDailyFeeMinor Int?    @map("cross_border_daily_fee_minor")
-  allowedCountries         Json?   @map("allowed_countries")
+  allowCrossBorder         Boolean  @default(false) @map("allow_cross_border")
+  crossBorderFeeMinor      Int?     @map("cross_border_fee_minor")
+  crossBorderDailyFeeMinor Int?     @map("cross_border_daily_fee_minor")
+  // ISO-3166-1 alpha-2 codes (`UA`, `PL`, `RO`, ...). Postgres `varchar(2)[]`
+  // — typed array with per-element length. Replaces the legacy `Json?`
+  // blob whose shape was a runtime contract the DB couldn't enforce.
+  allowedCountries         String[] @default([]) @map("allowed_countries") @db.VarChar(2)
 
   // ─── Late return ─────────────────────────────────────────────────────
   lateReturnGraceMin        Int? @map("late_return_grace_min")

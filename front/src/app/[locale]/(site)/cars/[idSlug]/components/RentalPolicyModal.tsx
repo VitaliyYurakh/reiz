@@ -439,7 +439,7 @@ export default function RentalPolicyModal({ car, carName, isOpen, onClose, t }: 
           <section className="rpm__section">
             <h4 className="rpm__heading">{t("payment.title")}</h4>
             <p className="rpm__text">
-              {car.paymentMethods || t("payment.default")}
+              {car.paymentMethods.length > 0 ? car.paymentMethods.join(", ") : t("payment.default")}
             </p>
           </section>
 

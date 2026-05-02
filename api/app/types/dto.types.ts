@@ -38,7 +38,7 @@ type UpdateCarDto = {
     deliveryPriceMinor?: number | null;
     freeDeliveryThresholdMinor?: number | null;
     cancellationHours?: number | null;
-    paymentMethods?: string | null;
+    paymentMethods?: string[];
     minRentalDays?: number | null;
     dailyMileageLimit?: number | null;
     overmileagePriceMinor?: number | null;

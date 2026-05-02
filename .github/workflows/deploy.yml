@@ -175,7 +175,18 @@ jobs:
                   host: ${{ secrets.SSH_HOST }}
                   username: ${{ secrets.SSH_USER }}
                   key: ${{ secrets.SSH_KEY }}
+                  # `--no-cache` on the build step is the boring fix for a
+                  # BuildKit pitfall we hit twice (Phase 2 RBAC + i18n
+                  # Phase 1): the COPY layer's content hash sometimes
+                  # matches a previous deploy's even when the source files
+                  # are genuinely new (likely a scp-action mtime/permissions
+                  # quirk on the SCP step above). The first failure mode
+                  # was silent — the container restarted but kept the old
+                  # bundle. `--no-cache` makes the build deterministic at
+                  # the cost of ~2-3 extra minutes per deploy. Acceptable
+                  # trade for "what got built is what's running".
                   script: |
                       cd /opt/reiz
                       docker compose down
-                      docker compose up --build -d
+                      docker compose build --no-cache
+                      docker compose up -d
