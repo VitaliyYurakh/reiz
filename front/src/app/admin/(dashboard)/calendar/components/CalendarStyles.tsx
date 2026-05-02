@@ -123,16 +123,17 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       }
       .cal-datenav button:hover { background: ${H.white}; color: ${H.navy}; }
       .cal-datenav button svg { width: 14px; height: 14px; }
-      .cal-datenav .today {
+      .cal-datenav button.today {
         width: auto;
         padding: 0 16px;
         font-size: 13px;
         font-weight: 700;
-        color: #fff;
+        color: #fff !important;
         height: 32px;
-        background: #5B9CFF;
+        background: #5B9CFF !important;
       }
-      .cal-datenav .today:hover { background: #4A8FE8; color: #fff; }
+      .cal-datenav button.today:hover { background: #4A8FE8 !important; color: #fff !important; }
+      .cal-datenav button.today svg { color: #fff !important; }
 
       .cal-icon-btn {
         width: 40px; height: 40px;
@@ -202,7 +203,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         margin: 0 4px;
       }
 
-      .cal-availability-btn {
+      button.cal-availability-btn {
         margin-left: auto;
         display: inline-flex;
         align-items: center;
@@ -213,16 +214,17 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         border-radius: 999px;
         font-size: 13px;
         font-weight: 700;
-        background: #14172A;
-        color: #fff;
+        background: #14172A !important;
+        color: #fff !important;
         cursor: pointer;
         transition: all 160ms;
       }
-      .cal-availability-btn:hover { transform: translateY(-1px); box-shadow: ${H.shadowMd}; }
-      .cal-availability-btn.active {
-        background: #5B9CFF;
+      button.cal-availability-btn:hover { transform: translateY(-1px); box-shadow: ${H.shadowMd}; }
+      button.cal-availability-btn.active {
+        background: #5B9CFF !important;
         box-shadow: 0 8px 20px -6px rgba(91, 156, 255, 0.5);
       }
+      button.cal-availability-btn svg { color: #fff !important; }
       .cal-availability-btn svg { width: 14px; height: 14px; }
 
       /* Availability bar */
