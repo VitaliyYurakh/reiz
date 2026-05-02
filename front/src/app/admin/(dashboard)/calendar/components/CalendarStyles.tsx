@@ -481,9 +481,9 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         font-weight: 700;
       }
       .cal-fleet-head .sum-bar {
-        margin-top: 4px;
+        margin-top: 6px;
         height: 4px;
-        background: ${H.bg};
+        background: ${H.grayLight};
         border-radius: 999px;
         overflow: hidden;
       }
@@ -505,10 +505,10 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       .cal-car-cell {
         background: ${H.white};
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: 1fr auto;
         align-items: center;
         gap: 12px;
-        padding: 0 16px 0 18px;
+        padding: 0 16px 0 22px;
         border-bottom: 1px solid ${H.grayLight}40;
         border-right: 1px solid ${H.grayLight};
         cursor: pointer;
@@ -559,13 +559,13 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
       }
       .cal-car-meta .plate {
         font-family: ${H.font};
-        letter-spacing: 0.04em;
-        color: ${H.navy};
-        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: ${H.gray};
+        font-weight: 600;
         background: ${H.bg};
-        padding: 2px 7px;
-        border-radius: 5px;
-        font-size: 10.5px;
+        padding: 1px 6px;
+        border-radius: 4px;
+        font-size: 10px;
       }
       .cal-car-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: ${H.grayLight}; flex-shrink: 0; }
 
@@ -580,7 +580,7 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         width: 36px; height: 36px;
         transform: rotate(-90deg);
       }
-      .cal-car-load svg .track { stroke: ${H.bg}; }
+      .cal-car-load svg .track { stroke: ${H.grayLight}; }
       .cal-car-load svg .bar { stroke: ${H.green}; transition: stroke-dashoffset 320ms ease; }
       .cal-car-load.warm svg .bar { stroke: ${H.orange}; }
       .cal-car-load.hot svg .bar { stroke: ${H.red}; }

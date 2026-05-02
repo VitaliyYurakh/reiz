@@ -6,7 +6,6 @@ import {
   CalendarDays,
   AlertTriangle,
   ChevronRight,
-  Car as CarIcon,
 } from 'lucide-react';
 import type { ThemeTokens } from '@/context/AdminThemeContext';
 import { useAdminLocale } from '@/context/AdminLocaleContext';
@@ -80,26 +79,11 @@ function assignLanes(intervals: Interval[], rangeStart: Date, days: number) {
   return items;
 }
 
-function CarThumb({ name, H }: { name: string; H: ThemeTokens }) {
-  const initials = name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join('')
-    .toUpperCase();
-  return (
-    <div className="cal-car-thumb">
-      <span
-        className="car-tag"
-        style={{
-          background: `linear-gradient(180deg, ${H.purple}, ${H.purpleLight})`,
-        }}
-      />
-      <CarIcon className="car-icon" />
-      <span style={{ display: 'none' }}>{initials}</span>
-    </div>
-  );
+// Reference design renders the car row without a thumbnail — just
+// name + plate + category + donut. Keep the helper as a no-op so the
+// grid markup doesn't have to care.
+function CarThumb(_props: { name: string; H: ThemeTokens }) {
+  return null;
 }
 
 function LoadDonut({ pct, H }: { pct: number; H: ThemeTokens }) {
