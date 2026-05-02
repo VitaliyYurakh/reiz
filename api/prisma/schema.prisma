@@ -111,14 +111,13 @@ model Car {
   seats           Int?
 
   // ─── Catalog presentation ────────────────────────────────────────────
-  // `description` also moved to CarTranslation (longest-text field; was
-  // a JSON blob on Car). `configuration` stays as Json for now — it's a
-  // variable-length array of items each with their own multilang map;
-  // normalising it requires a separate ConfigurationOption catalogue,
-  // out of scope for this commit.
-  previewUrl    String? @map("preview_url")
-  configuration Json?
-  discount      Int?
+  // `description` lives on CarTranslation. `configuration` was a Json
+  // array of `{uk,ru,en,pl,ro}` items — normalised into a proper M:N
+  // catalogue (`CarConfigurationOption` join + shared
+  // `ConfigurationOption` rows so duplicate options are deduped across
+  // the fleet).
+  previewUrl String? @map("preview_url")
+  discount   Int?
 
   // ─── Catalog status ──────────────────────────────────────────────────
   // `isAvailable` gates the PUBLIC catalog ("show / hide"). `isBlocked`
@@ -191,11 +190,12 @@ model Car {
   partnerId Int? @map("partner_id")
 
   // ─── Relations: pricing & catalog ────────────────────────────────────
-  rentalTariff    RentalTariff[]
-  carCountingRule CarCountingRule[]
-  segment         Segment[]
-  carPhoto        CarPhoto[]
-  translations    CarTranslation[]
+  rentalTariff         RentalTariff[]
+  carCountingRule      CarCountingRule[]
+  segment              Segment[]
+  carPhoto             CarPhoto[]
+  translations         CarTranslation[]
+  configurationOptions CarConfigurationOption[]
 
   // ─── Relations: 1:1 extracted blocks ─────────────────────────────────
   // Damage fees and maintenance state were moved out of `car` because
@@ -305,6 +305,60 @@ model CarTranslation {
   @@unique([carId, locale])
   @@index([locale])
   @@map("car_translation")
+}
+
+// Catalogue of configuration options ("AC", "ABS", "Cruise control",
+// "Apple CarPlay" …) shared across the fleet. Pre-this-commit each Car
+// stored its options as a `Json[]` of `{uk,ru,en,pl,ro}` items —
+// duplicated text across every car that had the same option, no way to
+// query "which cars have ABS", and no UI for the catalogue itself.
+//
+// Now: a Car links to N options via `CarConfigurationOption` (M:N
+// join), each option has its own translation rows. `slug` is the
+// dedup key — currently the lower-cased Ukrainian text since the legacy
+// service was already treating `uk` as a natural id.
+model ConfigurationOption {
+  id   Int    @id @default(autoincrement())
+  slug String @unique
+
+  translations ConfigurationOptionTranslation[]
+  cars         CarConfigurationOption[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  @@map("configuration_option")
+}
+
+model ConfigurationOptionTranslation {
+  id                    Int    @id @default(autoincrement())
+  configurationOptionId Int    @map("configuration_option_id")
+  locale                String @db.VarChar(2)
+  value                 String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  configurationOption ConfigurationOption @relation(fields: [configurationOptionId], references: [id], onDelete: Cascade)
+
+  @@unique([configurationOptionId, locale])
+  @@index([locale])
+  @@map("configuration_option_translation")
+}
+
+model CarConfigurationOption {
+  carId                 Int @map("car_id")
+  configurationOptionId Int @map("configuration_option_id")
+  sortOrder             Int @default(0) @map("sort_order")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  car                 Car                 @relation(fields: [carId], references: [id], onDelete: Cascade)
+  configurationOption ConfigurationOption @relation(fields: [configurationOptionId], references: [id], onDelete: Cascade)
+
+  @@id([carId, configurationOptionId])
+  @@index([configurationOptionId])
+  @@map("car_configuration_option")
 }
 
 model Segment {

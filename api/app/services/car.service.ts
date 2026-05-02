@@ -105,7 +105,32 @@ const CAR_INCLUDE = {
     damageFees: true,
     maintenance: true,
     translations: true,
+    // Catalogue-backed configuration options (M:N). Each row carries
+    // the option's translations so we can flatten back to the legacy
+    // `[{uk,ru,en,pl,ro}, ...]` array shape on the API response.
+    configurationOptions: {
+        orderBy: {sortOrder: 'asc'},
+        include: {configurationOption: {include: {translations: true}}},
+    },
 } as const satisfies Prisma.CarInclude;
+
+type ConfigOptionRow = {
+    sortOrder: number;
+    configurationOption: {
+        translations: Array<{locale: string; value: string}>;
+    };
+};
+
+function flattenConfigurationOptions(options: ConfigOptionRow[] | null | undefined): Array<Record<string, string>> {
+    if (!options) return [];
+    return options.map((row) => {
+        const out: Record<string, string> = {};
+        for (const tr of row.configurationOption.translations) {
+            out[tr.locale] = tr.value;
+        }
+        return out;
+    });
+}
 
 class CarService {
     async getAll(citySlug?: string) {
@@ -134,6 +159,7 @@ class CarService {
         });
         return cars.map((c) => ({
             ...flattenCarTranslations(c),
+            configuration: flattenConfigurationOptions(c.configurationOptions),
             cityAvailability: c.cityAvailability.map((row) => ({...row, city: flattenCityTranslations(row.city)})),
         }));
     }
@@ -153,6 +179,7 @@ class CarService {
         if (!car) return null;
         return {
             ...flattenCarTranslations(car),
+            configuration: flattenConfigurationOptions(car.configurationOptions),
             cityAvailability: car.cityAvailability.map((row) => ({...row, city: flattenCityTranslations(row.city)})),
         };
     }
@@ -228,17 +255,20 @@ class CarService {
         }
 
         // Translation fields are persisted to `car_translation` rows (1
-        // per locale), not the Car table. Pull them out of the payload.
+        // per locale), not the Car table. `configuration` is no longer
+        // a Car column either — it's a M:N link table to the option
+        // catalogue. Pull all of these out of the payload.
         const {
             segmentIds,
             description,
             engineType,
             transmission,
             driveType,
+            configuration,
             damageFees,
             maintenance,
             ...rest
-        } = carDto;
+        } = carDto as UpdateCarDto & {configuration?: Array<Record<string, string>>};
         const data: any = {...rest};
 
         if (segmentIds) data.segment = {set: segmentIds.map((sid) => ({id: sid}))};
@@ -276,9 +306,53 @@ class CarService {
                 });
             }
 
+            // Configuration: replace-all semantics for now (admin
+            // sends the full list every save). For each item:
+            //   1. Find or create ConfigurationOption by slug (= lower
+            //      uk text). Brand-new options also get translation rows.
+            //   2. Re-link this car: drop existing
+            //      `car_configuration_option` rows, insert new ones
+            //      preserving sort order from the array index.
+            if (configuration !== undefined) {
+                const items = Array.isArray(configuration) ? configuration : [];
+                const links: Array<{configurationOptionId: number; sortOrder: number}> = [];
+                for (let i = 0; i < items.length; i++) {
+                    const item = items[i];
+                    const ukRaw = (item.uk ?? '').trim();
+                    if (!ukRaw) continue;
+                    const slug = ukRaw.toLowerCase();
+                    const option = await tx.configurationOption.upsert({
+                        where: {slug},
+                        create: {
+                            slug,
+                            translations: {
+                                create: (['uk', 'ru', 'en', 'pl', 'ro'] as const)
+                                    .map((loc) => ({locale: loc, value: (item[loc] ?? '').trim()}))
+                                    .filter((t) => t.value),
+                            },
+                        },
+                        update: {},
+                    });
+                    links.push({configurationOptionId: option.id, sortOrder: i});
+                }
+                // Replace links for this car.
+                await tx.carConfigurationOption.deleteMany({where: {carId: id}});
+                if (links.length) {
+                    await tx.carConfigurationOption.createMany({
+                        data: links.map((l) => ({carId: id, ...l})),
+                    });
+                }
+            }
+
             // Re-fetch to pick up any translations that were upserted.
             const fresh = await tx.car.findUnique({where: {id}, include: CAR_INCLUDE});
-            return fresh ? flattenCarTranslations(fresh) : flattenCarTranslations(updated);
+            if (fresh) {
+                return {
+                    ...flattenCarTranslations(fresh),
+                    configuration: flattenConfigurationOptions(fresh.configurationOptions),
+                };
+            }
+            return flattenCarTranslations(updated);
         });
     }
 
@@ -477,34 +551,30 @@ class CarService {
             }));
     }
 
+    /**
+     * Returns the unique catalogue of configuration options across the
+     * fleet. Pre-i18n-Phase-4 this scanned every car's `Json[]` blob
+     * and deduped at runtime; now it's a straight SELECT against the
+     * `ConfigurationOption` table — same response shape so the admin
+     * autocomplete UI stays unchanged.
+     */
     async getConfigurationOptions() {
-        const cars = await prisma.car.findMany({
-            where: {configuration: {not: Prisma.DbNull}},
-            select: {configuration: true},
+        const opts = await prisma.configurationOption.findMany({
+            include: {translations: true},
         });
-
-        const seen = new Map<string, {uk: string; ru: string; en: string; pl: string}>();
-
-        for (const car of cars) {
-            const config = car.configuration as any[];
-            if (!Array.isArray(config)) continue;
-
-            for (const item of config) {
-                if (!item || typeof item !== 'object') continue;
-                const uk = (item.uk || '').trim();
-                if (!uk) continue;
-                if (!seen.has(uk)) {
-                    seen.set(uk, {
-                        uk,
-                        ru: (item.ru || '').trim(),
-                        en: (item.en || '').trim(),
-                        pl: (item.pl || '').trim(),
-                    });
-                }
+        const out = opts.map((o) => {
+            const map: Record<string, string> = {};
+            for (const tr of o.translations) {
+                if (tr.value) map[tr.locale] = tr.value;
             }
-        }
-
-        return Array.from(seen.values()).sort((a, b) => a.uk.localeCompare(b.uk, 'uk'));
+            return {
+                uk: map.uk ?? '',
+                ru: map.ru ?? '',
+                en: map.en ?? '',
+                pl: map.pl ?? '',
+            };
+        }).filter((m) => m.uk);
+        return out.sort((a, b) => a.uk.localeCompare(b.uk, 'uk'));
     }
 
 }
