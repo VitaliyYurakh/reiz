@@ -516,12 +516,10 @@ export function CalendarGrid({
                         {row.car.plateNumber && (
                           <span className="plate">{row.car.plateNumber}</span>
                         )}
-                        {row.car.plateNumber && <span className="dot" />}
-                        <span>
-                          {row.car.isAvailable
-                            ? t('calendar.available')
-                            : t('calendar.unavailable')}
-                        </span>
+                        {row.car.plateNumber && row.car.category && (
+                          <span className="dot" />
+                        )}
+                        {row.car.category && <span>{row.car.category}</span>}
                       </div>
                     </div>
                     <LoadDonut pct={util} H={H} />

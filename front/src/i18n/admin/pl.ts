@@ -902,6 +902,9 @@ export const pl: AdminTranslations = {
     hideAvailability: 'Ukryj sprawdzanie',
     availabilityWindow: 'Dostępne auta w okresie',
     now: 'Teraz',
+    titleFull: 'Kalendarz rezerwacji',
+    fleetSize: '{count} aut we flocie',
+    carsInFleet: 'aut we flocie',
   },
 
   /* ── Pricing ── */

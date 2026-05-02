@@ -18,6 +18,7 @@ class CalendarService {
                 model: true,
                 plateNumber: true,
                 isAvailable: true,
+                segment: {select: {name: true}, take: 1},
             },
             orderBy: {brand: 'asc'},
         });
@@ -138,6 +139,7 @@ class CalendarService {
                     name: `${car.brand || ''} ${car.model || ''}`.trim(),
                     plateNumber: car.plateNumber,
                     isAvailable: car.isAvailable,
+                    category: car.segment?.[0]?.name ?? null,
                 },
                 intervals,
             };

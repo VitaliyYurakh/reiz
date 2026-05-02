@@ -902,6 +902,9 @@ export const ru: AdminTranslations = {
     hideAvailability: 'Скрыть проверку',
     availabilityWindow: 'Свободные авто в период',
     now: 'Сейчас',
+    titleFull: 'Календарь бронирований',
+    fleetSize: '{count} авто в парке',
+    carsInFleet: 'авто в парке',
   },
 
   /* ── Pricing ── */

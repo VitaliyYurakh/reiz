@@ -920,6 +920,9 @@ export const uk = {
     hideAvailability: 'Сховати перевірку',
     availabilityWindow: 'Вільні авто в період',
     now: 'Зараз',
+    titleFull: 'Календар бронювань',
+    fleetSize: '{count} авто в парку',
+    carsInFleet: 'авто в парку',
   },
 
   /* ── Pricing ── */

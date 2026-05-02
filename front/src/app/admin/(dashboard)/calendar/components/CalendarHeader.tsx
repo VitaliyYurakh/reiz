@@ -7,7 +7,6 @@ import {
   Search,
   CalendarDays,
   Check,
-  ScanSearch,
   X,
   ChevronsLeftRight,
 } from 'lucide-react';
@@ -73,9 +72,9 @@ export function CalendarHeader({
             <CalendarDays />
           </div>
           <div className="cal-title-text">
-            <h1>{t('calendar.title')}</h1>
+            <h1>{t('calendar.titleFull')}</h1>
             <div className="sub">
-              {rangeLabel} · {fleetCount}
+              {rangeLabel} · {t('calendar.fleetSize', { count: String(fleetCount) })}
             </div>
           </div>
         </div>
@@ -170,7 +169,7 @@ export function CalendarHeader({
           onClick={onToggleAvailCheck}
           className={`cal-availability-btn ${availCheck ? 'active' : ''}`}
         >
-          {availCheck ? <X /> : <ScanSearch />}
+          {availCheck ? <X /> : <Check />}
           {availCheck
             ? t('calendar.hideAvailability')
             : t('calendar.checkAvailability')}

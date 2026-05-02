@@ -17,6 +17,7 @@ export interface CarRow {
     name: string;
     plateNumber: string | null;
     isAvailable: boolean;
+    category: string | null;
   };
   intervals: Interval[];
 }

@@ -130,10 +130,9 @@ export function CalendarStyles({ H }: { H: ThemeTokens }) {
         font-weight: 700;
         color: #fff;
         height: 32px;
-        background: linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%);
-        box-shadow: 0 4px 10px -2px ${H.purple}60;
+        background: ${H.purple};
       }
-      .cal-datenav .today:hover { background: linear-gradient(135deg, ${H.purple} 0%, ${H.purpleLight} 100%); color: #fff; filter: brightness(1.05); }
+      .cal-datenav .today:hover { background: ${H.purpleLight}; color: #fff; }
 
       .cal-icon-btn {
         width: 40px; height: 40px;

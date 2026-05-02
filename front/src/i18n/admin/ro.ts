@@ -902,6 +902,9 @@ export const ro: AdminTranslations = {
         hideAvailability: 'Ascunde verificarea',
         availabilityWindow: 'Mașini libere în perioadă',
         now: 'Acum',
+        titleFull: 'Calendarul rezervărilor',
+        fleetSize: '{count} mașini în flotă',
+        carsInFleet: 'mașini în flotă',
     },
 
     /* ── Pricing ── */

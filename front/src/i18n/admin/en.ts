@@ -902,6 +902,9 @@ export const en: AdminTranslations = {
     hideAvailability: 'Hide availability',
     availabilityWindow: 'Available cars in period',
     now: 'Now',
+    titleFull: 'Bookings Calendar',
+    fleetSize: '{count} cars in fleet',
+    carsInFleet: 'cars in fleet',
   },
 
   /* ── Pricing ── */

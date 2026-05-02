@@ -25,6 +25,14 @@ export function CalendarLegend({ H }: { H: ThemeTokens }) {
         <span className="swatch now" />
         {t('calendar.now')}
       </span>
+      <span className="cal-legend-item" style={{ gap: 4 }}>
+        <span style={{ color: H.gray, fontSize: 13 }}>●</span>
+        {t('calendar.statusConfirmed')}
+        <span style={{ color: '#FFE08A', fontSize: 13, marginLeft: 6 }}>●</span>
+        {t('calendar.statusPickedUp')}
+        <span style={{ color: '#5DFFB6', fontSize: 13, marginLeft: 6 }}>●</span>
+        {t('calendar.statusActive')}
+      </span>
       <div className="cal-legend-divider" />
       <span className="cal-legend-item" style={{ color: H.red }}>
         <AlertTriangle style={{ width: 12, height: 12 }} />
