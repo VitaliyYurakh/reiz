@@ -1276,28 +1276,31 @@ model AuditLog {
 // --- City & Pickup Location ---
 
 model City {
-  id             Int      @id @default(autoincrement())
-  slug           String   @unique
-  nameUk         String   @map("name_uk")
-  nameRu         String   @map("name_ru")
-  nameEn         String   @map("name_en")
-  nameLocativeUk String   @map("name_locative_uk")
-  nameLocativeRu String   @map("name_locative_ru")
-  nameLocativeEn String   @map("name_locative_en")
+  id         Int     @id @default(autoincrement())
+  slug       String  @unique
   // Geographic coordinates as Decimal(10,7) — 7 fractional digits is
   // ~11 mm precision at the equator, plenty for vehicle pickup
   // markers. Decimal (not Float) avoids IEEE-754 rounding when
   // computing distances or matching tiles.
-  latitude       Decimal  @db.Decimal(10, 7)
-  longitude      Decimal  @db.Decimal(10, 7)
-  postalCode     String   @map("postal_code")
-  region         String
-  sortOrder      Int      @default(0) @map("sort_order")
-  isPopular      Boolean  @default(false) @map("is_popular")
-  isActive       Boolean  @default(true) @map("is_active")
-  createdAt      DateTime @default(now()) @map("created_at")
-  updatedAt      DateTime @updatedAt @map("updated_at")
+  latitude   Decimal @db.Decimal(10, 7)
+  longitude  Decimal @db.Decimal(10, 7)
+  postalCode String  @map("postal_code")
+  region     String
+  sortOrder  Int     @default(0) @map("sort_order")
+  isPopular  Boolean @default(false) @map("is_popular")
+  isActive   Boolean @default(true) @map("is_active")
 
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Localised name + nameLocative live on `CityTranslation`. Pre-i18n
+  // Phase 2 these were 6 column-per-locale columns (nameUk/Ru/En +
+  // nameLocativeUk/Ru/En) which hard-locked the schema to 3 locales —
+  // adding pl/ro required a column-add migration. Now they're rows.
+  // city.service.ts flattens the rows back to the legacy
+  // `nameUk/Ru/En + nameLocativeUk/Ru/En` shape on the API response so
+  // existing FE callers keep working.
+  translations    CityTranslation[]
   pickupLocations PickupLocation[]
   carAvailability CarCityAvailability[]
 
@@ -1305,25 +1308,57 @@ model City {
   @@map("city")
 }
 
+model CityTranslation {
+  id           Int    @id @default(autoincrement())
+  cityId       Int    @map("city_id")
+  locale       String @db.VarChar(2)
+  name         String
+  nameLocative String @map("name_locative")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  city City @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  @@unique([cityId, locale])
+  @@index([locale])
+  @@map("city_translation")
+}
+
 model PickupLocation {
   id        Int      @id @default(autoincrement())
   cityId    Int      @map("city_id")
   slug      String
-  nameUk    String   @map("name_uk")
-  nameRu    String   @map("name_ru")
-  nameEn    String   @map("name_en")
   type      String
   sortOrder Int      @default(0) @map("sort_order")
   isActive  Boolean  @default(true) @map("is_active")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  city           City            @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  // Localised display name lives on `PickupLocationTranslation`.
+  city           City                        @relation(fields: [cityId], references: [id], onDelete: Cascade)
   inventoryItems InventoryItem[]
+  translations   PickupLocationTranslation[]
 
   @@unique([cityId, slug])
   @@index([cityId])
   @@map("pickup_location")
+}
+
+model PickupLocationTranslation {
+  id               Int    @id @default(autoincrement())
+  pickupLocationId Int    @map("pickup_location_id")
+  locale           String @db.VarChar(2)
+  name             String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  pickupLocation PickupLocation @relation(fields: [pickupLocationId], references: [id], onDelete: Cascade)
+
+  @@unique([pickupLocationId, locale])
+  @@index([locale])
+  @@map("pickup_location_translation")
 }
 
 model CarCityAvailability {

@@ -2,6 +2,7 @@ import {Car, CarCountingRule, Prisma, RentalTariff, User} from '@prisma/client';
 import {CarNotFoundError, prisma} from '../utils';
 import {CreateCarDto, UpdateCarDto, CarPhotoDto, CountingRuleDto, TariffDto} from '../types';
 import {Language} from '../types/dto.types';
+import {flattenCityTranslations, CITY_TRANSLATIONS_SELECT} from './city.service';
 
 // Five locales the public site renders.  Kept here (not in a shared
 // constant) because the i18n table is Car-specific for now; expanding to
@@ -126,12 +127,15 @@ class CarService {
                 cityAvailability: {
                     where: {isActive: true},
                     include: {
-                        city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true, nameLocativeUk: true, nameLocativeRu: true, nameLocativeEn: true}},
+                        city: {select: {id: true, slug: true, translations: CITY_TRANSLATIONS_SELECT}},
                     },
                 },
             },
         });
-        return cars.map(flattenCarTranslations);
+        return cars.map((c) => ({
+            ...flattenCarTranslations(c),
+            cityAvailability: c.cityAvailability.map((row) => ({...row, city: flattenCityTranslations(row.city)})),
+        }));
     }
 
     async getOne(id: number) {
@@ -141,21 +145,26 @@ class CarService {
                 ...CAR_INCLUDE,
                 cityAvailability: {
                     include: {
-                        city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true, nameLocativeUk: true, nameLocativeRu: true, nameLocativeEn: true}},
+                        city: {select: {id: true, slug: true, translations: CITY_TRANSLATIONS_SELECT}},
                     },
                 },
             },
         });
-        return car ? flattenCarTranslations(car) : null;
+        if (!car) return null;
+        return {
+            ...flattenCarTranslations(car),
+            cityAvailability: car.cityAvailability.map((row) => ({...row, city: flattenCityTranslations(row.city)})),
+        };
     }
 
     async getCityAvailability(carId: number) {
-        return prisma.carCityAvailability.findMany({
+        const rows = await prisma.carCityAvailability.findMany({
             where: {carId},
             include: {
-                city: {select: {id: true, slug: true, nameUk: true, nameRu: true, nameEn: true, isActive: true}},
+                city: {select: {id: true, slug: true, isActive: true, translations: CITY_TRANSLATIONS_SELECT}},
             },
         });
+        return rows.map((row) => ({...row, city: flattenCityTranslations(row.city)}));
     }
 
     async updateCityAvailability(carId: number, availability: {cityId: number; deliveryFee: number; minRentalDays: number; isActive: boolean}[]) {

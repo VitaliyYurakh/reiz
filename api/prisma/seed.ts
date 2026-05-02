@@ -234,20 +234,41 @@ async function main() {
     if (!cityCount) {
         console.log('Seeding cities and pickup locations...');
         for (const cityData of seedCities) {
+            // Post-i18n Phase 2: name fields live on `city_translation`.
+            // The seed-cities dataset still ships the legacy
+            // {nameUk, nameRu, nameEn, ...} shape — split it into nested
+            // `translations.create` here so the seed file itself stays
+            // small and database-shape-agnostic.
+            const {nameUk, nameRu, nameEn, nameLocativeUk, nameLocativeRu, nameLocativeEn, ...cityRest} = cityData;
             const city = await prisma.city.create({
                 data: {
-                    ...cityData,
+                    ...cityRest,
                     isPopular: popularCitySlugs.includes(cityData.slug),
                     isActive: true,
+                    translations: {
+                        create: [
+                            {locale: 'uk', name: nameUk, nameLocative: nameLocativeUk},
+                            {locale: 'ru', name: nameRu, nameLocative: nameLocativeRu},
+                            {locale: 'en', name: nameEn, nameLocative: nameLocativeEn},
+                        ],
+                    },
                 },
             });
             const locations = seedPickupLocations[cityData.slug] || [];
             for (const loc of locations) {
+                const {nameUk: lUk, nameRu: lRu, nameEn: lEn, ...locRest} = loc;
                 await prisma.pickupLocation.create({
                     data: {
-                        ...loc,
+                        ...locRest,
                         cityId: city.id,
                         isActive: true,
+                        translations: {
+                            create: [
+                                {locale: 'uk', name: lUk},
+                                {locale: 'ru', name: lRu},
+                                {locale: 'en', name: lEn},
+                            ],
+                        },
                     },
                 });
             }

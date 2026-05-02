@@ -44,14 +44,36 @@ class InventoryService {
                 take: limit,
                 orderBy: [{status: 'asc'}, {name: 'asc'}],
                 include: {
-                    location: {select: {id: true, nameUk: true, nameEn: true}},
+                    location: {
+                        select: {
+                            id: true,
+                            translations: {select: {locale: true, name: true}},
+                        },
+                    },
                     responsibleUser: {select: {id: true, name: true, email: true}},
                 },
             }),
             prisma.inventoryItem.count({where}),
         ]);
 
-        return {items, total, page, limit, totalPages: Math.ceil(total / limit)};
+        // Flatten the location.translations[] into the legacy
+        // {nameUk, nameEn} shape the FE inventory list still reads.
+        const flatItems = items.map((it) => {
+            if (!it.location) return it;
+            const tr = it.location.translations as Array<{locale: string; name: string}>;
+            const uk = tr.find((t) => t.locale === 'uk');
+            const en = tr.find((t) => t.locale === 'en');
+            return {
+                ...it,
+                location: {
+                    id: it.location.id,
+                    nameUk: uk?.name ?? en?.name ?? '',
+                    nameEn: en?.name ?? uk?.name ?? '',
+                },
+            };
+        });
+
+        return {items: flatItems, total, page, limit, totalPages: Math.ceil(total / limit)};
     }
 
     async getOne(id: number) {
