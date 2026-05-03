@@ -20,18 +20,14 @@ function pluralize(n: number, one: string, few: string, many: string): string {
 export default function ProfileCard({ profile, bookingsCount = 0 }: ProfileCardProps) {
   const { data: session } = useSession();
   const t = useTranslations("account.card");
-  const name = profile
-    ? `${profile.firstName} ${profile.lastName}`
-    : session?.user?.name || "";
   const firstName = profile?.firstName || session?.user?.name?.split(" ")[0] || "";
   const lastName = profile?.lastName || session?.user?.name?.split(" ").slice(1).join(" ") || "";
+  const fullName = [firstName, lastName].filter(Boolean).join(" ") || session?.user?.name || "";
   const avatar = session?.user?.image;
   const city = profile?.city || "";
   const country = profile?.country || "";
   const location = [city, country].filter(Boolean).join(", ");
-  const memberSince = profile?.createdAt
-    ? new Date(profile.createdAt)
-    : new Date();
+  const memberSince = profile?.createdAt ? new Date(profile.createdAt) : new Date();
   const now = new Date();
   const diffMs = now.getTime() - memberSince.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
@@ -56,35 +52,46 @@ export default function ProfileCard({ profile, bookingsCount = 0 }: ProfileCardP
       <div className="profile-card__left">
         <div className="profile-card__avatar-wrap">
           {avatar ? (
-            <img src={avatar} alt={name} className="profile-card__avatar" referrerPolicy="no-referrer" />
+            <img src={avatar} alt={fullName} className="profile-card__avatar" referrerPolicy="no-referrer" />
           ) : (
             <div className="profile-card__avatar profile-card__avatar--placeholder">
               {firstName.charAt(0).toUpperCase()}
             </div>
           )}
-          <div className="profile-card__badge">✓</div>
+          <div className="profile-card__badge" aria-label="verified">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>
+          </div>
         </div>
-        <p className="profile-card__name">{firstName} {lastName}</p>
-        {location && <p className="profile-card__location">{location}</p>}
+        <div>
+          <p className="profile-card__name">{fullName}</p>
+          {location && <p className="profile-card__location">{location}</p>}
+        </div>
       </div>
+      <div className="profile-card__divider" />
       <div className="profile-card__right">
         <div className="profile-card__stat">
-          <span className="profile-card__stat-value">{bookingsCount}</span>
-          <span className="profile-card__stat-label">{t("trips")}</span>
+          <div className="profile-card__stat-row">
+            <span className="profile-card__stat-value">{bookingsCount}</span>
+            <span className="profile-card__stat-label">{t("trips")}</span>
+          </div>
         </div>
-        <div className="profile-card__stat-divider" />
         <div className="profile-card__stat">
-          <span className="profile-card__stat-value">
-            {profile?.discount ? `${profile.discount}%` : "—"}
-          </span>
-          <span className="profile-card__stat-label">{t("discount")}</span>
+          <div className="profile-card__stat-row">
+            <span className="profile-card__stat-value">
+              {profile?.discount ? `${profile.discount}%` : "—"}
+            </span>
+            <span className="profile-card__stat-label">{t("discount")}</span>
+          </div>
         </div>
-        <div className="profile-card__stat-divider" />
         <div className="profile-card__stat">
-          <span className="profile-card__stat-value">{timeValue}</span>
-          <span className="profile-card__stat-label">
-            {t("time_with_reiz", { value: timeValue, unit: timeUnit })}
-          </span>
+          <div className="profile-card__stat-row">
+            <span className="profile-card__stat-value">{timeValue}</span>
+            <span className="profile-card__stat-label">
+              {t("time_with_reiz", { value: timeValue, unit: timeUnit })}
+            </span>
+          </div>
         </div>
       </div>
     </div>

@@ -10,7 +10,16 @@ export default async function BookingsPage() {
 
   return (
     <div className="account-page">
-      <h1 className="account-page__title">{t("bookings.title")}</h1>
+      <div className="acc-page-header">
+        <div>
+          <h1>{t("bookings.title")}</h1>
+          {items.length > 0 && (
+            <div className="acc-page-header__sub">
+              {items.length} {t("bookings.active_count_suffix")}
+            </div>
+          )}
+        </div>
+      </div>
 
       {items.length === 0 ? (
         <p className="account-page__empty">{t("bookings.empty")}</p>

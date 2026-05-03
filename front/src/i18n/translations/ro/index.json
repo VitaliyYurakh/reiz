@@ -3364,7 +3364,8 @@
       "cancel_requested": "Cerere de anulare trimisă",
       "cancel_request_sent": "Cerere trimisă. Vă vom contacta.",
       "view_car": "Vezi mașina",
-      "link_copied": "Link copiat"
+      "link_copied": "Link copiat",
+      "active_count_suffix": "active și viitoare"
     },
     "history": {
       "title": "Istoricul rezervărilor",
@@ -3374,7 +3375,9 @@
       "completed_rentals": "Închirieri finalizate",
       "cancelled_title": "Rezervări anulate",
       "total_spent": "Suma totală",
-      "member_since": "Client din"
+      "member_since": "Client din",
+      "trip_one": "călătorie",
+      "trip_few": "călătorii"
     },
     "favorites": {
       "title": "Favorite",
@@ -3382,14 +3385,20 @@
       "remove": "Eliminare",
       "add_tooltip": "Adaugă acest automobil în lista ta de dorințe",
       "remove_tooltip": "Elimină acest automobil din lista ta de dorințe",
-      "perDay": "zi"
+      "perDay": "zi",
+      "count_suffix": "mașini salvate"
     },
     "notifications": {
       "title": "Notificări",
       "email_deals": "Oferte și reduceri",
       "email_reminders": "Memento-uri de rezervare",
       "email_receipts": "Chitanțe și facturi",
-      "saved": "Salvat!"
+      "saved": "Salvat!",
+      "col_event": "Tip de eveniment",
+      "email_deals_sub": "Oferte sezoniere REIZ",
+      "email_reminders_sub": "Mementouri pick-up și drop-off",
+      "email_receipts_sub": "Bonuri, facturi, depozite",
+      "subtitle": "Alegeți ce evenimente doriți să primiți"
     },
     "privacy": {
       "title": "Confidențialitate și date",
@@ -3407,6 +3416,12 @@
       "my_account": "Contul meu",
       "login": "Autentificare",
       "login_to_account": "Autentifică-te în contul personal"
+    },
+    "complaints": {
+      "title": "Sesizări",
+      "empty": "Nu ai încă sesizări.",
+      "create_btn": "Sesizare nouă",
+      "count_suffix": "sesizări"
     }
   }
 }

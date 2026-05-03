@@ -3364,7 +3364,8 @@
       "cancel_requested": "Prośba o anulowanie wysłana",
       "cancel_request_sent": "Prośba wysłana. Skontaktujemy się z Tobą.",
       "view_car": "Zobacz samochód",
-      "link_copied": "Link skopiowany"
+      "link_copied": "Link skopiowany",
+      "active_count_suffix": "aktywnych i nadchodzących"
     },
     "history": {
       "title": "Historia rezerwacji",
@@ -3374,7 +3375,9 @@
       "completed_rentals": "Ukończonych wynajmów",
       "cancelled_title": "Anulowane rezerwacje",
       "total_spent": "Łączna kwota",
-      "member_since": "Klient od"
+      "member_since": "Klient od",
+      "trip_one": "podróż",
+      "trip_few": "podróży"
     },
     "favorites": {
       "title": "Ulubione",
@@ -3382,14 +3385,20 @@
       "remove": "Usuń",
       "add_tooltip": "Dodaj ten samochód do swojej listy życzeń",
       "remove_tooltip": "Usuń ten samochód ze swojej listy życzeń",
-      "perDay": "dzień"
+      "perDay": "dzień",
+      "count_suffix": "samochodów zapisanych"
     },
     "notifications": {
       "title": "Powiadomienia",
       "email_deals": "Promocje i zniżki",
       "email_reminders": "Przypomnienia o rezerwacji",
       "email_receipts": "Rachunki i faktury",
-      "saved": "Zapisano!"
+      "saved": "Zapisano!",
+      "col_event": "Typ zdarzenia",
+      "email_deals_sub": "Sezonowe oferty REIZ",
+      "email_reminders_sub": "Przypomnienia o pick-up i drop-off",
+      "email_receipts_sub": "Paragony, faktury, depozyty",
+      "subtitle": "Wybierz, jakie zdarzenia chcesz otrzymywać"
     },
     "privacy": {
       "title": "Prywatność i dane",
@@ -3407,6 +3416,12 @@
       "my_account": "Moje konto",
       "login": "Zaloguj się",
       "login_to_account": "Zaloguj się do konta osobistego"
+    },
+    "complaints": {
+      "title": "Zgłoszenia",
+      "empty": "Nie masz jeszcze zgłoszeń.",
+      "create_btn": "Nowe zgłoszenie",
+      "count_suffix": "zgłoszeń"
     }
   }
 }

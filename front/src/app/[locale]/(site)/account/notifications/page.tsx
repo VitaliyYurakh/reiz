@@ -8,7 +8,12 @@ export default async function NotificationsPage() {
 
   return (
     <div className="account-page">
-      <h1 className="account-page__title">{t("notifications.title")}</h1>
+      <div className="acc-page-header">
+        <div>
+          <h1>{t("notifications.title")}</h1>
+          <div className="acc-page-header__sub">{t("notifications.subtitle")}</div>
+        </div>
+      </div>
       <NotificationSettings preferences={prefs} />
     </div>
   );

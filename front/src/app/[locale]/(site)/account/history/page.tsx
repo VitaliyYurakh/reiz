@@ -26,22 +26,31 @@ export default async function HistoryPage() {
     .map(Number)
     .sort((a, b) => b - a);
 
+  const yearLabel = (year: number, count: number) => {
+    if (count === 1) return t("history.trip_one");
+    return t("history.trip_few");
+  };
+
   return (
     <div className="account-page">
-      <h1 className="account-page__title">{t("history.title")}</h1>
+      <div className="acc-page-header">
+        <h1>{t("history.title")}</h1>
+      </div>
 
       {stats && (
         <div className="history-stats">
           <div className="history-stats__item">
-            <span className="history-stats__number">
-              {stats.totalCompletedRentals}
-            </span>
             <span className="history-stats__label">
               {t("history.completed_rentals")}
             </span>
+            <span className="history-stats__number">
+              {stats.totalCompletedRentals}
+            </span>
           </div>
-          <div className="history-stats__divider" />
           <div className="history-stats__item">
+            <span className="history-stats__label">
+              {t("history.member_since")}
+            </span>
             <span className="history-stats__number">
               {stats.memberSince
                 ? new Date(stats.memberSince).toLocaleDateString(locale, {
@@ -49,9 +58,6 @@ export default async function HistoryPage() {
                     year: "numeric",
                   })
                 : "—"}
-            </span>
-            <span className="history-stats__label">
-              {t("history.member_since")}
             </span>
           </div>
         </div>
@@ -63,7 +69,12 @@ export default async function HistoryPage() {
         <div className="history-timeline">
           {years.map((year) => (
             <div key={year} className="history-year">
-              <div className="history-year__badge">{year}</div>
+              <div className="history-year__badge">
+                {year}
+                <small>
+                  {grouped[year].length} {yearLabel(year, grouped[year].length)}
+                </small>
+              </div>
               <div className="history-year__grid">
                 {grouped[year].map((item: any) => (
                   <BookingCard

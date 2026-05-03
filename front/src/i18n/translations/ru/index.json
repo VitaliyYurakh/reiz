@@ -3386,7 +3386,8 @@
       "cancel_requested": "Запрос на отмену отправлен",
       "cancel_request_sent": "Запрос отправлен. Мы свяжемся с вами.",
       "view_car": "Посмотреть авто",
-      "link_copied": "Ссылка скопирована"
+      "link_copied": "Ссылка скопирована",
+      "active_count_suffix": "активных и будущих"
     },
     "history": {
       "title": "История бронирований",
@@ -3396,7 +3397,9 @@
       "completed_rentals": "Завершённых аренд",
       "cancelled_title": "Отменённые бронирования",
       "total_spent": "Общая сумма",
-      "member_since": "Клиент с"
+      "member_since": "Клиент с",
+      "trip_one": "поездка",
+      "trip_few": "поездок"
     },
     "favorites": {
       "title": "Избранное",
@@ -3404,14 +3407,20 @@
       "remove": "Удалить",
       "add_tooltip": "Добавить этот автомобиль в ваш список желаний",
       "remove_tooltip": "Удалить этот автомобиль из вашего списка желаний",
-      "perDay": "день"
+      "perDay": "день",
+      "count_suffix": "авто сохранено"
     },
     "notifications": {
       "title": "Уведомления",
       "email_deals": "Акции и скидки",
       "email_reminders": "Напоминания о бронировании",
       "email_receipts": "Квитанции и счета",
-      "saved": "Сохранено!"
+      "saved": "Сохранено!",
+      "col_event": "Тип события",
+      "email_deals_sub": "Сезонные предложения REIZ",
+      "email_reminders_sub": "Напоминания о pick-up и drop-off",
+      "email_receipts_sub": "Чеки, счета, депозиты",
+      "subtitle": "Выберите, какие события хотите получать"
     },
     "privacy": {
       "title": "Конфиденциальность и данные",
@@ -3515,6 +3524,12 @@
       "swedish": "Шведский",
       "estonian": "Эстонский",
       "japanese": "Японский"
+    },
+    "complaints": {
+      "title": "Обращения",
+      "empty": "У вас пока нет обращений.",
+      "create_btn": "Создать обращение",
+      "count_suffix": "обращений"
     }
   }
 }

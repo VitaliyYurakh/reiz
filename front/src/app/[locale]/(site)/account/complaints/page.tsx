@@ -1,81 +1,122 @@
 import { getMyComplaints } from "@/lib/api/customer";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/request";
 
-const STATUS_LABEL_UK: Record<string, string> = {
-  open: "Відкрита",
-  in_review: "В роботі",
-  awaiting_client: "Чекає вашої відповіді",
-  resolved: "Вирішена",
-  rejected: "Відхилена",
+const STATUS_LABEL: Record<string, Record<string, string>> = {
+  uk: {
+    open: "Відкрита",
+    in_review: "В роботі",
+    awaiting_client: "Чекає вашої відповіді",
+    resolved: "Вирішена",
+    rejected: "Відхилена",
+  },
+  ru: {
+    open: "Открыта",
+    in_review: "В работе",
+    awaiting_client: "Ждёт вашего ответа",
+    resolved: "Решена",
+    rejected: "Отклонена",
+  },
+  en: {
+    open: "Open",
+    in_review: "In review",
+    awaiting_client: "Awaiting reply",
+    resolved: "Resolved",
+    rejected: "Rejected",
+  },
+  pl: {
+    open: "Otwarte",
+    in_review: "W trakcie",
+    awaiting_client: "Czeka na odpowiedź",
+    resolved: "Rozwiązane",
+    rejected: "Odrzucone",
+  },
+  ro: {
+    open: "Deschis",
+    in_review: "În curs",
+    awaiting_client: "Așteaptă răspuns",
+    resolved: "Rezolvat",
+    rejected: "Respins",
+  },
 };
 
-const CATEGORY_LABEL_UK: Record<string, string> = {
-  DEPOSIT: "Застава",
-  DAMAGE: "Пошкодження",
-  FINE: "Штраф",
-  SERVICE: "Сервіс",
-  GDPR: "Персональні дані",
-  OTHER: "Інше",
-};
-
-const STATUS_COLOR: Record<string, string> = {
-  open: "#7C4DFF",
-  in_review: "#FF9100",
-  awaiting_client: "#00838F",
-  resolved: "#4CAF50",
-  rejected: "#90A4AE",
+const CATEGORY_LABEL: Record<string, Record<string, string>> = {
+  uk: { DEPOSIT: "Застава", DAMAGE: "Пошкодження", FINE: "Штраф", SERVICE: "Сервіс", GDPR: "Персональні дані", OTHER: "Інше" },
+  ru: { DEPOSIT: "Залог", DAMAGE: "Повреждение", FINE: "Штраф", SERVICE: "Сервис", GDPR: "Персональные данные", OTHER: "Другое" },
+  en: { DEPOSIT: "Deposit", DAMAGE: "Damage", FINE: "Fine", SERVICE: "Service", GDPR: "Personal data", OTHER: "Other" },
+  pl: { DEPOSIT: "Depozyt", DAMAGE: "Uszkodzenie", FINE: "Mandat", SERVICE: "Serwis", GDPR: "Dane osobowe", OTHER: "Inne" },
+  ro: { DEPOSIT: "Garanție", DAMAGE: "Daune", FINE: "Amendă", SERVICE: "Serviciu", GDPR: "Date personale", OTHER: "Altele" },
 };
 
 export default async function MyComplaintsPage() {
   const data = await getMyComplaints();
   const items = data?.items ?? [];
   const locale = await getLocale();
+  const t = await getTranslations("account");
+  const statusMap = STATUS_LABEL[locale] || STATUS_LABEL.uk;
+  const categoryMap = CATEGORY_LABEL[locale] || CATEGORY_LABEL.uk;
 
   return (
     <div className="account-page">
-      <h1 className="account-page__title">Мої звернення</h1>
+      <div className="acc-page-header">
+        <div>
+          <h1>{t("complaints.title")}</h1>
+          {items.length > 0 && (
+            <div className="acc-page-header__sub">
+              {items.length} {t("complaints.count_suffix")}
+            </div>
+          )}
+        </div>
+      </div>
 
       {items.length === 0 ? (
-        <p className="account-page__empty">У вас ще немає звернень.</p>
+        <p className="account-page__empty">{t("complaints.empty")}</p>
       ) : (
-        <ul className="space-y-3">
+        <div className="complaints-list">
           {items.map((c: any) => (
-            <li key={c.id}>
-              <Link
-                href={`/account/complaints/${c.id}`}
-                className="block rounded-2xl border border-[#eee] bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-mono text-xs text-gray-500">{c.ticketNumber}</span>
-                      <span
-                        className="inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold text-white"
-                        style={{ background: STATUS_COLOR[c.status] || "#90A4AE" }}
-                      >
-                        {STATUS_LABEL_UK[c.status] || c.status}
-                      </span>
-                      <span className="inline-flex items-center rounded-full bg-gray-100 px-2 py-0.5 text-[11px] font-medium text-gray-700">
-                        {CATEGORY_LABEL_UK[c.category] || c.category}
-                      </span>
-                    </div>
-                    <h3 className="mt-1.5 text-base font-semibold text-gray-900">{c.subject}</h3>
-                    {c.rental && (
-                      <p className="mt-0.5 text-xs text-gray-500 font-mono">
-                        {c.rental.contractNumber}
-                      </p>
-                    )}
+            <Link
+              key={c.id}
+              href={`/account/complaints/${c.id}`}
+              className="complaint-row"
+            >
+              <div className="complaint-row__id">{c.ticketNumber}</div>
+              <span className={`acc-chip acc-chip--${c.status}`}>
+                <span className="acc-chip__dot" />
+                {statusMap[c.status] || c.status}
+              </span>
+              <span className="acc-chip acc-chip--neutral">
+                {categoryMap[c.category] || c.category}
+              </span>
+              <div className="complaint-row__meta">
+                <div className="complaint-row__theme">{c.subject}</div>
+                {c.rental && (
+                  <div className="complaint-row__contract">
+                    {c.rental.contractNumber}
                   </div>
-                  <span className="shrink-0 text-xs text-gray-500 tabular-nums">
-                    {new Date(c.createdAt).toLocaleDateString(locale, { day: "numeric", month: "short" })}
-                  </span>
-                </div>
-              </Link>
-            </li>
+                )}
+              </div>
+              <div className="complaint-row__date">
+                {new Date(c.createdAt).toLocaleDateString(locale, {
+                  day: "numeric",
+                  month: "short",
+                })}
+              </div>
+              <svg
+                className="complaint-row__chev"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </Link>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

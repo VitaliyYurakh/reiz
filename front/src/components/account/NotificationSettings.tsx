@@ -27,17 +27,24 @@ export default function NotificationSettings({
     setTimeout(() => setSaved(false), 2000);
   }
 
-  const items = [
-    { key: "emailDeals" as const, label: t("email_deals") },
-    { key: "emailReminders" as const, label: t("email_reminders") },
-    { key: "emailReceipts" as const, label: t("email_receipts") },
+  const items: { key: keyof typeof prefs; label: string; sub: string }[] = [
+    { key: "emailReceipts", label: t("email_receipts"), sub: t("email_receipts_sub") },
+    { key: "emailReminders", label: t("email_reminders"), sub: t("email_reminders_sub") },
+    { key: "emailDeals", label: t("email_deals"), sub: t("email_deals_sub") },
   ];
 
   return (
     <div className="account-notifications">
-      {items.map(({ key, label }) => (
+      <div className="account-notifications__head">
+        <div>{t("col_event")}</div>
+        <div>Email</div>
+      </div>
+      {items.map(({ key, label, sub }) => (
         <label key={key} className="account-notifications__item">
-          <span>{label}</span>
+          <div>
+            <div className="account-notifications__title">{label}</div>
+            <div className="account-notifications__sub">{sub}</div>
+          </div>
           <input
             type="checkbox"
             checked={prefs[key]}

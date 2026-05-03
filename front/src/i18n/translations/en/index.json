@@ -3386,7 +3386,8 @@
       "cancel_requested": "Cancellation requested",
       "cancel_request_sent": "Request sent. We will contact you.",
       "view_car": "View car",
-      "link_copied": "Link copied"
+      "link_copied": "Link copied",
+      "active_count_suffix": "active and upcoming"
     },
     "history": {
       "title": "History",
@@ -3396,7 +3397,9 @@
       "completed_rentals": "Completed rentals",
       "cancelled_title": "Cancelled bookings",
       "total_spent": "Total spent",
-      "member_since": "Member since"
+      "member_since": "Member since",
+      "trip_one": "trip",
+      "trip_few": "trips"
     },
     "favorites": {
       "title": "Favorites",
@@ -3404,14 +3407,20 @@
       "remove": "Remove",
       "add_tooltip": "Add this car to your wishlist",
       "remove_tooltip": "Remove this car from your wishlist",
-      "perDay": "day"
+      "perDay": "day",
+      "count_suffix": "cars saved"
     },
     "notifications": {
       "title": "Notifications",
       "email_deals": "Deals & discounts",
       "email_reminders": "Booking reminders",
       "email_receipts": "Receipts & invoices",
-      "saved": "Saved!"
+      "saved": "Saved!",
+      "col_event": "Event type",
+      "email_deals_sub": "Seasonal offers from REIZ",
+      "email_reminders_sub": "Pick-up and drop-off reminders",
+      "email_receipts_sub": "Receipts, invoices, deposits",
+      "subtitle": "Choose which events you want to receive"
     },
     "privacy": {
       "title": "Privacy & Data",
@@ -3515,6 +3524,12 @@
       "swedish": "Swedish",
       "estonian": "Estonian",
       "japanese": "Japanese"
+    },
+    "complaints": {
+      "title": "Inquiries",
+      "empty": "You have no inquiries yet.",
+      "create_btn": "New inquiry",
+      "count_suffix": "inquiries"
     }
   }
 }
