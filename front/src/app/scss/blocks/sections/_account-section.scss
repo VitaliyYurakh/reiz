@@ -3687,19 +3687,6 @@
       font-weight: 600;
 
       .account-sidebar__icon { color: var(--reiz-accent); }
-
-      &::before {
-        content: '';
-        position: absolute;
-        left: -8px;
-        top: 8px;
-        bottom: 8px;
-        width: 3px;
-        background: var(--reiz-accent);
-        border-radius: 3px;
-
-        @include tablet { display: none; }
-      }
     }
 
     &--logout {
