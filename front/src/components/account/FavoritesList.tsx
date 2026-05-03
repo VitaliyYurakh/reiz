@@ -11,6 +11,20 @@ import { createCarIdSlug } from "@/lib/utils/carSlug";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_URL || "/";
 
+// Cars on this project store transmission/driveType either as a localized
+// object {uk, ru, en, ...} or as a plain legacy string. The shared
+// `localized()` helper in @/types/cars only handles the object case, so we
+// fall back to the raw string here too.
+function localizedSpec(value: unknown, locale: string): string {
+  if (!value) return "";
+  if (typeof value === "string") return value;
+  if (typeof value === "object") {
+    const o = value as Record<string, string>;
+    return o[locale] || o.uk || o.en || "";
+  }
+  return "";
+}
+
 interface FavoritesListProps {
   favorites: any[];
 }
@@ -62,7 +76,10 @@ export default function FavoritesList({
         const tariffs = [...(car.rentalTariff || [])].sort(
           (a: any, b: any) => a.minDays - b.minDays,
         );
-        const deposit = tariffs[0]?.deposit;
+        const deposit =
+          tariffs[0]?.depositMinor != null
+            ? tariffs[0].depositMinor / 100
+            : null;
         const slug = createCarIdSlug(car);
 
         return (
@@ -129,15 +146,11 @@ export default function FavoritesList({
                 </span>
                 <span>
                   <svg width="20" height="20"><use href="/img/sprite/sprite.svg#gearbox" /></svg>
-                  {typeof car.transmission === "object"
-                    ? car.transmission?.[locale] || car.transmission?.uk
-                    : car.transmission}
+                  {localizedSpec(car.transmission, locale)}
                 </span>
                 <span>
                   <svg width="20" height="20"><use href="/img/sprite/sprite.svg#drivetrain" /></svg>
-                  {typeof car.driveType === "object"
-                    ? car.driveType?.[locale] || car.driveType?.uk
-                    : car.driveType}
+                  {localizedSpec(car.driveType, locale)}
                 </span>
               </div>
 
@@ -154,8 +167,10 @@ export default function FavoritesList({
                         )}
                       </span>
                       <span>
-                        <strong>{formatPrice(tariff.dailyPrice)}</strong>/
-                        {tCatalog("rates.perDay")}
+                        <strong>
+                          {formatPrice((tariff.dailyPriceMinor ?? 0) / 100)}
+                        </strong>
+                        /{tCatalog("rates.perDay")}
                       </span>
                     </div>
                   ))}
