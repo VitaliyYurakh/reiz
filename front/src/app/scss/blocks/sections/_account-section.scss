@@ -5096,7 +5096,7 @@
 
 .complaint-row {
   display: grid;
-  grid-template-columns: 120px 110px 130px minmax(0, 1fr) 70px 16px;
+  grid-template-columns: minmax(110px, auto) auto auto minmax(0, 1fr) auto 16px;
   gap: 16px;
   align-items: center;
   padding: 16px 20px;
@@ -5109,15 +5109,17 @@
   &:last-child { border-bottom: none; }
   &:hover { background: var(--acc-bg-hover); }
 
-  > * { min-width: 0; }
-
   &__id {
     font-family: var(--acc-font-mono);
     font-size: 12px;
     color: var(--acc-text-secondary);
+    white-space: nowrap;
   }
 
-  &__meta { min-width: 0; }
+  &__meta {
+    min-width: 0;
+    overflow: hidden;
+  }
 
   &__theme {
     font-size: 14px;
