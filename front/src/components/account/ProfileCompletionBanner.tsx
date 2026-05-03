@@ -132,7 +132,7 @@ export default function ProfileCompletionBanner({ profile }: ProfileCompletionBa
             <div className="profile-completion__step-meta">
               <span className="profile-completion__step-label">{f.label}</span>
               <span className="profile-completion__step-status">
-                {f.filled ? "Готово" : "Потрібно"}
+                {f.filled ? t("status_done") : t("status_needed")}
               </span>
             </div>
           </div>

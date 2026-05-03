@@ -3422,6 +3422,10 @@
       "empty": "Nie masz jeszcze zgłoszeń.",
       "create_btn": "Nowe zgłoszenie",
       "count_suffix": "zgłoszeń"
+    },
+    "completion": {
+      "status_done": "Gotowe",
+      "status_needed": "Wymagane"
     }
   }
 }

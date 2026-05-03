@@ -3424,7 +3424,9 @@
       "driver_license": "Водійське посвідчення",
       "license_expiry": "Термін дії посвідчення",
       "date_of_birth": "Дата народження",
-      "driving_since": "Рік отримання прав"
+      "driving_since": "Рік отримання прав",
+      "status_done": "Готово",
+      "status_needed": "Потрібно"
     },
     "header": {
       "my_account": "Мій кабінет",

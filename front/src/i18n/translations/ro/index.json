@@ -3422,6 +3422,10 @@
       "empty": "Nu ai încă sesizări.",
       "create_btn": "Sesizare nouă",
       "count_suffix": "sesizări"
+    },
+    "completion": {
+      "status_done": "Gata",
+      "status_needed": "Necesar"
     }
   }
 }

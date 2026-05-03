@@ -3445,7 +3445,9 @@
       "driver_license": "Driver's license",
       "license_expiry": "License expiry",
       "date_of_birth": "Date of birth",
-      "driving_since": "Driving since"
+      "driving_since": "Driving since",
+      "status_done": "Done",
+      "status_needed": "Needed"
     },
     "header": {
       "my_account": "My Account",
