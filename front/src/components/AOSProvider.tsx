@@ -53,30 +53,6 @@ export default function AOSProvider({ config = {} as AOSPartial }) {
     if (catalogEl)
       catalogEl.addEventListener("transitionend", onTransition(catalogEl));
 
-    const middleEl = document.querySelector<HTMLElement>(".footer__middle");
-    const bottomEl = document.querySelector<HTMLElement>(".footer__bottom");
-    if (middleEl && bottomEl) {
-      const ob = new IntersectionObserver(
-        (entries, self) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              bottomEl.removeAttribute("data-aos");
-              bottomEl.classList.add("aos-animate");
-              bottomEl.style.opacity = "0";
-              bottomEl.style.transition = "opacity 0.6s ease";
-              setTimeout(() => {
-                bottomEl.style.opacity = "1";
-              }, 850);
-              self.disconnect();
-            }
-          });
-        },
-        { threshold: 0.5 },
-      );
-      ob.observe(middleEl);
-      observers.push(ob);
-    }
-
     const nameEls = Array.from(
       document.querySelectorAll<HTMLElement>(".car-card__name"),
     );
