@@ -1677,8 +1677,12 @@
       },
       "submit": "TRIMITE CEREREA",
       "success": "Mesajul dumneavoastră a fost trimis cu succes!",
+      "success_with_ticket": "Sesizarea ta a fost înregistrată: {ticketNumber}",
       "error": "Trimiterea mesajului a eșuat. Vă rugăm să încercați din nou.",
-      "submitting": "Se trimite..."
+      "submitting": "Se trimite...",
+      "subject_default": "Sesizare de la {name}",
+      "subject_default_anonymous": "Sesizare de la client",
+      "empty_message_placeholder": "(mesaj gol)"
     },
     "whatsapp_unavailable": "WhatsApp este temporar indisponibil"
   },
@@ -3419,9 +3423,67 @@
     },
     "complaints": {
       "title": "Sesizări",
-      "empty": "Nu ai încă sesizări.",
+      "empty_title": "Nu ai încă sesizări",
+      "empty_hint": "Sesizările sunt canalul oficial pentru a contesta o garanție, o amendă, raportul de daune sau pentru a reclama serviciul. Echipa răspunde în limita SLA.",
       "create_btn": "Sesizare nouă",
-      "count_suffix": "sesizări"
+      "count_suffix": "sesizări",
+      "back_to_list": "Înapoi la sesizări",
+      "closed_note": "Sesizarea este închisă. Dacă mai ai întrebări — deschide una nouă.",
+      "your_reply_title": "Răspunsul tău",
+      "reply_placeholder": "Scrie un mesaj către manager…",
+      "reply_send": "Trimite",
+      "reply_sending": "Se trimite…",
+      "reply_error": "Nu am putut trimite. Încearcă din nou.",
+      "author_staff": "Echipa Reiz",
+      "author_system": "Sistem",
+      "author_client": "Tu",
+      "status": {
+        "open": "Deschis",
+        "in_review": "În curs",
+        "awaiting_client": "Așteaptă răspunsul tău",
+        "resolved": "Rezolvat",
+        "rejected": "Respins"
+      },
+      "category": {
+        "DEPOSIT": "Garanție",
+        "DAMAGE": "Daune",
+        "FINE": "Amendă",
+        "SERVICE": "Serviciu",
+        "GDPR": "Date personale",
+        "OTHER": "Altele"
+      },
+      "category_hint": {
+        "DEPOSIT": "Întrebare despre rambursarea sau suma garanției",
+        "DAMAGE": "Nu ești de acord cu raportul de daune sau suma compensației",
+        "FINE": "Vrei să contești o amendă",
+        "SERVICE": "Reclamație privind calitatea serviciului sau angajatul",
+        "GDPR": "Solicitare privind datele personale",
+        "OTHER": "Altă întrebare"
+      },
+      "new": {
+        "page_title": "Sesizare nouă",
+        "intro": "Descrie situația — un manager răspunde în limita SLA. Atașamentele pot fi adăugate după crearea sesizării.",
+        "category_label": "Categorie",
+        "rental_label": "Asociază cu o închiriere",
+        "rental_placeholder": "Fără asociere",
+        "rental_hint": "Dacă sesizarea se referă la o închiriere anume — selecteaz-o, astfel managerul găsește mai repede contextul.",
+        "subject_label": "Subiect",
+        "subject_placeholder": "Descrie pe scurt problema",
+        "message_label": "Mesaj",
+        "message_placeholder": "Descriere detaliată a situației…",
+        "submit": "Creează sesizarea",
+        "submitting": "Se creează…",
+        "back": "Anulează",
+        "success": "Sesizarea a fost înregistrată: {ticketNumber}. Redirecționăm…",
+        "error": "Nu am putut crea sesizarea. Verifică câmpurile sau încearcă mai târziu.",
+        "validation_subject": "Adaugă un subiect (minim 3 caractere).",
+        "validation_message": "Descrie situația (minim 5 caractere).",
+        "auth_required": "Autentifică-te pentru a crea o sesizare."
+      },
+      "cta": {
+        "from_inspection": "Contestă raportul de daune",
+        "from_booking": "Deschide o sesizare pentru această închiriere"
+      }
     },
     "completion": {
       "status_done": "Gata",

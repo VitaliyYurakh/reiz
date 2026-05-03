@@ -1677,8 +1677,12 @@
       },
       "submit": "WYSLIJ ZGŁOSZENIE",
       "success": "Twoja wiadomość zostala wyslana pomyslnie!",
+      "success_with_ticket": "Twoje zgłoszenie zostało zarejestrowane: {ticketNumber}",
       "error": "Nie udalo się wysłać wiadomości. Sprobuj ponownie.",
-      "submitting": "Wysylanie..."
+      "submitting": "Wysylanie...",
+      "subject_default": "Zgłoszenie od {name}",
+      "subject_default_anonymous": "Zgłoszenie od klienta",
+      "empty_message_placeholder": "(pusta wiadomość)"
     },
     "whatsapp_unavailable": "WhatsApp jest tymczasowo niedostępny"
   },
@@ -3419,9 +3423,67 @@
     },
     "complaints": {
       "title": "Zgłoszenia",
-      "empty": "Nie masz jeszcze zgłoszeń.",
+      "empty_title": "Nie masz jeszcze zgłoszeń",
+      "empty_hint": "Zgłoszenie to oficjalny kanał do reklamacji kaucji, mandatu, opisu uszkodzeń lub jakości obsługi. Zespół odpowiada w ramach SLA.",
       "create_btn": "Nowe zgłoszenie",
-      "count_suffix": "zgłoszeń"
+      "count_suffix": "zgłoszeń",
+      "back_to_list": "Wróć do zgłoszeń",
+      "closed_note": "Zgłoszenie zostało zamknięte. Jeśli masz dalsze pytania — utwórz nowe.",
+      "your_reply_title": "Twoja odpowiedź",
+      "reply_placeholder": "Napisz wiadomość do menedżera…",
+      "reply_send": "Wyślij",
+      "reply_sending": "Wysyłanie…",
+      "reply_error": "Nie udało się wysłać. Spróbuj ponownie.",
+      "author_staff": "Zespół Reiz",
+      "author_system": "System",
+      "author_client": "Ty",
+      "status": {
+        "open": "Otwarte",
+        "in_review": "W trakcie",
+        "awaiting_client": "Czeka na Twoją odpowiedź",
+        "resolved": "Rozwiązane",
+        "rejected": "Odrzucone"
+      },
+      "category": {
+        "DEPOSIT": "Kaucja",
+        "DAMAGE": "Uszkodzenia",
+        "FINE": "Mandat",
+        "SERVICE": "Serwis",
+        "GDPR": "Dane osobowe",
+        "OTHER": "Inne"
+      },
+      "category_hint": {
+        "DEPOSIT": "Pytanie o zwrot lub kwotę kaucji",
+        "DAMAGE": "Niezgodność z opisem uszkodzeń lub kwotą rekompensaty",
+        "FINE": "Chcesz zakwestionować mandat",
+        "SERVICE": "Skarga na jakość obsługi lub pracownika",
+        "GDPR": "Zgłoszenie dotyczące danych osobowych",
+        "OTHER": "Inne pytanie"
+      },
+      "new": {
+        "page_title": "Nowe zgłoszenie",
+        "intro": "Opisz sytuację — menedżer odpowie w ramach SLA. Załączniki możesz dodać po utworzeniu zgłoszenia.",
+        "category_label": "Kategoria",
+        "rental_label": "Powiąż z wynajmem",
+        "rental_placeholder": "Bez powiązania",
+        "rental_hint": "Jeśli zgłoszenie dotyczy konkretnego wynajmu — wybierz go, by menedżer szybciej zlokalizował sprawę.",
+        "subject_label": "Temat",
+        "subject_placeholder": "Krótko opisz sprawę",
+        "message_label": "Wiadomość",
+        "message_placeholder": "Szczegółowy opis sytuacji…",
+        "submit": "Utwórz zgłoszenie",
+        "submitting": "Tworzenie…",
+        "back": "Anuluj",
+        "success": "Zgłoszenie zostało zarejestrowane: {ticketNumber}. Przekierowujemy…",
+        "error": "Nie udało się utworzyć zgłoszenia. Sprawdź pola lub spróbuj później.",
+        "validation_subject": "Podaj temat (min. 3 znaki).",
+        "validation_message": "Opisz sytuację (min. 5 znaków).",
+        "auth_required": "Zaloguj się, aby utworzyć zgłoszenie."
+      },
+      "cta": {
+        "from_inspection": "Zakwestionuj opis uszkodzeń",
+        "from_booking": "Utwórz zgłoszenie do tego wynajmu"
+      }
     },
     "completion": {
       "status_done": "Gotowe",

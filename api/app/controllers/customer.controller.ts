@@ -4,6 +4,7 @@ import customerService from '../services/customer.service';
 import complaintService from '../services/complaint.service';
 import inspectionService from '../services/inspection.service';
 import {prisma, parseId} from '../utils';
+import {validate, createComplaintSchema} from '../validators';
 
 class CustomerController {
     async getProfile(req: Request, res: Response) {
@@ -125,6 +126,38 @@ class CustomerController {
         const clientId = res.locals.clientId;
         const result = await complaintService.list({clientId, limit: 50});
         res.json(result);
+    }
+
+    async createComplaint(req: Request, res: Response) {
+        const clientId = res.locals.clientId;
+        // Force the complaint to belong to the authenticated client — even if
+        // the body tries to spoof clientId. rentalId is also verified to
+        // belong to this client so a malicious payload can't attach a
+        // complaint to someone else's contract.
+        const data = validate(createComplaintSchema, {...req.body, clientId});
+        if (data.rentalId) {
+            const rental = await prisma.rental.findUnique({
+                where: {id: data.rentalId},
+                select: {clientId: true},
+            });
+            if (!rental || rental.clientId !== clientId) {
+                return res.status(StatusCodes.BAD_REQUEST).json({msg: 'Rental does not belong to this client'});
+            }
+        }
+        // Pull contact fallbacks from the client profile so the manager always
+        // has a way to reach the user even if the form omits them.
+        const profile = await prisma.client.findUnique({
+            where: {id: clientId},
+            select: {firstName: true, lastName: true, phone: true, email: true},
+        });
+        const complaint = await complaintService.create({
+            ...data,
+            clientId,
+            contactName: data.contactName || (profile ? `${profile.firstName} ${profile.lastName}`.trim() : undefined),
+            contactEmail: data.contactEmail || profile?.email || undefined,
+            contactPhone: data.contactPhone || profile?.phone || undefined,
+        });
+        res.status(StatusCodes.CREATED).json({complaint});
     }
 
     async getComplaint(req: Request, res: Response) {

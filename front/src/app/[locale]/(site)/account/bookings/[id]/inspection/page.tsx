@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getMyRentalInspections } from "@/lib/api/customer";
 import { Link } from "@/i18n/request";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_URL || "/";
 
@@ -20,6 +20,7 @@ export default async function MyInspectionsPage({
   if (!data?.rental) notFound();
   const { rental, inspections } = data;
   const locale = await getLocale();
+  const tComplaints = await getTranslations("account.complaints");
 
   return (
     <div className="account-page">
@@ -38,13 +39,19 @@ export default async function MyInspectionsPage({
         <p className="mt-1 text-sm text-gray-500 font-mono">{rental.contractNumber}</p>
       </div>
 
-      <p className="mt-3 rounded-lg bg-cyan-50 p-3 text-xs text-cyan-900">
-        Це повний фотозвіт із документації стану авто на момент видачі та повернення.
-        Якщо ви не згодні з описом пошкоджень або сумою застави — можете оскаржити через
-        <Link href="/account/complaints" className="ml-1 font-semibold underline" style={{ textDecoration: "underline" }}>
-          сторінку звернень
-        </Link>.
-      </p>
+      <div className="inspection-cta">
+        <p className="inspection-cta__text">
+          Це повний фотозвіт із документації стану авто на момент видачі та повернення.
+          Якщо ви не згодні з описом пошкоджень або сумою застави — створіть звернення, і
+          менеджер перегляне його у межах SLA.
+        </p>
+        <Link
+          href={`/account/complaints/new?rentalId=${id}&category=DAMAGE`}
+          className="acc-btn acc-btn--primary acc-btn--sm"
+        >
+          {tComplaints("cta.from_inspection")}
+        </Link>
+      </div>
 
       {inspections.length === 0 ? (
         <p className="account-page__empty mt-5">Огляди ще не проведені.</p>

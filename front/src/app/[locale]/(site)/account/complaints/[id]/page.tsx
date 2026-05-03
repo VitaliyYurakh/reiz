@@ -1,25 +1,8 @@
 import { notFound } from "next/navigation";
 import { getMyComplaint } from "@/lib/api/customer";
 import { Link } from "@/i18n/request";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import ComplaintReplyForm from "./ComplaintReplyForm";
-
-const STATUS_LABEL_UK: Record<string, string> = {
-  open: "Відкрита",
-  in_review: "В роботі",
-  awaiting_client: "Чекає вашої відповіді",
-  resolved: "Вирішена",
-  rejected: "Відхилена",
-};
-
-const CATEGORY_LABEL_UK: Record<string, string> = {
-  DEPOSIT: "Застава",
-  DAMAGE: "Пошкодження",
-  FINE: "Штраф",
-  SERVICE: "Сервіс",
-  GDPR: "Персональні дані",
-  OTHER: "Інше",
-};
 
 export default async function MyComplaintDetailPage({
   params,
@@ -31,94 +14,90 @@ export default async function MyComplaintDetailPage({
   if (!data?.complaint) notFound();
   const c = data.complaint;
   const locale = await getLocale();
+  const t = await getTranslations("account.complaints");
 
   const closed = c.status === "resolved" || c.status === "rejected";
 
   return (
     <div className="account-page">
-      <Link
-        href="/account/complaints"
-        className="inline-flex items-center gap-1 text-sm text-gray-600 hover:underline"
-        style={{ textDecoration: "none" }}
-      >
-        ← Назад до звернень
+      <Link href="/account/complaints" className="complaint-detail__back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+        {t("back_to_list")}
       </Link>
 
-      <div className="mt-3 flex items-start justify-between gap-3 flex-wrap">
+      <div className="complaint-detail__header">
         <div>
-          <h1 className="text-xl font-bold text-gray-900">{c.subject}</h1>
-          <div className="mt-1 flex items-center gap-2 flex-wrap text-xs text-gray-500">
-            <span className="font-mono">{c.ticketNumber}</span>
-            <span>·</span>
-            <span>{CATEGORY_LABEL_UK[c.category] || c.category}</span>
-            <span>·</span>
-            <span>{STATUS_LABEL_UK[c.status] || c.status}</span>
+          <h1 className="complaint-detail__subject">{c.subject}</h1>
+          <div className="complaint-detail__meta">
+            <span className="complaint-detail__ticket">{c.ticketNumber}</span>
+            <span className="complaint-detail__sep">·</span>
+            <span className="acc-chip acc-chip--neutral">
+              {t(`category.${c.category}` as Parameters<typeof t>[0])}
+            </span>
+            <span className={`acc-chip acc-chip--${c.status}`}>
+              <span className="acc-chip__dot" />
+              {t(`status.${c.status}` as Parameters<typeof t>[0])}
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Thread */}
-      <div className="mt-5 space-y-3">
-        {c.messages.map((msg: any) => (
-          <div
-            key={msg.id}
-            className="rounded-2xl border bg-white p-4 shadow-sm"
-            style={{
-              borderColor: "#eee",
-              borderLeft: `3px solid ${msg.authorType === "staff" ? "#26C6DA" : msg.authorType === "system" ? "#90A4AE" : "#FFB547"}`,
-            }}
-          >
-            <div className="flex items-center justify-between gap-2 mb-2">
-              <div className="flex items-center gap-2">
-                <div
-                  className="flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-semibold text-white"
-                  style={{ background: msg.authorType === "staff" ? "#26C6DA" : "#FFB547" }}
-                >
-                  {msg.authorType === "staff" ? "R" : "Я"}
+      <div className="complaint-thread">
+        {c.messages.map((msg: any) => {
+          const isStaff = msg.authorType === "staff";
+          const isSystem = msg.authorType === "system";
+          const authorLabel = isStaff
+            ? t("author_staff")
+            : isSystem
+              ? t("author_system")
+              : t("author_client");
+          return (
+            <article
+              key={msg.id}
+              className={`complaint-msg complaint-msg--${msg.authorType}`}
+            >
+              <header className="complaint-msg__head">
+                <div className="complaint-msg__author">
+                  <span className="complaint-msg__avatar" aria-hidden="true">
+                    {isStaff ? "R" : isSystem ? "·" : authorLabel.slice(0, 1)}
+                  </span>
+                  <span className="complaint-msg__name">{authorLabel}</span>
                 </div>
-                <div className="text-sm font-semibold text-gray-900">
-                  {msg.authorType === "staff"
-                    ? "Команда Reiz"
-                    : msg.authorType === "system"
-                      ? "Система"
-                      : "Ви"}
-                </div>
-              </div>
-              <span className="text-xs text-gray-500 tabular-nums">
-                {new Date(msg.createdAt).toLocaleString(locale, {
-                  day: "numeric",
-                  month: "short",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </span>
-            </div>
-            <p className="whitespace-pre-wrap text-sm text-gray-800">{msg.body}</p>
-            {msg.attachments && msg.attachments.length > 0 && (
-              <div className="mt-2 flex flex-wrap gap-2">
-                {msg.attachments.map((url: string, i: number) => (
-                  <a
-                    key={i}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-cyan-700 hover:underline"
-                  >
-                    📎 файл {i + 1}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+                <time className="complaint-msg__time" dateTime={msg.createdAt}>
+                  {new Date(msg.createdAt).toLocaleString(locale, {
+                    day: "numeric",
+                    month: "short",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </time>
+              </header>
+              <p className="complaint-msg__body">{msg.body}</p>
+              {Array.isArray(msg.attachments) && msg.attachments.length > 0 && (
+                <ul className="complaint-msg__attachments">
+                  {msg.attachments.map((url: string, i: number) => (
+                    <li key={i}>
+                      <a href={url} target="_blank" rel="noopener noreferrer">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M21.44 11.05l-9.19 9.19a6 6 0 1 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+                        </svg>
+                        {`#${i + 1}`}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </article>
+          );
+        })}
       </div>
 
       {!closed ? (
         <ComplaintReplyForm complaintId={c.id} />
       ) : (
-        <p className="mt-4 rounded-xl bg-gray-50 p-4 text-sm text-gray-600">
-          Звернення закрите. Якщо у вас залишились питання — створіть нове через сторінку «Контакти».
-        </p>
+        <p className="complaint-closed-note">{t("closed_note")}</p>
       )}
     </div>
   );

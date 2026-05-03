@@ -158,6 +158,57 @@ export async function postComplaintMessage(id: number, body: string) {
   });
 }
 
+export type ComplaintCategory =
+  | "DEPOSIT"
+  | "DAMAGE"
+  | "FINE"
+  | "SERVICE"
+  | "GDPR"
+  | "OTHER";
+
+export interface CreateComplaintInput {
+  category: ComplaintCategory;
+  subject: string;
+  initialMessage: string;
+  rentalId?: number;
+  priority?: "low" | "normal" | "high" | "urgent";
+}
+
+export async function createMyComplaint(
+  input: CreateComplaintInput,
+): Promise<{ ok: true; ticketNumber: string; id: number } | { ok: false; error: string }> {
+  const session = await auth();
+  if (!session?.user?.clientId) {
+    return { ok: false, error: "not_authenticated" };
+  }
+
+  const url = `${API_URL}/customer/complaint`;
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-service-secret": SERVICE_SECRET,
+        "x-client-id": String(session.user.clientId),
+      },
+      body: JSON.stringify(input),
+    });
+
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      console.error(`[createMyComplaint] ${res.status} ${res.statusText} — ${text}`);
+      return { ok: false, error: text || `${res.status}` };
+    }
+
+    const data = (await res.json()) as { complaint: { id: number; ticketNumber: string } };
+    revalidatePath("/account/complaints");
+    return { ok: true, ticketNumber: data.complaint.ticketNumber, id: data.complaint.id };
+  } catch (err) {
+    console.error(`[createMyComplaint] Failed:`, err);
+    return { ok: false, error: "network_error" };
+  }
+}
+
 export async function getMyRentalInspections(rentalId: number) {
   return customerFetch(`/rental/${rentalId}/inspection`);
 }

@@ -1,5 +1,22 @@
 import {ComplaintCategory, ComplaintPriority, ComplaintAuthorType} from '@prisma/client';
-import {prisma} from '../utils';
+import {prisma, logger, getErrorMessage} from '../utils';
+import telegramService from './telegram.service';
+
+const CATEGORY_LABEL_UK: Record<string, string> = {
+    DEPOSIT: 'Застава',
+    DAMAGE: 'Пошкодження',
+    FINE: 'Штраф',
+    SERVICE: 'Сервіс',
+    GDPR: 'Персональні дані',
+    OTHER: 'Інше',
+};
+
+const PRIORITY_LABEL_UK: Record<string, string> = {
+    urgent: 'критичний',
+    high: 'високий',
+    normal: 'звичайний',
+    low: 'низький',
+};
 
 const SLA_HOURS_BY_PRIORITY: Record<string, number> = {
     urgent: 4,
@@ -94,8 +111,8 @@ class ComplaintService {
         const slaHours = SLA_HOURS_BY_PRIORITY[priority] ?? 72;
         const slaDeadline = new Date(Date.now() + slaHours * 3600 * 1000);
 
-        return await prisma.$transaction(async (tx) => {
-            const complaint = await tx.complaint.create({
+        const complaint = await prisma.$transaction(async (tx) => {
+            const created = await tx.complaint.create({
                 data: {
                     ticketNumber: generateTicketNumber(),
                     clientId: data.clientId ?? null,
@@ -117,14 +134,37 @@ class ComplaintService {
             // casing the "initialMessage" column.
             await tx.complaintMessage.create({
                 data: {
-                    complaintId: complaint.id,
+                    complaintId: created.id,
                     authorType: 'client',
                     body: data.initialMessage,
                     attachments: data.attachments ?? [],
                 },
             });
-            return complaint;
+            return created;
         });
+
+        // Notify the manager group. Best-effort: a Telegram outage must not
+        // block the user submitting a ticket.
+        try {
+            const esc = (s: string | null | undefined) =>
+                (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const lines = [
+                `🆕 <b>Нове звернення</b> ${esc(complaint.ticketNumber)}`,
+                `Категорія: <b>${esc(CATEGORY_LABEL_UK[complaint.category] || complaint.category)}</b> · Пріоритет: ${esc(PRIORITY_LABEL_UK[complaint.priority] || complaint.priority)}`,
+                `Тема: ${esc(complaint.subject)}`,
+            ];
+            if (data.contactName) lines.push(`Клієнт: ${esc(data.contactName)}`);
+            if (data.contactPhone) lines.push(`Тел: ${esc(data.contactPhone)}`);
+            if (data.contactEmail) lines.push(`Email: ${esc(data.contactEmail)}`);
+            if (complaint.rentalId) lines.push(`Договір: rental#${complaint.rentalId}`);
+            lines.push('');
+            lines.push(esc(complaint.initialMessage.slice(0, 1500)));
+            await telegramService.sendMessage(lines.join('\n'));
+        } catch (err) {
+            logger.error(`Failed to send Telegram notification for complaint #${complaint.id}: ${getErrorMessage(err)}`);
+        }
+
+        return complaint;
     }
 
     async addMessage(id: number, data: {

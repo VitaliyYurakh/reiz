@@ -28,6 +28,7 @@ router.delete('/account', customerController.deleteAccount);
 
 // Complaints (customer-side)
 router.get('/complaint', customerController.listComplaints);
+router.post('/complaint', customerController.createComplaint);
 router.get('/complaint/:id', customerController.getComplaint);
 router.post('/complaint/:id/message', customerController.addComplaintMessage);
 

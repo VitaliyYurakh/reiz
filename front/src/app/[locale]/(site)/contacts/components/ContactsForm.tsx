@@ -2,8 +2,10 @@
 
 import { type FormEvent, useEffect, useId, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { useSession } from "next-auth/react";
 import TelInput from "@/components/TelInput";
 import { submitContactRequest, submitComplaint } from "@/lib/api/feedback";
+import { createMyComplaint } from "@/lib/api/customer";
 
 const CATEGORY_VALUES = ["OTHER", "DEPOSIT", "DAMAGE", "FINE", "SERVICE", "GDPR"] as const;
 type CategoryValue = (typeof CATEGORY_VALUES)[number];
@@ -125,6 +127,7 @@ function CategoryDropdown({ value, onChange, options, placeholder }: CategoryDro
 
 export default function ContactsForm() {
   const t = useTranslations("contactsPage");
+  const { data: session } = useSession();
   const [feedback, setFeedback] = useState<"success" | "error" | "">("");
   const [ticketNumber, setTicketNumber] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -143,8 +146,14 @@ export default function ContactsForm() {
 
     const name = (formData.get("name") as string) || "";
     const email = (formData.get("mail") as string) || "";
-    const subject = (formData.get("subject") as string) || `Звернення від ${name || "клієнта"}`;
+    const subjectFromForm = (formData.get("subject") as string) || "";
+    const subject =
+      subjectFromForm ||
+      (name
+        ? t("form.subject_default", { name })
+        : t("form.subject_default_anonymous"));
     const message = (formData.get("mess") as string) || "";
+    const messageOrPlaceholder = message || t("form.empty_message_placeholder");
 
     setIsSubmitting(true);
     setFeedback("");
@@ -155,16 +164,30 @@ export default function ContactsForm() {
       // gets a ticket number, SLA timer, and shows up in the admin queue.
       // Plain "OTHER" still goes through the legacy contact-request path
       // (managers' email inbox) for now.
+      // When the visitor is signed in, route through the authenticated
+      // customer API so the complaint is bound to their clientId and shows
+      // up in /account/complaints. Otherwise fall back to the public
+      // endpoint (no clientId, but still creates a tracked ticket).
       if (category !== "OTHER") {
-        const res = await submitComplaint({
-          category,
-          subject: subject || `[${category}] звернення`,
-          initialMessage: message || `(порожнє повідомлення)`,
-          contactName: name || undefined,
-          contactEmail: email || undefined,
-          contactPhone: phone || undefined,
-        });
-        setTicketNumber(res.complaint.ticketNumber);
+        if (session?.user?.clientId) {
+          const res = await createMyComplaint({
+            category,
+            subject,
+            initialMessage: messageOrPlaceholder,
+          });
+          if (!res.ok) throw new Error(res.error);
+          setTicketNumber(res.ticketNumber);
+        } else {
+          const res = await submitComplaint({
+            category,
+            subject,
+            initialMessage: messageOrPlaceholder,
+            contactName: name || undefined,
+            contactEmail: email || undefined,
+            contactPhone: phone || undefined,
+          });
+          setTicketNumber(res.complaint.ticketNumber);
+        }
       } else {
         await submitContactRequest({ name, email, phone, message });
       }
@@ -241,7 +264,7 @@ export default function ContactsForm() {
       {feedback === "success" && (
         <div className="form-feedback form-feedback--success" style={{ marginBottom: "1rem", color: "green" }}>
           {ticketNumber
-            ? `Ваше звернення зареєстровано: ${ticketNumber}`
+            ? t("form.success_with_ticket", { ticketNumber })
             : t("form.success") || "Your message has been sent successfully!"}
         </div>
       )}

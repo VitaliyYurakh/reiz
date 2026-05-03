@@ -1678,8 +1678,12 @@
       },
       "submit": "SEND REQUEST",
       "success": "Your message has been sent successfully!",
+      "success_with_ticket": "Your inquiry was registered: {ticketNumber}",
       "error": "Failed to send message. Please try again.",
-      "submitting": "Sending..."
+      "submitting": "Sending...",
+      "subject_default": "Inquiry from {name}",
+      "subject_default_anonymous": "Inquiry from a customer",
+      "empty_message_placeholder": "(empty message)"
     },
     "whatsapp_unavailable": "WhatsApp is temporarily unavailable"
   },
@@ -3529,9 +3533,67 @@
     },
     "complaints": {
       "title": "Inquiries",
-      "empty": "You have no inquiries yet.",
+      "empty_title": "You have no inquiries yet",
+      "empty_hint": "Inquiries are a tracked channel to dispute a deposit, a fine, the damage report, or report a service issue. Our team replies within SLA.",
       "create_btn": "New inquiry",
-      "count_suffix": "inquiries"
+      "count_suffix": "inquiries",
+      "back_to_list": "Back to inquiries",
+      "closed_note": "This inquiry is closed. If you still have questions — open a new one.",
+      "your_reply_title": "Your reply",
+      "reply_placeholder": "Write a message to the manager…",
+      "reply_send": "Send",
+      "reply_sending": "Sending…",
+      "reply_error": "Couldn't send. Please try again.",
+      "author_staff": "Reiz team",
+      "author_system": "System",
+      "author_client": "You",
+      "status": {
+        "open": "Open",
+        "in_review": "In review",
+        "awaiting_client": "Awaiting your reply",
+        "resolved": "Resolved",
+        "rejected": "Rejected"
+      },
+      "category": {
+        "DEPOSIT": "Deposit",
+        "DAMAGE": "Damage",
+        "FINE": "Fine",
+        "SERVICE": "Service",
+        "GDPR": "Personal data",
+        "OTHER": "Other"
+      },
+      "category_hint": {
+        "DEPOSIT": "Question about deposit refund or amount",
+        "DAMAGE": "Disagree with the damage report or compensation amount",
+        "FINE": "Want to dispute a fine",
+        "SERVICE": "Complaint about service quality or staff",
+        "GDPR": "Personal data request",
+        "OTHER": "Other question"
+      },
+      "new": {
+        "page_title": "New inquiry",
+        "intro": "Describe the situation — a manager will reply within SLA. You can attach the contract or photos after the inquiry is created.",
+        "category_label": "Category",
+        "rental_label": "Attach to a rental",
+        "rental_placeholder": "Not attached",
+        "rental_hint": "If the inquiry relates to a specific rental — select it so the manager has the context faster.",
+        "subject_label": "Subject",
+        "subject_placeholder": "Briefly describe the issue",
+        "message_label": "Message",
+        "message_placeholder": "A detailed description of the situation…",
+        "submit": "Create inquiry",
+        "submitting": "Creating…",
+        "back": "Cancel",
+        "success": "Your inquiry was registered: {ticketNumber}. Redirecting…",
+        "error": "Couldn't create the inquiry. Please check the fields or try again later.",
+        "validation_subject": "Please add a subject (at least 3 characters).",
+        "validation_message": "Please describe the situation (at least 5 characters).",
+        "auth_required": "Please sign in to create an inquiry."
+      },
+      "cta": {
+        "from_inspection": "Dispute the damage report",
+        "from_booking": "Open an inquiry about this rental"
+      }
     }
   }
 }

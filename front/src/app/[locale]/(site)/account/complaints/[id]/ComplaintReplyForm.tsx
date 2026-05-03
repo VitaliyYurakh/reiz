@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { postComplaintMessage } from "@/lib/api/customer";
 
 export default function ComplaintReplyForm({ complaintId }: { complaintId: number }) {
   const router = useRouter();
+  const t = useTranslations("account.complaints");
   const [body, setBody] = useState("");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -20,7 +22,7 @@ export default function ComplaintReplyForm({ complaintId }: { complaintId: numbe
       setBody("");
       router.refresh();
     } catch (err) {
-      setError("Не вдалося надіслати. Спробуйте ще раз.");
+      setError(t("reply_error"));
       console.error(err);
     } finally {
       setSending(false);
@@ -28,25 +30,25 @@ export default function ComplaintReplyForm({ complaintId }: { complaintId: numbe
   };
 
   return (
-    <div className="mt-5 rounded-2xl border border-[#eee] bg-white p-4 shadow-sm">
-      <h3 className="text-sm font-semibold text-gray-900 mb-2">Ваша відповідь</h3>
+    <div className="complaint-reply">
+      <h3 className="complaint-reply__title">{t("your_reply_title")}</h3>
       <textarea
         value={body}
         onChange={(e) => setBody(e.target.value)}
         rows={4}
-        placeholder="Напишіть повідомлення менеджеру…"
-        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20"
+        placeholder={t("reply_placeholder")}
+        className="complaint-reply__textarea"
         disabled={sending}
       />
-      {error && <p className="mt-2 text-xs text-red-600">{error}</p>}
-      <div className="mt-2 flex justify-end">
+      {error && <p className="complaint-reply__error">{error}</p>}
+      <div className="complaint-reply__actions">
         <button
           type="button"
           onClick={handleSend}
           disabled={sending || !body.trim()}
-          className="rounded-lg bg-gradient-to-r from-cyan-500 to-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity disabled:opacity-50"
+          className="acc-btn acc-btn--primary"
         >
-          {sending ? "Надсилаємо…" : "Надіслати"}
+          {sending ? t("reply_sending") : t("reply_send")}
         </button>
       </div>
     </div>
