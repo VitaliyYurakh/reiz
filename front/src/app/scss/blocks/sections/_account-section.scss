@@ -4435,11 +4435,14 @@
 }
 
 /* ── Favorites grid ────────────────────────────────────────── */
-/* Wraps the catalog `<CarCard>` (rendered as a <li>). Single-column
-   because CarCard is itself a horizontal layout (photo `clamp(300,
-   31.25vw, 450px)` + 1fr content). Two columns squeezed the content
-   side to zero width on the account page where the sidebar already
-   takes ~300px. */
+/* Wraps the catalog `<CarCard>` (rendered as a <li>). The catalog
+   sits in a full-width column without a sidebar, so its card grid
+   `clamp(300px, 31.25vw, 450px) photo + 1fr content` has plenty of
+   room. Inside the account shell the sidebar eats ~280px, so the
+   photo column needs to be narrower or the content side gets clipped.
+   Single column list + photo trimmed to 240–320px gives the tariffs,
+   spec grid and CTA button the breathing room the desktop layout
+   assumes. */
 .fav-grid {
   display: flex;
   flex-direction: column;
@@ -4447,6 +4450,10 @@
   list-style: none;
   margin: 0;
   padding: 0;
+
+  .car-card {
+    grid-template-columns: clamp(240px, 22vw, 320px) 1fr;
+  }
 }
 
 /* ── Notification matrix (override) ───────────────────────── */
