@@ -45,6 +45,7 @@ router.get('/accounts', auth, requireView, mailController.accounts);
 router.post('/sync', auth, requireFull, syncLimiter, mailController.sync);
 
 router.get('/folders', auth, requireView, mailController.folders);
+router.get('/unread-count', auth, requireView, mailController.unreadCount);
 router.get('/messages', auth, requireView, mailController.messages);
 router.get('/messages/:id', auth, requireView, mailController.getOne);
 router.get('/messages/:id/attachments/:aid', auth, requireView, mailController.getAttachment);

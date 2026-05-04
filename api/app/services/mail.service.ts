@@ -409,6 +409,17 @@ class MailService {
         });
     }
 
+    // Sum of unread messages across every account's Inbox folders. Excludes
+    // Junk/Trash so the sidebar badge tracks "real" mail. Folder.unreadCount is
+    // refreshed on every IMAP sync.
+    async getUnreadInboxCount(): Promise<number> {
+        const agg = await prisma.mailFolder.aggregate({
+            where: {specialUse: '\\Inbox'},
+            _sum: {unreadCount: true},
+        });
+        return agg._sum.unreadCount ?? 0;
+    }
+
     async listMessages(params: ListMessagesParams) {
         const page = Math.max(1, params.page ?? 1);
         const limit = Math.min(100, Math.max(1, params.limit ?? 30));

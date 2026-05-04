@@ -300,6 +300,11 @@ export const getNewRequestsCount = async (): Promise<number> => {
   return res.data.total ?? 0;
 };
 
+export const getUnreadMailCount = async (): Promise<number> => {
+  const res = await adminApi.get('/mail/unread-count');
+  return res.data.count ?? 0;
+};
+
 // Named export for CRM pages
 export const adminApiClient = adminApi;
 

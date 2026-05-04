@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Fragment, useEffect, useState, useCallback } from 'react';
-import adminApi, { checkAuthReq, getNewRequestsCount } from '@/lib/api/admin';
+import adminApi, { checkAuthReq, getNewRequestsCount, getUnreadMailCount } from '@/lib/api/admin';
 import {
   Car,
   CalendarDays,
@@ -143,6 +143,7 @@ export default function DashboardLayout({
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [newRequestsCount, setNewRequestsCount] = useState(0);
+  const [unreadMailCount, setUnreadMailCount] = useState(0);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -168,10 +169,14 @@ export default function DashboardLayout({
     checkAuth();
   }, [router, setAuth]);
 
-  // Poll new requests count every 30s
+  // Poll sidebar badges every 30s. Each badge swallows its own error so a 403
+  // (user lacks the relevant permission) doesn't kill the others.
   const fetchBadges = useCallback(() => {
     getNewRequestsCount()
       .then(setNewRequestsCount)
+      .catch(() => {});
+    getUnreadMailCount()
+      .then(setUnreadMailCount)
       .catch(() => {});
   }, []);
 
@@ -301,7 +306,9 @@ export default function DashboardLayout({
               <Fragment key={gi}>
                 {gi > 0 && <div className="as-nav-divider" />}
                 {group.items.map((item) => {
-                  const badge = item.href === '/admin/requests' ? newRequestsCount : item.badge;
+                  let badge = item.badge;
+                  if (item.href === '/admin/requests') badge = newRequestsCount;
+                  else if (item.href === '/admin/mail') badge = unreadMailCount;
                   const isActive =
                     pathname === item.href || pathname.startsWith(`${item.href}/`);
                   const label = t(item.labelKey);

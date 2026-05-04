@@ -81,6 +81,11 @@ class MailController {
         res.status(StatusCodes.OK).json({folders});
     }
 
+    async unreadCount(_req: Request, res: Response) {
+        const count = await mailService.getUnreadInboxCount();
+        res.status(StatusCodes.OK).json({count});
+    }
+
     async messages(req: Request, res: Response) {
         const accountId = parseId(req.query.accountId as string);
         const folderPath = (req.query.folder as string) ?? 'INBOX';
