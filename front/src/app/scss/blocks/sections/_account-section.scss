@@ -4435,54 +4435,60 @@
 }
 
 /* ── Favorites grid ────────────────────────────────────────── */
-/* Bespoke layout. We tried both reusing the catalog `<CarCard>` and
-   a 3-column CSS Grid; both kept overflowing the account-shell main
-   column because grid items have `min-content` defaults that ignore
-   our minmax mins. This version uses **flex** with explicit
-   `flex: 0 0 …` for the photo + spec rail and `min-width: 0` on the
-   middle body so the card is mathematically guaranteed to fit. */
+/* Vertical card layout — photo on top, body below. Two cards per row
+   on wide screens, single column on mobile. This is a "wishlist" style
+   (think Booking/Airbnb) — compact enough that even with the account
+   sidebar eating ~280px we still get 2 cards fitting comfortably. */
 .fav-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
   list-style: none;
   margin: 0;
   padding: 0;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 .fav-card {
   display: flex;
+  flex-direction: column;
   background: var(--acc-bg-card, #fff);
   border: 1px solid var(--acc-border, #e5e7eb);
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
 
-  &:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); }
+  &:hover {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+    border-color: transparent;
+  }
 
-  // ── Photo (fixed-width left rail) ──
+  // ── Hero photo ──
   &__photo {
-    flex: 0 0 clamp(220px, 28%, 320px);
     position: relative;
+    aspect-ratio: 16 / 10;
     background: var(--acc-bg-subtle, #f3f4f6);
     overflow: hidden;
     display: block;
-    align-self: stretch;
-    min-height: 240px;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s;
+      transition: transform 0.5s;
     }
   }
 
-  &:hover &__photo img { transform: scale(1.03); }
+  &:hover &__photo img { transform: scale(1.05); }
 
   &__no-photo {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0;
     background: repeating-linear-gradient(45deg,
       rgba(0, 0, 0, 0.04) 0 8px, transparent 8px 16px) #e8ecf0;
   }
@@ -4490,7 +4496,7 @@
   &__heart.favorite-toggle {
     position: absolute;
     top: 12px;
-    left: 12px;
+    right: 12px;
     width: 40px;
     height: 40px;
     background: rgba(255, 255, 255, 0.95);
@@ -4499,179 +4505,182 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     color: #e63946;
+    transition: transform 0.15s, background 0.15s;
 
-    svg { width: 20px; height: 20px; }
+    &:hover { transform: scale(1.08); background: #fff; }
+    svg { width: 22px; height: 22px; }
     &.favorite-toggle--active { color: #e63946; }
   }
 
-  // ── Body (everything right of the photo) ──
-  &__body {
-    flex: 1 1 0;
-    min-width: 0; // crucial: lets flex children shrink past min-content
+  // Floating badges overlaid on the photo bottom-left.
+  &__photo-badges {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
     display: flex;
-    flex-direction: column;
-  }
-
-  &__head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 14px 18px;
-    border-bottom: 1px solid var(--acc-border, #e5e7eb);
-    min-width: 0;
-  }
-
-  &__name {
-    display: inline-flex;
     flex-wrap: wrap;
-    align-items: baseline;
-    gap: 8px;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--acc-text-primary, #111);
-    text-decoration: none;
-    line-height: 1.25;
-    min-width: 0;
-
-    &:hover { text-decoration: underline; }
-  }
-
-  &__year {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--acc-text-secondary, #6b7280);
-  }
-
-  &__badges {
-    display: flex;
     gap: 6px;
-    flex-shrink: 0;
+    pointer-events: none;
   }
 
   &__badge {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     padding: 5px 10px;
-    border-radius: 8px;
-    font-size: 12px;
+    border-radius: 999px;
+    font-size: 11px;
     font-weight: 600;
     white-space: nowrap;
+    backdrop-filter: blur(6px);
 
-    &--green { background: rgba(14, 165, 72, 0.1); color: #0EA548; }
-    &--muted { background: var(--acc-bg-subtle, #f3f4f6); color: var(--acc-text-secondary, #6b7280); }
-    &--red { background: #e63946; color: #fff; }
+    &--green {
+      background: rgba(14, 165, 72, 0.92);
+      color: #fff;
+
+      svg { color: #fff; }
+    }
+    &--muted {
+      background: rgba(31, 41, 55, 0.85);
+      color: #fff;
+    }
+    &--red {
+      background: rgba(230, 57, 70, 0.95);
+      color: #fff;
+    }
   }
 
-  // ── Main: tariffs left, specs right ──
-  &__main {
-    flex: 1;
-    display: flex;
-    border-bottom: 1px solid var(--acc-border, #e5e7eb);
-    min-width: 0;
-  }
-
-  &__tariffs {
-    flex: 1 1 0;
-    min-width: 0;
-    list-style: none;
-    margin: 0;
-    padding: 16px 18px;
+  // ── Body ──
+  &__body {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-  }
-
-  &__tariff-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-    font-size: 13px;
-    color: var(--acc-text-secondary, #6b7280);
+    flex: 1;
+    padding: 18px 20px 20px;
+    gap: 14px;
     min-width: 0;
   }
 
-  &__tariff-label { white-space: nowrap; }
-
-  &__tariff-value {
+  &__title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    text-decoration: none;
     color: var(--acc-text-primary, #111);
-    white-space: nowrap;
+    min-width: 0;
 
-    strong { font-weight: 700; font-size: 14px; }
+    &:hover .fav-card__title-name { text-decoration: underline; }
   }
 
-  // ── Specs rail (fixed 220px so the 2x2 always fits) ──
+  &__title-name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  &__title-year {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--acc-text-secondary, #6b7280);
+    flex-shrink: 0;
+  }
+
+  // ── Specs (2x2 inline, no borders) ──
   &__specs {
-    flex: 0 0 220px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    gap: 10px 14px;
     list-style: none;
     margin: 0;
     padding: 0;
-    border-left: 1px solid var(--acc-border, #e5e7eb);
   }
 
   &__spec {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding: 12px 6px;
-    text-align: center;
+    gap: 8px;
     min-width: 0;
-    border-bottom: 1px solid var(--acc-border, #e5e7eb);
-    border-right: 1px solid var(--acc-border, #e5e7eb);
-
-    &:nth-child(2n) { border-right: 0; }
-    &:nth-child(n+3) { border-bottom: 0; }
-  }
-
-  &__spec-icon { color: var(--acc-text-primary, #111); line-height: 0; }
-
-  &__spec-label {
-    font-size: 10px;
-    color: var(--acc-text-secondary, #6b7280);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-top: 2px;
-  }
-
-  &__spec-value {
     font-size: 13px;
-    font-weight: 600;
     color: var(--acc-text-primary, #111);
-    line-height: 1.2;
+  }
+
+  &__spec-icon {
+    flex-shrink: 0;
+    color: var(--acc-text-secondary, #6b7280);
+  }
+
+  &__spec-text {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 100%;
-  }
-
-  // ── Footer (deposit + CTA) ──
-  &__footer {
-    display: flex;
-    align-items: stretch;
     min-width: 0;
   }
 
-  &__deposit {
-    flex: 1 1 0;
-    min-width: 0;
+  // ── Price block ──
+  &__price {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 12px;
-    padding: 14px 18px;
-    font-size: 13px;
-    color: var(--acc-text-secondary, #6b7280);
+    padding-top: 14px;
+    border-top: 1px solid var(--acc-border, #e5e7eb);
+  }
 
+  &__price-from {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__price-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--acc-text-secondary, #6b7280);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__price-value {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+    color: var(--acc-text-primary, #111);
+
+    strong {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    small {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--acc-text-secondary, #6b7280);
+    }
+  }
+
+  &__price-deposit {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: right;
+    font-size: 12px;
+    color: var(--acc-text-secondary, #6b7280);
+    min-width: 0;
+
+    span {
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 11px;
+    }
     strong {
       color: var(--acc-text-primary, #111);
       font-weight: 700;
@@ -4680,52 +4689,26 @@
     }
   }
 
+  // ── CTA button ──
   &__cta {
-    flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0 28px;
-    min-width: 160px;
+    gap: 6px;
+    padding: 12px 16px;
+    margin-top: 4px;
     background: var(--reiz-accent, #214230);
     color: #fff;
-    font-size: 13px;
+    border-radius: 10px;
+    font-size: 14px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
     text-decoration: none;
-    white-space: nowrap;
-    transition: background 0.15s;
+    transition: background 0.15s, gap 0.15s;
 
-    &:hover { background: var(--reiz-accent-hover, #1a3527); }
-  }
-
-  // ── Narrow desktop / tablet: drop the spec rail under tariffs ──
-  @media (max-width: 1100px) {
-    &__main { flex-direction: column; }
-    &__specs {
-      flex: none;
-      border-left: 0;
-      border-top: 1px solid var(--acc-border, #e5e7eb);
-      grid-template-rows: auto;
+    &:hover {
+      background: var(--reiz-accent-hover, #1a3527);
+      gap: 10px;
     }
-    &__spec {
-      padding: 10px 6px;
-      &:nth-child(n+3) { border-bottom: 0; }
-    }
-  }
-
-  // ── Mobile: full vertical stack ──
-  @media (max-width: 640px) {
-    flex-direction: column;
-    &__photo {
-      flex: none;
-      aspect-ratio: 16 / 10;
-      min-height: 0;
-    }
-    &__cta { padding: 14px; min-width: 0; flex: 1; }
-    &__footer { flex-direction: column; }
-    &__deposit { padding: 12px 16px; }
   }
 }
 

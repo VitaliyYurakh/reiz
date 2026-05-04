@@ -3390,7 +3390,8 @@
       "add_tooltip": "Adaugă acest automobil în lista ta de dorințe",
       "remove_tooltip": "Elimină acest automobil din lista ta de dorințe",
       "perDay": "zi",
-      "count_suffix": "mașini salvate"
+      "count_suffix": "mașini salvate",
+      "price_from": "De la"
     },
     "notifications": {
       "title": "Notificări",

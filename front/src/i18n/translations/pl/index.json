@@ -3390,7 +3390,8 @@
       "add_tooltip": "Dodaj ten samochód do swojej listy życzeń",
       "remove_tooltip": "Usuń ten samochód ze swojej listy życzeń",
       "perDay": "dzień",
-      "count_suffix": "samochodów zapisanych"
+      "count_suffix": "samochodów zapisanych",
+      "price_from": "Od"
     },
     "notifications": {
       "title": "Powiadomienia",

@@ -3391,7 +3391,8 @@
       "perDay": "день",
       "available": "Доступне",
       "seats": "місць",
-      "count_suffix": "авто збережено"
+      "count_suffix": "авто збережено",
+      "price_from": "Від"
     },
     "notifications": {
       "title": "Сповіщення",
