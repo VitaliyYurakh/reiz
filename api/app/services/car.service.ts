@@ -28,7 +28,7 @@ type CarTranslationRow = {
  * `translations` array is preserved on the response in case a client
  * wants to query it directly.
  */
-function flattenCarTranslations<T extends {translations?: CarTranslationRow[] | null}>(
+export function flattenCarTranslations<T extends {translations?: CarTranslationRow[] | null}>(
     car: T,
 ): T & {description: LocalizedMap; engineType: LocalizedMap; transmission: LocalizedMap; driveType: LocalizedMap} {
     const description: LocalizedMap = {};

@@ -1,6 +1,7 @@
 import {prisma} from '../utils';
 import telegramService from './telegram.service';
 import {translationsToMap as rowsToMap} from './i18n.utils';
+import {flattenCarTranslations} from './car.service';
 
 class CustomerService {
     async getProfile(clientId: number) {
@@ -128,20 +129,32 @@ class CustomerService {
     }
 
     async getFavorites(clientId: number) {
-        return prisma.favorite.findMany({
+        const rows = await prisma.favorite.findMany({
             where: {clientId},
             include: {
                 car: {
                     include: {
-                        carPhoto: {where: {type: 'PC'}, take: 1},
+                        // Use both photo variants — front-end CarCard picks
+                        // the right one per breakpoint via UiImage.
+                        carPhoto: true,
                         rentalTariff: {orderBy: {minDays: 'asc'}},
-                        carCountingRule: true,
+                        // CarCard expects coverage plans sorted by depositPercent
+                        // ascending (deposit | coverage50 | coverage100).
+                        carCountingRule: {orderBy: {depositPercent: 'asc'}},
                         segment: true,
+                        translations: true,
                     },
                 },
             },
             orderBy: {createdAt: 'desc'},
         });
+        // Flatten {locale, ...} translation rows back to the legacy
+        // `{uk: '...', ru: '...', ...}` map so the front-end CarCard's
+        // `localized()` helper keeps working without changes.
+        return rows.map((fav) => ({
+            ...fav,
+            car: fav.car ? flattenCarTranslations(fav.car) : null,
+        }));
     }
 
     async addFavorite(clientId: number, carId: number) {
