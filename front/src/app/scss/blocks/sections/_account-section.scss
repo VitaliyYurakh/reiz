@@ -4435,15 +4435,12 @@
 }
 
 /* ── Favorites grid ────────────────────────────────────────── */
-/* Custom layout (we tried reusing the catalog `<CarCard>` first but
-   its `clamp(300, 31.25vw, 450) photo + 1fr` grid expects the catalog's
-   full-width main column; inside the account shell the sidebar leaves
-   ~1080px, the content side gets clipped, and breaking that layout
-   means fighting all the @media (max-width:1240px) rules in
-   _car-card.scss — easier to just render the same visual ourselves).
-   Layout per row:
-     [ photo (3fr) ][ tariffs (4fr) ][ specs 2x2 (3fr) ]
-   Title spans the right two columns; deposit + CTA span them too. */
+/* Bespoke layout. We tried both reusing the catalog `<CarCard>` and
+   a 3-column CSS Grid; both kept overflowing the account-shell main
+   column because grid items have `min-content` defaults that ignore
+   our minmax mins. This version uses **flex** with explicit
+   `flex: 0 0 …` for the photo + spec rail and `min-width: 0` on the
+   middle body so the card is mathematically guaranteed to fit. */
 .fav-grid {
   display: flex;
   flex-direction: column;
@@ -4454,28 +4451,24 @@
 }
 
 .fav-card {
-  display: grid;
-  grid-template-columns: minmax(260px, 3fr) minmax(280px, 4fr) minmax(260px, 3fr);
-  grid-template-rows: auto 1fr auto;
+  display: flex;
   background: var(--acc-bg-card, #fff);
   border: 1px solid var(--acc-border, #e5e7eb);
   border-radius: 16px;
   overflow: hidden;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.2s;
 
-  &:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  }
+  &:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); }
 
-  // Photo cell spans all 3 rows on the left.
+  // ── Photo (fixed-width left rail) ──
   &__photo {
-    grid-column: 1;
-    grid-row: 1 / span 3;
+    flex: 0 0 clamp(220px, 28%, 320px);
     position: relative;
     background: var(--acc-bg-subtle, #f3f4f6);
     overflow: hidden;
     display: block;
-    min-height: 220px;
+    align-self: stretch;
+    min-height: 240px;
 
     img {
       width: 100%;
@@ -4491,10 +4484,9 @@
     width: 100%;
     height: 100%;
     background: repeating-linear-gradient(45deg,
-      rgba(0,0,0,0.04) 0 8px, transparent 8px 16px) #e8ecf0;
+      rgba(0, 0, 0, 0.04) 0 8px, transparent 8px 16px) #e8ecf0;
   }
 
-  // Heart toggle inside photo (top-left).
   &__heart.favorite-toggle {
     position: absolute;
     top: 12px;
@@ -4512,20 +4504,25 @@
     color: #e63946;
 
     svg { width: 20px; height: 20px; }
-
     &.favorite-toggle--active { color: #e63946; }
   }
 
-  // Title row spans columns 2-3.
+  // ── Body (everything right of the photo) ──
+  &__body {
+    flex: 1 1 0;
+    min-width: 0; // crucial: lets flex children shrink past min-content
+    display: flex;
+    flex-direction: column;
+  }
+
   &__head {
-    grid-column: 2 / span 2;
-    grid-row: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
     padding: 14px 18px;
     border-bottom: 1px solid var(--acc-border, #e5e7eb);
+    min-width: 0;
   }
 
   &__name {
@@ -4565,24 +4562,22 @@
     font-weight: 600;
     white-space: nowrap;
 
-    &--green {
-      background: rgba(14, 165, 72, 0.1);
-      color: #0EA548;
-    }
-    &--muted {
-      background: var(--acc-bg-subtle, #f3f4f6);
-      color: var(--acc-text-secondary, #6b7280);
-    }
-    &--red {
-      background: #e63946;
-      color: #fff;
-    }
+    &--green { background: rgba(14, 165, 72, 0.1); color: #0EA548; }
+    &--muted { background: var(--acc-bg-subtle, #f3f4f6); color: var(--acc-text-secondary, #6b7280); }
+    &--red { background: #e63946; color: #fff; }
   }
 
-  // Tariffs (column 2, row 2).
+  // ── Main: tariffs left, specs right ──
+  &__main {
+    flex: 1;
+    display: flex;
+    border-bottom: 1px solid var(--acc-border, #e5e7eb);
+    min-width: 0;
+  }
+
   &__tariffs {
-    grid-column: 2;
-    grid-row: 2;
+    flex: 1 1 0;
+    min-width: 0;
     list-style: none;
     margin: 0;
     padding: 16px 18px;
@@ -4598,21 +4593,21 @@
     gap: 12px;
     font-size: 13px;
     color: var(--acc-text-secondary, #6b7280);
+    min-width: 0;
   }
+
+  &__tariff-label { white-space: nowrap; }
 
   &__tariff-value {
     color: var(--acc-text-primary, #111);
+    white-space: nowrap;
 
-    strong {
-      font-weight: 700;
-      font-size: 14px;
-    }
+    strong { font-weight: 700; font-size: 14px; }
   }
 
-  // Specs 2x2 grid (column 3, row 2).
+  // ── Specs rail (fixed 220px so the 2x2 always fits) ──
   &__specs {
-    grid-column: 3;
-    grid-row: 2;
+    flex: 0 0 220px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -4628,8 +4623,9 @@
     align-items: center;
     justify-content: center;
     gap: 4px;
-    padding: 12px 8px;
+    padding: 12px 6px;
     text-align: center;
+    min-width: 0;
     border-bottom: 1px solid var(--acc-border, #e5e7eb);
     border-right: 1px solid var(--acc-border, #e5e7eb);
 
@@ -4637,13 +4633,10 @@
     &:nth-child(n+3) { border-bottom: 0; }
   }
 
-  &__spec-icon {
-    color: var(--acc-text-primary, #111);
-    line-height: 0;
-  }
+  &__spec-icon { color: var(--acc-text-primary, #111); line-height: 0; }
 
   &__spec-label {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--acc-text-secondary, #6b7280);
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -4661,17 +4654,16 @@
     max-width: 100%;
   }
 
-  // Footer (deposit + CTA) spans columns 2-3.
+  // ── Footer (deposit + CTA) ──
   &__footer {
-    grid-column: 2 / span 2;
-    grid-row: 3;
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
     align-items: stretch;
-    border-top: 1px solid var(--acc-border, #e5e7eb);
+    min-width: 0;
   }
 
   &__deposit {
+    flex: 1 1 0;
+    min-width: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -4684,10 +4676,12 @@
       color: var(--acc-text-primary, #111);
       font-weight: 700;
       font-size: 14px;
+      white-space: nowrap;
     }
   }
 
   &__cta {
+    flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4700,42 +4694,38 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
     text-decoration: none;
+    white-space: nowrap;
     transition: background 0.15s;
 
     &:hover { background: var(--reiz-accent-hover, #1a3527); }
   }
 
-  // ── Tablet / narrow desktop: stack tariffs above specs ──
-  @media (max-width: 960px) {
-    grid-template-columns: minmax(220px, 1fr) 1fr;
-    grid-template-rows: auto auto auto auto;
-
-    &__photo { grid-column: 1; grid-row: 1 / span 4; }
-    &__head { grid-column: 2; grid-row: 1; }
-    &__tariffs { grid-column: 2; grid-row: 2; }
-    &__specs { grid-column: 2; grid-row: 3; border-left: 0; border-top: 1px solid var(--acc-border, #e5e7eb); }
-    &__footer { grid-column: 2; grid-row: 4; }
+  // ── Narrow desktop / tablet: drop the spec rail under tariffs ──
+  @media (max-width: 1100px) {
+    &__main { flex-direction: column; }
+    &__specs {
+      flex: none;
+      border-left: 0;
+      border-top: 1px solid var(--acc-border, #e5e7eb);
+      grid-template-rows: auto;
+    }
+    &__spec {
+      padding: 10px 6px;
+      &:nth-child(n+3) { border-bottom: 0; }
+    }
   }
 
   // ── Mobile: full vertical stack ──
   @media (max-width: 640px) {
-    grid-template-columns: 1fr;
-
+    flex-direction: column;
     &__photo {
-      grid-column: 1;
-      grid-row: 1;
+      flex: none;
       aspect-ratio: 16 / 10;
       min-height: 0;
     }
-    &__head { grid-column: 1; grid-row: 2; }
-    &__tariffs { grid-column: 1; grid-row: 3; }
-    &__specs { grid-column: 1; grid-row: 4; border-left: 0; border-top: 1px solid var(--acc-border, #e5e7eb); }
-    &__footer {
-      grid-column: 1;
-      grid-row: 5;
-      grid-template-columns: 1fr;
-    }
-    &__cta { padding: 14px; }
+    &__cta { padding: 14px; min-width: 0; flex: 1; }
+    &__footer { flex-direction: column; }
+    &__deposit { padding: 12px 16px; }
   }
 }
 

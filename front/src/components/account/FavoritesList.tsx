@@ -12,8 +12,8 @@ import type { Car } from "@/types/cars";
 const BASE = process.env.NEXT_PUBLIC_BASE_URL || "/";
 
 // Cars store transmission/driveType either as a localized object or a
-// plain legacy string; handle both — the shared `localized()` helper
-// only supports the object case.
+// plain legacy string; the shared `localized()` helper only handles
+// the object case, so cover both here.
 function localizedSpec(value: unknown, locale: string): string {
   if (!value) return "";
   if (typeof value === "string") return value;
@@ -95,92 +95,96 @@ export default function FavoritesList({ favorites }: FavoritesListProps) {
               />
             </Link>
 
-            {/* ── Title row spans columns 2-3 ── */}
-            <div className="fav-card__head">
-              <Link href={`/cars/${slug}`} className="fav-card__name">
-                {car.brand} {car.model}
-                {car.yearOfManufacture ? (
-                  <span className="fav-card__year">{car.yearOfManufacture}</span>
-                ) : null}
-              </Link>
-              <div className="fav-card__badges">
-                {car.isAvailable ? (
-                  <span className="fav-card__badge fav-card__badge--green">
-                    {tCatalog("badges.available")}
-                  </span>
-                ) : (
-                  <span className="fav-card__badge fav-card__badge--muted">
-                    {tCatalog("badges.contact")}
-                  </span>
-                )}
-                {car.discount != null && car.discount > 0 ? (
-                  <span className="fav-card__badge fav-card__badge--red">
-                    -{car.discount}%
-                  </span>
-                ) : null}
-              </div>
-            </div>
-
-            {/* ── Tariffs (column 2) ── */}
-            <ul className="fav-card__tariffs">
-              {tariffs.slice(0, 4).map((tariff, i) => (
-                <li key={tariff.id ?? i} className="fav-card__tariff-row">
-                  <span className="fav-card__tariff-label">
-                    {tCatalog(RANGE_KEYS[Math.min(i, RANGE_KEYS.length - 1)])}
-                  </span>
-                  <span className="fav-card__tariff-value">
-                    <strong>
-                      {formatPrice((tariff.dailyPriceMinor ?? 0) / 100)}
-                    </strong>
-                    /{tCatalog("rates.perDay")}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            {/* ── Specs (column 3, 2x2 grid) ── */}
-            <ul className="fav-card__specs">
-              <li className="fav-card__spec">
-                <i className="fav-card__spec-icon">
-                  <svg width="22" height="22"><use href="/img/sprite/sprite.svg#engine" /></svg>
-                </i>
-                <span className="fav-card__spec-label">{tCatalog("features.engine")}</span>
-                <span className="fav-card__spec-value">{engineText}</span>
-              </li>
-              <li className="fav-card__spec">
-                <i className="fav-card__spec-icon">
-                  <svg width="22" height="22"><use href="/img/sprite/sprite.svg#gearbox" /></svg>
-                </i>
-                <span className="fav-card__spec-label">{tCatalog("features.transmission")}</span>
-                <span className="fav-card__spec-value">{transmissionText}</span>
-              </li>
-              <li className="fav-card__spec">
-                <i className="fav-card__spec-icon">
-                  <svg width="22" height="22"><use href="/img/sprite/sprite.svg#drivetrain" /></svg>
-                </i>
-                <span className="fav-card__spec-label">{tCatalog("features.drive")}</span>
-                <span className="fav-card__spec-value">{driveText}</span>
-              </li>
-              <li className="fav-card__spec">
-                <i className="fav-card__spec-icon">
-                  <svg width="22" height="22"><use href="/img/sprite/sprite.svg#seats" /></svg>
-                </i>
-                <span className="fav-card__spec-label">{tCatalog("features.seatsLabel")}</span>
-                <span className="fav-card__spec-value">{seatsText}</span>
-              </li>
-            </ul>
-
-            {/* ── Footer: deposit + CTA span columns 2-3 ── */}
-            <div className="fav-card__footer">
-              {deposit != null ? (
-                <div className="fav-card__deposit">
-                  <span>{tCatalog("total.depositLabel")}:</span>
-                  <strong>{formatDeposit(deposit)}</strong>
+            {/* ── Body (everything to the right of the photo) ── */}
+            <div className="fav-card__body">
+              {/* Title bar */}
+              <div className="fav-card__head">
+                <Link href={`/cars/${slug}`} className="fav-card__name">
+                  {car.brand} {car.model}
+                  {car.yearOfManufacture ? (
+                    <span className="fav-card__year">{car.yearOfManufacture}</span>
+                  ) : null}
+                </Link>
+                <div className="fav-card__badges">
+                  {car.isAvailable ? (
+                    <span className="fav-card__badge fav-card__badge--green">
+                      {tCatalog("badges.available")}
+                    </span>
+                  ) : (
+                    <span className="fav-card__badge fav-card__badge--muted">
+                      {tCatalog("badges.contact")}
+                    </span>
+                  )}
+                  {car.discount != null && car.discount > 0 ? (
+                    <span className="fav-card__badge fav-card__badge--red">
+                      -{car.discount}%
+                    </span>
+                  ) : null}
                 </div>
-              ) : <span />}
-              <Link href={`/cars/${slug}`} className="fav-card__cta">
-                {tCatalog("actions.details")}
-              </Link>
+              </div>
+
+              {/* Main: tariffs left, specs right */}
+              <div className="fav-card__main">
+                <ul className="fav-card__tariffs">
+                  {tariffs.slice(0, 4).map((tariff, i) => (
+                    <li key={tariff.id ?? i} className="fav-card__tariff-row">
+                      <span className="fav-card__tariff-label">
+                        {tCatalog(RANGE_KEYS[Math.min(i, RANGE_KEYS.length - 1)])}
+                      </span>
+                      <span className="fav-card__tariff-value">
+                        <strong>
+                          {formatPrice((tariff.dailyPriceMinor ?? 0) / 100)}
+                        </strong>
+                        /{tCatalog("rates.perDay")}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <ul className="fav-card__specs">
+                  <li className="fav-card__spec">
+                    <i className="fav-card__spec-icon">
+                      <svg width="22" height="22"><use href="/img/sprite/sprite.svg#engine" /></svg>
+                    </i>
+                    <span className="fav-card__spec-label">{tCatalog("features.engine")}</span>
+                    <span className="fav-card__spec-value">{engineText}</span>
+                  </li>
+                  <li className="fav-card__spec">
+                    <i className="fav-card__spec-icon">
+                      <svg width="22" height="22"><use href="/img/sprite/sprite.svg#gearbox" /></svg>
+                    </i>
+                    <span className="fav-card__spec-label">{tCatalog("features.transmission")}</span>
+                    <span className="fav-card__spec-value">{transmissionText}</span>
+                  </li>
+                  <li className="fav-card__spec">
+                    <i className="fav-card__spec-icon">
+                      <svg width="22" height="22"><use href="/img/sprite/sprite.svg#drivetrain" /></svg>
+                    </i>
+                    <span className="fav-card__spec-label">{tCatalog("features.drive")}</span>
+                    <span className="fav-card__spec-value">{driveText}</span>
+                  </li>
+                  <li className="fav-card__spec">
+                    <i className="fav-card__spec-icon">
+                      <svg width="22" height="22"><use href="/img/sprite/sprite.svg#seats" /></svg>
+                    </i>
+                    <span className="fav-card__spec-label">{tCatalog("features.seatsLabel")}</span>
+                    <span className="fav-card__spec-value">{seatsText}</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Footer: deposit + CTA */}
+              <div className="fav-card__footer">
+                {deposit != null ? (
+                  <div className="fav-card__deposit">
+                    <span>{tCatalog("total.depositLabel")}:</span>
+                    <strong>{formatDeposit(deposit)}</strong>
+                  </div>
+                ) : <span className="fav-card__deposit" />}
+                <Link href={`/cars/${slug}`} className="fav-card__cta">
+                  {tCatalog("actions.details")}
+                </Link>
+              </div>
             </div>
           </li>
         );
