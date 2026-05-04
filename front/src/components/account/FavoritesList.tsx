@@ -118,7 +118,10 @@ export default function FavoritesList({
               {/* Row: name + badges */}
               <div className="fav-card__top">
                 <Link href={`/cars/${slug}`} className="fav-card__name">
-                  {car.brand} {car.model}
+                  <span className="fav-card__name-text">{car.brand} {car.model}</span>
+                  {car.yearOfManufacture ? (
+                    <span className="fav-card__year">{car.yearOfManufacture}</span>
+                  ) : null}
                 </Link>
                 <div className="fav-card__badges">
                   {car.isAvailable ? (
@@ -138,21 +141,55 @@ export default function FavoritesList({
                 </div>
               </div>
 
-              {/* Specs */}
-              <div className="fav-card__specs">
-                <span>
-                  <svg width="20" height="20"><use href="/img/sprite/sprite.svg#engine" /></svg>
-                  {formatEngine(car.engineVolume, car.engineType, locale)}
-                </span>
-                <span>
-                  <svg width="20" height="20"><use href="/img/sprite/sprite.svg#gearbox" /></svg>
-                  {localizedSpec(car.transmission, locale)}
-                </span>
-                <span>
-                  <svg width="20" height="20"><use href="/img/sprite/sprite.svg#drivetrain" /></svg>
-                  {localizedSpec(car.driveType, locale)}
-                </span>
-              </div>
+              {/* Specs grid */}
+              <ul className="fav-card__specs">
+                <li className="fav-card__spec">
+                  <i className="fav-card__spec-icon">
+                    <svg width="22" height="22"><use href="/img/sprite/sprite.svg#engine" /></svg>
+                  </i>
+                  <div className="fav-card__spec-body">
+                    <span className="fav-card__spec-label">{tCatalog("features.engine")}</span>
+                    <span className="fav-card__spec-value">
+                      {formatEngine(car.engineVolume, car.engineType, locale) || "—"}
+                    </span>
+                  </div>
+                </li>
+                <li className="fav-card__spec">
+                  <i className="fav-card__spec-icon">
+                    <svg width="22" height="22"><use href="/img/sprite/sprite.svg#gearbox" /></svg>
+                  </i>
+                  <div className="fav-card__spec-body">
+                    <span className="fav-card__spec-label">{tCatalog("features.transmission")}</span>
+                    <span className="fav-card__spec-value">
+                      {localizedSpec(car.transmission, locale) || "—"}
+                    </span>
+                  </div>
+                </li>
+                <li className="fav-card__spec">
+                  <i className="fav-card__spec-icon">
+                    <svg width="22" height="22"><use href="/img/sprite/sprite.svg#drivetrain" /></svg>
+                  </i>
+                  <div className="fav-card__spec-body">
+                    <span className="fav-card__spec-label">{tCatalog("features.drive")}</span>
+                    <span className="fav-card__spec-value">
+                      {localizedSpec(car.driveType, locale) || "—"}
+                    </span>
+                  </div>
+                </li>
+                <li className="fav-card__spec">
+                  <i className="fav-card__spec-icon">
+                    <svg width="22" height="22"><use href="/img/sprite/sprite.svg#seats" /></svg>
+                  </i>
+                  <div className="fav-card__spec-body">
+                    <span className="fav-card__spec-label">{tCatalog("features.seatsLabel")}</span>
+                    <span className="fav-card__spec-value">
+                      {car.seats != null
+                        ? tCatalog("features.seatsValue", { count: String(car.seats) })
+                        : "—"}
+                    </span>
+                  </div>
+                </li>
+              </ul>
 
               {/* Tariffs */}
               {tariffs.length > 0 && (
