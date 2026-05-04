@@ -4435,18 +4435,18 @@
 }
 
 /* ── Favorites grid ────────────────────────────────────────── */
-/* Wraps the catalog `<CarCard>` (rendered as a <li>) in a 2-column
-   grid on the account page. Single column on mobile. */
+/* Wraps the catalog `<CarCard>` (rendered as a <li>). Single-column
+   because CarCard is itself a horizontal layout (photo `clamp(300,
+   31.25vw, 450px)` + 1fr content). Two columns squeezed the content
+   side to zero width on the account page where the sidebar already
+   takes ~300px. */
 .fav-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   list-style: none;
   margin: 0;
   padding: 0;
-
-  @include tablet { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  @include mobile { grid-template-columns: 1fr; gap: 16px; }
 }
 
 /* ── Notification matrix (override) ───────────────────────── */
