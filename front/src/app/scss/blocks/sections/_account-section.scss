@@ -4435,14 +4435,15 @@
 }
 
 /* ── Favorites grid ────────────────────────────────────────── */
-/* Wraps the catalog `<CarCard>` (rendered as a <li>). The catalog
-   sits in a full-width column without a sidebar, so its card grid
-   `clamp(300px, 31.25vw, 450px) photo + 1fr content` has plenty of
-   room. Inside the account shell the sidebar eats ~280px, so the
-   photo column needs to be narrower or the content side gets clipped.
-   Single column list + photo trimmed to 240–320px gives the tariffs,
-   spec grid and CTA button the breathing room the desktop layout
-   assumes. */
+/* Custom layout (we tried reusing the catalog `<CarCard>` first but
+   its `clamp(300, 31.25vw, 450) photo + 1fr` grid expects the catalog's
+   full-width main column; inside the account shell the sidebar leaves
+   ~1080px, the content side gets clipped, and breaking that layout
+   means fighting all the @media (max-width:1240px) rules in
+   _car-card.scss — easier to just render the same visual ourselves).
+   Layout per row:
+     [ photo (3fr) ][ tariffs (4fr) ][ specs 2x2 (3fr) ]
+   Title spans the right two columns; deposit + CTA span them too. */
 .fav-grid {
   display: flex;
   flex-direction: column;
@@ -4450,9 +4451,291 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
 
-  .car-card {
-    grid-template-columns: clamp(240px, 22vw, 320px) 1fr;
+.fav-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 3fr) minmax(280px, 4fr) minmax(260px, 3fr);
+  grid-template-rows: auto 1fr auto;
+  background: var(--acc-bg-card, #fff);
+  border: 1px solid var(--acc-border, #e5e7eb);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  // Photo cell spans all 3 rows on the left.
+  &__photo {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    position: relative;
+    background: var(--acc-bg-subtle, #f3f4f6);
+    overflow: hidden;
+    display: block;
+    min-height: 220px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+  }
+
+  &:hover &__photo img { transform: scale(1.03); }
+
+  &__no-photo {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(45deg,
+      rgba(0,0,0,0.04) 0 8px, transparent 8px 16px) #e8ecf0;
+  }
+
+  // Heart toggle inside photo (top-left).
+  &__heart.favorite-toggle {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    color: #e63946;
+
+    svg { width: 20px; height: 20px; }
+
+    &.favorite-toggle--active { color: #e63946; }
+  }
+
+  // Title row spans columns 2-3.
+  &__head {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--acc-border, #e5e7eb);
+  }
+
+  &__name {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--acc-text-primary, #111);
+    text-decoration: none;
+    line-height: 1.25;
+    min-width: 0;
+
+    &:hover { text-decoration: underline; }
+  }
+
+  &__year {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--acc-text-secondary, #6b7280);
+  }
+
+  &__badges {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    &--green {
+      background: rgba(14, 165, 72, 0.1);
+      color: #0EA548;
+    }
+    &--muted {
+      background: var(--acc-bg-subtle, #f3f4f6);
+      color: var(--acc-text-secondary, #6b7280);
+    }
+    &--red {
+      background: #e63946;
+      color: #fff;
+    }
+  }
+
+  // Tariffs (column 2, row 2).
+  &__tariffs {
+    grid-column: 2;
+    grid-row: 2;
+    list-style: none;
+    margin: 0;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__tariff-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--acc-text-secondary, #6b7280);
+  }
+
+  &__tariff-value {
+    color: var(--acc-text-primary, #111);
+
+    strong {
+      font-weight: 700;
+      font-size: 14px;
+    }
+  }
+
+  // Specs 2x2 grid (column 3, row 2).
+  &__specs {
+    grid-column: 3;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid var(--acc-border, #e5e7eb);
+  }
+
+  &__spec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 12px 8px;
+    text-align: center;
+    border-bottom: 1px solid var(--acc-border, #e5e7eb);
+    border-right: 1px solid var(--acc-border, #e5e7eb);
+
+    &:nth-child(2n) { border-right: 0; }
+    &:nth-child(n+3) { border-bottom: 0; }
+  }
+
+  &__spec-icon {
+    color: var(--acc-text-primary, #111);
+    line-height: 0;
+  }
+
+  &__spec-label {
+    font-size: 11px;
+    color: var(--acc-text-secondary, #6b7280);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+
+  &__spec-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--acc-text-primary, #111);
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  // Footer (deposit + CTA) spans columns 2-3.
+  &__footer {
+    grid-column: 2 / span 2;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: stretch;
+    border-top: 1px solid var(--acc-border, #e5e7eb);
+  }
+
+  &__deposit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--acc-text-secondary, #6b7280);
+
+    strong {
+      color: var(--acc-text-primary, #111);
+      font-weight: 700;
+      font-size: 14px;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 28px;
+    min-width: 160px;
+    background: var(--reiz-accent, #214230);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: background 0.15s;
+
+    &:hover { background: var(--reiz-accent-hover, #1a3527); }
+  }
+
+  // ── Tablet / narrow desktop: stack tariffs above specs ──
+  @media (max-width: 960px) {
+    grid-template-columns: minmax(220px, 1fr) 1fr;
+    grid-template-rows: auto auto auto auto;
+
+    &__photo { grid-column: 1; grid-row: 1 / span 4; }
+    &__head { grid-column: 2; grid-row: 1; }
+    &__tariffs { grid-column: 2; grid-row: 2; }
+    &__specs { grid-column: 2; grid-row: 3; border-left: 0; border-top: 1px solid var(--acc-border, #e5e7eb); }
+    &__footer { grid-column: 2; grid-row: 4; }
+  }
+
+  // ── Mobile: full vertical stack ──
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+
+    &__photo {
+      grid-column: 1;
+      grid-row: 1;
+      aspect-ratio: 16 / 10;
+      min-height: 0;
+    }
+    &__head { grid-column: 1; grid-row: 2; }
+    &__tariffs { grid-column: 1; grid-row: 3; }
+    &__specs { grid-column: 1; grid-row: 4; border-left: 0; border-top: 1px solid var(--acc-border, #e5e7eb); }
+    &__footer {
+      grid-column: 1;
+      grid-row: 5;
+      grid-template-columns: 1fr;
+    }
+    &__cta { padding: 14px; }
   }
 }
 
