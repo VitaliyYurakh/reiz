@@ -371,11 +371,10 @@
       background: #ffffff;
       cursor: pointer;
       font-size: 16px;
-      font-weight: 600;
-      color: #1359ba;
+      color: var(--cl-a);
 
       @include tablet {
-        font-weight: 600;
+        font-weight: 500;
       }
     }
   }
@@ -384,11 +383,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 600;
-    color: var(--cl-a);
+    font-weight: 400;
 
     @include tablet {
-      font-weight: 600;
+      font-weight: 500;
     }
   }
 
@@ -396,11 +394,11 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 600;
-    color: #1359ba;
+    font-weight: 400;
+    color: var(--cl-a);
 
     @include tablet {
-      font-weight: 600;
+      font-weight: 500;
     }
 
     svg {
