@@ -12284,77 +12284,46 @@ function getLongTermContent(_city: CityConfig, cityData: CitySpecificContent, lo
   return templates[locale];
 }
 
-function getAdvantagesWithLocation(_city: CityConfig, cityData: CitySpecificContent, locale: Locale): string {
-  const airportLine = cityData.airport
-    ? {
-        uk: `<li>Видача там, де зручно — ${cityData.airport.name[locale]}, вокзал, центр міста або подача за адресою.</li>`,
-        ru: `<li>Выдача там, где удобно — ${cityData.airport.name[locale]}, вокзал, центр города или подача по адресу.</li>`,
-        en: `<li>Pickup where convenient — ${cityData.airport.name[locale]}, railway station, city center, or delivery to your address.</li>`,
-        ro: `<li>Ridicare unde este convenabil — ${cityData.airport.name[locale]}, gara feroviară, centrul orașului sau livrare la adresa dvs.</li>`,
+function getAdvantagesWithLocation(_city: CityConfig, _cityData: CitySpecificContent, locale: Locale): string {
+  const pickupLine = {
+    uk: `<li>Видача там, де зручно — вокзал, центр міста або подача за адресою.</li>`,
+    ru: `<li>Выдача там, где удобно — вокзал, центр города или подача по адресу.</li>`,
+    en: `<li>Pickup where convenient — railway station, city center, or delivery to your address.</li>`,
+    ro: `<li>Ridicare unde este convenabil — gara feroviară, centrul orașului sau livrare la adresa dvs.</li>`,
 
-        pl: `<li>Pickup where convenient — ${cityData.airport.name[locale]}, railway station, city center, or delivery to your address.</li>`,
-      }[locale]
-    : {
-        uk: `<li>Видача там, де зручно — вокзал, центр міста або подача за адресою.</li>`,
-        ru: `<li>Выдача там, где удобно — вокзал, центр города или подача по адресу.</li>`,
-        en: `<li>Pickup where convenient — railway station, city center, or delivery to your address.</li>`,
-        ro: `<li>Ridicare unde este convenabil — gara feroviară, centrul orașului sau livrare la adresa dvs.</li>`,
-
-        pl: `<li>Pickup where convenient — railway station, city center, or delivery to your address.</li>`,
-      }[locale];
+    pl: `<li>Pickup where convenient — railway station, city center, or delivery to your address.</li>`,
+  }[locale];
 
   const baseList = staticContent.advantagesList[locale];
-  // Insert airport line after the second <li>
+  // Insert the local pickup line after the second <li>.
   const parts = baseList.split("</li>");
   if (parts.length > 2) {
-    parts.splice(2, 0, airportLine.replace("<li>", "").replace("</li>", ""));
+    parts.splice(2, 0, pickupLine.replace("<li>", "").replace("</li>", ""));
   }
   return parts.join("</li>");
 }
 
-function getDriverServiceContent(_city: CityConfig, cityData: CitySpecificContent, locale: Locale): string {
-  const airportText = cityData.airport
-    ? cityData.airport.name[locale]
-    : {
-        uk: "до готелю або на вокзал",
-        ru: "к отелю или на вокзал",
-
-        pl: "to the hotel or railway station",
-        en: "to the hotel or railway station",
-        ro: "la hotel sau la gara feroviară",
-      }[locale];
-
+function getDriverServiceContent(_city: CityConfig, _cityData: CitySpecificContent, locale: Locale): string {
   const templates = {
-    uk: `Бажаєте комфорт без керма? Замовте авто з професійним водієм — ми подамо його в ${airportText}, до готелю або за вашою адресою.`,
-    ru: `Хотите комфорт без руля? Закажите авто с профессиональным водителем — мы подадим его в ${airportText}, к отелю или по вашему адресу.`,
-    en: `Want comfort without driving? Order a car with a professional driver — we'll deliver it to ${airportText}, hotel, or your address.`,
-    ro: `Doriți confort fără să conduceți? Comandați o mașină cu un șofer profesionist — o vom livra la ${airportText}, hotel sau la adresa dvs.`,
+    uk: "Бажаєте комфорт без керма? Замовте авто з професійним водієм — подача до готелю, на вокзал або за вашою адресою.",
+    ru: "Хотите комфорт без руля? Закажите авто с профессиональным водителем — подача к отелю, на вокзал или по вашему адресу.",
+    en: "Want comfort without driving? Order a car with a professional driver — delivery to a hotel, railway station, or your address.",
+    ro: "Doriți confort fără să conduceți? Comandați o mașină cu un șofer profesionist — livrare la hotel, gară sau la adresa dvs.",
 
-    pl: `Want comfort without driving? Order a car with a professional driver — we'll deliver it to ${airportText}, hotel, or your address.`,
+    pl: "Want comfort without driving? Order a car with a professional driver — delivery to a hotel, railway station, or your address.",
   };
   return templates[locale];
 }
 
-function getDeliveryContent(city: CityConfig, cityData: CitySpecificContent, locale: Locale): string {
+function getDeliveryContent(city: CityConfig, _cityData: CitySpecificContent, locale: Locale): string {
   const loc = city.localized[locale];
-  const locations = cityData.localAttractions[locale];
-  const airportText = cityData.airport
-    ? {
-        uk: ` та ${cityData.airport.name[locale]}`,
-        ru: ` и ${cityData.airport.name[locale]}`,
-        en: ` and ${cityData.airport.name[locale]}`,
-        ro: ` și ${cityData.airport.name[locale]}`,
-
-        pl: ` and ${cityData.airport.name[locale]}`,
-      }[locale]
-    : "";
 
   const templates = {
-    uk: `Безкоштовно по ${loc.name}. Подаємо автомобіль у межах міста — ${locations}${airportText} — без доплат${cityData.airport ? " (паркування в аеропорту оплачує клієнт)" : ""}.<br/>За містом — платно. Можлива подача по області і по всій Україні. Вартість залежить від адреси і кілометражу — уточнюється у адміністратора перед підтвердженням броні.<br/>Повернення. У межах ${loc.name} — без доплат; за містом — за тими ж умовами, що і подача.<br/>Як оформити. При бронюванні оберіть «подача за адресою» і вкажіть місце/час. Адміністратор підтвердить деталі і, при виїзді за ${loc.name}, назве вартість.`,
-    ru: `Бесплатно по ${loc.name}. Подаём автомобиль в пределах города — ${locations}${airportText} — без доплат${cityData.airport ? " (парковка в аэропорту оплачивается клиентом)" : ""}.<br/>За городом — платно. Возможна подача по области и по всей Украине. Стоимость зависит от адреса и километража — уточняется у администратора перед подтверждением брони.<br/>Возврат. В пределах ${loc.name} — без доплат; за городом — на тех же условиях, что и подача.<br/>Как оформить. При бронировании выберите «подача по адресу» и укажите место/время. Администратор подтвердит детали и, при выезде за ${loc.name}, назовёт стоимость.`,
-    pl: `Free delivery in ${loc.name}. We deliver the car within the city — ${locations}${airportText} — at no extra charge${cityData.airport ? " (airport parking is paid by the client)" : ""}.<br/>Outside the city — paid. Delivery throughout the region and all of Ukraine is possible. The cost depends on the address and mileage — clarified with the administrator before booking confirmation.<br/>Return. Within ${loc.name} — at no extra charge; outside the city — under the same conditions as delivery.<br/>How to book. When booking, select "delivery to address" and specify the place/time. The administrator will confirm the details and, if traveling outside ${loc.name}, will name the cost.`,
-    en: `Free delivery in ${loc.name}. We deliver the car within the city — ${locations}${airportText} — at no extra charge${cityData.airport ? " (airport parking is paid by the client)" : ""}.<br/>Outside the city — paid. Delivery throughout the region and all of Ukraine is possible. The cost depends on the address and mileage — clarified with the administrator before booking confirmation.<br/>Return. Within ${loc.name} — at no extra charge; outside the city — under the same conditions as delivery.<br/>How to book. When booking, select "delivery to address" and specify the place/time. The administrator will confirm the details and, if traveling outside ${loc.name}, will name the cost.`,
-    ro: `Livrare gratuită în ${loc.name}. Livrăm mașina în limita orașului — ${locations}${airportText} — fără costuri suplimentare${cityData.airport ? " (parcarea la aeroport este plătită de client)" : ""}.<br/>În afara orașului — cu plată. Livrarea în regiune și în toată Ucraina este posibilă. Costul depinde de adresă și kilometraj — se clarifică cu administratorul înainte de confirmarea rezervării.<br/>Returnare. În limita ${loc.name} — fără costuri suplimentare; în afara orașului — în aceleași condiții ca livrarea.<br/>Cum se comandă. La rezervare, selectați „livrare la adresă" și specificați locul/ora. Administratorul va confirma detaliile și, în cazul deplasării în afara ${loc.name}, va preciza costul.`,
+    uk: `Подача в межах ${loc.name} за адресою або до вокзалу — умови підтвердить менеджер.<br/>За містом подача можлива за попереднім узгодженням. Вартість залежить від адреси і кілометражу та уточнюється перед підтвердженням броні.<br/>Повернення оформлюється за тими самими умовами. При бронюванні оберіть «подача за адресою» і вкажіть місце та час.`,
+    ru: `Подача в пределах ${loc.name} по адресу или к вокзалу — условия подтвердит менеджер.<br/>За городом подача возможна по предварительному согласованию. Стоимость зависит от адреса и километража и уточняется перед подтверждением брони.<br/>Возврат оформляется на тех же условиях. При бронировании выберите «подача по адресу» и укажите место и время.`,
+    pl: `Delivery within ${loc.name} to an address or railway station is confirmed by the manager.<br/>Outside the city, delivery is available by prior arrangement. The cost depends on the address and mileage and is confirmed before booking.<br/>Return is arranged under the same conditions. When booking, choose delivery to an address and specify the place and time.`,
+    en: `Delivery within ${loc.name} to an address or railway station is confirmed by the manager.<br/>Outside the city, delivery is available by prior arrangement. The cost depends on the address and mileage and is confirmed before booking.<br/>Return is arranged under the same conditions. When booking, choose delivery to an address and specify the place and time.`,
+    ro: `Livrarea în ${loc.name} la adresă sau la gară este confirmată de manager.<br/>În afara orașului, livrarea este disponibilă prin acord prealabil. Costul depinde de adresă și kilometraj și este confirmat înainte de rezervare.<br/>Returnarea se organizează în aceleași condiții. La rezervare, alegeți livrarea la adresă și indicați locul și ora.`,
   };
   return templates[locale];
 }
@@ -12731,6 +12700,7 @@ const joinWithConjunction = (items: string[], locale: Locale): string => {
 const getPickupLocationsText = (city: CityConfig, locale: Locale): string => {
   const locations =
     cityPickupLocations[city.slug]
+      ?.filter((location) => location.type !== "airport")
       ?.map((location) => location.name[locale])
       .filter(Boolean) ?? [];
 
@@ -12748,25 +12718,6 @@ const getPickupLocationsText = (city: CityConfig, locale: Locale): string => {
   return joinWithConjunction(locations.slice(0, 3), locale);
 };
 
-const getAirportSentence = (
-  cityData: CitySpecificContent | undefined,
-  locale: Locale
-): string => {
-  const airportName = cityData?.airport?.name?.[locale];
-  if (!airportName) return "";
-
-  const templates = {
-    uk: `Подача в ${airportName} можлива за попереднім узгодженням, час та умови підтвердить менеджер.`,
-    ru: `Подача в ${airportName} возможна по предварительному согласованию, время и условия подтвердит менеджер.`,
-    en: `Delivery to ${airportName} is available by request; the manager confirms time and terms.`,
-    ro: `Livrarea la ${airportName} este disponibilă la cerere; managerul confirmă ora și condițiile.`,
-
-    pl: `Delivery to ${airportName} is available by request; the manager confirms time and terms.`,
-  };
-
-  return templates[locale];
-};
-
 const generateCityFaqTemplate = (
   city: CityConfig,
   locale: Locale
@@ -12780,7 +12731,6 @@ const generateCityFaqTemplate = (
     cityData?.localAttractions?.[locale] ?? DEFAULT_LOCAL_ATTRACTIONS[locale];
   const routes = cityData?.routes?.[locale] ?? DEFAULT_ROUTES[locale];
   const weekendTrip = cityData?.weekendTrip?.[locale] ?? DEFAULT_WEEKEND[locale];
-  const airportSentence = getAirportSentence(cityData, locale);
 
   const deliveryAnswer = [
     {
@@ -12799,7 +12749,6 @@ const generateCityFaqTemplate = (
 
       pl: `We can also deliver the car to ${localAttractions}.`,
     }[locale],
-    airportSentence,
   ]
     .filter(Boolean)
     .join(" ");
@@ -12835,12 +12784,12 @@ const generateCityFaqTemplate = (
         },
         {
           question: {
-            uk: `Де можна отримати авто в ${cityName} і чи є подача на вокзал/аеропорт?`,
-            ru: `Где можно получить авто в ${cityName} и есть ли подача на вокзал/аэропорт?`,
-            en: `Where can I pick up a car in ${loc.name} and is airport/station delivery available?`,
-            ro: `Unde pot ridica o mașină în ${loc.name} și este disponibilă livrarea la aeroport/gară?`,
+            uk: `Де можна отримати авто в ${cityName} і чи доступна подача за адресою?`,
+            ru: `Где можно получить авто в ${cityName} и доступна ли подача по адресу?`,
+            en: `Where can I pick up a car in ${loc.name} and is delivery to an address available?`,
+            ro: `Unde pot ridica o mașină în ${loc.name} și este disponibilă livrarea la adresă?`,
 
-            pl: `Where can I pick up a car in ${loc.name} and is airport/station delivery available?`,
+            pl: `Where can I pick up a car in ${loc.name} and is delivery to an address available?`,
           }[locale],
           answer: deliveryAnswer,
         },
@@ -13085,14 +13034,32 @@ const formatCityFaqSections = (
     })),
   }));
 
+const airportMentionPattern = /аеропорт|аэропорт|airport|lotnisko|aeroport/i;
+
+const removeUnavailableAirportFaqItems = (
+  sections: CityFAQFormatted[],
+): CityFAQFormatted[] =>
+  sections
+    .map((section) => ({
+      ...section,
+      items: section.items.filter(
+        (item) =>
+          !airportMentionPattern.test(item.question) &&
+          !airportMentionPattern.test(item.answer),
+      ),
+    }))
+    .filter((section) => section.items.length > 0);
+
 export function getCityFAQ(
   city: CityConfig,
   locale: Locale
 ): CityFAQFormatted[] {
   const faqSections = cityFAQData[city.slug];
   if (faqSections && hasRequiredFaq(faqSections)) {
-    return formatCityFaqSections(faqSections, locale);
+    return removeUnavailableAirportFaqItems(
+      formatCityFaqSections(faqSections, locale),
+    );
   }
 
-  return generateCityFaqTemplate(city, locale);
+  return removeUnavailableAirportFaqItems(generateCityFaqTemplate(city, locale));
 }

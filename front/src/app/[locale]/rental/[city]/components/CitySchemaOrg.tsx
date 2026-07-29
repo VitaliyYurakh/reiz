@@ -1,8 +1,8 @@
+import { PHONE_NUMBER } from "@/config/social";
 import type { CityConfig } from "@/data/cities";
+import type { CityFAQFormatted } from "@/data/cityContent";
 import type { Locale } from "@/i18n/request";
 import { defaultLocale } from "@/i18n/request";
-import type { CityFAQFormatted } from "@/data/cityContent";
-import { PHONE_NUMBER } from "@/config/social";
 
 type Props = {
   city: CityConfig;
@@ -12,6 +12,7 @@ type Props = {
 
 export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+  const localizedCity = city.localized[locale];
 
   // Побудова URL сторінки
   const getPageUrl = () => {
@@ -21,11 +22,11 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
 
   // Локалізовані описи для Schema.org
   const descriptions: Record<Locale, string> = {
-    uk: `Оренда авто ${city.nameLocative} — сучасні автомобілі, подача по місту та в аеропорт, підтримка 24/7.`,
-    ru: `Аренда авто в ${city.nameLocative} — современные автомобили, подача по городу и в аэропорт, поддержка 24/7.`,
-    en: `Car rental in ${city.name} — modern vehicles, city-wide delivery and airport pickup, 24/7 support.`,
-    pl: `Wynajem samochodu w ${city.name} — nowoczesne pojazdy, dostawa po mieście i na lotnisko, wsparcie 24/7.`,
-    ro: `Închiriere auto în ${city.name} — vehicule moderne, livrare în oraș și la aeroport, asistență 24/7.`,
+    uk: `Оренда авто у ${localizedCity.nameLocative} — сучасні автомобілі, подача по місту та прозорі умови оренди.`,
+    ru: `Аренда авто в ${localizedCity.nameLocative} — современные автомобили, подача по городу и прозрачные условия аренды.`,
+    en: `Car rental in ${localizedCity.name} — modern vehicles, city-wide delivery, and clear rental terms.`,
+    pl: `Wynajem samochodu w ${localizedCity.name} — nowoczesne pojazdy, dostawa po mieście i jasne warunki najmu.`,
+    ro: `Închiriere auto în ${localizedCity.name} — vehicule moderne, livrare în oraș și condiții clare de închiriere.`,
   };
 
   // Schema.org WebPage для конкретного міста
@@ -36,18 +37,29 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     url: getPageUrl(),
     name: `REIZ - ${
       locale === "uk"
-        ? `Оренда авто у ${city.nameLocative}`
+        ? `Оренда авто у ${localizedCity.nameLocative}`
         : locale === "ru"
-          ? `Аренда авто в ${city.nameLocative}`
+          ? `Аренда авто в ${localizedCity.nameLocative}`
           : locale === "pl"
-            ? `Wynajem samochodu w ${city.name}`
-            : `Car Rental in ${city.name}`
+            ? `Wynajem samochodu w ${localizedCity.name}`
+            : locale === "ro"
+              ? `Închiriere auto în ${localizedCity.name}`
+              : `Car Rental in ${localizedCity.name}`
     }`,
     description: descriptions[locale],
     isPartOf: {
       "@id": `${baseUrl}/#website`,
     },
-    inLanguage: locale === "uk" ? "uk-UA" : locale === "ru" ? "ru-UA" : locale === "pl" ? "pl-PL" : "en-US",
+    inLanguage:
+      locale === "uk"
+        ? "uk-UA"
+        : locale === "ru"
+          ? "ru-UA"
+          : locale === "pl"
+            ? "pl-PL"
+            : locale === "ro"
+              ? "ro-RO"
+              : "en-US",
   };
 
   // Schema.org LocalBusiness для конкретного міста
@@ -55,10 +67,10 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     "@context": "https://schema.org",
     "@type": "CarRental",
     "@id": `${getPageUrl()}#localbusiness`,
-    name: `REIZ ${city.name}`,
+    name: `REIZ ${localizedCity.name}`,
     alternateName: [
-      `REIZ Rental ${city.name}`,
-      `REIZ RENTAL CARS ${city.name}`,
+      `REIZ Rental ${localizedCity.name}`,
+      `REIZ RENTAL CARS ${localizedCity.name}`,
     ],
     url: getPageUrl(),
     logo: `${baseUrl}/img/og/home-square.jpg`,
@@ -71,7 +83,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     paymentAccepted: "Cash, Credit Card, Bank Transfer",
     address: {
       "@type": "PostalAddress",
-      addressLocality: city.name,
+      addressLocality: localizedCity.name,
       addressRegion: city.region,
       postalCode: city.postalCode,
       addressCountry: "UA",
@@ -82,9 +94,19 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
       longitude: city.geo.longitude,
     },
     areaServed: [
-      { "@type": "City", name: city.name },
+      { "@type": "City", name: localizedCity.name },
       { "@type": "AdministrativeArea", name: city.region },
-      { "@type": "Country", name: locale === "uk" ? "Україна" : locale === "ru" ? "Украина" : locale === "pl" ? "Ukraina" : "Ukraine" },
+      {
+        "@type": "Country",
+        name:
+          locale === "uk"
+            ? "Україна"
+            : locale === "ru"
+              ? "Украина"
+              : locale === "pl"
+                ? "Ukraina"
+                : "Ukraine",
+      },
     ],
     openingHoursSpecification: [
       {
@@ -185,7 +207,14 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
       {
         "@type": "ListItem",
         position: 1,
-        name: locale === "uk" ? "Головна" : locale === "ru" ? "Главная" : locale === "pl" ? "Strona główna" : "Home",
+        name:
+          locale === "uk"
+            ? "Головна"
+            : locale === "ru"
+              ? "Главная"
+              : locale === "pl"
+                ? "Strona główna"
+                : "Home",
         item: `${baseUrl}${locale === defaultLocale ? "/" : `/${locale}/`}`,
       },
       {
@@ -193,30 +222,37 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
         position: 2,
         name:
           locale === "uk"
-            ? `Оренда авто у ${city.nameLocative}`
+            ? `Оренда авто у ${localizedCity.nameLocative}`
             : locale === "ru"
-              ? `Аренда авто в ${city.nameLocative}`
-              : `Car Rental in ${city.name}`,
+              ? `Аренда авто в ${localizedCity.nameLocative}`
+              : locale === "pl"
+                ? `Wynajem samochodu w ${localizedCity.name}`
+                : locale === "ro"
+                  ? `Închiriere auto în ${localizedCity.name}`
+                  : `Car Rental in ${localizedCity.name}`,
         item: getPageUrl(),
       },
     ],
   };
 
   // FAQPage Schema.org для FAQ секції
-  const faqJsonLd = faqSections && faqSections.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqSections.flatMap((section) =>
-      section.items.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      }))
-    ),
-  } : null;
+  const faqJsonLd =
+    faqSections && faqSections.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqSections.flatMap((section) =>
+            section.items.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.answer,
+              },
+            })),
+          ),
+        }
+      : null;
 
   return (
     <>
@@ -228,7 +264,9 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
       <script
         type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: safe structured data
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessJsonLd),
+        }}
       />
       <script
         type="application/ld+json"
