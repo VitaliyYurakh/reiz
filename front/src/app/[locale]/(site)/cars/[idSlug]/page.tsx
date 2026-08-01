@@ -26,6 +26,7 @@ import JsonLd from "@/components/JsonLd";
 import UtilityBar from "@/components/UtilityBar";
 import FavoriteToggle from "@/components/account/FavoriteToggle";
 import { generateVehicleSchema, generateProductSchema } from "@/lib/schema/vehicle";
+import BrandLogo from "@/app/[locale]/components/BrandLogo";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 
@@ -441,12 +442,13 @@ export default async function CarPage({
                     <div className="single-section__inner">
                         <div className="single-section__title-row">
                             <h1
-                                className="main-title"
+                                className="main-title single-section__car-title"
                                 data-aos="fade-right"
                                 data-aos-duration="900"
                                 data-aos-delay="450"
                             >
-                                {pageTitle}
+                                <BrandLogo brand={car.brand ?? ""} className="brand-logo--car-title" />
+                                <span>{pageTitle}</span>
                             </h1>
                             <div className="single-section__actions">
                                 <ShareButton

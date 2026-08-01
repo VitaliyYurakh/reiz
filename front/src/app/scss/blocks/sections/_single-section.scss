@@ -230,8 +230,43 @@
         font-weight: 400;
         font-size: clamp(25px, 2.2794vw, 31px);
 
+        &.single-section__car-title {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          > span {
+            min-width: 0;
+          }
+
+          .brand-logo--car-title {
+            display: inline-flex;
+            width: 52px;
+            height: 48px;
+            flex: 0 0 52px;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+              display: block;
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+
         @include small-tablet {
           font-weight: 600;
+
+          &.single-section__car-title {
+            gap: 9px;
+
+            .brand-logo--car-title {
+              width: 38px;
+              height: 35px;
+              flex-basis: 38px;
+            }
+          }
           line-height: 132%;
           color: #212529;
         }

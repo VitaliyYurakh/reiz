@@ -15,6 +15,7 @@ import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { formatEngine } from "@/lib/utils/catalog-utils";
 import UiImage from "@/components/ui/UiImage";
 import FavoriteToggle from "@/components/account/FavoriteToggle";
+import BrandLogo from "@/app/[locale]/components/BrandLogo";
 
 type CarCardProps = {
   car: Car;
@@ -247,7 +248,8 @@ export default function CarCard({ car, citySlug }: CarCardProps) {
               className="car-card__name"
               ref={nameRef}
             >
-              {car.brand} {car.model}
+              <BrandLogo brand={car.brand ?? ""} className="brand-logo--card" />
+              <span>{car.brand} {car.model}</span>
             </Link>
           </h3>
           <div className="car-card__badges" ref={badgesRef}>
