@@ -3,6 +3,7 @@
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useTranslations} from "next-intl";
 import CustomSelect from "@/app/[locale]/components/CustomSelect";
+import BrandLogo from "@/app/[locale]/components/BrandLogo";
 import cn from "classnames";
 import Icon from "@/components/Icon";
 import {lockScroll, unlockScroll} from "@/lib/utils/scroll";
@@ -25,6 +26,25 @@ type Filters = {
 };
 
 type SortKey = "default" | "asc" | "desc";
+
+// Shown only during local development so the brand selector can be reviewed
+// before these makes exist in the current catalogue.
+const PREVIEW_BRANDS = [
+    "Audi",
+    "Bentley",
+    "BMW",
+    "Cadillac",
+    "Chevrolet",
+    "Hyundai",
+    "Kia",
+    "Land Rover",
+    "Mazda",
+    "Mercedes-Benz",
+    "Porsche",
+    "Tesla",
+    "Toyota",
+    "Volkswagen",
+] as const;
 
 const createEmptyFilters = (): Filters => ({
     segment: null,
@@ -367,7 +387,10 @@ export default function Catalog({cars: rawCars, sectionTitle, citySlug}: Catalog
 
     const carBrands = useMemo(() => {
         const matchingCars = cars.filter((c) => isCarMatching(c, "brand"));
-        const brands = new Set(matchingCars.map((c) => c.brand?.trim()).filter((x): x is string => Boolean(x)));
+        const brands = new Set([
+            ...matchingCars.map((c) => c.brand?.trim()).filter((x): x is string => Boolean(x)),
+            ...(process.env.NODE_ENV === "development" ? PREVIEW_BRANDS : []),
+        ]);
         return Array.from(brands).sort((a, b) =>
             a.localeCompare(b, locale, { sensitivity: "base" })
         );
@@ -598,12 +621,14 @@ export default function Catalog({cars: rawCars, sectionTitle, citySlug}: Catalog
                                     />
 
                                     <CustomSelect
+                                        containerClassName="brand"
                                         placeholder={t("filters_panel.select_brand_placeholder")}
                                         options={carBrands}
                                         onChange={(val) =>
                                             setFilters({...filters, brand: val, model: null})
                                         }
                                         value={filters.brand ?? null}
+                                        renderOptionIcon={(brand) => <BrandLogo brand={brand} />}
                                     />
                                     <CustomSelect
                                         placeholder={t("filters_panel.select_model_placeholder")}

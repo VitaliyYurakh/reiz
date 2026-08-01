@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import cn from "classnames";
 
 export default function CustomSelect({
@@ -16,6 +16,7 @@ export default function CustomSelect({
   ariaLabel,
   defaultOption,
   optionIcons,
+  renderOptionIcon,
 }: {
   options: string[];
   value?: string | null;
@@ -31,6 +32,8 @@ export default function CustomSelect({
   defaultOption?: string;
   /** Icons for each option: { "Option Label": "icon-id" } */
   optionIcons?: Record<string, string>;
+  /** Custom icon renderer for the selected option and list items. */
+  renderOptionIcon?: (option: string) => ReactNode;
 }) {
   const [open, setOpen] = useState(false);
   const [uncontrolled, setUncontrolled] = useState<string | null>(null);
@@ -104,12 +107,14 @@ export default function CustomSelect({
 
   const displayLabel = ariaLabel || placeholder || "Select option";
   const isDefaultSelected = defaultOption != null && value === defaultOption;
+  const hasValue = Boolean(value);
 
   return (
     <div
       className={cn("custom-select", containerClassName, {
         open,
         "default-selected": isDefaultSelected,
+        "has-value": hasValue,
       })}
       ref={(node) => {
         ref.current = node;
@@ -153,6 +158,7 @@ export default function CustomSelect({
               </i>
             </span>
           )}
+          {value && renderOptionIcon?.(value)}
           {value ? (
             <span className="selected-option">
               <span className="option-label">{value}</span>
@@ -198,6 +204,7 @@ export default function CustomSelect({
                   </svg>
                 </span>
               )}
+              {renderOptionIcon?.(opt)}
               {opt}
             </span>
           </li>

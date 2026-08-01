@@ -466,6 +466,62 @@
     }
   }
 
+  &.brand {
+    .selected-options {
+      gap: 5px;
+      justify-content: center;
+    }
+
+    &:not(.has-value) {
+      .placeholder {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    &.has-value .selected-options {
+      justify-content: center;
+    }
+
+    .option {
+      min-height: 46px;
+    }
+
+    .option-text {
+      height: 46px;
+      gap: 7px;
+      justify-content: flex-start;
+      padding: 7px 14px;
+      text-align: left;
+    }
+
+    .option-label {
+      text-align: left;
+    }
+
+    .options-container.active {
+      // Keep the same compact height as the production catalogue selector.
+      max-height: 240px;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      width: 46px;
+      height: 35px;
+      flex: 0 0 46px;
+      align-items: center;
+      justify-content: center;
+      color: #151515;
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+    }
+  }
+
   &.order {
     // Dropdown overlay approach - looks like one component
     height: 45px; // Fixed height - doesn't change
