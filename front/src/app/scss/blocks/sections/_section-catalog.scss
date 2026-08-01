@@ -381,6 +381,12 @@
         z-index: 1;
 
         &.mode {
+            &:has(.catalog-aside__input:placeholder-shown) {
+                span[aria-hidden="true"] {
+                    color: #9ca3af;
+                }
+            }
+
             span {
                 &:first-of-type {
                     visibility: hidden;
@@ -441,7 +447,8 @@
             ;
             font-weight: 400;
             font-size: 14px;
-            color: var(--cl-n);
+            color: #9ca3af;
+            opacity: 1;
         }
     }
 
