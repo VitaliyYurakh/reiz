@@ -103,8 +103,11 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
   const ogLocale = OG_LOCALE[locale];
   const ogAlternateLocales = getOgAlternateLocales(locale);
   const ogImage = toAbsolute(
-    (meta.og_image || "https://reiz.com.ua/img/og/home-square.jpg") as string,
+    (meta.og_image || "https://reiz.com.ua/img/og/home.webp") as string,
   );
+  const ogImageDimensions = ogImage.endsWith("/img/og/home.webp")
+    ? { width: 1200, height: 675 }
+    : { width: 1200, height: 630 };
 
   const languages = buildHreflangMap(
     (loc) => paths[loc],
@@ -123,7 +126,7 @@ export function getStaticPageMetadata(pageKey: PageKey, locale: Locale): Metadat
       siteName: SITE_NAME,
       title: (meta.og_title || meta.title) as string,
       description: (meta.og_description || meta.description) as string,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
+      images: [{ url: ogImage, ...ogImageDimensions }],
       url: canonical,
       locale: ogLocale,
       alternateLocale: ogAlternateLocales,

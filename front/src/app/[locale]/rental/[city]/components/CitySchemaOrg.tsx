@@ -61,7 +61,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
       `REIZ RENTAL CARS ${city.name}`,
     ],
     url: getPageUrl(),
-    logo: `${baseUrl}/img/og/home-square.jpg`,
+    logo: `${baseUrl}/favicon-192.png`,
     image: `${baseUrl}/img/og/home-square.jpg`,
     description: descriptions[locale],
     telephone: PHONE_NUMBER,

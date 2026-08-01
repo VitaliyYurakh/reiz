@@ -40,9 +40,9 @@ export const metadata: Metadata = {
       "Прокат авто по Україні. Нові машини, подача 24/7, безкоштовна доставка. Київ, Львів, Одеса, Дніпро та інші міста.",
     images: [
       {
-        url: `${SITE_ORIGIN}/img/og/home-square.jpg`,
+        url: `${SITE_ORIGIN}/img/og/home.webp`,
         width: 1200,
-        height: 1200,
+        height: 675,
         alt: "REIZ — Оренда авто в Україні",
       },
     ],
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "Оренда авто в Україні без застави | REIZ",
     description:
       "Прокат авто по Україні: нові машини, подача 24/7, безкоштовна доставка по місту.",
-    images: [`${SITE_ORIGIN}/img/og/home-square.jpg`],
+    images: [`${SITE_ORIGIN}/img/og/home.webp`],
   },
   robots: {
     index: true,
@@ -186,7 +186,7 @@ export default async function RootLayout({
         />
         <link
           rel="image_src"
-          href={`${SITE_ORIGIN}/img/og/home-square.jpg`}
+          href={`${SITE_ORIGIN}/img/og/home.webp`}
         />
         {/* Preload LCP hero images - CRITICAL for performance */}
         {/* Desktop hero - matches current LCP image */}

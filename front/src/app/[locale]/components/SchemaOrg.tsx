@@ -26,7 +26,7 @@ export default async function SchemaOrg({
   const webPageId = buildId(homeUrl, "webpage");
   const companyId = buildId(homeUrl, "company");
   const primaryImageId = buildId(homeUrl, "primaryimage");
-  const primaryImageUrl = `${SITE_ORIGIN}/img/og/home-square.jpg`;
+  const primaryImageUrl = `${SITE_ORIGIN}/img/og/home.webp`;
   const languageTags = locales.map((loc) => LANGUAGE_TAG[loc]);
   const localeLanguageTag = LANGUAGE_TAG[locale];
 
@@ -118,7 +118,7 @@ export default async function SchemaOrg({
     url: primaryImageUrl,
     contentUrl: primaryImageUrl,
     width: 1200,
-    height: 1200,
+    height: 675,
     caption: localizedOgTitle,
     representativeOfPage: true,
     inLanguage: localeLanguageTag,
@@ -131,7 +131,7 @@ export default async function SchemaOrg({
     name: SITE_NAME,
     alternateName: alternateNames,
     url: homeUrl,
-    logo: `${SITE_ORIGIN}/img/og/home-square.jpg`,
+    logo: `${SITE_ORIGIN}/favicon-192.png`,
     image: {
       "@id": primaryImageId,
     },

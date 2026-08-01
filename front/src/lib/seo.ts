@@ -45,7 +45,7 @@ const ROUTES: Record<RouteKey, string> = {
 };
 
 const OG_IMAGE_DIMENSIONS: Partial<Record<RouteKey, { width: number; height: number }>> = {
-  home: { width: 1200, height: 697 },
+  home: { width: 1200, height: 675 },
 };
 
 export const ROUTE_MAP: Record<RouteKey, Record<Locale, string>> =

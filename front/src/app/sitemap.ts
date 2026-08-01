@@ -12,7 +12,7 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 
 const abs = (path: string) => new URL(path, BASE).toString();
 
-const DEFAULT_IMAGE = abs("/img/og/home-square.jpg");
+const DEFAULT_IMAGE = abs("/img/og/home.webp");
 
 const BLOG_ARTICLE_IMAGES: Record<string, string> = {
   "/blog/long-term-car-rental-ukraine": abs("/img/blog/parking-payment-clean.webp"),
