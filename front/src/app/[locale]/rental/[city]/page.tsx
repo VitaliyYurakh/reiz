@@ -1,31 +1,31 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
-import Advantages from "@/app/[locale]/components/Advantages";
-import Catalog from "@/app/[locale]/components/Catalog";
-import Rent from "@/app/[locale]/components/Rent";
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Catalog from "@/app/[locale]/components/Catalog";
+import Advantages from "@/app/[locale]/components/Advantages";
+import Rent from "@/app/[locale]/components/Rent";
 import { CatalogFiltersProvider } from "@/context/CatalogFiltersContext";
+import { fetchCars } from "@/lib/api/cars";
+import type { Locale } from "@/i18n/request";
+import { locales, defaultLocale } from "@/i18n/request";
 import {
-  getAllCitySlugs,
-  getCityBySlug,
-  getCityFooterAddress,
-  getCityLocalizedData,
-} from "@/data/cities";
-import { getCityFAQ } from "@/data/cityContent";
-import {
+  OG_LOCALE,
   buildHreflangMap,
   getOgAlternateLocales,
   type LocalizedField,
-  OG_LOCALE,
 } from "@/i18n/locale-config";
-import type { Locale } from "@/i18n/request";
-import { defaultLocale, locales } from "@/i18n/request";
-import { fetchCars } from "@/lib/api/cars";
-import CityEditorSection from "./components/CityEditorSection";
-import CityFAQ from "./components/CityFAQ";
+import {
+  getCityBySlug,
+  getCityFooterAddress,
+  getCityLocalizedData,
+  getAllCitySlugs,
+} from "@/data/cities";
+import { getCityFAQ } from "@/data/cityContent";
 import CityHeroSection from "./components/CityHeroSection";
+import CityEditorSection from "./components/CityEditorSection";
 import CitySchemaOrg from "./components/CitySchemaOrg";
+import CityFAQ from "./components/CityFAQ";
 
 type PageParams = {
   locale: Locale;
@@ -45,48 +45,12 @@ const shortenMetaTitle = (value: string) => {
   return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated).trim();
 };
 
-const airportClaimPattern = /аеропорт|аэропорт|airport|lotnisko|aeroport/i;
-
-const getSafeCityTitle = (
-  city: NonNullable<ReturnType<typeof getCityBySlug>>,
-  locale: Locale,
-) => {
-  const localized = city.localized[locale];
-  const templates: Record<Locale, string> = {
-    uk: `Оренда та прокат авто у ${localized.nameLocative}`,
-    ru: `Аренда и прокат авто в ${localized.nameLocative}`,
-    en: `Car Rental in ${localized.name}`,
-    pl: `Wynajem samochodu w ${localized.name}`,
-    ro: `Închiriere auto în ${localized.name}`,
-  };
-
-  return templates[locale];
-};
-
-const getSafeCityDescription = (
-  city: NonNullable<ReturnType<typeof getCityBySlug>>,
-  locale: Locale,
-) => {
-  const localized = city.localized[locale];
-  const templates: Record<Locale, string> = {
-    uk: `Оренда та прокат авто у ${localized.nameLocative} від REIZ. Подача за адресою в межах міста; умови оренди підтвердить менеджер.`,
-    ru: `Аренда и прокат авто в ${localized.nameLocative} от REIZ. Подача по адресу в пределах города; условия аренды подтвердит менеджер.`,
-    en: `Car rental in ${localized.name} with REIZ. City delivery to your address is confirmed by the manager before booking.`,
-    pl: `Wynajem samochodu w ${localized.name} z REIZ. Dostawę pod adres w mieście potwierdza manager przed rezerwacją.`,
-    ro: `Închiriere auto în ${localized.name} cu REIZ. Livrarea la adresă în oraș este confirmată de manager înainte de rezervare.`,
-  };
-
-  return templates[locale];
-};
-
 // Генерація статичних параметрів для SSG
 export async function generateStaticParams(): Promise<PageParams[]> {
   const params: PageParams[] = [];
 
   for (const locale of locales) {
-    for (const slug of getAllCitySlugs().filter(
-      (citySlug) => citySlug !== "lviv",
-    )) {
+    for (const slug of getAllCitySlugs().filter((citySlug) => citySlug !== "lviv")) {
       params.push({ locale, city: slug });
     }
   }
@@ -131,22 +95,13 @@ export async function generateMetadata({
     (p) => `${baseUrl}${p}`,
   );
 
-  const rawMetaTitle = shortenMetaTitle(cityData.title);
-  const metaTitle = airportClaimPattern.test(rawMetaTitle)
-    ? getSafeCityTitle(cityConfig, locale)
-    : rawMetaTitle;
-  const metaDescription = airportClaimPattern.test(cityData.metaDescription)
-    ? getSafeCityDescription(cityConfig, locale)
-    : cityData.metaDescription;
-  const ogDescription = airportClaimPattern.test(cityData.ogDescription)
-    ? metaDescription
-    : cityData.ogDescription;
+  const metaTitle = shortenMetaTitle(cityData.title);
   const ogLocale = OG_LOCALE[locale];
   const ogAlternateLocales = getOgAlternateLocales(locale);
 
   return {
     title: metaTitle,
-    description: metaDescription,
+    description: cityData.metaDescription,
     alternates: {
       canonical,
       languages,
@@ -155,10 +110,8 @@ export async function generateMetadata({
       type: "website",
       siteName: "REIZ",
       title: metaTitle,
-      description: ogDescription,
-      images: [
-        { url: `${baseUrl}/img/og/home-square.jpg`, width: 1200, height: 1200 },
-      ],
+      description: cityData.ogDescription,
+      images: [{ url: `${baseUrl}/img/og/home-square.jpg`, width: 1200, height: 1200 }],
       url: canonical,
       locale: ogLocale,
       alternateLocale: ogAlternateLocales,
@@ -166,7 +119,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: metaTitle,
-      description: ogDescription,
+      description: cityData.ogDescription,
       images: [`${baseUrl}/img/og/home-square.jpg`],
     },
   };
@@ -211,21 +164,9 @@ export default async function CityRentalPage({
     <CatalogFiltersProvider>
       <Header />
       <main className="main">
-        <CitySchemaOrg
-          city={cityConfig}
-          locale={locale}
-          faqSections={faqSections}
-        />
-        <CityHeroSection
-          city={cityConfig}
-          cityData={cityData}
-          locale={locale}
-        />
-        <Catalog
-          cars={cars}
-          sectionTitle={cityData.sectionCars}
-          citySlug={citySlug}
-        />
+        <CitySchemaOrg city={cityConfig} locale={locale} faqSections={faqSections} />
+        <CityHeroSection city={cityConfig} cityData={cityData} locale={locale} />
+        <Catalog cars={cars} sectionTitle={cityData.sectionCars} citySlug={citySlug} />
         <Advantages />
         <Rent />
         <CityEditorSection city={cityConfig} locale={locale} />

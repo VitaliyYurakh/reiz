@@ -1,17 +1,17 @@
-import { getTranslations } from "next-intl/server";
-import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
-import HeroBookButton from "@/app/[locale]/components/HeroBookButton";
-import LocationMapLink from "@/app/[locale]/components/LocationMapLink";
+import UiImage from "@/components/ui/UiImage";
 import OrderForm from "@/app/[locale]/components/OrderForm";
+import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/request";
+import LocationMapLink from "@/app/[locale]/components/LocationMapLink";
+import HeroBookButton from "@/app/[locale]/components/HeroBookButton";
 import ScrollToCatalogButton from "@/app/[locale]/components/ScrollToCatalogButton";
 import UtilityBar from "@/components/UtilityBar";
-import UiImage from "@/components/ui/UiImage";
 import WhatsAppUnavailable from "@/components/WhatsAppUnavailable";
 import { SOCIAL_LINKS } from "@/config/social";
+import { getCityPickupLocations } from "@/data/cities";
 import type { CityConfig, CityLocalizedData } from "@/data/cities";
-import { getCityFooterAddress, getCityPickupLocations } from "@/data/cities";
 import type { Locale } from "@/i18n/request";
-import { Link } from "@/i18n/request";
 
 type Props = {
   city: CityConfig;
@@ -19,20 +19,15 @@ type Props = {
   locale: Locale;
 };
 
-export default async function CityHeroSection({
-  city,
-  cityData,
-  locale,
-}: Props) {
+export default async function CityHeroSection({ city, cityData, locale }: Props) {
   const t = await getTranslations("homePage.hero");
   const footerT = await getTranslations("footer");
   const pickupLocations = getCityPickupLocations(city.slug, locale);
-  const locationLabel = getCityFooterAddress(city, locale);
   const defaultPickupLocation =
-    pickupLocations.find((loc) => loc.type === "center")?.name ??
-    pickupLocations.find((loc) => loc.type === "railway")?.name ??
-    pickupLocations.find((loc) => loc.type === "bus")?.name ??
-    pickupLocations.find((loc) => loc.type === "mall")?.name ??
+    (city.slug === "bukovel"
+      ? pickupLocations.find((loc) => loc.type === "center")?.name
+      : undefined) ??
+    pickupLocations.find((loc) => loc.type === "airport")?.name ??
     pickupLocations[0]?.name ??
     city.localized[locale].name;
 
@@ -96,15 +91,15 @@ export default async function CityHeroSection({
             >
               <LocationMapLink
                 className="adress-link address-link"
-                title={locationLabel}
-                mapQuery={locationLabel}
+                title={cityData.address}
+                mapQuery={cityData.address}
               >
                 <i className="sprite mode">
                   <svg width="20" height="26">
                     <use href="/img/sprite/sprite.svg#geo" />
                   </svg>
                 </i>
-                <span>{locationLabel}</span>
+                <span>{cityData.address}</span>
               </LocationMapLink>
 
               <ScrollToCatalogButton className="down-btn">
