@@ -12,6 +12,8 @@
     "format": "biome format --write --fix",
     "build:icons": "node scripts/build-icons.mjs",
     "build:travel-card": "node scripts/build-travel-map-card.mjs",
+    "gsc:fetch": "node ../ops/gsc-monitor/fetch.mjs",
+    "gsc:diff": "node ../ops/gsc-monitor/diff.mjs",
     "postinstall": "test -f prisma/schema.prisma && prisma generate --schema=prisma/schema.prisma || echo 'skip prisma generate (schema not present yet — handled by Dockerfile builder stage)'"
   },
   "dependencies": {

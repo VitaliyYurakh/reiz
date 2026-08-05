@@ -1,0 +1,9 @@
+{
+  "name": "reiz-gsc-monitor",
+  "private": true,
+  "type": "module",
+  "description": "Standalone GSC fetch+diff tooling for the weekly prod cron. Deliberately separate from front/ — the front Docker image is built fresh in CI and never has node_modules on the host, so this keeps the one real dependency (googleapis) install-able directly on the VM without touching the app build.",
+  "dependencies": {
+    "googleapis": "^171.4.0"
+  }
+}

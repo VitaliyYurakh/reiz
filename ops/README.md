@@ -77,6 +77,58 @@ Post-restore:
 3. Hit health: `curl http://127.0.0.1:8080/api/health -H 'Host: reiz.com.ua'`
 4. Smoke a known route: `curl -sL -o /dev/null -w '%{http_code}\n' https://reiz.com.ua/`
 
+## GSC weekly monitor
+
+`gsc-weekly.sh` pulls a fresh 28-day Search Console snapshot (via the
+`indexing-bot@reiz-indexing.iam.gserviceaccount.com` service account,
+which already has `webmasters.readonly` access) and writes a
+week-over-week position diff, grouped by city, to
+`_audit/gsc/<date>/diff-report.md`.
+
+Sends a done/failed ping to Telegram after each run, reusing the site's
+existing bot (`TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` — same `.env` vars
+`api/app/services/telegram.service.ts` uses for booking/lead alerts, no
+separate bot needed). If those vars aren't in `.env` on the VM, the
+script logs a skip notice and still exits normally — Telegram being down
+never fails the actual monitoring run. The ping just says "report's
+ready" / "run failed" — it is not the analysis.
+
+**This is fetch + diff only — no LLM analysis runs automatically.**
+The "why did this move and what should we fix" step is done on demand:
+next time you're in a Claude Code session, say something like "review
+this week's GSC diff" and it'll run the `seo-auditor` agent against the
+freshest report. Reasons this is manual, not cron'd:
+- Keeps the automation dependency-free (no API key / `gh` auth sitting
+  on a public-facing VM).
+- SEO analysis is worth a human-reviewed pass, not silent auto-fixes —
+  `seo-auditor` already refuses to auto-commit/merge for the same
+  reason (see its anti-patterns section).
+
+```bash
+# One-time setup — installs the one dependency (googleapis), fully
+# separate from front/'s node_modules (which only ever exist inside
+# the Docker build, never on the host)
+cd /opt/reiz/ops/gsc-monitor && npm install
+
+# Manual run (cron just calls this same script)
+sudo /opt/reiz/ops/gsc-weekly.sh
+
+# Read the latest diff
+cat /opt/reiz/_audit/gsc/$(ls -1 /opt/reiz/_audit/gsc | tail -1)/diff-report.md
+
+# Last cron run logs
+tail -50 /var/log/reiz-gsc.log
+```
+
+Retention: keeps the last 12 weekly snapshots (~3 months), prunes older
+ones at the end of each run.
+
+Install the weekly cron:
+```bash
+sudo /opt/reiz/ops/install-cron-gsc.sh
+crontab -l | grep reiz-gsc    # verify
+```
+
 ## Cron installation
 
 `install-cron.sh` registers the daily backup job. Idempotent — uses a
@@ -113,3 +165,6 @@ Untested backups are just hopes. At least once a quarter:
 | Install/refresh cron | `sudo /opt/reiz/ops/install-cron.sh` |
 | Last cron run logs | `tail -50 /var/log/reiz-backup.log` |
 | Verify cron registered | `crontab -l \| grep reiz-backup` |
+| Manual GSC fetch+diff now | `sudo /opt/reiz/ops/gsc-weekly.sh` |
+| Install/refresh GSC cron | `sudo /opt/reiz/ops/install-cron-gsc.sh` |
+| Last GSC cron run logs | `tail -50 /var/log/reiz-gsc.log` |
