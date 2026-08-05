@@ -9,8 +9,8 @@
 #     the 02:13 backup job so the two don't contend for the same minute.
 #   * Output captured to /var/log/reiz-gsc.log.
 #
-# Prereq (one-time, not handled by this script):
-#   cd /opt/reiz/ops/gsc-monitor && npm install
+# No prereqs — gsc-weekly.sh runs Node inside a throwaway container and
+# installs its one dependency on first run.
 
 set -euo pipefail
 

@@ -104,12 +104,13 @@ freshest report. Reasons this is manual, not cron'd:
   `seo-auditor` already refuses to auto-commit/merge for the same
   reason (see its anti-patterns section).
 
-```bash
-# One-time setup — installs the one dependency (googleapis), fully
-# separate from front/'s node_modules (which only ever exist inside
-# the Docker build, never on the host)
-cd /opt/reiz/ops/gsc-monitor && npm install
+No setup step — the host has no bare Node.js (this stack only ever runs
+Node inside Docker images), so `gsc-weekly.sh` runs `fetch.mjs`/`diff.mjs`
+inside a throwaway `node:22-alpine` container itself, installing the one
+dependency (googleapis) into a bind-mounted `node_modules` the first time
+it's missing. Fully separate from `front/`'s node_modules either way.
 
+```bash
 # Manual run (cron just calls this same script)
 sudo /opt/reiz/ops/gsc-weekly.sh
 

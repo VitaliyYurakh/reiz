@@ -18,9 +18,14 @@
 # This is a status ping, not the analysis itself — it says "report's
 # ready" or "run failed", never "here's why the position moved".
 #
-# One-time setup: `cd /opt/reiz/ops/gsc-monitor && npm install`
-# (installs the one dependency, googleapis — never touches front/'s
-# node_modules, which only ever exist inside the Docker build).
+# No setup step needed. The host has no bare Node.js install (this stack
+# only ever runs Node inside Docker images — see front/Dockerfile) so
+# fetch.mjs/diff.mjs run inside a throwaway node:22-alpine container via
+# `docker run`, bind-mounting $REIZ_ROOT at the same absolute path so the
+# scripts' own `../../service-account.json` / `../../_audit` relative
+# resolution works unmodified. node_modules (just googleapis) persists on
+# the host bind mount, so the one-time `npm install` also happens inside a
+# container, automatically, only when node_modules is missing.
 
 set -euo pipefail
 
@@ -28,6 +33,12 @@ REIZ_ROOT="${REIZ_ROOT:-/opt/reiz}"
 ENV_FILE="${ENV_FILE:-$REIZ_ROOT/.env}"
 LOG_FILE="${LOG_FILE:-/var/log/reiz-gsc.log}"
 SNAPSHOT_KEEP="${SNAPSHOT_KEEP:-12}"  # ~3 months of weekly snapshots
+NODE_IMAGE="node:22-alpine"  # same major version as front/Dockerfile
+MONITOR_DIR="$REIZ_ROOT/ops/gsc-monitor"
+
+container_run() {
+    docker run --rm -v "$REIZ_ROOT:$REIZ_ROOT" -w "$MONITOR_DIR" "$NODE_IMAGE" "$@"
+}
 
 log() {
     printf '[%s] %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" | tee -a "$LOG_FILE"
@@ -65,14 +76,17 @@ trap 'on_error $LINENO' ERR
 
 mkdir -p "$(dirname "$LOG_FILE")"
 
-cd "$REIZ_ROOT/ops/gsc-monitor"
+if [[ ! -d "$MONITOR_DIR/node_modules" ]]; then
+    log "First run — installing gsc-monitor dependencies inside $NODE_IMAGE..."
+    container_run npm install --no-audit --no-fund 2>&1 | tee -a "$LOG_FILE"
+fi
 
 log "Fetching GSC snapshot..."
-FETCH_OUT="$(node fetch.mjs 2>&1 | tee -a "$LOG_FILE")"
+FETCH_OUT="$(container_run node fetch.mjs 2>&1 | tee -a "$LOG_FILE")"
 FETCH_SUMMARY="$(grep '^Wrote' <<< "$FETCH_OUT" || true)"
 
 log "Running week-over-week diff..."
-node diff.mjs > /dev/null 2>> "$LOG_FILE"
+container_run node diff.mjs > /dev/null 2>> "$LOG_FILE"
 
 log "Diff report written. Pruning old snapshots (keeping last $SNAPSHOT_KEEP)..."
 
