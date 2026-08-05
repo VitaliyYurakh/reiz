@@ -110,9 +110,14 @@ export default async function InsurancePage() {
             </span>
           </nav>
 
-          <h1 className="insurance-section__mob-hero-title">
+          {/* Not an <h1>: the desktop hero below already renders the page's
+              single H1 with this same text (.blog-hero__title, same pattern
+              used on about/contacts/terms/faq/blog). Both used to be <h1>,
+              which duplicated the H1 in the DOM regardless of which one CSS
+              hides at a given breakpoint. */}
+          <p className="insurance-section__mob-hero-title">
             {t("hero.title")}
-          </h1>
+          </p>
           <p className="insurance-section__mob-hero-text">{t("hero.text")}</p>
           <HeroBookButton className="insurance-section__mob-hero-btn">
             {t("hero.cta")}

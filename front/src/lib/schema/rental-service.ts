@@ -20,7 +20,9 @@ export function generateRentalServiceSchema({
 }: RentalServiceSchemaParams): Record<string, unknown> {
   const carName = `${car.brand} ${car.model} ${car.yearOfManufacture}`.trim();
 
-  // dailyPriceMinor is stored in копійки; schema.org price is in UAH whole units.
+  // dailyPriceMinor is USD cents (base currency of tariffs — see
+  // CurrencyContext.tsx and the site's own "Розрахунок у USD" disclaimer),
+  // not UAH. Dividing by 100 only removes the minor-unit scale.
   const prices = car.rentalTariff?.map((t) => t.dailyPriceMinor / 100) || [];
   const minPrice = prices.length > 0 ? Math.min(...prices) : null;
 
@@ -110,12 +112,13 @@ export function generateRentalServiceSchema({
   if (minPrice !== null) {
     schema.offers = {
       "@type": "Offer",
-      priceCurrency: "EUR",
+      priceCurrency: "USD",
       price: minPrice.toString(),
+      businessFunction: "https://schema.org/LeaseOut",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
         price: minPrice.toString(),
-        priceCurrency: "EUR",
+        priceCurrency: "USD",
         unitText: "DAY",
       },
       availability: "https://schema.org/InStock",

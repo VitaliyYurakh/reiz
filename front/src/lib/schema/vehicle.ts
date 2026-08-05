@@ -100,14 +100,29 @@ export function generateVehicleSchema({
   }
 
   // Offers (rental pricing)
+  // NOTE on currency: car.rentalTariff.dailyPriceMinor is USD cents — see
+  // CurrencyContext.tsx ("базова валюта тарифів" = USD) and the site's own
+  // currencyDisclaimer copy ("Розрахунок у USD"). USD is also what a fresh
+  // visitor/crawler with no saved currency preference is served (SSR default).
+  // Keep this in sync with that source of truth, not with whatever the UI
+  // currency toggle happens to be set to.
   if (minPrice !== null) {
     schema.offers = {
       "@type": "AggregateOffer",
-      priceCurrency: "EUR",
+      priceCurrency: "USD",
       lowPrice: minPrice.toString(),
       highPrice: maxPrice?.toString(),
       offerCount: prices.length,
       availability: "https://schema.org/InStock",
+      // This is a rental (lease), not a sale — without this, engines may read
+      // the price as an offer to buy the vehicle outright.
+      businessFunction: "https://schema.org/LeaseOut",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: minPrice.toString(),
+        priceCurrency: "USD",
+        unitText: "DAY",
+      },
       url: canonicalUrl,
       priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
         .toISOString()
@@ -201,19 +216,34 @@ export function generateProductSchema({
     sku: `car-${car.id}`,
   };
 
-  // Offer with "from" price
+  // Offer with "from" price — see currency note in generateVehicleSchema above.
   if (minPrice !== null) {
     schema.offers = {
       "@type": "Offer",
       url: canonicalUrl,
-      priceCurrency: "EUR",
+      priceCurrency: "USD",
       price: minPrice.toString(),
       availability: "https://schema.org/InStock",
+      businessFunction: "https://schema.org/LeaseOut",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: minPrice.toString(),
+        priceCurrency: "USD",
+        unitText: "DAY",
+      },
       priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
         .toISOString()
         .split("T")[0],
+      // Inlined (not "@id" reference): car pages never emit the homepage's
+      // Organization node, so a same-page "@id" reference to it silently
+      // resolved to nothing. Also, the referenced id previously didn't even
+      // match: SchemaOrg.tsx builds "{homeUrl}#company" (no slash) while this
+      // built "{BASE}/#company" (with a slash) — two different node ids.
       seller: {
-        "@id": `${BASE}/#company`,
+        "@type": "Organization",
+        name: "REIZ",
+        alternateName: ["REIZ Rental", "REIZ RENTAL CARS"],
+        url: BASE,
       },
     };
   }
