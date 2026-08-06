@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 
 export type PillSelectOption = { label: string; value: string };
 
@@ -26,7 +26,9 @@ export default function PillSelect({
   ariaLabel,
 }: Props) {
   const [open, setOpen] = useState(false);
+  const [openUp, setOpenUp] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const listboxId = useId();
 
   useEffect(() => {
@@ -38,9 +40,37 @@ export default function PillSelect({
     return () => document.removeEventListener("mousedown", onDocClick);
   }, []);
 
-  const current = options.find((o) => o.value === value)?.label ?? value;
+  // Flip the dropdown above the control whenever there isn't enough
+  // viewport space below it, instead of guessing from screen width.
+  useLayoutEffect(() => {
+    if (!open) return;
 
-  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+    const recalculate = () => {
+      const wrap = wrapRef.current;
+      const dropdown = dropdownRef.current;
+      if (!wrap || !dropdown) return;
+
+      const wrapRect = wrap.getBoundingClientRect();
+      const dropdownHeight = dropdown.offsetHeight;
+      const margin = 8;
+      const spaceBelow = window.innerHeight - wrapRect.bottom;
+      const spaceAbove = wrapRect.top;
+
+      setOpenUp(
+        spaceBelow < dropdownHeight + margin && spaceAbove > spaceBelow,
+      );
+    };
+
+    recalculate();
+    window.addEventListener("resize", recalculate);
+    window.addEventListener("scroll", recalculate, true);
+    return () => {
+      window.removeEventListener("resize", recalculate);
+      window.removeEventListener("scroll", recalculate, true);
+    };
+  }, [open, options.length]);
+
+  const current = options.find((o) => o.value === value)?.label ?? value;
 
   return (
     <div
@@ -85,8 +115,9 @@ export default function PillSelect({
 
       {open && (
         <div
+          ref={dropdownRef}
           id={listboxId}
-          className={`pill-select__dropdown ${isMobile ? "up" : ""}`}
+          className={`pill-select__dropdown ${openUp ? "up" : ""}`}
           role="listbox"
           aria-label={ariaLabel || "Select time"}
           tabIndex={-1}
