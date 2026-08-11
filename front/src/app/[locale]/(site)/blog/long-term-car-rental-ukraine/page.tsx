@@ -192,7 +192,7 @@ export default async function LongTermCarRentalUkrainePage() {
         <div className="article__rental-box">
           <strong>{t("rental_box.title")}</strong>
           <p>{t("rental_box.text")}</p>
-          <Link href="/business" className="main-button">
+          <Link href="/#catalog" className="main-button">
             {t("rental_box.cta")}
           </Link>
         </div>
