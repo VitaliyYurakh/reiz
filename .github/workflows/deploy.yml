@@ -185,8 +185,19 @@ jobs:
                   # bundle. `--no-cache` makes the build deterministic at
                   # the cost of ~2-3 extra minutes per deploy. Acceptable
                   # trade for "what got built is what's running".
+                  #
+                  # No `docker compose down` here on purpose (removed
+                  # 2026-08-17): it stopped all four services — including
+                  # caddy and postgres, which are pulled images that never
+                  # change on a code deploy — so every deploy took the whole
+                  # site offline for the full ~2-3 min --no-cache build.
+                  # Google's URL Inspection caught this as a site-wide
+                  # "couldn't fetch robots.txt" failure during that window.
+                  # `docker compose up -d` after a build already recreates
+                  # only the containers whose image actually changed (web,
+                  # api), so caddy keeps serving and postgres keeps its
+                  # connections the whole time.
                   script: |
                       cd /opt/reiz
-                      docker compose down
                       docker compose build --no-cache
                       docker compose up -d
