@@ -33,12 +33,12 @@ export default function FavoritesList({ favorites }: FavoritesListProps) {
   const tCatalog = useTranslations("homePage.catalog_aside.catalog_list");
   const locale = useLocale();
   const { formatPrice, formatDeposit } = useCurrency();
-  const { isFavorited } = useFavorites();
+  const { isFavorited, isLoading } = useFavorites();
 
   // Filter against the live favorites set so a card disappears
   // immediately when the user un-favorites it via the heart toggle.
   const visible = favorites.filter(
-    (fav) => fav.car != null && isFavorited(fav.car.id),
+    (fav) => fav.car != null && (isLoading || isFavorited(fav.car.id)),
   );
 
   if (visible.length === 0) {

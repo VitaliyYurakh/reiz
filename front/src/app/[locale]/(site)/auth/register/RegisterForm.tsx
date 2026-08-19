@@ -4,7 +4,7 @@ import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { signIn } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRef, useState } from "react";
-import { defaultLocale, useRouter } from "@/i18n/request";
+import { Link, defaultLocale, useRouter } from "@/i18n/request";
 import { registerUser } from "../actions";
 
 export default function RegisterForm() {
@@ -145,7 +145,7 @@ export default function RegisterForm() {
 
         <label className="login-modal__consent login-modal__consent--register-clean">
           <input type="checkbox" name="consent" required />
-          <span>{t("register.consent")}</span>
+          <Link href="/privacy-policy">{t("register.consent")}</Link>
         </label>
 
         <div className="login-modal__captcha">

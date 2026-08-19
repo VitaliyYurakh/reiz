@@ -1,0 +1,242 @@
+$primary-color: #214230;
+$primary-hover: #2a5a3c;
+$text-color: #322d29;
+$muted-text: #6b6b6b;
+$border-color: rgba(50, 45, 41, 0.1);
+$reject-border: #cfcfcf;
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 24px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.wrapper {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  z-index: 999;
+  width: calc(100% - 32px);
+  max-width: 680px;
+  transform: translateX(-50%);
+  animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  @media (min-width: 768px) {
+    bottom: 28px;
+  }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid $border-color;
+  border-radius: 18px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.14),
+    0 4px 16px rgba(0, 0, 0, 0.06);
+  padding: 18px 20px;
+
+  @media (max-width: 640px) {
+    padding: 20px;
+    border-radius: 22px;
+  }
+}
+
+.content {
+  display: grid;
+  gap: 10px;
+}
+
+.title {
+  margin: 0;
+  color: $text-color;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.text {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: $muted-text;
+}
+
+.categories {
+  border: 0;
+  border-top: 1px solid $border-color;
+  margin: 3px 0 0;
+  padding: 11px 0 0;
+  display: grid;
+  gap: 9px;
+}
+
+.legend {
+  color: $text-color;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  padding: 0;
+}
+
+.category {
+  align-items: center;
+  color: $text-color;
+  cursor: pointer;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+
+  span:first-child {
+    display: grid;
+    gap: 2px;
+  }
+
+  strong {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  small {
+    color: $muted-text;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  input {
+    appearance: none;
+    background: #d8d8d8;
+    block-size: 26px;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    flex: 0 0 auto;
+    inline-size: 46px;
+    margin: 0;
+    position: relative;
+    transition: background 0.2s ease;
+
+    &::after {
+      background: #fff;
+      block-size: 22px;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+      content: "";
+      inline-size: 22px;
+      inset-block-start: 2px;
+      inset-inline-start: 2px;
+      position: absolute;
+      transition: transform 0.2s ease;
+    }
+
+    &:checked {
+      background: $primary-color;
+
+      &::after {
+        transform: translateX(20px);
+      }
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba(33, 66, 48, 0.3);
+      outline-offset: 2px;
+    }
+  }
+}
+
+.alwaysOn {
+  color: $primary-color;
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.link {
+  color: $primary-color;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+.accept,
+.reject,
+.save {
+  height: 42px;
+  padding: 0 22px;
+  border-radius: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+  white-space: nowrap;
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  @media (max-width: 640px) {
+    flex: 1;
+    min-width: 140px;
+  }
+}
+
+.accept {
+  border: none;
+  background: $primary-color;
+  color: #fff;
+
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+.reject {
+  background: transparent;
+  border: 1px solid $reject-border;
+  color: $text-color;
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+}
+
+.save {
+  background: transparent;
+  border: 1px solid $reject-border;
+  color: $text-color;
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+}

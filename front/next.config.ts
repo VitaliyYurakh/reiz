@@ -4,6 +4,11 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // geoip-lite reads its .dat files via fs relative to its own module
+  // location at runtime — bundling it (the default) rewrites that path and
+  // breaks the lookup. Keeping it external leaves it as a plain
+  // node_modules require, so its own path resolution stays intact.
+  serverExternalPackages: ["geoip-lite"],
   experimental: {
     // Disable client-side Router Cache in dev for instant updates
     staleTimes: {
@@ -36,7 +41,20 @@ const nextConfig: NextConfig = {
         destination: "https://reiz.com.ua/:path*",
         permanent: true,
       },
-      // Legacy /uk/ and /ua/ URLs → root (Ukrainian is default locale at /)
+      // Legacy root locale URLs must be handled before the catch-all routes.
+      // A missing `:path*` value used to produce a malformed redirect target
+      // for /uk and /ua instead of a canonical redirect to the homepage.
+      {
+        source: "/uk",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/ua",
+        destination: "/",
+        permanent: true,
+      },
+      // Legacy /uk/:path* and /ua/:path* URLs → default-locale paths.
       {
         source: "/uk/:path*",
         destination: "/:path*",

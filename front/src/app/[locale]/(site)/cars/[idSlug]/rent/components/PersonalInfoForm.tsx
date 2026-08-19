@@ -4,6 +4,7 @@ import clsx from "classnames";
 import { useTranslations } from "next-intl";
 import type { ChangeEvent } from "react";
 import type { Locale } from "@/i18n/request";
+import { Link } from "@/i18n/request";
 import TelInput from "@/components/TelInput";
 
 type FormState = {
@@ -149,7 +150,12 @@ export default function PersonalInfoForm({
           className="custom-checkbox__content"
           style={{ border: "none" }}
         >
-          {t("agreement")}
+          <Link
+            href="/privacy-policy"
+            style={{ color: "inherit", textDecoration: "underline" }}
+          >
+            {t("agreement")}
+          </Link>
         </span>
       </label>
     </div>

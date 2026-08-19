@@ -1734,9 +1734,8 @@
     },
     "whatsapp_unavailable": "WhatsApp jest tymczasowo niedostępny",
     "bottom": {
-      "copyright": "© 2025 Reiz. Wszelkie prawa zastrzezone.",
-      "privacy": "Polityka prywatności",
-      "developed_by": "Stworzone przez Reiz"
+      "copyright": "REIZ. Wszelkie prawa zastrzeżone.",
+      "privacy": "Polityka prywatności"
     }
   },
   "mobileBar": {
@@ -3490,5 +3489,24 @@
       "status_done": "Gotowe",
       "status_needed": "Wymagane"
     }
+  },
+  "cookieConsent": {
+    "title": "Ustawienia cookie",
+    "message": "Niezbędne pliki cookie zapewniają działanie witryny. Samodzielnie wybierasz pliki analityczne i marketingowe.",
+    "learnMore": "Dowiedz się więcej",
+    "accept": "Akceptuję",
+    "reject": "Odrzuć",
+    "preferencesTitle": "Wybierz kategorie",
+    "necessaryTitle": "Niezbędne",
+    "necessaryDescription": "Zapewniają bezpieczeństwo, logowanie i podstawowe funkcje witryny.",
+    "alwaysOn": "Zawsze aktywne",
+    "analyticsTitle": "Analityka",
+    "analyticsDescription": "Pomaga nam zrozumieć, jak używana jest witryna.",
+    "marketingTitle": "Marketing",
+    "marketingDescription": "Pozwala mierzyć reklamę i wyświetlać trafne oferty.",
+    "acceptAll": "Zaakceptuj wszystkie",
+    "rejectAll": "Odrzuć opcjonalne",
+    "save": "Zapisz wybór",
+    "settingsLink": "Ustawienia cookie"
   }
 }

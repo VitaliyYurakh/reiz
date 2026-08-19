@@ -1,6 +1,7 @@
 import type { CityConfig } from "@/data/cities";
 import type { Locale } from "@/i18n/request";
 import { defaultLocale } from "@/i18n/request";
+import { getLocalizedRegion, LANGUAGE_TAG } from "@/i18n/locale-config";
 import type { CityFAQFormatted } from "@/data/cityContent";
 import { PHONE_NUMBER } from "@/config/social";
 
@@ -18,6 +19,10 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     const prefix = locale === defaultLocale ? "" : `/${locale}`;
     return `${baseUrl}${prefix}/rental/${city.slug}`;
   };
+  const pageUrl = getPageUrl();
+  const webPageId = `${pageUrl}#webpage`;
+  const primaryImageId = `${pageUrl}#primaryimage`;
+  const primaryImageUrl = `${baseUrl}/img/og/home-square.jpg`;
 
   // Локалізовані описи для Schema.org
   // Bug fixed: all 5 branches used to interpolate the raw (Ukrainian-only)
@@ -47,22 +52,14 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     ro: `Închiriere auto în ${city.localized.ro.name}`,
   };
 
-  const inLanguageTag: Record<Locale, string> = {
-    uk: "uk-UA",
-    ru: "ru-UA",
-    pl: "pl-PL",
-    en: "en-US",
-    // Bug fixed: this used to fall through the uk/ru/pl ternary to the "en-US"
-    // default, so every /ro/rental/* page declared its language as English.
-    ro: "ro-RO",
-  };
+  const localizedRegion = getLocalizedRegion(city.region, locale);
 
   // Schema.org WebPage для конкретного міста
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${getPageUrl()}#webpage`,
-    url: getPageUrl(),
+    "@id": webPageId,
+    url: pageUrl,
     name: `REIZ - ${cityHeadline[locale]}`,
     description: descriptions[locale],
     // Id format must match SchemaOrg.tsx's `buildId(homeUrl, "website")` exactly
@@ -75,7 +72,23 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     isPartOf: {
       "@id": `${locale === defaultLocale ? baseUrl : `${baseUrl}/${locale}`}#website`,
     },
-    inLanguage: inLanguageTag[locale],
+    primaryImageOfPage: {
+      "@id": primaryImageId,
+    },
+    inLanguage: LANGUAGE_TAG[locale],
+  };
+
+  const primaryImageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": primaryImageId,
+    url: primaryImageUrl,
+    contentUrl: primaryImageUrl,
+    width: 1200,
+    height: 1200,
+    caption: `REIZ — ${cityHeadline[locale]}`,
+    representativeOfPage: true,
+    inLanguage: LANGUAGE_TAG[locale],
   };
 
   // Schema.org LocalBusiness для конкретного міста
@@ -86,15 +99,20 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
     "@type": "CarRental",
-    "@id": `${getPageUrl()}#localbusiness`,
+    "@id": `${pageUrl}#localbusiness`,
     name: `REIZ ${localizedCityName}`,
     alternateName: [
       `REIZ Rental ${localizedCityName}`,
       `REIZ RENTAL CARS ${localizedCityName}`,
     ],
-    url: getPageUrl(),
+    url: pageUrl,
     logo: `${baseUrl}/favicon-192.png`,
-    image: `${baseUrl}/img/og/home-square.jpg`,
+    image: {
+      "@id": primaryImageId,
+    },
+    mainEntityOfPage: {
+      "@id": webPageId,
+    },
     description: descriptions[locale],
     telephone: PHONE_NUMBER,
     email: "info@reiz.com.ua",
@@ -104,15 +122,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     address: {
       "@type": "PostalAddress",
       addressLocality: localizedCityName,
-      // TODO(i18n-auditor): city.region (e.g. "Львівська область") has no
-      // localized counterpart in CityConfig — every non-uk locale's rich
-      // snippet still shows the Ukrainian oblast name here. Needs a
-      // `regionLocalized: LocalizedField<string>` added to CityConfig for
-      // all 37 cities (same pattern as rental-service.ts's addressByLocale,
-      // which only covers Lviv). Not machine-translatable safely: oblast
-      // names take a grammatical case in uk/pl that can't be derived from
-      // the nominative city name.
-      addressRegion: city.region,
+      addressRegion: localizedRegion,
       postalCode: city.postalCode,
       addressCountry: "UA",
     },
@@ -123,7 +133,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
     },
     areaServed: [
       { "@type": "City", name: localizedCityName },
-      { "@type": "AdministrativeArea", name: city.region },
+      { "@type": "AdministrativeArea", name: localizedRegion },
       {
         "@type": "Country",
         name:
@@ -263,7 +273,7 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
         "@type": "ListItem",
         position: 2,
         name: cityHeadline[locale],
-        item: getPageUrl(),
+        item: pageUrl,
       },
     ],
   };
@@ -290,6 +300,11 @@ export default function CitySchemaOrg({ city, locale, faqSections }: Props) {
         type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: safe structured data
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: safe structured data
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(primaryImageJsonLd) }}
       />
       <script
         type="application/ld+json"

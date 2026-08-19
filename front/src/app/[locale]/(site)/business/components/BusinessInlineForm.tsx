@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import clsx from "classnames";
+import { Link } from "@/i18n/request";
 import TelInput from "@/components/TelInput";
 import { useCallback, useState, type ChangeEvent, type FormEvent } from "react";
 import { submitBusinessRequest } from "@/lib/api/feedback";
@@ -192,7 +193,14 @@ export default function BusinessInlineForm() {
             }}
             className="custom-checkbox__field"
           />
-          <span className="custom-checkbox__content">{t("checkbox")}</span>
+          <span className="custom-checkbox__content">
+            <Link
+              href="/privacy-policy"
+              style={{ color: "inherit", textDecoration: "underline" }}
+            >
+              {t("checkbox")}
+            </Link>
+          </span>
         </label>
         {errors.consent && <span className="business-inline-form__error">{errors.consent}</span>}
 

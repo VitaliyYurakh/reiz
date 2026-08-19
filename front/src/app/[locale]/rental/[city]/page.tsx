@@ -30,6 +30,7 @@ import CityHeroSection from "./components/CityHeroSection";
 import CityEditorSection from "./components/CityEditorSection";
 import CitySchemaOrg from "./components/CitySchemaOrg";
 import CityFAQ from "./components/CityFAQ";
+import CityLinksSection from "@/app/[locale]/components/CityLinksSection";
 
 type PageParams = {
   locale: Locale;
@@ -102,6 +103,7 @@ export async function generateMetadata({
   const metaTitle = shortenMetaTitle(cityData.title);
   const ogLocale = OG_LOCALE[locale];
   const ogAlternateLocales = getOgAlternateLocales(locale);
+  const cityPreviewImage = `${baseUrl}/img/og/home-square.jpg`;
 
   return {
     title: metaTitle,
@@ -115,7 +117,14 @@ export async function generateMetadata({
       siteName: "REIZ",
       title: metaTitle,
       description: cityData.ogDescription,
-      images: [{ url: `${baseUrl}/img/og/home-square.jpg`, width: 1200, height: 1200 }],
+      images: [
+        {
+          url: cityPreviewImage,
+          width: 1200,
+          height: 1200,
+          alt: cityData.ogTitle,
+        },
+      ],
       url: canonical,
       locale: ogLocale,
       alternateLocale: ogAlternateLocales,
@@ -124,7 +133,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: metaTitle,
       description: cityData.ogDescription,
-      images: [`${baseUrl}/img/og/home-square.jpg`],
+      images: [cityPreviewImage],
     },
   };
 }
@@ -177,6 +186,7 @@ export default async function CityRentalPage({
         <Rent />
         <CityEditorSection cityContent={cityEditorContent} cityTitle={cityEditorTitle} />
         <CityFAQ faqSections={faqSections} mainTitle={faqMainTitle} />
+        <CityLinksSection locale={locale} currentCity={citySlug} />
       </main>
       <Footer addressText={footerAddress} descriptionText={footerDescription} />
     </CatalogFiltersProvider>

@@ -1735,9 +1735,8 @@
     },
     "whatsapp_unavailable": "WhatsApp временно недоступен",
     "bottom": {
-      "copyright": "© 2025 Reiz. Все права защищены",
-      "privacy": "Политика конфенденциальносити",
-      "developed_by": "Разработка Reiz"
+      "copyright": "REIZ. Все права защищены",
+      "privacy": "Политика конфенденциальносити"
     }
   },
   "mobileBar": {
@@ -3596,5 +3595,24 @@
         "from_booking": "Создать обращение по этой аренде"
       }
     }
+  },
+  "cookieConsent": {
+    "title": "Настройки cookie",
+    "message": "Необходимые cookie нужны для работы сайта. Аналитические и маркетинговые cookie вы выбираете самостоятельно.",
+    "learnMore": "Подробнее",
+    "accept": "Принять",
+    "reject": "Отклонить",
+    "preferencesTitle": "Выберите категории",
+    "necessaryTitle": "Необходимые",
+    "necessaryDescription": "Обеспечивают безопасность, вход и базовую работу сайта.",
+    "alwaysOn": "Всегда активны",
+    "analyticsTitle": "Аналитика",
+    "analyticsDescription": "Помогает нам понимать, как используют сайт.",
+    "marketingTitle": "Маркетинг",
+    "marketingDescription": "Позволяет измерять рекламу и показывать релевантные предложения.",
+    "acceptAll": "Принять все",
+    "rejectAll": "Отклонить необязательные",
+    "save": "Сохранить выбор",
+    "settingsLink": "Настройки cookie"
   }
 }

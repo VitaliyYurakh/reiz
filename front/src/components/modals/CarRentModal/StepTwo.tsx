@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import type { ChangeEvent } from "react";
 import { Tooltip } from "react-tooltip";
 import { useCurrency } from "@/context/CurrencyContext";
+import { Link } from "@/i18n/request";
 import type { CarCountingRule } from "@/types/cars";
 import { type ExtraId, EXTRA_DEFINITIONS, type FormState } from "./types";
 
@@ -232,7 +233,12 @@ export default function StepTwo({
               onChange={handleInputChange("consent")}
             />
             <span className="custom-checkbox__content">
-              {t("agreement")}
+              <Link
+                href="/privacy-policy"
+                style={{ color: "inherit", textDecoration: "underline" }}
+              >
+                {t("agreement")}
+              </Link>
             </span>
           </label>
 

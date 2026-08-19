@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type BrandLogoProps = {
   brand: string;
   className?: string;
@@ -80,7 +82,7 @@ const getInitials = (brand: string) =>
     .join("")
     .toUpperCase();
 
-/** Displays an archived SVG logo (from the sprite), with initials only for unlisted makes. */
+/** Displays a standalone SVG logo, with initials only for unlisted makes. */
 export default function BrandLogo({ brand, className }: BrandLogoProps) {
   const rawKey = brandKey(brand);
   const key = BRAND_LOGOS.has(rawKey) ? rawKey : BRAND_ALIASES[rawKey];
@@ -89,18 +91,44 @@ export default function BrandLogo({ brand, className }: BrandLogoProps) {
   if (key) {
     return (
       <span className={logoClassName} aria-hidden="true">
-        <svg width="100%" height="100%" focusable="false">
-          <use href={`/img/sprite/sprite.svg#brands-${key}`} />
-        </svg>
+        <Image
+          className="brand-logo__image"
+          src={`/img/icons/brands/${key}.svg`}
+          alt=""
+          width={512}
+          height={512}
+          unoptimized
+        />
       </span>
     );
   }
 
   return (
-    <span className={`${logoClassName} brand-logo--fallback`} aria-hidden="true">
+    <span
+      className={`${logoClassName} brand-logo--fallback`}
+      aria-hidden="true"
+    >
       <svg viewBox="0 0 36 36" focusable="false">
-        <circle cx="18" cy="18" r="15" fill="none" stroke="currentColor" strokeWidth="1.7" />
-        <text x="18" y="19" dominantBaseline="middle" fill="currentColor" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="700" textAnchor="middle">{getInitials(brand)}</text>
+        <circle
+          cx="18"
+          cy="18"
+          r="15"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        />
+        <text
+          x="18"
+          y="19"
+          dominantBaseline="middle"
+          fill="currentColor"
+          fontFamily="Arial, sans-serif"
+          fontSize="10"
+          fontWeight="700"
+          textAnchor="middle"
+        >
+          {getInitials(brand)}
+        </text>
       </svg>
     </span>
   );

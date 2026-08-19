@@ -7,8 +7,9 @@ import { CurrencyProvider } from "@/context/CurrencyContext";
 import { RentalSearchProvider } from "@/context/RentalSearchContext";
 import { FavoritesProvider } from "@/context/FavoritesContext";
 import { SessionProvider } from "next-auth/react";
-import { auth } from "@/auth";
-import { getFavorites } from "@/lib/api/customer";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
+import { requiresCookieConsent } from "@/lib/consent/geo";
+import { getConsentPreferences } from "@/lib/consent/cookie";
 
 
 export function generateStaticParams(): { locale: Locale }[] {
@@ -34,6 +35,7 @@ const CLIENT_MESSAGE_NAMESPACES = [
   "carRentPage",
   "certificatePage",
   "contactsPage",
+  "cookieConsent",
   "header",
   "homePage",
   "managerWillContactYouModal",
@@ -63,14 +65,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   // Enable static rendering for pages under [locale]
   setRequestLocale(resolvedLocale);
 
-  const [session, messages] = await Promise.all([auth(), getMessages()]);
-  const isAuthenticated = !!session?.user?.clientId;
-
-  let favoriteIds: number[] = [];
-  if (isAuthenticated) {
-    const favorites = await getFavorites();
-    favoriteIds = (favorites || []).map((f: any) => f.car?.id ?? f.carId).filter(Boolean);
-  }
+  const [messages, consentPreferences, needsConsent] = await Promise.all([
+    getMessages(),
+    getConsentPreferences(),
+    requiresCookieConsent(),
+  ]);
+  const showConsentBanner = consentPreferences === null && needsConsent;
 
   return (
     <SessionProvider>
@@ -78,9 +78,13 @@ export default async function LocaleLayout({ children, params }: Props) {
         locale={resolvedLocale}
         messages={pickClientMessages(messages)}
       >
+        <CookieConsentBanner
+          initialVisible={showConsentBanner}
+          initialPreferences={consentPreferences}
+        />
         <CurrencyProvider>
           <RentalSearchProvider>
-            <FavoritesProvider initialFavoriteIds={favoriteIds} isAuthenticated={isAuthenticated}>
+            <FavoritesProvider>
               <SideBarClientProvider>{children}</SideBarClientProvider>
             </FavoritesProvider>
           </RentalSearchProvider>

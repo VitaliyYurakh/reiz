@@ -13,6 +13,8 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 const abs = (path: string) => new URL(path, BASE).toString();
 
 const DEFAULT_IMAGE = abs("/img/og/home.webp");
+const CITY_SERP_IMAGE = abs("/img/og/home-square.jpg");
+const CITY_IMAGE_LAST_MODIFIED = new Date("2026-08-19");
 
 const BLOG_ARTICLE_IMAGES: Record<string, string> = {
   "/blog/long-term-car-rental-ukraine": abs("/img/blog/parking-payment-clean.webp"),
@@ -59,6 +61,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   });
 
+  // The privacy policy has one official Ukrainian edition. Other locale
+  // routes show it for convenience but intentionally canonicalize here.
+  entries.push({
+    url: abs("/privacy-policy"),
+    lastModified: new Date("2026-08-19"),
+    changeFrequency: "yearly",
+    priority: 0.3,
+  });
+
   // City rental pages
   const citySlugs = getAllCitySlugs().filter((citySlug) => citySlug !== "lviv");
   for (const citySlug of citySlugs) {
@@ -66,11 +77,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: abs(`/rental/${citySlug}`),
-      lastModified: staticLastModified,
+      lastModified: CITY_IMAGE_LAST_MODIFIED,
       changeFrequency: "weekly",
       priority: 0.9,
       alternates: { languages },
-      images: [DEFAULT_IMAGE],
+      images: [CITY_SERP_IMAGE],
     });
   }
 

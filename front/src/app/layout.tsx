@@ -8,6 +8,15 @@ import type { ReactNode } from "react";
 import { getImageProps } from "next/image";
 import { inter, kyivType, outfit } from "@/fonts";
 import Script from "next/script";
+import { GTM_CONTAINER_ID } from "@/config/analytics";
+import { getConsentPreferences } from "@/lib/consent/cookie";
+import { requiresCookieConsent } from "@/lib/consent/geo";
+import {
+  ALL_OPTIONAL_CONSENT,
+  hasOptionalConsent,
+  NO_OPTIONAL_CONSENT,
+  toGoogleConsentMode,
+} from "@/lib/consent/preferences";
 import ThemeColorProvider from "@/components/ThemeColorProvider";
 import LocalePreferenceSync from "@/components/LocalePreferenceSync";
 import LocaleHistoryGuard from "@/components/LocaleHistoryGuard";
@@ -175,7 +184,21 @@ const localeHistoryGuardInlineScript = `
 export default async function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
-  const locale = await getLocale();
+  const [locale, savedConsentPreferences, needsConsent] = await Promise.all([
+    getLocale(),
+    getConsentPreferences(),
+    requiresCookieConsent(),
+  ]);
+  // Basic consent mode: in an opt-in jurisdiction nothing from GTM is
+  // requested before a visitor makes a choice. Elsewhere the site's existing
+  // default remains enabled, unless the visitor has explicitly opted out.
+  const effectiveConsentPreferences =
+    savedConsentPreferences ??
+    (needsConsent ? NO_OPTIONAL_CONSENT : ALL_OPTIONAL_CONSENT);
+  const shouldLoadGtmNow = hasOptionalConsent(effectiveConsentPreferences);
+  const googleConsentMode = JSON.stringify(
+    toGoogleConsentMode(effectiveConsentPreferences),
+  );
 
   // Manually preloaded (instead of relying on UiImage's `priority` prop)
   // because the mobile/desktop hero variants are CSS-toggled, not
@@ -212,10 +235,6 @@ export default async function RootLayout({
             __html: localeHistoryGuardInlineScript,
           }}
         />
-        <link
-          rel="image_src"
-          href={`${SITE_ORIGIN}/img/og/home.webp`}
-        />
         {/* Mobile hero */}
         <link
           rel="preload"
@@ -243,33 +262,28 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} ${kyivType.variable} ${outfit.variable}`}
       >
-        <noscript>
-          <iframe
-            title="gtm"
-            src="https://www.googletagmanager.com/ns.html?id=GTM-WGHWDS62"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
         <LocaleHistoryGuard />
         <LocalePreferenceSync />
         {children}
         <ThemeColorProvider />
         <AOSProvider />
 
-        {/* GTM - loaded after page is interactive */}
-        <Script
-          id="gtm"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        {/* GTM is loaded after the page is interactive and only after the
+            current consent state was applied. The noscript iframe is omitted
+            because it cannot receive or honour the visitor's category choice. */}
+        {shouldLoadGtmNow && (
+          <Script
+            id="gtm"
+            strategy="lazyOnload"
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i,c){w[l]=w[l]||[];w.gtag=function(){w[l].push(arguments)};
+w.gtag('consent','default',c);w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WGHWDS62');`,
-          }}
-        />
+})(window,document,'script','dataLayer','${GTM_CONTAINER_ID}',${googleConsentMode});`,
+            }}
+          />
+        )}
       </body>
     </html>
   );

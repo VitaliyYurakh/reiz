@@ -1709,9 +1709,8 @@
     },
     "whatsapp_unavailable": "WhatsApp тимчасово недоступний",
     "bottom": {
-      "copyright": "© 2025 REIZ. Усі права захищено",
-      "privacy": "Політика конфіденційності",
-      "developed_by": "Розробка — REIZ"
+      "copyright": "REIZ. Усі права захищено",
+      "privacy": "Політика конфіденційності"
     }
   },
   "mobileBar": {
@@ -3575,5 +3574,24 @@
         "from_booking": "Створити звернення за цією орендою"
       }
     }
+  },
+  "cookieConsent": {
+    "title": "Налаштування cookie",
+    "message": "Необхідні cookie потрібні для роботи сайту. Аналітичні та маркетингові cookie ви обираєте самостійно.",
+    "learnMore": "Детальніше",
+    "accept": "Прийняти",
+    "reject": "Відхилити",
+    "preferencesTitle": "Оберіть категорії",
+    "necessaryTitle": "Необхідні",
+    "necessaryDescription": "Забезпечують безпеку, вхід і базову роботу сайту.",
+    "alwaysOn": "Завжди активні",
+    "analyticsTitle": "Аналітика",
+    "analyticsDescription": "Допомагає нам розуміти, як використовують сайт.",
+    "marketingTitle": "Маркетинг",
+    "marketingDescription": "Дає змогу вимірювати рекламу та показувати релевантні пропозиції.",
+    "acceptAll": "Прийняти всі",
+    "rejectAll": "Відхилити необов’язкові",
+    "save": "Зберегти вибір",
+    "settingsLink": "Налаштування cookie"
   }
 }

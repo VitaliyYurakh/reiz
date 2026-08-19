@@ -2,7 +2,7 @@
 // URL формат: /rental-{slug}/
 
 import type { Locale } from "@/i18n/request";
-import type { LocalizedField } from "@/i18n/locale-config";
+import type { LocalizedField, LocalizedRegionKey } from "@/i18n/locale-config";
 
 export interface CityConfig {
   // URL slug (rental-kyiv)
@@ -21,7 +21,7 @@ export interface CityConfig {
   // Поштовий індекс
   postalCode: string;
   // Область
-  region: string;
+  region: LocalizedRegionKey;
 }
 
 // Локалізовані дані для кожного міста

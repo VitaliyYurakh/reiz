@@ -1735,9 +1735,8 @@
     },
     "whatsapp_unavailable": "WhatsApp is temporarily unavailable",
     "bottom": {
-      "copyright": "© 2025 Reiz. All rights reserved.",
-      "privacy": "Privacy Policy",
-      "developed_by": "Developed by Reiz"
+      "copyright": "REIZ. All rights reserved.",
+      "privacy": "Privacy Policy"
     }
   },
   "mobileBar": {
@@ -3596,5 +3595,24 @@
         "from_booking": "Open an inquiry about this rental"
       }
     }
+  },
+  "cookieConsent": {
+    "title": "Cookie settings",
+    "message": "Necessary cookies keep the site working. You can choose analytics and marketing cookies yourself.",
+    "learnMore": "Learn more",
+    "accept": "Accept",
+    "reject": "Reject",
+    "preferencesTitle": "Choose categories",
+    "necessaryTitle": "Necessary",
+    "necessaryDescription": "Keep the site secure and support sign-in and core functions.",
+    "alwaysOn": "Always active",
+    "analyticsTitle": "Analytics",
+    "analyticsDescription": "Help us understand how people use the site.",
+    "marketingTitle": "Marketing",
+    "marketingDescription": "Allow us to measure advertising and show relevant offers.",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject optional",
+    "save": "Save choices",
+    "settingsLink": "Cookie settings"
   }
 }

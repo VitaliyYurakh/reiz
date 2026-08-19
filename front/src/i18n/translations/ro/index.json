@@ -1734,9 +1734,8 @@
     },
     "whatsapp_unavailable": "WhatsApp este temporar indisponibil",
     "bottom": {
-      "copyright": "© 2025 Reiz. Toate drepturile rezervate.",
-      "privacy": "Politica de confidențialitate",
-      "developed_by": "Dezvoltat de Reiz"
+      "copyright": "REIZ. Toate drepturile rezervate.",
+      "privacy": "Politica de confidențialitate"
     }
   },
   "mobileBar": {
@@ -3490,5 +3489,24 @@
       "status_done": "Gata",
       "status_needed": "Necesar"
     }
+  },
+  "cookieConsent": {
+    "title": "Setări cookie",
+    "message": "Cookie-urile necesare mențin funcționarea site-ului. Puteți alege separat cookie-urile de analiză și marketing.",
+    "learnMore": "Aflați mai multe",
+    "accept": "Accept",
+    "reject": "Refuz",
+    "preferencesTitle": "Alegeți categoriile",
+    "necessaryTitle": "Necesare",
+    "necessaryDescription": "Asigură securitatea, autentificarea și funcțiile de bază ale site-ului.",
+    "alwaysOn": "Întotdeauna active",
+    "analyticsTitle": "Analiză",
+    "analyticsDescription": "Ne ajută să înțelegem cum este utilizat site-ul.",
+    "marketingTitle": "Marketing",
+    "marketingDescription": "Permit măsurarea publicității și afișarea ofertelor relevante.",
+    "acceptAll": "Acceptă toate",
+    "rejectAll": "Refuză opționalele",
+    "save": "Salvează alegerea",
+    "settingsLink": "Setări cookie"
   }
 }

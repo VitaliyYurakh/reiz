@@ -8,6 +8,14 @@ COPY package.json package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm \
     npm ci
 
+# geoip-lite ships city-level databases (~150MB) we never query — the
+# consent-banner geo check only ever reads .country. Country-level lookup
+# degrades gracefully without these files (still returns country, just
+# empty city/region/timezone), so drop them to keep the image lean.
+RUN rm -f node_modules/geoip-lite/data/geoip-city.dat \
+           node_modules/geoip-lite/data/geoip-city6.dat \
+           node_modules/geoip-lite/data/geoip-city-names.dat
+
 FROM base AS builder
 ENV NODE_ENV=production
 COPY --from=deps /app/node_modules ./node_modules

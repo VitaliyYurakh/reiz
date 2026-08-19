@@ -1,4 +1,15 @@
 import { cityPickupLocations, type CityConfig } from "./cities";
+import {
+  generateRomanianCityEditorContent,
+  getRomanianCityEditorTitle,
+  getRomanianCityFAQ,
+} from "./romanianCityContent";
+import {
+  generatePolishCityEditorContent,
+  getPolishCityEditorTitle,
+  getPolishCityFaq,
+} from "./polishCityContent";
+import { getUkrainianCityInsight } from "./ukrainianCityInsights";
 import type { Locale } from "@/i18n/request";
 import type { LocalizedField } from "@/i18n/locale-config";
 
@@ -29,6 +40,72 @@ export type CitySpecificContent = {
   localAttractions: LocalizedField;
   customEditorContent?: LocalizedField;
 };
+
+// These pages contained English editorial copy in the Romanian locale. Keep
+// the genuinely localized city copy for the remaining routes and use the
+// reviewed Romanian generator only where it replaces mixed-language content.
+const ROMANIAN_EDITOR_CONTENT_OVERRIDES = new Set([
+  "kyiv",
+  "ternopil",
+  "odesa",
+  "dnipro",
+  "kharkiv",
+  "bukovel",
+  "truskavets",
+  "ivano-frankivsk",
+  "skhidnytsia",
+  "uzhhorod",
+  "vinnytsia",
+  "zaporizhzhia",
+  "mukachevo",
+  "poltava",
+  "chernivtsi",
+  "boryspil",
+  "lutsk",
+  "kalush",
+  "nadvirna",
+  "kosiv",
+  "chortkiv",
+  "kremenets",
+  "berehove",
+  "khust",
+  "rakhiv",
+]);
+
+const ROMANIAN_FAQ_OVERRIDES = new Set([
+  "kyiv",
+  "ternopil",
+  "odesa",
+  "dnipro",
+  "kharkiv",
+  "bukovel",
+  "truskavets",
+  "ivano-frankivsk",
+  "skhidnytsia",
+  "uzhhorod",
+  "vinnytsia",
+  "zaporizhzhia",
+  "mukachevo",
+  "poltava",
+  "chernivtsi",
+  "boryspil",
+  "lutsk",
+  "rivne",
+  "khmelnytskyi",
+  "kamianets-podilskyi",
+  "boryslav",
+  "zhovkva",
+  "yaremche",
+  "kolomyia",
+  "kalush",
+  "nadvirna",
+  "kosiv",
+  "chortkiv",
+  "kremenets",
+  "berehove",
+  "khust",
+  "rakhiv",
+]);
 
 export const citySpecificContent: Record<string, CitySpecificContent> = {
   kyiv: {
@@ -12116,6 +12193,17 @@ export function generateCityEditorContent(
   city: CityConfig,
   locale: Locale
 ): string {
+  if (locale === "pl") {
+    return generatePolishCityEditorContent(city);
+  }
+
+  if (
+    locale === "ro" &&
+    ROMANIAN_EDITOR_CONTENT_OVERRIDES.has(city.slug)
+  ) {
+    return generateRomanianCityEditorContent(city);
+  }
+
   const cityData = citySpecificContent[city.slug];
 
   if (!cityData) {
@@ -12246,7 +12334,9 @@ export function generateCityEditorContent(
 <div class='editor_text'>${staticContent.noAlcohol.content[locale]}</div>
 `.trim();
 
-  return content;
+  const localInsight = locale === "uk" ? getUkrainianCityInsight(city) : null;
+
+  return localInsight ? `${content}\n\n${localInsight}` : content;
 }
 
 // Helper functions
@@ -12379,6 +12469,14 @@ export function generateCityEditorTitle(
   city: CityConfig,
   locale: Locale
 ): string {
+  if (locale === "pl") {
+    return getPolishCityEditorTitle(city);
+  }
+
+  if (locale === "ro") {
+    return getRomanianCityEditorTitle(city);
+  }
+
   if (city.slug === "kyiv") {
     const kyivTitles = {
       uk: "Оренда авто в Києві з REIZ: Столичний ритм руху",
@@ -13098,6 +13196,14 @@ export function getCityFAQ(
   city: CityConfig,
   locale: Locale
 ): CityFAQFormatted[] {
+  if (locale === "pl") {
+    return getPolishCityFaq(city);
+  }
+
+  if (locale === "ro" && ROMANIAN_FAQ_OVERRIDES.has(city.slug)) {
+    return getRomanianCityFAQ(city);
+  }
+
   const faqSections = cityFAQData[city.slug];
   if (faqSections && hasUsableFaq(faqSections)) {
     if (process.env.NODE_ENV !== "production" && !isIdealFaq(faqSections)) {

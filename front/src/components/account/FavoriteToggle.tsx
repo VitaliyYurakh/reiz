@@ -21,7 +21,7 @@ export default function FavoriteToggle({
   removeTooltipLabel,
 }: FavoriteToggleProps) {
   const t = useTranslations("account.favorites");
-  const { isFavorited, toggle, isAuthenticated } = useFavorites();
+  const { isFavorited, toggle, isAuthenticated, isLoading: isFavoritesLoading } = useFavorites();
   const { open } = useSideBarModal("loginRequired");
   const [loading, setLoading] = useState(false);
 
@@ -52,7 +52,7 @@ export default function FavoriteToggle({
       type="button"
       onClick={handleClick}
       className={`favorite-toggle ${favorited ? "favorite-toggle--active" : ""} ${className}`}
-      disabled={loading}
+      disabled={loading || isFavoritesLoading}
       aria-label={tooltipLabel}
     >
       {showTooltip ? (

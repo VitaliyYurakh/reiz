@@ -6,6 +6,8 @@ import { SOCIAL_LINKS, PHONE_NUMBER, PHONE_DISPLAY } from "@/config/social";
 import FooterAccordion from "@/components/FooterAccordion";
 import FooterSubscribe from "@/components/FooterSubscribe";
 import WhatsAppUnavailable from "@/components/WhatsAppUnavailable";
+import CookieSettingsLink from "@/components/CookieSettingsLink";
+import CopyrightYear from "@/components/CopyrightYear";
 
 type FooterProps = {
   addressText?: string;
@@ -306,11 +308,11 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
           </div>
 
           <div className="footer__bottom">
-            <span>{t("bottom.copyright")}</span>
-            <Link href="/terms" aria-label={t("bottom.privacy")}>
+            <CopyrightYear text={t("bottom.copyright")} />
+            <CookieSettingsLink />
+            <Link href="/privacy-policy" aria-label={t("bottom.privacy")}>
               {t("bottom.privacy")}
             </Link>
-            <span>{t("bottom.developed_by")}</span>
           </div>
         </div>
       </div>
