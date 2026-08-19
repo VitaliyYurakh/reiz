@@ -113,6 +113,47 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
+              with:
+                  # Full history so the diff below can always reach
+                  # github.event.before, even on repos/branches where that
+                  # commit is more than one commit back.
+                  fetch-depth: 0
+
+            - name: Detect changed services
+              id: changes
+              # Plain git diff instead of a third-party filter action — this
+              # step gates how much of the deploy build gets skipped, so it
+              # stays a few lines we can fully audit rather than trusting an
+              # action's internal merge-base heuristics.
+              run: |
+                  BEFORE="${{ github.event.before }}"
+                  AFTER="${{ github.sha }}"
+
+                  # No valid prior commit (first push to the branch, or
+                  # similar edge case) — fall back to rebuilding everything,
+                  # same as the unconditional behavior this replaces.
+                  if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+                      echo "api=true" >> "$GITHUB_OUTPUT"
+                      echo "front=true" >> "$GITHUB_OUTPUT"
+                      exit 0
+                  fi
+
+                  CHANGED=$(git diff --name-only "$BEFORE" "$AFTER")
+                  echo "Changed files:"
+                  echo "$CHANGED"
+
+                  api=false
+                  front=false
+                  # docker-compose.yml or this workflow changing could affect
+                  # either service's build — rebuild both rather than guess.
+                  if echo "$CHANGED" | grep -qE '^(api/|docker-compose\.yml$|\.github/workflows/deploy\.yml$)'; then
+                      api=true
+                  fi
+                  if echo "$CHANGED" | grep -qE '^(front/|docker-compose\.yml$|\.github/workflows/deploy\.yml$)'; then
+                      front=true
+                  fi
+                  echo "api=$api" >> "$GITHUB_OUTPUT"
+                  echo "front=$front" >> "$GITHUB_OUTPUT"
 
             - name: Clean old source on server
               uses: appleboy/ssh-action@v1.0.3
@@ -171,10 +212,14 @@ jobs:
 
             - name: Deploy via SSH
               uses: appleboy/ssh-action@v1.0.3
+              env:
+                  API_CHANGED: ${{ steps.changes.outputs.api }}
+                  FRONT_CHANGED: ${{ steps.changes.outputs.front }}
               with:
                   host: ${{ secrets.SSH_HOST }}
                   username: ${{ secrets.SSH_USER }}
                   key: ${{ secrets.SSH_KEY }}
+                  envs: API_CHANGED,FRONT_CHANGED
                   # `--no-cache` on the build step is the boring fix for a
                   # BuildKit pitfall we hit twice (Phase 2 RBAC + i18n
                   # Phase 1): the COPY layer's content hash sometimes
@@ -182,22 +227,36 @@ jobs:
                   # are genuinely new (likely a scp-action mtime/permissions
                   # quirk on the SCP step above). The first failure mode
                   # was silent — the container restarted but kept the old
-                  # bundle. `--no-cache` makes the build deterministic at
-                  # the cost of ~2-3 extra minutes per deploy. Acceptable
-                  # trade for "what got built is what's running".
+                  # bundle. `--no-cache` makes the build deterministic, at
+                  # the cost of a full from-scratch build.
+                  #
+                  # Scoped to whichever service(s) actually changed (see the
+                  # "Detect changed services" step above) so a frontend-only
+                  # push doesn't also pay for a from-scratch api rebuild,
+                  # and vice versa. Falls back to rebuilding both whenever
+                  # that's ambiguous — docker-compose.yml or this workflow
+                  # file changed, or there was no prior commit to diff
+                  # against — same safety guarantee as before, just skipped
+                  # when we can positively tell it's unnecessary.
                   #
                   # No `docker compose down` here on purpose (removed
                   # 2026-08-17): it stopped all four services — including
                   # caddy and postgres, which are pulled images that never
                   # change on a code deploy — so every deploy took the whole
-                  # site offline for the full ~2-3 min --no-cache build.
-                  # Google's URL Inspection caught this as a site-wide
-                  # "couldn't fetch robots.txt" failure during that window.
-                  # `docker compose up -d` after a build already recreates
-                  # only the containers whose image actually changed (web,
-                  # api), so caddy keeps serving and postgres keeps its
-                  # connections the whole time.
+                  # site offline for the full --no-cache build. Google's URL
+                  # Inspection caught this as a site-wide "couldn't fetch
+                  # robots.txt" failure during that window. `docker compose
+                  # up -d` after a build already recreates only the
+                  # containers whose image actually changed (web, api), so
+                  # caddy keeps serving and postgres keeps its connections
+                  # the whole time.
                   script: |
                       cd /opt/reiz
-                      docker compose build --no-cache
+                      if [ "$API_CHANGED" = "true" ] && [ "$FRONT_CHANGED" = "true" ]; then
+                          docker compose build --no-cache
+                      elif [ "$API_CHANGED" = "true" ]; then
+                          docker compose build --no-cache api
+                      elif [ "$FRONT_CHANGED" = "true" ]; then
+                          docker compose build --no-cache web
+                      fi
                       docker compose up -d
