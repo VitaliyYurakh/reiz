@@ -202,7 +202,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 <span className="footer__link ms">
                   <i className="sprite" aria-hidden="true">
                     <svg width="42" height="26">
-                      <use href="/img/sprite/sprite.svg?ver=15#mastercard" />
+                      <use href="/img/sprite/sprite.svg#mastercard" />
                     </svg>
                   </i>
                   <span>MASTERCARD</span>
@@ -212,7 +212,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 <span className="footer__link visa">
                   <i className="sprite" aria-hidden="true">
                     <svg width="60" height="19">
-                      <use href="/img/sprite/sprite.svg?ver=14#visa" />
+                      <use href="/img/sprite/sprite.svg#visa" />
                     </svg>
                   </i>
                   <span>VISA</span>
@@ -222,7 +222,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 <span className="footer__link pay">
                   <i className="sprite" aria-hidden="true">
                     <svg width="70" height="22">
-                      <use href="/img/sprite/sprite.svg?ver=14#payment" />
+                      <use href="/img/sprite/sprite.svg#payment" />
                     </svg>
                   </i>
                   <span>UNIONPAY</span>
@@ -241,7 +241,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                   >
                     <i className="sprite" aria-hidden="true">
                       <svg width="28" height="28">
-                        <use href="/img/sprite/sprite.svg?ver=14#facebook" />
+                        <use href="/img/sprite/sprite.svg#facebook" />
                       </svg>
                     </i>
                     <span>FACEBOOK</span>
@@ -250,7 +250,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                   <span className="footer__link">
                     <i className="sprite" aria-hidden="true">
                       <svg width="28" height="28">
-                        <use href="/img/sprite/sprite.svg?ver=14#facebook" />
+                        <use href="/img/sprite/sprite.svg#facebook" />
                       </svg>
                     </i>
                     <span>FACEBOOK</span>
@@ -268,7 +268,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                 >
                   <i className="sprite" aria-hidden="true">
                     <svg width="28" height="28">
-                      <use href="/img/sprite/sprite.svg?ver=14#instagram" />
+                      <use href="/img/sprite/sprite.svg#instagram" />
                     </svg>
                   </i>
                   <span>INSTAGRAM</span>
@@ -286,7 +286,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                   >
                     <i className="sprite" aria-hidden="true">
                       <svg width="28" height="28">
-                        <use href="/img/sprite/sprite.svg?ver=14#youtube" />
+                        <use href="/img/sprite/sprite.svg#youtube" />
                       </svg>
                     </i>
                     <span>YOUTUBE</span>
@@ -295,7 +295,7 @@ export default function Footer({ addressText, descriptionText }: FooterProps) {
                   <span className="footer__link red">
                     <i className="sprite" aria-hidden="true">
                       <svg width="28" height="28">
-                        <use href="/img/sprite/sprite.svg?ver=14#youtube" />
+                        <use href="/img/sprite/sprite.svg#youtube" />
                       </svg>
                     </i>
                     <span>YOUTUBE</span>

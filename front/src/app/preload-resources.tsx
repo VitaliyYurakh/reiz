@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 
 export function PreloadResources() {
   // Preload sprite for icons (low priority - not LCP critical)
-  ReactDOM.preload("/img/sprite/sprite.svg?v=4", {
+  ReactDOM.preload("/img/sprite/sprite.svg", {
     as: "image",
   });
 

@@ -188,25 +188,10 @@ export default async function RootLayout({
           rel="image_src"
           href={`${SITE_ORIGIN}/img/og/home.webp`}
         />
-        {/* Preload LCP hero images - CRITICAL for performance */}
-        {/* Desktop hero - matches current LCP image */}
-        <link
-          rel="preload"
-          as="image"
-          href="/img/hero/reiz-4-0-desktop.webp"
-          type="image/webp"
-          media="(min-width: 1025px)"
-          fetchPriority="high"
-        />
-        {/* Mobile hero */}
-        <link
-          rel="preload"
-          as="image"
-          href="/img/cars/20260410-audi%20q8.webp"
-          type="image/webp"
-          media="(max-width: 1024px)"
-          fetchPriority="high"
-        />
+        {/* Hero images are preloaded via UiImage's `hero` prop (next/image
+            priority), which emits the correct optimized /_next/image URL.
+            A hand-written preload here would target the wrong (unoptimized)
+            URL and just compete with the real LCP request for bandwidth. */}
 
         {/* DNS prefetch for third-party services (lighter than preconnect) */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />

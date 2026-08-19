@@ -244,6 +244,7 @@ export default function Header({
 
             <span
               className="phone-link"
+              role="img"
               aria-label={headerT("call")}
               style={{ cursor: "default" }}
             >
