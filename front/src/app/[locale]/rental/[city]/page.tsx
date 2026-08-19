@@ -21,7 +21,11 @@ import {
   getCityLocalizedData,
   getAllCitySlugs,
 } from "@/data/cities";
-import { getCityFAQ } from "@/data/cityContent";
+import {
+  getCityFAQ,
+  generateCityEditorContent,
+  generateCityEditorTitle,
+} from "@/data/cityContent";
 import CityHeroSection from "./components/CityHeroSection";
 import CityEditorSection from "./components/CityEditorSection";
 import CitySchemaOrg from "./components/CitySchemaOrg";
@@ -147,6 +151,8 @@ export default async function CityRentalPage({
 
   const cars = await fetchCars(citySlug);
   const faqSections = getCityFAQ(cityConfig, locale);
+  const cityEditorContent = generateCityEditorContent(cityConfig, locale);
+  const cityEditorTitle = generateCityEditorTitle(cityConfig, locale);
   const footerAddress = getCityFooterAddress(cityConfig, locale);
   const footerDescription = cityData.footerDescription;
 
@@ -169,7 +175,7 @@ export default async function CityRentalPage({
         <Catalog cars={cars} sectionTitle={cityData.sectionCars} citySlug={citySlug} />
         <Advantages />
         <Rent />
-        <CityEditorSection city={cityConfig} locale={locale} />
+        <CityEditorSection cityContent={cityEditorContent} cityTitle={cityEditorTitle} />
         <CityFAQ faqSections={faqSections} mainTitle={faqMainTitle} />
       </main>
       <Footer addressText={footerAddress} descriptionText={footerDescription} />

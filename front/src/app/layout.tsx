@@ -4,9 +4,9 @@ import AOSProvider from "@/components/AOSProvider";
 import { getLocale } from "next-intl/server";
 import { LANGUAGE_TAG } from "@/i18n/locale-config";
 import { defaultLocale, locales, type Locale } from "@/i18n/request";
-import { PreloadResources } from "@/app/preload-resources";
 import type { ReactNode } from "react";
-import { inter, merriweather, kyivType, outfit } from "@/fonts";
+import { getImageProps } from "next/image";
+import { inter, kyivType, outfit } from "@/fonts";
 import Script from "next/script";
 import ThemeColorProvider from "@/components/ThemeColorProvider";
 import LocalePreferenceSync from "@/components/LocalePreferenceSync";
@@ -176,6 +176,34 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   const locale = await getLocale();
+
+  // Manually preloaded (instead of relying on UiImage's `priority` prop)
+  // because the mobile/desktop hero variants are CSS-toggled, not
+  // conditionally rendered — with `priority` on both, next/image would
+  // auto-preload both unconditionally. getImageProps() reuses the exact
+  // same URL/srcSet next/image computes, scoped to the right viewport via
+  // `media`, so only the variant that's actually visible gets fetched early.
+  const {
+    props: { srcSet: mobileHeroSrcSet, sizes: mobileHeroSizes },
+  } = getImageProps({
+    alt: "",
+    src: "/img/cars/20260410-audi%20q8.webp",
+    width: 1440,
+    height: 1440,
+    quality: 75,
+    sizes: "100vw",
+  });
+  const {
+    props: { srcSet: desktopHeroSrcSet, sizes: desktopHeroSizes },
+  } = getImageProps({
+    alt: "",
+    src: "/img/hero/reiz-4-1-desktop.webp",
+    width: 2400,
+    height: 1578,
+    quality: 100,
+    sizes: "100vw",
+  });
+
   return (
     <html lang={LANGUAGE_TAG[locale as Locale] ?? locale} className="page">
       <head>
@@ -188,10 +216,24 @@ export default async function RootLayout({
           rel="image_src"
           href={`${SITE_ORIGIN}/img/og/home.webp`}
         />
-        {/* Hero images are preloaded via UiImage's `hero` prop (next/image
-            priority), which emits the correct optimized /_next/image URL.
-            A hand-written preload here would target the wrong (unoptimized)
-            URL and just compete with the real LCP request for bandwidth. */}
+        {/* Mobile hero */}
+        <link
+          rel="preload"
+          as="image"
+          imageSrcSet={mobileHeroSrcSet}
+          imageSizes={mobileHeroSizes}
+          media="(max-width: 1024px)"
+          fetchPriority="high"
+        />
+        {/* Desktop hero */}
+        <link
+          rel="preload"
+          as="image"
+          imageSrcSet={desktopHeroSrcSet}
+          imageSizes={desktopHeroSizes}
+          media="(min-width: 1025px)"
+          fetchPriority="high"
+        />
 
         {/* DNS prefetch for third-party services (lighter than preconnect) */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
@@ -199,7 +241,7 @@ export default async function RootLayout({
 
       </head>
       <body
-        className={`${inter.variable} ${merriweather.variable} ${kyivType.variable} ${outfit.variable}`}
+        className={`${inter.variable} ${kyivType.variable} ${outfit.variable}`}
       >
         <noscript>
           <iframe
@@ -215,7 +257,6 @@ export default async function RootLayout({
         {children}
         <ThemeColorProvider />
         <AOSProvider />
-        <PreloadResources />
 
         {/* GTM - loaded after page is interactive */}
         <Script

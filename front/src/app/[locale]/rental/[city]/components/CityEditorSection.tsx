@@ -2,26 +2,16 @@
 
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import type { CityConfig } from "@/data/cities";
-import type { Locale } from "@/i18n/request";
-import {
-  generateCityEditorContent,
-  generateCityEditorTitle,
-} from "@/data/cityContent";
 
 type Props = {
-  city: CityConfig;
-  locale: Locale;
+  cityContent: string;
+  cityTitle: string;
 };
 
-export default function CityEditorSection({ city, locale }: Props) {
+export default function CityEditorSection({ cityContent, cityTitle }: Props) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const t = useTranslations("homePage.editor_block");
-
-  // Генеруємо контент специфічний для міста
-  const cityContent = generateCityEditorContent(city, locale);
-  const cityTitle = generateCityEditorTitle(city, locale);
 
   return (
     <section

@@ -21,13 +21,18 @@ export default async function HeroSection() {
         <div className="swiper-container">
           <ul className="swiper-wrapper">
             <li className="swiper-slide">
-              {/* Mobile hero image - LCP critical */}
+              {/* Mobile hero image - LCP critical. priority={false}: the
+                  matching preload is hand-written in the root layout (only
+                  the viewport-relevant variant, via media query) — letting
+                  next/image also auto-preload here would fetch both
+                  mobile+desktop variants regardless of which is visible. */}
               <UiImage
                 src="/img/cars/20260410-audi%20q8.webp"
                 alt={heroImageAlt}
                 width={1440}
                 height={1440}
                 hero
+                priority={false}
                 quality={75}
                 sizes="100vw"
                 className="hero-image-mobile"
@@ -39,13 +44,15 @@ export default async function HeroSection() {
                   transformOrigin: "center center",
                 }}
               />
-              {/* Desktop hero image - LCP critical */}
+              {/* Desktop hero image - LCP critical. See mobile variant above
+                  for why priority is disabled here. */}
               <UiImage
                 src="/img/hero/reiz-4-1-desktop.webp"
                 alt={heroImageAlt}
                 width={2400}
                 height={1578}
                 hero
+                priority={false}
                 quality={100}
                 sizes="100vw"
                 className="hero-image-desktop"

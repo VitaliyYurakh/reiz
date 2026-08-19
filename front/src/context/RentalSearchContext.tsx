@@ -8,13 +8,22 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import dynamic from "next/dynamic";
 import { calcRentalDays } from "@/lib/utils/date-format";
 
-import RangeDateTimePicker, {
-  type RangeDateTimePickerData,
-  type RangeDateTimePickerResult,
+import type {
+  RangeDateTimePickerData,
+  RangeDateTimePickerResult,
 } from "@/components/modals/RangeDateTimePicker";
 import { createModalSystem } from "@/components/modals/createModalSystem";
+
+// Dynamically imported: RentalSearchProvider wraps every page via the
+// locale layout, but the picker (and its CSS module) is only ever needed
+// once a user opens it — a static import would ship it in the JS chunk
+// loaded on every page instead.
+const RangeDateTimePicker = dynamic(
+  () => import("@/components/modals/RangeDateTimePicker"),
+);
 
 export type CoverageOption = "deposit" | "coverage50" | "coverage100";
 
