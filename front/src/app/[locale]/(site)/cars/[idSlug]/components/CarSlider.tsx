@@ -136,7 +136,12 @@ export default function CarGallerySlider({
         modules={[Navigation, Pagination]}
         className="gallery-slider__swiper"
         wrapperClass="gallery-slider__wrapper swiper-wrapper"
-        pagination={{ el: ".gallery-slider__pagination", clickable: true }}
+        pagination={{
+          el: ".gallery-slider__pagination",
+          clickable: true,
+          dynamicBullets: true,
+          dynamicMainBullets: 5,
+        }}
         slidesPerView={1}
         speed={800}
         loop={true}

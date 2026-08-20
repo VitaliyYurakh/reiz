@@ -46,44 +46,39 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 12px;
+    bottom: 22px;
     z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+    // Cars can have 20+ photos. Dynamic bullets show a compact sliding
+    // window instead of a wall of bars, but that needs Swiper's own
+    // .swiper-pagination-bullets-dynamic width/centering math (left:50% +
+    // translateX) — flex here would fight it and stretch edge to edge.
+    display: block;
+    text-align: center;
 
     @include small-tablet {
-      bottom: 16px;
-      gap: 8px;
+      bottom: 14px;
     }
   }
 
   .swiper-pagination-bullet {
-    width: 6px;
-    height: 6px;
-    margin: 0;
-    border-radius: 50%;
+    width: 18px;
+    height: 4px;
+    margin: 0 3px;
+    border-radius: 2px;
     background: rgba(255, 255, 255, 0.5);
     opacity: 1;
     cursor: pointer;
     transition: all 0.2s ease;
 
     @include small-tablet {
-      width: 7px;
-      height: 7px;
+      width: 14px;
+      height: 3px;
+      margin: 0 2px;
     }
   }
 
   .swiper-pagination-bullet-active {
-    width: 8px;
-    height: 8px;
     background: #fff;
-
-    @include small-tablet {
-      width: 9px;
-      height: 9px;
-    }
   }
 
   &__arrow {
