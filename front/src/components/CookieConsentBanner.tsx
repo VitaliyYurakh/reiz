@@ -1,20 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import { Link } from "@/i18n/request";
 import {
   CONSENT_COOKIE_MAX_AGE_SECONDS,
   CONSENT_COOKIE_NAME,
   OPEN_COOKIE_CONSENT_EVENT,
 } from "@/lib/consent/constants";
+import { loadGtm, updateGtmConsent } from "@/lib/consent/loadGtm";
 import {
   ALL_OPTIONAL_CONSENT,
+  type ConsentPreferences,
   hasOptionalConsent,
   NO_OPTIONAL_CONSENT,
   serializeConsentPreferences,
-  type ConsentPreferences,
 } from "@/lib/consent/preferences";
-import { loadGtm, updateGtmConsent } from "@/lib/consent/loadGtm";
 import styles from "./CookieConsentBanner.module.scss";
 
 type Props = {
@@ -82,10 +83,10 @@ export default function CookieConsentBanner({
             {t("title")}
           </h2>
           <p className={styles.text}>
-            {t("message")} {" "}
-            <a href="/privacy-policy" className={styles.link}>
+            {t("message")}{" "}
+            <Link href="/privacy-policy" className={styles.link}>
               {t("learnMore")}
-            </a>
+            </Link>
           </p>
 
           <fieldset className={styles.categories}>

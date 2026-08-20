@@ -3614,5 +3614,142 @@
     "rejectAll": "Reject optional",
     "save": "Save choices",
     "settingsLink": "Cookie settings"
+  },
+  "privacyPolicy": {
+    "meta": {
+      "title": "Privacy Policy | REIZ",
+      "description": "How REIZ processes and protects personal data when booking a vehicle, using the website, and using a personal account.",
+      "ogDescription": "Information about the processing of personal data, cookies, and REIZ users’ rights."
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "Privacy Policy"
+    },
+    "hero": {
+      "title": "Privacy Policy",
+      "subtitle": "This Policy explains what data the REIZ website may process while the service is being prepared for launch and how you can manage that data.",
+      "officialNotice": "The official version of this Policy is published in Ukrainian. This translation is provided for convenience only."
+    },
+    "updatedAt": "19 August 2026",
+    "nav": {
+      "ariaLabel": "Privacy Policy navigation",
+      "goToSection": "Go to section",
+      "items": [
+        { "id": "data", "label": "Data" },
+        { "id": "purpose", "label": "Purpose" },
+        { "id": "sharing", "label": "Sharing" },
+        { "id": "cookies", "label": "Cookies" },
+        { "id": "rights", "label": "Your rights" },
+        { "id": "contact", "label": "Contact" }
+      ]
+    },
+    "sections": {
+      "general": {
+        "title": "1. Who this Policy applies to",
+        "paragraphs": [
+          "This Policy applies to visitors of reiz.com.ua, people who submit an inquiry or a preliminary request, and users of a personal account. In this Policy, “REIZ”, “we”, or “us” means the entity that administers the website and is responsible for the data processing described on this page.",
+          "We process data in accordance with Ukrainian law and, where applicable, taking into account the rules of the country in which the user is located. The terms of rental, insurance, payments, and liability will be set out in separate documents once the services are launched and are not replaced by this Policy."
+        ],
+        "note": "REIZ is preparing to launch. The website does not enter into rental agreements, accept rental payments, or request driver documents through a web form. Before launching the services, we will publish an updated version with the business entity’s details. This version is effective from {updatedAt}."
+      },
+      "data": {
+        "title": "2. What data we collect",
+        "subtitle": "We request only the information needed for a specific action.",
+        "groups": [
+          {
+            "title": "Inquiries and preliminary requests",
+            "text": "First and last name, phone number, email address, selected vehicle, date and time, pickup and return locations, flight number, comment, selected services, price calculation, and information about the status of the inquiry. Such a request is not a rental agreement or confirmation that a vehicle is available."
+          },
+          {
+            "title": "Data for an agreement after launch",
+            "text": "Once rentals are actually launched, a passport or ID card, taxpayer registration number (RNOKPP), driver’s licence, and information about age, driving experience, address, and additional drivers may be required to enter into and perform an agreement. Before such collection begins, we will update this Policy and specify the legal grounds, retention period, and parties to the agreement."
+          },
+          {
+            "title": "Personal account",
+            "text": "Profile data, booking and rental history, selected vehicles, support requests, and notification settings. When you sign in through Google, we receive the data you have authorized Google to share: name, email address, account identifier, and, where available, profile image."
+          },
+          {
+            "title": "Technical data",
+            "text": "IP address, device and browser type, language, pages and time of visit, referral source, technical logs, cookies, and other identifiers required for operation, security, and analytics of the website."
+          }
+        ],
+        "note": "The website form does not request a bank card number or CVV. During the preparation phase, the website does not accept payments or place a hold on a deposit."
+      },
+      "purpose": {
+        "title": "3. How we use data",
+        "items": [
+          "receive and process inquiries or preliminary requests;",
+          "contact you about your request, the launch of the service, support, or security;",
+          "create and maintain a personal account, display submitted inquiries, and apply your settings;",
+          "prevent fraud, protect the website, users, and team, and handle claims and disputes;",
+          "comply with legal requirements where applicable;",
+          "improve the website and analyse its use."
+        ],
+        "paragraph": "The legal basis depends on the situation: your request or consent, a legal obligation, and our legitimate interest in security and the proper operation of the website. Grounds for entering into and performing an agreement will apply only after the services actually begin. We send marketing communications only where there is an appropriate legal basis; you can opt out in the communication or by contacting us."
+      },
+      "sharing": {
+        "title": "4. Who data may be shared with",
+        "intro": "We do not sell personal data as a separate product. Data may be shared only to the extent necessary to provide a service, ensure security, or comply with a legal requirement.",
+        "items": [
+          {
+            "label": "Technology providers",
+            "text": "providers of hosting, website support, bot protection, authentication, communications, and analytics that act on our instructions or under their own policies as separate services."
+          },
+          {
+            "label": "Public authorities and other authorised persons",
+            "text": "only in response to a lawful and duly documented request."
+          }
+        ],
+        "paragraph": "Some technology providers, including Google and Cloudflare, may process technical data outside Ukraine. In such cases, the safeguards required by law and the relevant provider’s terms apply. Before rentals are launched, we will separately determine and publish the terms for transferring data to lessors, insurers, banks, and payment service providers, if necessary."
+      },
+      "cookies": {
+        "title": "5. Cookies, analytics, and marketing",
+        "intro": "Cookies are small files that a browser stores on your device. They help maintain a session, remember language and other settings, and assess the website’s performance.",
+        "items": [
+          {
+            "label": "Necessary cookies",
+            "text": "support secure sign-in, the session, and basic operation of the website."
+          },
+          {
+            "label": "Preference cookies",
+            "text": "record certain choices about analytics and marketing; they are retained for up to 180 days."
+          },
+          {
+            "label": "Analytics",
+            "text": "helps us understand how the website is used and is enabled through Google Tag Manager only according to your choice."
+          },
+          {
+            "label": "Marketing",
+            "text": "may be used to measure advertising and provide relevant offers if such tools are connected; it also requires separate consent."
+          }
+        ],
+        "paragraph": "You can change your choice through “Cookie settings” in the website footer or limit cookies in your browser. After you withdraw your choice, we send updated settings to connected tools and delete known non-essential cookies available to the website. Refusing necessary cookies may affect signing in to the account and certain functions."
+      },
+      "storage": {
+        "title": "6. Retention period and protection",
+        "paragraphs": [
+          "We retain data no longer than necessary for the purpose for which it was collected: to process an inquiry, operate an account, resolve a dispute, protect REIZ’s rights, or comply with a legal obligation. Account data is retained while the account exists or until you submit an erasure request. If, after the services launch, there is an obligation to retain contractual or accounting documents, the relevant periods will be stated in an updated version of this Policy.",
+          "We use access controls, authentication, technical safeguards, and organisational procedures. No means of transferring data over the internet guarantees absolute security, so we ask you to also protect your password, device, and access to your email."
+        ]
+      },
+      "rights": {
+        "title": "7. Your rights and choices",
+        "paragraphs": [
+          "You may ask us to confirm that processing takes place, access your data, correct it, withdraw consent where processing is based on it, and request restriction or erasure of data in cases provided by law. A personal account user can download available data or submit an erasure request through the “Privacy” section of the account.",
+          "If the GDPR or similar law applies to you, you may also have the right to object to certain processing and to data portability. Erasure does not always cover data that we are legally required to retain or that is necessary for the establishment, exercise, or defence of legal claims."
+        ]
+      },
+      "contact": {
+        "title": "8. How to contact us",
+        "beforeEmail": "For a request regarding personal data, email",
+        "beforeContacts": "or use the",
+        "contactsLink": "contacts page",
+        "afterContacts": ". State which data or action you mean and provide enough information for us to safely verify your identity. We will consider your request within the period set by applicable law."
+      },
+      "changes": {
+        "title": "9. Changes to this Policy",
+        "paragraph": "We may update this Policy when the website’s functionality, the way services are provided, or legal requirements change. The current version is always available on this page; the date of the last update is stated above."
+      }
+    }
   }
 }

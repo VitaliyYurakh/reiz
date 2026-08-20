@@ -3508,5 +3508,160 @@
     "rejectAll": "Refuză opționalele",
     "save": "Salvează alegerea",
     "settingsLink": "Setări cookie"
+  },
+  "privacyPolicy": {
+    "meta": {
+      "title": "Politica de confidențialitate | REIZ",
+      "description": "Cum prelucrează și protejează REIZ datele cu caracter personal în timpul rezervării unei mașini, al utilizării site-ului și al contului personal.",
+      "ogDescription": "Informații despre prelucrarea datelor cu caracter personal, cookie-uri și drepturile utilizatorilor REIZ."
+    },
+    "breadcrumbs": {
+      "home": "Acasă",
+      "current": "Politica de confidențialitate"
+    },
+    "hero": {
+      "title": "Politica de confidențialitate",
+      "subtitle": "Prezenta Politică explică ce date poate prelucra site-ul REIZ în etapa pregătirii serviciului și cum le puteți gestiona.",
+      "officialNotice": "Versiunea oficială a Politicii este publicată în limba ucraineană. Traducerea este furnizată doar pentru comoditate."
+    },
+    "updatedAt": "19 august 2026",
+    "nav": {
+      "ariaLabel": "Navigare în politica de confidențialitate",
+      "goToSection": "Accesați secțiunea",
+      "items": [
+        {
+          "id": "data",
+          "label": "Date"
+        },
+        {
+          "id": "purpose",
+          "label": "Scop"
+        },
+        {
+          "id": "sharing",
+          "label": "Transmiterea"
+        },
+        {
+          "id": "cookies",
+          "label": "Cookie-uri"
+        },
+        {
+          "id": "rights",
+          "label": "Drepturile dumneavoastră"
+        },
+        {
+          "id": "contact",
+          "label": "Contact"
+        }
+      ]
+    },
+    "sections": {
+      "general": {
+        "title": "1. Cui i se aplică această Politică",
+        "paragraphs": [
+          "Politica se aplică vizitatorilor reiz.com.ua, persoanelor care transmit o solicitare sau o cerere preliminară și utilizatorilor contului personal. În prezenta Politică, „REIZ”, „noi” sau „nouă” desemnează persoana care administrează site-ul și răspunde pentru prelucrarea datelor descrisă pe această pagină.",
+          "Prelucrăm datele în conformitate cu legislația Ucrainei și, după caz, ținând cont de normele țării în care se află utilizatorul. Condițiile de închiriere, asigurare, plăți și răspundere vor fi stabilite în documente separate după lansarea serviciilor și nu sunt înlocuite de prezenta Politică."
+        ],
+        "note": "REIZ se află în etapa pregătirii lansării. Site-ul nu încheie contracte de închiriere, nu acceptă plăți pentru închiriere și nu solicită documentele șoferului prin formularul web. Înainte de lansarea serviciilor, vom publica o versiune actualizată cu datele de identificare ale entității comerciale. Versiunea este în vigoare din {updatedAt}."
+      },
+      "data": {
+        "title": "2. Ce date primim",
+        "subtitle": "Solicităm doar informațiile necesare pentru acțiunea concretă.",
+        "groups": [
+          {
+            "title": "Solicitări și cereri preliminare",
+            "text": "Numele și prenumele, numărul de telefon, e-mailul, mașina aleasă, data și ora, locurile de predare și returnare, numărul zborului, comentariul, serviciile selectate, calculul costului și informații despre starea solicitării. O astfel de cerere nu reprezintă un contract de închiriere și nici confirmarea disponibilității mașinii."
+          },
+          {
+            "title": "Date pentru contract după lansare",
+            "text": "După lansarea efectivă a închirierilor, pentru încheierea și executarea contractului pot fi necesare pașaportul sau cartea de identitate, numărul de înregistrare al contribuabilului (RNOKPP), permisul de conducere, date despre vârstă, experiența la volan, adresă și șoferi suplimentari. Înainte de a începe o astfel de colectare, vom actualiza această Politică, vom indica temeiurile, perioada de păstrare și părțile contractului."
+          },
+          {
+            "title": "Cont personal",
+            "text": "Date de profil, istoricul rezervărilor și închirierilor, mașinile selectate, solicitările către asistență, setările de notificare. La autentificarea prin Google, primim datele pentru a căror furnizare ați acordat permisiunea în Google: numele, e-mailul, identificatorul contului și, dacă este disponibilă, imaginea de profil."
+          },
+          {
+            "title": "Date tehnice",
+            "text": "Adresa IP, tipul dispozitivului și al browserului, limba, paginile și durata vizitei, sursa accesării, jurnalele tehnice, cookie-urile și alți identificatori necesari pentru funcționarea, securitatea și analiza site-ului."
+          }
+        ],
+        "note": "Formularul de pe site nu solicită numărul cardului bancar sau CVV. În etapa de pregătire, site-ul nu acceptă plăți și nu blochează nicio garanție."
+      },
+      "purpose": {
+        "title": "3. În ce scop folosim datele",
+        "items": [
+          "a primi și a procesa solicitări sau cereri preliminare;",
+          "a vă contacta cu privire la solicitarea dumneavoastră, lansarea serviciului, asistență sau securitate;",
+          "a crea și a menține contul personal, a afișa solicitările trimise și a aplica setările dumneavoastră;",
+          "a preveni fraudele, a proteja site-ul, utilizatorii și echipa, a analiza pretențiile și litigiile;",
+          "a îndeplini cerințele legale, atunci când acestea se aplică;",
+          "a îmbunătăți site-ul și a analiza utilizarea acestuia."
+        ],
+        "paragraph": "Temeiul juridic depinde de situație: solicitarea sau consimțământul dumneavoastră, o obligație legală, precum și interesul legitim privind securitatea și funcționarea corespunzătoare a site-ului. Temeiurile pentru încheierea și executarea contractului se vor aplica numai după începerea efectivă a serviciilor. Trimitem comunicări de marketing numai dacă există un temei corespunzător; puteți renunța la acestea din mesaj sau contactându-ne."
+      },
+      "sharing": {
+        "title": "4. Cui pot fi transmise datele",
+        "intro": "Nu vindem datele cu caracter personal ca bun separat. Transmiterea este posibilă numai în măsura necesară pentru serviciu, securitate sau îndeplinirea unei cerințe legale.",
+        "items": [
+          {
+            "label": "Furnizori de tehnologie",
+            "text": "inclusiv servicii de hosting, suport pentru site, protecție împotriva boților, autentificare, comunicare și analiză, care acționează conform instrucțiunilor noastre sau după propriile reguli, ca servicii separate."
+          },
+          {
+            "label": "Autorități publice și alte persoane împuternicite",
+            "text": "numai în baza unei solicitări legale și întocmite corespunzător."
+          }
+        ],
+        "paragraph": "O parte dintre furnizorii tehnici, inclusiv Google și Cloudflare, pot prelucra date tehnice în afara Ucrainei. În astfel de cazuri, se aplică măsurile de protecție prevăzute de lege și condițiile furnizorului respectiv. Înainte de lansarea închirierilor, vom stabili și publica separat condițiile de transmitere a datelor către locatorii, asigurătorii, băncile și serviciile de plată, dacă va fi necesar."
+      },
+      "cookies": {
+        "title": "5. Cookie-uri, analiză și marketing",
+        "intro": "Cookie-urile sunt fișiere mici pe care browserul le stochează pe dispozitivul dumneavoastră. Ele ajută la menținerea sesiunii, la memorarea setărilor de limbă și a altor setări, precum și la evaluarea funcționării site-ului.",
+        "items": [
+          {
+            "label": "Cookie-uri necesare",
+            "text": "susțin autentificarea securizată, sesiunea și funcționarea de bază a site-ului."
+          },
+          {
+            "label": "Cookie-uri de preferințe",
+            "text": "salvează opțiunile separate privind analiza și marketingul; perioada de păstrare este de până la 180 de zile."
+          },
+          {
+            "label": "Analiză",
+            "text": "ajută la înțelegerea modului în care este utilizat site-ul și este pornită prin Google Tag Manager numai conform opțiunii dumneavoastră."
+          },
+          {
+            "label": "Marketing",
+            "text": "poate fi utilizat pentru măsurarea publicității și pentru oferte relevante, dacă vor fi conectate astfel de instrumente; necesită, de asemenea, un consimțământ separat."
+          }
+        ],
+        "paragraph": "Vă puteți modifica opțiunea din „Setări cookie” în subsolul site-ului sau puteți restricționa cookie-urile în browser. După retragerea opțiunii, transmitem setările actualizate instrumentelor conectate și ștergem cookie-urile opționale cunoscute la care site-ul are acces. Refuzul cookie-urilor necesare poate afecta autentificarea în cont și anumite funcții."
+      },
+      "storage": {
+        "title": "6. Perioada de păstrare și protecția",
+        "paragraphs": [
+          "Păstrăm datele nu mai mult decât este necesar pentru scopul colectării lor: pentru prelucrarea solicitării, funcționarea contului, soluționarea unui litigiu, protejarea drepturilor REIZ sau îndeplinirea unei obligații legale. Datele contului sunt păstrate cât timp există contul sau până când transmiteți o cerere de ștergere. Dacă, după lansarea serviciilor, apare obligația de a păstra documente contractuale sau contabile, perioadele aferente vor fi indicate în versiunea actualizată a Politicii.",
+          "Aplicăm separarea accesului, autentificare, măsuri tehnice de protecție și proceduri organizaționale. Nicio metodă de transmitere a datelor prin internet nu garantează securitate absolută, de aceea vă rugăm să vă protejați și parola, dispozitivul și accesul la e-mail."
+        ]
+      },
+      "rights": {
+        "title": "7. Drepturile și opțiunile dumneavoastră",
+        "paragraphs": [
+          "Puteți solicita confirmarea prelucrării, acces la datele dumneavoastră, corectarea lor, retragerea consimțământului atunci când prelucrarea se bazează pe acesta, precum și restricționarea sau ștergerea datelor în cazurile prevăzute de lege. Utilizatorul contului personal poate descărca datele disponibile sau poate trimite o cerere de ștergere prin secțiunea „Confidențialitate” din cont.",
+          "Dacă vi se aplică GDPR sau un drept similar, puteți avea și dreptul de a vă opune anumitor prelucrări și dreptul la portabilitatea datelor. Ștergerea nu include întotdeauna datele pe care suntem obligați să le păstrăm prin lege sau care sunt necesare pentru constatarea, exercitarea sau apărarea unor pretenții juridice."
+        ]
+      },
+      "contact": {
+        "title": "8. Cum ne puteți contacta",
+        "beforeEmail": "Pentru o solicitare privind datele cu caracter personal, scrieți la",
+        "beforeContacts": "sau folosiți pagina de",
+        "contactsLink": "contact",
+        "afterContacts": ". Indicați ce date sau ce acțiune aveți în vedere și furnizați suficiente informații pentru a vă putea confirma în siguranță identitatea. Vom analiza solicitarea în termenul stabilit de legislația aplicabilă."
+      },
+      "changes": {
+        "title": "9. Modificări ale Politicii",
+        "paragraph": "Putem actualiza această Politică atunci când se modifică funcționalitatea site-ului, modul de prestare a serviciilor sau cerințele legale. Versiunea actuală este întotdeauna disponibilă pe această pagină; data ultimei actualizări este indicată mai sus."
+      }
+    }
   }
 }

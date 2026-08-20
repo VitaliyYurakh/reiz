@@ -3508,5 +3508,160 @@
     "rejectAll": "Odrzuć opcjonalne",
     "save": "Zapisz wybór",
     "settingsLink": "Ustawienia cookie"
+  },
+  "privacyPolicy": {
+    "meta": {
+      "title": "Polityka prywatności | REIZ",
+      "description": "Jak REIZ przetwarza i chroni dane osobowe podczas rezerwacji samochodu, korzystania z witryny i konta osobistego.",
+      "ogDescription": "Informacje o przetwarzaniu danych osobowych, plikach cookie i prawach użytkowników REIZ."
+    },
+    "breadcrumbs": {
+      "home": "Strona główna",
+      "current": "Polityka prywatności"
+    },
+    "hero": {
+      "title": "Polityka prywatności",
+      "subtitle": "Niniejsza Polityka wyjaśnia, jakie dane może przetwarzać witryna REIZ na etapie przygotowania usługi oraz jak można nimi zarządzać.",
+      "officialNotice": "Oficjalna wersja Polityki jest opublikowana w języku ukraińskim. Tłumaczenie udostępniamy wyłącznie dla wygody użytkownika."
+    },
+    "updatedAt": "19 sierpnia 2026 r.",
+    "nav": {
+      "ariaLabel": "Nawigacja po polityce prywatności",
+      "goToSection": "Przejdź do sekcji",
+      "items": [
+        {
+          "id": "data",
+          "label": "Dane"
+        },
+        {
+          "id": "purpose",
+          "label": "Cel"
+        },
+        {
+          "id": "sharing",
+          "label": "Udostępnianie"
+        },
+        {
+          "id": "cookies",
+          "label": "Pliki cookie"
+        },
+        {
+          "id": "rights",
+          "label": "Twoje prawa"
+        },
+        {
+          "id": "contact",
+          "label": "Kontakt"
+        }
+      ]
+    },
+    "sections": {
+      "general": {
+        "title": "1. Kogo dotyczy niniejsza Polityka",
+        "paragraphs": [
+          "Polityka ma zastosowanie do osób odwiedzających reiz.com.ua, osób przesyłających zapytanie lub wstępne zgłoszenie oraz użytkowników konta osobistego. W niniejszej Polityce „REIZ”, „my” lub „nas” oznacza osobę, która administruje witryną i odpowiada za przetwarzanie danych opisane na tej stronie.",
+          "Przetwarzamy dane zgodnie z prawem Ukrainy, a w stosownych przypadkach — z uwzględnieniem przepisów państwa, w którym przebywa użytkownik. Warunki najmu, ubezpieczenia, płatności i odpowiedzialności zostaną określone w odrębnych dokumentach po uruchomieniu usług i nie są zastępowane przez niniejszą Politykę."
+        ],
+        "note": "REIZ jest na etapie przygotowań do uruchomienia. Witryna nie zawiera umów najmu, nie przyjmuje płatności za najem ani nie wymaga dokumentów kierowcy za pośrednictwem formularza internetowego. Przed uruchomieniem usług opublikujemy zaktualizowaną wersję wraz z danymi przedsiębiorcy. Wersja obowiązuje od {updatedAt}."
+      },
+      "data": {
+        "title": "2. Jakie dane otrzymujemy",
+        "subtitle": "Prosimy wyłącznie o informacje potrzebne do konkretnego działania.",
+        "groups": [
+          {
+            "title": "Zapytania i wstępne zgłoszenia",
+            "text": "Imię i nazwisko, numer telefonu, adres e-mail, wybrany samochód, data i godzina, miejsca wydania i zwrotu, numer lotu, komentarz, wybrane usługi, kalkulacja ceny oraz informacja o statusie zgłoszenia. Takie zgłoszenie nie stanowi umowy najmu ani potwierdzenia dostępności samochodu."
+          },
+          {
+            "title": "Dane do umowy po uruchomieniu usług",
+            "text": "Po faktycznym uruchomieniu wynajmu do zawarcia i wykonania umowy mogą być potrzebne paszport lub dowód osobisty, numer ewidencyjny podatnika (RNOKPP), prawo jazdy, dane dotyczące wieku, doświadczenia w prowadzeniu pojazdów, adresu i dodatkowych kierowców. Przed rozpoczęciem takiego zbierania danych zaktualizujemy Politykę, wskażemy podstawy, okres przechowywania i strony umowy."
+          },
+          {
+            "title": "Konto osobiste",
+            "text": "Dane profilu, historia rezerwacji i wynajmów, wybrane samochody, zapytania do wsparcia, ustawienia powiadomień. Podczas logowania przez Google otrzymujemy dane, na których udostępnienie użytkownik wyraził zgodę w Google: imię, adres e-mail, identyfikator konta oraz, jeśli jest dostępne, zdjęcie profilowe."
+          },
+          {
+            "title": "Dane techniczne",
+            "text": "Adres IP, typ urządzenia i przeglądarki, język, strony i czas odwiedzin, źródło przejścia, dzienniki techniczne, pliki cookie oraz inne identyfikatory niezbędne do działania, bezpieczeństwa i analityki witryny."
+          }
+        ],
+        "note": "Formularz na stronie nie prosi o numer karty bankowej ani CVV. Na etapie przygotowań witryna nie przyjmuje płatności ani nie blokuje kaucji."
+      },
+      "purpose": {
+        "title": "3. W jakim celu wykorzystujemy dane",
+        "items": [
+          "przyjmowania i rozpatrywania zapytań lub wstępnych zgłoszeń;",
+          "kontaktowania się w sprawie zapytania użytkownika, uruchomienia usługi, wsparcia lub bezpieczeństwa;",
+          "tworzenia i utrzymywania konta osobistego, wyświetlania przesłanych zgłoszeń i realizowania ustawień użytkownika;",
+          "zapobiegania oszustwom, ochrony witryny, użytkowników i zespołu, rozpatrywania roszczeń i sporów;",
+          "wypełniania wymogów prawnych, gdy mają zastosowanie;",
+          "ulepszania witryny i analizowania jej wykorzystania."
+        ],
+        "paragraph": "Podstawa prawna zależy od sytuacji: zapytanie lub zgoda użytkownika, obowiązek prawny, a także uzasadniony interes polegający na zapewnieniu bezpieczeństwa i prawidłowego działania witryny. Podstawy zawarcia i wykonania umowy będą miały zastosowanie dopiero po faktycznym rozpoczęciu świadczenia usług. Informacje marketingowe wysyłamy wyłącznie na właściwej podstawie; można z nich zrezygnować w wiadomości lub kontaktując się z nami."
+      },
+      "sharing": {
+        "title": "4. Komu dane mogą być przekazywane",
+        "intro": "Nie sprzedajemy danych osobowych jako odrębnego towaru. Przekazanie jest możliwe wyłącznie w zakresie niezbędnym do świadczenia usługi, zapewnienia bezpieczeństwa lub spełnienia wymogu prawnego.",
+        "items": [
+          {
+            "label": "Dostawcy technologii",
+            "text": "hostingu, wsparcia witryny, ochrony przed botami, uwierzytelniania, komunikacji i analityki, którzy działają zgodnie z naszymi instrukcjami albo na podstawie własnych zasad jako odrębne usługi."
+          },
+          {
+            "label": "Organy państwowe i inne uprawnione osoby",
+            "text": "wyłącznie na podstawie zgodnego z prawem i prawidłowo sformalizowanego żądania."
+          }
+        ],
+        "paragraph": "Część dostawców technicznych, w tym Google i Cloudflare, może przetwarzać dane techniczne poza Ukrainą. W takich przypadkach stosuje się środki ochrony przewidziane prawem oraz warunki odpowiedniego dostawcy. Przed uruchomieniem wynajmu odrębnie określimy i opublikujemy warunki przekazywania danych wynajmującym, ubezpieczycielom, bankom i usługom płatniczym, jeżeli będzie to konieczne."
+      },
+      "cookies": {
+        "title": "5. Pliki cookie, analityka i marketing",
+        "intro": "Pliki cookie to niewielkie pliki, które przeglądarka zapisuje na urządzeniu użytkownika. Pomagają one utrzymać sesję, zapamiętać ustawienia językowe i inne, a także oceniać działanie witryny.",
+        "items": [
+          {
+            "label": "Niezbędne pliki cookie",
+            "text": "umożliwiają bezpieczne logowanie, obsługę sesji i podstawowe działanie witryny."
+          },
+          {
+            "label": "Pliki cookie wyboru",
+            "text": "zapisują odrębne decyzje dotyczące analityki i marketingu; okres przechowywania wynosi do 180 dni."
+          },
+          {
+            "label": "Analityka",
+            "text": "pomaga zrozumieć, w jaki sposób korzysta się z witryny, i jest uruchamiana przez Google Tag Manager wyłącznie zgodnie z wyborem użytkownika."
+          },
+          {
+            "label": "Marketing",
+            "text": "może być wykorzystywany do mierzenia reklamy i prezentowania trafnych ofert, jeśli takie narzędzia zostaną podłączone; również wymaga odrębnej zgody."
+          }
+        ],
+        "paragraph": "Decyzję można zmienić w „Ustawieniach cookie” w stopce witryny albo ograniczyć pliki cookie w przeglądarce. Po wycofaniu wyboru przekazujemy zaktualizowane ustawienia podłączonym narzędziom i usuwamy znane opcjonalne pliki cookie, do których witryna ma dostęp. Rezygnacja z niezbędnych plików cookie może wpłynąć na logowanie do konta i niektóre funkcje."
+      },
+      "storage": {
+        "title": "6. Okres przechowywania i ochrona",
+        "paragraphs": [
+          "Przechowujemy dane nie dłużej, niż jest to potrzebne do celu ich zbierania: obsługi zapytania, działania konta, rozstrzygnięcia sporu, ochrony praw REIZ lub wykonania obowiązku prawnego. Dane konta przechowujemy tak długo, jak istnieje konto, albo do chwili złożenia wniosku o usunięcie. Jeżeli po uruchomieniu usług powstanie obowiązek przechowywania dokumentów umownych lub księgowych, odpowiednie okresy wskażemy w zaktualizowanej wersji Polityki.",
+          "Stosujemy rozdzielenie dostępu, uwierzytelnianie, techniczne środki ochrony i procedury organizacyjne. Żaden sposób przesyłania danych przez internet nie gwarantuje absolutnego bezpieczeństwa, dlatego prosimy również chronić hasło, urządzenie i dostęp do poczty elektronicznej."
+        ]
+      },
+      "rights": {
+        "title": "7. Prawa i wybory użytkownika",
+        "paragraphs": [
+          "Użytkownik może zażądać potwierdzenia faktu przetwarzania, uzyskać dostęp do swoich danych, je sprostować, wycofać zgodę tam, gdzie przetwarzanie się na niej opiera, a także żądać ograniczenia lub usunięcia danych w przypadkach przewidzianych prawem. Użytkownik konta osobistego może pobrać dostępne dane albo złożyć wniosek o usunięcie za pośrednictwem sekcji „Prywatność” na koncie.",
+          "Jeżeli ma do użytkownika zastosowanie RODO lub analogiczne prawo, może on również mieć prawo do sprzeciwu wobec określonego przetwarzania i do przenoszenia danych. Usunięcie nie zawsze obejmuje dane, które mamy obowiązek przechowywać na mocy prawa albo które są potrzebne do ustalenia, dochodzenia lub obrony roszczeń prawnych."
+        ]
+      },
+      "contact": {
+        "title": "8. Jak się z nami skontaktować",
+        "beforeEmail": "W sprawie danych osobowych napisz na",
+        "beforeContacts": "lub skorzystaj ze strony",
+        "contactsLink": "kontaktów",
+        "afterContacts": ". Wskaż, jakich danych lub działań dotyczy zapytanie, i dodaj wystarczająco dużo informacji, abyśmy mogli bezpiecznie potwierdzić tożsamość. Rozpatrzymy zgłoszenie w terminie określonym przez obowiązujące prawo."
+      },
+      "changes": {
+        "title": "9. Zmiany w Polityce",
+        "paragraph": "Możemy aktualizować niniejszą Politykę, gdy zmienia się funkcjonalność witryny, sposób świadczenia usług lub wymogi prawne. Aktualna wersja jest zawsze dostępna na tej stronie; data ostatniej aktualizacji została wskazana powyżej."
+      }
+    }
   }
 }
