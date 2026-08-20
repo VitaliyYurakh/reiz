@@ -42,6 +42,50 @@
     }
   }
 
+  &__pagination {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    @include small-tablet {
+      bottom: 16px;
+      gap: 8px;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    margin: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    @include small-tablet {
+      width: 7px;
+      height: 7px;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+
+    @include small-tablet {
+      width: 9px;
+      height: 9px;
+    }
+  }
+
   &__arrow {
     position: absolute;
     top: 50%;

@@ -3,11 +3,12 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import type { Swiper as SwiperClass } from "swiper/types";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 import { Fancybox } from "@fancyapps/ui";
@@ -132,9 +133,10 @@ export default function CarGallerySlider({
       // data-aos-delay="500"
     >
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Pagination]}
         className="gallery-slider__swiper"
         wrapperClass="gallery-slider__wrapper swiper-wrapper"
+        pagination={{ el: ".gallery-slider__pagination", clickable: true }}
         slidesPerView={1}
         speed={800}
         loop={true}
@@ -149,6 +151,8 @@ export default function CarGallerySlider({
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className="gallery-slider__pagination"></div>
 
       <button
         className="gallery-slider__arrow gallery-slider__arrow--prev"

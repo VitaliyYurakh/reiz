@@ -1,13 +1,24 @@
 import multer, {FileFilterCallback} from 'multer';
 import fs from 'fs';
 import path from 'path';
+import sharp from 'sharp';
+import convert from 'heic-convert';
 import {Request, Response, NextFunction} from 'express';
 import {fromFile} from 'file-type';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
 
-/** Allowed MIME types for images */
-const ALLOWED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+/** Allowed MIME types for images — kept wide so admins can drop in photos straight off a phone/camera; convertToWebp normalizes them all afterwards. */
+const ALLOWED_IMAGE_TYPES = [
+    'image/jpeg',
+    'image/png',
+    'image/webp',
+    'image/gif',
+    'image/tiff',
+    'image/avif',
+    'image/heic',
+    'image/heif',
+];
 /** Allowed MIME types for documents (images + PDF) */
 const ALLOWED_DOC_TYPES = [...ALLOWED_IMAGE_TYPES, 'application/pdf'];
 
@@ -16,6 +27,11 @@ const MIME_TO_EXT: Record<string, string> = {
     'image/jpeg': '.jpg',
     'image/png': '.png',
     'image/webp': '.webp',
+    'image/gif': '.gif',
+    'image/tiff': '.tiff',
+    'image/avif': '.avif',
+    'image/heic': '.heic',
+    'image/heif': '.heif',
     'application/pdf': '.pdf',
 };
 
@@ -39,7 +55,9 @@ export const validateFileType = (allowedTypes: string[]) => {
             if (!actualMime || !allowedTypes.includes(actualMime)) {
                 // Delete the spoofed file
                 fs.unlink(req.file.path, () => {});
-                return res.status(400).json({msg: 'File type not allowed. Actual content does not match declared type.'});
+                return res.status(400).json({
+                    msg: 'File type not allowed. Actual content does not match declared type.',
+                });
             }
 
             // Rename file to use safe extension derived from actual MIME
@@ -52,6 +70,8 @@ export const validateFileType = (allowedTypes: string[]) => {
                 req.file.path = newPath;
                 req.file.filename = baseName;
             }
+            // Trust the sniffed content type from here on, not the client-declared one
+            req.file.mimetype = actualMime;
 
             next();
         } catch (err) {
@@ -80,9 +100,7 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req: Request, file: Express.Multer.File, cb: FileFilterCallback) => {
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
-
-    if (allowedTypes.includes(file.mimetype)) {
+    if (ALLOWED_IMAGE_TYPES.includes(file.mimetype)) {
         cb(null, true);
     } else {
         cb(new Error('Only image files are allowed'));
@@ -118,13 +136,79 @@ const clientDocStorage = multer.diskStorage({
     },
 });
 
-export const documentUpload = multer({storage: clientDocStorage, fileFilter: docFilter, limits: {fileSize: MAX_FILE_SIZE}}).single('document');
+export const documentUpload = multer({
+    storage: clientDocStorage,
+    fileFilter: docFilter,
+    limits: {fileSize: MAX_FILE_SIZE},
+}).single('document');
 
 // Service event photo upload: field name 'photo', saved to main uploads dir
-export const servicePhotoUpload = multer({storage, fileFilter, limits: {fileSize: MAX_FILE_SIZE}}).single('photo');
+export const servicePhotoUpload = multer({
+    storage,
+    fileFilter,
+    limits: {fileSize: MAX_FILE_SIZE},
+}).single('photo');
 
 /** Magic-byte validation middlewares — use AFTER multer in the route chain */
 export const validateImageFile = validateFileType(ALLOWED_IMAGE_TYPES);
 export const validateDocFile = validateFileType(ALLOWED_DOC_TYPES);
+
+const WEBP_QUALITY = 82;
+const MAX_DIMENSION = 2000; // cap longest side in px — car photos never need to be larger
+
+const HEIC_MIME_TYPES = ['image/heic', 'image/heif'];
+
+/**
+ * Converts an already-validated image on disk to WebP (auto-orients from EXIF,
+ * caps dimensions, re-encodes), replacing req.file's path/filename/mimetype/size.
+ * Use AFTER validateImageFile so the file's real content type is already confirmed.
+ *
+ * HEIC/HEIF go through heic-convert (WASM libheif) first: sharp's prebuilt binary
+ * links libheif but not the HEVC decoder (licensing), so it fails on real
+ * HEVC-encoded photos from iPhones even though it happily reads AVIF (same
+ * container, AV1 codec, no license issue).
+ */
+export const convertToWebp = (req: Request, res: Response, next: NextFunction) => {
+    if (!req.file) return next();
+
+    const originalPath = req.file.path;
+    const dir = path.dirname(originalPath);
+    const webpName = `${path.parse(req.file.filename).name}.webp`;
+    const webpPath = path.join(dir, webpName);
+
+    (async () => {
+        let pipelineInput: string | Buffer = originalPath;
+
+        if (HEIC_MIME_TYPES.includes(req.file!.mimetype)) {
+            const heicBuffer = fs.readFileSync(originalPath);
+            const jpegBuffer = await convert({buffer: heicBuffer, format: 'JPEG', quality: 1});
+            pipelineInput = Buffer.from(jpegBuffer);
+        }
+
+        await sharp(pipelineInput)
+            .rotate()
+            .resize({
+                width: MAX_DIMENSION,
+                height: MAX_DIMENSION,
+                fit: 'inside',
+                withoutEnlargement: true,
+            })
+            .webp({quality: WEBP_QUALITY})
+            .toFile(webpPath);
+
+        fs.unlink(originalPath, () => {});
+        const stats = fs.statSync(webpPath);
+        req.file!.path = webpPath;
+        req.file!.filename = webpName;
+        req.file!.mimetype = 'image/webp';
+        req.file!.size = stats.size;
+        next();
+    })().catch(() => {
+        fs.unlink(originalPath, () => {});
+        res.status(400).json({
+            msg: 'Could not process this image format. Please convert it to JPEG or PNG and try again.',
+        });
+    });
+};
 
 export default carUpload;
