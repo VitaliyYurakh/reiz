@@ -12,6 +12,10 @@ import {
 import { getUkrainianCityInsight } from "./ukrainianCityInsights";
 import type { Locale } from "@/i18n/request";
 import type { LocalizedField } from "@/i18n/locale-config";
+import {
+  normalizeDepositMessages,
+  normalizeDepositMessaging,
+} from "@/lib/deposit-messaging";
 
 // ============================================
 // CITY-SPECIFIC FAQ
@@ -12189,7 +12193,7 @@ function generatePoltavaEditorContent(locale: Locale): string {
   return contentByLocale[locale];
 }
 
-export function generateCityEditorContent(
+function generateCityEditorContentRaw(
   city: CityConfig,
   locale: Locale
 ): string {
@@ -12337,6 +12341,16 @@ export function generateCityEditorContent(
   const localInsight = locale === "uk" ? getUkrainianCityInsight(city) : null;
 
   return localInsight ? `${content}\n\n${localInsight}` : content;
+}
+
+export function generateCityEditorContent(
+  city: CityConfig,
+  locale: Locale,
+): string {
+  return normalizeDepositMessaging(
+    generateCityEditorContentRaw(city, locale),
+    locale,
+  );
 }
 
 // Helper functions
@@ -13192,7 +13206,7 @@ const formatCityFaqSections = (
     })),
   }));
 
-export function getCityFAQ(
+function getCityFAQRaw(
   city: CityConfig,
   locale: Locale
 ): CityFAQFormatted[] {
@@ -13216,4 +13230,11 @@ export function getCityFAQ(
   }
 
   return generateCityFaqTemplate(city, locale);
+}
+
+export function getCityFAQ(
+  city: CityConfig,
+  locale: Locale,
+): CityFAQFormatted[] {
+  return normalizeDepositMessages(getCityFAQRaw(city, locale), locale);
 }

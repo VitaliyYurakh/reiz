@@ -49,8 +49,8 @@
     "advantages": {
       "item1_text": "Bezpłatna dostawa w dowolne miejsce w mieście — o każdej porze.",
       "item1_title": "Dostawa 24/7",
-      "item2_text": "Uczciwe ceny bez niespodzianek. Przejrzyste warunki.",
-      "item2_title": "Brak ukrytych opłat",
+      "item2_text": "Standardowa kaucja dotyczy szkód. Osobna kwota zabezpieczająca dotyczy tylko mandatów, paliwa i palenia.",
+      "item2_title": "Jasne zasady kaucji",
       "item3_text": "Wynajem z profesjonalnym kierowcą — wygodnie i bezpiecznie.",
       "item3_title": "Usługa szofera",
       "item4_text": "Indywidualne oferty dla stałych klientów.",
@@ -160,7 +160,7 @@
       "group2_item1_question": "Co obejmuje ubezpieczenie i jak pomaga na drodze? (OC/Casco)",
       "group2_item2_answer": "Franszyza to maksymalna kwota, która płacisz w przypadku szkody; ubezpieczenie pokrywa reszte. Kaucja to kwota zablokowana na Twojej karcie podczas wynajmu, zwykle równa franszynie. Przyklad: szkoda = 50 000 UAH, franszyza/kaucja = 20 000 UAH — Twoja odpowiedzialność to 20 000 UAH, reszte pokrywa ubezpieczenie. Kaucja jest zwalniana po zwrocie nieuszkodzonego samochodu; czas zwrotu zalezy od banku i zwykle trwa kilka dni.",
       "group2_item2_question": "Franszyza a kaucja: jaka jest różnica i jakie ryzyko ponosisz?",
-      "group2_item3_answer": "Wynajem bez kaucji nie jest możliwy.<p>Domyslnie blokowana jest kaucja równa franszynie (zalezy od klasy samochodu). Możesz zmniejszyc swoja odpowiedzialność wybierając:</p><ul><li>-50% kaucji/franszyny (CDW);</li><li>-100% kaucji/\"zerowa odpowiedzialność\" (SCDW) za szkody/kradziez.</li></ul><p><span class=\"text-strong\">Wazne:</span> nawet przy \"zerowej odpowiedzialności\" obowiazuje blokada <span class=\"text-strong\">200–300 $</span> (w zależności od modelu) na:</p><ul><li>mandaty i opłaty drogowe,</li><li>brakujace paliwo,</li><li>mycie samochodu/czyszczenie wnętrza,</li><li>zgubione kluczyki.</li></ul><p>Ta blokada nie dotyczy szkod i jest zwracana po rozliczeniu ewentualnych należności. Wybierz odpowiedni pakiet podczas rezerwacji — podpowiemy najlepsza opcje na wynajem we Lwowie i podróże po Ukrainie.</p>",
+      "group2_item3_answer": "W standardowych warunkach wynajmu blokowana jest kaucja za szkody, zależna od klasy samochodu. W przypadku wybranych aut za dodatkową opłatą można wybrać pakiet bez kaucji za szkody lub ze zmniejszoną odpowiedzialnością. Osobna kwota zabezpieczająca może dotyczyć tylko mandatów, braku paliwa lub palenia w kabinie. Nie pokrywa ona uszkodzeń samochodu.",
       "group2_item3_question": "Czy mogę wynająć bez kaucji i jak dziala \"zerowa odpowiedzialność\"?",
       "group2_pretitle": "Ubezpieczenie i kaucja",
       "group3_item1_answer": "Podstawowe wymagania: od 21 lat z co najmniej 2-letnim doświadczeniem w prowadzeniu. Dla samochodów klasy biznes/premium: 23–25 lat i co najmniej 5 lat doświadczenia. Jesli nie speniasz w pelni wymagan, dostepny jest program \"mlody kierowca\" za dodatkowa opłata. Wszyscy kierowcy musza być wpisani do umowy wynajmu: przygotuj dokumenty i podaj dane dodatkowego kierowcy z wyprzedzeniem, aby uniknąć odmowy przy odbiorze.",
@@ -184,7 +184,7 @@
       "availability": "ODPOWIADAMY 09:00–22:00",
       "book_button": "ZAREZERWUJ SAMOCHÓD",
       "down_button": "PRZEJDŹ DO KATALOGU SAMOCHODÓW",
-      "intro": "REIZ oferuje wynajem samochodów we Lwowie z nowymi pojazdami, usługa premium, uczciwymi stawkami i dostawa pod Twój adres o wygodnej porze.",
+      "intro": "Przejrzysty wynajem samochodów we Lwowie od REIZ — dostawa pod adres, oficjalna umowa i jasne zasady kaucji. Wybrane auta są dostępne bez kaucji za szkody za dodatkową opłatą.",
       "mobile_title": "Wynajem od $33/dzień",
       "pretitle": "WITAMY W REIZ",
       "secondary_button": "Dowiedz się więcej",
@@ -194,14 +194,14 @@
     },
     "hero_slider_image_alt": "Wynajem samochodów we Lwowie — Mercedes CLE | REIZ Rental Cars",
     "meta": {
-      "description": "Wynajem samochodów we Lwowie od REIZ. 15-minutowe formalności, oficjalna umowa. Dostawa na lotnisko, dworzec i po mieście. Klasa ekonom, biznes i premium.",
+      "description": "Przejrzysty wynajem samochodów we Lwowie od REIZ: dostawa pod adres, oficjalna umowa i jasne zasady kaucji. Wybrane auta bez kaucji za szkody za dodatkową opłatą.",
       "lang": "pl",
-      "og_description": "Wynajem samochodów we Lwowie od REIZ. 15-minutowe formalności, oficjalna umowa. Dostawa na lotnisko, dworzec i po mieście. Klasa ekonom, biznes i premium.",
+      "og_description": "Przejrzysty wynajem samochodów we Lwowie od REIZ: dostawa pod adres, oficjalna umowa i jasne zasady kaucji. Wybrane auta bez kaucji za szkody za dodatkową opłatą.",
       "og_image": "https://reiz.com.ua/img/og/home.webp",
       "og_locale": "pl_PL",
-      "og_title": "Wynajem Samochodów Lwów | Rezerwacja w 15 Minut 24/7 | REIZ",
+      "og_title": "Przejrzysty wynajem samochodów we Lwowie z dostawą | REIZ",
       "page": "home",
-      "title": "Wynajem Samochodów Lwów | Rezerwacja w 15 Minut 24/7"
+      "title": "Przejrzysty wynajem samochodów we Lwowie z dostawą"
     },
     "order_form": {
       "date_placeholder": "Wybierz daty",

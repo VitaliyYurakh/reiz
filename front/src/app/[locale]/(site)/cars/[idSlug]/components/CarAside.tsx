@@ -12,6 +12,7 @@ import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useRentalSearch, type CoverageOption } from "@/context/RentalSearchContext";
 import { formatFull, formatShort, calcRentalDays } from "@/lib/utils/date-format";
+import { trackEvent } from "@/lib/analytics";
 
 const COVERAGE_TO_PLAN_INDEX: Record<CoverageOption, number> = {
   deposit: 0,
@@ -102,6 +103,15 @@ export default function CarAside({ car }: { car: Car }) {
     }
   }, [contextStartDate, contextEndDate]);
 
+  useEffect(() => {
+    trackEvent("view_item", {
+      locale,
+      car_id: car.id,
+      car_name: `${car.brand} ${car.model}`,
+      car_year: car.yearOfManufacture,
+    });
+  }, [car.brand, car.id, car.model, car.yearOfManufacture, locale]);
+
   // Update plan when coverage option changes
   useEffect(() => {
     const newPlanId = getPlanIdForCoverage(car.carCountingRule, coverageOption);
@@ -121,6 +131,14 @@ export default function CarAside({ car }: { car: Car }) {
 
   const handleBookClick = useCallback(
     (event: React.MouseEvent<HTMLAnchorElement>) => {
+      const planForEvent = car.carCountingRule.find((plan) => plan.id === selectedPlanId);
+      trackEvent("begin_checkout", {
+        locale,
+        car_id: car.id,
+        rental_days: calcRentalDays(selectedDate.startDate, selectedDate.endDate),
+        deposit_percent: planForEvent?.depositPercent,
+        source: isMobile ? "mobile_car_detail" : "desktop_car_detail",
+      });
       if (isMobile) return;
 
       event.preventDefault();
@@ -152,6 +170,7 @@ export default function CarAside({ car }: { car: Car }) {
       selectedDate.endDate,
       selectedDate.startDate,
       selectedPlanId,
+      locale,
     ],
   );
 
@@ -306,7 +325,15 @@ export default function CarAside({ car }: { car: Car }) {
                 type="radio"
                 name="type"
                 checked={selectedPlan.depositPercent === el.depositPercent}
-                onChange={() => setSelectedPlanId(el.id)}
+                onChange={() => {
+                  trackEvent("deposit_option_selected", {
+                    locale,
+                    car_id: car.id,
+                    plan_id: el.id,
+                    deposit_percent: el.depositPercent,
+                  });
+                  setSelectedPlanId(el.id);
+                }}
                 value={el.depositPercent}
                 className="radio-checkbox__field"
               />
@@ -398,6 +425,10 @@ export default function CarAside({ car }: { car: Car }) {
           className="main-button main-button--black"
           type="button"
           onClick={() => {
+            trackEvent("booking_contact_open", {
+              source: "car_request_call",
+              car_id: car.id,
+            });
             openRequestModal({}, (phone: string) => {
               setTimeout(() => {
                 openManagerModal({

@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import Icon from "@/components/Icon";
 import type { CarCountingRule } from "@/types/cars";
 import { useCurrency } from "@/context/CurrencyContext";
+import { trackEvent } from "@/lib/analytics";
 
 interface InsuranceCoverageProps {
   dailyPrice: number;
@@ -84,6 +85,11 @@ export default function InsuranceCoverage({
               disabled={isDisabled}
               onClick={() => {
                 if (!isDisabled && typeof opt.planId === "number") {
+                  const plan = carCountingRule.find((item) => item.id === opt.planId);
+                  trackEvent("deposit_option_selected", {
+                    plan_id: opt.planId,
+                    deposit_percent: plan?.depositPercent,
+                  });
                   setSelectedPlanId(opt.planId);
                 }
               }}

@@ -49,8 +49,8 @@
     "advantages": {
       "item1_text": "Delivery anywhere in the city — at any time.",
       "item1_title": "Delivery 24/7",
-      "item2_text": "Honest pricing with zero surprises. Transparent terms.",
-      "item2_title": "No hidden fees",
+      "item2_text": "The standard deposit covers damage. A separate security hold applies only to fines, fuel shortages and smoking.",
+      "item2_title": "Clear deposit terms",
       "item3_text": "Hire with a professional driver — convenient and safe.",
       "item3_title": "Chauffeur service",
       "item4_text": "Personal offers for returning customers.",
@@ -160,7 +160,7 @@
       "group2_item1_question": "What does insurance cover and how does it help on the road? (Liability/Casco)",
       "group2_item2_answer": "The deductible is the maximum amount you pay in case of damage; insurance covers the rest. The deposit is the amount blocked on your card during the rental, usually equal to the deductible. Example: damage = 50,000 UAH, deductible/deposit = 20,000 UAH — your responsibility is 20,000 UAH, the rest is covered by insurance. The deposit is released after returning the car undamaged; release time depends on the bank and usually takes a few days.",
       "group2_item2_question": "Deductible vs. deposit: what’s the difference and how much do you risk?",
-      "group2_item3_answer": "Renting without a deposit is not possible.<p>By default, a deposit equal to the deductible is blocked (depends on car class). You may reduce your responsibility by choosing:</p><ul><li>−50% deposit/deductible (CDW);</li><li>−100% deposit/“zero liability” (SCDW) for damage/theft.</li></ul><p><span class=\"text-strong\">Important:</span> even with “zero liability” there is a mandatory hold of <span class=\"text-strong\">$200–300</span> (depending on model) for:</p><ul><li>fines and tolls,</li><li>missing fuel,</li><li>car wash/interior cleaning,</li><li>lost keys.</li></ul><p>This hold is not for damages and is refunded after clearing possible charges. Choose the right package when booking — we’ll suggest the best option for rentals in Lviv and trips across Ukraine.</p>",
+      "group2_item3_answer": "Under the standard rental terms, a damage deposit is blocked and depends on the vehicle class. For selected cars, an extra fee can remove the damage deposit or reduce your liability. A separate security hold may apply only to fines, fuel shortages or smoking in the cabin. It does not cover vehicle damage.",
       "group2_item3_question": "Can I rent without a deposit and how does “zero liability” work?",
       "group2_pretitle": "Insurance and Deposit",
       "group3_item1_answer": "Basic requirements: from 21 years old with at least 2 years of driving experience. For business/premium cars: 23–25 years old and at least 5 years of experience. If you don’t fully meet the requirements, a “young driver” program is available for an extra fee. All drivers must be listed in the rental agreement: prepare documents and provide additional driver details in advance to avoid refusal at pickup.",
@@ -184,7 +184,7 @@
       "availability": "WE REPLY 09:00–22:00",
       "book_button": "BOOK A CAR",
       "down_button": "GO TO CAR CATALOG",
-      "intro": "REIZ offers car rental in Lviv with new vehicles, premium service, fair rates and delivery to your address at a convenient time.",
+      "intro": "Transparent car rental in Lviv from REIZ — delivery to your address, an official contract and clear deposit terms. Selected cars offer a no-damage-deposit package for an extra fee.",
       "mobile_title": "Rent from $33/day",
       "pretitle": "WELCOME TO REIZ",
       "secondary_button": "Learn more",
@@ -194,14 +194,14 @@
     },
     "hero_slider_image_alt": "Car rental in Lviv — Mercedes CLE | REIZ Rental Cars",
     "meta": {
-      "description": "Car rental in Lviv from REIZ. 15-minute paperwork, official contract. Airport, train station and city delivery. Economy, business and premium class.",
+      "description": "Transparent car rental in Lviv from REIZ: delivery to your address, an official contract and clear deposit terms. Selected cars offer no damage deposit for an extra fee.",
       "lang": "en",
-      "og_description": "Car rental in Lviv from REIZ. 15-minute paperwork, official contract. Airport, train station and city delivery. Economy, business and premium class.",
+      "og_description": "Transparent car rental in Lviv from REIZ: delivery to your address, an official contract and clear deposit terms. Selected cars offer no damage deposit for an extra fee.",
       "og_image": "https://reiz.com.ua/img/og/home.webp",
       "og_locale": "en_US",
-      "og_title": "Car Rental Lviv | 15-Minute Booking 24/7 | REIZ",
+      "og_title": "Transparent Car Rental in Lviv with Delivery | REIZ",
       "page": "home",
-      "title": "Car Rental Lviv | 15-Minute Booking 24/7"
+      "title": "Transparent Car Rental in Lviv with Delivery"
     },
     "order_form": {
       "date_placeholder": "Select dates",

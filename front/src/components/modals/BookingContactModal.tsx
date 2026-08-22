@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import Icon from "@/components/Icon";
 import { SideBarModalSpec } from "@/components/modals/index";
 import { SOCIAL_LINKS, PHONE_NUMBER } from "@/config/social";
+import { trackEvent } from "@/lib/analytics";
 
 export default function BookingContactModal({
   close,
@@ -46,6 +47,7 @@ export default function BookingContactModal({
             className="booking-contact-modal__btn booking-contact-modal__btn--telegram"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("click_messenger", { channel: "telegram" })}
           >
             <img
               src="/img/icons/telegram.svg"
@@ -75,6 +77,7 @@ export default function BookingContactModal({
             className="booking-contact-modal__btn booking-contact-modal__btn--viber"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("click_messenger", { channel: "viber" })}
           >
             <img
               src="/img/icons/viber-color.svg"
@@ -88,6 +91,7 @@ export default function BookingContactModal({
           <a
             href={phoneLink}
             className="booking-contact-modal__btn booking-contact-modal__btn--phone"
+            onClick={() => trackEvent("click_phone", { source: "booking_contact" })}
           >
             <img
               src="/img/icons/phone-receiver.svg"

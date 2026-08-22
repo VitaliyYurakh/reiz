@@ -1,6 +1,6 @@
 # REIZ — Premium Car Rental in Lviv, Ukraine
 
-> 24/7 car rental service in Lviv (Ukraine) operating a 2023–2025 fleet across economy, business, SUV and premium classes. Free delivery within Lviv (airport LWO, train station, hotels, any address). Cross-city delivery available across Ukraine. Booking in 15 minutes, official contract, no-deposit options, multi-currency payments (UAH/EUR/USD).
+> 24/7 car rental service in Lviv (Ukraine) operating a 2023–2025 fleet across economy, business, SUV and premium classes. Free delivery within Lviv (airport LWO, train station, hotels, any address). Cross-city delivery available across Ukraine. Booking in 15 minutes, official contract, standard damage deposit with paid damage-deposit waiver options for selected cars, and multi-currency payments (UAH/EUR/USD).
 
 ## About
 
@@ -36,7 +36,7 @@ Live catalog: [/](https://reiz.com.ua/) (home page) — each car has its own pag
 - Daily rates start from **€50/day** (economy class)
 - Business class typically **€120–200/day**
 - Premium SUV typically **€200+/day**
-- **No deposit** options available for selected cars (50% reduced or zero)
+- **Damage-deposit waiver** options available for selected cars for an additional fee (reduced or zero damage deposit). A separate refundable security hold may still apply for fines, fuel shortages, or smoking in the cabin.
 - Long-term discounts: weekly, monthly, and 3+ month subscriptions
 - Free mileage allowance: **300 km/day**, capped at **4500 km/month** (unlimited mileage available for 8+ day rentals on selected models)
 

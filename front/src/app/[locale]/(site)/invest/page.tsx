@@ -663,7 +663,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
         {
           question: "Как вы проверяете арендаторов?",
           answer:
-            "Каждый арендатор проходит верификацию документов, проверку водительского стажа и историю предыдущих аренд. Авто не передаётся без залога и подписанного договора.",
+            "Каждый арендатор проходит верификацию документов, проверку водительского стажа и истории предыдущих аренд. Авто передаётся после оформления применимого депозита за повреждения или оплаченного пакета без такого депозита, а также после подписания договора. Отдельное гарантийное удержание за штрафы, топливо или курение может применяться по условиям аренды.",
         },
       ],
     },
@@ -912,7 +912,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
         {
           question: "Як ви перевіряєте орендарів?",
           answer:
-            "Кожен орендар проходить верифікацію документів, перевірку водійського стажу та історію попередніх оренд. Авто не передається без застави та підписаного договору.",
+            "Кожен орендар проходить верифікацію документів, перевірку водійського стажу та історії попередніх оренд. Авто передається після оформлення застосовного депозиту за пошкодження або оплаченого пакета без такого депозиту, а також після підписання договору. Окреме гарантійне утримання за штрафи, пальне або куріння може застосовуватися за умовами оренди.",
         },
       ],
     },
@@ -1406,7 +1406,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
         {
           question: "Jak weryfikujecie najemców?",
           answer:
-            "Każdy najemca przechodzi weryfikację dokumentów, sprawdzenie doświadczenia za kierownicą i historii wynajmu. Auto nie jest przekazywane bez kaucji i podpisanej umowy.",
+            "Każdy najemca przechodzi weryfikację dokumentów, sprawdzenie doświadczenia za kierownicą i historii wynajmu. Samochód jest wydawany po zastosowaniu kaucji za szkody lub opłaceniu pakietu bez takiej kaucji, a także po podpisaniu umowy. Osobna kwota zabezpieczająca za mandaty, brak paliwa lub palenie może obowiązywać zgodnie z warunkami wynajmu.",
         },
       ],
     },
@@ -1652,7 +1652,7 @@ const COPY: Record<"ru" | "uk" | "en" | "pl" | "ro", InvestCopy> = {
         {
           question: "Cum verificați chiriașii?",
           answer:
-            "Fiecare chiriaș trece prin verificarea documentelor, verificarea experienței de conducere și istoricul închirierilor anterioare. Mașina nu este predată fără garanție și contract semnat.",
+            "Fiecare chiriaș trece prin verificarea documentelor, verificarea experienței de conducere și istoricul închirierilor anterioare. Mașina este predată după aplicarea depozitului pentru daune sau achitarea unui pachet fără acest depozit și după semnarea contractului. O garanție separată pentru amenzi, combustibil sau fumat poate fi aplicată conform condițiilor de închiriere.",
         },
       ],
     },

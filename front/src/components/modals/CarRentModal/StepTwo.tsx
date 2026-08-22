@@ -5,6 +5,7 @@ import { useCurrency } from "@/context/CurrencyContext";
 import { Link } from "@/i18n/request";
 import type { CarCountingRule } from "@/types/cars";
 import { type ExtraId, EXTRA_DEFINITIONS, type FormState } from "./types";
+import { trackEvent } from "@/lib/analytics";
 
 type StepTwoProps = {
   formState: FormState;
@@ -83,7 +84,13 @@ export default function StepTwo({
                     type="radio"
                     className="custom-checkbox__field"
                     checked={selectedPlan?.id === plan.id}
-                    onChange={() => setSelectedPlanId(plan.id)}
+                    onChange={() => {
+                      trackEvent("deposit_option_selected", {
+                        plan_id: plan.id,
+                        deposit_percent: plan.depositPercent,
+                      });
+                      setSelectedPlanId(plan.id);
+                    }}
                   />
                   <span className="custom-checkbox__content">
                     {plan.depositPercent === 0
@@ -149,7 +156,13 @@ export default function StepTwo({
                   value={plan.id}
                   checked={selectedPlan?.id === plan.id}
                   className="radio-checkbox__field"
-                  onChange={() => setSelectedPlanId(plan.id)}
+                  onChange={() => {
+                    trackEvent("deposit_option_selected", {
+                      plan_id: plan.id,
+                      deposit_percent: plan.depositPercent,
+                    });
+                    setSelectedPlanId(plan.id);
+                  }}
                 />
                 <span className="radio-checkbox__content">
                   {plan.depositPercent === 0

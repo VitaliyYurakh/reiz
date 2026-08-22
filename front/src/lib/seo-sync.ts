@@ -16,6 +16,7 @@ import {
   buildHreflangMap,
   getOgAlternateLocales,
 } from "@/i18n/locale-config";
+import { normalizeDepositMessages } from "@/lib/deposit-messaging";
 
 // Direct sync imports of translation files
 // When adding a new locale: add an import + entry below.
@@ -33,11 +34,11 @@ import roTranslations from "@/i18n/translations/ro/index.json";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const translations: Record<Locale, Record<string, any>> = {
-  uk: ukTranslations,
-  ru: ruTranslations,
-  en: enTranslations,
-  pl: plTranslations,
-  ro: roTranslations,
+  uk: normalizeDepositMessages(ukTranslations, "uk"),
+  ru: normalizeDepositMessages(ruTranslations, "ru"),
+  en: normalizeDepositMessages(enTranslations, "en"),
+  pl: normalizeDepositMessages(plTranslations, "pl"),
+  ro: normalizeDepositMessages(roTranslations, "ro"),
 } satisfies Record<Locale, Record<string, any>>;
 
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";

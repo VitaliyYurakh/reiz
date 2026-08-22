@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prebuild": "node scripts/generate-sitemap-content-dates.mjs",
     "dev": "next dev --turbopack",
     "build": "cross-env NODE_ENV=production next build --turbopack",
     "build:analyze": "cross-env ANALYZE=true next build --turbopack",

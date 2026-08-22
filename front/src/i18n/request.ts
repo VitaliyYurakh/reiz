@@ -1,6 +1,7 @@
-import { getRequestConfig } from "next-intl/server";
 import { createNavigation } from "next-intl/navigation";
 import { defineRouting } from "next-intl/routing";
+import { getRequestConfig } from "next-intl/server";
+import { normalizeDepositMessages } from "@/lib/deposit-messaging";
 
 export const locales = ["uk", "ru", "en", "pl", "ro"] as const;
 export type Locale = (typeof locales)[number];
@@ -19,8 +20,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   // В dev режимі завжди перезавантажуємо переклади
   if (isDev || !cache.has(locale)) {
-    const messages = (await import(`./translations/${locale}/index.json`))
+    const rawMessages = (await import(`./translations/${locale}/index.json`))
       .default;
+    const messages = normalizeDepositMessages(rawMessages, locale);
     cache.set(locale, messages);
   }
 

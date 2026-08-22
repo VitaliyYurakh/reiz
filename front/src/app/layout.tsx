@@ -33,18 +33,18 @@ const SITE_NAME = "REIZ";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
   title: {
-    default: "Оренда та прокат авто в Україні без застави | REIZ",
+    default: "Оренда та прокат авто в Україні | REIZ",
     template: "%s | REIZ",
   },
   description:
-    "Прокат авто по Україні без застави. Нові машини 2023-2024, подача 24/7, безкоштовна доставка по місту. Київ, Львів, Одеса та інші міста.",
+    "Прокат авто по Україні. Стандартний депозит за пошкодження, а для окремих авто — пакет без депозиту за пошкодження за додаткову оплату. Подача 24/7.",
   // alternates (canonical, languages) визначаються на рівні кожної сторінки
   // через generateMetadata, щоб уникнути дублювання
   openGraph: {
     type: "website",
     url: SITE_ORIGIN,
     siteName: SITE_NAME,
-    title: "Оренда авто в Україні без застави | REIZ",
+    title: "Оренда авто в Україні | REIZ",
     description:
       "Прокат авто по Україні. Нові машини, подача 24/7, безкоштовна доставка. Київ, Львів, Одеса, Дніпро та інші міста.",
     images: [
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Оренда авто в Україні без застави | REIZ",
+    title: "Оренда авто в Україні | REIZ",
     description:
       "Прокат авто по Україні: нові машини, подача 24/7, безкоштовна доставка по місту.",
     images: [`${SITE_ORIGIN}/img/og/home.webp`],

@@ -1,7 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
-import { defaultLocale, locales, type Locale } from "@/i18n/request";
-import { LANGUAGE_TAG, LOCALE_AREA } from "@/i18n/locale-config";
 import { PHONE_NUMBER } from "@/config/social";
+import { LANGUAGE_TAG, LOCALE_AREA } from "@/i18n/locale-config";
+import { defaultLocale, type Locale, locales } from "@/i18n/request";
 
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
 const SITE_NAME = "REIZ";
@@ -38,7 +38,12 @@ export default async function SchemaOrg({
   const alternateNames = Array.from(new Set(SITE_ALTERNATE_NAMES));
 
   const catalogHeading = t("catalog_aside.catalog_content.heading");
-  const offerCategoryKeys = ["category1", "category2", "category3", "category4"] as const;
+  const offerCategoryKeys = [
+    "category1",
+    "category2",
+    "category3",
+    "category4",
+  ] as const;
   const offerCategories = offerCategoryKeys.map((key) =>
     t(`catalog_aside.${key}`),
   );
@@ -50,7 +55,10 @@ export default async function SchemaOrg({
   // next-intl's ICU parser would otherwise reject as INVALID_TAG.
   const stripHtml = (value: unknown) =>
     typeof value === "string"
-      ? value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim()
+      ? value
+          .replace(/<[^>]+>/g, " ")
+          .replace(/\s+/g, " ")
+          .trim()
       : "";
   const faqGroupKeys = ["group1", "group2", "group3"] as const;
   const faqItemKeys = ["item1", "item2", "item3"] as const;
@@ -81,14 +89,6 @@ export default async function SchemaOrg({
     inLanguage: languageTags,
     publisher: {
       "@id": companyId,
-    },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${homeUrl}/?search={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
     },
   };
 

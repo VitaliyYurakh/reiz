@@ -1,0 +1,25 @@
+{
+  "routes": {
+    "home": "2026-08-22T06:36:33.702Z",
+    "about": "2026-08-22T06:36:33.702Z",
+    "blog": "2026-08-22T06:36:33.702Z",
+    "business": "2026-08-22T06:36:33.702Z",
+    "certificate": "2026-08-22T06:36:33.702Z",
+    "contacts": "2026-08-22T06:36:33.702Z",
+    "faq": "2026-08-22T06:36:33.702Z",
+    "insurance": "2026-08-22T06:36:33.702Z",
+    "invest": "2026-08-22T06:36:33.702Z",
+    "terms": "2026-08-22T06:36:33.702Z"
+  },
+  "privacy": "2026-08-22T06:36:33.702Z",
+  "cityPages": "2026-08-22T06:36:33.702Z",
+  "blog": {
+    "/blog/chernivtsi-trip-from-lviv": "2026-08-22T06:36:33.702Z",
+    "/blog/dtp-ukraine": "2026-08-22T06:36:33.702Z",
+    "/blog/long-term-car-rental-ukraine": "2026-08-22T06:36:33.702Z",
+    "/blog/lviv-travel": "2026-08-22T06:36:33.702Z",
+    "/blog/navigation-apps-ukraine": "2026-08-22T06:36:33.702Z",
+    "/blog/parking-payment-ukraine": "2026-08-22T06:36:33.702Z",
+    "/blog/ukraine-road-trip": "2026-08-22T06:36:33.702Z"
+  }
+}

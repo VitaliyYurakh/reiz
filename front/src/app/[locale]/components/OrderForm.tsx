@@ -6,6 +6,7 @@ import type { Locale } from "@/i18n/request";
 
 import { useRentalSearch } from "@/context/RentalSearchContext";
 import { formatShort } from "@/lib/utils/date-format";
+import { trackEvent } from "@/lib/analytics";
 
 import LocationSelect from "./LocationSelect";
 
@@ -59,6 +60,14 @@ export default function OrderForm({ defaultPickupLocation }: OrderFormProps) {
 
   const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    trackEvent("search_availability", {
+      locale,
+      pickup_location: pickupLocation,
+      return_location: returnLocation,
+      start_date: startDate?.toISOString(),
+      end_date: endDate?.toISOString(),
+      dates_selected: Boolean(startDate && endDate),
+    });
     const section = document.querySelector('.catalog-section__box');
     if (!section) return;
 
@@ -84,7 +93,7 @@ export default function OrderForm({ defaultPickupLocation }: OrderFormProps) {
     };
 
     requestAnimationFrame(animation);
-  }, []);
+  }, [endDate, locale, pickupLocation, returnLocation, startDate]);
 
   const handleOpenDatePicker = useCallback(() => {
     openDatePicker();

@@ -1,11 +1,12 @@
 "use client";
 
 import { type FormEvent, useEffect, useId, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import TelInput from "@/components/TelInput";
 import { submitContactRequest, submitComplaint } from "@/lib/api/feedback";
 import { createMyComplaint } from "@/lib/api/customer";
+import { trackEvent } from "@/lib/analytics";
 
 const CATEGORY_VALUES = ["OTHER", "DEPOSIT", "DAMAGE", "FINE", "SERVICE", "GDPR"] as const;
 type CategoryValue = (typeof CATEGORY_VALUES)[number];
@@ -127,6 +128,7 @@ function CategoryDropdown({ value, onChange, options, placeholder }: CategoryDro
 
 export default function ContactsForm() {
   const t = useTranslations("contactsPage");
+  const locale = useLocale();
   const { data: session } = useSession();
   const [feedback, setFeedback] = useState<"success" | "error" | "">("");
   const [ticketNumber, setTicketNumber] = useState<string | null>(null);
@@ -191,6 +193,11 @@ export default function ContactsForm() {
       } else {
         await submitContactRequest({ name, email, phone, message });
       }
+      trackEvent("generate_lead", {
+        locale,
+        lead_type: category === "OTHER" ? "contact_form" : "support_request",
+        form_category: category,
+      });
       setFeedback("success");
       e.currentTarget.reset();
       setPhone("");

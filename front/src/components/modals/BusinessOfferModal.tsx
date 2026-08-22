@@ -6,6 +6,7 @@ import TelInput from "@/components/TelInput";
 import Icon from "@/components/Icon";
 import { useCallback, useState, type ChangeEvent, type FormEvent } from "react";
 import { submitBusinessRequest } from "@/lib/api/feedback";
+import { trackEvent } from "@/lib/analytics";
 
 export default function BusinessOfferModal({
   close,
@@ -122,6 +123,8 @@ export default function BusinessOfferModal({
         email: "",
         message: messageParts.join(", "),
       });
+
+      trackEvent("generate_lead", { lead_type: "business_rental" });
 
       close();
     } catch (error) {

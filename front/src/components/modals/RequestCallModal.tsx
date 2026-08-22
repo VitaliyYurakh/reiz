@@ -1,12 +1,13 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import clsx from "classnames";
 import TelInput from "@/components/TelInput";
 import Icon from "@/components/Icon";
 import { SideBarModalSpec } from "@/components/modals/index";
 import { useCallback, useState, type ChangeEvent, type FormEvent } from "react";
 import { submitCallbackRequest } from "@/lib/api/feedback";
+import { trackEvent } from "@/lib/analytics";
 
 export default function RequestCallModal({
   close,
@@ -20,6 +21,7 @@ export default function RequestCallModal({
   runCallback: (phone: string) => void;
 }) {
   const t = useTranslations("requestCallModal");
+  const locale = useLocale();
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -94,6 +96,12 @@ export default function RequestCallModal({
         name: name,
         phone: phone,
         contactMethod: selectedContactMethod,
+      });
+
+      trackEvent("generate_lead", {
+        locale,
+        lead_type: "callback",
+        contact_method: selectedContactMethod,
       });
 
       runCallback(phone);

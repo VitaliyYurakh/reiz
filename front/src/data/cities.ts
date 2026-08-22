@@ -1,8 +1,9 @@
 // Конфігурація міст для динамічних сторінок оренди авто
 // URL формат: /rental-{slug}/
 
-import type { Locale } from "@/i18n/request";
 import type { LocalizedField, LocalizedRegionKey } from "@/i18n/locale-config";
+import type { Locale } from "@/i18n/request";
+import { normalizeDepositMessages } from "@/lib/deposit-messaging";
 
 export interface CityConfig {
   // URL slug (rental-kyiv)
@@ -4758,7 +4759,10 @@ export function getCityLocalizedData(
   slug: string,
   locale: Locale
 ): CityLocalizedData | undefined {
-  return cityLocalizations[slug]?.[locale];
+  const cityData = cityLocalizations[slug]?.[locale];
+  return cityData
+    ? normalizeDepositMessages(cityData, locale)
+    : undefined;
 }
 
 export function getCityFooterAddress(

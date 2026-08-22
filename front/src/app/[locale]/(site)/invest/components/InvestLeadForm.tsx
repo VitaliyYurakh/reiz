@@ -3,6 +3,7 @@
 import { type FormEvent, useMemo, useState } from "react";
 import { submitBusinessRequest } from "@/lib/api/feedback";
 import CustomSelect from "@/app/[locale]/components/CustomSelect";
+import { trackEvent } from "@/lib/analytics";
 
 type Props = {
   locale: string;
@@ -123,6 +124,8 @@ export default function InvestLeadForm({ locale }: Props) {
         email: formData.get("email") as string,
         message: `Fleet owner lead. Car: ${car}. Transmission: ${transmissionVal}. Year: ${year}. Mileage: ${mileage}. ${comment}`,
       });
+
+      trackEvent("generate_lead", { lead_type: "fleet_owner" });
 
       setFeedback("success");
       setTransmission(null);

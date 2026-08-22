@@ -70,6 +70,8 @@ export interface CarCityAvailability {
 
 export interface Car {
   id: number;
+  /** ISO timestamp supplied by the API from the database updated_at column. */
+  updatedAt?: string | null;
   brand: string | null;
   model: string | null;
   plateNumber: string | null;

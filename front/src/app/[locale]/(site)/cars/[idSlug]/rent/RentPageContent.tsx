@@ -31,6 +31,7 @@ import { formatFull, calcRentalDays } from "@/lib/utils/date-format";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useRentalSearchOptional } from "@/context/RentalSearchContext";
 import { submitBookingRequest } from "@/lib/api/feedback";
+import { trackEvent } from "@/lib/analytics";
 
 type ExtraDefinition = {
   id: "additionalDriver" | "childSeat" | "borderCrossing" | "driverService";
@@ -478,6 +479,16 @@ export default function RentPageContent({
             totalCost: totalCost,
             depositAmount: depositAmount,
           },
+        });
+
+        trackEvent("booking_request", {
+          locale,
+          car_id: car.id,
+          car_name: `${car.brand} ${car.model}`,
+          rental_days: totalDays,
+          deposit_percent: selectedPlan?.depositPercent,
+          total_value: totalCost,
+          currency: "UAH",
         });
 
         openManagerModal({

@@ -49,8 +49,8 @@
     "advantages": {
       "item1_text": "Livrare gratuită oriunde în oraș — la orice oră.",
       "item1_title": "Livrare 24/7",
-      "item2_text": "Prețuri corecte, fără surprize. Condiții transparente.",
-      "item2_title": "Fără taxe ascunse",
+      "item2_text": "Depozitul standard acoperă daunele. Garanția separată se aplică doar pentru amenzi, combustibil lipsă și fumat.",
+      "item2_title": "Condiții clare pentru depozit",
       "item3_text": "Închiriază cu șofer profesionist — comod și sigur.",
       "item3_title": "Serviciu de șofer",
       "item4_text": "Oferte personalizate pentru clienții fideli.",
@@ -160,7 +160,7 @@
       "group2_item1_question": "Ce acoperă asigurarea și cum te ajută pe drum? (Răspundere civilă/Casco)",
       "group2_item2_answer": "Franșiza este suma maximă pe care o plătiți în caz de daune; asigurarea acoperă restul. Depozitul este suma blocată pe cardul dumneavoastră pe durata închirierii, de obicei egală cu franșiza. Exemplu: daune = 50.000 UAH, franșiză/depozit = 20.000 UAH — responsabilitatea dumneavoastră este 20.000 UAH, restul este acoperit de asigurare. Depozitul este eliberat după returnarea mașinii nedeteriorate; timpul de eliberare depinde de bancă și durează de obicei câteva zile.",
       "group2_item2_question": "Franșiză vs. depozit: care este diferența și cât riști?",
-      "group2_item3_answer": "Închirierea fără depozit nu este posibilă.<p>Implicit, se blochează un depozit egal cu franșiza (depinde de clasa mașinii). Puteți reduce responsabilitatea alegând:</p><ul><li>−50% depozit/franșiză (CDW);</li><li>−100% depozit/„răspundere zero” (SCDW) pentru daune/furt.</li></ul><p><span class=\"text-strong\">Important:</span> chiar și cu „răspundere zero” există o reținere obligatorie de <span class=\"text-strong\">200$–300$</span> (în funcție de model) pentru:</p><ul><li>amenzi și taxe de drum,</li><li>combustibil lipsă,</li><li>spălare mașină/curățare interior,</li><li>chei pierdute.</li></ul><p>Această reținere nu este pentru daune și se restituie după compensarea eventualelor costuri. Alegeți pachetul potrivit la rezervare — vă sugerăm cea mai bună opțiune pentru închirieri în Lviv și călătorii în Ucraina.</p>",
+      "group2_item3_answer": "În condițiile standard de închiriere se blochează un depozit pentru daune, în funcție de clasa mașinii. Pentru anumite mașini, contra cost, puteți alege un pachet fără depozit pentru daune sau cu răspundere redusă. Separat, se poate aplica o garanție doar pentru amenzi, lipsa combustibilului sau fumatul în habitaclu. Aceasta nu acoperă daunele mașinii.",
       "group2_item3_question": "Pot închiria fără depozit și cum funcționează „răspunderea zero”?",
       "group2_pretitle": "Asigurare și depozit",
       "group3_item1_answer": "Cerințe de bază: vârsta de la 21 de ani cu minimum 2 ani de experiență de condus. Pentru mașini business/premium: 23–25 de ani și minimum 5 ani de experiență. Dacă nu îndepliniți complet cerințele, este disponibil un program „șofer tânăr” contra cost suplimentar. Toți șoferii trebuie menționați în contractul de închiriere: pregătiți documentele și furnizați datele șoferului suplimentar din timp pentru a evita refuzul la preluare.",
@@ -184,7 +184,7 @@
       "availability": "RĂSPUNDEM 09:00–22:00",
       "book_button": "REZERVĂ O MAȘINĂ",
       "down_button": "MERGI LA CATALOGUL DE MAȘINI",
-      "intro": "REIZ oferă închiriere auto în Lviv cu vehicule noi, servicii premium, tarife corecte și livrare la adresa ta la o oră convenabilă.",
+      "intro": "Închiriere auto transparentă în Lviv de la REIZ — livrare la adresă, contract oficial și condiții clare pentru depozit. Pentru anumite mașini este disponibil un pachet fără depozit pentru daune, contra cost.",
       "mobile_title": "Închiriere de la $33/zi",
       "pretitle": "BINE AȚI VENIT LA REIZ",
       "secondary_button": "Află mai multe",
@@ -194,14 +194,14 @@
     },
     "hero_slider_image_alt": "Închiriere auto în Lviv — Mercedes CLE | REIZ Rental Cars",
     "meta": {
-      "description": "Închiriere auto în Lviv de la REIZ. Formalități în 15 minute, contract oficial. Livrare la aeroport, gară și în oraș. Clasă economică, business și premium.",
+      "description": "Închiriere auto transparentă în Lviv de la REIZ: livrare la adresă, contract oficial și condiții clare pentru depozit. Pentru anumite mașini — fără depozit pentru daune, contra cost.",
       "lang": "ro",
-      "og_description": "Închiriere auto în Lviv de la REIZ. Formalități în 15 minute, contract oficial. Livrare la aeroport, gară și în oraș. Clasă economică, business și premium.",
+      "og_description": "Închiriere auto transparentă în Lviv de la REIZ: livrare la adresă, contract oficial și condiții clare pentru depozit. Pentru anumite mașini — fără depozit pentru daune, contra cost.",
       "og_image": "https://reiz.com.ua/img/og/home.webp",
       "og_locale": "ro_MD",
-      "og_title": "Închiriere Auto Lviv | Rezervare în 15 Minute 24/7 | REIZ",
+      "og_title": "Închiriere auto transparentă în Lviv cu livrare | REIZ",
       "page": "home",
-      "title": "Închiriere Auto Lviv | Rezervare în 15 Minute 24/7"
+      "title": "Închiriere auto transparentă în Lviv cu livrare"
     },
     "order_form": {
       "date_placeholder": "Selectați datele",

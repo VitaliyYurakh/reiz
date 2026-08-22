@@ -1,25 +1,38 @@
 import { readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import type { MetadataRoute } from "next";
-import { ROUTE_MAP, type RouteKey } from "@/lib/seo";
-import { defaultLocale } from "@/i18n/request";
-import { buildHreflangMap } from "@/i18n/locale-config";
-import { fetchCarsForSitemap } from "@/lib/api/cars";
-import { createCarIdSlug } from "@/lib/utils/carSlug";
 import { getAllCitySlugs } from "@/data/cities";
+import sitemapContentDates from "@/generated/sitemap-content-dates.json";
+import { buildHreflangMap } from "@/i18n/locale-config";
+import { defaultLocale } from "@/i18n/request";
+import { fetchCarsForSitemap } from "@/lib/api/cars";
+import { ROUTE_MAP, type RouteKey } from "@/lib/seo";
+import { createCarIdSlug } from "@/lib/utils/carSlug";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reiz.com.ua";
+
+type SitemapContentDates = {
+  routes: Record<RouteKey, string | undefined>;
+  privacy?: string;
+  cityPages?: string;
+  blog: Record<string, string | undefined>;
+};
+
+const contentDates = sitemapContentDates as SitemapContentDates;
 
 const abs = (path: string) => new URL(path, BASE).toString();
 
 const DEFAULT_IMAGE = abs("/img/og/home.webp");
 const CITY_SERP_IMAGE = abs("/img/og/home-square.jpg");
-const CITY_IMAGE_LAST_MODIFIED = new Date("2026-08-19");
 
 const BLOG_ARTICLE_IMAGES: Record<string, string> = {
-  "/blog/long-term-car-rental-ukraine": abs("/img/blog/parking-payment-clean.webp"),
+  "/blog/long-term-car-rental-ukraine": abs(
+    "/img/blog/parking-payment-clean.webp",
+  ),
   "/blog/lviv-travel": abs("/img/blog/synevir-lake.webp"),
-  "/blog/chernivtsi-trip-from-lviv": abs("/img/blog/chernivtsi-trip-centered-v3.webp"),
+  "/blog/chernivtsi-trip-from-lviv": abs(
+    "/img/blog/chernivtsi-trip-centered-v3.webp",
+  ),
 };
 
 // Auto-discover all blog articles from the filesystem.
@@ -32,28 +45,37 @@ function getBlogArticleSlugs(): string[] {
       return statSync(full).isDirectory();
     });
   } catch {
-    return [];
+    return Object.keys(contentDates.blog).map((path) =>
+      path.replace(/^\/blog\//, ""),
+    );
   }
+}
+
+function parseLastModified(value: string | undefined): Date | undefined {
+  if (!value) return undefined;
+
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? undefined : date;
+}
+
+function getCarLastModified(
+  updatedAt: string | null | undefined,
+): Date | undefined {
+  return parseLastModified(updatedAt ?? undefined);
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
-  // Static pages (lastModified fixed — content rarely changes)
-  const staticLastModified = new Date("2025-06-01");
-
   (Object.keys(ROUTE_MAP) as RouteKey[]).forEach((key) => {
-    const languages = buildHreflangMap(
-      (loc) => ROUTE_MAP[key][loc],
-      abs,
-    );
+    const languages = buildHreflangMap((loc) => ROUTE_MAP[key][loc], abs);
 
     const url = abs(ROUTE_MAP[key][defaultLocale]);
     const isHome = key === "home";
 
     entries.push({
       url,
-      lastModified: isHome ? new Date() : staticLastModified,
+      lastModified: parseLastModified(contentDates.routes[key]),
       changeFrequency: isHome ? "daily" : "monthly",
       priority: isHome ? 1.0 : 0.8,
       alternates: { languages },
@@ -65,7 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // routes show it for convenience but intentionally canonicalize here.
   entries.push({
     url: abs("/privacy-policy"),
-    lastModified: new Date("2026-08-19"),
+    lastModified: parseLastModified(contentDates.privacy),
     changeFrequency: "yearly",
     priority: 0.3,
   });
@@ -77,7 +99,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: abs(`/rental/${citySlug}`),
-      lastModified: CITY_IMAGE_LAST_MODIFIED,
+      lastModified: parseLastModified(contentDates.cityPages),
       changeFrequency: "weekly",
       priority: 0.9,
       alternates: { languages },
@@ -93,15 +115,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const languages = buildHreflangMap(`/cars/${idSlug}`, abs);
 
       const photo =
-        car.carPhoto.find((p) => p.type === "PC")?.url ||
-        car.carPhoto[0]?.url;
+        car.carPhoto.find((p) => p.type === "PC")?.url || car.carPhoto[0]?.url;
       const carImage = photo
         ? abs(`/static/${encodeURI(photo)}`)
         : DEFAULT_IMAGE;
+      const carLastModified = getCarLastModified(car.updatedAt);
 
       entries.push({
         url: abs(`/cars/${idSlug}`),
-        lastModified: staticLastModified,
+        // `updatedAt` is the database timestamp returned by the API. If an
+        // older API response omits it, leave lastModified out rather than
+        // publishing an invented date.
+        ...(carLastModified ? { lastModified: carLastModified } : {}),
         changeFrequency: "weekly",
         priority: 0.9,
         alternates: { languages },
@@ -120,7 +145,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const languages = buildHreflangMap(articlePath, abs);
     entries.push({
       url: abs(articlePath),
-      lastModified: staticLastModified,
+      lastModified: parseLastModified(contentDates.blog[articlePath]),
       changeFrequency: "monthly",
       priority: 0.7,
       alternates: { languages },

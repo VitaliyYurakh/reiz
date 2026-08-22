@@ -1,6 +1,7 @@
 "use client";
 
 import { useSideBarModal } from "@/components/modals";
+import { trackEvent } from "@/lib/analytics";
 
 export default function HeroBookButton({
   children,
@@ -12,7 +13,14 @@ export default function HeroBookButton({
   const { open } = useSideBarModal("bookingContact");
 
   return (
-    <button type="button" className={className} onClick={() => open()}>
+    <button
+      type="button"
+      className={className}
+      onClick={() => {
+        trackEvent("booking_contact_open", { source: "hero" });
+        open();
+      }}
+    >
       {children}
     </button>
   );

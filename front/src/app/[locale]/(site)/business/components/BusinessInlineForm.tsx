@@ -7,6 +7,7 @@ import TelInput from "@/components/TelInput";
 import { useCallback, useState, type ChangeEvent, type FormEvent } from "react";
 import { submitBusinessRequest } from "@/lib/api/feedback";
 import CustomSelect from "@/app/[locale]/components/CustomSelect";
+import { trackEvent } from "@/lib/analytics";
 
 export default function BusinessInlineForm() {
   const t = useTranslations("businessOfferModal");
@@ -62,6 +63,8 @@ export default function BusinessInlineForm() {
         email: "",
         message: messageParts.join(", "),
       });
+
+      trackEvent("generate_lead", { lead_type: "business_rental" });
 
       setFeedback("success");
       setName("");

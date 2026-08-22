@@ -20,6 +20,7 @@ import {
 import LocationSelect from "@/app/[locale]/components/LocationSelect";
 import type { CarCountingRule } from "@/types/cars";
 import { submitBookingRequest } from "@/lib/api/feedback";
+import { trackEvent } from "@/lib/analytics";
 import {
   type ExtraId,
   type FormState,
@@ -436,6 +437,16 @@ export default function CarRentModal({
             totalCost: totalCost,
             depositAmount: depositAmount,
           },
+        });
+
+        trackEvent("booking_request", {
+          locale,
+          car_id: data.car.id,
+          car_name: `${data.car.brand} ${data.car.model}`,
+          rental_days: totalDays,
+          deposit_percent: selectedPlan?.depositPercent,
+          total_value: totalCost,
+          currency: "UAH",
         });
 
         setFeedback("success");
