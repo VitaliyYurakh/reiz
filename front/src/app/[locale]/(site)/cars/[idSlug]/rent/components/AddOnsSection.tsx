@@ -1,9 +1,10 @@
 "use client";
 
+import AddonIcon from "@/components/modals/CarRentModal/AddonIcon";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Tooltip } from "react-tooltip";
-import { useTranslations } from "next-intl";
 import { useCurrency } from "@/context/CurrencyContext";
 
 type ExtraDefinition = {
@@ -36,9 +37,7 @@ export default function AddOnsSection({
   return (
     <>
       <div className="main-form__wrapp">
-        <span className="main-form__text">
-          {t("addOns.title")}
-        </span>
+        <span className="main-form__text">{t("addOns.title")}</span>
 
         {extraDefinitions.map((extra) => (
           <label className="custom-checkbox offer" key={extra.id}>
@@ -52,7 +51,10 @@ export default function AddOnsSection({
               className="custom-checkbox__content"
               style={{ borderRadius: "20px" }}
             >
-              <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+              <span
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+              >
+                <AddonIcon id={extra.id} />
                 {t(`addOns.options.${extra.id}.label`)}
                 {extra.id === "driverService" && (
                   <span

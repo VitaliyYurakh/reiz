@@ -3,9 +3,10 @@ import type { ChangeEvent } from "react";
 import { Tooltip } from "react-tooltip";
 import { useCurrency } from "@/context/CurrencyContext";
 import { Link } from "@/i18n/request";
-import type { CarCountingRule } from "@/types/cars";
-import { type ExtraId, EXTRA_DEFINITIONS, type FormState } from "./types";
 import { trackEvent } from "@/lib/analytics";
+import type { CarCountingRule } from "@/types/cars";
+import AddonIcon from "./AddonIcon";
+import { EXTRA_DEFINITIONS, type ExtraId, type FormState } from "./types";
 
 type StepTwoProps = {
   formState: FormState;
@@ -187,7 +188,8 @@ export default function StepTwo({
                   onChange={() => toggleExtra(extra.id)}
                 />
                 <span className="custom-checkbox__content">
-                  <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <span style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <AddonIcon id={extra.id} />
                     {t(`addOns.options.${extra.id}.label`)}
                     {extra.id === "driverService" && (
                       <span
@@ -248,6 +250,8 @@ export default function StepTwo({
             <span className="custom-checkbox__content">
               <Link
                 href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ color: "inherit", textDecoration: "underline" }}
               >
                 {t("agreement")}

@@ -1,10 +1,10 @@
 import { getTranslations } from "next-intl/server";
 import SidebarNav from "@/app/[locale]/(site)/components/SidebarNav";
+import UtilityBar from "@/components/UtilityBar";
 import UiImage from "@/components/ui/UiImage";
 import WhatsAppUnavailable from "@/components/WhatsAppUnavailable";
 import { SOCIAL_LINKS } from "@/config/social";
 import { Link } from "@/i18n/request";
-import UtilityBar from "@/components/UtilityBar";
 import HeroBookButton from "./HeroBookButton";
 import LocationMapLink from "./LocationMapLink";
 import OrderForm from "./OrderForm";
@@ -72,7 +72,6 @@ export default async function HeroSection() {
             <UtilityBar />
             <div className="editor">
               <h1 className="title">{t("title")}</h1>
-              <p className="hero-section__intro">{t("intro")}</p>
               <HeroBookButton className="hero-book-btn">
                 {t("book_button")}
               </HeroBookButton>
