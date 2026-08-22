@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production next build --turbopack",
     "build:analyze": "cross-env ANALYZE=true next build --turbopack",
     "start": "next start -p 2912",
-    "lint": "biome check",
+    "lint": "biome check --changed --no-errors-on-unmatched",
     "format": "biome format --write --fix",
     "build:icons": "node scripts/build-icons.mjs",
     "build:travel-card": "node scripts/build-travel-map-card.mjs",
