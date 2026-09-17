@@ -616,66 +616,66 @@ export const cityLocalizations: Record<
 > = {
   kyiv: {
     uk: {
-      title: "Оренда та прокат авто у Києві без застави",
+      title: "Оренда авто у Києві без застави — подача 24/7",
       metaDescription:
-        "Оренда та прокат авто у Києві від REIZ: Економ, Комфорт, SUV і бізнес-клас. Подача за адресою або до вокзалу, прозорі умови оренди.",
+        "Оренда авто у Києві від REIZ: економ, комфорт, SUV і бізнес-клас. Подача за адресою, до вокзалу або аеропорту з прозорими умовами та підтримкою 24/7.",
       h1: "Оренда авто у Києві від REIZ",
       sectionCars: "АВТОПАРК REIZ У КИЄВІ: ВІД КОМФОРТУ ДО ПРЕМІУМ-КЛАСУ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ КИЇВ",
       subtitle:
         "Оренда авто у Києві від REIZ — нові автомобілі, преміум-сервіс, вигідні тарифи та подання за адресою у зручний час.",
       address: "Київ: Персональна подача (Аеропорти / Вокзал / Місто)",
-      ogTitle: "Оренда та прокат авто у Києві без застави | REIZ",
+      ogTitle: "Оренда авто у Києві без застави — подача 24/7 | REIZ",
       ogDescription:
-        "Оренда та прокат авто у Києві від REIZ: Економ, Комфорт, SUV і бізнес-клас. Подача за адресою або до вокзалу, прозорі умови оренди.",
+        "Оренда авто у Києві від REIZ: економ, комфорт, SUV і бізнес-клас. Подача за адресою, до вокзалу або аеропорту з прозорими умовами та підтримкою 24/7.",
       footerDescription:
         "Надійний прокат авто в Києві від REIZ. Оренда машин класів Економ, Комфорт та SUV з доставкою по місту, до Ж/Д вокзалу або в аеропорти Бориспіль (KBP) та Жуляни (IEV). Підтримка 24/7.",
     },
     ru: {
-      title: "Аренда и прокат авто в Киеве без залога",
+      title: "Аренда авто в Киеве без залога — подача 24/7",
       metaDescription:
-        "Аренда и прокат авто в Киеве от REIZ: Эконом, Комфорт, SUV и бизнес-класс. Подача по адресу или к вокзалу, прозрачные условия аренды.",
+        "Аренда авто в Киеве от REIZ: эконом, комфорт, SUV и бизнес-класс. Подача по адресу, к вокзалу или аэропорту с прозрачными условиями и поддержкой 24/7.",
       h1: "Аренда авто в Киеве",
       sectionCars: "АВТОПАРК REIZ В КИЕВЕ: ОТ КОМФОРТА ДО ПРЕМИУМ-КЛАССА",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ КИЕВ",
       subtitle:
         "Аренда авто в Киеве от REIZ — новые автомобили, премиум-сервис, выгодные тарифы и подача по адресу в удобное время.",
       address: "Киев: Персональная подача (Аэропорты / Вокзал / Город)",
-      ogTitle: "Аренда и прокат авто в Киеве без залога | REIZ",
+      ogTitle: "Аренда авто в Киеве без залога — подача 24/7 | REIZ",
       ogDescription:
-        "Аренда и прокат авто в Киеве от REIZ: Эконом, Комфорт, SUV и бизнес-класс. Подача по адресу или к вокзалу, прозрачные условия аренды.",
+        "Аренда авто в Киеве от REIZ: эконом, комфорт, SUV и бизнес-класс. Подача по адресу, к вокзалу или аэропорту с прозрачными условиями и поддержкой 24/7.",
       footerDescription:
         "Надежный прокат авто в Киеве от REIZ. Аренда машин классов Эконом, Комфорт и SUV с доставкой по городу, к Ж/Д вокзалу или в аэропорты Борисполь (KBP) и Жуляны (IEV). Поддержка 24/7.",
     },
     en: {
-      title: "Car Rental Kyiv: Rent a Car | Best Prices | Railway Station Pickup",
+      title: "Car Rental Kyiv — No Deposit & 24/7 Delivery",
       metaDescription:
-        "Best car rental in Kyiv (Kiev). ⭐ New fleet 2023-2025. ⚡ Delivery to Railway Station and City Center hotels. 🛡️ Full insurance & English support. Book now!",
+        "Rent a car in Kyiv with REIZ: Economy, Comfort, SUV and business-class vehicles. Delivery to your address, station or airport with clear terms and 24/7 support.",
       h1: "Car Rental in Kyiv",
       sectionCars: "REIZ FLEET IN KYIV: FROM COMFORT TO PREMIUM CLASS",
       sectionWelcome: "WELCOME TO REIZ KYIV",
       subtitle:
         "Car rental in Kyiv from REIZ — new vehicles, premium service, competitive rates and delivery to your address at a convenient time.",
       address: "Kyiv: Personal Delivery (Airports / Railway / City)",
-      ogTitle: "Car Rental Kyiv: Rent a Car | Best Prices | Railway Station Pickup",
+      ogTitle: "Car Rental Kyiv — No Deposit & 24/7 Delivery | REIZ",
       ogDescription:
-        "Best car rental in Kyiv (Kiev). ⭐ New fleet 2023-2025. ⚡ Delivery to Railway Station and City Center hotels. 🛡️ Full insurance & English support. Book now!",
+        "Rent a car in Kyiv with REIZ: Economy, Comfort, SUV and business-class vehicles. Delivery to your address, station or airport with clear terms and 24/7 support.",
       footerDescription:
         "Reliable car rental in Kyiv by REIZ. Rent Economy, Comfort, and SUV cars with delivery across the city, to the Railway Station, or Boryspil (KBP) and Zhuliany (IEV) airports. 24/7 support.",
     },
     pl: {
-      title: "Wynajem samochodu w Kijowie bez kaucji — podstawienie na Boryszpol 24/7",
+      title: "Wynajem auta w Kijowie bez kaucji — dostawa 24/7",
       metaDescription:
-        "Wynajem samochodu w Kijowie od REIZ. Flota 2023–2025, podstawienie na lotnisko Boryszpol, dworzec i po mieście. Bez ukrytych opłat, pełne ubezpieczenie.",
+        "Wynajem auta w Kijowie od REIZ: ekonom, comfort, SUV i klasa biznes. Dostawa pod adres, na dworzec lub lotnisko z jasnymi warunkami i wsparciem 24/7.",
       h1: "Wynajem samochodu w Kijowie",
       sectionCars: "FLOTA REIZ W KIJOWIE: OD KOMFORTU DO KLASY PREMIUM",
       sectionWelcome: "WITAMY W REIZ KIJÓW",
       subtitle:
         "Wynajem samochodu w Kijowie od REIZ — nowe pojazdy, serwis premium, konkurencyjne ceny i dostawa pod wskazany adres o wygodnej porze.",
       address: "Kijów: Dostawa osobista (Lotniska / Dworzec / Miasto)",
-      ogTitle: "Wynajem samochodu w Kijowie bez kaucji — podstawienie na Boryszpol 24/7 | REIZ",
+      ogTitle: "Wynajem auta w Kijowie bez kaucji — dostawa 24/7 | REIZ",
       ogDescription:
-        "Wynajem samochodu w Kijowie od REIZ. Flota 2023–2025, podstawienie na lotnisko Boryszpol, dworzec i po mieście. Bez ukrytych opłat, pełne ubezpieczenie.",
+        "Wynajem auta w Kijowie od REIZ: ekonom, comfort, SUV i klasa biznes. Dostawa pod adres, na dworzec lub lotnisko z jasnymi warunkami i wsparciem 24/7.",
       footerDescription:
         "Niezawodny wynajem samochodu w Kijowie od REIZ. Samochody klasy Ekonom, Komfort i SUV z dostawą po mieście, na dworzec kolejowy lub lotniska Boryszpol (KBP) i Żulany (IEV). Wsparcie 24/7.",
     },
@@ -698,73 +698,73 @@ export const cityLocalizations: Record<
   },
   lviv: {
     uk: {
-      title: "Оренда авто у Львові без застави — подача в аеропорт LWO",
+      title: "Оренда авто у Львові — без застави та з доставкою",
       metaDescription:
-        "Прокат авто у Львові від REIZ. Нові автомобілі 2023–2025, подача в аеропорт, на вокзал та по місту. Без прихованих платежів, виїзд за кордон. Оформлення за 15 хв.",
+        "Оренда авто у Львові від REIZ: нові авто, подача за адресою, на вокзал або в аеропорт. Прозорі умови оренди, підтримка 24/7 і безпечні тарифи.",
       h1: "Оренда авто у Львові від REIZ",
       sectionCars: "АВТОМОБІЛІ REIZ У ЛЬВОВІ",
       sectionWelcome: "ЛАСКАВО ПРОСИМО В REIZ ЛЬВІВ",
       subtitle:
         "Прокат авто у Львові без застави. Подача в аеропорт LWO, на вокзал або за адресою. Оформлення за 15 хвилин.",
       address: "Міжнародний аеропорт «Львів» ім. Данила Галицького",
-      ogTitle: "Оренда авто у Львові без застави — подача в аеропорт LWO | REIZ",
+      ogTitle: "Оренда авто у Львові — без застави та з доставкою | REIZ",
       ogDescription:
-        "Прокат авто у Львові від REIZ. Нові автомобілі 2023–2025, подача в аеропорт, на вокзал та по місту. Без прихованих платежів, виїзд за кордон. Оформлення за 15 хв.",
+        "Оренда авто у Львові від REIZ: нові авто, подача за адресою, на вокзал або в аеропорт. Прозорі умови оренди, підтримка 24/7 і безпечні тарифи.",
       footerDescription:
         "Оренда авто у Львові без зайвого клопоту. REIZ пропонує нові моделі від Економу до Преміум класу. Забирайте авто в офісі або замовляйте подачу в аеропорт чи до готелю. Прозорі тарифи.",
     },
     ru: {
-      title: "Аренда авто Львов | Оформление за 15 минут 24/7 | REIZ",
+      title: "Аренда авто во Львове — без залога и с доставкой",
       metaDescription:
-        "Минимум документов, быстрая выдача авто. Официальный договор, возможен безналичный расчет. Авто бизнес и эконом-класса в наличии.",
+        "Аренда авто во Львове от REIZ: новые автомобили, подача по адресу, на вокзал или в аэропорт. Прозрачные условия, поддержка 24/7 и понятные тарифы.",
       h1: "Аренда авто во Львове",
       sectionCars: "АВТОМОБИЛИ REIZ ВО ЛЬВОВЕ",
       sectionWelcome: "ДОБРО ПОЖАЛОВАТЬ В REIZ ЛЬВОВ",
       subtitle:
         "Прокат авто во Львове без залога. Подача в аэропорт LWO, на вокзал или по адресу. Оформление за 15 минут.",
       address: "Международный аэропорт «Львов» им. Данила Галицкого",
-      ogTitle: "Аренда авто Львов | Оформление за 15 минут 24/7 | REIZ",
+      ogTitle: "Аренда авто во Львове — без залога и с доставкой | REIZ",
       ogDescription:
-        "Минимум документов, быстрая выдача авто. Официальный договор, возможен безналичный расчет. Авто бизнес и эконом-класса в наличии.",
+        "Аренда авто во Львове от REIZ: новые автомобили, подача по адресу, на вокзал или в аэропорт. Прозрачные условия, поддержка 24/7 и понятные тарифы.",
       footerDescription:
         "Аренда авто во Львове без лишних хлопот. REIZ предлагает новые модели от Эконома до Премиум класса. Забирайте авто в офисе или закажите подачу в аэропорт или к отелю. Прозрачные тарифы.",
     },
     en: {
-      title: "Car Rental Lviv: Railway Station Pick-up | Cross-Border Rentals",
+      title: "Car Rental Lviv — No Deposit & Delivery",
       metaDescription:
-        "Rent a car in Lviv. 🚗 Perfect for trips to Carpathians or Poland. ⚡ 24/7 Railway station delivery. ⭐ SUV and Economy cars. Transparent documents for border crossing.",
+        "Car rental in Lviv with REIZ: new vehicles, delivery to your address, station or airport. Clear terms, 24/7 support and transparent pricing.",
       h1: "Car Rental in Lviv — No Deposit & 24/7 Delivery",
       sectionCars: "REIZ CARS IN LVIV",
       sectionWelcome: "WELCOME TO REIZ LVIV",
       subtitle:
         "Car rental in Lviv with no deposit. Delivery to LWO airport, train station or your address. 15-minute paperwork.",
       address: "Danylo Halytskyi International Airport Lviv",
-      ogTitle: "Car Rental Lviv: Railway Station Pick-up | Cross-Border Rentals",
+      ogTitle: "Car Rental Lviv — No Deposit & Delivery | REIZ",
       ogDescription:
-        "Rent a car in Lviv. 🚗 Perfect for trips to Carpathians or Poland. ⚡ 24/7 Railway station delivery. ⭐ SUV and Economy cars. Transparent documents for border crossing.",
+        "Car rental in Lviv with REIZ: new vehicles, delivery to your address, station or airport. Clear terms, 24/7 support and transparent pricing.",
       footerDescription:
         "Hassle-free car rental in Lviv. REIZ offers new models from Economy to Premium class. Pick up the car at our office or request delivery to the airport or your hotel. Transparent rates.",
     },
     pl: {
-      title: "Wynajem samochodu we Lwowie bez kaucji — podstawienie na lotnisko LWO",
+      title: "Wynajem auta we Lwowie — bez kaucji i z dostawą",
       metaDescription:
-        "Wynajem samochodu we Lwowie od REIZ. Nowe auta 2023–2025, podstawienie na lotnisko i dworzec. Bez ukrytych opłat, wyjazd za granicę. Formalności w 15 min.",
+        "Wynajem auta we Lwowie od REIZ: nowe auta, dostawa pod adres, na dworzec lub lotnisko. Jasne warunki, wsparcie 24/7 i przejrzyste ceny.",
       h1: "Wynajem samochodu we Lwowie — bez kaucji i dostawa 24/7",
       sectionCars: "SAMOCHODY REIZ WE LWOWIE",
       sectionWelcome: "WITAMY W REIZ LWÓW",
       subtitle:
         "Wynajem samochodu we Lwowie bez kaucji. Dostawa na lotnisko LWO, dworzec lub pod wskazany adres. Formalności w 15 minut.",
       address: "Międzynarodowy port lotniczy Lwów im. Danyła Halickiego",
-      ogTitle: "Wynajem samochodu we Lwowie bez kaucji — podstawienie na lotnisko LWO | REIZ",
+      ogTitle: "Wynajem auta we Lwowie — bez kaucji i z dostawą | REIZ",
       ogDescription:
-        "Wynajem samochodu we Lwowie od REIZ. Nowe auta 2023–2025, podstawienie na lotnisko i dworzec. Bez ukrytych opłat, wyjazd za granicę. Formalności w 15 min.",
+        "Wynajem auta we Lwowie od REIZ: nowe auta, dostawa pod adres, na dworzec lub lotnisko. Jasne warunki, wsparcie 24/7 i przejrzyste ceny.",
       footerDescription:
         "Bezproblemowy wynajem samochodów we Lwowie. REIZ oferuje nowe modele od klasy Ekonom do Premium. Odbierz auto w biurze lub zamów dostawę na lotnisko lub do hotelu. Przejrzyste ceny.",
     },
     ro: {
-      title: "Închiriere auto în Lviv fără garanție — livrare la aeroportul LWO",
+      title: "Închiriere auto în Lviv — fără garanție și cu livrare",
       metaDescription:
-        "Închiriere auto în Lviv de la REIZ. Vehicule noi 2023–2025, livrare la aeroport, gară și în oraș. Fără taxe ascunse, ieșire peste graniță. Formalități în 15 min.",
+        "Închiriere auto în Lviv de la REIZ: mașini noi, livrare la adresă, gară sau aeroport. Condiții clare, asistență 24/7 și prețuri transparente.",
       h1: "Închiriere auto în Lviv — fără garanție și livrare 24/7",
       sectionCars: "MAȘINI REIZ ÎN LVIV",
       sectionWelcome: "BINE AȚI VENIT LA REIZ LVIV",

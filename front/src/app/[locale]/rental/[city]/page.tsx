@@ -37,17 +37,38 @@ type PageParams = {
   city: string;
 };
 
-const MAX_META_TITLE_LENGTH = 55;
+const MAX_META_TITLE_LENGTH = 60;
 const DASH_SEPARATOR = " \u2014 ";
+const TRAILING_STOPWORDS = new Set(["за", "у", "в", "і", "та", "на", "по", "до"]);
 
 const shortenMetaTitle = (value: string) => {
-  const parts = value.split(DASH_SEPARATOR);
-  if (parts.length > 1 && parts[0].trim()) return parts[0].trim();
-  if (value.length <= MAX_META_TITLE_LENGTH) return value;
+  const base = value
+    .split(DASH_SEPARATOR)[0]
+    .trim();
 
-  const truncated = value.slice(0, MAX_META_TITLE_LENGTH);
-  const lastSpace = truncated.lastIndexOf(" ");
-  return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated).trim();
+  const candidate = base || value.trim();
+  if (candidate.length <= MAX_META_TITLE_LENGTH) return candidate;
+
+  const words = candidate.split(/\s+/);
+  let result = "";
+
+  for (const word of words) {
+    const next = `${result}${result ? " " : ""}${word}`.trim();
+    if (next.length > MAX_META_TITLE_LENGTH) break;
+    result = next;
+  }
+
+  if (!result) return candidate.slice(0, MAX_META_TITLE_LENGTH).trim();
+
+  while (TRAILING_STOPWORDS.has(result.split(/\s+/).at(-1)?.toLowerCase() ?? "")) {
+    const lastSpace = result.lastIndexOf(" ");
+    if (lastSpace <= 0) break;
+    result = result.slice(0, lastSpace).trim();
+  }
+
+  if (!result) return candidate.slice(0, MAX_META_TITLE_LENGTH).trim();
+
+  return result;
 };
 
 // Генерація статичних параметрів для SSG
