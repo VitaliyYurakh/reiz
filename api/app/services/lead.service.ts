@@ -124,7 +124,40 @@ class LeadService {
         if (status === LeadStatus.REPLIED && !await this.hasReplyTimestamp(id)) {
             patch.repliedAt = new Date();
         }
+        if (status === LeadStatus.READY) {
+            await this.applyResumeStage(id, patch);
+        }
         return await prisma.lead.update({where: {id}, data: patch});
+    }
+
+    /**
+     * "Resume" always requests READY, but a lead paused mid-sequence must not
+     * restart from the Initial pitch (duplicate email to the same recipient)
+     * or silently skip stages — it should continue from wherever it was
+     * paused. Derived from followUpCount/contactedAt since no dedicated
+     * pre-pause status is stored. Timers are reset to now so resuming
+     * doesn't immediately fire the next follow-up using pause-time that
+     * already elapsed.
+     */
+    private async applyResumeStage(id: number, patch: Prisma.LeadUpdateInput) {
+        const current = await prisma.lead.findUnique({
+            where: {id},
+            select: {status: true, followUpCount: true, contactedAt: true},
+        });
+        if (current?.status !== LeadStatus.PAUSED) return;
+
+        patch.pausedReason = null;
+        if (current.followUpCount >= 2) {
+            patch.status = LeadStatus.FOLLOWED_UP_2;
+            patch.lastFollowUpAt = new Date();
+        } else if (current.followUpCount === 1) {
+            patch.status = LeadStatus.FOLLOWED_UP_1;
+            patch.lastFollowUpAt = new Date();
+        } else if (current.contactedAt) {
+            patch.status = LeadStatus.CONTACTED;
+            patch.contactedAt = new Date();
+        }
+        // else: never contacted — READY (Initial pitch still pending) is correct as-is.
     }
 
     private async hasReplyTimestamp(id: number) {
