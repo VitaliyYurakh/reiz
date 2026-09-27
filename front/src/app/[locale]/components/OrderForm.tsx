@@ -148,8 +148,13 @@ export default function OrderForm({ defaultPickupLocation }: OrderFormProps) {
           </svg>
         </span>
       </label>
-      <button className="main-button" type="submit">
-        {tOrder("submit")}
+      <button className="main-button order-form__submit" type="submit">
+        <i className="sprite order-form__submit-icon" aria-hidden="true">
+          <svg width="18" height="18">
+            <use href="/img/sprite/sprite.svg#search" />
+          </svg>
+        </i>
+        <span className="order-form__submit-text">{tOrder("submit")}</span>
       </button>
     </form>
   );

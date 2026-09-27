@@ -47,6 +47,39 @@ const selectPlan = (plans: CarCountingRule[], coverageKey: CoverageOption) => {
   return plans[index] ?? plans[0];
 };
 
+type PlanPricing = {
+  dailyPrice: number;
+  dailyPriceBeforeDiscount: number;
+  depositAmount: number;
+  rentalCost: number;
+};
+
+// Applies one coverage plan's price/deposit adjustment on top of the
+// tariff already picked for the selected date range. Shared by the single
+// active-plan preview (no dates yet) and the three-way comparison grid
+// (dates selected) so both stay in sync with the same formula.
+const computePlanPricing = (
+  plan: CarCountingRule | undefined,
+  baseDailyPrice: number,
+  baseDeposit: number,
+  totalDays: number,
+  discountPercent: number,
+): PlanPricing => {
+  const pricePercent = plan?.pricePercent ?? 0;
+  const depositPercent = plan?.depositPercent ?? 0;
+  const is30Plus = totalDays >= 29;
+  const pFixed30 = plan?.priceFixed30Minor != null ? plan.priceFixed30Minor / 100 : null;
+  const pFixed = plan?.priceFixedMinor != null ? plan.priceFixedMinor / 100 : null;
+  const surchargePerDay = is30Plus && pFixed30 != null ? pFixed30 / 30 : (pFixed ?? 0);
+  const dailyPriceBeforeDiscount = pFixed != null || pFixed30 != null
+    ? baseDailyPrice + surchargePerDay
+    : baseDailyPrice * (1 + pricePercent / 100);
+  const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
+  const depositAmount = Math.max(baseDeposit * (1 - depositPercent / 100), 120);
+  const rentalCost = totalDays > 0 ? dailyPrice * totalDays : 0;
+  return { dailyPrice, dailyPriceBeforeDiscount, depositAmount, rentalCost };
+};
+
 export default function CarCard({ car, citySlug }: CarCardProps) {
   const locale = useLocale();
   const tCatalog = useTranslations("homePage.catalog_aside.catalog_list");
@@ -88,23 +121,17 @@ export default function CarCard({ car, citySlug }: CarCardProps) {
   // Money fields stored in копійки. Convert to UAH whole units once.
   const baseDailyPrice = (activeTariffForCalc.dailyPriceMinor ?? 0) / 100;
   const baseDeposit = (activeTariffForCalc.depositMinor ?? 0) / 100;
-
-  const pricePercent = selectedPlan?.pricePercent ?? 0;
-  const depositPercent = selectedPlan?.depositPercent ?? 0;
-
-  const is30Plus = totalDays >= 29;
-  const pFixed30 = selectedPlan?.priceFixed30Minor != null ? selectedPlan.priceFixed30Minor / 100 : null;
-  const pFixed = selectedPlan?.priceFixedMinor != null ? selectedPlan.priceFixedMinor / 100 : null;
-  const surchargePerDay = is30Plus && pFixed30 != null ? pFixed30 / 30 : (pFixed ?? 0);
-  const dailyPriceBeforeDiscount = pFixed != null || pFixed30 != null
-    ? baseDailyPrice + surchargePerDay
-    : baseDailyPrice * (1 + pricePercent / 100);
   const discountPercent = car.discount ?? 0;
-  const dailyPrice = Math.round(dailyPriceBeforeDiscount * (1 - discountPercent / 100));
   const hasDiscount = discountPercent > 0;
 
-  const depositAmount = Math.max(baseDeposit * (1 - depositPercent / 100), 120);
-  const rentalCost = hasDates ? dailyPrice * totalDays : 0;
+  const selectedPlanPricing = computePlanPricing(
+    selectedPlan,
+    baseDailyPrice,
+    baseDeposit,
+    totalDays,
+    discountPercent,
+  );
+  const depositAmount = selectedPlanPricing.depositAmount;
 
   const carIdSlug = useMemo(() => createCarIdSlug(car), [car]);
 
@@ -225,8 +252,16 @@ export default function CarCard({ car, citySlug }: CarCardProps) {
     "rates.range4",
   ] as const;
 
+  const cardClassName = [
+    "car-card",
+    compactBadges ? "car-card--compact-badges" : "",
+    hasDates ? "car-card--dates-selected" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <li className={compactBadges ? "car-card car-card--compact-badges" : "car-card"}>
+    <li className={cardClassName}>
       <div className="car-card__image-wrapper">
         <Link href={carDetailsLink} className="car-card__image">
           <UiImage
@@ -311,37 +346,39 @@ export default function CarCard({ car, citySlug }: CarCardProps) {
           </div>
         </div>
 
-        <div className="car-card__labels">
-          {coverageOptions.map(({ key, label, disabled }) => (
-            <span
-              key={key}
-              className={
-                [
-                  coverageOption === key ? "active" : "",
-                  disabled ? "disabled" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ") || undefined
-              }
-              role={disabled ? undefined : "button"}
-              tabIndex={disabled ? -1 : 0}
-              onClick={() => {
-                if (!disabled) setCoverageOption(key);
-              }}
-              onKeyDown={(event) => {
-                if (disabled) return;
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  setCoverageOption(key);
+        {!hasDates && (
+          <div className="car-card__labels">
+            {coverageOptions.map(({ key, label, disabled }) => (
+              <span
+                key={key}
+                className={
+                  [
+                    coverageOption === key ? "active" : "",
+                    disabled ? "disabled" : "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ") || undefined
                 }
-              }}
-              aria-pressed={disabled ? undefined : coverageOption === key}
-              aria-disabled={disabled ? true : undefined}
-            >
-              {label}
-            </span>
-          ))}
-        </div>
+                role={disabled ? undefined : "button"}
+                tabIndex={disabled ? -1 : 0}
+                onClick={() => {
+                  if (!disabled) setCoverageOption(key);
+                }}
+                onKeyDown={(event) => {
+                  if (disabled) return;
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setCoverageOption(key);
+                  }
+                }}
+                aria-pressed={disabled ? undefined : coverageOption === key}
+                aria-disabled={disabled ? true : undefined}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        )}
 
         {hasDates ? null : (
           <ul className="car-card__list">
@@ -442,49 +479,61 @@ export default function CarCard({ car, citySlug }: CarCardProps) {
         </ul>
 
         {hasDates ? (
-          <>
-            <ul className="car-card__list">
-              <li className="car-card__item">
-                <span className="car-card__text">
-                  {tCatalog("total.dailyLabel")}
-                </span>
-                <span className="car-card__value">
-                  {hasDiscount && (
-                    <span className="text-strikethrough">
-                      {formatPrice(dailyPriceBeforeDiscount)}
+          <div className="car-card__variants" role="group" aria-label={tCatalog("total.totalLabel")}>
+            {coverageOptions.map(({ key, label, disabled }) => {
+              const plan = car.carCountingRule[COVERAGE_PLAN_INDEX[key]];
+              const pricing = computePlanPricing(
+                plan,
+                baseDailyPrice,
+                baseDeposit,
+                totalDays,
+                discountPercent,
+              );
+              const isActive = coverageOption === key;
+
+              return (
+                <button
+                  type="button"
+                  key={key}
+                  className={
+                    [
+                      "car-card__variant",
+                      isActive ? "active" : "",
+                      disabled ? "disabled" : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")
+                  }
+                  disabled={disabled}
+                  aria-pressed={disabled ? undefined : isActive}
+                  onClick={() => {
+                    if (!disabled) setCoverageOption(key);
+                  }}
+                >
+                  <span className="car-card__variant-label">{label}</span>
+                  <span className="car-card__variant-total">
+                    {hasDiscount && (
+                      <span className="text-strikethrough">
+                        {formatPrice(pricing.dailyPriceBeforeDiscount * totalDays)}
+                      </span>
+                    )}
+                    <span className="text-strong">
+                      {formatPrice(pricing.rentalCost)}
                     </span>
-                  )}
-                  <span className="text-strong">{formatPrice(dailyPrice)}</span>
-                </span>
-              </li>
-              <li className="car-card__item">
-                <span className="car-card__text">
-                  {tCatalog("total.depositLabel")}
-                </span>
-                <span className="car-card__value">
-                  <span className="text-strong">{formatDeposit(depositAmount)}</span>
-                </span>
-              </li>
-              <li className="car-card__item" style={{borderBottom: 'none'}}>
-                <span className="car-card__text">
-                  {tCatalog("total.totalLabel")}
-                </span>
-                <span className="car-card__value">
-                  <span className="text-strong">{formatPrice(rentalCost)}</span>
-                </span>
-              </li>
-            </ul>
-          </>
-        ) : (
-          <div className="car-card__total">
-            <span className="car-card__text">
-              {tCatalog("total.depositLabel")}:
-            </span>
-            <span className="car-card__value">
-              {formatDeposit(depositAmount)}
-            </span>
+                  </span>
+                </button>
+              );
+            })}
           </div>
-        )}
+        ) : null}
+        <div className="car-card__total">
+          <span className="car-card__text">
+            {tCatalog("total.depositLabel")}:
+          </span>
+          <span className="car-card__value">
+            {formatDeposit(depositAmount)}
+          </span>
+        </div>
         {/* Desktop: одна кнопка */}
         <Link href={hasDates ? bookingLink : carDetailsLink} className="main-button car-card__btn-desktop">
           {hasDates ? tCatalog("actions.book") : tCatalog("actions.details")}

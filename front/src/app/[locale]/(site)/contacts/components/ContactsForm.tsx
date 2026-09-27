@@ -144,7 +144,12 @@ export default function ContactsForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    // React nulls e.currentTarget once the handler yields at the first await,
+    // so grab the form now — calling e.currentTarget.reset() after the request
+    // threw, showed "error" on a successful send and made visitors resubmit
+    // (duplicate Telegram notifications).
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     const name = (formData.get("name") as string) || "";
     const email = (formData.get("mail") as string) || "";
@@ -199,7 +204,7 @@ export default function ContactsForm() {
         form_category: category,
       });
       setFeedback("success");
-      e.currentTarget.reset();
+      form.reset();
       setPhone("");
       setCategory("OTHER");
       setPhoneInputKey((prev) => prev + 1);

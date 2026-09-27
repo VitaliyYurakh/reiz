@@ -13,6 +13,14 @@ interface ExchangeRates {
 }
 
 /**
+ * The API container runs in UTC, so every date/time rendered into a message
+ * must be pinned to Kyiv — otherwise timestamps read 2–3 h behind Telegram's
+ * own clock (looks like a delivery delay) and booking pickup/return times are
+ * off by the same amount.
+ */
+const KYIV_TZ = 'Europe/Kyiv';
+
+/**
  * Escape user-provided text for Telegram HTML parse mode.
  * Prevents HTML injection in messages.
  */
@@ -135,14 +143,16 @@ class TelegramService {
                 day: '2-digit',
                 month: '2-digit',
                 year: 'numeric',
+                timeZone: KYIV_TZ,
             });
         };
 
         const formatTime = (date: Date) => {
-            const d = new Date(date);
-            const hh = String(d.getHours()).padStart(2, '0');
-            const mm = String(d.getMinutes()).padStart(2, '0');
-            return `${hh}:${mm}`;
+            return new Date(date).toLocaleTimeString('uk-UA', {
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: KYIV_TZ,
+            });
         };
 
         let message = `🚗 <b>Нова Заявка на Оренду</b>\n\n`;
@@ -250,7 +260,7 @@ class TelegramService {
             if (cp.driverLicenseNo) {
                 message += `🪪 Посвідчення: ${escapeHtml(cp.driverLicenseNo)}`;
                 if (cp.driverLicenseExpiry) {
-                    message += ` (до ${new Date(cp.driverLicenseExpiry).toLocaleDateString('uk-UA')})`;
+                    message += ` (до ${new Date(cp.driverLicenseExpiry).toLocaleDateString('uk-UA', {timeZone: KYIV_TZ})})`;
                 }
                 message += '\n';
             } else {
@@ -303,6 +313,7 @@ class TelegramService {
             year: 'numeric',
             hour: '2-digit',
             minute: '2-digit',
+            timeZone: KYIV_TZ,
         });
         message += `\n\n🕐 ${date}`;
 
@@ -324,6 +335,7 @@ class TelegramService {
             year: 'numeric',
             hour: '2-digit',
             minute: '2-digit',
+            timeZone: KYIV_TZ,
         });
         message += `\n🕐 ${date}`;
 
@@ -346,6 +358,7 @@ class TelegramService {
             year: 'numeric',
             hour: '2-digit',
             minute: '2-digit',
+            timeZone: KYIV_TZ,
         });
         message += `\n\n🕐 ${date}`;
 
@@ -372,6 +385,7 @@ class TelegramService {
             year: 'numeric',
             hour: '2-digit',
             minute: '2-digit',
+            timeZone: KYIV_TZ,
         });
         message += `\n🕐 ${date}`;
 

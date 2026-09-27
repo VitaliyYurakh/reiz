@@ -6,9 +6,7 @@ import WhatsAppUnavailable from "@/components/WhatsAppUnavailable";
 import { SOCIAL_LINKS } from "@/config/social";
 import { Link } from "@/i18n/request";
 import HeroBookButton from "./HeroBookButton";
-import LocationMapLink from "./LocationMapLink";
 import OrderForm from "./OrderForm";
-import ScrollToCatalogButton from "./ScrollToCatalogButton";
 
 export default async function HeroSection() {
   const t = await getTranslations("homePage.hero");
@@ -16,7 +14,7 @@ export default async function HeroSection() {
   const heroImageAlt = `${t("title")} | REIZ`;
 
   return (
-    <section className="hero-section">
+    <section className="hero-section hero-section--search-bar">
       <div className="hero-section__slider">
         <div className="swiper-container">
           <ul className="swiper-wrapper">
@@ -75,31 +73,6 @@ export default async function HeroSection() {
               <HeroBookButton className="hero-book-btn">
                 {t("book_button")}
               </HeroBookButton>
-            </div>
-
-            <div
-              className="hero-section__links"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-delay="1100"
-            >
-              <LocationMapLink className="adress-link address-link">
-                <i className="sprite mode">
-                  <svg width="20" height="26">
-                    <use href="/img/sprite/sprite.svg#geo" />
-                  </svg>
-                </i>
-                <span>{t("address_link")}</span>
-              </LocationMapLink>
-
-              <ScrollToCatalogButton className="down-btn">
-                <i className="sprite">
-                  <svg width="16" height="22">
-                    <use href="/img/sprite/sprite.svg#arrow" />
-                  </svg>
-                </i>
-                {t("down_button")}
-              </ScrollToCatalogButton>
             </div>
 
             <div className="hero-section__content">
