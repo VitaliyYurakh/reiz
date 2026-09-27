@@ -59,14 +59,6 @@
     display: flex;
   }
 
-  // Search-icon in the submit button: only shown in the desktop pill
-  // variant (.hero-section--search-bar), where the label text is visually
-  // hidden instead. Everywhere else (mobile glass card, city pages) keeps
-  // today's plain text button.
-  &__submit-icon {
-    display: none;
-  }
-
   .custom-select.order {
     // Ensure dropdown overlays properly
     z-index: 10;
